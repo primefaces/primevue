@@ -2,21 +2,25 @@
     <ul class="p-submenu-list" role="tree">
         <template v-for="(item, i) of model" :key="item.label + i.toString()">
             <li role="none" :class="getItemClass(item)" :style="item.style" v-if="visible(item) && !item.separator">
-                <router-link v-if="item.to && !item.disabled" :to="item.to" custom v-slot="{navigate, href}">
-                    <a :href="href" :class="getLinkClass(item)" @click="onItemClick($event, item, navigate)" role="treeitem" :aria-expanded="isActive(item)"> 
+                <template v-if="!template">
+                    <router-link v-if="item.to && !item.disabled" :to="item.to" custom v-slot="{navigate, href}">
+                        <a :href="href" :class="getLinkClass(item)" @click="onItemClick($event, item, navigate)" role="treeitem" :aria-expanded="isActive(item)">
+                            <span :class="['p-menuitem-icon', item.icon]"></span>
+                            <span class="p-menuitem-text">{{item.label}}</span>
+                        </a>
+                    </router-link>
+                    <a v-else :href="item.url" :class="getLinkClass(item)" :target="item.target" @click="onItemClick($event, item)"
+                        role="treeitem" :aria-expanded="isActive(item)" :tabindex="item.disabled ? null : '0'">
+                        <span :class="getSubmenuIcon(item)" v-if="item.items"></span>
                         <span :class="['p-menuitem-icon', item.icon]"></span>
                         <span class="p-menuitem-text">{{item.label}}</span>
                     </a>
-                </router-link>
-                <a v-else :href="item.url" :class="getLinkClass(item)" :target="item.target" @click="onItemClick($event, item)"
-                    role="treeitem" :aria-expanded="isActive(item)" :tabindex="item.disabled ? null : '0'">
-                    <span :class="getSubmenuIcon(item)" v-if="item.items"></span>
-                    <span :class="['p-menuitem-icon', item.icon]"></span>
-                    <span class="p-menuitem-text">{{item.label}}</span>
-                </a>
+                </template>
+                <component v-else :is="template" :item="item"></component>
                 <transition name="p-toggleable-content">
-                    <div class="p-toggleable-content" v-show="item === activeItem">
-                        <sub-panelmenu :model="item.items" v-if="visible(item) && item.items" :key="item.label + '_sub_'" />
+                    <div class="p-toggleable-content" v-show="isActive(item)">
+                        <PanelMenuSub :model="item.items" v-if="visible(item) && item.items" :key="item.label + '_sub_'" :template="template" 
+                            :expandedKeys="expandedKeys" @item-toggle="$emit('item-toggle', $event)" />
                     </div>
                 </transition>
             </li>
@@ -27,9 +31,18 @@
 
 <script>
 export default {
-    name: 'sub-panelmenu',
+    name: 'PanelMenuSub',
+    emits: ['item-toggle'],
     props: {
 		model: {
+            type: null,
+            default: null
+        },
+        template: {
+            type: Object,
+            default: null
+        },
+        expandedKeys: {
             type: null,
             default: null
         }
@@ -40,7 +53,7 @@ export default {
         }
     },
     methods: {
-        onItemClick($event, item, navigate) {
+        onItemClick(event, item, navigate) {
             if (item.disabled) {
                 event.preventDefault();
                 return;
@@ -58,6 +71,8 @@ export default {
             else
                 this.activeItem = item;
 
+            this.$emit('item-toggle', {item: item, expanded: this.activeItem != null});
+
             if (item.to && navigate) {
                 navigate(event);
             }
@@ -69,7 +84,7 @@ export default {
             return ['p-menuitem-link', {'p-disabled': item.disabled}];
         },
         isActive(item) {
-            return item === this.activeItem;
+            return this.expandedKeys ? this.expandedKeys[item.key] : item === this.activeItem;
         },
         getSubmenuIcon(item) {
             const active = this.isActive(item);

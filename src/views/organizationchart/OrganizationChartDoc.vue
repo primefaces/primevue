@@ -364,7 +364,7 @@ export default {
 				<tbody>
                     <tr>
                         <td>value</td>
-                        <td>OrganizationChartNode</td>
+                        <td>any</td>
                         <td>null</td>
                         <td>Value of the component.</td>
                     </tr>

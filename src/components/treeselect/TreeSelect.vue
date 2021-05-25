@@ -49,6 +49,7 @@ import Tree from 'primevue/tree';
 import Ripple from 'primevue/ripple';
 
 export default {
+    name: 'TreeSelect',
     emits: ['update:modelValue', 'before-show', 'before-hide', 'change', 'show', 'hide', 'node-select', 'node-unselect', 'node-expand', 'node-collapse'],
     props: {
         modelValue: null,
@@ -98,7 +99,7 @@ export default {
             immediate: true
         },
         options() {
-            this.updateTreeState();    
+            this.updateTreeState();
         }
     },
     data() {
@@ -121,7 +122,7 @@ export default {
             this.scrollHandler.destroy();
             this.scrollHandler = null;
         }
-        
+
         if (this.overlay) {
             ZIndexUtils.clear(this.overlay);
             this.overlay = null;
@@ -168,7 +169,7 @@ export default {
             }
         },
         onNodeUnselect(node) {
-            this.$emit('node-select', node);
+            this.$emit('node-unselect', node);
         },
         onNodeToggle(keys) {
             this.expandedKeys = keys;
@@ -179,6 +180,7 @@ export default {
                 case 40:
                     if (!this.overlayVisible && event.altKey) {
                         this.show();
+                        event.preventDefault();
                     }
                 break;
 
@@ -375,7 +377,10 @@ export default {
             ];
         },
         panelStyleClass() {
-            return ['p-treeselect-panel p-component', this.panelClass];
+            return ['p-treeselect-panel p-component', this.panelClass, {
+                'p-input-filled': this.$primevue.config.inputStyle === 'filled',
+                'p-ripple-disabled': this.$primevue.config.ripple === false
+            }];
         },
         selectedNodes() {
             let selectedNodes = [];
@@ -388,7 +393,7 @@ export default {
         },
         label() {
             let value = this.selectedNodes;
-            return value.length ? value.map(node => node.label).join(', '): this.placeholder;            
+            return value.length ? value.map(node => node.label).join(', '): this.placeholder;
         },
         emptyMessageText() {
             return this.emptyMessage || this.$primevue.config.locale.emptyMessage;

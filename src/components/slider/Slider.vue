@@ -14,6 +14,7 @@
 import {DomHandler} from 'primevue/utils';
 
 export default {
+    name: 'Slider',
     emits: ['update:modelValue', 'change', 'slideend'],
     props: {
         modelValue: [Number,Array],
@@ -82,15 +83,18 @@ export default {
                 else if (diff > 0)
                     newValue = oldValue + Math.floor(newValue / this.step - oldValue / this.step) * this.step;
             }
+            else {
+                newValue = Math.floor(newValue);
+            }
             this.updateModel(event, newValue);
         },
         updateModel(event, value) {
-            let newValue = value;
+            let newValue = parseFloat(value.toFixed(10));
             let modelValue;
 
             if (this.range) {
                 modelValue = this.modelValue ? [...this.modelValue] : [];
-                
+
                 if (this.handleIndex == 0) {
                     let maxValue = this.modelValue ? this.modelValue[1] : this.max;
 
@@ -99,7 +103,7 @@ export default {
                     else if (newValue >= maxValue)
                         newValue = maxValue;
 
-                    modelValue[0] = Math.floor(newValue);
+                    modelValue[0] = newValue;
                     modelValue[1] = modelValue[1] || this.max;
                 }
                 else {
@@ -110,7 +114,7 @@ export default {
                         newValue = minValue;
 
                     modelValue[0] = modelValue[0] || this.min;
-                    modelValue[1] = Math.floor(newValue);
+                    modelValue[1] = newValue;
                 }
             }
             else {
@@ -118,8 +122,8 @@ export default {
                     newValue = this.min;
                 else if (newValue > this.max)
                     newValue = this.max;
-                    
-                modelValue = Math.floor(newValue);
+
+                modelValue = newValue;
             }
 
             this.$emit('update:modelValue', modelValue);

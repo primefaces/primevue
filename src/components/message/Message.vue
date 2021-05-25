@@ -18,6 +18,7 @@
 import Ripple from 'primevue/ripple';
 
 export default {
+    name: 'Message',
     emits: ['close'],
     props: {
         severity: {

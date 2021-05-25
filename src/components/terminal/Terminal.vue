@@ -19,6 +19,7 @@
 import TerminalService from 'primevue/terminalservice';
 
 export default {
+    name: 'Terminal',
     props: {
         welcomeMessage: {
             type: String,

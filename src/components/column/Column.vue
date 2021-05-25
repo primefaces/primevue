@@ -1,6 +1,6 @@
 <script>
 export default {
-    name: 'column',
+    name: 'Column',
     props: {
         columnKey: {
             type: null,
@@ -165,6 +165,10 @@ export default {
         filterMatchMode: {
             type: String,
             default: null
+        },
+        hidden: {
+            type: Boolean,
+            default: false
         }
     },
     render() {

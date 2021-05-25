@@ -491,4 +491,12 @@ export default class DomHandler {
             }
         }
     }
+
+    static isIOS() {
+        return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window['MSStream'];
+    }
+
+    static isAndroid() {
+        return /(android)/i.test(navigator.userAgent);
+    }
 }

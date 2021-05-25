@@ -6,7 +6,7 @@ interface CascadeSelectProps {
     optionLabel?: string;
     optionValue?: any;
     optionGroupLabel?: string;
-    optionGroupChildren?: string;
+    optionGroupChildren?: string[];
     placeholder?: string;
     disabled?: boolean;
     dataKey?: string;
@@ -15,6 +15,8 @@ interface CascadeSelectProps {
     ariaLabelledBy?: string;
     appendTo?: string;
     panelClass?: string;
+    loading?: boolean;
+    loadingIcon?: string;
 }
 
 declare class CascadeSelect {

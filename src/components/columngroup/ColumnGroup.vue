@@ -1,6 +1,6 @@
 <script>
 export default {
-    name: 'columngroup',
+    name: 'ColumnGroup',
     props: {
         type: {
             type: String,

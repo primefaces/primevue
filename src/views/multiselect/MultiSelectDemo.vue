@@ -44,6 +44,9 @@
                         </div>
                     </template>
                 </MultiSelect>
+
+                <h5>Loading State</h5>
+                <MultiSelect placeholder="Loading..." loading></MultiSelect>
             </div>
         </div>
 

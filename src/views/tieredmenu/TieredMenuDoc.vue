@@ -157,7 +157,7 @@ export default {
 
 </code></pre>
 
-        <h5>Popup Mode</h5>
+         <h5>Popup Mode</h5>
         <p>TieredMenu is inline by default whereas popup mode is supported by enabling popup property and calling toggle method with an event of the target.</p>
 
 <pre v-code><code>
@@ -171,6 +171,17 @@ toggle(event) {
     this.$refs.menu.toggle(event);
 }
 
+</code></pre>
+
+         <h5>Templating</h5>
+         <p>TieredMenu offers content customization with the <i>item</i> template that receives the menuitem instance from the model as a parameter.</p>
+<pre v-code><code><template v-pre>
+&lt;TieredMenu :model="items"&gt;
+    &lt;template #item="{item}"&gt;
+        &lt;a :href="item.url"&gt;{{item.label}}&lt;/a&gt;
+    &lt;/template&gt;
+&lt;/TieredMenu&gt;
+</template>
 </code></pre>
 
         <h5>Properties</h5>
@@ -250,6 +261,24 @@ toggle(event) {
 				</tbody>
 			</table>
 		</div>
+
+      <h5>Slots</h5>
+		<div class="doc-tablewrapper">
+            <table class="doc-table">
+				<thead>
+               <tr>
+                  <th>Name</th>
+                  <th>Parameters</th>
+               </tr>
+				</thead>
+				<tbody>
+               <tr>
+                  <td>item</td>
+                  <td>item: Menuitem instance</td>
+               </tr>
+				</tbody>
+			</table>
+      </div>
 
 		<h5>Styling</h5>
 		<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>

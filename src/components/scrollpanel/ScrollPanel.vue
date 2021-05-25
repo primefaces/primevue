@@ -14,6 +14,7 @@
 import {DomHandler} from 'primevue/utils';
 
 export default {
+    name: 'ScrollPanel',
     initialized: false,
     documentResizeListener: null,
     documentMouseMoveListener: null,
@@ -152,7 +153,7 @@ export default {
         },
         requestAnimationFrame(f) {
             let frame = window.requestAnimationFrame || this.timeoutFrame;
-            frame(f);
+            return frame(f);
         },
         refresh() {
             this.moveBar();
@@ -224,7 +225,7 @@ export default {
     width: calc(100% + 18px);
     padding: 0 18px 18px 0;
     position: relative;
-    overflow: auto;
+    overflow: scroll;
     box-sizing: border-box;
 }
 

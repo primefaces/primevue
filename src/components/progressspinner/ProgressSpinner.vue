@@ -8,6 +8,7 @@
 
 <script>
 export default {
+    name: 'ProgressSpinner',
     props: {
         strokeWidth: {
             type: String,

@@ -252,8 +252,7 @@
                 },
                 {
                     "name": "TreeSelect",
-                    "to": "/treeselect",
-                    "badge": "New"
+                    "to": "/treeselect"
                 },
                 {
                     "name": "TriStateCheckbox",
@@ -267,8 +266,7 @@
             "children": [
                 {
                     "name": "Button",
-                    "to": "/button",
-                    "badge": "New"
+                    "to": "/button"
                 },
                 {
                     "name": "SplitButton",
@@ -439,6 +437,7 @@
                 {
                     "name": "Tree",
                     "meta": ["tree"],
+                    "badge": "New",
                     "children": [
                         {
                             "name": "Documentation",
@@ -459,12 +458,18 @@
                         {
                             "name": "Filter",
                             "to": "/tree/filter"
+                        },
+                        {
+                            "name": "Scroll",
+                            "to": "/tree/scroll",
+                            "badge": "New"
                         }
                     ]
                 },
                 {
                     "name": "TreeTable",
                     "meta": ["treetable"],
+                    "badge": "New",
                     "children": [
                         {
                             "name": "Documentation",
@@ -505,6 +510,11 @@
                         {
                             "name": "Resize",
                             "to": "/treetable/colresize"
+                        },
+                        {
+                            "name": "Scroll",
+                            "to": "/treetable/scroll",
+                            "badge": "New"
                         },
                         {
                             "name": "Responsive",
@@ -551,7 +561,7 @@
                     "to": "/scrollpanel"
                 },
                 {
-                    "name": "Tabview",
+                    "name": "TabView",
                     "to": "/tabview"
                 },
                 {

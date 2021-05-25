@@ -1,8 +1,8 @@
 interface ColumnProps {
     columnKey?: any;
-    field?: string;
+    field?: string | ((item: any) => any);
     sortField?: string | ((item: any) => any);
-    filterField?: string;
+    filterField?: string | ((item: any) => any);
     dataType?: string;
     sortable?: boolean;
     header?: any;
@@ -40,6 +40,7 @@ interface ColumnProps {
     alignFrozen?: string;
     exportable?: boolean;
     filterMatchMode?: string;
+    hidden?: boolean;
 }
 
 declare class Column {

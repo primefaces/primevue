@@ -180,6 +180,7 @@ export default {
                     <tr>
                         <th>Name</th>
                         <th>Type</th>
+                        <th>Default</th>
                         <th>Description</th>
                     </tr>
 				</thead>
@@ -187,11 +188,13 @@ export default {
                     <tr>
                         <td>events</td>
                         <td>array</td>
+                        <td>null</td>
                         <td>An array of events to display.</td>
                     </tr>
                     <tr>
                         <td>options</td>
-                        <td>Object</td>
+                        <td>object</td>
+                        <td>null</td>
                         <td>A configuration object to define properties of FullCalendar.</td>
                     </tr>
 				</tbody>

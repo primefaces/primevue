@@ -1,7 +1,7 @@
 <template>
     <div :class="containerClass" @click="onClick($event)" :style="style">
         <div class="p-hidden-accessible">
-            <input ref="input" type="checkbox" :checked="modelValue" v-bind="$attrs" @focus="onFocus($event)" @blur="onBlur($event)" @keydown.enter.prevent="onClick($event)" 
+            <input ref="input" type="checkbox" :checked="modelValue" v-bind="$attrs" @focus="onFocus($event)" @blur="onBlur($event)" @keydown.enter.prevent="onClick($event)"
                 role="switch" :aria-checked="modelValue">
         </div>
         <span class="p-inputswitch-slider"></span>
@@ -10,6 +10,7 @@
 
 <script>
 export default {
+    name: 'InputSwitch',
     inheritAttrs: false,
     emits: ['update:modelValue', 'click', 'change'],
     props: {

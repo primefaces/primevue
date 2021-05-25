@@ -95,7 +95,7 @@ export default {
                                 ...extDependencies,
                                 'vue': dependencies['vue'],
                                 'axios': dependencies['axios'],
-                                'primevue': 'latest',
+                                'primevue': '^3.5.0',
                                 'primeflex': dependencies['primeflex'],
                                 'primeicons': 'latest',
                                 '@babel/cli': dependencies['@babel/cli'],

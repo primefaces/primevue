@@ -98,7 +98,7 @@ import InlineMessage from 'primevue/inlinemessage';
                     </tr>
                     <tr>
                         <td>sticky</td>
-                        <td>element</td>
+                        <td>boolean</td>
                         <td>null</td>
                         <td>When enabled, message is not removed automatically.</td>
                     </tr>
@@ -112,7 +112,7 @@ import InlineMessage from 'primevue/inlinemessage';
 			</table>
 		</div>
 
-        <h5>Properties of ValidationMessage</h5>
+        <h5>Properties of InlineMessage</h5>
 		<div class="doc-tablewrapper">
 			<table class="doc-table">
 				<thead>

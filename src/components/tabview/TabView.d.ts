@@ -2,6 +2,7 @@ import { VNode } from 'vue';
 
 interface TabViewProps {
     activeIndex?: number;
+    lazy?: boolean;
 }
 
 declare class TabView {

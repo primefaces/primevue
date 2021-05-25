@@ -3,6 +3,7 @@ import {FilterMatchMode} from 'primevue/api';
 
 const defaultOptions = {
     ripple: false,
+    inputStyle: 'outlined',
     locale: {
         startsWith: 'Starts with',
         contains: 'Contains',

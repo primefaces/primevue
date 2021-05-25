@@ -84,14 +84,14 @@ import Password from 'primevue/password';
                     <tr>
                         <td>mediumRegex</td>
                         <td>string</td>
+                        <td>^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})</td>
                         <td>Regex for a medium level password.</td>
-                        <td>^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,}).</td>
                     </tr>
                     <tr>
                         <td>strongRegex</td>
                         <td>string</td>
-                        <td>Regex for a strong level password.</td>
                         <td>^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})</td>
+                        <td>Regex for a strong level password.</td>
                     </tr>
                     <tr>
                         <td>weakLabel</td>
@@ -141,6 +141,18 @@ import Password from 'primevue/password';
                         <td>string</td>
                         <td>null</td>
                         <td>Style class of the input field.</td>
+                    </tr>
+                    <tr>
+                        <td>hideIcon</td>
+                        <td>string</td>
+                        <td>pi pi-eye-slash</td>
+                        <td>Icon to hide displaying the password as plain text.</td>
+                    </tr>
+                    <tr>
+                        <td>showIcon</td>
+                        <td>string</td>
+                        <td>pi pi-eye</td>
+                        <td>Icon to show displaying the password as plain text.</td>
                     </tr>
 				</tbody>
 			</table>

@@ -1,6 +1,6 @@
 <template>
     <span ref="container" :class="containerClass" :style="style">
-        <CalendarInputText ref="input" v-if="!inline" type="text" v-bind="$attrs" :value="inputFieldValue" @input="onInput" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" :readonly="!manualInput" inputmode="none" 
+        <CalendarInputText ref="input" v-if="!inline" type="text" v-bind="$attrs" :value="inputFieldValue" @input="onInput" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" :readonly="!manualInput" inputmode="none"
             :class="inputClass" :style="inputStyle" />
         <CalendarButton v-if="showIcon" :icon="icon" tabindex="-1" class="p-datepicker-trigger" :disabled="$attrs.disabled" @click="onButtonClick" type="button" :aria-label="inputFieldValue"/>
         <Teleport :to="appendTarget" :disabled="appendDisabled">
@@ -140,6 +140,7 @@ import Button from 'primevue/button';
 import Ripple from 'primevue/ripple';
 
 export default {
+    name: 'Calendar',
     inheritAttrs: false,
     emits: ['show', 'hide', 'month-change', 'year-change', 'date-select', 'update:modelValue', 'today-click', 'clear-click'],
     props: {
@@ -359,6 +360,9 @@ export default {
     watch: {
         modelValue() {
             this.updateCurrentMetaData();
+        },
+        showTime() {
+            this.updateCurrentMetaData();
         }
     },
     methods: {
@@ -548,7 +552,7 @@ export default {
             this.unbindScrollListener();
             this.unbindResizeListener();
             this.$emit('hide');
-            
+
             if (this.mask) {
                 this.disableModality();
             }
@@ -621,22 +625,20 @@ export default {
             return !this.$attrs.disabled && !this.$attrs.readonly;
         },
         updateCurrentTimeMeta(date) {
-            const hours = date.getHours();
+            let currentHour = date.getHours();
 
             if (this.hourFormat === '12') {
-                this.pm = hours > 11;
+                this.pm = currentHour > 11;
 
-                if (hours >= 12)
-                    this.currentHour = (hours == 12) ? 12 : hours - 12;
+                if (currentHour >= 12)
+                    currentHour = (currentHour == 12) ? 12 : currentHour - 12;
                 else
-                    this.currentHour = (hours == 0) ? 12 : hours;
-            }
-            else {
-                this.currentHour = date.getHours();
+                    currentHour = (currentHour == 0) ? 12 : currentHour;
             }
 
-            this.currentMinute = date.getMinutes();
-            this.currentSecond = date.getSeconds();
+            this.currentHour = Math.floor(currentHour / this.stepHour) * this.stepHour;
+            this.currentMinute = Math.floor(date.getMinutes() / this.stepMinute) * this.stepMinute;
+            this.currentSecond = Math.floor(date.getSeconds() / this.stepSecond) * this.stepSecond;
         },
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
@@ -1155,7 +1157,7 @@ export default {
             let newHour = this.currentHour + this.stepHour;
             let newPM = this.pm;
 
-           
+
             if (this.hourFormat == '24')
                 newHour = (newHour >= 24) ? (newHour - 24) : newHour;
             else if (this.hourFormat == '12') {
@@ -1165,7 +1167,7 @@ export default {
                 }
                 newHour = (newHour >= 13) ? (newHour - 12) : newHour;
             }
-            
+
 
             if (this.validateTime(newHour, this.currentMinute, this.currentSecond, newPM)) {
                 this.currentHour = newHour;
@@ -1961,7 +1963,7 @@ export default {
                 if (this.overlay) {
                     DomHandler.getFocusableElements(this.overlay).forEach(el => el.tabIndex = '-1');
                 }
-                
+
                 if (this.overlayVisible) {
                     this.overlayVisible = false;
                 }
@@ -2010,17 +2012,16 @@ export default {
             ];
         },
         panelStyleClass() {
-            return [
-                'p-datepicker p-component', this.panelClass,
-                {
-                    'p-datepicker-inline': this.inline,
-                    'p-disabled': this.$attrs.disabled,
-                    'p-datepicker-timeonly': this.timeOnly,
-                    'p-datepicker-multiple-month': this.numberOfMonths > 1,
-                    'p-datepicker-monthpicker': (this.view === 'month'),
-                    'p-datepicker-touch-ui': this.touchUI
-                }
-            ];
+            return ['p-datepicker p-component', this.panelClass, {
+                'p-datepicker-inline': this.inline,
+                'p-disabled': this.$attrs.disabled,
+                'p-datepicker-timeonly': this.timeOnly,
+                'p-datepicker-multiple-month': this.numberOfMonths > 1,
+                'p-datepicker-monthpicker': (this.view === 'month'),
+                'p-datepicker-touch-ui': this.touchUI,
+                'p-input-filled': this.$primevue.config.inputStyle === 'filled',
+                'p-ripple-disabled': this.$primevue.config.ripple === false
+            }];
         },
         months() {
             let months = [];

@@ -10,7 +10,7 @@
                 </a>
             </div>
             <transition name="p-toggleable-content">
-                <div class="p-toggleable-content" v-show="isTabActive(i)"
+                <div class="p-toggleable-content" v-if="lazy ? isTabActive(i) : true" v-show="lazy ? true: isTabActive(i)"
                     role="region" :id="getTabAriaId(i) + '_content'" :aria-labelledby="getTabAriaId(i) + '_header'">
                     <div class="p-accordion-content">
                         <component :is="tab"></component>
@@ -25,10 +25,21 @@
 import {UniqueComponentId} from 'primevue/utils';
 
 export default {
+    name: 'Accordion',
     emits: ['tab-close', 'tab-open', 'update:activeIndex'],
     props: {
-        multiple: Boolean,
-        activeIndex: [Number,Array]
+        multiple: {
+            type: Boolean,
+            default: false
+        },
+        activeIndex: {
+            type: [Number,Array],
+            default: null
+        },
+        lazy: {
+            type: Boolean,
+            default: false
+        }
     },
     data() {
         return {
@@ -100,7 +111,7 @@ export default {
             return ['p-accordion-toggle-icon pi', {'pi-chevron-right': !active, 'pi-chevron-down': active}];
         },
         isAccordionTab(child) {
-            return child.type.name === 'accordiontab'
+            return child.type.name === 'AccordionTab'
         }
     },
     computed: {

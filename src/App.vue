@@ -3,7 +3,7 @@
         <div class="layout-news" v-if="newsActive">
             <div class="layout-news-container">
                 <a href="https://www.primefaces.org/store" target="_blank">
-                    <img class="layouts-news-mockup-image" src="./assets/images/topbar-primesale-2021.png">
+                    <img class="layouts-news-mockup-image" src="./assets/images/topbar-freya-mockup.png">
                 </a>
                 <a href="https://www.primefaces.org/store" target="_blank" tabindex="-1" style="text-decoration: none" class="layout-news-button">
                     LEARN MORE
@@ -41,7 +41,7 @@ export default {
     data() {
         return {
             sidebarActive: false,
-            newsActive: false,
+            newsActive: true,
             theme: 'saga-blue'
         }
     },
@@ -157,7 +157,7 @@ export default {
         containerClass() {
             return [{
                 'layout-news-active': this.newsActive,
-                'p-input-filled': this.$appState.inputStyle === 'filled',
+                'p-input-filled': this.$primevue.config.inputStyle === 'filled',
                 'p-ripple-disabled': this.$primevue.config.ripple === false
             }];
         }

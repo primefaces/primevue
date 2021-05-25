@@ -6,6 +6,7 @@
 import {Calendar} from '@fullcalendar/core';
 
 export default {
+    name: 'FullCalendar',
     props: {
         events: Array,
         options: null
@@ -13,8 +14,10 @@ export default {
     calendar: null,
     watch: {
         events(value) {
-            this.calendar.removeAllEventSources();
-            this.calendar.addEventSource(value);
+            if (value && this.calendar) {
+                this.calendar.removeAllEventSources();
+                this.calendar.addEventSource(value);
+            }
         },
         options(value) {
             if (value && this.calendar) {

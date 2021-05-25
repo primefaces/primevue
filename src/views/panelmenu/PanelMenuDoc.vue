@@ -16,6 +16,7 @@ import PanelMenu from 'primevue/panelmenu';
 
 </code></pre>
 
+<div style="height: 400px; overflow:auto">
 <pre v-code.script><code>
 export default {
 	data() {
@@ -142,10 +143,218 @@ export default {
 }
 
 </code></pre>
+</div>
+
+         <h5>Templating</h5>
+         <p>PanelMenu offers content customization with the <i>item</i> template that receives the menuitem instance from the model as a parameter.</p>
+<pre v-code><code><template v-pre>
+&lt;PanelMenu :model="items"&gt;
+    &lt;template #item="{item}"&gt;
+        &lt;a :href="item.url"&gt;{{item.label}}&lt;/a&gt;
+    &lt;/template&gt;
+&lt;/PanelMenu&gt;
+</template>
+</code></pre>
+
+        <h5>Programmatic Control</h5>
+        <p>If the menuitem has a <i>key</i> defined, PanelMenu state can be controlled programmatically with the <i>expandedKeys</i> property that defines the keys
+            that are expanded. This property is a Map instance whose key is the key of a node and value is a boolean. Note that <i>expandedKeys</i> also supports two-way binding with the v-model directive.
+        </p>
+
+        <p>Example below expands and collapses all nodes with buttons.</p>
+<pre v-code><code><template v-pre>
+&lt;div&gt;
+    &lt;Button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll" /&gt;
+    &lt;Button type="button" icon="pi pi-minus" label="Collapse All" @click="collapseAll" /&gt;
+&lt;/div&gt;
+&lt;PanelMenu :model="items" v-model:expandedKeys="expandedKeys""&gt;&lt;/PanelMenu&gt;
+</template>
+</code></pre>
+
+<div style="height: 400px; overflow:auto">
+<pre v-code.script><code>
+export default {
+    data() {
+        return {
+            items: [{
+                    key: '0',
+                    label: 'File',
+                    icon: 'pi pi-fw pi-file',
+                    items: [{
+                            key: '0_0',
+                            label: 'New',
+                            icon: 'pi pi-fw pi-plus',
+                            items: [{
+                                    key: '0_0_0',
+                                    label: 'Bookmark',
+                                    icon: 'pi pi-fw pi-bookmark'
+                                },
+                                {
+                                    key: '0_0_1',
+                                    label: 'Video',
+                                    icon: 'pi pi-fw pi-video'
+                                }
+                            ]
+                        },
+                        {
+                            key: '0_1',
+                            label: 'Delete',
+                            icon: 'pi pi-fw pi-trash'
+                        },
+                        {
+                            key: '0_2',
+                            label: 'Export',
+                            icon: 'pi pi-fw pi-external-link'
+                        }
+                    ]
+                },
+                {
+                    key: '1',
+                    label: 'Edit',
+                    icon: 'pi pi-fw pi-pencil',
+                    items: [{
+                            key: '1_0',
+                            label: 'Left',
+                            icon: 'pi pi-fw pi-align-left'
+                        },
+                        {
+                            key: '1_1',
+                            label: 'Right',
+                            icon: 'pi pi-fw pi-align-right'
+                        },
+                        {
+                            key: '1_2',
+                            label: 'Center',
+                            icon: 'pi pi-fw pi-align-center'
+                        },
+                        {
+                            key: '1_3',
+                            label: 'Justify',
+                            icon: 'pi pi-fw pi-align-justify'
+                        }
+                    ]
+                },
+                {
+                    key: '2',
+                    label: 'Users',
+                    icon: 'pi pi-fw pi-user',
+                    items: [{
+                            key: '2_0',
+                            label: 'New',
+                            icon: 'pi pi-fw pi-user-plus',
+
+                        },
+                        {
+                            key: '2_1',
+                            label: 'Delete',
+                            icon: 'pi pi-fw pi-user-minus',
+                        },
+                        {
+                            key: '2_2',
+                            label: 'Search',
+                            icon: 'pi pi-fw pi-users',
+                            items: [{
+                                    key: '2_2_0',
+                                    label: 'Filter',
+                                    icon: 'pi pi-fw pi-filter',
+                                    items: [{
+                                        key: '2_2_0_0',
+                                        label: 'Print',
+                                        icon: 'pi pi-fw pi-print'
+                                    }]
+                                },
+                                {
+                                    key: '2_2_1',
+                                    icon: 'pi pi-fw pi-bars',
+                                    label: 'List'
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    key: '3',
+                    label: 'Events',
+                    icon: 'pi pi-fw pi-calendar',
+                    items: [{
+                            key: '3_0',
+                            label: 'Edit',
+                            icon: 'pi pi-fw pi-pencil',
+                            items: [{
+                                    key: '3_0_0',
+                                    label: 'Save',
+                                    icon: 'pi pi-fw pi-calendar-plus'
+                                },
+                                {
+                                    key: '3_0_0',
+                                    label: 'Delete',
+                                    icon: 'pi pi-fw pi-calendar-minus'
+                                }
+                            ]
+                        },
+                        {
+                            key: '3_1',
+                            label: 'Archieve',
+                            icon: 'pi pi-fw pi-calendar-times',
+                            items: [{
+                                key: '3_1_0',
+                                label: 'Remove',
+                                icon: 'pi pi-fw pi-calendar-minus'
+                            }]
+                        }
+                    ]
+                }
+            ],
+            expandedKeys: {}
+        }
+    },
+    methods: {
+        expandAll() {
+            for (let node of this.items) {
+                this.expandNode(node);
+            }
+
+            this.expandedKeys = {
+                ...this.expandedKeys
+            };
+        },
+        collapseAll() {
+            this.expandedKeys = {};
+        },
+        expandNode(node) {
+            if (node.items && node.items.length) {
+                this.expandedKeys[node.key] = true;
+
+                for (let child of node.items) {
+                    this.expandNode(child);
+                }
+            }
+        }
+    }
+}
+
+</code></pre>
+</div>
+
+        <p class="p-mt-3">In order to display some nodes as expanded by default, simply add their keys to the map.</p>
+<pre v-code.script><code>
+export default {
+    data() {
+        return {
+            items: //menu model instance,
+            expandedKeys: {}
+        }
+    },
+    mounted() {
+        this.expandedKeys[this.items[0.key]] = true;
+    }
+}
+
+</code></pre>
 
         <h5>Properties</h5>
         <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
-		<div class="doc-tablewrapper">
+            <div class="doc-tablewrapper">
 			<table class="doc-table">
 				<thead>
                     <tr>
@@ -162,9 +371,33 @@ export default {
                         <td>null</td>
                         <td>An array of menuitems.</td>
                     </tr>
+                    <tr>
+                        <td>expandedKeys</td>
+                        <td>array</td>
+                        <td>null</td>
+                        <td>A map of keys to represent the expansion state in controlled mode.</td>
+                    </tr>
 				</tbody>
 			</table>
 		</div>
+
+      <h5>Slots</h5>
+		<div class="doc-tablewrapper">
+            <table class="doc-table">
+				<thead>
+               <tr>
+                  <th>Name</th>
+                  <th>Parameters</th>
+               </tr>
+				</thead>
+				<tbody>
+               <tr>
+                  <td>item</td>
+                  <td>item: Menuitem instance</td>
+               </tr>
+				</tbody>
+			</table>
+      </div>
 
 		<h5>Styling</h5>
 		<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
@@ -228,7 +461,15 @@ export default {
                     content: `
 <template>
     <div>
-        <PanelMenu :model="items" />
+        <h5>Default</h5>
+         <PanelMenu :model="items" />
+
+         <h5>Programmatic</h5>
+         <div class="p-mb-3">
+               <Button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll" class="p-mr-2" />
+               <Button type="button" icon="pi pi-minus" label="Collapse All" @click="collapseAll" />
+            </div>
+         <PanelMenu :model="items" :expandedKeys="expandedKeys" />
     </div>
 </template>
 
@@ -236,123 +477,159 @@ export default {
 export default {
     data() {
         return {
-            items: [
-                {
-                   label: 'File',
-                   icon:'pi pi-fw pi-file',
-                   items: [
-                      {
-                         label: 'New',
-                         icon:'pi pi-fw pi-plus',
-                         items: [
-                            {
-                               label: 'Bookmark',
-                               icon:'pi pi-fw pi-bookmark'
-                            },
-                            {
-                               label: 'Video',
-                               icon:'pi pi-fw pi-video'
-                            }
-                         ]
-                      },
-                      {
-                         label: 'Delete',
-                         icon:'pi pi-fw pi-trash'
-                      },
-                      {
-                         label: 'Export',
-                         icon:'pi pi-fw pi-external-link'
-                      }
-                   ]
+            expandedKeys: {},
+            items: [{
+                    key: '0',
+                    label: 'File',
+                    icon: 'pi pi-fw pi-file',
+                    items: [{
+                            key: '0_0',
+                            label: 'New',
+                            icon: 'pi pi-fw pi-plus',
+                            items: [{
+                                    key: '0_0_0',
+                                    label: 'Bookmark',
+                                    icon: 'pi pi-fw pi-bookmark'
+                                },
+                                {
+                                    key: '0_0_1',
+                                    label: 'Video',
+                                    icon: 'pi pi-fw pi-video'
+                                }
+                            ]
+                        },
+                        {
+                            key: '0_1',
+                            label: 'Delete',
+                            icon: 'pi pi-fw pi-trash'
+                        },
+                        {
+                            key: '0_2',
+                            label: 'Export',
+                            icon: 'pi pi-fw pi-external-link'
+                        }
+                    ]
                 },
                 {
-                   label: 'Edit',
-                   icon:'pi pi-fw pi-pencil',
-                   items: [
-                      {
-                         label: 'Left',
-                         icon:'pi pi-fw pi-align-left'
-                      },
-                      {
-                         label: 'Right',
-                         icon:'pi pi-fw pi-align-right'
-                      },
-                      {
-                         label: 'Center',
-                         icon:'pi pi-fw pi-align-center'
-                      },
-                      {
-                         label: 'Justify',
-                         icon:'pi pi-fw pi-align-justify'
-                      }
-                   ]
+                    key: '1',
+                    label: 'Edit',
+                    icon: 'pi pi-fw pi-pencil',
+                    items: [{
+                            key: '1_0',
+                            label: 'Left',
+                            icon: 'pi pi-fw pi-align-left'
+                        },
+                        {
+                            key: '1_1',
+                            label: 'Right',
+                            icon: 'pi pi-fw pi-align-right'
+                        },
+                        {
+                            key: '1_2',
+                            label: 'Center',
+                            icon: 'pi pi-fw pi-align-center'
+                        },
+                        {
+                            key: '1_3',
+                            label: 'Justify',
+                            icon: 'pi pi-fw pi-align-justify'
+                        }
+                    ]
                 },
                 {
-                   label: 'Users',
-                   icon:'pi pi-fw pi-user',
-                   items: [
-                      {
-                         label: 'New',
-                         icon:'pi pi-fw pi-user-plus',
+                    key: '2',
+                    label: 'Users',
+                    icon: 'pi pi-fw pi-user',
+                    items: [{
+                            key: '2_0',
+                            label: 'New',
+                            icon: 'pi pi-fw pi-user-plus',
 
-                      },
-                      {
-                         label: 'Delete',
-                         icon:'pi pi-fw pi-user-minus',
-                      },
-                      {
-                         label: 'Search',
-                         icon:'pi pi-fw pi-users',
-                         items: [
-                            {
-                               label: 'Filter',
-                               icon:'pi pi-fw pi-filter',
-                               items: [
-                                  {
-                                     label: 'Print',
-                                     icon:'pi pi-fw pi-print'
-                                  }
-                               ]
-                            },
-                            {
-                               icon:'pi pi-fw pi-bars',
-                               label: 'List'
-                            }
-                         ]
-                      }
-                   ]
+                        },
+                        {
+                            key: '2_1',
+                            label: 'Delete',
+                            icon: 'pi pi-fw pi-user-minus',
+                        },
+                        {
+                            key: '2_2',
+                            label: 'Search',
+                            icon: 'pi pi-fw pi-users',
+                            items: [{
+                                    key: '2_2_0',
+                                    label: 'Filter',
+                                    icon: 'pi pi-fw pi-filter',
+                                    items: [{
+                                        key: '2_2_0_0',
+                                        label: 'Print',
+                                        icon: 'pi pi-fw pi-print'
+                                    }]
+                                },
+                                {
+                                    key: '2_2_1',
+                                    icon: 'pi pi-fw pi-bars',
+                                    label: 'List'
+                                }
+                            ]
+                        }
+                    ]
                 },
                 {
-                   label: 'Events',
-                   icon:'pi pi-fw pi-calendar',
-                   items: [
-                      {
-                         label: 'Edit',
-                         icon:'pi pi-fw pi-pencil',
-                         items: [
-                            {
-                               label: 'Save',
-                               icon:'pi pi-fw pi-calendar-plus'
-                            },
-                            {
-                               label: 'Delete',
-                               icon:'pi pi-fw pi-calendar-minus'
-                            }
-                         ]
-                      },
-                      {
-                         label: 'Archieve',
-                         icon:'pi pi-fw pi-calendar-times',
-                         items: [
-                            {
-                               label: 'Remove',
-                               icon:'pi pi-fw pi-calendar-minus'
-                            }
-                         ]
-                      }
-                   ]
+                    key: '3',
+                    label: 'Events',
+                    icon: 'pi pi-fw pi-calendar',
+                    items: [{
+                            key: '3_0',
+                            label: 'Edit',
+                            icon: 'pi pi-fw pi-pencil',
+                            items: [{
+                                    key: '3_0_0',
+                                    label: 'Save',
+                                    icon: 'pi pi-fw pi-calendar-plus'
+                                },
+                                {
+                                    key: '3_0_0',
+                                    label: 'Delete',
+                                    icon: 'pi pi-fw pi-calendar-minus'
+                                }
+                            ]
+                        },
+                        {
+                            key: '3_1',
+                            label: 'Archieve',
+                            icon: 'pi pi-fw pi-calendar-times',
+                            items: [{
+                                key: '3_1_0',
+                                label: 'Remove',
+                                icon: 'pi pi-fw pi-calendar-minus'
+                            }]
+                        }
+                    ]
                 }
-             ]
+            ]
+        }
+    },
+    methods: {
+        expandAll() {
+            for (let node of this.items) {
+                this.expandNode(node);
+            }
+
+            this.expandedKeys = {
+                ...this.expandedKeys
+            };
+        },
+        collapseAll() {
+            this.expandedKeys = {};
+        },
+        expandNode(node) {
+            if (node.items && node.items.length) {
+                this.expandedKeys[node.key] = true;
+
+                for (let child of node.items) {
+                    this.expandNode(child);
+                }
+            }
         }
     }
 }
@@ -370,7 +647,15 @@ export default {
                     content: `
 <template>
     <div>
-        <PanelMenu :model="items" />
+        <h5>Default</h5>
+         <PanelMenu :model="items" />
+
+         <h5>Programmatic</h5>
+         <div class="p-mb-3">
+               <Button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll" class="p-mr-2" />
+               <Button type="button" icon="pi pi-minus" label="Collapse All" @click="collapseAll" />
+            </div>
+         <PanelMenu :model="items" :expandedKeys="expandedKeys" />
     </div>
 </template>
 
@@ -379,124 +664,158 @@ import { ref } from 'vue';
 
 export default {
     setup() {
-        const items = ref([
-            {
-               label: 'File',
-               icon:'pi pi-fw pi-file',
-               items: [
-                  {
-                     label: 'New',
-                     icon:'pi pi-fw pi-plus',
-                     items: [
-                        {
-                           label: 'Bookmark',
-                           icon:'pi pi-fw pi-bookmark'
-                        },
-                        {
-                           label: 'Video',
-                           icon:'pi pi-fw pi-video'
-                        }
-                     ]
-                  },
-                  {
-                     label: 'Delete',
-                     icon:'pi pi-fw pi-trash'
-                  },
-                  {
-                     label: 'Export',
-                     icon:'pi pi-fw pi-external-link'
-                  }
-               ]
-            },
-            {
-               label: 'Edit',
-               icon:'pi pi-fw pi-pencil',
-               items: [
-                  {
-                     label: 'Left',
-                     icon:'pi pi-fw pi-align-left'
-                  },
-                  {
-                     label: 'Right',
-                     icon:'pi pi-fw pi-align-right'
-                  },
-                  {
-                     label: 'Center',
-                     icon:'pi pi-fw pi-align-center'
-                  },
-                  {
-                     label: 'Justify',
-                     icon:'pi pi-fw pi-align-justify'
-                  }
-               ]
-            },
-            {
-               label: 'Users',
-               icon:'pi pi-fw pi-user',
-               items: [
-                  {
-                     label: 'New',
-                     icon:'pi pi-fw pi-user-plus',
-                  },
-                  {
-                     label: 'Delete',
-                     icon:'pi pi-fw pi-user-minus',
-                  },
-                  {
-                     label: 'Search',
-                     icon:'pi pi-fw pi-users',
-                     items: [
-                        {
-                           label: 'Filter',
-                           icon:'pi pi-fw pi-filter',
-                           items: [
+        const expandedKeys = ref({});
+        const items = ref([{
+                  key: '0',
+                  label: 'File',
+                  icon: 'pi pi-fw pi-file',
+                  items: [{
+                           key: '0_0',
+                           label: 'New',
+                           icon: 'pi pi-fw pi-plus',
+                           items: [{
+                                 key: '0_0_0',
+                                 label: 'Bookmark',
+                                 icon: 'pi pi-fw pi-bookmark'
+                              },
                               {
-                                 label: 'Print',
-                                 icon:'pi pi-fw pi-print'
+                                 key: '0_0_1',
+                                 label: 'Video',
+                                 icon: 'pi pi-fw pi-video'
                               }
                            ]
-                        },
-                        {
-                           icon:'pi pi-fw pi-bars',
-                           label: 'List'
-                        }
-                     ]
-                  }
-               ]
-            },
-            {
-               label: 'Events',
-               icon:'pi pi-fw pi-calendar',
-               items: [
-                  {
-                     label: 'Edit',
-                     icon:'pi pi-fw pi-pencil',
-                     items: [
-                        {
-                           label: 'Save',
-                           icon:'pi pi-fw pi-calendar-plus'
-                        },
-                        {
+                     },
+                     {
+                           key: '0_1',
                            label: 'Delete',
-                           icon:'pi pi-fw pi-calendar-minus'
-                        }
-                     ]
-                  },
-                  {
-                     label: 'Archieve',
-                     icon:'pi pi-fw pi-calendar-times',
-                     items: [
-                        {
-                           label: 'Remove',
-                           icon:'pi pi-fw pi-calendar-minus'
-                        }
-                     ]
-                  }
-               ]
-            }
-        ]);
+                           icon: 'pi pi-fw pi-trash'
+                     },
+                     {
+                           key: '0_2',
+                           label: 'Export',
+                           icon: 'pi pi-fw pi-external-link'
+                     }
+                  ]
+               },
+               {
+                  key: '1',
+                  label: 'Edit',
+                  icon: 'pi pi-fw pi-pencil',
+                  items: [{
+                           key: '1_0',
+                           label: 'Left',
+                           icon: 'pi pi-fw pi-align-left'
+                     },
+                     {
+                           key: '1_1',
+                           label: 'Right',
+                           icon: 'pi pi-fw pi-align-right'
+                     },
+                     {
+                           key: '1_2',
+                           label: 'Center',
+                           icon: 'pi pi-fw pi-align-center'
+                     },
+                     {
+                           key: '1_3',
+                           label: 'Justify',
+                           icon: 'pi pi-fw pi-align-justify'
+                     }
+                  ]
+               },
+               {
+                  key: '2',
+                  label: 'Users',
+                  icon: 'pi pi-fw pi-user',
+                  items: [{
+                           key: '2_0',
+                           label: 'New',
+                           icon: 'pi pi-fw pi-user-plus',
 
-        return { items }
+                     },
+                     {
+                           key: '2_1',
+                           label: 'Delete',
+                           icon: 'pi pi-fw pi-user-minus',
+                     },
+                     {
+                           key: '2_2',
+                           label: 'Search',
+                           icon: 'pi pi-fw pi-users',
+                           items: [{
+                                 key: '2_2_0',
+                                 label: 'Filter',
+                                 icon: 'pi pi-fw pi-filter',
+                                 items: [{
+                                       key: '2_2_0_0',
+                                       label: 'Print',
+                                       icon: 'pi pi-fw pi-print'
+                                 }]
+                              },
+                              {
+                                 key: '2_2_1',
+                                 icon: 'pi pi-fw pi-bars',
+                                 label: 'List'
+                              }
+                           ]
+                     }
+                  ]
+               },
+               {
+                  key: '3',
+                  label: 'Events',
+                  icon: 'pi pi-fw pi-calendar',
+                  items: [{
+                           key: '3_0',
+                           label: 'Edit',
+                           icon: 'pi pi-fw pi-pencil',
+                           items: [{
+                                 key: '3_0_0',
+                                 label: 'Save',
+                                 icon: 'pi pi-fw pi-calendar-plus'
+                              },
+                              {
+                                 key: '3_0_0',
+                                 label: 'Delete',
+                                 icon: 'pi pi-fw pi-calendar-minus'
+                              }
+                           ]
+                     },
+                     {
+                           key: '3_1',
+                           label: 'Archieve',
+                           icon: 'pi pi-fw pi-calendar-times',
+                           items: [{
+                              key: '3_1_0',
+                              label: 'Remove',
+                              icon: 'pi pi-fw pi-calendar-minus'
+                           }]
+                     }
+                  ]
+               }
+         ]);
+
+         const expandAll = () => {
+            for (let node of nodes.value) {
+                expandNode(node);
+            }
+
+            expandedKeys.value = {...expandedKeys.value};
+        };
+        const collapseAll = () => {
+            expandedKeys.value = {};
+        };
+        const expandNode = (node) => {
+            if (node.children && node.children.length) {
+                expandedKeys.value[node.key] = true;
+
+                for (let child of node.children) {
+                    expandNode(child);
+                }
+            }
+        };
+
+        return { items, expandedKeys, expandAll, collapseAll, expandNode }
     }
 }
 <\\/script>

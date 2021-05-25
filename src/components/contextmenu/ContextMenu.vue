@@ -1,8 +1,8 @@
 <template>
     <Teleport :to="appendTo">
         <transition name="p-contextmenu" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave">
-            <div :ref="containerRef" class="p-contextmenu p-component" v-if="visible" v-bind="$attrs">
-                <ContextMenuSub :model="model" :root="true" @leaf-click="onLeafClick" />
+            <div :ref="containerRef" :class="containerClass" v-if="visible" v-bind="$attrs">
+                <ContextMenuSub :model="model" :root="true" @leaf-click="onLeafClick" :template="$slots.item"/>
             </div>
         </transition>
     </Teleport>
@@ -13,6 +13,7 @@ import {DomHandler,ZIndexUtils} from 'primevue/utils';
 import ContextMenuSub from './ContextMenuSub.vue';
 
 export default {
+    name: 'ContextMenu',
     inheritAttrs: false,
     props: {
 		model: {
@@ -193,6 +194,14 @@ export default {
         },
         containerRef(el) {
             this.container = el;
+        }
+    },
+    computed: {
+        containerClass() {
+            return ['p-contextmenu p-component', {
+                'p-input-filled': this.$primevue.config.inputStyle === 'filled',
+                'p-ripple-disabled': this.$primevue.config.ripple === false
+            }]
         }
     },
     components: {

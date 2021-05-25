@@ -13,6 +13,7 @@ declare class Timeline {
         content: VNode[];
         opposite: VNode[];
         marker: VNode[];
+        connector: VNode[];
     }
 }
 

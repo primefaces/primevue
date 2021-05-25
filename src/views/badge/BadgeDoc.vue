@@ -25,7 +25,7 @@ import BadgeDirective from 'primevue/badgedirective';
 <pre v-code.script><code>
 import BadgeDirective from 'primevue/badgedirective';
 
-Vue.directive('badge', BadgeDirective);
+app.directive('badge', BadgeDirective);
 
 </code></pre>
 
@@ -76,6 +76,15 @@ Vue.directive('badge', BadgeDirective);
 <pre v-code><code>
 &lt;h1&gt;Heading 1 &lt;Badge value="New"&gt;&lt;/Badge&gt;&lt;/h1&gt;
 &lt;h2&gt;Heading 2 &lt;Badge value="New"&gt;&lt;/Badge&gt;&lt;/h2&gt;
+
+</code></pre>
+
+        <h5>Templating</h5>
+		<p>Content can easily be customized with the default slot instead of using the built-in display.</p>
+<pre v-code><code>
+&lt;Badge&gt;
+   Content
+&lt;/Badge&gt;
 
 </code></pre>
 

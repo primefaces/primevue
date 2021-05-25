@@ -9,6 +9,7 @@
 
 <script>
 export default {
+    name: 'Tag',
     props: {
         value: null,
         severity: null,

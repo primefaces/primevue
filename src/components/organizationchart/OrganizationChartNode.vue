@@ -31,7 +31,7 @@
             </tr>
             <tr :style="childStyle" class="p-organizationchart-nodes">
                 <td v-for="child of node.children" :key="child.key" colspan="2">
-                    <sub-node :node="child" :templates="templates" :collapsedKeys="collapsedKeys" @node-toggle="onChildNodeToggle" :collapsible="collapsible"
+                    <OrganizationChartNode :node="child" :templates="templates" :collapsedKeys="collapsedKeys" @node-toggle="onChildNodeToggle" :collapsible="collapsible"
                                 :selectionMode="selectionMode" :selectionKeys="selectionKeys" @node-click="onChildNodeClick" />
                 </td>
             </tr>
@@ -43,8 +43,8 @@
 import {DomHandler} from 'primevue/utils';
 
 export default {
+    name: 'OrganizationChartNode',
     emits: ['node-click', 'node-toggle'],
-    name: 'sub-node',
     props: {
         node: {
             type: null,

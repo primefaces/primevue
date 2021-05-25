@@ -2265,6 +2265,18 @@
 .p-datatable.p-datatable-gridlines .p-datatable-tfoot > tr > td {
   border-width: 1px;
 }
+.p-datatable.p-datatable-gridlines.p-datatable-scrollable .p-datatable-thead > tr > th + th {
+  border-left-width: 0;
+}
+.p-datatable.p-datatable-gridlines.p-datatable-scrollable .p-datatable-tbody > tr > td + td {
+  border-left-width: 0;
+}
+.p-datatable.p-datatable-gridlines.p-datatable-scrollable .p-datatable-tbody > tr + tr > td, .p-datatable.p-datatable-gridlines.p-datatable-scrollable .p-datatable-tbody > tr:first-child > td {
+  border-top-width: 0;
+}
+.p-datatable.p-datatable-gridlines.p-datatable-scrollable .p-datatable-tfoot > tr > td + td {
+  border-left-width: 0;
+}
 .p-datatable.p-datatable-striped .p-datatable-tbody > tr:nth-child(even) {
   background: rgba(255, 255, 255, 0.02);
 }
@@ -2711,6 +2723,7 @@
 }
 .p-paginator .p-dropdown {
   margin-left: 0.5rem;
+  margin-right: 0.5rem;
   height: 2.357rem;
 }
 .p-paginator .p-dropdown .p-dropdown-label {
@@ -3541,11 +3554,14 @@
 .p-sidebar {
   background: #2a323d;
   color: rgba(255, 255, 255, 0.87);
-  padding: 1.25rem;
   border: 1px solid #3f4b5b;
   box-shadow: none;
 }
-.p-sidebar .p-sidebar-close {
+.p-sidebar .p-sidebar-header {
+  padding: 1rem 1.25rem;
+}
+.p-sidebar .p-sidebar-header .p-sidebar-close,
+.p-sidebar .p-sidebar-header .p-sidebar-icon {
   width: 2rem;
   height: 2rem;
   color: rgba(255, 255, 255, 0.6);
@@ -3554,15 +3570,23 @@
   border-radius: 50%;
   transition: color 0.15s, box-shadow 0.15s;
 }
-.p-sidebar .p-sidebar-close:enabled:hover {
+.p-sidebar .p-sidebar-header .p-sidebar-close:enabled:hover,
+.p-sidebar .p-sidebar-header .p-sidebar-icon:enabled:hover {
   color: rgba(255, 255, 255, 0.87);
   border-color: transparent;
   background: transparent;
 }
-.p-sidebar .p-sidebar-close:focus {
+.p-sidebar .p-sidebar-header .p-sidebar-close:focus,
+.p-sidebar .p-sidebar-header .p-sidebar-icon:focus {
   outline: 0 none;
   outline-offset: 0;
   box-shadow: 0 0 0 1px #f0e6f5;
+}
+.p-sidebar .p-sidebar-header + .p-sidebar-content {
+  padding-top: 0;
+}
+.p-sidebar .p-sidebar-content {
+  padding: 1.25rem;
 }
 
 .p-sidebar-mask.p-component-overlay {

@@ -14,6 +14,7 @@ import GalleriaContent from './GalleriaContent.vue';
 import {DomHandler,ZIndexUtils} from 'primevue/utils';
 
 export default {
+    name: 'Galleria',
     inheritAttrs: false,
     emits: ['update:activeIndex', 'update:visible'],
     props: {
@@ -170,7 +171,10 @@ export default {
     },
     computed: {
         maskContentClass() {
-            return ['p-galleria-mask p-component-overlay', this.maskClass];
+            return ['p-galleria-mask p-component-overlay', this.maskClass, {
+                'p-input-filled': this.$primevue.config.inputStyle === 'filled',
+                'p-ripple-disabled': this.$primevue.config.ripple === false
+            }];
         }
     },
     components: {

@@ -13,7 +13,8 @@
             <transition-group ref="sourceList" name="p-picklist-flip" tag="ul" class="p-picklist-list p-picklist-source" :style="listStyle" role="listbox" aria-multiselectable="multiple">
                 <template v-for="(item, i) of sourceList" :key="getItemKey(item, i)">
                     <li tabindex="0" :class="['p-picklist-item', {'p-highlight': isSelected(item, 0)}]" v-ripple
-                        @click="onItemClick($event, item, i, 0)" @keydown="onItemKeyDown($event, item, i, 0)" @touchend="onItemTouchEnd" role="option" :aria-selected="isSelected(item, 0)">
+                        @click="onItemClick($event, item, 0)" @dblclick="onItemDblClick($event, item, 0)" @keydown="onItemKeyDown($event, item, 0)" @touchend="onItemTouchEnd" 
+                        role="option" :aria-selected="isSelected(item, 0)">
                         <slot name="item" :item="item" :index="i"> </slot>
                     </li>
                 </template>
@@ -32,7 +33,8 @@
             <transition-group ref="targetList" name="p-picklist-flip" tag="ul" class="p-picklist-list p-picklist-target" :style="listStyle" role="listbox" aria-multiselectable="multiple">
                 <template v-for="(item, i) of targetList" :key="getItemKey(item, i)">
                     <li tabindex="0" :class="['p-picklist-item', {'p-highlight': isSelected(item, 1)}]" v-ripple
-                        @click="onItemClick($event, item, i, 1)" @keydown="onItemKeyDown($event, item, i, 1)" @touchend="onItemTouchEnd" role="option" :aria-selected="isSelected(item, 1)">
+                        @click="onItemClick($event, item, 1)" @dblclick="onItemDblClick($event, item, 1)" @keydown="onItemKeyDown($event, item, 1)" @touchend="onItemTouchEnd" 
+                        role="option" :aria-selected="isSelected(item, 1)">
                         <slot name="item" :item="item" :index="i"> </slot>
                     </li>
                 </template>
@@ -53,6 +55,7 @@ import {ObjectUtils,UniqueComponentId,DomHandler} from 'primevue/utils';
 import Ripple from 'primevue/ripple';
 
 export default {
+    name: 'PickList',
     emits: ['update:modelValue', 'reorder', 'update:selection', 'selection-change', 'move-to-target', 'move-to-source', 'move-all-to-target', 'move-all-to-source'],
     props: {
         modelValue: {
@@ -178,7 +181,8 @@ export default {
                 this.$emit('reorder', {
                     originalEvent: event,
                     value: value,
-                    direction: this.reorderDirection
+                    direction: this.reorderDirection,
+                    listIndex: listIndex
                 });
             }
         },
@@ -210,7 +214,8 @@ export default {
                 this.$emit('reorder', {
                     originalEvent: event,
                     value: value,
-                    direction: this.reorderDirection
+                    direction: this.reorderDirection,
+                    listIndex: listIndex
                 });
             }
         },
@@ -240,7 +245,8 @@ export default {
                 this.$emit('reorder', {
                     originalEvent: event,
                     value: value,
-                    direction: this.reorderDirection
+                    direction: this.reorderDirection,
+                    listIndex: listIndex
                 });
             }
         },
@@ -360,7 +366,7 @@ export default {
                 });
             }
         },
-        onItemClick(event, item, index, listIndex) {
+        onItemClick(event, item, listIndex) {
             this.itemTouched = false;
             const selectionList = this.d_selection[listIndex];
             const selectedIndex = ObjectUtils.findIndexInList(item, selectionList);
@@ -399,10 +405,16 @@ export default {
                 value: this.d_selection
             });
         },
+        onItemDblClick(event, item, listIndex) {
+            if (listIndex === 0)
+                this.moveToTarget(event);
+            else if (listIndex === 1)
+                this.moveToSource(event);
+        },
         onItemTouchEnd() {
             this.itemTouched = true;
         },
-        onItemKeyDown(event, item, index, listIndex) {
+        onItemKeyDown(event, item, listIndex) {
             let listItem = event.currentTarget;
 
             switch(event.which) {
@@ -428,7 +440,7 @@ export default {
 
                 //enter
                 case 13:
-                    this.onItemClick(event, item, index, listIndex);
+                    this.onItemClick(event, item, listIndex);
                     event.preventDefault();
                 break;
 
@@ -522,7 +534,7 @@ export default {
     }
 }
 `;
-                
+
                 this.styleElement.innerHTML = innerHTML;
 			}
 		},

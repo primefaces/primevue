@@ -10,6 +10,7 @@
 
 <script>
 export default {
+    name: 'TableLoadingBody',
     props: {
         columns: {
             type: null,

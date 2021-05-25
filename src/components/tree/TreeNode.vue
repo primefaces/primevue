@@ -17,10 +17,10 @@
             </span>
         </div>
         <ul class="p-treenode-children" role="group" v-if="hasChildren && expanded">
-            <sub-treenode v-for="childNode of node.children" :key="childNode.key" :node="childNode" :templates="templates"
+            <TreeNode v-for="childNode of node.children" :key="childNode.key" :node="childNode" :templates="templates"
                 :expandedKeys="expandedKeys" @node-toggle="onChildNodeToggle" @node-click="onChildNodeClick"
                 :selectionMode="selectionMode" :selectionKeys="selectionKeys"
-                @checkbox-change="propagateUp"></sub-treenode>
+                @checkbox-change="propagateUp" />
         </ul>
     </li>
 </template>
@@ -30,8 +30,8 @@ import {DomHandler} from 'primevue/utils';
 import Ripple from 'primevue/ripple';
 
 export default {
+    name: 'TreeNode',
     emits: ['node-toggle', 'node-click', 'checkbox-change'],
-    name: 'sub-treenode',
     props: {
         node: {
             type: null,

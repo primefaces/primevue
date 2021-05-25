@@ -51,6 +51,7 @@
 import Quill from "quill";
 
 export default {
+    name: 'Editor',
     emits: ['update:modelValue', 'text-change'],
     props: {
         modelValue: String,

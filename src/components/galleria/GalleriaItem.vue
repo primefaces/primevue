@@ -29,6 +29,7 @@
 import Ripple from 'primevue/ripple';
 
 export default {
+    name: 'GalleriaItem',
     emits: ['start-slideshow', 'stop-slideshow', 'update:activeIndex'],
     props: {
         circular: {

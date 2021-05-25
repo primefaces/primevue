@@ -179,7 +179,7 @@ export default {
                         <td>scrollHeight</td>
                         <td>string</td>
                         <td>200px</td>
-                        <td>Height of the viewport in pixels, a scrollbar is defined if height of list exceeds this value.</td>
+                        <td>Height of the viewport, a scrollbar is defined if height of list exceeds this value.</td>
                     </tr>
                     <tr>
                         <td>filter</td>
@@ -277,6 +277,30 @@ export default {
                         <td>string</td>
                         <td>null</td>
                         <td>Style class of the overlay panel.</td>
+                    </tr>
+                    <tr>
+                        <td>selectionLimit</td>
+                        <td>number</td>
+                        <td>null</td>
+                        <td>Maximum number of selectable items.</td>
+                    </tr>
+                    <tr>
+                        <td>showToggleAll</td>
+                        <td>boolean</td>
+                        <td>true</td>
+                        <td>Whether to show the header checkbox to toggle the selection of all items at once.</td>
+                    </tr>
+                    <tr>
+                        <td>loading</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>Whether the multiselect is in loading state.</td>
+                    </tr>
+                    <tr>
+                        <td>loadingIcon</td>
+                        <td>string</td>
+                        <td>pi pi-spinner pi-spin</td>
+                        <td>Icon to display in loading state.</td>
                     </tr>
 				</tbody>
 			</table>
@@ -497,6 +521,9 @@ export default {
                 </div>
             </template>
         </MultiSelect>
+
+        <h5>Loading State</h5>
+        <MultiSelect placeholder="Loading..." loading></MultiSelect>
     </div>
 </template>
 
@@ -630,6 +657,9 @@ export default {
                 </div>
             </template>
         </MultiSelect>
+
+        <h5>Loading State</h5>
+        <MultiSelect placeholder="Loading..." loading></MultiSelect>
     </div>
 </template>
 

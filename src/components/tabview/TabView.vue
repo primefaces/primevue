@@ -10,9 +10,11 @@
             <li ref="inkbar" class="p-tabview-ink-bar"></li>
         </ul>
         <div class="p-tabview-panels">
-            <div v-for="(tab, i) of tabs" :key="getKey(tab,i)" class="p-tabview-panel" role="tabpanel" v-show="(d_activeIndex === i)">
-                <component :is="tab"></component>
-            </div>
+            <template v-for="(tab, i) of tabs" :key="getKey(tab,i)">
+                <div  class="p-tabview-panel" role="tabpanel" v-if="lazy ? (d_activeIndex === i) : true" v-show="lazy ? true: (d_activeIndex === i)">
+                    <component :is="tab"></component>
+                </div>
+            </template>
         </div>
     </div>
 </template>
@@ -22,11 +24,16 @@ import {DomHandler} from 'primevue/utils';
 import Ripple from 'primevue/ripple';
 
 export default {
+    name: 'TabView',
     emits: ['update:activeIndex', 'tab-change', 'tab-click'],
     props: {
         activeIndex: {
             type: Number,
             default: 0
+        },
+        lazy: {
+            type: Boolean,
+            default: false
         }
     },
     data() {
@@ -79,7 +86,7 @@ export default {
             return (tab.props && tab.props.disabled);
         },
         isTabPanel(child) {
-            return child.type.name === 'tabpanel'
+            return child.type.name === 'TabPanel'
         }
     },
     computed: {
@@ -89,7 +96,7 @@ export default {
                     if (this.isTabPanel(child)) {
                         tabs.push(child);
                     }
-                    else if (child.children.length > 0) {
+                    else if (child.children && child.children instanceof Array) {
                         child.children.forEach(nestedChild => {
                             if (this.isTabPanel(nestedChild)) {
                                 tabs.push(nestedChild)

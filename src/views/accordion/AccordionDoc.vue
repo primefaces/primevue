@@ -179,6 +179,25 @@ export default {
 
 </code></pre>
 
+        <h5>Lazy Rendering</h5>
+		<p>All tabs are rendered when mounted and inactive tabs are hidden with CSS. Enabling <i>lazy</i> option activates the dynamic mode where a tab is only rendered at DOM when it is active. This option is
+        useful to speed up the initial rendering performance if there are many tabs.</p>
+
+<pre v-code><code>
+&lt;Accordion lazy&gt;
+	&lt;AccordionTab header="Header I"&gt;
+		Content
+	&lt;/AccordionTab&gt;
+	&lt;AccordionTab header="Header II"&gt;
+		Content
+	&lt;/AccordionTab&gt;
+	&lt;AccordionTab header="Header III"&gt;
+		Content
+	&lt;/AccordionTab&gt;
+&lt;/Accordion&gt;
+
+</code></pre>
+
 		<h5>Properties of AccordionTab</h5>
 		<div class="doc-tablewrapper">
 			<table class="doc-table">
@@ -237,6 +256,12 @@ export default {
                         <td>number|array</td>
                         <td>null</td>
                         <td>Index of the active tab or an array of indexes in multiple mode.</td>
+                    </tr>
+                    <tr>
+                        <td>lazy</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>When enabled, hidden tabs are not rendered at all. Defaults to false that hides tabs with css.</td>
                     </tr>
 				</tbody>
 			</table>

@@ -1,7 +1,7 @@
 <template>
     <Teleport :to="appendTo">
         <transition name="p-overlaypanel" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave">
-            <div class="p-overlaypanel p-component" v-if="visible" :ref="containerRef" v-bind="$attrs" @click="onOverlayClick">
+            <div :class="containerClass" v-if="visible" :ref="containerRef" v-bind="$attrs" @click="onOverlayClick">
                 <div class="p-overlaypanel-content" @click="onContentClick">
                     <slot></slot>
                 </div>
@@ -19,6 +19,7 @@ import OverlayEventBus from 'primevue/overlayeventbus';
 import Ripple from 'primevue/ripple';
 
 export default {
+    name: 'OverlayPanel',
     inheritAttrs: false,
     props: {
 		dismissable: {
@@ -196,7 +197,7 @@ export default {
         bindResizeListener() {
             if (!this.resizeListener) {
                 this.resizeListener = () => {
-                    if (this.visible) {
+                    if (this.visible && !DomHandler.isAndroid()) {
                         this.visible = false;
                     }
                 };
@@ -231,7 +232,7 @@ export default {
                         }
                     `
                 }
-                
+
                 this.styleElement.innerHTML = innerHTML;
 			}
 		},
@@ -249,6 +250,12 @@ export default {
         }
     },
     computed: {
+        containerClass() {
+            return ['p-overlaypanel p-component', {
+                'p-input-filled': this.$primevue.config.inputStyle === 'filled',
+                'p-ripple-disabled': this.$primevue.config.ripple === false
+            }];
+        },
         attributeSelector() {
             return UniqueComponentId();
         }

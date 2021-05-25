@@ -2,7 +2,7 @@
     <Teleport :to="appendTo" :disabled="!popup">
         <transition name="p-connected-overlay" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave">
             <div :ref="containerRef" :class="containerClass" v-if="popup ? visible : true" v-bind="$attrs" @click="onOverlayClick">
-                <TieredMenuSub :model="model" :root="true" :popup="popup" @leaf-click="onLeafClick"/>
+                <TieredMenuSub :model="model" :root="true" :popup="popup" @leaf-click="onLeafClick" :template="$slots.item" />
             </div>
         </transition>
     </Teleport>
@@ -14,6 +14,7 @@ import OverlayEventBus from 'primevue/overlayeventbus';
 import TieredMenuSub from './TieredMenuSub.vue';
 
 export default {
+    name: 'TieredMenu',
     inheritAttrs: false,
     props: {
         popup: {
@@ -176,7 +177,9 @@ export default {
     computed: {
         containerClass() {
             return ['p-tieredmenu p-component', {
-                'p-tieredmenu-overlay': this.popup
+                'p-tieredmenu-overlay': this.popup,
+                'p-input-filled': this.$primevue.config.inputStyle === 'filled',
+                'p-ripple-disabled': this.$primevue.config.ripple === false
             }];
         }
     },

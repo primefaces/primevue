@@ -167,7 +167,7 @@ data() {
                     </tr>
                     <tr>
                         <td>optionGroupChildren</td>
-                        <td>string</td>
+                        <td>array</td>
                         <td>null</td>
                         <td>Property name or getter function to retrieve the items of a group.</td>
                     </tr>
@@ -219,6 +219,18 @@ data() {
                         <td>string</td>
                         <td>null</td>
                         <td>Style class of the overlay panel.</td>
+                    </tr>
+                    <tr>
+                        <td>loading</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>Whether the dropdown is in loading state.</td>
+                    </tr>
+                    <tr>
+                        <td>loadingIcon</td>
+                        <td>string</td>
+                        <td>pi pi-spinner pi-spin</td>
+                        <td>Icon to display in loading state.</td>
                     </tr>
 				</tbody>
 			</table>
@@ -285,6 +297,10 @@ data() {
                         <td>value</td>
                         <td>value: Value of the component <br />
                             placeholder: Placeholder text to show</td>
+                    </tr>
+                    <tr>
+                        <td>option</td>
+                        <td>option: Option instance</td>
                     </tr>
 				</tbody>
 			</table>
@@ -364,6 +380,9 @@ export default {
                 </div>
             </template>
         </CascadeSelect>
+
+        <h5>Loading State</h5>
+        <CascadeSelect placeholder="Loading..." loading style="minWidth: 14rem"></CascadeSelect>
     </div>
 </template>
 
@@ -483,6 +502,9 @@ img {
                 </div>
             </template>
         </CascadeSelect>
+
+        <h5>Loading State</h5>
+        <CascadeSelect placeholder="Loading..." loading style="minWidth: 14rem"></CascadeSelect>
     </div>
 </template>
 

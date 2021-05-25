@@ -11,7 +11,7 @@
         </span>
         <i v-if="showClear && modelValue != null" class="p-dropdown-clear-icon pi pi-times" @click="onClearClick($event)"></i>
         <div class="p-dropdown-trigger" role="button" aria-haspopup="listbox" :aria-expanded="overlayVisible">
-            <span class="p-dropdown-trigger-icon pi pi-chevron-down"></span>
+            <span :class="dropdownIconClass"></span>
         </div>
         <Teleport :to="appendTarget" :disabled="appendDisabled">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
@@ -64,7 +64,8 @@ import {FilterService} from 'primevue/api';
 import Ripple from 'primevue/ripple';
 
 export default {
-    emits: ['update:modelValue', 'before-show', 'before-hide', 'show', 'hide', 'change', 'filter'],
+    name: 'Dropdown',
+    emits: ['update:modelValue', 'before-show', 'before-hide', 'show', 'hide', 'change', 'filter', 'focus', 'blur'],
     props: {
         modelValue: null,
         options: Array,
@@ -108,7 +109,15 @@ export default {
             type: String,
             default: null
         },
-        panelClass: null
+        panelClass: null,
+        loading: {
+            type: Boolean,
+            default: false
+        },
+        loadingIcon: {
+            type: String,
+            default: 'pi pi-spinner pi-spin'
+        }
     },
     data() {
         return {
@@ -136,7 +145,7 @@ export default {
         }
 
         this.itemsWrapper = null;
-        
+
         if (this.overlay) {
             ZIndexUtils.clear(this.overlay);
             this.overlay = null;
@@ -153,7 +162,7 @@ export default {
             return this.dataKey ? ObjectUtils.resolveFieldData(option, this.dataKey) : this.getOptionLabel(option);
         },
         isOptionDisabled(option) {
-            return this.optionDisabled ? option.optionDisabled : false;
+            return this.optionDisabled ? ObjectUtils.resolveFieldData(option, this.optionDisabled) : false;
         },
         getOptionGroupRenderKey(optionGroup) {
             return ObjectUtils.resolveFieldData(optionGroup, this.optionGroupLabel);
@@ -180,7 +189,7 @@ export default {
                 }
                 else {
                     return this.findOptionIndexInList(this.modelValue, this.options);
-                }                
+                }
             }
 
             return -1;
@@ -205,11 +214,13 @@ export default {
             this.$emit('before-hide');
             this.overlayVisible = false;
         },
-        onFocus() {
+        onFocus(event) {
             this.focused = true;
+            this.$emit('focus', event);
         },
-        onBlur() {
+        onBlur(event) {
             this.focused = false;
+            this.$emit('blur', event);
         },
         onKeyDown(event) {
             switch(event.which) {
@@ -339,7 +350,7 @@ export default {
 
                 if (option)
                     return option;
-                else if (groupIndex > 0) 
+                else if (groupIndex > 0)
                     return this.findPrevOption({group: (groupIndex - 1), option: this.getOptionGroupChildren(this.visibleOptions[groupIndex - 1]).length});
                 else
                     return null;
@@ -364,7 +375,7 @@ export default {
             this.updateModel(event, null);
         },
         onClick(event) {
-            if (this.disabled) {
+            if (this.disabled || this.loading) {
                 return;
             }
 
@@ -424,7 +435,7 @@ export default {
             else {
                 this.overlay.style.minWidth = DomHandler.getOuterWidth(this.$el) + 'px';
                 DomHandler.absolutePosition(this.overlay, this.$el);
-            }  
+            }
         },
         updateModel(event, value) {
             this.$emit('update:modelValue', value);
@@ -465,7 +476,7 @@ export default {
         bindResizeListener() {
             if (!this.resizeListener) {
                 this.resizeListener = () => {
-                    if (this.overlayVisible) {
+                    if (this.overlayVisible && !DomHandler.isAndroid()) {
                         this.hide();
                     }
                 };
@@ -503,7 +514,7 @@ export default {
                     this.updateModel(event, this.getOptionValue(newOption));
                 }
             }
-            
+
             this.searchTimeout = setTimeout(() => {
                 this.searchValue = null;
             }, 250);
@@ -593,7 +604,9 @@ export default {
                     for (let optgroup of this.options) {
                         let filteredSubOptions = FilterService.filter(this.getOptionGroupChildren(optgroup), this.searchFields, this.filterValue, this.filterMatchMode, this.filterLocale);
                         if (filteredSubOptions && filteredSubOptions.length) {
-                            filteredGroups.push({...optgroup, ...{items: filteredSubOptions}});
+                            let filteredGroup = {...optgroup};
+                            filteredGroup[this.optionGroupChildren] = filteredSubOptions;
+                            filteredGroups.push(filteredGroup);
                         }
                     }
                     return filteredGroups
@@ -628,7 +641,10 @@ export default {
             ];
         },
         panelStyleClass() {
-            return ['p-dropdown-panel p-component', this.panelClass];
+            return ['p-dropdown-panel p-component', this.panelClass, {
+                'p-input-filled': this.$primevue.config.inputStyle === 'filled',
+                'p-ripple-disabled': this.$primevue.config.ripple === false
+            }];
         },
         label() {
             let selectedOption = this.getSelectedOption();
@@ -661,6 +677,9 @@ export default {
         },
         appendTarget() {
             return this.appendDisabled ? null : this.appendTo;
+        },
+        dropdownIconClass() {
+            return ['p-dropdown-trigger-icon', this.loading ? this.loadingIcon : 'pi pi-chevron-down'];
         }
     },
     directives: {

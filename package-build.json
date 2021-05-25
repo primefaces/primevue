@@ -1,6 +1,6 @@
 {
     "name": "primevue",
-    "version": "3.4.1",
+    "version": "3.5.1-SNAPSHOT",
     "homepage": "https://www.primefaces.org/primevue",
     "repository": {
       "type": "git",
@@ -19,5 +19,10 @@
       "component library",
       "material",
       "bootstrap"
-    ]
+    ],
+    "web-types": "./web-types.json",
+    "vetur": {
+      "tags": "./vetur-tags.json",
+      "attributes": "./vetur-attributes.json"
+    }
   }

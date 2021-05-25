@@ -1,6 +1,9 @@
 <template>
 	<div>
         <div class="content-section introduction">
+            <div class="feature-intro">
+                <h1>DataTable <span>Flex Scroll</span></h1>
+            </div>
             <AppDemoActions />
 		</div>
         <div class="content-section implementation">

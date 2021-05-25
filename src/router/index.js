@@ -707,6 +707,11 @@ const routes = [
         component: () => import('../views/tree/TreeFilterDemo.vue')
     },
     {
+        path: '/tree/scroll',
+        name: 'treescroll',
+        component: () => import('../views/tree/TreeScrollDemo.vue')
+    },
+    {
         path: '/treeselect',
         name: 'treeselect',
         component: () => import('../views/treeselect/TreeSelectDemo.vue')
@@ -765,6 +770,11 @@ const routes = [
         path: '/treetable/colresize',
         name: 'treetablecolresize',
         component: () => import('../views/treetable/TreeTableColResizeDemo.vue')
+    },
+    {
+        path: '/treetable/scroll',
+        name: 'treetablescroll',
+        component: () => import('../views/treetable/TreeTableScrollDemo.vue')
     },
     {
         path: '/tristatecheckbox',

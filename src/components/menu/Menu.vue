@@ -5,14 +5,16 @@
                 <ul class="p-menu-list p-reset" role="menu">
                     <template v-for="(item, i) of model" :key="item.label + i.toString()">
                         <template v-if="item.items && visible(item) && !item.separator">
-                            <li class="p-submenu-header" v-if="item.items">{{item.label}}</li>
+                            <li class="p-submenu-header" v-if="item.items">
+                                <slot name="item" :item="item">{{item.label}}</slot>
+                            </li>
                             <template v-for="(child, j) of item.items" :key="child.label + i + j">
-                                <Menuitem v-if="visible(child) && !child.separator" :item="child" @click="itemClick" />
+                                <Menuitem v-if="visible(child) && !child.separator" :item="child" @click="itemClick" :template="$slots.item" />
                                 <li v-else-if="visible(child) && child.separator" :class="['p-menu-separator', child.class]" :style="child.style" :key="'separator' + i + j" role="separator"></li>
                             </template>
                         </template>
                         <li v-else-if="visible(item) && item.separator" :class="['p-menu-separator', item.class]" :style="item.style" :key="'separator' + i.toString()" role="separator"></li>
-                        <Menuitem v-else :key="item.label + i.toString()" :item="item" @click="itemClick" />
+                        <Menuitem v-else :key="item.label + i.toString()" :item="item" @click="itemClick" :template="$slots.item" />
                     </template>
                 </ul>
             </div>
@@ -26,6 +28,7 @@ import OverlayEventBus from 'primevue/overlayeventbus';
 import Menuitem from './Menuitem.vue';
 
 export default {
+    name: 'Menu',
     inheritAttrs: false,
     props: {
         popup: {
@@ -68,7 +71,7 @@ export default {
             this.scrollHandler = null;
         }
         this.target = null;
-        
+
         if (this.container && this.autoZIndex) {
             ZIndexUtils.clear(this.container);
         }
@@ -196,7 +199,9 @@ export default {
     computed: {
         containerClass() {
             return ['p-menu p-component', {
-                'p-menu-overlay': this.popup
+                'p-menu-overlay': this.popup,
+                'p-input-filled': this.$primevue.config.inputStyle === 'filled',
+                'p-ripple-disabled': this.$primevue.config.ripple === false
             }]
         }
     },
