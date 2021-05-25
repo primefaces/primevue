@@ -180,6 +180,7 @@ export default {
                 case 40:
                     if (!this.overlayVisible && event.altKey) {
                         this.show();
+                        event.preventDefault();
                     }
                 break;
 
