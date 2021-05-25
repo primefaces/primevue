@@ -1,6 +1,5 @@
 .layout-content {
     margin-left: 250px;
-    padding-top: 70px;
 
     .content-section {
         padding: 2rem;
@@ -171,12 +170,19 @@
                 border-bottom: 1px solid var(--surface-d);
                 padding: 1rem;
                 text-align: left;
+                white-space: nowrap;
             }
 
-            tbody{
+            tbody {
                 td {
                     padding: 1rem;
                     border-bottom: 1px solid var(--surface-d);
+
+                    &:first-child {
+                        font-family: Courier New,monospace;
+                        font-weight: 700;
+                        color: var(--text-color-secondary);
+                    }
                 }
             }
         }
