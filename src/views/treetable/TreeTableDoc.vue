@@ -1339,18 +1339,6 @@ export default {
                                 <td>Template of the paginator.</td>
                             </tr>
                             <tr>
-                                <td>paginatorLeft</td>
-                                <td>Element</td>
-                                <td>null</td>
-                                <td>Content for the left side of the paginator.</td>
-                            </tr>
-                            <tr>
-                                <td>paginatorRight</td>
-                                <td>Element</td>
-                                <td>null</td>
-                                <td>Content for the right side of the paginator.</td>
-                            </tr>
-                            <tr>
                                 <td>pageLinkSize</td>
                                 <td>number</td>
                                 <td>5</td>

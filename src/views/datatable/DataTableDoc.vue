@@ -149,6 +149,12 @@ export default {
                                 <td>Property name or a getter function a row data used for sorting, defaults to field.</td>
                             </tr>
                             <tr>
+                                <td>filterField</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Property name to use in filtering, defaults to field.</td>
+                            </tr>
+                            <tr>
                                 <td>sortable</td>
                                 <td>any</td>
                                 <td>false</td>
@@ -275,12 +281,6 @@ export default {
                                 <td>boolean</td>
                                 <td>true</td>
                                 <td>Defines if the column itself can be reordered with dragging.</td>
-                            </tr>
-                            <tr>
-                                <td>rowEditor</td>
-                                <td>boolean</td>
-                                <td>false</td>
-                                <td>When enabled, column displays row editor controls.</td>
                             </tr>
                             <tr>
                                 <td>rowEditor</td>
@@ -1812,18 +1812,6 @@ export default {
                                 <td>Template of the paginator.</td>
                             </tr>
                             <tr>
-                                <td>paginatorLeft</td>
-                                <td>Element</td>
-                                <td>null</td>
-                                <td>Content for the left side of the paginator.</td>
-                            </tr>
-                            <tr>
-                                <td>paginatorRight</td>
-                                <td>Element</td>
-                                <td>null</td>
-                                <td>Content for the right side of the paginator.</td>
-                            </tr>
-                            <tr>
                                 <td>pageLinkSize</td>
                                 <td>number</td>
                                 <td>5</td>
@@ -2196,12 +2184,6 @@ export default {
                                 <td>Callback to invoke when a column is resized.</td>
                             </tr>
                             <tr>
-                                <td>column-resize-end</td>
-                                <td>event.element: DOM element of the resized column.<br />
-                                    event.delta: Change in column width</td>
-                                <td>Callback to invoke when a column is resized.</td>
-                            </tr>
-                            <tr>
                                 <td>column-reorder</td>
                                 <td>event.originalEvent: Browser event<br />
                                     event.dragIndex: Index of the dragged column<br />
@@ -2385,6 +2367,51 @@ export default {
                                 <td>data: Row data <br />
                                     column: Column node <br />
                                     index: Row index</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h5>DataTable Slots</h5>
+                <div class="doc-tablewrapper">
+                    <table class="doc-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Parameters</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>header</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>paginatorLeft</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>paginatorRight</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>footer</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>groupheader</td>
+                                <td>data: Row data <br />
+                                index: Row index</td>
+                            </tr>
+                            <tr>
+                                <td>groupfooter</td>
+                                <td>data: Row data <br />
+                                index: Row index</td>
+                            </tr>
+                            <tr>
+                                <td>expansion</td>
+                                <td>data: Row data <br />
+                                index: Row index</td>
                             </tr>
                         </tbody>
                     </table>

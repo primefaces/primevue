@@ -379,6 +379,44 @@ responsiveOptions: [
                     </table>
 				</div>
 
+                <h5>Slots</h5>
+                <div class="doc-tablewrapper">
+                    <table class="doc-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Parameters</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>header</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>footer</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>item</td>
+                                <td>item: Item instance</td>
+                            </tr>
+                            <tr>
+                                <td>caption</td>
+                                <td>item: Item instance</td>
+                            </tr>
+                            <tr>
+                                <td>thumbnail</td>
+                                <td>item: Item instance</td>
+                            </tr>
+                            <tr>
+                                <td>indicator</td>
+                                <td>index: Index of the indicator item</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
 				<h5>Styling</h5>
 				<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
 				<div class="doc-tablewrapper">
