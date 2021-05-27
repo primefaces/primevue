@@ -3,8 +3,6 @@ const path = require("path");
 
 const componentPath = path.join(__dirname, "./components");
 
-// const files = fs.readdirSync(componentPath).filter(file => file !== "index.js");
-
 const files = fs.readdirSync(componentPath);
 
 const fileModules = {};
