@@ -29,7 +29,7 @@ export default {
     <div>
         <div class="p-grid">
             <div class="p-col" v-for="index in 24" :key="index">
-                <div :class="['box', 'p-shadow-' + index]">
+                <div :class="['shadow-box', 'p-shadow-' + index]">
                     p-shadow-{{index}}
                 </div>
             </div>
@@ -43,7 +43,7 @@ export default {
 <\\/script>
 
 <style lang="scss" scoped>
-.box {
+.shadow-box {
     min-height: 100px;
     min-width: 150px;
     display: flex;
@@ -52,6 +52,7 @@ export default {
     font-weight: 600;
     margin: 2rem;
     border-radius: 4px;
+    background-color: var(--surface-e);
 }
 </style>                    
 `
@@ -63,7 +64,7 @@ export default {
     <div>
         <div class="p-grid">
             <div class="p-col" v-for="index in 24" :key="index">
-                <div :class="['box', 'p-shadow-' + index]">
+                <div :class="['shadow-box', 'p-shadow-' + index]">
                     p-shadow-{{index}}
                 </div>
             </div>
@@ -77,7 +78,7 @@ export default {
 <\\/script>
 
 <style lang="scss" scoped>
-.box {
+.shadow-box {
     min-height: 100px;
     min-width: 150px;
     display: flex;
@@ -86,6 +87,7 @@ export default {
     font-weight: 600;
     margin: 2rem;
     border-radius: 4px;
+    background-color: var(--surface-e);
 }
 </style>                    
 `
