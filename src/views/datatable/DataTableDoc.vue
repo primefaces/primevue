@@ -2277,6 +2277,17 @@ export default {
                             <td>Callback to invoke when a row is unselected.</td>
                         </tr>
                         <tr>
+                            <td>row-select-all</td>
+                            <td>event.originalEvent: Browser event. <br />
+                                event.data: Selected dataset</td>
+                            <td>Fired when header checkbox is checked.</td>
+                        </tr>
+                        <tr>
+                            <td>row-unselect-all</td>
+                            <td>event.originalEvent: Browser event.</td>
+                            <td>Fired when header checkbox is unchecked.</td>
+                        </tr>
+                        <tr>
                             <td>column-resize-end</td>
                             <td>event.element: DOM element of the resized column.<br />
                                 event.delta: Change in column width</td>
