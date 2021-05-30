@@ -24,6 +24,12 @@ const ListboxProps = [
         description: "Property name or getter function to use as the value of an option, defaults to the option itself when not defined."
     },
     {
+        name: "optionDisabled",
+        type: "boolean",
+        default: "null",
+        description: "Property name or getter function to use as the disabled flag of an option, defaults to false when not defined."
+    },
+    {
         name: "listStyle",
         type: "string",
         default: "null",
