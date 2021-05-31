@@ -5430,6 +5430,10 @@
   background-image: none;
   background: transparent;
 }
+.p-input-filled .p-float-label .p-inputwrapper-filled.p-cascadeselect .p-cascadeselect-label {
+  padding-top: 1.25rem;
+  padding-bottom: 0.25rem;
+}
 .p-input-filled .p-cascadeselect.p-invalid {
   border-color: transparent;
   background-image: linear-gradient(to bottom, #f44435, #f44435), linear-gradient(to bottom, #f44435, #f44435);
