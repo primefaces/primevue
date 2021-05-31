@@ -4,8 +4,8 @@
             <li v-for="(val,i) of modelValue" :key="`${i}_${val}`" class="p-chips-token">
                 <slot name="chip" :value="val">
                     <span class="p-chips-token-label">{{val}}</span>
-                    <span class="p-chips-token-icon pi pi-times-circle" @click="removeItem($event, i)"></span>
                 </slot>
+                <span class="p-chips-token-icon pi pi-times-circle" @click="removeItem($event, i)"></span>
             </li>
             <li class="p-chips-input-token">
                 <input ref="input" type="text" v-bind="$attrs" @focus="onFocus" @blur="onBlur($event)" @input="onInput" @keydown="onKeyDown($event)" @paste="onPaste($event)"
