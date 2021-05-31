@@ -23,7 +23,7 @@ export default {
         pageOptions() {
             let opts = [];
             for(let i= 0; i < this.pageCount; i++) {
-                opts.push({label: String(i), value: i})
+                opts.push({label: String(i+1), value: i})
             }
             return opts;
         }
