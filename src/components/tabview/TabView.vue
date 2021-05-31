@@ -1,19 +1,50 @@
+<template>
+    <div class="p-tabview p-component">
+        <ul ref="nav" class="p-tabview-nav" role="tablist">
+            <li role="presentation" v-for="(tab, i) of tabs" :key="getKey(tab, i)" :class="[{'p-highlight': (d_activeIndex === i), 'p-disabled': isTabDisabled(tab)}]">
+                <a role="tab" class="p-tabview-nav-link" @click="onTabClick($event, i)" @keydown="onTabKeydown($event, i)" :tabindex="isTabDisabled(tab) ? null : '0'" :aria-selected="d_activeIndex" v-ripple>
+                    <span class="p-tabview-title" v-if="tab.header">{{tab.header}}</span>
+                    <TabPanelHeaderSlot :tab="tab" v-if="tab.$scopedSlots.header"/>
+                </a>
+            </li>
+            <li ref="inkbar" class="p-tabview-ink-bar"></li>
+        </ul>
+        <div class="p-tabview-panels">
+            <slot></slot>
+        </div>
+    </div>
+</template>
+
 <script>
 import DomHandler from '../utils/DomHandler';
+import ObjectUtils from '../utils/ObjectUtils';
 import Ripple from '../ripple/Ripple';
 
-export default {
-    data() {
-        return {
-            allChildren: null,
-            d_activeIndex: this.activeIndex
-        };
+const TabPanelHeaderSlot = {
+    functional: true,
+    props: {
+        tab: {
+            type: null,
+            default: null
+        }
     },
+    render(createElement, context) {
+        return [context.props.tab.$scopedSlots['header']()];
+    }
+};
+
+export default {
     props: {
         activeIndex: {
             type: Number,
             default: 0
         }
+    },
+    data() {
+        return {
+            allChildren: [],
+            d_activeIndex: this.activeIndex,
+        };
     },
     watch: {
         activeIndex(newValue) {
@@ -32,11 +63,17 @@ export default {
             if (!this.isTabDisabled(this.tabs[i]) && i !== this.d_activeIndex) {
                 this.d_activeIndex = i;
                 this.$emit('update:activeIndex', this.d_activeIndex);
+
                 this.$emit('tab-change', {
                     originalEvent: event,
                     index: i
                 });
             }
+
+            this.$emit('tab-click', {
+                originalEvent: event,
+                index: i
+            });
         },
         onTabKeydown(event, i) {
             if (event.which === 13) {
@@ -44,9 +81,14 @@ export default {
             }
         },
         updateInkBar() {
-            let tabHeader = this.$refs.nav.children[this.d_activeIndex];
-            this.$refs.inkbar.style.width = DomHandler.getWidth(tabHeader) + 'px';
-            this.$refs.inkbar.style.left =  DomHandler.getOffset(tabHeader).left - DomHandler.getOffset(this.$refs.nav).left + 'px';
+            if (this.$refs.nav.children.length > 1) {
+                let tabHeader = this.$refs.nav.children[this.d_activeIndex];
+                this.$refs.inkbar.style.width = DomHandler.getWidth(tabHeader) + 'px';
+                this.$refs.inkbar.style.left =  DomHandler.getOffset(tabHeader).left - DomHandler.getOffset(this.$refs.nav).left + 'px';
+            }
+        },
+        getKey(tab, index) {
+            return tab.header ? ObjectUtils.resolveFieldData(tab, tab.header) : index;
         },
         isTabDisabled(tab) {
             return tab.disabled;
@@ -59,45 +101,12 @@ export default {
             if (this.allChildren) {
                 tabs = this.allChildren.filter(child => child.$vnode.tag.indexOf('tabpanel') !== -1);
             }
+
             return tabs;
         }
     },
-    render() {
-        return (
-            <div class="p-tabview p-component">
-                {this.$slots.default}
-                <ul ref="nav" class="p-tabview-nav" role="tablist">
-                    {
-                        this.tabs.map((tab, i) => {
-                            const headerContent = tab.header || [
-                                <span class="p-tabview-title">{tab.$slots.header}</span>,
-                                <span></span>
-                            ]
-                            return ([
-                                <li role="presentation" key={tab.header || i} class={[{'p-highlight': (this.d_activeIndex === i), 'p-disabled': tab.disabled}]}>
-                                    <a role="tab" class="p-tabview-nav-link" on-click={e => this.onTabClick(e, i)} on-keydown={e => this.onTabKeydown(e, tab)}
-                                            tabindex={tab.disabled ? null : '0'} aria-selected={tab.d_activeIndex} v-ripple>
-                                        {headerContent}
-                                    </a>
-                                </li>
-                            ])
-                        })
-                    }
-                    <li ref="inkbar" class="p-tabview-ink-bar"></li>
-                </ul>
-                <div class="p-tabview-panels">
-                {
-                    this.tabs.map((tab, i) => {
-                        return(
-                            <div class="p-tabview-panel" role="tabpanel" v-show={(this.d_activeIndex === i)}>
-                                {tab.$slots.default}
-                            </div>
-                        )
-                    })
-                }
-            </div>
-                </div>
-        );
+    components: {
+        'TabPanelHeaderSlot': TabPanelHeaderSlot
     },
     directives: {
         'ripple': Ripple
