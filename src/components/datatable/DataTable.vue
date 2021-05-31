@@ -651,7 +651,7 @@ export default {
 
             if (this.selectionMode) {
                 const rowData = e.data;
-                const rowIndex = e.index;
+                const rowIndex = e.index + this.d_first;
 
                 if (this.isMultipleSelectionMode() && event.shiftKey && this.anchorRowIndex != null) {
                     DomHandler.clearSelection();
@@ -930,11 +930,13 @@ export default {
             }
 
             const value = this.processedData;
-            let _selection = [];
+            let _selection = [...this.selection];
             for(let i = rangeStart; i <= rangeEnd; i++) {
                 let rangeRowData = value[i];
-                _selection.push(rangeRowData);
-                this.$emit('row-select', {originalEvent: event, data: rangeRowData, type: 'row'});
+                if (!_selection.includes(rangeRowData)) {
+                    _selection.push(rangeRowData);
+                    this.$emit('row-select', {originalEvent: event, data: rangeRowData, type: 'row'});
+                }
             }
 
             this.$emit('update:selection', _selection);
