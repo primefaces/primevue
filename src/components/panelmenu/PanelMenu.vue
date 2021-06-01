@@ -57,6 +57,10 @@ export default {
     },
     methods: {
         onItemClick(event, item, navigate) {
+            if (this.isActive(item) && this.activeItem === null) {
+                this.activeItem = item;
+            }
+            
             if (item.disabled) {
                 event.preventDefault();
                 return;
@@ -97,7 +101,7 @@ export default {
             return ['p-panelmenu-panel', item.class];
         },
         getPanelToggleIcon(item) {
-            const active = item === this.activeItem;
+            const active = this.isActive(item) && this.activeItem === null ? true : item === this.activeItem;
             return ['p-panelmenu-icon pi', {'pi-chevron-right': !active,' pi-chevron-down': active}];
         },
         getPanelIcon(item) {

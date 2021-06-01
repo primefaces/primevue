@@ -54,6 +54,10 @@ export default {
     },
     methods: {
         onItemClick(event, item, navigate) {
+            if (this.isActive(item) && this.activeItem === null) {
+                this.activeItem = item;
+            }
+            
             if (item.disabled) {
                 event.preventDefault();
                 return;
