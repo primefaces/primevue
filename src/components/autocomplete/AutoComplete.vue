@@ -6,8 +6,8 @@
             <li v-for="(item, i) of modelValue" :key="i" class="p-autocomplete-token">
               <slot name="chip" :value="item">
                 <span class="p-autocomplete-token-label">{{getItemContent(item)}}</span>
-                <span class="p-autocomplete-token-icon pi pi-times-circle" @click="removeItem($event, i)"></span>
               </slot>
+              <span class="p-autocomplete-token-icon pi pi-times-circle" @click="removeItem($event, i)"></span>
             </li>
             <li class="p-autocomplete-input-token">
                 <input ref="input" type="text" autoComplete="off" v-bind="$attrs" @input="onInput" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown"  @change="onChange"
