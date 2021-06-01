@@ -137,7 +137,7 @@ export default {
                 <Column field="name" header="Name" style="min-width:200px"></Column>
                 <Column field="country" header="Country" style="min-width:200px">
                     <template #body="slotProps">
-                        <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.data.country.code" width="30" />
+                        <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" :class="'flag flag-' + slotProps.data.country.code" width="30" />
                         <span class="image-text">{{slotProps.data.country.name}}</span>
                     </template>
                 </Column>
@@ -149,7 +149,7 @@ export default {
                 </Column>
                 <Column field="date" header="Date" style="min-width:200px"></Column>
                 <template #groupheader="slotProps">
-                    <img :alt="slotProps.data.representative.name" :src="'demo/images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" />
+                    <img :alt="slotProps.data.representative.name" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="32" style="vertical-align: middle" />
                     <span class="image-text">{{slotProps.data.representative.name}}</span>
                 </template>
                <template #groupfooter="slotProps">
@@ -302,7 +302,7 @@ export default {
                 <Column field="name" header="Name" style="min-width:200px"></Column>
                 <Column field="country" header="Country" style="min-width:200px">
                     <template #body="slotProps">
-                        <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.data.country.code" width="30" />
+                        <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" :class="'flag flag-' + slotProps.data.country.code" width="30" />
                         <span class="image-text">{{slotProps.data.country.name}}</span>
                     </template>
                 </Column>
@@ -314,7 +314,7 @@ export default {
                 </Column>
                 <Column field="date" header="Date" style="min-width:200px"></Column>
                 <template #groupheader="slotProps">
-                    <img :alt="slotProps.data.representative.name" :src="'demo/images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" />
+                    <img :alt="slotProps.data.representative.name" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="32" style="vertical-align: middle" />
                     <span class="image-text">{{slotProps.data.representative.name}}</span>
                 </template>
                <template #groupfooter="slotProps">
