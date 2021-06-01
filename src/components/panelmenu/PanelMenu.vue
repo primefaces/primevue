@@ -101,7 +101,7 @@ export default {
             return ['p-panelmenu-panel', item.class];
         },
         getPanelToggleIcon(item) {
-            const active = this.isActive(item) && this.activeItem === null ? true : item === this.activeItem;
+            const active = this.isActive(item);
             return ['p-panelmenu-icon pi', {'pi-chevron-right': !active,' pi-chevron-down': active}];
         },
         getPanelIcon(item) {
