@@ -618,7 +618,7 @@ export default {
             let filterEvent = this.createLazyLoadEvent();
             filterEvent.filteredValue = filteredValue;
             this.$emit('filter', filterEvent);
-            this.$emit('value-change', this.processedData);
+            this.$emit('value-change', filteredValue);
 
             return filteredValue;
         },
