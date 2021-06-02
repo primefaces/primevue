@@ -50,7 +50,7 @@
                         </template>
                     </Column>
                     <Column field="category" header="Category" :sortable="true" style="min-width:10rem">></Column>
-                    <Column field="rating" header="Reviews" :sortable="true" style="min-width:12rem">>
+                    <Column field="rating" header="Reviews" :sortable="true" style="min-width:12rem">
                         <template #body="slotProps">
                            <Rating :modelValue="slotProps.data.rating" :readonly="true" :cancel="false" />
                         </template>
@@ -230,7 +230,7 @@ export default {
                     </template>
                 </Column>
                 <Column field="category" header="Category" :sortable="true" style="min-width:10rem">></Column>
-                <Column field="rating" header="Reviews" :sortable="true" style="min-width:12rem">>
+                <Column field="rating" header="Reviews" :sortable="true" style="min-width:12rem">
                     <template #body="slotProps">
                        <Rating :modelValue="slotProps.data.rating" :readonly="true" :cancel="false" />
                     </template>
@@ -546,7 +546,7 @@ export default {
                     </template>
                 </Column>
                 <Column field="category" header="Category" :sortable="true" style="min-width:10rem">></Column>
-                <Column field="rating" header="Reviews" :sortable="true" style="min-width:12rem">>
+                <Column field="rating" header="Reviews" :sortable="true" style="min-width:12rem">
                     <template #body="slotProps">
                        <Rating :modelValue="slotProps.data.rating" :readonly="true" :cancel="false" />
                     </template>
