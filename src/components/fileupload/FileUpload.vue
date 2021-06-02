@@ -434,7 +434,7 @@ export default {
             return this.disabled || (this.fileLimit && this.fileLimit <= this.files.length + this.uploadedFileCount);
         },
         uploadDisabled() {
-            return this.disabled || !this.hasFiles || (this.fileLimit < this.files.length);
+            return this.disabled || !this.hasFiles || (this.fileLimit && this.fileLimit < this.files.length);
         },
         cancelDisabled() {
             return this.disabled || !this.hasFiles;
