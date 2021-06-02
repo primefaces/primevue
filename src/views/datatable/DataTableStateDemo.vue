@@ -72,7 +72,7 @@
                 <h5>Local Storage</h5>
                 <DataTable :value="customers" :paginator="true" :rows="10" v-model:filters="filters2"
                     v-model:selection="selectedCustomer2" selectionMode="single" dataKey="id"
-                    stateStorage="session" stateKey="dt-state-demo-local" responsiveLayout="scroll">
+                    stateStorage="local" stateKey="dt-state-demo-local" responsiveLayout="scroll">
                     <template #header>
                        <span class="p-input-icon-left">
                             <i class="pi pi-search" />
@@ -230,7 +230,7 @@ export default {
             <h5>Local Storage</h5>
             <DataTable :value="customers" :paginator="true" :rows="10" v-model:filters="filters2"
                 v-model:selection="selectedCustomer2" selectionMode="single" dataKey="id"
-                stateStorage="session" stateKey="dt-state-demo-local" responsiveLayout="scroll">
+                stateStorage="local" stateKey="dt-state-demo-local" responsiveLayout="scroll">
                 <template #header>
                    <span class="p-input-icon-left">
                         <i class="pi pi-search" />
@@ -410,7 +410,7 @@ export default {
             <h5>Local Storage</h5>
             <DataTable :value="customers" :paginator="true" :rows="10" v-model:filters="filters2"
                 v-model:selection="selectedCustomer2" selectionMode="single" dataKey="id"
-                stateStorage="session" stateKey="dt-state-demo-local" responsiveLayout="scroll">
+                stateStorage="local" stateKey="dt-state-demo-local" responsiveLayout="scroll">
                 <template #header>
                    <span class="p-input-icon-left">
                         <i class="pi pi-search" />
