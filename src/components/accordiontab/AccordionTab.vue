@@ -1,16 +1,15 @@
 <template>
-    <div :class="['p-accordion-tab', {'p-accordion-tab-active': showPanel}]">
-        <div :class="['p-accordion-header', {'p-highlight': showPanel, 'p-disabled': disabled}]">
+    <div :class="getTabClass()">
+        <div :class="getTabHeaderClass()">
             <a role="tab" class="p-accordion-header-link" @click="onTabClick" @keydown="onTabKeydown" :tabindex="disabled ? null : '0'"
-                :aria-expanded="showPanel" :id="ariaId + '_header'" :aria-controls="ariaId + '_content'">
-                <span :class="['p-accordion-toggle-icon pi', {'pi-chevron-right': !showPanel, 'pi-chevron-down': showPanel}]"></span>
+                :aria-expanded="isTabActive()" :id="ariaId + '_header'" :aria-controls="ariaId + '_content'">
+                <span :class="getHeaderIcon()"></span>
                 <span class="p-accordion-header-text" v-if="header">{{header}}</span>
                 <slot name="header"></slot>
             </a>
         </div>
         <transition name="p-toggleable-content">
-            <div class="p-toggleable-content" v-if="showPanel"
-                role="region" :id="ariaId + '_content'" :aria-labelledby="ariaId + '_header'">
+            <div class="p-toggleable-content" v-show="isTabActive()" role="region" :id="ariaId + '_content'" :aria-labelledby="ariaId + '_header'">
                 <div class="p-accordion-content">
                     <slot></slot>
                 </div>
@@ -30,16 +29,18 @@ export default {
     },
     data() {
         return {
-            el: null
+            index: null
         }
     },
-    mounted() {
-        this.el = this.$el;
+    created() {
+        this.$parent.$children.forEach((child, i) => {
+            if (child === this) this.index = i
+        })
     },
     methods: {
         onTabClick() {
             if (!this.disabled) {
-                this.$parent.onToggle(this, DomHandler.index(this.el));
+                this.$parent.onToggle(this, DomHandler.index(this.$el));
             }
         },
         onTabKeydown(event) {
@@ -47,26 +48,22 @@ export default {
                 this.onTabClick(event);
             }
         },
-        findIsActive() {
-            return this.isTabActive(DomHandler.index(this.el));
-        },
-        isTabActive(index) {
+        isTabActive() {
             let activeArray = this.$parent.d_activeIndex;
-
-            if (this.$parent.multiple) {
-                return activeArray && activeArray.includes(index);
-            }
-            else
-                return index === activeArray;
+            return this.$parent.multiple ? activeArray && activeArray.includes(this.index) : this.index === activeArray;
         },
+        getTabClass() {
+            return ['p-accordion-tab', {'p-accordion-tab-active': this.isTabActive()}];
+        },
+        getTabHeaderClass() {
+            return ['p-accordion-header', {'p-highlight': this.isTabActive(), 'p-disabled': this.disabled}]
+        },
+        getHeaderIcon() {
+            const active = this.isTabActive();
+            return ['p-accordion-toggle-icon pi', {'pi-chevron-right': !active, 'pi-chevron-down': active}];
+        }
     },
     computed: {
-        showPanel() {
-            if (this.el) {
-                return this.findIsActive();
-            }
-            return false;
-        },
         ariaId() {
             return UniqueComponentId();
         }

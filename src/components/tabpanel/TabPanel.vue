@@ -1,11 +1,10 @@
 <template>
-    <div class="p-tabview-panel" role="tabpanel" v-show="showPanel">
+    <div class="p-tabview-panel" role="tabpanel" v-show="isTabActive()">
         <slot></slot>
     </div>
 </template>
 
 <script>
-import DomHandler from '../utils/DomHandler';
 export default {
     name: 'tabpanel',
     props: {
@@ -14,32 +13,18 @@ export default {
     },
     data() {
         return {
-            el: null
+            index: null
         }
     },
-    mounted() {
-        this.el = this.$el;
-    },
-    computed: {
-        showPanel() {
-            if (this.el) {
-                return this.findIsActive();
-            }
-            return false;
-        }
+    created() {
+        this.$parent.$children.forEach((child, i) => {
+            if (child === this) this.index = i
+        })
     },
     methods: {
-        findIsActive() {
-            return this.isTabActive(DomHandler.index(this.el));
-        },
-        isTabActive(index) {
+        isTabActive() {
             let activeArray = this.$parent.d_activeIndex;
-            if (this.$parent.multiple) {
-                return activeArray && activeArray.includes(index);
-            }
-            else {
-                return index === activeArray;
-            }
+            return this.$parent.multiple ? activeArray && activeArray.includes(this.index) :this.index === activeArray;
         }
     }
 }

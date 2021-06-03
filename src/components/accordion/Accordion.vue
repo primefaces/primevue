@@ -38,11 +38,6 @@ export default {
 
             this.$emit('update:activeIndex', this.d_activeIndex);
         }
-    },
-    computed: {
-        tabs() {
-            return this.$children.filter(child => child.$vnode.tag.indexOf('accordiontab') !== -1);
-        }
     }
 }
 </script>
