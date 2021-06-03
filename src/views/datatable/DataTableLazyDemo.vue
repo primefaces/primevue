@@ -164,7 +164,6 @@ export default {
             this.loadLazyData();
         },
         onFilter() {
-            this.loading = true;
             this.lazyParams.filters = this.filters;
             this.loadLazyData();
         }
@@ -267,7 +266,6 @@ export default {
             loadLazyData();
         };
         const onFilter = () => {
-            loading.value  = true;
             lazyParams.value.filters = filters.value ;
             loadLazyData();
         }
@@ -319,7 +317,6 @@ export default {
             this.loadLazyData();
         },
         onFilter() {
-            this.loading = true;
             this.lazyParams.filters = this.filters;
             this.loadLazyData();
         }
