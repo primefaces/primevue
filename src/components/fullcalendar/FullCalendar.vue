@@ -11,18 +11,28 @@ export default {
         events: Array,
         options: null
     },
-    calendar: null,
+    data() {
+        return {
+            calendar: null
+        }
+    },
     watch: {
-        events(value) {
-            if (value && this.calendar) {
-                this.calendar.removeAllEventSources();
-                this.calendar.addEventSource(value);
+        events: {
+            deep: true,
+            handler(newEvents, oldEvents) {
+                if (newEvents && this.calendar) {
+                    this.calendar.removeAllEventSources();
+                    this.calendar.addEventSource(newEvents);
+                }
             }
         },
-        options(value) {
-            if (value && this.calendar) {
-                for (let prop in value) {
-                    this.calendar.setOption(prop, value[prop]);
+        options: {
+            deep: true,
+            handler(newOptions, oldOptions) {
+                if (newOptions && this.calendar) {
+                    for (const prop in newOptions) {
+                        this.calendar.setOption(prop, newOptions[prop]);
+                    }
                 }
             }
         }
