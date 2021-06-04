@@ -1,7 +1,7 @@
 <template>
     <td :style="containerStyle" :class="containerClass" @click="onClick" @keydown="onKeyDown" role="cell">
         <span v-if="responsiveLayout === 'stack'" class="p-column-title">{{columnProp('header')}}</span>
-        <component :is="column.children.body" :data="rowData" :column="column" :index="index" :frozenRow="frozenRow" v-if="column.children && column.children.body && !d_editing" />
+        <component :is="column.children.body" :data="rowData" :column="column" :index="rowIndex" :frozenRow="frozenRow" v-if="column.children && column.children.body && !d_editing" />
         <component :is="column.children.editor" :data="rowData" :column="column" :index="index" :frozenRow="frozenRow" v-else-if="column.children && column.children.editor && d_editing" />
         <template v-else-if="columnProp('selectionMode')">
             <DTRadioButton :value="rowData" :checked="selected" @change="toggleRowWithRadio" v-if="column.props.selectionMode === 'single'" />
