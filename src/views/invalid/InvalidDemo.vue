@@ -40,10 +40,13 @@
                         <MultiSelect id="multiselect" v-model="value8" :options="cities" optionLabel="name" placeholder="MultiSelect" class="p-invalid" />
                     </div>
                     <div class="p-field p-col-12 p-md-4">
-                        <Textarea id="textarea" v-model="value9" rows="3" placeholder="Textarea" class="p-invalid" />
+                        <TreeSelect id="treeselect" v-model="selectedNode" :options="nodes" placeholder="TreeSelect" class="p-invalid"></TreeSelect>
                     </div>
                     <div class="p-field p-col-12 p-md-4">
                         <Password id="password" v-model="value10" placeholder="Password" class="p-invalid" />
+                    </div>
+                    <div class="p-field p-col-12 p-md-4">
+                        <Textarea id="textarea" v-model="value9" rows="3" placeholder="Textarea" class="p-invalid" />
                     </div>
                 </div>
             </div>
@@ -55,6 +58,7 @@
 
 <script>
 import CountryService from '../../service/CountryService';
+import NodeService from '../../service/NodeService';
 
 export default {
     data() {
@@ -79,6 +83,8 @@ export default {
             value9: null,
             value10: null,
             selectedCity: null,
+            nodes: null,
+            selectedNode: null,
             cascadeCountries: [
                 {
                     name: 'Australia',
@@ -191,10 +197,13 @@ export default {
                 <MultiSelect id="multiselect" v-model="value8" :options="cities" optionLabel="name" placeholder="MultiSelect" class="p-invalid" />
             </div>
             <div class="p-field p-col-12 p-md-4">
-                <Textarea id="textarea" v-model="value9" rows="3" placeholder="Textarea" class="p-invalid" />
+                <TreeSelect id="treeselect" v-model="selectedNode" :options="nodes" placeholder="TreeSelect" class="p-invalid"></TreeSelect>
             </div>
             <div class="p-field p-col-12 p-md-4">
                 <Password id="password" v-model="value10" placeholder="Password" class="p-invalid" />
+            </div>
+            <div class="p-field p-col-12 p-md-4">
+                <Textarea id="textarea" v-model="value9" rows="3" placeholder="Textarea" class="p-invalid" />
             </div>
         </div>
     </div>                   
@@ -202,6 +211,7 @@ export default {
 
 <script>
 import CountryService from './service/CountryService';
+import NodeService from './service/NodeService';
 
 export default {
     data() {
@@ -226,6 +236,8 @@ export default {
             value9: null,
             value10: null,
             selectedCity: null,
+            nodes: null,
+            selectedNode: null,
             cascadeCountries: [
                 {
                     name: 'Australia',
@@ -305,11 +317,14 @@ export default {
         }
     },
     countryService: null,
+    nodeService: null,
     created() {
         this.countryService = new CountryService();
+        this.nodeService = new NodeService();
     },
     mounted() {
         this.countryService.getCountries().then(data => this.countries = data);
+        this.nodeService.getTreeNodes().then(data => this.nodes = data);
     },
     methods: {
         searchCountry(event) {
@@ -364,10 +379,13 @@ export default {
                 <MultiSelect id="multiselect" v-model="value8" :options="cities" optionLabel="name" placeholder="MultiSelect" class="p-invalid" />
             </div>
             <div class="p-field p-col-12 p-md-4">
-                <Textarea id="textarea" v-model="value9" rows="3" placeholder="Textarea" class="p-invalid" />
+                <TreeSelect id="treeselect" v-model="selectedNode" :options="nodes" placeholder="TreeSelect" class="p-invalid"></TreeSelect>
             </div>
             <div class="p-field p-col-12 p-md-4">
                 <Password id="password" v-model="value10" placeholder="Password" class="p-invalid" />
+            </div>
+            <div class="p-field p-col-12 p-md-4">
+                <Textarea id="textarea" v-model="value9" rows="3" placeholder="Textarea" class="p-invalid" />
             </div>
         </div>
     </div>                   
@@ -375,11 +393,13 @@ export default {
 <script>
 import { ref, onMounted } from 'vue';
 import CountryService from './service/CountryService';
+import NodeService from './service/NodeService';
 
 export default {
     setup() {
         onMounted(() => {
             countryService.value.getCountries().then(data => countries.value = data);
+            nodeService.value.getTreeNodes().then(data => nodes.value = data);
         })
         const countryService = ref(new CountryService());
         const countries = ref();
@@ -402,6 +422,8 @@ export default {
         const value9 = ref();
         const value10 = ref();
         const selectedCity = ref();
+        const selectedNode = ref();
+        const nodes = ref();
         const cascadeCountries = ref([
             {
                 name: 'Australia',
@@ -493,7 +515,8 @@ export default {
         }
 
         return { countryService, countries, filteredCountries, cities, value1, value2, value3, value4, 
-            value5, value6, value7, value8, value9, value10, selectedCity, cascadeCountries, searchCountry }
+            value5, value6, value7, value8, value9, value10, selectedCity, cascadeCountries, searchCountry,
+            nodes, selectedNode  }
 
     }
 }
@@ -504,11 +527,14 @@ export default {
         }
     },
     countryService: null,
+    nodeService: null,
     created() {
         this.countryService = new CountryService();
+        this.nodeService = new NodeService();
     },
     mounted() {
         this.countryService.getCountries().then(data => this.countries = data);
+        this.nodeService.getTreeNodes().then(data => this.nodes = data);
     },
     methods: {
         searchCountry(event) {

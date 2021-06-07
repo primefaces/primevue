@@ -2183,7 +2183,7 @@
 .p-datatable .p-datatable-tbody > tr > td {
   text-align: left;
   border: 1px solid #3f4b5b;
-  border-width: 0 0 1px 0;
+  border-width: 1px 0 0 0;
   padding: 1rem 1rem;
 }
 .p-datatable .p-datatable-tbody > tr > td .p-row-toggler,
