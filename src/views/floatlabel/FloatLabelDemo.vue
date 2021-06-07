@@ -113,7 +113,7 @@
             </div>
         </div>
 
-        <AppDoc name="FloatLabelDemo" :sources="sources" :service="['CountryService']" :data="['countries']" github="floatlabel/FloatLabelDemo.vue" />
+        <AppDoc name="FloatLabelDemo" :sources="sources" :service="['CountryService', 'NodeService']" :data="['countries', 'treenodes']" github="floatlabel/FloatLabelDemo.vue" />
     </div>
 </template>
 
@@ -596,6 +596,7 @@ export default {
             nodeService.value.getTreeNodes().then(data => nodes.value = data);
         })
         const countryService = ref(new CountryService());
+        const nodeService = ref(new NodeService());
         const countries = ref();
         const filteredCountries = ref();
         const cities = ref([
