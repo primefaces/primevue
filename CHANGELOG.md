@@ -481,6 +481,33 @@
 - Button not registered in FileUpload [\#478](https://github.com/primefaces/primevue/issues/478)
 - BlockUI documentation indicates "show" event whereas the actual event is "unblock" [\#485](https://github.com/primefaces/primevue/issues/485)
 
+## [2.4.2](https://github.com/primefaces/primevue/tree/2.4.2) (2021-06-07)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/2.4.1...2.4.2)
+
+**Implemented New Features and Enhancements:**
+
+- Chips remove button for templating [\#1307](https://github.com/primefaces/primevue/issues/1307)
+- IDE support  [\#1296](https://github.com/primefaces/primevue/issues/1296)
+- MultiSelect selectionLimit showToggleAll [\#1288](https://github.com/primefaces/primevue/issues/1288)
+- FileUpload long filename [\#1287](https://github.com/primefaces/primevue/issues/1287)
+- hideIcon and showIcon for Password [\#1286](https://github.com/primefaces/primevue/issues/1286)
+
+**Fixed bugs:**
+
+- DataTable multi selection with meta key [\#1305](https://github.com/primefaces/primevue/issues/1305)
+- Sidebar content overflows [\#1295](https://github.com/primefaces/primevue/issues/1295)
+- FileUpload accepts any type of file [\#1291](https://github.com/primefaces/primevue/issues/1291)
+- AutoComplete forceSelection with Multiple [\#1289](https://github.com/primefaces/primevue/issues/1289)
+- Decimal value for Slider [\#1285](https://github.com/primefaces/primevue/issues/1285)
+- Panel closes itself when typing on mobile [\#1284](https://github.com/primefaces/primevue/issues/1284)
+- DataTable state restore broken for columnOrder and columnWidths [\#1283](https://github.com/primefaces/primevue/issues/1283)
+- Multiselect doesn't set focus to the multiselect filter when dropdown is expanded [\#1243](https://github.com/primefaces/primevue/issues/1243)
+- Error when navigating to a component including TabView with active index \> 0 [\#1221](https://github.com/primefaces/primevue/issues/1221)
+- Calendar.vue property panelClass is not used. [\#1213](https://github.com/primefaces/primevue/issues/1213)
+- Multiple Form Components Break Inside TabView [\#1209](https://github.com/primefaces/primevue/issues/1209)
+- Primevue 2.4 TabView and Accordeon throw errow on npm build [\#1019](https://github.com/primefaces/primevue/issues/1019)
+
 ## [2.4.1](https://github.com/primefaces/primevue/tree/2.4.1) (2021-04-22)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/2.4.0...2.4.1)
