@@ -115,7 +115,7 @@ export default {
 
 		<h5>Templating</h5>
 		<p>Item template allows displaying custom content inside the suggestions panel. The slotProps variable passed to the template provides an item property to represent an item in the suggestions collection. 
-            In addition <i>optiongroup</i>, <i>header</i> and <i>footer</i> slots are provided for further customization</p>
+            In addition <i>optiongroup</i>, <i>chip</i>, <i>header</i> and <i>footer</i> slots are provided for further customization</p>
 <pre v-code><code><template v-pre>
 &lt;AutoComplete v-model="brand" :suggestions="filteredBrands" @complete="searchBrand($event)" placeholder="Hint: type 'v' or 'f'" :dropdown="true"&gt;
     &lt;template #item="slotProps"&gt;
@@ -325,6 +325,10 @@ export default {
                         <td>footer</td>
                         <td>value: Value of the component <br />
                             suggestions: Displayed options</td>
+                    </tr>
+                    <tr>
+                        <td>chip</td>
+                        <td>value: A value in the selection</td>
                     </tr>
 				</tbody>
 			</table>

@@ -28,7 +28,11 @@ declare class AutoComplete {
     $emit(eventName: 'complete', e: {originalEvent: Event, query: string}): this;
     $emit(eventName: 'clear'): this;
     $slots: {
-        list: VNode[];
+        item: VNode[];
+        optiongroup: VNode[];
+        header: VNode[];
+        footer: VNode[];
+        chip: VNode[];
     };
 }
 

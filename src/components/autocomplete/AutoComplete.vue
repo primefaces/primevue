@@ -4,7 +4,9 @@
             type="text" autoComplete="off" v-if="!multiple" role="searchbox" aria-autocomplete="list" :aria-controls="listId">
         <ul ref="multiContainer" :class="multiContainerClass" v-if="multiple" @click="onMultiContainerClick">
             <li v-for="(item, i) of modelValue" :key="i" class="p-autocomplete-token">
-                <span class="p-autocomplete-token-label">{{getItemContent(item)}}</span>
+                <slot name="chip" :value="item">
+                    <span class="p-autocomplete-token-label">{{getItemContent(item)}}</span>
+                </slot>
                 <span class="p-autocomplete-token-icon pi pi-times-circle" @click="removeItem($event, i)"></span>
             </li>
             <li class="p-autocomplete-input-token">

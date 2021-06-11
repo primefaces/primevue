@@ -98,7 +98,7 @@ export default {
 
 		<h5>Templating</h5>
 		<p>Label of an option is used as the display text of an item by default, for custom content support define an <i>option</i> template that gets the option instance as a parameter.
-        In addition <i>value</i>, <i>optiongroup</i>, <i>header</i>, <i>footer</i>, <i>emptyfilter</i> and <i>empty</i> slots are provided for further customization.</p>
+        In addition <i>value</i>, <i>optiongroup</i>, <i>chip</i>, <i>header</i>, <i>footer</i>, <i>emptyfilter</i> and <i>empty</i> slots are provided for further customization.</p>
 <pre v-code><code><template v-pre>
 &lt;MultiSelect v-model="selectedCars2" :options="cars" optionLabel="brand" placeholder="Select a Car"&gt;
 	&lt;template #value="slotProps"&gt;
@@ -420,6 +420,10 @@ export default {
                     <tr>
                         <td>empty</td>
                         <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>chip</td>
+                        <td>value: A value in the selection</td>
                     </tr>
 				</tbody>
 			</table>

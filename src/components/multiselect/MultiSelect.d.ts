@@ -42,7 +42,13 @@ declare class MultiSelect {
     $emit(eventName: 'filter', e: { originalEvent: Event, value: string }): this;
     $slots: {
         value: VNode[];
+        header: VNode[];
+        footer: VNode[];
+        emptyfilter: VNode[];
+        empty: VNode[];
         option: VNode[];
+        optiongroup: VNode[];
+        chip: VNode[];
     }
 }
 
