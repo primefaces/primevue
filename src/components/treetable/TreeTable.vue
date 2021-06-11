@@ -805,7 +805,7 @@ export default {
             let children = this.$slots.default();
 
             children.forEach(child => {
-                if (child.dynamicChildren)
+                if (child.children && child.children instanceof Array)
                     cols = [...cols, ...child.children];
                 else if (child.type.name === 'Column')
                     cols.push(child);

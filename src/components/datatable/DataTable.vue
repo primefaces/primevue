@@ -1690,7 +1690,7 @@ export default {
             }
 
             children.forEach(child => {
-                if (child.dynamicChildren && child.children instanceof Array)
+                if (child.children && child.children instanceof Array)
                     cols = [...cols, ...child.children];
                 else if (child.type.name === 'Column')
                     cols.push(child);
