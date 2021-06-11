@@ -290,7 +290,7 @@ export default {
                     this.show();
                 }
                 else {
-                    let nextOption = this.findNextOption(this.getSelectedOptionIndex());
+                    let nextOption = this.visibleOptions && this.visibleOptions.length > 0 ? this.findNextOption(this.getSelectedOptionIndex()) : null;
                     if (nextOption) {
                         this.updateModel(event, this.getOptionValue(nextOption));
                     }
