@@ -360,9 +360,12 @@ export default {
         multiSortMeta(newValue) {
             this.d_multiSortMeta = newValue;
         },
-        selection(newValue) {
-            if (this.dataKey) {
-                this.updateSelectionKeys(newValue);
+        selection: {
+            immediate: true,
+            handler(newValue) {
+                if (this.dataKey) {
+                    this.updateSelectionKeys(newValue);
+                }
             }
         },
         expandedRows(newValue) {
