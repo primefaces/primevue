@@ -1064,7 +1064,7 @@ export default {
                 else if (this.columnResizeMode === 'expand') {
                     this.$refs.table.style.width = this.$refs.table.offsetWidth + delta + 'px';
 
-                    if (!this.scrollable) 
+                    if (!this.scrollable)
                         this.resizeColumnElement.style.width = newColumnWidth + 'px';
                     else
                         this.resizeTableCells(newColumnWidth);
@@ -1687,7 +1687,7 @@ export default {
             }
 
             children.forEach(child => {
-                if (child.dynamicChildren && child.children instanceof Array)
+                if (child.children instanceof Array)
                     cols = [...cols, ...child.children];
                 else if (child.type.name === 'Column')
                     cols.push(child);
