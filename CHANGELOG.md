@@ -1,5 +1,28 @@
 # Changelog
 
+## [3.5.1](https://github.com/primefaces/primevue/tree/3.5.1) (2021-06-11)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.5.0...3.5.1)
+
+**Implemented New Features and Enhancements:**
+
+- Chip templating support for AutoComplete and MultiSelect [\#1341](https://github.com/primefaces/primevue/issues/1341)
+- TreeSelect and CascadeSelect material theming improvements [\#1321](https://github.com/primefaces/primevue/issues/1321)
+- Toast center positioning enhancement [\#1315](https://github.com/primefaces/primevue/issues/1315)
+- Remove button in Chips template [\#1300](https://github.com/primefaces/primevue/issues/1300)
+- The TreeSelect shouldn't scroll the Browser when trying to open it with the keyboard [\#1298](https://github.com/primefaces/primevue/issues/1298)
+
+**Fixed bugs:**
+
+- AccordionTab error with v-if="false" [\#1339](https://github.com/primefaces/primevue/issues/1339)
+- Dynamic columns not showing in Datatable with vue 3.1.1 [\#1323](https://github.com/primefaces/primevue/issues/1323)
+- Programmatic PanelMenu header link needs click twice to toggle itself [\#1310](https://github.com/primefaces/primevue/issues/1310)
+- Datatable event @value-change return undefined when filtering [\#1308](https://github.com/primefaces/primevue/issues/1308)
+- JumpToPageDropdown are numbered from 0 instead of 1 [\#1306](https://github.com/primefaces/primevue/issues/1306)
+- Upload button disable on FileUpload [\#1294](https://github.com/primefaces/primevue/issues/1294)
+- DataTable slotProps.index mismatch [\#1274](https://github.com/primefaces/primevue/issues/1274)
+- DataTable does not honor initial selection [\#1269](https://github.com/primefaces/primevue/issues/1269)
+
 ## [3.5.0](https://github.com/primefaces/primevue/tree/3.5.0)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.4.0...3.5.0)
