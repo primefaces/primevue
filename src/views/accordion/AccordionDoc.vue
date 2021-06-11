@@ -217,12 +217,6 @@ export default {
 					<td>Orientation of tab headers.</td>
 				</tr>
 				<tr>
-					<td>active</td>
-					<td>boolean</td>
-					<td>null</td>
-					<td>Visibility of the content.</td>
-				</tr>
-				<tr>
 					<td>disabled</td>
 					<td>boolean</td>
 					<td>false</td>
