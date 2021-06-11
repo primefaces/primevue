@@ -121,7 +121,7 @@ export default {
                     if (this.isAccordionTab(child)) {
                         tabs.push(child);
                     }
-                    else if (child.children.length > 0) {
+                    else if (child.children instanceof Array) {
                         child.children.forEach(nestedChild => {
                             if (this.isAccordionTab(nestedChild)) {
                                 tabs.push(nestedChild)
