@@ -9,7 +9,7 @@ const ToastProps = [
         name: "position",
         type: "string",
         default: "top-right",
-        description: 'Position of the toast in viewport. Other valid values are "top-left", "top-center", "bottom-left", "botton-center", "bottom-right" and "center".'
+        description: 'Position of the toast in viewport. Other valid values are "top-left", "top-center", "bottom-left", "bottom-center", "bottom-right" and "center".'
     },
     {
         name: "autoZIndex",
