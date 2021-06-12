@@ -142,7 +142,7 @@ export default defineComponent({
 
 		<h5>Position</h5>
 		<p>There are four positions available for the toast container defined by the <i>position</i> property that defaults to "top-right". Other
-			valid values are "top-left", "top-center", "bottom-left", "botton-center", "bottom-right" and "center".
+			valid values are "top-left", "top-center", "bottom-left", "bottom-center", "bottom-right" and "center".
 		</p>
 <pre v-code><code>
 &lt;Toast /&gt;

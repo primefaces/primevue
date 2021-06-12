@@ -190,6 +190,10 @@ const AutoCompleteSlots = [
     {
         name: "footer",
         description: "Custom content for the component footer."
+    },
+    {
+        name: "chip",
+        description: "Custom content for the chip display."
     }
 ];
 

@@ -242,6 +242,10 @@ const MultiSelectSlots = [
     {
         name: "empty",
         description: "Custom content when there is no data to display"
+    },
+    {
+        name: "chip",
+        description: "Custom content for the chip display."
     }
 ];
 

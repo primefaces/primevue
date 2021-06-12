@@ -360,9 +360,12 @@ export default {
         multiSortMeta(newValue) {
             this.d_multiSortMeta = newValue;
         },
-        selection(newValue) {
-            if (this.dataKey) {
-                this.updateSelectionKeys(newValue);
+        selection: {
+            immediate: true,
+            handler(newValue) {
+                if (this.dataKey) {
+                    this.updateSelectionKeys(newValue);
+                }
             }
         },
         expandedRows(newValue) {
@@ -1687,7 +1690,7 @@ export default {
             }
 
             children.forEach(child => {
-                if (child.children instanceof Array)
+                if (child.children && child.children instanceof Array)
                     cols = [...cols, ...child.children];
                 else if (child.type.name === 'Column')
                     cols.push(child);
