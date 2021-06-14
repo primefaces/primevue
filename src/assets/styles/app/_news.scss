@@ -4,7 +4,7 @@
     justify-content: center;
     align-items: center;
     margin-left: 250px;
-    background-image: linear-gradient(90deg,#2a206c,#221b5c);
+    background-image: url("./assets/images/topbar-freya-bg.png");
 
     .layout-news-container {
         width: 100%;
@@ -16,22 +16,16 @@
         font-weight: bold;
         font-size: 20px;
 
-        a {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
         img.layouts-news-mockup-image {
-            height: 50px;
+            max-width: 500px;
         }
 
         .layout-news-button {
-            border: 1px solid #ffffff;
+            border: 2px solid #ffffff;
             color: #ffffff;
             font-size: 15px;
-            padding: 0.3em 0.3em 0.5em 1em;
-            font-weight: 700;
+            padding: 0.5em 1em;
+            font-weight: bolder;
             border-radius: 3px;
             display: flex;
             justify-content: center;
