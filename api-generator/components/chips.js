@@ -28,6 +28,18 @@ const ChipsProps = [
         type: "boolean",
         default: "false",
         description: "Whether to allow duplicate values or not."
+    },
+    {
+        name: "class",
+        type: "string",
+        default: "null",
+        description: "Style class of the component."
+    },
+    {
+        name: "style",
+        type: "any",
+        default: "null",
+        description: "Inline of the component."
     }
 ];
 

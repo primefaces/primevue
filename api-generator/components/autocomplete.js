@@ -96,6 +96,18 @@ const AutoCompleteProps = [
         description: "When present, autocomplete clears the manual input if it does not match of the suggestions to force only accepting values from the suggestions."
     },
     {
+        name: "class",
+        type: "string",
+        default: "null",
+        description: "Style class of the component."
+    },
+    {
+        name: "style",
+        type: "any",
+        default: "null",
+        description: "Inline of the component."
+    },
+    {
         name: "panelClass",
         type: "string",
         default: "null",

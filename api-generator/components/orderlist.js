@@ -65,6 +65,22 @@ const OrderListEvents = [
                     'Direction of the change; "up", "down", "bottom", "top"'
             }
         ]
+    },
+    {
+        name: "selection-change",
+        description: "Callback to invoke when selection changes.",
+        arguments: [
+            {
+                name: "event.originalEvent",
+                type: "object",
+                description: "Browser event"
+            },
+            {
+                name: "event.value",
+                type: "array",
+                description: "Ordered list"
+            }
+        ]
     }
 ];
 

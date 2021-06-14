@@ -130,25 +130,11 @@ const DialogProps = [
 const DialogEvents = [
     {
         name: "hide",
-        description: "Callback to invoke when dialog is hidden.",
-        arguments: [
-            {
-                name: "event",
-                type: "object",
-                description: "Event Object"
-            }
-        ]
+        description: "Callback to invoke when dialog is hidden."
     },
     {
         name: "show",
-        description: "Callback to invoke when dialog is showed.",
-        arguments: [
-            {
-                name: "event",
-                type: "object",
-                description: "Event Object"
-            }
-        ]
+        description: "Callback to invoke when dialog is showed."
     },
     {
         name: "maximize",

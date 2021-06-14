@@ -133,6 +133,22 @@ const PickListEvents = [
                 description: "Moved items"
             }
         ]
+    },
+    {
+        name: "selection-change",
+        description: "Callback to invoke when one or more items are moved to the other list.",
+        arguments: [
+            {
+                name: "event.originalEvent",
+                type: "object",
+                description: "Browser event"
+            },
+            {
+                name: "event.value",
+                type: "array",
+                description: "Selected items"
+            }
+        ]
     }
 ];
 
