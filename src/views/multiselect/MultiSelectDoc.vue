@@ -370,7 +370,7 @@ export default {
                         <td>Shows the overlay.</td>
                     </tr>
                     <tr>
-                        <td>Hide</td>
+                        <td>hide</td>
                         <td>-</td>
                         <td>Hides the overlay.</td>
                     </tr>

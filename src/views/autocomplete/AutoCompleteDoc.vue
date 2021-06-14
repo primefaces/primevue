@@ -219,6 +219,13 @@ export default {
                         and "self" for the element itself.</td>
                     </tr>
                     <tr>
+                        <td>forceSelection</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>When present, autocomplete clears the manual input if it does not match of the suggestions to force only
+                        accepting values from the suggestions.</td>
+                    </tr>
+                    <tr>
                         <td>inputStyle</td>
                         <td>any</td>
                         <td>null</td>
@@ -231,11 +238,16 @@ export default {
                         <td>Style class of the input field.</td>
                     </tr>
                     <tr>
-                        <td>forceSelection</td>
-                        <td>boolean</td>
-                        <td>false</td>
-                        <td>When present, autocomplete clears the manual input if it does not match of the suggestions to force only
-                        accepting values from the suggestions.</td>
+                        <td>style</td>
+                        <td>any</td>
+                        <td>null</td>
+                        <td>Style class of the component input field.</td>
+                    </tr>
+                    <tr>
+                        <td>class</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Inline style of the component.</td>
                     </tr>
                     <tr>
                         <td>panelClass</td>

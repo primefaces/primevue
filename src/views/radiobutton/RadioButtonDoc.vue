@@ -60,12 +60,47 @@ export default {
                         <td>null</td>
                         <td>Value binding of the checkbox.</td>
                     </tr>
+                    <tr>
+                        <td>style</td>
+                        <td>any</td>
+                        <td>null</td>
+                        <td>Style class of the component input field.</td>
+                    </tr>
+                    <tr>
+                        <td>class</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Inline style of the component.</td>
+                    </tr>
 				</tbody>
 			</table>
 		</div>
 
 		<h5>Events</h5>
         <p>Any valid event such as focus and blur.</p>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Parameters</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>click</td>
+                        <td>-</td>
+                        <td>Callback to invoke on radio button click.</td>
+                    </tr>
+                    <tr>
+                        <td>change</td>
+                        <td>-</td>
+                        <td>Callback to invoke on radio button value change.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
 		<h5>Styling</h5>
 		<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>

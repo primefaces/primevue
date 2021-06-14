@@ -180,6 +180,12 @@ import PickList from 'primevue/picklist';
                         </td>
                         <td>Callback to invoke when all items are moved to the source list.</td>
                     </tr>
+                    <tr>
+                        <td>selection-change</td>
+                        <td>event.originalEvent: browser event <br />
+                            event.value: Selected item</td>
+                        <td>Callback to invoke when one or more items are moved to the other list.</td>
+                    </tr>
 				</tbody>
 			</table>
 		</div>
@@ -195,13 +201,17 @@ import PickList from 'primevue/picklist';
 				</thead>
 				<tbody>
                     <tr>
-                        <td>sourceHeader</td>
+                        <td>header</td>
                         <td>-</td>
                     </tr>
                     <tr>
                         <td>item</td>
                         <td>item: Item of the component<br />
                             index: Index of the item</td>
+                    </tr>
+                    <tr>
+                        <td>sourceHeader</td>
+                        <td>-</td>
                     </tr>
                     <tr>
                         <td>targetHeader</td>

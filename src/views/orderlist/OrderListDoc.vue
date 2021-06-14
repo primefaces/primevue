@@ -138,6 +138,13 @@ import OrderList from 'primevue/orderlist';
                         </td>
                         <td>Callback to invoke when the list is reordered.</td>
                     </tr>
+                    <tr>
+                        <td>selection-change</td>
+                        <td>event.originalEvent: browser event <br />
+                            event.value: Ordered list
+                        </td>
+                        <td>Callback to invoke when selection changes.</td>
+                    </tr>
 				</tbody>
 			</table>
 		</div>

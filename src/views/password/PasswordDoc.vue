@@ -131,6 +131,18 @@ import Password from 'primevue/password';
                         and "self" for the element itself.</td>
                     </tr>
                     <tr>
+                        <td>hideIcon</td>
+                        <td>string</td>
+                        <td>pi pi-eye-slash</td>
+                        <td>Icon to hide displaying the password as plain text.</td>
+                    </tr>
+                    <tr>
+                        <td>showIcon</td>
+                        <td>string</td>
+                        <td>pi pi-eye</td>
+                        <td>Icon to show displaying the password as plain text.</td>
+                    </tr>
+                    <tr>
                         <td>inputStyle</td>
                         <td>any</td>
                         <td>null</td>
@@ -143,16 +155,22 @@ import Password from 'primevue/password';
                         <td>Style class of the input field.</td>
                     </tr>
                     <tr>
-                        <td>hideIcon</td>
-                        <td>string</td>
-                        <td>pi pi-eye-slash</td>
-                        <td>Icon to hide displaying the password as plain text.</td>
+                        <td>style</td>
+                        <td>any</td>
+                        <td>null</td>
+                        <td>Style class of the component input field.</td>
                     </tr>
                     <tr>
-                        <td>showIcon</td>
+                        <td>class</td>
                         <td>string</td>
-                        <td>pi pi-eye</td>
-                        <td>Icon to show displaying the password as plain text.</td>
+                        <td>null</td>
+                        <td>Inline style of the component.</td>
+                    </tr>
+                    <tr>
+                        <td>panelClass</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Style class of the overlay panel.</td>
                     </tr>
 				</tbody>
 			</table>

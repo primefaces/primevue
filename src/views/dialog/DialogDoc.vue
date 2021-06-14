@@ -239,12 +239,12 @@ export default {
 				<tbody>
                     <tr>
                         <td>hide</td>
-                        <td>event: Event object</td>
+                        <td>-</td>
                         <td>Callback to invoke when dialog is hidden.</td>
                     </tr>
                     <tr>
                         <td>show</td>
-                        <td>event: Event object</td>
+                        <td>-</td>
                         <td>Callback to invoke when dialog is showed.</td>
                     </tr>
                     <tr>
