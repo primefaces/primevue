@@ -11,8 +11,9 @@ interface SliderProps {
 
 declare class Slider {
     $props: SliderProps;
+    $emit(eventName: 'update:modelValue', value: number | any[]): this;
     $emit(eventName: 'change', value: any): this;
-    $emit(eventName: 'slideend', e: {originalEvent: Event, values: any}): this;
+    $emit(eventName: 'slideend', e: {originalEvent: Event, value: any}): this;
 }
 
 export default Slider;

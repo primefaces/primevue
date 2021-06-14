@@ -1,7 +1,7 @@
 import { VNode } from 'vue';
 
 interface OverlayPanelProps {
-    ismissable?: boolean;
+    dismissable?: boolean;
     showCloseIcon?: boolean;
     appendTo?: string;
     baseZIndex?: number;

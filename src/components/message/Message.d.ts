@@ -9,6 +9,7 @@ interface MessageProps {
 
 declare class Message {
     $props: MessageProps;
+    $emit(eventName: 'close', event: Event): this;
     $slots: {
         '': VNode[];
     }

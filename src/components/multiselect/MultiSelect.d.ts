@@ -33,7 +33,7 @@ interface MultiSelectProps {
 
 declare class MultiSelect {
     $props: MultiSelectProps;
-    $emit(eventName: 'input', value: any): this;
+    $emit(eventName: 'update:modelValue', value: any): this;
     $emit(eventName: 'change', e: {originalEvent: Event, value: any}): this;
     $emit(eventName: 'before-show'): this;
     $emit(eventName: 'before-leave'): this;

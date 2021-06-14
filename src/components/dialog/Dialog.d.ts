@@ -26,11 +26,12 @@ interface DialogProps {
 
 declare class Dialog {
     $props: DialogProps;
+    $emit(eventName: 'update:visible', value: boolean): this;
     $emit(eventName: 'show'): this;
     $emit(eventName: 'hide'): this;
-    $emit(eventName: 'maximize'): this;
-    $emit(eventName: 'unmaximize'): this;
-    $emit(eventName: 'dragend'): this;
+    $emit(eventName: 'maximize', event: Event): this;
+    $emit(eventName: 'unmaximize', event: Event): this;
+    $emit(eventName: 'dragend', event: Event): this;
     $slots: {
         '': VNode[];
         header: VNode[];

@@ -1,3 +1,5 @@
+import { VNode } from 'vue';
+
 interface MenuProps {
     popup?: boolean;
     model?: any[];
@@ -11,6 +13,9 @@ declare class Menu {
     toggle(event: Event): void;
     show(event: Event, target?: any): void;
     hide(): void;
+    $slots: {
+        item: VNode[];
+    }
 }
 
 export default Menu;

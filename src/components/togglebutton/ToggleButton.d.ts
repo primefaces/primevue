@@ -1,5 +1,5 @@
 interface ToggleButtonProps {
-    value?: boolean;
+    modelValue?: boolean;
     onIcon?: string;
     offIcon?: string;
     onLabel?: string;
@@ -9,7 +9,8 @@ interface ToggleButtonProps {
 
 declare class ToggleButton {
     $props: ToggleButtonProps;
-    $emit(eventName: string, event: Event): this;
+    $emit(eventName: 'update:modelValue', value: boolean): this;
+    $emit(eventName: 'change', event: Event): this;
 }
 
 export default ToggleButton;

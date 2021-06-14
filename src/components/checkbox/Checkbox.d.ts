@@ -2,11 +2,15 @@ interface CheckboxProps {
     value?: any;
     modelValue?: any;
     binary?: boolean;
+    class?: string;
+    style?: any;
 }
 
 declare class Checkbox {
     $props: CheckboxProps;
-    $emit(eventName: string, event: Event): this;
+    $emit(eventName: 'update:page', value: any): this;
+    $emit(eventName: 'click', event: Event): this;
+    $emit(eventName: 'change', event: Event): this;
 }
 
 export default Checkbox;

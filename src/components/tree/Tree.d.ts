@@ -18,6 +18,8 @@ interface TreeProps {
 
 declare class Tree {
     $props: TreeProps;
+    $emit(eventName: 'update:expandedKeys', value: any): this;
+    $emit(eventName: 'update:selectionKeys', value: any): this;
     $emit(eventName: 'node-select', node: any): this;
     $emit(eventName: 'node-unselect', node: any): this;
     $emit(eventName: 'node-expand', node: any): this;

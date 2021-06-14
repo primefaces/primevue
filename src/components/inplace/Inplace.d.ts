@@ -7,6 +7,9 @@ interface InplaceProps {
 
 declare class Inplace {
     $props: InplaceProps;
+    $emit(eventName: 'update:active', value: boolean): this;
+    $emit(eventName: 'open', e: Event): this;
+    $emit(eventName: 'close', e: Event): this;
     $slots: {
         display: VNode[];
         content: VNode[];

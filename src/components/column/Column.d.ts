@@ -1,3 +1,5 @@
+import { VNode } from 'vue';
+
 interface ColumnProps {
     columnKey?: any;
     field?: string | ((item: any) => any);
@@ -45,6 +47,17 @@ interface ColumnProps {
 
 declare class Column {
     $props: ColumnProps;
+    $slots: {
+        body: VNode[];
+        header: VNode[];
+        footer: VNode[];
+        editor: VNode[];
+        filter: VNode[];
+        filterheader: VNode[];
+        filterfooter: VNode[];
+        filterclear: VNode[];
+        filterapply: VNode[];
+    }
 }
 
 export default Column;

@@ -22,11 +22,13 @@ interface InputNumberProps {
     step?: number;
     inputStyle?: any;
     inputClass?: string;
+    style?: any;
+    class?: string;
 }
 
 declare class InputNumber {
     $props: InputNumberProps;
-    $emit(eventName: string, value: number | Event): this;
+    $emit(eventName: 'update:modelValue', value: number): this;
     $emit(eventName: 'input', e: {originalEvent: Event, value: any}): this;
 }
 

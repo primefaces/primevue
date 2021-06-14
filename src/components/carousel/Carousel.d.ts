@@ -9,14 +9,15 @@ interface CarouselProps {
 	orientation?: string;
 	verticalViewPortHeight?: string;
 	containerClass?: string;
-	dotsContentClass?: string;
 	contentClass?: string;
+	indicatorsContentClass?: string;
 	circular?: boolean;
 	autoplayInterval?: number;
 }
 
 declare class Carousel {
 	$props: CarouselProps;
+	$emit(eventName: 'update:page', value: number): this;
 	$slots: {
 		item: VNode[];
 		header: VNode[];

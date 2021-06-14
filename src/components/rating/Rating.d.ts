@@ -8,6 +8,7 @@ interface RatingProps {
 
 declare class Rating {
     $props: RatingProps;
+    $emit(eventName: 'update:modelValue', value: number): this;
     $emit(eventName: 'change', e: { originalEvent: Event, value: any }): this;
 }
 

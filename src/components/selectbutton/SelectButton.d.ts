@@ -14,6 +14,7 @@ interface SelectButtonProps {
 
 declare class SelectButton {
     $props: SelectButtonProps;
+    $emit(eventName: 'update:modelValue', value: any): this;
     $emit(eventName: 'focus', event: Event): this;
     $emit(eventName: 'blur', event: Event): this;
     $slots: {

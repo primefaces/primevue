@@ -16,6 +16,7 @@ interface KnobProps {
 
 declare class Knob {
     $props: KnobProps;
+    $emit(eventName: 'update:modelValue', value: number): this;
     $emit(eventName: 'change', value: any): this;
 }
 

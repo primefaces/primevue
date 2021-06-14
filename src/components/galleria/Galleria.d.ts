@@ -29,6 +29,8 @@ interface GalleriaProps {
 
 declare class Galleria {
     $props: GalleriaProps;
+    $emit(eventName: 'update:activeIndex', value: number): this;
+    $emit(eventName: 'update:visible', value: boolean): this;
 	$slots: {
 		header: VNode[];
         footer: VNode[];

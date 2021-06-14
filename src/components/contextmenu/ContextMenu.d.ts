@@ -1,3 +1,5 @@
+import { VNode } from 'vue';
+
 interface ContextMenuProps {
     model?: any[];
     appendTo?: string;
@@ -8,6 +10,9 @@ interface ContextMenuProps {
 
 declare class ContextMenu {
     $props: ContextMenuProps;
+    $slots: {
+        item: VNode[];
+    }
     toggle(event: Event): void;
     show(event: Event, target?: any): void;
     hide(): void;

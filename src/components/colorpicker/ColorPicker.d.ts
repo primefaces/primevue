@@ -14,7 +14,7 @@ interface ColorPickerProps {
 
 declare class ColorPicker {
     $props: ColorPickerProps;
-    $emit(eventName: 'input', value: any): this;
+    $emit(eventName: 'update:modelValue', value: any): this;
 }
 
 export default ColorPicker;

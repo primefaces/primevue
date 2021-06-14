@@ -8,6 +8,7 @@ interface ChipProps {
 
 declare class Chip {
     $props: ChipProps;
+    $emit(eventName: 'remove', event: Event): this;
 }
 
 export default Chip;

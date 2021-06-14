@@ -1,10 +1,10 @@
 interface InputTextProps {
-    value?: string;
+    modelValue?: string;
 }
 
 declare class InputText {
     $props: InputTextProps;
-    $emit(eventName: 'input', value: string): this;
+    $emit(eventName: 'update:modelValue', value: string): this;
 }
 
 export default InputText;

@@ -1,3 +1,5 @@
+import { VNode } from 'vue';
+
 interface DividerProps {
     align?: string;
     layout?: string;
@@ -6,6 +8,9 @@ interface DividerProps {
 
 declare class Divider {
     $props: DividerProps;
+    $slots: {
+        '': VNode[];
+    }
 }
 
 export default Divider;

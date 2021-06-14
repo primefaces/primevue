@@ -32,7 +32,7 @@ interface DropdownProps {
 
 declare class Dropdown {
     $props: DropdownProps;
-    $emit(eventName: 'input', value: string): this;
+    $emit(eventName: 'update:modelValue', value: any): this;
     $emit(eventName: 'change', e: { originalEvent: Event, value: string }): this;
     $emit(eventName: 'before-show'): this;
     $emit(eventName: 'before-leave'): this;
@@ -42,7 +42,13 @@ declare class Dropdown {
     $emit(eventName: 'blur', e: Event): this;
     $emit(eventName: 'filter', e: { originalEvent: Event, value: string }): this;
     $slot: {
+        value: VNode[];
+        header: VNode[];
+        footer: VNode[];
         option: VNode[];
+        optiongroup: VNode[];
+        emptyfilter: VNode[];
+        empty: VNode[];
     }
 }
 

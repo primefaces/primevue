@@ -8,7 +8,7 @@ interface InputMaskProps {
 
 declare class InputMask {
     $props: InputMaskProps;
-    $emit(eventName: 'input', value: string): this;
+    $emit(eventName: 'update:modelValue', value: string): this;
     $emit(eventName: 'focus', event: Event): this;
     $emit(eventName: 'blur', event: Event): this;
     $emit(eventName: 'keydown', event: Event): this;
