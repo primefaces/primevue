@@ -38,9 +38,9 @@ export default {
         })
     },
     methods: {
-        onTabClick() {
+        onTabClick(event) {
             if (!this.disabled) {
-                this.$parent.onToggle(this, DomHandler.index(this.$el));
+                this.$parent.onToggle(event, this, DomHandler.index(this.$el), this.isTabActive());
             }
         },
         onTabKeydown(event) {

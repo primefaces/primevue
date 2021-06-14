@@ -237,7 +237,7 @@ export default {
                             <tr>
                                 <td>tab-open</td>
                                 <td>event.originalEvent: Browser event  <br/>
-                                    event.tab: Opened tab
+                                    event.tab: opened tab
                                 </td>
                                 <td>Callback to invoke when a tab gets expanded.</td>
                             </tr>

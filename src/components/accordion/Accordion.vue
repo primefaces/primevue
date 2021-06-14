@@ -21,7 +21,9 @@ export default {
         }
     },
     methods: {
-        onToggle(tab, index) {
+        onToggle(event, tab, index, isActive) {
+            const eventName = isActive ? 'tab-close' : 'tab-open';
+
             if (this.multiple) {
                 let x = this.d_activeIndex;
 
@@ -37,6 +39,11 @@ export default {
             }
 
             this.$emit('update:activeIndex', this.d_activeIndex);
+
+            this.$emit(eventName, {
+                originalEvent: event,
+                index: index
+            });
         }
     }
 }
