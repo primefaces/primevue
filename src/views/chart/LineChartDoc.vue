@@ -1,5 +1,5 @@
 <template>
-	<AppDoc name="ChartDemo" :sources="sources" :dependencies="{'chart.js': '2.7.3'}" component="Chart" github="chart/LineChartDemo.vue" />
+	<AppDoc name="ChartDemo" :sources="sources" :dependencies="{'chart.js': '3.3.2'}" component="Chart" github="chart/LineChartDemo.vue" />
 </template>
 
 <script>
@@ -40,13 +40,15 @@ export default {
                         label: 'First Dataset',
                         data: [65, 59, 80, 81, 56, 55, 40],
                         fill: false,
-                        borderColor: '#42A5F5'
+                        borderColor: '#42A5F5',
+                        tension: .4
                     },
                     {
                         label: 'Second Dataset',
                         data: [28, 48, 40, 19, 86, 27, 90],
                         fill: false,
-                        borderColor: '#FFA726'
+                        borderColor: '#FFA726',
+                        tension: .4
                     }
                 ]
             },
@@ -56,36 +58,17 @@ export default {
                     label: 'Dataset 1',
                     fill: false,
                     borderColor: '#42A5F5',
-                    yAxisID: 'y-axis-1',
+                    yAxisID: 'y',
+                    tension: .4,
                     data: [65, 59, 80, 81, 56, 55, 10]
                 }, {
                     label: 'Dataset 2',
                     fill: false,
                     borderColor: '#00bb7e',
-                    yAxisID: 'y-axis-2',
+                    yAxisID: 'y1',
+                    tension: .4,
                     data: [28, 48, 40, 19, 86, 27, 90]
                 }]
-            },
-            multiAxisOptions: {
-                responsive: true,
-                hoverMode: 'index',
-                stacked: false,
-                scales: {
-                    yAxes: [{
-                        type: 'linear',
-                        display: true,
-                        position: 'left',
-                        id: 'y-axis-1',
-                    }, {
-                        type: 'linear',
-                        display: true,
-                        position: 'right',
-                        id: 'y-axis-2',
-                        gridLines: {
-                            drawOnChartArea: false
-                        }
-                    }]
-                }
             },
             lineStylesData: {
                 labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
@@ -94,6 +77,7 @@ export default {
                         label: 'First Dataset',
                         data: [65, 59, 80, 81, 56, 55, 40],
                         fill: false,
+                        tension: .4,
                         borderColor: '#42A5F5'
                     },
                     {
@@ -101,6 +85,7 @@ export default {
                         data: [28, 48, 40, 19, 86, 27, 90],
                         fill: false,
                         borderDash: [5, 5],
+                        tension: .4,
                         borderColor: '#66BB6A'
                     },
                     {
@@ -108,11 +93,81 @@ export default {
                         data: [12, 51, 62, 33, 21, 62, 45],
                         fill: true,
                         borderColor: '#FFA726',
+                        tension: .4,
                         backgroundColor: 'rgba(255,167,38,0.2)'
                     }
                 ]
             },
-            basicOptions: null
+            basicOptions: {
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#495057'
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            color: '#495057'
+                        },
+                        grid: {
+                            color: '#ebedef'
+                        }
+                    },
+                    y: {
+                        ticks: {
+                            color: '#495057'
+                        },
+                        grid: {
+                            color: '#ebedef'
+                        }
+                    }
+                }
+            },
+            multiAxisOptions:{
+                stacked: false,
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#495057'
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            color: '#495057'
+                        },
+                        grid: {
+                            color: '#ebedef'
+                        }
+                    },
+                    y: {
+                        type: 'linear',
+                        display: true,
+                        position: 'left',
+                        ticks: {
+                            color: '#495057'
+                        },
+                        grid: {
+                            color: '#ebedef'
+                        }
+                    },
+                    y1: {
+                        type: 'linear',
+                        display: true,
+                        position: 'right',
+                        ticks: {
+                            color: '#495057'
+                        },
+                        grid: {
+                            drawOnChartArea: false,
+                            color: '#ebedef'
+                        }
+                    }
+                }
+            }
         }
     }
 }
@@ -146,86 +201,155 @@ import { ref } from 'vue';
 
 export default {
     setup() {
-        const basicData =  ref({
-            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-            datasets: [
-                {
-                    label: 'First Dataset',
-                    data: [65, 59, 80, 81, 56, 55, 40],
-                    fill: false,
-                    borderColor: '#42A5F5'
-                },
-                {
-                    label: 'Second Dataset',
-                    data: [28, 48, 40, 19, 86, 27, 90],
-                    fill: false,
-                    borderColor: '#FFA726'
-                }
-            ]
-        });
-        const multiAxisData = ref({
-            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-            datasets: [{
-                label: 'Dataset 1',
-                fill: false,
-                borderColor: '#42A5F5',
-                yAxisID: 'y-axis-1',
-                data: [65, 59, 80, 81, 56, 55, 10]
-            }, {
-                label: 'Dataset 2',
-                fill: false,
-                borderColor: '#00bb7e',
-                yAxisID: 'y-axis-2',
-                data: [28, 48, 40, 19, 86, 27, 90]
-            }]
-        });
-        const multiAxisOptions = ref({
-            responsive: true,
-            hoverMode: 'index',
-            stacked: false,
-            scales: {
-                yAxes: [{
-                    type: 'linear',
-                    display: true,
-                    position: 'left',
-                    id: 'y-axis-1',
-                }, {
-                    type: 'linear',
-                    display: true,
-                    position: 'right',
-                    id: 'y-axis-2',
-                    gridLines: {
-                        drawOnChartArea: false
+        const basicData =  ref(
+            {
+                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                datasets: [
+                    {
+                        label: 'First Dataset',
+                        data: [65, 59, 80, 81, 56, 55, 40],
+                        fill: false,
+                        borderColor: '#42A5F5',
+                        tension: .4
+                    },
+                    {
+                        label: 'Second Dataset',
+                        data: [28, 48, 40, 19, 86, 27, 90],
+                        fill: false,
+                        borderColor: '#FFA726',
+                        tension: .4
                     }
+                ]
+            }
+        );
+
+        const multiAxisData = ref(
+            {
+                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                datasets: [{
+                    label: 'Dataset 1',
+                    fill: false,
+                    borderColor: '#42A5F5',
+                    yAxisID: 'y',
+                    tension: .4,
+                    data: [65, 59, 80, 81, 56, 55, 10]
+                }, {
+                    label: 'Dataset 2',
+                    fill: false,
+                    borderColor: '#00bb7e',
+                    yAxisID: 'y1',
+                    tension: .4,
+                    data: [28, 48, 40, 19, 86, 27, 90]
                 }]
             }
-        });
-        const lineStylesData = ref({
-            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-            datasets: [
-                {
-                    label: 'First Dataset',
-                    data: [65, 59, 80, 81, 56, 55, 40],
-                    fill: false,
-                    borderColor: '#42A5F5'
+        );
+
+        const lineStylesData = ref(
+            {
+                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                datasets: [
+                    {
+                        label: 'First Dataset',
+                        data: [65, 59, 80, 81, 56, 55, 40],
+                        fill: false,
+                        tension: .4,
+                        borderColor: '#42A5F5'
+                    },
+                    {
+                        label: 'Second Dataset',
+                        data: [28, 48, 40, 19, 86, 27, 90],
+                        fill: false,
+                        borderDash: [5, 5],
+                        tension: .4,
+                        borderColor: '#66BB6A'
+                    },
+                    {
+                        label: 'Third Dataset',
+                        data: [12, 51, 62, 33, 21, 62, 45],
+                        fill: true,
+                        borderColor: '#FFA726',
+                        tension: .4,
+                        backgroundColor: 'rgba(255,167,38,0.2)'
+                    }
+                ]
+            }
+        );
+
+        const basicOptions = ref(
+            {
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#495057'
+                        }
+                    }
                 },
-                {
-                    label: 'Second Dataset',
-                    data: [28, 48, 40, 19, 86, 27, 90],
-                    fill: false,
-                    borderDash: [5, 5],
-                    borderColor: '#66BB6A'
-                },
-                {
-                    label: 'Third Dataset',
-                    data: [12, 51, 62, 33, 21, 62, 45],
-                    fill: true,
-                    borderColor: '#FFA726',
-                    backgroundColor: 'rgba(255,167,38,0.2)'
+                scales: {
+                    x: {
+                        ticks: {
+                            color: '#495057'
+                        },
+                        grid: {
+                            color: '#ebedef'
+                        }
+                    },
+                    y: {
+                        ticks: {
+                            color: '#495057'
+                        },
+                        grid: {
+                            color: '#ebedef'
+                        }
+                    }
                 }
-            ]
-        });
-        const basicOptions = ref(null);
+            }
+        );
+
+        const multiAxisData = ref(
+            {
+                stacked: false,
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#495057'
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            color: '#495057'
+                        },
+                        grid: {
+                            color: '#ebedef'
+                        }
+                    },
+                    y: {
+                        type: 'linear',
+                        display: true,
+                        position: 'left',
+                        ticks: {
+                            color: '#495057'
+                        },
+                        grid: {
+                            color: '#ebedef'
+                        }
+                    },
+                    y1: {
+                        type: 'linear',
+                        display: true,
+                        position: 'right',
+                        ticks: {
+                            color: '#495057'
+                        },
+                        grid: {
+                            drawOnChartArea: false,
+                            color: '#ebedef'
+                        }
+                    }
+                }
+            }
+        );
 
 		return { basicData, multiAxisData, multiAxisOptions, lineStylesData, basicOptions }
     }

@@ -1,5 +1,5 @@
 <template>
-	<AppDoc name="ChartDemo" :sources="sources" :dependencies="{'chart.js': '2.7.3'}" component="Chart" github="chart/ComboChartDemo.vue"/>
+	<AppDoc name="ChartDemo" :sources="sources" :dependencies="{'chart.js': '3.3.2'}" component="Chart" github="chart/ComboChartDemo.vue"/>
 </template>
 
 <script>
@@ -12,7 +12,7 @@ export default {
 					content: `
 <template>
     <div>
-        <Chart type="bar" :data="chartData"/>
+        <Chart type="bar" :data="chartData" :options="chartOptions" />
     </div>
 </template>
 
@@ -42,6 +42,33 @@ export default {
                     backgroundColor: '#FFA726',
                     data: [41,52,24,74,23,21,32]
                 }]
+            },
+            chartOptions: {
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#495057'
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            color: '#495057'
+                        },
+                        grid: {
+                            color: '#ebedef'
+                        }
+                    },
+                    y: {
+                        ticks: {
+                            color: '#495057'
+                        },
+                        grid: {
+                            color: '#ebedef'
+                        }
+                    }
+                }
             }
         }
     }
@@ -54,7 +81,7 @@ export default {
 					content: `
 <template>
     <div>
-        <Chart type="bar" :data="chartData"/>
+        <Chart type="bar" :data="chartData" :options="chartOptions" />
     </div>
 </template>
 
@@ -87,7 +114,35 @@ export default {
             }]
         });
 
-		return { chartData }
+        const chartOptions = ref({
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#495057'
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            color: '#495057'
+                        },
+                        grid: {
+                            color: '#ebedef'
+                        }
+                    },
+                    y: {
+                        ticks: {
+                            color: '#495057'
+                        },
+                        grid: {
+                            color: '#ebedef'
+                        }
+                    }
+                }
+            });
+
+		return { chartData, chartOptions }
     }
 }
 <\\/script>`

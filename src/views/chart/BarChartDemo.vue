@@ -16,7 +16,7 @@
 
             <div class="card">
                 <h5>Horizontal</h5>
-                <Chart type="horizontalBar" :data="basicData" :options="basicOptions" />
+                <Chart type="bar" :data="basicData" :options="horizontalOptions" />
             </div>
 
             <div class="card">
@@ -52,6 +52,9 @@ export default {
         if (this.isDarkTheme()) {
             this.applyDarkTheme();
         }
+        else {
+            this.applyLightTheme();
+        }
     },
     beforeUnmount() {
         EventBus.off('change-theme', this.themeChangeListener);
@@ -86,46 +89,14 @@ export default {
                         '#FFCA28',
                         '#26A69A'
                     ],
-                    yAxisID: 'y-axis-1',
+                    yAxisID: 'y',
                     data: [65, 59, 80, 81, 56, 55, 10]
                 }, {
                     label: 'Dataset 2',
                     backgroundColor: '#78909C',
-                    yAxisID: 'y-axis-2',
+                    yAxisID: 'y1',
                     data: [28, 48, 40, 19, 86, 27, 90]
                 }]
-            },
-            multiAxisOptions: {
-                responsive: true,
-                tooltips: {
-                    mode: 'index',
-                    intersect: true
-                },
-                scales: {
-                    yAxes: [{
-                        type: 'linear',
-                        display: true,
-                        position: 'left',
-                        id: 'y-axis-1',
-                        ticks: {
-                            min: 0,
-                            max: 100
-                        }
-                    },
-                    {
-                        type: 'linear',
-                        display: true,
-                        position: 'right',
-                        id: 'y-axis-2',
-                        gridLines: {
-                            drawOnChartArea: false
-                        },
-                        ticks: {
-                            min: 0,
-                            max: 100
-                        }
-                    }]
-                }
             },
             stackedData: {
                 labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
@@ -170,22 +141,10 @@ export default {
                     ]
                 }]
             },
-            stackedOptions: {
-                tooltips: {
-                    mode: 'index',
-                    intersect: false
-                },
-                responsive: true,
-                scales: {
-                    xAxes: [{
-                        stacked: true,
-                    }],
-                    yAxes: [{
-                        stacked: true
-                    }]
-                }
-            },
-            basicOptions: null
+            basicOptions: null,
+            horizontalOptions: null,
+            multiAxisOptions: null,
+            stackedOptions: null
         }
     },
     methods: {
@@ -194,145 +153,289 @@ export default {
         },
         applyLightTheme() {
             this.basicOptions = {
-                legend: {
-                    labels: {
-                        fontColor: '#495057'
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#495057'
+                        }
                     }
                 },
                 scales: {
-                    xAxes: [{
+                    x: {
                         ticks: {
-                            fontColor: '#495057'
+                            color: '#495057'
+                        },
+                        grid: {
+                            color: '#ebedef'
                         }
-                    }],
-                    yAxes: [{
-                        ticks: {
-                            fontColor: '#495057'
-                        }
-                    }]
-                }
-            };
-
-            this.stackedOptions.scales.xAxes[0].ticks = {
-                fontColor: '#495057'
-            };
-            this.stackedOptions.scales.xAxes[0].gridLines = {
-                color: '#ebedef'
-            };
-            this.stackedOptions.scales.yAxes[0].ticks = {
-                fontColor: '#495057'
-            };
-            this.stackedOptions.scales.yAxes[0].gridLines = {
-                color: '#ebedef'
-            };
-            this.stackedOptions.legend = {
-                labels:  {
-                    fontColor: '#495057'
-                }
-            };
-            this.stackedOptions = {...this.stackedOptions};
-
-            this.multiAxisOptions.scales.xAxes = [{
-                    ticks: {
-                        fontColor: '#495057'
                     },
-                    gridLines: {
-                        color: '#ebedef'
+                    y: {
+                        ticks: {
+                            color: '#495057'
+                        },
+                        grid: {
+                            color: '#ebedef'
+                        }
                     }
                 }
-            ];
-            this.multiAxisOptions.scales.yAxes[0].ticks = {
-                fontColor: '#495057'
             };
-            this.multiAxisOptions.scales.yAxes[0].gridLines = {
-                color: '#ebedef'
-            };
-            this.multiAxisOptions.scales.yAxes[1].ticks = {
-                fontColor: '#495057'
-            };
-            this.multiAxisOptions.scales.yAxes[1].gridLines = {
-                color: '#ebedef'
-            };
-            this.multiAxisOptions.legend = {
-                labels:  {
-                    fontColor: '#495057'
+
+            this.horizontalOptions = {
+                indexAxis: 'y',
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#495057'
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            color: '#495057'
+                        },
+                        grid: {
+                            color: '#ebedef'
+                        }
+                    },
+                    y: {
+                        ticks: {
+                            color: '#495057'
+                        },
+                        grid: {
+                            color: '#ebedef'
+                        }
+                    }
                 }
             };
-            this.multiAxisOptions = {...this.multiAxisOptions};
+
+            this.multiAxisOptions = {
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#495057'
+                        }
+                    },
+                    tooltips: {
+                        mode: 'index',
+                        intersect: true
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            color: '#495057'
+                        },
+                        grid: {
+                            color: '#ebedef'
+                        }
+                    },
+                    y: {
+                        type: 'linear',
+                        display: true,
+                        position: 'left',
+                        ticks: {
+                            min: 0,
+                            max: 100,
+                            color: '#495057'
+                        },
+                        grid: {
+                            color: '#ebedef'
+                        }
+                    },
+                    y1: {
+                        type: 'linear',
+                        display: true,
+                        position: 'right',
+                        grid: {
+                            drawOnChartArea: false,
+                            color: '#ebedef'
+                        },
+                        ticks: {
+                            min: 0,
+                            max: 100,
+                            color: '#495057'
+                        }
+                    }
+                }
+            };
+
+            this.stackedOptions = {
+                plugins: {
+                    tooltips: {
+                        mode: 'index',
+                        intersect: false
+                    },
+                    legend: {
+                        labels: {
+                            color: '#495057'
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        stacked: true,
+                        ticks: {
+                            color: '#495057'
+                        },
+                        grid: {
+                            color: '#ebedef'
+                        }
+                    },
+                    y: {
+                        stacked: true,
+                        ticks: {
+                            color: '#495057'
+                        },
+                        grid: {
+                            color: '#ebedef'
+                        }
+                    }
+                }
+            };
         },
         applyDarkTheme() {
             this.basicOptions = {
-                legend: {
-                    labels: {
-                        fontColor: '#ebedef'
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#ebedef'
+                        }
                     }
                 },
                 scales: {
-                    xAxes: [{
+                    x: {
                         ticks: {
-                            fontColor: '#ebedef'
+                            color: '#ebedef'
                         },
-                        gridLines: {
+                        grid: {
                             color: 'rgba(255,255,255,0.2)'
                         }
-                    }],
-                    yAxes: [{
-                        ticks: {
-                            fontColor: '#ebedef'
-                        },
-                        gridLines: {
-                            color: 'rgba(255,255,255,0.2)'
-                        }
-                    }]
-                }
-            };
-
-            this.stackedOptions.scales.xAxes[0].ticks = {
-                fontColor: '#ebedef'
-            };
-            this.stackedOptions.scales.xAxes[0].gridLines = {
-                color: 'rgba(255,255,255,0.2)'
-            };
-            this.stackedOptions.scales.yAxes[0].ticks = {
-                fontColor: '#ebedef'
-            };
-            this.stackedOptions.scales.yAxes[0].gridLines = {
-                color: 'rgba(255,255,255,0.2)'
-            };
-            this.stackedOptions.legend = {
-                labels:  {
-                    fontColor: '#ebedef'
-                }
-            };
-            this.stackedOptions = {...this.stackedOptions};
-
-            this.multiAxisOptions.scales.xAxes = [{
-                    ticks: {
-                        fontColor: '#ebedef'
                     },
-                    gridLines: {
-                        color: 'rgba(255,255,255,0.2)'
+                    y: {
+                        ticks: {
+                            color: '#ebedef'
+                        },
+                        grid: {
+                            color: 'rgba(255,255,255,0.2)'
+                        }
                     }
                 }
-            ];
-            this.multiAxisOptions.scales.yAxes[0].ticks = {
-                fontColor: '#ebedef'
             };
-            this.multiAxisOptions.scales.yAxes[0].gridLines = {
-                color: 'rgba(255,255,255,0.2)'
-            };
-            this.multiAxisOptions.scales.yAxes[1].ticks = {
-                fontColor: '#ebedef'
-            };
-            this.multiAxisOptions.scales.yAxes[1].gridLines = {
-                color: 'rgba(255,255,255,0.2)'
-            };
-            this.multiAxisOptions.legend = {
-                labels:  {
-                    fontColor: '#ebedef'
+
+            this.horizontalOptions = {
+                indexAxis: 'y',
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#ebedef'
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            color: '#ebedef'
+                        },
+                        grid: {
+                            color: 'rgba(255,255,255,0.2)'
+                        }
+                    },
+                    y: {
+                        ticks: {
+                            color: '#ebedef'
+                        },
+                        grid: {
+                            color: 'rgba(255,255,255,0.2)'
+                        }
+                    }
                 }
             };
-            this.multiAxisOptions = {...this.multiAxisOptions};
+
+            this.multiAxisOptions = {
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#ebedef'
+                        }
+                    },
+                    tooltips: {
+                        mode: 'index',
+                        intersect: true
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            color: '#ebedef'
+                        },
+                        grid: {
+                            color: 'rgba(255,255,255,0.2)'
+                        }
+                    },
+                    y: {
+                        type: 'linear',
+                        display: true,
+                        position: 'left',
+                        ticks: {
+                            min: 0,
+                            max: 100,
+                            color: '#ebedef'
+                        },
+                        grid: {
+                            color: 'rgba(255,255,255,0.2)'
+                        }
+                    },
+                    y1: {
+                        type: 'linear',
+                        display: true,
+                        position: 'right',
+                        grid: {
+                            drawOnChartArea: false,
+                            color: 'rgba(255,255,255,0.2)'
+                        },
+                        ticks: {
+                            min: 0,
+                            max: 100,
+                            color: '#ebedef'
+                        }
+                    }
+                }
+            };
+
+            this.stackedOptions = {
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#ebedef'
+                        }
+                    },
+                    tooltips: {
+                        mode: 'index',
+                        intersect: false
+                    }
+                },
+                scales: {
+                    x: {
+                        stacked: true,
+                        ticks: {
+                            color: '#ebedef'
+                        },
+                        grid: {
+                            color: 'rgba(255,255,255,0.2)'
+                        }
+                    },
+                    y: {
+                        stacked: true,
+                        ticks: {
+                            color: '#ebedef'
+                        },
+                        grid: {
+                            color: 'rgba(255,255,255,0.2)'
+                        }
+                    }
+                }
+            };            
         }
     },
     components: {

@@ -47,6 +47,9 @@ export default {
         if (this.isDarkTheme()) {
             this.applyDarkTheme();
         }
+        else {
+            this.applyLightTheme();
+        }
     },
     beforeUnmount() {
         EventBus.off('change-theme', this.themeChangeListener);
@@ -60,13 +63,15 @@ export default {
                         label: 'First Dataset',
                         data: [65, 59, 80, 81, 56, 55, 40],
                         fill: false,
-                        borderColor: '#42A5F5'
+                        borderColor: '#42A5F5',
+                        tension: .4
                     },
                     {
                         label: 'Second Dataset',
                         data: [28, 48, 40, 19, 86, 27, 90],
                         fill: false,
-                        borderColor: '#FFA726'
+                        borderColor: '#FFA726',
+                        tension: .4
                     }
                 ]
             },
@@ -76,36 +81,17 @@ export default {
                     label: 'Dataset 1',
                     fill: false,
                     borderColor: '#42A5F5',
-                    yAxisID: 'y-axis-1',
+                    yAxisID: 'y',
+                    tension: .4,
                     data: [65, 59, 80, 81, 56, 55, 10]
                 }, {
                     label: 'Dataset 2',
                     fill: false,
                     borderColor: '#00bb7e',
-                    yAxisID: 'y-axis-2',
+                    yAxisID: 'y1',
+                    tension: .4,
                     data: [28, 48, 40, 19, 86, 27, 90]
                 }]
-            },
-            multiAxisOptions: {
-                responsive: true,
-                hoverMode: 'index',
-                stacked: false,
-                scales: {
-                    yAxes: [{
-                        type: 'linear',
-                        display: true,
-                        position: 'left',
-                        id: 'y-axis-1',
-                    }, {
-                        type: 'linear',
-                        display: true,
-                        position: 'right',
-                        id: 'y-axis-2',
-                        gridLines: {
-                            drawOnChartArea: false
-                        }
-                    }]
-                }
             },
             lineStylesData: {
                 labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
@@ -114,6 +100,7 @@ export default {
                         label: 'First Dataset',
                         data: [65, 59, 80, 81, 56, 55, 40],
                         fill: false,
+                        tension: .4,
                         borderColor: '#42A5F5'
                     },
                     {
@@ -121,6 +108,7 @@ export default {
                         data: [28, 48, 40, 19, 86, 27, 90],
                         fill: false,
                         borderDash: [5, 5],
+                        tension: .4,
                         borderColor: '#66BB6A'
                     },
                     {
@@ -128,11 +116,13 @@ export default {
                         data: [12, 51, 62, 33, 21, 62, 45],
                         fill: true,
                         borderColor: '#FFA726',
+                        tension: .4,
                         backgroundColor: 'rgba(255,167,38,0.2)'
                     }
                 ]
             },
-            basicOptions: null
+            basicOptions: null,
+            multiAxisOptions: null
         }
     },
     methods: {
@@ -141,107 +131,149 @@ export default {
         },
         applyLightTheme() {
             this.basicOptions = {
-                legend: {
-                    labels: {
-                        fontColor: '#495057'
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#495057'
+                        }
                     }
                 },
                 scales: {
-                    xAxes: [{
+                    x: {
                         ticks: {
-                            fontColor: '#495057'
+                            color: '#495057'
+                        },
+                        grid: {
+                            color: '#ebedef'
                         }
-                    }],
-                    yAxes: [{
+                    },
+                    y: {
                         ticks: {
-                            fontColor: '#495057'
+                            color: '#495057'
+                        },
+                        grid: {
+                            color: '#ebedef'
                         }
-                    }]
+                    }
                 }
             };
 
-            this.multiAxisOptions.scales.xAxes = [{
-                    ticks: {
-                        fontColor: '#495057'
+            this.multiAxisOptions = {
+                stacked: false,
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#495057'
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            color: '#495057'
+                        },
+                        grid: {
+                            color: '#ebedef'
+                        }
                     },
-                    gridLines: {
-                        color: '#ebedef'
+                    y: {
+                        type: 'linear',
+                        display: true,
+                        position: 'left',
+                        ticks: {
+                            color: '#495057'
+                        },
+                        grid: {
+                            color: '#ebedef'
+                        }
+                    },
+                    y1: {
+                        type: 'linear',
+                        display: true,
+                        position: 'right',
+                        ticks: {
+                            color: '#495057'
+                        },
+                        grid: {
+                            drawOnChartArea: false,
+                            color: '#ebedef'
+                        }
                     }
                 }
-            ];
-            this.multiAxisOptions.scales.yAxes[0].ticks = {
-                fontColor: '#495057'
             };
-            this.multiAxisOptions.scales.yAxes[0].gridLines = {
-                color: '#ebedef'
-            };
-            this.multiAxisOptions.scales.yAxes[1].ticks = {
-                fontColor: '#495057'
-            };
-            this.multiAxisOptions.scales.yAxes[1].gridLines = {
-                color: '#ebedef'
-            };
-            this.multiAxisOptions.legend = {
-                labels:  {
-                    fontColor: '#495057'
-                }
-            };
-            this.multiAxisOptions = {...this.multiAxisOptions};
         },
         applyDarkTheme() {
             this.basicOptions = {
-                legend: {
-                    labels: {
-                        fontColor: '#ebedef'
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#ebedef'
+                        }
                     }
                 },
                 scales: {
-                    xAxes: [{
+                    x: {
                         ticks: {
-                            fontColor: '#ebedef'
+                            color: '#ebedef'
                         },
-                        gridLines: {
+                        grid: {
                             color: 'rgba(255,255,255,0.2)'
                         }
-                    }],
-                    yAxes: [{
+                    },
+                    y: {
                         ticks: {
-                            fontColor: '#ebedef'
+                            color: '#ebedef'
                         },
-                        gridLines: {
+                        grid: {
                             color: 'rgba(255,255,255,0.2)'
                         }
-                    }]
+                    }
                 }
             };
 
-            this.multiAxisOptions.scales.xAxes = [{
-                    ticks: {
-                        fontColor: '#ebedef'
+            this.multiAxisOptions = {
+                stacked: false,
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#ebedef'
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            color: '#ebedef'
+                        },
+                        grid: {
+                            color: 'rgba(255,255,255,0.2)'
+                        }
                     },
-                    gridLines: {
-                        color: 'rgba(255,255,255,0.2)'
+                    y: {
+                        type: 'linear',
+                        display: true,
+                        position: 'left',
+                        ticks: {
+                            color: '#ebedef'
+                        },
+                        grid: {
+                            color: 'rgba(255,255,255,0.2)'
+                        }
+                    },
+                    y1: {
+                        type: 'linear',
+                        display: true,
+                        position: 'right',
+                        ticks: {
+                            color: '#ebedef'
+                        },
+                        grid: {
+                            drawOnChartArea: false,
+                            color: 'rgba(255,255,255,0.2)'
+                        }
                     }
                 }
-            ];
-            this.multiAxisOptions.scales.yAxes[0].ticks = {
-                fontColor: '#ebedef'
             };
-            this.multiAxisOptions.scales.yAxes[0].gridLines = {
-                color: 'rgba(255,255,255,0.2)'
-            };
-            this.multiAxisOptions.scales.yAxes[1].ticks = {
-                fontColor: '#ebedef'
-            };
-            this.multiAxisOptions.scales.yAxes[1].gridLines = {
-                color: 'rgba(255,255,255,0.2)'
-            };
-            this.multiAxisOptions.legend = {
-                labels:  {
-                    fontColor: '#ebedef'
-                }
-            };
-            this.multiAxisOptions = {...this.multiAxisOptions};
         }
     },
     components: {

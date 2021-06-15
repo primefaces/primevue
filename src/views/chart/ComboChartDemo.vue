@@ -89,17 +89,7 @@ export default {
                     ]
                 }]
             },
-            chartOptions: {
-                responsive: true,
-                title: {
-                    display: true,
-                    text: 'Combo Bar Line Chart'
-                },
-                tooltips: {
-                    mode: 'index',
-                    intersect: true
-                }
-            }
+            chartOptions: this.isDarkTheme() ? this.applyDarkTheme() : this.applyLightTheme()
         }
     },
     methods: {
@@ -108,49 +98,59 @@ export default {
         },
         applyLightTheme() {
             this.chartOptions = {
-                legend: {
-                    labels: {
-                        fontColor: '#495057'
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#495057'
+                        }
                     }
                 },
                 scales: {
-                    xAxes: [{
+                    x: {
                         ticks: {
-                            fontColor: '#495057'
+                            color: '#495057'
+                        },
+                        grid: {
+                            color: '#ebedef'
                         }
-                    }],
-                    yAxes: [{
+                    },
+                    y: {
                         ticks: {
-                            fontColor: '#495057'
+                            color: '#495057'
+                        },
+                        grid: {
+                            color: '#ebedef'
                         }
-                    }]
+                    }
                 }
             }
         },
         applyDarkTheme() {
             this.chartOptions = {
-                legend: {
-                    labels: {
-                        fontColor: '#ebedef'
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#ebedef'
+                        }
                     }
                 },
                 scales: {
-                    xAxes: [{
+                    x: {
                         ticks: {
-                            fontColor: '#ebedef'
+                            color: '#ebedef'
                         },
-                        gridLines: {
+                        grid: {
                             color: 'rgba(255,255,255,0.2)'
                         }
-                    }],
-                    yAxes: [{
+                    },
+                    y: {
                         ticks: {
-                            fontColor: '#ebedef'
+                            color: '#ebedef'
                         },
-                        gridLines: {
+                        grid: {
                             color: 'rgba(255,255,255,0.2)'
                         }
-                    }]
+                    }
                 }
             };
         }

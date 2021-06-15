@@ -1,5 +1,5 @@
 <template>
-	<AppDoc name="ChartDemo" :sources="sources" :dependencies="{'chart.js': '2.7.3'}" component="Chart" github="chart/RadarChartDemo.vue" />
+	<AppDoc name="ChartDemo" :sources="sources" :dependencies="{'chart.js': '3.3.2'}" component="Chart" github="chart/RadarChartDemo.vue" />
 </template>
 
 <script>
@@ -12,7 +12,7 @@ export default {
 					content: `
 <template>
     <div>
-        <Chart type="radar" :data="chartData" />
+        <Chart type="radar" :data="chartData" :options="chartOptions" />
     </div>
 </template>
 
@@ -45,6 +45,28 @@ export default {
                     }
                 ]
             },
+            chartOption: {
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#495057'
+                        }
+                    }
+                },
+                scales: {
+                    r: {
+                        pointLabels: {
+                            color: '#495057',
+                        },
+                        grid: {
+                            color: '#ebedef',
+                        },
+                        angleLines: {
+                            color: '#ebedef'
+                        }
+                    }
+                }
+            }
         }
     }    
 }
@@ -56,7 +78,7 @@ export default {
 					content: `
 <template>
     <div>
-        <Chart type="radar" :data="chartData" />
+        <Chart type="radar" :data="chartData" :options="chartOptions" />
     </div>
 </template>
 
@@ -91,7 +113,30 @@ export default {
             ]
         });
 
-		return { chartData }
+        const chartOptions = ref({
+            plugins: {
+                legend: {
+                    labels: {
+                        color: '#495057'
+                    }
+                }
+            },
+            scales: {
+                r: {
+                    pointLabels: {
+                        color: '#495057',
+                    },
+                    grid: {
+                        color: '#ebedef',
+                    },
+                    angleLines: {
+                        color: '#ebedef'
+                    }
+                }
+            }
+        });
+
+		return { chartData, chartOptions }
     }    
 }
 <\\/script>

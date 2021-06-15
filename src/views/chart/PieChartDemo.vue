@@ -9,8 +9,8 @@
         </div>
 
         <div class="content-section implementation">
-            <div class="card">
-                <Chart type="pie" :data="chartData" :options="chartOptions" />
+            <div class="card p-d-flex p-jc-center">
+                <Chart type="pie" :data="chartData" :options="chartOptions" style="width: 40%" />
             </div>
         </div>
 
@@ -65,18 +65,22 @@ export default {
         },
         getLightTheme() {
             return {
-                legend: {
-                    labels: {
-                        fontColor: '#495057'
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#495057'
+                        }
                     }
                 }
             }
         },
         getDarkTheme() {
             return {
-                legend: {
-                    labels: {
-                        fontColor: '#ebedef'
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#ebedef'
+                        }
                     }
                 }
             }
