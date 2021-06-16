@@ -1,6 +1,10 @@
 <template>
 	<AppDoc name="FullCalendarDemo" :sources="sources" :service="['EventService']" :data="['events']" github="fullcalendar/FullCalendarDemo.vue"
-        :dependencies="{'@fullcalendar/core': '5.4.0', '@fullcalendar/daygrid': '5.4.0', '@fullcalendar/interaction': '5.4.0', '@fullcalendar/timegrid': '5.4.0'}" component="FullCalendar">
+        :dependencies="{'@fullcalendar/core': '^5.7.2', '@fullcalendar/vue3': '^5.7.2', '@fullcalendar/daygrid': '^5.7.2', '@fullcalendar/interaction': '^5.7.2', '@fullcalendar/timegrid': '^5.7.2'}" component="FullCalendar">
+        <h4><strong>Note:</strong> This documentation explains how to use PrimeVue's FullCalendar component and <a href="https://fullcalendar.io/docs/v4">FullCalendar 4.0.1+</a>.
+            In PrimeVue 5.7.2+, FullCalendar component is deprecated. Now, PrimeVue provides full theming support to the <a href="https://fullcalendar.io/docs/vue">FullCalendar Vue</a> library.
+            In this way, it is aimed to use it compatible with other PrimeVue components.</h4>
+
         <h5>Import</h5>
 <pre v-code.script><code>
 import FullCalendar from 'primevue/fullcalendar';
@@ -128,11 +132,14 @@ export default {
                 plugins:[dayGridPlugin, timeGridPlugin, interactionPlugin],
                 initialDate: '2019-01-01',
                 headerToolbar: {
-                    left: 'prev,next',
+                    left: 'prev,next today',
                     center: 'title',
                     right: 'dayGridMonth,timeGridWeek,timeGridDay'
                 },
-                editable: true
+                editable: true,
+                selectable:true, 
+                selectMirror: true, 
+                dayMaxEvents: true
             },
             events: null
         };
@@ -158,7 +165,7 @@ export default {
                 plugins:[dayGridPlugin, timeGridPlugin, interactionPlugin],
                 initialDate: '2019-01-01',
                 headerToolbar: {
-                    left: 'prev,next',
+                    left: 'prev,next today',
                     center: 'title',
                     right: 'dayGridMonth,timeGridWeek,timeGridDay'
                 },
@@ -234,11 +241,14 @@ export default {
                 plugins:[dayGridPlugin, timeGridPlugin, interactionPlugin],
                 initialDate : '2017-02-01',
                 headerToolbar: {
-                    left: 'prev,next',
+                    left: 'prev,next today',
                     center: 'title',
                     right: 'dayGridMonth,timeGridWeek,timeGridDay'
                 },
-                editable: true
+                editable: true,
+                selectable:true, 
+                selectMirror: true, 
+                dayMaxEvents: true
             },
             events: null
         };
@@ -289,11 +299,14 @@ export default {
             plugins:[dayGridPlugin, timeGridPlugin, interactionPlugin],
             initialDate : '2017-02-01',
             headerToolbar: {
-                left: 'prev,next',
+                left: 'prev,next today',
                 center: 'title',
                 right: 'dayGridMonth,timeGridWeek,timeGridDay'
             },
-            editable: true
+            editable: true,
+                selectable:true, 
+                selectMirror: true, 
+                dayMaxEvents: true
         });
         const events =  ref(null);
         const eventService = ref(new EventService());

@@ -3,7 +3,7 @@
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>FullCalendar</h1>
-                <p>An event calendar based on the <a href="https://fullcalendar.io/">FullCalendar</a> library.</p>
+                <p><a href="https://fullcalendar.io/docs/vue">FullCalendar Vue</a> library is fully compatible with PrimeVue themes.</p>
             </div>
             <AppDemoActions />
         </div>
@@ -32,11 +32,14 @@ export default {
                 plugins:[dayGridPlugin, timeGridPlugin, interactionPlugin],
                 initialDate : '2019-01-01',
                 headerToolbar: {
-                    left: 'prev,next',
+                    left: 'prev,next today',
                     center: 'title',
                     right: 'dayGridMonth,timeGridWeek,timeGridDay'
                 },
-                editable: true
+                editable: true,
+                selectable:true, 
+                selectMirror: true, 
+                dayMaxEvents: true
             },
             events: null
         };
@@ -53,3 +56,12 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+@media screen and (max-width: 960px) {
+    ::v-deep(.fc-header-toolbar) {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+</style>
