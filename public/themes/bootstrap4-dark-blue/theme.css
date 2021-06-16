@@ -2608,6 +2608,52 @@
 .fc.fc-theme-standard .fc-view-harness .fc-view {
   background: #2a323d;
 }
+.fc.fc-theme-standard .fc-view-harness .fc-popover {
+  background: none;
+  border: 0 none;
+}
+.fc.fc-theme-standard .fc-view-harness .fc-popover .fc-popover-header {
+  border: 1px solid #3f4b5b;
+  padding: 1rem 1.25rem;
+  background: #2a323d;
+  color: rgba(255, 255, 255, 0.87);
+}
+.fc.fc-theme-standard .fc-view-harness .fc-popover .fc-popover-header .fc-popover-close {
+  opacity: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  font-family: "PrimeIcons" !important;
+  font-size: 1rem;
+  width: 2rem;
+  height: 2rem;
+  color: rgba(255, 255, 255, 0.6);
+  border: 0 none;
+  background: transparent;
+  border-radius: 50%;
+  transition: color 0.15s, box-shadow 0.15s;
+}
+.fc.fc-theme-standard .fc-view-harness .fc-popover .fc-popover-header .fc-popover-close:before {
+  content: "";
+}
+.fc.fc-theme-standard .fc-view-harness .fc-popover .fc-popover-header .fc-popover-close:hover {
+  color: rgba(255, 255, 255, 0.87);
+  border-color: transparent;
+  background: transparent;
+}
+.fc.fc-theme-standard .fc-view-harness .fc-popover .fc-popover-header .fc-popover-close:focus {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: 0 0 0 1px #e3f3fe;
+}
+.fc.fc-theme-standard .fc-view-harness .fc-popover .fc-popover-body {
+  padding: 1.25rem;
+  border: 1px solid #3f4b5b;
+  background: #2a323d;
+  color: rgba(255, 255, 255, 0.87);
+  border-top: 0 none;
+}
 .fc.fc-theme-standard .fc-view-harness .fc-event.fc-daygrid-block-event {
   color: #151515;
   background: #56bdff;
