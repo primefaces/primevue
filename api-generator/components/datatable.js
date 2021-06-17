@@ -507,6 +507,27 @@ const DataTableEvents = [
         ]
     },
     {
+        name: "row-dblclick",
+        description: "Callback to invoke when a row is double clicked.",
+        arguments: [
+            {
+                name: "event.originalEvent",
+                type: "object",
+                description: "Browser event."
+            },
+            {
+                name: "event.data",
+                type: "object",
+                description: "Selected row data."
+            },
+            {
+                name: "event.index",
+                type: "number",
+                description: "Row index"
+            }
+        ]
+    },
+    {
         name: "row-contextmenu",
         description: "Callback to invoke when a row is selected with a ContextMenu",
         arguments: [

@@ -62,6 +62,7 @@ declare class DataTable extends Vue {
     $emit(eventName: 'sort', event: Event): this;
     $emit(eventName: 'filter', event: Event): this;
     $emit(eventName: 'row-click', event: Event): this;
+    $emit(eventName: 'row-dblclick', event: Event): this;
     $emit(eventName: 'row-contextmenu', event: Event): this;
     $emit(eventName: 'row-select', event: Event): this;
     $emit(eventName: 'row-unselect', event: Event): this;
