@@ -12,6 +12,7 @@ export default {
         type: String,
         data: null,
         options: null,
+        plugins: null,
         width: Number,
         height: Number
     },
@@ -41,7 +42,8 @@ export default {
             this.chart = new Chart(this.$refs.canvas, {
                 type: this.type,
                 data: this.data,
-                options: this.options
+                options: this.options,
+                plugins: this.plugins
             });
         },
         getCanvas() {

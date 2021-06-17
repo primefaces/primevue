@@ -111,6 +111,12 @@ options: {
                         <td>Options to customize the chart.</td>
                     </tr>
                     <tr>
+                        <td>plugins</td>
+                        <td>any[]</td>
+                        <td>null</td>
+                        <td>List of plugins to initialize within the chart.</td>
+                    </tr>
+                    <tr>
                         <td>width</td>
                         <td>string</td>
                         <td>null</td>
