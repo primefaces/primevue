@@ -3,7 +3,7 @@ import Vue, {VNode} from 'vue';
 declare class PickList extends Vue {
     value?: any[][];
     selection?: any[][];
-    dataKey?: string;
+    dataKey?: string | ((item: any) => any);
     metaKeySelection?: boolean;
     listStyle?: any;
     $emit(eventName: 'reorder', e: { originalEvent: Event, value: any[]; direction: string}): this;

@@ -40,7 +40,7 @@ export default {
             default: null
         },
         dataKey: {
-            type: String,
+            type: [String, Function],
             default: null
         },
         listStyle: {

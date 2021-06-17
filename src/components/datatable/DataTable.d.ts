@@ -2,7 +2,7 @@ import Vue, { VNode } from 'vue';
 
 declare class DataTable extends Vue {
     value?: any[];
-    dataKey?: string;
+    dataKey?: string | ((item: any) => any);
     rows?: number;
     first?: number;
     totalRecords?: number;
