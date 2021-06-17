@@ -1084,7 +1084,7 @@ export default {
             }
             return hours;
         },
-        validateTime(hour, minute, second, pm) {
+        validateTime(hour, minute, second, pm, isMinutes, isSeconds) {
             let value = this.value;
             const convertedHour = this.convertTo24Hour(hour, pm);
             if (!this.isComparable()) {
@@ -1103,11 +1103,16 @@ export default {
                 }
                 if (this.minDate.getHours() === convertedHour) {
                     if (this.minDate.getMinutes() > minute) {
-                        return false;
-                    }
-                    if (this.minDate.getMinutes() === minute) {
-                        if (this.minDate.getSeconds() > second) {
+                        if (isMinutes || isSeconds)
                             return false;
+                        else
+                            this.currentMinute = this.minDate.getMinutes();
+                    } else if (this.minDate.getMinutes() === minute) {
+                        if (this.minDate.getSeconds() > second) {
+                            if (isSeconds)
+                                return false;
+                            else
+                                this.currentSecond = this.minDate.getSeconds();
                         }
                     }
                 }
@@ -1119,11 +1124,16 @@ export default {
                 }
                 if (this.maxDate.getHours() === convertedHour) {
                     if (this.maxDate.getMinutes() < minute) {
-                        return false;
-                    }
-                    if (this.maxDate.getMinutes() === minute) {
+                        if (isMinutes || isSeconds)
+                            return false;
+                        else
+                            this.currentMinute = this.maxDate.getMinutes();
+                    } else if (this.maxDate.getMinutes() === minute) {
                       if (this.maxDate.getSeconds() < second) {
-                          return false;
+                          if (isSeconds)
+                            return false;
+                        else
+                          this.currentSecond = this.maxDate.getSeconds();
                       }
                     }
                 }
@@ -1145,7 +1155,7 @@ export default {
                 newHour = (newHour >= 13) ? (newHour - 12) : newHour;
             }
 
-            if (this.validateTime(newHour, this.currentMinute, this.currentSecond, newPM)) {
+            if (this.validateTime(newHour, this.currentMinute, this.currentSecond, newPM, false, false)) {
                 this.currentHour = newHour;
                 this.pm = newPM;
             }
@@ -1166,7 +1176,7 @@ export default {
                 newHour = (newHour <= 0) ? (12 + newHour) : newHour;
             }
 
-            if (this.validateTime(newHour, this.currentMinute, this.currentSecond, newPM)) {
+            if (this.validateTime(newHour, this.currentMinute, this.currentSecond, newPM, false, false)) {
                 this.currentHour = newHour;
                 this.pm = newPM;
             }
@@ -1175,7 +1185,7 @@ export default {
         },
         incrementMinute(event) {
             let newMinute = this.currentMinute + this.stepMinute;
-            if (this.validateTime(this.currentHour, newMinute, this.currentSecond, true)) {
+            if (this.validateTime(this.currentHour, newMinute, this.currentSecond, true, true, false)) {
                 this.currentMinute = (newMinute > 59) ? newMinute - 60 : newMinute;
             }
 
@@ -1184,7 +1194,7 @@ export default {
         decrementMinute(event) {
             let newMinute = this.currentMinute - this.stepMinute;
             newMinute = (newMinute < 0) ? 60 + newMinute : newMinute;
-            if (this.validateTime(this.currentHour, newMinute, this.currentSecond, true)) {
+            if (this.validateTime(this.currentHour, newMinute, this.currentSecond, true, true, false)) {
                 this.currentMinute = newMinute;
             }
 
@@ -1192,7 +1202,7 @@ export default {
         },
         incrementSecond(event) {
             let newSecond = this.currentSecond + this.stepSecond;
-            if (this.validateTime(this.currentHour, this.currentMinute, newSecond, true)) {
+            if (this.validateTime(this.currentHour, this.currentMinute, newSecond, true, false, true)) {
                 this.currentSecond = (newSecond > 59) ? newSecond - 60 : newSecond;
             }
 
@@ -1201,7 +1211,7 @@ export default {
         decrementSecond(event) {
             let newSecond = this.currentSecond - this.stepSecond;
             newSecond = (newSecond < 0) ? 60 + newSecond : newSecond;
-            if (this.validateTime(this.currentHour, this.currentMinute, newSecond, true)) {
+            if (this.validateTime(this.currentHour, this.currentMinute, newSecond, true, false, true)) {
                 this.currentSecond = newSecond;
             }
 

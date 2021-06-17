@@ -77,10 +77,14 @@
                         <label for="touchUI">TouchUI</label>
                         <Calendar id="touchUI" v-model="date13" :touchUI="true" />
                     </div>
+                    <div class="p-field p-col-12 p-md-4">
+                        <label for="timeMinMax">Time (Min: {{date14_min.toLocaleTimeString()}}, Max: {{date14_max.toLocaleTimeString()}})</label>
+                        <Calendar id="timeMinMax" v-model="date14" :min-date="date14_min" :max-date="date14_max" :show-time="true" :show-seconds="true" :show-icon="true" />
+                    </div>
                 </div>
 
                 <h5>Inline</h5>
-                <Calendar v-model="date14" :inline="true" :showWeek="true" />
+                <Calendar v-model="date15" :inline="true" :showWeek="true" />
             </div>
         </div>
 
@@ -126,7 +130,10 @@ export default {
             date11: null,
             date12: null,
             date13: null,
-            date14: null,
+            date14: new Date(2021, 2, 1, 5, 18, 28),
+            date14_min: new Date(2021, 2, 1, 5, 18, 28),
+            date14_max: new Date(2021, 2, 1, 5, 19, 7),
+            date15: null,
             dates1: null,
             dates2: null,
             es: {
