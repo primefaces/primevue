@@ -79,7 +79,7 @@ export default {
 
 <style lang="scss" scoped>
 .p-multiselect {
-    min-width: 15rem;
+    width: 18rem;
 }
 
 /deep/ .multiselect-custom {
@@ -99,6 +99,12 @@ export default {
         img.flag {
             width: 17px;
         }
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .p-multiselect {
+        width: 100%;
     }
 }
 </style>
