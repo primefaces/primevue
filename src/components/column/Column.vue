@@ -11,7 +11,7 @@ export default {
             default: null
         },
         sortField: {
-            type: String,
+            type: [String, Function],
             default: null
         },
         filterField: {
