@@ -1095,12 +1095,14 @@ export default {
             for (let child of children) {
                 for (let row of child.children) {
                     let resizeCell = row.children[colIndex];
-                    resizeCell.style.flex = '0 0 ' + newColumnWidth + 'px';
+                    if (resizeCell) {
+                        resizeCell.style.flex = '0 0 ' + newColumnWidth + 'px';
 
-                    if (this.columnResizeMode === 'fit') {
-                        let nextCell = resizeCell.nextElementSibling;
-                        if (nextCell) {
-                            nextCell.style.flex = '0 0 ' + nextColumnWidth + 'px';
+                        if (this.columnResizeMode === 'fit') {
+                            let nextCell = resizeCell.nextElementSibling;
+                            if (nextCell) {
+                                nextCell.style.flex = '0 0 ' + nextColumnWidth + 'px';
+                            }
                         }
                     }
                 }
