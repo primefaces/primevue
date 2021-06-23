@@ -192,6 +192,8 @@ export default {
 <style>
 .p-tieredmenu-overlay {
     position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .p-tieredmenu ul {

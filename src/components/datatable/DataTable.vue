@@ -2052,6 +2052,8 @@ export default {
 
 .p-column-filter-overlay {
     position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .p-column-filter-row-items {

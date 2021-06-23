@@ -707,6 +707,8 @@ export default {
 
 .p-multiselect-panel {
     position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .p-multiselect-items-wrapper {

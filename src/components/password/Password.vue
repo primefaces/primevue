@@ -316,6 +316,8 @@ export default {
 
 .p-password-panel {
     position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .p-password .p-password-panel {

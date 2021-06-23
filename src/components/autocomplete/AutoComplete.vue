@@ -631,6 +631,8 @@ export default {
 .p-autocomplete-panel {
     position: absolute;
     overflow: auto;
+    top: 0;
+    left: 0;
 }
 
 .p-autocomplete-items {

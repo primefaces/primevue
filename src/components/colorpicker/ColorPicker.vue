@@ -607,6 +607,8 @@ export default {
 
 .p-colorpicker-overlay-panel {
     position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .p-colorpicker-preview {

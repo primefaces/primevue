@@ -373,6 +373,8 @@ export default {
 
 .p-cascadeselect-panel {
     position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .p-cascadeselect-item {

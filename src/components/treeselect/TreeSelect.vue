@@ -467,6 +467,8 @@ export default {
 
 .p-treeselect-panel {
     position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .p-treeselect-items-wrapper {

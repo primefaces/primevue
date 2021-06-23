@@ -214,6 +214,8 @@ export default {
 <style>
 .p-menu-overlay {
     position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .p-menu ul {

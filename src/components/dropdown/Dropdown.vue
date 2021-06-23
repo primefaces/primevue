@@ -734,6 +734,8 @@ input.p-dropdown-label  {
 
 .p-dropdown-panel {
     position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .p-dropdown-items-wrapper {

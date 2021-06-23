@@ -228,6 +228,8 @@ export default {
 .p-confirm-popup {
     position: absolute;
     margin-top: 10px;
+    top: 0;
+    left: 0;
 }
 
 .p-confirm-popup-flipped {

@@ -2221,6 +2221,8 @@ export default {
 .p-datepicker {
 	width: auto;
     position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .p-datepicker-inline {
