@@ -1,4 +1,6 @@
 interface ButtonProps {
+    style?: any;
+    class?: string;
     label?: string;
     icon?: string;
     iconPos?: string;
