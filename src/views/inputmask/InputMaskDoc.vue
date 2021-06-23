@@ -76,7 +76,7 @@ import InputMask from 'primevue/inputmask';
                     <tr>
                         <td>slotChar</td>
                         <td>string</td>
-                        <td>-</td>
+                        <td>_</td>
                         <td>Placeholder character in mask, default is underscore.</td>
                     </tr>
                     <tr>
