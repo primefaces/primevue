@@ -72,7 +72,9 @@ function show(el) {
     DomHandler.fadeIn(tooltipElement, 250);
 
     window.addEventListener('resize', function onWindowResize() {
-        hide(el);
+        if (!DomHandler.isAndroid()) {
+            hide(el);
+        }
         this.removeEventListener('resize', onWindowResize);
     });
 
