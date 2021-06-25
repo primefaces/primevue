@@ -25,6 +25,7 @@ let globalDependencies = {
     'primevue/message': 'primevue.message',
     'primevue/dropdown': 'primevue.dropdown',
     'primevue/menu': 'primevue.menu',
+    'primevue/tieredmenu': 'primevue.tieredmenu',
     'primevue/tree': 'primevue.tree',
     '@fullcalendar/core': 'FullCalendar'
 }

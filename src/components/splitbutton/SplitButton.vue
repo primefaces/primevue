@@ -10,7 +10,7 @@
 
 <script>
 import Button from 'primevue/button';
-import Menu from 'primevue/menu';
+import TieredMenu from 'primevue/tieredmenu';
 import {UniqueComponentId} from 'primevue/utils';
 
 export default {
@@ -62,7 +62,7 @@ export default {
     },
     components: {
         'PVSButton': Button,
-        'PVSMenu': Menu
+        'PVSMenu': TieredMenu
     }
 }
 </script>
