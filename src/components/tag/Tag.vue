@@ -1,5 +1,5 @@
 <template>
-    <span :class="containerClass">
+    <span :class="containerClass" v-bind="$attrs">
         <slot>
             <span :class="iconClass" v-if="icon"></span>
             <span class="p-tag-value">{{value}}</span>
