@@ -1,11 +1,14 @@
 <template>
     <div :class="containerClass" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="p-toast-message-content">
-            <span :class="iconClass"></span>
-            <div class="p-toast-message-text">
-                <span class="p-toast-summary">{{message.summary}}</span>
-                <div class="p-toast-detail">{{message.detail}}</div>
-            </div>
+            <template v-if="!template">
+                <span :class="iconClass"></span>
+                <div class="p-toast-message-text">
+                    <span class="p-toast-summary">{{message.summary}}</span>
+                    <div class="p-toast-detail">{{message.detail}}</div>
+                </div>
+            </template>
+            <component v-else :is="template" :message="message"></component>
             <button class="p-toast-icon-close p-link" @click="onCloseClick" v-if="message.closable !== false" type="button" v-ripple>
                 <span class="p-toast-icon-close-icon pi pi-times"></span>
             </button>
@@ -20,7 +23,8 @@ export default {
     name: 'ToastMessage',
     emits: ['close'],
     props: {
-        message: null
+        message: null,
+        template: null
     },
     closeTimeout: null,
     mounted() {

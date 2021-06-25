@@ -2,7 +2,7 @@
     <Teleport to="body">
         <div ref="container" :class="containerClass" v-bind="$attrs">
             <transition-group name="p-toast-message" tag="div" @enter="onEnter">
-                <ToastMessage v-for="msg of messages" :key="msg.id" :message="msg" @close="remove($event)"/>
+                <ToastMessage v-for="msg of messages" :key="msg.id" :message="msg" @close="remove($event)" :template="$slots.message"/>
             </transition-group>
         </div>
     </Teleport>
