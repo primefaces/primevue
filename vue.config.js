@@ -15,6 +15,7 @@ module.exports = {
                 'primevue/inputtext': path.resolve(__dirname, 'src/components/inputtext/InputText.vue'),
                 'primevue/dialog': path.resolve(__dirname, 'src/components/dialog/Dialog.vue'),
                 'primevue/menu': path.resolve(__dirname, 'src/components/menu/Menu.vue'),
+                'primevue/tieredmenu': path.resolve(__dirname, 'src/components/tieredmenu/TieredMenu.vue'),
                 'primevue/dropdown': path.resolve(__dirname, 'src/components/dropdown/Dropdown.vue'),
                 'primevue/paginator': path.resolve(__dirname, 'src/components/paginator/Paginator.vue'),
                 'primevue/progressbar': path.resolve(__dirname, 'src/components/progressbar/ProgressBar.vue'),
