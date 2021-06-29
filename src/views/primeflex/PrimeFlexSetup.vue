@@ -112,7 +112,7 @@ $xl:1080px;
 import './assets/_overrides.scss';
 import 'primeflex/src/_variables.css';
 import 'primeflex/src/_grid.css';
-import 'primeflex/src/_formlayour.css';
+import 'primeflex/src/_formlayout.css';
 import 'primeflex/src/_display.css';
 import 'primeflex/src/_text.css';
 import 'primeflex/src/flexbox/_flexbox.css';
