@@ -6,6 +6,7 @@
                     <template v-if="!$slots.item">
                         <router-link v-if="item.to && !item.disabled" :to="item.to" custom v-slot="{navigate, href}">
                             <a :href="href" class="p-panelmenu-header-link" @click="onItemClick($event, item, navigate)" role="treeitem">
+                                <span v-if="item.items" :class="getPanelToggleIcon(item)"></span>
                                 <span v-if="item.icon" :class="getPanelIcon(item)"></span>
                                 <span class="p-menuitem-text">{{item.label}}</span>
                             </a>
