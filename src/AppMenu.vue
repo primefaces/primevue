@@ -10,7 +10,10 @@
         </div>
         <div class="layout-menu">
             <template v-for="item of menu" :key="item.name">
-                <div class="menu-category">{{item.name}}</div>
+                <div class="menu-category">
+                    {{item.name}}
+                    <Tag v-if="item.badge" :value="item.badge"></Tag>
+                </div>
                 <div class="menu-items">
                     <template v-for="child of item.children" :key="child.name">
                         <a v-if="child.href" :href="child.href" target="_blank">{{child.name}}</a>
