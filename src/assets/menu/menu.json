@@ -659,6 +659,7 @@
         {
             "name": "Chart",
             "meta": ["chart"],
+            "badge": "Updated",
             "children": [
                 {
                     "name": "ChartModel",
