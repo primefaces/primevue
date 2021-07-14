@@ -62,7 +62,7 @@ const AutoCompleteProps = [
     {
         name: "completeOnFocus",
         type: "boolean",
-        default: false,
+        default: "false",
         description: "Whether to run a query when input receives focus."
     },
     {

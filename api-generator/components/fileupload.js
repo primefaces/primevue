@@ -232,12 +232,12 @@ const FileUploadEvents = [
         description: "Callback to invoke when a singe file is removed from the list.",
         arguments: [
             {
-                file: "event.file",
+                name: "event.file",
                 type: "object",
                 description: "Removed file."
             },
             {
-                file: "event.files",
+                name: "event.files",
                 type: "object",
                 description: "Remaining files to be uploaded."
             }

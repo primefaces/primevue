@@ -244,7 +244,7 @@ const CalendarProps = [
         name: "style",
         type: "any",
         default: "null",
-        description: "Inline of the component."
+        description: "Inline style of the component."
     }
 ];
 

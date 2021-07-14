@@ -8,7 +8,7 @@ const TabMenuProps = [
     {
         name: "exact",
         type: "boolean",
-        default: true,
+        default: "true",
         description: "Defines if active route highlight should match the exact route path."
     }
 ];
