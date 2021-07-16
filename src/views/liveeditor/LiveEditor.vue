@@ -490,6 +490,7 @@ import Tree from 'primevue/tree';
 import TreeSelect from 'primevue/treeselect';
 import TreeTable from 'primevue/treetable';
 import TriStateCheckbox from 'primevue/tristatecheckbox';
+import VirtualScroller from 'primevue/virtualscroller';
 ${extImport}
 
 const app = createApp(${name});
@@ -586,6 +587,7 @@ app.component('Tree', Tree);
 app.component('TreeSelect', TreeSelect);
 app.component('TreeTable', TreeTable);
 app.component('TriStateCheckbox', TriStateCheckbox);
+app.component('VirtualScroller', VirtualScroller);
 ${extElement}
 
 app.mount("#app");

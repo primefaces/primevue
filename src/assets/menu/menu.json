@@ -407,6 +407,11 @@
                     "to": "/dataview"
                 },
                 {
+                    "name": "VirtualScroller",
+                    "to": "/virtualscroller",
+                    "badge": "New"
+                },
+                {
                     "name": "FilterService",
                     "to": "/filterservice"
                 },

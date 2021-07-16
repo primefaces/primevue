@@ -832,6 +832,11 @@ const routes = [
         component: () => import('../views/galleria/GalleriaAdvancedDemo.vue')
     },
     {
+        path: '/virtualscroller',
+        name: 'virtualscroller',
+        component: () => import('../views/virtualscroller/VirtualScrollerDemo.vue')
+    },
+    {
         path: '/vuelidate',
         name: 'vuelidateform',
         component: () => import('../views/validation/VuelidateFormDemo.vue')

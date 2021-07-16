@@ -94,6 +94,7 @@ import Toolbar from './components/toolbar/Toolbar';
 import Tooltip from './components/tooltip/Tooltip';
 import TriStateCheckbox from './components/tristatecheckbox/TriStateCheckbox';
 import Galleria from './components/galleria/Galleria';
+import VirtualScroller from './components/virtualscroller/VirtualScroller';
 
 import AppInputStyleSwitch from './AppInputStyleSwitch';
 import AppDemoActions from './AppDemoActions';
@@ -210,6 +211,7 @@ app.component('TreeSelect', TreeSelect);
 app.component('TreeTable', TreeTable);
 app.component('TriStateCheckbox', TriStateCheckbox);
 app.component('Galleria', Galleria);
+app.component('VirtualScroller', VirtualScroller);
 
 app.component('AppDemoActions', AppDemoActions);
 app.component('AppInputStyleSwitch', AppInputStyleSwitch);
