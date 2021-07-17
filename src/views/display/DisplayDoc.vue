@@ -38,6 +38,9 @@
 
         <h5>Customization</h5>
         <p>A custom build with different values can be obtained from <a href="https://github.com/primefaces/primeflex">PrimeFlex</a> using the _variables.scss file.</p>
+
+        <h5>Dependencies</h5>
+        <p>PrimeFlex 2.0.0.</p>
     </AppDoc>
 </template>
 

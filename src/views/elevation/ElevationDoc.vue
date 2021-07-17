@@ -14,6 +14,9 @@
 &lt;div class="p-shadow-24" /&gt;
 
 </code></pre>
+
+        <h5>Dependencies</h5>
+        <p>PrimeFlex 2.0.0.</p>
 	</AppDoc>
 </template>
 
