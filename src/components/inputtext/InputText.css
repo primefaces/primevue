@@ -36,7 +36,7 @@
 /* Floating Label */
 .p-float-label {
     display: block;
-    position: relative; 
+    position: relative;
 }
 
 .p-float-label label {
@@ -47,12 +47,13 @@
     transition-property: all;
     transition-timing-function: ease;
     line-height: 1;
+    z-index: 1;
 }
 
 .p-float-label textarea ~ label {
     top: 1rem;
 }
-    
+
 .p-float-label input:focus ~ label,
 .p-float-label input.p-filled ~ label,
 .p-float-label textarea:focus ~ label,
