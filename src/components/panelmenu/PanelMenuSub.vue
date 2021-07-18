@@ -5,6 +5,7 @@
                 <template v-if="!template">
                     <router-link v-if="item.to && !item.disabled" :to="item.to" custom v-slot="{navigate, href}">
                         <a :href="href" :class="getLinkClass(item)" @click="onItemClick($event, item, navigate)" role="treeitem" :aria-expanded="isActive(item)">
+                            <span :class="getSubmenuIcon(item)" v-if="item.items"></span>
                             <span :class="['p-menuitem-icon', item.icon]"></span>
                             <span class="p-menuitem-text">{{item.label}}</span>
                         </a>
