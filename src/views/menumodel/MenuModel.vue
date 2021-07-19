@@ -40,9 +40,9 @@ const items: [
                         <tbody>
                             <tr>
                                 <td>label</td>
-                                <td>string</td>
+                                <td>string | function</td>
                                 <td>null</td>
-                                <td>Text of the item.</td>
+                                <td>Text of the item. If a Function is passed, it will be resolved.</td>
                             </tr>
                             <tr>
                                 <td>icon</td>
