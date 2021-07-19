@@ -1,6 +1,7 @@
 interface SplitButtonProps {
     label?: string;
     icon?: string;
+    iconMenu?: string;
     model?: any[];
     autoZIndex?: boolean;
     baseZIndex?: number;
