@@ -389,6 +389,10 @@
                             "to": "/datatable/export"
                         },
                         {
+                            "name": "Print",
+                            "to": "/datatable/print"
+                        },
+                        {
                             "name": "State",
                             "to": "/datatable/state"
                         },

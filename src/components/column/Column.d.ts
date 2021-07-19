@@ -43,6 +43,7 @@ interface ColumnProps {
     exportable?: boolean;
     filterMatchMode?: string;
     hidden?: boolean;
+    printable?: boolean;
 }
 
 declare class Column {

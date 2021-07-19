@@ -243,6 +243,11 @@ const routes = [
         component: () => import('../views/datatable/DataTableExportDemo.vue')
     },
     {
+        path: '/datatable/print',
+        name: 'datatableprint',
+        component: () => import('../views/datatable/DataTablePrintDemo.vue')
+    },
+    {
         path: '/datatable/colgroup',
         name: 'datatablecolgroup',
         component: () => import('../views/datatable/DataTableColGroupDemo.vue')

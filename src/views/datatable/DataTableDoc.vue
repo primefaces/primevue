@@ -378,6 +378,12 @@ export default {
                             <td>false</td>
                             <td>Whether the column is rendered.</td>
                         </tr>
+                        <tr>
+                            <td>printable</td>
+                            <td>boolean</td>
+                            <td>true</td>
+                            <td>Whether the column is printable.</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -446,6 +452,70 @@ export default {
                         </tr>
 					</tbody>
 				</table>
+            </div>
+
+            <h5>Print object properties utilized by the DataTable</h5>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>pageTitle</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Represents the title of the page. It's fully customizable</td>
+                        </tr>
+                        <tr>
+                            <td>linkCSSLib</td>
+                            <td>string</td>
+                            <td>https://cdn.jsdelivr.net/npm/primevue/resources/themes/saga-blue/theme.css</td>
+                            <td>URL of the CSS library that will be appended to printable window.</td>
+                        </tr>
+                        <tr>
+                            <td>pageTitleClass</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>CSS classes of pageTitle, can accept more than one class by separate it with an space.</td>
+                        </tr>
+                        <tr>
+                            <td>tableClass</td>
+                            <td>string</td>
+                            <td>p-datatable-table</td>
+                            <td>CSS classes of table object, can accept more than one class by separate it with an space.</td>
+                        </tr>
+                        <tr>
+                            <td>theaderClass</td>
+                            <td>string</td>
+                            <td>p-datatable-thead</td>
+                            <td>CSS classes of theader object, can accept more than one class by separate it with an space.</td>
+                        </tr>
+                        <tr>
+                            <td>tbodyClass</td>
+                            <td>string</td>
+                            <td>p-datatable-tbody</td>
+                            <td>CSS classes of tbody object, can accept more than one class by separate it with an space.</td>
+                        </tr>
+                        <tr>
+                            <td>trClass</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>CSS classes of tr objects, can accept more than one class by separate it with an space.</td>
+                        </tr>
+                        <tr>
+                            <td>tdClass</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>CSS classes of td objects, can accept more than one class by separate it with an space.</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
 
             <h5>Auto Layout</h5>

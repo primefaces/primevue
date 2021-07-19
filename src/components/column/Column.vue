@@ -169,6 +169,10 @@ export default {
         hidden: {
             type: Boolean,
             default: false
+        },
+        printable: {
+            type: Boolean,
+            default: true
         }
     },
     render() {
