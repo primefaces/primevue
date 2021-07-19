@@ -50,7 +50,7 @@ interface PrimeVueLocaleOptions {
     emptyMessage?: string;
 }
 
-export declare function usePrimeVue(): PrimeVueConfiguration;
+export declare function usePrimeVue(): { config: PrimeVueConfiguration };
 
 declare const plugin: Plugin;
 export default plugin;
