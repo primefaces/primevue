@@ -100,9 +100,9 @@ export default {
             else
                 this.show(event);
         },
-        show(event) {
+        show(event, target) {
             this.visible = true;
-            this.target = event.currentTarget;
+            this.target = target || event.currentTarget;
         },
         hide() {
             this.visible = false;
