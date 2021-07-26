@@ -198,6 +198,12 @@ const DataTableProps = [
         description: "Name of the exported file."
     },
     {
+        name: "exportFunction",
+        type: "function",
+        default: "null",
+        description: "Custom function to export data."
+    },
+    {
         name: "autoLayout",
         type: "boolean",
         default: "false",

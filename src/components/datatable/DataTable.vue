@@ -215,6 +215,10 @@ export default {
             type: String,
             default: 'download'
         },
+        exportFunction: {
+            type: Function,
+            default: null
+        },
         autoLayout: {
             type: Boolean,
             default: false

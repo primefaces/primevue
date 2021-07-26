@@ -2034,6 +2034,12 @@ export default {
                             <td>download</td>
                             <td>Name of the exported file.</td>
                         </tr>
+                         <tr>
+                            <td>exportFunction</td>
+                            <td>function</td>
+                            <td>download</td>
+                            <td>Custom function to export data.</td>
+                        </tr>
                         <tr>
                             <td>autoLayout</td>
                             <td>boolean</td>
