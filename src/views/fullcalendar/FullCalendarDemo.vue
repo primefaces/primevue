@@ -3,9 +3,8 @@
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>FullCalendar</h1>
-                <p><a href="https://fullcalendar.io/docs/vue">FullCalendar Vue</a> library is fully compatible with PrimeVue themes.</p>
+                <p>PrimeVue provides theming for the <a href="https://fullcalendar.io/docs/vue">FullCalendar</a> Vue component.</p>
             </div>
-            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">

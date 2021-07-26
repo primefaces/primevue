@@ -134,15 +134,11 @@ dependencies: {
                     <tbody>
                         <tr>
                             <td>Charts</td>
-                            <td>Charts.js 2.1.x+</td>
+                            <td>Charts.js 3.3.2+</td>
                         </tr>
                         <tr>
                             <td>Editor</td>
                             <td>Quill.js 1.3.3+</td>
-                        </tr>
-                        <tr>
-                            <td>FullCalendar</td>
-                            <td>FullCalendar 5.4.0+.</td>
                         </tr>
                         <tr>
                             <td>PrimeFlex</td>
