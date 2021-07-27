@@ -578,6 +578,11 @@ const routes = [
         component: () => import('../views/spacing/SpacingDemo.vue')
     },
     {
+        path: '/speeddial',
+        name: 'speeddial',
+        component: () => import('../views/speeddial/SpeedDialDemo.vue')
+    },
+    {
         path: '/splitbutton',
         name: 'splitbutton',
         component: () => import('../views/splitbutton/SplitButtonDemo.vue')
