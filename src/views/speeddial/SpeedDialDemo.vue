@@ -12,20 +12,8 @@
             <div class="card">
                 <h5>Linear</h5>
                 <div class="speeddial-linear-demo" :style="{ position: 'relative', height: '500px' }">
-                    <SpeedDial :model="items" direction="up">
-                        <template #button="{ toggle }">
-                            <Button type="button" class="p-px-3" @click="toggle($event)">
-                                <img alt="logo" src="../../assets/images/logo-white.svg" style="width: 1.5rem"/>
-                            </Button>
-                        </template>
-                    </SpeedDial>
-                    <SpeedDial :model="items" direction="down" hideIcon="pi pi-discord">
-                        <template #item="{ item }">
-                            <a :href="item.url || '#'" :class="['p-speeddial-action', { 'p-disabled': item.disabled }]" @click="deneme($event, item)">
-                                <span v-if="item.icon" :class="['p-speeddial-action-icon', item.icon]"></span>
-                            </a>
-                        </template>
-                    </SpeedDial>
+                    <SpeedDial :model="items" direction="up" />
+                    <SpeedDial :model="items" direction="down" />
                     <SpeedDial :model="items" direction="left" />
                     <SpeedDial :model="items" direction="right" /> 
                 </div>
