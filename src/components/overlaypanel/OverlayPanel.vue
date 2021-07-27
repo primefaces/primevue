@@ -58,6 +58,7 @@ export default {
     },
     selfClick: false,
     target: null,
+    eventTarget: null,
     outsideClickListener: null,
     scrollHandler: null,
     resizeListener: null,
@@ -94,15 +95,16 @@ export default {
         }
     },
     methods: {
-        toggle(event) {
+        toggle(event, target) {
             if (this.visible)
                 this.hide();
             else
-                this.show(event);
+                this.show(event, target);
         },
-        show(event) {
+        show(event, target) {
             this.visible = true;
-            this.target = event.currentTarget;
+            this.eventTarget = event.currentTarget;
+            this.target = target || event.currentTarget;
         },
         hide() {
             this.visible = false;
@@ -211,7 +213,7 @@ export default {
             }
         },
         isTargetClicked(event) {
-            return this.target && (this.target === event.target || this.target.contains(event.target));
+            return (this.eventTarget && (this.eventTarget === event.target || this.eventTarget.contains(event.target)));
         },
         containerRef(el) {
             this.container = el;
