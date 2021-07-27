@@ -10,7 +10,7 @@ import SpeedDial from 'primevue/speeddial';
         <p>When pressed, a floating action button can display multiple primary actions that can be performed on a page. It has a collection of additional options defined by the <i>model</i> property.
         SpeedDial's position is calculated according to the container element with the position type style.</p>
 
-<pre v-code.script><code>
+<pre v-code><code>
 &lt;SpeedDial :model="items" /&gt;
 
 </code></pre>
