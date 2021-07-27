@@ -672,6 +672,11 @@
                 {
                     "name": "TieredMenu",
                     "to": "/tieredmenu"
+                },
+                {
+                    "name": "Dock",
+                    "to": "/dock",
+                    "badge": "New"
                 }
             ]
         },

@@ -34,6 +34,7 @@ import DataViewLayoutOptions from './components/dataviewlayoutoptions/DataViewLa
 import DeferredContent from './components/deferredcontent/DeferredContent';
 import Dialog from './components/dialog/Dialog';
 import Divider from './components/divider/Divider';
+import Dock from './components/dock/Dock';
 import Dropdown from './components/dropdown/Dropdown';
 import Editor from './components/editor/Editor';
 import Fieldset from './components/fieldset/Fieldset';
@@ -155,6 +156,7 @@ app.component('DataViewLayoutOptions', DataViewLayoutOptions);
 app.component('DeferredContent', DeferredContent);
 app.component('Dialog', Dialog);
 app.component('Divider', Divider);
+app.component('Dock', Dock);
 app.component('Dropdown', Dropdown);
 app.component('Editor', Editor);
 app.component('Fieldset', Fieldset);
