@@ -34,7 +34,7 @@
         <span :class="basicChooseButtonClass" @mouseup="onBasicUploaderClick"  @keydown.enter="choose" @focus="onFocus" @blur="onBlur" v-ripple tabindex="0" >
             <span :class="basicChooseButtonIconClass"></span>
             <span class="p-button-label">{{basicChooseButtonLabel}}</span>
-            <input ref="fileInput" type="file" :accept="accept" :disabled="disabled" @change="onFileSelect" @focus="onFocus" @blur="onBlur" v-if="!hasFiles" />
+            <input ref="fileInput" type="file" :accept="accept" :disabled="disabled" :multiple="multiple" @change="onFileSelect" @focus="onFocus" @blur="onBlur" v-if="!hasFiles" />
         </span>
     </div>
 </template>
@@ -425,7 +425,7 @@ export default {
             }];
         },
         basicChooseButtonLabel() {
-            return this.auto ? this.chooseButtonLabel : (this.hasFiles ? this.files[0].name : this.chooseButtonLabel);
+            return this.auto ? this.chooseButtonLabel : (this.hasFiles ? this.files.map(f => f.name).join(', ') : this.chooseButtonLabel);
         },
         hasFiles() {
             return this.files && this.files.length > 0;
