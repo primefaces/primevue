@@ -12,18 +12,35 @@
   --primary-color-text:#212529;
   --font-family:-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
   --surface-0: #17212f;
-  --surface-50: #1d2734;
-  --surface-100: #232c39;
-  --surface-200: #28323f;
-  --surface-300: #2e3744;
-  --surface-400: #343d49;
-  --surface-500: #3a424e;
-  --surface-600: #404853;
-  --surface-700: #454d59;
-  --surface-800: #4b535e;
-  --surface-900: #515963;
+  --surface-50: #2e3744;
+  --surface-100: #454d59;
+  --surface-200: #5d646d;
+  --surface-300: #747a82;
+  --surface-400: #8b9097;
+  --surface-500: #a2a6ac;
+  --surface-600: #b9bcc1;
+  --surface-700: #d1d3d5;
+  --surface-800: #e8e9ea;
+  --surface-900: #ffffff;
+  --gray-50:#e8e9ea;
+  --gray-100: #d1d3d5;
+  --gray-200: #b9bcc1;
+  --gray-300: #a2a6ac;
+  --gray-400: #8b9097;
+  --gray-500: #747a82;
+  --gray-600: #5d646d;
+  --gray-700: #454d59;
+  --gray-800: #2e3744;
+  --gray-900: #17212f;
   --content-padding:1rem;
   --inline-spacing:0.5rem;
+  --border-radius:3px;
+  --surface-ground:#17212f;
+  --surface-section:#17212f;
+  --surface-card:#1f2d40;
+  --surface-overlay:#1f2d40;
+  --surface-border:#304562;
+  --surface-hover:rgba(255,255,255,.03);
 }
 
 * {
@@ -2036,6 +2053,70 @@
   border-color: transparent;
 }
 
+.p-speeddial-button.p-button.p-button-icon-only {
+  width: 4rem;
+  height: 4rem;
+}
+.p-speeddial-button.p-button.p-button-icon-only .p-button-icon {
+  font-size: 1.3rem;
+}
+
+.p-speeddial-action {
+  width: 3rem;
+  height: 3rem;
+  background: rgba(255, 255, 255, 0.87);
+  color: #17212f;
+}
+.p-speeddial-action:hover {
+  background: rgba(255, 255, 255, 0.6);
+  color: #17212f;
+}
+
+.p-speeddial-direction-up .p-speeddial-item {
+  margin: 0.25rem 0;
+}
+.p-speeddial-direction-up .p-speeddial-item:first-child {
+  margin-bottom: 0.5rem;
+}
+
+.p-speeddial-direction-down .p-speeddial-item {
+  margin: 0.25rem 0;
+}
+.p-speeddial-direction-down .p-speeddial-item:first-child {
+  margin-top: 0.5rem;
+}
+
+.p-speeddial-direction-left .p-speeddial-item {
+  margin: 0 0.25rem;
+}
+.p-speeddial-direction-left .p-speeddial-item:first-child {
+  margin-right: 0.5rem;
+}
+
+.p-speeddial-direction-right .p-speeddial-item {
+  margin: 0 0.25rem;
+}
+.p-speeddial-direction-right .p-speeddial-item:first-child {
+  margin-left: 0.5rem;
+}
+
+.p-speeddial-circle .p-speeddial-item,
+.p-speeddial-semi-circle .p-speeddial-item,
+.p-speeddial-quarter-circle .p-speeddial-item {
+  margin: 0;
+}
+.p-speeddial-circle .p-speeddial-item:first-child, .p-speeddial-circle .p-speeddial-item:last-child,
+.p-speeddial-semi-circle .p-speeddial-item:first-child,
+.p-speeddial-semi-circle .p-speeddial-item:last-child,
+.p-speeddial-quarter-circle .p-speeddial-item:first-child,
+.p-speeddial-quarter-circle .p-speeddial-item:last-child {
+  margin: 0;
+}
+
+.p-speeddial-mask {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
 .p-carousel .p-carousel-content .p-carousel-prev,
 .p-carousel .p-carousel-content .p-carousel-next {
   width: 2rem;
@@ -3905,6 +3986,46 @@
 }
 .p-contextmenu .p-submenu-icon {
   font-size: 0.875rem;
+}
+
+.p-dock .p-dock-list {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.5rem 0.5rem;
+  border-radius: 0.5rem;
+}
+.p-dock .p-dock-item {
+  padding: 0.5rem;
+}
+.p-dock .p-dock-action {
+  width: 4rem;
+  height: 4rem;
+}
+.p-dock.p-dock-top .p-dock-item-second-prev,
+.p-dock.p-dock-top .p-dock-item-second-next, .p-dock.p-dock-bottom .p-dock-item-second-prev,
+.p-dock.p-dock-bottom .p-dock-item-second-next {
+  margin: 0 0.9rem;
+}
+.p-dock.p-dock-top .p-dock-item-prev,
+.p-dock.p-dock-top .p-dock-item-next, .p-dock.p-dock-bottom .p-dock-item-prev,
+.p-dock.p-dock-bottom .p-dock-item-next {
+  margin: 0 1.3rem;
+}
+.p-dock.p-dock-top .p-dock-item-current, .p-dock.p-dock-bottom .p-dock-item-current {
+  margin: 0 1.5rem;
+}
+.p-dock.p-dock-left .p-dock-item-second-prev,
+.p-dock.p-dock-left .p-dock-item-second-next, .p-dock.p-dock-right .p-dock-item-second-prev,
+.p-dock.p-dock-right .p-dock-item-second-next {
+  margin: 0.9rem 0;
+}
+.p-dock.p-dock-left .p-dock-item-prev,
+.p-dock.p-dock-left .p-dock-item-next, .p-dock.p-dock-right .p-dock-item-prev,
+.p-dock.p-dock-right .p-dock-item-next {
+  margin: 1.3rem 0;
+}
+.p-dock.p-dock-left .p-dock-item-current, .p-dock.p-dock-right .p-dock-item-current {
+  margin: 1.5rem 0;
 }
 
 .p-megamenu {
