@@ -13,12 +13,12 @@
 			</template>
 		</DVPaginator>
 		<div class="p-dataview-content">
-			<div class="p-grid p-nogutter">
+			<div class="p-grid p-nogutter grid grid-nogutter">
 				<template v-for="(item,index) of items">
 					<slot v-if="$slots.list && layout === 'list'" name="list" :data="item" :index="index"></slot>
 					<slot v-if="$slots.grid && layout === 'grid'" name="grid" :data="item" :index="index"></slot>
 				</template>
-				<div v-if="empty" class="p-col">
+				<div v-if="empty" class="p-col col">
                     <div class="p-dataview-emptymessage">
                         <slot name="empty"></slot>
                     </div>
