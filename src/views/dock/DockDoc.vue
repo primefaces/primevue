@@ -612,7 +612,7 @@ export default {
         const images = ref();
         const nodes = ref();
         const toast = useToast();
-        const imgErrorPath = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png',
+        const imgErrorPath = ref('https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'),
         const dockItems = ref([
             {
                 label: 'Finder',
