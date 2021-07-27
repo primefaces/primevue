@@ -1,5 +1,36 @@
 # Changelog
 
+## [3.6.0](https://github.com/primefaces/primevue/tree/3.6.0) (2021-07-27)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.5.1...3.6.0)
+
+**Implemented New Features and Enhancements:**
+
+- New Dock Component [\#1386](https://github.com/primefaces/primevue/issues/1386)
+- Gray palette for themes [\#1385](https://github.com/primefaces/primevue/issues/1385)
+- New Speed Dial Component [\#1384](https://github.com/primefaces/primevue/issues/1384)
+- Responsive Toast [\#1354](https://github.com/primefaces/primevue/issues/1354)
+- Responsive TabMenu and Breadcrumb [\#1353](https://github.com/primefaces/primevue/issues/1353)
+- Update FullCalendar to 5.7.2 [\#1351](https://github.com/primefaces/primevue/issues/1351)
+- Update Chart.js to 3.3.2 [\#1348](https://github.com/primefaces/primevue/issues/1348)
+- Row double click for DataTable [\#1347](https://github.com/primefaces/primevue/issues/1347)
+- New SplitButton with TieredMenu [\#1313](https://github.com/primefaces/primevue/issues/1313)
+- Feature Request: Templating for Toast component [\#1249](https://github.com/primefaces/primevue/issues/1249)
+- Custom target for OverlayPanel [\#942](https://github.com/primefaces/primevue/issues/942)
+- VirtualScroller Component [\#692](https://github.com/primefaces/primevue/issues/692)
+
+**Fixed bugs:**
+
+- Comments in ColumnGroup rows are rendered as \<th\> elements [\#1368](https://github.com/primefaces/primevue/issues/1368)
+- Overlay aligning calculation defect [\#1358](https://github.com/primefaces/primevue/issues/1358)
+- DataTable cell editing regression [\#1357](https://github.com/primefaces/primevue/issues/1357)
+- DataTable row group and resizable column not working together [\#1355](https://github.com/primefaces/primevue/issues/1355)
+- Filtering non existing item in dropdown \[filter=true, group=true\] and pressing key down generates error [\#1342](https://github.com/primefaces/primevue/issues/1342)
+- Accordion tab-open and tab-close events [\#1329](https://github.com/primefaces/primevue/issues/1329)
+- Missing `class` prop on Button component fails Typescript complier [\#1319](https://github.com/primefaces/primevue/issues/1319)
+- Tooltips closed on window resize after system keyboard appears on mobile devices  [\#1318](https://github.com/primefaces/primevue/issues/1318)
+- ProgressBar does not show zero percent [\#1272](https://github.com/primefaces/primevue/issues/1272)
+
 ## [3.5.1](https://github.com/primefaces/primevue/tree/3.5.1) (2021-06-11)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.5.0...3.5.1)
