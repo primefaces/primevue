@@ -1,5 +1,5 @@
 <template>
-    <AppDoc name="DockDemo" :sources="sources" github="dock/DockDemo.vue">
+    <AppDoc name="DockDemo" :sources="sources" github="dock/DockDemo.vue" :service="['NodeService', 'PhotoService']" :data="['treenodes', 'photos']">
         <h5>Import</h5>
 <pre v-code.script><code>
 import Dock from 'primevue/dock';
@@ -586,6 +586,7 @@ export default {
 
 <script>
 import { ref, onMounted } from 'vue';
+import { useToast } from 'primevue/usetoast';
 import NodeService from './service/NodeService';
 import PhotoService from './service/PhotoService';
 import TerminalService from 'primevue/terminalservice';
@@ -610,6 +611,7 @@ export default {
         const photoService = ref(new PhotoService());
         const images = ref();
         const nodes = ref();
+        const toast = useToast();
         const imgErrorPath = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png',
         const dockItems = ref([
             {
@@ -630,14 +632,14 @@ export default {
                 label: 'App Store',
                 icon: "demo/images/dock/appstore.svg",
                 command: () => {
-                    this.$toast.add({ severity: 'error', summary: 'An unexpected error occurred while signing in.', detail: 'UNTRUSTED_CERT_TITLE', group: 'tc', life: 3000 });
+                    toast.add({ severity: 'error', summary: 'An unexpected error occurred while signing in.', detail: 'UNTRUSTED_CERT_TITLE', group: 'tc', life: 3000 });
                 }
             },
             {
                 label: 'Safari',
                 icon: "demo/images/dock/safari.svg",
                 command: () => {
-                    this.$toast.add({ severity: 'warn', summary: 'Safari has stopped working', group: 'tc', life: 3000 });
+                    toast.add({ severity: 'warn', summary: 'Safari has stopped working', group: 'tc', life: 3000 });
                 }
             },
             {
@@ -655,7 +657,7 @@ export default {
                 label: 'Trash',
                 icon: "demo/images/dock/trash.png",
                 command: () => {
-                    this.$toast.add({ severity: 'info', summary: 'Empty Trash', life: 3000 });
+                    toast.add({ severity: 'info', summary: 'Empty Trash', life: 3000 });
                 }
             }
         ]);
