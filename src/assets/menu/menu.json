@@ -99,6 +99,14 @@
             ]
         },
         {
+            "name": "PrimeFlex 3.0",
+            "meta": ["primeflex"],
+            "banner": true,
+            "imageLight": "demo/images/primeflex.svg",
+            "imageDark": "demo/images/primeflex-dark.svg",
+            "url": "https://www.primefaces.org/primeflex"
+        },
+        {
             "name": "PrimeFlex 2.0",
             "meta": ["primeflex"],
             "children": [
