@@ -432,7 +432,7 @@ import DataViewLayoutOptions from 'primevue/dataviewlayoutoptions';
 import DeferredContent from 'primevue/deferredcontent';
 import Dialog from 'primevue/dialog';
 import Divider from 'primevue/divider';
-import Dock from 'primevue/dock;
+import Dock from 'primevue/dock';
 import Dropdown from 'primevue/dropdown';
 import Fieldset from 'primevue/fieldset';
 import FileUpload from 'primevue/fileupload';
