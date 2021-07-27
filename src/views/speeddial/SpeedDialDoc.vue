@@ -488,12 +488,13 @@ export default {
     }
 }
 </style>
-                    `
+
+`
                 },
                 'composition-api': {
                     tabName: 'Composition API Source',
                     content: `
-                    <template>
+<template>
     <div>
         <div class="card">
             <h5>Linear</h5>
@@ -693,6 +694,7 @@ export default {
     }
 }
 </style>
+
 `
                 }
             }
