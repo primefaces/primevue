@@ -528,7 +528,7 @@ export default {
 `
                 },
                 'composition-api': {
-                    tabName: 'Component API Source',
+                    tabName: 'Composition API Source',
                     content: `
 <template>
     <div class="content-section implementation dock-demo">
