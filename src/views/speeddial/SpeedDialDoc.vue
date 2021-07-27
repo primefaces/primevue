@@ -280,8 +280,8 @@ export default {
     data() {
         return {
             sources: {
-                'options-api': {
-                    tabName: 'Options API Source',
+                'composition-api': {
+                    tabName: 'Composiiton API Source',
                     content: `
 <template>
     <div>
@@ -491,8 +491,8 @@ export default {
 
 `
                 },
-                'composition-api': {
-                    tabName: 'Composition API Source',
+                'options-api': {
+                    tabName: 'Options API Source',
                     content: `
 <template>
     <div>
