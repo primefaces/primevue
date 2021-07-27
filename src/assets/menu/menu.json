@@ -104,7 +104,8 @@
             "banner": true,
             "imageLight": "demo/images/primeflex.svg",
             "imageDark": "demo/images/primeflex-dark.svg",
-            "url": "https://www.primefaces.org/primeflex"
+            "url": "https://www.primefaces.org/primeflex",
+            "children": []
         },
         {
             "name": "PrimeFlex 2.0",
