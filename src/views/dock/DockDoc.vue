@@ -265,19 +265,19 @@ export default {
             dockBasicItems: [
                 {
                     label: 'Finder',
-                    icon: () => <img alt="Finder" src="demo/images/dock/finder.svg" style="width: 100%" />
+                    icon: () => <img alt="Finder" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" style="width: 100%" />
                 },
                 {
                     label: 'App Store',
-                    icon: () => <img alt="App Store" src="demo/images/dock/appstore.svg" style="width: 100%" />
+                    icon: () => <img alt="App Store" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" style="width: 100%" />
                 },
                 {
                     label: 'Photos',
-                    icon: () => <img alt="Photos" src="demo/images/dock/photos.svg" style="width: 100%" />
+                    icon: () => <img alt="Photos" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" style="width: 100%" />
                 },
                 {
                     label: 'Trash',
-                    icon: () => <img alt="trash" src="demo/images/dock/trash.png" style="width: 100%" />
+                    icon: () => <img alt="trash" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" style="width: 100%" />
                 }
             ],
             menubarItems: [
@@ -561,7 +561,7 @@ export default {
             <Dock :model="dockItems">
                 <template #item="{ item }">
                     <a href="#" class="p-dock-action" v-tooltip.top="item.label" @click="onDockItemClick($event, item)">
-                        <img :alt="item.label" :src="item.icon" style="width: 100%" />
+                        <img :alt="item.label" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" />
                     </a>
                 </template>
             </Dock>
@@ -577,7 +577,7 @@ export default {
             <Galleria v-model:visible="displayPhotos" :value="images" :responsiveOptions="responsiveOptions" :numVisible="2" containerStyle="width: 400px"
                 :circular="true" :fullScreen="true" :showThumbnails="false" :showItemNavigators="true">
                 <template #item="slotProps">
-                    <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%" />
+                    <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" :alt="slotProps.item.alt" />
                 </template>    
             </Galleria>
         </div>
@@ -662,19 +662,19 @@ export default {
         const dockBasicItems = ref([
             {
                 label: 'Finder',
-                icon: () => <img alt="Finder" src="demo/images/dock/finder.svg" style="width: 100%" />
+                icon: () => <img alt="Finder" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" style="width: 100%" />
             },
             {
                 label: 'App Store',
-                icon: () => <img alt="App Store" src="demo/images/dock/appstore.svg" style="width: 100%" />
+                icon: () => <img alt="App Store" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" style="width: 100%" />
             },
             {
                 label: 'Photos',
-                icon: () => <img alt="Photos" src="demo/images/dock/photos.svg" style="width: 100%" />
+                icon: () => <img alt="Photos" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" style="width: 100%" />
             },
             {
                 label: 'Trash',
-                icon: () => <img alt="trash" src="demo/images/dock/trash.png" style="width: 100%" />
+                icon: () => <img alt="trash" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" style="width: 100%" />
             }
         ]);
         const menubarItems = ref([
