@@ -1,7 +1,7 @@
 <template>
     <div :ref="elementRef" :class="containerClass" :style="style" @scroll="onScroll">
         <div :ref="contentRef" class="p-virtualscroller-content">
-            <template v-for="(item, index) of renderItems" :key="index">
+            <template v-for="(item, index) of loadedItems" :key="index">
                 <slot name="item" :item="item" :options="getOptions(index)"></slot>
             </template>
         </div>
@@ -84,7 +84,7 @@ export default {
         }
     },
     methods: {
-        init() { 
+        init() {
             this.setSize();
             this.calculateOptions();
             this.setSpacerSize();
@@ -231,7 +231,7 @@ export default {
             const scrollLeft = calculateScrollPos(target.scrollLeft, contentPadding.left);
 
             let newFirst = 0;
-            let newLast = this.last;  
+            let newLast = this.last;
             let isRangeChanged = false;
 
             if (isBoth) {
@@ -279,15 +279,15 @@ export default {
 
             if (isRangeChanged) {
                 const newState = { first, last };
-            
+
                 this.setContentPosition(newState);
-            
+
                 if (this.lazy) {
-                    this.$emit('lazy-load', { first, last }); 
+                    this.$emit('lazy-load', { first, last });
                 }
                 this.first = first;
                 this.last = last;
-            
+
                 this.$emit('scroll-index-change', { first, last });
             }
         },
@@ -298,7 +298,7 @@ export default {
                 }
 
                 if (!this.d_loading && this.showLoader) {
-                    const { isRangeChanged: changed } = this.onScrollPositionChange(event); 
+                    const { isRangeChanged: changed } = this.onScrollPositionChange(event);
 
                     if (changed) {
                         this.d_loading = true;
@@ -361,7 +361,7 @@ export default {
 
             if (isBoth) {
                 const newFirst = { rows: calculateFirst(index[0]), cols: calculateFirst(index[1]) };
-                if (newFirst.rows !== this.first.rows || newFirst.cols !== this.first.cols) 
+                if (newFirst.rows !== this.first.rows || newFirst.cols !== this.first.cols)
                     scrollTo(calculateCoord(newFirst.cols, itemSize[1], contentPadding.left),calculateCoord(newFirst.rows, itemSize[0], contentPadding.top));
             }
             else {
@@ -375,7 +375,7 @@ export default {
             }
         },
         scrollInView(index, to, behavior = 'auto') {
-            if (to) { 
+            if (to) {
                 const isBoth = this.isBoth();
                 const isHorizontal = this.isHorizontal();
                 const { first, viewport } = this.getRenderedRange();
@@ -462,7 +462,7 @@ export default {
         },
         spacerRef(el) {
             this.spacer = el;
-        },
+        }
     },
     computed: {
         containerClass() {
@@ -476,7 +476,7 @@ export default {
                 'p-component-overlay': !this.$slots.loader
             }];
         },
-        renderItems() {
+        loadedItems() {
             const items = this.items;
             if (items && !this.d_loading) {
                 const isBoth = this.isBoth();
