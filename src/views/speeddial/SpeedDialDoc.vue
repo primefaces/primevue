@@ -281,7 +281,7 @@ export default {
         return {
             sources: {
                 'composition-api': {
-                    tabName: 'Composiiton API Source',
+                    tabName: 'Composition API Source',
                     content: `
 <template>
     <div>
