@@ -4,7 +4,7 @@ export const install: PluginFunction<{}>;
 
 interface ToastServiceMethods {
     add(message: any): any;
-    remove(message: any): any;
+    remove(message: any): void;
     removeGroup(group: any): void;
     removeAllGroups(): void;
 }
