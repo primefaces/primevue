@@ -18,6 +18,7 @@
 
 <script>
 import Ripple from 'primevue/ripple';
+import ToastEventBus from 'primevue/toasteventbus';
 
 export default {
     name: 'ToastMessage',
@@ -28,11 +29,15 @@ export default {
     },
     closeTimeout: null,
     mounted() {
+        ToastEventBus.on('remove', this.onRemove);
         if (this.message.life) {
             this.closeTimeout = setTimeout(() => {
                 this.close();
             }, this.message.life)
         }
+    },
+    beforeUnmount() {
+        ToastEventBus.off('remove', this.onRemove);
     },
     methods: {
         close() {
@@ -44,7 +49,12 @@ export default {
             }
 
             this.close();
-        }
+        },
+        onRemove(message) {
+            if (this.message === message || this.message.id === message.id) {
+                this.onCloseClick();
+            }
+        },
     },
     computed: {
         containerClass() {

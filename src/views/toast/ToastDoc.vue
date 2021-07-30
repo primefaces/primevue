@@ -117,6 +117,11 @@ export default defineComponent({
                         <td>Displays the message in a suitable Toast component.</td>
                     </tr>
                     <tr>
+                        <td>remove</td>
+                        <td>message: Message instance</td>
+                        <td>Clears the message in a suitable Toast component.</td>
+                    </tr>
+                    <tr>
                         <td>removeGroup</td>
                         <td>group: Name of the message group</td>
                         <td>Clears the messages that belongs to the group.</td>
@@ -189,10 +194,10 @@ this.$toast.add({severity:'success', summary: 'Specific Message', group: 'mykey'
             &lt;/div&gt;
             &lt;div class="p-grid p-fluid"&gt;
                 &lt;div class="p-col-6"&gt;
-                    &lt;Button class="p-button-success" label="Yes" @click="onConfirm" /&gt;
+                    &lt;Button class="p-button-success" label="Yes" @click="onConfirm(slotProps.message)" /&gt;
                 &lt;/div&gt;
                 &lt;div class="p-col-6"&gt;
-                    &lt;Button class="p-button-secondary" label="No" @click="onReject" /&gt;
+                    &lt;Button class="p-button-secondary" label="No" @click="onReject(slotProps.message)" /&gt;
                 &lt;/div&gt;
             &lt;/div&gt;
         &lt;/div&gt;
@@ -328,10 +333,10 @@ export default {
                     </div>
                     <div class="p-grid p-fluid">
                         <div class="p-col-6">
-                            <Button class="p-button-success" label="Yes" @click="onConfirm"></Button>
+                            <Button class="p-button-success" label="Yes" @click="onConfirm(slotProps.message)"></Button>
                         </div>
                         <div class="p-col-6">
-                            <Button class="p-button-secondary" label="No" @click="onReject"></Button>
+                            <Button class="p-button-secondary" label="No" @click="onReject(slotProps.message)"></Button>
                         </div>
                     </div>
                 </div>
@@ -403,11 +408,11 @@ export default {
         showTemplate() {
             this.$toast.add({severity: 'warn', summary: 'Are you sure?', detail: 'Proceed to confirm', group: 'bc'});
         },
-        onConfirm() {
-            this.$toast.removeGroup('bc');
+        onConfirm(message) {
+            this.$toast.remove(message);
         },
-        onReject() {
-            this.$toast.removeGroup('bc');
+        onReject(message) {
+            this.$toast.remove(message);
         },
         clear() {
             this.$toast.removeAllGroups();
@@ -450,10 +455,10 @@ button {
                     </div>
                     <div class="p-grid p-fluid">
                         <div class="p-col-6">
-                            <Button class="p-button-success" label="Yes" @click="onConfirm"></Button>
+                            <Button class="p-button-success" label="Yes" @click="onConfirm(slotProps.message)"></Button>
                         </div>
                         <div class="p-col-6">
-                            <Button class="p-button-secondary" label="No" @click="onReject"></Button>
+                            <Button class="p-button-secondary" label="No" @click="onReject(slotProps.message)"></Button>
                         </div>
                     </div>
                 </div>
@@ -525,12 +530,12 @@ export default defineComponent({
         const showTemplate = () => {
             toast.add({severity: 'warn', summary: 'Are you sure?', detail: 'Proceed to confirm', group: 'bc'});
         }
-        const onConfirm = () => {
-            toast.removeGroup('bc');
-        }
-        const onReject = () => {
-            toast.removeGroup('bc');
-        }
+        const onConfirm = (message) => {
+            toast.remove(message);
+        },
+        const onReject = (message) => {
+            toast.remove(message);
+        },
         const clear = () => {
             toast.removeAllGroups();
         }

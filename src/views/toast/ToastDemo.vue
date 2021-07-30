@@ -19,10 +19,10 @@
                         </div>
                         <div class="p-grid p-fluid">
                             <div class="p-col-6">
-                                <Button class="p-button-success" label="Yes" @click="onConfirm"></Button>
+                                <Button class="p-button-success" label="Yes" @click="onConfirm(slotProps.message)"></Button>
                             </div>
                             <div class="p-col-6">
-                                <Button class="p-button-secondary" label="No" @click="onReject"></Button>
+                                <Button class="p-button-secondary" label="No" @click="onReject(slotProps.message)"></Button>
                             </div>
                         </div>
                     </div>
@@ -100,11 +100,11 @@ export default {
         showTemplate() {
             this.$toast.add({severity: 'warn', summary: 'Are you sure?', detail: 'Proceed to confirm', group: 'bc'});
         },
-        onConfirm() {
-            this.$toast.removeGroup('bc');
+        onConfirm(message) {
+            this.$toast.remove(message);
         },
-        onReject() {
-            this.$toast.removeGroup('bc');
+        onReject(message) {
+            this.$toast.remove(message);
         },
         clear() {
             this.$toast.removeAllGroups();
