@@ -78,6 +78,7 @@ import SpeedDial from './components/speeddial/SpeedDial';
 import Splitter from './components/splitter/Splitter';
 import SplitterPanel from './components/splitterpanel/SplitterPanel';
 import Steps from './components/steps/Steps';
+import StyleClass from './components/styleclass/StyleClass';
 import TabMenu from './components/tabmenu/TabMenu';
 import TabView from './components/tabview/TabView';
 import TabPanel from './components/tabpanel/TabPanel';
@@ -126,6 +127,7 @@ app.use(router);
 app.directive('badge', BadgeDirective);
 app.directive('tooltip', Tooltip);
 app.directive('ripple', Ripple);
+app.directive('styleclass', StyleClass);
 
 app.component('Accordion', Accordion);
 app.component('AccordionTab', AccordionTab);

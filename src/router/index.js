@@ -637,6 +637,11 @@ const routes = [
         }]
     },
     {
+        path: '/styleclass',
+        name: 'styleclass',
+        component: () => import('../views/styleclass/StyleClassDemo.vue')
+    },
+    {
         path: '/tabview',
         name: 'tabview',
         component: () => import('../views/tabview/TabViewDemo.vue')

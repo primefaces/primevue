@@ -835,6 +835,11 @@
                     "to": "/ripple"
                 },
                 {
+                    "name": "StyleClass",
+                    "to": "/styleclass",
+                    "badge": "New"
+                },
+                {
                     "name": "Tag",
                     "to": "/tag"
                 },
