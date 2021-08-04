@@ -1,5 +1,5 @@
 <template>
-    <div class="p-fileupload p-fileupload-advanced p-component" v-if="isAdvanced">
+    <div :class="containerClass" :style="style" v-if="isAdvanced">
         <div class="p-fileupload-buttonbar">
             <span :class="advancedChooseButtonClass" @click="choose" @keydown.enter="choose" @focus="onFocus" @blur="onBlur" v-ripple tabindex="0">
                 <input ref="fileInput" type="file" @change="onFileSelect" :multiple="multiple" :accept="accept" :disabled="chooseDisabled" />
@@ -129,7 +129,9 @@ export default {
         showCancelButton: {
             type: Boolean,
             default: true
-        }
+        },
+        style: null,
+        class: null
     },
     duplicateIEEvent: false,
     data() {
@@ -398,6 +400,9 @@ export default {
         }
     },
     computed: {
+        containerClass() {
+            return ['p-fileupload p-fileupload-advanced p-component', this.class];
+        },
         isAdvanced() {
             return this.mode === 'advanced';
         },

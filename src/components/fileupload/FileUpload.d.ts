@@ -19,6 +19,8 @@ interface FileUploadProps {
     customUpload?: boolean;
     showUploadButton?: boolean;
     showCancelButton?: boolean;
+    style?: any;
+    class?: string;
 }
 
 declare class FileUpload {
