@@ -298,7 +298,7 @@ export default {
         <div class="card">
             <h5>Circle, Semi-Circle and Quarter-Circle</h5>
             <div class="speeddial-circle-demo" :style="{ position: 'relative', height: '500px' }">
-                <SpeedDial :model="items" :radius="80" type="circle" buttonClassName="p-button-warning" hideIcon="pi pi-discord" />
+                <SpeedDial :model="items" :radius="80" type="circle" buttonClassName="p-button-warning" />
                 <SpeedDial :model="items" :radius="80" direction="up" type="semi-circle" />
                 <SpeedDial :model="items" :radius="80" direction="down" type="semi-circle" />
                 <SpeedDial :model="items" :radius="80" direction="left" type="semi-circle" />
@@ -509,7 +509,7 @@ export default {
         <div class="card">
             <h5>Circle, Semi-Circle and Quarter-Circle</h5>
             <div class="speeddial-circle-demo" :style="{ position: 'relative', height: '500px' }">
-                <SpeedDial :model="items" :radius="80" type="circle" buttonClassName="p-button-warning" hideIcon="pi pi-discord" />
+                <SpeedDial :model="items" :radius="80" type="circle" buttonClassName="p-button-warning" />
                 <SpeedDial :model="items" :radius="80" direction="up" type="semi-circle" />
                 <SpeedDial :model="items" :radius="80" direction="down" type="semi-circle" />
                 <SpeedDial :model="items" :radius="80" direction="left" type="semi-circle" />
