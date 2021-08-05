@@ -96,6 +96,7 @@ function addDirectives() {
     addEntry('badgedirective', 'BadgeDirective.js', 'badgedirective');
     addEntry('ripple', 'Ripple.js', 'ripple');
     addEntry('tooltip', 'Tooltip.js', 'tooltip');
+    addEntry('styleclass', 'StyleClass.js', 'styleclass');
 }
 
 function addConfig() {

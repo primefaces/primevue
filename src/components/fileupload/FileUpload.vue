@@ -1,7 +1,7 @@
 <template>
     <div class="p-fileupload p-fileupload-advanced p-component" v-if="isAdvanced">
         <div class="p-fileupload-buttonbar">
-            <span :class="advancedChooseButtonClass" @click="choose" @keydown.enter="choose" @focus="onFocus" @blur="onBlur" v-ripple tabindex="0">
+            <span :class="advancedChooseButtonClass" :style="style" @click="choose" @keydown.enter="choose" @focus="onFocus" @blur="onBlur" v-ripple tabindex="0">
                 <input ref="fileInput" type="file" @change="onFileSelect" :multiple="multiple" :accept="accept" :disabled="chooseDisabled" />
                 <span class="p-button-icon p-button-icon-left pi pi-fw pi-plus"></span>
                 <span class="p-button-label">{{chooseButtonLabel}}</span>
@@ -31,7 +31,7 @@
     </div>
     <div class="p-fileupload p-fileupload-basic p-component" v-else-if="isBasic">
         <FileUploadMessage v-for="msg of messages" severity="error" :key="msg">{{msg}}</FileUploadMessage>
-        <span :class="basicChooseButtonClass" @mouseup="onBasicUploaderClick"  @keydown.enter="choose" @focus="onFocus" @blur="onBlur" v-ripple tabindex="0" >
+        <span :class="basicChooseButtonClass" :style="style" @mouseup="onBasicUploaderClick"  @keydown.enter="choose" @focus="onFocus" @blur="onBlur" v-ripple tabindex="0" >
             <span :class="basicChooseButtonIconClass"></span>
             <span class="p-button-label">{{basicChooseButtonLabel}}</span>
             <input ref="fileInput" type="file" :accept="accept" :disabled="disabled" :multiple="multiple" @change="onFileSelect" @focus="onFocus" @blur="onBlur" v-if="!hasFiles" />
@@ -129,7 +129,9 @@ export default {
         showCancelButton: {
             type: Boolean,
             default: true
-        }
+        },
+        style: null,
+        class: null
     },
     duplicateIEEvent: false,
     data() {
@@ -405,14 +407,14 @@ export default {
             return this.mode === 'basic';
         },
         advancedChooseButtonClass() {
-            return ['p-button p-component p-fileupload-choose', {
+            return ['p-button p-component p-fileupload-choose', this.class, {
                     'p-disabled': this.disabled,
                     'p-focus': this.focused
                 }
             ];
         },
         basicChooseButtonClass() {
-            return ['p-button p-component p-fileupload-choose', {
+            return ['p-button p-component p-fileupload-choose', this.class, {
                 'p-fileupload-choose-selected': this.hasFiles,
                 'p-disabled': this.disabled,
                 'p-focus': this.focused

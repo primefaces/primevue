@@ -147,55 +147,57 @@ export default {
                     tabName: 'Options API Source',
                     content: `
 <template>
-    <div class="dock-demo">
-        <Toast position="top-center" group="tc" />
+    <div>
+        <div class="dock-demo">
+            <Toast position="top-center" group="tc" />
 
-        <h5>Basic</h5>
-        <div className="dock-window">
-            <Dock :model="dockBasicItems" position="bottom"/>
-            <Dock :model="dockBasicItems" position="top"/>
-            <Dock :model="dockBasicItems" position="left"/>
-            <Dock :model="dockBasicItems" position="right"/>
-        </div>
+            <h5>Basic</h5>
+            <div className="dock-window">
+                <Dock :model="dockBasicItems" position="bottom"/>
+                <Dock :model="dockBasicItems" position="top"/>
+                <Dock :model="dockBasicItems" position="left"/>
+                <Dock :model="dockBasicItems" position="right"/>
+            </div>
 
-        <h5>Advanced</h5>
-        <Menubar :model="menubarItems">
-            <template #start>
-                <i class="pi pi-apple"></i>
-            </template>
-            <template #end>
-                <i class="pi pi-video" />
-                <i class="pi pi-wifi" />
-                <i class="pi pi-volume-up" />
-                <span>Fri 13:07</span>
-                <i class="pi pi-search" />
-                <i class="pi pi-bars" />
-            </template>
-        </Menubar>
-
-        <div class="dock-window dock-advanced">
-            <Dock :model="dockItems">
-                <template #item="{ item }">
-                    <a href="#" class="p-dock-action" v-tooltip.top="item.label" @click="onDockItemClick($event, item)">
-                        <img :alt="item.label" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" />
-                    </a>
+            <h5>Advanced</h5>
+            <Menubar :model="menubarItems">
+                <template #start>
+                    <i class="pi pi-apple"></i>
                 </template>
-            </Dock>
+                <template #end>
+                    <i class="pi pi-video" />
+                    <i class="pi pi-wifi" />
+                    <i class="pi pi-volume-up" />
+                    <span>Fri 13:07</span>
+                    <i class="pi pi-search" />
+                    <i class="pi pi-bars" />
+                </template>
+            </Menubar>
 
-            <Dialog v-model:visible="displayTerminal" header="Terminal" :breakpoints="{ '960px': '50vw' }" :style="{ width: '40vw' }" :maximizable="true">
-                <Terminal welcomeMessage="Welcome to PrimeVue(cmd: 'date', 'greet {0}', 'random' and 'clear')" prompt="primevue $" />
-            </Dialog>
+            <div class="dock-window dock-advanced">
+                <Dock :model="dockItems">
+                    <template #item="{ item }">
+                        <a href="#" class="p-dock-action" v-tooltip.top="item.label" @click="onDockItemClick($event, item)">
+                            <img :alt="item.label" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" style="width: 100%">
+                        </a>
+                    </template>
+                </Dock>
 
-            <Dialog v-model:visible="displayFinder" header="Finder" :breakpoints="{ '960px': '50vw' }" :style="{ width: '40vw' }" :maximizable="true">
-                <Tree :value="nodes" />
-            </Dialog>
+                <Dialog v-model:visible="displayTerminal" header="Terminal" :breakpoints="{ '960px': '50vw' }" :style="{ width: '40vw' }" :maximizable="true">
+                    <Terminal welcomeMessage="Welcome to PrimeVue(cmd: 'date', 'greet {0}', 'random' and 'clear')" prompt="primevue $" />
+                </Dialog>
 
-            <Galleria v-model:visible="displayPhotos" :value="images" :responsiveOptions="responsiveOptions" :numVisible="2" containerStyle="width: 400px"
-                :circular="true" :fullScreen="true" :showThumbnails="false" :showItemNavigators="true">
-                <template #item="slotProps">
-                    <img src='https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png' :alt="slotProps.item.alt" />
-                </template>    
-            </Galleria>
+                <Dialog v-model:visible="displayFinder" header="Finder" :breakpoints="{ '960px': '50vw' }" :style="{ width: '40vw' }" :maximizable="true">
+                    <Tree :value="nodes" />
+                </Dialog>
+
+                <Galleria v-model:visible="displayPhotos" :value="images" :responsiveOptions="responsiveOptions" :numVisible="2" containerStyle="width: 400px"
+                    :circular="true" :fullScreen="true" :showThumbnails="false" :showItemNavigators="true">
+                    <template #item="slotProps">
+                        <img src='https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png' :alt="slotProps.item.alt" style="width: 100%" />
+                    </template>    
+                </Galleria>
+            </div>
         </div>
     </div>
 </template>
@@ -468,9 +470,6 @@ export default {
 
             TerminalService.emit('response', response);
         }
-    },
-    components: {
-        'DockDoc': DockDoc
     }
 }
 <\\/script>
@@ -481,7 +480,7 @@ export default {
         width: 100%;
         height: 450px;
         position: relative;
-        background-image: url('../../assets/images/dock/window.jpg');
+        background-image: url("https://www.primefaces.org/wp-content/uploads/2021/02/primevue-blog.jpg");
         background-repeat: no-repeat;
         background-size: cover;
         z-index: 1;
@@ -531,61 +530,63 @@ export default {
                     tabName: 'Composition API Source',
                     content: `
 <template>
-    <div class="content-section implementation dock-demo">
-        <Toast position="top-center" group="tc" />
+    <div>
+        <div class="content-section implementation dock-demo">
+            <Toast position="top-center" group="tc" />
 
-        <h5>Basic</h5>
-        <div className="dock-window">
-            <Dock :model="dockBasicItems" position="bottom"/>
-            <Dock :model="dockBasicItems" position="top"/>
-            <Dock :model="dockBasicItems" position="left"/>
-            <Dock :model="dockBasicItems" position="right"/>
-        </div>
+            <h5>Basic</h5>
+            <div className="dock-window">
+                <Dock :model="dockBasicItems" position="bottom"/>
+                <Dock :model="dockBasicItems" position="top"/>
+                <Dock :model="dockBasicItems" position="left"/>
+                <Dock :model="dockBasicItems" position="right"/>
+            </div>
 
-        <h5>Advanced</h5>
-        <Menubar :model="menubarItems">
-            <template #start>
-                <i class="pi pi-apple"></i>
-            </template>
-            <template #end>
-                <i class="pi pi-video" />
-                <i class="pi pi-wifi" />
-                <i class="pi pi-volume-up" />
-                <span>Fri 13:07</span>
-                <i class="pi pi-search" />
-                <i class="pi pi-bars" />
-            </template>
-        </Menubar>
-
-        <div class="dock-window dock-advanced">
-            <Dock :model="dockItems">
-                <template #item="{ item }">
-                    <a href="#" class="p-dock-action" v-tooltip.top="item.label" @click="onDockItemClick($event, item)">
-                        <img :alt="item.label" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" />
-                    </a>
+            <h5>Advanced</h5>
+            <Menubar :model="menubarItems">
+                <template #start>
+                    <i class="pi pi-apple"></i>
                 </template>
-            </Dock>
+                <template #end>
+                    <i class="pi pi-video" />
+                    <i class="pi pi-wifi" />
+                    <i class="pi pi-volume-up" />
+                    <span>Fri 13:07</span>
+                    <i class="pi pi-search" />
+                    <i class="pi pi-bars" />
+                </template>
+            </Menubar>
 
-            <Dialog v-model:visible="displayTerminal" header="Terminal" :breakpoints="{ '960px': '50vw' }" :style="{ width: '40vw' }" :maximizable="true">
-                <Terminal welcomeMessage="Welcome to PrimeVue(cmd: 'date', 'greet {0}', 'random' and 'clear')" prompt="primevue $" />
-            </Dialog>
+            <div class="dock-window dock-advanced">
+                <Dock :model="dockItems">
+                    <template #item="{ item }">
+                        <a href="#" class="p-dock-action" v-tooltip.top="item.label" @click="onDockItemClick($event, item)">
+                            <img :alt="item.label" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" style="width: 100%" />
+                        </a>
+                    </template>
+                </Dock>
 
-            <Dialog v-model:visible="displayFinder" header="Finder" :breakpoints="{ '960px': '50vw' }" :style="{ width: '40vw' }" :maximizable="true">
-                <Tree :value="nodes" />
-            </Dialog>
+                <Dialog v-model:visible="displayTerminal" header="Terminal" :breakpoints="{ '960px': '50vw' }" :style="{ width: '40vw' }" :maximizable="true">
+                    <Terminal welcomeMessage="Welcome to PrimeVue(cmd: 'date', 'greet {0}', 'random' and 'clear')" prompt="primevue $" />
+                </Dialog>
 
-            <Galleria v-model:visible="displayPhotos" :value="images" :responsiveOptions="responsiveOptions" :numVisible="2" containerStyle="width: 400px"
-                :circular="true" :fullScreen="true" :showThumbnails="false" :showItemNavigators="true">
-                <template #item="slotProps">
-                    <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" :alt="slotProps.item.alt" />
-                </template>    
-            </Galleria>
+                <Dialog v-model:visible="displayFinder" header="Finder" :breakpoints="{ '960px': '50vw' }" :style="{ width: '40vw' }" :maximizable="true">
+                    <Tree :value="nodes" />
+                </Dialog>
+
+                <Galleria v-model:visible="displayPhotos" :value="images" :responsiveOptions="responsiveOptions" :numVisible="2" containerStyle="width: 400px"
+                    :circular="true" :fullScreen="true" :showThumbnails="false" :showItemNavigators="true">
+                    <template #item="slotProps">
+                        <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" :alt="slotProps.item.alt" style="width: 100%" />
+                    </template>    
+                </Galleria>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, onBeforeUnmount } from 'vue';
 import { useToast } from 'primevue/usetoast';
 import NodeService from './service/NodeService';
 import PhotoService from './service/PhotoService';
@@ -607,25 +608,25 @@ export default {
         const displayFinder = ref(false);
         const displayTerminal = ref(false);
         const displayPhotos = ref(false);
-        const productService = ref(new ProductService());
+        const nodeService = ref(new NodeService());
         const photoService = ref(new PhotoService());
         const images = ref();
         const nodes = ref();
         const toast = useToast();
-        const imgErrorPath = ref('https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'),
+        const imgErrorPath = ref('https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png');
         const dockItems = ref([
             {
                 label: 'Finder',
                 icon: "demo/images/dock/finder.svg",
                 command: () => {
-                    this.displayFinder = true;
+                    displayFinder.value = true;
                 }
             },
             {
                 label: 'Terminal',
                 icon: "demo/images/dock/terminal.svg",
                 command: () => {
-                    this.displayTerminal = true;
+                    displayTerminal.value = true;
                 }
             },
             {
@@ -646,7 +647,7 @@ export default {
                 label: 'Photos',
                 icon: "demo/images/dock/photos.svg",
                 command: () => {
-                    this.displayPhotos = true;
+                    displayPhotos.value = true;
                 }
             },
             {
@@ -896,7 +897,7 @@ export default {
         width: 100%;
         height: 450px;
         position: relative;
-        background-image: url('../../assets/images/dock/window.jpg');
+        background-image: url("https://www.primefaces.org/wp-content/uploads/2021/02/primevue-blog.jpg");
         background-repeat: no-repeat;
         background-size: cover;
         z-index: 1;

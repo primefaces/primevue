@@ -112,6 +112,18 @@ const FileUploadProps = [
         type: "boolean",
         default: "true",
         description: "Whether to cancel the upload button."
+    },
+    {
+        name: "style",
+        type: "any",
+        default: "null",
+        description: "Inline style of the component."
+    },
+    {
+        name: "class",
+        type: "string",
+        default: "null",
+        description: "Style class of the component."
     }
 ];
 

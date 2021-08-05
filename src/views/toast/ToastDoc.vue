@@ -96,6 +96,18 @@ export default defineComponent({
                         <td>null</td>
                         <td>Key of the Toast to display the message.</td>
                     </tr>
+                    <tr>
+                        <td>styleClass</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Style class of the message.</td>
+                    </tr>
+                    <tr>
+                        <td>contentStyleClass</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Style class of the content.</td>
+                    </tr>
 				</tbody>
 			</table>
 		</div>

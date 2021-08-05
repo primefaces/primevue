@@ -23,6 +23,12 @@ directives: {
 </template>
 </code></pre>
 
+        <p>Also, more than one value can be used.</p>
+<pre v-code><code><template v-pre>
+&lt;InputText type="text" v-tooltip="{ value: 'Enter your username', disabled: true }" /&gt;
+</template>
+</code></pre>
+
 		<h5>Positions</h5>
 		<p>There are four choices to position the tooltip, default value is "right" and alternatives are "top", "bottom", "left". Position is specified using a modifier.</p>
 <pre v-code><code><template v-pre>
@@ -48,6 +54,34 @@ directives: {
 &lt;InputText type="text" v-tooltip.top.focus="'Enter your username'" /&gt;
 </template>
 </code></pre>
+
+        <h5>Properties</h5>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Default</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>value</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Text of the tooltip</td>
+                    </tr>
+                    <tr>
+                        <td>disabled</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>When present, it specifies that the component should be disabled.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
 		<h5>Styling</h5>
 		<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>

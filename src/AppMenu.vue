@@ -14,7 +14,7 @@
                     {{item.name}}
                     <Tag v-if="item.badge" :value="item.badge"></Tag>
                 </div>
-                <div class="menu-items" v-if="item.children">
+                <div class="menu-items" v-if="item.children && item.children.length">
                     <template v-for="child of item.children" :key="child.name">
                         <a v-if="child.href" :href="child.href" target="_blank">{{child.name}}</a>
                         <router-link v-if="child.to" :to="child.to">

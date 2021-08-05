@@ -99,11 +99,20 @@
             ]
         },
         {
+            "name": "PrimeBlocks",
+            "meta": ["primeblocks"],
+            "banner": true,
+            "imageLight": "demo/images/banner-primeblocks.png",
+            "imageDark": "demo/images/banner-primeblocks-dark.png",
+            "url": "https://www.primefaces.org/primeblocks-vue",
+            "children": []
+        },
+        {
             "name": "PrimeFlex 3.0",
             "meta": ["primeflex"],
             "banner": true,
-            "imageLight": "demo/images/primeflex.svg",
-            "imageDark": "demo/images/primeflex-dark.svg",
+            "imageLight": "demo/images/banner-primeflex.svg",
+            "imageDark": "demo/images/banner-primeflex-dark.svg",
             "url": "https://www.primefaces.org/primeflex",
             "children": []
         },
@@ -833,6 +842,11 @@
                 {
                     "name": "Ripple",
                     "to": "/ripple"
+                },
+                {
+                    "name": "StyleClass",
+                    "to": "/styleclass",
+                    "badge": "New"
                 },
                 {
                     "name": "Tag",

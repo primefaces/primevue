@@ -215,6 +215,18 @@ myUploader(event) {
 						<td>true</td>
 						<td>Whether to show the cancel button.</td>
 					</tr>
+					<tr>
+						<td>style</td>
+						<td>any</td>
+						<td>null</td>
+						<td>Inline style of the component.</td>
+					</tr>
+					<tr>
+						<td>class</td>
+						<td>string</td>
+						<td>null</td>
+						<td>Style class of the component.</td>
+					</tr>
 				</tbody>
 			</table>
 		</div>

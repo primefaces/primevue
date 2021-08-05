@@ -209,6 +209,33 @@
                 </div>
             </div>
         </div>
+
+        <div class="primeblocks">
+            <div class="p-grid">
+                <div class="p-col-12 p-md-6">
+                    <h4 class="pro-title">Vue UI Blocks Powered by PrimeVue</h4>
+                    <p>150+ ready to use UI blocks to build spectacular applications in no time.</p>
+                    <a class="action-button" href="https://www.primefaces.org/primeblocks-vue">LEARN MORE</a>
+                </div>
+                <div class="p-col-12 p-md-6 p-text-center">
+                    <img alt="primeblocks-vue" src="../assets/images/primeblocks.png" class="section-image">
+                </div>
+            </div>
+        </div>
+
+        <div class="primeflex">
+            <div class="p-grid">
+                <div class="p-col-12 p-md-6">
+                    <h3 class="pro-title">PrimeFlex: Perfect CSS Utility Companion</h3>
+                    <p>PrimeFlex is a lightweight responsive CSS utility library to accompany Prime UI libraries and static webpages as well.</p>
+                    <a class="action-button" href="https://www.primefaces.org/primeflex">LEARN MORE</a>
+                </div>
+                <div class="p-col-12 p-md-6 p-text-center">
+                    <img alt="primeflex" src="../assets/images/primeflex.png" class="section-image">
+                </div>
+            </div>
+        </div>
+
         <div class="prosupport">
             <div class="p-grid">
                 <div class="p-col-12 p-md-6">

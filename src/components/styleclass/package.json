@@ -1,0 +1,6 @@
+{
+    "main": "./styleclass.cjs.js",
+    "module": "./styleclass.esm.js",
+    "unpkg": "./styleclass.min.js",
+    "types": "./StyleClass.d.ts"
+  }
