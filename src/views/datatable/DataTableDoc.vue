@@ -2260,6 +2260,13 @@ export default {
                             <td>Callback to invoke when a row is double clicked.</td>
                         </tr>
                         <tr>
+                            <td>row-hover</td>
+                            <td>event.originalEvent: Browser event. <br />
+                                event.data: Selected row data. <br />
+                                event.index: Row index.</td>
+                            <td>Callback to invoke when a row is hovered.</td>
+                        </tr>
+                        <tr>
                             <td>row-contextmenu</td>
                             <td>event.originalEvent: Browser event. <br />
                                 event.data: Selected row data. <br />
