@@ -1,6 +1,6 @@
 <template>
     <div :class="containerClass" role="alert" aria-live="assertive" aria-atomic="true">
-        <div class="p-toast-message-content">
+        <div class="p-toast-message-content" :class="message.contentStyleClass">
             <span :class="iconClass"></span>
             <div class="p-toast-message-text">
                 <span class="p-toast-summary">{{message.summary}}</span>
@@ -42,7 +42,7 @@ export default {
     },
     computed: {
         containerClass() {
-            return ['p-toast-message', {
+            return ['p-toast-message', this.message.styleClass, {
                 'p-toast-message-info': this.message.severity === 'info',
                 'p-toast-message-warn': this.message.severity === 'warn',
                 'p-toast-message-error': this.message.severity === 'error',
