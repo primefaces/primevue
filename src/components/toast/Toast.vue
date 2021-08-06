@@ -166,13 +166,13 @@ export default {
 .p-toast-top-center {
 	top: 20px;
     left: 50%;
-    margin-left: -10em;
+    transform: translateX(-50%);
 }
 
 .p-toast-bottom-center {
 	bottom: 20px;
 	left: 50%;
-    margin-left: -10em;
+    transform: translateX(-50%);
 }
 
 .p-toast-center {
