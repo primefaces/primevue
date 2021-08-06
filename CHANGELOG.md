@@ -1,5 +1,18 @@
 # Changelog
 
+# Changelog
+
+## [3.6.1](https://github.com/primefaces/primevue/tree/3.6.1) (2021-08-05)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.6.0...3.6.1)
+
+**Implemented New Features and Enhancements:**
+
+- style and class props for FileUpload [\#1407](https://github.com/primefaces/primevue/issues/1407)
+- New v-styleclass directive [\#1405](https://github.com/primefaces/primevue/issues/1405)
+- value and disabled props for Tooltip [\#1404](https://github.com/primefaces/primevue/issues/1404)
+- New styleClass and contentStyleClass props for Toast [\#1403](https://github.com/primefaces/primevue/issues/1403)
+
 ## [3.6.0](https://github.com/primefaces/primevue/tree/3.6.0) (2021-07-27)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.5.1...3.6.0)
