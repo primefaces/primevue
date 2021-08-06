@@ -165,6 +165,8 @@ export default {
                 'fluent-light': 'fluent-light.png',
                 'soho-light': 'soho-light.png',
                 'soho-dark': 'soho-dark.png',
+                'viva-light': 'viva-light.svg',
+                'viva-dark': 'viva-dark.svg',
                 'mira': 'mira.jpg',
                 'nano': 'nano.jpg'
             }
