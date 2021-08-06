@@ -10,7 +10,7 @@ const pkg = require(path.resolve(rootDir, "package.json"));
 const libraryName = "PrimeVue";
 const libraryVersion = pkg.version;
 
-const showcaseURL = "https://primefaces.org/primevue/showcase/#/";
+const showcaseURL = "https://primefaces.org/primevue/showcase-v2/#/";
 
 const fileModules = {},
     veturTags = {},
@@ -30,6 +30,7 @@ const webTypes = {
     version: libraryVersion,
     contributions: {
         html: {
+            "types-syntax": "typescript",
             "description-markup": "markdown",
             tags: [],
             attributes: []
