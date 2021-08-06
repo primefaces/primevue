@@ -75,6 +75,7 @@ import SplitButton from './components/splitbutton/SplitButton';
 import Splitter from './components/splitter/Splitter';
 import SplitterPanel from './components/splitterpanel/SplitterPanel';
 import Steps from './components/steps/Steps';
+import StyleClass from './components/styleclass/StyleClass';
 import TabMenu from './components/tabmenu/TabMenu';
 import TabView from './components/tabview/TabView';
 import TabPanel from './components/tabpanel/TabPanel';
@@ -112,6 +113,7 @@ Vue.use(ConfirmationService);
 Vue.directive('badge', BadgeDirective);
 Vue.directive('tooltip', Tooltip);
 Vue.directive('ripple', Ripple);
+Vue.directive('styleclass', StyleClass);
 
 Vue.prototype.$appState = Vue.observable({inputStyle: 'outlined', darkTheme: false});
 
