@@ -239,7 +239,7 @@ function isOutOfBounds(el) {
 }
 
 const Tooltip = {
-    bind(el, options) {console.log(options)
+    bind(el, options) {
         el.$_ptooltipModifiers = options.modifiers;
         if (typeof options.value === 'string') {
             el.$_ptooltipValue = options.value;
