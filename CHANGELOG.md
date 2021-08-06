@@ -1,6 +1,12 @@
 # Changelog
 
-# Changelog
+## [3.6.2](https://github.com/primefaces/primevue/tree/3.6.2) (2021-08-06)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.6.1...3.6.2)
+
+**Fixed bugs:**
+
+- Toast does not clear hide timeout on unmount [\#1415](https://github.com/primefaces/primevue/issues/1415)
 
 ## [3.6.1](https://github.com/primefaces/primevue/tree/3.6.1) (2021-08-05)
 
