@@ -1,6 +1,6 @@
 <template>
     <div ref="container" :class="containerClass">
-        <transition-group name="p-toast-message" tag="div">
+        <transition-group name="p-toast-message" tag="div" @enter="onEnter">
             <ToastMessage v-for="msg of messages" :key="msg.id" :message="msg" :templates="$scopedSlots" @close="remove($event)"/>
         </transition-group>
     </div>
@@ -10,6 +10,7 @@
 import ToastEventBus from '../toastservice/ToastEventBus';
 import ToastMessage from './ToastMessage';
 import DomHandler from '../utils/DomHandler';
+import UniqueComponentId from '../utils/UniqueComponentId';
 
 var messageIdx = 0;
 
@@ -30,6 +31,10 @@ export default {
         baseZIndex: {
             type: Number,
             default: 0
+        },
+        breakpoints: {
+            type: Object,
+            default: null
         }
     },
     data() {
@@ -37,6 +42,7 @@ export default {
             messages: []
         }
     },
+    styleElement: null,
     mounted() {
         ToastEventBus.$on('add', (message) => {
             if (this.group == message.group) {
@@ -53,9 +59,16 @@ export default {
         });
 
         this.updateZIndex();
+
+        if (this.breakpoints) {
+            this.createStyle();
+        }
     },
     beforeUpdate() {
         this.updateZIndex();
+    },
+    beforeDestroy() {
+        this.destroyStyle();
     },
     methods: {
         add(message) {
@@ -80,6 +93,37 @@ export default {
             if (this.autoZIndex) {
                 this.$refs.container.style.zIndex = String(this.baseZIndex + DomHandler.generateZIndex());
             }
+        },
+        onEnter() {
+            this.$refs.container.setAttribute(this.attributeSelector, '');
+        },
+        createStyle() {debugger
+            if (!this.styleElement) {
+                this.styleElement = document.createElement('style');
+                this.styleElement.type = 'text/css';
+                document.head.appendChild(this.styleElement);
+                let innerHTML = '';
+                for (let breakpoint in this.breakpoints) {
+                    let breakpointStyle = '';
+                    for (let styleProp in this.breakpoints[breakpoint]) {
+                        breakpointStyle += styleProp + ':' + this.breakpoints[breakpoint][styleProp] + '!important;';
+                    }
+                    innerHTML += `
+                        @media screen and (max-width: ${breakpoint}) {
+                            .p-toast[${this.attributeSelector}] {
+                                ${breakpointStyle}
+                            }
+                        }
+                    `;
+                }
+                this.styleElement.innerHTML = innerHTML;
+            }
+        },
+        destroyStyle() {
+            if (this.styleElement) {
+                document.head.removeChild(this.styleElement);
+                this.styleElement = null;
+            }
         }
     },
     components: {
@@ -88,6 +132,9 @@ export default {
     computed: {
         containerClass() {
             return 'p-toast p-component p-toast-' + this.position;
+        },
+        attributeSelector() {
+            return UniqueComponentId();
         }
     }
 }

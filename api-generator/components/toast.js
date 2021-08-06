@@ -22,6 +22,12 @@ const ToastProps = [
         type: "number",
         default: "0",
         description: "Base zIndex value to use in layering."
+    },
+    {
+        name: "breakpoints",
+        type: "object",
+        default: "null",
+        description: "Object literal to define styles per screen size."
     }
 ];
 

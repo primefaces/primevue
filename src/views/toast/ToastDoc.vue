@@ -197,6 +197,12 @@ this.$toast.removeAllGroups();
 </template>
 </CodeHighlight>
 
+                <h5>Responsive</h5>
+                <p>Toast styling can be adjusted per screen size with the <i>breakpoints</i> option. The value of <i>breakpoints</i> should be an object literal whose keys are the maximum screen sizes and values are the styles per screen. In example below, width of the toast messages cover the whole page on screens whose widths is smaller than 921px.</p>
+<CodeHighlight>
+&lt;Toast :breakpoints="&#123;'920px': &#123;width: '100%', right: '0', left: '0'&#125;&#125;"&gt;&lt;/Toast&gt;
+</CodeHighlight>
+
 				<h5>Properties</h5>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
@@ -232,6 +238,12 @@ this.$toast.removeAllGroups();
                                 <td>number</td>
                                 <td>0</td>
                                 <td>Base zIndex value to use in layering.</td>
+                            </tr>
+                            <tr>
+                                <td>breakpoints</td>
+                                <td>object</td>
+                                <td>null</td>
+                                <td>Object literal to define styles per screen size.</td>
                             </tr>
 						</tbody>
 					</table>
