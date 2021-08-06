@@ -591,6 +591,11 @@ export default new Router({
                 component: () => import('./views/steps/ConfirmationDemo.vue')
             }]
         },
+		{
+			path: '/styleclass',
+			name: 'styleclass',
+			component: () => import('./views/styleclass/StyleClassDemo.vue')
+        },
         {
 			path: '/tabmenu',
             component: () => import('./views/tabmenu/TabMenuDemo.vue'),
