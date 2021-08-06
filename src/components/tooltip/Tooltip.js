@@ -65,7 +65,7 @@ function onClick(event) {
 }
 
 function show(el) {
-    if (!el.$_ptooltipValue) {
+    if (el.$_ptooltipDisabled) {
         return;
     }
 
@@ -75,7 +75,9 @@ function show(el) {
     tooltipElement.style.zIndex = ++DomHandler.zindex;
 
     window.addEventListener('resize', function onWindowResize() {
-        hide(el);
+        if (!DomHandler.isAndroid()) {
+            hide(el);
+        }
         this.removeEventListener('resize', onWindowResize);
     });
 
@@ -237,9 +239,16 @@ function isOutOfBounds(el) {
 }
 
 const Tooltip = {
-    bind(el, options) {
+    bind(el, options) {console.log(options)
         el.$_ptooltipModifiers = options.modifiers;
-        el.$_ptooltipValue = options.value;
+        if (typeof options.value === 'string') {
+            el.$_ptooltipValue = options.value;
+            el.$_ptooltipDisabled = false;
+        }
+        else {
+            el.$_ptooltipValue = options.value.value;
+            el.$_ptooltipDisabled = options.value.disabled || false;
+        }
         bindEvents(el);
     },
     unbind(el) {
@@ -253,7 +262,15 @@ const Tooltip = {
     },
     update(el, options) {
         el.$_ptooltipModifiers = options.modifiers;
-        el.$_ptooltipValue = options.value;
+
+        if (typeof options.value === 'string') {
+            el.$_ptooltipValue = options.value;
+            el.$_ptooltipDisabled = false;
+        }
+        else {
+            el.$_ptooltipValue = options.value.value;
+            el.$_ptooltipDisabled = options.value.disabled;
+        }
     }
 };
 

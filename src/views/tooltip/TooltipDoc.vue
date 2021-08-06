@@ -24,6 +24,13 @@ directives: {
 </template>
 </CodeHighlight>
 
+                <p>Also, more than one value can be used.</p>
+<CodeHighlight>
+<template v-pre>
+&lt;InputText type="text" v-tooltip="{ value: 'Enter your username', disabled: true }" /&gt;
+</template>
+</CodeHighlight>
+
 				<h5>Positions</h5>
 				<p>There are four choices to position the tooltip, default value is "right" and alternatives are "top", "bottom", "left". Position is specified using a modifier.</p>
 <CodeHighlight>
