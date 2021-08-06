@@ -28,16 +28,22 @@ export default {
             }, this.message.life)
         }
     },
+    beforeDestroy() {
+        this.clearCloseTimeout();
+    },
     methods: {
         close() {
             this.$emit('close', this.message);
         },
         onCloseClick() {
+            this.clearCloseTimeout();
+            this.close();
+        },
+        clearCloseTimeout() {
             if (this.closeTimeout) {
                 clearTimeout(this.closeTimeout);
+                this.closeTimeout = null;
             }
-
-            this.close();
         }
     },
     computed: {
