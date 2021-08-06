@@ -171,6 +171,32 @@ this.$toast.add({severity:'success', summary: 'Specific Message', group: 'mykey'
 this.$toast.removeAllGroups();
 </CodeHighlight>
 
+                <h5>Templating</h5>
+                <p>Templating allows customizing the content where the message instance is available as the implicit variable.</p>
+<CodeHighlight>
+<template v-pre>
+&lt;Toast position="bottom-center" group="bc"&gt;
+    &lt;template #message="slotProps"&gt;
+        &lt;div class="p-d-flex p-flex-column"&gt;
+            &lt;div class="p-text-center"&gt;
+                &lt;i class="pi pi-exclamation-triangle" style="font-size: 3rem"&gt;&lt;/i&gt;
+                &lt;h4&gt;{{slotProps.message.summary}}&lt;/h4&gt;
+                &lt;p&gt;{{slotProps.message.detail}}&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class="p-grid p-fluid"&gt;
+                &lt;div class="p-col-6"&gt;
+                    &lt;Button class="p-button-success" label="Yes" @click="onConfirm" /&gt;
+                &lt;/div&gt;
+                &lt;div class="p-col-6"&gt;
+                    &lt;Button class="p-button-secondary" label="No" @click="onReject" /&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/template&gt;
+&lt;/Toast&gt;
+</template>
+</CodeHighlight>
+
 				<h5>Properties</h5>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">

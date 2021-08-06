@@ -1,7 +1,7 @@
 <template>
     <div ref="container" :class="containerClass">
         <transition-group name="p-toast-message" tag="div">
-            <ToastMessage v-for="msg of messages" :key="msg.id" :message="msg" @close="remove($event)"/>
+            <ToastMessage v-for="msg of messages" :key="msg.id" :message="msg" :templates="$scopedSlots" @close="remove($event)"/>
         </transition-group>
     </div>
 </template>
@@ -53,9 +53,16 @@ export default {
         });
 
         this.updateZIndex();
+
+        if (this.breakpoints) {
+            this.createStyle();
+        }
     },
     beforeUpdate() {
         this.updateZIndex();
+    },
+    beforeDestroy() {
+        this.destroyStyle();
     },
     methods: {
         add(message) {
@@ -79,6 +86,34 @@ export default {
         updateZIndex() {
             if (this.autoZIndex) {
                 this.$refs.container.style.zIndex = String(this.baseZIndex + DomHandler.generateZIndex());
+            }
+        },
+        createStyle() {
+            if (!this.styleElement) {
+                this.styleElement = document.createElement('style');
+                this.styleElement.type = 'text/css';
+                document.head.appendChild(this.styleElement);
+                let innerHTML = '';
+                for (let breakpoint in this.breakpoints) {
+                    let breakpointStyle = '';
+                    for (let styleProp in this.breakpoints[breakpoint]) {
+                        breakpointStyle += styleProp + ':' + this.breakpoints[breakpoint][styleProp] + '!important;';
+                    }
+                    innerHTML += `
+                        @media screen and (max-width: ${breakpoint}) {
+                            .p-toast[${this.attributeSelector}] {
+                                ${breakpointStyle}
+                            }
+                        }
+                    `;
+                }
+                this.styleElement.innerHTML = innerHTML;
+            }
+        },
+        destroyStyle() {
+            if (this.styleElement) {
+                document.head.removeChild(this.styleElement);
+                this.styleElement = null;
             }
         }
     },
