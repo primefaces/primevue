@@ -31,13 +31,17 @@ export default {
 </script>
 
 <style>
+.p-breadcrumb {
+    overflow-x: auto;
+}
+
 .p-breadcrumb ul {
     margin: 0;
     padding: 0;
     list-style-type: none;
     display: flex;
     align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
 }
 
 .p-breadcrumb .p-menuitem-text {
