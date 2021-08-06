@@ -58,9 +58,3 @@ export default {
     }
 }
 </script>
-
-
-
-    componentWillUnmount() {
-        this.unbindScrollListener();
-    }
