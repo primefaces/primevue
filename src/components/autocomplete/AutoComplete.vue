@@ -78,6 +78,10 @@ export default {
             type: String,
             default: 'blank'
         },
+        autoHighlight: {
+            type: Boolean,
+            default: false
+        },
         multiple: {
             type: Boolean,
             default: false
@@ -305,7 +309,7 @@ export default {
         },
         showOverlay() {
             this.overlayVisible = true;
-            this.autoHighlight();
+            this.autoHighlightFirstItem();
         },
         hideOverlay() {
             this.overlayVisible = false;
@@ -330,7 +334,6 @@ export default {
                 query: query
             });
         },
-
         onInputClicked(event) {
             if(this.completeOnFocus) {
                 this.search(event, '', 'click');
@@ -369,15 +372,21 @@ export default {
         onBlur() {
             this.focused = false;
         },
-        autoHighlight() {
-            if (this.overlayVisible) {
-                console.log('it works!')
+        autoHighlightFirstItem() {
+            if (!this.autoHighlight){
+                if (this.overlayVisible) {
+                    if (window.document.querySelectorAll('.p-autocomplete-item')[0]) {
+                        // console.log(document.querySelectorAll('.p-autocomplete-item')[0])
+                        document.querySelectorAll('.p-autocomplete-item')[0].classList.add('p-highlight')
+                    }
+                    // console.log(window.document.querySelectorAll('.p-autocomplete-item')[0]);
+                    // document.querySelectorAll('.p-autocomplete-item')[0].classList.add('.p-highlight')
+                }
             }
         },
         onKeyDown(event) {
             if (this.overlayVisible) {
                 let highlightItem = DomHandler.findSingle(this.overlay, 'li.p-highlight');
-                console.log(highlightItem)
                 switch(event.which) {
                     //down
                     case 40:
