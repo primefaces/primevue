@@ -305,7 +305,7 @@ export default {
         },
         showOverlay() {
             this.overlayVisible = true;
-             this.autoHighlight();
+            this.autoHighlight();
         },
         hideOverlay() {
             this.overlayVisible = false;
@@ -370,12 +370,14 @@ export default {
             this.focused = false;
         },
         autoHighlight() {
-            console.log('it works!')
+            if (this.overlayVisible) {
+                console.log('it works!')
+            }
         },
         onKeyDown(event) {
             if (this.overlayVisible) {
                 let highlightItem = DomHandler.findSingle(this.overlay, 'li.p-highlight');
-
+                console.log(highlightItem)
                 switch(event.which) {
                     //down
                     case 40:
