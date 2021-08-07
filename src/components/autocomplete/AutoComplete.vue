@@ -305,6 +305,7 @@ export default {
         },
         showOverlay() {
             this.overlayVisible = true;
+             this.autoHighlight();
         },
         hideOverlay() {
             this.overlayVisible = false;
@@ -367,6 +368,9 @@ export default {
         },
         onBlur() {
             this.focused = false;
+        },
+        autoHighlight() {
+            console.log('it works!')
         },
         onKeyDown(event) {
             if (this.overlayVisible) {
