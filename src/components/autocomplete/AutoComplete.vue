@@ -310,7 +310,7 @@ export default {
         showOverlay() {
             this.overlayVisible = true;
             
-            window.setTimeout(()=>{
+            setTimeout(()=>{
                 this.autoHighlightFirstItem()
             },200)
         },
@@ -376,13 +376,9 @@ export default {
             this.focused = false;
         },
         autoHighlightFirstItem() {
-            if (this.autoHighlight /*&& /*suggestions*&&*suggestions length*/) {
-                if (this.overlayVisible) {
-                    if (window.document.querySelectorAll('.p-autocomplete-item')[0]) {
-                        // highlight first suggestion element
-                        document.querySelectorAll('.p-autocomplete-item')[0].classList.add('p-highlight')
-                    }
-                }
+            if (this.autoHighlight && this.suggestions && this.suggestions.length) {
+                const itemToHighlight = this.overlay.firstElementChild.firstElementChild
+                DomHandler.addClass(itemToHighlight, 'p-highlight')
             }
         },
         onKeyDown(event) {
