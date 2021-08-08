@@ -80,7 +80,7 @@ export default {
         },
         autoHighlight: {
             type: Boolean,
-            default: false
+            default: true
         },
         multiple: {
             type: Boolean,
@@ -309,7 +309,10 @@ export default {
         },
         showOverlay() {
             this.overlayVisible = true;
-            this.autoHighlightFirstItem();
+            
+            window.setTimeout(()=>{
+                this.autoHighlightFirstItem()
+            },200)
         },
         hideOverlay() {
             this.overlayVisible = false;
@@ -373,20 +376,19 @@ export default {
             this.focused = false;
         },
         autoHighlightFirstItem() {
-            if (!this.autoHighlight){
+            if (this.autoHighlight /*&& /*suggestions*&&*suggestions length*/) {
                 if (this.overlayVisible) {
                     if (window.document.querySelectorAll('.p-autocomplete-item')[0]) {
-                        // console.log(document.querySelectorAll('.p-autocomplete-item')[0])
+                        // highlight first suggestion element
                         document.querySelectorAll('.p-autocomplete-item')[0].classList.add('p-highlight')
                     }
-                    // console.log(window.document.querySelectorAll('.p-autocomplete-item')[0]);
-                    // document.querySelectorAll('.p-autocomplete-item')[0].classList.add('.p-highlight')
                 }
             }
         },
         onKeyDown(event) {
             if (this.overlayVisible) {
                 let highlightItem = DomHandler.findSingle(this.overlay, 'li.p-highlight');
+                
                 switch(event.which) {
                     //down
                     case 40:
