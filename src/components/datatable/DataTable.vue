@@ -1683,7 +1683,9 @@ export default {
                     'p-datatable-responsive-stack': this.responsiveLayout === 'stack',
                     'p-datatable-responsive-scroll': this.responsiveLayout === 'scroll',
                     'p-datatable-striped': this.stripedRows,
-                    'p-datatable-gridlines': this.showGridlines
+                    'p-datatable-gridlines': this.showGridlines,
+                    'p-datatable-grouped-header': this.headerColumnGroup != null,
+                    'p-datatable-grouped-footer': this.footerColumnGroup != null
                 }
             ];
         },
@@ -1943,6 +1945,21 @@ export default {
 .p-datatable-scrollable .p-rowgroup-header {
     position: sticky;
     z-index: 1;
+}
+
+.p-datatable-scrollable.p-datatable-grouped-header .p-datatable-thead {
+    display: table;
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;
+}
+
+.p-datatable-scrollable.p-datatable-grouped-header .p-datatable-thead > tr {
+    display: table-row;
+}
+
+.p-datatable-scrollable.p-datatable-grouped-header .p-datatable-thead > tr > th {
+    display: table-cell;
 }
 
 /* Resizable */
