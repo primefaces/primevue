@@ -1947,18 +1947,21 @@ export default {
     z-index: 1;
 }
 
-.p-datatable-scrollable.p-datatable-grouped-header .p-datatable-thead {
+.p-datatable-scrollable.p-datatable-grouped-header .p-datatable-thead,
+.p-datatable-scrollable.p-datatable-grouped-footer .p-datatable-tfoot {
     display: table;
     border-collapse: collapse;
     width: 100%;
     table-layout: fixed;
 }
 
-.p-datatable-scrollable.p-datatable-grouped-header .p-datatable-thead > tr {
+.p-datatable-scrollable.p-datatable-grouped-header .p-datatable-thead > tr,
+.p-datatable-scrollable.p-datatable-grouped-footer .p-datatable-tfoot > tr {
     display: table-row;
 }
 
-.p-datatable-scrollable.p-datatable-grouped-header .p-datatable-thead > tr > th {
+.p-datatable-scrollable.p-datatable-grouped-header .p-datatable-thead > tr > th,
+.p-datatable-scrollable.p-datatable-grouped-footer .p-datatable-tfoot > tr > td {
     display: table-cell;
 }
 
