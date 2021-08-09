@@ -76,6 +76,7 @@
             <div class="menu-category">Button</div>
             <div class="menu-items">
                 <router-link to="/button">Button</router-link>
+                <router-link to="/speeddial">Speed Dial <Tag value="New"></Tag></router-link>
                 <router-link to="/splitbutton">SplitButton</router-link>
             </div>
 

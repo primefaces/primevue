@@ -567,6 +567,11 @@ export default new Router({
 			component: () => import('./views/spacing/SpacingDemo.vue')
         },
 		{
+			path: '/SpeedDial',
+			name: 'SpeedDial',
+			component: () => import('./views/speeddial/SpeedDialDemo.vue')
+        },
+		{
 			path: '/splitbutton',
 			name: 'splitbutton',
 			component: () => import('./views/splitbutton/SplitButtonDemo.vue')
