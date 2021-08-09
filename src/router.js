@@ -567,7 +567,7 @@ export default new Router({
 			component: () => import('./views/spacing/SpacingDemo.vue')
         },
 		{
-			path: '/SpeedDial',
+			path: '/speeddial',
 			name: 'SpeedDial',
 			component: () => import('./views/speeddial/SpeedDialDemo.vue')
         },
