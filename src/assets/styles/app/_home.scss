@@ -150,6 +150,17 @@
         }
     }
 
+    .primeblocks {
+        color: var(--text-color);
+        padding: 2rem;
+    }
+
+    .primeflex {
+        background-color: var(--surface-d);
+        color: var(--text-color);
+        padding: 2rem;
+    }
+
     .prosupport {
         border-bottom: 1px solid var(--surface-d);
         background-color: var(--surface-b);

@@ -8,7 +8,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url("assets/images/topbar-easter-2020-bg.jpg");
+    height: 70px;
+    background-image: linear-gradient(90deg ,#500d9d,#bd4b56);
 
     .layout-news-container {
         width: 100%;
@@ -47,7 +48,6 @@
         img.layouts-news-mockup-image {
             height: 70px;
             position: absolute;
-            right: 52px;
         }
     }
 

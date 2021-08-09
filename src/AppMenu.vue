@@ -26,7 +26,21 @@
                 <a href="https://www.primefaces.org/designer/api/primevue/2.0.1">SASS API</a>
             </div>
 
-            <div class="menu-category">PrimeFlex</div>
+            <div class="menu-category">PRIMEBLOCKS</div>
+            <div class="menu-image">
+                <a href="https://www.primefaces.org/primeblocks-vue">
+                    <img src="demo/images/banner-primeblocks.png" />
+                </a>
+            </div>
+
+            <div class="menu-category">PRIMEFLEX 3.0</div>
+            <div class="menu-image">
+                <a href="https://www.primefaces.org/primeflex">
+                    <img src="demo/images/banner-primeflex.svg" />
+                </a>
+            </div>
+
+            <div class="menu-category">PRIMEFLEX 2.0</div>
             <div class="menu-items">
                 <router-link to="/primeflex">Setup</router-link>
                 <router-link to="/display">Display</router-link>
@@ -211,7 +225,7 @@
                 <router-link to="/tieredmenu">TieredMenu</router-link>
             </div>
 
-            <div class="menu-category">Chart</div>
+            <div class="menu-category">Chart <Tag value="updated"></Tag></div>
             <div class="menu-items">
                 <router-link to="/chart">ChartModel</router-link>
                 <router-link to="/chart/pie">Pie</router-link>
