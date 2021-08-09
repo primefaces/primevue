@@ -4,7 +4,7 @@
 			<TabPanel header="Source">
 <CodeHighlight>
 <template v-pre>
-&lt;Chart type="radar" :data="chartData" /&gt;
+&lt;Chart type="radar" :data="chartData" :options="chartOptions" /&gt;
 </template>
 </CodeHighlight>
 
@@ -36,6 +36,28 @@ export default {
 						data: [28, 48, 40, 19, 96, 27, 100]
 					}
 				]
+			},
+			chartOptions: {
+				plugins: {
+                    legend: {
+                        labels: {
+                            color: '#495057'
+                        }
+                    }
+                },
+                scales: {
+                    r: {
+                        pointLabels: {
+                            color: '#495057',
+                        },
+                        grid: {
+                            color: '#ebedef',
+                        },
+                        angleLines: {
+                            color: '#ebedef'
+                        }
+                    }
+                }
 			}
 		}
 	}

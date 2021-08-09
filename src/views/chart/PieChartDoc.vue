@@ -4,7 +4,7 @@
 			<TabPanel header="Source">
 <CodeHighlight>
 <template v-pre>
-&lt;Chart type="pie" :data="chartData" /&gt;
+&lt;Chart type="pie" :data="chartData" :options="chartOptions" /&gt;
 </template>
 </CodeHighlight>
 
@@ -29,6 +29,13 @@ export default {
                         ]
 					}
 				]
+			},
+			chartOptions: {
+				legend: {
+                    labels: {
+                        fontColor: '#495057'
+                    }
+                }
 			}
 		}
 	}

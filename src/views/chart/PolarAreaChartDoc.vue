@@ -4,7 +4,7 @@
 			<TabPanel header="Source">
 <CodeHighlight>
 <template v-pre>
-&lt;Chart type="polarArea" :data="chartData" /&gt;
+&lt;Chart type="polarArea" :data="chartData" :options="chartOptions" /&gt;
 </template>
 </CodeHighlight>
 
@@ -37,6 +37,22 @@ export default {
 					"Grey",
 					"Blue"
 				]
+			},
+			chartOptions: {
+				plugins: {
+                    legend: {
+                        labels: {
+                            color: '#495057'
+                        }
+                    }
+                },
+                scales: {
+                    r: {
+                        grid: {
+                            color: '#ebedef'
+                        }
+                    }
+                }
 			}
 		}
 	}

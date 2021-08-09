@@ -4,7 +4,8 @@
         <p>Chart components are based on <a href="https://www.chartjs.org/">Charts.js</a>, an open source HTML5 based charting library.</p>
 
         <h5>Getting Started</h5>
-        <p>To begin with, charts.js package needs to be installed in your project.</p>
+        <p>Chart component is a wrapper around on <a href="https://www.chartjs.org/docs/3.3.2/">Chart.js 3.3.2+</a> so chart.js needs to be included in your project.
+        For a complete documentation and samples please refer to the <a href="https://www.chartjs.org/">chart.js website</a>.</p>
  <CodeHighlight lang="javascript">
 npm install chart.js --save
 </CodeHighlight>
@@ -14,40 +15,40 @@ npm install chart.js --save
 import Chart from 'primevue/chart';
 </CodeHighlight>
 
-		<h5>Chart Types</h5>
-		<p>Chart type is defined using the <i>type</i> property. Currently there are 6 options available; <b>pie</b>, <b>doughtnut</b>, <b>line</b>, <b>bar</b>, <b>radar</b> and <b>polarArea</b>.</p>
+        <h5>Chart Types</h5>
+		<p>Chart type is defined using the <i>type</i> property. Currently there are 6 options available; <b>pie</b>, <b>doughnut</b>, <b>line</b>, <b>bar</b>, <b>radar</b> and <b>polarArea</b>.</p>
 
 		<h5>Data</h5>
 		<p>Data of a chart is provided using a binding to the <i>data</i> property, each type has its own format of data. Here is an example of a line chart.  For more information refer to the <a href="https://www.chartjs.org/">charts.js</a> documentation.</p>
 <CodeHighlight>
-&lt;Chart type="bar" :data="basicData" /&gt;
+&lt;Chart type="bar" :data="basicData" :options="basicOptions" /&gt;
 </CodeHighlight>
 
 <CodeHighlight lang="js">
 export default {
 	data() {
 		return {
-			basicData: {
-				labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-				datasets: [
-					{
-						label: 'My First dataset',
-						backgroundColor: '#42A5F5',
-						data: [65, 59, 80, 81, 56, 55, 40]
-					},
-					{
-						label: 'My Second dataset',
-						backgroundColor: '#9CCC65',
-						data: [28, 48, 40, 19, 86, 27, 90]
-					}
-				]
-			}
+			basicData:{
+                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                datasets: [
+                    {
+                        label: 'My First dataset',
+                        backgroundColor: '#42A5F5',
+                        data: [65, 59, 80, 81, 56, 55, 40]
+                    },
+                    {
+                        label: 'My Second dataset',
+                        backgroundColor: '#FFA726',
+                        data: [28, 48, 40, 19, 86, 27, 90]
+                    }
+                ]
+            }
 		}
 	}
 }
 </CodeHighlight>
 
-		<h5>Options</h5>
+        <h5>Options</h5>
 		<p>While a series can be customized per dataset, general chart options are defined with options property.
 			Example below adds a title and customizes the legend position of the chart. For all available options refer to the <a href="https://www.chartjs.org/">charts.js</a> documentation.</p>
 <CodeHighlight>
@@ -112,14 +113,14 @@ options: {
                     </tr>
                     <tr>
                         <td>width</td>
-                        <td>string</td>
-                        <td>null</td>
+                        <td>number</td>
+                        <td>300</td>
                         <td>Width of the chart in non-responsive mode.</td>
                     </tr>
                     <tr>
                         <td>height</td>
-                        <td>string</td>
-                        <td>null</td>
+                        <td>number</td>
+                        <td>150</td>
                         <td>Height of the chart in non-responsive mode.</td>
                     </tr>
 				</tbody>
