@@ -325,6 +325,9 @@
 	&lt;div class="p-col"&gt;3&lt;/div&gt;
 &lt;/div&gt;
 </CodeHighlight>
+
+				<h5>Dependencies</h5>
+				<p>PrimeFlex 2.0.0.</p>
 			</TabPanel>
 
 			<TabPanel header="Source">

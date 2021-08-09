@@ -68,6 +68,9 @@
 &lt;div class="p-text-italic"&gt;Italic&lt;/div&gt;
 </template>
 </CodeHighlight>
+
+                <h5>Dependencies</h5>
+                <p>PrimeFlex 2.0.0.</p>
 			</TabPanel>
 
 			<TabPanel header="Source">

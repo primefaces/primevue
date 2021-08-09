@@ -518,6 +518,9 @@
                 <div>Item 1</div>
                 <div class="p-mt-auto">Item 2</div>
             </div>
+
+            <h5>Dependencies</h5>
+			<p>PrimeFlex 2.0.0.</p>
         </div>
     </div>
 </template>
