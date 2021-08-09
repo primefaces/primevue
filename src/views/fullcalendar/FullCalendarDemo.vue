@@ -3,7 +3,7 @@
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>FullCalendar</h1>
-                <p>An event calendar based on the <a href="https://fullcalendar.io/">FullCalendar</a> library.</p>
+                <p>PrimeVue provides theming for the <a href="https://fullcalendar.io/docs/vue">FullCalendar Vue</a> component.</p>
             </div>
         </div>
 
