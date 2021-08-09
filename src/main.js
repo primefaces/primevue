@@ -33,6 +33,7 @@ import DataViewLayoutOptions from './components/dataviewlayoutoptions/DataViewLa
 import DeferredContent from './components/deferredcontent/DeferredContent';
 import Dialog from './components/dialog/Dialog';
 import Divider from './components/divider/Divider';
+import Dock from './components/dock/Dock';
 import Dropdown from './components/dropdown/Dropdown';
 import Editor from './components/editor/Editor';
 import Fieldset from './components/fieldset/Fieldset';
@@ -149,6 +150,7 @@ Vue.component('DataViewLayoutOptions', DataViewLayoutOptions);
 Vue.component('DeferredContent', DeferredContent);
 Vue.component('Dialog', Dialog);
 Vue.component('Divider', Divider);
+Vue.component('Dock', Dock);
 Vue.component('Dropdown', Dropdown);
 Vue.component('Editor', Editor);
 Vue.component('Fieldset', Fieldset);

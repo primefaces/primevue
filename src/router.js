@@ -332,6 +332,11 @@ export default new Router({
 			component: () => import('./views/divider/DividerDemo.vue')
 		},
 		{
+			path: '/dock',
+			name: 'Dock',
+			component: () => import('./views/dock/DockDemo.vue')
+		},
+		{
 			path: '/dropdown',
 			name: 'dropdown',
 			component: () => import('./views/dropdown/DropdownDemo.vue')
