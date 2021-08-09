@@ -80,7 +80,7 @@ export default {
         },
         autoHighlight: {
             type: Boolean,
-            default: true
+            default: false
         },
         multiple: {
             type: Boolean,
