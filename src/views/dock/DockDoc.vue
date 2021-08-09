@@ -70,13 +70,13 @@ export default {
                             <td>Position of element. Valid values are 'bottom', 'top', 'left' and 'right'.</td>
                         </tr>
                         <tr>
-                            <td>class</td>
+                            <td>className</td>
                             <td>string</td>
                             <td>null</td>
                             <td>Style class of the element.</td>
                         </tr>
                         <tr>
-                            <td>style</td>
+                            <td>styles</td>
                             <td>object</td>
                             <td>null</td>
                             <td>Inline style of the element.</td>
