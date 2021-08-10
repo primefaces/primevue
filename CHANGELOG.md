@@ -1,5 +1,22 @@
 # Changelog
 
+## [3.6.4](https://github.com/primefaces/primevue/tree/3.6.4) (2021-08-10)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.6.3...3.6.4)
+
+**Fixed bugs:**
+
+- Vue < 3.2 Compatibility [\#1437](https://github.com/primefaces/primevue/issues/1437)
+
+## [3.6.3](https://github.com/primefaces/primevue/tree/3.6.3) (2021-08-10)
+
+**Fixed bugs:**
+
+- Support for scrolling and column groups [\#1314](https://github.com/primefaces/primevue/issues/1314)
+- StyleClass does not open overlay when source is clicked again [\#1436](https://github.com/primefaces/primevue/issues/1436)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.6.2...3.6.3)
+
 ## [3.6.2](https://github.com/primefaces/primevue/tree/3.6.2) (2021-08-06)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.6.1...3.6.2)
@@ -553,6 +570,15 @@
 - Scrollable Table alignment improvement [\#482](https://github.com/primefaces/primevue/issues/482)
 - Button not registered in FileUpload [\#478](https://github.com/primefaces/primevue/issues/478)
 - BlockUI documentation indicates "show" event whereas the actual event is "unblock" [\#485](https://github.com/primefaces/primevue/issues/485)
+
+## [2.5.1](https://github.com/primefaces/primevue/tree/2.5.1) (2021-08-10)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/2.5.0...2.5.1)
+
+**Fixed bugs:**
+
+- Scrollable Table alignment improvement [\#1438](https://github.com/primefaces/primevue/issues/1438)
+- PrimeFlex 3 support for DataView [\#1435](https://github.com/primefaces/primevue/issues/1435)
 
 ## [2.5.0](https://github.com/primefaces/primevue/tree/2.5.0) (2021-08-10)
 
