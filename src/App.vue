@@ -3,7 +3,7 @@
         <div class="layout-news" v-if="newsActive">
             <div class="layout-news-container">
                 <a href="https://www.primefaces.org/store" target="_blank">
-                    <img class="layouts-news-mockup-image" src="./assets/images/topbar-primeblocks-device.png">
+                    <img class="layouts-news-mockup-image" src="./assets/images/topbar-endofsummersale-2021.png">
                 </a>
                 <a href="https://www.primefaces.org/store" target="_blank" tabindex="-1" style="text-decoration: none" class="layout-news-button">
                     LEARN MORE
