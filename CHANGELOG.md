@@ -554,6 +554,33 @@
 - Button not registered in FileUpload [\#478](https://github.com/primefaces/primevue/issues/478)
 - BlockUI documentation indicates "show" event whereas the actual event is "unblock" [\#485](https://github.com/primefaces/primevue/issues/485)
 
+## [2.5.0](https://github.com/primefaces/primevue/tree/2.5.0) (2021-08-10)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/2.4.2...2.5.0)
+
+**Implemented New Features and Enhancements:**
+
+- Dock component v2 [\#1434](https://github.com/primefaces/primevue/issues/1434)
+- Chart.js version update [\#1432](https://github.com/primefaces/primevue/issues/1432)
+- Speed Dial component v2 [\#1431](https://github.com/primefaces/primevue/issues/1431)
+- FullCalendar-Vue theme update [\#1430](https://github.com/primefaces/primevue/issues/1430)
+- Responsive TabMenu and Breadcrumb v2 [\#1424](https://github.com/primefaces/primevue/issues/1424)
+- breakpoints prop for Responsive Toast [\#1423](https://github.com/primefaces/primevue/issues/1423)
+- Center positioning Toast [\#1422](https://github.com/primefaces/primevue/issues/1422)
+- Templating for Toast component [\#1421](https://github.com/primefaces/primevue/issues/1421)
+- v-styleclass directive for v2 [\#1417](https://github.com/primefaces/primevue/issues/1417)
+- style and class props for FileUpload component [\#1416](https://github.com/primefaces/primevue/issues/1416)
+- value and disabled props for Tooltip component [\#1414](https://github.com/primefaces/primevue/issues/1414)
+- styleClass and contentStyleClass props for Toast component [\#1413](https://github.com/primefaces/primevue/issues/1413)
+- Row double click for DataTable [\#1347](https://github.com/primefaces/primevue/issues/1347)
+- CascadeSelect material theming improvements [\#1324](https://github.com/primefaces/primevue/issues/1324)
+
+**Fixed bugs:**
+
+- ProgressBar does not show 0 percent [\#1420](https://github.com/primefaces/primevue/issues/1420)
+- Toast does not clear hide timeout on beforeDestroy [\#1418](https://github.com/primefaces/primevue/issues/1418)
+- Accordion tab-open and tab-close events [\#1329](https://github.com/primefaces/primevue/issues/1329)
+
 ## [2.4.2](https://github.com/primefaces/primevue/tree/2.4.2) (2021-06-07)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/2.4.1...2.4.2)
