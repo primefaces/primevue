@@ -10,12 +10,12 @@
 
 ## [3.6.3](https://github.com/primefaces/primevue/tree/3.6.3) (2021-08-10)
 
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.6.2...3.6.3)
+
 **Fixed bugs:**
 
 - Support for scrolling and column groups [\#1314](https://github.com/primefaces/primevue/issues/1314)
 - StyleClass does not open overlay when source is clicked again [\#1436](https://github.com/primefaces/primevue/issues/1436)
-
-[Full Changelog](https://github.com/primefaces/primevue/compare/3.6.2...3.6.3)
 
 ## [3.6.2](https://github.com/primefaces/primevue/tree/3.6.2) (2021-08-06)
 
