@@ -109,6 +109,10 @@ function leave(target, binding) {
             DomHandler.addClass(target, binding.value.leaveToClass);
         }
     }
+
+    if (binding.value.hideOnOutsideClick) {
+        unbindDocumentListener(target);
+    }
 }
 
 function resolveTarget(el, binding) {
@@ -138,7 +142,6 @@ function bindDocumentListener(target, el, binding) {
             }
             else if (!el.isSameNode(event.target) && !el.contains(event.target) && !target.contains(event.target)) {
                 leave(target, binding);
-                unbindDocumentListener(target);
             }
         }
 
