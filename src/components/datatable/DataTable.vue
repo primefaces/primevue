@@ -1618,7 +1618,7 @@ export default {
             this.d_columnOrder = columnOrder;
         },
         updateScrollWidth() {
-            this.$refs.table.style.width = this.$refs.table.scrollWidth + 'px';
+            this.$refs.table.style.width = DomHandler.width(this.$refs.table.parentElement) - DomHandler.calculateScrollbarWidth() + 'px';
         },
         createResponsiveStyle() {
 			if (!this.styleElement) {
