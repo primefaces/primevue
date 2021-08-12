@@ -395,7 +395,7 @@ export default {
         }
     },
     mounted() {
-        if (this.scrollable && (this.scrollDirection !== 'vertical' || this.rowGroupMode === 'subheader')) {
+        if (this.scrollable && (this.scrollDirection !== 'vertical' || this.rowGroupMode === 'subheader' || !this.resizableColumns)) {
             this.updateScrollWidth();
         }
 
