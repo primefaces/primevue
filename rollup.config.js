@@ -14,6 +14,7 @@ let globalDependencies = {
     'primevue/utils': 'primevue.utils',
     'primevue/button': 'primevue.button',
     'primevue/inputtext': 'primevue.inputtext',
+    'primevue/virtualscroller': 'primevue.virtualscroller',
     'primevue/dialog': 'primevue.dialog',
     'primevue/paginator': 'primevue.paginator',
     'primevue/confirmationeventbus': 'primevue.confirmationeventbus',

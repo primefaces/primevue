@@ -1,4 +1,4 @@
-const path = require('path'); 
+const path = require('path');
 
 module.exports = {
     publicPath: process.env.NODE_ENV === 'production' ? '/primevue/showcase/' : '/',
@@ -24,7 +24,8 @@ module.exports = {
                 'primevue/confirmationeventbus': path.resolve(__dirname, 'src/components/confirmationeventbus/ConfirmationEventBus.js'),
                 'primevue/toasteventbus': path.resolve(__dirname, 'src/components/toasteventbus/ToastEventBus.js'),
                 'primevue/overlayeventbus': path.resolve(__dirname, 'src/components/overlayeventbus/OverlayEventBus.js'),
-                'primevue/terminalservice': path.resolve(__dirname, 'src/components/terminalservice/TerminalService.js')
+                'primevue/terminalservice': path.resolve(__dirname, 'src/components/terminalservice/TerminalService.js'),
+                'primevue/virtualscroller': path.resolve(__dirname, 'src/components/virtualscroller/VirtualScroller.vue')
             },
         },
         output: {

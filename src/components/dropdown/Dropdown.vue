@@ -23,32 +23,36 @@
                             <span class="p-dropdown-filter-icon pi pi-search"></span>
                         </div>
                     </div>
-                    <div :ref="itemsWrapperRef" class="p-dropdown-items-wrapper" :style="{'max-height': scrollHeight}">
-                        <ul class="p-dropdown-items" role="listbox">
-                            <template v-if="!optionGroupLabel">
-                                <li v-for="(option, i) of visibleOptions" :class="['p-dropdown-item', {'p-highlight': isSelected(option), 'p-disabled': isOptionDisabled(option)}]" v-ripple
-                                    :key="getOptionRenderKey(option)" @click="onOptionSelect($event, option)" role="option" :aria-label="getOptionLabel(option)" :aria-selected="isSelected(option)">
-                                    <slot name="option" :option="option" :index="i">{{getOptionLabel(option)}}</slot>
-                                </li>
-                            </template>
-                            <template v-else>
-                                <template v-for="(optionGroup, i) of visibleOptions" :key="getOptionGroupRenderKey(optionGroup)">
-                                    <li  class="p-dropdown-item-group" >
-                                        <slot name="optiongroup" :option="optionGroup" :index="i">{{getOptionGroupLabel(optionGroup)}}</slot>
+                    <div :ref="itemsWrapperRef" class="p-dropdown-items-wrapper" :style="{'max-height': virtualScrollerDisabled ? scrollHeight : ''}">
+                        <VirtualScroller :ref="virtualScrollerRef" v-bind="virtualScrollerOptions" :items="visibleOptions" :style="{'height': scrollHeight}" :disabled="virtualScrollerDisabled">
+                            <template v-slot:content="{ styleClass, contentRef, items, getItemOptions }">
+                                <ul :ref="contentRef" :class="['p-dropdown-items', styleClass]" role="listbox">
+                                    <template v-if="!optionGroupLabel">
+                                        <li v-for="(option, i) of getVisibleOptions(items)" :class="['p-dropdown-item', {'p-highlight': isSelected(option), 'p-disabled': isOptionDisabled(option)}]" v-ripple
+                                            :key="getOptionRenderKey(option)" @click="onOptionSelect($event, option)" role="option" :aria-label="getOptionLabel(option)" :aria-selected="isSelected(option)">
+                                            <slot name="option" :option="option" :index="getOptionIndex(i, getItemOptions)">{{getOptionLabel(option)}}</slot>
+                                        </li>
+                                    </template>
+                                    <template v-else>
+                                        <template v-for="(optionGroup, i) of getVisibleOptions(items)" :key="getOptionGroupRenderKey(optionGroup)">
+                                            <li  class="p-dropdown-item-group">
+                                                <slot name="optiongroup" :option="optionGroup" :index="getOptionIndex(i, getItemOptions)">{{getOptionGroupLabel(optionGroup)}}</slot>
+                                            </li>
+                                            <li v-for="(option, i) of getOptionGroupChildren(optionGroup)" :class="['p-dropdown-item', {'p-highlight': isSelected(option), 'p-disabled': isOptionDisabled(option)}]" v-ripple
+                                                :key="getOptionRenderKey(option)" @click="onOptionSelect($event, option)" role="option" :aria-label="getOptionLabel(option)" :aria-selected="isSelected(option)">
+                                                <slot name="option" :option="option" :index="getOptionIndex(i, getItemOptions)">{{getOptionLabel(option)}}</slot>
+                                            </li>
+                                        </template>
+                                    </template>
+                                    <li v-if="filterValue && (!getVisibleOptions(items) || (getVisibleOptions(items) && getVisibleOptions(items).length === 0))" class="p-dropdown-empty-message">
+                                        <slot name="emptyfilter">{{emptyFilterMessageText}}</slot>
                                     </li>
-                                    <li v-for="(option, i) of getOptionGroupChildren(optionGroup)" :class="['p-dropdown-item', {'p-highlight': isSelected(option), 'p-disabled': isOptionDisabled(option)}]" v-ripple
-                                        :key="getOptionRenderKey(option)" @click="onOptionSelect($event, option)" role="option" :aria-label="getOptionLabel(option)" :aria-selected="isSelected(option)">
-                                        <slot name="option" :option="option" :index="i">{{getOptionLabel(option)}}</slot>
+                                    <li v-else-if="(!options || (options && options.length === 0))" class="p-dropdown-empty-message">
+                                        <slot name="empty">{{emptyMessageText}}</slot>
                                     </li>
-                                </template>
+                                </ul>
                             </template>
-                            <li v-if="filterValue && (!visibleOptions || (visibleOptions && visibleOptions.length === 0))" class="p-dropdown-empty-message">
-                                <slot name="emptyfilter">{{emptyFilterMessageText}}</slot>
-                            </li>
-                            <li v-else-if="(!options || (options && options.length === 0))" class="p-dropdown-empty-message">
-                                <slot name="empty">{{emptyMessageText}}</slot>
-                            </li>
-                        </ul>
+                        </VirtualScroller>
                     </div>
                     <slot name="footer" :value="modelValue" :options="visibleOptions"></slot>
                 </div>
@@ -62,6 +66,7 @@ import {ConnectedOverlayScrollHandler,ObjectUtils,DomHandler,ZIndexUtils} from '
 import OverlayEventBus from 'primevue/overlayeventbus';
 import {FilterService} from 'primevue/api';
 import Ripple from 'primevue/ripple';
+import VirtualScroller from 'primevue/virtualscroller';
 
 export default {
     name: 'Dropdown',
@@ -117,6 +122,10 @@ export default {
         loadingIcon: {
             type: String,
             default: 'pi pi-spinner pi-spin'
+        },
+        virtualScrollerOptions: {
+            type: Object,
+            default: null
         }
     },
     data() {
@@ -135,6 +144,7 @@ export default {
     searchValue: null,
     overlay: null,
     itemsWrapper: null,
+    virtualScroller: null,
     beforeUnmount() {
         this.unbindOutsideClickListener();
         this.unbindResizeListener();
@@ -152,6 +162,12 @@ export default {
         }
     },
     methods: {
+        getVisibleOptions(items) {
+            return items || this.visibleOptions;
+        },
+        getOptionIndex(index, fn) {
+            return this.virtualScrollerDisabled ? index : (fn && fn(index)['index']);
+        },
         getOptionLabel(option) {
             return this.optionLabel ? ObjectUtils.resolveFieldData(option, this.optionLabel) : option;
         },
@@ -415,6 +431,13 @@ export default {
                 this.$refs.filterInput.focus();
             }
 
+            if (!this.virtualScrollerDisabled) {
+                const selectedIndex = this.getSelectedOptionIndex();
+                if (selectedIndex !== -1) {
+                    this.virtualScroller.scrollToIndex(selectedIndex);
+                }
+            }
+
             this.$emit('show');
         },
         onOverlayLeave() {
@@ -581,6 +604,9 @@ export default {
         itemsWrapperRef(el) {
             this.itemsWrapper = el;
         },
+        virtualScrollerRef(el) {
+            this.virtualScroller = el;
+        },
         scrollValueInView() {
             if (this.overlay) {
                 let selectedItem = DomHandler.findSingle(this.overlay, 'li.p-highlight');
@@ -675,6 +701,9 @@ export default {
         appendDisabled() {
             return this.appendTo === 'self';
         },
+        virtualScrollerDisabled() {
+            return !this.virtualScrollerOptions;
+        },
         appendTarget() {
             return this.appendDisabled ? null : this.appendTo;
         },
@@ -684,6 +713,9 @@ export default {
     },
     directives: {
         'ripple': Ripple
+    },
+    components: {
+        'VirtualScroller': VirtualScroller
     }
 }
 </script>
