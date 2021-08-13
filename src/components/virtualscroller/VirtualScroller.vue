@@ -1,19 +1,27 @@
 <template>
-    <div :ref="elementRef" :class="containerClass" :style="style" @scroll="onScroll">
-        <div :ref="contentRef" class="p-virtualscroller-content">
-            <template v-for="(item, index) of loadedItems" :key="index">
-                <slot name="item" :item="item" :options="getOptions(index)"></slot>
-            </template>
+    <template v-if="!disabled">
+        <div :ref="elementRef" :class="containerClass" :style="style" @scroll="onScroll">
+            <slot name="content" styleClass="p-virtualscroller-content" :contentRef="contentRef" :items="loadedItems" :getItemOptions="getOptions">
+                <div :ref="contentRef" class="p-virtualscroller-content">
+                    <template v-for="(item, index) of loadedItems" :key="index">
+                        <slot name="item" :item="item" :options="getOptions(index)"></slot>
+                    </template>
+                </div>
+            </slot>
+            <div :ref="spacerRef" class="p-virtualscroller-spacer"></div>
+            <div :class="loaderClass" v-if="d_loading">
+                <template v-for="(loadItem, index) of loaderArr" :key="index">
+                    <slot name="loader" :options="getLoaderOptions(index)">
+                        <i class="p-virtualscroller-loading-icon pi pi-spinner pi-spin"></i>
+                    </slot>
+                </template>
+            </div>
         </div>
-        <div :ref="spacerRef" class="p-virtualscroller-spacer"></div>
-        <div :class="loaderClass" v-if="d_loading">
-            <template v-for="(loadItem, index) of loaderArr" :key="index">
-                <slot name="loader" :options="getLoaderOptions(index)">
-                    <i class="p-virtualscroller-loading-icon pi pi-spinner pi-spin"></i>
-                </slot>
-            </template>
-        </div>
-    </div>
+    </template>
+    <template v-else>
+        <slot></slot>
+        <slot name="content"></slot>
+    </template>
 </template>
 
 <script>
@@ -21,7 +29,10 @@ export default {
     name: 'VirtualScroller',
     emits: ['update:numToleratedItems', 'scroll-index-change', 'lazy-load'],
     props: {
-        items: null,
+        items: {
+            type: Array,
+            default: null
+        },
         itemSize: {
             type: [Number,Array],
             default: null
@@ -53,7 +64,11 @@ export default {
             default: false
         },
         style: null,
-        class: null
+        class: null,
+        disabled: {
+            type: Boolean,
+            default: false
+        }
     },
     data() {
         return {
@@ -71,9 +86,7 @@ export default {
     spacer: null,
     scrollTimeout: null,
     mounted() {
-        this.$nextTick(function () {
-            this.init();
-        });
+        this.init();
     },
     watch: {
         numToleratedItems(newValue) {
@@ -81,13 +94,18 @@ export default {
         },
         loading(newValue) {
             this.d_loading = newValue;
+        },
+        items() {
+            this.init();
         }
     },
     methods: {
         init() {
-            this.setSize();
-            this.calculateOptions();
-            this.setSpacerSize();
+            if (!this.disabled) {
+                this.setSize();
+                this.calculateOptions();
+                this.setSpacerSize();
+            }
         },
         getLast(last, isCols) {
             return this.items ? Math.min((isCols ? this.items[0].length : this.items.length), last) : 0;
