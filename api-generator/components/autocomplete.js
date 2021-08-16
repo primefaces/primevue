@@ -112,6 +112,12 @@ const AutoCompleteProps = [
         type: "string",
         default: "null",
         description: "Style class of the overlay panel."
+    },
+    {
+        name: "virtualScrollerOptions",
+        type: "object",
+        default: "null",
+        description: "Whether to use the virtualScroller feature. The properties of VirtualScroller component can be used like an object in it."
     }
 ];
 
