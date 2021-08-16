@@ -12,13 +12,13 @@
                 <template v-slot:content="{ styleClass, contentRef, items, getItemOptions }">
                     <ul :ref="contentRef" :class="['p-listbox-list', styleClass]" role="listbox" aria-multiselectable="multiple">
                         <template v-if="!optionGroupLabel">
-                            <li v-for="(option, i) of getVisibleOptions(items)" :tabindex="isOptionDisabled(option) ? null : '0'" :class="['p-listbox-item', {'p-highlight': isSelected(option), 'p-disabled': isOptionDisabled(option)}]" v-ripple
+                            <li v-for="(option, i) of items" :tabindex="isOptionDisabled(option) ? null : '0'" :class="['p-listbox-item', {'p-highlight': isSelected(option), 'p-disabled': isOptionDisabled(option)}]" v-ripple
                                 :key="getOptionRenderKey(option)" @click="onOptionSelect($event, option)" @touchend="onOptionTouchEnd()" @keydown="onOptionKeyDown($event, option)" role="option" :aria-label="getOptionLabel(option)" :aria-selected="isSelected(option)" >
                                 <slot name="option" :option="option" :index="getOptionIndex(i, getItemOptions)">{{getOptionLabel(option)}} </slot>
                             </li>
                         </template>
                         <template v-else>
-                            <template v-for="(optionGroup, i) of getVisibleOptions(items)" :key="getOptionGroupRenderKey(optionGroup)">
+                            <template v-for="(optionGroup, i) of items" :key="getOptionGroupRenderKey(optionGroup)">
                                 <li  class="p-listbox-item-group">
                                     <slot name="optiongroup" :option="optionGroup" :index="getOptionIndex(i, getItemOptions)">{{getOptionGroupLabel(optionGroup)}}</slot>
                                 </li>
@@ -28,7 +28,7 @@
                                 </li>
                             </template>
                         </template>
-                        <li v-if="filterValue && (!getVisibleOptions(items) || (getVisibleOptions(items) && getVisibleOptions(items).length === 0))" class="p-listbox-empty-message">
+                        <li v-if="filterValue && (!items || (items && items.length === 0))" class="p-listbox-empty-message">
                             <slot name="emptyfilter">{{emptyFilterMessageText}}</slot>
                         </li>
                         <li v-else-if="(!options || (options && options.length === 0))" class="p-listbox-empty-message">
@@ -100,9 +100,6 @@ export default {
         };
     },
     methods: {
-        getVisibleOptions(items) {
-            return items || this.visibleOptions;
-        },
         getOptionIndex(index, fn) {
             return this.virtualScrollerDisabled ? index : (fn && fn(index)['index']);
         },

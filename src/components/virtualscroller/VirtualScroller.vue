@@ -20,7 +20,7 @@
     </template>
     <template v-else>
         <slot></slot>
-        <slot name="content"></slot>
+        <slot name="content" :items="items"></slot>
     </template>
 </template>
 
