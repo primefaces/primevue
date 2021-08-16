@@ -170,7 +170,8 @@
             "children": [
                 {
                     "name": "AutoComplete",
-                    "to": "/autocomplete"
+                    "to": "/autocomplete",
+                    "badge":"Updated"
                 },
                 {
                     "name": "Calendar",
