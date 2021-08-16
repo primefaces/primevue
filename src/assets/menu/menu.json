@@ -194,7 +194,8 @@
                 },
                 {
                     "name": "Dropdown",
-                    "to": "/dropdown"
+                    "to": "/dropdown",
+                    "badge": "Updated"
                 },
                 {
                     "name": "Editor",
