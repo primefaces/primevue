@@ -95,8 +95,10 @@ export default {
         loading(newValue) {
             this.d_loading = newValue;
         },
-        items() {
-            this.init();
+        items(newValue, oldVal) {
+            if (!oldVal || oldVal.length !== (newValue || []).length) {
+                this.init();
+            }
         }
     },
     methods: {
@@ -512,7 +514,7 @@ export default {
                 }
             }
 
-            return null;
+            return [];
         }
     }
 }
