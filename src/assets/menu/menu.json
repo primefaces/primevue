@@ -235,7 +235,8 @@
                 },
                 {
                     "name": "Listbox",
-                    "to": "/listbox"
+                    "to": "/listbox",
+                    "badge":"Updated"
                 },
                 {
                     "name": "MultiSelect",
