@@ -1,4 +1,5 @@
 import { VNode } from 'vue';
+import { VirtualScrollerProps } from '../virtualscroller';
 
 interface AutoCompleteProps {
     modelValue?: any;
@@ -20,6 +21,7 @@ interface AutoCompleteProps {
     class?: any;
     style?: any;
     panelClass?: string;
+    virtualScrollerOptions?: VirtualScrollerProps;
 }
 
 declare class AutoComplete {
