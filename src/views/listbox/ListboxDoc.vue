@@ -46,7 +46,7 @@ export default {
         return {
             selectedGroupedCity: null,
             groupedCities: [{
-                label: 'Germany', code: 'DE', 
+                label: 'Germany', code: 'DE',
                 items: [
                     {label: 'Berlin', value: 'Berlin'},
                     {label: 'Frankfurt', value: 'Frankfurt'},
@@ -55,7 +55,7 @@ export default {
                 ]
             },
             {
-                label: 'USA', code: 'US', 
+                label: 'USA', code: 'US',
                 items: [
                     {label: 'Chicago', value: 'Chicago'},
                     {label: 'Los Angeles', value: 'Los Angeles'},
@@ -64,7 +64,7 @@ export default {
                 ]
             },
             {
-                label: 'Japan', code: 'JP', 
+                label: 'Japan', code: 'JP',
                 items: [
                     {label: 'Kyoto', value: 'Kyoto'},
                     {label: 'Osaka', value: 'Osaka'},
@@ -78,7 +78,7 @@ export default {
 </code></pre>
 
 <pre v-code><code><template v-pre>
-&lt;Listbox v-model="selectedGroupedCity" :options="groupedCities" 
+&lt;Listbox v-model="selectedGroupedCity" :options="groupedCities"
         optionLabel="label" optionGroupLabel="label" optionGroupChildren="items"&gt;
 &lt;/Listbox&gt;
 </template>
@@ -236,6 +236,12 @@ export default {
                         <td>No results found</td>
                         <td>Text to display when there are no options available. Defaults to value from PrimeVue locale configuration.</td>
                     </tr>
+                    <tr>
+                        <td>virtualScrollerOptions</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td>Whether to use the virtualScroller feature. The properties of <router-link to="/virtualscroller">VirtualScroller</router-link> component can be used like an object in it.</td>
+                    </tr>
 				</tbody>
 			</table>
 		</div>
@@ -381,6 +387,9 @@ export default {
                 </div>
             </template>
         </Listbox>
+
+        <h5>Virtual Scroll (100000 Items)</h5>
+        <Listbox v-model="selectedItem" :options="items" optionLabel="label" optionValue="value" :virtualScrollerOptions="{ itemSize: 31 }" style="width:15rem" listStyle="height:250px" />
     </div>
 </template>
 
@@ -391,6 +400,7 @@ export default {
             selectedCity: null,
             selectedCountries: null,
             selectedGroupedCity: null,
+            selectedItem: null,
             cities: [
                 {name: 'New York', code: 'NY'},
                 {name: 'Rome', code: 'RM'},
@@ -411,7 +421,7 @@ export default {
                 {name: 'United States', code: 'US'}
             ],
             groupedCities: [{
-                label: 'Germany', code: 'DE', 
+                label: 'Germany', code: 'DE',
                 items: [
                     {label: 'Berlin', value: 'Berlin'},
                     {label: 'Frankfurt', value: 'Frankfurt'},
@@ -420,7 +430,7 @@ export default {
                 ]
             },
             {
-                label: 'USA', code: 'US', 
+                label: 'USA', code: 'US',
                 items: [
                     {label: 'Chicago', value: 'Chicago'},
                     {label: 'Los Angeles', value: 'Los Angeles'},
@@ -429,14 +439,15 @@ export default {
                 ]
             },
             {
-                label: 'Japan', code: 'JP', 
+                label: 'Japan', code: 'JP',
                 items: [
                     {label: 'Kyoto', value: 'Kyoto'},
                     {label: 'Osaka', value: 'Osaka'},
                     {label: 'Tokyo', value: 'Tokyo'},
                     {label: 'Yokohama', value: 'Yokohama'}
                 ]
-            }]
+            }],
+            items: Array.from({ length: 100000 }, (_, i) => ({ label: \`Item #\${i}\`, value: i }))
         }
     }
 }
@@ -470,6 +481,9 @@ export default {
                </div>
            </template>
        </Listbox>
+
+        <h5>Virtual Scroll (100000 Items)</h5>
+        <Listbox v-model="selectedItem" :options="items" optionLabel="label" optionValue="value" :virtualScrollerOptions="{ itemSize: 31 }" style="width:15rem" listStyle="height:250px" />
     </div>
 </template>
 
@@ -481,6 +495,7 @@ export default {
         const selectedCity = ref();
         const selectedCountries = ref();
         const selectedGroupedCity = ref();
+        const selectedItem = ref();
         const cities = ref([
             {name: 'New York', code: 'NY'},
             {name: 'Rome', code: 'RM'},
@@ -502,7 +517,7 @@ export default {
         ]);
         const groupedCities = ref([
             {
-                label: 'Germany', code: 'DE', 
+                label: 'Germany', code: 'DE',
                 items: [
                     {label: 'Berlin', value: 'Berlin'},
                     {label: 'Frankfurt', value: 'Frankfurt'},
@@ -511,7 +526,7 @@ export default {
                 ]
             },
             {
-                label: 'USA', code: 'US', 
+                label: 'USA', code: 'US',
                 items: [
                     {label: 'Chicago', value: 'Chicago'},
                     {label: 'Los Angeles', value: 'Los Angeles'},
@@ -520,7 +535,7 @@ export default {
                 ]
             },
             {
-                label: 'Japan', code: 'JP', 
+                label: 'Japan', code: 'JP',
                 items: [
                     {label: 'Kyoto', value: 'Kyoto'},
                         {label: 'Osaka', value: 'Osaka'},
@@ -530,7 +545,9 @@ export default {
                 }
             ]);
 
-        return { selectedCity, selectedCountries, selectedGroupedCity, cities, countries, groupedCities }
+        const items = ref(Array.from({ length: 100000 }, (_, i) => ({ label: \`Item #\${i}\`, value: i })));
+
+        return { selectedCity, selectedCountries, selectedGroupedCity, cities, countries, groupedCities, items, selectedItem }
     }
 }
 <\\/script>
