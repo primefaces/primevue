@@ -51,6 +51,7 @@ export default {
             default: null
         }
     },
+    emits: ['show', 'hide'],
     data() {
         return {
             visible: false
@@ -105,9 +106,11 @@ export default {
             this.visible = true;
             this.eventTarget = event.currentTarget;
             this.target = target || event.currentTarget;
+            this.$emit('show');
         },
         hide() {
             this.visible = false;
+            this.$emit('hide');
         },
         onContentClick() {
             this.selfClick = true;
