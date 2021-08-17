@@ -388,7 +388,7 @@ export default {
             </template>
         </Listbox>
 
-        <h5>Virtual Scroll (100000 Items)</h5>
+        <h5>Virtual Scroll (1000 Items)</h5>
         <Listbox v-model="selectedItem" :options="items" optionLabel="label" optionValue="value" :virtualScrollerOptions="{ itemSize: 31 }" style="width:15rem" listStyle="height:250px" />
     </div>
 </template>
@@ -447,7 +447,7 @@ export default {
                     {label: 'Yokohama', value: 'Yokohama'}
                 ]
             }],
-            items: Array.from({ length: 100000 }, (_, i) => ({ label: \`Item #\${i}\`, value: i }))
+            items: Array.from({ length: 1000 }, (_, i) => ({ label: \`Item #\${i}\`, value: i }))
         }
     }
 }
@@ -482,7 +482,7 @@ export default {
            </template>
        </Listbox>
 
-        <h5>Virtual Scroll (100000 Items)</h5>
+        <h5>Virtual Scroll (1000 Items)</h5>
         <Listbox v-model="selectedItem" :options="items" optionLabel="label" optionValue="value" :virtualScrollerOptions="{ itemSize: 31 }" style="width:15rem" listStyle="height:250px" />
     </div>
 </template>
@@ -545,7 +545,7 @@ export default {
                 }
             ]);
 
-        const items = ref(Array.from({ length: 100000 }, (_, i) => ({ label: \`Item #\${i}\`, value: i })));
+        const items = ref(Array.from({ length: 1000 }, (_, i) => ({ label: \`Item #\${i}\`, value: i })));
 
         return { selectedCity, selectedCountries, selectedGroupedCity, cities, countries, groupedCities, items, selectedItem }
     }

@@ -434,7 +434,7 @@ export default {
                 </template>
             </AutoComplete>
 
-            <h5>Virtual Scroll (100000 Items)</h5>
+            <h5>Virtual Scroll (1000 Items)</h5>
             <AutoComplete v-model="selectedItem" :suggestions="filteredItems" @complete="searchItems" :virtualScrollerOptions="{ itemSize: 31 }" field="label" dropdown />
 
             <h5>Multiple</h5>
@@ -488,7 +488,7 @@ export default {
                     {label: 'Yokohama', value: 'Yokohama'}
                 ]
             }],
-            items: Array.from({ length: 100000 }, (_, i) => ({ label: \`Item #\${i}\`, value: i }))
+            items: Array.from({ length: 1000 }, (_, i) => ({ label: \`Item #\${i}\`, value: i }))
         }
     },
     countryService: null,
@@ -571,7 +571,7 @@ export default {
                 </template>
             </AutoComplete>
 
-            <h5>Virtual Scroll (100000 Items)</h5>
+            <h5>Virtual Scroll (1000 Items)</h5>
             <AutoComplete v-model="selectedItem" :suggestions="filteredItems" @complete="searchItems" :virtualScrollerOptions="{ itemSize: 31 }" field="label" dropdown />
 
             <h5>Multiple</h5>
@@ -630,7 +630,7 @@ export default {
                 {label: 'Yokohama', value: 'Yokohama'}
             ]
         }]);
-        const items = Array.from({ length: 100000 }, (_, i) => ({ label: \`Item #\${i}\`, value: i }));
+        const items = Array.from({ length: 1000 }, (_, i) => ({ label: \`Item #\${i}\`, value: i }));
 
         const searchCountry = (event) => {
             setTimeout(() => {

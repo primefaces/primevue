@@ -540,10 +540,10 @@ export default {
         <h5>Loading State</h5>
         <Dropdown placeholder="Loading..." loading></Dropdown>
 
-        <h5>Virtual Scroll (100000 Items)</h5>
+        <h5>Virtual Scroll (1000 Items)</h5>
         <Dropdown v-model="selectedItem1" :options="items" optionLabel="label" optionValue="value" :virtualScrollerOptions="{ itemSize: 31 }" placeholder="Select Item"></Dropdown>
 
-        <h5>Virtual Scroll (100000 Items) and Lazy</h5>
+        <h5>Virtual Scroll (1000 Items) and Lazy</h5>
         <Dropdown v-model="selectedItem2" :options="lazyItems" optionLabel="label" optionValue="value" :virtualScrollerOptions="{ lazy: true, onLazyLoad: onLazyLoad, itemSize: 31, showLoader: true, loading: loading, delay: 250 }" placeholder="Select Item">
             <template v-slot:loader="{ options }">
                 <div class="p-d-flex p-ai-center p-p-2" style="height: 31px" >
@@ -611,8 +611,8 @@ export default {
                     {label: 'Yokohama', value: 'Yokohama'}
                 ]
             }],
-            items: Array.from({ length: 100000 }, (_, i) => ({ label: \`Item #\${i}\`, value: i })),
-            lazyItems: Array.from({ length: 100000 })
+            items: Array.from({ length: 1000 }, (_, i) => ({ label: \`Item #\${i}\`, value: i })),
+            lazyItems: Array.from({ length: 1000 })
         }
     },
     loadLazyTimeout: null,
@@ -697,10 +697,10 @@ export default {
         <h5>Loading State</h5>
         <Dropdown placeholder="Loading..." loading></Dropdown>
 
-        <h5>Virtual Scroll (100000 Items)</h5>
+        <h5>Virtual Scroll (1000 Items)</h5>
         <Dropdown v-model="selectedItem1" :options="items" optionLabel="label" optionValue="value" :virtualScrollerOptions="{ itemSize: 31 }" placeholder="Select Item"></Dropdown>
 
-        <h5>Virtual Scroll (100000 Items) and Lazy</h5>
+        <h5>Virtual Scroll (1000 Items) and Lazy</h5>
         <Dropdown v-model="selectedItem2" :options="lazyItems" optionLabel="label" optionValue="value" :virtualScrollerOptions="{ lazy: true, onLazyLoad: onLazyLoad, itemSize: 31, showLoader: true, loading: loading, delay: 250 }" placeholder="Select Item">
             <template v-slot:loader="{ options }">
                 <div class="p-d-flex p-ai-center p-p-2" style="height: 31px" >
@@ -772,8 +772,8 @@ export default {
             }
         ]);
 
-        const items = ref(Array.from({ length: 100000 }, (_, i) => ({ label: \`Item #\${i}\`, value: i })));
-        const lazyItems = ref(Array.from({ length: 100000 }));
+        const items = ref(Array.from({ length: 1000 }, (_, i) => ({ label: \`Item #\${i}\`, value: i })));
+        const lazyItems = ref(Array.from({ length: 1000 }));
 
         return { selectedCity1, selectedCity2, selectedCountry, selectedGroupedCity, cities, countries, groupedCities, selectedItem1, selectedItem2, loading, items, lazyItems}
     },
