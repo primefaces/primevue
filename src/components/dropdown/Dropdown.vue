@@ -138,6 +138,11 @@ export default {
             overlayVisible: false
         };
     },
+    watch: {
+        modelValue() {
+            this.isModelValueChanged = true;
+        }
+    },
     outsideClickListener: null,
     scrollHandler: null,
     resizeListener: null,
@@ -148,6 +153,14 @@ export default {
     overlay: null,
     itemsWrapper: null,
     virtualScroller: null,
+    isModelValueChanged: false,
+    updated() {
+        if (this.overlayVisible && this.isModelValueChanged) {
+            this.scrollValueInView();
+        }
+
+        this.isModelValueChanged = false;
+    },
     beforeUnmount() {
         this.unbindOutsideClickListener();
         this.unbindResizeListener();
@@ -611,7 +624,7 @@ export default {
             if (this.overlay) {
                 let selectedItem = DomHandler.findSingle(this.overlay, 'li.p-highlight');
                 if (selectedItem) {
-                    this.itemsWrapper.scrollTop = selectedItem.offsetTop;
+                    selectedItem.scrollIntoView({ block: 'nearest', inline: 'start' });
                 }
             }
         },
