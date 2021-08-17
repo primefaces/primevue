@@ -40,6 +40,9 @@
                                 </template>
                             </ul>
                         </template>
+                        <template v-slot:loader="{ options }" v-if="$slots.loader">
+                            <slot name="loader" :options="options"></slot>
+                        </template>
                     </VirtualScroller>
                     <slot name="footer" :value="modelValue" :suggestions="suggestions"></slot>
                 </div>
