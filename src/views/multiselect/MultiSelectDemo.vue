@@ -47,6 +47,9 @@
 
                 <h5>Loading State</h5>
                 <MultiSelect placeholder="Loading..." loading></MultiSelect>
+
+                <h5>Virtual Scroll (1000 Items)</h5>
+                <MultiSelect v-model="selectedItems" :options="items" :maxSelectedLabels="3" :selectAll="selectAll" @selectall-change="onSelectAllChange($event)" @change="onChange($event)" optionLabel="label" optionValue="value" :virtualScrollerOptions="{ itemSize: 34 }" placeholder="Select Item" />
             </div>
         </div>
 
@@ -64,6 +67,8 @@ export default {
             selectedCities2: null,
             selectedCountries: null,
             selectedGroupedCities: null,
+            selectedItems: null,
+            selectAll: false,
             cities: [
                 {name: 'New York', code: 'NY'},
                 {name: 'Rome', code: 'RM'},
@@ -84,7 +89,7 @@ export default {
                 {name: 'United States', code: 'US'}
             ],
             groupedCities: [{
-                label: 'Germany', code: 'DE', 
+                label: 'Germany', code: 'DE',
                 items: [
                     {label: 'Berlin', value: 'Berlin'},
                     {label: 'Frankfurt', value: 'Frankfurt'},
@@ -93,7 +98,7 @@ export default {
                 ]
             },
             {
-                label: 'USA', code: 'US', 
+                label: 'USA', code: 'US',
                 items: [
                     {label: 'Chicago', value: 'Chicago'},
                     {label: 'Los Angeles', value: 'Los Angeles'},
@@ -102,14 +107,24 @@ export default {
                 ]
             },
             {
-                label: 'Japan', code: 'JP', 
+                label: 'Japan', code: 'JP',
                 items: [
                     {label: 'Kyoto', value: 'Kyoto'},
                     {label: 'Osaka', value: 'Osaka'},
                     {label: 'Tokyo', value: 'Tokyo'},
                     {label: 'Yokohama', value: 'Yokohama'}
                 ]
-            }]
+            }],
+            items: Array.from({ length: 1000 }, (_, i) => ({ label: `Item #${i}`, value: i }))
+        }
+    },
+    methods: {
+        onSelectAllChange(event) {
+            this.selectedItems = event.checked ? this.items.map((item) => item.value) : [];
+            this.selectAll = event.checked;
+        },
+        onChange(event) {
+            this.selectAll = event.value.length === this.items.length
         }
     },
     components: {
