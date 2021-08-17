@@ -180,6 +180,14 @@ const ListboxSlots = [
     {
         name: "empty",
         description: "Custom content when there is no data to display"
+    },
+    {
+        name: "content",
+        description: "Custom content for the virtual scroller"
+    },
+    {
+        name: "loader",
+        description: "Custom content for the virtual scroller loader items"
     }
 ];
 

@@ -51,6 +51,8 @@ declare class Dropdown {
         optiongroup: VNode[];
         emptyfilter: VNode[];
         empty: VNode[];
+        content: VNode[];
+        loader: VNode[];
     }
 }
 

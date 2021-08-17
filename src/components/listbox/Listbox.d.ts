@@ -36,6 +36,8 @@ declare class Listbox {
         optiongroup: VNode[];
         emptyfilter: VNode[];
         empty: VNode[];
+        content: VNode[];
+        loader: VNode[];
     }
 }
 

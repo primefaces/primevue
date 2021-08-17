@@ -428,6 +428,17 @@ export default {
                         <td>empty</td>
                         <td>-</td>
                     </tr>
+                    <tr>
+                        <td>content</td>
+                        <td>items: An array of objects to display for virtualscroller<br />
+                            styleClass: Style class of the component<br />
+                            contentRef: Referance of the content<br />
+                            getItemOptions: Options of the items</td>
+                    </tr>
+                    <tr>
+                        <td>loader</td>
+                        <td>options: Options of the loader items for virtualscroller</td>
+                    </tr>
 				</tbody>
 			</table>
         </div>

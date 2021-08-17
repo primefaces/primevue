@@ -38,6 +38,8 @@ declare class AutoComplete {
         header: VNode[];
         footer: VNode[];
         chip: VNode[];
+        content: VNode[];
+        loader: VNode[];
     };
 }
 

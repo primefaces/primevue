@@ -279,6 +279,13 @@ export default {
                 </thead>
                 <tbody>
                     <tr>
+                        <td>content</td>
+                        <td>items: An array of objects to display.<br />
+                            styleClass: Style class of the component<br />
+                            contentRef: Referance of the content<br />
+                            getItemOptions: Options of the items</td>
+                    </tr>
+                    <tr>
                         <td>item</td>
                         <td>item: Item instance<br />
                             options: Options of the item instance</td>

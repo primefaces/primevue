@@ -212,6 +212,14 @@ const AutoCompleteSlots = [
     {
         name: "chip",
         description: "Custom content for the chip display."
+    },
+    {
+        name: "content",
+        description: "Custom content for the virtual scroller"
+    },
+    {
+        name: "loader",
+        description: "Custom content for the virtual scroller loader items"
     }
 ];
 

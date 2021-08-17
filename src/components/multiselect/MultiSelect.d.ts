@@ -55,6 +55,8 @@ declare class MultiSelect {
         option: VNode[];
         optiongroup: VNode[];
         chip: VNode[];
+        content: VNode[];
+        loader: VNode[];
     }
 }
 
