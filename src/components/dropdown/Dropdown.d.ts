@@ -53,6 +53,7 @@ declare class Dropdown {
         empty: VNode[];
         content: VNode[];
         loader: VNode[];
+        trigger: VNode[];
     }
 }
 

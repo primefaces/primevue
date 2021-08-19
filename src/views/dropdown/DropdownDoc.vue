@@ -439,6 +439,10 @@ export default {
                         <td>loader</td>
                         <td>options: Options of the loader items for virtualscroller</td>
                     </tr>
+                    <tr>
+                        <td>trigger</td>
+                        <td>-</td>
+                    </tr>
 				</tbody>
 			</table>
         </div>
