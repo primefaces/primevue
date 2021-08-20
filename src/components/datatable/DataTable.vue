@@ -1071,7 +1071,7 @@ export default {
                 else if (this.columnResizeMode === 'expand') {
                     this.$refs.table.style.width = this.$refs.table.offsetWidth + delta + 'px';
 
-                    if (!this.scrollable) 
+                    if (!this.scrollable)
                         this.resizeColumnElement.style.width = newColumnWidth + 'px';
                     else
                         this.resizeTableCells(newColumnWidth);
@@ -1618,7 +1618,14 @@ export default {
             this.d_columnOrder = columnOrder;
         },
         updateScrollWidth() {
-            this.$refs.table.style.width = DomHandler.width(this.$refs.table.parentElement) - DomHandler.calculateScrollbarWidth() + 'px';
+            let parentElementHeight = DomHandler.width(this.$refs.table.parentElement);
+
+            if (this.$refs.table.scrollWidth > parentElementHeight) {
+                this.$refs.table.style.width = this.$refs.table.scrollWidth + 'px';
+            }
+            else {
+                this.$refs.table.style.width = parentElementHeight - DomHandler.calculateScrollbarWidth() + 'px';
+            }
         },
         createResponsiveStyle() {
 			if (!this.styleElement) {
