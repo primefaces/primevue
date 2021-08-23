@@ -45,6 +45,11 @@ export default {
     methods: {
         initChart() {
             import('chart.js/auto').then((module) => {
+                if (this.chart) {
+                    this.chart.destroy();
+                    this.chart = null;
+                }
+
                 if (module && module.default) {
                     this.chart = new module.default(this.$refs.canvas, {
                         type: this.type,
@@ -66,10 +71,7 @@ export default {
             }
         },
         reinit() {
-            if (this.chart) {
-                this.chart.destroy();
-                this.initChart();
-            }
+            this.initChart();
         },
         onCanvasClick(event) {
             if (this.chart) {
