@@ -6,14 +6,14 @@
                     <router-link v-if="item.to && !item.disabled" :to="item.to" custom v-slot="{navigate, href}">
                         <a :href="href" :class="getLinkClass(item)" @click="onItemClick($event, item, navigate)" role="treeitem" :aria-expanded="isActive(item)">
                             <span :class="['p-menuitem-icon', item.icon]"></span>
-                            <span class="p-menuitem-text">{{itemlabel()}}</span>
+                            <span class="p-menuitem-text">{{label(item)}}</span>
                         </a>
                     </router-link>
                     <a v-else :href="item.url" :class="getLinkClass(item)" :target="item.target" @click="onItemClick($event, item)"
                         role="treeitem" :aria-expanded="isActive(item)" :tabindex="item.disabled ? null : '0'">
                         <span :class="getSubmenuIcon(item)" v-if="item.items"></span>
                         <span :class="['p-menuitem-icon', item.icon]"></span>
-                        <span class="p-menuitem-text">{{itemlabel()}}</span>
+                        <span class="p-menuitem-text">{{label(item)}}</span>
                     </a>
                 </template>
                 <component v-else :is="template" :item="item"></component>
