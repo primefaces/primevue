@@ -221,6 +221,21 @@ this.$toast.add({severity:'success', summary: 'Specific Message', group: 'mykey'
 
 </code></pre>
 
+        <h5>Constants</h5>
+        <p>ToastSeverity constants API is provided to easily choose a severity of the message with typescript.</p>
+<pre v-code.script><code>
+import {ToastSeverity} from 'primevue/api';
+
+export default {
+    methods: {
+        showInfo() {
+            this.$toast.add({severity: ToastSeverity.INFO, summary: 'Info Message', detail:'Message Content', life: 3000});
+        }
+    }
+}
+
+</code></pre>
+
 		<h5>Properties</h5>
 		<div class="doc-tablewrapper">
 			<table class="doc-table">
