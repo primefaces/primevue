@@ -680,7 +680,7 @@ export default {
                 }
             }
 
-            filteredItems = _filteredItems;
+            filteredItems.value = _filteredItems;
         }
 
         return { countries, countryService, selectedCountry1, selectedCountry2, selectedCity, filteredCities, filteredCountries, selectedCountries, groupedCities, searchCountry, searchCity, searchItems, selectedItem, filteredItems, items }

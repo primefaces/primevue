@@ -340,7 +340,7 @@ export default {
                     tabName: 'Options API Source',
                     content: `
 <template>
-    <div>
+    <div class="virtualscroller-demo">
         <div class="card">
             <h5 class="p-mb-0">Basic</h5>
             <div class="p-d-flex p-ai-center p-flex-wrap">
@@ -498,7 +498,7 @@ export default {
     mounted() {
         this.basicItems = Array.from({ length: 100000 }).map((_, i) => \`Item #\${i}\`);
         this.multiItems = Array.from({ length: 1000 }).map((_, i) => Array.from({ length: 1000 }).map((_j, j) => \`Item #\${i}_\${j}\`));
-        this.lazyItems = Array.from({ length: 100000 });
+        this.lazyItems = Array.from({ length: 10000 });
     },
     methods: {
         onLazyLoad(event) {
@@ -572,7 +572,7 @@ export default {
                     tabName: 'Composition API Source', 
                     content: `
 <template>
-    <div>
+    <div class="virtualscroller-demo">
         <div class="card">
             <h5 class="p-mb-0">Basic</h5>
             <div class="p-d-flex p-ai-center p-flex-wrap">
@@ -724,7 +724,7 @@ export default {
         onMounted(() => {
             basicItems.value = Array.from({ length: 100000 }).map((_, i) => \`Item #\${i}\`);
             multiItems.value = Array.from({ length: 1000 }).map((_, i) => Array.from({ length: 1000 }).map((_j, j) => \`Item #\${i}_\${j}\`));
-            lazyItems.value = Array.from({ length: 100000 });
+            lazyItems.value = Array.from({ length: 10000 });
         })
 
         const basicItems = ref(null);

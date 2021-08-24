@@ -632,15 +632,15 @@ export default {
                 ]
             }],
             items: Array.from({ length: 1000 }, (_, i) => ({ label: \`Item #\${i}\`, value: i }))
+        }
+    },
+    methods: {
+        onSelectAllChange(event) {
+            this.selectedItems = event.checked ? this.items.map((item) => item.value) : [];
+            this.selectAll = event.checked;
         },
-        methods: {
-            onSelectAllChange(event) {
-                this.selectedItems = event.checked ? this.items.map((item) => item.value) : [];
-                this.selectAll = event.checked;
-            },
-            onChange(event) {
-                this.selectAll = event.value.length === this.items.length
-            }
+        onChange(event) {
+            this.selectAll = event.value.length === this.items.length
         }
     }
 }
