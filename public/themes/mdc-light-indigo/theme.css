@@ -7,7 +7,7 @@
   --surface-e:#ffffff;
   --surface-f:#ffffff;
   --text-color:rgba(0, 0, 0, 0.87);
-  --text-color-secondary:textSecondaryColor;
+  --text-color-secondary:rgba(0, 0, 0, 0.6);
   --primary-color:#3F51B5;
   --primary-color-text:#ffffff;
   --font-family:Roboto, Helvetica Neue Light, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;
