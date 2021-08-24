@@ -1813,7 +1813,7 @@ export default {
         },
         allRowsSelected() {
             const val = this.frozenValue ? [...this.frozenValue, ...this.processedData]: this.processedData;
-            const length = this.lazy ? this.totalRecords : val?.length;
+            const length = this.lazy ? this.totalRecords : (val ? val.length : 0);
             return (val && length > 0 && this.selection && this.selection.length > 0 && this.selection.length === length);
         },
         attributeSelector() {
