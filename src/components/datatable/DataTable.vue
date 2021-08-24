@@ -1813,7 +1813,8 @@ export default {
         },
         allRowsSelected() {
             const val = this.frozenValue ? [...this.frozenValue, ...this.processedData]: this.processedData;
-            return (val && val.length > 0 && this.selection && this.selection.length > 0 && this.selection.length === val.length);
+            const length = this.lazy ? this.totalRecords : val?.length;
+            return (val && length > 0 && this.selection && this.selection.length > 0 && this.selection.length === length);
         },
         attributeSelector() {
             return UniqueComponentId();
