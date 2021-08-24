@@ -5,14 +5,14 @@
                 <li v-if="visible(category)"  :class="getCategoryClass(category)" :style="category.style"
                     @mouseenter="onCategoryMouseEnter($event, category)" role="none">
                     <template v-if="!$slots.item">
-                        <router-link v-if="category.to && !category.disabled" :to="category.to" custom v-slot="{navigate, href}">
+                        <router-link v-if="category.to && !disabled(category)" :to="category.to" custom v-slot="{navigate, href}">
                             <a :href="href" :class="getLinkClass(category)" @click="onCategoryClick($event, category, navigate)" @keydown="onCategoryKeydown($event, category)" role="menuitem" v-ripple>
                                 <span v-if="category.icon" :class="getCategoryIcon(category)"></span>
                                 <span class="p-menuitem-text">{{category.label}}</span>
                             </a>
                         </router-link>
                         <a v-else :href="category.url" :class="getLinkClass(category)" :target="category.target" @click="onCategoryClick($event, category)" @keydown="onCategoryKeydown($event, category)"
-                            role="menuitem" :aria-haspopup="category.items != null" :aria-expanded="category === activeItem" :tabindex="category.disabled ? null : '0'" v-ripple>
+                            role="menuitem" :aria-haspopup="category.items != null" :aria-expanded="category === activeItem" :tabindex="disabled(category) ? null : '0'" v-ripple>
                             <span v-if="category.icon" :class="getCategoryIcon(category)"></span>
                             <span class="p-menuitem-text">{{category.label}}</span>
                             <span v-if="category.items" :class="getCategorySubMenuIcon()"></span>
@@ -27,13 +27,13 @@
                                     <template v-for="(item, i) of submenu.items" :key="item.label + i.toString()">
                                         <li role="none" :class="getSubmenuItemClass(item)" :style="item.style" v-if="visible(item) && !item.separator">
                                             <template v-if="!$slots.item">
-                                                <router-link v-if="item.to && !item.disabled" :to="item.to" custom v-slot="{navigate, href}">
+                                                <router-link v-if="item.to && !disabled(item)" :to="item.to" custom v-slot="{navigate, href}">
                                                     <a :href="href" :class="getLinkClass(item)" @click="onLeafClick($event, item, navigate)" role="menuitem" v-ripple>
                                                         <span v-if="item.icon" :class="['p-menuitem-icon', item.icon]"></span>
                                                         <span class="p-menuitem-text">{{item.label}}</span>
                                                     </a>
                                                 </router-link>
-                                                <a v-else :href="item.url" :class="getLinkClass(item)" :target="item.target" @click="onLeafClick($event, item)" role="menuitem" :tabindex="item.disabled ? null : '0'" v-ripple>
+                                                <a v-else :href="item.url" :class="getLinkClass(item)" :target="item.target" @click="onLeafClick($event, item)" role="menuitem" :tabindex="disabled(item) ? null : '0'" v-ripple>
                                                     <span v-if="item.icon" :class="['p-menuitem-icon', item.icon]"></span>
                                                     <span class="p-menuitem-text">{{item.label}}</span>
                                                     <span :class="getSubmenuIcon()" v-if="item.items"></span>
@@ -83,7 +83,7 @@ export default {
     },
     methods: {
         onLeafClick(event, item, navigate) {
-            if (item.disabled) {
+            if (this.disabled(item)) {
                 event.preventDefault();
                 return;
             }
@@ -102,7 +102,7 @@ export default {
             }
         },
         onCategoryMouseEnter(event, category) {
-            if (category.disabled) {
+            if (this.disabled(category)) {
                 event.preventDefault();
                 return;
             }
@@ -112,7 +112,7 @@ export default {
             }
         },
         onCategoryClick(event, category, navigate) {
-            if (category.disabled) {
+            if (this.disabled(category)) {
                 event.preventDefault();
                 return;
             }
@@ -266,13 +266,13 @@ export default {
             return columnClass;
         },
         getSubmenuHeaderClass(submenu) {
-            return ['p-megamenu-submenu-header', submenu.class, {'p-disabled': submenu.disabled}];
+            return ['p-megamenu-submenu-header', submenu.class, {'p-disabled': this.disabled(submenu)}];
         },
         getSubmenuItemClass(item) {
             return ['p-menuitem', item.class];
         },
         getLinkClass(item) {
-            return ['p-menuitem-link', {'p-disabled': item.disabled}];
+            return ['p-menuitem-link', {'p-disabled': this.disabled(item)}];
         },
         bindDocumentClickListener() {
             if (!this.documentClickListener) {
@@ -294,6 +294,9 @@ export default {
         },
         visible(item) {
             return (typeof item.visible === 'function' ? item.visible() : item.visible !== false);
+        },
+        disabled(item) {
+            return (typeof item.disabled === 'function' ? item.disabled() : item.disabled);
         }
     },
     computed: {

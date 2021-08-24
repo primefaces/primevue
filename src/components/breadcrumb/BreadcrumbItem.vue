@@ -1,5 +1,5 @@
 <template>
-    <li :class="containerClass" v-if="visible()">
+    <li :class="containerClass(item)" v-if="visible()">
         <template v-if="!template">
             <router-link v-if="item.to" :to="item.to" custom v-slot="{navigate, href}">
                 <a :href="href" class="p-menuitem-link" @click="onClick($event, navigate)">
@@ -36,14 +36,17 @@ export default {
                 navigate(event);
             }
         },
+        containerClass(item) {
+            return [{'p-disabled': this.disabled(item)}, this.item.class];
+        },
         visible() {
             return (typeof this.item.visible === 'function' ? this.item.visible() : this.item.visible !== false);
+        },
+        disabled(item) {
+            return (typeof item.disabled === 'function' ? item.disabled() : item.disabled);
         }
     },
     computed: {
-        containerClass() {
-            return [{'p-disabled': this.item.disabled}, this.item.class];
-        },
         iconClass() {
             return ['p-menuitem-icon', this.item.icon];
         }

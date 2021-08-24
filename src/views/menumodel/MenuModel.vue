@@ -76,9 +76,9 @@ const items: [
                             </tr>
                             <tr>
                                 <td>disabled</td>
-                                <td>boolean</td>
+                                <td>boolean/function</td>
                                 <td>false</td>
-                                <td>When set as true, disables the menuitem.</td>
+                                <td>A boolean or a function to return a boolean to specify if the item is disabled.</td>
                             </tr>
                             <tr>
                                 <td>visible</td>

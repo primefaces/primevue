@@ -2,7 +2,7 @@
     <div class="p-tabmenu p-component">
         <ul ref="nav" class="p-tabmenu-nav p-reset" role="tablist">
             <template v-for="(item,i) of model" :key="item.label + '_' + i.toString()">
-                <router-link v-if="item.to && !item.disabled" :to="item.to" custom v-slot="{navigate, href, isActive, isExactActive}">
+                <router-link v-if="item.to && !disabled(item)" :to="item.to" custom v-slot="{navigate, href, isActive, isExactActive}">
                     <li :class="getRouteItemClass(item,isActive,isExactActive)" :style="item.style" v-if="visible(item)" role="tab">
                         <template v-if="!$slots.item">
                             <a :href="href" class="p-menuitem-link" @click="onItemClick($event, item, navigate)" role="presentation" v-ripple>
@@ -15,7 +15,7 @@
                 </router-link>
                 <li v-else-if="visible(item)" :class="getItemClass(item)" role="tab">
                     <template v-if="!$slots.item">
-                        <a :href="item.url" class="p-menuitem-link" :target="item.target" @click="onItemClick($event, item)" role="presentation" :tabindex="item.disabled ? null : '0'" v-ripple>
+                        <a :href="item.url" class="p-menuitem-link" :target="item.target" @click="onItemClick($event, item)" role="presentation" :tabindex="disabled(item) ? null : '0'" v-ripple>
                             <span :class="getItemIcon(item)" v-if="item.icon"></span>
                             <span class="p-menuitem-text">{{item.label}}</span>
                         </a>
@@ -61,7 +61,7 @@ export default {
     },
     methods: {
         onItemClick(event, item, navigate) {
-            if (item.disabled) {
+            if (this.disabled(item)) {
                 event.preventDefault();
                 return;
             }
@@ -79,13 +79,13 @@ export default {
         },
         getItemClass(item) {
             return ['p-tabmenuitem', item.class, {
-                'p-disabled': item.disabled
+                'p-disabled': this.disabled(item)
             }];
         },
         getRouteItemClass(item, isActive, isExactActive) {
             return ['p-tabmenuitem', item.class, {
                  'p-highlight': this.exact ? isExactActive : isActive,
-                'p-disabled': item.disabled
+                'p-disabled': this.disabled(item)
             }];
         },
         getItemIcon(item) {
@@ -93,6 +93,9 @@ export default {
         },
         visible(item) {
             return (typeof item.visible === 'function' ? item.visible() : item.visible !== false);
+        },
+        disabled(item) {
+            return (typeof item.disabled === 'function' ? item.disabled() : item.disabled);
         },
         updateInkBar() {
             let tabs = this.$refs.nav.children;

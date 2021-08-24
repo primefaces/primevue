@@ -43,7 +43,7 @@ export default {
     },
     methods: {
         onItemClick(event, item, navigate) {
-            if (item.disabled || this.readonly) {
+            if (this.disabled(item) || this.readonly) {
                 event.preventDefault();
                 return;
             }
@@ -69,10 +69,13 @@ export default {
             }];
         },
         isItemDisabled(item) {
-            return (item.disabled || (this.readonly && !this.isActive(item)));
+            return (this.disabled(item) || (this.readonly && !this.isActive(item)));
         },
         visible(item) {
             return (typeof item.visible === 'function' ? item.visible() : item.visible !== false);
+        },
+        disabled(item) {
+            return (typeof item.disabled === 'function' ? item.disabled() : item.disabled);
         }
     },
     computed: {
