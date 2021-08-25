@@ -45,26 +45,24 @@ const CheckboxProps = [
 
 const CheckboxEvents = [
     {
-        "name": "click",
-        "description": "Callback to invoke on value click.",
-        arguments: [
-            {
-                name: "event",
-                type: "object",
-                description: "Browser event"
-            }
-        ]
+        name: "click",
+        description: "Callback to invoke on value click.",
     },
     {
-        "name": "change",
-        "description": "Callback to invoke on value change.",
-        arguments: [
-            {
-                name: "event",
-                type: "object",
-                description: "Browser event"
-            }
-        ]
+        name: "change",
+        description: "Callback to invoke on value change.",
+    },
+    {
+        name: "input",
+        description: "Callback to invoke on value change."
+    },
+    {
+        name: "focus",
+        description: "Callback to invoke when element receives focus."
+    },
+    {
+        name: "blur",
+        description: "Callback to invoke when element loses focus."
     }
 ];
 

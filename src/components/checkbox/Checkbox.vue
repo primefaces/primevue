@@ -54,14 +54,17 @@ export default {
                 this.$emit('click', event);
                 this.$emit('update:modelValue', newModelValue);
                 this.$emit('change', event);
+                this.$emit('input', newModelValue);
                 this.$refs.input.focus();
             }
         },
         onFocus() {
             this.focused = true;
+            this.$emit('focus', event);
         },
         onBlur() {
             this.focused = false;
+            this.$emit('blur', event);
         }
     },
     computed: {
