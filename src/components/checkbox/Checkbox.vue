@@ -15,7 +15,7 @@ import {ObjectUtils} from 'primevue/utils';
 export default {
     name: 'Checkbox',
     inheritAttrs: false,
-    emits: ['click', 'update:modelValue', 'change'],
+    emits: ['click', 'update:modelValue', 'change', 'input', 'focus', 'blur'],
     props: {
         value: null,
         modelValue: null,
