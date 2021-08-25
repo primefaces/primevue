@@ -4,6 +4,8 @@ interface CheckboxProps {
     binary?: boolean;
     class?: string;
     style?: any;
+    trueValue?: any;
+    falseValue?: any;
 }
 
 declare class Checkbox {

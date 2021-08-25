@@ -80,6 +80,18 @@ export default {
                         <td>null</td>
                         <td>Inline style of the component.</td>
                     </tr>
+                    <tr>
+                        <td>trueValue</td>
+                        <td>any</td>
+                        <td>null</td>
+                        <td>Value in checked state.</td>
+                    </tr>
+                    <tr>
+                        <td>falseValue</td>
+                        <td>any</td>
+                        <td>null</td>
+                        <td>Value in unchecked state.</td>
+                    </tr>
 				</tbody>
 			</table>
 		</div>
