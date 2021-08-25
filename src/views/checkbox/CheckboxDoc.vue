@@ -117,7 +117,7 @@ export default {
                         <td>event: Browser event</td>
                         <td>Callback to invoke on value change.</td>
                     </tr>
-                    					<tr>
+                    <tr>
 						<td>focus</td>
 						<td>event: Browser event</td>
 						<td>Callback to invoke when element receives focus.</td>
@@ -270,9 +270,9 @@ export default {
         const checked = ref(false);
         const cities = ref([]);
         const categories = ref([
-            {name: 'Accounting', key: 'A'}, 
-            {name: 'Marketing', key: 'M'}, 
-            {name: 'Production', key: 'P'}, 
+            {name: 'Accounting', key: 'A'},
+            {name: 'Marketing', key: 'M'},
+            {name: 'Production', key: 'P'},
             {name: 'Research', key: 'R'}
         ]);
         const selectedCategories = ref(categories.value.slice(1,3));
