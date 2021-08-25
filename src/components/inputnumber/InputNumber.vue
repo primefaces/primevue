@@ -697,9 +697,9 @@ export default {
             if (valueStr != null) {
                 newValue = this.parseValue(valueStr);
                 this.updateInput(newValue, insertedValueStr, operation);
-            }
 
-            this.handleOnInput(event, currentValue, newValue);
+                this.handleOnInput(event, currentValue, newValue);
+            }
         },
         handleOnInput(event, currentValue, newValue) {
             if (this.isValueChanged(currentValue, newValue)) {
