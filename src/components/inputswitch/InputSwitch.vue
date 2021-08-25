@@ -12,7 +12,7 @@
 export default {
     name: 'InputSwitch',
     inheritAttrs: false,
-    emits: ['update:modelValue', 'click', 'change', 'input'],
+    emits: ['click', 'update:modelValue', 'change', 'input'],
     props: {
         modelValue: Boolean,
         class: null,
