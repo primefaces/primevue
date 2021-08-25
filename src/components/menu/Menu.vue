@@ -29,6 +29,7 @@ import Menuitem from './Menuitem.vue';
 
 export default {
     name: 'Menu',
+    emits: ['show', 'hide'],
     inheritAttrs: false,
     props: {
         popup: {
@@ -117,11 +118,14 @@ export default {
             if (this.autoZIndex) {
                 ZIndexUtils.set('menu', el, this.baseZIndex + this.$primevue.config.zIndex.menu);
             }
+
+            this.$emit('show');
         },
         onLeave() {
             this.unbindOutsideClickListener();
             this.unbindResizeListener();
             this.unbindScrollListener();
+            this.$emit('hide');
         },
         onAfterLeave(el) {
             if (this.autoZIndex) {
