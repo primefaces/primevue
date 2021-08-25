@@ -2,7 +2,7 @@
     <div class="layout-wrapper" :class="containerClass">
         <div class="layout-news" v-if="newsActive">
             <div class="layout-news-container">
-                <a href="https://www.primefaces.org/primeblocks-vue" target="_blank">
+                <a href="https://www.primefaces.org/primeblocks-vue" class="layouts-news-mockup" target="_blank">
                     <img class="layouts-news-mockup-image" src="./assets/images/topbar-primeblocks-device.png">
                 </a>
                 <a href="https://www.primefaces.org/primeblocks-vue" target="_blank" tabindex="-1" style="text-decoration: none" class="layout-news-button">
