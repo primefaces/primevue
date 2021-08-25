@@ -2,6 +2,8 @@ interface InputSwitchProps {
     modelValue?: boolean;
     class?: string;
     style?: any;
+    trueValue?: any;
+    falseValue?: any;
 }
 
 declare class InputSwitch {

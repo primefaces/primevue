@@ -16,6 +16,18 @@ const InputSwitchProps = [
         type: "any",
         default: "null",
         description: "Inline of the component."
+    },
+    {
+        name: "trueValue",
+        type: "any",
+        default: "true",
+        description: "Value in checked state."
+    },
+    {
+        name: "falseValue",
+        type: "any",
+        default: "true",
+        description: "Value in unchecked state."
     }
 ];
 
