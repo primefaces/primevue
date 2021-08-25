@@ -12,7 +12,7 @@
 export default {
     name: 'InputSwitch',
     inheritAttrs: false,
-    emits: ['update:modelValue', 'click', 'change'],
+    emits: ['update:modelValue', 'click', 'change', 'input'],
     props: {
         modelValue: Boolean,
         class: null,
@@ -43,13 +43,11 @@ export default {
             }
             event.preventDefault();
         },
-        onFocus(event) {
+        onFocus() {
             this.focused = true;
-            this.$emit('focus', event);
         },
-        onBlur(event) {
+        onBlur() {
             this.focused = false;
-            this.$emit('blur', event);
         }
     },
     computed: {

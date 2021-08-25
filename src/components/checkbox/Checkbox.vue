@@ -15,7 +15,7 @@ import {ObjectUtils} from 'primevue/utils';
 export default {
     name: 'Checkbox',
     inheritAttrs: false,
-    emits: ['click', 'update:modelValue', 'change'],
+    emits: ['click', 'update:modelValue', 'change', 'input'],
     props: {
         value: null,
         modelValue: null,
@@ -60,11 +60,9 @@ export default {
         },
         onFocus() {
             this.focused = true;
-            this.$emit('focus', event);
         },
         onBlur() {
             this.focused = false;
-            this.$emit('blur', event);
         }
     },
     computed: {

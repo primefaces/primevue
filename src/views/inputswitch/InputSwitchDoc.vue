@@ -85,6 +85,7 @@ export default {
 		</div>
 
 		<h5>Events</h5>
+		<p>In addition to the following events, any other valid events such as focus and blur are passed implicitly.</p>
 		<div class="doc-tablewrapper">
 			<table class="doc-table">
 				<thead>
@@ -104,16 +105,6 @@ export default {
 						<td>change</td>
 						<td>event: Browser event</td>
 						<td>Callback to invoke on value change.</td>
-					</tr>
-					<tr>
-						<td>focus</td>
-						<td>event: Browser event</td>
-						<td>Callback to invoke when element receives focus.</td>
-					</tr>
-					<tr>
-						<td>blur</td>
-						<td>event: Browser event</td>
-						<td>Callback to invoke when element loses focus.</td>
 					</tr>
 					<tr>
 						<td>input</td>
