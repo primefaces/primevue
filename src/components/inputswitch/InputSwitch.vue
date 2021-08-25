@@ -29,15 +29,18 @@ export default {
                 this.$emit('click', event);
                 this.$emit('update:modelValue', !this.modelValue);
                 this.$emit('change', event);
+                this.$emit('input', !this.modelValue);
                 this.$refs.input.focus();
             }
             event.preventDefault();
         },
-        onFocus() {
+        onFocus(event) {
             this.focused = true;
+            this.$emit('focus', event);
         },
-        onBlur() {
+        onBlur(event) {
             this.focused = false;
+            this.$emit('blur', event);
         }
     },
     computed: {

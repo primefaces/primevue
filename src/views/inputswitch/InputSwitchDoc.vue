@@ -73,7 +73,6 @@ export default {
 		</div>
 
 		<h5>Events</h5>
-		<p>Any valid event such as focus, blur and input are passed to the underlying input element. Following are the additional events to configure the component.</p>
 		<div class="doc-tablewrapper">
 			<table class="doc-table">
 				<thead>
@@ -86,12 +85,27 @@ export default {
 				<tbody>
 					<tr>
 						<td>click</td>
-						<td>-</td>
+						<td>event: Browser event</td>
 						<td>Callback to invoke on click.</td>
 					</tr>
 					<tr>
 						<td>change</td>
-						<td>-</td>
+						<td>event: Browser event</td>
+						<td>Callback to invoke on value change.</td>
+					</tr>
+					<tr>
+						<td>focus</td>
+						<td>event: Browser event</td>
+						<td>Callback to invoke when element receives focus.</td>
+					</tr>
+					<tr>
+						<td>blur</td>
+						<td>event: Browser event</td>
+						<td>Callback to invoke when element loses focus.</td>
+					</tr>
+					<tr>
+						<td>input</td>
+						<td>value: New value</td>
 						<td>Callback to invoke on value change.</td>
 					</tr>
 				</tbody>

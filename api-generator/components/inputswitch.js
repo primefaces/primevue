@@ -27,6 +27,18 @@ const InputSwitchEvents = [
     {
         name: "change",
         description: "Callback to invoke on value change."
+    },
+    {
+        name: "input",
+        description: "Callback to invoke on value change."
+    },
+    {
+        name: "focus",
+        description: "Callback to invoke when element receives focus."
+    },
+    {
+        name: "blur",
+        description: "Callback to invoke when element loses focus."
     }
 ];
 
