@@ -1936,7 +1936,7 @@ export default {
                 }
             }
             catch(err) {
-                this.updateModel(event.target.value);
+                this.updateModel(null);
             }
         },
         onFocus() {
