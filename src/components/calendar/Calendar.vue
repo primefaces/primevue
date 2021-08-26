@@ -289,6 +289,10 @@ export default {
             type: String,
             default: 'body'
         },
+        keepInvalid: {
+            type: Boolean,
+            default: false
+        },
         inputClass: null,
         inputStyle: null,
         class: null,
@@ -1936,7 +1940,9 @@ export default {
                 }
             }
             catch(err) {
-                this.updateModel(null);
+                // invalid date
+                let value = this.keepInvalid ? event.target.value : null;
+                this.updateModel(value);
             }
         },
         onFocus() {
@@ -1998,7 +2004,7 @@ export default {
             return propValue || new Date();
         },
         inputFieldValue() {
-            return this.formatValue(this.modelValue);
+            return this.keepInvalid ? this.modelValue : this.formatValue(this.modelValue);
         },
         containerClass() {
             return [
