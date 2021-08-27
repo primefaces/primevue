@@ -16,6 +16,12 @@ const StepsProps = [
         type: "boolean",
         default: "true",
         description: "Whether the items are clickable or not."
+    },
+    {
+        name: "exact",
+        type: "boolean",
+        default: "true",
+        description: "Whether to apply 'router-link-active-exact' class if route exactly matches the item path."
     }
 ];
 

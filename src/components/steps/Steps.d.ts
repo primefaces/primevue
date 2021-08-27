@@ -4,6 +4,7 @@ interface StepsProps {
     id?: string;
     model?: any[];
     readonly?: boolean;
+    exact?: boolean;
 }
 
 declare class Steps {

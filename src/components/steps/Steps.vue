@@ -4,13 +4,13 @@
             <template v-for="(item,index) of model" :key="item.to">
                 <li v-if="visible(item)" :class="getItemClass(item)" :style="item.style" role="tab" :aria-selected="isActive(item)" :aria-expanded="isActive(item)">
                     <template v-if="!$slots.item">
-                        <router-link :to="item.to" v-if="!isItemDisabled(item)" custom v-slot="{navigate, href}">
-                            <a :href="href" class="p-menuitem-link" @click="onItemClick($event, item, navigate)" role="presentation">
+                        <router-link :to="item.to" v-if="!isItemDisabled(item)" custom v-slot="{navigate, href, isActive, isExactActive}">
+                            <a :href="href" :class="linkClass({isActive, isExactActive})" @click="onItemClick($event, item, navigate)" role="presentation">
                                 <span class="p-steps-number">{{index + 1}}</span>
                                 <span class="p-steps-title">{{item.label}}</span>
                             </a>
                         </router-link>
-                        <span v-else class="p-menuitem-link" role="presentation">
+                        <span v-else :class="linkClass()" role="presentation">
                             <span class="p-steps-number">{{index + 1}}</span>
                             <span class="p-steps-title">{{item.label}}</span>
                         </span>
@@ -37,6 +37,10 @@ export default {
             default: null
         },
         readonly: {
+            type: Boolean,
+            default: true
+        },
+        exact: {
             type: Boolean,
             default: true
         }
@@ -66,6 +70,12 @@ export default {
             return ['p-steps-item', item.class, {
                 'p-highlight p-steps-current': this.isActive(item),
                 'p-disabled': this.isItemDisabled(item)
+            }];
+        },
+        linkClass(routerProps) {
+            return ['p-menuitem-link', {
+                'router-link-active': routerProps && routerProps.isActive,
+                'router-link-active-exact': this.exact && routerProps && routerProps.isExactActive
             }];
         },
         isItemDisabled(item) {
