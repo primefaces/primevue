@@ -142,16 +142,18 @@ export default {
 
 </code></pre>
 
-        <h5>Custom Content</h5>
-        <p>Any content inside the megamenu will be displayed on the right side by default. You may use ".p-megamenu-custom" style class to change the location of the content.
-            Additionally, MegaMenu offers content customization with the <i>item</i> template that receives the menuitem instance from the model as a parameter.
-        </p>
+        <h5>Templating</h5>
+        <p>Two slots named "start" and "end" are provided to embed content before or after the items. In additon MegaMenu, offers item customization with the <i>item</i> template that receives the menuitem instance from the model as a parameter.</p>
 <pre v-code><code><template v-pre>
 &lt;MegaMenu :model="items"&gt;
-    &lt;InputText placeholder="Search" type="text" /&gt;
-    &lt;Button label="Logout" icon="pi pi-power-off" /&gt;
+     &lt;template #start&gt;
+        Before
+    &lt;/template&gt;
     &lt;template #item="{item}"&gt;
         &lt;a :href="item.url"&gt;{{item.label}}&lt;/a&gt;
+    &lt;/template&gt;
+    &lt;template #end&gt;
+        After
     &lt;/template&gt;
 &lt;/MegaMenu&gt;
 </template>

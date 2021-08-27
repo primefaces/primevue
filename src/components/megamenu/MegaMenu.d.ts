@@ -9,7 +9,8 @@ interface MegaMenuProps {
 declare class MegaMenu {
     $props: MegaMenuProps;
     $slots: {
-        '': VNode[];
+        start: VNode[];
+        end: VNode[];
         item: VNode[];
     }
 }

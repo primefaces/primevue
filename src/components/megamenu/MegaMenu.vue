@@ -1,5 +1,8 @@
 <template>
     <div :class="containerClass">
+        <div class="p-megamenu-start" v-if="$slots.start">
+            <slot name="start"></slot>
+        </div>
         <ul class="p-megamenu-root-list" role="menubar">
             <template v-for="(category,index) of model" :key="category.label + '_' + index">
                 <li v-if="visible(category)"  :class="getCategoryClass(category)" :style="category.style"
@@ -50,8 +53,8 @@
                 </li>
             </template>
         </ul>
-        <div class="p-megamenu-custom" v-if="$slots.default">
-            <slot></slot>
+        <div class="p-megamenu-end" v-if="$slots.end">
+            <slot name="end"></slot>
         </div>
     </div>
 </template>
