@@ -3,6 +3,7 @@ import { VNode } from 'vue';
 interface MegaMenuProps {
     model?: any[];
     orientation?: string;
+    exact?: boolean;
 }
 
 declare class MegaMenu {

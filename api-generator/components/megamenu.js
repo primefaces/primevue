@@ -10,6 +10,12 @@ const MegaMenuProps = [
         type: "string",
         default: "horizontal",
         description: "Defines the orientation, valid values are horizontal and vertical."
+    },
+    {
+        name: "exact",
+        type: "boolean",
+        default: "true",
+        description: "Whether to apply 'router-link-active-exact' class if route exactly matches the item path."
     }
 ];
 
