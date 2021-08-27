@@ -1,6 +1,7 @@
 interface BreadcrumbProps {
     home?: any;
     model?: any[];
+    exact?: boolean;
 }
 
 declare class Breadcrumb {
