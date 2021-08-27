@@ -827,7 +827,7 @@ export default {
             this.$refs.input.$el.setAttribute('aria-valuenow', value);
         },
         concatValues(val1, val2) {
-            if (val1 !== null && val2 !== null) {
+            if (val1 && val2) {
                 let decimalCharIndex = val2.search(this._decimal);
                 this._decimal.lastIndex = 0;
 
