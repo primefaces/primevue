@@ -448,6 +448,10 @@ data() {
                         <td>empty</td>
                         <td>-</td>
                     </tr>
+                    <tr>
+                        <td>indicator</td>
+                        <td>-</td>
+                    </tr>
 				</tbody>
 			</table>
         </div>

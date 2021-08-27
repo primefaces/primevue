@@ -285,8 +285,8 @@ const DividerSlots = [
         description: "Custom content for the virtual scroller loader items"
     },
     {
-        name: "trigger",
-        description: "Custom content for the component's trigger"
+        name: "indicator",
+        description: "Custom content for the dropdown indicator"
     }
 ];
 

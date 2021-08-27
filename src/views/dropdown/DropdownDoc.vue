@@ -440,7 +440,7 @@ export default {
                         <td>options: Options of the loader items for virtualscroller</td>
                     </tr>
                     <tr>
-                        <td>trigger</td>
+                        <td>indicator</td>
                         <td>-</td>
                     </tr>
 				</tbody>

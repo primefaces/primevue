@@ -294,6 +294,10 @@ const MultiSelectSlots = [
     {
         name: "loader",
         description: "Custom content for the virtual scroller loader items"
+    },
+    {
+        name: "indicator",
+        description: "Custom content for the dropdown indicator"
     }
 ];
 

@@ -23,7 +23,9 @@
             </div>
         </div>
         <div class="p-multiselect-trigger">
-            <span :class="dropdownIconClass"></span>
+            <slot name="indicator">
+                <span :class="dropdownIconClass"></span>
+            </slot>
         </div>
         <Teleport :to="appendTarget" :disabled="appendDisabled">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">

@@ -31,6 +31,7 @@ declare class CascadeSelect {
     $slot: {
         option: VNode[];
         value: VNode[];
+        indicator: VNode[];
     }
 }
 
