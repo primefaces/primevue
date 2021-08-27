@@ -367,6 +367,11 @@ export default {
         },
         showTime() {
             this.updateCurrentMetaData();
+        },
+        months() {
+            if (this.overlay) {
+                setTimeout(this.updateFocus, 0);
+            }
         }
     },
     methods: {
