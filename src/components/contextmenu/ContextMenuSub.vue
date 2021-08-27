@@ -5,13 +5,13 @@
                 <li role="none" :class="getItemClass(item)" :style="item.style" v-if="visible(item) && !item.separator"
                     @mouseenter="onItemMouseEnter($event, item)">
                     <template v-if="!template">
-                        <router-link v-if="item.to && !disabled(item)" :to="item.to" custom v-slot="{navigate, href}">
-                            <a :href="href" @click="onItemClick($event, item, navigate)" :class="getLinkClass(item)" v-ripple role="menuitem">
+                        <router-link v-if="item.to && !disabled(item)" :to="item.to" custom v-slot="{navigate, href, isActive, isExactActive}">
+                            <a :href="href" @click="onItemClick($event, item, navigate)" :class="linkClass(item, {isActive, isExactActive})" v-ripple role="menuitem">
                                 <span :class="['p-menuitem-icon', item.icon]"></span>
                                 <span class="p-menuitem-text">{{item.label}}</span>
                             </a>
                         </router-link>
-                        <a v-else :href="item.url" :class="getLinkClass(item)" :target="item.target" @click="onItemClick($event, item)" v-ripple
+                        <a v-else :href="item.url" :class="linkClass(item)" :target="item.target" @click="onItemClick($event, item)" v-ripple
                             :aria-haspopup="item.items != null" :aria-expanded="item === activeItem" role="menuitem" :tabindex="disabled(item) ? null : '0'">
                             <span :class="['p-menuitem-icon', item.icon]"></span>
                             <span class="p-menuitem-text">{{item.label}}</span>
@@ -20,7 +20,7 @@
                     </template>
                     <component v-else :is="template" :item="item"></component>
                     <ContextMenuSub :model="item.items" v-if="visible(item) && item.items" :key="item.label + '_sub_'" :template="template"
-                        @leaf-click="onLeafClick" :parentActive="item === activeItem" />
+                        @leaf-click="onLeafClick" :parentActive="item === activeItem" :exact="exact" />
                 </li>
                 <li :class="['p-menu-separator', item.class]" :style="item.style" v-if="visible(item) && item.separator" :key="'separator' + i.toString()" role="separator"></li>
             </template>
@@ -51,6 +51,10 @@ export default {
         template: {
             type: Object,
             default: null
+        },
+        exact: {
+            type: Boolean,
+            default: true
         }
     },
     watch: {
@@ -132,8 +136,12 @@ export default {
                 }
             ]
         },
-        getLinkClass(item) {
-            return ['p-menuitem-link', {'p-disabled': this.disabled(item)}];
+        linkClass(item, routerProps) {
+            return ['p-menuitem-link', {
+                'p-disabled': this.disabled(item),
+                'router-link-active': routerProps && routerProps.isActive,
+                'router-link-active-exact': this.exact && routerProps && routerProps.isExactActive
+            }];
         },
         visible(item) {
             return (typeof item.visible === 'function' ? item.visible() : item.visible !== false);
