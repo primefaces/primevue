@@ -4,13 +4,13 @@
             <div v-if="visible(item)"  :class="getPanelClass(item)" :style="item.style">
                 <div :class="getHeaderClass(item)" :style="item.style">
                     <template v-if="!$slots.item">
-                        <router-link v-if="item.to && !disabled(item)" :to="item.to" custom v-slot="{navigate, href}">
-                            <a :href="href" class="p-panelmenu-header-link" @click="onItemClick($event, item, navigate)" role="treeitem">
+                        <router-link v-if="item.to && !disabled(item)" :to="item.to" custom v-slot="{navigate, href, isActive, isExactActive}">
+                            <a :href="href" :class="getHeaderLinkClass(item, {isActive, isExactActive})" @click="onItemClick($event, item, navigate)" role="treeitem">
                                 <span v-if="item.icon" :class="getPanelIcon(item)"></span>
                                 <span class="p-menuitem-text">{{item.label}}</span>
                             </a>
                         </router-link>
-                        <a v-else :href="item.url" class="p-panelmenu-header-link" @click="onItemClick($event, item)" :tabindex="disabled(item) ? null : '0'"
+                        <a v-else :href="item.url" :class="getHeaderLinkClass(item)" @click="onItemClick($event, item)" :tabindex="disabled(item) ? null : '0'"
                             :aria-expanded="isActive(item)" :id="ariaId +'_header'" :aria-controls="ariaId +'_content'">
                             <span v-if="item.items" :class="getPanelToggleIcon(item)"></span>
                             <span v-if="item.icon" :class="getPanelIcon(item)"></span>
@@ -24,7 +24,7 @@
                         role="region" :id="ariaId +'_content' " :aria-labelledby="ariaId +'_header'">
                         <div class="p-panelmenu-content" v-if="item.items">
                             <PanelMenuSub :model="item.items" class="p-panelmenu-root-submenu" :template="$slots.item" 
-                                :expandedKeys="expandedKeys" @item-toggle="updateExpandedKeys" />
+                                :expandedKeys="expandedKeys" @item-toggle="updateExpandedKeys" :exact="exact" />
                         </div>
                     </div>
                 </transition>
@@ -48,6 +48,10 @@ export default {
         expandedKeys: {
             type: null,
             default: null
+        },
+        exact: {
+            type: Boolean,
+            default: true
         }
     },
     data() {
@@ -106,6 +110,12 @@ export default {
         },
         getPanelIcon(item) {
             return ['p-menuitem-icon', item.icon];
+        },
+        getHeaderLinkClass(item, routerProps) {
+            return ['p-panelmenu-header-link', {
+                'router-link-active': routerProps && routerProps.isActive,
+                'router-link-active-exact': this.exact && routerProps && routerProps.isExactActive
+            }];
         },
         isActive(item) {
             return this.expandedKeys ? this.expandedKeys[item.key] : item === this.activeItem;

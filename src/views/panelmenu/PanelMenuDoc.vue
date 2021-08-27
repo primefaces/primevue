@@ -156,6 +156,18 @@ export default {
 </template>
 </code></pre>
 
+        <p><i>router-link</i> with route configuration can also be used within templating for further customization.</p>
+<pre v-code><code><template v-pre>
+&lt;PanelMenu :model="items"&gt;
+    &lt;template #item="{item}"&gt;
+        &lt;router-link :to="item.to" custom v-slot="{href, route, navigate, isActive, isExactActive}"&gt;
+            &lt;a :href="href" @click="navigate" :class="{'active-link': isActive, 'active-link-exact": isExactActive}&gt;{{route.fullPath}}&lt;/a&gt;
+        &lt;/router-link&gt;
+    &lt;/template&gt;
+&lt;/PanelMenu&gt;
+</template>
+</code></pre>
+
         <h5>Programmatic Control</h5>
         <p>If the menuitem has a <i>key</i> defined, PanelMenu state can be controlled programmatically with the <i>expandedKeys</i> property that defines the keys
             that are expanded. This property is a Map instance whose key is the key of a node and value is a boolean. Note that <i>expandedKeys</i> also supports two-way binding with the v-model directive.
@@ -376,6 +388,12 @@ export default {
                         <td>array</td>
                         <td>null</td>
                         <td>A map of keys to represent the expansion state in controlled mode.</td>
+                    </tr>
+                    <tr>
+                        <td>exact</td>
+                        <td>boolean</td>
+                        <td>true</td>
+                        <td>Whether to apply 'router-link-active-exact' class if route exactly matches the item path.</td>
                     </tr>
 				</tbody>
 			</table>

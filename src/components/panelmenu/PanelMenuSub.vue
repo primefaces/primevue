@@ -3,13 +3,13 @@
         <template v-for="(item, i) of model" :key="item.label + i.toString()">
             <li role="none" :class="getItemClass(item)" :style="item.style" v-if="visible(item) && !item.separator">
                 <template v-if="!template">
-                    <router-link v-if="item.to && !disabled(item)" :to="item.to" custom v-slot="{navigate, href}">
-                        <a :href="href" :class="getLinkClass(item)" @click="onItemClick($event, item, navigate)" role="treeitem" :aria-expanded="isActive(item)">
+                    <router-link v-if="item.to && !disabled(item)" :to="item.to" custom v-slot="{navigate, href, isActive, isExactActive}">
+                        <a :href="href" :class="linkClass(item, {isActive, isExactActive})" @click="onItemClick($event, item, navigate)" role="treeitem" :aria-expanded="isActive(item)">
                             <span :class="['p-menuitem-icon', item.icon]"></span>
                             <span class="p-menuitem-text">{{item.label}}</span>
                         </a>
                     </router-link>
-                    <a v-else :href="item.url" :class="getLinkClass(item)" :target="item.target" @click="onItemClick($event, item)"
+                    <a v-else :href="item.url" :class="linkClass(item)" :target="item.target" @click="onItemClick($event, item)"
                         role="treeitem" :aria-expanded="isActive(item)" :tabindex="disabled(item) ? null : '0'">
                         <span :class="getSubmenuIcon(item)" v-if="item.items"></span>
                         <span :class="['p-menuitem-icon', item.icon]"></span>
@@ -20,7 +20,7 @@
                 <transition name="p-toggleable-content">
                     <div class="p-toggleable-content" v-show="isActive(item)">
                         <PanelMenuSub :model="item.items" v-if="visible(item) && item.items" :key="item.label + '_sub_'" :template="template" 
-                            :expandedKeys="expandedKeys" @item-toggle="$emit('item-toggle', $event)" />
+                            :expandedKeys="expandedKeys" @item-toggle="$emit('item-toggle', $event)" :exact="exact"/>
                     </div>
                 </transition>
             </li>
@@ -45,6 +45,10 @@ export default {
         expandedKeys: {
             type: null,
             default: null
+        },
+        exact: {
+            type: Boolean,
+            default: true
         }
     },
     data() {
@@ -84,8 +88,12 @@ export default {
         getItemClass(item) {
             return ['p-menuitem', item.className];
         },
-        getLinkClass(item) {
-            return ['p-menuitem-link', {'p-disabled': this.disabled(item)}];
+        linkClass(item, routerProps) {
+            return ['p-menuitem-link', {
+                'p-disabled': this.disabled(item),
+                'router-link-active': routerProps && routerProps.isActive,
+                'router-link-active-exact': this.exact && routerProps && routerProps.isExactActive
+            }];
         },
         isActive(item) {
             return this.expandedKeys ? this.expandedKeys[item.key] : item === this.activeItem;
