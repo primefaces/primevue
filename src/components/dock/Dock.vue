@@ -1,6 +1,6 @@
 <template>
     <div :class="containerClass" :style="style">
-        <DockSub :model="model" :template="$slots.item"></DockSub>
+        <DockSub :model="model" :template="$slots.item" :exact="exact"></DockSub>
     </div>
 </template>
 
@@ -16,35 +16,10 @@ export default {
         },
         model: null,
         class: null,
-        style: null
-    },
-    data() {
-        return {
-            currentIndex: -3
-        }
-    },
-    methods: {
-        onListMouseLeave() {
-            this.currentIndex = -3;
-        },
-        onItemMouseEnter(index) {
-            this.currentIndex = index;
-        },
-        onItemClick(e, item) {
-            if (item.command) {
-                item.command({ originalEvent: e, item });
-            }
-
-            e.preventDefault();
-        },
-        itemClass(index) {
-            return ['p-dock-item', {
-                'p-dock-item-second-prev': (this.currentIndex - 2) === index,
-                'p-dock-item-prev': (this.currentIndex - 1) === index,
-                'p-dock-item-current': this.currentIndex === index,
-                'p-dock-item-next': (this.currentIndex + 1) === index,
-                'p-dock-item-second-next': (this.currentIndex + 2) === index
-            }];
+        style: null,
+        exact: {
+            type: Boolean,
+            default: true
         }
     },
     computed: {

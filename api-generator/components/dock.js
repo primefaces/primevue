@@ -22,6 +22,12 @@ const DockProps = [
         type: "object",
         default: "null",
         description: "Inline style of the element."
+    },
+    {
+        name: "exact",
+        type: "boolean",
+        default: "true",
+        description: "Whether to apply 'router-link-active-exact' class if route exactly matches the item path."
     }
 ];
 
