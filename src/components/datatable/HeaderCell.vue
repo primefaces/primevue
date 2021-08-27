@@ -8,7 +8,7 @@
             <component :is="column.children.header" :column="column" v-if="column.children && column.children.header"/>
             <span class="p-column-title" v-if="columnProp('header')">{{columnProp('header')}}</span>
             <span v-if="columnProp('sortable')" :class="sortableColumnIcon"></span>
-            <span v-if="isMultiSorted()" class="p-sortable-column-badge">{{getMultiSortMetaIndex() + 1}}</span>
+            <span v-if="isMultiSorted()" class="p-sortable-column-badge">{{getBadgeValue()}}</span>
             <DTHeaderCheckbox :checked="allRowsSelected" @change="onHeaderCheckboxChange" :disabled="empty" v-if="columnProp('selectionMode') ==='multiple' && filterDisplay !== 'row'" />
             <DTColumnFilter v-if="filterDisplay === 'menu' && column.children && column.children.filter" :field="columnProp('filterField')||columnProp('field')" :type="columnProp('dataType')" display="menu"
             :showMenu="columnProp('showFilterMenu')" :filterElement="column.children && column.children.filter"
@@ -41,9 +41,17 @@ export default {
             type: Boolean,
             default: false
         },
+        groupRowsBy: {
+            type: [Array,String],
+            default: null
+        },
         sortMode: {
             type: String,
             default: 'single'
+        },
+        groupRowSortField: {
+            type: [String, Function],
+            default: null
         },
         sortField: {
             type: [String, Function],
@@ -128,20 +136,15 @@ export default {
             this.$emit('column-resizestart', event);
         },
         getMultiSortMetaIndex() {
-            let index = -1;
+            return this.multiSortMeta.findIndex(meta => (meta.field === this.columnProp('field') || meta.field === this.columnProp('sortField')));
+        },
+        getBadgeValue() {
+            let index = this.getMultiSortMetaIndex();
 
-            for (let i = 0; i < this.multiSortMeta.length; i++) {
-                let meta = this.multiSortMeta[i];
-                if (meta.field === this.columnProp('field') || meta.field === this.columnProp('sortField')) {
-                    index = i;
-                    break;
-                }
-            }
-
-            return index;
+            return (this.groupRowsBy && this.groupRowsBy === this.groupRowSortField) && index > -1 ? index : index + 1;
         },
         isMultiSorted() {
-            return this.columnProp('sortable') && this.getMultiSortMetaIndex() > -1
+            return this.sortMode === 'multiple' && this.columnProp('sortable') && this.getMultiSortMetaIndex() > -1
         },
         isColumnSorted() {
             return this.sortMode === 'single' ? (this.sortField && (this.sortField === this.columnProp('field') || this.sortField === this.columnProp('sortField'))) : this.isMultiSorted();

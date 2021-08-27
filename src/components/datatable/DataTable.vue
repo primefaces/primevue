@@ -19,7 +19,7 @@
         <div class="p-datatable-wrapper" :style="{maxHeight: scrollHeight}">
             <table ref="table" role="table" class="p-datatable-table">
                 <DTTableHeader :columnGroup="headerColumnGroup" :columns="columns" :rowGroupMode="rowGroupMode"
-                        :groupRowsBy="groupRowsBy" :resizableColumns="resizableColumns" :allRowsSelected="allRowsSelected" :empty="empty"
+                        :groupRowsBy="groupRowsBy" :groupRowSortField="groupRowSortField" :resizableColumns="resizableColumns" :allRowsSelected="allRowsSelected" :empty="empty"
                         :sortMode="sortMode" :sortField="d_sortField" :sortOrder="d_sortOrder" :multiSortMeta="d_multiSortMeta" :filters="d_filters" :filtersStore="filters" :filterDisplay="filterDisplay"
                         @column-click="onColumnHeaderClick($event)" @column-mousedown="onColumnHeaderMouseDown($event)" @filter-change="onFilterChange" @filter-apply="onFilterApply"
                         @column-dragstart="onColumnHeaderDragStart($event)" @column-dragover="onColumnHeaderDragOver($event)" @column-dragleave="onColumnHeaderDragLeave($event)" @column-drop="onColumnHeaderDrop($event)"
@@ -323,6 +323,7 @@ export default {
             d_sortField: this.sortField,
             d_sortOrder: this.sortOrder,
             d_multiSortMeta: this.multiSortMeta ? [...this.multiSortMeta] : [],
+            d_groupRowsSortMeta: null,
             d_selectionKeys: null,
             d_expandedRowKeys: null,
             d_columnOrder: null,
@@ -484,6 +485,15 @@ export default {
             }
         },
         sortSingle(value) {
+            if (this.groupRowsBy && this.groupRowsBy === this.sortField) {
+                this.d_multiSortMeta = [
+                    {field: this.sortField, order: this.sortOrder || this.defaultSortOrder},
+                    {field: this.d_sortField, order: this.d_sortOrder}
+                ];
+
+                return this.sortMultiple(value);
+            }
+
             let data = [...value];
 
             data.sort((data1, data2) => {
@@ -509,6 +519,15 @@ export default {
             return data;
         },
         sortMultiple(value) {
+            if (this.groupRowsBy && (this.d_groupRowsSortMeta || (this.d_multiSortMeta.length && this.groupRowsBy === this.d_multiSortMeta[0].field))) {
+                const firstSortMeta = this.d_multiSortMeta[0];
+                !this.d_groupRowsSortMeta && (this.d_groupRowsSortMeta = firstSortMeta);
+
+                if (firstSortMeta.field !== this.d_groupRowsSortMeta.field) {
+                    this.d_multiSortMeta = [this.d_groupRowsSortMeta, ...this.d_multiSortMeta];
+                }
+            }
+
             let data = [...value];
 
             data.sort((data1, data2) => {
@@ -1818,6 +1837,9 @@ export default {
         },
         attributeSelector() {
             return UniqueComponentId();
+        },
+        groupRowSortField() {
+            return this.sortMode === 'single' ? this.sortField : (this.d_groupRowsSortMeta ? this.d_groupRowsSortMeta.field : null);
         }
     },
     components: {
