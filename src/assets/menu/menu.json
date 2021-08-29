@@ -799,6 +799,11 @@
                             "to": "/galleria/advanced"
                         }
                     ]
+                },
+                {
+                    "name": "Image",
+                    "to": "/image",
+                    "badge": "New"
                 }
             ]
         },
