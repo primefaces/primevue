@@ -22,7 +22,7 @@ const ImageSlots = [
     {
         name: "indicator",
         description: "Custom content for the preview indicator"
-    }-
+    }
 ];
 
 module.exports = {
