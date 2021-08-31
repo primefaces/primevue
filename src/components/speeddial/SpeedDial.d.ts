@@ -18,6 +18,7 @@ interface SpeedDialProps {
     rotateAnimation?: boolean;
     class?: string;
     style?: any;
+    tooltipOptions?: any;
 }
 
 declare class SpeedDial {

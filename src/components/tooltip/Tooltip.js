@@ -241,10 +241,27 @@ function getTarget(el) {
     return DomHandler.hasClass(el, 'p-inputwrapper') ? DomHandler.findSingle(el, 'input'): el;
 }
 
+function getModifiers(options) {
+    // modifiers
+    if (options.modifiers && Object.keys(options.modifiers).length) {
+        return options.modifiers;
+    }
+
+    // arg
+    if (options.arg && typeof options.arg === 'object') {
+        return Object.entries(options.arg).reduce((acc, [key, val]) => {
+            if (key === 'event' || key === 'position') acc[val] = true;
+            return acc;
+        }, {});
+    }
+
+    return {};
+}
+
 const Tooltip = {
     beforeMount(el, options) {
         let target = getTarget(el);
-        target.$_ptooltipModifiers = options.modifiers;
+        target.$_ptooltipModifiers = getModifiers(options);
         if (typeof options.value === 'string') {
             target.$_ptooltipValue = options.value;
             target.$_ptooltipDisabled = false;
@@ -271,7 +288,7 @@ const Tooltip = {
     },
     updated(el, options) {
         let target = getTarget(el);
-        target.$_ptooltipModifiers = options.modifiers;
+        target.$_ptooltipModifiers = getModifiers(options);
 
         if (typeof options.value === 'string') {
             target.$_ptooltipValue = options.value;
@@ -281,8 +298,7 @@ const Tooltip = {
             target.$_ptooltipValue = options.value.value;
             target.$_ptooltipDisabled = options.value.disabled;
         }
-    },
-
+    }
 };
 
 export default Tooltip;
