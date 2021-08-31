@@ -3,7 +3,7 @@
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>Image</h1>
-                <p>Displays an image with preview and tranformation options.</p>
+                <p>Displays an image with preview and tranformation options. For multiple image, see <router-link to="galleria">Galleria</router-link>.</p>
             </div>
             <AppDemoActions />
         </div>
