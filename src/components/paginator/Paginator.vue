@@ -15,6 +15,7 @@
                 :options="rowsPerPageOptions" @rows-change="onRowChange($event)" :disabled="empty"/>
             <JumpToPageDropdown v-else-if="item === 'JumpToPageDropdown'" :page="page" :pageCount="pageCount" 
                 @page-change="changePage($event)" :disabled="empty"/>
+            <JumpToPageInput v-else-if="item === 'JumpToPageInput'" :page="page" @page-change="changePage($event)" :disabled="empty"/>
         </template>
         <div class="p-paginator-right-content" v-if="$slots.right">
             <slot name="right" :state="currentState"></slot>
@@ -31,6 +32,7 @@ import PageLinks from './PageLinks.vue';
 import PrevPageLink from './PrevPageLink.vue';
 import RowsPerPageDropdown from './RowsPerPageDropdown.vue';
 import JumpToPageDropdown from './JumpToPageDropdown.vue';
+import JumpToPageInput from './JumpToPageInput.vue';
 
 export default {
     name: 'Paginator',
@@ -202,7 +204,8 @@ export default {
         'PageLinks': PageLinks,
         'PrevPageLink': PrevPageLink,
         'RowsPerPageDropdown': RowsPerPageDropdown,
-        'JumpToPageDropdown': JumpToPageDropdown
+        'JumpToPageDropdown': JumpToPageDropdown,
+        'JumpToPageInput': JumpToPageInput
     }
 }
 </script>

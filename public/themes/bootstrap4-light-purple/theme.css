@@ -2995,6 +2995,13 @@
 .p-paginator .p-dropdown .p-dropdown-label {
   padding-right: 0;
 }
+.p-paginator .p-paginator-page-input {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+.p-paginator .p-paginator-page-input .p-inputtext {
+  max-width: 2.357rem;
+}
 .p-paginator .p-paginator-current {
   background-color: #ffffff;
   border: 1px solid #dee2e6;

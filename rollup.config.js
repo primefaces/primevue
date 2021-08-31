@@ -25,6 +25,7 @@ let globalDependencies = {
     'primevue/progressbar': 'primevue.progressbar',
     'primevue/message': 'primevue.message',
     'primevue/dropdown': 'primevue.dropdown',
+    'primevue/inputnumber': 'primevue.inputnumber',
     'primevue/menu': 'primevue.menu',
     'primevue/tieredmenu': 'primevue.tieredmenu',
     'primevue/tree': 'primevue.tree',

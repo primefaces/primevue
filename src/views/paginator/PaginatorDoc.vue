@@ -54,6 +54,7 @@ import Paginator from 'primevue/paginator';
             <li>LastPageLink</li>
             <li>RowsPerPageDropdown</li>
             <li>JumpToPageDropdown</li>
+            <li>JumpToPageInput</li>
             <li>CurrentPageReport</li>
         </ul>
 
