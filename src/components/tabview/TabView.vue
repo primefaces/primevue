@@ -101,7 +101,7 @@ export default {
         },
         updateScrollBar(index) {
             let tabHeader = this.$refs.nav.children[index];
-            tabHeader.scrollIntoView(false);
+            tabHeader.scrollIntoView({ block: 'nearest' })
         },
         updateButtonState() {
             const content = this.$refs.content;
