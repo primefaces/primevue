@@ -52,7 +52,7 @@ items: [
             window.location.href = 'https://vuejs.org/'
         }
     }
-] 
+]
 </code></pre>
 
         <h5>MenuModel API</h5>
@@ -179,6 +179,12 @@ items: [
                         <td>null</td>
                         <td>Inline style of the element.</td>
                     </tr>
+                    <tr>
+                        <td>tooltipOptions</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td>Whether to display the tooltip on items. The modifiers of <router-link to="/tooltip">Tooltip</router-link> can be used like an object in it. Valid keys are 'event' and 'position'.</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -291,7 +297,7 @@ export default {
                 <SpeedDial :model="items" direction="up" />
                 <SpeedDial :model="items" direction="down" />
                 <SpeedDial :model="items" direction="left" />
-                <SpeedDial :model="items" direction="right" /> 
+                <SpeedDial :model="items" direction="right" />
             </div>
         </div>
 
@@ -313,9 +319,9 @@ export default {
         <div class="card">
             <h5>Tooltip</h5>
             <div class="speeddial-tooltip-demo" :style="{ position: 'relative', height: '350px' }">
-                <SpeedDial :model="items" direction="up" class="speeddial-right" buttonClassName="p-button-danger" />
+                <SpeedDial :model="items" direction="up" class="speeddial-right" buttonClassName="p-button-danger" :tooltipOptions="{position: 'left'}" />
 
-                <SpeedDial :model="items" direction="up" class="speeddial-left" buttonClassName="p-button-help" />
+                <SpeedDial :model="items" direction="up" class="speeddial-left" buttonClassName="p-button-help" :tooltipOptions="{position: 'right'}" />
             </div>
         </div>
 
@@ -502,7 +508,7 @@ export default {
                 <SpeedDial :model="items" direction="up" />
                 <SpeedDial :model="items" direction="down" />
                 <SpeedDial :model="items" direction="left" />
-                <SpeedDial :model="items" direction="right" /> 
+                <SpeedDial :model="items" direction="right" />
             </div>
         </div>
 
@@ -524,9 +530,9 @@ export default {
         <div class="card">
             <h5>Tooltip</h5>
             <div class="speeddial-tooltip-demo" :style="{ position: 'relative', height: '350px' }">
-                <SpeedDial :model="items" direction="up" class="speeddial-right" buttonClassName="p-button-danger" />
+                <SpeedDial :model="items" direction="up" class="speeddial-right" buttonClassName="p-button-danger" :tooltipOptions="{position: 'left'}" />
 
-                <SpeedDial :model="items" direction="up" class="speeddial-left" buttonClassName="p-button-help" />
+                <SpeedDial :model="items" direction="up" class="speeddial-left" buttonClassName="p-button-help" :tooltipOptions="{position: 'right'}" />
             </div>
         </div>
 

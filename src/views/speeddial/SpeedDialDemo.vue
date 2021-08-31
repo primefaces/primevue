@@ -15,7 +15,7 @@
                     <SpeedDial :model="items" direction="up" />
                     <SpeedDial :model="items" direction="down" />
                     <SpeedDial :model="items" direction="left" />
-                    <SpeedDial :model="items" direction="right" /> 
+                    <SpeedDial :model="items" direction="right" />
                 </div>
             </div>
 
@@ -37,9 +37,9 @@
             <div class="card">
                 <h5>Tooltip</h5>
                 <div class="speeddial-tooltip-demo" :style="{ position: 'relative', height: '350px' }">
-                    <SpeedDial :model="items" direction="up" class="speeddial-right" buttonClassName="p-button-danger" />
+                    <SpeedDial :model="items" direction="up" class="speeddial-right" buttonClassName="p-button-danger" :tooltipOptions="{position: 'left'}" />
 
-                    <SpeedDial :model="items" direction="up" class="speeddial-left" buttonClassName="p-button-help" />
+                    <SpeedDial :model="items" direction="up" class="speeddial-left" buttonClassName="p-button-help" :tooltipOptions="{position: 'right'}" />
                 </div>
             </div>
 

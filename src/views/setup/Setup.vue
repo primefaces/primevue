@@ -98,7 +98,7 @@ import Dialog from 'primevue/dialog/sfc';
                 },
                 components: {
                     'p-inputtext': primevue.inputtext
-                } 
+                }
             };
 
             createApp(App).mount("#app");
@@ -218,7 +218,7 @@ app.use(PrimeVue, {ripple: true});
 
             <h5>Outlined vs Filled Input Styles</h5>
             <p>Input fields come in two styles, default is <i>outlined</i> with borders around the field whereas <i>filled</i> alternative adds a background color
-            to the field. Applying <i>p-input-filled</i> to an ancestor of an input enables the filled style. If you prefer to use filled inputs in the entire application, 
+            to the field. Applying <i>p-input-filled</i> to an ancestor of an input enables the filled style. If you prefer to use filled inputs in the entire application,
             use a global container such as the document body or the application element to apply the style class. Note that in case you add it to the application element, components that are teleported to the document body such as Dialog
             will not be able to display filled inputs as they are not a descendant of the application root element in the DOM tree, to resolve this case set inputStyle to 'filled' at PrimeVue configuration as well.</p>
 
@@ -269,7 +269,7 @@ app.use(PrimeVue, {
                             <th>
                                 <div class="p-d-flex p-ai-center">
                                     <img src="../../assets/images//browsers/edge.svg" alt="edge" style="width: 1.5rem;" class="p-mr-2">
-                                    IE / Edge
+                                    Edge
                                 </div>
                             </th>
                             <th>
@@ -300,7 +300,7 @@ app.use(PrimeVue, {
                     </thead>
                     <tbody>
                         <tr>
-                            <td>IE11, Edge</td>
+                            <td>Edge</td>
                             <td>Last 2 versions</td>
                             <td>Last 2 versions</td>
                             <td>Last 2 versions</td>

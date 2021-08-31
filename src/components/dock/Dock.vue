@@ -1,6 +1,6 @@
 <template>
     <div :class="containerClass" :style="style">
-        <DockSub :model="model" :template="$slots.item" :exact="exact"></DockSub>
+        <DockSub :model="model" :template="$slots.item" :exact="exact" :tooltipOptions="tooltipOptions"></DockSub>
     </div>
 </template>
 
@@ -17,6 +17,7 @@ export default {
         model: null,
         class: null,
         style: null,
+        tooltipOptions: null,
         exact: {
             type: Boolean,
             default: true
