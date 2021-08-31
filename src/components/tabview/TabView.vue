@@ -184,6 +184,7 @@ export default {
     overflow-y: hidden;
     scroll-behavior: smooth;
     scrollbar-width: none;
+    overscroll-behavior: contain auto;
 }
 
 .p-tabview-nav {
