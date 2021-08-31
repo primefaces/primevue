@@ -5,7 +5,7 @@
                 <template v-if="!template">
                     <router-link v-if="item.to && !disabled(item)" :to="item.to" custom v-slot="{navigate, href, isActive, isExactActive}">
                         <a :href="href" role="menuitem" :class="linkClass(item, {isActive, isExactActive})" :target="item.target"
-                            :data-pr-tooltip="item.label" @click="onItemClick($event, item, navigate)">
+                            v-tooltip:[tooltipOptions]="{value: item.label, disabled: !tooltipOptions}" @click="onItemClick($event, item, navigate)">
                             <template v-if="typeof item.icon === 'string'">
                                 <span :class="['p-dock-action-icon', item.icon]" v-ripple></span>
                             </template>
@@ -13,7 +13,7 @@
                         </a>
                     </router-link>
                     <a v-else :href="item.url" role="menuitem" :class="linkClass(item)" :target="item.target"
-                        :data-pr-tooltip="item.label" @click="onItemClick($event, item)" :tabindex="disabled(item) ? null : '0'">
+                        v-tooltip:[tooltipOptions]="{value: item.label, disabled: !tooltipOptions}" @click="onItemClick($event, item)" :tabindex="disabled(item) ? null : '0'">
                         <template v-if="typeof item.icon === 'string'">
                             <span :class="['p-dock-action-icon', item.icon]" v-ripple></span>
                         </template>
@@ -41,7 +41,8 @@ export default {
         exact: {
             type: Boolean,
             default: true
-        }
+        },
+        tooltipOptions: null
     },
     data() {
         return {
