@@ -16,7 +16,7 @@
         </ul>
     </div>
     <template v-if="mask">
-        <div :class="maskClass" :style="this.maskStyle"></div>
+        <div :class="maskClass" :style="maskStyle"></div>
     </template>
 </template>
 
