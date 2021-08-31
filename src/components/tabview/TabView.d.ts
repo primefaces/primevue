@@ -3,6 +3,7 @@ import { VNode } from 'vue';
 interface TabViewProps {
     activeIndex?: number;
     lazy?: boolean;
+    scrollable?: boolean;
 }
 
 declare class TabView {
