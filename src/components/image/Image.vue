@@ -89,7 +89,7 @@ export default {
                 this.rotate = 0;
                 this.scale = 1;
             }
-            
+
             this.previewClick = false;
         },
         rotateRight() {
@@ -200,6 +200,8 @@ export default {
 
 .p-image-preview {
     transition: transform .15s;
+    max-width: 100vw;
+    max-height: 100vh;
 }
 
 .p-image-preview-enter-active {
