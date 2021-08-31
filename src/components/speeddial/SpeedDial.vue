@@ -23,7 +23,7 @@
 <script>
 import Button from 'primevue/button';
 import Ripple from 'primevue/ripple';
-import DomHandler from '../utils/DomHandler';
+import {DomHandler} from 'primevue/utils';
 
 export default {
     name: 'SpeedDial',
