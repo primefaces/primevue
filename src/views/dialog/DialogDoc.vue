@@ -222,6 +222,12 @@ export default {
                         <td>true</td>
                         <td>Keeps dialog in the viewport when dragging.</td>
                     </tr>
+                    <tr>
+                        <td>appendTo</td>
+                        <td>string</td>
+                        <td>body</td>
+                        <td>A valid query selector or an HTMLElement to specify where the dialog gets attached. Special keywords are "body" for document body and "self" for the element itself.</td>
+                    </tr>
 				</tbody>
 			</table>
 		</div>
@@ -718,8 +724,8 @@ export default {
             displayPosition.value = false;
         };
 
-        return { displayBasic, displayBasic2, displayModal, displayResponsive, displayConfirmation, displayMaximizable, 
-            displayPosition, position, openBasic, openBasic2, closeBasic, closeBasic2, openResponsive, closeResponsive, 
+        return { displayBasic, displayBasic2, displayModal, displayResponsive, displayConfirmation, displayMaximizable,
+            displayPosition, position, openBasic, openBasic2, closeBasic, closeBasic2, openResponsive, closeResponsive,
             openModal, closeModal, openConfirmation, closeConfirmation, openMaximizable, closeMaximizable, openPosition, closePosition}
     }
 }
