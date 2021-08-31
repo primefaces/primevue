@@ -7,81 +7,28 @@ import Image from 'primevue/image';
 </code></pre>
 
 		<h5>Getting Started</h5>
-		<p>A model can be bound using the standard v-model directive.</p>
+		<p>Image is used as the native <i>img</i> element and supports all properties that the native element has.</p>
 <pre v-code><code>
-&lt;InputText type="text" v-model="value" /&gt;
+&lt;Image src="image1.png" alt="Image Text" /&gt;
 
 </code></pre>
 
-		<h5>Float Label</h5>
-		<p>A floating label is implemented by wrapping the input and the label inside a container having <i>.p-float-label</i> style class.</p>
+        <h5>Preview</h5>
+        <p>Preview mode displays a modal layer when the image is clicked that provides transformation options such as rotating and zooming.</p>
+
+        <h5>Indicator Templating</h5>
+        <p>An eye icon is displayed by default when the image is hovered in preview mode. Use the <i>indicator</i> template for custom content.</p>
 <pre v-code><code>
-&lt;span class="p-float-label"&gt;
-	&lt;InputText id="username" type="text" v-model="value" /&gt;
-	&lt;label for="username"&gt;Username&lt;/label&gt;
-&lt;/span&gt;
-
-</code></pre>
-
-        <h5>Icons</h5>
-        <p>An icon can be integrated within an input field by wrapping the input and the icon with an element having <i>p-input-icon-right</i>
-        and <i>p-input-icon-left</i> classes depending on the icon location.</p>
-<pre v-code><code>
-&lt;span class="p-input-icon-left"&gt;
-    &lt;i class="pi pi-search" /&gt;
-    &lt;InputText type="text" v-model="value1" placeholder="Search" /&gt;
-&lt;/span&gt;
-
-&lt;span class="p-input-icon-right"&gt;
-    &lt;InputText type="text" v-model="value2" /&gt;
-    &lt;i class="pi pi-spin pi-spinner" /&gt;
-&lt;/span&gt;
-
-&lt;span class="p-input-icon-left p-input-icon-right"&gt;
-    &lt;i class="pi pi-search" /&gt;
-    &lt;InputText type="text" v-model="value3" /&gt;
-    &lt;i class="pi pi-spin pi-spinner" /&gt;
-&lt;/span&gt;
-
-</code></pre>
-
-        <h5>Sizes</h5>
-        <p>2 more sizes are available in addition to a regular input, for a smaller input add <i>p-inputtext-sm</i> and for a larger one, use <i>p-inputtext-lg</i>.
-        Note that these classes are mainly be used to change the size of a particular field, for global scaling see the <router-link to="/theming">theming</router-link> page.</p>
-<pre v-code><code>
-&lt;InputText type="text" class="p-inputtext-sm" placeholder="Small" /&gt;
-&lt;InputText type="text" placeholder="Normal" /&gt;
-&lt;InputText type="text" class="p-inputtext-lg"  placeholder="Large" /&gt;
-
-</code></pre>
-
-        <p>Instead of repeating the scale classes for each input, sizing can also be applied to a group by adding the
-            class to a container element so that descendant inputs share the same style easier.</p>
-<pre v-code><code>
-&lt;div class="p-inputtext-sm"&gt;
-    &lt;InputText /&gt;
-    &lt;InputNumber /&gt;
-    &lt;InputMask /&gt;
-&lt;/div&gt;
-
-</code></pre>
-
-        <h5>Outlined vs Filled</h5>
-        <p>Input fields come in two styles, default is <i>outlined</i> with borders around the field whereas <i>filled</i> alternative adds a background color
-        to the field. Applying <i>p-input-filled</i> to an ancestor of an input enables the filled style. If you prefer
-        to use filled inputs in the entire application, use a global container such as document body or the application element to apply the style class.</p>
-
-<pre v-code><code>
-&lt;div class="p-input-filled"&gt;
-    &lt;InputText type="text" /&gt;
-    &lt;InputText type="text" /&gt;
-    &lt;InputText type="text" /&gt;
-&lt;/div&gt;
+&lt;Image src="image1.png" alt="Image Text"&gt;
+    &lt;template #indicator&gt;
+        Preview Content
+    &lt;/template&gt;
+&lt;/Image&gt;
 
 </code></pre>
 
 		<h5>Properties</h5>
-		<p>InputText passes any valid attribute to the underlying input element, additional attribute is the following.</p>
+		<p>Image passes any valid attribute to the underlying img element, additional attribute is the following.</p>
         <div class="doc-tablewrapper">
 			<table class="doc-table">
 				<thead>
@@ -94,17 +41,58 @@ import Image from 'primevue/image';
 				</thead>
 				<tbody>
                     <tr>
-                        <td>modelValue</td>
-                        <td>any</td>
-                        <td>null</td>
-                        <td>Value of the component.</td>
+                        <td>preview</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>Controls the preview functionality.</td>
                     </tr>
 				</tbody>
 			</table>
 		</div>
 
         <h5>Events</h5>
-        <p>Any valid event such as focus, blur and input are passed to the underlying input element.</p>
+        <p>Any valid event like click and mouseover are passed to the underlying input element. Events below are the additional ones related to the preview functionality.</p>
+        <div class="doc-tablewrapper">
+			<table class="doc-table">
+				<thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Parameters</th>
+                        <th>Description</th>
+                    </tr>
+				</thead>
+				<tbody>
+                    <tr>
+                        <td>show</td>
+                        <td>-</td>
+                        <td>Triggered when the preview overlay is shown.</td>
+                    </tr>
+                    <tr>
+                        <td>hide</td>
+                        <td>-</td>
+                        <td>Triggered when the preview overlay is hidden.</td>
+                    </tr>
+				</tbody>
+			</table>
+		</div>
+
+        <h5>Slots</h5>
+		<div class="doc-tablewrapper">
+            <table class="doc-table">
+				<thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Parameters</th>
+                    </tr>
+				</thead>
+				<tbody>
+                    <tr>
+                        <td>indicator</td>
+                        <td>-</td>
+                    </tr>
+				</tbody>
+			</table>
+        </div>
 
 		<h5>Styling</h5>
 		<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
@@ -118,20 +106,36 @@ import Image from 'primevue/image';
 				</thead>
 				<tbody>
                     <tr>
-                        <td>p-inputtext</td>
-                        <td>Input element</td>
+                        <td>p-image</td>
+                        <td>Container element</td>
                     </tr>
                     <tr>
-                        <td>p-inputtext-sm</td>
-                        <td>Smaller input element</td>
+                        <td>p-image-preview-container</td>
+                        <td>Container element with preview enabled</td>
                     </tr>
                     <tr>
-                        <td>p-inputtext-lg</td>
-                        <td>Larger input element</td>
+                        <td>p-image-preview-indicator</td>
+                        <td>Mask layer over the image when hovered</td>
                     </tr>
                     <tr>
-                        <td>p-inputtext-filled</td>
-                        <td>Filled input style.</td>
+                        <td>p-image-preview-icon</td>
+                        <td>Icon of the preview indicator</td>
+                    </tr>
+                    <tr>
+                        <td>p-image-mask</td>
+                        <td>Preview overlay container</td>
+                    </tr>
+                    <tr>
+                        <td>p-image-toolbar</td>
+                        <td>Transformation options container</td>
+                    </tr>
+                    <tr>
+                        <td>p-image-action</td>
+                        <td>An element inside the toolbar</td>
+                    </tr>
+                    <tr>
+                        <td>p-image-preview</td>
+                        <td>Image element inside the preview overlay</td>
                     </tr>
 				</tbody>
 			</table>
@@ -154,83 +158,18 @@ export default {
 <template>
     <div>
         <h5>Basic</h5>
-        <InputText type="text" v-model="value1" />
-        <span :style="{marginLeft: '.5em'}">{{value1}}</span>
+        <Image src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" alt="Image" width="250" />
 
-        <h5>Floating Label</h5>
-        <span class="p-float-label">
-            <InputText id="username" type="text" v-model="value2" />
-            <label for="username">Username</label>
-        </span>
-
-        <h5>Left Icon</h5>
-        <span class="p-input-icon-left">
-            <i class="pi pi-search" />
-            <InputText type="text" v-model="value3" placeholder="Search" />
-        </span>
-
-        <h5>Right Icon</h5>
-        <span class="p-input-icon-right">
-            <i class="pi pi-spin pi-spinner" />
-            <InputText type="text" v-model="value4" />
-        </span>
-
-        <h5>Help Text</h5>
-        <div class="p-field">
-            <label for="username1">Username</label>
-            <InputText id="username1" type="username" aria-describedby="username1-help" />
-            <small id="username1-help">Enter your username to reset your password.</small>
-        </div>
-
-        <h5>Invalid</h5>
-        <div class="p-field">
-            <label for="username2">Username</label>
-            <InputText id="username2" type="username" aria-describedby="username2-help" class="p-invalid" />
-            <small id="username2-help" class="p-error">Username is not available.</small>
-        </div>
-
-        <h5>Disabled</h5>
-        <InputText type="text" v-model="value5" disabled />
-
-        <h5>Sizes</h5>
-        <div class="sizes">
-            <InputText type="text" class="p-inputtext-sm" placeholder="Small" />
-            <InputText type="text" placeholder="Normal" />
-            <InputText type="text" class="p-inputtext-lg"  placeholder="Large" />
-        </div>
+        <h5>Preview</h5>
+        <Image src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" alt="Image" width="250" preview />
     </div>
 </template>
 
 <script>
 export default {
-    data() {
-        return {
-            value1: null,
-            value2: null,
-            value3: null,
-            value4: null,
-            value5: 'PrimeVue'
-        }
-    }
 }
 <\\/script>
-
-<style lang="scss" scoped>
-.sizes {
-    .p-inputtext {
-        display: block;
-        margin-bottom: .5rem;
-
-        &:last-child {
-            margin-bottom: 0;
-        }
-    }
-}
-
-.p-field * {
-    display: block;
-}
-</style>`
+`
                 },
                 'composition-api': {
                     tabName: 'Composition API Source',
@@ -238,85 +177,17 @@ export default {
 <template>
     <div>
         <h5>Basic</h5>
-        <InputText type="text" v-model="value1" />
-        <span :style="{marginLeft: '.5em'}">{{value1}}</span>
+        <Image src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" alt="Image" width="250" />
 
-        <h5>Floating Label</h5>
-        <span class="p-float-label">
-            <InputText id="username" type="text" v-model="value2" />
-            <label for="username">Username</label>
-        </span>
-
-        <h5>Left Icon</h5>
-        <span class="p-input-icon-left">
-            <i class="pi pi-search" />
-            <InputText type="text" v-model="value3" placeholder="Search" />
-        </span>
-
-        <h5>Right Icon</h5>
-        <span class="p-input-icon-right">
-            <i class="pi pi-spin pi-spinner" />
-            <InputText type="text" v-model="value4" />
-        </span>
-
-        <h5>Help Text</h5>
-        <div class="p-field">
-            <label for="username1">Username</label>
-            <InputText id="username1" type="username" aria-describedby="username1-help" />
-            <small id="username1-help">Enter your username to reset your password.</small>
-        </div>
-
-        <h5>Invalid</h5>
-        <div class="p-field">
-            <label for="username2">Username</label>
-            <InputText id="username2" type="username" aria-describedby="username2-help" class="p-invalid" />
-            <small id="username2-help" class="p-error">Username is not available.</small>
-        </div>
-
-        <h5>Disabled</h5>
-        <InputText type="text" v-model="value5" disabled />
-
-        <h5>Sizes</h5>
-        <div class="sizes">
-            <InputText type="text" class="p-inputtext-sm" placeholder="Small" />
-            <InputText type="text" placeholder="Normal" />
-            <InputText type="text" class="p-inputtext-lg"  placeholder="Large" />
-        </div>
+        <h5>Preview</h5>
+        <Image src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" alt="Image" width="250" preview />
     </div>
 </template>
 
 <script>
-import { ref } from 'vue';
-
 export default {
-    setup() {
-        const value1 = ref();
-        const value2 = ref();
-        const value3 = ref();
-        const value4 = ref();
-        const value5 = ref('PrimeVue');
-
-        return { value1, value2, value3, value4, value5 }
-    }
 }
-<\\/script>
-
-<style lang="scss" scoped>
-.sizes {
-    .p-inputtext {
-        display: block;
-        margin-bottom: .5rem;
-
-        &:last-child {
-            margin-bottom: 0;
-        }
-    }
-}
-
-.p-field * {
-    display: block;
-}
-</style>`
+<\\/script>`
                 }
             }
         }

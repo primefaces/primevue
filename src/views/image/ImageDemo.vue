@@ -14,7 +14,7 @@
                 <Image src="demo/images/galleria/galleria1.jpg" alt="Image" width="250" />
 
                 <h5>Preview</h5>
-                <Image src="demo/images/galleria/galleria11.jpg" alt="Image" width="250" preview/>
+                <Image src="demo/images/galleria/galleria11.jpg" alt="Image" width="250" preview />
             </div>
         </div>
 
