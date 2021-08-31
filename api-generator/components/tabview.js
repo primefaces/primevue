@@ -15,7 +15,7 @@ const TabViewProps = [
         name: "scrollable",
         type: "boolean",
         default: "false",
-        description: "When specified, enables horizontal scrolling."
+        description: "When enabled displays buttons at each side of the tab headers to scroll the tab list."
     }
 ];
 

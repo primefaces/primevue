@@ -3631,7 +3631,7 @@
 .p-tabview .p-tabview-nav li .p-tabview-nav-link:not(.p-disabled):focus {
   outline: 0 none;
   outline-offset: 0;
-  box-shadow: 0 0 0 1px #f0e6f5;
+  box-shadow: inset 0 0 0 1px #f0e6f5;
 }
 .p-tabview .p-tabview-nav li:not(.p-highlight):not(.p-disabled):hover .p-tabview-nav-link {
   background: #2a323d;
@@ -3642,6 +3642,18 @@
   background: #2a323d;
   border-color: #3f4b5b #3f4b5b #2a323d #3f4b5b;
   color: rgba(255, 255, 255, 0.6);
+}
+.p-tabview .p-tabview-nav-btn.p-link {
+  background: #2a323d;
+  color: rgba(255, 255, 255, 0.6);
+  width: 2.357rem;
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  border-radius: 0;
+}
+.p-tabview .p-tabview-nav-btn.p-link:focus {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: inset 0 0 0 1px #f0e6f5;
 }
 .p-tabview .p-tabview-panels {
   background: #2a323d;
@@ -4694,7 +4706,7 @@
 .p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link:not(.p-disabled):focus {
   outline: 0 none;
   outline-offset: 0;
-  box-shadow: 0 0 0 1px #f0e6f5;
+  box-shadow: inset 0 0 0 1px #f0e6f5;
 }
 .p-tabmenu .p-tabmenu-nav .p-tabmenuitem:not(.p-highlight):not(.p-disabled):hover .p-menuitem-link {
   background: #2a323d;

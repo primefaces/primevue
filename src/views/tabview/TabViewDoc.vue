@@ -173,6 +173,23 @@ export default {
 
 </code></pre>
 
+        <h5>Scrollable</h5>
+		<p>Enable <i>scrollable</i> property to display buttons at each side of the tab headers that scrolls the tab list.</p>
+<pre v-code><code>
+&lt;TabView scrollable&gt;
+	&lt;TabPanel header="Header I"&gt;
+		Content I
+	&lt;/TabPanel&gt;
+	&lt;TabPanel header="Header II"&gt;
+		Content II
+	&lt;/TabPanel&gt;
+	&lt;TabPanel header="Header III"&gt;
+		Content III
+	&lt;/TabPanel&gt;
+&lt;/TabView&gt;
+
+</code></pre>
+
 		<h5>Properties of TabPanel</h5>
 		<div class="doc-tablewrapper">
 			<table class="doc-table">
@@ -230,7 +247,7 @@ export default {
                         <td>scrollable</td>
                         <td>boolean</td>
                         <td>false</td>
-                        <td>When specified, enables horizontal scrolling.</td>
+                        <td>When enabled displays buttons at each side of the tab headers to scroll the tab list.</td>
                     </tr>
 				</tbody>
 			</table>

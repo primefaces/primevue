@@ -1,7 +1,7 @@
 <template>
     <div :class="contentClasses">
         <div class="p-tabview-nav-container">
-            <button v-if="scrollable" :class="prevButtonClasses" :disabled="backwardIsDisabled" @click="navBackward" type="button" v-ripple>
+            <button v-if="scrollable && !backwardIsDisabled" :class="prevButtonClasses" @click="navBackward" type="button" v-ripple>
 				<span class="pi pi-chevron-left"></span>
 			</button>
             <div ref="content" class="p-tabview-nav-content" @scroll="onScroll">
@@ -15,7 +15,7 @@
                     <li ref="inkbar" class="p-tabview-ink-bar"></li>
                 </ul>
             </div>
-            <button v-if="scrollable" :class="nextButtonClasses" :disabled="forwardIsDisabled" @click="navForward" type="button" v-ripple>
+            <button v-if="scrollable && !forwardIsDisabled" :class="nextButtonClasses" @click="navForward" type="button" v-ripple>
 				<span class="pi pi-chevron-right"></span>
 			</button>
         </div>
@@ -145,10 +145,10 @@ export default {
 			return ['p-tabview p-component', {'p-tabview-scrollable': this.scrollable}];
 		},
         prevButtonClasses() {
-            return ['p-tabview-nav-prev p-tabview-nav-btn p-link', {'p-disabled': this.backwardIsDisabled}]
+            return ['p-tabview-nav-prev p-tabview-nav-btn p-link']
         },
         nextButtonClasses() {
-            return ['p-tabview-nav-next p-tabview-nav-btn p-link', {'p-disabled': this.forwardIsDisabled}]
+            return ['p-tabview-nav-next p-tabview-nav-btn p-link']
         },
         tabs() {
             const tabs = []
@@ -177,6 +177,10 @@ export default {
 <style>
 .p-tabview-nav-container {
     position: relative;
+}
+
+.p-tabview-scrollable .p-tabview-nav-container {
+    overflow: hidden;
 }
 
 .p-tabview-nav-content {
@@ -224,6 +228,9 @@ export default {
     top: 0;
     z-index: 2;
     height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .p-tabview-nav-prev {
