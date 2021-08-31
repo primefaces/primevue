@@ -1,5 +1,5 @@
 <template>
-    <Teleport to="body">
+    <Teleport :to="appendTarget" :disabled="appendDisabled">
         <div :ref="maskRef" :class="maskClass" v-if="containerVisible" @click="onMaskClick">
             <transition name="p-dialog" @before-enter="onBeforeEnter" @enter="onEnter" @before-leave="onBeforeLeave" @leave="onLeave" @after-leave="onAfterLeave" appear>
                 <div :ref="containerRef" :class="dialogClass" v-if="visible" v-bind="$attrs" role="dialog" :aria-labelledby="ariaLabelledById" :aria-modal="modal">
@@ -93,6 +93,10 @@ export default {
         minY: {
             type: Number,
             default: 0
+        },
+        appendTo: {
+            type: String,
+            default: 'body'
         }
     },
     data() {
@@ -155,7 +159,7 @@ export default {
             DomHandler.addClass(this.mask, 'p-dialog-mask-leave');
         },
         onLeave() {
-            
+
             this.$emit('hide');
         },
         onAfterLeave(el) {
@@ -399,6 +403,12 @@ export default {
         },
         contentStyleClass() {
             return ['p-dialog-content', this.contentClass];
+        },
+        appendDisabled() {
+            return this.appendTo === 'self';
+        },
+        appendTarget() {
+            return this.appendDisabled ? null : this.appendTo;
         }
     },
     directives: {
