@@ -25,7 +25,7 @@
                         <i class="pi pi-times"></i>
                     </button>
                 </div>
-                <transition name="p-image-preview" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave">
+                <transition name="p-image-preview" @before-enter="onBeforeEnter" @enter="onEnter" @leave="onLeave" @before-leave="onBeforeLeave" @after-leave="onAfterLeave">
                     <div v-if="previewVisible">
                         <img :src="$attrs.src" class="p-image-preview" :style="imagePreviewStyle" @click="onPreviewImageClick"/>
                     </div>
@@ -108,11 +108,11 @@ export default {
             this.scale = this.scale - 0.1;
             this.previewClick = true;
         },
-        onBeforeEnter(el) {
-            ZIndexUtils.set('modal', el, this.baseZIndex + this.$primevue.config.zIndex.modal);
+        onBeforeEnter() {
+            ZIndexUtils.set('modal', this.mask, this.$primevue.config.zIndex.modal);
+            DomHandler.addClass(this.mask, 'p-component-overlay');
         },
         onEnter() {
-            ZIndexUtils.set('modal', this.mask, this.$primevue.config.zIndex.modal);
             this.$emit('show');
         },
         onBeforeLeave() {
@@ -133,7 +133,7 @@ export default {
             }];
         },
         maskClass() {
-            return ['p-image-mask p-component-overlay'];
+            return ['p-image-mask'];
         },
         rotateClass() {
             return 'p-image-preview-rotate-' + this.rotate;
@@ -153,9 +153,11 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: transparent;
+    transition-property: background-color;
 }
 
-.p-image-mask.p-image-mask-leave {
+.p-image-mask.p-component-overlay.p-image-mask-leave {
     background-color: transparent;
 }
 

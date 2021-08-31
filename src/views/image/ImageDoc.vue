@@ -46,6 +46,18 @@ import Image from 'primevue/image';
                         <td>false</td>
                         <td>Controls the preview functionality.</td>
                     </tr>
+                    <tr>
+                        <td>imageStyle</td>
+                        <td>any</td>
+                        <td>null</td>
+                        <td>Inline style of the image element.</td>
+                    </tr>
+                    <tr>
+                        <td>imageClass</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Style class of the image element.</td>
+                    </tr>
 				</tbody>
 			</table>
 		</div>
