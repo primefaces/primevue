@@ -80,6 +80,7 @@
 .p-component-overlay {
   background-color: rgba(0, 0, 0, 0.32);
   transition-duration: 0.2s;
+  --maskbg: rgba(0, 0, 0, 0.32);
 }
 
 .p-disabled, .p-component:disabled {
@@ -107,6 +108,31 @@
   outline: 0 none;
   outline-offset: 0;
   box-shadow: none;
+}
+
+.p-component-overlay-enter {
+  animation: p-component-overlay-enter-animation 150ms forwards;
+}
+
+.p-component-overlay-leave {
+  animation: p-component-overlay-leave-animation 150ms forwards;
+}
+
+@keyframes p-component-overlay-enter-animation {
+  from {
+    background-color: transparent;
+  }
+  to {
+    background-color: var(--maskbg);
+  }
+}
+@keyframes p-component-overlay-leave-animation {
+  from {
+    background-color: var(--maskbg);
+  }
+  to {
+    background-color: transparent;
+  }
 }
 
 :root {
@@ -477,10 +503,6 @@
   outline: 0 none;
   outline-offset: 0;
   box-shadow: none;
-}
-
-.p-datepicker-mask.p-component-overlay {
-  background: rgba(0, 0, 0, 0.32);
 }
 
 @media screen and (max-width: 769px) {
@@ -3761,10 +3783,6 @@
   margin-left: 1rem;
 }
 
-.p-dialog-mask.p-component-overlay {
-  background-color: rgba(0, 0, 0, 0.32);
-}
-
 .p-overlaypanel {
   background: #ffffff;
   color: rgba(0, 0, 0, 0.87);
@@ -3843,10 +3861,6 @@
 }
 .p-sidebar .p-sidebar-content {
   padding: 1rem;
-}
-
-.p-sidebar-mask.p-component-overlay {
-  background: rgba(0, 0, 0, 0.32);
 }
 
 .p-tooltip .p-tooltip-text {
@@ -5085,12 +5099,46 @@
   box-shadow: none;
 }
 
-.p-galleria-mask.p-component-overlay {
-  background-color: rgba(0, 0, 0, 0.9);
+.p-galleria-mask {
+  --maskbg: rgba(0, 0, 0, 0.9);
 }
 
-.p-image-mask.p-component-overlay {
-  background: rgba(0, 0, 0, 0.32);
+.p-image-mask {
+  --maskbg: rgba(0, 0, 0, 0.9);
+}
+
+.p-image-preview-indicator {
+  background-color: transparent;
+  color: #f8f9fa;
+  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.p-image-preview-container:hover > .p-image-preview-indicator {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.p-image-toolbar {
+  padding: 1rem;
+}
+
+.p-image-action.p-link {
+  color: #f8f9fa;
+  background-color: transparent;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+  margin-right: 0.5rem;
+}
+.p-image-action.p-link:last-child {
+  margin-right: 0;
+}
+.p-image-action.p-link:hover {
+  color: #f8f9fa;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.p-image-action.p-link i {
+  font-size: 1.5rem;
 }
 
 .p-avatar {
@@ -5158,10 +5206,6 @@
   min-width: 3rem;
   height: 3rem;
   line-height: 3rem;
-}
-
-.p-blockui.p-component-overlay {
-  background: rgba(0, 0, 0, 0.32);
 }
 
 .p-chip {

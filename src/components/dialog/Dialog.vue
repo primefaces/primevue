@@ -156,7 +156,7 @@ export default {
             this.bindGlobalListeners();
         },
         onBeforeLeave() {
-            DomHandler.addClass(this.mask, 'p-dialog-mask-leave');
+            DomHandler.addClass(this.mask, 'p-component-overlay-leave');
         },
         onLeave() {
 
@@ -376,7 +376,7 @@ export default {
     },
     computed: {
         maskClass() {
-            return ['p-dialog-mask', {'p-component-overlay': this.modal}, this.getPositionClass()];
+            return ['p-dialog-mask', {'p-component-overlay p-component-overlay-enter': this.modal}, this.getPositionClass()];
         },
         dialogClass() {
             return ['p-dialog p-component', {
@@ -427,8 +427,6 @@ export default {
     justify-content: center;
     align-items: center;
     pointer-events: none;
-    background-color: transparent;
-    transition-property: background-color;
 }
 
 .p-dialog-mask.p-component-overlay {
@@ -488,10 +486,6 @@ export default {
 .p-dialog-leave-to {
     opacity: 0;
     transform: scale(0.7);
-}
-
-.p-dialog-mask.p-dialog-mask-leave {
-    background-color: transparent;
 }
 
 /* Top, Bottom, Left, Right, Top* and Bottom* */
