@@ -28,6 +28,12 @@ const DockProps = [
         type: "boolean",
         default: "true",
         description: "Whether to apply 'router-link-active-exact' class if route exactly matches the item path."
+    },
+    {
+        name: "tooltipOptions",
+        type: "object",
+        default: "null",
+        description: "Whether to display the tooltip on items. The modifiers of tooltip can be used like an object in it. Valid keys are 'event' and 'position'."
     }
 ];
 
