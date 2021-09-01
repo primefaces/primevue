@@ -1,7 +1,7 @@
 <template>
     <div :class="contentClasses">
         <div class="p-tabview-nav-container">
-            <button v-if="scrollable && !backwardIsDisabled" :class="prevButtonClasses" @click="navBackward" type="button" v-ripple>
+            <button v-if="scrollable && !backwardIsDisabled" ref="prevBtn" :class="prevButtonClasses" @click="navBackward" type="button" v-ripple>
 				<span class="pi pi-chevron-left"></span>
 			</button>
             <div ref="content" class="p-tabview-nav-content" @scroll="onScroll">
@@ -15,7 +15,7 @@
                     <li ref="inkbar" class="p-tabview-ink-bar"></li>
                 </ul>
             </div>
-            <button v-if="scrollable && !forwardIsDisabled" :class="nextButtonClasses" @click="navForward" type="button" v-ripple>
+            <button v-if="scrollable && !forwardIsDisabled" ref="nextBtn" :class="nextButtonClasses" @click="navForward" type="button" v-ripple>
 				<span class="pi pi-chevron-right"></span>
 			</button>
         </div>
@@ -125,15 +125,20 @@ export default {
 
             event.preventDefault();
         },
+        getVisibleButtonWidths() {
+            const { prevBtn, nextBtn } = this.$refs;
+
+            return [prevBtn, nextBtn].reduce((acc, el) => el ? acc + DomHandler.getWidth(el) : acc, 0);
+        },
         navBackward() {
             const content = this.$refs.content;
-            const width = DomHandler.getWidth(content);
+            const width = DomHandler.getWidth(content) - this.getVisibleButtonWidths();
             const pos = content.scrollLeft - width;
             content.scrollLeft = pos <= 0 ? 0 : pos;
         },
         navForward() {
             const content = this.$refs.content;
-            const width = DomHandler.getWidth(content);
+            const width = DomHandler.getWidth(content) - this.getVisibleButtonWidths();
             const pos = content.scrollLeft + width;
             const lastPos = content.scrollWidth - width;
 
