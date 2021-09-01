@@ -132,13 +132,13 @@ items: [
                         <td>Whether the actions close when clicked outside.</td>
                     </tr>
                     <tr>
-                        <td>buttonClassName</td>
+                        <td>buttonClass</td>
                         <td>string</td>
                         <td>null</td>
                         <td>Style class of the button element.</td>
                     </tr>
                     <tr>
-                        <td>maskClassName</td>
+                        <td>maskClass</td>
                         <td>string</td>
                         <td>null</td>
                         <td>Style class of the mask element.</td>
