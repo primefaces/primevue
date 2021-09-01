@@ -242,9 +242,7 @@
                     <h4>PrimeVue PRO Support</h4>
                     <p>No time to wait for a response at forum or issue tracker? Then PrimeVue PRO Support is definitely for you.</p>
                     <p>PrimeVUE PRO is an exceptional support service where you'll contact the PrimeTek via a private channel and receive assistance just in a couple of hours. Optionally PrimeVue PRO offers the ability to request changes and new features for the component library.</p>
-                    <a class="action-button" href="mailto:contact@primetek.com.tr">
-                        Get a Quote
-                    </a>
+                    <router-link to="/support" class="action-button">LEARN MORE</router-link>
                 </div>
                 <div class="p-col-12 p-md-6">
                     <img alt="PRO" src="../assets/images/home/asset-pro.png" />
