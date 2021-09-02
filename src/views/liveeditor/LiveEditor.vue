@@ -95,9 +95,9 @@ export default {
                                 ...extDependencies,
                                 'vue': dependencies['vue'],
                                 'axios': dependencies['axios'],
-                                'primevue': '^3.6.0',
+                                'primevue': '^3.7.0',
                                 'primeflex': dependencies['primeflex'],
-                                'primeicons': 'latest',
+                                'primeicons': dependencies['primeicons'],
                                 '@babel/cli': dependencies['@babel/cli'],
                                 'core-js': dependencies['core-js'],
                                 'vue-router': dependencies['vue-router']
