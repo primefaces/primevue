@@ -1,5 +1,5 @@
 <template>
-	<AppDoc name="InputTextDemo" :sources="sources" github="inputtext/InputTextDemo.vue">
+	<AppDoc name="InputTextDemo" :sources="sources" github="image/ImageDemo.vue">
         <h5>Import</h5>
 <pre v-code.script><code>
 import Image from 'primevue/image';
