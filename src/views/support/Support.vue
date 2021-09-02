@@ -145,7 +145,7 @@
         </div>
 
         <div class="content-section section-newfeatures">
-            <h5>New Features</h5> 
+            <h5>New Enhancements</h5> 
             <div class="p-d-flex p-mb-4">
                 <p>New feature and enhancement requests are not available in core services and provided via an hour based model instead. When you have a feature request we provide an estimate, if you confirm we deliver your request within an estimated timeframe and deduct the amount of work from your hours. These requests can be;</p>
             </div>
