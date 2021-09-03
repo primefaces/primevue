@@ -277,13 +277,13 @@ myUploader(event) {
 						<td>select</td>
 						<td>event.originalEvent: Original browser event. <br />
 							event.files: List of selected files.</td>
-						<td>Callback to invoke when file upload is complete.</td>
+						<td>Callback to invoke when files are selected.</td>
 					</tr>
 					<tr>
 						<td>progress</td>
 						<td>event.originalEvent: Original browser event. <br />
 							event.progress: Calculated progress value.</td>
-						<td>Callback to invoke when files are selected.</td>
+						<td>Callback to invoke when files are being uploaded.</td>
 					</tr>
 					<tr>
 						<td>uploader</td>
