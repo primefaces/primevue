@@ -436,7 +436,6 @@ export default {
         },
         onOverlayEnter(el) {
             ZIndexUtils.set('overlay', el, this.$primevue.config.zIndex.overlay);
-            this.scrollValueInView();
             this.alignOverlay();
             this.bindOutsideClickListener();
             this.bindScrollListener();
