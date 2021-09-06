@@ -1,5 +1,20 @@
 # Changelog
 
+## [3.7.1](https://github.com/primefaces/primevue/tree/3.7.1) (2021-09-06)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.7.0...3.7.1)
+
+**Implemented New Features and Enhancements:**
+
+- Add allowEmpty property to InputNumber [\#1502](https://github.com/primefaces/primevue/issues/1502)
+- Tailwind Theme [\#1500](https://github.com/primefaces/primevue/issues/1500)
+
+**Fixed bugs:**
+
+- Dropdown scrolls top after reopened [\#1501](https://github.com/primefaces/primevue/issues/1501)
+- When inputnumber has fractionDigits and suffix, a number cannot be entered into it. [\#1498](https://github.com/primefaces/primevue/issues/1498)
+- filterMatchMode option is ignored in Dropdown [\#1496](https://github.com/primefaces/primevue/issues/1496)
+
 ## [3.7.0](https://github.com/primefaces/primevue/tree/3.7.0) (2021-09-01)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.6.4...3.7.0)
