@@ -181,6 +181,7 @@ export default {
                 'viva-dark': 'viva-dark.svg',
                 'mira': 'mira.jpg',
                 'nano': 'nano.jpg',
+                'tailwind-light': 'tailwind-light.png',
             }
         }
     },
