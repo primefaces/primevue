@@ -133,6 +133,7 @@ export default {
             };
 
             OverlayEventBus.on('overlay-click', this.overlayEventListener);
+            this.$emit('show');
         },
         onLeave() {
             this.unbindOutsideClickListener();
@@ -140,6 +141,7 @@ export default {
             this.unbindResizeListener();
             OverlayEventBus.off('overlay-click', this.overlayEventListener);
             this.overlayEventListener = null;
+            this.$emit('hide');
         },
         onAfterLeave(el) {
             if (this.autoZIndex) {

@@ -652,7 +652,7 @@ export default {
                     return filteredGroups
                 }
                 else {
-                    return FilterService.filter(this.options, this.searchFields, this.filterValue, 'contains', this.filterLocale);
+                    return FilterService.filter(this.options, this.searchFields, this.filterValue, this.filterMatchMode, this.filterLocale);
                 }
             }
             else {
