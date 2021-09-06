@@ -20,6 +20,7 @@ interface InputNumberProps {
     min?: number;
     max?: number;
     step?: number;
+    allowEmpty?: boolean;
     inputStyle?: any;
     inputClass?: string;
     style?: any;

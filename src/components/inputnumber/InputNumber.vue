@@ -104,6 +104,10 @@ export default {
             type: Number,
             default: 1
         },
+        allowEmpty: {
+            type: Boolean,
+            default: true
+        },
         style: null,
         class: null,
         inputStyle: null,
@@ -740,6 +744,7 @@ export default {
 
             if (valueStr != null) {
                 newValue = this.parseValue(valueStr);
+                newValue = !newValue && !this.allowEmpty ? 0 : newValue;
                 this.updateInput(newValue, insertedValueStr, operation, valueStr);
 
                 this.handleOnInput(event, currentValue, newValue);
@@ -931,7 +936,8 @@ export default {
             }
         },
         formattedValue() {
-            return this.formatValue(this.modelValue);
+            const val = !this.modelValue && !this.allowEmpty ? 0 : this.modelValue;
+            return this.formatValue(val);
         }
     },
     components: {
