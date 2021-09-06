@@ -135,6 +135,22 @@ toggle(event) {
 			</table>
 		</div>
 
+        <h5>Events</h5>
+		<div class="doc-tablewrapper">
+			<table class="doc-table">
+                <tr>
+                    <td>show</td>
+                    <td>-</td>
+                    <td>Callback to invoke when the overlay is shown.</td>
+                </tr>
+                <tr>
+                    <td>hide</td>
+                    <td>-</td>
+                    <td>Callback to invoke when the overlay is hidden.</td>
+                </tr>
+            </table>
+        </div>
+
 		<h5>Styling</h5>
 		<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
 		<div class="doc-tablewrapper">
