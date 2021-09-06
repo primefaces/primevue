@@ -42,6 +42,9 @@
                         <li><a @click="changeTheme($event, 'mdc-dark-indigo', true)"><img src="demo/images/themes/md-dark-indigo.svg" alt="Indigo Dark" /><span>Indigo Dark</span></a></li>
                         <li><a @click="changeTheme($event, 'mdc-dark-deeppurple', true)"><img src="demo/images/themes/md-dark-deeppurple.svg" alt="Deep Purple Dark" /><span>Deep Purple Dark</span></a></li>
 
+                        <li class="topbar-submenu-header">TAILWIND</li>
+                        <li><a @click="changeTheme($event, 'tailwind-light')"><img src="demo/images/themes/tailwind-light.png" alt="Tailwind Light" /><span>Tailwind Light</span></a></li>
+
                         <li class="topbar-submenu-header">FLUENT UI</li>
                         <li><a @click="changeTheme($event, 'fluent-light')"><img src="demo/images/themes/fluent-light.png" alt="Fluent Light" /><span>Fluent Light</span></a></li>
 

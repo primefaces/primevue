@@ -3483,6 +3483,9 @@
   outline-offset: 0;
   box-shadow: 0 0 0 0.1rem white;
 }
+.p-fieldset.p-fieldset-toggleable .p-fieldset-legend a:hover {
+  color: #F48FB1;
+}
 .p-fieldset.p-fieldset-toggleable .p-fieldset-legend:hover {
   background: #191919;
   border-color: #191919;
