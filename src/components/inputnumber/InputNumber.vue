@@ -682,9 +682,14 @@ export default {
             let valueLength = inputValue.length;
             let index = null;
 
+            // remove prefix
+            let prefixLength = (this.prefixChar || '').length;
+            inputValue = inputValue.replace(this._prefix, '');
+            selectionStart = selectionStart - prefixLength;
+
             let char = inputValue.charAt(selectionStart);
             if (this.isNumeralChar(char)) {
-                return;
+                return selectionStart + prefixLength;
             }
 
             //left
@@ -692,7 +697,7 @@ export default {
             while (i >= 0) {
                 char = inputValue.charAt(i);
                 if (this.isNumeralChar(char)) {
-                    index = i;
+                    index = i + prefixLength;
                     break;
                 }
                 else {
@@ -704,11 +709,11 @@ export default {
                 this.$refs.input.$el.setSelectionRange(index + 1, index + 1);
             }
             else {
-                i = selectionStart + 1;
+                i = selectionStart;
                 while (i < valueLength) {
                     char = inputValue.charAt(i);
                     if (this.isNumeralChar(char)) {
-                        index = i;
+                        index = i + prefixLength;
                         break;
                     }
                     else {
@@ -720,6 +725,8 @@ export default {
                     this.$refs.input.$el.setSelectionRange(index, index);
                 }
             }
+
+            return index || 0;
         },
         onInputClick() {
             this.initCursor();
@@ -796,9 +803,8 @@ export default {
             if (currentLength === 0) {
                 this.$refs.input.$el.value = newValue;
                 this.$refs.input.$el.setSelectionRange(0, 0);
-                this.initCursor();
-                const prefixLength = (this.prefixChar || '').length;
-                const selectionEnd = prefixLength + insertedValueStr.length;
+                const index = this.initCursor();
+                const selectionEnd = index + insertedValueStr.length;
                 this.$refs.input.$el.setSelectionRange(selectionEnd, selectionEnd);
             }
             else {
