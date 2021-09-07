@@ -547,7 +547,7 @@ export default {
             return this.min === null || this.min < 0;
         },
         isMinusSign(char) {
-            if (this._minusSign.test(char)) {
+            if (this._minusSign.test(char) || char === '-') {
                 this._minusSign.lastIndex = 0;
                 return true;
             }
