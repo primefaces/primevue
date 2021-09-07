@@ -477,7 +477,7 @@ export default {
                     event.preventDefault();
 
                     if (selectionStart === selectionEnd) {
-                        let deleteChar = inputValue.charAt(selectionStart);
+                        const deleteChar = inputValue.charAt(selectionStart);
                         const { decimalCharIndex, decimalCharIndexWithoutPrefix } = this.getDecimalCharIndexes(inputValue);
 
                         if (this.isNumeralChar(deleteChar)) {
@@ -938,6 +938,9 @@ export default {
         formattedValue() {
             const val = !this.modelValue && !this.allowEmpty ? 0 : this.modelValue;
             return this.formatValue(val);
+        },
+        getFormatter() {
+            return this.numberFormat;
         }
     },
     components: {
