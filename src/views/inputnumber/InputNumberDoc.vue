@@ -294,6 +294,26 @@ Vertical
             </table>
         </div>
 
+        <h5>Methods</h5>
+		<div class="doc-tablewrapper">
+			<table class="doc-table">
+				<thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Parameters</th>
+                        <th>Description</th>
+                    </tr>
+				</thead>
+				<tbody>
+                    <tr>
+                        <td>getFormatter</td>
+                        <td>-</td>
+                        <td>Returns Intl.NumberFormat object.</td>
+                    </tr>
+				</tbody>
+			</table>
+		</div>
+
         <h5>Events</h5>
         <p>Any valid event such as focus and blur are passed to the underlying input element. Following are the additional events to configure the component.</p>
         <div class="doc-tablewrapper">

@@ -31,6 +31,7 @@ declare class InputNumber {
     $props: InputNumberProps;
     $emit(eventName: 'update:modelValue', value: number): this;
     $emit(eventName: 'input', e: {originalEvent: Event, value: any}): this;
+    getFormatter(): any;
 }
 
 export default InputNumber;
