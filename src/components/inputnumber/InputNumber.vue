@@ -851,6 +851,9 @@ export default {
                     this._group.lastIndex = 0;
                     this.$refs.input.$el.setSelectionRange(selectionEnd, selectionEnd);
                 }
+                else if (inputValue === '-' && operation === 'insert') {
+                    this.$refs.input.$el.setSelectionRange(selectionEnd + 1, selectionEnd + 1);
+                }
                 else {
                     selectionEnd = selectionEnd + (newLength - currentLength);
                     this.$refs.input.$el.setSelectionRange(selectionEnd, selectionEnd);
@@ -864,7 +867,7 @@ export default {
                 let decimalCharIndex = val2.search(this._decimal);
                 this._decimal.lastIndex = 0;
 
-                return val1.split(this._decimal)[0] + (decimalCharIndex !== -1 ? val2.slice(decimalCharIndex) : '');
+                return decimalCharIndex !== -1 ? (val1.split(this._decimal)[0] + val2.slice(decimalCharIndex)) : val1;
             }
 
             return val1;
