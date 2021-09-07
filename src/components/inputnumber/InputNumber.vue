@@ -852,7 +852,10 @@ export default {
                     this.$refs.input.$el.setSelectionRange(selectionEnd, selectionEnd);
                 }
                 else if (inputValue === '-' && operation === 'insert') {
-                    this.$refs.input.$el.setSelectionRange(selectionEnd + 1, selectionEnd + 1);
+                    this.$refs.input.$el.setSelectionRange(0, 0);
+                    const index = this.initCursor();
+                    const selectionEnd = index + insertedValueStr.length + 1;
+                    this.$refs.input.$el.setSelectionRange(selectionEnd, selectionEnd);
                 }
                 else {
                     selectionEnd = selectionEnd + (newLength - currentLength);
