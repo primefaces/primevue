@@ -13,7 +13,7 @@
                 @start-slideshow="startSlideShow" @stop-slideshow="stopSlideShow" />
 
             <GalleriaThumbnails v-if="$attrs.showThumbnails" :containerId="id" :value="$attrs.value" v-model:activeIndex="activeIndex" :templates="$attrs.templates"
-                :numVisible="$attrs.numVisible" :responsiveOptions="$attrs.responsiveOptions" :circular="$attrs.circular"
+                :numVisible="numVisible" :responsiveOptions="$attrs.responsiveOptions" :circular="$attrs.circular"
                 :isVertical="isVertical()" :contentHeight="$attrs.verticalThumbnailViewPortHeight" :showThumbnailNavigators="$attrs.showThumbnailNavigators"
                 v-model:slideShowActive="slideShowActive" @stop-slideshow="stopSlideShow" />
         </div>
@@ -39,12 +39,21 @@ export default {
         return {
             id: this.$attrs.id || UniqueComponentId(),
             activeIndex: this.$attrs.activeIndex,
+            numVisible: this.$attrs.numVisible,
             slideShowActive: false
         }
     },
     watch: {
+        '$attrs.value': function(newVal) {
+            if (newVal && newVal.length < this.numVisible) {
+                this.numVisible = newVal.length;
+            }
+        },
         '$attrs.activeIndex': function(newVal) {
             this.activeIndex = newVal;
+        },
+        '$attrs.numVisible': function(newVal) {
+            this.numVisible = newVal;
         }
     },
     updated() {
