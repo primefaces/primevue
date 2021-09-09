@@ -51,6 +51,7 @@ export default {
             default: null
         }
     },
+    emits: ['show', 'hide'],
     data() {
         return {
             visible: false
