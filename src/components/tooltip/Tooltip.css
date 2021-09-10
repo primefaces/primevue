@@ -17,6 +17,7 @@
 
 .p-tooltip .p-tooltip-text {
    white-space: pre-line;
+   word-break: break-word;
 }
 
 .p-tooltip-arrow {
