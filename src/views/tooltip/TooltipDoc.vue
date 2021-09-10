@@ -79,6 +79,12 @@ directives: {
                         <td>false</td>
                         <td>When present, it specifies that the component should be disabled.</td>
                     </tr>
+                    <tr>
+                        <td>class</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>When present, it adds a custom class of p-tooltip-*class* to the tooltip.</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -105,6 +111,10 @@ directives: {
                     <tr>
                         <td>p-tooltip-text</td>
                         <td>Text of the tooltip</td>
+                    </tr>
+                    <tr>
+                        <td>p-tooltip-*custom*</td>
+                        <td>Input element additional class created by the class property</td>
                     </tr>
 				</tbody>
 			</table>
