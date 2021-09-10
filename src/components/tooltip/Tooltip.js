@@ -262,7 +262,9 @@ const Tooltip = {
     beforeMount(el, options) {
         let target = getTarget(el);
         target.$_ptooltipModifiers = getModifiers(options);
-        if (typeof options.value === 'string') {
+        
+        if (!options.value) return;
+        else if (typeof options.value === 'string') {
             target.$_ptooltipValue = options.value;
             target.$_ptooltipDisabled = false;
         }
