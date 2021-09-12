@@ -34,7 +34,7 @@ interface DataTableProps {
     metaKeySelection?: boolean;
     contextMenu?: boolean;
     contextMenuSelection?: any;
-    rowHover?: boolean;
+    rowmouseover?: boolean;
     csvSeparator?: string;
     exportFilename?: string;
     autoLayout?: boolean;
@@ -82,7 +82,7 @@ declare class DataTable {
     $emit(eventName: 'filter', event: Event): this;
     $emit(eventName: 'value-change', value: any[]): this;
     $emit(eventName: 'row-click', event: Event): this;
-    $emit(eventName: 'row-hover', event: Event): this;
+    $emit(eventName: 'row-mouseover', event: Event): this;
     $emit(eventName: 'row-dblclick', event: Event): this;
     $emit(eventName: 'row-contextmenu', event: Event): this;
     $emit(eventName: 'row-select', event: {originalEvent: Event, data: any, index: number, type: string}): this;
