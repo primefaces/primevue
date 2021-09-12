@@ -1,6 +1,6 @@
 <template>
 	<JTPDropdown :modelValue="page" :options="pageOptions" optionLabel="label" optionValue="value"
-        @update:modelValue="onChange($event)" class="p-paginator-page-options"></JTPDropdown>
+        @update:modelValue="onChange($event)" class="p-paginator-page-options" :disabled="disabled"></JTPDropdown>
 </template>
 
 <script>
@@ -12,7 +12,8 @@ export default {
     emits: ['page-change'],
     props: {
         page: Number,
-        pageCount: Number
+        pageCount: Number,
+        disabled: Boolean
     },
     methods: {
         onChange(value) {

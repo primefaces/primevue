@@ -1,6 +1,6 @@
 <template>
 	<RPPDropdown :modelValue="rows" :options="rowsOptions" optionLabel="label" optionValue="value"
-        @update:modelValue="onChange($event)" class="p-paginator-rpp-options"></RPPDropdown>
+        @update:modelValue="onChange($event)" class="p-paginator-rpp-options" :disabled="disabled"></RPPDropdown>
 </template>
 
 <script>
@@ -12,7 +12,8 @@ export default {
     emits: ['rows-change'],
     props: {
         options: Array,
-        rows: Number
+        rows: Number,
+        disabled: Boolean
     },
     methods: {
         onChange(value) {

@@ -5,6 +5,8 @@ interface DockProps {
     model?: any[];
     class?: string;
     style?: any;
+    exact?: boolean;
+    tooltipOptions?: any;
 }
 
 declare class Dock {

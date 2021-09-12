@@ -261,6 +261,12 @@ Vertical
                         <td>Step factor to increment/decrement the value.</td>
                     </tr>
                     <tr>
+                        <td>allowEmpty</td>
+                        <td>boolean</td>
+                        <td>true</td>
+                        <td>Determines whether the input field is empty.</td>
+                    </tr>
+                    <tr>
                         <td>inputStyle</td>
                         <td>any</td>
                         <td>null</td>
@@ -287,6 +293,26 @@ Vertical
                 </tbody>
             </table>
         </div>
+
+        <h5>Methods</h5>
+		<div class="doc-tablewrapper">
+			<table class="doc-table">
+				<thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Parameters</th>
+                        <th>Description</th>
+                    </tr>
+				</thead>
+				<tbody>
+                    <tr>
+                        <td>getFormatter</td>
+                        <td>-</td>
+                        <td>Returns Intl.NumberFormat object.</td>
+                    </tr>
+				</tbody>
+			</table>
+		</div>
 
         <h5>Events</h5>
         <p>Any valid event such as focus and blur are passed to the underlying input element. Following are the additional events to configure the component.</p>
@@ -506,7 +532,7 @@ export default {
     }
 }
 <\\/script>
-`               
+`
                 },
                 'composition-api': {
                     tabName : 'Composition API Source',
@@ -641,12 +667,12 @@ export default {
         const value19 = ref(25);
         const value20 = ref(50);
 
-        return { value1, value2, value3, value4, value5, value6, value7, value8, value9, value10, 
+        return { value1, value2, value3, value4, value5, value6, value7, value8, value9, value10,
             value11, value12, value13, value14, value15, value16, value17, value18, value19, value20 }
     }
 }
 <\\/script>
-`               
+`
                 }
             }
         }

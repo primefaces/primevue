@@ -47,6 +47,18 @@
 
                 <h5>Loading State</h5>
                 <Dropdown placeholder="Loading..." loading></Dropdown>
+
+                <h5>Virtual Scroll (1000 Items)</h5>
+                <Dropdown v-model="selectedItem1" :options="items" optionLabel="label" optionValue="value" :virtualScrollerOptions="{ itemSize: 31 }" placeholder="Select Item"></Dropdown>
+
+                <h5>Virtual Scroll (1000 Items) and Lazy</h5>
+                <Dropdown v-model="selectedItem2" :options="lazyItems" optionLabel="label" optionValue="value" :virtualScrollerOptions="{ lazy: true, onLazyLoad: onLazyLoad, itemSize: 31, showLoader: true, loading: loading, delay: 250 }" placeholder="Select Item">
+                    <template v-slot:loader="{ options }">
+                        <div class="p-d-flex p-ai-center p-p-2" style="height: 31px" >
+                            <Skeleton :width="options.even ? '60%' : '50%'" height="1rem" />
+                        </div>
+                    </template>
+                </Dropdown>
             </div>
         </div>
 
@@ -64,6 +76,9 @@ export default {
             selectedCity2: null,
             selectedCountry: null,
             selectedGroupedCity: null,
+            selectedItem1: null,
+            selectedItem2: null,
+            loading: false,
             cities: [
                 {name: 'New York', code: 'NY'},
                 {name: 'Rome', code: 'RM'},
@@ -84,7 +99,7 @@ export default {
                 {name: 'United States', code: 'US'}
             ],
             groupedCities: [{
-                label: 'Germany', code: 'DE', 
+                label: 'Germany', code: 'DE',
                 items: [
                     {label: 'Berlin', value: 'Berlin'},
                     {label: 'Frankfurt', value: 'Frankfurt'},
@@ -93,7 +108,7 @@ export default {
                 ]
             },
             {
-                label: 'USA', code: 'US', 
+                label: 'USA', code: 'US',
                 items: [
                     {label: 'Chicago', value: 'Chicago'},
                     {label: 'Los Angeles', value: 'Los Angeles'},
@@ -102,14 +117,39 @@ export default {
                 ]
             },
             {
-                label: 'Japan', code: 'JP', 
+                label: 'Japan', code: 'JP',
                 items: [
                     {label: 'Kyoto', value: 'Kyoto'},
                     {label: 'Osaka', value: 'Osaka'},
                     {label: 'Tokyo', value: 'Tokyo'},
                     {label: 'Yokohama', value: 'Yokohama'}
                 ]
-            }]
+            }],
+            items: Array.from({ length: 1000 }, (_, i) => ({ label: `Item #${i}`, value: i })),
+            lazyItems: Array.from({ length: 1000 })
+        }
+    },
+    loadLazyTimeout: null,
+    methods: {
+        onLazyLoad(event) {
+            this.loading = true;
+
+            if (this.loadLazyTimeout) {
+                clearTimeout(this.loadLazyTimeout);
+            }
+
+            //imitate delay of a backend call
+            this.loadLazyTimeout = setTimeout(() => {
+                const { first, last } = event;
+                const lazyItems = [...this.lazyItems];
+
+                for (let i = first; i < last; i++) {
+                    lazyItems[i] = { label: `Item #${i}`, value: i };
+                }
+
+                this.lazyItems = lazyItems;
+                this.loading = false;
+            }, Math.random() * 1000 + 250);
         }
     },
     components: {

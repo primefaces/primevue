@@ -95,9 +95,9 @@ export default {
                                 ...extDependencies,
                                 'vue': dependencies['vue'],
                                 'axios': dependencies['axios'],
-                                'primevue': '^3.6.0',
+                                'primevue': '^3.7.0',
                                 'primeflex': dependencies['primeflex'],
-                                'primeicons': 'latest',
+                                'primeicons': dependencies['primeicons'],
                                 '@babel/cli': dependencies['@babel/cli'],
                                 'core-js': dependencies['core-js'],
                                 'vue-router': dependencies['vue-router']
@@ -437,6 +437,7 @@ import Dropdown from 'primevue/dropdown';
 import Fieldset from 'primevue/fieldset';
 import FileUpload from 'primevue/fileupload';
 import Galleria from 'primevue/galleria';
+import Image from 'primevue/image';
 import InlineMessage from 'primevue/inlinemessage';
 import Inplace from 'primevue/inplace';
 import InputSwitch from 'primevue/inputswitch';
@@ -538,13 +539,14 @@ app.component('Dock', Dock);
 app.component('Dropdown', Dropdown);
 app.component('Fieldset', Fieldset);
 app.component('FileUpload', FileUpload);
+app.component('Galleria', Galleria);
+app.component('Image', Image);
 app.component('InlineMessage', InlineMessage);
 app.component('Inplace', Inplace);
 app.component('InputMask', InputMask);
 app.component('InputNumber', InputNumber);
 app.component('InputSwitch', InputSwitch);
 app.component('InputText', InputText);
-app.component('Galleria', Galleria);
 app.component('Knob', Knob);
 app.component('Listbox', Listbox);
 app.component('MegaMenu', MegaMenu);

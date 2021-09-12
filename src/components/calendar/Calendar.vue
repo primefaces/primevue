@@ -289,6 +289,10 @@ export default {
             type: String,
             default: 'body'
         },
+        keepInvalid: {
+            type: Boolean,
+            default: false
+        },
         inputClass: null,
         inputStyle: null,
         class: null,
@@ -363,6 +367,11 @@ export default {
         },
         showTime() {
             this.updateCurrentMetaData();
+        },
+        months() {
+            if (this.overlay) {
+                setTimeout(this.updateFocus, 0);
+            }
         }
     },
     methods: {
@@ -1282,7 +1291,7 @@ export default {
             if (!this.mask) {
                 this.mask = document.createElement('div');
                 this.mask.style.zIndex = String(parseInt(this.overlay.style.zIndex, 10) - 1);
-                DomHandler.addMultipleClasses(this.mask, 'p-datepicker-mask p-datepicker-mask-scrollblocker');
+                DomHandler.addMultipleClasses(this.mask, 'p-datepicker-mask p-datepicker-mask-scrollblocker p-component-overlay p-component-overlay-enter');
 
                 this.maskClickListener = () => {
                     this.overlayVisible = false;
@@ -1291,16 +1300,12 @@ export default {
 
                 document.body.appendChild(this.mask);
                 DomHandler.addClass(document.body, 'p-overflow-hidden');
-
-                setTimeout(() => {
-                    DomHandler.addClass(this.mask, 'p-component-overlay');
-                }, 1);
             }
         },
         disableModality() {
             if (this.mask) {
-                DomHandler.addClass(this.mask, 'p-datepicker-mask-leave');
-                this.mask.addEventListener('transitionend', () => {
+                DomHandler.addClass(this.mask, 'p-component-overlay-leave');
+                this.mask.addEventListener('animationend', () => {
                     this.destroyMask();
                 });
             }
@@ -1936,7 +1941,9 @@ export default {
                 }
             }
             catch(err) {
-                this.updateModel(event.target.value);
+                // invalid date
+                let value = this.keepInvalid ? event.target.value : null;
+                this.updateModel(value);
             }
         },
         onFocus() {
@@ -1998,7 +2005,7 @@ export default {
             return propValue || new Date();
         },
         inputFieldValue() {
-            return this.formatValue(this.modelValue);
+            return this.keepInvalid ? this.modelValue : this.formatValue(this.modelValue);
         },
         containerClass() {
             return [
@@ -2320,14 +2327,5 @@ export default {
     left: 50%;
     min-width: 80vw;
     transform: translate(-50%, -50%);
-}
-
-.p-datepicker-mask {
-    background-color: transparent;
-    transition-property: background-color;
-}
-
-.p-datepicker-mask.p-datepicker-mask-leave.p-component-overlay {
-    background-color: transparent;
 }
 </style>

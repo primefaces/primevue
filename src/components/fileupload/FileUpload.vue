@@ -11,7 +11,7 @@
         </div>
         <div ref="content" class="p-fileupload-content" @dragenter="onDragEnter" @dragover="onDragOver" @dragleave="onDragLeave" @drop="onDrop">
             <FileUploadProgressBar :value="progress" v-if="hasFiles" />
-            <FileUploadMessage v-for="msg of messages" severity="error" :key="msg">{{msg}}</FileUploadMessage>
+            <FileUploadMessage v-for="msg of messages" severity="error" :key="msg" @close="onMessageClose">{{msg}}</FileUploadMessage>
             <div class="p-fileupload-files" v-if="hasFiles">
                 <div class="p-fileupload-row" v-for="(file, index) of files" :key="file.name + file.type + file.size">
                     <div>
@@ -30,7 +30,7 @@
         </div>
     </div>
     <div class="p-fileupload p-fileupload-basic p-component" v-else-if="isBasic">
-        <FileUploadMessage v-for="msg of messages" severity="error" :key="msg">{{msg}}</FileUploadMessage>
+        <FileUploadMessage v-for="msg of messages" severity="error" :key="msg" @close="onMessageClose">{{msg}}</FileUploadMessage>
         <span :class="basicChooseButtonClass" :style="style" @mouseup="onBasicUploaderClick"  @keydown.enter="choose" @focus="onFocus" @blur="onBlur" v-ripple tabindex="0" >
             <span :class="basicChooseButtonIconClass"></span>
             <span class="p-button-label">{{basicChooseButtonLabel}}</span>
@@ -397,6 +397,9 @@ export default {
             if (this.isFileLimitExceeded()) {
                 this.messages.push(this.invalidFileLimitMessage.replace('{0}', this.fileLimit.toString()))
             }
+        },
+        onMessageClose() {
+            this.messages = null;
         }
     },
     computed: {

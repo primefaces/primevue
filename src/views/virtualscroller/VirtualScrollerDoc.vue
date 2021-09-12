@@ -2,7 +2,7 @@
     <AppDoc name="VirtualScrollerDemo" :sources="sources" github="virtualscroller/VirtualScrollerDemo.vue">
         <h5>Imports</h5>
 <pre v-code.script><code>
-import VirtualScroller from 'primevue/virtualscroller';   
+import VirtualScroller from 'primevue/virtualscroller';
 
 </code></pre>
 
@@ -11,7 +11,7 @@ import VirtualScroller from 'primevue/virtualscroller';
             The <i>item</i> and <i>itemSize</i> properties and <i>item</i> template are required on component. In addition, an initial array is required based on the total number of items to display.<br />
             VirtualScroller automatically calculates how many items will be displayed in the view according to <i>itemSize</i> using a specified scroll height. Its scroll height can be adjusted with <i>scrollHeight</i>
             property or height property of CSS.</p>
-    
+
 <pre v-code><code><template v-pre>
 &lt;VirtualScroller :items="basicItems" :itemSize="50"&gt;
     &lt;template v-slot:item="{ item, options }"&gt;
@@ -84,12 +84,12 @@ export default {
             if (this.loadLazyTimeout) {
                 clearTimeout(this.loadLazyTimeout);
             }
-            
+
             //imitate delay of a backend call
             this.loadLazyTimeout = setTimeout(() => {
                 const { first, last } = event;
                 const lazyItems = [...this.lazyItems];
-            
+
                 for (let i = first; i &lt; last; i++) {
                     lazyItems[i] = `Item #${i}`;
                 }
@@ -279,6 +279,13 @@ export default {
                 </thead>
                 <tbody>
                     <tr>
+                        <td>content</td>
+                        <td>items: An array of objects to display.<br />
+                            styleClass: Style class of the component<br />
+                            contentRef: Referance of the content<br />
+                            getItemOptions: Options of the items</td>
+                    </tr>
+                    <tr>
                         <td>item</td>
                         <td>item: Item instance<br />
                             options: Options of the item instance</td>
@@ -327,13 +334,13 @@ export default {
 <script>
 export default {
     data() {
-        return { 
+        return {
             sources: {
                 'options-api': {
                     tabName: 'Options API Source',
                     content: `
 <template>
-    <div>
+    <div class="virtualscroller-demo">
         <div class="card">
             <h5 class="p-mb-0">Basic</h5>
             <div class="p-d-flex p-ai-center p-flex-wrap">
@@ -366,7 +373,7 @@ export default {
                             </div>
                         </template>
                     </VirtualScroller>
-                </div> 
+                </div>
             </div>
         </div>
 
@@ -491,7 +498,7 @@ export default {
     mounted() {
         this.basicItems = Array.from({ length: 100000 }).map((_, i) => \`Item #\${i}\`);
         this.multiItems = Array.from({ length: 1000 }).map((_, i) => Array.from({ length: 1000 }).map((_j, j) => \`Item #\${i}_\${j}\`));
-        this.lazyItems = Array.from({ length: 100000 });
+        this.lazyItems = Array.from({ length: 10000 });
     },
     methods: {
         onLazyLoad(event) {
@@ -500,12 +507,12 @@ export default {
             if (this.loadLazyTimeout) {
                 clearTimeout(this.loadLazyTimeout);
             }
-            
+
             //imitate delay of a backend call
             this.loadLazyTimeout = setTimeout(() => {
                 const { first, last } = event;
                 const lazyItems = [...this.lazyItems];
-            
+
                 for (let i = first; i < last; i++) {
                     lazyItems[i] = \`Item #\${i}\`;
                 }
@@ -547,7 +554,7 @@ export default {
             display: flex;
             flex-direction: row;
         }
-        
+
         .scroll-item {
             writing-mode: vertical-lr;
         }
@@ -562,10 +569,10 @@ export default {
 `
                 },
                 'composition-api': {
-                    tabName: 'Composition API Source', 
+                    tabName: 'Composition API Source',
                     content: `
 <template>
-    <div>
+    <div class="virtualscroller-demo">
         <div class="card">
             <h5 class="p-mb-0">Basic</h5>
             <div class="p-d-flex p-ai-center p-flex-wrap">
@@ -598,7 +605,7 @@ export default {
                             </div>
                         </template>
                     </VirtualScroller>
-                </div> 
+                </div>
             </div>
         </div>
 
@@ -714,15 +721,9 @@ import { ref, onMounted } from 'vue';
 
 export default {
     setup() {
-        onMounted(() => {
-            basicItems.value = Array.from({ length: 100000 }).map((_, i) => \`Item #\${i}\`);
-            multiItems.value = Array.from({ length: 1000 }).map((_, i) => Array.from({ length: 1000 }).map((_j, j) => \`Item #\${i}_\${j}\`));
-            lazyItems.value = Array.from({ length: 100000 });
-        })
-
-        const basicItems = ref(null);
-        const multiItems = ref(null);
-        const lazyItems = ref(null);
+        const basicItems = ref(Array.from({ length: 100000 }).map((_, i) => \`Item #\${i}\`));
+        const multiItems = ref(Array.from({ length: 1000 }).map((_, i) => Array.from({ length: 1000 }).map((_j, j) => \`Item #\${i}_\${j}\`)));
+        const lazyItems = ref(Array.from({ length: 10000 }));
         const lazyLoading = ref(false);
         const loadLazyTimeout = ref(null);
 
@@ -732,17 +733,17 @@ export default {
             if (loadLazyTimeout.value) {
                 clearTimeout(loadLazyTimeout.value);
             }
-            
+
             //imitate delay of a backend call
             loadLazyTimeout.value = setTimeout(() => {
                 const { first, last } = event;
-                const lazyItems = [...lazyItems.value];
-            
+                const _lazyItems = [...lazyItems.value];
+
                 for (let i = first; i < last; i++) {
-                    lazyItems[i] = \`Item #\${i}\`;
+                    _lazyItems[i] = \`Item #\${i}\`;
                 }
 
-                lazyItems.value = lazyItems;
+                lazyItems.value = _lazyItems;
                 lazyLoading.value = false;
 
             }, Math.random() * 1000 + 250);
@@ -751,7 +752,7 @@ export default {
         return { basicItems, multiItems, lazyItems, lazyLoading, onLazyLoad }
     },
     methods: {
-        
+
     }
 }
 <\\/script>
@@ -784,7 +785,7 @@ export default {
             display: flex;
             flex-direction: row;
         }
-        
+
         .scroll-item {
             writing-mode: vertical-lr;
         }

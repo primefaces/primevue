@@ -9,12 +9,12 @@
                                 <slot name="item" :item="item">{{item.label}}</slot>
                             </li>
                             <template v-for="(child, j) of item.items" :key="child.label + i + j">
-                                <Menuitem v-if="visible(child) && !child.separator" :item="child" @click="itemClick" :template="$slots.item" />
+                                <Menuitem v-if="visible(child) && !child.separator" :item="child" @click="itemClick" :template="$slots.item" :exact="exact" />
                                 <li v-else-if="visible(child) && child.separator" :class="['p-menu-separator', child.class]" :style="child.style" :key="'separator' + i + j" role="separator"></li>
                             </template>
                         </template>
                         <li v-else-if="visible(item) && item.separator" :class="['p-menu-separator', item.class]" :style="item.style" :key="'separator' + i.toString()" role="separator"></li>
-                        <Menuitem v-else :key="item.label + i.toString()" :item="item" @click="itemClick" :template="$slots.item" />
+                        <Menuitem v-else :key="item.label + i.toString()" :item="item" @click="itemClick" :template="$slots.item" :exact="exact" />
                     </template>
                 </ul>
             </div>
@@ -29,6 +29,7 @@ import Menuitem from './Menuitem.vue';
 
 export default {
     name: 'Menu',
+    emits: ['show', 'hide'],
     inheritAttrs: false,
     props: {
         popup: {
@@ -50,6 +51,10 @@ export default {
         baseZIndex: {
             type: Number,
             default: 0
+        },
+        exact: {
+            type: Boolean,
+            default: true
         }
     },
     data() {
@@ -117,11 +122,14 @@ export default {
             if (this.autoZIndex) {
                 ZIndexUtils.set('menu', el, this.baseZIndex + this.$primevue.config.zIndex.menu);
             }
+
+            this.$emit('show');
         },
         onLeave() {
             this.unbindOutsideClickListener();
             this.unbindResizeListener();
             this.unbindScrollListener();
+            this.$emit('hide');
         },
         onAfterLeave(el) {
             if (this.autoZIndex) {

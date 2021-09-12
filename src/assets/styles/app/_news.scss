@@ -17,10 +17,9 @@
         font-weight: bold;
         font-size: 20px;
 
-        a {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        .layouts-news-mockup {
+            display: inline-block;
+            overflow: hidden;
         }
 
         img.layouts-news-mockup-image {
@@ -28,11 +27,11 @@
         }
 
         .layout-news-button {
-            border: 1px solid #283738;
+            border: 2px solid #283738;
             color: #283738;
             font-size: 15px;
             padding: 0.3em 0.3em 0.5em 1em;
-            font-weight: bold;
+            font-weight: 700;
             border-radius: 3px;
             display: flex;
             justify-content: center;
@@ -44,7 +43,7 @@
             z-index: 1;
 
             &:hover {
-                background-color: rgba(255, 255, 255, 0.25);
+                background-color: rgba(0, 0, 0, 0.25);
             }
         }
     }

@@ -3,6 +3,7 @@ import { VNode } from 'vue';
 interface PanelMenuProps {
     model?: any[];
     expandedKeys?: any;
+    exact?: boolean;
 }
 
 declare class PanelMenu {

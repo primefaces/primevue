@@ -12,7 +12,7 @@
             <Toast position="top-center" group="tc" />
 
             <h5>Basic</h5>
-            <div className="dock-window">
+            <div class="dock-window">
                 <Dock :model="dockBasicItems" position="bottom"/>
                 <Dock :model="dockBasicItems" position="top"/>
                 <Dock :model="dockBasicItems" position="left"/>

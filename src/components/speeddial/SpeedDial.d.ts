@@ -10,14 +10,15 @@ interface SpeedDialProps {
     mask?: boolean;
     disabled?: boolean;
     hideOnClickOutside?: boolean;
-    buttonClassName?: string;
+    buttonClass?: string;
     maskStyle?: string;
-    maskClassName?: string;
+    maskClass?: string;
     showIcon?: string;
     hideIcon?: string;
     rotateAnimation?: boolean;
     class?: string;
     style?: any;
+    tooltipOptions?: any;
 }
 
 declare class SpeedDial {

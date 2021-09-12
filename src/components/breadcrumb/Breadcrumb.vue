@@ -1,10 +1,10 @@
 <template>
     <nav class="p-breadcrumb p-component" aria-label="Breadcrumb">
         <ul>
-            <BreadcrumbItem v-if="home" :item="home" class="p-breadcrumb-home" :template="$slots.item"/>
-            <template v-for="item of model" :key="item.label" >
+            <BreadcrumbItem v-if="home" :item="home" class="p-breadcrumb-home" :template="$slots.item" :exact="exact" />
+            <template v-for="item of model" :key="item.label">
                 <li class="p-breadcrumb-chevron pi pi-chevron-right"></li>
-                <BreadcrumbItem :item="item" :template="$slots.item" />
+                <BreadcrumbItem :item="item" :template="$slots.item" :exact="exact" />
             </template>
         </ul>
     </nav>
@@ -23,6 +23,10 @@ export default {
         home: {
             type: null,
             default: null
+        },
+        exact: {
+            type: Boolean,
+            default: true
         }
     },
     components: {

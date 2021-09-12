@@ -1,4 +1,5 @@
 import { VNode } from 'vue';
+import { VirtualScrollerProps } from '../virtualscroller';
 
 interface ListboxProps {
     modelValue?: any;
@@ -20,6 +21,7 @@ interface ListboxProps {
     filterFields?: string[];
     emptyFilterMessage?: string;
     emptyMessage?: string;
+    virtualScrollerOptions?: VirtualScrollerProps;
 }
 
 declare class Listbox {
@@ -34,6 +36,8 @@ declare class Listbox {
         optiongroup: VNode[];
         emptyfilter: VNode[];
         empty: VNode[];
+        content: VNode[];
+        loader: VNode[];
     }
 }
 

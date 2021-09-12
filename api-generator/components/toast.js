@@ -31,10 +31,18 @@ const ToastProps = [
     }
 ];
 
+const ToastSlots = [
+    {
+        name: "message",
+        description: "Custom content for the toast message"
+    }
+];
+
 module.exports = {
     toast: {
         name: "Toast",
         description: "Toast is used to display messages in an overlay.",
-        props: ToastProps
+        props: ToastProps,
+        slots: ToastSlots
     }
 };

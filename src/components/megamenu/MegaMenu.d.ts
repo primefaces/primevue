@@ -3,12 +3,14 @@ import { VNode } from 'vue';
 interface MegaMenuProps {
     model?: any[];
     orientation?: string;
+    exact?: boolean;
 }
 
 declare class MegaMenu {
     $props: MegaMenuProps;
     $slots: {
-        '': VNode[];
+        start: VNode[];
+        end: VNode[];
         item: VNode[];
     }
 }

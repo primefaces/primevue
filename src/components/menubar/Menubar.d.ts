@@ -2,6 +2,7 @@ import { VNode } from 'vue';
 
 interface MenubarProps {
     model?: any[];
+    exact?: boolean;
 }
 
 declare class Menubar {

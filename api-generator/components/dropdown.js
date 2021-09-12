@@ -154,6 +154,12 @@ const DividerProps = [
         type: "string",
         default: "pi pi-spinner pi-spin",
         description: "Icon to display in loading state."
+    },
+    {
+        name: "virtualScrollerOptions",
+        type: "object",
+        default: "null",
+        description: "Whether to use the virtualScroller feature. The properties of VirtualScroller component can be used like an object in it."
     }
 ];
 
@@ -269,6 +275,18 @@ const DividerSlots = [
     {
         name: "empty",
         description: "Custom content when there is no data to display"
+    },
+    {
+        name: "content",
+        description: "Custom content for the virtual scroller"
+    },
+    {
+        name: "loader",
+        description: "Custom content for the virtual scroller loader items"
+    },
+    {
+        name: "indicator",
+        description: "Custom content for the dropdown indicator"
     }
 ];
 

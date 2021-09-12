@@ -420,6 +420,12 @@ export default {
                         <td>null</td>
                         <td>Style class of the component.</td>
                     </tr>
+                    <tr>
+                        <td>keepInvalid</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>Keep invalid value when input blur.</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -802,7 +808,7 @@ export default {
         let prevYear = (prevMonth === 11) ? year - 1 : year;
         let nextMonth = (month === 11) ? 0 : month + 1;
         let nextYear = (nextMonth === 0) ? year + 1 : year;
-        
+
         const minDate = ref(new Date());
         const maxDate = ref(new Date());
         const invalidDates = ref();
@@ -832,7 +838,7 @@ export default {
         invalidDate.setDate(today.getDate() - 1);
         invalidDates.value = [today, invalidDate];
 
-        return { minDate, maxDate, invalidDates, date1, date2, date3, date4, date5, date6, date7, 
+        return { minDate, maxDate, invalidDates, date1, date2, date3, date4, date5, date6, date7,
             date8, date9, date10, date11, date12, date13, date14, dates1, dates2 }
     }
 }

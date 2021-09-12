@@ -2,7 +2,7 @@
     <Teleport :to="appendTo">
         <transition name="p-contextmenu" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave">
             <div :ref="containerRef" :class="containerClass" v-if="visible" v-bind="$attrs">
-                <ContextMenuSub :model="model" :root="true" @leaf-click="onLeafClick" :template="$slots.item"/>
+                <ContextMenuSub :model="model" :root="true" @leaf-click="onLeafClick" :template="$slots.item" :exact="exact" />
             </div>
         </transition>
     </Teleport>
@@ -35,6 +35,10 @@ export default {
         global: {
             type: Boolean,
             default: false
+        },
+        exact: {
+            type: Boolean,
+            default: true
         }
     },
     target: null,

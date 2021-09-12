@@ -108,6 +108,10 @@ const VirtualScrollerSlots = [
         description: "Content for the item"
     },
     {
+        name: "content",
+        description: "Custom content for the component"
+    },
+    {
         name: "loader",
         description: "Custom content for the loader items"
     }

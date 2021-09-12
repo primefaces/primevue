@@ -80,12 +80,24 @@ export default {
                         <td>null</td>
                         <td>Inline style of the component.</td>
                     </tr>
+                    <tr>
+                        <td>trueValue</td>
+                        <td>any</td>
+                        <td>null</td>
+                        <td>Value in checked state.</td>
+                    </tr>
+                    <tr>
+                        <td>falseValue</td>
+                        <td>any</td>
+                        <td>null</td>
+                        <td>Value in unchecked state.</td>
+                    </tr>
 				</tbody>
 			</table>
 		</div>
 
 		<h5>Events</h5>
-        <p>Any valid event such as focus and blur.</p>
+        <p>In addition to the following events, any other valid events such as focus and blur are passed implicitly.</p>
         <div class="doc-tablewrapper">
             <table class="doc-table">
                 <thead>
@@ -106,6 +118,11 @@ export default {
                         <td>event: Browser event</td>
                         <td>Callback to invoke on value change.</td>
                     </tr>
+					<tr>
+						<td>input</td>
+						<td>value: New value</td>
+						<td>Callback to invoke on value change.</td>
+					</tr>
                 </tbody>
             </table>
         </div>
@@ -244,9 +261,9 @@ export default {
         const checked = ref(false);
         const cities = ref([]);
         const categories = ref([
-            {name: 'Accounting', key: 'A'}, 
-            {name: 'Marketing', key: 'M'}, 
-            {name: 'Production', key: 'P'}, 
+            {name: 'Accounting', key: 'A'},
+            {name: 'Marketing', key: 'M'},
+            {name: 'Production', key: 'P'},
             {name: 'Research', key: 'R'}
         ]);
         const selectedCategories = ref(categories.value.slice(1,3));

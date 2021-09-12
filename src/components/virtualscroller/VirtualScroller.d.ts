@@ -21,6 +21,7 @@ declare class VirtualScroller {
     $emit(eventName: 'scroll-index-change', value: { first: number, last: number }): this;
     $emit(eventName: 'lazy-load', value: { first: number, last: number }): this;
     $slots: { 
+        content: VNode[];
         items: VNode[];
         loader: VNode[];
     }

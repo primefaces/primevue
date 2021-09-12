@@ -383,6 +383,11 @@ const routes = [
         component: () => import('../views/fullcalendar/FullCalendarDemo.vue')
     },
     {
+        path: '/image',
+        name: 'image',
+        component: () => import('../views/image/ImageDemo.vue')
+    },
+    {
         path: '/inplace',
         name: 'inplace',
         component: () => import('../views/inplace/InplaceDemo.vue')

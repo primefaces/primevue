@@ -1,4 +1,5 @@
 import { VNode } from 'vue';
+import { VirtualScrollerProps } from '../virtualscroller';
 
 interface MultiSelectProps {
     modelValue?: any;
@@ -25,10 +26,14 @@ interface MultiSelectProps {
     emptyMessage?: string;
     display?: string;
     panelClass?: string;
+    selectedItemsLabel?: string;
+    maxSelectedLabels?: number;
     selectionLimit?: number;
     showToggleAll?: boolean;
     loading?: boolean;
     loadingIcon?: string;
+    virtualScrollerOptions?: VirtualScrollerProps;
+    selectAll?: boolean;
 }
 
 declare class MultiSelect {
@@ -40,6 +45,7 @@ declare class MultiSelect {
     $emit(eventName: 'show'): this;
     $emit(eventName: 'hide'): this;
     $emit(eventName: 'filter', e: { originalEvent: Event, value: string }): this;
+    $emit(eventName: 'selectall-change', e: { originalEvent: Event, checked: boolean }): this;
     $slots: {
         value: VNode[];
         header: VNode[];
@@ -49,6 +55,9 @@ declare class MultiSelect {
         option: VNode[];
         optiongroup: VNode[];
         chip: VNode[];
+        content: VNode[];
+        loader: VNode[];
+        indicator: VNode[];
     }
 }
 

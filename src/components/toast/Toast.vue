@@ -1,7 +1,7 @@
 <template>
     <Teleport to="body">
         <div ref="container" :class="containerClass" v-bind="$attrs">
-            <transition-group name="p-toast-message" tag="div" @enter="onEnter">
+            <transition-group name="p-toast-message" tag="div" @enter="onEnter" @leave="onLeave">
                 <ToastMessage v-for="msg of messages" :key="msg.id" :message="msg" @close="remove($event)" :template="$slots.message"/>
             </transition-group>
         </div>
@@ -50,10 +50,6 @@ export default {
         ToastEventBus.on('add', this.onAdd);
         ToastEventBus.on('remove-group', this.onRemoveGroup);
         ToastEventBus.on('remove-all-groups', this.onRemoveAllGroups);
-
-        if (this.autoZIndex) {
-            ZIndexUtils.set('modal', this.$refs.container, this.baseZIndex || this.$primevue.config.zIndex.modal);
-        }
 
         if (this.breakpoints) {
             this.createStyle();
@@ -104,6 +100,15 @@ export default {
         },
         onEnter() {
             this.$refs.container.setAttribute(this.attributeSelector, '');
+
+            if (this.autoZIndex) {
+                ZIndexUtils.set('modal', this.$refs.container, this.baseZIndex || this.$primevue.config.zIndex.modal);
+            }
+        },
+        onLeave() {
+            if (this.$refs.container && this.autoZIndex) {
+                ZIndexUtils.clear(this.$refs.container);
+            }
         },
         createStyle() {
             if (!this.styleElement) {
@@ -115,7 +120,7 @@ export default {
                 for (let breakpoint in this.breakpoints) {
                     let breakpointStyle = '';
                     for (let styleProp in this.breakpoints[breakpoint]) {
-                        breakpointStyle += styleProp + ':' + this.breakpoints[breakpoint][styleProp] + '!important;'; 
+                        breakpointStyle += styleProp + ':' + this.breakpoints[breakpoint][styleProp] + '!important;';
                     }
                     innerHTML += `
                         @media screen and (max-width: ${breakpoint}) {

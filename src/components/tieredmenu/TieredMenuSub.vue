@@ -4,14 +4,14 @@
             <li :class="getItemClass(item)" :style="item.style" v-if="visible(item) && !item.separator"
                 @mouseenter="onItemMouseEnter($event, item)" role="none">
                 <template v-if="!template">
-                    <router-link v-if="item.to && !item.disabled" :to="item.to" custom v-slot="{navigate, href}">
-                        <a :href="href" @click="onItemClick($event, item, navigate)" :class="getLinkClass(item)" v-ripple @keydown="onItemKeyDown($event, item)" role="menuitem">
+                    <router-link v-if="item.to && !disabled(item)" :to="item.to" custom v-slot="{navigate, href, isActive, isExactActive}">
+                        <a :href="href" @click="onItemClick($event, item, navigate)" :class="linkClass(item, {isActive, isExactActive})" v-ripple @keydown="onItemKeyDown($event, item)" role="menuitem">
                             <span :class="['p-menuitem-icon', item.icon]"></span>
                             <span class="p-menuitem-text">{{item.label}}</span>
                         </a>
                     </router-link>
-                    <a v-else :href="item.url" :class="getLinkClass(item)" :target="item.target" :aria-haspopup="item.items != null" :aria-expanded="item === activeItem"
-                        @click="onItemClick($event, item)" @keydown="onItemKeyDown($event, item)" role="menuitem" :tabindex="item.disabled ? null : '0'" v-ripple>
+                    <a v-else :href="item.url" :class="linkClass(item)" :target="item.target" :aria-haspopup="item.items != null" :aria-expanded="item === activeItem"
+                        @click="onItemClick($event, item)" @keydown="onItemKeyDown($event, item)" role="menuitem" :tabindex="disabled(item) ? null : '0'" v-ripple>
                         <span :class="['p-menuitem-icon', item.icon]"></span>
                         <span class="p-menuitem-text">{{item.label}}</span>
                         <span class="p-submenu-icon pi pi-angle-right" v-if="item.items"></span>
@@ -19,7 +19,7 @@
                 </template>
                 <component v-else :is="template" :item="item"></component>
                 <TieredMenuSub :model="item.items" v-if="visible(item) && item.items" :key="item.label + '_sub_'" :template="template"
-                    @leaf-click="onLeafClick" @keydown-item="onChildItemKeyDown" :parentActive="item === activeItem" />
+                    @leaf-click="onLeafClick" @keydown-item="onChildItemKeyDown" :parentActive="item === activeItem" :exact="exact" />
             </li>
             <li :class="['p-menu-separator', item.class]" :style="item.style" v-if="visible(item) && item.separator" :key="'separator' + i.toString()" role="separator"></li>
         </template>
@@ -53,6 +53,10 @@ export default {
         template: {
             type: Object,
             default: null
+        },
+        exact: {
+            type: Boolean,
+            default: true
         }
     },
     documentClickListener: null,
@@ -78,7 +82,7 @@ export default {
     },
     methods: {
         onItemMouseEnter(event, item) {
-            if (item.disabled) {
+            if (this.disabled(item)) {
                 event.preventDefault();
                 return;
             }
@@ -93,7 +97,7 @@ export default {
             }
         },
         onItemClick(event, item, navigate) {
-            if (item.disabled) {
+            if (this.disabled(item)) {
                 event.preventDefault();
                 return;
             }
@@ -200,8 +204,12 @@ export default {
                 }
             ]
         },
-        getLinkClass(item) {
-            return ['p-menuitem-link', {'p-disabled': item.disabled}];
+        linkClass(item, routerProps) {
+            return ['p-menuitem-link', {
+                'p-disabled': this.disabled(item),
+                'router-link-active': routerProps && routerProps.isActive,
+                'router-link-active-exact': this.exact && routerProps && routerProps.isExactActive
+            }];
         },
         bindDocumentClickListener() {
             if (!this.documentClickListener) {
@@ -223,6 +231,9 @@ export default {
         },
         visible(item) {
             return (typeof item.visible === 'function' ? item.visible() : item.visible !== false);
+        },
+        disabled(item) {
+            return (typeof item.disabled === 'function' ? item.disabled() : item.disabled);
         }
     },
     computed: {

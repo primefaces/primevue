@@ -6,6 +6,7 @@ interface ContextMenuProps {
     autoZIndex?: boolean;
     baseZIndex?: number;
     global?: boolean;
+    exact?: boolean;
 }
 
 declare class ContextMenu {

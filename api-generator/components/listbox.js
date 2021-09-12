@@ -147,6 +147,12 @@ const ListboxEvents = [
                 description: "Filter value"
             }
         ]
+    },
+    {
+        name: "virtualScrollerOptions",
+        type: "object",
+        default: "null",
+        description: "Whether to use the virtualScroller feature. The properties of VirtualScroller component can be used like an object in it."
     }
 ];
 
@@ -174,6 +180,14 @@ const ListboxSlots = [
     {
         name: "empty",
         description: "Custom content when there is no data to display"
+    },
+    {
+        name: "content",
+        description: "Custom content for the virtual scroller"
+    },
+    {
+        name: "loader",
+        description: "Custom content for the virtual scroller loader items"
     }
 ];
 

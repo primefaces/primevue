@@ -52,7 +52,7 @@ items: [
             window.location.href = 'https://vuejs.org/'
         }
     }
-] 
+]
 </code></pre>
 
         <h5>MenuModel API</h5>
@@ -132,13 +132,13 @@ items: [
                         <td>Whether the actions close when clicked outside.</td>
                     </tr>
                     <tr>
-                        <td>buttonClassName</td>
+                        <td>buttonClass</td>
                         <td>string</td>
                         <td>null</td>
                         <td>Style class of the button element.</td>
                     </tr>
                     <tr>
-                        <td>maskClassName</td>
+                        <td>maskClass</td>
                         <td>string</td>
                         <td>null</td>
                         <td>Style class of the mask element.</td>
@@ -178,6 +178,12 @@ items: [
                         <td>object</td>
                         <td>null</td>
                         <td>Inline style of the element.</td>
+                    </tr>
+                    <tr>
+                        <td>tooltipOptions</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td>Whether to display the tooltip on items. The modifiers of <router-link to="/tooltip">Tooltip</router-link> can be used like an object in it. Valid keys are 'event' and 'position'.</td>
                     </tr>
                 </tbody>
             </table>
@@ -285,44 +291,45 @@ export default {
                     content: `
 <template>
     <div>
+        <Toast />
         <div class="card">
             <h5>Linear</h5>
             <div class="speeddial-linear-demo" :style="{ position: 'relative', height: '500px' }">
                 <SpeedDial :model="items" direction="up" />
                 <SpeedDial :model="items" direction="down" />
                 <SpeedDial :model="items" direction="left" />
-                <SpeedDial :model="items" direction="right" /> 
+                <SpeedDial :model="items" direction="right" />
             </div>
         </div>
 
         <div class="card">
             <h5>Circle, Semi-Circle and Quarter-Circle</h5>
             <div class="speeddial-circle-demo" :style="{ position: 'relative', height: '500px' }">
-                <SpeedDial :model="items" :radius="80" type="circle" buttonClassName="p-button-warning" />
+                <SpeedDial :model="items" :radius="80" type="circle" buttonClass="p-button-warning" />
                 <SpeedDial :model="items" :radius="80" direction="up" type="semi-circle" />
                 <SpeedDial :model="items" :radius="80" direction="down" type="semi-circle" />
                 <SpeedDial :model="items" :radius="80" direction="left" type="semi-circle" />
                 <SpeedDial :model="items" :radius="80" direction="right" type="semi-circle" />
-                <SpeedDial :model="items" :radius="120" direction="up-left" type="quarter-circle" buttonClassName="p-button-success" />
-                <SpeedDial :model="items" :radius="120" direction="up-right" type="quarter-circle" buttonClassName="p-button-success" />
-                <SpeedDial :model="items" :radius="120" direction="down-left" type="quarter-circle" buttonClassName="p-button-success" />
-                <SpeedDial :model="items" :radius="120" direction="down-right" type="quarter-circle" buttonClassName="p-button-success" />
+                <SpeedDial :model="items" :radius="120" direction="up-left" type="quarter-circle" buttonClass="p-button-success" />
+                <SpeedDial :model="items" :radius="120" direction="up-right" type="quarter-circle" buttonClass="p-button-success" />
+                <SpeedDial :model="items" :radius="120" direction="down-left" type="quarter-circle" buttonClass="p-button-success" />
+                <SpeedDial :model="items" :radius="120" direction="down-right" type="quarter-circle" buttonClass="p-button-success" />
             </div>
         </div>
 
         <div class="card">
             <h5>Tooltip</h5>
             <div class="speeddial-tooltip-demo" :style="{ position: 'relative', height: '350px' }">
-                <SpeedDial :model="items" direction="up" class="speeddial-right" buttonClassName="p-button-danger" />
+                <SpeedDial :model="items" direction="up" class="speeddial-right" buttonClass="p-button-danger" :tooltipOptions="{position: 'left'}" />
 
-                <SpeedDial :model="items" direction="up" class="speeddial-left" buttonClassName="p-button-help" />
+                <SpeedDial :model="items" direction="up" class="speeddial-left" buttonClass="p-button-help" :tooltipOptions="{position: 'right'}" />
             </div>
         </div>
 
         <div class="card">
             <h5>Transition Duration, Icon and No Rotate Animation</h5>
             <div class="speeddial-delay-demo" :style="{ position: 'relative', height: '350px' }">
-                <SpeedDial :model="items" direction="up" :transitionDelay="80" showIcon="pi pi-bars" hideIcon="pi pi-times" buttonClassName="p-button-outlined" />
+                <SpeedDial :model="items" direction="up" :transitionDelay="80" showIcon="pi pi-bars" hideIcon="pi pi-times" buttonClass="p-button-outlined" />
             </div>
         </div>
 
@@ -496,44 +503,45 @@ export default {
                     content: `
 <template>
     <div>
+        <Toast />
         <div class="card">
             <h5>Linear</h5>
             <div class="speeddial-linear-demo" :style="{ position: 'relative', height: '500px' }">
                 <SpeedDial :model="items" direction="up" />
                 <SpeedDial :model="items" direction="down" />
                 <SpeedDial :model="items" direction="left" />
-                <SpeedDial :model="items" direction="right" /> 
+                <SpeedDial :model="items" direction="right" />
             </div>
         </div>
 
         <div class="card">
             <h5>Circle, Semi-Circle and Quarter-Circle</h5>
             <div class="speeddial-circle-demo" :style="{ position: 'relative', height: '500px' }">
-                <SpeedDial :model="items" :radius="80" type="circle" buttonClassName="p-button-warning" />
+                <SpeedDial :model="items" :radius="80" type="circle" buttonClass="p-button-warning" />
                 <SpeedDial :model="items" :radius="80" direction="up" type="semi-circle" />
                 <SpeedDial :model="items" :radius="80" direction="down" type="semi-circle" />
                 <SpeedDial :model="items" :radius="80" direction="left" type="semi-circle" />
                 <SpeedDial :model="items" :radius="80" direction="right" type="semi-circle" />
-                <SpeedDial :model="items" :radius="120" direction="up-left" type="quarter-circle" buttonClassName="p-button-success" />
-                <SpeedDial :model="items" :radius="120" direction="up-right" type="quarter-circle" buttonClassName="p-button-success" />
-                <SpeedDial :model="items" :radius="120" direction="down-left" type="quarter-circle" buttonClassName="p-button-success" />
-                <SpeedDial :model="items" :radius="120" direction="down-right" type="quarter-circle" buttonClassName="p-button-success" />
+                <SpeedDial :model="items" :radius="120" direction="up-left" type="quarter-circle" buttonClass="p-button-success" />
+                <SpeedDial :model="items" :radius="120" direction="up-right" type="quarter-circle" buttonClass="p-button-success" />
+                <SpeedDial :model="items" :radius="120" direction="down-left" type="quarter-circle" buttonClass="p-button-success" />
+                <SpeedDial :model="items" :radius="120" direction="down-right" type="quarter-circle" buttonClass="p-button-success" />
             </div>
         </div>
 
         <div class="card">
             <h5>Tooltip</h5>
             <div class="speeddial-tooltip-demo" :style="{ position: 'relative', height: '350px' }">
-                <SpeedDial :model="items" direction="up" class="speeddial-right" buttonClassName="p-button-danger" />
+                <SpeedDial :model="items" direction="up" class="speeddial-right" buttonClass="p-button-danger" :tooltipOptions="{position: 'left'}" />
 
-                <SpeedDial :model="items" direction="up" class="speeddial-left" buttonClassName="p-button-help" />
+                <SpeedDial :model="items" direction="up" class="speeddial-left" buttonClass="p-button-help" :tooltipOptions="{position: 'right'}" />
             </div>
         </div>
 
         <div class="card">
             <h5>Transition Duration, Icon and No Rotate Animation</h5>
             <div class="speeddial-delay-demo" :style="{ position: 'relative', height: '350px' }">
-                <SpeedDial :model="items" direction="up" :transitionDelay="80" showIcon="pi pi-bars" hideIcon="pi pi-times" buttonClassName="p-button-outlined" />
+                <SpeedDial :model="items" direction="up" :transitionDelay="80" showIcon="pi pi-bars" hideIcon="pi pi-times" buttonClass="p-button-outlined" />
             </div>
         </div>
 

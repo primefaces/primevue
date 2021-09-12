@@ -83,6 +83,18 @@ import Dock from 'primevue/dock';
                     <td>null</td>
                     <td>Inline style of the element.</td>
                 </tr>
+                <tr>
+                    <td>exact</td>
+                    <td>boolean</td>
+                    <td>true</td>
+                    <td>Whether to apply 'router-link-active-exact' class if route exactly matches the item path.</td>
+                </tr>
+                <tr>
+                    <td>tooltipOptions</td>
+                    <td>object</td>
+                    <td>null</td>
+                    <td>Whether to display the tooltip on items. The modifiers of <router-link to="/tooltip">Tooltip</router-link> can be used like an object in it. Valid keys are 'event' and 'position'.</td>
+                </tr>
             </tbody>
         </table>
     </div>
@@ -152,7 +164,7 @@ export default {
             <Toast position="top-center" group="tc" />
 
             <h5>Basic</h5>
-            <div className="dock-window">
+            <div class="dock-window">
                 <Dock :model="dockBasicItems" position="bottom"/>
                 <Dock :model="dockBasicItems" position="top"/>
                 <Dock :model="dockBasicItems" position="left"/>
@@ -195,7 +207,7 @@ export default {
                     :circular="true" :fullScreen="true" :showThumbnails="false" :showItemNavigators="true">
                     <template #item="slotProps">
                         <img src='https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png' :alt="slotProps.item.alt" style="width: 100%" />
-                    </template>    
+                    </template>
                 </Galleria>
             </div>
         </div>
@@ -535,7 +547,7 @@ export default {
             <Toast position="top-center" group="tc" />
 
             <h5>Basic</h5>
-            <div className="dock-window">
+            <div class="dock-window">
                 <Dock :model="dockBasicItems" position="bottom"/>
                 <Dock :model="dockBasicItems" position="top"/>
                 <Dock :model="dockBasicItems" position="left"/>
@@ -578,7 +590,7 @@ export default {
                     :circular="true" :fullScreen="true" :showThumbnails="false" :showItemNavigators="true">
                     <template #item="slotProps">
                         <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" :alt="slotProps.item.alt" style="width: 100%" />
-                    </template>    
+                    </template>
                 </Galleria>
             </div>
         </div>
@@ -940,7 +952,7 @@ export default {
         }
     }
 }
-</style>                    
+</style>
 `
                 }
             }

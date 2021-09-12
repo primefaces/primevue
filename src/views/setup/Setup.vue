@@ -16,7 +16,7 @@
             <p>PrimeVue is available at <a href="https://www.npmjs.com/package/primevue">npm</a>, if you have an existing application run the following commands to download PrimeVue and PrimeIcons to your project.</p>
 
 <pre v-code.script><code>
-npm install primevue@3.6.0 --save
+npm install primevue@^3.7.1 --save
 npm install primeicons --save
 
 </code></pre>
@@ -98,7 +98,7 @@ import Dialog from 'primevue/dialog/sfc';
                 },
                 components: {
                     'p-inputtext': primevue.inputtext
-                } 
+                }
             };
 
             createApp(App).mount("#app");
@@ -174,6 +174,7 @@ primevue/resources/themes/mdc-light-indigo/theme.css
 primevue/resources/themes/mdc-light-deeppurple/theme.css
 primevue/resources/themes/mdc-dark-indigo/theme.css
 primevue/resources/themes/mdc-dark-deeppurple/theme.css
+primevue/resources/themes/tailwind/tailwind-light/theme.css
 primevue/resources/themes/fluent-light/theme.css
 primevue/resources/themes/saga-blue/theme.css
 primevue/resources/themes/saga-green/theme.css
@@ -218,7 +219,7 @@ app.use(PrimeVue, {ripple: true});
 
             <h5>Outlined vs Filled Input Styles</h5>
             <p>Input fields come in two styles, default is <i>outlined</i> with borders around the field whereas <i>filled</i> alternative adds a background color
-            to the field. Applying <i>p-input-filled</i> to an ancestor of an input enables the filled style. If you prefer to use filled inputs in the entire application, 
+            to the field. Applying <i>p-input-filled</i> to an ancestor of an input enables the filled style. If you prefer to use filled inputs in the entire application,
             use a global container such as the document body or the application element to apply the style class. Note that in case you add it to the application element, components that are teleported to the document body such as Dialog
             will not be able to display filled inputs as they are not a descendant of the application root element in the DOM tree, to resolve this case set inputStyle to 'filled' at PrimeVue configuration as well.</p>
 
@@ -269,7 +270,7 @@ app.use(PrimeVue, {
                             <th>
                                 <div class="p-d-flex p-ai-center">
                                     <img src="../../assets/images//browsers/edge.svg" alt="edge" style="width: 1.5rem;" class="p-mr-2">
-                                    IE / Edge
+                                    Edge
                                 </div>
                             </th>
                             <th>
@@ -300,7 +301,7 @@ app.use(PrimeVue, {
                     </thead>
                     <tbody>
                         <tr>
-                            <td>IE11, Edge</td>
+                            <td>Edge</td>
                             <td>Last 2 versions</td>
                             <td>Last 2 versions</td>
                             <td>Last 2 versions</td>

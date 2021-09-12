@@ -62,6 +62,18 @@ export default {
 </template>
 </code></pre>
 
+        <p><i>router-link</i> with route configuration can also be used within templating for further customization.</p>
+<pre v-code><code><template v-pre>
+&lt;Steps :model="items"&gt;
+    &lt;template #item="{item}"&gt;
+        &lt;router-link :to="item.to" custom v-slot="{href, route, navigate, isActive, isExactActive}"&gt;
+            &lt;a :href="href" @click="navigate" :class="{'active-link': isActive, 'active-link-exact": isExactActive}&gt;{{route.fullPath}}&lt;/a&gt;
+        &lt;/router-link&gt;
+    &lt;/template&gt;
+&lt;/Steps&gt;
+</template>
+</code></pre>
+
         <h5>Properties</h5>
         <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
 		<div class="doc-tablewrapper">
@@ -92,6 +104,12 @@ export default {
                         <td>boolean</td>
                         <td>true</td>
                         <td>Whether the items are clickable or not.</td>
+                    </tr>
+                    <tr>
+                        <td>exact</td>
+                        <td>boolean</td>
+                        <td>true</td>
+                        <td>Whether to apply 'router-link-active-exact' class if route exactly matches the item path.</td>
                     </tr>
 				</tbody>
 			</table>

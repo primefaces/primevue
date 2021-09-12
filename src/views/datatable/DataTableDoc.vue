@@ -2659,7 +2659,7 @@ export default {
                     <MultiSelect v-model="filterModel.value" :options="representatives" optionLabel="name" placeholder="Any" class="p-column-filter">
                         <template #option="slotProps">
                             <div class="p-multiselect-representative-option">
-                                <img :alt="slotProps.option.name" :src="'demo/images/avatar/' + slotProps.option.image" width="32" style="vertical-align: middle" />
+                                <img :alt="slotProps.option.name" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="32" style="vertical-align: middle" />
                                 <span class="image-text">{{slotProps.option.name}}</span>
                             </div>
                         </template>

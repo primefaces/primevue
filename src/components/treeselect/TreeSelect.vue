@@ -20,7 +20,9 @@
             </div>
         </div>
         <div class="p-treeselect-trigger">
-            <span class="p-treeselect-trigger-icon pi pi-chevron-down"></span>
+            <slot name="indicator">
+                <span class="p-treeselect-trigger-icon pi pi-chevron-down"></span>
+            </slot>
         </div>
         <Teleport :to="appendTarget" :disabled="appendDisabled">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">

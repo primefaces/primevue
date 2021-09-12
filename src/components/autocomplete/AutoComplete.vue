@@ -18,25 +18,32 @@
         <Button ref="dropdownButton" type="button" icon="pi pi-chevron-down" class="p-autocomplete-dropdown" :disabled="$attrs.disabled" @click="onDropdownClick" v-if="dropdown"/>
         <Teleport :to="appendTarget" :disabled="appendDisabled">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
-                <div :ref="overlayRef" :class="panelStyleClass" :style="{'max-height': scrollHeight}" v-if="overlayVisible" @click="onOverlayClick">
+                <div :ref="overlayRef" :class="panelStyleClass" :style="{'max-height': virtualScrollerDisabled ? scrollHeight : ''}" v-if="overlayVisible" @click="onOverlayClick">
                     <slot name="header" :value="modelValue" :suggestions="suggestions"></slot>
-                    <ul :id="listId" class="p-autocomplete-items" role="listbox">
-                        <template v-if="!optionGroupLabel">
-                            <li v-for="(item, i) of suggestions" class="p-autocomplete-item" :key="i" @click="selectItem($event, item)" role="option" v-ripple>
-                                <slot name="item" :item="item" :index="i">{{getItemContent(item)}}</slot>
-                            </li>
+                    <VirtualScroller :ref="virtualScrollerRef" v-bind="virtualScrollerOptions" :style="{'height': scrollHeight}" :items="suggestions" :disabled="virtualScrollerDisabled">
+                        <template v-slot:content="{ styleClass, contentRef, items, getItemOptions }">
+                            <ul :id="listId" :ref="contentRef" :class="['p-autocomplete-items', styleClass]" role="listbox">
+                                <template v-if="!optionGroupLabel">
+                                    <li v-for="(item, i) of items" class="p-autocomplete-item" :key="i" @click="selectItem($event, item)" role="option" v-ripple>
+                                        <slot name="item" :item="item" :index="getOptionIndex(i, getItemOptions)">{{getItemContent(item)}}</slot>
+                                    </li>
+                                </template>
+                                <template v-else>
+                                    <template v-for="(optionGroup, i) of items" :key="getOptionGroupRenderKey(optionGroup)">
+                                        <li  class="p-autocomplete-item-group">
+                                            <slot name="optiongroup" :item="optionGroup" :index="getOptionIndex(i, getItemOptions)">{{getOptionGroupLabel(optionGroup)}}</slot>
+                                        </li>
+                                        <li v-for="(item, j) of getOptionGroupChildren(optionGroup)" class="p-autocomplete-item" :key="j" @click="selectItem($event, item)" role="option" v-ripple :data-group="i" :data-index="j">
+                                            <slot name="item" :item="item" :index="getOptionIndex(j, getItemOptions)">{{getItemContent(item)}}</slot>
+                                        </li>
+                                    </template>
+                                </template>
+                            </ul>
                         </template>
-                        <template v-else>
-                            <template v-for="(optionGroup, i) of suggestions" :key="getOptionGroupRenderKey(optionGroup)">
-                                <li  class="p-autocomplete-item-group">
-                                    <slot name="optiongroup" :item="optionGroup" :index="i">{{getOptionGroupLabel(optionGroup)}}</slot>
-                                </li>
-                                <li v-for="(item, j) of getOptionGroupChildren(optionGroup)" class="p-autocomplete-item" :key="j" @click="selectItem($event, item)" role="option" v-ripple :data-group="i" :data-index="j">
-                                    <slot name="item" :item="item" :index="j">{{getItemContent(item)}}</slot>
-                                </li>
-                            </template>
+                        <template v-slot:loader="{ options }" v-if="$slots.loader">
+                            <slot name="loader" :options="options"></slot>
                         </template>
-                    </ul>
+                    </VirtualScroller>
                     <slot name="footer" :value="modelValue" :suggestions="suggestions"></slot>
                 </div>
             </transition>
@@ -49,6 +56,7 @@ import {ConnectedOverlayScrollHandler,UniqueComponentId,ObjectUtils,DomHandler,Z
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Button from 'primevue/button';
 import Ripple from 'primevue/ripple';
+import VirtualScroller from 'primevue/virtualscroller';
 
 export default {
     name: 'AutoComplete',
@@ -106,13 +114,18 @@ export default {
         inputStyle: null,
         class: null,
         style: null,
-        panelClass: null
+        panelClass: null,
+        virtualScrollerOptions: {
+            type: Object,
+            default: null
+        }
     },
     timeout: null,
     outsideClickListener: null,
     resizeListener: null,
     scrollHandler: null,
     overlay: null,
+    virtualScroller: null,
     data() {
         return {
             searching: false,
@@ -154,6 +167,9 @@ export default {
         }
     },
     methods: {
+        getOptionIndex(index, fn) {
+            return this.virtualScrollerDisabled ? index : (fn && fn(index)['index']);
+        },
         getOptionGroupRenderKey(optionGroup) {
             return ObjectUtils.resolveFieldData(optionGroup, this.optionGroupLabel);
         },
@@ -529,6 +545,9 @@ export default {
         overlayRef(el) {
             this.overlay = el;
         },
+        virtualScrollerRef(el) {
+            this.virtualScroller = el;
+        },
         onOverlayClick(event) {
             OverlayEventBus.emit('overlay-click', {
                 originalEvent: event,
@@ -585,10 +604,14 @@ export default {
         },
         appendTarget() {
             return this.appendDisabled ? null : this.appendTo;
+        },
+        virtualScrollerDisabled() {
+            return !this.virtualScrollerOptions;
         }
     },
     components: {
-        'Button': Button
+        'Button': Button,
+        'VirtualScroller': VirtualScroller
     },
     directives: {
         'ripple': Ripple

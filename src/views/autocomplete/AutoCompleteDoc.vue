@@ -68,7 +68,7 @@ export default {
         return {
             selectedGroupedCity: null,
             groupedCities: [{
-                label: 'Germany', code: 'DE', 
+                label: 'Germany', code: 'DE',
                 items: [
                     {label: 'Berlin', value: 'Berlin'},
                     {label: 'Frankfurt', value: 'Frankfurt'},
@@ -77,7 +77,7 @@ export default {
                 ]
             },
             {
-                label: 'USA', code: 'US', 
+                label: 'USA', code: 'US',
                 items: [
                     {label: 'Chicago', value: 'Chicago'},
                     {label: 'Los Angeles', value: 'Los Angeles'},
@@ -86,7 +86,7 @@ export default {
                 ]
             },
             {
-                label: 'Japan', code: 'JP', 
+                label: 'Japan', code: 'JP',
                 items: [
                     {label: 'Kyoto', value: 'Kyoto'},
                     {label: 'Osaka', value: 'Osaka'},
@@ -100,7 +100,7 @@ export default {
 </code></pre>
 
 <pre v-code><code><template v-pre>
-&lt;AutoComplete v-model="selectedCity" :suggestions="filteredCities" @complete="searchCity($event)" 
+&lt;AutoComplete v-model="selectedCity" :suggestions="filteredCities" @complete="searchCity($event)"
     field="label" optionGroupLabel="label" optionGroupChildren="items"&gt;&lt;/AutoComplete&gt;
 </template>
 </code></pre>
@@ -114,7 +114,7 @@ export default {
 </code></pre>
 
 		<h5>Templating</h5>
-		<p>Item template allows displaying custom content inside the suggestions panel. The slotProps variable passed to the template provides an item property to represent an item in the suggestions collection. 
+		<p>Item template allows displaying custom content inside the suggestions panel. The slotProps variable passed to the template provides an item property to represent an item in the suggestions collection.
             In addition <i>optiongroup</i>, <i>chip</i>, <i>header</i> and <i>footer</i> slots are provided for further customization</p>
 <pre v-code><code><template v-pre>
 &lt;AutoComplete v-model="brand" :suggestions="filteredBrands" @complete="searchBrand($event)" placeholder="Hint: type 'v' or 'f'" :dropdown="true"&gt;
@@ -255,6 +255,12 @@ export default {
                         <td>null</td>
                         <td>Style class of the overlay panel.</td>
                     </tr>
+                    <tr>
+                        <td>virtualScrollerOptions</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td>Whether to use the virtualScroller feature. The properties of <router-link to="/virtualscroller">VirtualScroller</router-link> component can be used like an object in it.</td>
+                    </tr>
 				</tbody>
 			</table>
 		</div>
@@ -342,6 +348,17 @@ export default {
                         <td>chip</td>
                         <td>value: A value in the selection</td>
                     </tr>
+                    <tr>
+                        <td>content</td>
+                        <td>items: An array of objects to display for virtualscroller<br />
+                            styleClass: Style class of the component<br />
+                            contentRef: Referance of the content<br />
+                            getItemOptions: Options of the items</td>
+                    </tr>
+                    <tr>
+                        <td>loader</td>
+                        <td>options: Options of the loader items for virtualscroller</td>
+                    </tr>
 				</tbody>
 			</table>
         </div>
@@ -428,6 +445,9 @@ export default {
                 </template>
             </AutoComplete>
 
+            <h5>Virtual Scroll (1000 Items)</h5>
+            <AutoComplete v-model="selectedItem" :suggestions="filteredItems" @complete="searchItems" :virtualScrollerOptions="{ itemSize: 31 }" field="label" dropdown />
+
             <h5>Multiple</h5>
             <span class="p-fluid">
                 <AutoComplete :multiple="true" v-model="selectedCountries" :suggestions="filteredCountries" @complete="searchCountry($event)" field="name" />
@@ -450,8 +470,10 @@ export default {
             filteredCities: null,
             filteredCountries: null,
             selectedCountries: [],
+            selectedItem: null,
+            filteredItems: null,
             groupedCities: [{
-                label: 'Germany', code: 'DE', 
+                label: 'Germany', code: 'DE',
                 items: [
                     {label: 'Berlin', value: 'Berlin'},
                     {label: 'Frankfurt', value: 'Frankfurt'},
@@ -460,7 +482,7 @@ export default {
                 ]
             },
             {
-                label: 'USA', code: 'US', 
+                label: 'USA', code: 'US',
                 items: [
                     {label: 'Chicago', value: 'Chicago'},
                     {label: 'Los Angeles', value: 'Los Angeles'},
@@ -469,14 +491,15 @@ export default {
                 ]
             },
             {
-                label: 'Japan', code: 'JP', 
+                label: 'Japan', code: 'JP',
                 items: [
                     {label: 'Kyoto', value: 'Kyoto'},
                     {label: 'Osaka', value: 'Osaka'},
                     {label: 'Tokyo', value: 'Tokyo'},
                     {label: 'Yokohama', value: 'Yokohama'}
                 ]
-            }]
+            }],
+            items: Array.from({ length: 1000 }, (_, i) => ({ label: \`Item #\${i}\`, value: i }))
         }
     },
     countryService: null,
@@ -511,6 +534,20 @@ export default {
             }
 
             this.filteredCities = filteredCities;
+        },
+        searchItems(event) {
+            //in a real application, make a request to a remote url with the query and return filtered results, for demo we filter at client side
+            let query = event.query;
+            let filteredItems = [];
+
+            for(let i = 0; i < this.items.length; i++) {
+                let item = this.items[i];
+                if (item.label.toLowerCase().indexOf(query.toLowerCase()) === 0) {
+                    filteredItems.push(item);
+                }
+            }
+
+            this.filteredItems = filteredItems;
         }
     }
 }
@@ -545,6 +582,9 @@ export default {
                 </template>
             </AutoComplete>
 
+            <h5>Virtual Scroll (1000 Items)</h5>
+            <AutoComplete v-model="selectedItem" :suggestions="filteredItems" @complete="searchItems" :virtualScrollerOptions="{ itemSize: 31 }" field="label" dropdown />
+
             <h5>Multiple</h5>
             <span class="p-fluid">
                 <AutoComplete :multiple="true" v-model="selectedCountries" :suggestions="filteredCountries" @complete="searchCountry($event)" field="name" />
@@ -572,6 +612,8 @@ export default {
         const filteredCities = ref();
         const filteredCountries = ref();
         const selectedCountries = ref([]);
+        const selectedItem = ref();
+        const filteredItems = ref();
         const groupedCities = ref ([{
             label: 'Germany', code: 'DE',
             items: [
@@ -599,6 +641,8 @@ export default {
                 {label: 'Yokohama', value: 'Yokohama'}
             ]
         }]);
+        const items = Array.from({ length: 1000 }, (_, i) => ({ label: \`Item #\${i}\`, value: i }));
+
         const searchCountry = (event) => {
             setTimeout(() => {
                 if (!event.query.trim().length) {
@@ -624,7 +668,22 @@ export default {
 
             filteredCities.value = newFilteredCities;
         }
-        return { countries, countryService, selectedCountry1, selectedCountry2, selectedCity, filteredCities, filteredCountries, selectedCountries, groupedCities, searchCountry, searchCity }
+        const searchItems = (event) => {
+            //in a real application, make a request to a remote url with the query and return filtered results, for demo we filter at client side
+            let query = event.query;
+            let _filteredItems = [];
+
+            for(let i = 0; i < this.items.length; i++) {
+                let item = this.items[i];
+                if (item.label.toLowerCase().indexOf(query.toLowerCase()) === 0) {
+                    _filteredItems.push(item);
+                }
+            }
+
+            filteredItems.value = _filteredItems;
+        }
+
+        return { countries, countryService, selectedCountry1, selectedCountry2, selectedCity, filteredCities, filteredCountries, selectedCountries, groupedCities, searchCountry, searchCity, searchItems, selectedItem, filteredItems, items }
     }
 }
 <\\/script>`

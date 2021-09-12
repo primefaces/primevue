@@ -28,31 +28,33 @@ const CheckboxProps = [
         type: "any",
         default: "null",
         description: "Inline of the component."
+    },
+    {
+        name: "trueValue",
+        type: "any",
+        default: "true",
+        description: "Value in checked state."
+    },
+    {
+        name: "falseValue",
+        type: "any",
+        default: "true",
+        description: "Value in unchecked state."
     }
 ];
 
 const CheckboxEvents = [
     {
-        "name": "click",
-        "description": "Callback to invoke on value click.",
-        arguments: [
-            {
-                name: "event",
-                type: "object",
-                description: "Browser event"
-            }
-        ]
+        name: "click",
+        description: "Callback to invoke on value click.",
     },
     {
-        "name": "change",
-        "description": "Callback to invoke on value change.",
-        arguments: [
-            {
-                name: "event",
-                type: "object",
-                description: "Browser event"
-            }
-        ]
+        name: "change",
+        description: "Callback to invoke on value change.",
+    },
+    {
+        name: "input",
+        description: "Callback to invoke on value change."
     }
 ];
 

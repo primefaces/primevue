@@ -1,4 +1,5 @@
 import { VNode } from 'vue';
+import { VirtualScrollerProps } from '../virtualscroller';
 
 interface DropdownProps {
     modelValue?: any;
@@ -28,6 +29,7 @@ interface DropdownProps {
     panelClass?: string;
     loading?: boolean;
     loadingIcon?: string;
+    virtualScrollerOptions?: VirtualScrollerProps;
 }
 
 declare class Dropdown {
@@ -49,6 +51,9 @@ declare class Dropdown {
         optiongroup: VNode[];
         emptyfilter: VNode[];
         empty: VNode[];
+        content: VNode[];
+        loader: VNode[];
+        indicator: VNode[];
     }
 }
 

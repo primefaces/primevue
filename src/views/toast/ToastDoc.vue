@@ -221,6 +221,21 @@ this.$toast.add({severity:'success', summary: 'Specific Message', group: 'mykey'
 
 </code></pre>
 
+        <h5>Constants</h5>
+        <p>ToastSeverity constants API is provided to easily choose a severity of the message with typescript.</p>
+<pre v-code.script><code>
+import {ToastSeverity} from 'primevue/api';
+
+export default {
+    methods: {
+        showInfo() {
+            this.$toast.add({severity: ToastSeverity.INFO, summary: 'Info Message', detail:'Message Content', life: 3000});
+        }
+    }
+}
+
+</code></pre>
+
 		<h5>Properties</h5>
 		<div class="doc-tablewrapper">
 			<table class="doc-table">
@@ -266,6 +281,24 @@ this.$toast.add({severity:'success', summary: 'Specific Message', group: 'mykey'
 				</tbody>
 			</table>
 		</div>
+
+        <h5>Slots</h5>
+		<div class="doc-tablewrapper">
+            <table class="doc-table">
+				<thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Parameters</th>
+                    </tr>
+				</thead>
+				<tbody>
+                    <tr>
+                        <td>message</td>
+                        <td>-</td>
+                    </tr>
+				</tbody>
+			</table>
+        </div>
 
 		<h5>Styling</h5>
 		<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>

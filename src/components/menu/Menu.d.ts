@@ -6,6 +6,7 @@ interface MenuProps {
     appendTo?: string;
     autoZIndex?: boolean;
     baseZIndex?: number;
+    exact?: boolean;
 }
 
 declare class Menu {

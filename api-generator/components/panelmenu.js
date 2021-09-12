@@ -10,6 +10,12 @@ const PanelMenuProps = [
         type: "array",
         default: "null",
         description: "A map of keys to represent the expansion state in controlled mode."
+    },
+    {
+        name: "exact",
+        type: "boolean",
+        default: "true",
+        description: "Whether to apply 'router-link-active-exact' class if route exactly matches the item path."
     }
 ];
 
