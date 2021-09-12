@@ -18,13 +18,6 @@
 
                 <Sidebar v-model:visible="visibleLeft" :baseZIndex="1000">
                     <h3>Left Sidebar</h3>
-                    <!--  -->
-                     <Button
-                      type="button"
-                      label="Toast from page template"
-                      @click="toastFromPage"
-                    />
-                    <!--  -->
                 </Sidebar>
 
                 <Sidebar v-model:visible="visibleRight" :baseZIndex="1000" position="right">
@@ -51,11 +44,6 @@
 
 <script>
 import SidebarDoc from './SidebarDoc';
-// 
-import { ref } from "vue";
-import { useToast } from "primevue/usetoast";
-// 
-
 export default {
     data() {
         return {
@@ -68,41 +56,6 @@ export default {
     },
     components: {
         'SidebarDoc': SidebarDoc
-    },
-    // 
-    setup() {
-        const showSidebar = ref(true);
-
-        const toast = useToast();
-
-        function toastFromPage() {
-          toast.add({
-            severity: "success",
-            detail: "Detail from page",
-            summary: "Summary from page",
-          });
-        }
-
-        function toastOnSidebar() {
-          toast.add({
-            severity: "success",
-            group: "toast_on_sidebar",
-            detail: "Detail from sidebar",
-            summary: "Summary from summary",
-          });
-        }
-
-        function toggleSidebar() {
-          showSidebar.value = !showSidebar.value;
-        }
-
-        return {
-            showSidebar,
-            toggleSidebar,
-            toastFromPage,
-            toastOnSidebar,
-        };
-    },
-    // 
+    }
 }
 </script>

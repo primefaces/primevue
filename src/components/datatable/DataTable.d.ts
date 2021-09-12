@@ -34,7 +34,7 @@ interface DataTableProps {
     metaKeySelection?: boolean;
     contextMenu?: boolean;
     contextMenuSelection?: any;
-    rowmouseover?: boolean;
+    rowHover?: boolean;
     csvSeparator?: string;
     exportFilename?: string;
     autoLayout?: boolean;
