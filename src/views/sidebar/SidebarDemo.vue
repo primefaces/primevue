@@ -44,6 +44,7 @@
 
 <script>
 import SidebarDoc from './SidebarDoc';
+
 export default {
     data() {
         return {
