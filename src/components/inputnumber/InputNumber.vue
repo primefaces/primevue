@@ -776,16 +776,16 @@ export default {
             return false;
         },
         validateValue(value) {
+            if (value === '-' || value == null) {
+                return null;
+            }
+
             if (this.min != null && value < this.min) {
                 return this.min;
             }
 
             if (this.max != null && value > this.max) {
                 return this.max;
-            }
-
-            if (value === '-') { // Minus sign
-                return null;
             }
 
             return value;
