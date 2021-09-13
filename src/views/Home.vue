@@ -131,6 +131,11 @@
 
             <div class="p-grid">
                 <div class="p-col-12 p-md-3">
+                    <a href="https://www.primefaces.org/sakai-vue">
+                        <img alt="Sakai" src="../assets/images/layouts/sakai-vue.jpg">
+                    </a>
+                </div>
+                <div class="p-col-12 p-md-3">
                     <a href="https://www.primefaces.org/layouts/freya-vue">
                         <img alt="Ultima" src="../assets/images/layouts/freya-vue.png">
                     </a>
@@ -183,19 +188,6 @@
                 <div class="p-col-12 p-md-3"></div>
             </div>
         </div>
-        <div class="templates">
-            <h4>Free Application Template for PrimeVue</h4>
-            <p>Sigma is a free and open source admin template based on <a href="https://cli.vuejs.org">Vue-CLI</a>.</p>
-
-            <div class="p-grid">
-                <div class="p-col-12">
-                    <a href="https://www.primefaces.org/sigma-vue">
-                        <img alt="Sigma" src="../assets/images/layouts/sigma.jpg" />
-                    </a>
-                </div>
-            </div>
-        </div>
-
         <div class="primevue-designer">
             <h4>Theme Designer</h4>
             <p>PrimeVue is a design-agnostic library and the theming system is based on the Theme Designer, the official tool to create themes for the components. Designer includes a SASS enabled infrastructure that has over 500 customizable variables, a live editor
