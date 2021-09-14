@@ -38,7 +38,7 @@
                             <CFButton type="button" :label="addRuleButtonLabel" icon="pi pi-plus" class="p-column-filter-add-button p-button-text p-button-sm" @click="addConstraint()"></CFButton>
                         </div>
                         <div class="p-column-filter-buttonbar">
-                            <CFButton v-if="!filterClearTemplate" type="button" class="p-button-outlined p-button-sm" @click="clearFilter()" :label="clearButtonLabel"></CFButton>
+                            <CFButton v-if="!filterClearTemplate && showClearButton" type="button" class="p-button-outlined p-button-sm" @click="clearFilter()" :label="clearButtonLabel"></CFButton>
                             <component v-else :is="filterClearTemplate" :field="field" :filterModel="filters[field]" :filterCallback="clearFilter" />
                             <template v-if="showApplyButton">
                                 <CFButton v-if="!filterApplyTemplate" type="button" class="p-button-sm" @click="applyFilter()" :label="applyButtonLabel"></CFButton>
@@ -446,7 +446,7 @@ export default {
         },
         overlayClass() {
             return [this.filterMenuClass, {
-                'p-column-filter-overlay p-component p-fluid': true, 
+                'p-column-filter-overlay p-component p-fluid': true,
                 'p-column-filter-overlay-menu': this.display === 'menu',
                 'p-input-filled': this.$primevue.config.inputStyle === 'filled',
                 'p-ripple-disabled': this.$primevue.config.ripple === false
