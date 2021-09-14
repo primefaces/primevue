@@ -262,7 +262,7 @@ const Tooltip = {
     beforeMount(el, options) {
         let target = getTarget(el);
         target.$_ptooltipModifiers = getModifiers(options);
-        
+
         if (!options.value) return;
         else if (typeof options.value === 'string') {
             target.$_ptooltipValue = options.value;
@@ -292,13 +292,14 @@ const Tooltip = {
         let target = getTarget(el);
         target.$_ptooltipModifiers = getModifiers(options);
 
+        if (!options.value) return;
         if (typeof options.value === 'string') {
             target.$_ptooltipValue = options.value;
             target.$_ptooltipDisabled = false;
         }
         else {
             target.$_ptooltipValue = options.value.value;
-            target.$_ptooltipDisabled = options.value.disabled;
+            target.$_ptooltipDisabled = options.value.disabled || false;
         }
     }
 };
