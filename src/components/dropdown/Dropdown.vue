@@ -206,20 +206,20 @@ export default {
         },
         getSelectedOption() {
             let index = this.getSelectedOptionIndex();
-            return index !== -1 ? (this.optionGroupLabel ? this.getOptionGroupChildren(this.options[index.group])[index.option]: this.options[index]) : null;
+            return index !== -1 ? (this.optionGroupLabel ? this.getOptionGroupChildren(this.visibleOptions[index.group])[index.option]: this.visibleOptions[index]) : null;
         },
         getSelectedOptionIndex() {
-            if (this.modelValue != null && this.options) {
+            if (this.modelValue != null && this.visibleOptions) {
                 if (this.optionGroupLabel) {
-                    for (let i = 0; i < this.options.length; i++) {
-                        let selectedOptionIndex = this.findOptionIndexInList(this.modelValue, this.getOptionGroupChildren(this.options[i]));
+                    for (let i = 0; i < this.visibleOptions.length; i++) {
+                        let selectedOptionIndex = this.findOptionIndexInList(this.modelValue, this.getOptionGroupChildren(this.visibleOptions[i]));
                         if (selectedOptionIndex !== -1) {
                             return {group: i, option: selectedOptionIndex};
                         }
                     }
                 }
                 else {
-                    return this.findOptionIndexInList(this.modelValue, this.options);
+                    return this.findOptionIndexInList(this.modelValue, this.visibleOptions);
                 }
             }
 
