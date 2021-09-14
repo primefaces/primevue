@@ -40,6 +40,7 @@
   --surface-overlay:#1e1e1e;
   --surface-border:#383838;
   --surface-hover:rgba(255,255,255,.03);
+  --focus-ring: 0 0 0 1px #ffe284;
 }
 
 * {

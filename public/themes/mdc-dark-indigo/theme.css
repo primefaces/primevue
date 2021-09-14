@@ -40,6 +40,7 @@
   --surface-overlay:#262626;
   --surface-border:hsla(0,0%,100%,.12);
   --surface-hover:hsla(0,0%,100%,.04);
+  --focus-ring: none;
 }
 
 /* roboto-regular - latin-ext_latin */

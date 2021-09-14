@@ -40,6 +40,7 @@
   --surface-overlay:#ffffff;
   --surface-border:#dadada;
   --surface-hover: #eaeaea;
+  --focus-ring: 0 0 0 0.2rem #e4e9ec;
 }
 
 * {
