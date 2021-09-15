@@ -103,13 +103,11 @@ export default {
                 this.list.style.setProperty('--item-diff-y', `${hDiff / 2}px`);
             }
         }
-
+    },
+    beforeMount() {
         if (this.hideOnClickOutside) {
             this.bindDocumentClickListener();
         }
-    },
-    beforeMount() {
-        this.bindDocumentClickListener();
     },
     methods: {
         onItemClick(e, item) {
