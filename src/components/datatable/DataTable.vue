@@ -396,6 +396,8 @@ export default {
         }
     },
     mounted() {
+        this.$el.setAttribute(this.attributeSelector, '');
+
         if (this.responsiveLayout === 'stack' && !this.scrollable) {
             this.createResponsiveStyle();
         }
@@ -406,6 +408,7 @@ export default {
     },
     beforeUnmount() {
         this.unbindColumnResizeEvents();
+        this.destroyStyleElement();
         this.destroyResponsiveStyle();
     },
     updated() {
@@ -1108,22 +1111,27 @@ export default {
         },
         resizeTableCells(newColumnWidth, nextColumnWidth) {
             let colIndex = DomHandler.index(this.resizeColumnElement);
-            let children = this.$refs.table.children;
-            for (let child of children) {
-                for (let row of child.children) {
-                    let resizeCell = row.children[colIndex];
-                    if (resizeCell) {
-                        resizeCell.style.flex = '0 0 ' + newColumnWidth + 'px';
+            let widths = [];
+            let headers = DomHandler.find(this.$refs.table, '.p-datatable-thead > tr > th');
+            headers.forEach(header => widths.push(DomHandler.getOuterWidth(header)));
 
-                        if (this.columnResizeMode === 'fit') {
-                            let nextCell = resizeCell.nextElementSibling;
-                            if (nextCell) {
-                                nextCell.style.flex = '0 0 ' + nextColumnWidth + 'px';
-                            }
-                        }
+            this.destroyStyleElement();
+            this.createStyleElement();
+
+            let innerHTML = '';
+            widths.forEach((width,index) => {
+                let colWidth = index === colIndex ? newColumnWidth : (nextColumnWidth && index === colIndex + 1) ? nextColumnWidth : width;
+                innerHTML += `
+                    .p-datatable[${this.attributeSelector}] .p-datatable-thead > tr > th:nth-child(${index+1}) {
+                        flex: 0 0 ${colWidth}px !important;
                     }
-                }
-            }
+
+                    .p-datatable[${this.attributeSelector}] .p-datatable-tbody > tr > td:nth-child(${index+1}) {
+                        flex: 0 0 ${colWidth}px !important;
+                    }
+                `
+            });
+            this.styleElement.innerHTML = innerHTML;
         },
         bindColumnResizeEvents() {
             if (!this.documentColumnResizeListener) {
@@ -1545,7 +1553,27 @@ export default {
                     this.$el.style.width = this.tableWidthState;
                 }
 
-                DomHandler.find(this.$refs.table, '.p-datatable-thead > tr > th').forEach((header, index) => header.style.width = widths[index] + 'px');
+                this.createStyleElement();
+
+                if (this.scrollable && widths && widths.length > 0) {
+                    let innerHTML = '';
+                    widths.forEach((width,index) => {
+                        innerHTML += `
+                            .p-datatable[${this.attributeSelector}] .p-datatable-thead > tr > th:nth-child(${index+1}) {
+                                flex: 0 0 ${width}px;
+                            }
+
+                            .p-datatable[${this.attributeSelector}] .p-datatable-tbody > tr > td:nth-child(${index+1}) {
+                                flex: 0 0 ${width}px;
+                            }
+                        `
+                    });
+
+                    this.styleElement.innerHTML = innerHTML;
+                }
+                else {
+                    DomHandler.find(this.$refs.table, '.p-datatable-thead > tr > th').forEach((header, index) => header.style.width = widths[index] + 'px');
+                }
             }
         },
         onCellEditInit(event) {
@@ -1631,12 +1659,16 @@ export default {
             this.columns.forEach(col => columnOrder.push(this.columnProp(col, 'columnKey')||this.columnProp(col, 'field')));
             this.d_columnOrder = columnOrder;
         },
+        createStyleElement() {
+            this.styleElement = document.createElement('style');
+            this.styleElement.type = 'text/css';
+            document.head.appendChild(this.styleElement);
+        },
         createResponsiveStyle() {
-			if (!this.styleElement) {
-                this.$el.setAttribute(this.attributeSelector, '');
-				this.styleElement = document.createElement('style');
-				this.styleElement.type = 'text/css';
-				document.head.appendChild(this.styleElement);
+			if (!this.responsiveStyleElement) {
+				this.responsiveStyleElement = document.createElement('style');
+				this.responsiveStyleElement.type = 'text/css';
+				document.head.appendChild(this.responsiveStyleElement);
 
                 let innerHTML = `
 @media screen and (max-width: ${this.breakpoint}) {
@@ -1668,10 +1700,16 @@ export default {
 }
 `;
 
-                this.styleElement.innerHTML = innerHTML;
+                this.responsiveStyleElement.innerHTML = innerHTML;
 			}
 		},
         destroyResponsiveStyle() {
+            if (this.responsiveStyleElement) {
+                document.head.removeChild(this.responsiveStyleElement);
+                this.responsiveStyleElement = null;
+            }
+        },
+        destroyStyleElement() {
             if (this.styleElement) {
                 document.head.removeChild(this.styleElement);
                 this.styleElement = null;
