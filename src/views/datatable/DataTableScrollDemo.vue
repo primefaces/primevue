@@ -42,19 +42,19 @@
             <div class="card">
                 <h5>Horizontal and Vertical with Footer</h5>
                 <DataTable :value="customers2" :scrollable="true" scrollHeight="400px" :loading="loading" scrollDirection="both">
-                    <Column field="id" header="Id" footer="Id" style="width:100px"></Column>
-                    <Column field="name" header="Name" footer="Name" style="width:200px"></Column>
-                    <Column field="country.name" header="Country" footer="Country" style="width:200px"></Column>
-                    <Column field="date" header="Date" footer="Date" style="width:200px"></Column>
-                    <Column field="balance" header="Balance" footer="Balance" style="width:200px">
+                    <Column field="id" header="Id" footer="Id" style="flex-growl:1; flex-basis:100px"></Column>
+                    <Column field="name" header="Name" footer="Name" style="flex-growl:1; flex-basis:200px"></Column>
+                    <Column field="country.name" header="Country" footer="Country" style="flex-growl:1; flex-basis:200px"></Column>
+                    <Column field="date" header="Date" footer="Date" style="flex-growl:1; flex-basis:200px"></Column>
+                    <Column field="balance" header="Balance" footer="Balance" style="flex-growl:1; flex-basis:200px">
                         <template #body="{data}">
                             {{formatCurrency(data.balance)}}
                         </template>
                     </Column>
-                    <Column field="company" header="Company" footer="Company" style="width:200px"></Column>
-                    <Column field="status" header="Status" footer="Status" style="width:200px"></Column>
-                    <Column field="activity" header="Activity" footer="Activity" style="width:200px"></Column>
-                    <Column field="representative.name" header="Representative" footer="Representative" style="width:200px"></Column>
+                    <Column field="company" header="Company" footer="Company" style="flex-growl:1; flex-basis:200px"></Column>
+                    <Column field="status" header="Status" footer="Status" style="flex-growl:1; flex-basis:200px"></Column>
+                    <Column field="activity" header="Activity" footer="Activity" style="flex-growl:1; flex-basis:200px"></Column>
+                    <Column field="representative.name" header="Representative" footer="Representative" style="flex-growl:1; flex-basis:200px"></Column>
                 </DataTable>
             </div>
 
@@ -76,19 +76,19 @@
 
             <div class="card">
                 <h5>Frozen Columns</h5>
-                <ToggleButton v-model="balanceFrozen" onIcon="pi pi-lock" offIcon="pi pi-lock-open" onLabel="Unfreeze Balance" offLabel="Freeze Balance" style="width: 12rem" />
+                <ToggleButton v-model="balanceFrozen" onIcon="pi pi-lock" offIcon="pi pi-lock-open" onLabel="Unfreeze Balance" offLabel="Freeze Balance" style="flex-growl:1; flex-basis: 12rem" />
 
                 <DataTable :value="customers2" :scrollable="true" scrollHeight="400px" :loading="loading" scrollDirection="both" class="p-mt-3">
-                    <Column field="name" header="Name" style="width:160px" frozen></Column>
-                    <Column field="id" header="Id" style="width:100px"></Column>
-                    <Column field="name" header="Name" style="width:200px"></Column>
-                    <Column field="country.name" header="Country" style="width:200px"></Column>
-                    <Column field="date" header="Date" style="width:200px"></Column>
-                    <Column field="company" header="Company" style="width:200px"></Column>
-                    <Column field="status" header="Status" style="width:200px"></Column>
-                    <Column field="activity" header="Activity" style="width:200px"></Column>
-                    <Column field="representative.name" header="Representative" style="width:200px"></Column>
-                    <Column field="balance" header="Balance" style="width:120px" alignFrozen="right" :frozen="balanceFrozen">
+                    <Column field="name" header="Name" style="flex-growl:1; flex-basis:160px" frozen></Column>
+                    <Column field="id" header="Id" style="flex-growl:1;flex-basis:100px"></Column>
+                    <Column field="name" header="Name" style="flex-growl:1; flex-basis:200px"></Column>
+                    <Column field="country.name" header="Country" style="flex-growl:1; flex-basis:200px"></Column>
+                    <Column field="date" header="Date" style="flex-growl:1; flex-basis:200px"></Column>
+                    <Column field="company" header="Company" style="flex-growl:1; flex-basis:200px"></Column>
+                    <Column field="status" header="Status" style="flex-growl:1; flex-basis:200px"></Column>
+                    <Column field="activity" header="Activity" style="flex-growl:1; flex-basis:200px"></Column>
+                    <Column field="representative.name" header="Representative" style="flex-growl:1; flex-basis:200px"></Column>
+                    <Column field="balance" header="Balance" style="flex-growl:1; flex-basis:120px" alignFrozen="right" :frozen="balanceFrozen">
                         <template #body="{data}">
                              <span class="p-text-bold">{{formatCurrency(data.balance)}}</span>
                         </template>
@@ -180,19 +180,19 @@ export default {
         <div class="card">
             <h5>Horizontal and Vertical with Footer</h5>
             <DataTable :value="customers2" :scrollable="true" scrollHeight="400px" :loading="loading" scrollDirection="both">
-                <Column field="id" header="Id" footer="Id" style="width:100px"></Column>
-                <Column field="name" header="Name" footer="Name" style="width:200px"></Column>
-                <Column field="country.name" header="Country" footer="Country" style="width:200px"></Column>
-                <Column field="date" header="Date" footer="Date" style="width:200px"></Column>
-                <Column field="balance" header="Balance" footer="Balance" style="width:200px">
+                <Column field="id" header="Id" footer="Id" style="flex-growl:1; flex-basis:100px"></Column>
+                <Column field="name" header="Name" footer="Name" style="flex-growl:1; flex-basis:200px"></Column>
+                <Column field="country.name" header="Country" footer="Country" style="flex-growl:1; flex-basis:200px"></Column>
+                <Column field="date" header="Date" footer="Date" style="flex-growl:1; flex-basis:200px"></Column>
+                <Column field="balance" header="Balance" footer="Balance" style="flex-growl:1; flex-basis:200px">
                     <template #body="{data}">
                         {{formatCurrency(data.balance)}}
                     </template>
                 </Column>
-                <Column field="company" header="Company" footer="Company" style="width:200px"></Column>
-                <Column field="status" header="Status" footer="Status" style="width:200px"></Column>
-                <Column field="activity" header="Activity" footer="Activity" style="width:200px"></Column>
-                <Column field="representative.name" header="Representative" footer="Representative" style="width:200px"></Column>
+                <Column field="company" header="Company" footer="Company" style="flex-growl:1; flex-basis:200px"></Column>
+                <Column field="status" header="Status" footer="Status" style="flex-growl:1; flex-basis:200px"></Column>
+                <Column field="activity" header="Activity" footer="Activity" style="flex-growl:1; flex-basis:200px"></Column>
+                <Column field="representative.name" header="Representative" footer="Representative" style="flex-growl:1; flex-basis:200px"></Column>
             </DataTable>
         </div>
 
@@ -214,19 +214,19 @@ export default {
 
         <div class="card">
             <h5>Frozen Columns</h5>
-            <ToggleButton v-model="balanceFrozen" onIcon="pi pi-lock" offIcon="pi pi-lock-open" onLabel="Unfreeze Balance" offLabel="Freeze Balance" style="width: 12rem" />
+            <ToggleButton v-model="balanceFrozen" onIcon="pi pi-lock" offIcon="pi pi-lock-open" onLabel="Unfreeze Balance" offLabel="Freeze Balance" style="flex-growl:1; flex-basis: 12rem" />
 
             <DataTable :value="customers2" :scrollable="true" scrollHeight="400px" :loading="loading" scrollDirection="both" class="p-mt-3">
-                <Column field="name" header="Name" style="width:160px" frozen></Column>
-                <Column field="id" header="Id" style="width:100px"></Column>
-                <Column field="name" header="Name" style="width:200px"></Column>
-                <Column field="country.name" header="Country" style="width:200px"></Column>
-                <Column field="date" header="Date" style="width:200px"></Column>
-                <Column field="company" header="Company" style="width:200px"></Column>
-                <Column field="status" header="Status" style="width:200px"></Column>
-                <Column field="activity" header="Activity" style="width:200px"></Column>
-                <Column field="representative.name" header="Representative" style="width:200px"></Column>
-                <Column field="balance" header="Balance" style="width:120px" alignFrozen="right" :frozen="balanceFrozen">
+                <Column field="name" header="Name" style="flex-growl:1; flex-basis:160px" frozen></Column>
+                <Column field="id" header="Id" style="flex-growl:1; flex-basis:100px"></Column>
+                <Column field="name" header="Name" style="flex-growl:1; flex-basis:200px"></Column>
+                <Column field="country.name" header="Country" style="flex-growl:1; flex-basis:200px"></Column>
+                <Column field="date" header="Date" style="flex-growl:1; flex-basis:200px"></Column>
+                <Column field="company" header="Company" style="flex-growl:1; flex-basis:200px"></Column>
+                <Column field="status" header="Status" style="flex-growl:1; flex-basis:200px"></Column>
+                <Column field="activity" header="Activity" style="flex-growl:1; flex-basis:200px"></Column>
+                <Column field="representative.name" header="Representative" style="flex-growl:1; flex-basis:200px"></Column>
+                <Column field="balance" header="Balance" style="flex-growl:1; flex-basis:120px" alignFrozen="right" :frozen="balanceFrozen">
                     <template #body="{data}">
                          <span class="p-text-bold">{{formatCurrency(data.balance)}}</span>
                     </template>
@@ -364,7 +364,7 @@ export default {
 ::v-deep(.p-datatable-scrollable .p-frozen-column) {
     font-weight: bold;
 }
-</style>                    
+</style>
 `
                 },
                 'composition-api': {
@@ -402,19 +402,19 @@ export default {
         <div class="card">
             <h5>Horizontal and Vertical with Footer</h5>
             <DataTable :value="customers2" :scrollable="true" scrollHeight="400px" :loading="loading" scrollDirection="both">
-                <Column field="id" header="Id" footer="Id" style="width:100px"></Column>
-                <Column field="name" header="Name" footer="Name" style="width:200px"></Column>
-                <Column field="country.name" header="Country" footer="Country" style="width:200px"></Column>
-                <Column field="date" header="Date" footer="Date" style="width:200px"></Column>
-                <Column field="balance" header="Balance" footer="Balance" style="width:200px">
+                <Column field="id" header="Id" footer="Id" style="flex-growl:1; flex-basis:100px"></Column>
+                <Column field="name" header="Name" footer="Name" style="flex-growl:1; flex-basis:200px"></Column>
+                <Column field="country.name" header="Country" footer="Country" style="flex-growl:1; flex-basis:200px"></Column>
+                <Column field="date" header="Date" footer="Date" style="flex-growl:1; flex-basis:200px"></Column>
+                <Column field="balance" header="Balance" footer="Balance" style="flex-growl:1; flex-basis:200px">
                     <template #body="{data}">
                         {{formatCurrency(data.balance)}}
                     </template>
                 </Column>
-                <Column field="company" header="Company" footer="Company" style="width:200px"></Column>
-                <Column field="status" header="Status" footer="Status" style="width:200px"></Column>
-                <Column field="activity" header="Activity" footer="Activity" style="width:200px"></Column>
-                <Column field="representative.name" header="Representative" footer="Representative" style="width:200px"></Column>
+                <Column field="company" header="Company" footer="Company" style="flex-growl:1; flex-basis:200px"></Column>
+                <Column field="status" header="Status" footer="Status" style="flex-growl:1; flex-basis:200px"></Column>
+                <Column field="activity" header="Activity" footer="Activity" style="flex-growl:1; flex-basis:200px"></Column>
+                <Column field="representative.name" header="Representative" footer="Representative" style="flex-growl:1; flex-basis:200px"></Column>
             </DataTable>
         </div>
 
@@ -436,19 +436,19 @@ export default {
 
         <div class="card">
             <h5>Frozen Columns</h5>
-            <ToggleButton v-model="balanceFrozen" onIcon="pi pi-lock" offIcon="pi pi-lock-open" onLabel="Unfreeze Balance" offLabel="Freeze Balance" style="width: 12rem" />
+            <ToggleButton v-model="balanceFrozen" onIcon="pi pi-lock" offIcon="pi pi-lock-open" onLabel="Unfreeze Balance" offLabel="Freeze Balance" style="flex-growl:1; flex-basis: 12rem" />
 
             <DataTable :value="customers2" :scrollable="true" scrollHeight="400px" :loading="loading" scrollDirection="both" class="p-mt-3">
-                <Column field="name" header="Name" style="width:160px" frozen></Column>
-                <Column field="id" header="Id" style="width:100px"></Column>
-                <Column field="name" header="Name" style="width:200px"></Column>
-                <Column field="country.name" header="Country" style="width:200px"></Column>
-                <Column field="date" header="Date" style="width:200px"></Column>
-                <Column field="company" header="Company" style="width:200px"></Column>
-                <Column field="status" header="Status" style="width:200px"></Column>
-                <Column field="activity" header="Activity" style="width:200px"></Column>
-                <Column field="representative.name" header="Representative" style="width:200px"></Column>
-                <Column field="balance" header="Balance" style="width:120px" alignFrozen="right" :frozen="balanceFrozen">
+                <Column field="name" header="Name" style="flex-growl:1; flex-basis:160px" frozen></Column>
+                <Column field="id" header="Id" style="flex-growl:1; flex-basis:100px"></Column>
+                <Column field="name" header="Name" style="flex-growl:1; flex-basis:200px"></Column>
+                <Column field="country.name" header="Country" style="flex-growl:1; flex-basis:200px"></Column>
+                <Column field="date" header="Date" style="flex-growl:1; flex-basis:200px"></Column>
+                <Column field="company" header="Company" style="flex-growl:1; flex-basis:200px"></Column>
+                <Column field="status" header="Status" style="flex-growl:1; flex-basis:200px"></Column>
+                <Column field="activity" header="Activity" style="flex-growl:1; flex-basis:200px"></Column>
+                <Column field="representative.name" header="Representative" style="flex-growl:1; flex-basis:200px"></Column>
+                <Column field="balance" header="Balance" style="flex-growl:1; flex-basis:120px" alignFrozen="right" :frozen="balanceFrozen">
                     <template #body="{data}">
                          <span class="p-text-bold">{{formatCurrency(data.balance)}}</span>
                     </template>
@@ -572,8 +572,8 @@ export default {
             });
         }
 
-        return { customers1, customers2, customersGrouped, lockedCustomers, unlockedCustomers, 
-            loading, dialogVisible, balanceFrozen, openDialog, closeDialog, formatCurrency, 
+        return { customers1, customers2, customersGrouped, lockedCustomers, unlockedCustomers,
+            loading, dialogVisible, balanceFrozen, openDialog, closeDialog, formatCurrency,
             calculateCustomerTotal, toggleLock }
     }
 }
@@ -587,7 +587,7 @@ export default {
 ::v-deep(.p-datatable-scrollable .p-frozen-column) {
     font-weight: bold;
 }
-</style>                    
+</style>
 `
                 }
             }
