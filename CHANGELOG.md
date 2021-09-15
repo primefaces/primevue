@@ -1,5 +1,37 @@
 # Changelog
 
+## [3.7.2](https://github.com/primefaces/primevue/tree/3.7.2) (2021-09-15)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.7.1...3.7.2)
+
+**Implemented New Features and Enhancements:**
+
+- Incorrect Sizing due to filter input width of dropdown [\#1519](https://github.com/primefaces/primevue/issues/1519)
+- Tooltip: word wrap [\#1512](https://github.com/primefaces/primevue/issues/1512)
+- Add getFormatter method to InputNumber [\#1509](https://github.com/primefaces/primevue/issues/1509)
+- \[Feature Request\] Add autoHighlight property to AutoComplete [\#1362](https://github.com/primefaces/primevue/issues/1362)
+
+**Fixed bugs:**
+
+- InputNumber: setting "min" to anything greater than 0 implies "required" [\#1542](https://github.com/primefaces/primevue/issues/1542)
+- BlockUI doesn't get rid of div [\#1537](https://github.com/primefaces/primevue/issues/1537)
+- PanelMenu subItems 'to' route configuration breaks menu rendering [\#1536](https://github.com/primefaces/primevue/issues/1536)
+- Checkbox causes layout issues when used inside an overflow: auto div [\#1534](https://github.com/primefaces/primevue/issues/1534)
+- DataTable - The showClearButton literally doesn't do anything [\#1532](https://github.com/primefaces/primevue/issues/1532)
+- DataTable - RowGrouping Breaks Filter Row Column Widths [\#1531](https://github.com/primefaces/primevue/issues/1531)
+- Overlay panel hide when clicking on a label inside of it [\#1528](https://github.com/primefaces/primevue/issues/1528)
+- Thumbnails are not displayed correctly on Galleria if numVisible is greater than the length of value [\#1523](https://github.com/primefaces/primevue/issues/1523)
+- InputNumber: issues with decimal separator for some locales, 0s are added to input [\#1522](https://github.com/primefaces/primevue/issues/1522)
+- DataTable doesn't work as expected when the container is resized. [\#1521](https://github.com/primefaces/primevue/issues/1521)
+- Extra space between Dropdown and filter list  [\#1520](https://github.com/primefaces/primevue/issues/1520)
+- Dropdown with filter bug selecting with arrow keys [\#1516](https://github.com/primefaces/primevue/issues/1516)
+- Negative sign in front of number is not possible for Finnish or Swedish locale [\#1515](https://github.com/primefaces/primevue/issues/1515)
+- Input number caret issue with negatives [\#1513](https://github.com/primefaces/primevue/issues/1513)
+- Tooltip: crash when empty\null [\#1511](https://github.com/primefaces/primevue/issues/1511)
+- inputnumber : both prefix and currency Input error [\#1510](https://github.com/primefaces/primevue/issues/1510)
+- DataTable: Dialog and table problem \(column expansion\) [\#1508](https://github.com/primefaces/primevue/issues/1508)
+- DataTable State broken with resizableColumns [\#1505](https://github.com/primefaces/primevue/issues/1505)
+
 ## [3.7.1](https://github.com/primefaces/primevue/tree/3.7.1) (2021-09-06)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.7.0...3.7.1)
