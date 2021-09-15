@@ -396,10 +396,6 @@ export default {
         }
     },
     mounted() {
-        if (this.scrollable && (this.scrollDirection !== 'vertical' || this.rowGroupMode === 'subheader' || !this.resizableColumns)) {
-            this.updateScrollWidth();
-        }
-
         if (this.responsiveLayout === 'stack' && !this.scrollable) {
             this.createResponsiveStyle();
         }
@@ -415,10 +411,6 @@ export default {
     updated() {
         if (this.isStateful()) {
             this.saveState();
-        }
-
-        if (this.scrollable && (this.scrollDirection !== 'vertical' || this.rowGroupMode === 'subheader')) {
-            this.updateScrollWidth();
         }
     },
     methods: {
@@ -1088,7 +1080,9 @@ export default {
                     }
                 }
                 else if (this.columnResizeMode === 'expand') {
-                    this.$refs.table.style.width = this.$refs.table.offsetWidth + delta + 'px';
+                    const tableWidth = this.$refs.table.offsetWidth + delta + 'px';
+                    this.$refs.table.style.width = tableWidth;
+                    this.$refs.table.style.minWidth = tableWidth;
 
                     if (!this.scrollable)
                         this.resizeColumnElement.style.width = newColumnWidth + 'px';
@@ -1538,7 +1532,7 @@ export default {
             state.columnWidths = widths.join(',');
 
             if (this.columnResizeMode === 'expand') {
-                state.tableWidth =  DomHandler.getOuterWidth(this.$refs.table) + 'px';
+                state.tableWidth = DomHandler.getOuterWidth(this.$refs.table) + 'px';
             }
         },
         restoreColumnWidths() {
@@ -1547,6 +1541,7 @@ export default {
 
                 if (this.columnResizeMode === 'expand' && this.tableWidthState) {
                     this.$refs.table.style.width = this.tableWidthState;
+                    this.$refs.table.style.minWidth = this.tableWidthState;
                     this.$el.style.width = this.tableWidthState;
                 }
 
@@ -1635,16 +1630,6 @@ export default {
             let columnOrder = [];
             this.columns.forEach(col => columnOrder.push(this.columnProp(col, 'columnKey')||this.columnProp(col, 'field')));
             this.d_columnOrder = columnOrder;
-        },
-        updateScrollWidth() {
-            let parentElementHeight = DomHandler.width(this.$refs.table.parentElement);
-
-            if (this.$refs.table.scrollWidth > parentElementHeight) {
-                this.$refs.table.style.width = this.$refs.table.scrollWidth + 'px';
-            }
-            else {
-                this.$refs.table.style.width = parentElementHeight - DomHandler.calculateScrollbarWidth() + 'px';
-            }
         },
         createResponsiveStyle() {
 			if (!this.styleElement) {
@@ -1858,7 +1843,7 @@ export default {
 
 .p-datatable table {
     border-collapse: collapse;
-    width: 100%;
+    min-width: 100%;
     table-layout: fixed;
 }
 
@@ -1896,10 +1881,6 @@ export default {
 .p-datatable-scrollable .p-datatable-wrapper {
     position: relative;
     overflow: auto;
-}
-
-.p-datatable-scrollable .p-datatable-table {
-    display: block;
 }
 
 .p-datatable-scrollable .p-datatable-thead,
