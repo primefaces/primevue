@@ -189,6 +189,10 @@ export default {
             this.bindOutsideClickListener();
             this.bindScrollListener();
             this.bindResizeListener();
+
+            if (this.autoHighlight && this.suggestions && this.suggestions.length) {
+                DomHandler.addClass(this.overlay.firstElementChild.firstElementChild, 'p-highlight')
+            }
         },
         onOverlayLeave() {
             this.unbindOutsideClickListener();
@@ -325,10 +329,6 @@ export default {
         },
         showOverlay() {
             this.overlayVisible = true;
-            
-            setTimeout(()=>{
-                this.autoHighlightFirstItem()
-            },200)
         },
         hideOverlay() {
             this.overlayVisible = false;
@@ -391,16 +391,10 @@ export default {
         onBlur() {
             this.focused = false;
         },
-        autoHighlightFirstItem() {
-            if (this.autoHighlight && this.suggestions && this.suggestions.length) {
-                const itemToHighlight = this.overlay.firstElementChild.firstElementChild
-                DomHandler.addClass(itemToHighlight, 'p-highlight')
-            }
-        },
         onKeyDown(event) {
             if (this.overlayVisible) {
                 let highlightItem = DomHandler.findSingle(this.overlay, 'li.p-highlight');
-                
+
                 switch(event.which) {
                     //down
                     case 40:
