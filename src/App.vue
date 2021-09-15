@@ -78,7 +78,7 @@ export default {
             if (queryString)
                 appTheme = new URLSearchParams(queryString.substring(1)).get('theme');
             else
-                appTheme = localStorage.getItem('theme');
+                appTheme = localStorage.getItem('primevue-theme');
 
             if (appTheme) {
                 let darkTheme = this.isDarkTheme(appTheme);
@@ -120,7 +120,7 @@ export default {
                 this.$primevue.config.ripple = true;
             }
 
-            localStorage.setItem('theme', this.theme);
+            localStorage.setItem('primevue-theme', this.theme);
         },
         addClass(element, className) {
             if (!this.hasClass(element, className)) {
