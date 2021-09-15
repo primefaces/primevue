@@ -86,6 +86,10 @@ export default {
             type: String,
             default: 'blank'
         },
+        autoHighlight: {
+            type: Boolean,
+            default: false
+        },
         multiple: {
             type: Boolean,
             default: false
@@ -321,6 +325,10 @@ export default {
         },
         showOverlay() {
             this.overlayVisible = true;
+            
+            setTimeout(()=>{
+                this.autoHighlightFirstItem()
+            },200)
         },
         hideOverlay() {
             this.overlayVisible = false;
@@ -345,7 +353,6 @@ export default {
                 query: query
             });
         },
-
         onInputClicked(event) {
             if(this.completeOnFocus) {
                 this.search(event, '', 'click');
@@ -384,10 +391,16 @@ export default {
         onBlur() {
             this.focused = false;
         },
+        autoHighlightFirstItem() {
+            if (this.autoHighlight && this.suggestions && this.suggestions.length) {
+                const itemToHighlight = this.overlay.firstElementChild.firstElementChild
+                DomHandler.addClass(itemToHighlight, 'p-highlight')
+            }
+        },
         onKeyDown(event) {
             if (this.overlayVisible) {
                 let highlightItem = DomHandler.findSingle(this.overlay, 'li.p-highlight');
-
+                
                 switch(event.which) {
                     //down
                     case 40:
