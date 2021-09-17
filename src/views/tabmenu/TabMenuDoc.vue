@@ -33,6 +33,18 @@ export default {
 }
 </CodeHighlight>
 
+                <h5>Active</h5>
+                <p>Visibility of the content is specified with the activeIndex property that supports one or two-way binding.</p>
+
+<CodeHighlight>
+&lt;TabMenu :model="items" :activeIndex="activeIndex" /&gt;
+</CodeHighlight>
+
+        <p>Two-way binding requires v-model.</p>
+<CodeHighlight>
+&lt;TabMenu :model="items" v-model:activeIndex="activeIndex" /&gt;
+</CodeHighlight>
+
                 <h5>Properties</h5>
                 <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
 				<div class="doc-tablewrapper">
@@ -51,6 +63,12 @@ export default {
                                 <td>array</td>
                                 <td>null</td>
                                 <td>An array of menuitems.</td>
+                            </tr>
+                            <tr>
+                                <td>activeIndex</td>
+                                <td>number</td>
+                                <td>0</td>
+                                <td>Active index of menuitem.</td>
                             </tr>
 						</tbody>
 					</table>
@@ -105,8 +123,22 @@ export default {
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;TabMenu :model="items" /&gt;
-&lt;router-view /&gt;
+&lt;div class="card"&gt;
+    &lt;h5&gt;Default&lt;/h5&gt;
+    &lt;TabMenu :model="items" /&gt;
+    &lt;router-view/&gt;
+&lt;/div&gt;
+
+&lt;div class="card"&gt;
+    &lt;h5&gt;Programmatic&lt;/h5&gt;
+    &lt;div class="p-py-2"&gt;
+        &lt;Button @click="active = 0" class="p-button-text" label="Activate 1st" /&gt;
+        &lt;Button @click="active = 1" class="p-button-text p-mr-2" label="Activate 2nd" /&gt;
+        &lt;Button @click="active = 2" class="p-button-text p-mr-2" label="Activate 3rd" /&gt;
+    &lt;/div&gt;
+
+    &lt;TabMenu :model="items2" :activeIndex.sync="active" /&gt;
+&lt;/div&gt;
 </template>
 </CodeHighlight>
 
@@ -114,12 +146,20 @@ export default {
 export default {
     data() {
         return {
+            active: 3,
             items: [
                 {label: 'Home', icon: 'pi pi-fw pi-home', to: '/tabmenu'},
                 {label: 'Calendar', icon: 'pi pi-fw pi-calendar', to: '/tabmenu/calendar'},
                 {label: 'Edit', icon: 'pi pi-fw pi-pencil', to: '/tabmenu/edit'},
                 {label: 'Documentation', icon: 'pi pi-fw pi-file', to: '/tabmenu/documentation'},
                 {label: 'Settings', icon: 'pi pi-fw pi-cog', to: '/tabmenu/settings'}
+            ],
+            items2: [
+                {label: 'Home', icon: 'pi pi-fw pi-home'},
+                {label: 'Calendar', icon: 'pi pi-fw pi-calendar'},
+                {label: 'Edit', icon: 'pi pi-fw pi-pencil'},
+                {label: 'Documentation', icon: 'pi pi-fw pi-file'},
+                {label: 'Settings', icon: 'pi pi-fw pi-cog'}
             ]
         }
     }

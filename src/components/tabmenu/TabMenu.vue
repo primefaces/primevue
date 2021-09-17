@@ -2,12 +2,12 @@
     <div class="p-tabmenu p-component">
         <ul ref="nav" class="p-tabmenu-nav p-reset" role="tablist">
             <template v-for="(item,i) of model">
-                <li :key="item.label + '_' + i" :class="getItemClass(item)" :style="item.style" v-if="visible(item)" role="tab" :aria-selected="isActive(item)" :aria-expanded="isActive(item)">
-                    <router-link v-if="item.to && !item.disabled" :to="item.to" class="p-menuitem-link" @click.native="onItemClick($event, item)" role="presentation" v-ripple>
+                <li :key="item.label + '_' + i" :class="getItemClass(item, i)" :style="item.style" v-if="visible(item)" role="tab" :aria-selected="isActive(item)" :aria-expanded="isActive(item)">
+                    <router-link v-if="item.to && !item.disabled" :to="item.to" class="p-menuitem-link" @click.native="onItemClick($event, item, i)" role="presentation" v-ripple>
                         <span :class="getItemIcon(item)" v-if="item.icon"></span>
                         <span class="p-menuitem-text">{{item.label}}</span>
                     </router-link>
-                    <a v-else :href="item.url" class="p-menuitem-link" :target="item.target" @click="onItemClick($event, item)" role="presentation" :tabindex="item.disabled ? null : '0'" v-ripple>
+                    <a v-else :href="item.url" class="p-menuitem-link" :target="item.target" @click="onItemClick($event, item, i)" role="presentation" :tabindex="item.disabled ? null : '0'" v-ripple>
                         <span :class="getItemIcon(item)" v-if="item.icon"></span>
                         <span class="p-menuitem-text">{{item.label}}</span>
                     </a>
@@ -27,6 +27,15 @@ export default {
 		model: {
             type: Array,
             default: null
+        },
+        activeIndex: {
+            type: Number,
+            default: 0
+        }
+    },
+    data() {
+        return {
+            d_activeIndex: this.activeIndex
         }
     },
     mounted() {
@@ -35,8 +44,13 @@ export default {
     updated() {
         this.updateInkBar();
     },
+    watch: {
+        activeIndex(newValue) {
+            this.d_activeIndex = newValue;
+        }
+    },
     methods: {
-        onItemClick(event, item) {
+        onItemClick(event, item, index) {
             if (item.disabled) {
                 event.preventDefault();
                 return;
@@ -48,13 +62,22 @@ export default {
                     item: item
                 });
             }
+
+            if (index !== this.d_activeIndex) {
+                this.d_activeIndex = index;
+                this.$emit('update:activeIndex', this.d_activeIndex);
+            }
+            this.$emit('tab-change', {
+                originalEvent: event,
+                index: index
+            });
         },
         isActive(item) {
             return this.activeRoute.startsWith(item.to);
         },
-        getItemClass(item) {
+        getItemClass(item, index) {
             return ['p-tabmenuitem', item.class, {
-                'p-highlight': this.isActive(item),
+                'p-highlight': this.isActive(item) || this.d_activeIndex === index,
                 'p-disabled': item.disabled
             }];
         },

@@ -4,6 +4,12 @@ const TabMenuProps = [
         type: "array",
         default: "null",
         description: "An array of menuitems."
+    },
+    {
+        name: "activeIndex",
+        type: "number",
+        default: "0",
+        description: "Active index of menuitem."
     }
 ];
 
