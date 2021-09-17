@@ -4,15 +4,15 @@
             <slot name="left" :state="currentState"></slot>
         </div>
 		<template v-for="item of templateItems">
-			<FirstPageLink v-if="item === 'FirstPageLink'" :key="item" @click="changePageToFirst($event)" :disabled="isFirstPage" />
-			<PrevPageLink v-else-if="item === 'PrevPageLink'" :key="item" @click="changePageToPrev($event)" :disabled="isFirstPage" />
-			<NextPageLink v-else-if="item === 'NextPageLink'" :key="item" @click="changePageToNext($event)" :disabled="isLastPage" />
-			<LastPageLink v-else-if="item === 'LastPageLink'" :key="item" @click="changePageToLast($event)" :disabled="isLastPage" />
+			<FirstPageLink v-if="item === 'FirstPageLink'" :key="item" @click="changePageToFirst($event)" :disabled="isFirstPage || empty" />
+			<PrevPageLink v-else-if="item === 'PrevPageLink'" :key="item" @click="changePageToPrev($event)" :disabled="isFirstPage || empty" />
+			<NextPageLink v-else-if="item === 'NextPageLink'" :key="item" @click="changePageToNext($event)" :disabled="isLastPage || empty" />
+			<LastPageLink v-else-if="item === 'LastPageLink'" :key="item" @click="changePageToLast($event)" :disabled="isLastPage || empty" />
 			<PageLinks v-else-if="item === 'PageLinks'" :key="item" :value="pageLinks" :page="page" @click="changePageLink($event)" />
 			<CurrentPageReport v-else-if="item === 'CurrentPageReport'" :key="item" :template="currentPageReportTemplate"
                 :page="page" :pageCount="pageCount" :first="d_first" :rows="d_rows" :totalRecords="totalRecords" />
 			<RowsPerPageDropdown v-else-if="item === 'RowsPerPageDropdown' && rowsPerPageOptions" :key="item" :rows="d_rows"
-                :options="rowsPerPageOptions" @rows-change="onRowChange($event)" />
+                :options="rowsPerPageOptions" @rows-change="onRowChange($event)" :disabled="empty" />
         </template>
         <div class="p-paginator-right-content" v-if="$scopedSlots.right">
             <slot name="right" :state="currentState"></slot>
@@ -144,7 +144,7 @@ export default {
             return Math.floor(this.d_first / this.d_rows);
         },
         pageCount() {
-            return Math.ceil(this.totalRecords / this.d_rows) || 1;
+            return Math.ceil(this.totalRecords / this.d_rows);
         },
         isFirstPage() {
             return this.page === 0;
@@ -184,6 +184,9 @@ export default {
                 first: this.d_first,
                 rows: this.d_rows
             }
+        },
+        empty() {
+            return this.pageCount === 0;
         }
     },
     components: {

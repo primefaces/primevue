@@ -1,6 +1,6 @@
 <template>
 	<RPPDropdown :value="rows" :options="rowsOptions" optionLabel="label" optionValue="value"
-        @input="onChange($event)"></RPPDropdown>
+        @input="onChange($event)" :disabled="disabled"></RPPDropdown>
 </template>
 
 <script>
@@ -10,7 +10,8 @@ export default {
     inheritAttrs: false,
     props: {
         options: Array,
-        rows: Number
+        rows: Number,
+        disabled: Boolean
     },
     methods: {
         onChange(value) {
