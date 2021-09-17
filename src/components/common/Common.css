@@ -6,6 +6,10 @@
     display: none;
 }
 
+.p-hidden-space {
+    visibility: hidden;
+}
+
 .p-hidden-accessible {
     border: 0;
     clip: rect(0 0 0 0);
@@ -35,6 +39,7 @@
 .p-disabled, .p-disabled * {
     cursor: default !important;
     pointer-events: none;
+    user-select: none;
 }
 
 .p-component-overlay {
