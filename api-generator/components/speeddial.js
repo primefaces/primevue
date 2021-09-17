@@ -54,13 +54,13 @@ const SpeedDialProps = [
         description: "Whether the actions close when clicked outside."
     },
     {
-        name: "buttonClassName",
+        name: "buttonClass",
         type: "string",
         default: "null",
         description: "Style class of the button element."
     },
     {
-        name: "maskClassName",
+        name: "maskClass",
         type: "string",
         default: "null",
         description: "Style class of the mask element."
