@@ -91,7 +91,7 @@ const SpeedDialProps = [
     },
     {
         name: "className",
-        type: "object",
+        type: "string",
         default: "null",
         description: "Style class of the element."
     },
@@ -99,7 +99,7 @@ const SpeedDialProps = [
         name: "styles",
         type: "any",
         default: "null",
-        description: "Style class of the element."
+        description: "Inline style of the element."
     }
 ];
 
