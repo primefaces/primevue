@@ -33,7 +33,7 @@
                 <Button type="button" label="Save" icon="pi pi-check" v-tooltip="'Click to proceed'" />
 
                 <h5>Custom Class</h5>
-                <InputText type="text" placeholder="Right" v-tooltip.right="{value:'Invalid username', class: 'error'}" />
+                <InputText type="text" placeholder="Custom Class" v-tooltip.right="{value:'Invalid username', class: 'error'}" />
             </div>
         </div>
 
