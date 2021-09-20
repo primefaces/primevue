@@ -73,6 +73,11 @@ export default {
     pointer-events: none;
 }
 
+.p-dock-list-container {
+    display: flex;
+    pointer-events: auto;
+}
+
 .p-dock-list {
     margin: 0;
     padding: 0;
