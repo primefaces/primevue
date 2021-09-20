@@ -198,6 +198,10 @@ data() {
 
 		<h5>Dependencies</h5>
 		<p>None.</p>
+
+        <h5>Knob Vue</h5>
+        <p>PrimeVue Knob has no dependency however implementation is derived and inspired from <a href="https://github.com/kramer99/vue-knob-control">vue-knob-control</a> 
+            component authored by <a href="https://github.com/kramer99">kramer99</a>.</p>
     </AppDoc>
 </template>
 

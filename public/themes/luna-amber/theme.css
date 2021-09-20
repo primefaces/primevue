@@ -40,6 +40,7 @@
   --surface-overlay:#323232;
   --surface-border:#4b4b4b;
   --surface-hover:#4c4c4c;
+  --focus-ring: 0 0 0 0.1rem white;
 }
 
 * {
@@ -744,6 +745,7 @@
 }
 .p-dropdown-panel .p-dropdown-header .p-dropdown-filter {
   padding-right: 1.429rem;
+  margin-right: -1.429rem;
 }
 .p-dropdown-panel .p-dropdown-header .p-dropdown-filter-icon {
   right: 0.429rem;
@@ -3482,6 +3484,9 @@
   outline: 0 none;
   outline-offset: 0;
   box-shadow: 0 0 0 0.1rem white;
+}
+.p-fieldset.p-fieldset-toggleable .p-fieldset-legend a:hover {
+  color: #FFE082;
 }
 .p-fieldset.p-fieldset-toggleable .p-fieldset-legend:hover {
   background: #191919;

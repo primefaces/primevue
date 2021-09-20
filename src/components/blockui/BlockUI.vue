@@ -67,7 +67,7 @@ export default {
         },
         unblock() {
             DomHandler.addClass(this.mask, 'p-component-overlay-leave');
-            this.mask.addEventListener('transitionend', () => {
+            this.mask.addEventListener('animationend', () => {
                 this.removeMask();
             });
         },

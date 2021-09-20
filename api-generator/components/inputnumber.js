@@ -126,6 +126,12 @@ const InputNumberProps = [
         description: "Step factor to increment/decrement the value."
     },
     {
+        name: "allowEmpty",
+        type: "boolean",
+        default: "true",
+        description: "Determines whether the input field is empty."
+    },
+    {
         name: "inputStyle",
         type: "any",
         default: "null",

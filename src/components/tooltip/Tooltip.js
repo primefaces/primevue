@@ -264,7 +264,9 @@ const Tooltip = {
     beforeMount(el, options) {
         let target = getTarget(el);
         target.$_ptooltipModifiers = getModifiers(options);
-        if (typeof options.value === 'string') {
+
+        if (!options.value) return;
+        else if (typeof options.value === 'string') {
             target.$_ptooltipValue = options.value;
             target.$_ptooltipDisabled = false;
             target.$_ptooltipClass = null;
@@ -294,6 +296,7 @@ const Tooltip = {
         let target = getTarget(el);
         target.$_ptooltipModifiers = getModifiers(options);
 
+        if (!options.value) return;
         if (typeof options.value === 'string') {
             target.$_ptooltipValue = options.value;
             target.$_ptooltipDisabled = false;
@@ -301,7 +304,7 @@ const Tooltip = {
         }
         else {
             target.$_ptooltipValue = options.value.value;
-            target.$_ptooltipDisabled = options.value.disabled;
+            target.$_ptooltipDisabled = options.value.disabled || false;
             target.$_ptooltipClass = options.value.class || false;
         }
     }

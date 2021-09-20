@@ -396,9 +396,7 @@ export default {
         }
     },
     mounted() {
-        if (this.scrollable && (this.scrollDirection !== 'vertical' || this.rowGroupMode === 'subheader' || !this.resizableColumns)) {
-            this.updateScrollWidth();
-        }
+        this.$el.setAttribute(this.attributeSelector, '');
 
         if (this.responsiveLayout === 'stack' && !this.scrollable) {
             this.createResponsiveStyle();
@@ -410,15 +408,12 @@ export default {
     },
     beforeUnmount() {
         this.unbindColumnResizeEvents();
+        this.destroyStyleElement();
         this.destroyResponsiveStyle();
     },
     updated() {
         if (this.isStateful()) {
             this.saveState();
-        }
-
-        if (this.scrollable && (this.scrollDirection !== 'vertical' || this.rowGroupMode === 'subheader')) {
-            this.updateScrollWidth();
         }
     },
     methods: {
@@ -1088,7 +1083,9 @@ export default {
                     }
                 }
                 else if (this.columnResizeMode === 'expand') {
-                    this.$refs.table.style.width = this.$refs.table.offsetWidth + delta + 'px';
+                    const tableWidth = this.$refs.table.offsetWidth + delta + 'px';
+                    this.$refs.table.style.width = tableWidth;
+                    this.$refs.table.style.minWidth = tableWidth;
 
                     if (!this.scrollable)
                         this.resizeColumnElement.style.width = newColumnWidth + 'px';
@@ -1114,22 +1111,27 @@ export default {
         },
         resizeTableCells(newColumnWidth, nextColumnWidth) {
             let colIndex = DomHandler.index(this.resizeColumnElement);
-            let children = this.$refs.table.children;
-            for (let child of children) {
-                for (let row of child.children) {
-                    let resizeCell = row.children[colIndex];
-                    if (resizeCell) {
-                        resizeCell.style.flex = '0 0 ' + newColumnWidth + 'px';
+            let widths = [];
+            let headers = DomHandler.find(this.$refs.table, '.p-datatable-thead > tr > th');
+            headers.forEach(header => widths.push(DomHandler.getOuterWidth(header)));
 
-                        if (this.columnResizeMode === 'fit') {
-                            let nextCell = resizeCell.nextElementSibling;
-                            if (nextCell) {
-                                nextCell.style.flex = '0 0 ' + nextColumnWidth + 'px';
-                            }
-                        }
+            this.destroyStyleElement();
+            this.createStyleElement();
+
+            let innerHTML = '';
+            widths.forEach((width,index) => {
+                let colWidth = index === colIndex ? newColumnWidth : (nextColumnWidth && index === colIndex + 1) ? nextColumnWidth : width;
+                innerHTML += `
+                    .p-datatable[${this.attributeSelector}] .p-datatable-thead > tr > th:nth-child(${index+1}) {
+                        flex: 0 0 ${colWidth}px !important;
                     }
-                }
-            }
+
+                    .p-datatable[${this.attributeSelector}] .p-datatable-tbody > tr > td:nth-child(${index+1}) {
+                        flex: 0 0 ${colWidth}px !important;
+                    }
+                `
+            });
+            this.styleElement.innerHTML = innerHTML;
         },
         bindColumnResizeEvents() {
             if (!this.documentColumnResizeListener) {
@@ -1538,7 +1540,7 @@ export default {
             state.columnWidths = widths.join(',');
 
             if (this.columnResizeMode === 'expand') {
-                state.tableWidth =  DomHandler.getOuterWidth(this.$refs.table) + 'px';
+                state.tableWidth = DomHandler.getOuterWidth(this.$refs.table) + 'px';
             }
         },
         restoreColumnWidths() {
@@ -1547,10 +1549,31 @@ export default {
 
                 if (this.columnResizeMode === 'expand' && this.tableWidthState) {
                     this.$refs.table.style.width = this.tableWidthState;
+                    this.$refs.table.style.minWidth = this.tableWidthState;
                     this.$el.style.width = this.tableWidthState;
                 }
 
-                DomHandler.find(this.$refs.table, '.p-datatable-thead > tr > th').forEach((header, index) => header.style.width = widths[index] + 'px');
+                this.createStyleElement();
+
+                if (this.scrollable && widths && widths.length > 0) {
+                    let innerHTML = '';
+                    widths.forEach((width,index) => {
+                        innerHTML += `
+                            .p-datatable[${this.attributeSelector}] .p-datatable-thead > tr > th:nth-child(${index+1}) {
+                                flex: 0 0 ${width}px;
+                            }
+
+                            .p-datatable[${this.attributeSelector}] .p-datatable-tbody > tr > td:nth-child(${index+1}) {
+                                flex: 0 0 ${width}px;
+                            }
+                        `
+                    });
+
+                    this.styleElement.innerHTML = innerHTML;
+                }
+                else {
+                    DomHandler.find(this.$refs.table, '.p-datatable-thead > tr > th').forEach((header, index) => header.style.width = widths[index] + 'px');
+                }
             }
         },
         onCellEditInit(event) {
@@ -1636,22 +1659,16 @@ export default {
             this.columns.forEach(col => columnOrder.push(this.columnProp(col, 'columnKey')||this.columnProp(col, 'field')));
             this.d_columnOrder = columnOrder;
         },
-        updateScrollWidth() {
-            let parentElementHeight = DomHandler.width(this.$refs.table.parentElement);
-
-            if (this.$refs.table.scrollWidth > parentElementHeight) {
-                this.$refs.table.style.width = this.$refs.table.scrollWidth + 'px';
-            }
-            else {
-                this.$refs.table.style.width = parentElementHeight - DomHandler.calculateScrollbarWidth() + 'px';
-            }
+        createStyleElement() {
+            this.styleElement = document.createElement('style');
+            this.styleElement.type = 'text/css';
+            document.head.appendChild(this.styleElement);
         },
         createResponsiveStyle() {
-			if (!this.styleElement) {
-                this.$el.setAttribute(this.attributeSelector, '');
-				this.styleElement = document.createElement('style');
-				this.styleElement.type = 'text/css';
-				document.head.appendChild(this.styleElement);
+			if (!this.responsiveStyleElement) {
+				this.responsiveStyleElement = document.createElement('style');
+				this.responsiveStyleElement.type = 'text/css';
+				document.head.appendChild(this.responsiveStyleElement);
 
                 let innerHTML = `
 @media screen and (max-width: ${this.breakpoint}) {
@@ -1683,10 +1700,16 @@ export default {
 }
 `;
 
-                this.styleElement.innerHTML = innerHTML;
+                this.responsiveStyleElement.innerHTML = innerHTML;
 			}
 		},
         destroyResponsiveStyle() {
+            if (this.responsiveStyleElement) {
+                document.head.removeChild(this.responsiveStyleElement);
+                this.responsiveStyleElement = null;
+            }
+        },
+        destroyStyleElement() {
             if (this.styleElement) {
                 document.head.removeChild(this.styleElement);
                 this.styleElement = null;
@@ -1858,7 +1881,7 @@ export default {
 
 .p-datatable table {
     border-collapse: collapse;
-    width: 100%;
+    min-width: 100%;
     table-layout: fixed;
 }
 
@@ -1896,10 +1919,6 @@ export default {
 .p-datatable-scrollable .p-datatable-wrapper {
     position: relative;
     overflow: auto;
-}
-
-.p-datatable-scrollable .p-datatable-table {
-    display: block;
 }
 
 .p-datatable-scrollable .p-datatable-thead,

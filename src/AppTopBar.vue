@@ -42,6 +42,9 @@
                         <li><a @click="changeTheme($event, 'mdc-dark-indigo', true)"><img src="demo/images/themes/md-dark-indigo.svg" alt="Indigo Dark" /><span>Indigo Dark</span></a></li>
                         <li><a @click="changeTheme($event, 'mdc-dark-deeppurple', true)"><img src="demo/images/themes/md-dark-deeppurple.svg" alt="Deep Purple Dark" /><span>Deep Purple Dark</span></a></li>
 
+                        <li class="topbar-submenu-header">TAILWIND</li>
+                        <li><a @click="changeTheme($event, 'tailwind-light')"><img src="demo/images/themes/tailwind-light.png" alt="Tailwind Light" /><span>Tailwind Light</span></a></li>
+
                         <li class="topbar-submenu-header">FLUENT UI</li>
                         <li><a @click="changeTheme($event, 'fluent-light')"><img src="demo/images/themes/fluent-light.png" alt="Fluent Light" /><span>Fluent Light</span></a></li>
 
@@ -85,7 +88,7 @@
                 <transition name="p-connected-overlay" @enter="onMenuEnter">
                     <ul v-show="activeMenuIndex === 1">
                         <li class="topbar-submenu-header">FREE ADMIN TEMPLATE</li>
-                        <li><a href="https://www.primefaces.org/sigma-vue"><img src="./assets/images/layouts/themeswitcher-sigma.png" alt="Sigma" /><span>Sigma</span></a></li>
+                        <li><a href="https://www.primefaces.org/sakai-vue"><img src="./assets/images/layouts/themeswitcher-sakai.svg" alt="Sakai" /><span>Sakai</span></a></li>
                         <li class="topbar-submenu-header">PREMIUM ADMIN TEMPLATES</li>
                         <li><a href="https://www.primefaces.org/layouts/freya-vue"><img src="./assets/images/layouts/themeswitcher-freya.png" alt="Freya" /><span>Freya</span></a></li>
                         <li><a href="https://www.primefaces.org/layouts/diamond-vue"><img src="./assets/images/layouts/themeswitcher-diamond.png" alt="Diamond" /><span>Diamond</span></a></li>
@@ -178,6 +181,7 @@ export default {
                 'viva-dark': 'viva-dark.svg',
                 'mira': 'mira.jpg',
                 'nano': 'nano.jpg',
+                'tailwind-light': 'tailwind-light.png',
             }
         }
     },

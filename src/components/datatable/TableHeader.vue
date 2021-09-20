@@ -16,7 +16,7 @@
             </tr>
             <tr v-if="filterDisplay === 'row'" role="row">
                 <template v-for="(col,i) of columns" :key="columnProp(col, 'columnKey')||columnProp(col, 'field')||i">
-                    <th :style="getFilterColumnHeaderStyle(col)" :class="getFilterColumnHeaderClass(col)" v-if="!columnProp(col, 'hidden')">
+                    <th :style="getFilterColumnHeaderStyle(col)" :class="getFilterColumnHeaderClass(col)" v-if="!columnProp(col, 'hidden') && (rowGroupMode !== 'subheader' || (groupRowsBy !== columnProp(col, 'field')))">
                         <DTHeaderCheckbox :checked="allRowsSelected" @change="$emit('checkbox-change', $event)" :disabled="empty" v-if="columnProp(col, 'selectionMode') ==='multiple'" />
                         <DTColumnFilter v-if="col.children && col.children.filter" :field="columnProp(col,'filterField')||columnProp(col,'field')" :type="columnProp(col,'dataType')" display="row"
                         :showMenu="columnProp(col,'showFilterMenu')" :filterElement="col.children && col.children.filter"

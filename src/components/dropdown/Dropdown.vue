@@ -21,7 +21,7 @@
                     <slot name="header" :value="modelValue" :options="visibleOptions"></slot>
                     <div class="p-dropdown-header" v-if="filter">
                         <div  class="p-dropdown-filter-container">
-                            <input type="text" ref="filterInput" v-model="filterValue" autoComplete="off" class="p-dropdown-filter p-inputtext p-component" :placeholder="filterPlaceholder" @keydown="onFilterKeyDown"  @input="onFilterChange"/>
+                            <input type="text" ref="filterInput" v-model="filterValue" @vnode-updated="onFilterUpdated" autoComplete="off" class="p-dropdown-filter p-inputtext p-component" :placeholder="filterPlaceholder" @keydown="onFilterKeyDown"  @input="onFilterChange"/>
                             <span class="p-dropdown-filter-icon pi pi-search"></span>
                         </div>
                     </div>
@@ -206,20 +206,20 @@ export default {
         },
         getSelectedOption() {
             let index = this.getSelectedOptionIndex();
-            return index !== -1 ? (this.optionGroupLabel ? this.getOptionGroupChildren(this.options[index.group])[index.option]: this.options[index]) : null;
+            return index !== -1 ? (this.optionGroupLabel ? this.getOptionGroupChildren(this.visibleOptions[index.group])[index.option]: this.visibleOptions[index]) : null;
         },
         getSelectedOptionIndex() {
-            if (this.modelValue != null && this.options) {
+            if (this.modelValue != null && this.visibleOptions) {
                 if (this.optionGroupLabel) {
-                    for (let i = 0; i < this.options.length; i++) {
-                        let selectedOptionIndex = this.findOptionIndexInList(this.modelValue, this.getOptionGroupChildren(this.options[i]));
+                    for (let i = 0; i < this.visibleOptions.length; i++) {
+                        let selectedOptionIndex = this.findOptionIndexInList(this.modelValue, this.getOptionGroupChildren(this.visibleOptions[i]));
                         if (selectedOptionIndex !== -1) {
                             return {group: i, option: selectedOptionIndex};
                         }
                     }
                 }
                 else {
-                    return this.findOptionIndexInList(this.modelValue, this.options);
+                    return this.findOptionIndexInList(this.modelValue, this.visibleOptions);
                 }
             }
 
@@ -436,7 +436,6 @@ export default {
         },
         onOverlayEnter(el) {
             ZIndexUtils.set('overlay', el, this.$primevue.config.zIndex.overlay);
-            this.scrollValueInView();
             this.alignOverlay();
             this.bindOutsideClickListener();
             this.bindScrollListener();
@@ -609,6 +608,8 @@ export default {
         },
         onFilterChange(event) {
             this.$emit('filter', {originalEvent: event, value: event.target.value});
+        },
+        onFilterUpdated() {
             if (this.overlayVisible) {
                 this.alignOverlay();
             }
@@ -653,7 +654,7 @@ export default {
                     return filteredGroups
                 }
                 else {
-                    return FilterService.filter(this.options, this.searchFields, this.filterValue, 'contains', this.filterLocale);
+                    return FilterService.filter(this.options, this.searchFields, this.filterValue, this.filterMatchMode, this.filterLocale);
                 }
             }
             else {

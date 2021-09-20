@@ -20,6 +20,7 @@ interface InputNumberProps {
     min?: number;
     max?: number;
     step?: number;
+    allowEmpty?: boolean;
     inputStyle?: any;
     inputClass?: string;
     style?: any;
@@ -30,6 +31,7 @@ declare class InputNumber {
     $props: InputNumberProps;
     $emit(eventName: 'update:modelValue', value: number): this;
     $emit(eventName: 'input', e: {originalEvent: Event, value: any}): this;
+    getFormatter(): any;
 }
 
 export default InputNumber;

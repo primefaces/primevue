@@ -188,6 +188,12 @@ export default {
                         <td>Specifies the behavior dropdown button. Default "blank" mode sends an empty string and "current" mode sends the input value.</td>
                     </tr>
                     <tr>
+                        <td>autoHighlight</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>Highlights automatically the first item of the dropdown to be selected.</td>
+                    </tr>
+                    <tr>
                         <td>multiple</td>
                         <td>boolean</td>
                         <td>false</td>

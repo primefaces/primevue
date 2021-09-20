@@ -10,6 +10,7 @@ interface AutoCompleteProps {
     scrollHeight?: string;
     dropdown?: boolean;
     dropdownMode?: string;
+    autoHighlight?: boolean;
     multiple?: boolean;
     minLength?: number;
     delay?: number;

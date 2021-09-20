@@ -2,7 +2,7 @@
     <Teleport :to="appendTo">
         <transition name="p-overlaypanel" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave">
             <div :class="containerClass" v-if="visible" :ref="containerRef" v-bind="$attrs" @click="onOverlayClick">
-                <div class="p-overlaypanel-content" @mousedown="onContentClick">
+                <div class="p-overlaypanel-content" @click="onContentClick" @mousedown="onContentClick">
                     <slot></slot>
                 </div>
                 <button class="p-overlaypanel-close p-link" @click="hide" v-if="showCloseIcon" :aria-label="ariaCloseLabel" type="button" v-ripple>
@@ -133,6 +133,7 @@ export default {
             };
 
             OverlayEventBus.on('overlay-click', this.overlayEventListener);
+            this.$emit('show');
         },
         onLeave() {
             this.unbindOutsideClickListener();
@@ -140,6 +141,7 @@ export default {
             this.unbindResizeListener();
             OverlayEventBus.off('overlay-click', this.overlayEventListener);
             this.overlayEventListener = null;
+            this.$emit('hide');
         },
         onAfterLeave(el) {
             if (this.autoZIndex) {

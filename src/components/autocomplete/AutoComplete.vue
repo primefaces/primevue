@@ -86,6 +86,10 @@ export default {
             type: String,
             default: 'blank'
         },
+        autoHighlight: {
+            type: Boolean,
+            default: false
+        },
         multiple: {
             type: Boolean,
             default: false
@@ -185,6 +189,10 @@ export default {
             this.bindOutsideClickListener();
             this.bindScrollListener();
             this.bindResizeListener();
+
+            if (this.autoHighlight && this.suggestions && this.suggestions.length) {
+                DomHandler.addClass(this.overlay.firstElementChild.firstElementChild, 'p-highlight')
+            }
         },
         onOverlayLeave() {
             this.unbindOutsideClickListener();
@@ -345,7 +353,6 @@ export default {
                 query: query
             });
         },
-
         onInputClicked(event) {
             if(this.completeOnFocus) {
                 this.search(event, '', 'click');
