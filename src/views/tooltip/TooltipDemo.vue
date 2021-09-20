@@ -31,6 +31,9 @@
 
                 <h5>Button</h5>
                 <Button type="button" label="Save" icon="pi pi-check" v-tooltip="'Click to proceed'" />
+
+                <h5>Custom Class</h5>
+                <InputText type="text" placeholder="Right" v-tooltip.right="{value:'Invalid username', class: 'error'}" />
             </div>
         </div>
 
@@ -49,5 +52,11 @@ export default {
 </script>
 
 <style>
-
+.p-tooltip-error .p-tooltip-text {
+    background-color: darksalmon;
+    color: darkred;
+}
+.p-tooltip-error.p-tooltip-right .p-tooltip-arrow {
+    border-right-color: darksalmon;
+}
 </style>

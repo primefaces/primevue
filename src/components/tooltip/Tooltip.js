@@ -219,10 +219,12 @@ function alignBottom(el) {
 }
 
 function preAlign(el, position) {
+    const tipClass = el.$_ptooltipClass;
     let tooltipElement = getTooltipElement(el);
     tooltipElement.style.left = -999 + 'px';
     tooltipElement.style.top = -999 + 'px';
     tooltipElement.className = 'p-tooltip p-component p-tooltip-' + position;
+    if (tipClass) tooltipElement.className += ' p-tooltip-' + tipClass;
 }
 
 function isOutOfBounds(el) {
@@ -267,10 +269,12 @@ const Tooltip = {
         else if (typeof options.value === 'string') {
             target.$_ptooltipValue = options.value;
             target.$_ptooltipDisabled = false;
+            target.$_ptooltipClass = null;
         }
         else {
             target.$_ptooltipValue = options.value.value;
             target.$_ptooltipDisabled = options.value.disabled || false;
+            target.$_ptooltipClass = options.value.class || false;
         }
 
         target.$_ptooltipZIndex = options.instance.$primevue && options.instance.$primevue.config && options.instance.$primevue.config.zIndex.tooltip;
@@ -296,10 +300,12 @@ const Tooltip = {
         if (typeof options.value === 'string') {
             target.$_ptooltipValue = options.value;
             target.$_ptooltipDisabled = false;
+            target.$_ptooltipClass = null;
         }
         else {
             target.$_ptooltipValue = options.value.value;
             target.$_ptooltipDisabled = options.value.disabled || false;
+            target.$_ptooltipClass = options.value.class || false;
         }
     }
 };
