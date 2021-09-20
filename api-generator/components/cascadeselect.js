@@ -138,6 +138,10 @@ const CascadeSelectSlots = [
     {
         name: "option",
         description: "Custom content for the item's option"
+    },
+    {
+        name: "indicator",
+        description: "Custom content for the cascade select indicator"
     }
 ];
 

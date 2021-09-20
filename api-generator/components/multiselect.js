@@ -191,6 +191,10 @@ const MultiSelectSlots = [
     {
         name: "value",
         description: "Custom content for the item value"
+    },
+    {
+        name: "indicator",
+        description: "Custom content for the multiselect indicator"
     }
 ];
 

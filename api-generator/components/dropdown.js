@@ -185,6 +185,10 @@ const DropdownSlots = [
     {
         name: "value",
         description: "Custom content for the item's value"
+    },
+    {
+        name: "indicator",
+        description: "Custom content for the dropdown indicator"
     }
 ];
 

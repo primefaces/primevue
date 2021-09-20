@@ -10,7 +10,9 @@
             </slot>
         </span>
         <div class="p-cascadeselect-trigger" role="button" aria-haspopup="listbox" :aria-expanded="overlayVisible">
-            <span class="p-cascadeselect-trigger-icon pi pi-chevron-down"></span>
+            <slot name="indicator">
+                <span class="p-cascadeselect-trigger-icon pi pi-chevron-down"></span>
+            </slot>
         </div>
         <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
             <div ref="overlay" class="p-cascadeselect-panel p-component" v-if="overlayVisible">

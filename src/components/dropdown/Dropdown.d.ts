@@ -29,6 +29,8 @@ declare class Dropdown extends Vue {
     $emit(eventName: 'filter', e: { originalEvent: Event, value: string }): this;
     $slot: {
         option: VNode[];
+        value: VNode[];
+        indicator: VNode[];
     }
 }
 

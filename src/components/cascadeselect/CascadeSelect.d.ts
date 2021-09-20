@@ -23,6 +23,8 @@ declare class CascadeSelect extends Vue {
     $emit(eventName: 'hide'): this;
     $slot: {
         option: VNode[];
+        value: VNode[];
+        indicator: VNode[];
     }
 }
 

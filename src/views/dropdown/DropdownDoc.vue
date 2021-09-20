@@ -291,6 +291,10 @@ data() {
                                 <td>value: Value of the component <br />
                                     placeholder: Placeholder prop value</td>
                             </tr>
+                            <tr>
+                                <td>indicator</td>
+                                <td>-</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>

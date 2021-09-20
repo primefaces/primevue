@@ -13,7 +13,9 @@
         </span>
         <i v-if="showClear && value != null" class="p-dropdown-clear-icon pi pi-times" @click="onClearClick($event)"></i>
         <div class="p-dropdown-trigger" role="button" aria-haspopup="listbox" :aria-expanded="overlayVisible">
-            <span class="p-dropdown-trigger-icon pi pi-chevron-down"></span>
+            <slot name="indicator">
+                <span class="p-dropdown-trigger-icon pi pi-chevron-down"></span>
+            </slot>
         </div>
         <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
             <div ref="overlay" class="p-dropdown-panel p-component" v-if="overlayVisible">

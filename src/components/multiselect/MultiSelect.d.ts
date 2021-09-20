@@ -31,6 +31,7 @@ declare class MultiSelect extends Vue {
     $slots: {
         value: VNode[];
         option: VNode[];
+        indicator: VNode[];
     }
 }
 

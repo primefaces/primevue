@@ -21,7 +21,9 @@
             </div>
         </div>
         <div class="p-multiselect-trigger">
-            <span class="p-multiselect-trigger-icon pi pi-chevron-down"></span>
+            <slot name="indicator">
+                 <span class="p-multiselect-trigger-icon pi pi-chevron-down"></span>
+            </slot>
         </div>
         <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
             <div ref="overlay" class="p-multiselect-panel p-component" v-if="overlayVisible">

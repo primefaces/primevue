@@ -283,6 +283,10 @@ exports default {
                                 <td>option</td>
                                 <td>option: Option instance</td>
                             </tr>
+                            <tr>
+                                <td>indicator</td>
+                                <td>-</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>

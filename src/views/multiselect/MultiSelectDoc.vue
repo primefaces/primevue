@@ -303,6 +303,10 @@ data() {
                                 <td>option: Option instance <br />
                                     index: Index of the option</td>
                             </tr>
+                            <tr>
+                                <td>indicator</td>
+                                <td>-</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
