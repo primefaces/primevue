@@ -238,10 +238,6 @@ function isOutOfBounds(el) {
     return (targetLeft + width > viewport.width) || (targetLeft < 0) || (targetTop < 0) || (targetTop + height > viewport.height);
 }
 
-function getTarget(el) {
-    return DomHandler.hasClass(el, 'p-inputwrapper') ? DomHandler.findSingle(el, 'input'): el;
-}
-
 function getModifiers(options) {
     // modifiers
     if (options.modifiers && Object.keys(options.modifiers).length) {
