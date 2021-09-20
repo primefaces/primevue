@@ -8,7 +8,7 @@
                 <li v-for="(item, index) of model" :key="index" class="p-speeddial-item" :style="getItemStyle(index)" role="none">
                     <template v-if="!$slots.item">
                         <a :href="item.url || '#'" role="menuitem" :class="['p-speeddial-action', { 'p-disabled': item.disabled }]" :target="item.target"
-                            :data-pr-tooltip="item.label" @click="onItemClick($event, item)" v-ripple>
+                            v-tooltip:[tooltipOptions]="{value: item.label, disabled: !tooltipOptions}" @click="onItemClick($event, item)" v-ripple>
                             <span v-if="item.icon" :class="['p-speeddial-action-icon', item.icon]"></span>
                         </a>
                     </template>
@@ -74,6 +74,7 @@ export default {
             type: Boolean,
             default: true
         },
+        tooltipOptions: null,
         styles: null,
         className: null
     },
