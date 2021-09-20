@@ -1,11 +1,11 @@
 <template>
     <ul ref="list" class="p-dock-list" role="menu" @mouseleave="onListMouseLeave">
         <li v-for="(item, index) of model" :class="itemClass(index)" :key="index" role="none" @mouseenter="onItemMouseEnter(index)">
-            <DockSubTemplate v-if="templates['item']" :item="item" :template="templates['item']" />
+            <DockSubTemplate v-if="templates['item']" :item="item" :template="templates['item']" :tooltipOptions="tooltipOptions" />
             <template v-else>
                 <router-link v-if="item.to && !item.disabled" :to="item.to" custom v-slot="{href}">
                     <a :href="href" role="menuitem" :class="['p-dock-action', { 'p-disabled': item.disabled }]" :target="item.target"
-                        :data-pr-tooltip="item.label" @click="onItemClick(e, item)">
+                        v-tooltip:[tooltipOptions]="{value: item.label, disabled: !tooltipOptions}" @click="onItemClick(e, item)">
                         <template v-if="typeof item.icon === 'string'">
                             <span :class="['p-dock-action-icon', item.icon]" v-ripple></span>
                         </template>
@@ -13,7 +13,7 @@
                     </a>
                 </router-link>
                 <a v-else :href="item.url || '#'" role="menuitem" :class="['p-dock-action', { 'p-disabled': item.disabled }]" :target="item.target"
-                    :data-pr-tooltip="item.label" @click="onItemClick($event, item)">
+                    v-tooltip:[tooltipOptions]="{value: item.label, disabled: !tooltipOptions}" @click="onItemClick($event, item)">
                     <template v-if="typeof item.icon === 'string'">
                         <span :class="['p-dock-action-icon', item.icon]" v-ripple></span>
                     </template>
@@ -69,7 +69,8 @@ export default {
         templates: {
             type: null,
             default: null
-        }
+        },
+        tooltipOptions: null
     },
     data() {
         return {

@@ -1,6 +1,6 @@
 <template>
     <div :class="containerClass" :style="styles">
-        <DockSub :model="model" :templates="$scopedSlots"></DockSub>
+        <DockSub :model="model" :templates="$scopedSlots" :tooltipOptions="tooltipOptions"></DockSub>
     </div>
 </template>
 
@@ -16,7 +16,8 @@ export default {
         },
         model: null,
         className: null,
-        styles: null
+        styles: null,
+        tooltipOptions: null
     },
     data() {
         return {
