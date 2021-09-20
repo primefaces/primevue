@@ -87,6 +87,12 @@ export default {
                             <td>null</td>
                             <td>Whether to display the tooltip on items. The modifiers of <router-link to="/tooltip">Tooltip</router-link> can be used like an object in it. Valid keys are 'event' and 'position'.</td>
                         </tr>
+                        <tr>
+                            <td>exact</td>
+                            <td>boolean</td>
+                            <td>true</td>
+                            <td>Whether to apply 'router-link-active-exact' class if route exactly matches the item path.</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
