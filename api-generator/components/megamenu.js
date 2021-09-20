@@ -13,10 +13,22 @@ const MegaMenuProps = [
     }
 ];
 
+const MegaMenuSlots = [
+    {
+        name: "start",
+        description: "Custom content before the content"
+    },
+    {
+        name: "end",
+        description: "Custom content after the content"
+    }
+];
+
 module.exports = {
     megamenu: {
         name: "MegaMenu",
         description: "MegaMenu is navigation component that displays submenus together.",
-        props: MegaMenuProps
+        props: MegaMenuProps,
+        slots: MegaMenuSlots
     }
 };

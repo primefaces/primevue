@@ -140,13 +140,20 @@ export default {
 &lt;MegaMenu :model="items" orientation="vertical" /&gt;
 </CodeHighlight>
 
-                <h5>Custom Content</h5>
-                <p>Any content inside the megamenu will be displayed on the right side by default. You may use ".p-megamenu-custom" style class to change the location of the content.</p>
+                <h5>Templating</h5>
+                <p>Two slots named "start" and "end" are provided to embed content before or after the items. In additon MegaMenu, offers item customization with the <i>item</i> template that receives the menuitem instance from the model as a parameter.</p>
 <CodeHighlight>
 <template v-pre>
 &lt;MegaMenu :model="items"&gt;
-    &lt;InputText placeholder="Search" type="text" /&gt;
-    &lt;Button label="Logout" icon="pi pi-power-off" /&gt;
+    &lt;template #start&gt;
+        Before
+    &lt;/template&gt;
+    &lt;template #item="{item}"&gt;
+        &lt;a :href="item.url"&gt;{{item.label}}&lt;/a&gt;
+    &lt;/template&gt;
+    &lt;template #end&gt;
+        After
+    &lt;/template&gt;
 &lt;/MegaMenu&gt;
 </template>
 </CodeHighlight>
@@ -179,6 +186,28 @@ export default {
 						</tbody>
 					</table>
 				</div>
+
+                <h5>Slots</h5>
+                <div class="doc-tablewrapper">
+					<table class="doc-table">
+						<thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Parameters</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>start</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>end</td>
+                                <td>-</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
 
 				<h5>Styling</h5>
 				<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
