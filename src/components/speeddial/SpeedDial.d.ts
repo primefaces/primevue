@@ -18,6 +18,7 @@ declare class SpeedDial extends Vue {
     rotateAnimation?: boolean;
     className?: string;
     styles?: any;
+    tooltipOptions?: any;
     $emit(eventName: 'click', event: Event): this;
     $emit(eventName: 'show'): this;
     $emit(eventName: 'hide'): this;
