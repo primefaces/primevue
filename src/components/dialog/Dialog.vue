@@ -68,6 +68,10 @@ export default {
         position: {
             type: String,
             default: 'center'
+        },
+        appendTo: {
+            type: String,
+            default: null
         }
     },
     data() {
@@ -94,6 +98,7 @@ export default {
         this.removeStylesFromMask();
     },
     beforeDestroy() {
+        this.restoreAppend();
         this.disableDocumentSettings();
     },
     methods: {
@@ -107,7 +112,8 @@ export default {
         },
         onEnter() {
             this.$refs.mask.style.zIndex = String(parseInt(this.$refs.dialog.style.zIndex, 10) - 1);
-
+            this.appendContainer();
+            this.alignOverlay();
             this.$emit('show');
             this.focus();
             this.enableDocumentSettings();
@@ -225,6 +231,31 @@ export default {
                 if (this.dialogClasses) {
                     this.$refs.mask.classList = 'p-dialog-mask' + (this.modal && ' p-component-overlay ') + this.getPositionClass();
                 }
+            }
+        },
+        alignOverlay() {
+            if (this.appendTo) {
+                DomHandler.absolutePosition(this.$refs.dialog, this.$refs.mask);
+                this.$refs.dialog.style.minWidth = DomHandler.getOuterWidth(this.$refs.mask) + 'px';
+            }
+            else {
+                DomHandler.relativePosition(this.$refs.dialog, this.$refs.mask);
+            }
+        },
+        appendContainer() {
+            if (this.appendTo) {
+                if (this.appendTo === 'body')
+                    document.body.appendChild(this.$refs.dialog);
+                else
+                    document.getElementById(this.appendTo).appendChild(this.$refs.dialog);
+            }
+        },
+        restoreAppend() {
+            if (this.$refs.overlay && this.appendTo) {
+                if (this.appendTo === 'body')
+                    document.body.removeChild(this.$refs.dialog);
+                else
+                    document.getElementById(this.appendTo).removeChild(this.$refs.dialog);
             }
         }
     },

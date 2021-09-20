@@ -178,6 +178,12 @@ export default {
                                 <td>false</td>
                                 <td>Whether the dialog can be displayed full screen.</td>
                             </tr>
+                            <tr>
+                                <td>appendTo</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Id of the element or "body" for document where the overlay should be appended to.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>

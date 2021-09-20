@@ -94,6 +94,12 @@ const DialogProps = [
         type: "boolean",
         default: "false",
         description: "Whether the dialog can be displayed full screen."
+    },
+    {
+        name: "appendTo",
+        type: "string",
+        default: "null",
+        description: "Id of the element or 'body' for document where the overlay should be appended to."
     }
 ];
 
