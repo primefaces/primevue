@@ -225,7 +225,7 @@ export default {
                                 <td>false</td>
                                 <td>Attaches the menu to document instead of a particular item.</td>
                             </tr>
-							<tr>
+                           <tr>
                                 <td>exact</td>
                                 <td>boolean</td>
                                 <td>true</td>
