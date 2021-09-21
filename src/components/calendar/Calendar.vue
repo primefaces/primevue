@@ -351,6 +351,11 @@ export default {
     watch: {
         value() {
             this.updateCurrentMetaData();
+        },
+        months() {
+            if (this.$refs.overlay) {
+                setTimeout(this.updateFocus, 0);
+            }
         }
     },
     methods: {
