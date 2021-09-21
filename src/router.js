@@ -376,6 +376,11 @@ export default new Router({
 			name: 'fullcalendar',
 			component: () => import('./views/fullcalendar/FullCalendarDemo.vue')
         },
+		{
+			path: '/imagePreview',
+			name: 'imagePreview',
+			component: () => import('./views/imagepreview/ImagePreviewDemo.vue')
+		},
         {
 			path: '/inplace',
 			name: 'inplace',

@@ -216,7 +216,7 @@
                 <router-link to="/menumodel">MenuModel</router-link>
                 <router-link to="/breadcrumb">Breadcrumb</router-link>
                 <router-link to="/contextmenu">ContextMenu</router-link>
-                <router-link to="/dock">Dock <Tag value="new"></Tag></router-link>
+                <router-link to="/dock">Dock <Tag value="New"></Tag></router-link>
                 <router-link to="/megamenu">MegaMenu</router-link>
                 <router-link to="/menu">Menu</router-link>
                 <router-link to="/menubar">Menubar</router-link>
@@ -268,6 +268,7 @@
                         </transition>
                     </div>
                 </router-link>
+                <router-link to="/imagepreview">Image Preview <Tag value="New"></Tag></router-link>
             </div>
 
             <div class="menu-category">Misc</div>
