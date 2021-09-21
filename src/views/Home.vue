@@ -136,8 +136,13 @@
                     </a>
                 </div>
                 <div class="p-col-12 p-md-3">
+                    <a href="https://www.primefaces.org/layouts/atlantis-vue">
+                        <img alt="Atlantis" src="../assets/images/layouts/atlantis-vue.jpg">
+                    </a>
+                </div>
+                <div class="p-col-12 p-md-3">
                     <a href="https://www.primefaces.org/layouts/freya-vue">
-                        <img alt="Ultima" src="../assets/images/layouts/freya-vue.png">
+                        <img alt="Freya" src="../assets/images/layouts/freya-vue.png">
                     </a>
                 </div>
                 <div class="p-col-12 p-md-3">
