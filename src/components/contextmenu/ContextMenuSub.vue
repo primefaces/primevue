@@ -4,11 +4,13 @@
             <template v-for="(item, i) of model">
                 <li role="none" :class="getItemClass(item)" :style="item.style" v-if="visible(item) && !item.separator" :key="item.label + i"
                     @mouseenter="onItemMouseEnter($event, item)">
-                    <router-link v-if="item.to && !item.disabled" :to="item.to" :class="getLinkClass(item)" @click.native="onItemClick($event, item)" role="menuitem" v-ripple>
-                        <span :class="['p-menuitem-icon', item.icon]"></span>
-                        <span class="p-menuitem-text">{{item.label}}</span>
+                    <router-link v-if="item.to && !item.disabled" :to="item.to" custom v-slot="{navigate, href, isActive, isExactActive}">
+                        <a :href="href" :class="linkClass(item, {isActive, isExactActive})" @click.native="onItemClick($event, item, navigate)" role="menuitem" v-ripple>
+                            <span :class="['p-menuitem-icon', item.icon]"></span>
+                            <span class="p-menuitem-text">{{item.label}}</span>
+                        </a>
                     </router-link>
-                    <a v-else :href="item.url" :class="getLinkClass(item)" :target="item.target" @click="onItemClick($event, item)" v-ripple
+                    <a v-else :href="item.url" :class="linkClass(item)" :target="item.target" @click="onItemClick($event, item)" v-ripple
                          :aria-haspopup="item.items != null" :aria-expanded="item === activeItem" role="menuitem"  :tabindex="item.disabled ? null : '0'">
                         <span :class="['p-menuitem-icon', item.icon]"></span>
                         <span class="p-menuitem-text">{{item.label}}</span>
@@ -41,6 +43,10 @@ export default {
         parentActive: {
             type: Boolean,
             default: false
+        },
+        exact: {
+            type: Boolean,
+            default: true
         }
     },
     watch: {
@@ -64,7 +70,7 @@ export default {
 
             this.activeItem = item;
         },
-        onItemClick(event, item) {
+        onItemClick(event, item, navigate) {
             if (item.disabled) {
                 event.preventDefault();
                 return;
@@ -83,6 +89,10 @@ export default {
 
             if (!item.items) {
                 this.onLeafClick();
+            }
+
+            if (item.to && navigate) {
+                navigate(event);
             }
         },
         onLeafClick() {
@@ -115,8 +125,12 @@ export default {
                 }
             ]
         },
-        getLinkClass(item) {
-            return ['p-menuitem-link', {'p-disabled': item.disabled}];
+        linkClass(item, routerProps) {
+            return ['p-menuitem-link', {
+                'p-disabled': item.disabled,
+                'router-link-active': routerProps && routerProps.isActive,
+                'router-link-active-exact': this.exact && routerProps && routerProps.isExactActive
+            }];
         },
         visible(item) {
             return (typeof item.visible === 'function' ? item.visible() : item.visible !== false);

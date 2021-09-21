@@ -1,7 +1,7 @@
 <template>
     <transition name="p-contextmenu" @enter="onEnter" @leave="onLeave">
         <div ref="container" class="p-contextmenu p-component" v-if="visible">
-            <ContextMenuSub :model="model" :root="true" @leaf-click="onLeafClick" />
+            <ContextMenuSub :model="model" :root="true" @leaf-click="onLeafClick" :exact="exact" />
         </div>
     </transition>
 </template>
@@ -31,6 +31,10 @@ export default {
         global: {
             type: Boolean,
             default: false
+        },
+        exact: {
+            type: Boolean,
+            default: true
         }
     },
     target: null,
