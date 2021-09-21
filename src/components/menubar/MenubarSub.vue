@@ -4,7 +4,7 @@
             <li role="none" :class="getItemClass(item)" :style="item.style" v-if="visible(item) && !item.separator" :key="item.label + i"
                 @mouseenter="onItemMouseEnter($event, item)">
                 <router-link v-if="item.to && !item.disabled" :to="item.to" custom v-slot="{navigate, href, isActive, isExactActive}">
-                    <a :href="href" :class="linkClass(item, {isActive, isExactActive})" @click.native="onItemClick($event, item)" @keydown.native="onItemKeyDown($event, item)"
+                    <a :href="href" :class="linkClass(item, {isActive, isExactActive})" @click.native="onItemClick($event, item, navigate)" @keydown.native="onItemKeyDown($event, item)"
                         role="menuitem" v-ripple>
                         <span :class="['p-menuitem-icon', item.icon]"></span>
                         <span class="p-menuitem-text">{{item.label}}</span>
@@ -93,7 +93,7 @@ export default {
                 this.activeItem = item;
             }
         },
-        onItemClick(event, item) {
+        onItemClick(event, item, navigate) {
             if (item.disabled) {
                 event.preventDefault();
                 return;
@@ -119,6 +119,10 @@ export default {
 
             if (!item.items) {
                 this.onLeafClick();
+            }
+
+            if (item.to && navigate) {
+                navigate(event);
             }
         },
         onLeafClick() {
