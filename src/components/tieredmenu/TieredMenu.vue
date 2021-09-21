@@ -1,7 +1,7 @@
 <template>
     <transition name="p-connected-overlay" @enter="onEnter" @leave="onLeave">
         <div ref="container" :class="containerClass" v-if="popup ? visible : true">
-            <TieredMenuSub :model="model" :root="true" :popup="popup" @leaf-click="onLeafClick"/>
+            <TieredMenuSub :model="model" :root="true" :popup="popup" @leaf-click="onLeafClick" :exact="exact" />
         </div>
     </transition>
 </template>
@@ -32,6 +32,10 @@ export default {
         baseZIndex: {
             type: Number,
             default: 0
+        },
+        exact: {
+            type: Boolean,
+            default: true
         }
     },
     target: null,

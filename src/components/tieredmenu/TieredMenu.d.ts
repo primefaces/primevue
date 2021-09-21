@@ -6,6 +6,7 @@ declare class TieredMenu extends Vue {
     appendTo?: string;
     autoZIndex?: boolean;
     baseZIndex?: number;
+    exact?: boolean;
     toggle(event: Event): void;
     show(event: Event, target?: any): void;
     hide(): void;
