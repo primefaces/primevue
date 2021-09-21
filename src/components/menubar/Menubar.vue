@@ -6,7 +6,7 @@
         <a ref="menubutton" tabindex="0" class="p-menubar-button" @click="toggle($event)">
             <i class="pi pi-bars" />
         </a>
-        <MenubarSub ref="rootmenu" :model="model" :root="true" :mobileActive="mobileActive" @leaf-click="onLeafClick"/>
+        <MenubarSub ref="rootmenu" :model="model" :root="true" :mobileActive="mobileActive" @leaf-click="onLeafClick" :exact="exact" />
         <div class="p-menubar-end" v-if="$slots.end">
             <slot name="end"></slot>
         </div>
@@ -22,6 +22,10 @@ export default {
 		model: {
             type: Array,
             default: null
+        },
+        exact: {
+            type: Boolean,
+            default: true
         }
     },
     outsideClickListener: null,
