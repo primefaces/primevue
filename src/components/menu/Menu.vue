@@ -6,12 +6,12 @@
                     <template v-if="item.items && visible(item) && !item.separator">
                         <li class="p-submenu-header" :key="item.label+i" v-if="item.items">{{item.label}}</li>
                         <template v-for="(child, j) of item.items">
-                            <Menuitem v-if="visible(child) && !child.separator" :key="child.label + i + j" :item="child" @click="itemClick" />
+                            <Menuitem v-if="visible(child) && !child.separator" :key="child.label + i + j" :item="child" @click="itemClick" :exact="exact" />
                             <li v-else-if="visible(child) && child.separator" :class="['p-menu-separator', child.class]" :style="child.style" :key="'separator' + i + j" role="separator"></li>
                         </template>
                     </template>
                     <li v-else-if="visible(item) && item.separator" :class="['p-menu-separator', item.class]" :style="item.style" :key="'separator' + i" role="separator"></li>
-                    <Menuitem v-else :key="item.label+i" :item="item" @click="itemClick" />
+                    <Menuitem v-else :key="item.label+i" :item="item" @click="itemClick" :exact="exact" />
                 </template>
             </ul>
         </div>
@@ -44,6 +44,10 @@ export default {
         baseZIndex: {
             type: Number,
             default: 0
+        },
+        exact: {
+            type: Boolean,
+            default: true
         }
     },
     data() {

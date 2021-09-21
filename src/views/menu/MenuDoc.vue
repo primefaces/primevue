@@ -125,6 +125,12 @@ toggle(event) {
                                 <td>true</td>
                                 <td>Whether to automatically manage layering.</td>
                             </tr>
+                            <tr>
+                                <td>exact</td>
+                                <td>boolean</td>
+                                <td>true</td>
+                                <td>Whether to apply 'router-link-active-exact' class if route exactly matches the item path.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
