@@ -3,11 +3,13 @@
         <ul role="tablist">
             <template v-for="(item,index) of model">
                 <li v-if="visible(item)" :key="item.to" :class="getItemClass(item)" :style="item.style" role="tab" :aria-selected="isActive(item)" :aria-expanded="isActive(item)">
-                    <router-link :to="item.to" class="p-menuitem-link" @click.native="onItemClick($event, item)" v-if="!isItemDisabled(item)" role="presentation">
-                        <span class="p-steps-number">{{index + 1}}</span>
-                        <span class="p-steps-title">{{item.label}}</span>
+                    <router-link :to="item.to" v-if="!isItemDisabled(item)" custom v-slot="{navigate, href, isActive, isExactActive}" >
+                        <a :href="href" :class="linkClass({isActive, isExactActive})" @click.native="onItemClick($event, item, navigate)" role="presentation">
+                            <span class="p-steps-number">{{index + 1}}</span>
+                            <span class="p-steps-title">{{item.label}}</span>
+                        </a>
                     </router-link>
-                    <span v-else class="p-menuitem-link" role="presentation">
+                    <span v-else :class="linkClass()" role="presentation">
                         <span class="p-steps-number">{{index + 1}}</span>
                         <span class="p-steps-title">{{item.label}}</span>
                     </span>
@@ -33,10 +35,14 @@ export default {
         readonly: {
             type: Boolean,
             default: true
+        },
+        exact: {
+            type: Boolean,
+            default: true
         }
     },
     methods: {
-        onItemClick(event, item) {
+        onItemClick(event, item, navigate) {
             if (item.disabled || this.readonly) {
                 event.preventDefault();
                 return;
@@ -48,6 +54,10 @@ export default {
                     item: item
                 });
             }
+
+            if (item.to && navigate) {
+                navigate(event);
+            }
         },
         isActive(item) {
             return this.activeRoute === item.to || this.activeRoute === item.to + '/' ;
@@ -56,6 +66,12 @@ export default {
             return ['p-steps-item', item.class, {
                 'p-highlight p-steps-current': this.isActive(item),
                 'p-disabled': this.isItemDisabled(item)
+            }];
+        },
+        linkClass(routerProps) {
+            return ['p-menuitem-link', {
+                'router-link-active': routerProps && routerProps.isActive,
+                'router-link-active-exact': this.exact && routerProps && routerProps.isExactActive
             }];
         },
         isItemDisabled(item) {
