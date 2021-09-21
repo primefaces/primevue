@@ -22,10 +22,11 @@ export default {
         exact: null
     },
     methods: {
-        onClick(event) {
+        onClick(event, navigate) {
             this.$emit('click', {
                 originalEvent: event,
-                item: this.item
+                item: this.item,
+                navigate: navigate
             });
         },
         linkClass(item, routerProps) {
