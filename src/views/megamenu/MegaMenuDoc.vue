@@ -183,6 +183,12 @@ export default {
                                 <td>horizontal</td>
                                 <td>Defines the orientation, valid values are horizontal and vertical.</td>
                             </tr>
+                            <tr>
+                                <td>exact</td>
+                                <td>boolean</td>
+                                <td>true</td>
+                                <td>Whether to apply 'router-link-active-exact' class if route exactly matches the item path.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
