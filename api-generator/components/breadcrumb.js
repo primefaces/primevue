@@ -10,6 +10,12 @@ const BreadcrumbProps = [
         type: "menuitem",
         default: "null",
         description: "Configuration for the home icon."
+    },
+    {
+        name: "exact",
+        type: "boolean",
+        default: "true",
+        description: "Whether to apply 'router-link-active-exact' class if route exactly matches the item path."
     }
 ];
 
