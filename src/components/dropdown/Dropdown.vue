@@ -20,7 +20,7 @@
         <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
             <div ref="overlay" class="p-dropdown-panel p-component" v-if="overlayVisible">
                 <div class="p-dropdown-header" v-if="filter">
-                     <div  class="p-dropdown-filter-container">
+                     <div class="p-dropdown-filter-container">
                         <input type="text" ref="filterInput" v-model="filterValue" autoComplete="off" class="p-dropdown-filter p-inputtext p-component" :placeholder="filterPlaceholder" @keydown="onFilterKeyDown"  @input="onFilterChange"/>
                         <span class="p-dropdown-filter-icon pi pi-search"></span>
                     </div>
@@ -92,6 +92,9 @@ export default {
     currentSearchChar: null,
     previousSearchChar: null,
     searchValue: null,
+    updated() {
+        this.onFilterUpdated();
+    },
     beforeDestroy() {
         this.restoreAppend();
         this.unbindOutsideClickListener();
@@ -457,6 +460,8 @@ export default {
         },
         onFilterChange(event) {
             this.$emit('filter', {originalEvent: event, value: event.target.value});
+        },
+        onFilterUpdated() {console.log('wwww')
             if (this.overlayVisible) {
                 this.alignOverlay();
             }
