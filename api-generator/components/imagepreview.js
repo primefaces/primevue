@@ -50,8 +50,8 @@ const ImagePreviewSlots = [
 ];
 
 module.exports = {
-    image: {
-        name: "Image",
+    imagepreview: {
+        name: "ImagePreview",
         description: "Displays an image with preview and tranformation options.",
         props: ImagePreviewProps,
         events: ImagePreviewEvents,
