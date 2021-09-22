@@ -3,8 +3,8 @@
         <template v-for="(item, index) of model">
             <div v-if="visible(item)" :key="item.label + '_' + index" :class="getPanelClass(item)" :style="item.style">
                 <div :class="getHeaderClass(item)" :style="item.style">
-                    <router-link v-if="item.to && !disabled(item)" :to="item.to" custom v-slot="{navigate, href, isActive, isExactActive}">
-                        <a :href="href" :class="getHeaderLinkClass(item, {isActive, isExactActive})" @click="onItemClick($event, item, navigate)" role="treeitem">
+                    <router-link v-if="item.to && !disabled(item)" :to="item.to" custom v-slot="{navigate, href, isActive:isRouterActive, isExactActive}">
+                        <a :href="href" :class="getHeaderLinkClass(item, {isRouterActive, isExactActive})" @click="onItemClick($event, item, navigate)" role="treeitem">
                             <span v-if="item.icon" :class="getPanelIcon(item)"></span>
                             <span class="p-menuitem-text">{{item.label}}</span>
                         </a>
