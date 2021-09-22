@@ -3,6 +3,7 @@
     cursor: pointer;
     user-select: none;
     vertical-align: bottom;
+    position: relative;
 }
 
 .p-checkbox-box {
