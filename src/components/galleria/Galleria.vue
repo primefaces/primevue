@@ -293,6 +293,7 @@ export default {
 
 .p-galleria-thumbnail-items-container {
     overflow: hidden;
+    width: 100%;
 }
 
 .p-galleria-thumbnail-items {

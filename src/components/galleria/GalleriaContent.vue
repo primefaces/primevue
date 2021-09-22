@@ -37,12 +37,21 @@ export default {
         return {
             id: this.$attrs.id || UniqueComponentId(),
             activeIndex: this.$attrs.activeIndex,
+            numVisible: this.$attrs.numVisible,
             slideShowActive: false
         }
     },
     watch: {
+        '$attrs.value': function(newVal) {
+            if (newVal && newVal.length < this.numVisible) {
+                this.numVisible = newVal.length;
+            }
+        },
         '$attrs.activeIndex': function(newVal) {
             this.activeIndex = newVal;
+        },
+        '$attrs.numVisible': function(newVal) {
+            this.numVisible = newVal;
         }
     },
     updated() {
