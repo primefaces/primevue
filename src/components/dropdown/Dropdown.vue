@@ -461,7 +461,7 @@ export default {
         onFilterChange(event) {
             this.$emit('filter', {originalEvent: event, value: event.target.value});
         },
-        onFilterUpdated() {console.log('wwww')
+        onFilterUpdated() {
             if (this.overlayVisible) {
                 this.alignOverlay();
             }
