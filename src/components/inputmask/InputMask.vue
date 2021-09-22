@@ -239,11 +239,11 @@ export default {
             let val = this.unmask ? this.getUnmaskedValue() : e.target.value;
             this.$emit('input', (this.defaultBuffer !== val) ? val : '');
         },
-        updateValue() {
+        updateValue(updateModel = true) {
             if (this.$el) {
                 if (this.value == null) {
                     this.$el.value = '';
-                    this.$emit('input', '');
+                    updateModel && this.$emit('input', '');
                 }
                 else {
                     this.$el.value = this.value;
@@ -254,8 +254,10 @@ export default {
                             this.writeBuffer();
                             this.checkVal();
 
-                            let val = this.unmask ? this.getUnmaskedValue() : this.$el.value;
-                            this.$emit('input', (this.defaultBuffer !== val) ? val : '');
+                            if (updateModel) {
+                                let val = this.unmask ? this.getUnmaskedValue() : this.$el.value;
+                                this.$emit('update:modelValue', (this.defaultBuffer !== val) ? val : '');
+                            }
                         }
                     }, 10);
                 }
@@ -315,7 +317,7 @@ export default {
             }
         }
         this.defaultBuffer = this.buffer.join('');
-        this.updateValue();
+        this.updateValue(false);
     },
     updated() {
         if (this.isValueUpdated()) {
