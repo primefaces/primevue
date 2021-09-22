@@ -53,7 +53,6 @@ const DockSubTemplate = {
         }
     },
     render(createElement, context) {
-        console.log(context)
         const content = context.props.template({
             'item': context.props.item
         });
