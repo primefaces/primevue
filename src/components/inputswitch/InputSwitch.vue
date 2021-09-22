@@ -15,7 +15,15 @@ export default {
         inputId: String,
         name: String,
         disabled: Boolean,
-        ariaLabelledBy: null
+        ariaLabelledBy: null,
+        trueValue: {
+            type: null,
+            default: true
+        },
+        falseValue: {
+            type: null,
+            default: false
+        }
     },
     data() {
         return {
@@ -25,8 +33,9 @@ export default {
     methods: {
         onClick(event) {
             if (!this.disabled) {
+                const newValue = this.checked ? this.falseValue : this.trueValue;
                 this.$emit('click', event);
-                this.$emit('input', !this.value);
+                this.$emit('input', newValue);
                 this.$emit('change', event);
                 this.$refs.input.focus();
             }
@@ -45,11 +54,14 @@ export default {
             return [
                 'p-inputswitch p-component',
                 {
-                    'p-inputswitch-checked': this.value,
+                    'p-inputswitch-checked': this.checked,
 					'p-disabled': this.disabled,
                     'p-focus': this.focused
                 }
             ];
+        },
+        checked() {
+            return this.value === this.trueValue;
         }
     }
 }

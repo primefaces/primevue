@@ -82,6 +82,18 @@ import InputMask from 'primevue/inputmask';
                                 <td>false</td>
                                 <td>Defines if model sets the raw unmasked value to bound value or the formatted mask value.</td>
                             </tr>
+                            <tr>
+                                <td>trueValue</td>
+                                <td>any</td>
+                                <td>null</td>
+                                <td>Value in checked state.</td>
+                            </tr>
+                            <tr>
+                                <td>falseValue</td>
+                                <td>any</td>
+                                <td>null</td>
+                                <td>Value in unchecked state.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>

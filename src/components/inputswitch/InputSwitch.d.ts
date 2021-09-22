@@ -6,6 +6,8 @@ declare class InputSwitch extends Vue {
     name?: string;
     disabled?: boolean;
     ariaLabelledBy?: string;
+    trueValue?: any;
+    falseValue?: any;
     $emit(eventName: 'click', event: Event): this;
     $emit(eventName: 'input', value: any): this;
     $emit(eventName: 'change', event: Event): this;
