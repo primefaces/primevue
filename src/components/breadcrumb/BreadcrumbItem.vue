@@ -1,5 +1,5 @@
 <template>
-    <li :class="containerClass" v-if="visible()">
+    <li :class="containerClass(item)" v-if="visible()">
         <router-link v-if="item.to" :to="item.to" custom v-slot="{navigate, href, isActive, isExactActive}">
             <a :href="href" @click="onClick($event, navigate)" :class="linkClass({isActive, isExactActive})">
                 <span v-if="item.icon" :class="iconClass"></span>
@@ -32,6 +32,9 @@ export default {
                 navigate(event);
             }
         },
+        containerClass(item) {
+            return [{'p-disabled': this.disabled(item)}, item.class];
+        },
         linkClass(routerProps) {
             return ['p-menuitem-link', {
                 'router-link-active': routerProps && routerProps.isActive,
@@ -40,12 +43,12 @@ export default {
         },
         visible() {
             return (typeof this.item.visible === 'function' ? this.item.visible() : this.item.visible !== false);
+        },
+        disabled(item) {
+            return (typeof item.disabled === 'function' ? item.disabled() : item.disabled);
         }
     },
     computed: {
-        containerClass() {
-            return [{'p-disabled': this.item.disabled}, this.item.class];
-        },
         iconClass() {
             return ['p-menuitem-icon', this.item.icon];
         }

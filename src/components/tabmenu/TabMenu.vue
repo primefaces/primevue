@@ -3,11 +3,11 @@
         <ul ref="nav" class="p-tabmenu-nav p-reset" role="tablist">
             <template v-for="(item,i) of model">
                 <li :key="item.label + '_' + i" :class="getItemClass(item, i)" :style="item.style" v-if="visible(item)" role="tab" :aria-selected="isActive(item)" :aria-expanded="isActive(item)">
-                    <router-link v-if="item.to && !item.disabled" :to="item.to" class="p-menuitem-link" @click.native="onItemClick($event, item, i)" role="presentation" v-ripple>
+                    <router-link v-if="item.to && !disabled(item)" :to="item.to" class="p-menuitem-link" @click.native="onItemClick($event, item, i)" role="presentation" v-ripple>
                         <span :class="getItemIcon(item)" v-if="item.icon"></span>
                         <span class="p-menuitem-text">{{item.label}}</span>
                     </router-link>
-                    <a v-else :href="item.url" class="p-menuitem-link" :target="item.target" @click="onItemClick($event, item, i)" role="presentation" :tabindex="item.disabled ? null : '0'" v-ripple>
+                    <a v-else :href="item.url" class="p-menuitem-link" :target="item.target" @click="onItemClick($event, item, i)" role="presentation" :tabindex="disabled(item) ? null : '0'" v-ripple>
                         <span :class="getItemIcon(item)" v-if="item.icon"></span>
                         <span class="p-menuitem-text">{{item.label}}</span>
                     </a>
@@ -51,7 +51,7 @@ export default {
     },
     methods: {
         onItemClick(event, item, index) {
-            if (item.disabled) {
+            if (this.disabled(item)) {
                 event.preventDefault();
                 return;
             }
@@ -78,7 +78,7 @@ export default {
         getItemClass(item, index) {
             return ['p-tabmenuitem', item.class, {
                 'p-highlight': this.isActive(item) || this.d_activeIndex === index,
-                'p-disabled': item.disabled
+                'p-disabled': this.disabled(item)
             }];
         },
         getItemIcon(item) {
@@ -86,6 +86,9 @@ export default {
         },
         visible(item) {
             return (typeof item.visible === 'function' ? item.visible() : item.visible !== false);
+        },
+        disabled(item) {
+            return (typeof item.disabled === 'function' ? item.disabled() : item.disabled);
         },
         findActiveTabIndex() {
             if (this.model) {

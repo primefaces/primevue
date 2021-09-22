@@ -4,7 +4,7 @@
             <li v-for="(item, index) of model" :class="itemClass(index)" :key="index" role="none" @mouseenter="onItemMouseEnter(index)">
                 <DockSubTemplate v-if="templates['item']" :item="item" :template="templates['item']" />
                 <template v-else>
-                    <router-link v-if="item.to && !item.disabled" :to="item.to" custom v-slot="{navigate, href, isActive, isExactActive}">
+                    <router-link v-if="item.to && !disabled(item)" :to="item.to" custom v-slot="{navigate, href, isActive, isExactActive}">
                         <a :href="href" role="menuitem" :class="linkClass(item, {isActive, isExactActive})" :target="item.target"
                             v-tooltip:[tooltipOptions]="{value: item.label, disabled: !tooltipOptions}" @click="onItemClick($event, item, navigate)">
                             <template v-if="typeof item.icon === 'string'">
@@ -14,7 +14,7 @@
                         </a>
                     </router-link>
                     <a v-else :href="item.url" role="menuitem" :class="linkClass(item)" :target="item.target"
-                        v-tooltip:[tooltipOptions]="{value: item.label, disabled: !tooltipOptions}" @click="onItemClick($event, item)" :tabindex="item.disabled ? null : '0'">
+                        v-tooltip:[tooltipOptions]="{value: item.label, disabled: !tooltipOptions}" @click="onItemClick($event, item)" :tabindex="disabled(item) ? null : '0'">
                         <template v-if="typeof item.icon === 'string'">
                             <span :class="['p-dock-action-icon', item.icon]" v-ripple></span>
                         </template>
@@ -92,7 +92,7 @@ export default {
             this.currentIndex = index;
         },
         onItemClick(event, item) {
-            if (item.disabled) {
+            if (this.disabled(item)) {
                 return;
             }
 
@@ -116,10 +116,13 @@ export default {
         },
         linkClass(item, routerProps) {
             return ['p-dock-action', {
-                'p-disabled': item.disabled,
+                'p-disabled': this.disabled(item),
                 'router-link-active': routerProps && routerProps.isActive,
                 'router-link-active-exact': this.exact && routerProps && routerProps.isExactActive
             }];
+        },
+        disabled(item) {
+            return (typeof item.disabled === 'function' ? item.disabled() : item.disabled);
         }
     },
     components: {
