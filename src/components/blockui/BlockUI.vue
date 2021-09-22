@@ -73,7 +73,7 @@ export default {
         },
         unblock() {
             DomHandler.addClass(this.mask, 'p-blockui-leave');
-            this.mask.addEventListener('transitionend', () => {
+            this.mask.addEventListener('animationend', () => {
                 this.removeMask();
             });
         },
