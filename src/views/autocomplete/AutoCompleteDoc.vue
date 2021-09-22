@@ -162,6 +162,12 @@ export default {
                                 <td>When present, autocomplete clears the manual input if it does not match of the suggestions to force only
                                 accepting values from the suggestions.</td>
                             </tr>
+                            <tr>
+                                <td>autoHighlight</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>Highlights automatically the first item of the dropdown to be selected.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>

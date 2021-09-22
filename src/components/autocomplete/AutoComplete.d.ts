@@ -13,6 +13,7 @@ declare class AutoComplete extends Vue {
     ariaLabelledBy?: string;
     appendTo?: string;
     forceSelection?: boolean;
+    autoHighlight?: boolean;
     $emit(eventName: 'input', value: any): this;
     $emit(eventName: 'item-select', e: {originalEvent: Event, value: any}): this;
     $emit(eventName: 'item-unselect', e: {originalEvent: Event, value: any}): this;

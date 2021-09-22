@@ -70,6 +70,12 @@ const AutoCompleteProps = [
         type: "string",
         default: "null",
         description: "Style class of the overlay panel."
+    },
+    {
+        name: "autoHighlight",
+        type: "boolean",
+        default: "false",
+        description: "Highlights automatically the first item of the dropdown to be selected."
     }
 ];
 

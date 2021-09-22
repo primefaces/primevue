@@ -83,6 +83,10 @@ export default {
         forceSelection: {
             type: Boolean,
             default: false
+        },
+        autoHighlight: {
+            type: Boolean,
+            default: false
         }
     },
     timeout: null,
@@ -133,6 +137,10 @@ export default {
             this.bindOutsideClickListener();
             this.bindScrollListener();
             this.bindResizeListener();
+
+            if (this.autoHighlight && this.suggestions && this.suggestions.length) {
+                DomHandler.addClass(this.$refs.overlay.firstElementChild.firstElementChild, 'p-highlight')
+            }
         },
         onOverlayLeave() {
             this.unbindOutsideClickListener();
