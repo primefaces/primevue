@@ -10,6 +10,18 @@ const CheckboxProps = [
         type: "boolean",
         default: "false",
         description: "Allows to select a boolean value instead of multiple values."
+    },
+    {
+        name: "trueValue",
+        type: "any",
+        default: "true",
+        description: "Value in checked state."
+    },
+    {
+        name: "falseValue",
+        type: "any",
+        default: "true",
+        description: "Value in unchecked state."
     }
 ];
 

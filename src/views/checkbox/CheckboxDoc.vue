@@ -60,6 +60,18 @@ export default {
                                 <td>false</td>
                                 <td>Allows to select a boolean value instead of multiple values.</td>
                             </tr>
+                            <tr>
+                                <td>trueValue</td>
+                                <td>any</td>
+                                <td>null</td>
+                                <td>Value in checked state.</td>
+                            </tr>
+                            <tr>
+                                <td>falseValue</td>
+                                <td>any</td>
+                                <td>null</td>
+                                <td>Value in unchecked state.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
