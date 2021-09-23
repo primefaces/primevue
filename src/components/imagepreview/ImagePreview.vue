@@ -197,7 +197,7 @@ export default {
 .p-image-preview-leave-active {
     transition: all 150ms cubic-bezier(0.4, 0.0, 0.2, 1);
 }
-.p-image-preview-enter-from,
+.p-image-preview-enter,
 .p-image-preview-leave-to {
     opacity: 0;
     transform: scale(0.7);

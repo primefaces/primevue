@@ -138,7 +138,7 @@ export default {
             DomHandler.addClass(document.body, 'p-overflow-hidden');
         },
         onBeforeLeave() {
-            DomHandler.addClass(this.$refs.mask, 'p-galleria-mask-leave');
+            DomHandler.addClass(this.$refs.mask, 'p-component-overlay-leave');
         },
         onAfterLeave() {
             this.maskVisible = false;
@@ -179,7 +179,7 @@ export default {
     },
     computed: {
         maskContentClass() {
-            return ['p-galleria-mask', {
+            return ['p-galleria-mask p-component-overlay p-component-overlay-enter', {
                 'p-galleria-visible': this.visible
             }, this.maskClass];
         }
@@ -428,8 +428,6 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: transparent;
-    transition-property: background-color;
 }
 
 .p-galleria-close {
@@ -465,10 +463,6 @@ export default {
 
 .p-galleria-enter-active .p-galleria-item-nav {
     opacity: 0;
-}
-
-.p-galleria-mask.p-galleria-mask-leave {
-    background-color: transparent;
 }
 
 /* Keyboard Support */

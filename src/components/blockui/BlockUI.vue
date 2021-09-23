@@ -42,9 +42,11 @@ export default {
     },
     methods: {
         block() {
+            let styleClass = 'p-blockui p-component-overlay p-component-overlay-enter';
             if (this.fullScreen) {
+                styleClass += ' p-blockui-document';
                 this.mask = document.createElement('div');
-                this.mask.setAttribute('class', 'p-blockui p-blockui-document');
+                this.mask.setAttribute('class', styleClass);
                 document.body.appendChild(this.mask);
                 DomHandler.addClass(document.body, 'p-overflow-hidden');
                 document.activeElement.blur();
@@ -53,16 +55,10 @@ export default {
                 const target = this.$children ? this.$children[0]: null;
                 if (target) {
                     this.mask = document.createElement('div');
-                    this.mask.setAttribute('class', 'p-blockui');
+                    this.mask.setAttribute('class', styleClass);
                     target.$el.appendChild(this.mask);
                     target.$el.style.position = 'relative';
                 }
-            }
-
-            if (this.mask) {
-                setTimeout(() => {
-                    DomHandler.addClass(this.mask, 'p-component-overlay');
-                }, 1);
             }
 
             if (this.autoZIndex) {
@@ -72,7 +68,7 @@ export default {
             this.$emit('block');
         },
         unblock() {
-            DomHandler.addClass(this.mask, 'p-blockui-leave');
+            DomHandler.addClass(this.mask, 'p-component-overlay-leave');
             this.mask.addEventListener('animationend', () => {
                 this.removeMask();
             });
@@ -99,8 +95,6 @@ export default {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: transparent;
-    transition-property: background-color;
 }
 
 .p-blockui.p-component-overlay {
@@ -109,9 +103,5 @@ export default {
 
 .p-blockui-document.p-component-overlay {
     position: fixed;
-}
-
-.p-blockui.p-blockui-leave.p-component-overlay {
-    background-color: transparent;
 }
 </style>

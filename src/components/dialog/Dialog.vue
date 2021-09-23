@@ -84,18 +84,18 @@ export default {
     },
     documentKeydownListener: null,
     updated() {
-        this.removeStylesFromMask();
+        // this.removeStylesFromMask();
 
         if (this.visible && !this.maskVisible) {
             this.maskVisible = true;
         }
 
-        if (this.modal && this.$refs.mask && !DomHandler.hasClass(this.$refs.mask, 'p-component-overlay')) {
-            DomHandler.addClass(this.$refs.mask, 'p-component-overlay');
-        }
+        // if (this.modal && this.$refs.mask && !DomHandler.hasClass(this.$refs.mask, 'p-component-overlay')) {
+        //     DomHandler.addClass(this.$refs.mask, 'p-component-overlay');
+        // }
     },
     mounted() {
-        this.removeStylesFromMask();
+        // this.removeStylesFromMask();
     },
     beforeDestroy() {
         this.restoreAppend();
@@ -119,7 +119,7 @@ export default {
             this.enableDocumentSettings();
         },
         onBeforeLeave() {
-            DomHandler.addClass(this.$refs.mask, 'p-dialog-mask-leave');
+            // DomHandler.addClass(this.$refs.mask, 'p-dialog-mask-leave');
         },
         onLeave() {
             this.$emit('hide');
@@ -266,7 +266,7 @@ export default {
             };
         },
         maskClass() {
-            return ['p-dialog-mask', this.getPositionClass()];
+            return ['p-dialog-mask', {'p-component-overlay p-component-overlay-enter': this.modal}, this.getPositionClass()];
         },
         dialogClass() {
             return ['p-dialog p-component', {
@@ -306,8 +306,6 @@ export default {
     justify-content: center;
     align-items: center;
     pointer-events: none;
-    background-color: transparent;
-    transition-property: background-color;
 }
 
 .p-dialog-mask.p-component-overlay {
@@ -367,10 +365,6 @@ export default {
 .p-dialog-leave-to {
     opacity: 0;
     transform: scale(0.7);
-}
-
-.p-dialog-mask.p-dialog-mask-leave {
-    background-color: transparent;
 }
 
 /* Top, Bottom, Left, Right, Top* and Bottom* */
