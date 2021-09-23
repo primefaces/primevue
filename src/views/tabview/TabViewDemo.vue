@@ -32,12 +32,12 @@
             <div class="card">
                 <h5>Programmatic</h5>
                 <div class="p-py-2">
-                    <Button @click="active = 0" class="p-button-text" label="Activate 1st" />
-                    <Button @click="active = 1" class="p-button-text p-mr-2" label="Activate 2nd" />
-                    <Button @click="active = 2" class="p-button-text p-mr-2" label="Activate 3rd" />
+                    <Button @click="active1 = 0" class="p-button-text" label="Activate 1st" />
+                    <Button @click="active1 = 1" class="p-button-text p-mr-2" label="Activate 2nd" />
+                    <Button @click="active1 = 2" class="p-button-text p-mr-2" label="Activate 3rd" />
                 </div>
 
-                <TabView ref="tabview2" :activeIndex="active">
+                <TabView ref="tabview2" :activeIndex="active1">
                     <TabPanel header="Header I">
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
                             ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
@@ -120,6 +120,21 @@
                     </TabPanel>
                 </TabView>
             </div>
+
+            <div class="card">
+                <h5>Scrollable</h5>
+                <div class="p-py-2">
+                    <Button @click="active2 = 0" class="p-button-text" label="Activate 1st" />
+                    <Button @click="active2 = 29" class="p-button-text p-mr-2" label="Activate 30th" />
+                    <Button @click="active2 = 49" class="p-button-text p-mr-2" label="Activate 50th" />
+                </div>
+
+                <TabView :activeIndex.sync="active2" :scrollable="true">
+                    <TabPanel v-for="tab in scrollableTabs" :key="tab.title" :header="tab.title">
+                        <p>{{tab.content}}</p>
+                    </TabPanel>
+                </TabView>
+            </div>
         </div>
 
         <TabViewDoc/>
@@ -133,7 +148,8 @@ import EventBus from '@/EventBus';
 export default {
     data() {
         return {
-            active: 0,
+            active1: 0,
+            active2: 0,
             tabs: [
                 {
                     title: 'Header I',
@@ -153,7 +169,8 @@ export default {
                             cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.
                             Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.`
                 }
-            ]
+            ],
+            scrollableTabs: Array.from({ length: 50 }, (_, i) => ({ title: `Tab ${i + 1}`, content: `Tab ${i + 1} Content` }))
         }
     },
     timeout: null,
