@@ -1,10 +1,10 @@
 import Vue, { VNode } from 'vue';
 
-declare class Image extends Vue {
+declare class ImagePreview extends Vue {
     preview?: boolean;
     $slots: {
         'indicator': VNode[];
     }
 }
 
-export default Image;
+export default ImagePreview;
