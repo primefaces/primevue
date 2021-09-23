@@ -9,10 +9,13 @@
 			<NextPageLink v-else-if="item === 'NextPageLink'" :key="item" @click="changePageToNext($event)" :disabled="isLastPage || empty" />
 			<LastPageLink v-else-if="item === 'LastPageLink'" :key="item" @click="changePageToLast($event)" :disabled="isLastPage || empty" />
 			<PageLinks v-else-if="item === 'PageLinks'" :key="item" :value="pageLinks" :page="page" @click="changePageLink($event)" />
-			<CurrentPageReport v-else-if="item === 'CurrentPageReport'" :key="item" :template="currentPageReportTemplate"
+			<CurrentPageReport v-else-if="item === 'CurrentPageReport'" :key="item" :template="currentPageReportTemplate" :currentPage="currentPage"
                 :page="page" :pageCount="pageCount" :first="d_first" :rows="d_rows" :totalRecords="totalRecords" />
 			<RowsPerPageDropdown v-else-if="item === 'RowsPerPageDropdown' && rowsPerPageOptions" :key="item" :rows="d_rows"
                 :options="rowsPerPageOptions" @rows-change="onRowChange($event)" :disabled="empty" />
+            <JumpToPageDropdown v-else-if="item === 'JumpToPageDropdown'" :key="item" :page="page" :pageCount="pageCount"
+                @page-change="changePage($event)" :disabled="empty"/>
+            <JumpToPageInput v-else-if="item === 'JumpToPageInput'" :key="item" :page="currentPage" @page-change="changePage($event)" :disabled="empty"/>
         </template>
         <div class="p-paginator-right-content" v-if="$scopedSlots.right">
             <slot name="right" :state="currentState"></slot>
@@ -28,6 +31,8 @@ import NextPageLink from './NextPageLink';
 import PageLinks from './PageLinks';
 import PrevPageLink from './PrevPageLink';
 import RowsPerPageDropdown from './RowsPerPageDropdown';
+import JumpToPageDropdown from './JumpToPageDropdown';
+import JumpToPageInput from './JumpToPageInput';
 
 export default {
     props: {
@@ -187,6 +192,9 @@ export default {
         },
         empty() {
             return this.pageCount === 0;
+        },
+        currentPage() {
+            return this.pageCount > 0 ? this.page + 1 : 0;
         }
     },
     components: {
@@ -197,6 +205,8 @@ export default {
         'PageLinks': PageLinks,
         'PrevPageLink': PrevPageLink,
         'RowsPerPageDropdown': RowsPerPageDropdown,
+        'JumpToPageDropdown': JumpToPageDropdown,
+        'JumpToPageInput': JumpToPageInput
     },
 }
 </script>
