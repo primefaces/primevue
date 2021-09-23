@@ -2,7 +2,11 @@
     <div class="layout-wrapper" :class="containerClass">
         <a class="layout-news" href="https://www.primefaces.org/store" target="_blank" tabindex="-1" v-if="newsActive">
             <div class="layout-news-container">
-                <img class="layouts-news-mockup-image" alt="summersale" src="./assets/images/topbar-endofsummersale-2021-2.png">
+                <img class="layouts-news-mockup-image" alt="primeblocks" src="./assets/images/topbar-primeblocks-device.png">
+                <a href="https://www.primefaces.org/primeblocks-vue" target="_blank" tabindex="-1" style="text-decoration: none" class="layout-news-button">
+                    LEARN MORE
+                    <i class="pi pi-angle-right"></i>
+                </a>
                 <a href="#" class="layout-news-close" @click="hideNews">
                     <i class="pi pi-times"></i>
                 </a>
