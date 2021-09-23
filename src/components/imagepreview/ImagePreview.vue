@@ -36,7 +36,7 @@
 <script>
 import DomHandler from '../utils/DomHandler';
 export default {
-    name: 'Image',
+    name: 'ImagePreview',
     inheritAttrs: false,
     props: {
         preview: {
