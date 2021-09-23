@@ -4,6 +4,12 @@ const TabViewProps = [
         type: "number",
         default: "0",
         description: "Index of the active tab."
+    },
+    {
+        name: "scrollable",
+        type: "boolean",
+        default: "false",
+        description: "When enabled displays buttons at each side of the tab headers to scroll the tab list."
     }
 ];
 
