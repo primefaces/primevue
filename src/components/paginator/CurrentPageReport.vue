@@ -10,6 +10,10 @@
                 type: Number,
                 default: 0
             },
+            currentPage: {
+                type: Number,
+                default: 0
+            },
             page: {
                 type: Number,
                 default: 0
@@ -34,7 +38,7 @@
 		computed: {
             text() {
                 let text = this.template
-                    .replace("{currentPage}", this.pageCount > 0 ? this.page + 1 : 0)
+                    .replace("{currentPage}", this.currentPage)
                     .replace("{totalPages}", this.pageCount)
                     .replace("{first}", this.pageCount > 0 ? this.first + 1 : 0)
                     .replace("{last}", Math.min(this.first + this.rows, this.totalRecords))

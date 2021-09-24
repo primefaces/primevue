@@ -1,8 +1,8 @@
 <template>
     <div :class="containerClass" @click="onClick($event)" :style="style">
         <div class="p-hidden-accessible">
-            <input ref="input" type="checkbox" :checked="modelValue" v-bind="$attrs" @focus="onFocus($event)" @blur="onBlur($event)" @keydown.enter.prevent="onClick($event)"
-                role="switch" :aria-checked="modelValue">
+            <input ref="input" type="checkbox" :checked="checked" v-bind="$attrs" @focus="onFocus($event)" @blur="onBlur($event)" @keydown.enter.prevent="onClick($event)"
+                role="switch" :aria-checked="checked">
         </div>
         <span class="p-inputswitch-slider"></span>
     </div>
@@ -14,7 +14,10 @@ export default {
     inheritAttrs: false,
     emits: ['click', 'update:modelValue', 'change', 'input'],
     props: {
-        modelValue: Boolean,
+        modelValue: {
+            type: null,
+            default: false
+        },
         class: null,
         style: null,
         trueValue: {

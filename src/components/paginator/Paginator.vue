@@ -9,13 +9,13 @@
 			<NextPageLink v-else-if="item === 'NextPageLink'" @click="changePageToNext($event)" :disabled="isLastPage || empty" />
 			<LastPageLink v-else-if="item === 'LastPageLink'" @click="changePageToLast($event)" :disabled="isLastPage || empty" />
 			<PageLinks v-else-if="item === 'PageLinks'" :value="pageLinks" :page="page" @click="changePageLink($event)" />
-			<CurrentPageReport v-else-if="item === 'CurrentPageReport'" :template="currentPageReportTemplate"
+			<CurrentPageReport v-else-if="item === 'CurrentPageReport'" :template="currentPageReportTemplate" :currentPage="currentPage"
                 :page="page" :pageCount="pageCount" :first="d_first" :rows="d_rows" :totalRecords="totalRecords" />
 			<RowsPerPageDropdown v-else-if="item === 'RowsPerPageDropdown' && rowsPerPageOptions" :rows="d_rows"
                 :options="rowsPerPageOptions" @rows-change="onRowChange($event)" :disabled="empty"/>
-            <JumpToPageDropdown v-else-if="item === 'JumpToPageDropdown'" :page="page" :pageCount="pageCount" 
+            <JumpToPageDropdown v-else-if="item === 'JumpToPageDropdown'" :page="page" :pageCount="pageCount"
                 @page-change="changePage($event)" :disabled="empty"/>
-            <JumpToPageInput v-else-if="item === 'JumpToPageInput'" :page="page" @page-change="changePage($event)" :disabled="empty"/>
+            <JumpToPageInput v-else-if="item === 'JumpToPageInput'" :page="currentPage" @page-change="changePage($event)" :disabled="empty"/>
         </template>
         <div class="p-paginator-right-content" v-if="$slots.right">
             <slot name="right" :state="currentState"></slot>
@@ -194,6 +194,9 @@ export default {
         },
         empty() {
             return this.pageCount === 0;
+        },
+        currentPage() {
+            return this.pageCount > 0 ? this.page + 1 : 0;
         }
     },
     components: {

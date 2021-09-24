@@ -16,7 +16,7 @@ export default {
     },
     methods: {
         onChange(value) {
-            this.$emit('page-change', value);
+            this.$emit('page-change', value - 1);
         }
     },
     components: {
