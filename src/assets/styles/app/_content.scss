@@ -1,6 +1,5 @@
 .layout-content {
     margin-left: 250px;
-    padding-top: 70px;
 
     .content-section {
         padding: 2rem;
@@ -29,10 +28,16 @@
                     text-decoration: none;
                     color: $linkColor;
                     font-weight: 600;
-    
+
                     &:hover {
                         text-decoration: underline;
                     }
+                }
+            }
+
+            .app-demoactions {
+                .p-button-icon-only {
+                    padding: .5rem 0;
                 }
             }
         }
@@ -112,7 +117,7 @@
                             &:focus {
                                 outline: 0 none;
                                 transition: background-color .2s, box-shadow .2s;
-                                box-shadow: 0 0 0 0.2em $focusBorderColor;
+                                box-shadow: inset 0 0 0 0.2em $focusBorderColor;
                             }
 
                             &:hover {
@@ -186,6 +191,16 @@
                     }
                 }
             }
+
+            &.browsers {
+                td {
+                    &:first-child {
+                        font-family: var(--font-family);
+                        font-weight: normal;
+                        color: var(--text-color);
+                    }
+                }
+            }
         }
     }
 
@@ -195,11 +210,24 @@
         box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
         border-radius: 4px;
         margin-bottom: 2rem;
-        
+
         .card-header {
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
+    }
+
+    .box {
+        background-color: var(--surface-e);
+        text-align: center;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        border-radius: 4px;
+        box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+    }
+
+    .box-stretched {
+        height: 100%;
     }
 }
