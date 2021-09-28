@@ -85,6 +85,11 @@ export default {
             overlayVisible: false
         };
     },
+    watch: {
+        value() {
+            this.isModelValueChanged = true;
+        }
+    },
     outsideClickListener: null,
     scrollHandler: null,
     resizeListener: null,
@@ -92,7 +97,13 @@ export default {
     currentSearchChar: null,
     previousSearchChar: null,
     searchValue: null,
+    isValueChanged: false,
     updated() {
+        if (this.overlayVisible && this.isModelValueChanged) {
+            this.scrollValueInView();
+        }
+        this.isModelValueChanged = false;
+
         this.onFilterUpdated();
     },
     beforeDestroy() {
@@ -465,7 +476,15 @@ export default {
             if (this.overlayVisible) {
                 this.alignOverlay();
             }
-        }
+        },
+        scrollValueInView() {
+            if (this.$refs.overlay) {
+                let selectedItem = DomHandler.findSingle(this.$refs.overlay, 'li.p-highlight');
+                if (selectedItem) {
+                    selectedItem.scrollIntoView({ block: 'nearest', inline: 'start' });
+                }
+            }
+        },
     },
     computed: {
         visibleOptions() {
