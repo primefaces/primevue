@@ -84,18 +84,14 @@ export default {
     },
     documentKeydownListener: null,
     updated() {
-        // this.removeStylesFromMask();
+        this.removeStylesFromMask();
 
         if (this.visible && !this.maskVisible) {
             this.maskVisible = true;
         }
-
-        // if (this.modal && this.$refs.mask && !DomHandler.hasClass(this.$refs.mask, 'p-component-overlay')) {
-        //     DomHandler.addClass(this.$refs.mask, 'p-component-overlay');
-        // }
     },
     mounted() {
-        // this.removeStylesFromMask();
+        this.removeStylesFromMask();
     },
     beforeDestroy() {
         this.restoreAppend();
@@ -119,7 +115,7 @@ export default {
             this.enableDocumentSettings();
         },
         onBeforeLeave() {
-            // DomHandler.addClass(this.$refs.mask, 'p-dialog-mask-leave');
+            DomHandler.addClass(this.$refs.mask, 'p-component-overlay-leave');
         },
         onLeave() {
             this.$emit('hide');
@@ -228,9 +224,6 @@ export default {
                 }
 
                 this.dialogClasses = this.$vnode.data.class || this.$vnode.data.staticClass;
-                if (this.dialogClasses) {
-                    this.$refs.mask.classList = 'p-dialog-mask' + (this.modal && ' p-component-overlay ') + this.getPositionClass();
-                }
             }
         },
         alignOverlay() {
