@@ -83,7 +83,7 @@ directives: {
                         <td>class</td>
                         <td>string</td>
                         <td>null</td>
-                        <td>When present, it adds a custom class of p-tooltip-*class* to the tooltip.</td>
+                        <td>When present, it adds a custom class to the tooltip.</td>
                     </tr>
                 </tbody>
             </table>
@@ -111,10 +111,6 @@ directives: {
                     <tr>
                         <td>p-tooltip-text</td>
                         <td>Text of the tooltip</td>
-                    </tr>
-                    <tr>
-                        <td>p-tooltip-*custom*</td>
-                        <td>Input element additional class created by the class property</td>
                     </tr>
 				</tbody>
 			</table>
@@ -158,7 +154,7 @@ export default {
         <Button type="button" label="Save" icon="pi pi-check" v-tooltip="'Click to proceed'" />
 
         <h5>Custom Class</h5>
-        <InputText type="text" placeholder="Custom Class" v-tooltip.right="{value:'Invalid username', class: 'error'}" />
+        <InputText type="text" placeholder="Custom Class" v-tooltip.right="{value:'Invalid username', class: 'custom-error'}" />
     </div>
 </template>
 
@@ -166,6 +162,15 @@ export default {
 export default {
 }
 <\\/script>
+<style>
+.custom-error .p-tooltip-text {
+    background-color: var(--pink-800);
+    color: rgb(255, 255, 255);
+}
+.custom-error.p-tooltip-right .p-tooltip-arrow {
+    border-right-color: var(--pink-800);
+}
+</style>
 `
                 },
                 'composition-api': {
@@ -196,7 +201,7 @@ export default {
         <Button type="button" label="Save" icon="pi pi-check" v-tooltip="'Click to proceed'" />
 
         <h5>Custom Class</h5>
-        <InputText type="text" placeholder="Custom Class" v-tooltip.right="{value:'Invalid username', class: 'error'}" />
+        <InputText type="text" placeholder="Custom Class" v-tooltip.right="{value:'Invalid username', class: 'custom-error'}" />
     </div>
 </template>
 
@@ -204,6 +209,15 @@ export default {
 export default {
 }
 <\\/script>
+<style>
+.custom-error .p-tooltip-text {
+    background-color: var(--pink-800);
+    color: rgb(255, 255, 255);
+}
+.custom-error.p-tooltip-right .p-tooltip-arrow {
+    border-right-color: var(--pink-800);
+}
+</style>
 `
                 }
             }
