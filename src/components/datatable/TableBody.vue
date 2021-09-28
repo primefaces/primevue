@@ -3,7 +3,7 @@
         <template v-if="!empty">
             <template v-for="(rowData, index) of value">
                 <tr class="p-rowgroup-header" v-if="templates['groupheader'] && rowGroupMode === 'subheader' && shouldRenderRowGroupHeader(value, rowData, index)" :key="getRowKey(rowData, index) + '_subheader'">
-                    <td :colspan="columns.length - 1">
+                    <td :colspan="columnsLength - 1">
                         <button class="p-row-toggler p-link" @click="onRowGroupToggle($event, rowData)" v-if="expandableRowGroups" type="button">
                             <span :class="rowGroupTogglerIcon(rowData)"></span>
                         </button>
@@ -26,7 +26,7 @@
                     </template>
                 </tr>
                 <tr class="p-datatable-row-expansion" v-if="templates['expansion'] && expandedRows && isRowExpanded(rowData)" :key="getRowKey(rowData, index) + '_expansion'">
-                    <td :colspan="columns.length">
+                    <td :colspan="columnsLength">
                         <DTRowExpansionTemplate :template="templates['expansion']" :data="rowData" :index="index" />
                     </td>
                 </tr>
@@ -36,7 +36,7 @@
             </template>
         </template>
         <tr v-else class="p-datatable-emptymessage">
-            <td :colspan="columns.length">
+            <td :colspan="columnsLength - 1">
                 <DTSlotTemplate :template="templates.empty" v-if="templates.empty && !loading"/>
                 <DTSlotTemplate :template="templates.loading" v-if="templates.loading && loading"/>
             </td>
@@ -447,6 +447,11 @@ export default {
         },
         onRowEditCancel(event) {
             this.$emit('row-edit-cancel', event);
+        }
+    },
+    computed: {
+        columnsLength() {
+            return this.columns ? this.columns.length : 0;
         }
     },
     components: {
