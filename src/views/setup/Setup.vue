@@ -10,7 +10,7 @@
             <p>PrimeVue is available at <a href="https://www.npmjs.com/package/primevue">npm</a>, if you have an existing application run the following commands to download PrimeVue and PrimeIcons to your project.</p>
 
 <CodeHighlight lang="js">
-npm install primevue@^2.4.2 --save
+npm install primevue@^2.5.2 --save
 npm install primeicons --save
 </CodeHighlight>
 
@@ -46,7 +46,7 @@ Vue.component('Dialog', Dialog);
 &lt;link href="https://unpkg.com/primevue/resources/primevue.min.css " rel="stylesheet"&gt;
 &lt;link href="https://unpkg.com/primeicons/primeicons.css " rel="stylesheet"&gt;
 &lt;script src="https://unpkg.com/vue"&gt;&lt;/script&gt;
-&lt;script src="https://unpkg.com/primevue@2.3.0/calendar/calendar.umd.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue@2.5.2/calendar/calendar.umd.min.js"&gt;&lt;/script&gt;
 
 &lt;div id="app"&gt;
   &lt;p-calendar&gt;&lt;/p-calendar&gt;
@@ -65,6 +65,7 @@ new Vue({
             <p>Majority of PrimeVue components (95%) are native and there are some exceptions having 3rd party dependencies such as Quill for Editor.</p>
             <p>In addition, components require PrimeIcons library for icons.</p>
 
+            <h6>Mandatory</h6>
 <CodeHighlight lang="js">
 dependencies: {
     "vue": "^2.6.10",
@@ -72,6 +73,7 @@ dependencies: {
 }
 </CodeHighlight>
 
+            <h6>Optional</h6>
             <p>Here is the list of components with 3rd party dependencies.</p>
             <div class="doc-tablewrapper">
                 <table class="doc-table">
@@ -84,15 +86,11 @@ dependencies: {
                     <tbody>
                         <tr>
                             <td>Charts</td>
-                            <td>Charts.js 2.1.x+</td>
+                            <td>Charts.js 3.3.2</td>
                         </tr>
                         <tr>
                             <td>Editor</td>
                             <td>Quill.js 1.3.3+</td>
-                        </tr>
-                        <tr>
-                            <td>FullCalendar</td>
-                            <td>FullCalendar 5.4.0+.</td>
                         </tr>
                         <tr>
                             <td>PrimeFlex</td>
@@ -113,7 +111,7 @@ primeicons/primeicons.css                           //icons
 </CodeHighlight>
 
             <h5>Free Themes</h5>
-            <p>PrimeVue ships with 32 free themes to choose from.</p>
+            <p>PrimeVue ships with 35 free themes to choose from.</p>
 <CodeHighlight lang="css">
 primevue/resources/themes/bootstrap4-light-blue/theme.css
 primevue/resources/themes/bootstrap4-light-purple/theme.css
@@ -127,6 +125,8 @@ primevue/resources/themes/mdc-light-indigo/theme.css
 primevue/resources/themes/mdc-light-deeppurple/theme.css
 primevue/resources/themes/mdc-dark-indigo/theme.css
 primevue/resources/themes/mdc-dark-deeppurple/theme.css
+primevue/resources/themes/tailwind/tailwind-light/theme.css
+primevue/resources/themes/fluent-light/theme.css
 primevue/resources/themes/saga-blue/theme.css
 primevue/resources/themes/saga-green/theme.css
 primevue/resources/themes/saga-orange/theme.css
