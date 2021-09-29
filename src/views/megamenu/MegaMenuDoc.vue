@@ -220,6 +220,14 @@ export default {
                         <td>item</td>
                         <td>item: Menuitem instance</td>
                     </tr>
+                    <tr>
+                        <td>start</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>end</td>
+                        <td>-</td>
+                    </tr>
 				</tbody>
 			</table>
         </div>
