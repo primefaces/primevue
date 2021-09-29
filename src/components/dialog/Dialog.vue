@@ -84,14 +84,9 @@ export default {
     },
     documentKeydownListener: null,
     updated() {
-        this.removeStylesFromMask();
-
         if (this.visible && !this.maskVisible) {
             this.maskVisible = true;
         }
-    },
-    mounted() {
-        this.removeStylesFromMask();
     },
     beforeDestroy() {
         this.restoreAppend();
