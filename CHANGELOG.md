@@ -677,6 +677,55 @@
 - Button not registered in FileUpload [\#478](https://github.com/primefaces/primevue/issues/478)
 - BlockUI documentation indicates "show" event whereas the actual event is "unblock" [\#485](https://github.com/primefaces/primevue/issues/485)
 
+## [2.6.0](https://github.com/primefaces/primevue/tree/2.6.0) (2021-09-29)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/2.5.1...2.6.0)
+
+**Implemented New Features and Enhancements:**
+
+- Add JumpToPageDropdown and JumpToPageInput template to Paginator v2 [\#1605](https://github.com/primefaces/primevue/issues/1605)
+- Scrollable Tabs for v2 [\#1604](https://github.com/primefaces/primevue/issues/1604)
+- Reimplemented InputNumber v2 [\#1600](https://github.com/primefaces/primevue/issues/1600)
+- Modal layer enter-leave transition v2 [\#1599](https://github.com/primefaces/primevue/issues/1599)
+- Add autoHighlight to AutoComplete v2 [\#1589](https://github.com/primefaces/primevue/issues/1589)
+- function disabled for MenuModel v2 [\#1587](https://github.com/primefaces/primevue/issues/1587)
+- Upgrade v2 to Gulp 4 [\#1585](https://github.com/primefaces/primevue/issues/1585)
+- Add trueValue-falseValue to Checkbox v2 [\#1583](https://github.com/primefaces/primevue/issues/1583)
+- Add trueValue-falseValue to InputSwitch v2 [\#1582](https://github.com/primefaces/primevue/issues/1582)
+- Add router-link-active and router-link-active-exact to all menu components v2 [\#1575](https://github.com/primefaces/primevue/issues/1575)
+- New Image Preview component v2 [\#1574](https://github.com/primefaces/primevue/issues/1574)
+- Responsive Dock v2 [\#1568](https://github.com/primefaces/primevue/issues/1568)
+- start and end slots for MegaMenu v2 [\#1566](https://github.com/primefaces/primevue/issues/1566)
+- Add indicator slot [\#1565](https://github.com/primefaces/primevue/issues/1565)
+- Add tooltipOptions property to Dock v2 [\#1564](https://github.com/primefaces/primevue/issues/1564)
+- Add appendTo property to Dialog v2 [\#1561](https://github.com/primefaces/primevue/issues/1561)
+- Add tooltipOptions property to SpeedDial v2 [\#1560](https://github.com/primefaces/primevue/issues/1560)
+- new activeIndex props for TabMenu v2 [\#1553](https://github.com/primefaces/primevue/issues/1553)
+- Change button/maskClassName properties with button/maskClass properties on SpeedDial v2 [\#1551](https://github.com/primefaces/primevue/issues/1551)
+- Tailwind theme v2 [\#1549](https://github.com/primefaces/primevue/issues/1549)
+- Dropdown v2 doesn't scroll when navigating with keyboard [\#1535](https://github.com/primefaces/primevue/issues/1535)
+- Scrollable Tabs [\#364](https://github.com/primefaces/primevue/issues/364)
+
+**Fixed bugs:**
+
+- Thumbnails are not displayed correctly on Galleria if numVisible is greater than the length of value for v2 [\#1594](https://github.com/primefaces/primevue/issues/1594)
+- Checkbox v2 causes layout issues when used inside an overflow: auto div [\#1593](https://github.com/primefaces/primevue/issues/1593)
+- Tooltip v2 word wrap  [\#1592](https://github.com/primefaces/primevue/issues/1592)
+- BlockUI v2 doesn't get rid of div [\#1591](https://github.com/primefaces/primevue/issues/1591)
+- extra space between Dropdown/MultiSelect and filter list [\#1590](https://github.com/primefaces/primevue/issues/1590)
+- Chart update throws an exception v2 [\#1588](https://github.com/primefaces/primevue/issues/1588)
+- input mask - mask affecting dirty state v2 [\#1581](https://github.com/primefaces/primevue/issues/1581)
+- Filtered Dropdown for Windows Tablet [\#1577](https://github.com/primefaces/primevue/issues/1577)
+- Calendar WCAG Accessibility Issue with Keyboard Navigation for v2 [\#1576](https://github.com/primefaces/primevue/issues/1576)
+- Dropdown onkeydown item search [\#1570](https://github.com/primefaces/primevue/issues/1570)
+- Router support for v2 Dock [\#1567](https://github.com/primefaces/primevue/issues/1567)
+- FileUpload Invalid File messages [\#1563](https://github.com/primefaces/primevue/issues/1563)
+- CurrentPageReport displays wrong value v2 [\#1554](https://github.com/primefaces/primevue/issues/1554)
+- The maskStyle property doesn't work as expected in SpeedDial v2 [\#1552](https://github.com/primefaces/primevue/issues/1552)
+- DataTable does not assign colspan correctly when working with filters [\#1456](https://github.com/primefaces/primevue/issues/1456)
+- DataTable: Pagination stops working when a column filter is applied [\#1388](https://github.com/primefaces/primevue/issues/1388)
+- Input components inside DataTable break when upgrading from PrimeVue 1 to PrimeVue 2 [\#1330](https://github.com/primefaces/primevue/issues/1330)
+
 ## [2.5.1](https://github.com/primefaces/primevue/tree/2.5.1) (2021-08-10)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/2.5.0...2.5.1)
