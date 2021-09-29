@@ -27,6 +27,7 @@ import {DomHandler} from 'primevue/utils';
 
 export default {
     name: 'SpeedDial',
+    emits: ['click', 'show', 'hide'],
     props: {
         model: null,
         visible: {
