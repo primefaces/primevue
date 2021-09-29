@@ -97,7 +97,7 @@ export default {
         onEnter() {
             this.$refs.container.setAttribute(this.attributeSelector, '');
         },
-        createStyle() {debugger
+        createStyle() {
             if (!this.styleElement) {
                 this.styleElement = document.createElement('style');
                 this.styleElement.type = 'text/css';
