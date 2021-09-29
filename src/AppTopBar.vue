@@ -12,7 +12,9 @@
         <ul ref="topbarMenu" class="topbar-menu">
             <li><router-link to="/setup">Get Started</router-link></li>
             <li class="topbar-submenu">
-                <a tabindex="0" @click="toggleMenu($event, 0)">Themes</a>
+                <a tabindex="0" @click="toggleMenu($event, 0)">
+                    <span v-badge.danger>Themes</span>
+                </a>
                 <transition name="p-connected-overlay" @enter="onMenuEnter">
                     <ul v-show="activeMenuIndex === 0">
                         <li class="topbar-submenu-header">THEMING</li>
