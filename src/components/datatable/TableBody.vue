@@ -36,7 +36,7 @@
             </template>
         </template>
         <tr v-else class="p-datatable-emptymessage">
-            <td :colspan="columnsLength - 1">
+            <td :colspan="columnsLength">
                 <DTSlotTemplate :template="templates.empty" v-if="templates.empty && !loading"/>
                 <DTSlotTemplate :template="templates.loading" v-if="templates.loading && loading"/>
             </td>
