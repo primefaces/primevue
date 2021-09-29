@@ -108,6 +108,7 @@ export default {
         },
         onEnter() {
             this.$refs.mask.style.zIndex = String(parseInt(this.$refs.dialog.style.zIndex, 10) - 1);
+            this.removeStylesFromMask();
             this.appendContainer();
             this.alignOverlay();
             this.$emit('show');
