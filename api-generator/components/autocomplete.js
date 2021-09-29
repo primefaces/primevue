@@ -48,6 +48,12 @@ const AutoCompleteProps = [
         description: 'Specifies the behavior dropdown button. Default "blank" mode sends an empty string and "current" mode sends the input value.'
     },
     {
+        name: "autoHighlight",
+        type: "boolean",
+        default: false,
+        description: "Highlights automatically the first item of the dropdown to be selected."
+    },
+    {
         name: "multiple",
         type: "boolean",
         default: "false",
