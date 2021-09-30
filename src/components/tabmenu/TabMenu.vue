@@ -181,4 +181,8 @@ export default {
     display: none;
     z-index: 1;
 }
+
+.p-tabmenu::-webkit-scrollbar {
+    display: none;
+}
 </style>

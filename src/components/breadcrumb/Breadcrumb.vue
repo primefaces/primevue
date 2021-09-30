@@ -56,4 +56,8 @@ export default {
 .p-breadcrumb .p-menuitem-link {
     text-decoration: none;
 }
+
+.p-breadcrumb::-webkit-scrollbar {
+    display: none;
+}
 </style>
