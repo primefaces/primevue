@@ -4,8 +4,8 @@
         <component :is="column.children.body" :data="rowData" :column="column" :index="rowIndex" :frozenRow="frozenRow" v-if="column.children && column.children.body && !d_editing" />
         <component :is="column.children.editor" :data="rowData" :column="column" :index="rowIndex" :frozenRow="frozenRow" v-else-if="column.children && column.children.editor && d_editing" />
         <template v-else-if="columnProp('selectionMode')">
-            <DTRadioButton :value="rowData" :checked="selected" @change="toggleRowWithRadio" v-if="column.props.selectionMode === 'single'" />
-            <DTCheckbox :value="rowData" :checked="selected" @change="toggleRowWithCheckbox" v-else-if="column.props.selectionMode ==='multiple'" />
+            <DTRadioButton :value="rowData" :checked="selected" @change="toggleRowWithRadio" v-if="columnProp('selectionMode') === 'single'" />
+            <DTCheckbox :value="rowData" :checked="selected" @change="toggleRowWithCheckbox" v-else-if="columnProp('selectionMode') ==='multiple'" />
         </template>
         <template v-else-if="columnProp('rowReorder')">
             <i :class="['p-datatable-reorderablerow-handle', (columnProp('rowReorderIcon') || 'pi pi-bars')]"></i>
@@ -115,7 +115,7 @@ export default {
     },
     methods: {
         columnProp(prop) {
-            return this.column.props ? ((this.column.type.props[prop].type === Boolean && this.column.props[prop] === '') ? true : this.column.props[prop]) : null;
+            return ObjectUtils.getVNodeProp(this.column, prop);
         },
         resolveFieldData() {
             return ObjectUtils.resolveFieldData(this.rowData, this.columnProp('field'));

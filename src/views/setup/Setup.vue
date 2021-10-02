@@ -55,6 +55,17 @@ app.component('Dialog', Dialog);
 
 </code></pre>
 
+            <h5>Prop Cases</h5>
+            <p>Component prop names are described as camel case throughout the documentation however camel-case is also fully supported. Events on the other hand should always be camel-case.</p>
+<pre v-code><code>
+&lt;Dialog :showHeader="false"&gt;&lt;/Dialog&gt;
+
+&lt;!-- can be written as --&gt;
+
+&lt;Dialog :show-header="false"&gt;&lt;/Dialog&gt;
+
+</code></pre>
+
             <h5>Single File Components</h5>
             <p>SFC files are available in the npm distribution and if you'd like to use SFCs directly, add <i>/sfc</i> as a suffix when referencing an import path. This will instruct your bundler to process the *.vue files
                 in your local build instead of using the compiled output. One use case for this approach is optimizing for SSR by removing whitespaces.</p>

@@ -191,4 +191,17 @@ export default class ObjectUtils {
 
         return str;
     }
+
+    static getVNodeProp(vnode, prop) {
+        let props = vnode.props;
+        if (props) {
+            let kebapProp = prop.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
+            let propName = Object.prototype.hasOwnProperty.call(props, kebapProp) ? kebapProp : prop;
+
+            return ((vnode.type.props[prop].type === Boolean && props[propName] === '') ? true : props[propName]);            
+        }
+
+        return null;
+    }  
+
 }
