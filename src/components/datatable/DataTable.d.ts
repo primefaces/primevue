@@ -101,7 +101,6 @@ declare class DataTable {
     $emit(eventName: 'row-edit-init', event: Event): this;
     $emit(eventName: 'row-edit-save', event: Event): this;
     $emit(eventName: 'row-edit-cancel', event: Event): this;
-    $emit(eventName: 'editing-cell-change', event: Event): this;
     $emit(eventName: 'state-restore', value: any[]): this;
     $emit(eventName: 'state-save', value: any[]): this;
 
