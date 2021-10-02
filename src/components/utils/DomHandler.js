@@ -1,32 +1,32 @@
-export default class DomHandler {
+export default  {
 
-    static innerWidth(el) {
+    innerWidth(el) {
         let width = el.offsetWidth;
         let style = getComputedStyle(el);
 
         width += parseFloat(style.paddingLeft) + parseFloat(style.paddingRight);
         return width;
-    }
+    },
 
-    static width(el) {
+    width(el) {
         let width = el.offsetWidth;
         let style = getComputedStyle(el);
 
         width -= parseFloat(style.paddingLeft) + parseFloat(style.paddingRight);
         return width;
-    }
+    },
 
-    static getWindowScrollTop() {
+    getWindowScrollTop() {
         let doc = document.documentElement;
         return (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
-    }
+    },
 
-    static getWindowScrollLeft() {
+    getWindowScrollLeft() {
         let doc = document.documentElement;
         return (window.pageXOffset || doc.scrollLeft) - (doc.clientLeft || 0);
-    }
+    },
 
-    static getOuterWidth(el, margin) {
+    getOuterWidth(el, margin) {
         if (el) {
             let width = el.offsetWidth;
 
@@ -40,9 +40,9 @@ export default class DomHandler {
         else {
             return 0;
         }
-    }
+    },
 
-    static getOuterHeight(el, margin) {
+    getOuterHeight(el, margin) {
         if (el) {
             let height = el.offsetHeight;
 
@@ -56,9 +56,9 @@ export default class DomHandler {
         else {
             return 0;
         }
-    }
+    },
 
-    static getClientHeight(el, margin) {
+    getClientHeight(el, margin) {
         if (el) {
             let height = el.clientHeight;
 
@@ -71,9 +71,9 @@ export default class DomHandler {
         } else {
             return 0;
         }
-    }
+    },
 
-    static getViewport() {
+    getViewport() {
         let win = window,
             d = document,
             e = d.documentElement,
@@ -82,18 +82,18 @@ export default class DomHandler {
             h = win.innerHeight || e.clientHeight || g.clientHeight;
 
         return {width: w, height: h};
-    }
+    },
 
-    static getOffset(el) {
+    getOffset(el) {
         var rect = el.getBoundingClientRect();
 
         return {
             top: rect.top + (window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0),
             left: rect.left + (window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0),
         };
-    }
+    },
 
-    static index(element) {
+    index(element) {
         let children = element.parentNode.childNodes;
         let num = 0;
         for (var i = 0; i < children.length; i++) {
@@ -101,9 +101,9 @@ export default class DomHandler {
             if (children[i].nodeType === 1) num++;
         }
         return -1;
-    }
+    },
 
-    static addMultipleClasses(element, className) {
+    addMultipleClasses(element, className) {
         if (element.classList) {
             let styles = className.split(' ');
             for (let i = 0; i < styles.length; i++) {
@@ -117,23 +117,23 @@ export default class DomHandler {
                 element.className += ' ' + styles[i];
             }
         }
-    }
+    },
 
-    static addClass(element, className) {
+    addClass(element, className) {
         if (element.classList)
             element.classList.add(className);
         else
             element.className += ' ' + className;
-    }
+    },
 
-    static removeClass(element, className) {
+    removeClass(element, className) {
         if (element.classList)
             element.classList.remove(className);
         else
             element.className = element.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
-    }
+    },
 
-    static hasClass(element, className) {
+    hasClass(element, className) {
         if (element) {
             if (element.classList)
                 return element.classList.contains(className);
@@ -142,35 +142,35 @@ export default class DomHandler {
         }
 
         return false;
-    }
+    },
 
-    static find(element, selector) {
+    find(element, selector) {
         return element.querySelectorAll(selector);
-    }
+    },
 
-    static findSingle(element, selector) {
+    findSingle(element, selector) {
         return element.querySelector(selector);
-    }
+    },
 
-    static getHeight(el) {
+    getHeight(el) {
         let height = el.offsetHeight;
         let style = getComputedStyle(el);
 
         height -= parseFloat(style.paddingTop) + parseFloat(style.paddingBottom) + parseFloat(style.borderTopWidth) + parseFloat(style.borderBottomWidth);
 
         return height;
-    }
+    },
 
-    static getWidth(el) {
+    getWidth(el) {
         let width = el.offsetWidth;
         let style = getComputedStyle(el);
 
         width -= parseFloat(style.paddingLeft) + parseFloat(style.paddingRight) + parseFloat(style.borderLeftWidth) + parseFloat(style.borderRightWidth);
 
         return width;
-    }
+    },
 
-    static absolutePosition(element, target) {
+    absolutePosition(element, target) {
         let elementDimensions = element.offsetParent ? { width: element.offsetWidth, height: element.offsetHeight } : this.getHiddenElementDimensions(element)
         let elementOuterHeight = elementDimensions.height;
         let elementOuterWidth = elementDimensions.width;
@@ -202,9 +202,9 @@ export default class DomHandler {
 
         element.style.top = top + 'px';
         element.style.left = left + 'px';
-    }
+    },
 
-    static relativePosition(element, target) {
+    relativePosition(element, target) {
         let elementDimensions = element.offsetParent ? { width: element.offsetWidth, height: element.offsetHeight } : this.getHiddenElementDimensions(element);
         const targetHeight = target.offsetHeight;
         const targetOffset = target.getBoundingClientRect();
@@ -238,13 +238,13 @@ export default class DomHandler {
 
         element.style.top = top + 'px';
         element.style.left = left + 'px';
-    }
+    },
 
-    static getParents(element, parents = []) {
+    getParents(element, parents = []) {
         return element['parentNode'] === null ? parents : this.getParents(element.parentNode, parents.concat([element.parentNode]));
-    }
+    },
 
-    static getScrollableParents(element) {
+    getScrollableParents(element) {
         let scrollableParents = [];
 
         if (element) {
@@ -274,9 +274,9 @@ export default class DomHandler {
         }
 
         return scrollableParents;
-    }
+    },
 
-    static getHiddenElementOuterHeight(element) {
+    getHiddenElementOuterHeight(element) {
         element.style.visibility = 'hidden';
         element.style.display = 'block';
         let elementHeight = element.offsetHeight;
@@ -284,9 +284,9 @@ export default class DomHandler {
         element.style.visibility = 'visible';
 
         return elementHeight;
-    }
+    },
 
-    static getHiddenElementOuterWidth(element) {
+    getHiddenElementOuterWidth(element) {
         element.style.visibility = 'hidden';
         element.style.display = 'block';
         let elementWidth = element.offsetWidth;
@@ -294,9 +294,9 @@ export default class DomHandler {
         element.style.visibility = 'visible';
 
         return elementWidth;
-    }
+    },
 
-    static getHiddenElementDimensions(element) {
+    getHiddenElementDimensions(element) {
         var dimensions = {};
         element.style.visibility = 'hidden';
         element.style.display = 'block';
@@ -306,9 +306,9 @@ export default class DomHandler {
         element.style.visibility = 'visible';
 
         return dimensions;
-    }
+    },
 
-    static fadeIn(element, duration) {
+    fadeIn(element, duration) {
         element.style.opacity = 0;
 
         var last = +new Date();
@@ -324,9 +324,9 @@ export default class DomHandler {
         };
 
         tick();
-    }
+    },
 
-    static fadeOut(element, ms) {
+    fadeOut(element, ms) {
         var opacity = 1,
             interval = 50,
             duration = ms,
@@ -342,22 +342,22 @@ export default class DomHandler {
 
             element.style.opacity = opacity;
         }, interval);
-    }
+    },
 
-    static getUserAgent() {
+    getUserAgent() {
         return navigator.userAgent;
-    }
+    },
 
-    static appendChild(element, target) {
+    appendChild(element, target) {
         if(this.isElement(target))
             target.appendChild(element);
         else if(target.el && target.elElement)
             target.elElement.appendChild(element);
         else
             throw new Error('Cannot append ' + target + ' to ' + element);
-    }
+    },
 
-    static scrollInView(container, item) {
+    scrollInView(container, item) {
         let borderTopValue = getComputedStyle(container).getPropertyValue('borderTopWidth');
         let borderTop = borderTopValue ? parseFloat(borderTopValue) : 0;
         let paddingTopValue = getComputedStyle(container).getPropertyValue('paddingTop');
@@ -375,9 +375,9 @@ export default class DomHandler {
         else if ((offset + itemHeight) > elementHeight) {
             container.scrollTop = scroll + offset - elementHeight + itemHeight;
         }
-    }
+    },
 
-    static clearSelection() {
+    clearSelection() {
         if(window.getSelection) {
             if(window.getSelection().empty) {
                 window.getSelection().empty();
@@ -392,9 +392,9 @@ export default class DomHandler {
                 //ignore IE bug
             }
         }
-    }
+    },
 
-    static calculateScrollbarWidth() {
+    calculateScrollbarWidth() {
         if(this.calculatedScrollbarWidth != null)
             return this.calculatedScrollbarWidth;
 
@@ -408,9 +408,9 @@ export default class DomHandler {
         this.calculatedScrollbarWidth = scrollbarWidth;
 
         return scrollbarWidth;
-    }
+    },
 
-    static getBrowser() {
+    getBrowser() {
         if(!this.browser) {
             let matched = this.resolveUserAgent();
             this.browser = {};
@@ -428,9 +428,9 @@ export default class DomHandler {
         }
 
         return this.browser;
-    }
+    },
 
-    static resolveUserAgent() {
+    resolveUserAgent() {
         let ua = navigator.userAgent.toLowerCase();
         let match = /(chrome)[ ]([\w.]+)/.exec(ua) ||
             /(webkit)[ ]([\w.]+)/.exec(ua) ||
@@ -443,17 +443,17 @@ export default class DomHandler {
             browser: match[1] || "",
             version: match[2] || "0"
         };
-    }
+    },
 
-    static isVisible(element) {
+    isVisible(element) {
         return element.offsetParent != null;
-    }
+    },
 
-    static invokeElementMethod(element, methodName, args) {
+    invokeElementMethod(element, methodName, args) {
         (element)[methodName].apply(element, args);
-    }
+    },
 
-    static getFocusableElements(element) {
+    getFocusableElements(element) {
         let focusableElements = DomHandler.find(element, `button:not([tabindex = "-1"]):not([disabled]):not([style*="display:none"]):not([hidden]),
                 [href][clientHeight][clientWidth]:not([tabindex = "-1"]):not([disabled]):not([style*="display:none"]):not([hidden]),
                 input:not([tabindex = "-1"]):not([disabled]):not([style*="display:none"]):not([hidden]), select:not([tabindex = "-1"]):not([disabled]):not([style*="display:none"]):not([hidden]),
@@ -468,9 +468,9 @@ export default class DomHandler {
         }
 
         return visibleFocusableElements;
-    }
+    },
 
-    static isClickable(element) {
+    isClickable(element) {
         const targetNode = element.nodeName;
         const parentNode = element.parentElement && element.parentElement.nodeName;
 
@@ -479,9 +479,9 @@ export default class DomHandler {
                 this.hasClass(element, 'p-button') || this.hasClass(element.parentElement, 'p-button') ||
                 this.hasClass(element.parentElement, 'p-checkbox') || this.hasClass(element.parentElement, 'p-radiobutton')
         );
-    }
+    },
 
-    static applyStyle(element, style) {
+    applyStyle(element, style) {
         if (typeof style === 'string') {
             element.style.cssText = this.style;
         }
@@ -490,17 +490,17 @@ export default class DomHandler {
                 element.style[prop] = style[prop];
             }
         }
-    }
+    },
 
-    static isIOS() {
+    isIOS() {
         return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window['MSStream'];
-    }
+    },
 
-    static isAndroid() {
+    isAndroid() {
         return /(android)/i.test(navigator.userAgent);
-    }
+    },
 
-    static isTouchDevice() {
+    isTouchDevice() {
         return (('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0));
     }
 }
