@@ -2,7 +2,7 @@
     <td :style="containerStyle" :class="containerClass" @click="onClick" @keydown="onKeyDown" role="cell">
         <span v-if="responsiveLayout === 'stack'" class="p-column-title">{{columnProp('header')}}</span>
         <component :is="column.children.body" :data="rowData" :column="column" :index="rowIndex" :frozenRow="frozenRow" v-if="column.children && column.children.body && !d_editing" />
-        <component :is="column.children.editor" :data="rowData" :column="column" :index="rowIndex" :frozenRow="frozenRow" v-else-if="column.children && column.children.editor && d_editing" />
+        <component :is="column.children.editor" :data="editingRowData" :column="column" :index="rowIndex" :frozenRow="frozenRow" v-else-if="column.children && column.children.editor && d_editing" />
         <template v-else-if="columnProp('selectionMode')">
             <DTRadioButton :value="rowData" :checked="selected" @change="toggleRowWithRadio" v-if="columnProp('selectionMode') === 'single'" />
             <DTCheckbox :value="rowData" :checked="selected" @change="toggleRowWithCheckbox" v-else-if="columnProp('selectionMode') ==='multiple'" />
@@ -39,7 +39,7 @@ import Ripple from 'primevue/ripple';
 
 export default {
     name: 'BodyCell',
-    emits: ['cell-edit-init', 'cell-edit-complete', 'cell-edit-cancel', 'row-edit-init', 'row-edit-save', 'row-edit-cancel', 'editing-cell-change',
+    emits: ['cell-edit-init', 'cell-edit-complete', 'cell-edit-cancel', 'row-edit-init', 'row-edit-save', 'row-edit-cancel',
             'row-toggle', 'radio-change', 'checkbox-change'],
     props: {
         rowData: {
@@ -157,7 +157,6 @@ export default {
         switchCellToViewMode() {
             this.d_editing = false;
             this.unbindDocumentEditListener();
-            this.$emit('editing-cell-change', {rowIndex: this.rowIndex, cellIndex: this.index, editing: false});
             OverlayEventBus.off('overlay-click', this.overlayEventListener);
             this.overlayEventListener = null;
         },
@@ -169,7 +168,6 @@ export default {
                     this.d_editing = true;
                     this.bindDocumentEditListener();
                     this.$emit('cell-edit-init', {originalEvent: event, data: this.rowData, field: this.columnProp('field'), index: this.rowIndex});
-                    this.$emit('editing-cell-change', {rowIndex: this.rowIndex, cellIndex: this.index, editing: true});
 
                     this.overlayEventListener = (e) => {
                         if (this.$el && this.$el.contains(e.target)) {
@@ -181,9 +179,10 @@ export default {
             }
         },
         completeEdit(event, type) {
-            let completeEvent = {
+            const completeEvent = {
                 originalEvent: event,
                 data: this.rowData,
+                newData: this.editingRowData,
                 field: this.columnProp('field'),
                 index: this.rowIndex,
                 type: type,
@@ -328,6 +327,9 @@ export default {
         }
     },
     computed: {
+        editingRowData() {
+            return this.d_editing ? {...this.rowData} : this.rowData;
+        },
         containerClass() {
             return [this.columnProp('bodyClass'), this.columnProp('class'), {
                 'p-selection-column': this.columnProp('selectionMode') != null,
