@@ -7,21 +7,22 @@ const path = require('path');
 
 let entries = [];
 
-let globalDependencies = {
-    'vue': 'Vue',
+let coreDependencies = {
+    'primevue/config': 'primevue.config',
     'primevue/api': 'primevue.api',
-    'primevue/ripple': 'primevue.ripple',
     'primevue/utils': 'primevue.utils',
+    'primevue/ripple': 'primevue.ripple',
+    'primevue/confirmationeventbus': 'primevue.confirmationeventbus',
+    'primevue/toasteventbus': 'primevue.toasteventbus',
+    'primevue/overlayeventbus': 'primevue.overlayeventbus',
+    'primevue/terminalservice': 'primevue.terminalservice',
+    'primevue/useconfirm': 'primevue.useconfirm',
+    'primevue/usetoast': 'primevue.usetoast',
     'primevue/button': 'primevue.button',
     'primevue/inputtext': 'primevue.inputtext',
     'primevue/virtualscroller': 'primevue.virtualscroller',
     'primevue/dialog': 'primevue.dialog',
     'primevue/paginator': 'primevue.paginator',
-    'primevue/confirmationeventbus': 'primevue.confirmationeventbus',
-    'primevue/toasteventbus': 'primevue.toasteventbus',
-    'primevue/overlayeventbus': 'primevue.overlayeventbus',
-    'primevue/useconfirm': 'primevue.useconfirm',
-    'primevue/usetoast': 'primevue.usetoast',
     'primevue/progressbar': 'primevue.progressbar',
     'primevue/message': 'primevue.message',
     'primevue/dropdown': 'primevue.dropdown',
@@ -29,10 +30,17 @@ let globalDependencies = {
     'primevue/menu': 'primevue.menu',
     'primevue/tieredmenu': 'primevue.tieredmenu',
     'primevue/tree': 'primevue.tree',
-    '@fullcalendar/core': 'FullCalendar'
+}
+
+let globalDependencies = {
+    'vue': 'Vue',
+    '@fullcalendar/core': 'FullCalendar',
+    ...coreDependencies
 }
 
 function addEntry(folder, inFile, outFile) {
+    let useCorePlugin = Object.keys(coreDependencies).some(d => d.replace('primevue/', '') === outFile);
+
     entries.push({
         input: 'src/components/' + folder + '/' + inFile,
         output: [
@@ -53,7 +61,8 @@ function addEntry(folder, inFile, outFile) {
         ],
         plugins: [
             vue(),
-            postcss()
+            postcss(),
+            useCorePlugin && corePlugin()
         ]
     });
 
@@ -78,9 +87,34 @@ function addEntry(folder, inFile, outFile) {
         plugins: [
             vue(),
             postcss(),
-            terser()
+            terser(),
+            useCorePlugin && corePlugin()
         ]
     });
+}
+
+function corePlugin() {
+    return {
+        name: 'corePlugin',
+        generateBundle(outputOptions, bundle) {
+            if (outputOptions.format === 'iife') {
+                Object.keys(bundle).forEach(id => {
+                    const chunk = bundle[id];
+                    const filePath = `./dist/core/core${id.indexOf('.min.js') > 0 ? '.min.js': '.js'}`;
+
+                    fs.outputFile(path.resolve(__dirname, filePath), chunk.code + '\n',  { 'flag': 'a' },  function(err) {
+                        if (err) {
+                            return console.error(err);
+                        }
+                    });
+                });
+            }
+        }
+    };
+}
+
+function removeCore() {
+    fs.removeSync(path.resolve(__dirname, './dist/core'));
 }
 
 function addSFC() {
@@ -124,11 +158,12 @@ function addServices() {
     addEntry('terminalservice', 'TerminalService.js', 'terminalservice');
 }
 
-addSFC();
-addDirectives();
-addConfig();
+removeCore();
 addUtils();
 addApi();
+addConfig();
+addDirectives();
 addServices();
+addSFC();
 
 export default entries;
