@@ -1122,17 +1122,16 @@ export default {
             editor defines how the editing is implemented, below example demonstrates two cases. In the first example, simple v-model editors are utilized. This is pretty straightforward in most cases.
             On the other hand, second example is more advanced to consider validations and ability to revert values with the escape key.</p>
 <pre v-code><code><template v-pre>
-&lt;h3&gt;Basic Cell Editing&lt;/h3&gt;
-&lt;p&gt;Simple editors with v-model.&lt;/p&gt;
-&lt;DataTable :value="cars1" editMode="cell"&gt;
+&lt;h5&gt;Cell Editing&lt;/h5&gt;
+&lt;DataTable :value="cars" editMode="cell" @cell-edit-complete="onCellEditComplete"&gt;
     &lt;Column field="vin" header="Vin"&gt;
         &lt;template #editor="slotProps"&gt;
-            &lt;InputText v-model="slotProps.data[slotProps.column.field]" /&gt;
+            &lt;InputText v-model="slotProps.data[slotProps.field]" /&gt;
         &lt;/template&gt;
     &lt;/Column&gt;
     &lt;Column field="year" header="Year"&gt;
         &lt;template #editor="slotProps"&gt;
-            &lt;InputText v-model="slotProps.data[slotProps.column.field]" /&gt;
+            &lt;InputText v-model="slotProps.data[slotProps.field]" /&gt;
         &lt;/template&gt;
     &lt;/Column&gt;
     &lt;Column field="brand" header="Brand"&gt;
@@ -1149,17 +1148,7 @@ export default {
     &lt;/Column&gt;
     &lt;Column field="color" header="Color"&gt;
         &lt;template #editor="slotProps"&gt;
-            &lt;InputText v-model="slotProps.data[slotProps.column.field]" /&gt;
-        &lt;/template&gt;
-    &lt;/Column&gt;
-&lt;/DataTable&gt;
-
-&lt;h3&gt;Advanced Cell Editing&lt;/h3&gt;
-&lt;p&gt;Custom implementation with validations, dynamic columns and reverting values with the escape key.&lt;/p&gt;
-&lt;DataTable :value="cars2" editMode="cell" @cell-edit-complete="onCellEditComplete"&gt;
-    &lt;Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field"&gt;
-        &lt;template #editor="slotProps"&gt;
-            &lt;InputText :value="slotProps.data[slotProps.column.field]" @input="onCellEdit($event, slotProps)" /&gt;
+            &lt;InputText v-model="slotProps.data[slotProps.field]" /&gt;
         &lt;/template&gt;
     &lt;/Column&gt;
 &lt;/DataTable&gt;
@@ -1173,11 +1162,7 @@ import Vue from 'vue';
 export default {
     data() {
         return {
-            cars1: null,
-            cars2: null,
-            cars3: null,
-            editingCellRows: {},
-            columns: null,
+            cars: null,
             brands: [
                 {brand: 'Audi', value: 'Audi'},
                 {brand: 'BMW', value: 'BMW'},
@@ -1194,44 +1179,26 @@ export default {
     carService: null,
     created() {
         this.carService = new CarService();
-
-        this.columns = [
-            {field: 'vin', header: 'Vin'},
-            {field: 'year', header: 'Year'},
-            {field: 'brand', header: 'Brand'},
-            {field: 'color', header: 'Color'}
-        ];
     },
     methods: {
         onCellEditComplete(event) {
-            if (!this.editingCellRows[event.index]) {
-                return;
-            }
-
-            const editingCellValue = this.editingCellRows[event.index][event.field];
+            let { data, newValue, field } = event;
 
             switch (event.field) {
                 case 'year':
-                    if (this.isPositiveInteger(editingCellValue))
-                        Vue.set(this.cars2, event.index, this.editingCellRows[event.index]);
+                    if (this.isPositiveInteger(newValue))
+                        data[field] = newValue;
                     else
                         event.preventDefault();
                 break;
 
                 default:
-                    if (editingCellValue.trim().length > 0)
-                        Vue.set(this.cars2, event.index, this.editingCellRows[event.index]);
+                    if (newValue.trim().length > 0)
+                        data[field] = newValue;
                     else
                         event.preventDefault();
                 break;
             }
-        },
-        onCellEdit(newValue, props) {
-            if (!this.editingCellRows[props.index]) {
-                this.editingCellRows[props.index] = {...props.data};
-            }
-
-            this.editingCellRows[props.index][props.column.field] = newValue;
         },
         isPositiveInteger(val) {
             let str = String(val);
@@ -1245,8 +1212,7 @@ export default {
         }
     },
     mounted() {
-        this.carService.getCarsSmall().then(data => this.cars1 = data);
-        this.carService.getCarsSmall().then(data => this.cars2 = data);
+        this.carService.getCarsSmall().then(data => this.cars = data);
     }
 }
 
@@ -1256,8 +1222,7 @@ export default {
             since <i>editingRows</i> is two-way binding enabled, you may use it to initially display one or more rows in editing more or programmatically toggle row editing.</p>
 <pre v-code><code><template v-pre>
 &lt;h3&gt;Row Editing&lt;/h3&gt;
-&lt;DataTable :value="cars" editMode="row" dataKey="vin" v-model:editingRows="editingRows"
-    @row-edit-init="onRowEditInit" @row-edit-cancel="onRowEditCancel"&gt;
+&lt;DataTable :value="cars" editMode="row" dataKey="vin" v-model:editingRows="editingRows" @row-edit-save="onRowEditSave"&gt;
     &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
     &lt;Column field="year" header="Year"&gt;
         &lt;template #editor="slotProps"&gt;
@@ -1291,19 +1256,15 @@ export default {
         }
     },
     carService: null,
-    originalRows: null,
     created() {
         this.carService = new CarService();
-
-        this.originalRows = {};
     },
     methods: {
-        onRowEditInit(event) {
-            this.originalRows[event.index] = {...this.cars3[event.index]};
+        onRowEditSave(event) {
+            let { newData, index } = event;
+
+            this.cars[index] = newData;
         },
-        onRowEditCancel(event) {
-            Vue.set(this.cars3, event.index, this.originalRows[event.index]);
-        }
     },
     mounted() {
         this.carService.getCarsSmall().then(data => this.cars = data);
