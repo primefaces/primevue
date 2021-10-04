@@ -32,7 +32,8 @@
                     @row-mousedown="onRowMouseDown" @row-dragstart="onRowDragStart($event)" @row-dragover="onRowDragOver($event)" @row-dragleave="onRowDragLeave($event)" @row-dragend="onRowDragEnd($event)" @row-drop="onRowDrop($event)"
                     @row-toggle="toggleRow($event)" @radio-change="toggleRowWithRadio($event)" @checkbox-change="toggleRowWithCheckbox($event)"
                     @cell-edit-init="onCellEditInit($event)" @cell-edit-complete="onCellEditComplete($event)" @cell-edit-cancel="onCellEditCancel($event)"
-                    @row-edit-init="onRowEditInit($event)" @row-edit-save="onRowEditSave($event)" @row-edit-cancel="onRowEditCancel($event)" />
+                    @row-edit-init="onRowEditInit($event)" @row-edit-save="onRowEditSave($event)" @row-edit-cancel="onRowEditCancel($event)"
+                    :editingMeta="d_editingMeta" @editing-meta-change="onEditingMetaChange" />
                 <DTTableBody :value="dataToRender" :columns="columns" :empty="empty" :dataKey="dataKey" :selection="selection" :selectionKeys="d_selectionKeys" :selectionMode="selectionMode" :contextMenu="contextMenu" :contextMenuSelection="contextMenuSelection"
                     :rowGroupMode="rowGroupMode" :groupRowsBy="groupRowsBy" :expandableRowGroups="expandableRowGroups" :rowClass="rowClass" :editMode="editMode" :compareSelectionBy="compareSelectionBy" :scrollable="scrollable"
                     :expandedRowIcon="expandedRowIcon" :collapsedRowIcon="collapsedRowIcon" :expandedRows="expandedRows" :expandedRowKeys="d_expandedRowKeys" :expandedRowGroups="expandedRowGroups"
@@ -41,7 +42,8 @@
                     @row-mousedown="onRowMouseDown" @row-dragstart="onRowDragStart($event)" @row-dragover="onRowDragOver($event)" @row-dragleave="onRowDragLeave($event)" @row-dragend="onRowDragEnd($event)" @row-drop="onRowDrop($event)"
                     @row-toggle="toggleRow($event)" @radio-change="toggleRowWithRadio($event)" @checkbox-change="toggleRowWithCheckbox($event)"
                     @cell-edit-init="onCellEditInit($event)" @cell-edit-complete="onCellEditComplete($event)" @cell-edit-cancel="onCellEditCancel($event)"
-                    @row-edit-init="onRowEditInit($event)" @row-edit-save="onRowEditSave($event)" @row-edit-cancel="onRowEditCancel($event)" />
+                    @row-edit-init="onRowEditInit($event)" @row-edit-save="onRowEditSave($event)" @row-edit-cancel="onRowEditCancel($event)"
+                    :editingMeta="d_editingMeta" @editing-meta-change="onEditingMetaChange" />
                 <DTTableFooter :columnGroup="footerColumnGroup" :columns="columns" />
             </table>
         </div>
@@ -328,6 +330,7 @@ export default {
             d_expandedRowKeys: null,
             d_columnOrder: null,
             d_editingRowKeys: null,
+            d_editingMeta: {},
             d_filters: this.cloneFilters(this.filters)
         };
     },
@@ -420,6 +423,8 @@ export default {
             return col.props ? ((col.type.props[prop].type === Boolean && col.props[prop] === '') ? true : col.props[prop]) : null;
         },
         onPage(event) {
+            this.clearEditingMetaData();
+
             this.d_first = event.first;
             this.d_rows = event.rows;
 
@@ -479,6 +484,8 @@ export default {
             }
         },
         sortSingle(value) {
+            this.clearEditingMetaData();
+
             if (this.groupRowsBy && this.groupRowsBy === this.sortField) {
                 this.d_multiSortMeta = [
                     {field: this.sortField, order: this.sortOrder || this.defaultSortOrder},
@@ -513,6 +520,8 @@ export default {
             return data;
         },
         sortMultiple(value) {
+            this.clearEditingMetaData();
+
             if (this.groupRowsBy && (this.d_groupRowsSortMeta || (this.d_multiSortMeta.length && this.groupRowsBy === this.d_multiSortMeta[0].field))) {
                 const firstSortMeta = this.d_multiSortMeta[0];
                 !this.d_groupRowsSortMeta && (this.d_groupRowsSortMeta = firstSortMeta);
@@ -569,6 +578,8 @@ export default {
             if (!data) {
                 return;
             }
+
+            this.clearEditingMetaData();
 
             let globalFilterFieldsArray;
             if (this.filters['global']) {
@@ -1601,6 +1612,24 @@ export default {
             _editingRows.splice(this.findIndex(event.data, _editingRows), 1);
             this.$emit('update:editingRows', _editingRows);
             this.$emit('row-edit-cancel', event);
+        },
+        onEditingMetaChange(event) {
+            let { data, field, index, editing } = event;
+            let meta = this.d_editingMeta[index];
+
+            if (editing) {
+                !meta && (meta = this.d_editingMeta[index] = { data: { ...data }, fields: [] });
+                meta['fields'].push(field);
+            }
+            else if (meta) {
+                const fields = meta['fields'].filter(f => f !== field);
+                !fields.length ? (delete this.d_editingMeta[index]) : (meta['fields'] = fields);
+            }
+        },
+        clearEditingMetaData() {
+            if (this.editMode) {
+                this.d_editingMeta = {};
+            }
         },
         createLazyLoadEvent(event) {
             return {

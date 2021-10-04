@@ -18,10 +18,11 @@
                         <DTBodyCell v-if="shouldRenderBodyCell(value, col, index)" :rowData="rowData" :column="col" :rowIndex="index" :index="i" :selected="isSelected(rowData)"
                             :rowTogglerIcon="columnProp(col,'expander') ? rowTogglerIcon(rowData): null" :frozenRow="frozenRow"
                             :rowspan="rowGroupMode === 'rowspan' ? calculateRowGroupSize(value, col, index) : null"
-                            :editingMeta="editingMeta" :editMode="editMode" :editing="editMode === 'row' && isRowEditing(rowData)" :responsiveLayout="responsiveLayout"
+                            :editMode="editMode" :editing="editMode === 'row' && isRowEditing(rowData)" :responsiveLayout="responsiveLayout"
                             @radio-change="onRadioChange($event)" @checkbox-change="onCheckboxChange($event)" @row-toggle="onRowToggle($event)"
-                            @cell-edit-init="onCellEditInit($event)" @cell-edit-complete="onCellEditComplete($event)" @cell-edit-cancel="onCellEditCancel($event)" @editing-cell-change="onEditingCellChange"
-                            @row-edit-init="onRowEditInit($event)" @row-edit-save="onRowEditSave($event)" @row-edit-cancel="onRowEditCancel($event)" />
+                            @cell-edit-init="onCellEditInit($event)" @cell-edit-complete="onCellEditComplete($event)" @cell-edit-cancel="onCellEditCancel($event)"
+                            @row-edit-init="onRowEditInit($event)" @row-edit-save="onRowEditSave($event)" @row-edit-cancel="onRowEditCancel($event)"
+                            :editingMeta="editingMeta" @editing-meta-change="onEditingMetaChange"/>
                     </template>
                 </tr>
                 <tr class="p-datatable-row-expansion" v-if="templates['expansion'] && expandedRows && isRowExpanded(rowData)" :key="getRowKey(rowData, index) + '_expansion'" role="row">
@@ -52,7 +53,7 @@ export default {
     emits: ['rowgroup-toggle', 'row-click', 'row-dblclick', 'row-rightclick', 'row-touchend', 'row-keydown', 'row-mousedown',
         'row-dragstart', 'row-dragover', 'row-dragleave', 'row-dragend', 'row-drop', 'row-toggle',
         'radio-change', 'checkbox-change', 'cell-edit-init', 'cell-edit-complete', 'cell-edit-cancel',
-        'row-edit-init', 'row-edit-save', 'row-edit-cancel', 'editing-cell-change'],
+        'row-edit-init', 'row-edit-save', 'row-edit-cancel', 'editing-meta-change'],
     props: {
         value: {
             type: Array,
@@ -146,6 +147,10 @@ export default {
             type: null,
             default: null
         },
+        editingMeta: {
+            type: Object,
+            default: null
+        },
         loading: {
             type: Boolean,
             default: false
@@ -183,8 +188,7 @@ export default {
     },
     data() {
         return {
-            rowGroupHeaderStyleObject: {},
-            editingMeta: {}
+            rowGroupHeaderStyleObject: {}
         }
     },
     methods: {
@@ -430,26 +434,6 @@ export default {
         onCheckboxChange(event) {
             this.$emit('checkbox-change', event);
         },
-        onEditingCellChange(event) {
-            let { data, field, index, editing } = event;
-            let meta = this.editingMeta[index];
-
-            if (editing) {
-                if (!meta) {
-                    this.editingMeta[index] = { data: { ...data }, fields: [] };
-                }
-                this.editingMeta[index]['fields'].push(field);
-            }
-            else if (meta) {
-                let fields = meta['fields'];
-                fields = fields.filter(f => f !== field);
-
-                if (!fields.length)
-                    delete this.editingMeta[index];
-                else
-                    meta['fields'] = fields;
-            }
-        },
         onCellEditInit(event) {
             this.$emit('cell-edit-init', event);
         },
@@ -467,6 +451,9 @@ export default {
         },
         onRowEditCancel(event) {
             this.$emit('row-edit-cancel', event);
+        },
+        onEditingMetaChange(event) {
+            this.$emit('editing-meta-change', event);
         },
         updateFrozenRowStickyPosition() {
             this.$el.style.top = DomHandler.getOuterHeight(this.$el.previousElementSibling) + 'px';
