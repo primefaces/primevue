@@ -34,8 +34,7 @@ export default {
     },
     methods: {
         columnProp(prop) {
-            let propName = ObjectUtils.camelToKebap(prop);
-            return this.column.props ? ((this.column.type.props[propName].type === Boolean && this.column.props[propName] === '') ? true : this.column.props[propName]) : null;
+            return ObjectUtils.getVNodeProp(this.column, prop);
         },
         updateStickyPosition() {
             if (this.columnProp('frozen')) {
