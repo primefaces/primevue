@@ -113,6 +113,7 @@ declare class DataTable {
         groupheader: VNode[];
         groupfooter: VNode[];
         loading: VNode[];
+        expansion: VNode[];
     };
 }
 
