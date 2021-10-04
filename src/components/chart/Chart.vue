@@ -37,8 +37,7 @@ export default {
          * otherwise the entire data object needs to be replaced to trigger watch
          */
         data: {
-            handler(val, oldVal) {
-                console.log('watch data')
+            handler() {
                 this.reinit();
             },
             deep: true
