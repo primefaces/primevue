@@ -110,7 +110,7 @@ export default {
         }
     },
     beforeMount() {
-        this.bindDocumentClickListener();
+        this.unbindDocumentClickListener();
     },
     methods: {
         onItemClick(e, item) {
