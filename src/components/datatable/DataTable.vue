@@ -1823,15 +1823,15 @@ export default {
 
             if (!this.lazy) {
                 if (data && data.length) {
+                    if (this.hasFilters) {
+                        data = this.filter(data);
+                    }
+
                     if (this.sorted) {
                         if(this.sortMode === 'single')
                             data = this.sortSingle(data);
                         else if(this.sortMode === 'multiple')
                             data = this.sortMultiple(data);
-                    }
-
-                    if (this.hasFilters) {
-                        data = this.filter(data);
                     }
                 }
             }
