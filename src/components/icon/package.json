@@ -1,0 +1,6 @@
+{
+    "main": "./icon.cjs.js",
+    "module": "./icon.esm.js",
+    "unpkg": "./icon.min.js",
+    "types": "./Ripple.d.ts"
+  }

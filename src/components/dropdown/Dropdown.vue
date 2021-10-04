@@ -9,10 +9,10 @@
         <span v-if="!editable" :class="labelClass">
             <slot name="value" :value="modelValue" :placeholder="placeholder">{{label||'empty'}}</slot>
         </span>
-        <i v-if="showClear && modelValue != null" class="p-dropdown-clear-icon pi pi-times" @click="onClearClick($event)"></i>
+        <Icon v-if="showClear && modelValue != null" :icon="{ commonIcon: 'times', context: 'Dropdown'}" tag="i" class="p-dropdown-clear-icon" @click="onClearClick($event)" />
         <div class="p-dropdown-trigger" role="button" aria-haspopup="listbox" :aria-expanded="overlayVisible">
             <slot name="indicator">
-                <span :class="dropdownIconClass"></span>
+                <Icon :icon="dropdownIcon" tag="span" class="p-dropdown-trigger-icon" />
             </slot>
         </div>
         <Teleport :to="appendTarget" :disabled="appendDisabled">
@@ -22,7 +22,7 @@
                     <div class="p-dropdown-header" v-if="filter">
                         <div  class="p-dropdown-filter-container">
                             <input type="text" ref="filterInput" v-model="filterValue" @vnode-updated="onFilterUpdated" autoComplete="off" class="p-dropdown-filter p-inputtext p-component" :placeholder="filterPlaceholder" @keydown="onFilterKeyDown"  @input="onFilterChange"/>
-                            <span class="p-dropdown-filter-icon pi pi-search"></span>
+                            <Icon :icon="{ commonIcon: 'search', context: 'Dropdown'}" tag="span" class="p-dropdown-filter-icon"/>
                         </div>
                     </div>
                     <div :ref="itemsWrapperRef" class="p-dropdown-items-wrapper" :style="{'max-height': virtualScrollerDisabled ? scrollHeight : ''}">
@@ -71,6 +71,7 @@ import {ConnectedOverlayScrollHandler,ObjectUtils,DomHandler,ZIndexUtils} from '
 import OverlayEventBus from 'primevue/overlayeventbus';
 import {FilterService} from 'primevue/api';
 import Ripple from 'primevue/ripple';
+import Icon from 'primevue/icon';
 import VirtualScroller from 'primevue/virtualscroller';
 
 export default {
@@ -125,8 +126,8 @@ export default {
             default: false
         },
         loadingIcon: {
-            type: String,
-            default: 'pi pi-spinner pi-spin'
+            type: [String, Object],
+            default: () => ({ commonIcon: "spinner_spin", context: "Dropdown" }) // 'pi pi-spinner pi-spin'
         },
         virtualScrollerOptions: {
             type: Object,
@@ -723,15 +724,19 @@ export default {
         appendTarget() {
             return this.appendDisabled ? null : this.appendTo;
         },
-        dropdownIconClass() {
-            return ['p-dropdown-trigger-icon', this.loading ? this.loadingIcon : 'pi pi-chevron-down'];
-        }
+        dropdownIcon() {
+            return this.loading
+                ? this.loadingIcon
+                : { commonIcon: 'chevron_down', context: 'Dropdown' }; // pi pi-chevron-down
+        },
     },
     directives: {
         'ripple': Ripple
     },
     components: {
-        'VirtualScroller': VirtualScroller
+        'VirtualScroller': VirtualScroller,
+        // eslint-disable-next-line vue/no-unused-components
+        Icon
     }
 }
 </script>

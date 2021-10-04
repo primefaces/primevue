@@ -13,8 +13,11 @@
                 <h5>Basic</h5>
                 <Dropdown v-model="selectedCity1" :options="cities" optionLabel="name" optionValue="code" placeholder="Select a City" />
 
+                <h5>Clearable</h5>
+                <Dropdown v-model="selectedCity2" :options="cities" optionLabel="name" :showClear="true"/>
+
                 <h5>Editable</h5>
-                <Dropdown v-model="selectedCity2" :options="cities" optionLabel="name" :editable="true"/>
+                <Dropdown v-model="selectedCity3" :options="cities" optionLabel="name" :editable="true"/>
 
                 <h5>Grouped</h5>
                 <Dropdown v-model="selectedGroupedCity" :options="groupedCities" optionLabel="label" optionGroupLabel="label" optionGroupChildren="items">
@@ -74,6 +77,7 @@ export default {
         return {
             selectedCity1: null,
             selectedCity2: null,
+            selectedCity3: null,
             selectedCountry: null,
             selectedGroupedCity: null,
             selectedItem1: null,

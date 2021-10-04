@@ -1,9 +1,10 @@
-import Vue, { Plugin } from 'vue';
+import Vue, { Plugin, VNode } from 'vue';
 
 interface PrimeVueConfiguration {
     ripple?: boolean;
     inputStyle?: string;
     locale?: PrimeVueLocaleOptions;
+    iconProvider?: PrimeVueIconProvider;
 }
 
 interface PrimeVueLocaleOptions {
@@ -48,6 +49,10 @@ interface PrimeVueLocaleOptions {
     passwordPrompt?: string;
     emptyFilterMessage?: string;
     emptyMessage?: string;
+}
+
+interface PrimeVueIconProvider {
+    renderIcon(icon: string | { commonIcon: string, context: string }, options?: unknown): VNode;
 }
 
 export declare function usePrimeVue(): { config: PrimeVueConfiguration };
