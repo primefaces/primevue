@@ -400,6 +400,7 @@ export default {
                             <td>body</td>
                             <td>data: Row data <br />
                                 column: Column node <br />
+                                field: Column field <br />
                                 index: Row index <br />
                                 frozenRow: Is row frozen</td>
                         </tr>
@@ -411,6 +412,7 @@ export default {
                             <td>editor</td>
                             <td>data: Row data <br />
                                 column: Column node <br />
+                                field: Column field <br />
                                 index: Row index <br />
                                 frozenRow: Is row frozen</td>
                         </tr>
