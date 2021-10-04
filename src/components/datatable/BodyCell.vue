@@ -40,7 +40,7 @@ import Ripple from 'primevue/ripple';
 export default {
     name: 'BodyCell',
     emits: ['cell-edit-init', 'cell-edit-complete', 'cell-edit-cancel', 'row-edit-init', 'row-edit-save', 'row-edit-cancel',
-            'row-toggle', 'radio-change', 'checkbox-change'],
+            'row-toggle', 'radio-change', 'checkbox-change', 'editing-cell-change'],
     props: {
         rowData: {
             type: Object,
@@ -73,6 +73,10 @@ export default {
         editing: {
             type: Boolean,
             default: false
+        },
+        editingMeta: {
+            type: Object,
+            default: null
         },
         editMode: {
             type: String,
@@ -156,6 +160,7 @@ export default {
         },
         switchCellToViewMode() {
             this.d_editing = false;
+            this.$emit('editing-cell-change', {data: this.rowData, field: this.columnProp('field'), index: this.rowIndex, editing: false});
             this.unbindDocumentEditListener();
             OverlayEventBus.off('overlay-click', this.overlayEventListener);
             this.overlayEventListener = null;
@@ -167,6 +172,7 @@ export default {
                 if (!this.d_editing) {
                     this.d_editing = true;
                     this.bindDocumentEditListener();
+                    this.$emit('editing-cell-change', {data: this.rowData, field: this.columnProp('field'), index: this.rowIndex, editing: true});
                     this.$emit('cell-edit-init', {originalEvent: event, data: this.rowData, field: this.columnProp('field'), index: this.rowIndex});
 
                     this.overlayEventListener = (e) => {
@@ -296,13 +302,16 @@ export default {
             return (DomHandler.find(this.$el, '.p-invalid').length === 0);
         },
         onRowEditInit(event) {
-            this.$emit('row-edit-init', {originalEvent: event, data: this.rowData, field: this.columnProp('field'), index: this.rowIndex});
+            this.$emit('editing-cell-change', {data: this.rowData, field: this.columnProp('field'), index: this.rowIndex, editing: true});
+            this.$emit('row-edit-init', {originalEvent: event, data: this.rowData, newData: this.editingRowData, field: this.columnProp('field'), index: this.rowIndex});
         },
         onRowEditSave(event) {
-            this.$emit('row-edit-save', {originalEvent: event, data: this.rowData, field: this.columnProp('field'), index: this.rowIndex});
+            this.$emit('row-edit-save', {originalEvent: event, data: this.rowData, newData: this.editingRowData, field: this.columnProp('field'), index: this.rowIndex});
+            this.$emit('editing-cell-change', {data: this.rowData, field: this.columnProp('field'), index: this.rowIndex, editing: false});
         },
         onRowEditCancel(event) {
-            this.$emit('row-edit-cancel', {originalEvent: event, data: this.rowData, field: this.columnProp('field'), index: this.rowIndex});
+            this.$emit('row-edit-cancel', {originalEvent: event, data: this.rowData, newData: this.editingRowData, field: this.columnProp('field'), index: this.rowIndex});
+            this.$emit('editing-cell-change', {data: this.rowData, field: this.columnProp('field'), index: this.rowIndex, editing: false});
         },
         updateStickyPosition() {
             if (this.columnProp('frozen')) {
@@ -328,7 +337,7 @@ export default {
     },
     computed: {
         editingRowData() {
-            return this.d_editing ? {...this.rowData} : this.rowData;
+            return this.editingMeta[this.rowIndex] ? this.editingMeta[this.rowIndex].data : this.rowData;
         },
         containerClass() {
             return [this.columnProp('bodyClass'), this.columnProp('class'), {
