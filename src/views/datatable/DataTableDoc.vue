@@ -2352,6 +2352,9 @@ export default {
                             <td>cell-edit-complete</td>
                             <td>event.originalEvent: Browser event<br />
                                 event.data: Row data to edit. <br />
+                                event.newData: New row data after editing. <br />
+                                event.value: Field value of row data to edit. <br />
+                                event.newValue: Field value of new row data after editing. <br />
                                 event.field: Field name of the row data. <br />
                                 event.index: Index of the row data to edit. <br />
                                 event.type: Type of completion such as "enter", "outside" or "tab". <br /></td>
@@ -2369,6 +2372,7 @@ export default {
                             <td>row-edit-init</td>
                             <td>event.originalEvent: Browser event<br />
                                 event.data: Row data to edit. <br />
+                                event.newData: New row data after editing. <br />
                                 event.field: Field name of the row data. <br />
                                 event.index: Index of the row data to edit. <br /></td>
                             <td>Callback to invoke when row edit is initiated.</td>
@@ -2377,6 +2381,7 @@ export default {
                             <td>row-edit-save</td>
                             <td>event.originalEvent: Browser event<br />
                                 event.data: Row data to edit. <br />
+                                event.newData: New row data after editing. <br />
                                 event.field: Field name of the row data. <br />
                                 event.index: Index of the row data to edit. <br /></td>
                             <td>Callback to invoke when row edit is saved.</td>
@@ -2385,6 +2390,7 @@ export default {
                             <td>row-edit-cancel</td>
                             <td>event.originalEvent: Browser event<br />
                                 event.data: Row data to edit. <br />
+                                event.newData: New row data after editing. <br />
                                 event.field: Field name of the row data. <br />
                                 event.index: Index of the row data to edit. <br /></td>
                             <td>Callback to invoke when row edit is cancelled.</td>
