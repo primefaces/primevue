@@ -407,6 +407,10 @@ export default {
         if (this.isStateful() && this.resizableColumns) {
             this.restoreColumnWidths();
         }
+
+        if (this.editMode === 'row' && this.dataKey && !this.d_editingRowKeys) {
+            this.updateEditingRowKeys(this.editingRows);
+        }
     },
     beforeUnmount() {
         this.unbindColumnResizeEvents();
@@ -416,6 +420,10 @@ export default {
     updated() {
         if (this.isStateful()) {
             this.saveState();
+        }
+
+        if (this.editMode === 'row' && this.dataKey && !this.d_editingRowKeys) {
+            this.updateEditingRowKeys(this.editingRows);
         }
     },
     methods: {
