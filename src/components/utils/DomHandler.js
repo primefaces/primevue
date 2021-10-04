@@ -470,6 +470,11 @@ export default  {
         return visibleFocusableElements;
     },
 
+    getFirstFocusableElement(element) {
+        const focusableElements = this.getFocusableElements(element);
+        return focusableElements.length > 0 ? focusableElements[0] : null;
+    },
+
     isClickable(element) {
         const targetNode = element.nodeName;
         const parentNode = element.parentElement && element.parentElement.nodeName;

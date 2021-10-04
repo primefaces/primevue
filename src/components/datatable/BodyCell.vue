@@ -113,6 +113,11 @@ export default {
         if (this.columnProp('frozen')) {
             this.updateStickyPosition();
         }
+
+        if (this.d_editing && (this.editMode === 'cell' || (this.editMode === 'row' && this.columnProp('rowEditor')))) {
+            const focusableEl = DomHandler.getFirstFocusableElement(this.$el);
+            focusableEl && focusableEl.focus();
+        }
     },
     beforeUnmount() {
         if (this.overlayEventListener) {
