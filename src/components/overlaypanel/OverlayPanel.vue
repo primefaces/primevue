@@ -6,7 +6,7 @@
                     <slot></slot>
                 </div>
                 <button class="p-overlaypanel-close p-link" @click="hide" v-if="showCloseIcon" :aria-label="ariaCloseLabel" type="button" v-ripple>
-                    <span class="p-overlaypanel-close-icon pi pi-times"></span>
+                    <Icon class="p-overlaypanel-close-icon" :icon="{ commonIcon: 'times', context: 'OverlayPanel' }" />
                 </button>
             </div>
         </transition>
@@ -17,6 +17,7 @@
 import {UniqueComponentId,DomHandler,ConnectedOverlayScrollHandler,ZIndexUtils} from 'primevue/utils';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Ripple from 'primevue/ripple';
+import Icon from 'primevue/icon';
 
 export default {
     name: 'OverlayPanel',
@@ -264,6 +265,9 @@ export default {
         attributeSelector() {
             return UniqueComponentId();
         }
+    },
+    components: {
+        'Icon': Icon,
     },
     directives: {
         'ripple': Ripple

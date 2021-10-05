@@ -1,12 +1,18 @@
 <template>
     <div :class="containerClass">
-        <span class="p-rating-icon p-rating-cancel pi pi-ban" :tabindex="focusIndex" v-if="cancel" @click="onCancelClick"></span>
-        <span :key="i" v-for="i in stars" @click="onStarClick($event,i)" :tabindex="focusIndex" @keydown.enter.prevent="onStarClick($event,i)"
-            :class="['p-rating-icon', {'pi pi-star-o': (i > modelValue), 'pi pi-star': (i <= modelValue)}]"></span>
+        <Icon class="p-rating-icon p-rating-cancel" :tabindex="focusIndex" v-if="cancel" @click="onCancelClick"
+            :icon="{ commonIcon: 'ban', context: 'Rating' }"/>
+        <Icon :key="i" v-for="i in stars" @click="onStarClick($event,i)"
+            :tabindex="focusIndex" @keydown.enter.prevent="onStarClick($event,i)"
+            class="p-rating-icon"
+            :class="{ 'p-rating-icon-filled': i <= modelValue }"
+            :icon="{ commonIcon: i > modelValue ? 'star-o' : 'star', context: 'Rating' }"/>
     </div>
 </template>
 
 <script>
+import Icon from 'primevue/icon';
+
 export default {
     name: 'Rating',
     emits: ['update:modelValue', 'change'],
@@ -64,7 +70,10 @@ export default {
         focusIndex() {
             return (this.disabled || this.readonly) ? null : '0';
         }
-    }
+    },
+    components: {
+        'Icon': Icon,
+    },
 }
 </script>
 

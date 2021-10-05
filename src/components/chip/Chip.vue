@@ -1,16 +1,18 @@
 <template>
     <div :class="containerClass" v-if="visible">
         <slot>
-            <img :src="image" v-if="image">
-            <span :class="iconClass" v-else-if="icon"></span>
+            <img v-if="image" :src="image">
+            <Icon v-else-if="icon" class="p-chip-icon" :icon="icon" />
             <div class="p-chip-text" v-if="label">{{label}}</div>
         </slot>
-        <span v-if="removable" tabindex="0" :class="removeIconClass"
-            @click="close" @keydown.enter="close"></span>
+        <Icon v-if="removable" tabindex="0" class="p-chip-remove-icon"
+            :icon="removeIcon" @click="close" @keydown.enter="close" />
     </div>
 </template>
 
 <script>
+import Icon from 'primevue/icon';
+
 export default {
     name: 'Chip',
     emits: ['remove'],
@@ -20,7 +22,7 @@ export default {
             default: null
         },
         icon: {
-            type: String,
+            type: [String, Object],
             default: null
         },
         image: {
@@ -32,8 +34,8 @@ export default {
             default: false
         },
         removeIcon: {
-            type: String,
-            default: 'pi pi-times-circle'
+            type: [String, Object],
+            default: () => ({ commonIcon: 'times-circle', context: 'Chip' }),
         }
     },
     data() {
@@ -52,14 +54,11 @@ export default {
             return ['p-chip p-component', {
                 'p-chip-image': this.image != null
             }];
-        },
-        iconClass() {
-            return ['p-chip-icon', this.icon];
-        },
-        removeIconClass() {
-            return ['p-chip-remove-icon', this.removeIcon];
         }
-    }
+    },
+    components: {
+        'Icon': Icon,
+    },
 }
 </script>
 

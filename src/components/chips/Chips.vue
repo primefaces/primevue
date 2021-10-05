@@ -5,7 +5,7 @@
                 <slot name="chip" :value="val">
                     <span class="p-chips-token-label">{{val}}</span>
                 </slot>
-                <span class="p-chips-token-icon pi pi-times-circle" @click="removeItem($event, i)"></span>
+                <Icon class="p-chips-token-icon" :icon="{ commonIcon: 'times-circle', context: 'Chips' }" @click="removeItem($event, i)"/>
             </li>
             <li class="p-chips-input-token">
                 <input ref="input" type="text" v-bind="$attrs" @focus="onFocus" @blur="onBlur($event)" @input="onInput" @keydown="onKeyDown($event)" @paste="onPaste($event)"
@@ -16,6 +16,8 @@
 </template>
 
 <script>
+import Icon from 'primevue/icon';
+
 export default {
     name: 'Chips',
     inheritAttrs: false,
@@ -151,7 +153,10 @@ export default {
                 'p-inputwrapper-focus': this.focused
             }];
         }
-    }
+    },
+    components: {
+        'Icon': Icon,
+    },
 }
 </script>
 

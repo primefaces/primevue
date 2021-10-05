@@ -18,7 +18,7 @@
                             role="menuitem" :aria-haspopup="category.items != null" :aria-expanded="category === activeItem" :tabindex="disabled(category) ? null : '0'" v-ripple>
                             <span v-if="category.icon" :class="getCategoryIcon(category)"></span>
                             <span class="p-menuitem-text">{{category.label}}</span>
-                            <span v-if="category.items" :class="getCategorySubMenuIcon()"></span>
+                            <Icon v-if="category.items" class="p-submenu-icon" :icon="getCategorySubMenuIcon()" />
                         </a>
                     </template>
                     <component v-else :is="$slots.item" :item="item"></component>
@@ -62,6 +62,7 @@
 <script>
 import {DomHandler} from 'primevue/utils';
 import Ripple from 'primevue/ripple';
+import Icon from 'primevue/icon';
 
 export default {
     name: 'MegaMenu',
@@ -236,10 +237,10 @@ export default {
             }, category.class];
         },
         getCategorySubMenuIcon() {
-            return ['p-submenu-icon pi', {
-                'pi-angle-down': this.horizontal,
-                'pi-angle-right': this.vertical
-            }];
+            return {
+                commonIcon: this.horizontal ? 'angle-down' : 'angle-right',
+                context: 'MegaMenu',
+            }
         },
         getCategoryIcon(category) {
             return ['p-menuitem-icon', category.icon];
@@ -323,6 +324,9 @@ export default {
         vertical() {
             return this.orientation === 'vertical';
         }
+    },
+    components: {
+        'Icon': Icon,
     },
     directives: {
         'ripple': Ripple

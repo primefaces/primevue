@@ -8,7 +8,7 @@
             <DTCheckbox :value="rowData" :checked="selected" @change="toggleRowWithCheckbox" v-else-if="columnProp('selectionMode') ==='multiple'" />
         </template>
         <template v-else-if="columnProp('rowReorder')">
-            <i :class="['p-datatable-reorderablerow-handle', (columnProp('rowReorderIcon') || 'pi pi-bars')]"></i>
+            <Icon tag="i" class="p-datatable-reorderablerow-handle" :icon="columnProp('rowReorderIcon') || { commonIcon: 'bars', context: 'BodyCell' }" />
         </template>
         <template v-else-if="columnProp('expander')">
             <button class="p-row-toggler p-link" @click="toggleRow" type="button" v-ripple>
@@ -17,13 +17,13 @@
         </template>
         <template v-else-if="editMode === 'row' && columnProp('rowEditor')">
             <button class="p-row-editor-init p-link" v-if="!d_editing" @click="onRowEditInit" type="button" v-ripple>
-                <span class="p-row-editor-init-icon pi pi-fw pi-pencil"></span>
+                <Icon class="p-row-editor-init-icon" :icon="{ commonIcon: 'pencil', context: 'BodyCell' }" />
             </button>
             <button class="p-row-editor-save p-link" v-if="d_editing" @click="onRowEditSave" type="button" v-ripple>
-                <span class="p-row-editor-save-icon pi pi-fw pi-check"></span>
+                <Icon class="p-row-editor-save-icon" :icon="{ commonIcon: 'check', context: 'BodyCell' }" />
             </button>
             <button class="p-row-editor-cancel p-link" v-if="d_editing" @click="onRowEditCancel" type="button" v-ripple>
-                <span class="p-row-editor-cancel-icon pi pi-fw pi-times"></span>
+                <Icon class="p-row-editor-cancel-icon" :icon="{ commonIcon: 'times', context: 'BodyCell' }" />
             </button>
         </template>
         <template v-else>{{resolveFieldData()}}</template>
@@ -36,6 +36,7 @@ import OverlayEventBus from 'primevue/overlayeventbus';
 import RowRadioButton from './RowRadioButton.vue';
 import RowCheckbox from './RowCheckbox.vue';
 import Ripple from 'primevue/ripple';
+import Icon from 'primevue/icon';
 
 export default {
     name: 'BodyCell',
@@ -364,7 +365,8 @@ export default {
     },
     components: {
         'DTRadioButton': RowRadioButton,
-        'DTCheckbox': RowCheckbox
+        'DTCheckbox': RowCheckbox,
+        'Icon': Icon
     },
     directives: {
         'ripple': Ripple

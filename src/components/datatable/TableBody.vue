@@ -92,11 +92,11 @@ export default {
             default: null
         },
         expandedRowIcon: {
-            type: String,
+            type: [String, Object],
             default: null
         },
         collapsedRowIcon: {
-            type: String,
+            type: [String, Object],
             default: null
         },
         expandedRows: {

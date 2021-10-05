@@ -1,13 +1,14 @@
 <template>
     <transition name="p-scrolltop" appear @enter="onEnter" @after-leave="onAfterLeave">
         <button :ref="containerRef" :class="containerClass" v-if="visible" @click="onClick" type="button">
-            <span :class="iconClass"></span>
+            <Icon class="p-scrolltop-icon" :icon="icon" />
         </button>
     </transition>
 </template>
 
 <script>
 import {DomHandler,ZIndexUtils} from 'primevue/utils';
+import Icon from 'primevue/icon';
 
 export default {
     name: 'ScrollTop',
@@ -28,8 +29,8 @@ export default {
             default: 400
         },
         icon: {
-            type: String,
-            default: 'pi pi-chevron-up'
+            type: [String, Object],
+            default: () => ({ commonIcon: 'chevron-up', context: 'ScrollTop'}),
         },
         behavior: {
             type: String,
@@ -107,10 +108,10 @@ export default {
         containerClass() {
             return ['p-scrolltop p-link p-component', {'p-scrolltop-sticky': this.target !== 'window'}];
         },
-        iconClass() {
-            return ['p-scrolltop-icon', this.icon];
-        }
-    }
+    },
+    components: {
+        'Icon': Icon,
+    },
 }
 </script>
 

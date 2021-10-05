@@ -2,7 +2,7 @@
     <div :class="containerClass" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="p-toast-message-content" :class="message.contentStyleClass">
             <template v-if="!template">
-                <span :class="iconClass"></span>
+                <Icon class="p-toast-message-icon" :icon="icon" />
                 <div class="p-toast-message-text">
                     <span class="p-toast-summary">{{message.summary}}</span>
                     <div class="p-toast-detail">{{message.detail}}</div>
@@ -10,7 +10,7 @@
             </template>
             <component v-else :is="template" :message="message"></component>
             <button class="p-toast-icon-close p-link" @click="onCloseClick" v-if="message.closable !== false" type="button" v-ripple>
-                <span class="p-toast-icon-close-icon pi pi-times"></span>
+                <Icon class="p-toast-icon-close-icon" :icon="{ commonIcon: 'times', context: 'ToastMessage' }" />
             </button>
         </div>
     </div>
@@ -18,6 +18,7 @@
 
 <script>
 import Ripple from 'primevue/ripple';
+import Icon from 'primevue/icon';
 
 export default {
     name: 'ToastMessage',
@@ -61,14 +62,32 @@ export default {
                 'p-toast-message-success': this.message.severity === 'success'
             }];
         },
-        iconClass() {
-            return ['p-toast-message-icon pi', {
-                'pi-info-circle': this.message.severity === 'info',
-                'pi-exclamation-triangle': this.message.severity === 'warn',
-                'pi-times': this.message.severity === 'error',
-                'pi-check': this.message.severity === 'success'
-            }];
+        icon() {
+            let icon = 'QUESTION';
+
+            switch (this.message.severity) {
+                case 'info':
+                    icon = 'info-circle';
+                    break;
+                case 'success':
+                    icon = 'check';
+                    break;
+                case 'warn':
+                    icon = 'exclamation-triangle';
+                    break;
+                case 'error':
+                    icon = 'times';
+                    break;
+            }
+
+            return {
+                commonIcon: icon,
+                context: 'ToastMessage',
+            }
         }
+    },
+    components: {
+        'Icon': Icon,
     },
     directives: {
         'ripple': Ripple

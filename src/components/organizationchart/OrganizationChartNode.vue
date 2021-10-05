@@ -6,7 +6,7 @@
                     <div :class="nodeContentClass" @click="onNodeClick">
                         <component :is="templates[node.type]||templates['default']" :node="node" />
                         <a v-if="toggleable" tabindex="0" class="p-node-toggler" @click="toggleNode" @keydown.enter="toggleNode">
-                            <i class="p-node-toggler-icon pi" :class="{'pi-chevron-down': expanded, 'pi-chevron-up': !expanded}"></i>
+                            <Icon tag="i" class="p-node-toggler-icon" :icon="{ commonIcon: expanded ? 'chevron-down' : 'chevron-up', context: 'OrganizationChartNode' }" />
                         </a>
                     </div>
                 </td>
@@ -41,6 +41,7 @@
 
 <script>
 import {DomHandler} from 'primevue/utils';
+import Icon from 'primevue/icon';
 
 export default {
     name: 'OrganizationChartNode',
@@ -118,6 +119,9 @@ export default {
         toggleable() {
             return this.collapsible && this.node.collapsible !== false && !this.leaf;
         }
-    }
+    },
+    components: {
+        'Icon': Icon,
+    },
 }
 </script>

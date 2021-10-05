@@ -9,10 +9,10 @@
                         </slot>
                         <div class="p-dialog-header-icons">
                             <button class="p-dialog-header-icon p-dialog-header-maximize p-link" @click="maximize" v-if="maximizable" type="button" tabindex="-1" v-ripple>
-                                <span :class="maximizeIconClass"></span>
+                                <Icon class="p-dialog-header-maximize-icon" :icon="maximizeIcon" />
                             </button>
                             <button class="p-dialog-header-icon p-dialog-header-close p-link" @click="close" v-if="closable" :aria-label="ariaCloseLabel" type="button" tabindex="-1" v-ripple>
-                                <span class="p-dialog-header-close-icon pi pi-times"></span>
+                                <Icon class="p-dialog-header-close-icon" :icon="{ commonIcon: 'times', context: 'Dialog' }" />
                             </button>
                         </div>
                     </div>
@@ -31,6 +31,7 @@
 <script>
 import {UniqueComponentId,DomHandler,ZIndexUtils} from 'primevue/utils';
 import Ripple from 'primevue/ripple';
+import Icon from 'primevue/icon';
 
 export default {
     name: 'Dialog',
@@ -386,11 +387,8 @@ export default {
                 'p-ripple-disabled': this.$primevue.config.ripple === false
             }];
         },
-        maximizeIconClass() {
-            return ['p-dialog-header-maximize-icon pi', {
-                'pi-window-maximize': !this.maximized,
-                'pi-window-minimize': this.maximized
-            }];
+        maximizeIcon() {
+            return { commonIcon: this.maximized ? 'window-minimize' : 'window-maximize', context: 'Dialog' };
         },
         ariaId() {
             return UniqueComponentId();
@@ -410,6 +408,9 @@ export default {
         appendTarget() {
             return this.appendDisabled ? null : this.appendTo;
         }
+    },
+    components: {
+        'Icon': Icon,
     },
     directives: {
         'ripple': Ripple

@@ -1,7 +1,7 @@
 <template>
     <div :id="id" v-if="$attrs.value && $attrs.value.length > 0" :class="galleriaClass" :style="$attrs.containerStyle">
         <button v-if="$attrs.fullScreen" type="button" class="p-galleria-close p-link" @click="$emit('mask-hide')" v-ripple>
-            <span class="p-galleria-close-icon pi pi-times"></span>
+            <Icon class="p-galleria-close-icon" :icon="{ commonIcon: 'times', context: 'GalleriaContent'}" />
         </button>
         <div v-if="$attrs.templates && $attrs.templates['header']" class="p-galleria-header">
             <component :is="$attrs.templates['header']" />
@@ -29,6 +29,7 @@ import GalleriaItem from './GalleriaItem.vue';
 import GalleriaThumbnails from './GalleriaThumbnails.vue';
 import GalleriaItemSlot from './GalleriaItemSlot.vue';
 import Ripple from 'primevue/ripple';
+import Icon from 'primevue/icon';
 
 export default {
     name: 'GalleriaContent',
@@ -108,7 +109,8 @@ export default {
     components: {
         'GalleriaItem': GalleriaItem,
         'GalleriaThumbnails': GalleriaThumbnails,
-        'GalleriaItemSlot': GalleriaItemSlot
+        'GalleriaItemSlot': GalleriaItemSlot,
+        'Icon': Icon,
     },
     directives: {
         'ripple': Ripple

@@ -127,7 +127,7 @@ export default {
         },
         loadingIcon: {
             type: [String, Object],
-            default: () => ({ commonIcon: "spinner-spin", context: "Dropdown" }) // 'pi pi-spinner pi-spin'
+            default: () => ({ commonIcon: "spinner-spin", context: "Dropdown" })
         },
         virtualScrollerOptions: {
             type: Object,
@@ -727,7 +727,7 @@ export default {
         dropdownIcon() {
             return this.loading
                 ? this.loadingIcon
-                : { commonIcon: 'chevron-down', context: 'Dropdown' }; // pi pi-chevron-down
+                : { commonIcon: 'chevron-down', context: 'Dropdown' };
         },
     },
     directives: {
@@ -735,8 +735,7 @@ export default {
     },
     components: {
         'VirtualScroller': VirtualScroller,
-        // eslint-disable-next-line vue/no-unused-components
-        Icon
+        'Icon': Icon
     }
 }
 </script>

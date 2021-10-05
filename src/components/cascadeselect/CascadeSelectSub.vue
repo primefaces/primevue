@@ -7,7 +7,7 @@
                     <template v-else>
                         <span class="p-cascadeselect-item-text">{{getOptionLabelToRender(option)}}</span>
                     </template>
-                    <span class="p-cascadeselect-group-icon pi pi-angle-right" v-if="isOptionGroup(option)"></span>
+                    <Icon v-if="isOptionGroup(option)" class="p-cascadeselect-group-icon" :icon="{ commonIcon: 'angle-right', context: 'CascadeSelectSub' }" />
                 </div>
                 <CascadeSelectSub v-if="isOptionGroup(option) && isOptionActive(option)" class="p-cascadeselect-sublist" :selectionPath="selectionPath" :options="getOptionGroupChildren(option)"
                         :optionLabel="optionLabel" :optionValue="optionValue" :level="level + 1" @option-select="onOptionSelect" @optiongroup-select="onOptionGroupSelect"
@@ -21,6 +21,7 @@
 import {ObjectUtils} from 'primevue/utils';
 import {DomHandler} from 'primevue/utils';
 import Ripple from 'primevue/ripple';
+import Icon from 'primevue/icon';
 
 export default {
     name: 'CascadeSelectSub',
@@ -174,6 +175,9 @@ export default {
                 this.$el.style.left = '-100%';
             }
         }
+    },
+    components: {
+        'Icon': Icon,
     },
     directives: {
         'ripple': Ripple

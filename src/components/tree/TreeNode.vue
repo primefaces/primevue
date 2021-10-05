@@ -3,11 +3,12 @@
         <div :class="contentClass" tabindex="0" role="treeitem" :aria-expanded="expanded"
             @click="onClick" @keydown="onKeyDown" @touchend="onTouchEnd" :style="node.style">
             <button type="button" class="p-tree-toggler p-link" @click="toggle" tabindex="-1" v-ripple>
-                <span :class="toggleIcon"></span>
+                <Icon class="p-tree-toggler-icon" :fullWidth="true"
+                    :icon="{ commonIcon: expanded ? 'chevron-down' : 'chevron-right', context: 'TreeNode' }" />
             </button>
             <div class="p-checkbox p-component" v-if="checkboxMode">
                 <div :class="checkboxClass" role="checkbox" :aria-checked="checked">
-                    <span :class="checkboxIcon"></span>
+                    <Icon class="p-checkbox-icon" :icon="checkboxIcon" />
                 </div>
             </div>
             <span :class="icon"></span>
@@ -28,6 +29,7 @@
 <script>
 import {DomHandler} from 'primevue/utils';
 import Ripple from 'primevue/ripple';
+import Icon from 'primevue/icon';
 
 export default {
     name: 'TreeNode',
@@ -269,17 +271,21 @@ export default {
         icon() {
             return ['p-treenode-icon', this.node.icon];
         },
-        toggleIcon() {
-            return ['p-tree-toggler-icon pi pi-fw', {
-                'pi-chevron-down': this.expanded,
-                'pi-chevron-right': !this.expanded
-            }];
-        },
         checkboxClass() {
             return ['p-checkbox-box', {'p-highlight': this.checked, 'p-indeterminate': this.partialChecked}];
         },
         checkboxIcon() {
-            return ['p-checkbox-icon', {'pi pi-check': this.checked, 'pi pi-minus': this.partialChecked}];
+            if (this.checked)
+                return {
+                    commonIcon: 'check',
+                    context: 'TreeNode',
+                };
+            else if(this.partialChecked)
+                return {
+                    commonIcon: 'minus',
+                    context: 'TreeNode',
+                };
+            return null;
         },
         checkboxMode() {
             return this.selectionMode === 'checkbox' && this.node.selectable !== false;
@@ -290,6 +296,9 @@ export default {
         partialChecked() {
             return this.selectionKeys ? this.selectionKeys[this.node.key] && this.selectionKeys[this.node.key].partialChecked: false;
         }
+    },
+    components: {
+        'Icon': Icon,
     },
     directives: {
         'ripple': Ripple

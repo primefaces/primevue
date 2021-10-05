@@ -6,14 +6,14 @@
                     <template v-if="!$slots.item">
                         <router-link v-if="item.to && !disabled(item)" :to="item.to" custom v-slot="{navigate, href, isActive, isExactActive}">
                             <a :href="href" :class="getHeaderLinkClass(item, {isActive, isExactActive})" @click="onItemClick($event, item, navigate)" role="treeitem">
-                                <span v-if="item.icon" :class="getPanelIcon(item)"></span>
+                                <Icon v-if="item.icon" class="p-menuitem-icon" :icon="item.icon" />
                                 <span class="p-menuitem-text">{{item.label}}</span>
                             </a>
                         </router-link>
                         <a v-else :href="item.url" :class="getHeaderLinkClass(item)" @click="onItemClick($event, item)" :tabindex="disabled(item) ? null : '0'"
                             :aria-expanded="isActive(item)" :id="ariaId +'_header'" :aria-controls="ariaId +'_content'">
-                            <span v-if="item.items" :class="getPanelToggleIcon(item)"></span>
-                            <span v-if="item.icon" :class="getPanelIcon(item)"></span>
+                            <Icon v-if="item.items" class="p-panelmenu-icon" :icon="getPanelToggleIcon(item)" />
+                            <Icon v-if="item.icon" class="p-menuitem-icon" :icon="item.icon" />
                             <span class="p-menuitem-text">{{item.label}}</span>
                         </a>
                     </template>
@@ -23,7 +23,7 @@
                     <div class="p-toggleable-content" v-show="isActive(item)"
                         role="region" :id="ariaId +'_content' " :aria-labelledby="ariaId +'_header'">
                         <div class="p-panelmenu-content" v-if="item.items">
-                            <PanelMenuSub :model="item.items" class="p-panelmenu-root-submenu" :template="$slots.item" 
+                            <PanelMenuSub :model="item.items" class="p-panelmenu-root-submenu" :template="$slots.item"
                                 :expandedKeys="expandedKeys" @item-toggle="updateExpandedKeys" :exact="exact" />
                         </div>
                     </div>
@@ -36,6 +36,7 @@
 <script>
 import PanelMenuSub from './PanelMenuSub.vue';
 import {UniqueComponentId} from 'primevue/utils';
+import Icon from 'primevue/icon';
 
 export default {
     name: 'PanelMenu',
@@ -64,7 +65,7 @@ export default {
             if (this.isActive(item) && this.activeItem === null) {
                 this.activeItem = item;
             }
-            
+
             if (this.disabled(item)) {
                 event.preventDefault();
                 return;
@@ -83,7 +84,7 @@ export default {
                 this.activeItem = item;
 
             this.updateExpandedKeys({item: item, expanded: this.activeItem != null});
-        
+
             if (item.to && navigate) {
                 navigate(event);
             }
@@ -106,10 +107,10 @@ export default {
         },
         getPanelToggleIcon(item) {
             const active = this.isActive(item);
-            return ['p-panelmenu-icon pi', {'pi-chevron-right': !active,' pi-chevron-down': active}];
-        },
-        getPanelIcon(item) {
-            return ['p-menuitem-icon', item.icon];
+            return {
+                commonIcon: active ? 'chevron-down' : 'chevron-right',
+                context: 'PanelMenu',
+            };
         },
         getHeaderLinkClass(item, routerProps) {
             return ['p-panelmenu-header-link', {
@@ -131,7 +132,8 @@ export default {
         }
     },
     components: {
-        'PanelMenuSub': PanelMenuSub
+        'PanelMenuSub': PanelMenuSub,
+        'Icon': Icon,
     },
     computed: {
         ariaId() {

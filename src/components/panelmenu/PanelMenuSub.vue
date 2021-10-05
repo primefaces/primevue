@@ -5,14 +5,14 @@
                 <template v-if="!template">
                     <router-link v-if="item.to && !disabled(item)" :to="item.to" custom v-slot="{navigate, href, isActive:isRouterActive, isExactActive}">
                         <a :href="href" :class="linkClass(item, {isRouterActive, isExactActive})" @click="onItemClick($event, item, navigate)" role="treeitem" :aria-expanded="isActive(item)">
-                            <span :class="['p-menuitem-icon', item.icon]"></span>
+                            <Icon class="p-menuitem-icon" :icon="item.icon" />
                             <span class="p-menuitem-text">{{item.label}}</span>
                         </a>
                     </router-link>
                     <a v-else :href="item.url" :class="linkClass(item)" :target="item.target" @click="onItemClick($event, item)"
                         role="treeitem" :aria-expanded="isActive(item)" :tabindex="disabled(item) ? null : '0'">
-                        <span :class="getSubmenuIcon(item)" v-if="item.items"></span>
-                        <span :class="['p-menuitem-icon', item.icon]"></span>
+                        <Icon v-if="item.items" class="p-panelmenu-icon" :icon="getSubmenuIcon(item)" :fullWidth="true" />
+                        <Icon class="p-menuitem-icon" :icon="item.icon" />
                         <span class="p-menuitem-text">{{item.label}}</span>
                     </a>
                 </template>
@@ -30,6 +30,8 @@
 </template>
 
 <script>
+import Icon from 'primevue/icon';
+
 export default {
     name: 'PanelMenuSub',
     emits: ['item-toggle'],
@@ -100,7 +102,10 @@ export default {
         },
         getSubmenuIcon(item) {
             const active = this.isActive(item);
-            return ['p-panelmenu-icon pi pi-fw', {'pi-angle-right': !active, 'pi-angle-down': active}];
+            return {
+                commonIcon: active ? 'angle-down' : 'angle-right',
+                context: 'PanelMenuSub',
+            }
         },
         visible(item) {
             return (typeof item.visible === 'function' ? item.visible() : item.visible !== false);
@@ -108,6 +113,9 @@ export default {
         disabled(item) {
             return (typeof item.disabled === 'function' ? item.disabled() : item.disabled);
         }
-    }
+    },
+    components: {
+        'Icon': Icon,
+    },
 }
 </script>

@@ -2,7 +2,7 @@
     <div :class="contentClasses">
         <div class="p-tabview-nav-container">
             <button v-if="scrollable && !backwardIsDisabled" ref="prevBtn" :class="prevButtonClasses" @click="navBackward" type="button" v-ripple>
-				<span class="pi pi-chevron-left"></span>
+				<Icon :icon="{ commonIcon: 'chevron-left', context: 'TabView' }" />
 			</button>
             <div ref="content" class="p-tabview-nav-content" @scroll="onScroll">
                 <ul ref="nav" class="p-tabview-nav" role="tablist">
@@ -16,7 +16,7 @@
                 </ul>
             </div>
             <button v-if="scrollable && !forwardIsDisabled" ref="nextBtn" :class="nextButtonClasses" @click="navForward" type="button" v-ripple>
-				<span class="pi pi-chevron-right"></span>
+                <Icon :icon="{ commonIcon: 'chevron-right', context: 'TabView' }" />
 			</button>
         </div>
         <div class="p-tabview-panels">
@@ -32,6 +32,7 @@
 <script>
 import {DomHandler} from 'primevue/utils';
 import Ripple from 'primevue/ripple';
+import Icon from 'primevue/icon';
 
 export default {
     name: 'TabView',
@@ -172,6 +173,9 @@ export default {
             )
             return tabs;
         }
+    },
+    components: {
+        'Icon': Icon,
     },
     directives: {
         'ripple': Ripple

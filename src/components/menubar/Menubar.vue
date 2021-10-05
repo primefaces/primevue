@@ -4,9 +4,9 @@
             <slot name="start"></slot>
         </div>
         <a ref="menubutton" tabindex="0" class="p-menubar-button" @click="toggle($event)">
-            <i class="pi pi-bars" />
+            <Icon tag="i" :icon="{ commonIcon: 'bars', context: 'Menubar' }" />
         </a>
-        <MenubarSub ref="rootmenu" :model="model" :root="true" :mobileActive="mobileActive" 
+        <MenubarSub ref="rootmenu" :model="model" :root="true" :mobileActive="mobileActive"
             @leaf-click="onLeafClick" :template="$slots.item" :exact="exact" />
         <div class="p-menubar-end" v-if="$slots.end">
             <slot name="end"></slot>
@@ -17,6 +17,7 @@
 <script>
 import MenubarSub from './MenubarSub.vue';
 import {ZIndexUtils} from 'primevue/utils';
+import Icon from 'primevue/icon';
 
 export default {
     name: 'Menubar',
@@ -84,7 +85,8 @@ export default {
         }
     },
     components: {
-        'MenubarSub': MenubarSub
+        'MenubarSub': MenubarSub,
+        'Icon': Icon,
     }
 }
 </script>

@@ -2,12 +2,14 @@
     <div class="p-checkbox p-component" @click="onClick" @keydown.space.prevent="onClick">
         <div ref="box" :class="['p-checkbox-box p-component', {'p-highlight': checked, 'p-disabled': $attrs.disabled, 'p-focus': focused}]"
             role="checkbox" :aria-checked="checked" :tabindex="$attrs.disabled ? null : '0'" @focus="onFocus($event)" @blur="onBlur($event)">
-            <span :class="['p-checkbox-icon', {'pi pi-check': checked}]"></span>
+            <Icon v-show="checked" class="p-checkbox-icon" :icon="{ commonIcon: 'check', context: 'HeaderCheckbox' }" />
         </div>
     </div>
 </template>
 
 <script>
+import Icon from 'primevue/icon';
+
 export default {
     name: 'HeaderCheckbox',
     inheritAttrs: false,
@@ -33,6 +35,9 @@ export default {
         onBlur() {
             this.focused = false;
         }
+    },
+    components: {
+        'Icon': Icon,
     }
 }
 </script>

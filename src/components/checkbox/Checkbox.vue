@@ -4,13 +4,14 @@
            <input ref="input" type="checkbox" :checked="checked" :value="value" v-bind="$attrs" @focus="onFocus" @blur="onBlur">
         </div>
         <div ref="box" :class="['p-checkbox-box', {'p-highlight': checked, 'p-disabled': $attrs.disabled, 'p-focus': focused}]" role="checkbox" :aria-checked="checked">
-            <span :class="['p-checkbox-icon', {'pi pi-check': checked}]"></span>
+            <Icon v-show="checked" class="p-checkbox-icon" :icon="{ commonIcon: 'check', context: 'Checkbox' }" />
         </div>
     </div>
 </template>
 
 <script>
 import {ObjectUtils} from 'primevue/utils';
+import Icon from 'primevue/icon';
 
 export default {
     name: 'Checkbox',
@@ -72,6 +73,9 @@ export default {
         containerClass() {
             return ['p-checkbox p-component', this.class, {'p-checkbox-checked': this.checked, 'p-checkbox-disabled': this.$attrs.disabled, 'p-checkbox-focused': this.focused}];
         }
+    },
+    components: {
+        'Icon': Icon,
     }
 }
 </script>

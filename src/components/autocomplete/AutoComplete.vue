@@ -7,15 +7,15 @@
                 <slot name="chip" :value="item">
                     <span class="p-autocomplete-token-label">{{getItemContent(item)}}</span>
                 </slot>
-                <span class="p-autocomplete-token-icon pi pi-times-circle" @click="removeItem($event, i)"></span>
+                <Icon class="p-autocomplete-token-icon" :icon="{ commonIcon: 'times-circle', context: 'AutoComplete' }" @click="removeItem($event, i)" />
             </li>
             <li class="p-autocomplete-input-token">
                 <input ref="input" type="text" autoComplete="off" v-bind="$attrs" @input="onInput" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown"  @change="onChange"
                     role="searchbox" aria-autocomplete="list" :aria-controls="listId">
             </li>
         </ul>
-        <i class="p-autocomplete-loader pi pi-spinner pi-spin" v-if="searching"></i>
-        <Button ref="dropdownButton" type="button" icon="pi pi-chevron-down" class="p-autocomplete-dropdown" :disabled="$attrs.disabled" @click="onDropdownClick" v-if="dropdown"/>
+        <Icon v-if="searching" tag="i" class="p-autocomplete-loader" :icon="{ commonIcon: 'spinner-spin', context: 'AutoComplete' }" />
+        <Button ref="dropdownButton" type="button" :icon="{ commonIcon: 'chevron-down', context: 'AutoComplete' }" class="p-autocomplete-dropdown" :disabled="$attrs.disabled" @click="onDropdownClick" v-if="dropdown"/>
         <Teleport :to="appendTarget" :disabled="appendDisabled">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
                 <div :ref="overlayRef" :class="panelStyleClass" :style="{'max-height': virtualScrollerDisabled ? scrollHeight : ''}" v-if="overlayVisible" @click="onOverlayClick">
@@ -56,6 +56,7 @@ import {ConnectedOverlayScrollHandler,UniqueComponentId,ObjectUtils,DomHandler,Z
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Button from 'primevue/button';
 import Ripple from 'primevue/ripple';
+import Icon from 'primevue/icon';
 import VirtualScroller from 'primevue/virtualscroller';
 
 export default {
@@ -618,7 +619,8 @@ export default {
     },
     components: {
         'Button': Button,
-        'VirtualScroller': VirtualScroller
+        'VirtualScroller': VirtualScroller,
+        'Icon': Icon
     },
     directives: {
         'ripple': Ripple

@@ -6,7 +6,7 @@
 		<div :class="contentClasses">
 			<div :class="containerClasses">
 				<button :class="['p-carousel-prev p-link', {'p-disabled': backwardIsDisabled}]" :disabled="backwardIsDisabled" @click="navBackward" type="button" v-ripple>
-					<span :class="['p-carousel-prev-icon pi', {'pi-chevron-left': !isVertical(),'pi-chevron-up': isVertical()}]"></span>
+					<Icon class="p-carousel-prev-icon" :icon="{ commonIcon: isVertical() ? 'chevron-up' : 'chevron-left', context: 'Carousel' }" />
 				</button>
 
 				<div class="p-carousel-items-content" :style="[{'height': isVertical() ? verticalViewPortHeight : 'auto'}]">
@@ -37,7 +37,7 @@
 				</div>
 
 				<button :class="['p-carousel-next p-link', {'p-disabled': forwardIsDisabled}]" :disabled="forwardIsDisabled" @click="navForward" type="button" v-ripple>
-					<span :class="['p-carousel-next-icon pi', {'pi-chevron-right': !isVertical(),'pi-chevron-down': isVertical()}]"></span>
+                    <Icon class="p-carousel-next-icon" :icon="{ commonIcon: isVertical() ? 'chevron-down' : 'chevron-right', context: 'Carousel' }" />
 				</button>
 			</div>
 			<ul v-if="totalIndicators >= 0" :class="indicatorsContentClasses">
@@ -56,6 +56,7 @@
 import {UniqueComponentId} from 'primevue/utils';
 import {DomHandler} from 'primevue/utils';
 import Ripple from 'primevue/ripple';
+import Icon from 'primevue/icon';
 
 export default {
     name: 'Carousel',
@@ -494,6 +495,9 @@ export default {
 		indicatorsContentClasses() {
 			return ['p-carousel-indicators p-reset', this.indicatorsContentClass];
 		},
+    },
+    components: {
+        'Icon': Icon,
     },
     directives: {
         'ripple': Ripple

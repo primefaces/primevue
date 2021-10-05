@@ -2,7 +2,7 @@
     <div :class="containerClass" data-scrollselectors=".p-datatable-wrapper">
         <slot></slot>
         <div class="p-datatable-loading-overlay p-component-overlay" v-if="loading">
-            <i :class="loadingIconClass"></i>
+            <Icon class="p-datatable-loading-icon" :icon="loadingIcon" />
         </div>
         <div class="p-datatable-header" v-if="$slots.header">
             <slot name="header"></slot>
@@ -60,8 +60,8 @@
             <slot name="footer"></slot>
         </div>
         <div ref="resizeHelper" class="p-column-resizer-helper" style="display: none"></div>
-        <span ref="reorderIndicatorUp" class="pi pi-arrow-down p-datatable-reorder-indicator-up" style="position: absolute; display: none" v-if="reorderableColumns" />
-        <span ref="reorderIndicatorDown" class="pi pi-arrow-up p-datatable-reorder-indicator-down" style="position: absolute; display: none" v-if="reorderableColumns" />
+        <Icon ref="reorderIndicatorUp" class="p-datatable-reorder-indicator-up" :icon="{ commonIcon: 'arrow-down', context: 'DataTable' }" style="position: absolute; display: none" v-if="reorderableColumns" />
+        <Icon ref="reorderIndicatorDown" class="p-datatable-reorder-indicator-down" :icon="{ commonIcon: 'arrow-up', context: 'DataTable' }" style="position: absolute; display: none" v-if="reorderableColumns" />
     </div>
 </template>
 
@@ -69,6 +69,7 @@
 import {ObjectUtils,DomHandler,UniqueComponentId} from 'primevue/utils';
 import {FilterMatchMode,FilterOperator,FilterService} from 'primevue/api';
 import Paginator from 'primevue/paginator';
+import Icon from 'primevue/icon';
 import TableHeader from './TableHeader.vue';
 import TableBody from './TableBody.vue';
 import TableFooter from './TableFooter.vue';
@@ -138,8 +139,8 @@ export default {
             default: false
         },
         loadingIcon: {
-            type: String,
-            default: 'pi pi-spinner'
+            type: [String, Object],
+            default: () => ({ commonIcon: 'spinner-spin', context: 'DataTable' })
         },
         sortField: {
             type: [String, Function],
@@ -242,12 +243,12 @@ export default {
             default: null
         },
         expandedRowIcon: {
-            type: String,
-            default: 'pi-chevron-down'
+            type: [String, Object],
+            default: () => ({ commonIcon: 'chevron-down', context: 'DataTable' }),
         },
         collapsedRowIcon: {
-            type: String,
-            default: 'pi-chevron-right'
+            type: [String, Object],
+            default: () => ({ commonIcon: 'chevron-right', context: 'DataTable' }),
         },
         rowGroupMode: {
             type: String,
@@ -1871,9 +1872,6 @@ export default {
         sorted() {
             return this.d_sortField || (this.d_multiSortMeta && this.d_multiSortMeta.length > 0);
         },
-        loadingIconClass() {
-            return ['p-datatable-loading-icon pi-spin', this.loadingIcon];
-        },
         allRowsSelected() {
             const val = this.frozenValue ? [...this.frozenValue, ...this.processedData]: this.processedData;
             const length = this.lazy ? this.totalRecords : (val ? val.length : 0);
@@ -1891,6 +1889,7 @@ export default {
         'DTTableHeader': TableHeader,
         'DTTableBody': TableBody,
         'DTTableFooter': TableFooter,
+        'Icon': Icon,
     }
 }
 </script>

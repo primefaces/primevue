@@ -45,12 +45,12 @@ export default {
             default: null,
         },
         incrementButtonIcon: {
-            type: String,
-            default: 'pi pi-angle-up',
+            type: [String, Object],
+            default: () => ({ commonIcon: 'angle-up', context: 'InputNumber' }),
         },
         decrementButtonIcon: {
-            type: String,
-            default: 'pi pi-angle-down',
+            type: [String, Object],
+            default: () => ({ commonIcon: 'angle-down', context: 'InputNumber' }),
         },
         locale: {
             type: String,

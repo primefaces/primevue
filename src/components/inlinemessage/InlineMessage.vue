@@ -1,11 +1,13 @@
 <template>
     <div aria-live="polite" :class="containerClass">
-        <span :class="iconClass"></span>
+        <Icon class="p-inline-message-icon" :icon="icon" />
         <span class="p-inline-message-text"><slot>&nbsp;</slot></span>
     </div>
 </template>
 
 <script>
+import Icon from 'primevue/icon';
+
 export default {
     name: 'InlineMessage',
     props: {
@@ -31,14 +33,32 @@ export default {
         containerClass() {
             return ['p-inline-message p-component p-inline-message-' + this.severity, {'p-inline-message-icon-only': !this.$slots.default}];
         },
-        iconClass() {
-            return ['p-inline-message-icon pi', {
-                'pi-info-circle': this.severity === 'info',
-                'pi-check': this.severity === 'success',
-                'pi-exclamation-triangle': this.severity === 'warn',
-                'pi-times-circle': this.severity === 'error'
-            }];
+        icon() {
+            let icon = 'QUESTION';
+
+            switch (this.severity) {
+                case 'info':
+                    icon = 'info-circle';
+                    break;
+                case 'success':
+                    icon = 'check';
+                    break;
+                case 'warn':
+                    icon = 'exclamation-triangle';
+                    break;
+                case 'error':
+                    icon = 'times-circle';
+                    break;
+            }
+
+            return {
+                commonIcon: icon,
+                context: 'InlineMessage',
+            }
         }
+    },
+    components: {
+        'Icon': Icon,
     }
 }
 </script>

@@ -6,7 +6,7 @@
             </slot>
             <a tabindex="0" v-if="toggleable" @click="toggle" @keydown.enter="toggle" v-ripple
                 :id="ariaId +  '_header'" :aria-controls="ariaId + '_content'" :aria-expanded="!d_collapsed">
-                <Icon class="p-fieldset-toggler" :icon="{ commonIcon: d_collapsed ? 'plus' : 'minus', context: 'Fieldset' }" />
+                <Icon class="p-fieldset-toggler" :icon="icon" />
                 <slot name="legend">
                     <span class="p-fieldset-legend-text">{{legend}}</span>
                 </slot>
@@ -57,11 +57,8 @@ export default {
         }
     },
 	computed: {
-		iconClass() {
-			return ['p-fieldset-toggler pi ', {
-				'pi-minus': !this.d_collapsed,
-				'pi-plus': this.d_collapsed
-			}]
+		icon() {
+            return { commonIcon: this.d_collapsed ? 'plus' : 'minus', context: 'Fieldset' };
         },
         ariaId() {
             return UniqueComponentId();

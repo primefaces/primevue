@@ -12,7 +12,7 @@
                                 <div class="p-datepicker-header">
                                     <slot name="header"></slot>
                                     <button class="p-datepicker-prev p-link" v-if="groupIndex === 0" @click="onPrevButtonClick" type="button" @keydown="onContainerButtonKeydown" v-ripple :disabled="$attrs.disabled">
-                                        <span class="p-datepicker-prev-icon pi pi-chevron-left"></span>
+                                        <Icon class="p-datepicker-prev-icon" :icon="{ commonIcon: 'chevron-left', context: 'Calendar'}" />
                                     </button>
                                     <div class="p-datepicker-title">
                                         <span class="p-datepicker-month" v-if="!monthNavigator && (view !== 'month')">{{getMonthName(month.month)}}</span>
@@ -26,7 +26,7 @@
                                     </div>
                                     <button class="p-datepicker-next p-link" v-if="numberOfMonths === 1 ? true : (groupIndex === numberOfMonths - 1)"
                                         @click="onNextButtonClick" type="button" @keydown="onContainerButtonKeydown" v-ripple :disabled="$attrs.disabled">
-                                        <span class="p-datepicker-next-icon pi pi-chevron-right"></span>
+                                        <Icon class="p-datepicker-next-icon" :icon="{ commonIcon: 'chevron-right', context: 'Calendar'}" />
                                     </button>
                                 </div>
                                 <div class="p-datepicker-calendar-container" v-if="view ==='date'">
@@ -72,12 +72,12 @@
                         <div class="p-hour-picker">
                             <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 0, 1)" @mouseup="onTimePickerElementMouseUp($event)" @keydown="onContainerButtonKeydown" v-ripple
                                 @mouseleave="onTimePickerElementMouseLeave()" @keydown.enter="onTimePickerElementMouseDown($event, 0, 1)" @keyup.enter="onTimePickerElementMouseUp($event)" type="button">
-                                <span class="pi pi-chevron-up"></span>
+                                <Icon :icon="{ commonIcon: 'chevron-up', context: 'Calendar'}" />
                             </button>
                             <span>{{formattedCurrentHour}}</span>
                             <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 0, -1)" @mouseup="onTimePickerElementMouseUp($event)" @keydown="onContainerButtonKeydown" v-ripple
                                 @mouseleave="onTimePickerElementMouseLeave()" @keydown.enter="onTimePickerElementMouseDown($event, 0, -1)" @keyup.enter="onTimePickerElementMouseUp($event)" type="button">
-                                <span class="pi pi-chevron-down"></span>
+                                <Icon :icon="{ commonIcon: 'chevron-down', context: 'Calendar'}" />
                             </button>
                         </div>
                         <div class="p-separator">
@@ -86,12 +86,12 @@
                         <div class="p-minute-picker">
                             <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 1, 1)" @mouseup="onTimePickerElementMouseUp($event)" @keydown="onContainerButtonKeydown" v-ripple :disabled="$attrs.disabled"
                                 @mouseleave="onTimePickerElementMouseLeave()" @keydown.enter="onTimePickerElementMouseDown($event, 1, 1)" @keyup.enter="onTimePickerElementMouseUp($event)" type="button">
-                                <span class="pi pi-chevron-up"></span>
+                                <Icon :icon="{ commonIcon: 'chevron-up', context: 'Calendar'}" />
                             </button>
                         <span>{{formattedCurrentMinute}}</span>
                             <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 1, -1)" @mouseup="onTimePickerElementMouseUp($event)" @keydown="onContainerButtonKeydown" v-ripple :disabled="$attrs.disabled"
                                 @mouseleave="onTimePickerElementMouseLeave()" @keydown.enter="onTimePickerElementMouseDown($event, 1, -1)" @keyup.enter="onTimePickerElementMouseUp($event)" type="button">
-                                <span class="pi pi-chevron-down"></span>
+                                <Icon :icon="{ commonIcon: 'chevron-down', context: 'Calendar'}" />
                             </button>
                         </div>
                         <div class="p-separator" v-if="showSeconds">
@@ -100,12 +100,12 @@
                         <div class="p-second-picker" v-if="showSeconds">
                             <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 2, 1)" @mouseup="onTimePickerElementMouseUp($event)" @keydown="onContainerButtonKeydown" v-ripple  :disabled="$attrs.disabled"
                                 @mouseleave="onTimePickerElementMouseLeave()" @keydown.enter="onTimePickerElementMouseDown($event, 2, 1)" @keyup.enter="onTimePickerElementMouseUp($event)" type="button">
-                                <span class="pi pi-chevron-up"></span>
+                                <Icon :icon="{ commonIcon: 'chevron-up', context: 'Calendar'}" />
                             </button>
                             <span>{{formattedCurrentSecond}}</span>
                             <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 2, -1)" @mouseup="onTimePickerElementMouseUp($event)" @keydown="onContainerButtonKeydown" v-ripple  :disabled="$attrs.disabled"
                                 @mouseleave="onTimePickerElementMouseLeave()" @keydown.enter="onTimePickerElementMouseDown($event, 2, -1)" @keyup.enter="onTimePickerElementMouseUp($event)" type="button">
-                                <span class="pi pi-chevron-down"></span>
+                                <Icon :icon="{ commonIcon: 'chevron-down', context: 'Calendar'}" />
                             </button>
                         </div>
                         <div class="p-separator" v-if="hourFormat=='12'">
@@ -113,11 +113,11 @@
                         </div>
                         <div class="p-ampm-picker" v-if="hourFormat=='12'">
                             <button class="p-link" @click="toggleAMPM($event)" type="button" v-ripple :disabled="$attrs.disabled">
-                                <span class="pi pi-chevron-up"></span>
+                                <Icon :icon="{ commonIcon: 'chevron-up', context: 'Calendar'}" />
                             </button>
                             <span>{{pm ? 'PM' : 'AM'}}</span>
                             <button class="p-link" @click="toggleAMPM($event)" type="button" v-ripple :disabled="$attrs.disabled">
-                                <span class="pi pi-chevron-down"></span>
+                                <Icon :icon="{ commonIcon: 'chevron-down', context: 'Calendar'}" />
                             </button>
                         </div>
                     </div>
@@ -138,6 +138,7 @@ import OverlayEventBus from 'primevue/overlayeventbus';
 import InputText from 'primevue/inputtext';
 import Button from 'primevue/button';
 import Ripple from 'primevue/ripple';
+import Icon from 'primevue/icon';
 
 export default {
     name: 'Calendar',
@@ -170,8 +171,8 @@ export default {
             default: false
         },
         icon: {
-            type: String,
-            default: 'pi pi-calendar'
+            type: [String, Object],
+            default: () => ({ commonIcon: 'calendar', context: 'Calendar' })
         },
         numberOfMonths: {
             type: Number,
@@ -2182,7 +2183,8 @@ export default {
     },
     components: {
         'CalendarInputText': InputText,
-        'CalendarButton': Button
+        'CalendarButton': Button,
+        'Icon': Icon
     },
     directives: {
         'ripple': Ripple

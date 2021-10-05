@@ -1,10 +1,10 @@
 <template>
     <div class="p-picklist p-component">
         <div class="p-picklist-buttons p-picklist-source-controls">
-            <PLButton type="button" icon="pi pi-angle-up" @click="moveUp($event, 0)"></PLButton>
-            <PLButton type="button" icon="pi pi-angle-double-up" @click="moveTop($event, 0)"></PLButton>
-            <PLButton type="button" icon="pi pi-angle-down" @click="moveDown($event, 0)"></PLButton>
-            <PLButton type="button" icon="pi pi-angle-double-down" @click="moveBottom($event, 0)"></PLButton>
+            <PLButton type="button" :icon="{ commonIcon: 'angle-up', context: 'PickList' }" @click="moveUp($event, 0)"></PLButton>
+            <PLButton type="button" :icon="{ commonIcon: 'angle-double-up', context: 'PickList' }" @click="moveTop($event, 0)"></PLButton>
+            <PLButton type="button" :icon="{ commonIcon: 'angle-down', context: 'PickList' }" @click="moveDown($event, 0)"></PLButton>
+            <PLButton type="button" :icon="{ commonIcon: 'angle-double-down', context: 'PickList' }" @click="moveBottom($event, 0)"></PLButton>
         </div>
         <div class="p-picklist-list-wrapper p-picklist-source-wrapper">
             <div class="p-picklist-header" v-if="$slots.sourceHeader">
@@ -13,7 +13,7 @@
             <transition-group ref="sourceList" name="p-picklist-flip" tag="ul" class="p-picklist-list p-picklist-source" :style="listStyle" role="listbox" aria-multiselectable="multiple">
                 <template v-for="(item, i) of sourceList" :key="getItemKey(item, i)">
                     <li tabindex="0" :class="['p-picklist-item', {'p-highlight': isSelected(item, 0)}]" v-ripple
-                        @click="onItemClick($event, item, 0)" @dblclick="onItemDblClick($event, item, 0)" @keydown="onItemKeyDown($event, item, 0)" @touchend="onItemTouchEnd" 
+                        @click="onItemClick($event, item, 0)" @dblclick="onItemDblClick($event, item, 0)" @keydown="onItemKeyDown($event, item, 0)" @touchend="onItemTouchEnd"
                         role="option" :aria-selected="isSelected(item, 0)">
                         <slot name="item" :item="item" :index="i"> </slot>
                     </li>
@@ -21,10 +21,10 @@
             </transition-group>
         </div>
         <div class="p-picklist-buttons p-picklist-transfer-buttons">
-            <PLButton type="button" icon="pi pi-angle-right" @click="moveToTarget"></PLButton>
-            <PLButton type="button" icon="pi pi-angle-double-right" @click="moveAllToTarget"></PLButton>
-            <PLButton type="button" icon="pi pi-angle-left" @click="moveToSource"></PLButton>
-            <PLButton type="button" icon="pi pi-angle-double-left" @click="moveAllToSource"></PLButton>
+            <PLButton type="button" :icon="{ commonIcon: 'angle-right', context: 'PickList' }" @click="moveToTarget"></PLButton>
+            <PLButton type="button" :icon="{ commonIcon: 'angle-double-right', context: 'PickList' }" @click="moveAllToTarget"></PLButton>
+            <PLButton type="button" :icon="{ commonIcon: 'angle-left', context: 'PickList' }" @click="moveToSource"></PLButton>
+            <PLButton type="button" :icon="{ commonIcon: 'angle-double-left', context: 'PickList' }" @click="moveAllToSource"></PLButton>
         </div>
         <div class="p-picklist-list-wrapper p-picklist-target-wrapper">
             <div class="p-picklist-header" v-if="$slots.targetHeader">
@@ -33,7 +33,7 @@
             <transition-group ref="targetList" name="p-picklist-flip" tag="ul" class="p-picklist-list p-picklist-target" :style="listStyle" role="listbox" aria-multiselectable="multiple">
                 <template v-for="(item, i) of targetList" :key="getItemKey(item, i)">
                     <li tabindex="0" :class="['p-picklist-item', {'p-highlight': isSelected(item, 1)}]" v-ripple
-                        @click="onItemClick($event, item, 1)" @dblclick="onItemDblClick($event, item, 1)" @keydown="onItemKeyDown($event, item, 1)" @touchend="onItemTouchEnd" 
+                        @click="onItemClick($event, item, 1)" @dblclick="onItemDblClick($event, item, 1)" @keydown="onItemKeyDown($event, item, 1)" @touchend="onItemTouchEnd"
                         role="option" :aria-selected="isSelected(item, 1)">
                         <slot name="item" :item="item" :index="i"> </slot>
                     </li>
@@ -41,10 +41,10 @@
             </transition-group>
         </div>
         <div class="p-picklist-buttons p-picklist-target-controls">
-            <PLButton type="button" icon="pi pi-angle-up" @click="moveUp($event, 1)"></PLButton>
-            <PLButton type="button" icon="pi pi-angle-double-up" @click="moveTop($event, 1)"></PLButton>
-            <PLButton type="button" icon="pi pi-angle-down" @click="moveDown($event, 1)"></PLButton>
-            <PLButton type="button" icon="pi pi-angle-double-down" @click="moveBottom($event, 1)"></PLButton>
+            <PLButton type="button" :icon="{ commonIcon: 'angle-up', context: 'PickList' }" @click="moveUp($event, 1)"></PLButton>
+            <PLButton type="button" :icon="{ commonIcon: 'angle-double-up', context: 'PickList' }" @click="moveTop($event, 1)"></PLButton>
+            <PLButton type="button" :icon="{ commonIcon: 'angle-down', context: 'PickList' }" @click="moveDown($event, 1)"></PLButton>
+            <PLButton type="button" :icon="{ commonIcon: 'angle-double-down', context: 'PickList' }" @click="moveBottom($event, 1)"></PLButton>
         </div>
     </div>
 </template>
@@ -515,22 +515,6 @@ export default {
 
     .p-picklist[${this.attributeSelector}] .p-picklist-buttons .p-button:last-child {
         margin-right: 0;
-    }
-
-    .p-picklist[${this.attributeSelector}] .pi-angle-right:before {
-        content: "\\e930"
-    }
-
-    .p-picklist[${this.attributeSelector}] .pi-angle-double-right:before {
-        content: "\\e92c"
-    }
-
-    .p-picklist[${this.attributeSelector}] .pi-angle-left:before {
-        content: "\\e933"
-    }
-
-    .p-picklist[${this.attributeSelector}] .pi-angle-double-left:before {
-        content: "\\e92f"
     }
 }
 `;

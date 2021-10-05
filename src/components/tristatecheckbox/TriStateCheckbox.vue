@@ -4,12 +4,14 @@
            <input ref="input" type="checkbox" :checked="modelValue === true" v-bind="$attrs" @focus="onFocus()" @blur="onBlur()">
         </div>
         <div ref="box" :class="['p-checkbox-box', {'p-highlight': (modelValue != null), 'p-disabled': $attrs.disabled, 'p-focus': focused}]" role="checkbox" :aria-checked="modelValue === true">
-            <span :class="['p-checkbox-icon', icon]"></span>
+            <Icon class="p-checkbox-icon" :icon="icon" />
         </div>
     </div>
 </template>
 
 <script>
+import Icon from 'primevue/icon';
+
 export default {
     name: 'TriStateCheckbox',
     inheritAttrs: false,
@@ -61,11 +63,11 @@ export default {
             let icon;
             switch (this.modelValue) {
                 case true:
-                    icon = 'pi pi-check';
+                    icon = 'check';
                 break;
 
                 case false:
-                    icon = 'pi pi-times';
+                    icon = 'times';
                 break;
 
                 case null:
@@ -73,11 +75,17 @@ export default {
                 break;
             }
 
-            return icon;
+            return {
+                commonIcon: icon,
+                context: "TriStateCheckbox",
+            };
         },
         containerClass() {
             return ['p-checkbox p-component', this.class, {'p-checkbox-checked': this.modelValue === true, 'p-checkbox-disabled': this.$attrs.disabled, 'p-checkbox-focused': this.focused}];
         }
-    }
+    },
+    components: {
+        'Icon': Icon,
+    },
 }
 </script>

@@ -12,25 +12,25 @@ const CommonIcons = {
     // "ALIGN-RIGHT":{ primeicons: 'pi-align-right' },
     // "AMAZON":{ primeicons: 'pi-amazon' },
     // "ANDROID":{ primeicons: 'pi-android' },
-    // "ANGLE-DOUBLE-DOWN":{ primeicons: 'pi-angle-double-down' },
-    // "ANGLE-DOUBLE-LEFT":{ primeicons: 'pi-angle-double-left' },
-    // "ANGLE-DOUBLE-RIGHT":{ primeicons: 'pi-angle-double-right' },
-    // "ANGLE-DOUBLE-UP":{ primeicons: 'pi-angle-double-up' },
-    // "ANGLE-DOWN":{ primeicons: 'pi-angle-down' },
-    // "ANGLE-LEFT":{ primeicons: 'pi-angle-left' },
+    "ANGLE-DOUBLE-DOWN":{ primeicons: 'pi-angle-double-down' },
+    "ANGLE-DOUBLE-LEFT":{ primeicons: 'pi-angle-double-left' },
+    "ANGLE-DOUBLE-RIGHT":{ primeicons: 'pi-angle-double-right' },
+    "ANGLE-DOUBLE-UP":{ primeicons: 'pi-angle-double-up' },
+    "ANGLE-DOWN":{ primeicons: 'pi-angle-down' },
+    "ANGLE-LEFT":{ primeicons: 'pi-angle-left' },
     "ANGLE-RIGHT":{ primeicons: 'pi-angle-right' },
-    // "ANGLE-UP":{ primeicons: 'pi-angle-up' },
+    "ANGLE-UP":{ primeicons: 'pi-angle-up' },
     // "APPLE":{ primeicons: 'pi-apple' },
     // "ARROW-CIRCLE-DOWN":{ primeicons: 'pi-arrow-circle-down' },
     // "ARROW-CIRCLE-LEFT":{ primeicons: 'pi-arrow-circle-left' },
     // "ARROW-CIRCLE-RIGHT":{ primeicons: 'pi-arrow-circle-right' },
     // "ARROW-CIRCLE-UP":{ primeicons: 'pi-arrow-circle-up' },
-    // "ARROW-DOWN":{ primeicons: 'pi-arrow-down' },
+    "ARROW-DOWN":{ primeicons: 'pi-arrow-down' },
     // "ARROW-LEFT":{ primeicons: 'pi-arrow-left' },
     // "ARROW-RIGHT":{ primeicons: 'pi-arrow-right' },
-    // "ARROW-UP":{ primeicons: 'pi-arrow-up' },
+    "ARROW-UP":{ primeicons: 'pi-arrow-up' },
     // "BACKWARD":{ primeicons: 'pi-backward' },
-    // "BAN":{ primeicons: 'pi-ban' },
+    "BAN":{ primeicons: 'pi-ban' },
     "BARS":{ primeicons: 'pi-bars' },
     // "BELL":{ primeicons: 'pi-bell' },
     // "BOOK":{ primeicons: 'pi-book' },
@@ -39,7 +39,7 @@ const CommonIcons = {
     // "CALENDAR-MINUS":{ primeicons: 'pi-calendar-minus' },
     // "CALENDAR-PLUS":{ primeicons: 'pi-calendar-plus' },
     // "CALENDAR-TIMES":{ primeicons: 'pi-calendar-times' },
-    // "CALENDAR":{ primeicons: 'pi-calendar' },
+    "CALENDAR":{ primeicons: 'pi-calendar' },
     // "CAMERA":{ primeicons: 'pi-camera' },
     // "CARET-DOWN":{ primeicons: 'pi-caret-down' },
     // "CARET-LEFT":{ primeicons: 'pi-caret-left' },
@@ -49,15 +49,15 @@ const CommonIcons = {
     // "CHART-LINE":{ primeicons: 'pi-chart-line' },
     // "CHECK-CIRCLE":{ primeicons: 'pi-check-circle' },
     // "CHECK-SQUARE":{ primeicons: 'pi-check-square' },
-    // "CHECK":{ primeicons: 'pi-check' },
+    "CHECK":{ primeicons: 'pi-check' },
     // "CHEVRON-CIRCLE-DOWN":{ primeicons: 'pi-chevron-circle-down' },
     // "CHEVRON-CIRCLE-LEFT":{ primeicons: 'pi-chevron-circle-left' },
     // "CHEVRON-CIRCLE-RIGHT":{ primeicons: 'pi-chevron-circle-right' },
     // "CHEVRON-CIRCLE-UP":{ primeicons: 'pi-chevron-circle-up' },
     "CHEVRON-DOWN":{ primeicons: 'pi-chevron-down' },
-    // "CHEVRON-LEFT":{ primeicons: 'pi-chevron-left' },
+    "CHEVRON-LEFT":{ primeicons: 'pi-chevron-left' },
     "CHEVRON-RIGHT":{ primeicons: 'pi-chevron-right' },
-    // "CHEVRON-UP":{ primeicons: 'pi-chevron-up' },
+    "CHEVRON-UP":{ primeicons: 'pi-chevron-up' },
     "CIRCLE-ON":{ primeicons: 'pi-circle-on' },
     // "CLOCK":{ primeicons: 'pi-clock' },
     // "CLONE":{ primeicons: 'pi-clone' },
@@ -81,10 +81,10 @@ const CommonIcons = {
     // "ELLIPSIS-V":{ primeicons: 'pi-ellipsis-v' },
     // "ENVELOPE":{ primeicons: 'pi-envelope' },
     // "EXCLAMATION-CIRCLE":{ primeicons: 'pi-exclamation-circle' },
-    // "EXCLAMATION-TRIANGLE ":{ primeicons: 'pi-exclamation-triangle ' },
+    "EXCLAMATION-TRIANGLE":{ primeicons: 'pi-exclamation-triangle ' },
     // "EXTERNAL-LINK":{ primeicons: 'pi-external-link' },
-    // "EYE-SLASH":{ primeicons: 'pi-eye-slash' },
-    // "EYE":{ primeicons: 'pi-eye' },
+    "EYE-SLASH":{ primeicons: 'pi-eye-slash' },
+    "EYE":{ primeicons: 'pi-eye' },
     // "FACEBOOK":{ primeicons: 'pi-facebook' },
     // "FAST-BACKWARD":{ primeicons: 'pi-fast-backward' },
     // "FAST-FORWARD":{ primeicons: 'pi-fast-forward' },
@@ -92,8 +92,8 @@ const CommonIcons = {
     // "FILE-O":{ primeicons: 'pi-file-o' },
     // "FILE-PDF":{ primeicons: 'pi-file-pdf' },
     "FILE":{ primeicons: 'pi-file' },
-    // "FILTER":{ primeicons: 'pi-filter' },
-    // "FILTER-SLASH":{ primeicons: 'pi-filter-slash' },
+    "FILTER":{ primeicons: 'pi-filter' },
+    "FILTER-SLASH":{ primeicons: 'pi-filter-slash' },
     // "FLAG":{ primeicons: 'pi-flag' },
     // "FOLDER-OPEN":{ primeicons: 'pi-folder-open' },
     // "FOLDER":{ primeicons: 'pi-folder' },
@@ -141,10 +141,12 @@ const CommonIcons = {
     // "REFRESH":{ primeicons: 'pi-refresh' },
     // "REPLAY":{ primeicons: 'pi-replay' },
     // "REPLY":{ primeicons: 'pi-reply' },
+    "ROTATE-LEFT": { primeicons: 'pi-undo' },
+    "ROTATE-RIGHT": { primeicons: 'pi-refresh' },
     // "SAVE":{ primeicons: 'pi-save' },
     // "SEARCH-MINUS":{ primeicons: 'pi-search-minus' },
     // "SEARCH-PLUS":{ primeicons: 'pi-search-plus' },
-    // "SEARCH":{ primeicons: 'pi-search' },
+    "SEARCH":{ primeicons: 'pi-search' },
     // "SEND":{ primeicons: 'pi-send' },
     // "SHARE-ALT":{ primeicons: 'pi-share-alt' },
     // "SHIELD":{ primeicons: 'pi-shield' },
@@ -159,10 +161,10 @@ const CommonIcons = {
     // "SORT-ALPHA-ALT-UP":{ primeicons: 'pi-sort-alpha-alt-up' },
     // "SORT-ALPHA-DOWN":{ primeicons: 'pi-sort-alpha-down' },
     // "SORT-ALPHA-UP":{ primeicons: 'pi-sort-alpha-up' },
-    // "SORT-ALT":{ primeicons: 'pi-sort-alt' },
+    "SORT-ALT":{ primeicons: 'pi-sort-alt' },
     // "SORT-AMOUNT-DOWN-ALT":{ primeicons: 'pi-sort-amount-down-alt' },
-    // "SORT-AMOUNT-DOWN":{ primeicons: 'pi-sort-amount-down' },
-    // "SORT-AMOUNT-UP-ALT":{ primeicons: 'pi-sort-amount-up-alt' },
+    "SORT-AMOUNT-DOWN":{ primeicons: 'pi-sort-amount-down' },
+    "SORT-AMOUNT-UP-ALT":{ primeicons: 'pi-sort-amount-up-alt' },
     // "SORT-AMOUNT-UP":{ primeicons: 'pi-sort-amount-up' },
     // "SORT-DOWN":{ primeicons: 'pi-sort-down' },
     // "SORT-NUMERIC-ALT-DOWN":{ primeicons: 'pi-sort-numeric-alt-down' },
@@ -173,8 +175,8 @@ const CommonIcons = {
     // "SORT":{ primeicons: 'pi-sort' },
     // "SPINNER":{ primeicons: 'pi-spinner' },
     "SPINNER-SPIN":{ primeicons: 'pi-spinner pi-spin' },
-    // "STAR-O":{ primeicons: 'pi-star-o' },
-    // "STAR":{ primeicons: 'pi-star' },
+    "STAR-O":{ primeicons: 'pi-star-o' },
+    "STAR":{ primeicons: 'pi-star' },
     // "STEP-BACKWARD-ALT":{ primeicons: 'pi-step-backward-alt' },
     // "STEP-BACKWARD":{ primeicons: 'pi-step-backward' },
     // "STEP-FORWARD-ALT":{ primeicons: 'pi-step-forward-alt' },
@@ -184,17 +186,17 @@ const CommonIcons = {
     // "TABLET":{ primeicons: 'pi-tablet' },
     // "TAG":{ primeicons: 'pi-tag' },
     // "TAGS":{ primeicons: 'pi-tags' },
-    // "TH-LARGE":{ primeicons: 'pi-th-large' },
+    "TH-LARGE":{ primeicons: 'pi-th-large' },
     // "THUMBS-DOWN":{ primeicons: 'pi-thumbs-down' },
     // "THUMBS-UP":{ primeicons: 'pi-thumbs-up' },
     // "TICKET":{ primeicons: 'pi-ticket' },
-    // "TIMES-CIRCLE":{ primeicons: 'pi-times-circle' },
+    "TIMES-CIRCLE":{ primeicons: 'pi-times-circle' },
     "TIMES":{ primeicons: 'pi-times' },
-    // "TRASH":{ primeicons: 'pi-trash' },
+    "TRASH":{ primeicons: 'pi-trash' },
     "TWITTER":{ primeicons: 'pi-twitter' },
     // "UNDO":{ primeicons: 'pi-undo' },
     // "UNLOCK":{ primeicons: 'pi-unlock' },
-    // "UPLOAD":{ primeicons: 'pi-upload' },
+    "UPLOAD":{ primeicons: 'pi-upload' },
     // "USER-EDIT":{ primeicons: 'pi-user-edit' },
     // "USER-MINUS":{ primeicons: 'pi-user-minus' },
     // "USER-PLUS":{ primeicons: 'pi-user-plus' },
@@ -208,16 +210,19 @@ const CommonIcons = {
     // "YOUTUBE":{ primeicons: 'pi-youtube' },
     // "WALLET":{ primeicons: 'pi-wallet' },
     // "WIFI":{ primeicons: 'pi-wifi' },
-    // "WINDOW-MAXIMIZE":{ primeicons: 'pi-window-maximize' },
-    // "WINDOW-MINIMIZE":{ primeicons: 'pi-window-minimize'},
+    "WINDOW-MAXIMIZE":{ primeicons: 'pi-window-maximize' },
+    "WINDOW-MINIMIZE":{ primeicons: 'pi-window-minimize'},
+    "ZOOM-IN": { primeicons: 'pi-search-plus' },
+    "ZOOM-OUT": { primeicons: 'pi-search-minus' },
 }
 
 /**
  *
  * @param {string} icon
+ * @param {string} context
  * @param {boolean} [fallback]
  */
-function getCommonIcon(icon, fallback = true) {
+function getCommonIcon(icon, context, fallback = true) {
     if (!icon) return null;
     const commonIcon = CommonIcons[(icon||"").toLocaleUpperCase()];
     if (commonIcon) return commonIcon;
@@ -231,17 +236,21 @@ function getCommonIcon(icon, fallback = true) {
 const PrimeIconsIconProvider = {
     /**
      *
-     * @param {string | { commonIcon: string, context: string }} icon The icon to render
+     * @param {string | { commonIcon: string | null, context: string }} [icon] The icon to render
      */
     renderIcon(icon, options) {
         let iconString = "";
         if (typeof icon === "object") {
-            const commonIcon = getCommonIcon(icon.commonIcon);
+            if (!icon.commonIcon)
+                return h(options.tag);
+            const commonIcon = getCommonIcon(icon.commonIcon, icon.context);
             if (commonIcon) {
                 iconString = commonIcon.primeicons;
             }
         } else if (typeof icon ==="string") {
             iconString = "pi-" + icon;
+        } else {
+            return h(options.tag);
         }
 
         const iconClass = ["pi",iconString];
@@ -269,7 +278,8 @@ export default {
         },
         icon: {
             type: [String, Object],
-            required: true
+            required: true,
+            default: () => FallbackIcon,
         }
     },
     render() {
@@ -278,11 +288,17 @@ export default {
             this.$primevue.config &&
             this.$primevue.config.iconProvider) || defaultIconProvider;
 
-        let icon = this.icon || FallbackIcon;
+        let icon = this.icon;
+
         let options = {
             tag: this.tag,
             fullWidth: this.fullWidth,
         };
+
+        const hasIcon = !!icon;
+        const isCommonIcon = hasIcon && typeof icon === 'object';
+        const isMissingCommonIcon = isCommonIcon && (!icon.commonIcon || typeof icon.commonIcon !== 'string');
+        if (!hasIcon || isMissingCommonIcon) return h(options.tag);
 
         return iconProvider.renderIcon(icon, options)
 

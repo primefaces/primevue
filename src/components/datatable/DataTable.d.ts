@@ -42,8 +42,8 @@ interface DataTableProps {
     columnResizeMode?: string;
     reorderableColumns?: boolean;
     expandedRows?: any[];
-    expandedRowIcon?: string;
-    collapsedRowIcon?: string;
+    expandedRowIcon?: string | object;
+    collapsedRowIcon?: string | object;
     rowGroupMode?: string;
     groupRowsBy?: string[] | string;
     expandableRowGroups?: boolean;

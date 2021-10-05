@@ -7,7 +7,7 @@
         <div class="p-column-header-content">
             <component :is="column.children.header" :column="column" v-if="column.children && column.children.header"/>
             <span class="p-column-title" v-if="columnProp('header')">{{columnProp('header')}}</span>
-            <span v-if="columnProp('sortable')" :class="sortableColumnIcon"></span>
+            <Icon v-if="columnProp('sortable')" class="p-sortable-column-icon" :icon="sortableColumnIcon" :fullWidth="true"></Icon>
             <span v-if="isMultiSorted()" class="p-sortable-column-badge">{{getBadgeValue()}}</span>
             <DTHeaderCheckbox :checked="allRowsSelected" @change="onHeaderCheckboxChange" :disabled="empty" v-if="columnProp('selectionMode') ==='multiple' && filterDisplay !== 'row'" />
             <DTColumnFilter v-if="filterDisplay === 'menu' && column.children && column.children.filter" :field="columnProp('filterField')||columnProp('field')" :type="columnProp('dataType')" display="menu"
@@ -24,6 +24,7 @@
 
 <script>
 import {DomHandler,ObjectUtils} from 'primevue/utils';
+import Icon from 'primevue/icon';
 import HeaderCheckbox from './HeaderCheckbox.vue';
 import ColumnFilter from './ColumnFilter.vue';
 
@@ -213,20 +214,26 @@ export default {
                 }
             }
 
-            return [
-                'p-sortable-column-icon pi pi-fw', {
-                    'pi-sort-alt': !sorted,
-                    'pi-sort-amount-up-alt': sorted && sortOrder > 0,
-                    'pi-sort-amount-down': sorted && sortOrder < 0
+            let icon = 'sort-alt';
+            if (sorted) {
+                if (sortOrder > 0) {
+                    icon = 'sort-amount-up-alt';
+                } else {
+                    icon = 'sort-amount-down';
                 }
-            ];
+            }
+
+            return {
+                commonIcon: icon,
+                context: 'HeaderCell',
+            };
         },
         ariaSort() {
             if (this.columnProp('sortable')) {
                 const sortIcon = this.sortableColumnIcon;
-                if (sortIcon[1]['pi-sort-amount-down'])
+                if (sortIcon.commonIcon == "sort-amount-down")
                     return 'descending';
-                else if (sortIcon[1]['pi-sort-amount-up-alt'])
+                else if (sortIcon.commonIcon == "sort-amount-up-alt")
                     return 'ascending';
                 else
                     return 'none';
@@ -238,7 +245,8 @@ export default {
     },
     components: {
         'DTHeaderCheckbox': HeaderCheckbox,
-        'DTColumnFilter': ColumnFilter
+        'DTColumnFilter': ColumnFilter,
+        'Icon': Icon
     }
 }
 </script>

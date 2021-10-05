@@ -12,7 +12,7 @@
             <div :class="loaderClass" v-if="d_loading">
                 <template v-for="(loadItem, index) of loaderArr" :key="index">
                     <slot name="loader" :options="getLoaderOptions(index)">
-                        <i class="p-virtualscroller-loading-icon pi pi-spinner pi-spin"></i>
+                        <Icon tag="i" class="p-virtualscroller-loading-icon" :icon="{ commonIcon: 'spinner-spin', context: 'VirtualScroller'}" />
                     </slot>
                 </template>
             </div>
@@ -25,6 +25,8 @@
 </template>
 
 <script>
+import Icon from 'primevue/icon';
+
 export default {
     name: 'VirtualScroller',
     emits: ['update:numToleratedItems', 'scroll-index-change', 'lazy-load'],
@@ -516,7 +518,10 @@ export default {
 
             return [];
         }
-    }
+    },
+    components: {
+        'Icon': Icon,
+    },
 }
 </script>
 

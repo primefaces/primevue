@@ -1,11 +1,12 @@
 <template>
 	<button :class="containerClass" type="button" v-ripple>
-		<span class="p-paginator-icon pi pi-angle-right"></span>
+		<Icon class="p-paginator-icon" :icon="{ commonIcon: 'angle-right', context: 'NextPageLink' }" />
 	</button>
 </template>
 
 <script>
 import Ripple from 'primevue/ripple';
+import Icon from 'primevue/icon';
 
 export default {
     name: 'NextPageLink',
@@ -15,6 +16,9 @@ export default {
                 'p-disabled': this.$attrs.disabled
             }];
         }
+    },
+    components: {
+        'Icon': Icon,
     },
     directives: {
         'ripple': Ripple

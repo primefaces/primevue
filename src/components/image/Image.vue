@@ -3,26 +3,26 @@
         <img v-bind="$attrs" :style="imageStyle" :class="imageClass" />
         <div class="p-image-preview-indicator" v-if="preview" @click="onImageClick">
             <slot name="indicator">
-                <i class="p-image-preview-icon pi pi-eye"></i>
+                <Icon tag="i" class="p-image-preview-icon" :icon="{ commonIcon: 'eye', context: 'Image' }" />
             </slot>
         </div>
         <Teleport to="body">
             <div :ref="maskRef" :class="maskClass" v-if="maskVisible" @click="onMaskClick">
                 <div class="p-image-toolbar">
                     <button class="p-image-action p-link" @click="rotateRight" type="button">
-                        <i class="pi pi-refresh"></i>
+                        <Icon tag="i" :icon="{ commonIcon: 'rotate-right', context: 'Image' }" />
                     </button>
                     <button class="p-image-action p-link" @click="rotateLeft" type="button">
-                        <i class="pi pi-undo"></i>
+                        <Icon tag="i" :icon="{ commonIcon: 'rotate-left', context: 'Image' }" />
                     </button>
                     <button class="p-image-action p-link" @click="zoomOut" type="button" :disabled="zoomDisabled">
-                        <i class="pi pi-search-minus"></i>
+                        <Icon tag="i" :icon="{ commonIcon: 'zoom-out', context: 'Image' }" />
                     </button>
                     <button class="p-image-action p-link" @click="zoomIn" type="button" :disabled="zoomDisabled">
-                        <i class="pi pi-search-plus"></i>
+                        <Icon tag="i" :icon="{ commonIcon: 'zoom-in', context: 'Image' }" />
                     </button>
                     <button class="p-image-action p-link" type="button" @click="hidePreview">
-                        <i class="pi pi-times"></i>
+                        <Icon tag="i" :icon="{ commonIcon: 'times', context: 'Image' }" />
                     </button>
                 </div>
                 <transition name="p-image-preview" @before-enter="onBeforeEnter" @enter="onEnter" @leave="onLeave" @before-leave="onBeforeLeave" @after-leave="onAfterLeave">
@@ -37,6 +37,7 @@
 
 <script>
 import {DomHandler,ZIndexUtils} from 'primevue/utils';
+import Icon from 'primevue/icon';
 
 export default {
     name: 'Image',
@@ -143,6 +144,9 @@ export default {
         zoomDisabled() {
             return this.scale <= 0.5 || this.scale >= 1.5;
         }
+    },
+    components: {
+        'Icon': Icon,
     }
 }
 </script>

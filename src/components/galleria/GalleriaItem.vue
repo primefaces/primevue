@@ -2,13 +2,13 @@
   <div class="p-galleria-item-wrapper">
     <div class="p-galleria-item-container">
         <button v-if="showItemNavigators" type="button" :class="navBackwardClass" @click="navBackward($event)" :disabled="isNavBackwardDisabled()" v-ripple>
-            <span class="p-galleria-item-prev-icon pi pi-chevron-left"></span>
+            <Icon class="p-galleria-item-prev-icon" :icon="{ commonIcon: 'chevron-left', context: 'GalleriaItem' }" />
         </button>
         <div class="p-galleria-item">
             <component :is="templates.item" :item="activeItem" v-if="templates.item" />
         </div>
         <button v-if="showItemNavigators" type="button" :class="navForwardClass" @click="navForward($event)" :disabled="isNavForwardDisabled()" v-ripple>
-            <span class="p-galleria-item-next-icon pi pi-chevron-right"></span>
+            <Icon class="p-galleria-item-next-icon" :icon="{ commonIcon: 'chevron-right', context: 'GalleriaItem' }" />
         </button>
         <div class="p-galleria-caption" v-if="templates['caption']">
             <component :is="templates.caption" :item="activeItem" v-if="templates.caption" />
@@ -27,6 +27,7 @@
 
 <script>
 import Ripple from 'primevue/ripple';
+import Icon from 'primevue/icon';
 
 export default {
     name: 'GalleriaItem',
@@ -152,6 +153,9 @@ export default {
                 'p-disabled': this.isNavForwardDisabled()
             }];
         }
+    },
+    components: {
+        'Icon': Icon,
     },
     directives: {
         'ripple': Ripple

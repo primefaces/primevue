@@ -3,7 +3,7 @@
         <ul>
             <BreadcrumbItem v-if="home" :item="home" class="p-breadcrumb-home" :template="$slots.item" :exact="exact" />
             <template v-for="item of model" :key="item.label">
-                <li class="p-breadcrumb-chevron pi pi-chevron-right"></li>
+                <Icon tag="li" class="p-breadcrumb-chevron" :icon="{ commonIcon: 'chevron-right', context: 'Breadbrumb'}" />
                 <BreadcrumbItem :item="item" :template="$slots.item" :exact="exact" />
             </template>
         </ul>
@@ -11,6 +11,7 @@
 </template>
 
 <script>
+import Icon from 'primevue/icon';
 import BreadcrumbItem from './BreadcrumbItem.vue';
 
 export default {
@@ -30,7 +31,8 @@ export default {
         }
     },
     components: {
-        'BreadcrumbItem': BreadcrumbItem
+        'BreadcrumbItem': BreadcrumbItem,
+        'Icon': Icon
     }
 }
 </script>

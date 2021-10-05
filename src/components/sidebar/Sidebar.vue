@@ -4,7 +4,7 @@
             <div :class="containerClass" v-if="visible" :ref="containerRef" role="complementary" :aria-modal="modal" v-bind="$attrs">
                 <div class="p-sidebar-header">
                     <button class="p-sidebar-close p-sidebar-icon p-link" @click="hide" :aria-label="ariaCloseLabel" v-if="showCloseIcon" type="button" v-ripple>
-                        <span class="p-sidebar-close-icon pi pi-times" />
+                        <Icon class="p-sidebar-close-icon" :icon="{ commonIcon: 'times', context: 'Sidebar' }" />
                     </button>
                 </div>
                 <div class="p-sidebar-content">
@@ -18,6 +18,7 @@
 <script>
 import {DomHandler,ZIndexUtils} from 'primevue/utils';
 import Ripple from 'primevue/ripple';
+import Icon from 'primevue/icon';
 
 export default {
     name: 'Sidebar',
@@ -158,6 +159,9 @@ export default {
         fullScreen() {
             return this.position === 'full';
         }
+    },
+    components: {
+        'Icon': Icon,
     },
     directives: {
         'ripple': Ripple

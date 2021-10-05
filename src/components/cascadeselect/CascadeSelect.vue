@@ -11,7 +11,7 @@
         </span>
         <div class="p-cascadeselect-trigger" role="button" aria-haspopup="listbox" :aria-expanded="overlayVisible">
             <slot name="indicator">
-                <span :class="dropdownIconClass"></span>
+                <Icon class="p-cascadeselect-trigger-icon" :icon="dropdownIcon" />
             </slot>
         </div>
         <Teleport :to="appendTarget" :disabled="appendDisabled">
@@ -32,6 +32,7 @@
 <script>
 import {ConnectedOverlayScrollHandler,ObjectUtils,DomHandler,ZIndexUtils} from 'primevue/utils';
 import OverlayEventBus from 'primevue/overlayeventbus';
+import Icon from 'primevue/icon';
 import CascadeSelectSub from './CascadeSelectSub.vue';
 
 export default {
@@ -68,8 +69,8 @@ export default {
             default: false
         },
         loadingIcon: {
-            type: String,
-            default: 'pi pi-spinner pi-spin'
+            type: [String, Object],
+            default: () => ({ commonIcon: "spinner-spin", context: "CascadeSelect" }),
         }
     },
     outsideClickListener: null,
@@ -329,12 +330,13 @@ export default {
         appendTarget() {
             return this.appendDisabled ? null : this.appendTo;
         },
-        dropdownIconClass() {
-            return ['p-cascadeselect-trigger-icon', this.loading ? this.loadingIcon : 'pi pi-chevron-down'];
+        dropdownIcon() {
+            return this.loading ? this.loadingIcon : { commonIcon: "chevron-down", context: "CascadeSelect" };
         }
     },
     components: {
-        'CascadeSelectSub': CascadeSelectSub
+        'CascadeSelectSub': CascadeSelectSub,
+        'Icon': Icon,
     }
 }
 </script>

@@ -1,7 +1,7 @@
 <template>
     <div :class="containerClass" :style="style">
         <PInputText ref="input" :class="inputFieldClass" :style="inputStyle" :type="inputType" :value="modelValue" @input="onInput" @focus="onFocus" @blur="onBlur" @keyup="onKeyUp" v-bind="$attrs" />
-        <i v-if="toggleMask" :class="toggleIconClass" @click="onMaskToggle" />
+        <Icon v-if="toggleMask" tag="i" :icon="toggleIcon" @click="onMaskToggle" />
         <Teleport :to="appendTarget" :disabled="appendDisabled">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
                 <div :ref="overlayRef" :class="panelStyleClass" v-if="overlayVisible" @click="onOverlayClick">
@@ -23,6 +23,7 @@
 import {ConnectedOverlayScrollHandler,DomHandler,ZIndexUtils} from 'primevue/utils';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import InputText from 'primevue/inputtext';
+import Icon from 'primevue/icon';
 
 export default {
     name: 'Password',
@@ -67,12 +68,12 @@ export default {
             default: false
         },
         hideIcon: {
-            type: String,
-            default: 'pi pi-eye-slash'
+            type: [String, Object],
+            default: () => ({ commonIcon: 'eye-slash', context: 'Password' }),
         },
         showIcon: {
-            type: String,
-            default: 'pi pi-eye'
+            type: [String, Object],
+            default: () => ({ commonIcon: 'eye', context: 'Password' }),
         },
         inputClass: String,
         inputStyle: null,
@@ -271,7 +272,7 @@ export default {
                 'p-ripple-disabled': this.$primevue.config.ripple === false
             }];
         },
-        toggleIconClass() {
+        toggleIcon() {
             return this.unmasked ? this.hideIcon : this.showIcon;
         },
         strengthClass() {
@@ -303,7 +304,8 @@ export default {
         }
     },
     components: {
-        'PInputText': InputText
+        'PInputText': InputText,
+        'Icon': Icon,
     }
 }
 </script>

@@ -2,13 +2,13 @@
     <div :class="containerClass">
         <template v-if="loading">
             <div class="p-tree-loading-overlay p-component-overlay">
-                <i :class="loadingIconClass" />
+                <Icon tag="i" class="p-tree-loading-icon" :icon="loadingIcon" />
             </div>
         </template>
         <div class="p-tree-filter-container" v-if="filter">
             <input type="text" autocomplete="off" class="p-tree-filter p-inputtext p-component" :placeholder="filterPlaceholder"
                 @keydown="onFilterKeydown" v-model="filterValue" />
-            <span class="p-tree-filter-icon pi pi-search"></span>
+            <Icon class="p-tree-filter-icon" :icon="{ commonIcon: 'search', context: 'Tree' }" />
         </div>
         <div class="p-tree-wrapper" :style="{maxHeight: scrollHeight}">
             <ul class="p-tree-container" role="tree">
@@ -23,6 +23,7 @@
 <script>
 import TreeNode from './TreeNode.vue';
 import {ObjectUtils} from 'primevue/utils';
+import Icon from 'primevue/icon';
 
 export default {
     name: 'Tree',
@@ -53,8 +54,8 @@ export default {
             default: false
         },
         loadingIcon: {
-            type: String,
-            default: 'pi pi-spinner'
+            type: [String, Object],
+            default: () => ({ commonIcon: 'spinner-spin', context: 'Tree' }),
         },
         filter: {
             type: Boolean,
@@ -253,9 +254,6 @@ export default {
                 'p-tree-flex-scrollable': this.scrollHeight === 'flex'
             }];
         },
-        loadingIconClass() {
-            return ['p-tree-loading-icon pi-spin', this.loadingIcon];
-        },
         filteredValue() {
             let filteredNodes = [];
             const searchFields = this.filterBy.split(',');
@@ -282,7 +280,8 @@ export default {
         }
     },
     components: {
-        'TreeNode': TreeNode
+        'TreeNode': TreeNode,
+        'Icon': Icon,
     }
 }
 </script>

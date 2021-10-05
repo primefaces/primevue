@@ -21,7 +21,7 @@
         </div>
         <div class="p-treeselect-trigger">
             <slot name="indicator">
-                <span class="p-treeselect-trigger-icon pi pi-chevron-down"></span>
+                <Icon class="p-treeselect-trigger-icon" :icon="{ commonIcon: 'chevron-down', context: 'TreeSelect' }" />
             </slot>
         </div>
         <Teleport :to="appendTarget" :disabled="appendDisabled">
@@ -49,6 +49,7 @@ import {ConnectedOverlayScrollHandler,DomHandler,ZIndexUtils} from 'primevue/uti
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Tree from 'primevue/tree';
 import Ripple from 'primevue/ripple';
+import Icon from 'primevue/icon';
 
 export default {
     name: 'TreeSelect',
@@ -414,7 +415,8 @@ export default {
         }
     },
     components: {
-        'TSTree': Tree
+        'TSTree': Tree,
+        'Icon': Icon,
     },
     directives: {
         'ripple': Ripple

@@ -15,7 +15,7 @@
                              <slot name="chip" :value="item">
                                 <span class="p-multiselect-token-label">{{getLabelByValue(item)}}</span>
                              </slot>
-                            <span v-if="!disabled" class="p-multiselect-token-icon pi pi-times-circle" @click="removeChip(item)"></span>
+                            <Icon v-if="!disabled" class="p-multiselect-token-icon" :icon="{ commonIcon: 'times-circle', context: 'MultiSelect' }"  @click="removeChip(item)" />
                         </div>
                         <template v-if="!modelValue || modelValue.length === 0">{{placeholder || 'empty'}}</template>
                     </template>
@@ -24,7 +24,7 @@
         </div>
         <div class="p-multiselect-trigger">
             <slot name="indicator">
-                <span :class="dropdownIconClass"></span>
+                <Icon class="p-multiselect-trigger-icon" :icon="dropdownIcon" />
             </slot>
         </div>
         <Teleport :to="appendTarget" :disabled="appendDisabled">
@@ -37,15 +37,15 @@
                                 <input type="checkbox" readonly @focus="onHeaderCheckboxFocus" @blur="onHeaderCheckboxBlur">
                             </div>
                             <div :class="['p-checkbox-box', {'p-highlight': allSelected, 'p-focus': headerCheckboxFocused}]" role="checkbox" :aria-checked="allSelected">
-                                <span :class="['p-checkbox-icon', {'pi pi-check': allSelected}]"></span>
+                                <Icon v-show="allSelected" class="p-checkbox-icon" :icon="{ commonIcon: 'check', context: 'MultiSelect' }" />
                             </div>
                         </div>
                         <div v-if="filter" class="p-multiselect-filter-container">
                             <input type="text" ref="filterInput" v-model="filterValue" class="p-multiselect-filter p-inputtext p-component" :placeholder="filterPlaceholder" @input="onFilterChange">
-                            <span class="p-multiselect-filter-icon pi pi-search"></span>
+                            <Icon class="p-multiselect-filter-icon" :icon="{ commonIcon: 'search', context: 'MultiSelect' }" />
                         </div>
                         <button class="p-multiselect-close p-link" @click="onCloseClick" type="button" v-ripple>
-                            <span class="p-multiselect-close-icon pi pi-times" />
+                            <Icon class="p-multiselect-close-icon" :icon="{ commonIcon: 'times', context: 'MultiSelect' }" />
                         </button>
                     </div>
                     <div class="p-multiselect-items-wrapper" :style="{'max-height': virtualScrollerDisabled ? scrollHeight : ''}">
@@ -57,7 +57,7 @@
                                             :key="getOptionRenderKey(option)" @click="onOptionSelect($event, option)" @keydown="onOptionKeyDown($event, option)" :tabindex="tabindex||'0'" :aria-label="getOptionLabel(option)"  v-ripple>
                                             <div class="p-checkbox p-component">
                                                 <div :class="['p-checkbox-box', {'p-highlight': isSelected(option)}]">
-                                                    <span :class="['p-checkbox-icon', {'pi pi-check': isSelected(option)}]"></span>
+                                                    <Icon v-show="isSelected(option)" class="p-checkbox-icon" :icon="{ commonIcon: 'check', context: 'MultiSelect' }" />
                                                 </div>
                                             </div>
                                             <slot name="option" :option="option" :index="getOptionIndex(i, getItemOptions)">
@@ -74,7 +74,7 @@
                                                 :key="getOptionRenderKey(option)" @click="onOptionSelect($event, option)" @keydown="onOptionKeyDown($event, option)" :tabindex="tabindex||'0'" :aria-label="getOptionLabel(option)"  v-ripple>
                                                 <div class="p-checkbox p-component">
                                                     <div :class="['p-checkbox-box', {'p-highlight': isSelected(option)}]">
-                                                        <span :class="['p-checkbox-icon', {'pi pi-check': isSelected(option)}]"></span>
+                                                        <Icon v-show="isSelected(option)" class="p-checkbox-icon" :icon="{ commonIcon: 'check', context: 'MultiSelect' }" />
                                                     </div>
                                                 </div>
                                                 <slot name="option" :option="option" :index="getOptionIndex(i, getItemOptions)">
@@ -109,6 +109,7 @@ import OverlayEventBus from 'primevue/overlayeventbus';
 import {FilterService} from 'primevue/api';
 import Ripple from 'primevue/ripple';
 import VirtualScroller from 'primevue/virtualscroller';
+import Icon from 'primevue/icon';
 
 export default {
     name: 'MultiSelect',
@@ -180,8 +181,8 @@ export default {
             default: false
         },
         loadingIcon: {
-            type: String,
-            default: 'pi pi-spinner pi-spin'
+            type: [String, Object],
+            default: () => ({ commonIcon: 'spinner-spin', context: 'MultiSelect' }),
         },
         virtualScrollerOptions: {
             type: Object,
@@ -727,15 +728,20 @@ export default {
         maxSelectionLimitReached() {
             return this.selectionLimit && (this.modelValue && this.modelValue.length === this.selectionLimit);
         },
-        dropdownIconClass() {
-            return ['p-multiselect-trigger-icon', this.loading ? this.loadingIcon : 'pi pi-chevron-down'];
+        dropdownIcon() {
+            if (this.loading) return this.loadingIcon;
+            return {
+                commonIcon: 'chevron-down',
+                context: 'MultiSelect'
+            };
         }
     },
     directives: {
         'ripple': Ripple
     },
     components: {
-        'VirtualScroller': VirtualScroller
+        'VirtualScroller': VirtualScroller,
+        'Icon': Icon,
     }
 }
 </script>

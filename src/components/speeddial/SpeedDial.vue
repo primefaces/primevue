@@ -1,14 +1,14 @@
 <template>
     <div :ref="containerRef" :class="containerClass" :style="style">
         <slot name="button" :toggle="onClick">
-            <SDButton type="button" :class="buttonClassName" :icon="iconClassName" @click="onClick($event)" :disabled="disabled" />
+            <SDButton type="button" :class="buttonClassName" :icon="icon" @click="onClick($event)" :disabled="disabled" />
         </slot>
         <ul :ref="listRef" class="p-speeddial-list" role="menu">
             <li v-for="(item, index) of model" :key="index" class="p-speeddial-item" :style="getItemStyle(index)" role="none">
                 <template v-if="!$slots.item">
                     <a :href="item.url || '#'" role="menuitem" :class="['p-speeddial-action', { 'p-disabled': item.disabled }]" :target="item.target"
                         v-tooltip:[tooltipOptions]="{value: item.label, disabled: !tooltipOptions}" @click="onItemClick($event, item)" v-ripple>
-                        <span v-if="item.icon" :class="['p-speeddial-action-icon', item.icon]"></span>
+                        <Icon v-if="item.icon" class="p-speeddial-action-icon" :icon="item.icon" />
                     </a>
                 </template>
                 <component v-else :is="$slots.item" :item="item"></component>
@@ -23,6 +23,7 @@
 <script>
 import Button from 'primevue/button';
 import Ripple from 'primevue/ripple';
+import Icon from 'primevue/icon';
 import {DomHandler} from 'primevue/utils';
 
 export default {
@@ -66,8 +67,8 @@ export default {
         maskStyle: null,
         maskClass: null,
         showIcon: {
-            type: String,
-            default: 'pi pi-plus'
+            type: [String, Object],
+            default: () => ({ commonIcon: 'plus', context: 'SpeedDial' }),
         },
         hideIcon: null,
         rotateAnimation: {
@@ -249,7 +250,7 @@ export default {
                 'p-speeddial-rotate': this.rotateAnimation && !this.hideIcon
             }, this.buttonClass];
         },
-        iconClassName() {
+        icon() {
             return this.d_visible && !!this.hideIcon ? this.hideIcon : this.showIcon;
         },
         maskClassName() {
@@ -259,7 +260,8 @@ export default {
         }
     },
     components: {
-        'SDButton': Button
+        'SDButton': Button,
+        'Icon': Icon,
     },
     directives: {
         'ripple': Ripple

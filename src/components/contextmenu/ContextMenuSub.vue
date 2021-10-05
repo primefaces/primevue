@@ -15,7 +15,7 @@
                             :aria-haspopup="item.items != null" :aria-expanded="item === activeItem" role="menuitem" :tabindex="disabled(item) ? null : '0'">
                             <span :class="['p-menuitem-icon', item.icon]"></span>
                             <span class="p-menuitem-text">{{item.label}}</span>
-                            <span class="p-submenu-icon pi pi-angle-right" v-if="item.items"></span>
+                            <Icon v-if="item.items" class="p-submenu-icon" :icon="{ commonIcon: 'angle-right', context: 'ContextMenuSub' }" />
                         </a>
                     </template>
                     <component v-else :is="template" :item="item"></component>
@@ -31,6 +31,7 @@
 <script>
 import {DomHandler} from 'primevue/utils';
 import Ripple from 'primevue/ripple';
+import Icon from 'primevue/icon';
 
 export default {
     name: 'ContextMenuSub',
@@ -154,6 +155,9 @@ export default {
         containerClass() {
             return {'p-submenu-list': !this.root};
         }
+    },
+    components: {
+        'Icon': Icon,
     },
     directives: {
         'ripple': Ripple

@@ -2,12 +2,12 @@
     <transition name="p-message" appear>
         <div :class="containerClass" v-show="visible" role="alert">
             <div class="p-message-wrapper">
-                <span :class="iconClass"></span>
+                <Icon class="p-message-icon" :icon="icon" />
                 <div class="p-message-text">
                     <slot></slot>
                 </div>
                 <button class="p-message-close p-link" @click="close($event)" v-if="closable" type="button" v-ripple>
-                    <i class="p-message-close-icon pi pi-times"></i>
+                    <Icon tag="i" class="p-message-close-icon" :icon="{ commonIcon: 'times', context: 'Message' }" />
                 </button>
             </div>
         </div>
@@ -16,6 +16,7 @@
 
 <script>
 import Ripple from 'primevue/ripple';
+import Icon from 'primevue/icon';
 
 export default {
     name: 'Message',
@@ -61,14 +62,32 @@ export default {
         containerClass() {
             return 'p-message p-component p-message-' + this.severity;
         },
-        iconClass() {
-            return ['p-message-icon pi', {
-                'pi-info-circle': this.severity === 'info',
-                'pi-check': this.severity === 'success',
-                'pi-exclamation-triangle': this.severity === 'warn',
-                'pi-times-circle': this.severity === 'error'
-            }];
+        icon() {
+            let icon = 'QUESTION';
+
+            switch (this.severity) {
+                case 'info':
+                    icon = 'info-circle';
+                    break;
+                case 'success':
+                    icon = 'check';
+                    break;
+                case 'warn':
+                    icon = 'exclamation-triangle';
+                    break;
+                case 'error':
+                    icon = 'times-circle';
+                    break;
+            }
+
+            return {
+                commonIcon: icon,
+                context: 'Message',
+            }
         }
+    },
+    components: {
+        'Icon': Icon,
     },
     directives: {
         'ripple': Ripple

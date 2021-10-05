@@ -1,10 +1,10 @@
 <template>
     <div class="p-orderlist p-component">
         <div class="p-orderlist-controls">
-            <OLButton type="button" icon="pi pi-angle-up" @click="moveUp"></OLButton>
-            <OLButton type="button" icon="pi pi-angle-double-up" @click="moveTop"></OLButton>
-            <OLButton type="button" icon="pi pi-angle-down" @click="moveDown"></OLButton>
-            <OLButton type="button" icon="pi pi-angle-double-down" @click="moveBottom"></OLButton>
+            <OLButton type="button" :icon="{ commonIcon: 'angle-up', context: 'OrderList' }" @click="moveUp"></OLButton>
+            <OLButton type="button" :icon="{ commonIcon: 'angle-double-up', context: 'OrderList' }" @click="moveTop"></OLButton>
+            <OLButton type="button" :icon="{ commonIcon: 'angle-down', context: 'OrderList' }" @click="moveDown"></OLButton>
+            <OLButton type="button" :icon="{ commonIcon: 'angle-double-down', context: 'OrderList' }" @click="moveBottom"></OLButton>
         </div>
         <div class="p-orderlist-list-container">
             <div class="p-orderlist-header" v-if="$slots.header">

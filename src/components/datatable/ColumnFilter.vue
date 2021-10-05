@@ -5,8 +5,12 @@
         </div>
         <button ref="icon" v-if="showMenuButton" type="button" class="p-column-filter-menu-button p-link" aria-haspopup="true" :aria-expanded="overlayVisible"
             :class="{'p-column-filter-menu-button-open': overlayVisible, 'p-column-filter-menu-button-active': hasFilter()}"
-            @click="toggleMenu()" @keydown="onToggleButtonKeyDown($event)"><span class="pi p-filter-icon pi-filter"></span></button>
-        <button v-if="showClearButton && display === 'row'" :class="{'p-hidden-space': !hasRowFilter()}" type="button" class="p-column-filter-clear-button p-link" @click="clearFilter()"><span class="pi pi-filter-slash"></span></button>
+            @click="toggleMenu()" @keydown="onToggleButtonKeyDown($event)">
+            <Icon class="p-filter-icon" :icon="{ commonIcon: 'filter', context: 'ColumnFilter' }" />
+        </button>
+        <button v-if="showClearButton && display === 'row'" :class="{'p-hidden-space': !hasRowFilter()}" type="button" class="p-column-filter-clear-button p-link" @click="clearFilter()">
+            <Icon :icon="{ commonIcon: 'filter-slash', context: 'ColumnFilter' }" />
+        </button>
         <Teleport to="body">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
                 <div :ref="overlayRef" :class="overlayClass" v-if="overlayVisible" @keydown.escape="onEscape" @click="onContentClick">
@@ -30,12 +34,12 @@
                                     @update:modelValue="onMenuMatchModeChange($event, i)" class="p-column-filter-matchmode-dropdown"></CFDropdown>
                                 <component v-if="display === 'menu'" :is="filterElement" :field="field" :filterModel="fieldConstraint" :filterCallback="filterCallback" />
                                 <div>
-                                    <CFButton v-if="showRemoveIcon" type="button" icon="pi pi-trash" class="p-column-filter-remove-button p-button-text p-button-danger p-button-sm" @click="removeConstraint(i)" :label="removeRuleButtonLabel"></CFButton>
+                                    <CFButton v-if="showRemoveIcon" type="button" :icon="{ commonIcon: 'trash', context: 'ColumnFilter' }" class="p-column-filter-remove-button p-button-text p-button-danger p-button-sm" @click="removeConstraint(i)" :label="removeRuleButtonLabel"></CFButton>
                                 </div>
                             </div>
                         </div>
                         <div class="p-column-filter-add-rule" v-if="isShowAddConstraint">
-                            <CFButton type="button" :label="addRuleButtonLabel" icon="pi pi-plus" class="p-column-filter-add-button p-button-text p-button-sm" @click="addConstraint()"></CFButton>
+                            <CFButton type="button" :label="addRuleButtonLabel" :icon="{ commonIcon: 'plus', context: 'ColumnFilter' }" class="p-column-filter-add-button p-button-text p-button-sm" @click="addConstraint()"></CFButton>
                         </div>
                         <div class="p-column-filter-buttonbar">
                             <CFButton v-if="!filterClearTemplate && showClearButton" type="button" class="p-button-outlined p-button-sm" @click="clearFilter()" :label="clearButtonLabel"></CFButton>
@@ -59,6 +63,7 @@ import OverlayEventBus from 'primevue/overlayeventbus';
 import {FilterOperator} from 'primevue/api';
 import Dropdown from 'primevue/dropdown';
 import Button from 'primevue/button';
+import Icon from 'primevue/icon';
 
 export default {
     name: 'ColumnFilter',
@@ -503,7 +508,8 @@ export default {
     },
     components: {
         'CFDropdown': Dropdown,
-        'CFButton': Button
+        'CFButton': Button,
+        'Icon': Icon
     }
 }
 </script>

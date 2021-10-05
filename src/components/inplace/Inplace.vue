@@ -5,7 +5,7 @@
         </div>
         <div class="p-inplace-content" v-else>
             <slot name="content"></slot>
-            <IPButton v-if="closable" icon="pi pi-times" @click="close"></IPButton>
+            <IPButton v-if="closable" :icon="{ commonIcon: 'times', context: 'Inplace' }" @click="close"></IPButton>
         </div>
     </div>
 </template>

@@ -4,7 +4,7 @@
         <div class="p-listbox-header" v-if="filter">
             <div class="p-listbox-filter-container">
                 <input type="text" class="p-listbox-filter p-inputtext p-component" v-model="filterValue" :placeholder="filterPlaceholder" @input="onFilterChange">
-                <span class="p-listbox-filter-icon pi pi-search"></span>
+                <Icon class="p-listbox-filter-icon" :icon="{ commonIcon: 'search', context: 'Listbox' }" />
             </div>
         </div>
         <div class="p-listbox-list-wrapper" :style="listStyle">
@@ -51,6 +51,7 @@ import {DomHandler} from 'primevue/utils';
 import {FilterService} from 'primevue/api';
 import Ripple from 'primevue/ripple';
 import VirtualScroller from 'primevue/virtualscroller';
+import Icon from 'primevue/icon';
 
 export default {
     name: 'Listbox',
@@ -330,7 +331,8 @@ export default {
         'ripple': Ripple
     },
     components: {
-        'VirtualScroller': VirtualScroller
+        'VirtualScroller': VirtualScroller,
+        'Icon': Icon,
     }
 }
 </script>

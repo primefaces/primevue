@@ -1,14 +1,14 @@
 <template>
    <td :style="containerStyle" :class="containerClass">
         <button type="button" class="p-treetable-toggler p-link" @click="toggle" v-if="columnProp('expander')" :style="togglerStyle" tabindex="-1" v-ripple>
-            <i :class="togglerIcon"></i>
+            <Icon class="p-treetable-toggler-icon" :icon="{ commonIcon: expanded ? 'chevron-down' : 'chevron-right', context: 'BodyCell' }" />
         </button>
         <div class="p-checkbox p-treetable-checkbox p-component" @click="toggleCheckbox" v-if="checkboxSelectionMode && columnProp('expander')" role="checkbox" :aria-checked="checked">
             <div class="p-hidden-accessible">
                 <input type="checkbox" @focus="onCheckboxFocus" @blur="onCheckboxBlur" />
             </div>
             <div ref="checkboxEl" :class="checkboxClass">
-                <span :class="checkboxIcon"></span>
+                <Icon class="p-checkbox-icon" :icon="{ commonIcon: checked ? 'check' : 'minus', context: 'BodyCell' }" />
             </div>
         </div>
         <component :is="column.children.body" :node="node" :column="column" v-if="column.children && column.children.body" />
@@ -18,7 +18,8 @@
 
 <script>
 import {DomHandler,ObjectUtils} from 'primevue/utils';
-import Ripple from 'primevue/ripple'
+import Ripple from 'primevue/ripple';
+import Icon from 'primevue/icon';
 
 export default {
     name: 'BodyCell',
@@ -136,18 +137,15 @@ export default {
                 visibility: this.leaf ? 'hidden' : 'visible'
             };
         },
-        togglerIcon() {
-            return ['p-treetable-toggler-icon pi', {'pi-chevron-right': !this.expanded, 'pi-chevron-down': this.expanded}];
-        },
         checkboxSelectionMode() {
             return this.selectionMode === 'checkbox';
         },
         checkboxClass() {
             return ['p-checkbox-box', {'p-highlight': this.checked, 'p-focus': this.checkboxFocused, 'p-indeterminate': this.partialChecked}];
-        },
-        checkboxIcon() {
-            return ['p-checkbox-icon', {'pi pi-check': this.checked, 'pi pi-minus': this.partialChecked}];
         }
+    },
+    components: {
+        'Icon': Icon,
     },
     directives: {
         'ripple': Ripple

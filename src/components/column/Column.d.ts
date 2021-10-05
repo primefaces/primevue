@@ -35,7 +35,7 @@ interface ColumnProps {
     colspan?: number;
     rowspan?: number;
     rowReorder?: boolean;
-    rowReorderIcon?: string;
+    rowReorderIcon?: string | object;
     reorderableColumn?: boolean;
     rowEditor?: boolean;
     frozen?: boolean;

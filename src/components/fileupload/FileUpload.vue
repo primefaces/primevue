@@ -3,11 +3,11 @@
         <div class="p-fileupload-buttonbar">
             <span :class="advancedChooseButtonClass" :style="style" @click="choose" @keydown.enter="choose" @focus="onFocus" @blur="onBlur" v-ripple tabindex="0">
                 <input ref="fileInput" type="file" @change="onFileSelect" :multiple="multiple" :accept="accept" :disabled="chooseDisabled" />
-                <span class="p-button-icon p-button-icon-left pi pi-fw pi-plus"></span>
+                <Icon class="p-button-icon p-button-icon-left" :fullWidth="true" :icon="{ commonIcon: 'plus', context: 'FileUpload' }" />
                 <span class="p-button-label">{{chooseButtonLabel}}</span>
             </span>
-            <FileUploadButton :label="uploadButtonLabel" icon="pi pi-upload" @click="upload" :disabled="uploadDisabled" v-if="showUploadButton" />
-            <FileUploadButton :label="cancelButtonLabel" icon="pi pi-times" @click="clear" :disabled="cancelDisabled" v-if="showCancelButton" />
+            <FileUploadButton :label="uploadButtonLabel" :icon="{ commonIcon: 'upload', context: 'FileUpload' }" @click="upload" :disabled="uploadDisabled" v-if="showUploadButton" />
+            <FileUploadButton :label="cancelButtonLabel" :icon="{ commonIcon: 'times', context: 'FileUpload' }" @click="clear" :disabled="cancelDisabled" v-if="showCancelButton" />
         </div>
         <div ref="content" class="p-fileupload-content" @dragenter="onDragEnter" @dragover="onDragOver" @dragleave="onDragLeave" @drop="onDrop">
             <FileUploadProgressBar :value="progress" v-if="hasFiles" />
@@ -20,7 +20,7 @@
                     <div class="p-fileupload-filename">{{file.name}}</div>
                     <div>{{formatSize(file.size)}}</div>
                     <div>
-                        <FileUploadButton type="button" icon="pi pi-times" @click="remove(index)" />
+                        <FileUploadButton type="button" :icon="{ commonIcon: 'times', context: 'FileUpload' }" @click="remove(index)" />
                     </div>
                 </div>
             </div>
@@ -32,7 +32,7 @@
     <div class="p-fileupload p-fileupload-basic p-component" v-else-if="isBasic">
         <FileUploadMessage v-for="msg of messages" severity="error" :key="msg" @close="onMessageClose">{{msg}}</FileUploadMessage>
         <span :class="basicChooseButtonClass" :style="style" @mouseup="onBasicUploaderClick"  @keydown.enter="choose" @focus="onFocus" @blur="onBlur" v-ripple tabindex="0" >
-            <span :class="basicChooseButtonIconClass"></span>
+            <Icon class="p-button-icon p-button-icon-left" :icon="basicChooseButtonIcon" />
             <span class="p-button-label">{{basicChooseButtonLabel}}</span>
             <input ref="fileInput" type="file" :accept="accept" :disabled="disabled" :multiple="multiple" @change="onFileSelect" @focus="onFocus" @blur="onBlur" v-if="!hasFiles" />
         </span>
@@ -45,6 +45,7 @@ import ProgressBar from 'primevue/progressbar';
 import Message from 'primevue/message';
 import {DomHandler} from 'primevue/utils';
 import Ripple from 'primevue/ripple';
+import Icon from 'primevue/icon';
 
 export default {
     name: 'FileUpload',
@@ -423,11 +424,11 @@ export default {
                 'p-focus': this.focused
             }];
         },
-        basicChooseButtonIconClass() {
-            return ['p-button-icon p-button-icon-left pi', {
-                'pi-plus': !this.hasFiles || this.auto,
-                'pi-upload': this.hasFiles && !this.auto
-            }];
+        basicChooseButtonIcon() {
+            return {
+                commonIcon: !this.hasFiles || this.auto ? 'plus' : 'upload',
+                context: 'FileUpload',
+            };
         },
         basicChooseButtonLabel() {
             return this.auto ? this.chooseButtonLabel : (this.hasFiles ? this.files.map(f => f.name).join(', ') : this.chooseButtonLabel);
@@ -457,7 +458,8 @@ export default {
     components: {
         'FileUploadButton': Button,
         'FileUploadProgressBar': ProgressBar,
-        'FileUploadMessage': Message
+        'FileUploadMessage': Message,
+        'Icon': Icon,
     },
     directives: {
         'ripple': Ripple

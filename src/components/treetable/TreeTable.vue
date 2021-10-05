@@ -2,7 +2,7 @@
     <div :class="containerClass" data-scrollselectors=".p-treetable-scrollable-body">
         <div class="p-treetable-loading" v-if="loading">
             <div class="p-treetable-loading-overlay p-component-overlay">
-                <i :class="loadingIconClass"></i>
+                <Icon tag="i" class="p-treetable-loading-icon" :icon="loadingIcon" />
             </div>
         </div>
         <div class="p-treetable-header" v-if="$slots.header">
@@ -79,6 +79,7 @@ import TreeTableRow from './TreeTableRow.vue';
 import HeaderCell from './HeaderCell.vue';
 import FooterCell from './FooterCell.vue';
 import Paginator from 'primevue/paginator';
+import Icon from 'primevue/icon';
 
 export default {
     name: 'TreeTable',
@@ -154,8 +155,8 @@ export default {
             default: false
         },
         loadingIcon: {
-            type: String,
-            default: 'pi pi-spinner'
+            type: [String, Object],
+            default: () => ({ commonIcon: "spinner-spin", context: "TreeTable" }),
         },
         rowHover: {
             type: Boolean,
@@ -693,7 +694,7 @@ export default {
                 else if (this.columnResizeMode === 'expand') {
                     this.$refs.table.style.width = this.$refs.table.offsetWidth + delta + 'px';
 
-                    if (!this.scrollable) 
+                    if (!this.scrollable)
                         this.resizeColumnElement.style.width = newColumnWidth + 'px';
                     else
                         this.resizeTableCells(newColumnWidth);
@@ -892,16 +893,14 @@ export default {
                 const data = this.processedData;
                 return data ? data.length : 0;
             }
-        },
-        loadingIconClass() {
-            return ['p-treetable-loading-icon pi-spin', this.loadingIcon];
         }
     },
     components: {
         'TTRow': TreeTableRow,
         'TTPaginator': Paginator,
         'TTHeaderCell': HeaderCell,
-        'TTFooterCell': FooterCell
+        'TTFooterCell': FooterCell,
+        'Icon': Icon,
     }
 }
 </script>

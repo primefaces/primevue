@@ -139,8 +139,8 @@ export default {
             default: false
         },
         rowReorderIcon: {
-            type: String,
-            default: 'pi pi-bars'
+            type: [String, Object],
+            default: () => ({ commonIcon: 'bars', context: 'Column' }),
         },
         reorderableColumn: {
             type: Boolean,
