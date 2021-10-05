@@ -1116,9 +1116,10 @@ export default {
                 so that the editing behavior is implemented by the page author whether it utilizes v-model or vuex.
             </p>
 
-            <p>Individuals cell editing is configured by setting the <i>editMode</i> to "cell" and defining editors with the "editor" template. The content of the
-            editor defines how the editing is implemented, below example demonstrates two cases. In the first example, simple v-model editors are utilized. This is pretty straightforward in most cases.
-            On the other hand, second example is more advanced to consider validations and ability to revert values with the escape key.</p>
+            <p>Individual cell editing is configured by setting the <i>editMode</i> to <b>cell</b>, defining editors with the <b>editor</b> template along with the <i>@cell-edit-complete</i> event. The content of the
+            editor defines how the editing is implemented. The editor template receives a clone of the row data and using <i>@cell-edit-complete</i> event the new value can be updated to the model or cancelled. 
+            This also provides flexibility to apply conditional logic such as implementing validations.</p>
+
 <pre v-code><code><template v-pre>
 &lt;h5&gt;Cell Editing&lt;/h5&gt;
 &lt;DataTable :value="cars" editMode="cell" @cell-edit-complete="onCellEditComplete"&gt;
@@ -1216,7 +1217,8 @@ export default {
 
 </code></pre>
 
-            <p>Row Editing is defined by setting <i>cellEdit</i> as "row", defining <i>editingRows</i> with the v-model directive to hold the reference to the editing rows and adding a row editor column to provide the editing controls. Note that
+            <p>Row Editing is specified by setting <i>cellEdit</i> as <b>row</b>, defining <i>editingRows</i> with the v-model directive to hold the reference of the editing rows, 
+            adding a row editor column to provide the editing controls and implementing <i>@row-edit-save</i> to update the original row data. Note that
             since <i>editingRows</i> is two-way binding enabled, you may use it to initially display one or more rows in editing more or programmatically toggle row editing.</p>
 <pre v-code><code><template v-pre>
 &lt;h3&gt;Row Editing&lt;/h3&gt;
@@ -1224,17 +1226,17 @@ export default {
     &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
     &lt;Column field="year" header="Year"&gt;
         &lt;template #editor="slotProps"&gt;
-            &lt;InputText v-model="slotProps.data[slotProps.column.field]" autofocus/&gt;
+            &lt;InputText v-model="slotProps.data[slotProps.field]" autofocus/&gt;
         &lt;/template&gt;
     &lt;/Column&gt;
     &lt;Column field="brand" header="Brand"&gt;
         &lt;template #editor="slotProps"&gt;
-            &lt;InputText v-model="slotProps.data[slotProps.column.field]" /&gt;
+            &lt;InputText v-model="slotProps.data[slotProps.field]" /&gt;
         &lt;/template&gt;
     &lt;/Column&gt;
     &lt;Column field="color" header="Color"&gt;
         &lt;template #editor="slotProps"&gt;
-            &lt;InputText v-model="slotProps.data[slotProps.column.field]" /&gt;
+            &lt;InputText v-model="slotProps.data[slotProps.field]" /&gt;
         &lt;/template&gt;
     &lt;/Column&gt;
     &lt;Column :rowEditor="true" headerStyle="width:7rem" bodyStyle="text-align:center"&gt;&lt;/Column&gt;

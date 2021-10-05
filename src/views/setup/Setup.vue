@@ -16,7 +16,7 @@
             <p>PrimeVue is available at <a href="https://www.npmjs.com/package/primevue">npm</a>, if you have an existing application run the following commands to download PrimeVue and PrimeIcons to your project.</p>
 
 <pre v-code.script><code>
-npm install primevue@^3.7.1 --save
+npm install primevue@^3.8.0 --save
 npm install primeicons --save
 
 </code></pre>
@@ -87,12 +87,13 @@ import Dialog from 'primevue/dialog/sfc';
         &lt;link href="https://unpkg.com/primeicons/primeicons.css" rel="stylesheet"&gt;
 
         &lt;script src="https://unpkg.com/vue@next"&gt;&lt;/script&gt;
-        &lt;script src="https://unpkg.com/primevue/inputtext/inputtext.min.js"&gt;&lt;/script&gt;
+        &lt;script src="https://unpkg.com/primevue/core/core.min.js"&gt;&lt;/script&gt;
+        &lt;script src="https://unpkg.com/primevue/slider/slider.min.js"&gt;&lt;/script&gt;
     &lt;/head&gt;
 
     &lt;body&gt;
         &lt;div id="app"&gt;
-            &lt;p-inputtext v-model="val"&gt;&lt;/p-inputtext&gt;
+            &lt;p-slider v-model="val"&gt;&lt;/p-slider&gt;
             &lt;h6&gt;{{val}}&lt;/h6&gt;
         &lt;/div&gt;
 
@@ -108,11 +109,11 @@ import Dialog from 'primevue/dialog/sfc';
                     };
                 },
                 components: {
-                    'p-inputtext': primevue.inputtext
+                    'p-slider': primevue.slider
                 }
             };
 
-            createApp(App).mount("#app");
+            createApp(App).use(primevue.config.default).mount("#app");
         &lt;/script&gt;
     &lt;/body&gt;
 &lt;/html&gt;
