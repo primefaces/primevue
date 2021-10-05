@@ -1,99 +1,90 @@
 const services = {
     'CountryService': `
-import axios from 'axios'
-
 export default class CountryService {
-    
+
     getCountries() {
-        return axios.get('data/countries.json').then(res => res.data.data);
+        return fetch('demo/data/countries.json').then(res => res.json())
+            .then(d => d.data);
     }
-}    
+}
     `,
     'CustomerService': `
-import axios from 'axios'
-
 export default class CustomerService {
-    
+
     getCustomersSmall() {
-        return axios.get('data/customers-small.json').then(res => res.data.data);
+        return fetch('demo/data/customers-small.json').then(res => res.json())
+                .then(d => d.data);
     }
-    
+
     getCustomersMedium() {
-        return axios.get('data/customers-medium.json').then(res => res.data.data);
+        return fetch('demo/data/customers-medium.json').then(res => res.json())
+                .then(d => d.data);
     }
-    
+
     getCustomersLarge() {
-        return axios.get('data/customers-large.json').then(res => res.data.data);
+        return fetch('demo/data/customers-large.json').then(res => res.json())
+                .then(d => d.data);
     }
-    
+
     getCustomersXLarge() {
-        return axios.get('data/customers-xlarge.json').then(res => res.data.data);
+        return fetch('demo/data/customers-xlarge.json').then(res => res.json())
+                .then(d => d.data);
     }
-      
+
     getCustomers(params) {
-        return axios.get('https://www.primefaces.org/data/customers', { params }).then(res => res.data)
+        const queryParams = Object.keys(params).map(k => encodeURIComponent(k) + '=' + encodeURIComponent(params[k])).join('&');
+        return fetch('https://www.primefaces.org/data/customers?' + queryParams).then(res => res.json())
     }
 }
     `,
     'EventService': `
-import axios from 'axios';
-
 export default class EventService {
 
     getEvents() {
-        return axios.get('data/events.json').then(res => res.data.data);
+        return fetch('demo/data/events.json').then(res => res.json())
+                .then(d => d.data);
     }
 }
     `,
     'NodeService': `
-import axios from 'axios';
-
 export default class NodeService {
-    
+
     getTreeTableNodes() {
-        return axios.get('data/treetablenodes.json')
-            .then(res => res.data.root);
+        return fetch('demo/data/treetablenodes.json').then(res => res.json())
+                .then(d => d.root);
     }
-    
+
     getTreeNodes() {
-        return axios.get('data/treenodes.json')
-            .then(res => res.data.root);
+        return fetch('demo/data/treenodes.json').then(res => res.json())
+                .then(d => d.root);
     }
-    
 }
     `,
     'PhotoService': `
-import axios from 'axios'
-
 export default class PhotoService {
 
     getImages() {
-        return axios.get('data/photos.json')
-            .then(res => res.data.data);
+        return fetch('demo/data/photos.json').then(res => res.json())
+                .then(d => d.data);
     }
 }
 `,
     'ProductService': `
-import axios from 'axios';
-
 export default class ProductService {
 
     getProductsSmall() {
-        return axios.get('data/products-small.json')
-            .then(res => res.data.data);
-    }
+		return fetch('demo/data/products-small.json').then(res => res.json()).then(d => d.data);
+	}
 
-    getProducts() {
-        return axios.get('data/products.json')
-            .then(res => res.data.data);
+	getProducts() {
+		return fetch('demo/data/products.json').then(res => res.json()).then(d => d.data);
     }
 
     getProductsWithOrdersSmall() {
-        return axios.get('data/products-orders-small.json')
-            .then(res => res.data.data);
-    }
+		return fetch('demo/data/products-orders-small.json').then(res => res.json()).then(d => d.data);
+	}
 }
-    
+
     `
 }
 

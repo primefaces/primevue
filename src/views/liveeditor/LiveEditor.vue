@@ -94,7 +94,6 @@ export default {
                             dependencies: {
                                 ...extDependencies,
                                 'vue': dependencies['vue'],
-                                'axios': dependencies['axios'],
                                 'primevue': '^3.7.2',
                                 'primeflex': dependencies['primeflex'],
                                 'primeicons': dependencies['primeicons'],

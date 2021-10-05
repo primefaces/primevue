@@ -11,23 +11,21 @@ import ColumnGroup from 'primevue/columngroup';     //optional for column groupi
 
             <h5>Getting Started</h5>
             <p>DataTable requires a value as an array of objects and columns defined with Column component. Throughout the samples, a car interface having vin, brand, year and color properties is used to define an object to be displayed by the datatable.
-                Cars are loaded by a CarService that connects to a server to fetch the cars with a axios. Note that this is only for demo purposes, DataTable does not have any restrictions on how the data is provided.</p>
+                Cars are loaded by a CarService that connects to a server to fetch the cars with a fetch API. Note that this is only for demo purposes, DataTable does not have any restrictions on how the data is provided.</p>
 
             <pre v-code.script><code>
-import axios from 'axios'
-
 export default class CarService {
 
 	getCarsSmall() {
-		return axios.get('demo/data/cars-small.json').then(res => res.data.data);
+		return fetch.get('demo/data/cars-small.json').then(res => res.json()).then(d => d.data);
 	}
 
 	getCarsMedium() {
-		return axios.get('demo/data/cars-medium.json').then(res => res.data.data);
+		return fetch.get('demo/data/cars-medium.json').then(res => res.json()).then(d => d.data);
 	}
 
 	getCarsLarge() {
-		return axios.get('demo/data/cars-large.json').then(res => res.data.data);
+		return fetch.get('demo/data/cars-large.json').then(res => res.json()).then(d => d.data);
 	}
 }
 

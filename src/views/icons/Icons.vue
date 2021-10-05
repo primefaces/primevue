@@ -98,8 +98,6 @@ export default {
 </template>
 
 <script>
-import axios from 'axios';
-
 export default {
     data() {
         return {
@@ -108,19 +106,20 @@ export default {
         }
     },
     mounted() {
-        axios.get('demo/data/icons.json').then(res => {
-            let icons = res.data.icons;
-            icons.sort((icon1, icon2) => {
-                if(icon1.properties.name < icon2.properties.name)
-                    return -1;
-                else if(icon1.properties.name < icon2.properties.name)
-                    return 1;
-                else
-                    return 0;
-            });
+        fetch('demo/data/icons.json', { headers: { 'Cache-Control' : 'no-cache' } }).then(res => res.json())
+            .then(d => {
+                let icons = d.icons;
+                icons.sort((icon1, icon2) => {
+                    if(icon1.properties.name < icon2.properties.name)
+                        return -1;
+                    else if(icon1.properties.name < icon2.properties.name)
+                        return 1;
+                    else
+                        return 0;
+                });
 
-            this.icons = icons;
-        });
+                this.icons = icons;
+            });
     },
     computed: {
         filteredIcons() {

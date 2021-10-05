@@ -93,12 +93,11 @@ export default {
 </code></pre>
 
 <pre v-code.script><code>
-import axios from 'axios';
-
 export default class NodeService {
 
     getTreeTableNodes() {
-        return axios.get('demo/data/treetablenodes.json').then(res => res.data.root);
+        return fetch('demo/data/treetablenodes.json').then(res => res.json())
+                .then(d => d.root);
     }
 
 }
@@ -1074,7 +1073,7 @@ export default {
 </code></pre>
 
             <h6>Flex Scroll</h6>
-            <p>In cases where viewport should adjust itself according to the table parent's height instead of a fixed viewport height, set scrollHeight option as flex. In example below, table is inside a Dialog where viewport size dynamically responds to the dialog size changes such as maximizing. 
+            <p>In cases where viewport should adjust itself according to the table parent's height instead of a fixed viewport height, set scrollHeight option as flex. In example below, table is inside a Dialog where viewport size dynamically responds to the dialog size changes such as maximizing.
             FlexScroll can also be used for cases where scrollable viewport should be responsive with respect to the window size for full page scroll.</p>
 <pre v-code><code><template v-pre>
 &lt;Button label="Show" icon="pi pi-external-link" @click="openDialog" /&gt;

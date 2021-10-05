@@ -38,12 +38,11 @@ export default {
 </code></pre>
 
 <pre v-code.script><code>
-import axios from 'axios';
-
 export default class NodeService {
 
     getTreeNodes() {
-        return axios.get('demo/data/treenodes.json').then(res => res.data.root);
+        return fetch('demo/data/treenodes.json').then(res => res.json())
+                .then(d => d.root);
     }
 
 }
@@ -587,7 +586,7 @@ export default {
         const selectedNode = ref();
         const selectedNodes1 = ref();
         const selectedNodes2 = ref();
-       
+
         return { options, selectedNode, selectedNodes1, selectedNodes2 };
     }
 }

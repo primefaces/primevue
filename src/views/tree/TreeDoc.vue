@@ -1,5 +1,5 @@
 <template>
-	<AppDoc name="TreeDemo" :sources="sources" :service="['NodeService']" :data="['treenodes']" github="tree/TreeDemo.vue"> 
+	<AppDoc name="TreeDemo" :sources="sources" :service="['NodeService']" :data="['treenodes']" github="tree/TreeDemo.vue">
         <h5>Import</h5>
 <pre v-code.script><code>
 import Tree from 'primevue/tree';
@@ -112,12 +112,11 @@ export default {
 </code></pre>
 
 <pre v-code.script><code>
-import axios from 'axios';
-
 export default class NodeService {
 
     getTreeNodes() {
-        return axios.get('demo/data/treenodes.json').then(res => res.data.root);
+       return fetch('demo/data/treenodes.json').then(res => res.json())
+                .then(d => d.root);
     }
 
 }
