@@ -1,5 +1,33 @@
 # Changelog
 
+## [3.8.0](https://github.com/primefaces/primevue/tree/3.8.0) (2021-10-05)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.7.2...3.8.0)
+
+**Breaking Changes:**
+
+- Support for Filtering and Sorting on Editable DataTable [\#1273](https://github.com/primefaces/primevue/issues/1273)
+
+**Implemented New Features and Enhancements:**
+
+- Kebap-case is not supported in some components like DataTable [\#1263](https://github.com/primefaces/primevue/issues/1263)
+- Improve sorting performance on DataTable [\#1633](https://github.com/primefaces/primevue/issues/1633)
+- Improve accessibility on Editable DataTable [\#1632](https://github.com/primefaces/primevue/issues/1632)
+- Add type definition for Utils modules [\#1622](https://github.com/primefaces/primevue/issues/1622)
+- Improve scrollbar style on BreadCrumb and TabMenu [\#1620](https://github.com/primefaces/primevue/issues/1620)
+- Tailwind theme location typing mistake in Setup docs [\#1614](https://github.com/primefaces/primevue/issues/1614)
+- Add class option to Tooltip directive [\#1612](https://github.com/primefaces/primevue/issues/1612)
+
+**Fixed bugs:**
+
+- Tiered Menu with Templating throw 'type check failed for prop "template" [\#1638](https://github.com/primefaces/primevue/issues/1638)
+- The editingRows property is not working with initial value on DataTable [\#1631](https://github.com/primefaces/primevue/issues/1631)
+- The DataTable.d.ts file is missing the 'expansion' field in the $slots class field. [\#1629](https://github.com/primefaces/primevue/issues/1629)
+- Paginator's Inputnumber displays index instead of current page [\#1602](https://github.com/primefaces/primevue/issues/1602)
+- Vite build with Typescript Module '"vue"' has no exported member 'PluginFunction'.  in `ConfirmationService.d.ts` and `ToastService.d.ts` [\#1596](https://github.com/primefaces/primevue/issues/1596)
+- InputSwitch - trueValue-falseValue features causes warning  [\#1586](https://github.com/primefaces/primevue/issues/1586)
+- SpeedDial :hideOnClickOutside="false" is not working [\#1545](https://github.com/primefaces/primevue/issues/1545)
+
 ## [3.7.2](https://github.com/primefaces/primevue/tree/3.7.2) (2021-09-15)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.7.1...3.7.2)
