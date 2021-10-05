@@ -37,7 +37,7 @@
 				</div>
 
 				<button :class="['p-carousel-next p-link', {'p-disabled': forwardIsDisabled}]" :disabled="forwardIsDisabled" @click="navForward" type="button" v-ripple>
-					<span :class="['p-carousel-prev-icon pi', {'pi-chevron-right': !isVertical(),'pi-chevron-down': isVertical()}]"></span>
+					<span :class="['p-carousel-next-icon pi', {'pi-chevron-right': !isVertical(),'pi-chevron-down': isVertical()}]"></span>
 				</button>
 			</div>
 			<ul v-if="totalIndicators >= 0" :class="indicatorsContentClasses">
