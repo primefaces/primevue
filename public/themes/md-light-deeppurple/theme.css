@@ -41,6 +41,7 @@
   --surface-border:rgba(0,0,0,.12);
   --surface-hover:rgba(0,0,0,.04);
   --focus-ring: none;
+  --maskbg: rgba(0, 0, 0, 0.32);
 }
 
 /* roboto-regular - latin-ext_latin */
@@ -80,7 +81,6 @@
 .p-component-overlay {
   background-color: rgba(0, 0, 0, 0.32);
   transition-duration: 0.2s;
-  --maskbg: rgba(0, 0, 0, 0.32);
 }
 
 .p-disabled, .p-component:disabled {

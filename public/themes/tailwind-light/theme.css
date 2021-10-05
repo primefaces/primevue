@@ -41,6 +41,7 @@
   --surface-border:#e5e7eb;
   --surface-hover: #f4f4f5;
   --focus-ring: 0 0 0 1px #6366F1;
+  --maskbg: rgba(0, 0, 0, 0.4);
 }
 
 @font-face {
@@ -91,7 +92,6 @@
 .p-component-overlay {
   background-color: rgba(0, 0, 0, 0.4);
   transition-duration: 0.2s;
-  --maskbg: rgba(0, 0, 0, 0.4);
 }
 
 .p-disabled, .p-component:disabled {
