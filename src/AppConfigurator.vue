@@ -2,19 +2,19 @@
     <div :class="containerClass">
         <div class="layout-config-content-wrapper">
             <a href="#" class="layout-config-button" @click="toggleConfigurator">
-                <i class="pi pi-cog"></i>
+                <Icon tag="i" :icon="{commonIcon: 'cog', context: 'AppConfigurator'}"/>
             </a>
             <a href="#" class="layout-config-close" @click="hideConfigurator">
-                <i class="pi pi-times"></i>
+                <Icon tag="i" :icon="{commonIcon: 'times', context: 'AppConfigurator'}"/>
             </a>
 
             <div class="layout-config-content">
                 <div>
                     <h4>Component Scale</h4>
                     <div class="config-scale">
-                        <Button icon="pi pi-minus" @click="decrementScale()" class="p-button-text" :disabled="scale === scales[0]"/>
-                        <i class="pi pi-circle-on" v-for="s of scales" :class="{'scale-active': s === scale}" :key="s"/>
-                        <Button icon="pi pi-plus"  @click="incrementScale()" class="p-button-text" :disabled="scale === scales[scales.length - 1]" />
+                        <Button :icon="{commonIcon: 'minus', context: 'AppConfigurator'}" @click="decrementScale()" class="p-button-text" :disabled="scale === scales[0]"/>
+                        <Icon tag="i" :icon="{commonIcon: 'circle-on', context: 'AppConfigurator'}" v-for="s of scales" :class="{'scale-active': s === scale}" :key="s"/>
+                        <Button :icon="{commonIcon: 'plus', context: 'AppConfigurator'}"  @click="incrementScale()" class="p-button-text" :disabled="scale === scales[scales.length - 1]" />
                     </div>
 
                     <AppInputStyleSwitch />
@@ -317,6 +317,7 @@
 </template>
 
 <script>
+import Icon from 'primevue/icon';
 import EventBus from '@/AppEventBus';
 
 export default {
@@ -416,6 +417,9 @@ export default {
         rippleActive() {
             return this.$primevue.config.ripple;
         }
+    },
+    components: {
+        Icon,
     }
 }
 </script>

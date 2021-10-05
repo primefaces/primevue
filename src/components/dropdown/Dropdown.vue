@@ -127,7 +127,7 @@ export default {
         },
         loadingIcon: {
             type: [String, Object],
-            default: () => ({ commonIcon: "spinner_spin", context: "Dropdown" }) // 'pi pi-spinner pi-spin'
+            default: () => ({ commonIcon: "spinner-spin", context: "Dropdown" }) // 'pi pi-spinner pi-spin'
         },
         virtualScrollerOptions: {
             type: Object,
@@ -727,7 +727,7 @@ export default {
         dropdownIcon() {
             return this.loading
                 ? this.loadingIcon
-                : { commonIcon: 'chevron_down', context: 'Dropdown' }; // pi pi-chevron-down
+                : { commonIcon: 'chevron-down', context: 'Dropdown' }; // pi pi-chevron-down
         },
     },
     directives: {

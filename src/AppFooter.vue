@@ -7,14 +7,24 @@
 
         <div class="layout-footer-right">
             <a href="https://github.com/primefaces/primevue" class="p-mr-3">
-                <i class="pi pi-github"></i>
+                <Icon tag="i" :icon="{ commonIcon: 'github', context: 'AppFooter' }" />
             </a>
             <a href="https://twitter.com/primevue" class="p-mr-3">
-                <i class="pi pi-twitter"></i>
+                <Icon tag="i" :icon="{ commonIcon: 'twitter', context: 'AppFooter' }" />
             </a>
             <a href="https://discord.com/invite/gzKFYnpmCY">
-                <i class="pi pi-discord"></i>
+                <Icon tag="i" :icon="{ commonIcon: 'discord', context: 'AppFooter' }" />
             </a>
         </div>
     </div>
 </template>
+
+<script>
+import Icon from 'primevue/icon';
+
+export default {
+    components: {
+        Icon,
+    },
+};
+</script>

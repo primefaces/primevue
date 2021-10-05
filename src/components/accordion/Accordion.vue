@@ -4,7 +4,7 @@
             <div :class="getTabHeaderClass(tab, i)">
                 <a role="tab" class="p-accordion-header-link" @click="onTabClick($event, tab, i)" @keydown="onTabKeydown($event, tab, i)" :tabindex="isTabDisabled(tab) ? null : '0'"
                     :aria-expanded="isTabActive(i)" :id="getTabAriaId(i) + '_header'" :aria-controls="getTabAriaId(i) + '_content'">
-                    <span :class="getHeaderIcon(i)"></span>
+                    <Icon :icon="getHeaderIcon(i)" tag="span" class="p-accordion-toggle-icon"/>
                     <span class="p-accordion-header-text" v-if="tab.props && tab.props.header">{{tab.props.header}}</span>
                     <component :is="tab.children.header" v-if="tab.children && tab.children.header"></component>
                 </a>
@@ -23,6 +23,7 @@
 
 <script>
 import {UniqueComponentId} from 'primevue/utils';
+import Icon from 'primevue/icon';
 
 export default {
     name: 'Accordion',
@@ -108,7 +109,7 @@ export default {
         },
         getHeaderIcon(i) {
             const active = this.isTabActive(i);
-            return ['p-accordion-toggle-icon pi', {'pi-chevron-right': !active, 'pi-chevron-down': active}];
+            return { commonIcon: active ? "chevron-down" : "chevron-right", context: "Accordion"};
         },
         isAccordionTab(child) {
             return child.type.name === 'AccordionTab'
@@ -135,6 +136,9 @@ export default {
         ariaId() {
             return UniqueComponentId();
         }
+    },
+    components: {
+        Icon,
     }
 }
 </script>

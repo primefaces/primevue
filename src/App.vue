@@ -7,10 +7,10 @@
                 </a>
                 <a href="https://www.primefaces.org/layouts/atlantis-vue" target="_blank" tabindex="-1" style="text-decoration: none" class="layout-news-button">
                     LEARN MORE
-                    <i class="pi pi-angle-right"></i>
+                    <Icon :icon="{commonIcon: 'angle-right', context: 'App'}" tag="i" />
                 </a>
                 <a tabindex="0" class="layout-news-close" @click="hideNews">
-                    <i class="pi pi-times"></i>
+                    <Icon :icon="{commonIcon: 'times', context: 'App'}" tag="i" />
                 </a>
             </div>
         </div>
@@ -37,6 +37,7 @@ import AppMenu from '@/AppMenu.vue';
 import AppFooter from '@/AppFooter.vue';
 import AppConfigurator from '@/AppConfigurator.vue';
 import EventBus from '@/AppEventBus';
+import Icon from 'primevue/icon';
 
 export default {
     data() {
@@ -167,7 +168,8 @@ export default {
         'app-topbar': AppTopBar,
         'app-menu': AppMenu,
         'app-footer': AppFooter,
-        'app-configurator': AppConfigurator
+        'app-configurator': AppConfigurator,
+        Icon,
     }
 }
 </script>

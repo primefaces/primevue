@@ -6,7 +6,7 @@
                     <li :class="getRouteItemClass(item,isActive,isExactActive)" :style="item.style" v-if="visible(item)" role="tab">
                         <template v-if="!$slots.item">
                             <a :href="href" class="p-menuitem-link" @click="onItemClick($event, item, i, navigate)" role="presentation" v-ripple>
-                                <span :class="getItemIcon(item)" v-if="item.icon"></span>
+                                <Icon v-if="item.icon" class="p-menuitem-icon" :icon="item.icon" />
                                 <span class="p-menuitem-text">{{item.label}}</span>
                             </a>
                         </template>
@@ -16,7 +16,7 @@
                 <li v-else-if="visible(item)" :class="getItemClass(item, i)" role="tab">
                     <template v-if="!$slots.item">
                         <a :href="item.url" class="p-menuitem-link" :target="item.target" @click="onItemClick($event, item, i)" role="presentation" :tabindex="disabled(item) ? null : '0'" v-ripple>
-                            <span :class="getItemIcon(item)" v-if="item.icon"></span>
+                            <Icon v-if="item.icon" class="p-menuitem-icon" :icon="item.icon" />
                             <span class="p-menuitem-text">{{item.label}}</span>
                         </a>
                      </template>
@@ -31,6 +31,7 @@
 <script>
 import {DomHandler} from 'primevue/utils';
 import Ripple from 'primevue/ripple';
+import Icon from 'primevue/icon';
 
 export default {
     name: 'TabMenu',
@@ -112,9 +113,6 @@ export default {
                 'p-disabled': this.disabled(item)
             }];
         },
-        getItemIcon(item) {
-            return ['p-menuitem-icon', item.icon];
-        },
         visible(item) {
             return (typeof item.visible === 'function' ? item.visible() : item.visible !== false);
         },
@@ -141,7 +139,10 @@ export default {
     },
     directives: {
         'ripple': Ripple
-    }
+    },
+    components: {
+        Icon,
+    },
 }
 </script>
 

@@ -1,8 +1,7 @@
 <template>
     <button :class="buttonClass" type="button" v-ripple :disabled="disabled">
         <slot>
-            <span v-if="loading && !icon" :class="iconClass"></span>
-            <span v-if="icon" :class="iconClass"></span>
+            <Icon v-if="loading || icon" :icon="loading ? loadingIcon : icon" :class="iconClass"/>
             <span class="p-button-label">{{label||'&nbsp;'}}</span>
             <span v-if="badge" :class="badgeStyleClass">{{badge}}</span>
         </slot>
@@ -11,6 +10,7 @@
 
 <script>
 import Ripple from 'primevue/ripple';
+import Icon from 'primevue/icon';
 
 export default {
     name: 'Button',
@@ -19,7 +19,7 @@ export default {
             type: String
         },
         icon: {
-            type: String
+            type: [String, Object]
         },
         iconPos: {
             type: String,
@@ -37,8 +37,8 @@ export default {
             default: false
         },
         loadingIcon: {
-            type: String,
-            default: 'pi pi-spinner pi-spin'
+            type: [String, Object],
+            default: () => ({ commonIcon: "spinner-spin", context:"Button" }),
         }
     },
     computed: {
@@ -54,7 +54,6 @@ export default {
         },
         iconClass() {
             return [
-                this.loading ? 'p-button-loading-icon ' + this.loadingIcon : this.icon,
                 'p-button-icon',
                 {
                     'p-button-icon-left': this.iconPos === 'left' && this.label,
@@ -76,6 +75,9 @@ export default {
     },
     directives: {
         'ripple': Ripple
-    }
+    },
+    components: {
+        Icon,
+    },
 }
 </script>

@@ -6,7 +6,7 @@
             </slot>
             <a tabindex="0" v-if="toggleable" @click="toggle" @keydown.enter="toggle" v-ripple
                 :id="ariaId +  '_header'" :aria-controls="ariaId + '_content'" :aria-expanded="!d_collapsed">
-                <span :class="iconClass"></span>
+                <Icon class="p-fieldset-toggler" :icon="{ commonIcon: d_collapsed ? 'plus' : 'minus', context: 'Fieldset' }" />
                 <slot name="legend">
                     <span class="p-fieldset-legend-text">{{legend}}</span>
                 </slot>
@@ -25,6 +25,7 @@
 
 <script>
 import {UniqueComponentId} from 'primevue/utils';
+import Icon from 'primevue/icon';
 import Ripple from 'primevue/ripple';
 
 export default {
@@ -68,7 +69,10 @@ export default {
     },
     directives: {
         'ripple': Ripple
-    }
+    },
+    components: {
+        Icon,
+    },
 }
 </script>
 

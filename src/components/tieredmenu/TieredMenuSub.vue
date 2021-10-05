@@ -6,15 +6,15 @@
                 <template v-if="!template">
                     <router-link v-if="item.to && !disabled(item)" :to="item.to" custom v-slot="{navigate, href, isActive, isExactActive}">
                         <a :href="href" @click="onItemClick($event, item, navigate)" :class="linkClass(item, {isActive, isExactActive})" v-ripple @keydown="onItemKeyDown($event, item)" role="menuitem">
-                            <span :class="['p-menuitem-icon', item.icon]"></span>
+                            <Icon class="p-menuitem-icon" :icon="item.icon" :fullWidth="true" />
                             <span class="p-menuitem-text">{{item.label}}</span>
                         </a>
                     </router-link>
                     <a v-else :href="item.url" :class="linkClass(item)" :target="item.target" :aria-haspopup="item.items != null" :aria-expanded="item === activeItem"
                         @click="onItemClick($event, item)" @keydown="onItemKeyDown($event, item)" role="menuitem" :tabindex="disabled(item) ? null : '0'" v-ripple>
-                        <span :class="['p-menuitem-icon', item.icon]"></span>
+                        <Icon class="p-menuitem-icon" :icon="item.icon" :fullWidth="true" />
                         <span class="p-menuitem-text">{{item.label}}</span>
-                        <span class="p-submenu-icon pi pi-angle-right" v-if="item.items"></span>
+                        <Icon v-if="item.items" class="p-submenu-icon" :icon="{ commonIcon: 'angle-right', context: 'TiredMenuSub'}" />
                     </a>
                 </template>
                 <component v-else :is="template" :item="item"></component>
@@ -29,6 +29,7 @@
 <script>
 import {DomHandler} from 'primevue/utils';
 import Ripple from 'primevue/ripple';
+import Icon from 'primevue/icon';
 
 export default {
     name: 'TieredMenuSub',
@@ -243,6 +244,9 @@ export default {
     },
     directives: {
         'ripple': Ripple
-    }
+    },
+    components: {
+        Icon,
+    },
 }
 </script>

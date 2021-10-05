@@ -8,7 +8,7 @@
                  <slot name="icons"></slot>
                 <button v-if="toggleable" class="p-panel-header-icon p-panel-toggler p-link" @click="toggle" type="button"
                     :id="ariaId +  '_header'" :aria-controls="ariaId + '_content'" :aria-expanded="!d_collapsed" v-ripple>
-                    <span :class="{'pi pi-minus': !d_collapsed, 'pi pi-plus': d_collapsed}"></span>
+                    <Icon :icon="{ commonIcon: d_collapsed ? 'plus' : 'minus', context: 'Panel' }" />
                 </button>
             </div>
         </div>
@@ -24,6 +24,7 @@
 
 <script>
 import {UniqueComponentId} from 'primevue/utils';
+import Icon from 'primevue/icon';
 import Ripple from 'primevue/ripple';
 
 export default {
@@ -64,7 +65,10 @@ export default {
     },
     directives: {
         'ripple': Ripple
-    }
+    },
+    components: {
+        Icon,
+    },
 }
 </script>
 

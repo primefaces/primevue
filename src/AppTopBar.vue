@@ -1,7 +1,7 @@
 <template>
     <div class="layout-topbar">
         <a class="menu-button" @click="$emit('menubutton-click')">
-            <i class="pi pi-bars"></i>
+            <Icon tag="i" :icon="{ commonIcon: 'bars', context: 'AppTopBar' }" />
         </a>
         <router-link to="/" class="logo">
             <img alt="logo" src="./assets/images/primevue-logo.png">
@@ -18,11 +18,11 @@
                 <transition name="p-connected-overlay" @enter="onMenuEnter">
                     <ul v-show="activeMenuIndex === 0">
                         <li class="topbar-submenu-header">THEMING</li>
-                        <li><router-link to="/theming"><i class="pi pi-fw pi-file"/><span>Guide</span></router-link></li>
-                        <li><a href="https://www.primefaces.org/designer/primevue"><i class="pi pi-fw pi-palette" /><span>Designer</span></a></li>
-                        <li><a href="https://www.primefaces.org/designer-vue"><i class="pi pi-fw pi-desktop" /><span>Visual Editor</span></a></li>
-                        <li><router-link to="/icons"><i class="pi pi-fw pi-info-circle"/><span>Icons</span></router-link></li>
-                        <li><a href="https://www.figma.com/community/file/890589747170608208/PrimeOne-Design-Library"><i class="pi pi-fw pi-pencil"/><span>Figma UI Kit</span></a></li>
+                        <li><router-link to="/theming"><Icon tag="i" :icon="{ commonIcon: 'file', context: 'AppTopBar' }" :fullWidth="true" /><span>Guide</span></router-link></li>
+                        <li><a href="https://www.primefaces.org/designer/primevue"><Icon tag="i" :icon="{ commonIcon: 'palette', context: 'AppTopBar' }" :fullWidth="true" /><span>Designer</span></a></li>
+                        <li><a href="https://www.primefaces.org/designer-vue"><Icon tag="i" :icon="{ commonIcon: 'desktop', context: 'AppTopBar' }" :fullWidth="true" /><span>Visual Editor</span></a></li>
+                        <li><router-link to="/icons"><Icon tag="i" :icon="{ commonIcon: 'info-circle', context: 'AppTopBar' }" :fullWidth="true" /><span>Icons</span></router-link></li>
+                        <li><a href="https://www.figma.com/community/file/890589747170608208/PrimeOne-Design-Library"><Icon tag="i" :icon="{ commonIcon: 'pencil', context: 'AppTopBar' }" :fullWidth="true" /><span>Figma UI Kit</span></a></li>
 
                         <li class="topbar-submenu-header">BOOTSTRAP</li>
                         <li><a @click="changeTheme($event, 'bootstrap4-light-blue')"><img src="demo/images/themes/bootstrap4-light-blue.svg" alt="Blue Light" /><span>Blue Light</span></a></li>
@@ -127,6 +127,8 @@
 </template>
 
 <script>
+import Icon from 'primevue/icon';
+
 export default {
     outsideClickListener: null,
     darkDemoStyle: null,
@@ -219,6 +221,9 @@ export default {
         isOutsideTopbarMenuClicked(event) {
             return !(this.$refs.topbarMenu.isSameNode(event.target) || this.$refs.topbarMenu.contains(event.target));
         }
-    }
+    },
+    components: {
+        Icon,
+    },
 }
 </script>
