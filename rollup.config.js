@@ -7,11 +7,14 @@ const path = require('path');
 
 let entries = [];
 
+let core = {};
+
 let coreDependencies = {
-    'primevue/config': 'primevue.config',
-    'primevue/api': 'primevue.api',
     'primevue/utils': 'primevue.utils',
+    'primevue/api': 'primevue.api',
+    'primevue/config': 'primevue.config',
     'primevue/ripple': 'primevue.ripple',
+    'primevue/virtualscroller': 'primevue.virtualscroller',
     'primevue/confirmationeventbus': 'primevue.confirmationeventbus',
     'primevue/toasteventbus': 'primevue.toasteventbus',
     'primevue/overlayeventbus': 'primevue.overlayeventbus',
@@ -20,16 +23,15 @@ let coreDependencies = {
     'primevue/usetoast': 'primevue.usetoast',
     'primevue/button': 'primevue.button',
     'primevue/inputtext': 'primevue.inputtext',
-    'primevue/virtualscroller': 'primevue.virtualscroller',
+    'primevue/inputnumber': 'primevue.inputnumber',
+    'primevue/message': 'primevue.message',
+    'primevue/progressbar': 'primevue.progressbar',
+    'primevue/dropdown': 'primevue.dropdown',
     'primevue/dialog': 'primevue.dialog',
     'primevue/paginator': 'primevue.paginator',
-    'primevue/progressbar': 'primevue.progressbar',
-    'primevue/message': 'primevue.message',
-    'primevue/dropdown': 'primevue.dropdown',
-    'primevue/inputnumber': 'primevue.inputnumber',
-    'primevue/menu': 'primevue.menu',
-    'primevue/tieredmenu': 'primevue.tieredmenu',
     'primevue/tree': 'primevue.tree',
+    'primevue/menu': 'primevue.menu',
+    'primevue/tieredmenu': 'primevue.tieredmenu'
 }
 
 let globalDependencies = {
@@ -100,9 +102,33 @@ function corePlugin() {
             if (outputOptions.format === 'iife') {
                 Object.keys(bundle).forEach(id => {
                     const chunk = bundle[id];
+                    const name = id.replace('.min.js', '').replace('.js', '');
                     const filePath = `./dist/core/core${id.indexOf('.min.js') > 0 ? '.min.js': '.js'}`;
 
-                    fs.outputFile(path.resolve(__dirname, filePath), chunk.code + '\n',  { 'flag': 'a' },  function(err) {
+                    core[filePath] ? (core[filePath][name] = chunk.code) : (core[filePath] = { [`${name}`]: chunk.code });
+                });
+            }
+        }
+    };
+}
+
+function addCore() {
+    const lastEntry = entries[entries.length - 1];
+
+    lastEntry.plugins = [
+        ...lastEntry.plugins,
+        {
+            name: 'coreMergePlugin',
+            buildEnd() {
+                Object.entries(core).forEach(([filePath, value]) => {
+                    const code = Object.keys(coreDependencies).reduce((val, d) => {
+                        const name = d.replace('primevue/', '');
+                        val += value[name] + '\n';
+
+                        return val;
+                    }, '');
+
+                    fs.outputFile(path.resolve(__dirname, filePath), code, {}, function(err) {
                         if (err) {
                             return console.error(err);
                         }
@@ -110,11 +136,7 @@ function corePlugin() {
                 });
             }
         }
-    };
-}
-
-function removeCore() {
-    fs.removeSync(path.resolve(__dirname, './dist/core'));
+    ]
 }
 
 function addSFC() {
@@ -158,12 +180,12 @@ function addServices() {
     addEntry('terminalservice', 'TerminalService.js', 'terminalservice');
 }
 
-removeCore();
 addUtils();
 addApi();
 addConfig();
 addDirectives();
 addServices();
 addSFC();
+addCore();
 
 export default entries;
