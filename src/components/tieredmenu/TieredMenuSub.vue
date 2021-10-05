@@ -51,7 +51,7 @@ export default {
             default: false
         },
         template: {
-            type: Object,
+            type: Function,
             default: null
         },
         exact: {
