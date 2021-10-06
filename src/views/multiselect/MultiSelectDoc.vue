@@ -299,7 +299,7 @@ export default {
                     <tr>
                         <td>loadingIcon</td>
                         <td>string</td>
-                        <td>pi pi-spinner pi-spin</td>
+                        <td>spinner spin</td>
                         <td>Icon to display in loading state.</td>
                     </tr>
                     <tr>

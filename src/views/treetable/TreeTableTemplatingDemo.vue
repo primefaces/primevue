@@ -19,16 +19,16 @@
                     <Column field="type" header="Type"></Column>
                     <Column headerStyle="width: 8em" headerClass="p-text-center" bodyClass="p-text-center">
                         <template #header>
-                            <Button type="button" icon="pi pi-cog"></Button>
+                            <Button type="button" icon="cog"></Button>
                         </template>
                         <template #body>
-                            <Button type="button" icon="pi pi-search" class="p-button-success" style="margin-right: .5em"></Button>
-                            <Button type="button" icon="pi pi-pencil" class="p-button-warning"></Button>
+                            <Button type="button" icon="search" class="p-button-success" style="margin-right: .5em"></Button>
+                            <Button type="button" icon="pencil" class="p-button-warning"></Button>
                         </template>
                     </Column>
                     <template #footer>
                         <div style="text-align:left">
-                            <Button icon="pi pi-refresh" />
+                            <Button icon="refresh" />
                         </div>
                     </template>
                 </TreeTable>
@@ -36,7 +36,7 @@
         </div>
 
         <AppDoc name="TreeTableTemplatingDemo" :sources="sources" :service="['NodeService']" :data="['treetablenodes']" github="treetable/TreeTableTemplatingDemo.vue" />
-            
+
     </div>
 </template>
 
@@ -62,20 +62,20 @@ export default {
             <Column field="type" header="Type"></Column>
             <Column headerStyle="width: 8em" headerClass="p-text-center" bodyClass="p-text-center">
                 <template #header>
-                    <Button type="button" icon="pi pi-cog"></Button>
+                    <Button type="button" icon="cog"></Button>
                 </template>
                 <template #body>
-                    <Button type="button" icon="pi pi-search" class="p-button-success" style="margin-right: .5em"></Button>
-                    <Button type="button" icon="pi pi-pencil" class="p-button-warning"></Button>
+                    <Button type="button" icon="search" class="p-button-success" style="margin-right: .5em"></Button>
+                    <Button type="button" icon="pencil" class="p-button-warning"></Button>
                 </template>
             </Column>
             <template #footer>
                 <div style="text-align:left">
-                    <Button icon="pi pi-refresh" />
+                    <Button icon="refresh" />
                 </div>
             </template>
         </TreeTable>
-    </div>                  
+    </div>
 </template>
 
 <script>
@@ -112,20 +112,20 @@ export default {
             <Column field="type" header="Type"></Column>
             <Column headerStyle="width: 8em" headerClass="p-text-center" bodyClass="p-text-center">
                 <template #header>
-                    <Button type="button" icon="pi pi-cog"></Button>
+                    <Button type="button" icon="cog"></Button>
                 </template>
                 <template #body>
-                    <Button type="button" icon="pi pi-search" class="p-button-success" style="margin-right: .5em"></Button>
-                    <Button type="button" icon="pi pi-pencil" class="p-button-warning"></Button>
+                    <Button type="button" icon="search" class="p-button-success" style="margin-right: .5em"></Button>
+                    <Button type="button" icon="pencil" class="p-button-warning"></Button>
                 </template>
             </Column>
             <template #footer>
                 <div style="text-align:left">
-                    <Button icon="pi pi-refresh" />
+                    <Button icon="refresh" />
                 </div>
             </template>
         </TreeTable>
-    </div>                  
+    </div>
 </template>
 
 <script>

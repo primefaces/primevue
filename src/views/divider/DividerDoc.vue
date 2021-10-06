@@ -38,7 +38,7 @@ import Divider from 'primevue/divider';
 </code></pre>
 
         <h5>Content</h5>
-        <p>Any content placed inside is rendered within the boundaries of the divider. In addition, location 
+        <p>Any content placed inside is rendered within the boundaries of the divider. In addition, location
             of the content is configured with the <i>align</i> property. In horizontal layout, alignment options
             are "left", "center" and "right" whereas vertical mode supports "top", "center" and "bottom".
         </p>
@@ -61,7 +61,7 @@ import Divider from 'primevue/divider';
 &lt;div&gt;Content 3&lt;/div&gt;
 
 &lt;Divider align="right"&gt;
-    &lt;Button label="Button" icon="pi pi-search" class="p-button-outlined"&gt;&lt;/Button&gt;
+    &lt;Button label="Button" icon="search" class="p-button-outlined"&gt;&lt;/Button&gt;
 &lt;/Divider&gt;
 
 &lt;div&gt;Content 4&lt;/div&gt;
@@ -85,7 +85,7 @@ import Divider from 'primevue/divider';
                         <td>align</td>
                         <td>string</td>
                         <td>null</td>
-                        <td>Alignment of the content, options are "left", "center", "right" for horizontal layout 
+                        <td>Alignment of the content, options are "left", "center", "right" for horizontal layout
                             and "top", "center", "bottom" for vertical.</td>
                     </tr>
                     <tr>
@@ -198,7 +198,7 @@ export default {
 
             <Divider />
 
-            <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur 
+            <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur
                         a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.
                         Donec vel volutpat ipsum. Integer nunc magna, posuere ut tincidunt eget, egestas vitae sapien. Morbi dapibus luctus odio.</p>
         </div>
@@ -229,7 +229,7 @@ export default {
                 <b>Right</b>
             </Divider>
 
-            <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur 
+            <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur
                         a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.
                         Donec vel volutpat ipsum. Integer nunc magna, posuere ut tincidunt eget, egestas vitae sapien. Morbi dapibus luctus odio.</p>
         </div>
@@ -260,10 +260,10 @@ export default {
                         Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.</p>
 
             <Divider align="right">
-                <Button label="Button" icon="pi pi-search" class="p-button-outlined"></Button>
+                <Button label="Button" icon="search" class="p-button-outlined"></Button>
             </Divider>
 
-            <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur 
+            <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur
                         a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.
                         Donec vel volutpat ipsum. Integer nunc magna, posuere ut tincidunt eget, egestas vitae sapien. Morbi dapibus luctus odio.</p>
         </div>
@@ -311,7 +311,7 @@ export default {
                     </Divider>
                 </div>
                 <div class="p-col-5 p-d-flex p-ai-center p-jc-center">
-                    <Button label="Sign Up" icon="pi pi-user-plus" class="p-button-success"></Button>
+                    <Button label="Sign Up" icon="user-plus" class="p-button-success"></Button>
                 </div>
             </div>
         </div>
@@ -349,7 +349,7 @@ export default {
 
             <Divider />
 
-            <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur 
+            <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur
                         a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.
                         Donec vel volutpat ipsum. Integer nunc magna, posuere ut tincidunt eget, egestas vitae sapien. Morbi dapibus luctus odio.</p>
         </div>
@@ -380,7 +380,7 @@ export default {
                 <b>Right</b>
             </Divider>
 
-            <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur 
+            <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur
                         a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.
                         Donec vel volutpat ipsum. Integer nunc magna, posuere ut tincidunt eget, egestas vitae sapien. Morbi dapibus luctus odio.</p>
         </div>
@@ -411,10 +411,10 @@ export default {
                         Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.</p>
 
             <Divider align="right">
-                <Button label="Button" icon="pi pi-search" class="p-button-outlined"></Button>
+                <Button label="Button" icon="search" class="p-button-outlined"></Button>
             </Divider>
 
-            <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur 
+            <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur
                         a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.
                         Donec vel volutpat ipsum. Integer nunc magna, posuere ut tincidunt eget, egestas vitae sapien. Morbi dapibus luctus odio.</p>
         </div>
@@ -462,7 +462,7 @@ export default {
                     </Divider>
                 </div>
                 <div class="p-col-5 p-d-flex p-ai-center p-jc-center">
-                    <Button label="Sign Up" icon="pi pi-user-plus" class="p-button-success"></Button>
+                    <Button label="Sign Up" icon="user-plus" class="p-button-success"></Button>
                 </div>
             </div>
         </div>

@@ -2,13 +2,15 @@
     <div :class="containerClass">
         <slot>
             <span class="p-avatar-text" v-if="label">{{label}}</span>
-            <span :class="iconClass" v-else-if="icon"></span>
+            <Icon v-else-if="icon" class="p-avatar-icon" :icon="icon" />
             <img :src="image" v-else-if="image">
         </slot>
     </div>
 </template>
 
 <script>
+import Icon from 'primevue/icon';
+
 export default {
     name: 'Avatar',
     props: {
@@ -17,7 +19,7 @@ export default {
             default: null
         },
         icon: {
-            type: String,
+            type: [String, Object],
             default: null
         },
         image: {
@@ -45,7 +47,10 @@ export default {
         iconClass() {
             return ['p-avatar-icon', this.icon];
         }
-    }
+    },
+    components: {
+        'Icon': Icon,
+    },
 }
 </script>
 

@@ -21,7 +21,7 @@
                     <template #chip="slotProps">
                         <div>
                             <span>{{slotProps.value}} - (active) </span>
-                            <i class="pi pi-user-plus" style="font-size: 14px"></i>
+                            <Icon icon="user-plus" style="font-size: 14px" />
                         </div>
                     </template>
                 </Chips>
@@ -34,6 +34,7 @@
 
 <script>
 import ChipsDoc from './ChipsDoc';
+import Icon from 'primevue/icon';
 
 export default {
     data() {
@@ -44,7 +45,8 @@ export default {
         }
     },
     components: {
-        'ChipsDoc': ChipsDoc
+        'ChipsDoc': ChipsDoc,
+        'Icon': Icon,
     }
 }
 </script>

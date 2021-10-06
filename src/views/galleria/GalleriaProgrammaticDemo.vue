@@ -10,8 +10,8 @@
         <div class="content-section implementation">
             <div class="card">
                 <div style="padding: .5rem 0">
-                    <Button icon="pi pi-minus" @click="prev" class="p-button-secondary" />
-                    <Button icon="pi pi-plus" @click="next" class="p-button-secondary" style="margin-left: .5rem" />
+                    <Button icon="minus" @click="prev" class="p-button-secondary" />
+                    <Button icon="plus" @click="next" class="p-button-secondary" style="margin-left: .5rem" />
                 </div>
 
                 <Galleria :value="images" v-model:activeIndex="activeIndex" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px">
@@ -30,8 +30,8 @@
                 <TabPanel header="Source">
 <pre v-code><code><template v-pre>
 &lt;div style="padding: .5rem 0"&gt;
-    &lt;Button icon="pi pi-minus" @click="prev" class="p-button-secondary" /&gt;
-    &lt;Button icon="pi pi-plus" @click="next" class="p-button-secondary" style="margin-left: .5rem" /&gt;
+    &lt;Button icon="minus" @click="prev" class="p-button-secondary" /&gt;
+    &lt;Button icon="plus" @click="next" class="p-button-secondary" style="margin-left: .5rem" /&gt;
 &lt;/div&gt;
 
 &lt;Galleria :value="images" v-model:activeIndex="activeIndex" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px"&gt;

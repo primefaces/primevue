@@ -30,7 +30,7 @@ export default {
         return {
             items: [
                 {
-                    label: 'Videos', icon: 'pi pi-fw pi-video',
+                    label: 'Videos', icon: 'fw video',
                     items: [
                         [
                             {
@@ -55,7 +55,7 @@ export default {
                     ]
                 },
                 {
-                    label: 'Users', icon: 'pi pi-fw pi-users',
+                    label: 'Users', icon: 'fw users',
                     items: [
                         [
                             {
@@ -90,7 +90,7 @@ export default {
                     ]
                 },
                 {
-                    label: 'Events', icon: 'pi pi-fw pi-calendar',
+                    label: 'Events', icon: 'fw calendar',
                     items: [
                         [
                             {
@@ -115,7 +115,7 @@ export default {
                     ]
                 },
                 {
-                    label: 'Settings', icon: 'pi pi-fw pi-cog',
+                    label: 'Settings', icon: 'fw cog',
                     items: [
                         [
                             {

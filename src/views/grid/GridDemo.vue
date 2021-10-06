@@ -22,8 +22,8 @@
             </div>
 
             <h5>Dynamic</h5>
-            <Button type="button" icon="pi pi-plus" title="Add Column" @click="addColumn" :disabled="columns.length === 20" style="margin-right: .5em" />
-            <Button type="button" icon="pi pi-minus" title="Remove Column" @click="removeColumn" :disabled="columns.length === 1" />
+            <Button type="button" icon="plus" title="Add Column" @click="addColumn" :disabled="columns.length === 20" style="margin-right: .5em" />
+            <Button type="button" icon="minus" title="Remove Column" @click="removeColumn" :disabled="columns.length === 1" />
 
             <div style="margin-top: .5em">
                 <transition-group name="dynamic-box" tag="div" class="p-grid">

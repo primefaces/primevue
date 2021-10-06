@@ -11,19 +11,19 @@
         <div class="content-section implementation">
             <div class="card">
                 <h5>Basic</h5>
-                <SplitButton label="Save" icon="pi pi-plus" @click="save" :model="items"></SplitButton>
+                <SplitButton label="Save" icon="plus" @click="save" :model="items"></SplitButton>
 
                 <h5>Nested</h5>
-                <SplitButton label="Save" icon="pi pi-plus" @click="save" :model="nestedItems"></SplitButton>
+                <SplitButton label="Save" icon="plus" @click="save" :model="nestedItems"></SplitButton>
 
                 <h5>Severities</h5>
-                <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-mb-2"></SplitButton>
-                <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-secondary p-mb-2"></SplitButton>
-                <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-success p-mb-2"></SplitButton>
-                <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-info p-mb-2"></SplitButton>
-                <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-warning p-mb-2"></SplitButton>
-                <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-help p-mb-2"></SplitButton>
-                <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-danger p-mb-2"></SplitButton>
+                <SplitButton label="Save" icon="plus" :model="items" class="p-mb-2"></SplitButton>
+                <SplitButton label="Save" icon="plus" :model="items" class="p-button-secondary p-mb-2"></SplitButton>
+                <SplitButton label="Save" icon="plus" :model="items" class="p-button-success p-mb-2"></SplitButton>
+                <SplitButton label="Save" icon="plus" :model="items" class="p-button-info p-mb-2"></SplitButton>
+                <SplitButton label="Save" icon="plus" :model="items" class="p-button-warning p-mb-2"></SplitButton>
+                <SplitButton label="Save" icon="plus" :model="items" class="p-button-help p-mb-2"></SplitButton>
+                <SplitButton label="Save" icon="plus" :model="items" class="p-button-danger p-mb-2"></SplitButton>
             </div>
         </div>
 
@@ -40,112 +40,112 @@ export default {
             items: [
                 {
                     label: 'Update',
-                    icon: 'pi pi-refresh',
+                    icon: 'refresh',
                     command: () => {
                         this.$toast.add({severity:'success', summary:'Updated', detail:'Data Updated', life: 3000});
                     }
                 },
                 {
                     label: 'Delete',
-                    icon: 'pi pi-times',
+                    icon: 'times',
                     command: () => {
                         this.$toast.add({ severity: 'warn', summary: 'Delete', detail: 'Data Deleted', life: 3000});
                     }
                 },
                 {
                     label: 'Vue Website',
-                    icon: 'pi pi-external-link',
+                    icon: 'external-link',
                     command: () => {
                         window.location.href = 'https://vuejs.org/'
                     }
                 },
                 {   label: 'Upload',
-                    icon: 'pi pi-upload',
+                    icon: 'upload',
                     to: '/fileupload'
                 }
             ],
             nestedItems: [
                 {
                     label:'File',
-                    icon:'pi pi-fw pi-file',
+                    icon:'fw file',
                     items:[
                         {
                             label:'New',
-                            icon:'pi pi-fw pi-plus',
+                            icon:'fw plus',
                             items:[
                                {
                                   label:'Bookmark',
-                                  icon:'pi pi-fw pi-bookmark'
+                                  icon:'fw bookmark'
                                },
                                {
                                   label:'Video',
-                                  icon:'pi pi-fw pi-video'
+                                  icon:'fw video'
                                },
                             ]
                         },
                         {
                             label:'Delete',
-                            icon:'pi pi-fw pi-trash'
+                            icon:'fw trash'
                         },
                         {
                             separator:true
                         },
                         {
                             label:'Export',
-                            icon:'pi pi-fw pi-external-link'
+                            icon:'fw external-link'
                         }
                    ]
                 },
                 {
                     label:'Edit',
-                    icon:'pi pi-fw pi-pencil',
+                    icon:'fw pencil',
                     items:[
                         {
                             label:'Left',
-                            icon:'pi pi-fw pi-align-left'
+                            icon:'fw align-left'
                         },
                         {
                             label:'Right',
-                            icon:'pi pi-fw pi-align-right'
+                            icon:'fw align-right'
                         },
                         {
                             label:'Center',
-                            icon:'pi pi-fw pi-align-center'
+                            icon:'fw align-center'
                         },
                         {
                             label:'Justify',
-                            icon:'pi pi-fw pi-align-justify'
+                            icon:'fw align-justify'
                         }
                     ]
                 },
                 {
                     label:'Users',
-                    icon:'pi pi-fw pi-user',
+                    icon:'fw user',
                     items:[
                         {
                             label:'New',
-                            icon:'pi pi-fw pi-user-plus'
+                            icon:'fw user-plus'
                         },
                         {
                             label:'Delete',
-                            icon:'pi pi-fw pi-user-minus'
+                            icon:'fw user-minus'
                         },
                         {
                             label:'Search',
-                            icon:'pi pi-fw pi-users',
+                            icon:'fw users',
                             items:[
                                 {
                                     label:'Filter',
-                                    icon:'pi pi-fw pi-filter',
+                                    icon:'fw filter',
                                     items:[
                                         {
                                            label:'Print',
-                                           icon:'pi pi-fw pi-print'
+                                           icon:'fw print'
                                         }
                                    ]
                                 },
                                 {
-                                    icon:'pi pi-fw pi-bars',
+                                    icon:'fw bars',
                                     label:'List'
                                 }
                            ]
@@ -154,29 +154,29 @@ export default {
                 },
                 {
                     label:'Events',
-                    icon:'pi pi-fw pi-calendar',
+                    icon:'fw calendar',
                     items:[
                         {
                             label:'Edit',
-                            icon:'pi pi-fw pi-pencil',
+                            icon:'fw pencil',
                             items:[
                                 {
                                    label:'Save',
-                                   icon:'pi pi-fw pi-calendar-plus'
+                                   icon:'fw calendar-plus'
                                 },
                                 {
                                    label:'Delete',
-                                   icon:'pi pi-fw pi-calendar-minus'
+                                   icon:'fw calendar-minus'
                                 }
                             ]
                         },
                         {
                             label:'Archieve',
-                            icon:'pi pi-fw pi-calendar-times',
+                            icon:'fw calendar-times',
                             items:[
                                 {
                                     label:'Remove',
-                                    icon:'pi pi-fw pi-calendar-minus'
+                                    icon:'fw calendar-minus'
                                 }
                             ]
                         }
@@ -187,7 +187,7 @@ export default {
                 },
                 {
                    label:'Quit',
-                   icon:'pi pi-fw pi-power-off'
+                   icon:'fw power-off'
                 }
             ]
         }

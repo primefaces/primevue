@@ -3,7 +3,7 @@
         <transition name="p-confirm-popup" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave">
             <div :class="containerClass" v-if="visible" :ref="containerRef" v-bind="$attrs" @click="onOverlayClick">
                 <div class="p-confirm-popup-content">
-                    <i :class="iconClass" />
+                    <Icon v-if="confirmation" tag="i" class="p-confirm-popup-icon" :icon="confirmation.icon" />
                     <span class="p-confirm-popup-message">{{confirmation.message}}</span>
                 </div>
                 <div class="p-confirm-popup-footer">
@@ -20,6 +20,7 @@ import ConfirmationEventBus from 'primevue/confirmationeventbus';
 import {ConnectedOverlayScrollHandler,DomHandler,ZIndexUtils} from 'primevue/utils';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Button from 'primevue/button';
+import Icon from 'primevue/icon';
 
 export default {
     name: 'ConfirmPopup',
@@ -196,9 +197,6 @@ export default {
         message() {
             return this.confirmation ? this.confirmation.message : null;
         },
-        iconClass() {
-            return ['p-confirm-popup-icon', this.confirmation ? this.confirmation.icon : null];
-        },
         acceptLabel() {
             return this.confirmation ? (this.confirmation.acceptLabel || this.$primevue.config.locale.accept) : null;
         },
@@ -219,7 +217,8 @@ export default {
         }
     },
     components: {
-        'CPButton': Button
+        'CPButton': Button,
+        'Icon': Icon
     }
 }
 </script>

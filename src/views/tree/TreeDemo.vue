@@ -15,8 +15,8 @@
 
                 <h5>Programmatic Control</h5>
                 <div style="margin-bottom: 1em">
-                    <Button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll" />
-                    <Button type="button" icon="pi pi-minus" label="Collapse All" @click="collapseAll" />
+                    <Button type="button" icon="plus" label="Expand All" @click="expandAll" />
+                    <Button type="button" icon="minus" label="Collapse All" @click="collapseAll" />
                 </div>
                 <Tree :value="nodes" :expandedKeys="expandedKeys"></Tree>
             </div>

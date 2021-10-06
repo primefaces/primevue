@@ -23,7 +23,7 @@
                 <p>Flex scroll feature makes the scrollable viewport section dynamic insteaf of a fixed value so that it can grow or shrink relative to the parent size of the table.
                    Click the button below to display a maximizable Dialog where data viewport adjusts itself according to the size changes.</p>
 
-                <Button label="Show" icon="pi pi-external-link" @click="openDialog" />
+                <Button label="Show" icon="external-link" @click="openDialog" />
             </div>
 
             <Dialog header="Flex Scroll" v-model:visible="dialogVisible" :style="{width: '75vw'}" :maximizable="true" :modal="true" :contentStyle="{height: '300px'}">
@@ -33,7 +33,7 @@
                     <Column field="type" header="Type" style="min-width:200px"></Column>
                 </TreeTable>
                 <template #footer>
-                    <Button label="Ok" icon="pi pi-check" @click="closeDialog" />
+                    <Button label="Ok" icon="check" @click="closeDialog" />
                 </template>
             </Dialog>
 
@@ -55,8 +55,8 @@
                     </Column>
                     <Column header="Options" footer="Options" style="width:300px">
                         <template #body>
-                            <Button type="Button" icon="pi pi-check" label="Edit" class="p-mr-2"></Button>
-                            <Button type="Button" icon="pi pi-check" label="Delete" class="p-button-warning"></Button>
+                            <Button type="Button" icon="check" label="Edit" class="p-mr-2"></Button>
+                            <Button type="Button" icon="check" label="Delete" class="p-button-warning"></Button>
                         </template>
                     </Column>
                 </TreeTable>
@@ -64,7 +64,7 @@
 
             <div class="card">
                 <h5>Frozen Columns</h5>
-                <ToggleButton v-model="optionsFrozen" onIcon="pi pi-lock" offIcon="pi pi-lock-open" onLabel="Unfreeze Options" offLabel="Freeze Options" style="width: 12rem" />
+                <ToggleButton v-model="optionsFrozen" onIcon="lock" offIcon="lock-open" onLabel="Unfreeze Options" offLabel="Freeze Options" style="width: 12rem" />
 
                 <TreeTable :value="nodes" :scrollable="true" scrollHeight="400px" scrollDirection="both" class="p-mt-3">
                     <Column field="name" header="Name" :expander="true" style="width:300px" frozen></Column>
@@ -82,7 +82,7 @@
                     </Column>
                     <Column header="Options" style="width:200px" alignFrozen="right" :frozen="optionsFrozen">
                         <template #body>
-                            <Button type="Button" icon="pi pi-check" label="Edit Item" class="p-mr-2" style="width:100%"></Button>
+                            <Button type="Button" icon="check" label="Edit Item" class="p-mr-2" style="width:100%"></Button>
                         </template>
                     </Column>
                 </TreeTable>
@@ -122,7 +122,7 @@ export default {
             <p>Flex scroll feature makes the scrollable viewport section dynamic insteaf of a fixed value so that it can grow or shrink relative to the parent size of the table.
                 Click the button below to display a maximizable Dialog where data viewport adjusts itself according to the size changes.</p>
 
-            <Button label="Show" icon="pi pi-external-link" @click="openDialog" />
+            <Button label="Show" icon="external-link" @click="openDialog" />
         </div>
 
         <Dialog header="Flex Scroll" v-model:visible="dialogVisible" :style="{width: '75vw'}" :maximizable="true" :modal="true" :contentStyle="{height: '300px'}">
@@ -132,7 +132,7 @@ export default {
                 <Column field="type" header="Type" style="min-width:200px"></Column>
             </TreeTable>
             <template #footer>
-                <Button label="Ok" icon="pi pi-check" @click="closeDialog" />
+                <Button label="Ok" icon="check" @click="closeDialog" />
             </template>
         </Dialog>
 
@@ -154,8 +154,8 @@ export default {
                 </Column>
                 <Column header="Options" footer="Options" style="width:300px">
                     <template #body>
-                        <Button type="Button" icon="pi pi-check" label="Edit" class="p-mr-2"></Button>
-                        <Button type="Button" icon="pi pi-check" label="Delete" class="p-button-warning"></Button>
+                        <Button type="Button" icon="check" label="Edit" class="p-mr-2"></Button>
+                        <Button type="Button" icon="check" label="Delete" class="p-button-warning"></Button>
                     </template>
                 </Column>
             </TreeTable>
@@ -163,7 +163,7 @@ export default {
 
         <div class="card">
             <h5>Frozen Columns</h5>
-            <ToggleButton v-model="optionsFrozen" onIcon="pi pi-lock" offIcon="pi pi-lock-open" onLabel="Unfreeze Options" offLabel="Freeze Options" style="width: 12rem" />
+            <ToggleButton v-model="optionsFrozen" onIcon="lock" offIcon="lock-open" onLabel="Unfreeze Options" offLabel="Freeze Options" style="width: 12rem" />
 
             <TreeTable :value="nodes" :scrollable="true" scrollHeight="400px" scrollDirection="both" class="p-mt-3">
                 <Column field="name" header="Name" :expander="true" style="width:300px" frozen></Column>
@@ -181,12 +181,12 @@ export default {
                 </Column>
                 <Column header="Options" style="width:200px" alignFrozen="right" :frozen="optionsFrozen">
                     <template #body>
-                        <Button type="Button" icon="pi pi-check" label="Edit Item" class="p-mr-2" style="width:100%"></Button>
+                        <Button type="Button" icon="check" label="Edit Item" class="p-mr-2" style="width:100%"></Button>
                     </template>
                 </Column>
             </TreeTable>
         </div>
-    </div>                    
+    </div>
 </template>
 
 <script>
@@ -238,7 +238,7 @@ export default {
             <p>Flex scroll feature makes the scrollable viewport section dynamic insteaf of a fixed value so that it can grow or shrink relative to the parent size of the table.
                 Click the button below to display a maximizable Dialog where data viewport adjusts itself according to the size changes.</p>
 
-            <Button label="Show" icon="pi pi-external-link" @click="openDialog" />
+            <Button label="Show" icon="external-link" @click="openDialog" />
         </div>
 
         <Dialog header="Flex Scroll" v-model:visible="dialogVisible" :style="{width: '75vw'}" :maximizable="true" :modal="true" :contentStyle="{height: '300px'}">
@@ -248,7 +248,7 @@ export default {
                 <Column field="type" header="Type" style="min-width:200px"></Column>
             </TreeTable>
             <template #footer>
-                <Button label="Ok" icon="pi pi-check" @click="closeDialog" />
+                <Button label="Ok" icon="check" @click="closeDialog" />
             </template>
         </Dialog>
 
@@ -270,8 +270,8 @@ export default {
                 </Column>
                 <Column header="Options" footer="Options" style="width:300px">
                     <template #body>
-                        <Button type="Button" icon="pi pi-check" label="Edit" class="p-mr-2"></Button>
-                        <Button type="Button" icon="pi pi-check" label="Delete" class="p-button-warning"></Button>
+                        <Button type="Button" icon="check" label="Edit" class="p-mr-2"></Button>
+                        <Button type="Button" icon="check" label="Delete" class="p-button-warning"></Button>
                     </template>
                 </Column>
             </TreeTable>
@@ -279,7 +279,7 @@ export default {
 
         <div class="card">
             <h5>Frozen Columns</h5>
-            <ToggleButton v-model="optionsFrozen" onIcon="pi pi-lock" offIcon="pi pi-lock-open" onLabel="Unfreeze Options" offLabel="Freeze Options" style="width: 12rem" />
+            <ToggleButton v-model="optionsFrozen" onIcon="lock" offIcon="lock-open" onLabel="Unfreeze Options" offLabel="Freeze Options" style="width: 12rem" />
 
             <TreeTable :value="nodes" :scrollable="true" scrollHeight="400px" scrollDirection="both" class="p-mt-3">
                 <Column field="name" header="Name" :expander="true" style="width:300px" frozen></Column>
@@ -297,12 +297,12 @@ export default {
                 </Column>
                 <Column header="Options" style="width:200px" alignFrozen="right" :frozen="optionsFrozen">
                     <template #body>
-                        <Button type="Button" icon="pi pi-check" label="Edit Item" class="p-mr-2" style="width:100%"></Button>
+                        <Button type="Button" icon="check" label="Edit Item" class="p-mr-2" style="width:100%"></Button>
                     </template>
                 </Column>
             </TreeTable>
         </div>
-    </div>                    
+    </div>
 </template>
 
 <script>

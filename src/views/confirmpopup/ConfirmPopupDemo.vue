@@ -12,8 +12,8 @@
             <ConfirmPopup></ConfirmPopup>
 
             <div class="card">
-                <Button @click="confirm1($event)" icon="pi pi-check" label="Confirm" class="p-mr-2"></Button>
-                <Button @click="confirm2($event)" icon="pi pi-times" label="Delete" class="p-button-danger p-button-outlined"></Button>
+                <Button @click="confirm1($event)" icon="check" label="Confirm" class="p-mr-2"></Button>
+                <Button @click="confirm2($event)" icon="times" label="Delete" class="p-button-danger p-button-outlined"></Button>
             </div>
         </div>
 
@@ -30,7 +30,7 @@ export default {
             this.$confirm.require({
                 target: event.currentTarget,
                 message: 'Are you sure you want to proceed?',
-                icon: 'pi pi-exclamation-triangle',
+                icon: 'exclamation-triangle',
                 accept: () => {
                     this.$toast.add({severity:'info', summary:'Confirmed', detail:'You have accepted', life: 3000});
                 },
@@ -43,7 +43,7 @@ export default {
             this.$confirm.require({
                 target: event.currentTarget,
                 message: 'Do you want to delete this record?',
-                icon: 'pi pi-info-circle',
+                icon: 'info-circle',
                 acceptClass: 'p-button-danger',
                 accept: () => {
                     this.$toast.add({severity:'info', summary:'Confirmed', detail:'Record deleted', life: 3000});

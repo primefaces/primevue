@@ -14,7 +14,7 @@
                 <TabMenu :model="items" />
                 <router-view/>
             </div>
-            
+
             <div class="card">
                 <h5>Programmatic</h5>
                 <div class="p-py-2">
@@ -39,18 +39,18 @@ export default {
         return {
             active: 3,
             items: [
-                {label: 'Home', icon: 'pi pi-fw pi-home', to: '/tabmenu'},
-                {label: 'Calendar', icon: 'pi pi-fw pi-calendar', to: '/tabmenu/calendar'},
-                {label: 'Edit', icon: 'pi pi-fw pi-pencil', to: '/tabmenu/edit'},
-                {label: 'Documentation', icon: 'pi pi-fw pi-file', to: '/tabmenu/documentation'},
-                {label: 'Settings', icon: 'pi pi-fw pi-cog', to: '/tabmenu/settings'}
+                {label: 'Home', icon: 'fw home', to: '/tabmenu'},
+                {label: 'Calendar', icon: 'fw calendar', to: '/tabmenu/calendar'},
+                {label: 'Edit', icon: 'fw pencil', to: '/tabmenu/edit'},
+                {label: 'Documentation', icon: 'fw file', to: '/tabmenu/documentation'},
+                {label: 'Settings', icon: 'fw cog', to: '/tabmenu/settings'}
             ],
             items2: [
-                {label: 'Home', icon: 'pi pi-fw pi-home'},
-                {label: 'Calendar', icon: 'pi pi-fw pi-calendar'},
-                {label: 'Edit', icon: 'pi pi-fw pi-pencil'},
-                {label: 'Documentation', icon: 'pi pi-fw pi-file'},
-                {label: 'Settings', icon: 'pi pi-fw pi-cog'}
+                {label: 'Home', icon: 'fw home'},
+                {label: 'Calendar', icon: 'fw calendar'},
+                {label: 'Edit', icon: 'fw pencil'},
+                {label: 'Documentation', icon: 'fw file'},
+                {label: 'Settings', icon: 'fw cog'}
             ]
         }
     },

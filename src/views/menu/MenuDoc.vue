@@ -23,26 +23,26 @@ export default {
 			items: [
 				{
 					label: 'Update',
-					icon: 'pi pi-refresh',
+					icon: 'refresh',
 					command: () => {
 						this.$toast.add({severity:'success', summary:'Updated', detail:'Data Updated', life: 3000});
 					}
 				},
 				{
 					label: 'Delete',
-					icon: 'pi pi-times',
+					icon: 'times',
 					command: () => {
 						this.$toast.add({ severity: 'warn', summary: 'Delete', detail: 'Data Deleted', life: 3000});
 					}
 				},
 				{
 					label: 'Vue Website',
-					icon: 'pi pi-external-link',
+					icon: 'external-link',
 					url: 'https://vuejs.org/'
 				},
 				{
                     label: 'Router',
-                    icon: 'pi pi-upload',
+                    icon: 'upload',
                     to: '/fileupload'
                 }
 			]
@@ -58,13 +58,13 @@ export default {
 const items: [
     {
         label: 'Options',
-        items: [{label: 'New', icon: 'pi pi-fw pi-plus', command:() => {} },
-                {label: 'Delete', icon: 'pi pi-fw pi-trash', url: 'https://www.primetek.com.tr'}]
+        items: [{label: 'New', icon: 'fw plus', command:() => {} },
+                {label: 'Delete', icon: 'fw trash', url: 'https://www.primetek.com.tr'}]
     },
     {
         label: 'Account',
-        items: [{label: 'Options', icon: 'pi pi-fw pi-cog', to: '/options'},
-                {label: 'Sign Out', icon: 'pi pi-fw pi-power-off', to: '/logout'} ]
+        items: [{label: 'Options', icon: 'fw cog', to: '/options'},
+                {label: 'Sign Out', icon: 'fw power-off', to: '/logout'} ]
     }
 ];
 
@@ -281,14 +281,14 @@ export default {
                     label: 'Options',
                     items: [{
                         label: 'Update',
-                        icon: 'pi pi-refresh',
+                        icon: 'refresh',
                         command: () => {
                             this.$toast.add({severity:'success', summary:'Updated', detail:'Data Updated', life: 3000});
                         }
                     },
                     {
                         label: 'Delete',
-                        icon: 'pi pi-times',
+                        icon: 'times',
                         command: () => {
                             this.$toast.add({ severity: 'warn', summary: 'Delete', detail: 'Data Deleted', life: 3000});
                         }
@@ -298,12 +298,12 @@ export default {
                     label: 'Navigate',
                     items: [{
                         label: 'Vue Website',
-                        icon: 'pi pi-external-link',
+                        icon: 'external-link',
                         url: 'https://vuejs.org/'
                     },
                     {
                         label: 'Router',
-                        icon: 'pi pi-upload',
+                        icon: 'upload',
                         command: () => {
                             window.location.hash = "/fileupload"
                         }
@@ -353,14 +353,14 @@ export default {
                 label: 'Options',
                 items: [{
                     label: 'Update',
-                    icon: 'pi pi-refresh',
+                    icon: 'refresh',
                     command: () => {
                         toast.add({severity:'success', summary:'Updated', detail:'Data Updated', life: 3000});
                     }
                 },
                 {
                     label: 'Delete',
-                    icon: 'pi pi-times',
+                    icon: 'times',
                     command: () => {
                         toast.add({ severity: 'warn', summary: 'Delete', detail: 'Data Deleted', life: 3000});
                     }
@@ -370,12 +370,12 @@ export default {
                 label: 'Navigate',
                 items: [{
                     label: 'Vue Website',
-                    icon: 'pi pi-external-link',
+                    icon: 'external-link',
                     url: 'https://vuejs.org/'
                 },
                 {
                     label: 'Router',
-                    icon: 'pi pi-upload',
+                    icon: 'upload',
                     command: () => {
                         window.location.hash = "/fileupload"
                     }

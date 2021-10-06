@@ -33,8 +33,8 @@
             </template>
             <template v-slot:footer>
                 <div class="p-grid p-nogutter p-justify-between">
-                    <Button label="Back" @click="prevPage()" icon="pi pi-angle-left" />
-                    <Button label="Next" @click="nextPage()" icon="pi pi-angle-right" iconPos="right" />
+                    <Button label="Back" @click="prevPage()" icon="angle-left" />
+                    <Button label="Next" @click="nextPage()" icon="angle-right" iconPos="right" />
                 </div>
             </template>
         </Card>

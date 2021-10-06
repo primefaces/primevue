@@ -31,7 +31,7 @@ app.directive('badge', BadgeDirective);
 
         <p>Next step is attaching it to an element.</p>
 <pre v-code><code>
-&lt;i class="pi pi-bell" v-badge="2"&gt;&lt;/i&gt;
+&lt;Icon icon="bell" v-badge="2" /&gt;
 
 </code></pre>
 
@@ -49,7 +49,7 @@ app.directive('badge', BadgeDirective);
 <pre v-code><code>
 &lt;Badge value="2" severity="success"&gt;&lt;/Badge&gt;
 
-&lt;i class="pi pi-bell" v-badge.success="2"&gt;&lt;/i&gt;
+&lt;Icon icon="bell" v-badge.success="2" /&gt;
 
 </code></pre>
 
@@ -58,7 +58,7 @@ app.directive('badge', BadgeDirective);
 
 <pre v-code><code>
 &lt;Button type="button" label="Emails" badge="8" /&gt;
-&lt;Button type="button" label="Messages" icon="pi pi-users" class="p-button-warning" badge="8" badgeClass="p-badge-danger" /&gt;
+&lt;Button type="button" label="Messages" icon="users" class="p-button-warning" badge="8" badgeClass="p-badge-danger" /&gt;
 
 </code></pre>
 
@@ -197,13 +197,13 @@ export default {
         <Badge value="3" severity="danger"></Badge>
 
         <h5 class="p-mb-4">Positioned Badge</h5>
-        <i class="pi pi-bell p-mr-4 p-text-secondary" style="font-size: 2rem" v-badge="2"></i>
-        <i class="pi pi-calendar p-mr-4 p-text-secondary" style="font-size: 2rem" v-badge.danger="'10+'"></i>
-        <i class="pi pi-envelope p-text-secondary" style="font-size: 2rem" v-badge.danger></i>
+        <Icon icon="bell" class="p-mr-4 p-text-secondary" style="font-size: 2rem" v-badge="2" />
+        <Icon icon="calendar" class="p-mr-4 p-text-secondary" style="font-size: 2rem" v-badge.danger="'10+'" />
+        <Icon icon="envelope" class="p-text-secondary" style="font-size: 2rem" v-badge.danger />
 
         <h5>Button Badge</h5>
         <Button type="button" label="Emails" badge="8" class="p-mr-2" />
-        <Button type="button" label="Messages" icon="pi pi-users" class="p-button-warning" badge="8" badgeClass="p-badge-danger" />
+        <Button type="button" label="Messages" icon="users" class="p-button-warning" badge="8" badgeClass="p-badge-danger" />
 
         <h5>Sizes</h5>
         <Badge value="2" class="p-mr-2"></Badge>
@@ -231,13 +231,13 @@ export default {
         <Badge value="3" severity="danger"></Badge>
 
         <h5 class="p-mb-4">Positioned Badge</h5>
-        <i class="pi pi-bell p-mr-4 p-text-secondary" style="font-size: 2rem" v-badge="2"></i>
-        <i class="pi pi-calendar p-mr-4 p-text-secondary" style="font-size: 2rem" v-badge.danger="'10+'"></i>
-        <i class="pi pi-envelope p-text-secondary" style="font-size: 2rem" v-badge.danger></i>
+        <Icon icon="bell" class="p-mr-4 p-text-secondary" style="font-size: 2rem" v-badge="2" />
+        <Icon icon="calendar" class="p-mr-4 p-text-secondary" style="font-size: 2rem" v-badge.danger="'10+'" />
+        <Icon icon="envelope" class="p-text-secondary" style="font-size: 2rem" v-badge.danger />
 
         <h5>Button Badge</h5>
         <Button type="button" label="Emails" badge="8" class="p-mr-2" />
-        <Button type="button" label="Messages" icon="pi pi-users" class="p-button-warning" badge="8" badgeClass="p-badge-danger" />
+        <Button type="button" label="Messages" icon="users" class="p-button-warning" badge="8" badgeClass="p-badge-danger" />
 
         <h5>Sizes</h5>
         <Badge value="2" class="p-mr-2"></Badge>

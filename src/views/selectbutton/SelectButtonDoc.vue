@@ -209,10 +209,10 @@ export default {
                 {name: 'Option 3', value: 3}
             ],
             justifyOptions: [
-                {icon: 'pi pi-align-left', value: 'left'},
-                {icon: 'pi pi-align-right', value: 'Right'},
-                {icon: 'pi pi-align-center', value: 'Center'},
-                {icon: 'pi pi-align-justify', value: 'Justify'}]
+                {icon: 'align-left', value: 'left'},
+                {icon: 'align-right', value: 'Right'},
+                {icon: 'align-center', value: 'Center'},
+                {icon: 'align-justify', value: 'Justify'}]
         }
     }
 }
@@ -254,10 +254,10 @@ export default {
             {name: 'Option 3', value: 3}
         ]);
         const justifyOptions = ref([
-            {icon: 'pi pi-align-left', value: 'left'},
-            {icon: 'pi pi-align-right', value: 'Right'},
-            {icon: 'pi pi-align-center', value: 'Center'},
-            {icon: 'pi pi-align-justify', value: 'Justify'}
+            {icon: 'align-left', value: 'left'},
+            {icon: 'align-right', value: 'Right'},
+            {icon: 'align-center', value: 'Center'},
+            {icon: 'align-justify', value: 'Justify'}
         ]);
 
         return { value1, value2, value3, options, paymentOptions, justifyOptions }

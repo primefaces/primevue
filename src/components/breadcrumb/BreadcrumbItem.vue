@@ -3,12 +3,12 @@
         <template v-if="!template">
             <router-link v-if="item.to" :to="item.to" custom v-slot="{navigate, href, isActive, isExactActive}">
                 <a :href="href" :class="linkClass({isActive, isExactActive})" @click="onClick($event, navigate)">
-                    <span v-if="item.icon" :class="iconClass"></span>
+                    <Icon v-if="item.icon" class="p-menuitem-icon" :icon="item.icon" />
                     <span v-if="item.label" class="p-menuitem-text">{{item.label}}</span>
                 </a>
             </router-link>
             <a v-else :href="item.url||'#'" :class="linkClass()" @click="onClick" :target="item.target">
-                <span v-if="item.icon" :class="iconClass"></span>
+                <Icon v-if="item.icon" class="p-menuitem-icon" :icon="item.icon" />
                 <span v-if="item.label" class="p-menuitem-text">{{item.label}}</span>
             </a>
         </template>
@@ -17,6 +17,8 @@
 </template>
 
 <script>
+import Icon from 'primevue/icon';
+
 export default {
     name: 'BreadcrumbItem',
     props: {
@@ -53,10 +55,8 @@ export default {
             return (typeof item.disabled === 'function' ? item.disabled() : item.disabled);
         }
     },
-    computed: {
-        iconClass() {
-            return ['p-menuitem-icon', this.item.icon];
-        }
-    }
+    components: {
+        'Icon': Icon,
+    },
 }
 </script>

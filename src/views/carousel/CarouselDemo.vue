@@ -25,9 +25,9 @@
                                     <h6 class="p-mt-0 p-mb-3">${{slotProps.data.price}}</h6>
                                     <span :class="'product-badge status-'+slotProps.data.inventoryStatus.toLowerCase()">{{slotProps.data.inventoryStatus}}</span>
                                     <div class="car-buttons p-mt-5">
-                                        <Button icon="pi pi-search" class="p-button p-button-rounded p-mr-2" />
-                                        <Button icon="pi pi-star" class="p-button-success p-button-rounded p-mr-2" />
-                                        <Button icon="pi pi-cog" class="p-button-help p-button-rounded" />
+                                        <Button icon="search" class="p-button p-button-rounded p-mr-2" />
+                                        <Button icon="star" class="p-button-success p-button-rounded p-mr-2" />
+                                        <Button icon="cog" class="p-button-help p-button-rounded" />
                                     </div>
                                 </div>
                             </div>
@@ -52,9 +52,9 @@
                                     <h6 class="p-mt-0 p-mb-3">${{slotProps.data.price}}</h6>
                                     <span :class="'product-badge status-'+slotProps.data.inventoryStatus.toLowerCase()">{{slotProps.data.inventoryStatus}}</span>
                                     <div class="car-buttons p-mt-5">
-                                        <Button icon="pi pi-search" class="p-button p-button-rounded p-mr-2" />
-                                        <Button icon="pi pi-star" class="p-button-success p-button-rounded p-mr-2" />
-                                        <Button icon="pi pi-cog" class="p-button-help p-button-rounded" />
+                                        <Button icon="search" class="p-button p-button-rounded p-mr-2" />
+                                        <Button icon="star" class="p-button-success p-button-rounded p-mr-2" />
+                                        <Button icon="cog" class="p-button-help p-button-rounded" />
                                     </div>
                                 </div>
                             </div>
@@ -80,9 +80,9 @@
                                     <h6 class="p-mt-0 p-mb-3">${{slotProps.data.price}}</h6>
                                     <span :class="'product-badge status-'+slotProps.data.inventoryStatus.toLowerCase()">{{slotProps.data.inventoryStatus}}</span>
                                     <div class="car-buttons p-mt-5">
-                                        <Button icon="pi pi-search" class="p-button p-button-rounded p-mr-2" />
-                                        <Button icon="pi pi-star" class="p-button-success p-button-rounded p-mr-2" />
-                                        <Button icon="pi pi-cog" class="p-button-help p-button-rounded" />
+                                        <Button icon="search" class="p-button p-button-rounded p-mr-2" />
+                                        <Button icon="star" class="p-button-success p-button-rounded p-mr-2" />
+                                        <Button icon="cog" class="p-button-help p-button-rounded" />
                                     </div>
                                 </div>
                             </div>

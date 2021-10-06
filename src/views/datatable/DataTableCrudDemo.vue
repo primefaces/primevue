@@ -12,13 +12,13 @@
             <div class="card">
                 <Toolbar class="p-mb-4">
                     <template #left>
-                        <Button label="New" icon="pi pi-plus" class="p-button-success p-mr-2" @click="openNew" />
-                        <Button label="Delete" icon="pi pi-trash" class="p-button-danger" @click="confirmDeleteSelected" :disabled="!selectedProducts || !selectedProducts.length" />
+                        <Button label="New" icon="plus" class="p-button-success p-mr-2" @click="openNew" />
+                        <Button label="Delete" icon="trash" class="p-button-danger" @click="confirmDeleteSelected" :disabled="!selectedProducts || !selectedProducts.length" />
                     </template>
 
                     <template #right>
                         <FileUpload mode="basic" accept="image/*" :maxFileSize="1000000" label="Import" chooseLabel="Import" class="p-mr-2 p-d-inline-block" />
-                        <Button label="Export" icon="pi pi-upload" class="p-button-help" @click="exportCSV($event)"  />
+                        <Button label="Export" icon="upload" class="p-button-help" @click="exportCSV($event)"  />
                     </template>
                 </Toolbar>
 
@@ -30,7 +30,7 @@
                         <div class="table-header p-d-flex p-flex-column p-flex-md-row p-jc-md-between">
 							<h5 class="p-mb-2 p-m-md-0 p-as-md-center">Manage Products</h5>
 							<span class="p-input-icon-left">
-                                <i class="pi pi-search" />
+                                <i class="search" />
                                 <InputText v-model="filters['global'].value" placeholder="Search..." />
                             </span>
 						</div>
@@ -62,8 +62,8 @@
                     </Column>
                     <Column :exportable="false" style="min-width:8rem">
                         <template #body="slotProps">
-                            <Button icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2" @click="editProduct(slotProps.data)" />
-                            <Button icon="pi pi-trash" class="p-button-rounded p-button-warning" @click="confirmDeleteProduct(slotProps.data)" />
+                            <Button icon="pencil" class="p-button-rounded p-button-success p-mr-2" @click="editProduct(slotProps.data)" />
+                            <Button icon="trash" class="p-button-rounded p-button-warning" @click="confirmDeleteProduct(slotProps.data)" />
                         </template>
                     </Column>
                 </DataTable>
@@ -131,30 +131,30 @@
                     </div>
                 </div>
                 <template #footer>
-                    <Button label="Cancel" icon="pi pi-times" class="p-button-text" @click="hideDialog"/>
-                    <Button label="Save" icon="pi pi-check" class="p-button-text" @click="saveProduct" />
+                    <Button label="Cancel" icon="times" class="p-button-text" @click="hideDialog"/>
+                    <Button label="Save" icon="check" class="p-button-text" @click="saveProduct" />
                 </template>
             </Dialog>
 
             <Dialog v-model:visible="deleteProductDialog" :style="{width: '450px'}" header="Confirm" :modal="true">
                 <div class="confirmation-content">
-                    <i class="pi pi-exclamation-triangle p-mr-3" style="font-size: 2rem" />
+                    <i class="exclamation-triangle p-mr-3" style="font-size: 2rem" />
                     <span v-if="product">Are you sure you want to delete <b>{{product.name}}</b>?</span>
                 </div>
                 <template #footer>
-                    <Button label="No" icon="pi pi-times" class="p-button-text" @click="deleteProductDialog = false"/>
-                    <Button label="Yes" icon="pi pi-check" class="p-button-text" @click="deleteProduct" />
+                    <Button label="No" icon="times" class="p-button-text" @click="deleteProductDialog = false"/>
+                    <Button label="Yes" icon="check" class="p-button-text" @click="deleteProduct" />
                 </template>
             </Dialog>
 
             <Dialog v-model:visible="deleteProductsDialog" :style="{width: '450px'}" header="Confirm" :modal="true">
                 <div class="confirmation-content">
-                    <i class="pi pi-exclamation-triangle p-mr-3" style="font-size: 2rem" />
+                    <i class="exclamation-triangle p-mr-3" style="font-size: 2rem" />
                     <span v-if="product">Are you sure you want to delete the selected products?</span>
                 </div>
                 <template #footer>
-                    <Button label="No" icon="pi pi-times" class="p-button-text" @click="deleteProductsDialog = false"/>
-                    <Button label="Yes" icon="pi pi-check" class="p-button-text" @click="deleteSelectedProducts" />
+                    <Button label="No" icon="times" class="p-button-text" @click="deleteProductsDialog = false"/>
+                    <Button label="Yes" icon="check" class="p-button-text" @click="deleteSelectedProducts" />
                 </template>
             </Dialog>
 		</div>
@@ -192,17 +192,17 @@ export default {
         <div class="card">
             <Toolbar class="p-mb-4">
                 <template #left>
-                    <Button label="New" icon="pi pi-plus" class="p-button-success p-mr-2" @click="openNew" />
-                    <Button label="Delete" icon="pi pi-trash" class="p-button-danger" @click="confirmDeleteSelected" :disabled="!selectedProducts || !selectedProducts.length" />
+                    <Button label="New" icon="plus" class="p-button-success p-mr-2" @click="openNew" />
+                    <Button label="Delete" icon="trash" class="p-button-danger" @click="confirmDeleteSelected" :disabled="!selectedProducts || !selectedProducts.length" />
                 </template>
 
                 <template #right>
                     <FileUpload mode="basic" accept="image/*" :maxFileSize="1000000" label="Import" chooseLabel="Import" class="p-mr-2 p-d-inline-block" />
-                    <Button label="Export" icon="pi pi-upload" class="p-button-help" @click="exportCSV($event)"  />
+                    <Button label="Export" icon="upload" class="p-button-help" @click="exportCSV($event)"  />
                 </template>
             </Toolbar>
 
-            <DataTable ref="dt" :value="products" v-model:selection="selectedProducts" dataKey="id" 
+            <DataTable ref="dt" :value="products" v-model:selection="selectedProducts" dataKey="id"
                 :paginator="true" :rows="10" :filters="filters"
                 paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" :rowsPerPageOptions="[5,10,25]"
                 currentPageReportTemplate="Showing {first} to {last} of {totalRecords} products" responsiveLayout="scroll">
@@ -210,7 +210,7 @@ export default {
                     <div class="table-header p-d-flex p-flex-column p-flex-md-row p-jc-md-between">
 						<h5 class="p-mb-2 p-m-md-0 p-as-md-center">Manage Products</h5>
 						<span class="p-input-icon-left">
-                            <i class="pi pi-search" />
+                            <i class="search" />
                             <InputText v-model="filters['global'].value" placeholder="Search..." />
                         </span>
 					</div>
@@ -242,8 +242,8 @@ export default {
                 </Column>
                 <Column :exportable="false" style="min-width:8rem">
                     <template #body="slotProps">
-                        <Button icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2" @click="editProduct(slotProps.data)" />
-                        <Button icon="pi pi-trash" class="p-button-rounded p-button-warning" @click="confirmDeleteProduct(slotProps.data)" />
+                        <Button icon="pencil" class="p-button-rounded p-button-success p-mr-2" @click="editProduct(slotProps.data)" />
+                        <Button icon="trash" class="p-button-rounded p-button-warning" @click="confirmDeleteProduct(slotProps.data)" />
                     </template>
                 </Column>
             </DataTable>
@@ -311,30 +311,30 @@ export default {
                 </div>
             </div>
             <template #footer>
-                <Button label="Cancel" icon="pi pi-times" class="p-button-text" @click="hideDialog"/>
-                <Button label="Save" icon="pi pi-check" class="p-button-text" @click="saveProduct" />
+                <Button label="Cancel" icon="times" class="p-button-text" @click="hideDialog"/>
+                <Button label="Save" icon="check" class="p-button-text" @click="saveProduct" />
             </template>
         </Dialog>
 
         <Dialog v-model:visible="deleteProductDialog" :style="{width: '450px'}" header="Confirm" :modal="true">
             <div class="confirmation-content">
-                <i class="pi pi-exclamation-triangle p-mr-3" style="font-size: 2rem" />
+                <i class="exclamation-triangle p-mr-3" style="font-size: 2rem" />
                 <span v-if="product">Are you sure you want to delete <b>{{product.name}}</b>?</span>
             </div>
             <template #footer>
-                <Button label="No" icon="pi pi-times" class="p-button-text" @click="deleteProductDialog = false"/>
-                <Button label="Yes" icon="pi pi-check" class="p-button-text" @click="deleteProduct" />
+                <Button label="No" icon="times" class="p-button-text" @click="deleteProductDialog = false"/>
+                <Button label="Yes" icon="check" class="p-button-text" @click="deleteProduct" />
             </template>
         </Dialog>
 
         <Dialog v-model:visible="deleteProductsDialog" :style="{width: '450px'}" header="Confirm" :modal="true">
             <div class="confirmation-content">
-                <i class="pi pi-exclamation-triangle p-mr-3" style="font-size: 2rem" />
+                <i class="exclamation-triangle p-mr-3" style="font-size: 2rem" />
                 <span v-if="product">Are you sure you want to delete the selected products?</span>
             </div>
             <template #footer>
-                <Button label="No" icon="pi pi-times" class="p-button-text" @click="deleteProductsDialog = false"/>
-                <Button label="Yes" icon="pi pi-check" class="p-button-text" @click="deleteSelectedProducts" />
+                <Button label="No" icon="times" class="p-button-text" @click="deleteProductsDialog = false"/>
+                <Button label="Yes" icon="check" class="p-button-text" @click="deleteSelectedProducts" />
             </template>
         </Dialog>
 	</div>
@@ -491,7 +491,7 @@ export default {
 @media screen and (max-width: 960px) {
 	::v-deep(.p-toolbar) {
 		flex-wrap: wrap;
-        
+
 		.p-button {
             margin-bottom: 0.25rem;
         }
@@ -508,17 +508,17 @@ export default {
         <div class="card">
             <Toolbar class="p-mb-4">
                 <template #left>
-                    <Button label="New" icon="pi pi-plus" class="p-button-success p-mr-2" @click="openNew" />
-                    <Button label="Delete" icon="pi pi-trash" class="p-button-danger" @click="confirmDeleteSelected" :disabled="!selectedProducts || !selectedProducts.length" />
+                    <Button label="New" icon="plus" class="p-button-success p-mr-2" @click="openNew" />
+                    <Button label="Delete" icon="trash" class="p-button-danger" @click="confirmDeleteSelected" :disabled="!selectedProducts || !selectedProducts.length" />
                 </template>
 
                 <template #right>
                     <FileUpload mode="basic" accept="image/*" :maxFileSize="1000000" label="Import" chooseLabel="Import" class="p-mr-2 p-d-inline-block" />
-                    <Button label="Export" icon="pi pi-upload" class="p-button-help" @click="exportCSV($event)"  />
+                    <Button label="Export" icon="upload" class="p-button-help" @click="exportCSV($event)"  />
                 </template>
             </Toolbar>
 
-            <DataTable ref="dt" :value="products" v-model:selection="selectedProducts" dataKey="id" 
+            <DataTable ref="dt" :value="products" v-model:selection="selectedProducts" dataKey="id"
                 :paginator="true" :rows="10" :filters="filters"
                 paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" :rowsPerPageOptions="[5,10,25]"
                 currentPageReportTemplate="Showing {first} to {last} of {totalRecords} products" responsiveLayout="scroll">
@@ -526,7 +526,7 @@ export default {
                     <div class="table-header p-d-flex p-flex-column p-flex-md-row p-jc-md-between">
 						<h5 class="p-mb-2 p-m-md-0 p-as-md-center">Manage Products</h5>
 						<span class="p-input-icon-left">
-                            <i class="pi pi-search" />
+                            <i class="search" />
                             <InputText v-model="filters['global'].value" placeholder="Search..." />
                         </span>
 					</div>
@@ -558,8 +558,8 @@ export default {
                 </Column>
                 <Column :exportable="false" style="min-width:8rem">
                     <template #body="slotProps">
-                        <Button icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2" @click="editProduct(slotProps.data)" />
-                        <Button icon="pi pi-trash" class="p-button-rounded p-button-warning" @click="confirmDeleteProduct(slotProps.data)" />
+                        <Button icon="pencil" class="p-button-rounded p-button-success p-mr-2" @click="editProduct(slotProps.data)" />
+                        <Button icon="trash" class="p-button-rounded p-button-warning" @click="confirmDeleteProduct(slotProps.data)" />
                     </template>
                 </Column>
             </DataTable>
@@ -627,30 +627,30 @@ export default {
                 </div>
             </div>
             <template #footer>
-                <Button label="Cancel" icon="pi pi-times" class="p-button-text" @click="hideDialog"/>
-                <Button label="Save" icon="pi pi-check" class="p-button-text" @click="saveProduct" />
+                <Button label="Cancel" icon="times" class="p-button-text" @click="hideDialog"/>
+                <Button label="Save" icon="check" class="p-button-text" @click="saveProduct" />
             </template>
         </Dialog>
 
         <Dialog v-model:visible="deleteProductDialog" :style="{width: '450px'}" header="Confirm" :modal="true">
             <div class="confirmation-content">
-                <i class="pi pi-exclamation-triangle p-mr-3" style="font-size: 2rem" />
+                <i class="exclamation-triangle p-mr-3" style="font-size: 2rem" />
                 <span v-if="product">Are you sure you want to delete <b>{{product.name}}</b>?</span>
             </div>
             <template #footer>
-                <Button label="No" icon="pi pi-times" class="p-button-text" @click="deleteProductDialog = false"/>
-                <Button label="Yes" icon="pi pi-check" class="p-button-text" @click="deleteProduct" />
+                <Button label="No" icon="times" class="p-button-text" @click="deleteProductDialog = false"/>
+                <Button label="Yes" icon="check" class="p-button-text" @click="deleteProduct" />
             </template>
         </Dialog>
 
         <Dialog v-model:visible="deleteProductsDialog" :style="{width: '450px'}" header="Confirm" :modal="true">
             <div class="confirmation-content">
-                <i class="pi pi-exclamation-triangle p-mr-3" style="font-size: 2rem" />
+                <i class="exclamation-triangle p-mr-3" style="font-size: 2rem" />
                 <span v-if="product">Are you sure you want to delete the selected products?</span>
             </div>
             <template #footer>
-                <Button label="No" icon="pi pi-times" class="p-button-text" @click="deleteProductsDialog = false"/>
-                <Button label="Yes" icon="pi pi-check" class="p-button-text" @click="deleteSelectedProducts" />
+                <Button label="No" icon="times" class="p-button-text" @click="deleteProductsDialog = false"/>
+                <Button label="Yes" icon="check" class="p-button-text" @click="deleteSelectedProducts" />
             </template>
         </Dialog>
 	</div>
@@ -769,7 +769,7 @@ export default {
             toast.add({severity:'success', summary: 'Successful', detail: 'Products Deleted', life: 3000});
         };
 
-        return { dt, products, productDialog, deleteProductDialog, deleteProductsDialog, product, 
+        return { dt, products, productDialog, deleteProductDialog, deleteProductsDialog, product,
             selectedProducts, filters, submitted, statuses, formatCurrency, openNew, hideDialog, saveProduct, editProduct,
             confirmDeleteProduct, deleteProduct, findIndexById, createId, exportCSV, confirmDeleteSelected, deleteSelectedProducts}
     }
@@ -806,7 +806,7 @@ export default {
 @media screen and (max-width: 960px) {
 	::v-deep(.p-toolbar) {
 		flex-wrap: wrap;
-        
+
 		.p-button {
             margin-bottom: 0.25rem;
         }

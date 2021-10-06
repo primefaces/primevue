@@ -83,7 +83,7 @@ import Paginator from 'primevue/paginator';
         Rows: &#123;&#123;slotProps.state.rows&#125;&#125;
     &lt;/template&gt;
     &lt;template #right&gt;
-        &lt;Button type="button" icon="pi pi-search" /&gt;
+        &lt;Button type="button" icon="search" /&gt;
     &lt;/template&gt;
 &lt;/Paginator&gt;
 </template>
@@ -287,10 +287,10 @@ export default {
         <Paginator v-model:first="first" :rows="1" :totalRecords="totalRecords2"
             template="FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink">
             <template #left>
-                <Button type="button" icon="pi pi-refresh" @click="reset()"/>
+                <Button type="button" icon="refresh" @click="reset()"/>
             </template>
             <template #right>
-                <Button type="button" icon="pi pi-search" />
+                <Button type="button" icon="search" />
             </template>
         </Paginator>
 
@@ -340,10 +340,10 @@ export default {
         <Paginator v-model:first="first" :rows="1" :totalRecords="totalRecords2"
             template="FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink">
             <template #left>
-                <Button type="button" icon="pi pi-refresh" @click="reset()"/>
+                <Button type="button" icon="refresh" @click="reset()"/>
             </template>
             <template #right>
-                <Button type="button" icon="pi pi-search" />
+                <Button type="button" icon="search" />
             </template>
         </Paginator>
 

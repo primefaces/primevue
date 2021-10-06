@@ -14,24 +14,24 @@
 
             <div class="card">
                 <h5>Basic</h5>
-                <Button @click="confirm1()" icon="pi pi-check" label="Confirm" class="p-mr-2"></Button>
-                <Button @click="confirm2()" icon="pi pi-times" label="Delete"></Button>
+                <Button @click="confirm1()" icon="check" label="Confirm" class="p-mr-2"></Button>
+                <Button @click="confirm2()" icon="times" label="Delete"></Button>
 
                 <h5>Position</h5>
                 <div class="p-grid p-dir-col">
                     <div class="p-col">
-                        <Button @click="confirmPosition('left')" icon="pi pi-arrow-right" label="Left" class="p-button-help p-mr-2"></Button>
-                        <Button @click="confirmPosition('right')" icon="pi pi-arrow-left" label="Right" class="p-button-help"></Button>
+                        <Button @click="confirmPosition('left')" icon="arrow-right" label="Left" class="p-button-help p-mr-2"></Button>
+                        <Button @click="confirmPosition('right')" icon="arrow-left" label="Right" class="p-button-help"></Button>
                     </div>
                     <div class="p-col">
-                        <Button @click="confirmPosition('topleft')" icon="pi pi-arrow-down" label="TopLeft" class="p-button-warning p-mr-2"></Button>
-                        <Button @click="confirmPosition('top')" icon="pi pi-arrow-down" label="Top" class="p-button-warning p-mr-2"></Button>
-                        <Button @click="confirmPosition('topright')" icon="pi pi-arrow-down" label="TopRight" class="p-button-warning"></Button>
+                        <Button @click="confirmPosition('topleft')" icon="arrow-down" label="TopLeft" class="p-button-warning p-mr-2"></Button>
+                        <Button @click="confirmPosition('top')" icon="arrow-down" label="Top" class="p-button-warning p-mr-2"></Button>
+                        <Button @click="confirmPosition('topright')" icon="arrow-down" label="TopRight" class="p-button-warning"></Button>
                     </div>
                     <div class="p-col">
-                        <Button @click="confirmPosition('bottomleft')" icon="pi pi-arrow-up" label="BottomLeft" class="p-button-success p-mr-2"></Button>
-                        <Button @click="confirmPosition('bottom')" icon="pi pi-arrow-up" label="Bottom" class="p-button-success p-mr-2"></Button>
-                        <Button @click="confirmPosition('bottomright')" icon="pi pi-arrow-up" label="BottomRight" class="p-button-success"></Button>
+                        <Button @click="confirmPosition('bottomleft')" icon="arrow-up" label="BottomLeft" class="p-button-success p-mr-2"></Button>
+                        <Button @click="confirmPosition('bottom')" icon="arrow-up" label="Bottom" class="p-button-success p-mr-2"></Button>
+                        <Button @click="confirmPosition('bottomright')" icon="arrow-up" label="BottomRight" class="p-button-success"></Button>
                     </div>
                 </div>
             </div>
@@ -50,7 +50,7 @@ export default {
             this.$confirm.require({
                 message: 'Are you sure you want to proceed?',
                 header: 'Confirmation',
-                icon: 'pi pi-exclamation-triangle',
+                icon: 'exclamation-triangle',
                 accept: () => {
                     this.$toast.add({severity:'info', summary:'Confirmed', detail:'You have accepted', life: 3000});
                 },
@@ -63,7 +63,7 @@ export default {
             this.$confirm.require({
                 message: 'Do you want to delete this record?',
                 header: 'Delete Confirmation',
-                icon: 'pi pi-info-circle',
+                icon: 'info-circle',
                 acceptClass: 'p-button-danger',
                 accept: () => {
                     this.$toast.add({severity:'info', summary:'Confirmed', detail:'Record deleted', life: 3000});
@@ -78,7 +78,7 @@ export default {
                 group: 'positionDialog',
                 message: 'Do you want to delete this record?',
                 header: 'Delete Confirmation',
-                icon: 'pi pi-info-circle',
+                icon: 'info-circle',
                 position: position,
                 accept: () => {
                     this.$toast.add({severity:'info', summary:'Confirmed', detail:'Record deleted', life: 3000});

@@ -88,11 +88,11 @@ Stacked
 
 Horizontal
 &lt;InputNumber v-model="value2" showButtons buttonLayout="horizontal"
-    decrementButtonClass="p-button-danger" incrementButtonClass="p-button-success" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus" mode="currency" currency="EUR" /&gt;
+    decrementButtonClass="p-button-danger" incrementButtonClass="p-button-success" incrementButtonIcon="plus" decrementButtonIcon="minus" mode="currency" currency="EUR" /&gt;
 
 Vertical
 &lt;InputNumber v-model="value3" mode="decimal" showButtons buttonLayout="vertical"
-    decrementButtonClass="p-button-secondary" incrementButtonClass="p-button-secondary" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus" /&gt;
+    decrementButtonClass="p-button-secondary" incrementButtonClass="p-button-secondary" incrementButtonIcon="plus" decrementButtonIcon="minus" /&gt;
 
 </code></pre>
 
@@ -164,13 +164,13 @@ Vertical
                     <tr>
                         <td>incrementButtonIcon</td>
                         <td>string</td>
-                        <td>pi pi-angle-up</td>
+                        <td>angle-up</td>
                         <td>Style class of the increment button.</td>
                     </tr>
                     <tr>
                         <td>decrementButtonIcon</td>
                         <td>string</td>
-                        <td>pi pi-angle-down</td>
+                        <td>angle-down</td>
                         <td>Style class of the decrement button.</td>
                     </tr>
                     <tr>
@@ -488,7 +488,7 @@ export default {
             <div class="p-field p-col-12 p-md-3">
                 <label for="horizontal">Horizontal with Step</label>
                 <InputNumber id="horizontal" v-model="value18" showButtons buttonLayout="horizontal" :step="0.25"
-                    decrementButtonClass="p-button-danger" incrementButtonClass="p-button-success" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus" mode="currency" currency="EUR" />
+                    decrementButtonClass="p-button-danger" incrementButtonClass="p-button-success" incrementButtonIcon="plus" decrementButtonIcon="minus" mode="currency" currency="EUR" />
             </div>
             <div class="p-field p-col-12 p-md-3">
                 <label for="minmax-buttons">Min-Max Boundaries</label>
@@ -499,7 +499,7 @@ export default {
         <div class="p-field p-col-12 p-md-3">
             <label for="vertical" style="display: block">Vertical</label>
             <InputNumber id="vertical" v-model="value19" mode="decimal" showButtons buttonLayout="vertical" style="width:4rem"
-                decrementButtonClass="p-button-secondary" incrementButtonClass="p-button-secondary" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus" />
+                decrementButtonClass="p-button-secondary" incrementButtonClass="p-button-secondary" incrementButtonIcon="plus" decrementButtonIcon="minus" />
         </div>
     </div>
 </template>
@@ -625,7 +625,7 @@ export default {
             <div class="p-field p-col-12 p-md-3">
                 <label for="horizontal">Horizontal with Step</label>
                 <InputNumber id="horizontal" v-model="value18" showButtons buttonLayout="horizontal" :step="0.25"
-                    decrementButtonClass="p-button-danger" incrementButtonClass="p-button-success" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus" mode="currency" currency="EUR" />
+                    decrementButtonClass="p-button-danger" incrementButtonClass="p-button-success" incrementButtonIcon="plus" decrementButtonIcon="minus" mode="currency" currency="EUR" />
             </div>
             <div class="p-field p-col-12 p-md-3">
                 <label for="minmax-buttons">Min-Max Boundaries</label>
@@ -636,7 +636,7 @@ export default {
         <div class="p-field p-col-12 p-md-3">
             <label for="vertical" style="display: block">Vertical</label>
             <InputNumber id="vertical" v-model="value19" mode="decimal" showButtons buttonLayout="vertical" style="width:4rem"
-                decrementButtonClass="p-button-secondary" incrementButtonClass="p-button-secondary" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus" />
+                decrementButtonClass="p-button-secondary" incrementButtonClass="p-button-secondary" incrementButtonIcon="plus" decrementButtonIcon="minus" />
         </div>
     </div>
 </template>

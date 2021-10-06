@@ -133,13 +133,13 @@ import Password from 'primevue/password';
                     <tr>
                         <td>hideIcon</td>
                         <td>string</td>
-                        <td>pi pi-eye-slash</td>
+                        <td>eye-slash</td>
                         <td>Icon to hide displaying the password as plain text.</td>
                     </tr>
                     <tr>
                         <td>showIcon</td>
                         <td>string</td>
-                        <td>pi pi-eye</td>
+                        <td>eye</td>
                         <td>Icon to show displaying the password as plain text.</td>
                     </tr>
                     <tr>

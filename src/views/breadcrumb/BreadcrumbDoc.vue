@@ -20,7 +20,7 @@ import Breadcrumb from 'primevue/breadcrumb';
 export default {
     data() {
         return {
-            home: {icon: 'pi pi-home', to: '/'},
+            home: {icon: 'home', to: '/'},
             items: [
                 {label: 'Computer'},
                 {label: 'Notebook'},
@@ -165,7 +165,7 @@ export default {
     data() {
         return {
             home: {
-                icon: 'pi pi-home', 
+                icon: 'home',
                 to: '/',
             },
             items: [
@@ -196,7 +196,7 @@ import { ref } from 'vue';
 export default {
     setup() {
         const home = ref({
-            icon: 'pi pi-home', 
+            icon: 'home',
             to: '/',
         });
         const items = ref([

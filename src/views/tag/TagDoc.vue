@@ -16,7 +16,7 @@ import Tag from 'primevue/tag';
 		<h5>Icon</h5>
 		<p>An icon can also be configured to be displayed next to the value with the <i>icon</i> property.</p>
 <pre v-code><code>
-&lt;Tag value="New" icon="pi pi-plus"&gt;&lt;/Tag&gt;
+&lt;Tag value="New" icon="plus"&gt;&lt;/Tag&gt;
 
 </code></pre>
 
@@ -141,11 +141,11 @@ export default {
         <Tag severity="danger" value="Danger" rounded></Tag>
 
         <h5>Icons</h5>
-        <Tag class="p-mr-2" icon="pi pi-user" value="Primary"></Tag>
-        <Tag class="p-mr-2" icon="pi pi-check" severity="success" value="Success"></Tag>
-        <Tag class="p-mr-2" icon="pi pi-info-circle" severity="info" value="Info"></Tag>
-        <Tag class="p-mr-2" icon="pi pi-exclamation-triangle" severity="warning" value="Warning"></Tag>
-        <Tag icon="pi pi-times" severity="danger" value="Danger"></Tag>
+        <Tag class="p-mr-2" icon="user" value="Primary"></Tag>
+        <Tag class="p-mr-2" icon="check" severity="success" value="Success"></Tag>
+        <Tag class="p-mr-2" icon="info-circle" severity="info" value="Info"></Tag>
+        <Tag class="p-mr-2" icon="exclamation-triangle" severity="warning" value="Warning"></Tag>
+        <Tag icon="times" severity="danger" value="Danger"></Tag>
     </div>
 </template>
 
@@ -175,11 +175,11 @@ export default {
         <Tag severity="danger" value="Danger" rounded></Tag>
 
         <h5>Icons</h5>
-        <Tag class="p-mr-2" icon="pi pi-user" value="Primary"></Tag>
-        <Tag class="p-mr-2" icon="pi pi-check" severity="success" value="Success"></Tag>
-        <Tag class="p-mr-2" icon="pi pi-info-circle" severity="info" value="Info"></Tag>
-        <Tag class="p-mr-2" icon="pi pi-exclamation-triangle" severity="warning" value="Warning"></Tag>
-        <Tag icon="pi pi-times" severity="danger" value="Danger"></Tag>
+        <Tag class="p-mr-2" icon="user" value="Primary"></Tag>
+        <Tag class="p-mr-2" icon="check" severity="success" value="Success"></Tag>
+        <Tag class="p-mr-2" icon="info-circle" severity="info" value="Info"></Tag>
+        <Tag class="p-mr-2" icon="exclamation-triangle" severity="warning" value="Warning"></Tag>
+        <Tag icon="times" severity="danger" value="Danger"></Tag>
     </div>
 </template>
 

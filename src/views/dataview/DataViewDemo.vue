@@ -34,7 +34,7 @@
 								</div>
 								<div class="product-list-action">
 									<span class="product-price">${{slotProps.data.price}}</span>
-									<Button icon="pi pi-shopping-cart" label="Add to Cart" :disabled="slotProps.data.inventoryStatus === 'OUTOFSTOCK'"></Button>
+									<Button icon="shopping-cart" label="Add to Cart" :disabled="slotProps.data.inventoryStatus === 'OUTOFSTOCK'"></Button>
 									<span :class="'product-badge status-'+slotProps.data.inventoryStatus.toLowerCase()">{{slotProps.data.inventoryStatus}}</span>
 								</div>
 							</div>
@@ -59,7 +59,7 @@
 								</div>
 								<div class="product-grid-item-bottom">
 									<span class="product-price">${{slotProps.data.price}}</span>
-									<Button icon="pi pi-shopping-cart" :disabled="slotProps.data.inventoryStatus === 'OUTOFSTOCK'"></Button>
+									<Button icon="shopping-cart" :disabled="slotProps.data.inventoryStatus === 'OUTOFSTOCK'"></Button>
 								</div>
 							</div>
 						</div>

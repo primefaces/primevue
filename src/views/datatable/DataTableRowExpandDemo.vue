@@ -14,8 +14,8 @@
                     @row-expand="onRowExpand" @row-collapse="onRowCollapse" responsiveLayout="scroll">
                     <template #header>
                         <div class="table-header-container">
-                            <Button icon="pi pi-plus" label="Expand All" @click="expandAll" class="p-mr-2" />
-                            <Button icon="pi pi-minus" label="Collapse All" @click="collapseAll" />
+                            <Button icon="plus" label="Expand All" @click="expandAll" class="p-mr-2" />
+                            <Button icon="minus" label="Collapse All" @click="collapseAll" />
                         </div>
                     </template>
                      <Column :expander="true" headerStyle="width: 3rem" />
@@ -60,7 +60,7 @@
                                 </Column>
                                 <Column headerStyle="width:4rem">
                                     <template #body>
-                                        <Button icon="pi pi-search" />
+                                        <Button icon="search" />
                                     </template>
                                 </Column>
                             </DataTable>
@@ -71,7 +71,7 @@
 		</div>
 
         <AppDoc name="DataTableRowExpandDemo" :sources="sources" :service="['ProductService']" :data="['products-orders-small']" github="datatable/DataTableRowExpandDemo.vue" />
-            
+
 	</div>
 </template>
 
@@ -95,8 +95,8 @@ export default {
             @rowExpand="onRowExpand" @rowCollapse="onRowCollapse" responsiveLayout="scroll">
             <template #header>
                 <div class="table-header-container">
-                    <Button icon="pi pi-plus" label="Expand All" @click="expandAll" class="p-mr-2" />
-                    <Button icon="pi pi-minus" label="Collapse All" @click="collapseAll" />
+                    <Button icon="plus" label="Expand All" @click="expandAll" class="p-mr-2" />
+                    <Button icon="minus" label="Collapse All" @click="collapseAll" />
                 </div>
             </template>
              <Column :expander="true" headerStyle="width: 3rem" />
@@ -141,7 +141,7 @@ export default {
                         </Column>
                         <Column headerStyle="width:4rem">
                             <template #body>
-                                <Button icon="pi pi-search" />
+                                <Button icon="search" />
                             </template>
                         </Column>
                     </DataTable>
@@ -158,7 +158,7 @@ export default {
     data() {
         return {
             products: null,
-            expandedRows: [] 
+            expandedRows: []
         }
     },
     productService: null,
@@ -199,7 +199,7 @@ export default {
 .orders-subtable {
     padding: 1rem;
 }
-</style>                    
+</style>
 `
                 },
                 'composition-api': {
@@ -208,13 +208,13 @@ export default {
 <template>
 	<div>
         <Toast />
-        
+
         <DataTable :value="products" v-model:expandedRows="expandedRows" dataKey="id"
             @rowExpand="onRowExpand" @rowCollapse="onRowCollapse" responsiveLayout="scroll">
             <template #header>
                 <div class="table-header-container">
-                    <Button icon="pi pi-plus" label="Expand All" @click="expandAll" class="p-mr-2" />
-                    <Button icon="pi pi-minus" label="Collapse All" @click="collapseAll" />
+                    <Button icon="plus" label="Expand All" @click="expandAll" class="p-mr-2" />
+                    <Button icon="minus" label="Collapse All" @click="collapseAll" />
                 </div>
             </template>
              <Column :expander="true" headerStyle="width: 3rem" />
@@ -259,7 +259,7 @@ export default {
                         </Column>
                         <Column headerStyle="width:4rem">
                             <template #body>
-                                <Button icon="pi pi-search" />
+                                <Button icon="search" />
                             </template>
                         </Column>
                     </DataTable>
@@ -317,7 +317,7 @@ export default {
 .orders-subtable {
     padding: 1rem;
 }
-</style>                    
+</style>
 `
                 }
             }

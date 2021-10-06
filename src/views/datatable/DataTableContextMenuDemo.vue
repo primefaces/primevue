@@ -38,8 +38,8 @@ export default {
             products: null,
             selectedProduct: null,
             menuModel: [
-                {label: 'View', icon: 'pi pi-fw pi-search', command: () => this.viewProduct(this.selectedProduct)},
-                {label: 'Delete', icon: 'pi pi-fw pi-times', command: () => this.deleteProduct(this.selectedProduct)}
+                {label: 'View', icon: 'fw search', command: () => this.viewProduct(this.selectedProduct)},
+                {label: 'Delete', icon: 'fw times', command: () => this.deleteProduct(this.selectedProduct)}
             ],
             sources: {
                 'options-api': {
@@ -72,8 +72,8 @@ export default {
             products: null,
             selectedProduct: null,
             menuModel: [
-                {label: 'View', icon: 'pi pi-fw pi-search', command: () => this.viewProduct(this.selectedProduct)},
-                {label: 'Delete', icon: 'pi pi-fw pi-times', command: () => this.deleteProduct(this.selectedProduct)}
+                {label: 'View', icon: 'fw search', command: () => this.viewProduct(this.selectedProduct)},
+                {label: 'Delete', icon: 'fw times', command: () => this.deleteProduct(this.selectedProduct)}
             ]
         }
     },
@@ -142,8 +142,8 @@ export default {
         const productService = ref(new ProductService());
         const selectedProduct = ref();
         const menuModel = ref([
-            {label: 'View', icon: 'pi pi-fw pi-search', command: () => viewProduct(selectedProduct)},
-            {label: 'Delete', icon: 'pi pi-fw pi-times', command: () => deleteProduct(selectedProduct)}
+            {label: 'View', icon: 'fw search', command: () => viewProduct(selectedProduct)},
+            {label: 'Delete', icon: 'fw times', command: () => deleteProduct(selectedProduct)}
         ]);
         const onRowContextMenu = (event) => {
             cm.value.show(event.originalEvent);

@@ -21,8 +21,8 @@ import Card from 'primevue/card';
         quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!
     &lt;/template&gt;
     &lt;template #footer&gt;
-        &lt;Button icon="pi pi-check" label="Save" /&gt;
-        &lt;Button icon="pi pi-times" label="Cancel" class="p-button-secondary" style="margin-left: .5em" /&gt;
+        &lt;Button icon="check" label="Save" /&gt;
+        &lt;Button icon="times" label="Cancel" class="p-button-secondary" style="margin-left: .5em" /&gt;
     &lt;/template&gt;
 &lt;/Card&gt;
 
@@ -137,8 +137,8 @@ export default {
                 quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!</p>
             </template>
             <template #footer>
-                <Button icon="pi pi-check" label="Save" />
-                <Button icon="pi pi-times" label="Cancel" class="p-button-secondary" style="margin-left: .5em" />
+                <Button icon="check" label="Save" />
+                <Button icon="times" label="Cancel" class="p-button-secondary" style="margin-left: .5em" />
             </template>
         </Card>
     </div>
@@ -186,8 +186,8 @@ p {
                 quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!</p>
             </template>
             <template #footer>
-                <Button icon="pi pi-check" label="Save" />
-                <Button icon="pi pi-times" label="Cancel" class="p-button-secondary" style="margin-left: .5em" />
+                <Button icon="check" label="Save" />
+                <Button icon="times" label="Cancel" class="p-button-secondary" style="margin-left: .5em" />
             </template>
         </Card>
     </div>

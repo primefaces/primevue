@@ -304,29 +304,29 @@ export default {
                     items: [
                         {
                             label: 'New',
-                            icon: 'pi pi-fw pi-plus',
+                            icon: 'fw plus',
                             items: [
                                 {
                                     label: 'Bookmark',
-                                    icon: 'pi pi-fw pi-bookmark'
+                                    icon: 'fw bookmark'
                                 },
                                 {
                                     label: 'Video',
-                                    icon: 'pi pi-fw pi-video'
+                                    icon: 'fw video'
                                 },
 
                             ]
                         },
                         {
                             label: 'Delete',
-                            icon: 'pi pi-fw pi-trash'
+                            icon: 'fw trash'
                         },
                         {
                             separator: true
                         },
                         {
                             label: 'Export',
-                            icon: 'pi pi-fw pi-external-link'
+                            icon: 'fw external-link'
                         }
                     ]
                 },
@@ -335,19 +335,19 @@ export default {
                     items: [
                         {
                             label: 'Left',
-                            icon: 'pi pi-fw pi-align-left'
+                            icon: 'fw align-left'
                         },
                         {
                             label: 'Right',
-                            icon: 'pi pi-fw pi-align-right'
+                            icon: 'fw align-right'
                         },
                         {
                             label: 'Center',
-                            icon: 'pi pi-fw pi-align-center'
+                            icon: 'fw align-center'
                         },
                         {
                             label: 'Justify',
-                            icon: 'pi pi-fw pi-align-justify'
+                            icon: 'fw align-justify'
                         },
 
                     ]
@@ -357,30 +357,30 @@ export default {
                     items: [
                         {
                             label: 'New',
-                            icon: 'pi pi-fw pi-user-plus',
+                            icon: 'fw user-plus',
 
                         },
                         {
                             label: 'Delete',
-                            icon: 'pi pi-fw pi-user-minus',
+                            icon: 'fw user-minus',
 
                         },
                         {
                             label: 'Search',
-                            icon: 'pi pi-fw pi-users',
+                            icon: 'fw users',
                             items: [
                                 {
                                     label: 'Filter',
-                                    icon: 'pi pi-fw pi-filter',
+                                    icon: 'fw filter',
                                     items: [
                                         {
                                             label: 'Print',
-                                            icon: 'pi pi-fw pi-print'
+                                            icon: 'fw print'
                                         }
                                     ]
                                 },
                                 {
-                                    icon: 'pi pi-fw pi-bars',
+                                    icon: 'fw bars',
                                     label: 'List'
                                 }
                             ]
@@ -392,25 +392,25 @@ export default {
                     items: [
                         {
                             label: 'Edit',
-                            icon: 'pi pi-fw pi-pencil',
+                            icon: 'fw pencil',
                             items: [
                                 {
                                     label: 'Save',
-                                    icon: 'pi pi-fw pi-calendar-plus'
+                                    icon: 'fw calendar-plus'
                                 },
                                 {
                                     label: 'Delete',
-                                    icon: 'pi pi-fw pi-calendar-minus'
+                                    icon: 'fw calendar-minus'
                                 }
                             ]
                         },
                         {
                             label: 'Archieve',
-                            icon: 'pi pi-fw pi-calendar-times',
+                            icon: 'fw calendar-times',
                             items: [
                                 {
                                     label: 'Remove',
-                                    icon: 'pi pi-fw pi-calendar-minus'
+                                    icon: 'fw calendar-minus'
                                 }
                             ]
                         }
@@ -702,29 +702,29 @@ export default {
                 items: [
                     {
                         label: 'New',
-                        icon: 'pi pi-fw pi-plus',
+                        icon: 'fw plus',
                         items: [
                             {
                                 label: 'Bookmark',
-                                icon: 'pi pi-fw pi-bookmark'
+                                icon: 'fw bookmark'
                             },
                             {
                                 label: 'Video',
-                                icon: 'pi pi-fw pi-video'
+                                icon: 'fw video'
                             },
 
                         ]
                     },
                     {
                         label: 'Delete',
-                        icon: 'pi pi-fw pi-trash'
+                        icon: 'fw trash'
                     },
                     {
                         separator: true
                     },
                     {
                         label: 'Export',
-                        icon: 'pi pi-fw pi-external-link'
+                        icon: 'fw external-link'
                     }
                 ]
             },
@@ -733,19 +733,19 @@ export default {
                 items: [
                     {
                         label: 'Left',
-                        icon: 'pi pi-fw pi-align-left'
+                        icon: 'fw align-left'
                     },
                     {
                         label: 'Right',
-                        icon: 'pi pi-fw pi-align-right'
+                        icon: 'fw align-right'
                     },
                     {
                         label: 'Center',
-                        icon: 'pi pi-fw pi-align-center'
+                        icon: 'fw align-center'
                     },
                     {
                         label: 'Justify',
-                        icon: 'pi pi-fw pi-align-justify'
+                        icon: 'fw align-justify'
                     },
 
                 ]
@@ -755,29 +755,29 @@ export default {
                 items: [
                     {
                         label: 'New',
-                        icon: 'pi pi-fw pi-user-plus',
+                        icon: 'fw user-plus',
                     },
                     {
                         label: 'Delete',
-                        icon: 'pi pi-fw pi-user-minus',
+                        icon: 'fw user-minus',
 
                     },
                     {
                         label: 'Search',
-                        icon: 'pi pi-fw pi-users',
+                        icon: 'fw users',
                         items: [
                             {
                                 label: 'Filter',
-                                icon: 'pi pi-fw pi-filter',
+                                icon: 'fw filter',
                                 items: [
                                     {
                                         label: 'Print',
-                                        icon: 'pi pi-fw pi-print'
+                                        icon: 'fw print'
                                     }
                                 ]
                             },
                             {
-                                icon: 'pi pi-fw pi-bars',
+                                icon: 'fw bars',
                                 label: 'List'
                             }
                         ]
@@ -789,25 +789,25 @@ export default {
                 items: [
                     {
                         label: 'Edit',
-                        icon: 'pi pi-fw pi-pencil',
+                        icon: 'fw pencil',
                         items: [
                             {
                                 label: 'Save',
-                                icon: 'pi pi-fw pi-calendar-plus'
+                                icon: 'fw calendar-plus'
                             },
                             {
                                 label: 'Delete',
-                                icon: 'pi pi-fw pi-calendar-minus'
+                                icon: 'fw calendar-minus'
                             }
                         ]
                     },
                     {
                         label: 'Archieve',
-                        icon: 'pi pi-fw pi-calendar-times',
+                        icon: 'fw calendar-times',
                         items: [
                             {
                                 label: 'Remove',
-                                icon: 'pi pi-fw pi-calendar-minus'
+                                icon: 'fw calendar-minus'
                             }
                         ]
                     }

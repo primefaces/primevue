@@ -11,19 +11,19 @@
         <div class="content-section implementation">
             <div class="card">
                 <h5>Basic</h5>
-                <Button label="Show" icon="pi pi-external-link" @click="openBasic" />
+                <Button label="Show" icon="external-link" @click="openBasic" />
                 <Dialog header="Header" v-model:visible="displayBasic" :style="{width: '50vw'}">
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                         Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                         Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
                         cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     <template #footer>
-                        <Button label="No" icon="pi pi-times" @click="closeBasic" class="p-button-text"/>
-                        <Button label="Yes" icon="pi pi-check" @click="closeBasic" autofocus />
+                        <Button label="No" icon="times" @click="closeBasic" class="p-button-text"/>
+                        <Button label="Yes" icon="check" @click="closeBasic" autofocus />
                     </template>
                 </Dialog>
 
-                <Button label="Long Content" icon="pi pi-external-link" @click="openBasic2" />
+                <Button label="Long Content" icon="external-link" @click="openBasic2" />
                 <Dialog header="Header" v-model:visible="displayBasic2" :style="{width: '50vw'}">
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
                         ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
@@ -40,76 +40,76 @@
                         cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe
                         eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
                     <template #footer>
-                        <Button label="No" icon="pi pi-times" @click="closeBasic2" class="p-button-text"/>
-                        <Button label="Yes" icon="pi pi-check" @click="closeBasic2" autofocus />
+                        <Button label="No" icon="times" @click="closeBasic2" class="p-button-text"/>
+                        <Button label="Yes" icon="check" @click="closeBasic2" autofocus />
                     </template>
                 </Dialog>
 
                 <h5>Modal</h5>
-                <Button label="Show" icon="pi pi-external-link" @click="openModal" />
+                <Button label="Show" icon="external-link" @click="openModal" />
                 <Dialog header="Header" v-model:visible="displayModal" :style="{width: '50vw'}" :modal="true">
                     <p class="p-m-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
                         laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                         Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     <template #footer>
-                        <Button label="No" icon="pi pi-times" @click="closeModal" class="p-button-text"/>
-                        <Button label="Yes" icon="pi pi-check" @click="closeModal" autofocus />
+                        <Button label="No" icon="times" @click="closeModal" class="p-button-text"/>
+                        <Button label="Yes" icon="check" @click="closeModal" autofocus />
                     </template>
                 </Dialog>
 
                 <h5>Responsive</h5>
-                <Button label="Show" icon="pi pi-external-link" @click="openResponsive" />
+                <Button label="Show" icon="external-link" @click="openResponsive" />
                 <Dialog header="Header" v-model:visible="displayResponsive" :breakpoints="{'960px': '75vw'}" :style="{width: '50vw'}">
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                         Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                         Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
                         cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     <template #footer>
-                        <Button label="No" icon="pi pi-times" @click="closeResponsive" class="p-button-text"/>
-                        <Button label="Yes" icon="pi pi-check" @click="closeResponsive" autofocus />
+                        <Button label="No" icon="times" @click="closeResponsive" class="p-button-text"/>
+                        <Button label="Yes" icon="check" @click="closeResponsive" autofocus />
                     </template>
                 </Dialog>
 
                 <h5>Confirmation</h5>
-                <Button label="Confirm" icon="pi pi-external-link" @click="openConfirmation" />
+                <Button label="Confirm" icon="external-link" @click="openConfirmation" />
                 <Dialog header="Confirmation" v-model:visible="displayConfirmation" :style="{width: '350px'}" :modal="true">
                     <div class="confirmation-content">
                         <i class="pi pi-exclamation-triangle p-mr-3" style="font-size: 2rem" />
                         <span>Are you sure you want to proceed?</span>
                     </div>
                     <template #footer>
-                        <Button label="No" icon="pi pi-times" @click="closeConfirmation" class="p-button-text"/>
-                        <Button label="Yes" icon="pi pi-check" @click="closeConfirmation" class="p-button-text" autofocus />
+                        <Button label="No" icon="times" @click="closeConfirmation" class="p-button-text"/>
+                        <Button label="Yes" icon="check" @click="closeConfirmation" class="p-button-text" autofocus />
                     </template>
                 </Dialog>
 
                 <h5>Maximizable</h5>
-                <Button label="Show" icon="pi pi-external-link" @click="openMaximizable" />
+                <Button label="Show" icon="external-link" @click="openMaximizable" />
                 <Dialog header="Header" v-model:visible="displayMaximizable" :style="{width: '50vw'}" :maximizable="true" :modal="true">
                     <p class="p-m-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
                         laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                         Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     <template #footer>
-                        <Button label="No" icon="pi pi-times" @click="closeMaximizable" class="p-button-text"/>
-                        <Button label="Yes" icon="pi pi-check" @click="closeMaximizable" autofocus />
+                        <Button label="No" icon="times" @click="closeMaximizable" class="p-button-text"/>
+                        <Button label="Yes" icon="check" @click="closeMaximizable" autofocus />
                     </template>
                 </Dialog>
 
                 <h5>Position</h5>
                 <div class="p-grid p-dir-col">
                     <div class="p-col">
-                        <Button label="Left" icon="pi pi-arrow-right" @click="openPosition('left')" class="p-button-warning" />
-                        <Button label="Right" icon="pi pi-arrow-left" @click="openPosition('right')" class="p-button-warning" />
+                        <Button label="Left" icon="arrow-right" @click="openPosition('left')" class="p-button-warning" />
+                        <Button label="Right" icon="arrow-left" @click="openPosition('right')" class="p-button-warning" />
                     </div>
                     <div class="p-col">
-                        <Button label="Top" icon="pi pi-arrow-down" @click="openPosition('top')" class="p-button-warning" />
-                        <Button label="TopLeft" icon="pi pi-arrow-down" @click="openPosition('topleft')" class="p-button-warning" />
-                        <Button label="TopRight" icon="pi pi-arrow-down" @click="openPosition('topright')" class="p-button-warning" />
+                        <Button label="Top" icon="arrow-down" @click="openPosition('top')" class="p-button-warning" />
+                        <Button label="TopLeft" icon="arrow-down" @click="openPosition('topleft')" class="p-button-warning" />
+                        <Button label="TopRight" icon="arrow-down" @click="openPosition('topright')" class="p-button-warning" />
                     </div>
                     <div class="p-col">
-                        <Button label="Bottom" icon="pi pi-arrow-up" @click="openPosition('bottom')" class="p-button-warning" />
-                        <Button label="BottomLeft" icon="pi pi-arrow-up" @click="openPosition('bottomleft')" class="p-button-warning" />
-                        <Button label="BottomRight" icon="pi pi-arrow-up" @click="openPosition('bottomright')" class="p-button-warning" />
+                        <Button label="Bottom" icon="arrow-up" @click="openPosition('bottom')" class="p-button-warning" />
+                        <Button label="BottomLeft" icon="arrow-up" @click="openPosition('bottomleft')" class="p-button-warning" />
+                        <Button label="BottomRight" icon="arrow-up" @click="openPosition('bottomright')" class="p-button-warning" />
                     </div>
                 </div>
 
@@ -118,8 +118,8 @@
                         laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                         Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     <template #footer>
-                        <Button label="No" icon="pi pi-times" @click="closePosition" class="p-button-text" />
-                        <Button label="Yes" icon="pi pi-check" @click="closePosition" autofocus />
+                        <Button label="No" icon="times" @click="closePosition" class="p-button-text" />
+                        <Button label="Yes" icon="check" @click="closePosition" autofocus />
                     </template>
                 </Dialog>
             </div>

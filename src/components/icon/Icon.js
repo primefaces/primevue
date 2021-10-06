@@ -200,7 +200,7 @@ const CommonIcons = {
     // "USER-EDIT":{ primeicons: 'pi-user-edit' },
     // "USER-MINUS":{ primeicons: 'pi-user-minus' },
     // "USER-PLUS":{ primeicons: 'pi-user-plus' },
-    // "USER":{ primeicons: 'pi-user' },
+    "USER":{ primeicons: 'pi-user' },
     // "USERS":{ primeicons: 'pi-users' },
     // "VIDEO":{ primeicons: 'pi-video' },
     // "VIMEO":{ primeicons: 'pi-vimeo' },
@@ -241,14 +241,19 @@ const PrimeIconsIconProvider = {
     renderIcon(icon, options) {
         let iconString = "";
         if (typeof icon === "object") {
-            if (!icon.commonIcon)
+            if (icon.commonIcon == null)
                 return h(options.tag);
-            const commonIcon = getCommonIcon(icon.commonIcon, icon.context);
+            let commonIcon = getCommonIcon(icon.commonIcon, icon.context);
             if (commonIcon) {
                 iconString = commonIcon.primeicons;
+            } else {
+                commonIcon = getCommonIcon(FallbackIcon.commonIcon, FallbackIcon.context);
+                if (commonIcon) {
+                    iconString = commonIcon.primeicons;
+                }
             }
-        } else if (typeof icon ==="string") {
-            iconString = "pi-" + icon;
+        } else if (typeof icon === "string" && icon) {
+            iconString = icon.split(' ').map(v=> "pi-" + v);
         } else {
             return h(options.tag);
         }
@@ -297,7 +302,7 @@ export default {
 
         const hasIcon = !!icon;
         const isCommonIcon = hasIcon && typeof icon === 'object';
-        const isMissingCommonIcon = isCommonIcon && (!icon.commonIcon || typeof icon.commonIcon !== 'string');
+        const isMissingCommonIcon = isCommonIcon && (typeof icon.commonIcon !== 'string');
         if (!hasIcon || isMissingCommonIcon) return h(options.tag);
 
         return iconProvider.renderIcon(icon, options)

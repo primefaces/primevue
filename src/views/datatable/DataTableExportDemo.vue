@@ -13,7 +13,7 @@
                 <DataTable :value="products" ref="dt" responsiveLayout="scroll">
                     <template #header>
                         <div style="text-align: left">
-                            <Button icon="pi pi-external-link" label="Export" @click="exportCSV($event)" />
+                            <Button icon="external-link" label="Export" @click="exportCSV($event)" />
                         </div>
                     </template>
                     <Column field="code" header="Code"></Column>
@@ -23,7 +23,7 @@
                 </DataTable>
             </div>
 		</div>
-        
+
         <AppDoc name="DataTableExportDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="datatable/DataTableExportDemo.vue" />
 	</div>
 </template>
@@ -44,7 +44,7 @@ export default {
         <DataTable :value="products" ref="dt" responsiveLayout="scroll">
             <template #header>
                 <div style="text-align: left">
-                    <Button icon="pi pi-external-link" label="Export" @click="exportCSV($event)" />
+                    <Button icon="external-link" label="Export" @click="exportCSV($event)" />
                 </div>
             </template>
             <Column field="code" header="Code"></Column>
@@ -88,7 +88,7 @@ export default {
         <DataTable :value="products" ref="dt" responsiveLayout="scroll">
             <template #header>
                 <div style="text-align: left">
-                    <Button icon="pi pi-external-link" label="Export" @click="exportCSV($event)" />
+                    <Button icon="external-link" label="Export" @click="exportCSV($event)" />
                 </div>
             </template>
             <Column field="code" header="Code"></Column>

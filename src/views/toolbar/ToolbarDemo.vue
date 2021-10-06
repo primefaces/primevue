@@ -11,16 +11,16 @@
         <div class="content-section implementation">
             <Toolbar>
                 <template #left>
-                    <Button label="New" icon="pi pi-plus" class="p-mr-2" />
-                    <Button label="Upload" icon="pi pi-upload" class="p-button-success" />
+                    <Button label="New" icon="plus" class="p-mr-2" />
+                    <Button label="Upload" icon="upload" class="p-button-success" />
                     <i class="pi pi-bars p-toolbar-separator p-mr-2" />
-                    <SplitButton label="Save" icon="pi pi-check" :model="items" class="p-button-warning"></SplitButton>
+                    <SplitButton label="Save" icon="check" :model="items" class="p-button-warning"></SplitButton>
                 </template>
 
                 <template #right>
-                    <Button icon="pi pi-search" class="p-mr-2" />
-                    <Button icon="pi pi-calendar" class="p-button-success p-mr-2" />
-                    <Button icon="pi pi-times" class="p-button-danger" />
+                    <Button icon="search" class="p-mr-2" />
+                    <Button icon="calendar" class="p-button-success p-mr-2" />
+                    <Button icon="times" class="p-button-danger" />
                 </template>
             </Toolbar>
         </div>
@@ -37,21 +37,21 @@ export default {
             items: [
                 {
                     label: 'Update',
-                    icon: 'pi pi-refresh'
+                    icon: 'refresh'
                 },
                 {
                     label: 'Delete',
-                    icon: 'pi pi-times'
+                    icon: 'times'
                 },
                 {
                     label: 'Vue Website',
-                    icon: 'pi pi-external-link',
+                    icon: 'external-link',
                     command: () => {
                         window.location.href = 'https://vuejs.org/'
                     }
                 },
                 {   label: 'Upload',
-                    icon: 'pi pi-upload',
+                    icon: 'upload',
                     command: () => {
                         this.$router.push('fileupload');
                     }

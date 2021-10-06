@@ -19,7 +19,7 @@
                          <div class="p-d-flex p-jc-between p-ai-center">
                             <h5 class="p-m-0">Customers</h5>
                             <span class="p-input-icon-left">
-                                <i class="pi pi-search" />
+                                <Icon tag="i" icon="search" />
                                 <InputText v-model="filters['global'].value" placeholder="Keyword Search" />
                             </span>
                          </div>
@@ -110,7 +110,7 @@
                     </Column>
                     <Column headerStyle="min-width: 4rem; text-align: center" bodyStyle="text-align: center; overflow: visible">
                         <template #body>
-                            <Button type="button" icon="pi pi-cog"></Button>
+                            <Button type="button" icon="cog"></Button>
                         </template>
                     </Column>
                 </DataTable>
@@ -124,6 +124,7 @@
 <script>
 import CustomerService from '../../service/CustomerService';
 import {FilterMatchMode,FilterOperator} from 'primevue/api';
+import Icon from 'primevue/icon';
 import DataTableDoc from './DataTableDoc';
 
 export default {
@@ -165,7 +166,7 @@ export default {
     },
     mounted() {
         this.customerService.getCustomersLarge().then(data => {
-            this.customers = data; 
+            this.customers = data;
             this.customers.forEach(customer => customer.date = new Date(customer.date));
             this.loading = false;
         });
@@ -183,7 +184,8 @@ export default {
         }
     },
     components: {
-        'DataTableDoc': DataTableDoc
+        'DataTableDoc': DataTableDoc,
+        'Icon': Icon
     }
 }
 </script>

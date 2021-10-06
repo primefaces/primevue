@@ -28,7 +28,7 @@ export default {
 		<h5>Labels and Icons</h5>
 		<p>Icons and Labels can be customized using <i>onLabel</i>, <i>offLabel</i>, <i>onIcon</i> and <i>offIcon</i> properties.</p>
 <pre v-code><code>
-&lt;ToggleButton v-model="checked" onLabel="I confirm" offLabel="I reject" onIcon="pi pi-check" offIcon="pi pi-times" /&gt;
+&lt;ToggleButton v-model="checked" onLabel="I confirm" offLabel="I reject" onIcon="check" offIcon="times" /&gt;
 
 </code></pre>
 
@@ -148,10 +148,10 @@ export default {
 <template>
     <div>
         <h5>Basic</h5>
-        <ToggleButton v-model="checked1" onIcon="pi pi-check" offIcon="pi pi-times" />
+        <ToggleButton v-model="checked1" onIcon="check" offIcon="times" />
 
         <h5>Customized</h5>
-        <ToggleButton v-model="checked2" onLabel="I confirm" offLabel="I reject" onIcon="pi pi-check" offIcon="pi pi-times" style="width: 10em" />
+        <ToggleButton v-model="checked2" onLabel="I confirm" offLabel="I reject" onIcon="check" offIcon="times" style="width: 10em" />
     </div>
 </template>
 
@@ -173,10 +173,10 @@ export default {
 <template>
     <div>
         <h5>Basic</h5>
-        <ToggleButton v-model="checked1" onIcon="pi pi-check" offIcon="pi pi-times" />
+        <ToggleButton v-model="checked1" onIcon="check" offIcon="times" />
 
         <h5>Customized</h5>
-        <ToggleButton v-model="checked2" onLabel="I confirm" offLabel="I reject" onIcon="pi pi-check" offIcon="pi pi-times" style="width: 10em" />
+        <ToggleButton v-model="checked2" onLabel="I confirm" offLabel="I reject" onIcon="check" offIcon="times" style="width: 10em" />
     </div>
 </template>
 

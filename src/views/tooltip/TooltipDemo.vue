@@ -30,7 +30,7 @@
                 <InputText type="text" placeholder="Focus" v-tooltip.bottom.focus="'Enter your username'" />
 
                 <h5>Button</h5>
-                <Button type="button" label="Save" icon="pi pi-check" v-tooltip="'Click to proceed'" />
+                <Button type="button" label="Save" icon="check" v-tooltip="'Click to proceed'" />
 
                 <h5>Custom Class</h5>
                 <InputText type="text" placeholder="Custom Class" v-tooltip.right="{value:'Invalid username', class: 'custom-error'}" />

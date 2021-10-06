@@ -4,7 +4,7 @@
 
 <pre v-code.script><code>
 import DataView from 'primevue/dataview';
-				
+
 </code></pre>
 
         <h5>PrimeFlex</h5>
@@ -47,7 +47,7 @@ export default {
                     &lt;div class="p-col-12"&gt;Color: &lt;b&gt;&#123;&#123;slotProps.data.color&#125;&#125;&lt;/b&gt;&lt;/div&gt;
                 &lt;/div&gt;
             &lt;/div&gt;
-            &lt;Button icon="pi pi-search"&gt;&lt;/Button&gt;
+            &lt;Button icon="search"&gt;&lt;/Button&gt;
         &lt;/div&gt;
     &lt;/div&gt;
 &lt;/template&gt;
@@ -56,7 +56,7 @@ export default {
 		&lt;Panel :header="slotProps.data.vin" style="text-align: center"&gt;
 			&lt;img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand"/&gt;
 			&lt;div class="car-detail"&gt;{{slotProps.data.year}} - {{slotProps.data.color}}&lt;/div&gt;
-			&lt;Button icon="pi pi-search"&gt;&lt;/Button&gt;
+			&lt;Button icon="search"&gt;&lt;/Button&gt;
 		&lt;/Panel&gt;
 	&lt;/div&gt;
 &lt;/template&gt;
@@ -105,10 +105,10 @@ export default {
 <pre v-code><code><template v-pre>
 &lt;DataView :value="cars" :layout="layout" paginatorPosition="both" :paginator="true" :rows="20"&gt;
 	&lt;template #paginatorLeft&gt;
-		&lt;Button type="button" icon="pi pi-refresh"/&gt;
+		&lt;Button type="button" icon="refresh"/&gt;
 	&lt;/template&gt;
 	&lt;template #paginatorRight&gt;
-		&lt;Button type="button" icon="pi pi-search" /&gt;
+		&lt;Button type="button" icon="search" /&gt;
 	&lt;/template&gt;
 	&lt;template #list="slotProps" &gt;
 		&lt;div&gt;Vin: &lt;b&gt;{{slotProps.data.vin}}&lt;/b&gt;&lt;/div&gt;
@@ -482,7 +482,7 @@ export default {
 						</div>
 						<div class="product-list-action">
 							<span class="product-price">\${{slotProps.data.price}}</span>
-							<Button icon="pi pi-shopping-cart" label="Add to Cart" :disabled="slotProps.data.inventoryStatus === 'OUTOFSTOCK'"></Button>
+							<Button icon="shopping-cart" label="Add to Cart" :disabled="slotProps.data.inventoryStatus === 'OUTOFSTOCK'"></Button>
 							<span :class="'product-badge status-'+slotProps.data.inventoryStatus.toLowerCase()">{{slotProps.data.inventoryStatus}}</span>
 						</div>
 					</div>
@@ -507,7 +507,7 @@ export default {
 						</div>
 						<div class="product-grid-item-bottom">
 							<span class="product-price">\${{slotProps.data.price}}</span>
-							<Button icon="pi pi-shopping-cart" :disabled="slotProps.data.inventoryStatus === 'OUTOFSTOCK'"></Button>
+							<Button icon="shopping-cart" :disabled="slotProps.data.inventoryStatus === 'OUTOFSTOCK'"></Button>
 						</div>
 					</div>
 				</div>
@@ -717,7 +717,7 @@ export default {
 						</div>
 						<div class="product-list-action">
 							<span class="product-price">\${{slotProps.data.price}}</span>
-							<Button icon="pi pi-shopping-cart" label="Add to Cart" :disabled="slotProps.data.inventoryStatus === 'OUTOFSTOCK'"></Button>
+							<Button icon="shopping-cart" label="Add to Cart" :disabled="slotProps.data.inventoryStatus === 'OUTOFSTOCK'"></Button>
 							<span :class="'product-badge status-'+slotProps.data.inventoryStatus.toLowerCase()">{{slotProps.data.inventoryStatus}}</span>
 						</div>
 					</div>
@@ -742,7 +742,7 @@ export default {
 						</div>
 						<div class="product-grid-item-bottom">
 							<span class="product-price">\${{slotProps.data.price}}</span>
-							<Button icon="pi pi-shopping-cart" :disabled="slotProps.data.inventoryStatus === 'OUTOFSTOCK'"></Button>
+							<Button icon="shopping-cart" :disabled="slotProps.data.inventoryStatus === 'OUTOFSTOCK'"></Button>
 						</div>
 					</div>
 				</div>

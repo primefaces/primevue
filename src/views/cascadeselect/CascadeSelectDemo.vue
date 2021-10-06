@@ -12,23 +12,23 @@
             <div class="card">
                 <h5>Basic</h5>
                 <CascadeSelect v-model="selectedCity1" :options="countries" optionLabel="cname" optionGroupLabel="name"
-                        :optionGroupChildren="['states', 'cities']" style="minWidth: 14rem" placeholder="Select a City" />
+                        :optionGroupChildren="['states', 'cities']" style="min-width: 14rem" placeholder="Select a City" />
 
                 <h5>Templating</h5>
-                <CascadeSelect v-model="selectedCity2" :options="countries" optionLabel="cname" optionGroupLabel="name" 
-                        :optionGroupChildren="['states', 'cities']" style="minWidth: 14rem" placeholder="Select a City">
+                <CascadeSelect v-model="selectedCity2" :options="countries" optionLabel="cname" optionGroupLabel="name"
+                        :optionGroupChildren="['states', 'cities']" style="min-width: 14rem" placeholder="Select a City">
                     <template #option="slotProps">
                         <div class="country-item">
-                            <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.option.code.toLowerCase()" v-if="slotProps.option.states" />
-                            <i class="pi pi-compass p-mr-2" v-if="slotProps.option.cities"></i>
-                            <i class="pi pi-map-marker p-mr-2" v-if="slotProps.option.cname"></i>
+                            <img v-if="slotProps.option.states" src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.option.code.toLowerCase()" />
+                            <Icon v-if="slotProps.option.cities" tag="i" class="p-mr-2" icon="compass" />
+                            <Icon v-if="slotProps.option.cname" tag="i" class="p-mr-2" icon="map-marker" />
                             <span>{{slotProps.option.cname || slotProps.option.name}}</span>
                         </div>
                     </template>
                 </CascadeSelect>
 
                 <h5>Loading State</h5>
-                <CascadeSelect placeholder="Loading..." loading style="minWidth: 14rem"></CascadeSelect>
+                <CascadeSelect placeholder="Loading..." loading style="min-width: 14rem"></CascadeSelect>
             </div>
         </div>
 
@@ -38,6 +38,7 @@
 
 <script>
 import CascadeSelectDoc from './CascadeSelectDoc';
+import Icon from 'primevue/icon';
 
 export default {
     data() {
@@ -64,11 +65,11 @@ export default {
                                 {cname: 'Townsville', code: 'A-TO'}
                             ]
                         },
-                        
+
                     ]
                 },
                 {
-                    name: 'Canada', 
+                    name: 'Canada',
                     code: 'CA',
                     states: [
                         {
@@ -85,7 +86,7 @@ export default {
                                 {cname: 'Toronto', code: 'C-TO'}
                             ]
                         },
-                        
+
                     ]
                 },
                 {
@@ -120,10 +121,11 @@ export default {
                     ]
                 }
             ]
-        } 
+        }
     },
     components: {
-        'CascadeSelectDoc': CascadeSelectDoc
+        'CascadeSelectDoc': CascadeSelectDoc,
+        'Icon': Icon,
     }
 }
 </script>

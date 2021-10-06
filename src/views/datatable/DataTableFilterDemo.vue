@@ -17,9 +17,9 @@
                     :globalFilterFields="['name','country.name','representative.name','balance','status']">
                     <template #header>
                         <div class="p-d-flex p-jc-between">
-                            <Button type="button" icon="pi pi-filter-slash" label="Clear" class="p-button-outlined" @click="clearFilter1()"/>
+                            <Button type="button" icon="filter-slash" label="Clear" class="p-button-outlined" @click="clearFilter1()"/>
                             <span class="p-input-icon-left">
-                                <i class="pi pi-search" />
+                                <i class="search" />
                                 <InputText v-model="filters1['global'].value" placeholder="Keyword Search" />
                             </span>
                         </div>
@@ -47,10 +47,10 @@
                             <InputText type="text" v-model="filterModel.value" class="p-column-filter" placeholder="Search by country"/>
                         </template>
                         <template #filterclear="{filterCallback}">
-                            <Button type="button" icon="pi pi-times" @click="filterCallback()" class="p-button-secondary"></Button>
+                            <Button type="button" icon="times" @click="filterCallback()" class="p-button-secondary"></Button>
                         </template>
                         <template #filterapply="{filterCallback}">
-                            <Button type="button" icon="pi pi-check" @click="filterCallback()" class="p-button-success"></Button>
+                            <Button type="button" icon="check" @click="filterCallback()" class="p-button-success"></Button>
                         </template>
                         <template #filterfooter>
                             <div class="p-px-3 p-pt-0 p-pb-3 p-text-center p-text-bold">Customized Buttons</div>
@@ -137,7 +137,7 @@
                     <template #header>
                         <div class="p-d-flex p-jc-end">
                             <span class="p-input-icon-left ">
-                                <i class="pi pi-search" />
+                                <i class="search" />
                                 <InputText v-model="filters2['global'].value" placeholder="Keyword Search" />
                             </span>
                         </div>
@@ -262,9 +262,9 @@ export default {
                 :globalFilterFields="['name','country.name','representative.name','balance','status']">
                 <template #header>
                     <div class="p-d-flex p-jc-between">
-                        <Button type="button" icon="pi pi-filter-slash" label="Clear" class="p-button-outlined" @click="clearFilter1()"/>
+                        <Button type="button" icon="filter-slash" label="Clear" class="p-button-outlined" @click="clearFilter1()"/>
                         <span class="p-input-icon-left">
-                            <i class="pi pi-search" />
+                            <i class="search" />
                             <InputText v-model="filters1['global'].value" placeholder="Keyword Search" />
                         </span>
                     </div>
@@ -292,10 +292,10 @@ export default {
                         <InputText type="text" v-model="filterModel.value" class="p-column-filter" placeholder="Search by country"/>
                     </template>
                     <template #filterclear="{filterCallback}">
-                        <Button type="button" icon="pi pi-times" @click="filterCallback()" class="p-button-secondary"></Button>
+                        <Button type="button" icon="times" @click="filterCallback()" class="p-button-secondary"></Button>
                     </template>
                     <template #filterapply="{filterCallback}">
-                        <Button type="button" icon="pi pi-check" @click="filterCallback()" class="p-button-success"></Button>
+                        <Button type="button" icon="check" @click="filterCallback()" class="p-button-success"></Button>
                     </template>
                     <template #filterfooter>
                         <div class="p-px-3 p-pt-0 p-pb-3 p-text-center p-text-bold">Customized Buttons</div>
@@ -382,7 +382,7 @@ export default {
                 <template #header>
                     <div class="p-d-flex p-jc-end">
                         <span class="p-input-icon-left ">
-                            <i class="pi pi-search" />
+                            <i class="search" />
                             <InputText v-model="filters2['global'].value" placeholder="Keyword Search" />
                         </span>
                     </div>
@@ -498,13 +498,13 @@ export default {
     },
     mounted() {
         this.customerService.getCustomersLarge().then(data => {
-            this.customers1 = data; 
+            this.customers1 = data;
             this.loading1 = false;
             this.customers1.forEach(customer => customer.date = new Date(customer.date));
         });
-        
+
         this.customerService.getCustomersLarge().then(data => {
-            this.customers2 = data; 
+            this.customers2 = data;
             this.loading2 = false;
             this.customers2.forEach(customer => customer.date = new Date(customer.date));
         });
@@ -603,9 +603,9 @@ export default {
                 :globalFilterFields="['name','country.name','representative.name','balance','status']">
                 <template #header>
                     <div class="p-d-flex p-jc-between">
-                        <Button type="button" icon="pi pi-filter-slash" label="Clear" class="p-button-outlined" @click="clearFilter1()"/>
+                        <Button type="button" icon="filter-slash" label="Clear" class="p-button-outlined" @click="clearFilter1()"/>
                         <span class="p-input-icon-left">
-                            <i class="pi pi-search" />
+                            <i class="search" />
                             <InputText v-model="filters1['global'].value" placeholder="Keyword Search" />
                         </span>
                     </div>
@@ -633,10 +633,10 @@ export default {
                         <InputText type="text" v-model="filterModel.value" class="p-column-filter" placeholder="Search by country"/>
                     </template>
                     <template #filterclear="{filterCallback}">
-                        <Button type="button" icon="pi pi-times" @click="filterCallback()" class="p-button-secondary"></Button>
+                        <Button type="button" icon="times" @click="filterCallback()" class="p-button-secondary"></Button>
                     </template>
                     <template #filterapply="{filterCallback}">
-                        <Button type="button" icon="pi pi-check" @click="filterCallback()" class="p-button-success"></Button>
+                        <Button type="button" icon="check" @click="filterCallback()" class="p-button-success"></Button>
                     </template>
                     <template #filterfooter>
                         <div class="p-px-3 p-pt-0 p-pb-3 p-text-center p-text-bold">Customized Buttons</div>
@@ -723,7 +723,7 @@ export default {
                 <template #header>
                     <div class="p-d-flex p-jc-end">
                         <span class="p-input-icon-left ">
-                            <i class="pi pi-search" />
+                            <i class="search" />
                             <InputText v-model="filters2['global'].value" placeholder="Keyword Search" />
                         </span>
                     </div>
@@ -805,13 +805,13 @@ export default {
     setup() {
         onMounted(() => {
             customerService.value.getCustomersLarge().then(data => {
-                customers1.value = data; 
+                customers1.value = data;
                 loading1.value = false;
                 customers1.value.forEach(customer => customer.date = new Date(customer.date));
             });
-        
+
             customerService.value.getCustomersLarge().then(data => {
-                customers2.value = data; 
+                customers2.value = data;
                 loading2.value = false;
                 customers2.value.forEach(customer => customer.date = new Date(customer.date));
             });
@@ -948,13 +948,13 @@ export default {
     },
     mounted() {
         this.customerService.getCustomersLarge().then(data => {
-            this.customers1 = data; 
+            this.customers1 = data;
             this.loading1 = false;
             this.customers1.forEach(customer => customer.date = new Date(customer.date));
         });
-        
+
         this.customerService.getCustomersLarge().then(data => {
-            this.customers2 = data; 
+            this.customers2 = data;
             this.loading2 = false;
             this.customers2.forEach(customer => customer.date = new Date(customer.date));
         });

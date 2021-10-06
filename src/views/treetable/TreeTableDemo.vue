@@ -29,8 +29,8 @@
             <div class="card">
                 <h5>Programmatic Control</h5>
                 <div style="margin-bottom: 1em">
-                    <Button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll" />
-                    <Button type="button" icon="pi pi-minus" label="Collapse All" @click="collapseAll" />
+                    <Button type="button" icon="plus" label="Expand All" @click="expandAll" />
+                    <Button type="button" icon="minus" label="Collapse All" @click="collapseAll" />
                 </div>
                 <TreeTable :value="nodes" :expandedKeys="expandedKeys">
                     <Column field="name" header="Name" :expander="true"></Column>

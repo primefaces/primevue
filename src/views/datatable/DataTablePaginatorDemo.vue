@@ -19,17 +19,17 @@
                     <Column field="company" header="Company"></Column>
                     <Column field="representative.name" header="Representative"></Column>
                     <template #paginatorLeft>
-                        <Button type="button" icon="pi pi-refresh" class="p-button-text" />
+                        <Button type="button" icon="refresh" class="p-button-text" />
                     </template>
                     <template #paginatorRight>
-                        <Button type="button" icon="pi pi-cloud" class="p-button-text" />
+                        <Button type="button" icon="cloud" class="p-button-text" />
                     </template>
                 </DataTable>
             </div>
 		</div>
 
         <AppDoc name="DataTablePaginatorDemo" :sources="sources" :service="['CustomerService']" :data="['customers-large']" github="datatable/DataTablePaginatorDemo.vue" />
-                  
+
 	</div>
 </template>
 
@@ -55,12 +55,12 @@ export default {
             <Column field="company" header="Company"></Column>
             <Column field="representative.name" header="Representative"></Column>
             <template #paginatorLeft>
-                <Button type="button" icon="pi pi-refresh" class="p-button-text" />
+                <Button type="button" icon="refresh" class="p-button-text" />
             </template>
             <template #paginatorRight>
-                <Button type="button" icon="pi pi-cloud" class="p-button-text" />
+                <Button type="button" icon="cloud" class="p-button-text" />
             </template>
-        </DataTable>    
+        </DataTable>
 	</div>
 </template>
 
@@ -81,7 +81,7 @@ export default {
         this.customerService.getCustomersLarge().then(data => this.customers = data);
     }
 }
-<\\/script>                  
+<\\/script>
 `
                 },
                 'composition-api': {
@@ -98,12 +98,12 @@ export default {
             <Column field="company" header="Company"></Column>
             <Column field="representative.name" header="Representative"></Column>
             <template #paginatorLeft>
-                <Button type="button" icon="pi pi-refresh" class="p-button-text" />
+                <Button type="button" icon="refresh" class="p-button-text" />
             </template>
             <template #paginatorRight>
-                <Button type="button" icon="pi pi-cloud" class="p-button-text" />
+                <Button type="button" icon="cloud" class="p-button-text" />
             </template>
-        </DataTable>    
+        </DataTable>
 	</div>
 </template>
 
@@ -123,7 +123,7 @@ export default {
         return { customers }
     }
 }
-<\\/script>                  
+<\\/script>
 `
                 }
             }

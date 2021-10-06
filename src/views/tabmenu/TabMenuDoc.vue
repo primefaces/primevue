@@ -21,11 +21,11 @@ export default {
 	data() {
 		return {
 			items: [
-                {label: 'Home', icon: 'pi pi-fw pi-home'},
-                {label: 'Calendar', icon: 'pi pi-fw pi-calendar'},
-                {label: 'Edit', icon: 'pi pi-fw pi-pencil'},
-                {label: 'Documentation', icon: 'pi pi-fw pi-file'},
-                {label: 'Settings', icon: 'pi pi-fw pi-cog'}
+                {label: 'Home', icon: 'fw home'},
+                {label: 'Calendar', icon: 'fw calendar'},
+                {label: 'Edit', icon: 'fw pencil'},
+                {label: 'Documentation', icon: 'fw file'},
+                {label: 'Settings', icon: 'fw cog'}
             ]
 		}
 	}
@@ -45,11 +45,11 @@ export default {
 	data() {
 		return {
 			items: [
-                {label: 'Home', icon: 'pi pi-fw pi-home', to: '/tabmenu'},
-                {label: 'Calendar', icon: 'pi pi-fw pi-calendar', to: '/tabmenu/calendar'},
-                {label: 'Edit', icon: 'pi pi-fw pi-pencil', to: '/tabmenu/edit'},
-                {label: 'Documentation', icon: 'pi pi-fw pi-file', to: '/tabmenu/documentation'},
-                {label: 'Settings', icon: 'pi pi-fw pi-cog', to: '/tabmenu/settings'}
+                {label: 'Home', icon: 'fw home', to: '/tabmenu'},
+                {label: 'Calendar', icon: 'fw calendar', to: '/tabmenu/calendar'},
+                {label: 'Edit', icon: 'fw pencil', to: '/tabmenu/edit'},
+                {label: 'Documentation', icon: 'fw file', to: '/tabmenu/documentation'},
+                {label: 'Settings', icon: 'fw cog', to: '/tabmenu/settings'}
             ]
 		}
 	}
@@ -216,7 +216,7 @@ export default {
             <TabMenu :model="items" />
             <router-view/>
         </div>
-            
+
         <div class="card">
             <h5>Programmatic</h5>
             <div class="p-py-2">
@@ -238,50 +238,50 @@ export default {
             items: [
                 {
                     label: 'Home',
-                    icon: 'pi pi-fw pi-home',
+                    icon: 'fw home',
                     to: '/'
                 },
                 {
                     label: 'Calendar',
-                    icon: 'pi pi-fw pi-calendar',
+                    icon: 'fw calendar',
                     to: '/calendar'
                 },
                 {
                     label: 'Edit',
-                    icon: 'pi pi-fw pi-pencil',
+                    icon: 'fw pencil',
                     to: '/edit'
                 },
                 {
                     label: 'Documentation',
-                    icon: 'pi pi-fw pi-file',
+                    icon: 'fw file',
                     to: '/documentation'
                 },
                 {
                     label: 'Settings',
-                    icon: 'pi pi-fw pi-cog',
+                    icon: 'fw cog',
                     to: '/settings'
                 }
             ],
             items2: [
                 {
                     label: 'Home',
-                    icon: 'pi pi-fw pi-home'
+                    icon: 'fw home'
                 },
                 {
                     label: 'Calendar',
-                    icon: 'pi pi-fw pi-calendar'
+                    icon: 'fw calendar'
                 },
                 {
                     label: 'Edit',
-                    icon: 'pi pi-fw pi-pencil'
+                    icon: 'fw pencil'
                 },
                 {
                     label: 'Documentation',
-                    icon: 'pi pi-fw pi-file'
+                    icon: 'fw file'
                 },
                 {
                     label: 'Settings',
-                    icon: 'pi pi-fw pi-cog'
+                    icon: 'fw cog'
                 }
             ]
         }
@@ -305,7 +305,7 @@ export default {
             <TabMenu :model="items" />
             <router-view/>
         </div>
-            
+
         <div class="card">
             <h5>Programmatic</h5>
             <div class="p-py-2">
@@ -328,53 +328,53 @@ export default {
         const items = ref([
             {
                 label: 'Home',
-                icon: 'pi pi-fw pi-home',
+                icon: 'fw home',
                 to: '/'
             },
             {
                 label: 'Calendar',
-                icon: 'pi pi-fw pi-calendar',
+                icon: 'fw calendar',
                 to: '/calendar'
             },
             {
                 label: 'Edit',
-                icon: 'pi pi-fw pi-pencil',
+                icon: 'fw pencil',
                 to: '/edit'
             },
             {
                 label: 'Documentation',
-                icon: 'pi pi-fw pi-file',
+                icon: 'fw file',
                 to: '/documentation'
             },
             {
                 label: 'Settings',
-                icon: 'pi pi-fw pi-cog',
+                icon: 'fw cog',
                 to: '/settings'
             }
         ]);
         const items2 = ref([
             {
                 label: 'Home',
-                icon: 'pi pi-fw pi-home'
+                icon: 'fw home'
             },
             {
                 label: 'Calendar',
-                icon: 'pi pi-fw pi-calendar'
+                icon: 'fw calendar'
             },
             {
                 label: 'Edit',
-                icon: 'pi pi-fw pi-pencil'
+                icon: 'fw pencil'
             },
             {
                 label: 'Documentation',
-                icon: 'pi pi-fw pi-file'
+                icon: 'fw file'
             },
             {
                 label: 'Settings',
-                icon: 'pi pi-fw pi-cog'
+                icon: 'fw cog'
             }
         ]);
-        
+
         return { active, items, items2 }
     }
 }

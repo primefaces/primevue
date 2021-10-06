@@ -44,8 +44,8 @@
             </template>
             <template v-slot:footer>
                 <div class="p-grid p-nogutter p-justify-between">
-                    <Button label="Back" @click="prevPage()" icon="pi pi-angle-left" />
-                    <Button label="Complete" @click="complete()" icon="pi pi-check" iconPos="right" class="p-button-success"/>
+                    <Button label="Back" @click="prevPage()" icon="angle-left" />
+                    <Button label="Complete" @click="complete()" icon="check" iconPos="right" class="p-button-success"/>
                 </div>
             </template>
         </Card>

@@ -157,11 +157,11 @@
                     <div class="card">
                         <h5>Buttons</h5>
                         <Button label="Submit" class="p-mr-2 p-mb-2" />
-                        <Button icon="pi pi-check" class="p-mr-2 p-mb-2" />
-                        <Button label="Submit" icon="pi pi-check" class="p-mr-2 p-mb-2" />
-                        <Button label="Submit" icon="pi pi-check" iconPos="right" class="p-mr-2 p-mb-2" />
+                        <Button icon="check" class="p-mr-2 p-mb-2" />
+                        <Button label="Submit" icon="check" class="p-mr-2 p-mb-2" />
+                        <Button label="Submit" icon="check" iconPos="right" class="p-mr-2 p-mb-2" />
                         <Button label="Disabled" disabled="disabled" class="p-mr-2 p-mb-2" />
-                    
+
                         <h5>Severities</h5>
                         <Button label="Primary" class="p-mr-2 p-mb-2" />
                         <Button label="Secondary" class="p-button-secondary p-mr-2 p-mb-2" />
@@ -220,41 +220,41 @@
                         <Button label="Plain" class="p-button-outlined p-button-plain p-mb-2" />
 
                         <h5>Rounded Icon Buttons</h5>
-                        <Button icon="pi pi-check" class="p-button-rounded p-mr-2 p-mb-2" />
-                        <Button icon="pi pi-bookmark" class="p-button-rounded p-button-secondary p-mr-2 p-mb-2" />
-                        <Button icon="pi pi-search" class="p-button-rounded p-button-success p-mr-2 p-mb-2" />
-                        <Button icon="pi pi-user" class="p-button-rounded p-button-info p-mr-2 p-mb-2" />
-                        <Button icon="pi pi-bell" class="p-button-rounded p-button-warning p-mr-2 p-mb-2" />
-                        <Button icon="pi pi-heart" class="p-button-rounded p-button-help p-mr-2 p-mb-2" />
-                        <Button icon="pi pi-times" class="p-button-rounded p-button-danger p-mb-2" />
+                        <Button icon="check" class="p-button-rounded p-mr-2 p-mb-2" />
+                        <Button icon="bookmark" class="p-button-rounded p-button-secondary p-mr-2 p-mb-2" />
+                        <Button icon="search" class="p-button-rounded p-button-success p-mr-2 p-mb-2" />
+                        <Button icon="user" class="p-button-rounded p-button-info p-mr-2 p-mb-2" />
+                        <Button icon="bell" class="p-button-rounded p-button-warning p-mr-2 p-mb-2" />
+                        <Button icon="heart" class="p-button-rounded p-button-help p-mr-2 p-mb-2" />
+                        <Button icon="times" class="p-button-rounded p-button-danger p-mb-2" />
 
                         <h5>Rounded Text Icon Buttons</h5>
-                        <Button icon="pi pi-check" class="p-button-rounded p-button-text p-mr-2 p-mb-2" />
-                        <Button icon="pi pi-bookmark" class="p-button-rounded p-button-secondary p-button-text p-mr-2 p-mb-2" />
-                        <Button icon="pi pi-search" class="p-button-rounded p-button-success p-button-text p-mr-2 p-mb-2" />
-                        <Button icon="pi pi-user" class="p-button-rounded p-button-info p-button-text p-mr-2 p-mb-2" />
-                        <Button icon="pi pi-bell" class="p-button-rounded p-button-warning p-button-text p-mr-2 p-mb-2" />
-                        <Button icon="pi pi-heart" class="p-button-rounded p-button-help p-button-text p-mr-2 p-mb-2" />
-                        <Button icon="pi pi-times" class="p-button-rounded p-button-danger p-button-text p-mr-2 p-mb-2" />
+                        <Button icon="check" class="p-button-rounded p-button-text p-mr-2 p-mb-2" />
+                        <Button icon="bookmark" class="p-button-rounded p-button-secondary p-button-text p-mr-2 p-mb-2" />
+                        <Button icon="search" class="p-button-rounded p-button-success p-button-text p-mr-2 p-mb-2" />
+                        <Button icon="user" class="p-button-rounded p-button-info p-button-text p-mr-2 p-mb-2" />
+                        <Button icon="bell" class="p-button-rounded p-button-warning p-button-text p-mr-2 p-mb-2" />
+                        <Button icon="heart" class="p-button-rounded p-button-help p-button-text p-mr-2 p-mb-2" />
+                        <Button icon="times" class="p-button-rounded p-button-danger p-button-text p-mr-2 p-mb-2" />
 
                         <h5>Rounded and Outlined Icon Buttons</h5>
-                        <Button icon="pi pi-check" class="p-button-rounded p-button-outlined p-mr-2 p-mb-2" />
-                        <Button icon="pi pi-bookmark" class="p-button-rounded p-button-secondary p-button-outlined p-mr-2 p-mb-2" />
-                        <Button icon="pi pi-search" class="p-button-rounded p-button-success p-button-outlined p-mr-2 p-mb-2" />
-                        <Button icon="pi pi-user" class="p-button-rounded p-button-info p-button-outlined p-mr-2 p-mb-2" />
-                        <Button icon="pi pi-bell" class="p-button-rounded p-button-warning p-button-outlined p-mr-2 p-mb-2" />
-                        <Button icon="pi pi-heart" class="p-button-rounded p-button-help p-button-outlined p-mr-2 p-mb-2" />
-                        <Button icon="pi pi-times" class="p-button-rounded p-button-danger p-button-outlined p-mb-2" />
+                        <Button icon="check" class="p-button-rounded p-button-outlined p-mr-2 p-mb-2" />
+                        <Button icon="bookmark" class="p-button-rounded p-button-secondary p-button-outlined p-mr-2 p-mb-2" />
+                        <Button icon="search" class="p-button-rounded p-button-success p-button-outlined p-mr-2 p-mb-2" />
+                        <Button icon="user" class="p-button-rounded p-button-info p-button-outlined p-mr-2 p-mb-2" />
+                        <Button icon="bell" class="p-button-rounded p-button-warning p-button-outlined p-mr-2 p-mb-2" />
+                        <Button icon="heart" class="p-button-rounded p-button-help p-button-outlined p-mr-2 p-mb-2" />
+                        <Button icon="times" class="p-button-rounded p-button-danger p-button-outlined p-mb-2" />
 
                         <h5>Badges</h5>
                         <Button type="button" label="Emails" badge="8" class="p-mr-2 p-mb-2" />
-                        <Button type="button" label="Messages" icon="pi pi-users" class="p-button-warning p-mb-2" badge="8" badgeClass="p-badge-danger" />
+                        <Button type="button" label="Messages" icon="users" class="p-button-warning p-mb-2" badge="8" badgeClass="p-badge-danger" />
 
                         <h5>Button Set</h5>
                         <span class="p-buttonset">
-                            <Button label="Save" icon="pi pi-check" />
-                            <Button label="Delete" icon="pi pi-trash" />
-                            <Button label="Cancel" icon="pi pi-times" />
+                            <Button label="Save" icon="check" />
+                            <Button label="Delete" icon="trash" />
+                            <Button label="Cancel" icon="times" />
                         </span>
                     </div>
                 </div>
@@ -372,7 +372,7 @@
                 <div class="p-col-12 p-md-3">
                     <div class="card p-fluid">
                         <h5>Overlay Panel</h5>
-                        <Button type="button" label="Choose" @click="toggle" icon="pi pi-search" />
+                        <Button type="button" label="Choose" @click="toggle" icon="search" />
                         <OverlayPanel ref="op" appendTo="body" :showCloseIcon="true" style="width: 450px" :breakpoints="{'960px':'75vw'}">
                             <DataTable :value="products" v-model:selection="selectedProduct" selectionMode="single" :paginator="true" :rows="5" @row-select="onProductSelect">
                                 <Column field="name" header="Name" sortable></Column>
@@ -401,23 +401,23 @@
                                 Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                             </p>
                             <template #footer>
-                                <Button label="Dismiss" @click="close" icon="pi pi-check" class="p-button-text"/>
+                                <Button label="Dismiss" @click="close" icon="check" class="p-button-text"/>
                             </template>
                         </Dialog>
-                        <Button label="Show" icon="pi pi-external-link" @click="open" class="p-button-secondary"/>
+                        <Button label="Show" icon="external-link" @click="open" class="p-button-secondary"/>
                     </div>
                 </div>
                 <div class="p-col-12 p-md-3">
                     <div class="card p-fluid">
                         <h5>Confirm Popup</h5>
-                        <Button type="button" label="Confirm" @click="confirmWithPopup" class="p-button-success" icon="pi pi-check" />
+                        <Button type="button" label="Confirm" @click="confirmWithPopup" class="p-button-success" icon="check" />
                         <ConfirmPopup group="popup"></ConfirmPopup>
                     </div>
                 </div>
                 <div class="p-col-12 p-md-3">
                     <div class="card p-fluid">
                         <h5>Confirm Dialog</h5>
-                        <Button type="button" label="Confirm" @click="confirmWithDialog" class="p-button-help" icon="pi pi-check" />
+                        <Button type="button" label="Confirm" @click="confirmWithDialog" class="p-button-help" icon="check" />
                         <ConfirmDialog group="dialog">></ConfirmDialog>
                     </div>
                 </div>
@@ -447,7 +447,7 @@
                         <h5>Overlay Menu</h5>
 
                         <Menu ref="menu" :model="menuitems" :popup="true" />
-                        <Button type="button" label="Options" icon="pi pi-angle-down" @click="toggleMenu" style="width: auto"/>
+                        <Button type="button" label="Options" icon="angle-down" @click="toggleMenu" style="width: auto"/>
                     </div>
 
                     <div class="card" @contextmenu="onContextRightClick">
@@ -517,7 +517,7 @@
             </div>
         </div>
 
-        <AppDoc name="ResponsiveDemo" :sources="sources" :service="['CustomerService', 'CountryService', 'ProductService']" 
+        <AppDoc name="ResponsiveDemo" :sources="sources" :service="['CustomerService', 'CountryService', 'ProductService']"
             :data="['customers-large', 'countries', 'products-small']" github="responsive/ResponsiveDemo.vue" />
     </div>
 </template>
@@ -527,7 +527,7 @@ import { FilterMatchMode, FilterOperator } from 'primevue/api';
 import CustomerService from '../../service/CustomerService';
 import CountryService from '../../service/CountryService';
 import ProductService from '../../service/ProductService';
-    
+
 export default {
     data() {
         return {
@@ -595,75 +595,75 @@ export default {
 			tieredMenuItems: [
 				{
 					label:'Customers',
-					icon:'pi pi-fw pi-table',
+					icon:'fw table',
 					items:[
 						{
 							label:'New',
-							icon:'pi pi-fw pi-user-plus',
+							icon:'fw user-plus',
 							items:[
 								{
 									label:'Customer',
-									icon:'pi pi-fw pi-plus'
+									icon:'fw plus'
 								},
 								{
 									label:'Duplicate',
-									icon:'pi pi-fw pi-copy'
+									icon:'fw copy'
 								},
 
 							]
 						},
 						{
 							label:'Edit',
-							icon:'pi pi-fw pi-user-edit'
+							icon:'fw user-edit'
 						}
 					]
 				},
 				{
 					label:'Orders',
-					icon:'pi pi-fw pi-shopping-cart',
+					icon:'fw shopping-cart',
 					items:[
 						{
 							label:'View',
-							icon:'pi pi-fw pi-list'
+							icon:'fw list'
 						},
 						{
 							label:'Search',
-							icon:'pi pi-fw pi-search'
+							icon:'fw search'
 						},
 
 					]
 				},
 				{
 					label:'Shipments',
-					icon:'pi pi-fw pi-envelope',
+					icon:'fw envelope',
 					items:[
 						{
 							label:'Tracker',
-							icon:'pi pi-fw pi-compass'
+							icon:'fw compass'
 
 						},
 						{
 							label:'Map',
-							icon:'pi pi-fw pi-map-marker'
+							icon:'fw map-marker'
 
 						},
 						{
 							label:'Manage',
-							icon:'pi pi-fw pi-pencil'
+							icon:'fw pencil'
 						}
 					]
 				},
 				{
 					label:'Profile',
-					icon:'pi pi-fw pi-user',
+					icon:'fw user',
 					items:[
 						{
 							label:'Settings',
-							icon:'pi pi-fw pi-cog'
+							icon:'fw cog'
 						},
 						{
 							label:'Billing',
-							icon:'pi pi-fw pi-file'
+							icon:'fw file'
 						}
 					]
 				},
@@ -672,7 +672,7 @@ export default {
 				},
 				{
 					label:'Quit',
-					icon:'pi pi-fw pi-sign-out'
+					icon:'fw sign-out'
 				}
 			],
 			menuitems: [
@@ -681,11 +681,11 @@ export default {
 					items:[
 						{
 							label:'New',
-							icon:'pi pi-fw pi-plus',
+							icon:'fw plus',
 						},
 						{
 							label:'Edit',
-							icon:'pi pi-fw pi-user-edit'
+							icon:'fw user-edit'
 						}
 					]
 				},
@@ -694,11 +694,11 @@ export default {
 					items:[
 						{
 							label:'View',
-							icon:'pi pi-fw pi-list'
+							icon:'fw list'
 						},
 						{
 							label:'Search',
-							icon:'pi pi-fw pi-search'
+							icon:'fw search'
 						},
 
 					]
@@ -707,30 +707,30 @@ export default {
 			contextMenuItems: [
 				{
 					label: 'Save',
-					icon: 'pi pi-save'
+					icon: 'save'
 				},
 				{
 					label: 'Update',
-					icon: 'pi pi-refresh'
+					icon: 'refresh'
 				},
 				{
 					label: 'Delete',
-					icon: 'pi pi-trash'
+					icon: 'trash'
 				},
 				{
 					separator: true
 				},
 				{
 					label: 'Options',
-					icon: 'pi pi-cog'
+					icon: 'cog'
 				},
             ],
             message: [],
             timelineEvents: [
-                {status: 'Ordered', date: '15/10/2020 10:30', icon: 'pi pi-shopping-cart', color: '#9C27B0', image: 'game-controller.jpg'},
-                {status: 'Processing', date: '15/10/2020 14:00', icon: 'pi pi-cog', color: '#673AB7'},
-                {status: 'Shipped', date: '15/10/2020 16:15', icon: 'pi pi-shopping-cart', color: '#FF9800'},
-                {status: 'Delivered', date: '16/10/2020 10:00', icon: 'pi pi-check', color: '#607D8B'}
+                {status: 'Ordered', date: '15/10/2020 10:30', icon: 'shopping-cart', color: '#9C27B0', image: 'game-controller.jpg'},
+                {status: 'Processing', date: '15/10/2020 14:00', icon: 'cog', color: '#673AB7'},
+                {status: 'Shipped', date: '15/10/2020 16:15', icon: 'shopping-cart', color: '#FF9800'},
+                {status: 'Delivered', date: '16/10/2020 10:00', icon: 'check', color: '#607D8B'}
             ],
             sources: {
                 'options-api': {
@@ -887,11 +887,11 @@ export default {
                 <div class="card">
                     <h5>Buttons</h5>
                     <Button label="Submit" class="p-mr-2 p-mb-2" />
-                    <Button icon="pi pi-check" class="p-mr-2 p-mb-2" />
-                    <Button label="Submit" icon="pi pi-check" class="p-mr-2 p-mb-2" />
-                    <Button label="Submit" icon="pi pi-check" iconPos="right" class="p-mr-2 p-mb-2" />
+                    <Button icon="check" class="p-mr-2 p-mb-2" />
+                    <Button label="Submit" icon="check" class="p-mr-2 p-mb-2" />
+                    <Button label="Submit" icon="check" iconPos="right" class="p-mr-2 p-mb-2" />
                     <Button label="Disabled" disabled="disabled" class="p-mr-2 p-mb-2" />
-                    
+
                     <h5>Severities</h5>
                     <Button label="Primary" class="p-mr-2 p-mb-2" />
                     <Button label="Secondary" class="p-button-secondary p-mr-2 p-mb-2" />
@@ -950,41 +950,41 @@ export default {
                     <Button label="Plain" class="p-button-outlined p-button-plain p-mb-2" />
 
                     <h5>Rounded Icon Buttons</h5>
-                    <Button icon="pi pi-check" class="p-button-rounded p-mr-2 p-mb-2" />
-                    <Button icon="pi pi-bookmark" class="p-button-rounded p-button-secondary p-mr-2 p-mb-2" />
-                    <Button icon="pi pi-search" class="p-button-rounded p-button-success p-mr-2 p-mb-2" />
-                    <Button icon="pi pi-user" class="p-button-rounded p-button-info p-mr-2 p-mb-2" />
-                    <Button icon="pi pi-bell" class="p-button-rounded p-button-warning p-mr-2 p-mb-2" />
-                    <Button icon="pi pi-heart" class="p-button-rounded p-button-help p-mr-2 p-mb-2" />
-                    <Button icon="pi pi-times" class="p-button-rounded p-button-danger p-mb-2" />
+                    <Button icon="check" class="p-button-rounded p-mr-2 p-mb-2" />
+                    <Button icon="bookmark" class="p-button-rounded p-button-secondary p-mr-2 p-mb-2" />
+                    <Button icon="search" class="p-button-rounded p-button-success p-mr-2 p-mb-2" />
+                    <Button icon="user" class="p-button-rounded p-button-info p-mr-2 p-mb-2" />
+                    <Button icon="bell" class="p-button-rounded p-button-warning p-mr-2 p-mb-2" />
+                    <Button icon="heart" class="p-button-rounded p-button-help p-mr-2 p-mb-2" />
+                    <Button icon="times" class="p-button-rounded p-button-danger p-mb-2" />
 
                     <h5>Rounded Text Icon Buttons</h5>
-                    <Button icon="pi pi-check" class="p-button-rounded p-button-text p-mr-2 p-mb-2" />
-                    <Button icon="pi pi-bookmark" class="p-button-rounded p-button-secondary p-button-text p-mr-2 p-mb-2" />
-                    <Button icon="pi pi-search" class="p-button-rounded p-button-success p-button-text p-mr-2 p-mb-2" />
-                    <Button icon="pi pi-user" class="p-button-rounded p-button-info p-button-text p-mr-2 p-mb-2" />
-                    <Button icon="pi pi-bell" class="p-button-rounded p-button-warning p-button-text p-mr-2 p-mb-2" />
-                    <Button icon="pi pi-heart" class="p-button-rounded p-button-help p-button-text p-mr-2 p-mb-2" />
-                    <Button icon="pi pi-times" class="p-button-rounded p-button-danger p-button-text p-mr-2 p-mb-2" />
+                    <Button icon="check" class="p-button-rounded p-button-text p-mr-2 p-mb-2" />
+                    <Button icon="bookmark" class="p-button-rounded p-button-secondary p-button-text p-mr-2 p-mb-2" />
+                    <Button icon="search" class="p-button-rounded p-button-success p-button-text p-mr-2 p-mb-2" />
+                    <Button icon="user" class="p-button-rounded p-button-info p-button-text p-mr-2 p-mb-2" />
+                    <Button icon="bell" class="p-button-rounded p-button-warning p-button-text p-mr-2 p-mb-2" />
+                    <Button icon="heart" class="p-button-rounded p-button-help p-button-text p-mr-2 p-mb-2" />
+                    <Button icon="times" class="p-button-rounded p-button-danger p-button-text p-mr-2 p-mb-2" />
 
                     <h5>Rounded and Outlined Icon Buttons</h5>
-                    <Button icon="pi pi-check" class="p-button-rounded p-button-outlined p-mr-2 p-mb-2" />
-                    <Button icon="pi pi-bookmark" class="p-button-rounded p-button-secondary p-button-outlined p-mr-2 p-mb-2" />
-                    <Button icon="pi pi-search" class="p-button-rounded p-button-success p-button-outlined p-mr-2 p-mb-2" />
-                    <Button icon="pi pi-user" class="p-button-rounded p-button-info p-button-outlined p-mr-2 p-mb-2" />
-                    <Button icon="pi pi-bell" class="p-button-rounded p-button-warning p-button-outlined p-mr-2 p-mb-2" />
-                    <Button icon="pi pi-heart" class="p-button-rounded p-button-help p-button-outlined p-mr-2 p-mb-2" />
-                    <Button icon="pi pi-times" class="p-button-rounded p-button-danger p-button-outlined p-mb-2" />
+                    <Button icon="check" class="p-button-rounded p-button-outlined p-mr-2 p-mb-2" />
+                    <Button icon="bookmark" class="p-button-rounded p-button-secondary p-button-outlined p-mr-2 p-mb-2" />
+                    <Button icon="search" class="p-button-rounded p-button-success p-button-outlined p-mr-2 p-mb-2" />
+                    <Button icon="user" class="p-button-rounded p-button-info p-button-outlined p-mr-2 p-mb-2" />
+                    <Button icon="bell" class="p-button-rounded p-button-warning p-button-outlined p-mr-2 p-mb-2" />
+                    <Button icon="heart" class="p-button-rounded p-button-help p-button-outlined p-mr-2 p-mb-2" />
+                    <Button icon="times" class="p-button-rounded p-button-danger p-button-outlined p-mb-2" />
 
                     <h5>Badges</h5>
                     <Button type="button" label="Emails" badge="8" class="p-mr-2 p-mb-2" />
-                    <Button type="button" label="Messages" icon="pi pi-users" class="p-button-warning p-mb-2" badge="8" badgeClass="p-badge-danger" />
+                    <Button type="button" label="Messages" icon="users" class="p-button-warning p-mb-2" badge="8" badgeClass="p-badge-danger" />
 
                     <h5>Button Set</h5>
                     <span class="p-buttonset">
-                        <Button label="Save" icon="pi pi-check" />
-                        <Button label="Delete" icon="pi pi-trash" />
-                        <Button label="Cancel" icon="pi pi-times" />
+                        <Button label="Save" icon="check" />
+                        <Button label="Delete" icon="trash" />
+                        <Button label="Cancel" icon="times" />
                     </span>
                 </div>
             </div>
@@ -1106,7 +1106,7 @@ export default {
             <div class="p-col-12 p-md-3">
                 <div class="card p-fluid">
                     <h5>Overlay Panel</h5>
-                    <Button type="button" label="Choose" @click="toggle" icon="pi pi-search" />
+                    <Button type="button" label="Choose" @click="toggle" icon="search" />
                     <OverlayPanel ref="op" appendTo="body" :showCloseIcon="true" style="width: 450px" :breakpoints="{'960px':'75vw'}">
                         <DataTable :value="products" v-model:selection="selectedProduct" selectionMode="single" :paginator="true" :rows="5" @row-select="onProductSelect">
                             <Column field="name" header="Name" sortable></Column>
@@ -1136,24 +1136,24 @@ export default {
                             Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                         </p>
                         <template #footer>
-                            <Button label="Dismiss" @click="close" icon="pi pi-check" class="p-button-text"/>
+                            <Button label="Dismiss" @click="close" icon="check" class="p-button-text"/>
                         </template>
                     </Dialog>
-                    <Button label="Show" icon="pi pi-external-link" @click="open" class="p-button-secondary"/>
+                    <Button label="Show" icon="external-link" @click="open" class="p-button-secondary"/>
                 </div>
             </div>
 
             <div class="p-col-12 p-md-3">
                 <div class="card p-fluid">
                     <h5>Confirm Popup</h5>
-                    <Button type="button" label="Confirm" @click="confirmWithPopup" class="p-button-success" icon="pi pi-check" />
+                    <Button type="button" label="Confirm" @click="confirmWithPopup" class="p-button-success" icon="check" />
                     <ConfirmPopup group="popup"></ConfirmPopup>
                 </div>
             </div>
             <div class="p-col-12 p-md-3">
                 <div class="card p-fluid">
                     <h5>Confirm Dialog</h5>
-                    <Button type="button" label="Confirm" @click="confirmWithDialog" class="p-button-help" icon="pi pi-check" />
+                    <Button type="button" label="Confirm" @click="confirmWithDialog" class="p-button-help" icon="check" />
                     <ConfirmDialog group="dialog">></ConfirmDialog>
                 </div>
             </div>
@@ -1183,7 +1183,7 @@ export default {
                     <h5>Overlay Menu</h5>
 
                     <Menu ref="menu" :model="menuitems" :popup="true" />
-                    <Button type="button" label="Options" icon="pi pi-angle-down" @click="toggleMenu" style="width: auto"/>
+                    <Button type="button" label="Options" icon="angle-down" @click="toggleMenu" style="width: auto"/>
                 </div>
 
                 <div class="card" @contextmenu="onContextRightClick">
@@ -1259,7 +1259,7 @@ import { FilterMatchMode, FilterOperator } from 'primevue/api';
 import CustomerService from './service/CustomerService';
 import CountryService from './service/CountryService';
 import ProductService from './service/ProductService';
-    
+
 export default {
     data() {
         return {
@@ -1327,75 +1327,75 @@ export default {
 			tieredMenuItems: [
 				{
 					label:'Customers',
-					icon:'pi pi-fw pi-table',
+					icon:'fw table',
 					items:[
 						{
 							label:'New',
-							icon:'pi pi-fw pi-user-plus',
+							icon:'fw user-plus',
 							items:[
 								{
 									label:'Customer',
-									icon:'pi pi-fw pi-plus'
+									icon:'fw plus'
 								},
 								{
 									label:'Duplicate',
-									icon:'pi pi-fw pi-copy'
+									icon:'fw copy'
 								},
 
 							]
 						},
 						{
 							label:'Edit',
-							icon:'pi pi-fw pi-user-edit'
+							icon:'fw user-edit'
 						}
 					]
 				},
 				{
 					label:'Orders',
-					icon:'pi pi-fw pi-shopping-cart',
+					icon:'fw shopping-cart',
 					items:[
 						{
 							label:'View',
-							icon:'pi pi-fw pi-list'
+							icon:'fw list'
 						},
 						{
 							label:'Search',
-							icon:'pi pi-fw pi-search'
+							icon:'fw search'
 						},
 
 					]
 				},
 				{
 					label:'Shipments',
-					icon:'pi pi-fw pi-envelope',
+					icon:'fw envelope',
 					items:[
 						{
 							label:'Tracker',
-							icon:'pi pi-fw pi-compass'
+							icon:'fw compass'
 
 						},
 						{
 							label:'Map',
-							icon:'pi pi-fw pi-map-marker'
+							icon:'fw map-marker'
 
 						},
 						{
 							label:'Manage',
-							icon:'pi pi-fw pi-pencil'
+							icon:'fw pencil'
 						}
 					]
 				},
 				{
 					label:'Profile',
-					icon:'pi pi-fw pi-user',
+					icon:'fw user',
 					items:[
 						{
 							label:'Settings',
-							icon:'pi pi-fw pi-cog'
+							icon:'fw cog'
 						},
 						{
 							label:'Billing',
-							icon:'pi pi-fw pi-file'
+							icon:'fw file'
 						}
 					]
 				},
@@ -1404,7 +1404,7 @@ export default {
 				},
 				{
 					label:'Quit',
-					icon:'pi pi-fw pi-sign-out'
+					icon:'fw sign-out'
 				}
 			],
 			menuitems: [
@@ -1413,11 +1413,11 @@ export default {
 					items:[
 						{
 							label:'New',
-							icon:'pi pi-fw pi-plus',
+							icon:'fw plus',
 						},
 						{
 							label:'Edit',
-							icon:'pi pi-fw pi-user-edit'
+							icon:'fw user-edit'
 						}
 					]
 				},
@@ -1426,11 +1426,11 @@ export default {
 					items:[
 						{
 							label:'View',
-							icon:'pi pi-fw pi-list'
+							icon:'fw list'
 						},
 						{
 							label:'Search',
-							icon:'pi pi-fw pi-search'
+							icon:'fw search'
 						},
 
 					]
@@ -1439,30 +1439,30 @@ export default {
 			contextMenuItems: [
 				{
 					label: 'Save',
-					icon: 'pi pi-save'
+					icon: 'save'
 				},
 				{
 					label: 'Update',
-					icon: 'pi pi-refresh'
+					icon: 'refresh'
 				},
 				{
 					label: 'Delete',
-					icon: 'pi pi-trash'
+					icon: 'trash'
 				},
 				{
 					separator: true
 				},
 				{
 					label: 'Options',
-					icon: 'pi pi-cog'
+					icon: 'cog'
 				},
             ],
             message: [],
             timelineEvents: [
-                {status: 'Ordered', date: '15/10/2020 10:30', icon: 'pi pi-shopping-cart', color: '#9C27B0', image: 'game-controller.jpg'},
-                {status: 'Processing', date: '15/10/2020 14:00', icon: 'pi pi-cog', color: '#673AB7'},
-                {status: 'Shipped', date: '15/10/2020 16:15', icon: 'pi pi-shopping-cart', color: '#FF9800'},
-                {status: 'Delivered', date: '16/10/2020 10:00', icon: 'pi pi-check', color: '#607D8B'}
+                {status: 'Ordered', date: '15/10/2020 10:30', icon: 'shopping-cart', color: '#9C27B0', image: 'game-controller.jpg'},
+                {status: 'Processing', date: '15/10/2020 14:00', icon: 'cog', color: '#673AB7'},
+                {status: 'Shipped', date: '15/10/2020 16:15', icon: 'shopping-cart', color: '#FF9800'},
+                {status: 'Delivered', date: '16/10/2020 10:00', icon: 'check', color: '#607D8B'}
             ]
         }
     },
@@ -1517,7 +1517,7 @@ export default {
                 target: event.currentTarget,
                 group: 'popup',
                 message: 'Are you sure you want to proceed?',
-                icon: 'pi pi-exclamation-triangle',
+                icon: 'exclamation-triangle',
                 accept: () => {
                     this.$toast.add({severity:'info', summary:'Confirmed', detail:'You have accepted', life: 3000});
                 },
@@ -1531,7 +1531,7 @@ export default {
                 group: 'dialog',
                 header: 'Confirm',
                 message: 'Are you sure you want to proceed?',
-                icon: 'pi pi-exclamation-triangle',
+                icon: 'exclamation-triangle',
                 accept: () => {
                     this.$toast.add({severity:'info', summary:'Confirmed', detail:'You have accepted', life: 3000});
                 },
@@ -1615,14 +1615,14 @@ export default {
 .product-image {
     width: 50px;
     box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
-}    
+}
 
 ::v-deep(.p-paginator) {
     .p-paginator-current {
         margin-left: auto;
     }
 }
-</style>                    
+</style>
 `
                 },
                 'composition-api': {
@@ -1779,11 +1779,11 @@ export default {
                 <div class="card">
                     <h5>Buttons</h5>
                     <Button label="Submit" class="p-mr-2 p-mb-2" />
-                    <Button icon="pi pi-check" class="p-mr-2 p-mb-2" />
-                    <Button label="Submit" icon="pi pi-check" class="p-mr-2 p-mb-2" />
-                    <Button label="Submit" icon="pi pi-check" iconPos="right" class="p-mr-2 p-mb-2" />
+                    <Button icon="check" class="p-mr-2 p-mb-2" />
+                    <Button label="Submit" icon="check" class="p-mr-2 p-mb-2" />
+                    <Button label="Submit" icon="check" iconPos="right" class="p-mr-2 p-mb-2" />
                     <Button label="Disabled" disabled="disabled" class="p-mr-2 p-mb-2" />
-                    
+
                     <h5>Severities</h5>
                     <Button label="Primary" class="p-mr-2 p-mb-2" />
                     <Button label="Secondary" class="p-button-secondary p-mr-2 p-mb-2" />
@@ -1842,41 +1842,41 @@ export default {
                     <Button label="Plain" class="p-button-outlined p-button-plain p-mb-2" />
 
                     <h5>Rounded Icon Buttons</h5>
-                    <Button icon="pi pi-check" class="p-button-rounded p-mr-2 p-mb-2" />
-                    <Button icon="pi pi-bookmark" class="p-button-rounded p-button-secondary p-mr-2 p-mb-2" />
-                    <Button icon="pi pi-search" class="p-button-rounded p-button-success p-mr-2 p-mb-2" />
-                    <Button icon="pi pi-user" class="p-button-rounded p-button-info p-mr-2 p-mb-2" />
-                    <Button icon="pi pi-bell" class="p-button-rounded p-button-warning p-mr-2 p-mb-2" />
-                    <Button icon="pi pi-heart" class="p-button-rounded p-button-help p-mr-2 p-mb-2" />
-                    <Button icon="pi pi-times" class="p-button-rounded p-button-danger p-mb-2" />
+                    <Button icon="check" class="p-button-rounded p-mr-2 p-mb-2" />
+                    <Button icon="bookmark" class="p-button-rounded p-button-secondary p-mr-2 p-mb-2" />
+                    <Button icon="search" class="p-button-rounded p-button-success p-mr-2 p-mb-2" />
+                    <Button icon="user" class="p-button-rounded p-button-info p-mr-2 p-mb-2" />
+                    <Button icon="bell" class="p-button-rounded p-button-warning p-mr-2 p-mb-2" />
+                    <Button icon="heart" class="p-button-rounded p-button-help p-mr-2 p-mb-2" />
+                    <Button icon="times" class="p-button-rounded p-button-danger p-mb-2" />
 
                     <h5>Rounded Text Icon Buttons</h5>
-                    <Button icon="pi pi-check" class="p-button-rounded p-button-text p-mr-2 p-mb-2" />
-                    <Button icon="pi pi-bookmark" class="p-button-rounded p-button-secondary p-button-text p-mr-2 p-mb-2" />
-                    <Button icon="pi pi-search" class="p-button-rounded p-button-success p-button-text p-mr-2 p-mb-2" />
-                    <Button icon="pi pi-user" class="p-button-rounded p-button-info p-button-text p-mr-2 p-mb-2" />
-                    <Button icon="pi pi-bell" class="p-button-rounded p-button-warning p-button-text p-mr-2 p-mb-2" />
-                    <Button icon="pi pi-heart" class="p-button-rounded p-button-help p-button-text p-mr-2 p-mb-2" />
-                    <Button icon="pi pi-times" class="p-button-rounded p-button-danger p-button-text p-mr-2 p-mb-2" />
+                    <Button icon="check" class="p-button-rounded p-button-text p-mr-2 p-mb-2" />
+                    <Button icon="bookmark" class="p-button-rounded p-button-secondary p-button-text p-mr-2 p-mb-2" />
+                    <Button icon="search" class="p-button-rounded p-button-success p-button-text p-mr-2 p-mb-2" />
+                    <Button icon="user" class="p-button-rounded p-button-info p-button-text p-mr-2 p-mb-2" />
+                    <Button icon="bell" class="p-button-rounded p-button-warning p-button-text p-mr-2 p-mb-2" />
+                    <Button icon="heart" class="p-button-rounded p-button-help p-button-text p-mr-2 p-mb-2" />
+                    <Button icon="times" class="p-button-rounded p-button-danger p-button-text p-mr-2 p-mb-2" />
 
                     <h5>Rounded and Outlined Icon Buttons</h5>
-                    <Button icon="pi pi-check" class="p-button-rounded p-button-outlined p-mr-2 p-mb-2" />
-                    <Button icon="pi pi-bookmark" class="p-button-rounded p-button-secondary p-button-outlined p-mr-2 p-mb-2" />
-                    <Button icon="pi pi-search" class="p-button-rounded p-button-success p-button-outlined p-mr-2 p-mb-2" />
-                    <Button icon="pi pi-user" class="p-button-rounded p-button-info p-button-outlined p-mr-2 p-mb-2" />
-                    <Button icon="pi pi-bell" class="p-button-rounded p-button-warning p-button-outlined p-mr-2 p-mb-2" />
-                    <Button icon="pi pi-heart" class="p-button-rounded p-button-help p-button-outlined p-mr-2 p-mb-2" />
-                    <Button icon="pi pi-times" class="p-button-rounded p-button-danger p-button-outlined p-mb-2" />
+                    <Button icon="check" class="p-button-rounded p-button-outlined p-mr-2 p-mb-2" />
+                    <Button icon="bookmark" class="p-button-rounded p-button-secondary p-button-outlined p-mr-2 p-mb-2" />
+                    <Button icon="search" class="p-button-rounded p-button-success p-button-outlined p-mr-2 p-mb-2" />
+                    <Button icon="user" class="p-button-rounded p-button-info p-button-outlined p-mr-2 p-mb-2" />
+                    <Button icon="bell" class="p-button-rounded p-button-warning p-button-outlined p-mr-2 p-mb-2" />
+                    <Button icon="heart" class="p-button-rounded p-button-help p-button-outlined p-mr-2 p-mb-2" />
+                    <Button icon="times" class="p-button-rounded p-button-danger p-button-outlined p-mb-2" />
 
                     <h5>Badges</h5>
                     <Button type="button" label="Emails" badge="8" class="p-mr-2 p-mb-2" />
-                    <Button type="button" label="Messages" icon="pi pi-users" class="p-button-warning p-mb-2" badge="8" badgeClass="p-badge-danger" />
+                    <Button type="button" label="Messages" icon="users" class="p-button-warning p-mb-2" badge="8" badgeClass="p-badge-danger" />
 
                     <h5>Button Set</h5>
                     <span class="p-buttonset">
-                        <Button label="Save" icon="pi pi-check" />
-                        <Button label="Delete" icon="pi pi-trash" />
-                        <Button label="Cancel" icon="pi pi-times" />
+                        <Button label="Save" icon="check" />
+                        <Button label="Delete" icon="trash" />
+                        <Button label="Cancel" icon="times" />
                     </span>
                 </div>
             </div>
@@ -1998,7 +1998,7 @@ export default {
             <div class="p-col-12 p-md-3">
                 <div class="card p-fluid">
                     <h5>Overlay Panel</h5>
-                    <Button type="button" label="Choose" @click="toggle" icon="pi pi-search" />
+                    <Button type="button" label="Choose" @click="toggle" icon="search" />
                     <OverlayPanel ref="op" appendTo="body" :showCloseIcon="true" style="width: 450px" :breakpoints="{'960px':'75vw'}">
                         <DataTable :value="products" v-model:selection="selectedProduct" selectionMode="single" :paginator="true" :rows="5" @row-select="onProductSelect">
                             <Column field="name" header="Name" sortable></Column>
@@ -2028,24 +2028,24 @@ export default {
                             Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                         </p>
                         <template #footer>
-                            <Button label="Dismiss" @click="close" icon="pi pi-check" class="p-button-text"/>
+                            <Button label="Dismiss" @click="close" icon="check" class="p-button-text"/>
                         </template>
                     </Dialog>
-                    <Button label="Show" icon="pi pi-external-link" @click="open" class="p-button-secondary"/>
+                    <Button label="Show" icon="external-link" @click="open" class="p-button-secondary"/>
                 </div>
             </div>
 
             <div class="p-col-12 p-md-3">
                 <div class="card p-fluid">
                     <h5>Confirm Popup</h5>
-                    <Button type="button" label="Confirm" @click="confirmWithPopup" class="p-button-success" icon="pi pi-check" />
+                    <Button type="button" label="Confirm" @click="confirmWithPopup" class="p-button-success" icon="check" />
                     <ConfirmPopup group="popup"></ConfirmPopup>
                 </div>
             </div>
             <div class="p-col-12 p-md-3">
                 <div class="card p-fluid">
                     <h5>Confirm Dialog</h5>
-                    <Button type="button" label="Confirm" @click="confirmWithDialog" class="p-button-help" icon="pi pi-check" />
+                    <Button type="button" label="Confirm" @click="confirmWithDialog" class="p-button-help" icon="check" />
                     <ConfirmDialog group="dialog">></ConfirmDialog>
                 </div>
             </div>
@@ -2075,7 +2075,7 @@ export default {
                     <h5>Overlay Menu</h5>
 
                     <Menu ref="menu" :model="menuitems" :popup="true" />
-                    <Button type="button" label="Options" icon="pi pi-angle-down" @click="toggleMenu" style="width: auto"/>
+                    <Button type="button" label="Options" icon="angle-down" @click="toggleMenu" style="width: auto"/>
                 </div>
 
                 <div class="card" @contextmenu="onContextRightClick">
@@ -2154,7 +2154,7 @@ import { useConfirm } from 'primevue/useconfirm';
 import CustomerService from './service/CustomerService';
 import CountryService from './service/CountryService';
 import ProductService from './service/ProductService';
-    
+
 export default {
     setup() {
         onMounted(() => {
@@ -2239,75 +2239,75 @@ export default {
 		const tieredMenuItems = ref([
 			{
 				label:'Customers',
-				icon:'pi pi-fw pi-table',
+				icon:'fw table',
 				items:[
 					{
 						label:'New',
-						icon:'pi pi-fw pi-user-plus',
+						icon:'fw user-plus',
 						items:[
 							{
 								label:'Customer',
-								icon:'pi pi-fw pi-plus'
+								icon:'fw plus'
 							},
 							{
 								label:'Duplicate',
-								icon:'pi pi-fw pi-copy'
+								icon:'fw copy'
 							},
 
 						]
 					},
 					{
 						label:'Edit',
-						icon:'pi pi-fw pi-user-edit'
+						icon:'fw user-edit'
 					}
 				]
 			},
 			{
 				label:'Orders',
-				icon:'pi pi-fw pi-shopping-cart',
+				icon:'fw shopping-cart',
 				items:[
 					{
 						label:'View',
-						icon:'pi pi-fw pi-list'
+						icon:'fw list'
 					},
 					{
 						label:'Search',
-						icon:'pi pi-fw pi-search'
+						icon:'fw search'
 					},
 
 				]
 			},
 			{
 				label:'Shipments',
-				icon:'pi pi-fw pi-envelope',
+				icon:'fw envelope',
 				items:[
 					{
 						label:'Tracker',
-						icon:'pi pi-fw pi-compass'
+						icon:'fw compass'
 
 					},
 					{
 						label:'Map',
-						icon:'pi pi-fw pi-map-marker'
+						icon:'fw map-marker'
 
 					},
 					{
 						label:'Manage',
-						icon:'pi pi-fw pi-pencil'
+						icon:'fw pencil'
 					}
 				]
 			},
 			{
 				label:'Profile',
-				icon:'pi pi-fw pi-user',
+				icon:'fw user',
 				items:[
 					{
 						label:'Settings',
-						icon:'pi pi-fw pi-cog'
+						icon:'fw cog'
 					},
 					{
 						label:'Billing',
-						icon:'pi pi-fw pi-file'
+						icon:'fw file'
 					}
 				]
 			},
@@ -2316,7 +2316,7 @@ export default {
 			},
 			{
 				label:'Quit',
-				icon:'pi pi-fw pi-sign-out'
+				icon:'fw sign-out'
 			}
 		]);
 		const menuitems = ref([
@@ -2325,11 +2325,11 @@ export default {
 				items:[
 					{
 						label:'New',
-						icon:'pi pi-fw pi-plus',
+						icon:'fw plus',
 					},
 					{
 						label:'Edit',
-						icon:'pi pi-fw pi-user-edit'
+						icon:'fw user-edit'
 					}
 				]
 			},
@@ -2338,11 +2338,11 @@ export default {
 				items:[
 					{
 						label:'View',
-						icon:'pi pi-fw pi-list'
+						icon:'fw list'
 					},
 					{
 						label:'Search',
-						icon:'pi pi-fw pi-search'
+						icon:'fw search'
 					},
 				]
 			}
@@ -2350,30 +2350,30 @@ export default {
 		const contextMenuItems = ref([
 			{
 				label: 'Save',
-				icon: 'pi pi-save'
+				icon: 'save'
 			},
 			{
 				label: 'Update',
-				icon: 'pi pi-refresh'
+				icon: 'refresh'
 			},
 			{
 				label: 'Delete',
-				icon: 'pi pi-trash'
+				icon: 'trash'
 			},
 			{
 				separator: true
 			},
 			{
 				label: 'Options',
-				icon: 'pi pi-cog'
+				icon: 'cog'
 			},
         ]);
         const message = ref([]);
         const timelineEvents = ref([
-            {status: 'Ordered', date: '15/10/2020 10:30', icon: 'pi pi-shopping-cart', color: '#9C27B0', image: 'game-controller.jpg'},
-            {status: 'Processing', date: '15/10/2020 14:00', icon: 'pi pi-cog', color: '#673AB7'},
-            {status: 'Shipped', date: '15/10/2020 16:15', icon: 'pi pi-shopping-cart', color: '#FF9800'},
-            {status: 'Delivered', date: '16/10/2020 10:00', icon: 'pi pi-check', color: '#607D8B'}
+            {status: 'Ordered', date: '15/10/2020 10:30', icon: 'shopping-cart', color: '#9C27B0', image: 'game-controller.jpg'},
+            {status: 'Processing', date: '15/10/2020 14:00', icon: 'cog', color: '#673AB7'},
+            {status: 'Shipped', date: '15/10/2020 16:15', icon: 'shopping-cart', color: '#FF9800'},
+            {status: 'Delivered', date: '16/10/2020 10:00', icon: 'check', color: '#607D8B'}
         ]);
         const countryService = ref(new CountryService());
         const customerService = ref(new CustomerService());
@@ -2421,7 +2421,7 @@ export default {
                 target: event.currentTarget,
                 group: 'popup',
                 message: 'Are you sure you want to proceed?',
-                icon: 'pi pi-exclamation-triangle',
+                icon: 'exclamation-triangle',
                 accept: () => {
                     toast.add({severity:'info', summary:'Confirmed', detail:'You have accepted', life: 3000});
                 },
@@ -2435,7 +2435,7 @@ export default {
                 group: 'dialog',
                 header: 'Confirm',
                 message: 'Are you sure you want to proceed?',
-                icon: 'pi pi-exclamation-triangle',
+                icon: 'exclamation-triangle',
                 accept: () => {
                     toast.add({severity:'info', summary:'Confirmed', detail:'You have accepted', life: 3000});
                 },
@@ -2453,8 +2453,8 @@ export default {
         };
 
         return { menu, contextMenu, op, customers, selectedCustomers, products, selectedProduct, filters, floatValue, autoValue, selectedAutoValue,
-            autoFilteredValue, calendarValue, inputNumberValue, chipsValue, sliderValue, ratingValue, colorValue, radioValue, 
-            checkboxValue, switchValue, display, listboxValues, listboxValue, dropdownValues, dropdownValue, multiselectValue, 
+            autoFilteredValue, calendarValue, inputNumberValue, chipsValue, sliderValue, ratingValue, colorValue, radioValue,
+            checkboxValue, switchValue, display, listboxValues, listboxValue, dropdownValues, dropdownValue, multiselectValue,
             multiselectValues, toggleValue, selectButtonValues1, selectButtonValue1, selectButtonValues2, selectButtonValue2,
             tieredMenuItems, menuitems, contextMenuItems, message, timelineEvents, toggleMenu, onContextRightClick, searchCountry,
             addMessage, showToast, open, close, toggle, confirmWithPopup, confirmWithDialog, formatCurrency, onProductSelect }
@@ -2514,14 +2514,14 @@ export default {
 .product-image {
     width: 50px;
     box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
-}    
+}
 
 ::v-deep(.p-paginator) {
     .p-paginator-current {
         margin-left: auto;
     }
 }
-</style>                    
+</style>
 `
                 }
             }
@@ -2578,7 +2578,7 @@ export default {
                 target: event.currentTarget,
                 group: 'popup',
                 message: 'Are you sure you want to proceed?',
-                icon: 'pi pi-exclamation-triangle',
+                icon: 'exclamation-triangle',
                 accept: () => {
                     this.$toast.add({severity:'info', summary:'Confirmed', detail:'You have accepted', life: 3000});
                 },
@@ -2592,7 +2592,7 @@ export default {
                 group: 'dialog',
                 header: 'Confirm',
                 message: 'Are you sure you want to proceed?',
-                icon: 'pi pi-exclamation-triangle',
+                icon: 'exclamation-triangle',
                 accept: () => {
                     this.$toast.add({severity:'info', summary:'Confirmed', detail:'You have accepted', life: 3000});
                 },
@@ -2676,7 +2676,7 @@ export default {
 .product-image {
     width: 50px;
     box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
-}    
+}
 
 ::v-deep(.p-paginator) {
     .p-paginator-current {

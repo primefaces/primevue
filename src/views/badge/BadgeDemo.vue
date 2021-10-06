@@ -18,13 +18,13 @@
                 <Badge value="3" severity="danger"></Badge>
 
                 <h5 class="p-mb-4">Positioned Badge</h5>
-                <i class="pi pi-bell p-mr-4 p-text-secondary" style="font-size: 2rem" v-badge="2"></i>
-                <i class="pi pi-calendar p-mr-4 p-text-secondary" style="font-size: 2rem" v-badge.danger="'10+'"></i>
-                <i class="pi pi-envelope p-text-secondary" style="font-size: 2rem" v-badge.danger></i>
+                <Icon icon="bell" class="p-mr-4 p-text-secondary" style="font-size: 2rem" v-badge="2" />
+                <Icon icon="calendar" class="p-mr-4 p-text-secondary" style="font-size: 2rem" v-badge.danger="'10+'" />
+                <Icon icon="envelope" class="p-text-secondary" style="font-size: 2rem" v-badge.danger />
 
                 <h5>Button Badge</h5>
                 <Button type="button" label="Emails" badge="8" class="p-mr-2" />
-                <Button type="button" label="Messages" icon="pi pi-users" class="p-button-warning" badge="8" badgeClass="p-badge-danger" />
+                <Button type="button" label="Messages" icon="users" class="p-button-warning" badge="8" badgeClass="p-badge-danger" />
 
                 <h5>Sizes</h5>
                 <Badge value="2" class="p-mr-2"></Badge>
@@ -39,10 +39,12 @@
 
 <script>
 import BadgeDoc from './BadgeDoc';
+import Icon from 'primevue/icon';
 
 export default {
 	components: {
-		'BadgeDoc': BadgeDoc
+		'BadgeDoc': BadgeDoc,
+        'Icon': Icon
 	}
 }
 </script>

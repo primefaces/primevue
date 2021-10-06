@@ -19,35 +19,35 @@ import SpeedDial from 'primevue/speeddial';
 items: [
     {
         label: 'Add',
-        icon: 'pi pi-pencil',
+        icon: 'pencil',
         command: () => {
             this.$toast.add({ severity: 'info', summary: 'Add', detail: 'Data Added' });
         }
     },
     {
         label: 'Update',
-        icon: 'pi pi-refresh',
+        icon: 'refresh',
         command: () => {
             this.$toast.add({ severity: 'success', summary: 'Update', detail: 'Data Updated' });
         }
     },
     {
         label: 'Delete',
-        icon: 'pi pi-trash',
+        icon: 'trash',
         command: () => {
             this.$toast.add({ severity: 'error', summary: 'Delete', detail: 'Data Deleted' });
         }
     },
     {
         label: 'Upload',
-        icon: 'pi pi-upload',
+        icon: 'upload',
         command: () => {
             window.location.hash = "/fileupload"
         }
     },
     {
         label: 'Vue Website',
-        icon: 'pi pi-external-link',
+        icon: 'external-link',
         command: () => {
             window.location.href = 'https://vuejs.org/'
         }
@@ -152,7 +152,7 @@ items: [
                     <tr>
                         <td>showIcon</td>
                         <td>string</td>
-                        <td>pi pi-plus</td>
+                        <td>plus</td>
                         <td>Show icon of the button element.</td>
                     </tr>
                     <tr>
@@ -329,7 +329,7 @@ export default {
         <div class="card">
             <h5>Transition Duration, Icon and No Rotate Animation</h5>
             <div class="speeddial-delay-demo" :style="{ position: 'relative', height: '350px' }">
-                <SpeedDial :model="items" direction="up" :transitionDelay="80" showIcon="pi pi-bars" hideIcon="pi pi-times" buttonClass="p-button-outlined" />
+                <SpeedDial :model="items" direction="up" :transitionDelay="80" showIcon="bars" hideIcon="times" buttonClass="p-button-outlined" />
             </div>
         </div>
 
@@ -353,35 +353,35 @@ export default {
         const items = ref([
             {
                 label: 'Add',
-                icon: 'pi pi-pencil',
+                icon: 'pencil',
                 command: () => {
                     toast.add({ severity: 'info', summary: 'Add', detail: 'Data Added' });
                 }
             },
             {
                 label: 'Update',
-                icon: 'pi pi-refresh',
+                icon: 'refresh',
                 command: () => {
                     toast.add({ severity: 'success', summary: 'Update', detail: 'Data Updated' });
                 }
             },
             {
                 label: 'Delete',
-                icon: 'pi pi-trash',
+                icon: 'trash',
                 command: () => {
                     toast.add({ severity: 'error', summary: 'Delete', detail: 'Data Deleted' });
                 }
             },
             {
                 label: 'Upload',
-                icon: 'pi pi-upload',
+                icon: 'upload',
                 command: () => {
                     window.location.hash = "/fileupload"
                 }
             },
             {
                 label: 'Vue Website',
-                icon: 'pi pi-external-link',
+                icon: 'external-link',
                 command: () => {
                     window.location.href = 'https://vuejs.org/'
                 }
@@ -541,7 +541,7 @@ export default {
         <div class="card">
             <h5>Transition Duration, Icon and No Rotate Animation</h5>
             <div class="speeddial-delay-demo" :style="{ position: 'relative', height: '350px' }">
-                <SpeedDial :model="items" direction="up" :transitionDelay="80" showIcon="pi pi-bars" hideIcon="pi pi-times" buttonClass="p-button-outlined" />
+                <SpeedDial :model="items" direction="up" :transitionDelay="80" showIcon="bars" hideIcon="times" buttonClass="p-button-outlined" />
             </div>
         </div>
 
@@ -561,35 +561,35 @@ export default {
             items: [
                 {
                     label: 'Add',
-                    icon: 'pi pi-pencil',
+                    icon: 'pencil',
                     command: () => {
                         this.$toast.add({ severity: 'info', summary: 'Add', detail: 'Data Added' });
                     }
                 },
                 {
                     label: 'Update',
-                    icon: 'pi pi-refresh',
+                    icon: 'refresh',
                     command: () => {
                         this.$toast.add({ severity: 'success', summary: 'Update', detail: 'Data Updated' });
                     }
                 },
                 {
                     label: 'Delete',
-                    icon: 'pi pi-trash',
+                    icon: 'trash',
                     command: () => {
                         this.$toast.add({ severity: 'error', summary: 'Delete', detail: 'Data Deleted' });
                     }
                 },
                 {
                     label: 'Upload',
-                    icon: 'pi pi-upload',
+                    icon: 'upload',
                     command: () => {
                         window.location.hash = "/fileupload"
                     }
                 },
                 {
                     label: 'Vue Website',
-                    icon: 'pi pi-external-link',
+                    icon: 'external-link',
                     command: () => {
                         window.location.href = 'https://vuejs.org/'
                     }

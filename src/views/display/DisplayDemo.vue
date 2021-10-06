@@ -20,11 +20,11 @@
 
                 <h5>Visible on a Small Screen</h5>
                 <p>Resize to view.</p>
-                <Button type="button" icon="pi pi-bars" class="p-button-rounded p-d-md-none" />
+                <Button type="button" icon="bars" class="p-button-rounded p-d-md-none" />
 
                 <h5>Hidden on a Small Screen</h5>
                 <p>Resize to hide.</p>
-                <Button type="button" icon="pi pi-search" class="p-button-rounded p-button-success p-d-none p-d-md-inline-flex" />
+                <Button type="button" icon="search" class="p-button-rounded p-button-success p-d-none p-d-md-inline-flex" />
 
                 <h5>Visible to Print, Invisible for Screen</h5>
                 <p class="p-d-none p-d-print-block">Only visible when printed.</p>

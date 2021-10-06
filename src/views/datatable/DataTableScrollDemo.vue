@@ -24,7 +24,7 @@
                 <p>Flex scroll feature makes the scrollable viewport section dynamic insteaf of a fixed value so that it can grow or shrink relative to the parent size of the table.
                    Click the button below to display a maximizable Dialog where data viewport adjusts itself according to the size changes.</p>
 
-                <Button label="Show" icon="pi pi-external-link" @click="openDialog" />
+                <Button label="Show" icon="external-link" @click="openDialog" />
             </div>
 
             <Dialog header="Flex Scroll" v-model:visible="dialogVisible" :style="{width: '75vw'}" :maximizable="true" :modal="true" :contentStyle="{height: '300px'}">
@@ -35,7 +35,7 @@
                     <Column field="status" header="Status" style="min-width:200px"></Column>
                 </DataTable>
                 <template #footer>
-                    <Button label="Ok" icon="pi pi-check" @click="closeDialog" />
+                    <Button label="Ok" icon="check" @click="closeDialog" />
                 </template>
             </Dialog>
 
@@ -67,7 +67,7 @@
                     <Column field="status" header="Status" style="min-width:200px"></Column>
                     <Column style="flex: 0 0 4rem">
                         <template #body="{data,frozenRow,index}">
-                            <Button type="button" :icon="frozenRow ? 'pi pi-lock-open' : 'pi pi-lock'" :disabled="frozenRow ? false : lockedCustomers.length >= 2"
+                            <Button type="button" :icon="frozenRow ? 'lock-open' : 'lock'" :disabled="frozenRow ? false : lockedCustomers.length >= 2"
                             class="p-button-sm p-button-text" @click="toggleLock(data,frozenRow,index)"/>
                         </template>
                     </Column>
@@ -76,7 +76,7 @@
 
             <div class="card">
                 <h5>Frozen Columns</h5>
-                <ToggleButton v-model="balanceFrozen" onIcon="pi pi-lock" offIcon="pi pi-lock-open" onLabel="Unfreeze Balance" offLabel="Freeze Balance" style="flex-growl:1; flex-basis: 12rem" />
+                <ToggleButton v-model="balanceFrozen" onIcon="lock" offIcon="lock-open" onLabel="Unfreeze Balance" offLabel="Freeze Balance" style="flex-growl:1; flex-basis: 12rem" />
 
                 <DataTable :value="customers2" :scrollable="true" scrollHeight="400px" :loading="loading" scrollDirection="both" class="p-mt-3">
                     <Column field="name" header="Name" style="flex-growl:1; flex-basis:160px" frozen></Column>
@@ -162,7 +162,7 @@ export default {
 
         <div class="card">
             <h5>Flexible Scroll</h5>
-            <Button label="Show" icon="pi pi-external-link" @click="openDialog" />
+            <Button label="Show" icon="external-link" @click="openDialog" />
         </div>
 
         <Dialog header="Flex Scroll" v-model:visible="dialogVisible" :style="{width: '75vw'}" :maximizable="true" :modal="true" :contentStyle="{height: '300px'}">
@@ -173,7 +173,7 @@ export default {
                 <Column field="status" header="Status" style="min-width:200px"></Column>
             </DataTable>
             <template #footer>
-                <Button label="Ok" icon="pi pi-check" @click="closeDialog" />
+                <Button label="Ok" icon="check" @click="closeDialog" />
             </template>
         </Dialog>
 
@@ -205,7 +205,7 @@ export default {
                 <Column field="status" header="Status" style="min-width:200px"></Column>
                 <Column style="flex: 0 0 4rem">
                     <template #body="{data,frozenRow,index}">
-                        <Button type="button" :icon="frozenRow ? 'pi pi-lock-open' : 'pi pi-lock'" :disabled="frozenRow ? false : lockedCustomers.length >= 2"
+                        <Button type="button" :icon="frozenRow ? 'lock-open' : 'lock'" :disabled="frozenRow ? false : lockedCustomers.length >= 2"
                         class="p-button-sm p-button-text" @click="toggleLock(data,frozenRow,index)"/>
                     </template>
                 </Column>
@@ -214,7 +214,7 @@ export default {
 
         <div class="card">
             <h5>Frozen Columns</h5>
-            <ToggleButton v-model="balanceFrozen" onIcon="pi pi-lock" offIcon="pi pi-lock-open" onLabel="Unfreeze Balance" offLabel="Freeze Balance" style="flex-growl:1; flex-basis: 12rem" />
+            <ToggleButton v-model="balanceFrozen" onIcon="lock" offIcon="lock-open" onLabel="Unfreeze Balance" offLabel="Freeze Balance" style="flex-growl:1; flex-basis: 12rem" />
 
             <DataTable :value="customers2" :scrollable="true" scrollHeight="400px" :loading="loading" scrollDirection="both" class="p-mt-3">
                 <Column field="name" header="Name" style="flex-growl:1; flex-basis:160px" frozen></Column>
@@ -384,7 +384,7 @@ export default {
 
         <div class="card">
             <h5>Flexible Scroll</h5>
-            <Button label="Show" icon="pi pi-external-link" @click="openDialog" />
+            <Button label="Show" icon="external-link" @click="openDialog" />
         </div>
 
         <Dialog header="Flex Scroll" v-model:visible="dialogVisible" :style="{width: '75vw'}" :maximizable="true" :modal="true" :contentStyle="{height: '300px'}">
@@ -395,7 +395,7 @@ export default {
                 <Column field="status" header="Status" style="min-width:200px"></Column>
             </DataTable>
             <template #footer>
-                <Button label="Ok" icon="pi pi-check" @click="closeDialog" />
+                <Button label="Ok" icon="check" @click="closeDialog" />
             </template>
         </Dialog>
 
@@ -427,7 +427,7 @@ export default {
                 <Column field="status" header="Status" style="min-width:200px"></Column>
                 <Column style="flex: 0 0 4rem">
                     <template #body="{data,frozenRow,index}">
-                        <Button type="button" :icon="frozenRow ? 'pi pi-lock-open' : 'pi pi-lock'" :disabled="frozenRow ? false : lockedCustomers.length >= 2"
+                        <Button type="button" :icon="frozenRow ? 'lock-open' : 'lock'" :disabled="frozenRow ? false : lockedCustomers.length >= 2"
                         class="p-button-sm p-button-text" @click="toggleLock(data,frozenRow,index)"/>
                     </template>
                 </Column>
@@ -436,7 +436,7 @@ export default {
 
         <div class="card">
             <h5>Frozen Columns</h5>
-            <ToggleButton v-model="balanceFrozen" onIcon="pi pi-lock" offIcon="pi pi-lock-open" onLabel="Unfreeze Balance" offLabel="Freeze Balance" style="flex-growl:1; flex-basis: 12rem" />
+            <ToggleButton v-model="balanceFrozen" onIcon="lock" offIcon="lock-open" onLabel="Unfreeze Balance" offLabel="Freeze Balance" style="flex-growl:1; flex-basis: 12rem" />
 
             <DataTable :value="customers2" :scrollable="true" scrollHeight="400px" :loading="loading" scrollDirection="both" class="p-mt-3">
                 <Column field="name" header="Name" style="flex-growl:1; flex-basis:160px" frozen></Column>

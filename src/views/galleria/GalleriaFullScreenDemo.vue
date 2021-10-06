@@ -20,7 +20,7 @@
                     </template>
                 </Galleria>
 
-                <Button label="Show" icon="pi pi-external-link" @click="displayBasic = true" />
+                <Button label="Show" icon="external-link" @click="displayBasic = true" />
             </div>
 
             <div class="card">
@@ -35,7 +35,7 @@
                     </template>
                 </Galleria>
 
-                <Button label="Show" icon="pi pi-external-link" @click="displayBasic2 = true" />
+                <Button label="Show" icon="external-link" @click="displayBasic2 = true" />
             </div>
 
             <div class="card">
@@ -73,7 +73,7 @@
     &lt;/template&gt;
 &lt;/Galleria&gt;
 
-&lt;Button label="Show" icon="pi pi-external-link" @click="displayBasic = true" /&gt;
+&lt;Button label="Show" icon="external-link" @click="displayBasic = true" /&gt;
 
 &lt;h3&gt;Without Thumbnails&lt;/h3&gt;
 &lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="7" containerStyle="max-width: 850px"
@@ -86,7 +86,7 @@
     &lt;/template&gt;
 &lt;/Galleria&gt;
 
-&lt;Button label="Show" icon="pi pi-external-link" @click="displayBasic2 = true" /&gt;
+&lt;Button label="Show" icon="external-link" @click="displayBasic2 = true" /&gt;
 
 &lt;h3&gt;Custom Content&lt;/h3&gt;
 &lt;Galleria :value="images" v-model:activeIndex="activeIndex" :responsiveOptions="responsiveOptions" :numVisible="7" containerStyle="max-width: 850px"

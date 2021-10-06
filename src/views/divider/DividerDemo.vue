@@ -29,7 +29,7 @@
 
                 <Divider />
 
-                <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur 
+                <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur
                             a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.
                             Donec vel volutpat ipsum. Integer nunc magna, posuere ut tincidunt eget, egestas vitae sapien. Morbi dapibus luctus odio.</p>
             </div>
@@ -60,7 +60,7 @@
                     <b>Right</b>
                 </Divider>
 
-                <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur 
+                <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur
                             a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.
                             Donec vel volutpat ipsum. Integer nunc magna, posuere ut tincidunt eget, egestas vitae sapien. Morbi dapibus luctus odio.</p>
             </div>
@@ -91,10 +91,10 @@
                             Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.</p>
 
                 <Divider align="right">
-                    <Button label="Button" icon="pi pi-search" class="p-button-outlined"></Button>
+                    <Button label="Button" icon="search" class="p-button-outlined"></Button>
                 </Divider>
 
-                <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur 
+                <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur
                             a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.
                             Donec vel volutpat ipsum. Integer nunc magna, posuere ut tincidunt eget, egestas vitae sapien. Morbi dapibus luctus odio.</p>
             </div>
@@ -142,7 +142,7 @@
                         </Divider>
                     </div>
                     <div class="p-col-5 p-d-flex p-ai-center p-jc-center">
-                        <Button label="Sign Up" icon="pi pi-user-plus" class="p-button-success"></Button>
+                        <Button label="Sign Up" icon="user-plus" class="p-button-success"></Button>
                     </div>
                 </div>
             </div>

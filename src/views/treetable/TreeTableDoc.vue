@@ -636,8 +636,8 @@ export default {
         <p>Example below expands and collapses all nodes with buttons.</p>
 <pre v-code><code><template v-pre>
 &lt;div style="margin-bottom: 1em"&gt;
-    &lt;Button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll" /&gt;
-    &lt;Button type="button" icon="pi pi-minus" label="Collapse All" @click="collapseAll" /&gt;
+    &lt;Button type="button" icon="plus" label="Expand All" @click="expandAll" /&gt;
+    &lt;Button type="button" icon="minus" label="Collapse All" @click="collapseAll" /&gt;
 &lt;/div&gt;
 &lt;TreeTable :value="nodes" :expandedKeys="expandedKeys"&gt;
     &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column&gt;
@@ -729,16 +729,16 @@ export default {
     &lt;Column field="type" header="Type"&gt;&lt;/Column&gt;
     &lt;Column headerStyle="width: 8em" bodyStyle="text-align: center"&gt;
         &lt;template #header&gt;
-            &lt;Button type="button" icon="pi pi-cog"&gt;&lt;/Button&gt;
+            &lt;Button type="button" icon="cog"&gt;&lt;/Button&gt;
         &lt;/template&gt;
         &lt;template #body="slotProps"&gt;
-            &lt;Button type="button" icon="pi pi-search" class="p-button-success" style="margin-right: .5em"&gt;&lt;/Button&gt;
-            &lt;Button type="button" icon="pi pi-pencil" class="p-button-warning"&gt;&lt;/Button&gt;
+            &lt;Button type="button" icon="search" class="p-button-success" style="margin-right: .5em"&gt;&lt;/Button&gt;
+            &lt;Button type="button" icon="pencil" class="p-button-warning"&gt;&lt;/Button&gt;
         &lt;/template&gt;
     &lt;/Column&gt;
     &lt;template #footer&gt;
         &lt;div style="text-align:left"&gt;
-            &lt;Button icon="pi pi-refresh" /&gt;
+            &lt;Button icon="refresh" /&gt;
         &lt;/div&gt;
     &lt;/template&gt;
 &lt;/TreeTable&gt;
@@ -800,10 +800,10 @@ export default {
     &lt;Column field="size" header="Size"&gt;&lt;/Column&gt;
     &lt;Column field="type" header="Type"&gt;&lt;/Column&gt;
     &lt;template #paginatorLeft&gt;
-        &lt;Button type="button" icon="pi pi-refresh" /&gt;
+        &lt;Button type="button" icon="refresh" /&gt;
     &lt;/template&gt;
     &lt;template #paginatorRight&gt;
-        &lt;Button type="button" icon="pi pi-cloud" /&gt;
+        &lt;Button type="button" icon="cloud" /&gt;
     &lt;/template&gt;
 &lt;/TreeTable&gt;
 </template>
@@ -1074,10 +1074,10 @@ export default {
 </code></pre>
 
             <h6>Flex Scroll</h6>
-            <p>In cases where viewport should adjust itself according to the table parent's height instead of a fixed viewport height, set scrollHeight option as flex. In example below, table is inside a Dialog where viewport size dynamically responds to the dialog size changes such as maximizing. 
+            <p>In cases where viewport should adjust itself according to the table parent's height instead of a fixed viewport height, set scrollHeight option as flex. In example below, table is inside a Dialog where viewport size dynamically responds to the dialog size changes such as maximizing.
             FlexScroll can also be used for cases where scrollable viewport should be responsive with respect to the window size for full page scroll.</p>
 <pre v-code><code><template v-pre>
-&lt;Button label="Show" icon="pi pi-external-link" @click="openDialog" /&gt;
+&lt;Button label="Show" icon="external-link" @click="openDialog" /&gt;
 &lt;Dialog header="Flex Scroll" v-model:visible="dialogVisible" :style="{width: '50vw'}" :maximizable="true" :modal="true" :contentStyle="{height: '300px'}"&gt;
     &lt;TreeTable :value="nodes" :scrollable="true" scrollHeight="flex"&gt;
         &lt;Column field="name" header="Name" :expander="true" style="min-width:200px"&gt;&lt;/Column&gt;
@@ -1085,8 +1085,8 @@ export default {
         &lt;Column field="type" header="Type" style="min-width:200px"&gt;&lt;/Column&gt;
     &lt;/TreeTable&gt;
     &lt;template #footer&gt;
-        &lt;Button label="Yes" icon="pi pi-check" @click="closeDialog" /&gt;
-        &lt;Button label="No" icon="pi pi-times" @click="closeDialog" class="p-button-secondary"/&gt;
+        &lt;Button label="Yes" icon="check" @click="closeDialog" /&gt;
+        &lt;Button label="No" icon="times" @click="closeDialog" class="p-button-secondary"/&gt;
     &lt;/template&gt;
 &lt;/Dialog&gt;
 </template>
@@ -1400,7 +1400,7 @@ export default {
                     <tr>
                         <td>loadingIcon</td>
                         <td>string</td>
-                        <td>pi pi-spinner</td>
+                        <td>spinner spin</td>
                         <td>The icon to show while indicating data load is in progress.</td>
                     </tr>
                     <tr>
@@ -1744,8 +1744,8 @@ export default {
         <div class="card">
             <h5>Programmatic Control</h5>
             <div style="margin-bottom: 1em">
-                <Button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll" />
-                <Button type="button" icon="pi pi-minus" label="Collapse All" @click="collapseAll" />
+                <Button type="button" icon="plus" label="Expand All" @click="expandAll" />
+                <Button type="button" icon="minus" label="Collapse All" @click="collapseAll" />
             </div>
             <TreeTable :value="nodes" :expandedKeys="expandedKeys">
                 <Column field="name" header="Name" :expander="true"></Column>
@@ -1835,8 +1835,8 @@ button {
         <div class="card">
             <h5>Programmatic Control</h5>
             <div style="margin-bottom: 1em">
-                <Button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll" />
-                <Button type="button" icon="pi pi-minus" label="Collapse All" @click="collapseAll" />
+                <Button type="button" icon="plus" label="Expand All" @click="expandAll" />
+                <Button type="button" icon="minus" label="Collapse All" @click="collapseAll" />
             </div>
             <TreeTable :value="nodes" :expandedKeys="expandedKeys">
                 <Column field="name" header="Name" :expander="true"></Column>

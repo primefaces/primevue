@@ -1,7 +1,7 @@
 <template>
     <CDialog v-model:visible="visible" :modal="true" :header="header" :blockScroll="blockScroll" :position="position" class="p-confirm-dialog"
         :breakpoints="breakpoints">
-        <i :class="iconClass" />
+        <Icon v-if="confirmation" tag="i" class="p-confirm-dialog-icon" :icon="confirmation.icon" />
         <span class="p-confirm-dialog-message">{{message}}</span>
         <template #footer>
             <CDButton :label="rejectLabel" :icon="rejectIcon" :class="rejectClass" @click="reject()"/>
@@ -14,6 +14,7 @@
 import ConfirmationEventBus from 'primevue/confirmationeventbus';
 import Dialog from 'primevue/dialog';
 import Button from 'primevue/button';
+import Icon from 'primevue/icon';
 
 export default {
     name: 'ConfirmDialog',
@@ -84,9 +85,6 @@ export default {
         position() {
             return this.confirmation ? this.confirmation.position : null;
         },
-        iconClass() {
-            return ['p-confirm-dialog-icon', this.confirmation ? this.confirmation.icon : null];
-        },
         acceptLabel() {
             return this.confirmation ? (this.confirmation.acceptLabel || this.$primevue.config.locale.accept) : null;
         },
@@ -108,7 +106,8 @@ export default {
     },
     components: {
         'CDialog': Dialog,
-        'CDButton': Button
+        'CDButton': Button,
+        'Icon': Icon,
     }
 }
 </script>

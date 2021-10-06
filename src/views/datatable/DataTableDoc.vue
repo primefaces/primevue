@@ -333,7 +333,7 @@ export default {
                         <tr>
                             <td>rowReorderIcon</td>
                             <td>string</td>
-                            <td>pi pi-bars</td>
+                            <td>bars</td>
                             <td>Icon of the drag handle to reorder rows.</td>
                         </tr>
                         <tr>
@@ -461,7 +461,7 @@ export default {
 &lt;DataTable :value="cars"&gt;
     &lt;template #header&gt;
         &lt;div&gt;
-            &lt;Button icon="pi pi-refresh" style="float: left"/&gt;
+            &lt;Button icon="refresh" style="float: left"/&gt;
             List of Cars
         &lt;/div&gt;
     &lt;/template&gt;
@@ -475,11 +475,11 @@ export default {
     &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
     &lt;Column headerStyle="width: 8em" bodyStyle="text-align: center"&gt;
         &lt;template #header&gt;
-            &lt;Button type="button" icon="pi pi-cog"&gt;&lt;/Button&gt;
+            &lt;Button type="button" icon="cog"&gt;&lt;/Button&gt;
         &lt;/template&gt;
         &lt;template #body="slotProps"&gt;
-            &lt;Button type="button" icon="pi pi-search" class="p-button-success" style="margin-right: .5em"&gt;&lt;/Button&gt;
-            &lt;Button type="button" icon="pi pi-pencil" class="p-button-warning"&gt;&lt;/Button&gt;
+            &lt;Button type="button" icon="search" class="p-button-success" style="margin-right: .5em"&gt;&lt;/Button&gt;
+            &lt;Button type="button" icon="pencil" class="p-button-warning"&gt;&lt;/Button&gt;
         &lt;/template&gt;
     &lt;/Column&gt;
     &lt;template #footer&gt;
@@ -585,10 +585,10 @@ export default {
     &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
     &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
     &lt;template #paginatorLeft&gt;
-        &lt;Button type="button" icon="pi pi-refresh" /&gt;
+        &lt;Button type="button" icon="refresh" /&gt;
     &lt;/template&gt;
     &lt;template #paginatorRight&gt;
-        &lt;Button type="button" icon="pi pi-cloud" /&gt;
+        &lt;Button type="button" icon="cloud" /&gt;
     &lt;/template&gt;
 &lt;/DataTable&gt;
 </template>
@@ -846,10 +846,10 @@ matchModes: [
         &lt;InputText type="text" v-model="filterModel.value" class="p-column-filter" placeholder="Search by country"/&gt;
     &lt;/template&gt;
     &lt;template #filterclear="{filterCallback}"&gt;
-        &lt;Button type="button" icon="pi pi-times" @click="filterCallback()" class="p-button-secondary"&gt;&lt;/Button&gt;
+        &lt;Button type="button" icon="times" @click="filterCallback()" class="p-button-secondary"&gt;&lt;/Button&gt;
     &lt;/template&gt;
     &lt;template #filterapply="{filterCallback}"&gt;
-        &lt;Button type="button" icon="pi pi-check" @click="filterCallback()" class="p-button-success"&gt;&lt;/Button&gt;
+        &lt;Button type="button" icon="check" @click="filterCallback()" class="p-button-success"&gt;&lt;/Button&gt;
     &lt;/template&gt;
     &lt;template #filterfooter&gt;
         &lt;div class="p-px-3 p-pt-0 p-pb-3 p-text-center p-text-bold"&gt;Customized Buttons&lt;/div&gt;
@@ -930,7 +930,7 @@ matchModes: [
             <h6>Flex Scroll</h6>
             <p>In cases where viewport should adjust itself according to the table parent's height instead of a fixed viewport height, set scrollHeight option as flex. In example below, table is inside a Dialog where viewport size dynamically responds to the dialog size changes such as maximizing.</p>
 <pre v-code><code><template v-pre>
-&lt;Button label="Show" icon="pi pi-external-link" @click="openDialog" /&gt;
+&lt;Button label="Show" icon="external-link" @click="openDialog" /&gt;
 &lt;Dialog header="Flex Scroll" v-model:visible="dialogVisible" :style="{width: '50vw'}" :maximizable="true" :modal="true" :contentStyle="{height: '300px'}"&gt;
     &lt;DataTable :value="cars" :scrollable="true" scrollHeight="flex"&gt;
         &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
@@ -939,8 +939,8 @@ matchModes: [
         &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
     &lt;/DataTable&gt;
     &lt;template #footer&gt;
-        &lt;Button label="Yes" icon="pi pi-check" @click="closeDialog" /&gt;
-        &lt;Button label="No" icon="pi pi-times" @click="closeDialog" class="p-button-secondary"/&gt;
+        &lt;Button label="Yes" icon="check" @click="closeDialog" /&gt;
+        &lt;Button label="No" icon="times" @click="closeDialog" class="p-button-secondary"/&gt;
     &lt;/template&gt;
 &lt;/Dialog&gt;
 </template>
@@ -1049,8 +1049,8 @@ matchModes: [
     @row-expand="onRowExpand" @row-collapse="onRowCollapse"&gt;
     &lt;template #header&gt;
         &lt;div class="table-header-container"&gt;
-            &lt;Button icon="pi pi-plus" label="Expand All" @click="expandAll" /&gt;
-            &lt;Button icon="pi pi-minus" label="Collapse All" @click="collapseAll" /&gt;
+            &lt;Button icon="plus" label="Expand All" @click="expandAll" /&gt;
+            &lt;Button icon="minus" label="Collapse All" @click="collapseAll" /&gt;
         &lt;/div&gt;
     &lt;/template&gt;
     &lt;Column :expander="true" headerStyle="width: 3em" /&gt;
@@ -1069,7 +1069,7 @@ matchModes: [
                     &lt;div class="p-col-12"&gt;Color: &lt;b&gt;&#123;&#123;slotProps.data.color&#125;&#125;&lt;/b&gt;&lt;/div&gt;
                 &lt;/div&gt;
             &lt;/div&gt;
-            &lt;Button icon="pi pi-search"&gt;&lt;/Button&gt;
+            &lt;Button icon="search"&gt;&lt;/Button&gt;
         &lt;/div&gt;
     &lt;/template&gt;
 &lt;/DataTable&gt;
@@ -1458,7 +1458,7 @@ export default {
 &lt;DataTable :value="cars" ref="dt"&gt;
     &lt;template #header&gt;
         &lt;div style="text-align: left"&gt;
-            &lt;Button icon="pi pi-external-link" label="Export" @click="exportCSV($event)" /&gt;
+            &lt;Button icon="external-link" label="Export" @click="exportCSV($event)" /&gt;
         &lt;/div&gt;
     &lt;/template&gt;
     &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
@@ -1505,7 +1505,7 @@ export default {
     v-model:selection="selectedCar" selectionMode="single" dataKey="vin"&gt;
     &lt;template #header&gt;
         &lt;div style="text-align: right"&gt;
-            &lt;i class="pi pi-search" style="margin: 4px 4px 0px 0px;"&gt;&lt;/i&gt;
+            &lt;Icon tag="i" icon="search" style="margin: 4px 4px 0px 0px;" /&gt;
             &lt;InputText v-model="filters['global']" placeholder="Global Search" size="50" /&gt;
         &lt;/div&gt;
     &lt;/template&gt;
@@ -1610,8 +1610,8 @@ export default {
             cars: null,
             selectedCar: null,
             menuModel: [
-                {label: 'View', icon: 'pi pi-fw pi-search', command: () => this.viewCar(this.selectedCar)},
-                {label: 'Delete', icon: 'pi pi-fw pi-times', command: () => this.deleteCar(this.selectedCar)}
+                {label: 'View', icon: 'fw search', command: () => this.viewCar(this.selectedCar)},
+                {label: 'Delete', icon: 'fw times', command: () => this.deleteCar(this.selectedCar)}
             ]
         }
     },
@@ -1883,7 +1883,7 @@ export default {
                         <tr>
                             <td>loadingIcon</td>
                             <td>string</td>
-                            <td>pi pi-spinner</td>
+                            <td>spinner spin</td>
                             <td>The icon to show while indicating data load is in progress.</td>
                         </tr>
                         <tr>
@@ -2036,13 +2036,13 @@ export default {
                         <tr>
                             <td>expandedRowIcon</td>
                             <td>string</td>
-                            <td>pi-chevron-down</td>
+                            <td>chevron-down</td>
                             <td>Icon of the row toggler to display the row as expanded.</td>
                         </tr>
                         <tr>
                             <td>collapsedRowIcon</td>
                             <td>string</td>
-                            <td>pi-chevron-right</td>
+                            <td>chevron-right</td>
                             <td>Icon of the row toggler to display the row as collapsed.</td>
                         </tr>
                         <tr>
@@ -2582,7 +2582,7 @@ export default {
                  <div class="p-d-flex p-jc-between p-ai-center">
                     <h5 class="p-m-0">Customers</h5>
                     <span class="p-input-icon-left">
-                        <i class="pi pi-search" />
+                        <Icon tag="i" icon="search" />
                         <InputText v-model="filters['global'].value" placeholder="Keyword Search" />
                     </span>
                  </div>
@@ -2673,7 +2673,7 @@ export default {
             </Column>
             <Column headerStyle="width: 4rem; text-align: center" bodyStyle="text-align: center; overflow: visible">
                 <template #body>
-                    <Button type="button" icon="pi pi-cog"></Button>
+                    <Button type="button" icon="cog"></Button>
                 </template>
             </Column>
         </DataTable>
@@ -2806,7 +2806,7 @@ export default {
                  <div class="p-d-flex p-jc-between p-ai-center">
                     <h5 class="p-m-0">Customers</h5>
                     <span class="p-input-icon-left">
-                        <i class="pi pi-search" />
+                        <Icon tag="i" icon="search" />
                         <InputText v-model="filters['global'].value" placeholder="Keyword Search" />
                     </span>
                  </div>
@@ -2897,7 +2897,7 @@ export default {
             </Column>
             <Column headerStyle="width: 4rem; text-align: center" bodyStyle="text-align: center; overflow: visible">
                 <template #body>
-                    <Button type="button" icon="pi pi-cog"></Button>
+                    <Button type="button" icon="cog"></Button>
                 </template>
             </Column>
         </DataTable>

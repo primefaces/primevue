@@ -218,7 +218,7 @@ export default {
                     <tr>
                         <td>icon</td>
                         <td>string</td>
-                        <td>pi pi-calendar</td>
+                        <td>calendar</td>
                         <td>Icon of the calendar button.</td>
                     </tr>
                     <tr>

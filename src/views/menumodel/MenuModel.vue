@@ -13,16 +13,16 @@
 const items: [
     {
         label: 'Options',
-        items: [{label: 'New', icon: 'pi pi-fw pi-plus', command:() => {} },
-                {label: 'Delete', icon: 'pi pi-fw pi-trash', url: 'http://primetek.com.tr'}]
+        items: [{label: 'New', icon: 'fw plus', command:() => {} },
+                {label: 'Delete', icon: 'fw trash', url: 'http://primetek.com.tr'}]
     },
     {
         label: 'Account',
-        items: [{label: 'Options', icon: 'pi pi-fw pi-cog', to: '/options'},
-                {label: 'Sign Out', icon: 'pi pi-fw pi-power-off', to: '/logout'} ]
+        items: [{label: 'Options', icon: 'fw cog', to: '/options'},
+                {label: 'Sign Out', icon: 'fw power-off', to: '/logout'} ]
     }
 ];
-                
+
 </code></pre>
 
                 <p>MenuItem provides the following properties. Note that not all of them may be utilized by the corresponding menu component.</p>
@@ -126,7 +126,7 @@ const items: [
 const items = [
     {
         label: 'New',
-        icon: 'pi pi-plus',
+        icon: 'plus',
         command: (event) => {
             // event.originalEvent: Browser event
             // event.item: Menuitem instance
@@ -142,17 +142,17 @@ const items = [
 const items = [
     {
         label: 'Route Path',
-        icon: 'pi pi-plus',
+        icon: 'plus',
         to: '/fileupload'
     },
     {
         label: 'Named Route',
-        icon: 'pi pi-plus',
+        icon: 'plus',
         to: {name: 'fileupload'}
     },
     {
         label: 'External',
-        icon: 'pi pi-check',
+        icon: 'check',
         url: 'https://www.primefaces.org/primevue'
     }
 ];

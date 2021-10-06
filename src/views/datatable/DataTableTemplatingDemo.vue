@@ -14,7 +14,7 @@
                     <template #header>
                         <div class="table-header">
                             Products
-                            <Button icon="pi pi-refresh" />
+                            <Button icon="refresh" />
                         </div>
                     </template>
                     <Column field="name" header="Name"></Column>
@@ -67,7 +67,7 @@ export default {
             <template #header>
                 <div class="table-header">
                     Products
-                    <Button icon="pi pi-refresh" />
+                    <Button icon="refresh" />
                 </div>
             </template>
             <Column field="name" header="Name"></Column>
@@ -133,7 +133,7 @@ export default {
     width: 50px;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)
 }
-</style>                    
+</style>
 `
                 },
                 'composition-api': {
@@ -145,7 +145,7 @@ export default {
             <template #header>
                 <div class="table-header">
                     Products
-                    <Button icon="pi pi-refresh" />
+                    <Button icon="refresh" />
                 </div>
             </template>
             <Column field="name" header="Name"></Column>
@@ -209,7 +209,7 @@ export default {
     width: 50px;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)
 }
-</style>                    
+</style>
 `
                 }
             }

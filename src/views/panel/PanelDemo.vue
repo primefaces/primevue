@@ -47,14 +47,14 @@ export default {
                     label: 'Options',
                     items: [{
                         label: 'Update',
-                        icon: 'pi pi-refresh',
+                        icon: 'refresh',
                         command: () => {
                             this.$toast.add({severity:'success', summary:'Updated', detail:'Data Updated', life: 3000});
                         }
                     },
                     {
                         label: 'Delete',
-                        icon: 'pi pi-times',
+                        icon: 'times',
                         command: () => {
                             this.$toast.add({ severity: 'warn', summary: 'Delete', detail: 'Data Deleted', life: 3000});
                         }
@@ -64,12 +64,12 @@ export default {
                     label: 'Navigate',
                     items: [{
                         label: 'Vue Website',
-                        icon: 'pi pi-external-link',
+                        icon: 'external-link',
                         url: 'https://vuejs.org/'
                     },
                     {
                         label: 'Router',
-                        icon: 'pi pi-upload',
+                        icon: 'upload',
                         to: '/fileupload'
                     }
                 ]}

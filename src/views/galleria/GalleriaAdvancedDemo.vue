@@ -22,7 +22,7 @@
                     </template>
                     <template #footer>
                         <div class="custom-galleria-footer">
-                            <Button icon="pi pi-list" @click="onThumbnailButtonClick" />
+                            <Button icon="list" @click="onThumbnailButtonClick" />
                             <span v-if="images" class="title-container">
                                 <span>{{activeIndex + 1}}/{{images.length}}</span>
                                 <span class="title">{{images[activeIndex].title}}</span>
@@ -52,7 +52,7 @@
     &lt;/template&gt;
     &lt;template #footer&gt;
         &lt;div class="custom-galleria-footer"&gt;
-            &lt;Button icon="pi pi-list" @click="onThumbnailButtonClick" /&gt;
+            &lt;Button icon="list" @click="onThumbnailButtonClick" /&gt;
             &lt;span v-if="images" class="title-container"&gt;
                 &lt;span&gt;{{activeIndex + 1}}/{{images.length}}&lt;/span&gt;
                 &lt;span class="title"&gt;{{images[activeIndex].title}}&lt;/span&gt;
@@ -251,7 +251,7 @@ export default {
             return ['custom-galleria', {'fullscreen': this.fullScreen}];
         },
         fullScreenIcon() {
-            return `pi ${this.fullScreen ? 'pi-window-minimize' : 'pi-window-maximize'}`;
+            return this.fullScreen ? 'window-minimize' : 'window-maximize';
         }
     }
 }

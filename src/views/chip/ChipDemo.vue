@@ -20,10 +20,10 @@
 
                 <h5>Icon</h5>
                 <div class="p-d-flex p-ai-center">
-                    <Chip label="Apple" icon="pi pi-apple" class="p-mr-2" />
-                    <Chip label="Facebook" icon="pi pi-facebook" class="p-mr-2" />
-                    <Chip label="Google" icon="pi pi-google" class="p-mr-2" />
-                    <Chip label="Microsoft" icon="pi pi-microsoft" removable />
+                    <Chip label="Apple" icon="apple" class="p-mr-2" />
+                    <Chip label="Facebook" icon="facebook" class="p-mr-2" />
+                    <Chip label="Google" icon="google" class="p-mr-2" />
+                    <Chip label="Microsoft" icon="microsoft" removable />
                 </div>
 
                 <h5>Image</h5>
@@ -37,7 +37,7 @@
                 <h5>Styling</h5>
                 <div class="p-d-flex p-ai-center">
                     <Chip label="Action" class="p-mr-2 custom-chip" />
-                    <Chip label="Apple" icon="pi pi-apple" class="p-mr-2 custom-chip" />
+                    <Chip label="Apple" icon="apple" class="p-mr-2 custom-chip" />
                     <Chip label="Onyama Limba" image="demo/images/avatar/onyamalimba.png" class="p-mr-2 custom-chip" />
                     <Chip label="Xuxue Feng" image="demo/images/avatar/xuxuefeng.png" class="custom-chip" removable />
                 </div>

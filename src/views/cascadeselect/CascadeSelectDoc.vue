@@ -10,9 +10,9 @@ import CascadeSelect from 'primevue/cascadeselect';
 		<p>CascadeSelect requires a value to bind and a collection of arbitrary objects with a nested hierarchy. <i>optionGroupLabel</i>
             is used for the text of a category and <i>optionGroupChildren</i> is to define the children of the category. Note that order of the <i>optionGroupChildren</i>
             matters and it should correspond to the data hierarchy.</p>
-                    
+
 <pre v-code><code>
-&lt;CascadeSelect v-model="selectedCity" :options="countries" optionLabel="cname" optionGroupLabel="name" 
+&lt;CascadeSelect v-model="selectedCity" :options="countries" optionLabel="cname" optionGroupLabel="name"
                         :optionGroupChildren="['states', 'cities']" style="minWidth: 14rem" &gt;
 
 </code></pre>
@@ -42,11 +42,11 @@ data() {
                                 &#123;cname: 'Townsville', code: 'A-TO'&#125;
                             ]
                         &#125;,
-                        
+
                     ]
                 &#125;,
                 &#123;
-                    name: 'Canada', 
+                    name: 'Canada',
                     code: 'CA',
                     states: [
                         &#123;
@@ -63,7 +63,7 @@ data() {
                                 &#123;cname: 'Toronto', code: 'C-TO'&#125;
                             ]
                         &#125;,
-                        
+
                     ]
                 &#125;,
                 &#123;
@@ -98,7 +98,7 @@ data() {
                     ]
                 &#125;
             ]
-        &#125; 
+        &#125;
     &#125;
 }
 
@@ -108,13 +108,13 @@ data() {
         <p>Content of an item can be customized with the <i>option</i> template.</p>
 
 <pre v-code><code><template v-pre>
-&lt;CascadeSelect v-model="selectedCity" :options="countries" optionLabel="cname" optionGroupLabel="name" 
+&lt;CascadeSelect v-model="selectedCity" :options="countries" optionLabel="cname" optionGroupLabel="name"
         :optionGroupChildren="['states', 'cities']" style="minWidth: 14rem"&gt;
     &lt;template #option="slotProps"&gt;
         &lt;div class="country-item"&gt;
-            &lt;img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.option.code.toLowerCase()" v-if="slotProps.option.states" /&gt;
-            &lt;i class="pi pi-compass p-mr-2" v-if="slotProps.option.cities"&gt;&lt;/i&gt;
-            &lt;i class="pi pi-map-marker p-mr-2" v-if="slotProps.option.cname"&gt;&lt;/i&gt;
+            &lt;img v-if="slotProps.option.states" src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.option.code.toLowerCase()" /&gt;
+            &lt;Icon v-if="slotProps.option.cities" tag="i" class="p-mr-2" icon="compass" /&gt;
+            &lt;Icon v-if="slotProps.option.cname" tag="i" class="p-mr-2" icon="map-marker" /&gt;
             &lt;span&gt;{{slotProps.option.cname || slotProps.option.name}}&lt;/span&gt;
         &lt;/div&gt;
     &lt;/template&gt;
@@ -229,7 +229,7 @@ data() {
                     <tr>
                         <td>loadingIcon</td>
                         <td>string</td>
-                        <td>pi pi-spinner pi-spin</td>
+                        <td>spinner spin</td>
                         <td>Icon to display in loading state.</td>
                     </tr>
 				</tbody>
@@ -373,13 +373,13 @@ export default {
                 :optionGroupChildren="['states', 'cities']" style="minWidth: 14rem" placeholder="Select a City" />
 
         <h5>Templating</h5>
-        <CascadeSelect v-model="selectedCity2" :options="countries" optionLabel="cname" optionGroupLabel="name" 
+        <CascadeSelect v-model="selectedCity2" :options="countries" optionLabel="cname" optionGroupLabel="name"
                 :optionGroupChildren="['states', 'cities']" style="minWidth: 14rem" placeholder="Select a City">
             <template #option="slotProps">
                 <div class="country-item">
-                    <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" v-if="slotProps.option.states" />
-                    <i class="pi pi-compass p-mr-2" v-if="slotProps.option.cities"></i>
-                    <i class="pi pi-map-marker p-mr-2" v-if="slotProps.option.cname"></i>
+                    <img v-if="slotProps.option.states" src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.option.code.toLowerCase()" />
+                    <Icon v-if="slotProps.option.cities" tag="i" class="p-mr-2" icon="compass" />
+                    <Icon v-if="slotProps.option.cname" tag="i" class="p-mr-2" icon="map-marker" />
                     <span>{{slotProps.option.cname || slotProps.option.name}}</span>
                 </div>
             </template>
@@ -391,6 +391,8 @@ export default {
 </template>
 
 <script>
+import Icon from 'primevue/icon';
+
 export default {
     data() {
         return {
@@ -416,11 +418,11 @@ export default {
                                 {cname: 'Townsville', code: 'A-TO'}
                             ]
                         },
-                        
+
                     ]
                 },
                 {
-                    name: 'Canada', 
+                    name: 'Canada',
                     code: 'CA',
                     states: [
                         {
@@ -437,7 +439,7 @@ export default {
                                 {cname: 'Toronto', code: 'C-TO'}
                             ]
                         },
-                        
+
                     ]
                 },
                 {
@@ -472,8 +474,11 @@ export default {
                     ]
                 }
             ]
-        } 
-    }
+        }
+    },
+    components: {
+        'Icon': Icon,
+    },
 }
 <\\/script>
 
@@ -495,13 +500,13 @@ img {
                 :optionGroupChildren="['states', 'cities']" style="minWidth: 14rem" placeholder="Select a City" />
 
         <h5>Templating</h5>
-        <CascadeSelect v-model="selectedCity2" :options="countries" optionLabel="cname" optionGroupLabel="name" 
+        <CascadeSelect v-model="selectedCity2" :options="countries" optionLabel="cname" optionGroupLabel="name"
                 :optionGroupChildren="['states', 'cities']" style="minWidth: 14rem" placeholder="Select a City">
             <template #option="slotProps">
                 <div class="country-item">
-                    <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" v-if="slotProps.option.states" />
-                    <i class="pi pi-compass p-mr-2" v-if="slotProps.option.cities"></i>
-                    <i class="pi pi-map-marker p-mr-2" v-if="slotProps.option.cname"></i>
+                    <img v-if="slotProps.option.states" src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.option.code.toLowerCase()" />
+                    <Icon v-if="slotProps.option.cities" tag="i" class="p-mr-2" icon="compass" />
+                    <Icon v-if="slotProps.option.cname" tag="i" class="p-mr-2" icon="map-marker" />
                     <span>{{slotProps.option.cname || slotProps.option.name}}</span>
                 </div>
             </template>
@@ -514,6 +519,7 @@ img {
 
 <script>
 import { ref } from 'vue';
+import Icon from 'primevue/icon';
 
 export default {
     setup() {
@@ -539,11 +545,11 @@ export default {
                             {cname: 'Townsville', code: 'A-TO'}
                         ]
                     },
-                    
+
                 ]
             },
             {
-                name: 'Canada', 
+                name: 'Canada',
                 code: 'CA',
                 states: [
                     {
@@ -560,7 +566,7 @@ export default {
                             {cname: 'Toronto', code: 'C-TO'}
                         ]
                     },
-                    
+
                 ]
             },
             {
@@ -597,7 +603,10 @@ export default {
         ]);
 
         return { selectedCity1, selectedCity2, countries }
-    }
+    },
+    components: {
+        'Icon': Icon,
+    },
 }
 <\\/script>
 

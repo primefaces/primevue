@@ -24,7 +24,7 @@ import ConfirmPopup from 'primevue/confirmpopup';
 <pre v-code><code>
 &lt;ConfirmPopup&gt;&lt;/ConfirmPopup&gt;
 
-&lt;Button @click="delete($event)" icon="pi pi-check" label="Confirm"&gt;&lt;/Button&gt;
+&lt;Button @click="delete($event)" icon="check" label="Confirm"&gt;&lt;/Button&gt;
 </code></pre>
 
 <pre v-code.script><code>
@@ -34,7 +34,7 @@ export default {
             this.$confirm.require({
                 target: event.currentTarget,
                 message: 'Are you sure you want to proceed?',
-                icon: 'pi pi-exclamation-triangle',
+                icon: 'exclamation-triangle',
                 accept: () => {
                     //callback to execute when user confirms the action
                 },
@@ -61,7 +61,7 @@ export default defineComponent({
         function delete(event) {
             confirm.require({
                 message: 'Are you sure you want to proceed?',
-                icon: 'pi pi-exclamation-triangle',
+                icon: 'exclamation-triangle',
                 accept: () => {
                     //callback to execute when user confirms the action
                 },
@@ -69,8 +69,8 @@ export default defineComponent({
                     //callback to execute when user rejects the action
                 }
             });
-        } 
-        
+        }
+
         return {delete};
     }
 })
@@ -256,8 +256,8 @@ export default {
         <Toast />
 
         <div class="card">
-            <Button @click="confirm1($event)" icon="pi pi-check" label="Confirm" class="p-mr-2"></Button>
-            <Button @click="confirm2($event)" icon="pi pi-times" label="Delete" class="p-button-danger p-button-outlined"></Button>
+            <Button @click="confirm1($event)" icon="check" label="Confirm" class="p-mr-2"></Button>
+            <Button @click="confirm2($event)" icon="times" label="Delete" class="p-button-danger p-button-outlined"></Button>
         </div>
     </div>
 </template>
@@ -269,7 +269,7 @@ export default {
             this.$confirm.require({
                 target: event.currentTarget,
                 message: 'Are you sure you want to proceed?',
-                icon: 'pi pi-exclamation-triangle',
+                icon: 'exclamation-triangle',
                 accept: () => {
                     this.$toast.add({severity:'info', summary:'Confirmed', detail:'You have accepted', life: 3000});
                 },
@@ -282,7 +282,7 @@ export default {
             this.$confirm.require({
                 target: event.currentTarget,
                 message: 'Do you want to delete this record?',
-                icon: 'pi pi-info-circle',
+                icon: 'info-circle',
                 acceptClass: 'p-button-danger',
                 accept: () => {
                     this.$toast.add({severity:'info', summary:'Confirmed', detail:'Record deleted', life: 3000});
@@ -305,8 +305,8 @@ export default {
         <Toast />
 
         <div class="card">
-            <Button @click="confirm1($event)" icon="pi pi-check" label="Confirm" class="p-mr-2"></Button>
-            <Button @click="confirm2($event)" icon="pi pi-times" label="Delete" class="p-button-danger p-button-outlined"></Button>
+            <Button @click="confirm1($event)" icon="check" label="Confirm" class="p-mr-2"></Button>
+            <Button @click="confirm2($event)" icon="times" label="Delete" class="p-button-danger p-button-outlined"></Button>
         </div>
     </div>
 </template>
@@ -325,7 +325,7 @@ export default defineComponent({
             confirm.require({
                 target: event.currentTarget,
                 message: 'Are you sure you want to proceed?',
-                icon: 'pi pi-exclamation-triangle',
+                icon: 'exclamation-triangle',
                 accept: () => {
                     toast.add({severity:'info', summary:'Confirmed', detail:'You have accepted', life: 3000});
                 },
@@ -339,7 +339,7 @@ export default defineComponent({
             confirm.require({
                 target: event.currentTarget,
                 message: 'Do you want to delete this record?',
-                icon: 'pi pi-info-circle',
+                icon: 'info-circle',
                 acceptClass: 'p-button-danger',
                 accept: () => {
                     toast.add({severity:'info', summary:'Confirmed', detail:'Record deleted', life: 3000});

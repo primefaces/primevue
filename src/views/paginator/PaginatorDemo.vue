@@ -17,10 +17,10 @@
                 <Paginator v-model:first="first" :rows="1" :totalRecords="totalRecords2"
                     template="FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink">
                     <template #left>
-                        <Button type="button" icon="pi pi-refresh" @click="reset()"/>
+                        <Button type="button" icon="refresh" @click="reset()"/>
                     </template>
                     <template #right>
-                        <Button type="button" icon="pi pi-search" />
+                        <Button type="button" icon="search" />
                     </template>
                 </Paginator>
 

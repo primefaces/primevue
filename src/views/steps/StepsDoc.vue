@@ -181,7 +181,7 @@ export default {
 <template>
     <div>
         <Toast />
-        
+
         <div class="card">
             <Steps :model="items" :readonly="true" />
         </div>
@@ -358,7 +358,7 @@ export default {
             <template v-slot:footer>
                 <div class="p-grid p-nogutter p-justify-between">
                     <i></i>
-                    <Button label="Next" @click="nextPage()" icon="pi pi-angle-right" iconPos="right" />
+                    <Button label="Next" @click="nextPage()" icon="angle-right" iconPos="right" />
                 </div>
             </template>
         </Card>
@@ -431,8 +431,8 @@ export default {
             </template>
             <template v-slot:footer>
                 <div class="p-grid p-nogutter p-justify-between">
-                    <Button label="Back" @click="prevPage()" icon="pi pi-angle-left" />
-                    <Button label="Next" @click="nextPage()" icon="pi pi-angle-right" iconPos="right" />
+                    <Button label="Back" @click="prevPage()" icon="angle-left" />
+                    <Button label="Next" @click="nextPage()" icon="angle-right" iconPos="right" />
                 </div>
             </template>
         </Card>
@@ -522,8 +522,8 @@ export default {
             </template>
             <template v-slot:footer>
                 <div class="p-grid p-nogutter p-justify-between">
-                    <Button label="Back" @click="prevPage()" icon="pi pi-angle-left" />
-                    <Button label="Next" @click="nextPage()" icon="pi pi-angle-right" iconPos="right" />
+                    <Button label="Back" @click="prevPage()" icon="angle-left" />
+                    <Button label="Next" @click="nextPage()" icon="angle-right" iconPos="right" />
                 </div>
             </template>
         </Card>
@@ -602,8 +602,8 @@ export default {
             </template>
             <template v-slot:footer>
                 <div class="p-grid p-nogutter p-justify-between">
-                    <Button label="Back" @click="prevPage()" icon="pi pi-angle-left" />
-                    <Button label="Complete" @click="complete()" icon="pi pi-check" iconPos="right" class="p-button-success"/>
+                    <Button label="Back" @click="prevPage()" icon="angle-left" />
+                    <Button label="Complete" @click="complete()" icon="check" iconPos="right" class="p-button-success"/>
                 </div>
             </template>
         </Card>

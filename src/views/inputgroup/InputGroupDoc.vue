@@ -68,15 +68,15 @@ export default {
             <div class="p-col-12 p-md-4">
                 <div class="p-inputgroup">
                     <InputText placeholder="Keyword"/>
-                    <Button icon="pi pi-search" class="p-button-warning"/>
+                    <Button icon="search" class="p-button-warning"/>
                 </div>
             </div>
 
             <div class="p-col-12 p-md-4">
                 <div class="p-inputgroup">
-                    <Button icon="pi pi-check" class="p-button-success"/>
+                    <Button icon="check" class="p-button-success"/>
                     <InputText placeholder="Vote"/>
-                    <Button icon="pi pi-times" class="p-button-danger"/>
+                    <Button icon="times" class="p-button-danger"/>
                 </div>
             </div>
         </div>
@@ -190,15 +190,15 @@ export default {
             <div class="p-col-12 p-md-4">
                 <div class="p-inputgroup">
                     <InputText placeholder="Keyword"/>
-                    <Button icon="pi pi-search" class="p-button-warning"/>
+                    <Button icon="search" class="p-button-warning"/>
                 </div>
             </div>
 
             <div class="p-col-12 p-md-4">
                 <div class="p-inputgroup">
-                    <Button icon="pi pi-check" class="p-button-success"/>
+                    <Button icon="check" class="p-button-success"/>
                     <InputText placeholder="Vote"/>
-                    <Button icon="pi pi-times" class="p-button-danger"/>
+                    <Button icon="times" class="p-button-danger"/>
                 </div>
             </div>
         </div>

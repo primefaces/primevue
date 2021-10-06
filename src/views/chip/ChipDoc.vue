@@ -10,7 +10,7 @@ import Chip from 'primevue/chip';
 		<p>Chip can display labels, icons and images.</p>
 <pre v-code><code>
 &lt;Chip label="Text Only" /&gt;
-&lt;Chip label="Text with icon" icon="pi pi-check" /&gt;
+&lt;Chip label="Text with icon" icon="check" /&gt;
 &lt;Chip label="Text with image" image="user.png" /&gt;
 
 </code></pre>
@@ -72,7 +72,7 @@ import Chip from 'primevue/chip';
 					<tr>
 						<td>removeIconClass</td>
 						<td>string</td>
-						<td>pi pi-times-circle</td>
+						<td>times-circle</td>
 						<td>Icon of the remove element.</td>
 					</tr>
 				</tbody>
@@ -155,10 +155,10 @@ export default {
 
         <h5>Icon</h5>
         <div class="p-d-flex p-ai-center p-flex-column p-flex-sm-row">
-            <Chip label="Apple" icon="pi pi-apple" class="p-mr-2 p-mb-2" />
-            <Chip label="Facebook" icon="pi pi-facebook" class="p-mr-2 p-mb-2" />
-            <Chip label="Google" icon="pi pi-google" class="p-mr-2 p-mb-2" />
-            <Chip label="Microsoft" icon="pi pi-microsoft" class="p-mb-2" removable />
+            <Chip label="Apple" icon="apple" class="p-mr-2 p-mb-2" />
+            <Chip label="Facebook" icon="facebook" class="p-mr-2 p-mb-2" />
+            <Chip label="Google" icon="google" class="p-mr-2 p-mb-2" />
+            <Chip label="Microsoft" icon="microsoft" class="p-mb-2" removable />
         </div>
 
         <h5>Image</h5>
@@ -172,7 +172,7 @@ export default {
         <h5>Styling</h5>
         <div class="p-d-flex p-ai-center p-flex-column p-flex-sm-row">
             <Chip label="Action" class="p-mr-2 p-mb-2 custom-chip" />
-            <Chip label="Apple" icon="pi pi-apple" class="p-mr-2 p-mb-2 custom-chip" />
+            <Chip label="Apple" icon="apple" class="p-mr-2 p-mb-2 custom-chip" />
             <Chip label="Onyama Limba" image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="p-mr-2 p-mb-2 custom-chip" />
             <Chip label="Xuxue Feng" image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="custom-chip p-mb-2" removable />
         </div>
@@ -206,10 +206,10 @@ export default {
 
         <h5>Icon</h5>
         <div class="p-d-flex p-ai-center p-flex-column p-flex-sm-row">
-            <Chip label="Apple" icon="pi pi-apple" class="p-mr-2 p-mb-2" />
-            <Chip label="Facebook" icon="pi pi-facebook" class="p-mr-2 p-mb-2" />
-            <Chip label="Google" icon="pi pi-google" class="p-mr-2 p-mb-2" />
-            <Chip label="Microsoft" icon="pi pi-microsoft" class="p-mb-2" removable />
+            <Chip label="Apple" icon="apple" class="p-mr-2 p-mb-2" />
+            <Chip label="Facebook" icon="facebook" class="p-mr-2 p-mb-2" />
+            <Chip label="Google" icon="google" class="p-mr-2 p-mb-2" />
+            <Chip label="Microsoft" icon="microsoft" class="p-mb-2" removable />
         </div>
 
         <h5>Image</h5>
@@ -223,7 +223,7 @@ export default {
         <h5>Styling</h5>
         <div class="p-d-flex p-ai-center p-flex-column p-flex-sm-row">
             <Chip label="Action" class="p-mr-2 p-mb-2 custom-chip" />
-            <Chip label="Apple" icon="pi pi-apple" class="p-mr-2 p-mb-2 custom-chip" />
+            <Chip label="Apple" icon="apple" class="p-mr-2 p-mb-2 custom-chip" />
             <Chip label="Onyama Limba" image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="p-mr-2 p-mb-2 custom-chip" />
             <Chip label="Xuxue Feng" image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="custom-chip p-mb-2" removable />
         </div>

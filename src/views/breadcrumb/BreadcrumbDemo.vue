@@ -24,7 +24,7 @@ import BreadcrumbDoc from './BreadcrumbDoc';
 export default {
     data() {
         return {
-            home: {icon: 'pi pi-home', to: '/'},
+            home: {icon: 'home', to: '/'},
             items: [
                 {label: 'Computer'},
                 {label: 'Notebook'},

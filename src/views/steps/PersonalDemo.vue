@@ -28,7 +28,7 @@
             <template v-slot:footer>
                 <div class="p-grid p-nogutter p-justify-between">
                     <i></i>
-                    <Button label="Next" @click="nextPage()" icon="pi pi-angle-right" iconPos="right" />
+                    <Button label="Next" @click="nextPage()" icon="angle-right" iconPos="right" />
                 </div>
             </template>
         </Card>

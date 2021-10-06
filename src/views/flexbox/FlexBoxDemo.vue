@@ -510,16 +510,16 @@
 
 <pre v-code><code>
 &lt;div class="p-d-flex p-p-3 card"&gt;
-    &lt;Button type="Button" icon="pi pi-check" class="p-mr-2" /&gt;
-    &lt;Button type="Button" icon="pi pi-trash" class="p-button-danger"/&gt;
-    &lt;Button type="Button" icon="pi pi-search" class="p-ml-auto p-button-help"/&gt;
+    &lt;Button type="Button" icon="check" class="p-mr-2" /&gt;
+    &lt;Button type="Button" icon="trash" class="p-button-danger"/&gt;
+    &lt;Button type="Button" icon="search" class="p-ml-auto p-button-help"/&gt;
 &lt;/div&gt;
 
 </code></pre>
             <div class="p-d-flex p-p-3 card">
-                <Button type="Button" icon="pi pi-check" class="p-mr-2" />
-                <Button type="Button" icon="pi pi-trash" class="p-button-danger"/>
-                <Button type="Button" icon="pi pi-search" class="p-ml-auto p-button-help"/>
+                <Button type="Button" icon="check" class="p-mr-2" />
+                <Button type="Button" icon="trash" class="p-button-danger"/>
+                <Button type="Button" icon="search" class="p-ml-auto p-button-help"/>
             </div>
 
             <h6>Vertical Spacing</h6>

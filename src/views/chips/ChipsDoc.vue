@@ -20,7 +20,7 @@ import Chips from 'primevue/chips';
 	&lt;template #chip="slotProps"&gt;
 		&lt;div&gt;
 			&lt;span&gt;{{slotProps.value}} - (active) &lt;/span&gt;
-			&lt;i class="pi pi-user-plus" style="font-size: 14px"&gt;&lt;/i&gt;
+			&lt;Icon icon="user-plus" style="font-size: 14px" /&gt;
 		&lt;/div&gt;
 	&lt;/template&gt;
 &lt;/Chips&gt;
@@ -194,7 +194,7 @@ export default {
                 <template #chip="slotProps">
                     <div>
                         <span>{{slotProps.value}} - (active) </span>
-                        <i class="pi pi-user-plus" style="font-size: 14px"></i>
+                        <Icon icon="user-plus" style="font-size: 14px" />
                     </div>
                 </template>
             </Chips>
@@ -203,6 +203,8 @@ export default {
 </template>
 
 <script>
+import Icon from 'primevue/icon';
+
 export default {
     data() {
         return {
@@ -210,6 +212,9 @@ export default {
             value2: null,
             value3: null
         }
+    },
+    components: {
+        Icon
     }
 }
 <\\/script>
@@ -232,7 +237,7 @@ export default {
                 <template #chip="slotProps">
                     <div>
                         <span>{{slotProps.value}} - (active) </span>
-                        <i class="pi pi-user-plus" style="font-size: 14px"></i>
+                        <Icon icon="user-plus" style="font-size: 14px" />
                     </div>
                 </template>
             </Chips>
@@ -242,6 +247,7 @@ export default {
 
 <script>
 import { ref } from 'vue';
+import Icon from 'primevue/icon';
 
 export default {
     setup() {
@@ -250,6 +256,9 @@ export default {
         const value3 = ref();
 
         return { value1, value2, value3 }
+    },
+    components: {
+        Icon
     }
 }
 <\\/script>
