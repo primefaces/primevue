@@ -119,7 +119,7 @@ function addCore() {
         ...lastEntry.plugins,
         {
             name: 'coreMergePlugin',
-            buildEnd() {
+            generateBundle() {
                 Object.entries(core).forEach(([filePath, value]) => {
                     const code = Object.keys(coreDependencies).reduce((val, d) => {
                         const name = d.replace('primevue/', '');
