@@ -137,8 +137,8 @@ import {ConnectedOverlayScrollHandler,DomHandler,ZIndexUtils} from 'primevue/uti
 import OverlayEventBus from 'primevue/overlayeventbus';
 import InputText from 'primevue/inputtext';
 import Button from 'primevue/button';
-import Ripple from 'primevue/ripple';
 import Icon from 'primevue/icon';
+import Ripple from 'primevue/ripple';
 
 export default {
     name: 'Calendar',

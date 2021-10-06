@@ -169,7 +169,7 @@ export default {
         'app-menu': AppMenu,
         'app-footer': AppFooter,
         'app-configurator': AppConfigurator,
-        Icon,
+        'Icon': Icon
     }
 }
 </script>

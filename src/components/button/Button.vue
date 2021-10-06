@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import Ripple from 'primevue/ripple';
 import Icon from 'primevue/icon';
+import Ripple from 'primevue/ripple';
 
 export default {
     name: 'Button',
@@ -73,11 +73,11 @@ export default {
             return this.$attrs.disabled || this.loading;
         }
     },
+    components: {
+        'Icon': Icon
+    },
     directives: {
         'ripple': Ripple
-    },
-    components: {
-        Icon,
-    },
+    }
 }
 </script>

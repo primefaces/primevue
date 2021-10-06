@@ -27,8 +27,8 @@
 
 <script>
 import {DomHandler} from 'primevue/utils';
-import Ripple from 'primevue/ripple';
 import Icon from 'primevue/icon';
+import Ripple from 'primevue/ripple';
 
 export default {
     name: 'GalleriaThumbnails',
@@ -408,7 +408,7 @@ export default {
         },
     },
     components: {
-        'Icon': Icon,
+        'Icon': Icon
     },
     directives: {
         'ripple': Ripple

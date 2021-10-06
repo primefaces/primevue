@@ -86,7 +86,7 @@ export default {
     },
     components: {
         'MenubarSub': MenubarSub,
-        'Icon': Icon,
+        'Icon': Icon
     }
 }
 </script>

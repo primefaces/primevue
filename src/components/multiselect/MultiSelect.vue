@@ -107,9 +107,9 @@
 import {ConnectedOverlayScrollHandler,ObjectUtils,DomHandler,ZIndexUtils} from 'primevue/utils';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import {FilterService} from 'primevue/api';
-import Ripple from 'primevue/ripple';
 import VirtualScroller from 'primevue/virtualscroller';
 import Icon from 'primevue/icon';
+import Ripple from 'primevue/ripple';
 
 export default {
     name: 'MultiSelect',
@@ -741,7 +741,7 @@ export default {
     },
     components: {
         'VirtualScroller': VirtualScroller,
-        'Icon': Icon,
+        'Icon': Icon
     }
 }
 </script>

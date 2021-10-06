@@ -11,8 +11,8 @@
 </template>
 
 <script>
-import Icon from 'primevue/icon';
 import BreadcrumbItem from './BreadcrumbItem.vue';
+import Icon from 'primevue/icon';
 
 export default {
     name: 'Breadcrumb',

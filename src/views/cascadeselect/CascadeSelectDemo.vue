@@ -125,7 +125,7 @@ export default {
     },
     components: {
         'CascadeSelectDoc': CascadeSelectDoc,
-        'Icon': Icon,
+        'Icon': Icon
     }
 }
 </script>

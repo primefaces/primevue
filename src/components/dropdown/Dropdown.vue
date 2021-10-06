@@ -70,9 +70,9 @@
 import {ConnectedOverlayScrollHandler,ObjectUtils,DomHandler,ZIndexUtils} from 'primevue/utils';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import {FilterService} from 'primevue/api';
-import Ripple from 'primevue/ripple';
-import Icon from 'primevue/icon';
 import VirtualScroller from 'primevue/virtualscroller';
+import Icon from 'primevue/icon';
+import Ripple from 'primevue/ripple';
 
 export default {
     name: 'Dropdown',
@@ -730,12 +730,12 @@ export default {
                 : { commonIcon: 'chevron-down', context: 'Dropdown' };
         },
     },
-    directives: {
-        'ripple': Ripple
-    },
     components: {
         'VirtualScroller': VirtualScroller,
         'Icon': Icon
+    },
+    directives: {
+        'ripple': Ripple
     }
 }
 </script>

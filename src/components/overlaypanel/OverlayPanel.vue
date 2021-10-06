@@ -16,8 +16,8 @@
 <script>
 import {UniqueComponentId,DomHandler,ConnectedOverlayScrollHandler,ZIndexUtils} from 'primevue/utils';
 import OverlayEventBus from 'primevue/overlayeventbus';
-import Ripple from 'primevue/ripple';
 import Icon from 'primevue/icon';
+import Ripple from 'primevue/ripple';
 
 export default {
     name: 'OverlayPanel',
@@ -267,7 +267,7 @@ export default {
         }
     },
     components: {
-        'Icon': Icon,
+        'Icon': Icon
     },
     directives: {
         'ripple': Ripple

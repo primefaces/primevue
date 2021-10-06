@@ -63,12 +63,12 @@ export default {
             return ['p-panel p-component', {'p-panel-toggleable': this.toggleable}];
         }
     },
+    components: {
+        'Icon': Icon
+    },
     directives: {
         'ripple': Ripple
-    },
-    components: {
-        Icon,
-    },
+    }
 }
 </script>
 

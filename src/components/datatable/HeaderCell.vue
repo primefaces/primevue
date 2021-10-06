@@ -24,9 +24,9 @@
 
 <script>
 import {DomHandler,ObjectUtils} from 'primevue/utils';
-import Icon from 'primevue/icon';
 import HeaderCheckbox from './HeaderCheckbox.vue';
 import ColumnFilter from './ColumnFilter.vue';
+import Icon from 'primevue/icon';
 
 export default {
     name: 'HeaderCell',

@@ -37,7 +37,7 @@ export default {
         }
     },
     components: {
-        'Icon': Icon,
+        'Icon': Icon
     }
 }
 </script>

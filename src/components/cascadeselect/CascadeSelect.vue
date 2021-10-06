@@ -32,8 +32,8 @@
 <script>
 import {ConnectedOverlayScrollHandler,ObjectUtils,DomHandler,ZIndexUtils} from 'primevue/utils';
 import OverlayEventBus from 'primevue/overlayeventbus';
-import Icon from 'primevue/icon';
 import CascadeSelectSub from './CascadeSelectSub.vue';
+import Icon from 'primevue/icon';
 
 export default {
     name: 'CascadeSelect',
@@ -336,7 +336,7 @@ export default {
     },
     components: {
         'CascadeSelectSub': CascadeSelectSub,
-        'Icon': Icon,
+        'Icon': Icon
     }
 }
 </script>

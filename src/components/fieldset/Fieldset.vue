@@ -64,12 +64,12 @@ export default {
             return UniqueComponentId();
         }
     },
+    components: {
+        'Icon': Icon
+    },
     directives: {
         'ripple': Ripple
-    },
-    components: {
-        Icon,
-    },
+    }
 }
 </script>
 

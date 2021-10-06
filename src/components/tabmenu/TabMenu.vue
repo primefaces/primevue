@@ -30,8 +30,8 @@
 
 <script>
 import {DomHandler} from 'primevue/utils';
-import Ripple from 'primevue/ripple';
 import Icon from 'primevue/icon';
+import Ripple from 'primevue/ripple';
 
 export default {
     name: 'TabMenu',
@@ -137,12 +137,12 @@ export default {
             }
         }
     },
+    components: {
+        'Icon': Icon
+    },
     directives: {
         'ripple': Ripple
-    },
-    components: {
-        Icon,
-    },
+    }
 }
 </script>
 

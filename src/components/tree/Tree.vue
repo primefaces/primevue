@@ -281,7 +281,7 @@ export default {
     },
     components: {
         'TreeNode': TreeNode,
-        'Icon': Icon,
+        'Icon': Icon
     }
 }
 </script>

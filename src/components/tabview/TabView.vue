@@ -31,8 +31,8 @@
 
 <script>
 import {DomHandler} from 'primevue/utils';
-import Ripple from 'primevue/ripple';
 import Icon from 'primevue/icon';
+import Ripple from 'primevue/ripple';
 
 export default {
     name: 'TabView',
@@ -175,7 +175,7 @@ export default {
         }
     },
     components: {
-        'Icon': Icon,
+        'Icon': Icon
     },
     directives: {
         'ripple': Ripple

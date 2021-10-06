@@ -28,8 +28,8 @@ import {UniqueComponentId} from 'primevue/utils';
 import GalleriaItem from './GalleriaItem.vue';
 import GalleriaThumbnails from './GalleriaThumbnails.vue';
 import GalleriaItemSlot from './GalleriaItemSlot.vue';
-import Ripple from 'primevue/ripple';
 import Icon from 'primevue/icon';
+import Ripple from 'primevue/ripple';
 
 export default {
     name: 'GalleriaContent',
@@ -110,7 +110,7 @@ export default {
         'GalleriaItem': GalleriaItem,
         'GalleriaThumbnails': GalleriaThumbnails,
         'GalleriaItemSlot': GalleriaItemSlot,
-        'Icon': Icon,
+        'Icon': Icon
     },
     directives: {
         'ripple': Ripple

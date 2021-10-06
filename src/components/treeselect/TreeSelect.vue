@@ -48,8 +48,8 @@
 import {ConnectedOverlayScrollHandler,DomHandler,ZIndexUtils} from 'primevue/utils';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Tree from 'primevue/tree';
-import Ripple from 'primevue/ripple';
 import Icon from 'primevue/icon';
+import Ripple from 'primevue/ripple';
 
 export default {
     name: 'TreeSelect',
@@ -416,7 +416,7 @@ export default {
     },
     components: {
         'TSTree': Tree,
-        'Icon': Icon,
+        'Icon': Icon
     },
     directives: {
         'ripple': Ripple

@@ -49,9 +49,9 @@
 import {ObjectUtils} from 'primevue/utils';
 import {DomHandler} from 'primevue/utils';
 import {FilterService} from 'primevue/api';
-import Ripple from 'primevue/ripple';
 import VirtualScroller from 'primevue/virtualscroller';
 import Icon from 'primevue/icon';
+import Ripple from 'primevue/ripple';
 
 export default {
     name: 'Listbox',
@@ -327,12 +327,12 @@ export default {
             return !this.virtualScrollerOptions;
         }
     },
-    directives: {
-        'ripple': Ripple
-    },
     components: {
         'VirtualScroller': VirtualScroller,
-        'Icon': Icon,
+        'Icon': Icon
+    },
+    directives: {
+        'ripple': Ripple
     }
 }
 </script>

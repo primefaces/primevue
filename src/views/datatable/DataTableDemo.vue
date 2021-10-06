@@ -124,8 +124,8 @@
 <script>
 import CustomerService from '../../service/CustomerService';
 import {FilterMatchMode,FilterOperator} from 'primevue/api';
-import Icon from 'primevue/icon';
 import DataTableDoc from './DataTableDoc';
+import Icon from 'primevue/icon';
 
 export default {
     data() {

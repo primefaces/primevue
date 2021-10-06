@@ -44,8 +44,8 @@ import Button from 'primevue/button';
 import ProgressBar from 'primevue/progressbar';
 import Message from 'primevue/message';
 import {DomHandler} from 'primevue/utils';
-import Ripple from 'primevue/ripple';
 import Icon from 'primevue/icon';
+import Ripple from 'primevue/ripple';
 
 export default {
     name: 'FileUpload',
@@ -459,7 +459,7 @@ export default {
         'FileUploadButton': Button,
         'FileUploadProgressBar': ProgressBar,
         'FileUploadMessage': Message,
-        'Icon': Icon,
+        'Icon': Icon
     },
     directives: {
         'ripple': Ripple

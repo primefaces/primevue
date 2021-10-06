@@ -17,8 +17,8 @@
 
 <script>
 import {DomHandler,ZIndexUtils} from 'primevue/utils';
-import Ripple from 'primevue/ripple';
 import Icon from 'primevue/icon';
+import Ripple from 'primevue/ripple';
 
 export default {
     name: 'Sidebar',
@@ -161,7 +161,7 @@ export default {
         }
     },
     components: {
-        'Icon': Icon,
+        'Icon': Icon
     },
     directives: {
         'ripple': Ripple

@@ -152,7 +152,7 @@ export default {
     },
     components: {
         'AccordionDoc': AccordionDoc,
-        'Icon': Icon,
+        'Icon': Icon
     }
 }
 </script>

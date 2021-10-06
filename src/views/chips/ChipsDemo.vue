@@ -46,7 +46,7 @@ export default {
     },
     components: {
         'ChipsDoc': ChipsDoc,
-        'Icon': Icon,
+        'Icon': Icon
     }
 }
 </script>

@@ -439,7 +439,7 @@ export default {
         }
     },
     components: {
-        Icon,
+        'Icon': Icon
     }
 }
 <\\/script>
@@ -574,8 +574,8 @@ export default {
 		return { active, tabs }
     },
     components: {
-        'Icon': Icon,
-    },
+        'Icon': Icon
+    }
 }
 <\\/script>
 

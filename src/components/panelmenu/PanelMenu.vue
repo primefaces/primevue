@@ -131,14 +131,14 @@ export default {
             return (typeof item.disabled === 'function' ? item.disabled() : item.disabled);
         }
     },
-    components: {
-        'PanelMenuSub': PanelMenuSub,
-        'Icon': Icon,
-    },
     computed: {
         ariaId() {
             return UniqueComponentId();
         }
+    },
+    components: {
+        'PanelMenuSub': PanelMenuSub,
+        'Icon': Icon
     }
 }
 </script>

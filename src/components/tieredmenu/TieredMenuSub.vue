@@ -28,8 +28,8 @@
 
 <script>
 import {DomHandler} from 'primevue/utils';
-import Ripple from 'primevue/ripple';
 import Icon from 'primevue/icon';
+import Ripple from 'primevue/ripple';
 
 export default {
     name: 'TieredMenuSub',
@@ -242,11 +242,11 @@ export default {
             return {'p-submenu-list': !this.root};
         }
     },
+    components: {
+        'Icon': Icon
+    },
     directives: {
         'ripple': Ripple
-    },
-    components: {
-        Icon,
-    },
+    }
 }
 </script>

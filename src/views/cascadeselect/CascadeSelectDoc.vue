@@ -477,8 +477,8 @@ export default {
         }
     },
     components: {
-        'Icon': Icon,
-    },
+        'Icon': Icon
+    }
 }
 <\\/script>
 
@@ -605,8 +605,8 @@ export default {
         return { selectedCity1, selectedCity2, countries }
     },
     components: {
-        'Icon': Icon,
-    },
+        'Icon': Icon
+    }
 }
 <\\/script>
 

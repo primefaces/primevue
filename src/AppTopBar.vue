@@ -223,7 +223,7 @@ export default {
         }
     },
     components: {
-        Icon,
-    },
+        'Icon': Icon
+    }
 }
 </script>

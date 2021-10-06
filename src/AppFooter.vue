@@ -24,7 +24,7 @@ import Icon from 'primevue/icon';
 
 export default {
     components: {
-        Icon,
-    },
+        'Icon': Icon
+    }
 };
 </script>

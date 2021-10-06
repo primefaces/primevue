@@ -55,9 +55,9 @@
 import {ConnectedOverlayScrollHandler,UniqueComponentId,ObjectUtils,DomHandler,ZIndexUtils} from 'primevue/utils';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Button from 'primevue/button';
-import Ripple from 'primevue/ripple';
-import Icon from 'primevue/icon';
 import VirtualScroller from 'primevue/virtualscroller';
+import Icon from 'primevue/icon';
+import Ripple from 'primevue/ripple';
 
 export default {
     name: 'AutoComplete',

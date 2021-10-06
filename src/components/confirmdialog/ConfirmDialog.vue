@@ -107,7 +107,7 @@ export default {
     components: {
         'CDialog': Dialog,
         'CDButton': Button,
-        'Icon': Icon,
+        'Icon': Icon
     }
 }
 </script>

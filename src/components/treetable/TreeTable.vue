@@ -900,7 +900,7 @@ export default {
         'TTPaginator': Paginator,
         'TTHeaderCell': HeaderCell,
         'TTFooterCell': FooterCell,
-        'Icon': Icon,
+        'Icon': Icon
     }
 }
 </script>

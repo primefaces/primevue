@@ -305,7 +305,7 @@ export default {
     },
     components: {
         'PInputText': InputText,
-        'Icon': Icon,
+        'Icon': Icon
     }
 }
 </script>

@@ -69,10 +69,10 @@
 import {ObjectUtils,DomHandler,UniqueComponentId} from 'primevue/utils';
 import {FilterMatchMode,FilterOperator,FilterService} from 'primevue/api';
 import Paginator from 'primevue/paginator';
-import Icon from 'primevue/icon';
 import TableHeader from './TableHeader.vue';
 import TableBody from './TableBody.vue';
 import TableFooter from './TableFooter.vue';
+import Icon from 'primevue/icon';
 
 export default {
     name: 'DataTable',
@@ -1889,7 +1889,7 @@ export default {
         'DTTableHeader': TableHeader,
         'DTTableBody': TableBody,
         'DTTableFooter': TableFooter,
-        'Icon': Icon,
+        'Icon': Icon
     }
 }
 </script>
