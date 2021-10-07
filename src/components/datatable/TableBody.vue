@@ -193,7 +193,7 @@ export default {
     },
     methods: {
         columnProp(col, prop) {
-            return col.props ? ((col.type.props[prop].type === Boolean && col.props[prop] === '') ? true : col.props[prop]) : null;
+            return ObjectUtils.getVNodeProp(col, prop);
         },
         shouldRenderRowGroupHeader(value, rowData, i) {
             let currentRowFieldData = ObjectUtils.resolveFieldData(rowData, this.groupRowsBy);

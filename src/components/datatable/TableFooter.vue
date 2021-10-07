@@ -17,6 +17,7 @@
 
 <script>
 import FooterCell from './FooterCell.vue';
+import {ObjectUtils} from 'primevue/utils';
 
 export default {
     name: 'TableFooter',
@@ -32,7 +33,7 @@ export default {
     },
     methods: {
         columnProp(col, prop) {
-            return col.props ? ((col.type.props[prop].type === Boolean && col.props[prop] === '') ? true : col.props[prop]) : null;
+            return ObjectUtils.getVNodeProp(col, prop);
         }
     },
     computed: {

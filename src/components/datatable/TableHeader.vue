@@ -51,6 +51,7 @@
 import HeaderCell from './HeaderCell.vue';
 import HeaderCheckbox from './HeaderCheckbox.vue';
 import ColumnFilter from './ColumnFilter.vue';
+import {ObjectUtils} from 'primevue/utils';
 
 export default {
     name: 'TableHeader',
@@ -121,7 +122,7 @@ export default {
     },
     methods: {
         columnProp(col, prop) {
-            return col.props ? ((col.type.props[prop].type === Boolean && col.props[prop] === '') ? true : col.props[prop]) : null;
+            return ObjectUtils.getVNodeProp(col, prop);
         },
         getFilterColumnHeaderClass(column) {
             return ['p-filter-column', this.columnProp(column, 'filterHeaderClass'), this.columnProp(column, 'class'), {

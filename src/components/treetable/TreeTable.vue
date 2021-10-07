@@ -280,7 +280,7 @@ export default {
     },
     methods: {
         columnProp(col, prop) {
-            return col.props ? ((col.type.props[prop].type === Boolean && col.props[prop] === '') ? true : col.props[prop]) : null;
+            return ObjectUtils.getVNodeProp(col, prop);
         },
         onNodeToggle(node) {
             const key = node.key;
@@ -693,7 +693,7 @@ export default {
                 else if (this.columnResizeMode === 'expand') {
                     this.$refs.table.style.width = this.$refs.table.offsetWidth + delta + 'px';
 
-                    if (!this.scrollable) 
+                    if (!this.scrollable)
                         this.resizeColumnElement.style.width = newColumnWidth + 'px';
                     else
                         this.resizeTableCells(newColumnWidth);
