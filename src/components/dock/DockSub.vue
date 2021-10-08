@@ -27,6 +27,8 @@
 </template>
 
 <script>
+import Ripple from 'primevue/ripple';
+
 export default {
     name: 'DockSub',
     props: {
@@ -92,6 +94,9 @@ export default {
         disabled(item) {
             return (typeof item.disabled === 'function' ? item.disabled() : item.disabled);
         }
+    },
+    directives: {
+        'ripple': Ripple
     }
 }
 </script>
