@@ -113,7 +113,9 @@ import Dialog from 'primevue/dialog/sfc';
                 }
             };
 
-            createApp(App).use(primevue.config.default).mount("#app");
+            createApp(App)
+            .use(primevue.config.default)
+            .mount("#app");
         &lt;/script&gt;
     &lt;/body&gt;
 &lt;/html&gt;
