@@ -704,7 +704,217 @@ export default {
 </style>
 
 `
-                }
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/speeddial/speeddial.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/toast/toast.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/toastservice/toastservice.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/tooltip/tooltip.min.js"><\\/script>`,
+                    content: `
+        <div id="app">
+            <p-toast></p-toast>
+            <div class="card">
+                <h5>Linear</h5>
+                <div class="speeddial-linear-demo" :style="{ position: 'relative', height: '500px' }">
+                    <p-speeddial :model="items" direction="up"></p-speeddial>
+                    <p-speeddial :model="items" direction="down"></p-speeddial>
+                    <p-speeddial :model="items" direction="left"></p-speeddial>
+                    <p-speeddial :model="items" direction="right"></p-speeddial>
+                </div>
+            </div>
+
+            <div class="card">
+                <h5>Circle, Semi-Circle and Quarter-Circle</h5>
+                <div class="speeddial-circle-demo" :style="{ position: 'relative', height: '500px' }">
+                    <p-speeddial :model="items" :radius="80" type="circle" button-class="p-button-warning"></p-speeddial>
+                    <p-speeddial :model="items" :radius="80" direction="up" type="semi-circle"></p-speeddial>
+                    <p-speeddial :model="items" :radius="80" direction="down" type="semi-circle"></p-speeddial>
+                    <p-speeddial :model="items" :radius="80" direction="left" type="semi-circle"></p-speeddial>
+                    <p-speeddial :model="items" :radius="80" direction="right" type="semi-circle"></p-speeddial>
+                    <p-speeddial :model="items" :radius="120" direction="up-left" type="quarter-circle" button-class="p-button-success"></p-speeddial>
+                    <p-speeddial :model="items" :radius="120" direction="up-right" type="quarter-circle" button-class="p-button-success"></p-speeddial>
+                    <p-speeddial :model="items" :radius="120" direction="down-left" type="quarter-circle" button-class="p-button-success"></p-speeddial>
+                    <p-speeddial :model="items" :radius="120" direction="down-right" type="quarter-circle" button-class="p-button-success"></p-speeddial>
+                </div>
+            </div>
+
+            <div class="card">
+                <h5>Tooltip</h5>
+                <div class="speeddial-tooltip-demo" :style="{ position: 'relative', height: '350px' }">
+                    <p-speeddial :model="items" direction="up" class="speeddial-right" button-class="p-button-danger" :tooltip-options="{position: 'left'}"></p-speeddial>
+
+                    <p-speeddial :model="items" direction="up" class="speeddial-left" button-class="p-button-help" :tooltip-options="{position: 'right'}"></p-speeddial>
+                </div>
+            </div>
+
+            <div class="card">
+                <h5>Transition Duration, Icon and No Rotate Animation</h5>
+                <div class="speeddial-delay-demo" :style="{ position: 'relative', height: '350px' }">
+                    <p-speeddial :model="items" direction="up" :transition-delay="80" show-icon="pi pi-bars" hide-icon="pi pi-times" button-class="p-button-outlined"></p-speeddial>
+                </div>
+            </div>
+
+            <div class="card">
+                <h5>Mask</h5>
+                <div class="speeddial-mask-demo" :style="{ position: 'relative', height: '350px' }">
+                    <p-speeddial :model="items" direction="up" mask></p-speeddial>
+                </div>
+            </div>
+        </div>
+
+        <script type="module">
+        const { createApp, ref } = Vue;
+        const { useToast } = primevue.usetoast;
+        const Tooltip = primevue.tooltip;
+
+        const App = {
+            setup() {
+                const toast = useToast();
+
+                const items = ref([
+                    {
+                        label: 'Add',
+                        icon: 'pi pi-pencil',
+                        command: () => {
+                            toast.add({ severity: 'info', summary: 'Add', detail: 'Data Added' });
+                        }
+                    },
+                    {
+                        label: 'Update',
+                        icon: 'pi pi-refresh',
+                        command: () => {
+                            toast.add({ severity: 'success', summary: 'Update', detail: 'Data Updated' });
+                        }
+                    },
+                    {
+                        label: 'Delete',
+                        icon: 'pi pi-trash',
+                        command: () => {
+                            toast.add({ severity: 'error', summary: 'Delete', detail: 'Data Deleted' });
+                        }
+                    },
+                    {
+                        label: 'Upload',
+                        icon: 'pi pi-upload',
+                        command: () => {
+                            window.location.hash = "/fileupload"
+                        }
+                    },
+                    {
+                        label: 'Vue Website',
+                        icon: 'pi pi-external-link',
+                        command: () => {
+                            window.location.href = 'https://vuejs.org/'
+                        }
+                    }
+                ]);
+
+                return { items }
+            },
+            components: {
+                "p-speeddial": primevue.speeddial,
+                "p-toast": primevue.toast
+            }
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .use(primevue.toastservice)
+            .directive("tooltip", Tooltip)
+            .mount("#app");
+        <\\/script>
+
+        <style>
+            .speeddial-linear-demo .p-speeddial-direction-up {
+                left: calc(50% - 2rem);
+                bottom: 0;
+            }
+
+            .speeddial-linear-demo .p-speeddial-direction-down {
+                left: calc(50% - 2rem);
+                top: 0;
+            }
+
+            .speeddial-linear-demo .p-speeddial-direction-left {
+                right: 0;
+                top: calc(50% - 2rem);
+            }
+
+            .speeddial-linear-demo .p-speeddial-direction-right {
+                left: 0;
+                top: calc(50% - 2rem);
+            }
+
+            .speeddial-circle-demo .p-speeddial-circle {
+                top: calc(50% - 2rem);
+                left: calc(50% - 2rem);
+            }
+
+            .speeddial-circle-demo .p-speeddial-semi-circle.p-speeddial-direction-up {
+                left: calc(50% - 2rem);
+                bottom: 0;
+            }
+
+            .speeddial-circle-demo .p-speeddial-semi-circle.p-speeddial-direction-down {
+                left: calc(50% - 2rem);
+                top: 0;
+            }
+
+            .speeddial-circle-demo .p-speeddial-semi-circle.p-speeddial-direction-left {
+                right: 0;
+                top: calc(50% - 2rem);
+            }
+
+            .speeddial-circle-demo .p-speeddial-semi-circle.p-speeddial-direction-right {
+                left: 0;
+                top: calc(50% - 2rem);
+            }
+
+            .speeddial-circle-demo .p-speeddial-quarter-circle.p-speeddial-direction-up-left {
+                right: 0;
+                bottom: 0;
+            }
+
+            .speeddial-circle-demo .p-speeddial-quarter-circle.p-speeddial-direction-up-right {
+                left: 0;
+                bottom: 0;
+            }
+
+            .speeddial-circle-demo .p-speeddial-quarter-circle.p-speeddial-direction-down-left {
+                right: 0;
+                top: 0;
+            }
+
+            .speeddial-circle-demo .p-speeddial-quarter-circle.p-speeddial-direction-down-right {
+                left: 0;
+                top: 0;
+            }
+
+            .speeddial-tooltip-demo .p-speeddial-direction-up.speeddial-left {
+                left: 0;
+                bottom: 0;
+            }
+
+            .speeddial-tooltip-demo .p-speeddial-direction-up.speeddial-right {
+                right: 0;
+                bottom: 0;
+            }
+
+        
+            .speeddial-delay-demo .p-speeddial-direction-up {
+                left: calc(50% - 2rem);
+                bottom: 0;
+            }
+
+            .speeddial-mask-demo .p-speeddial-direction-up {
+                right: 0;
+                bottom: 0;
+            }
+        </style>
+
+`
+                },
             }
         }
     }
