@@ -120,6 +120,49 @@ export default {
 }
 <\\/script>
 `
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    content: `
+    <div id="app">
+            <h5>Inline</h5>
+            <p-inputtext class="p-mr-2 p-d-inline"></p-inputtext>
+            <p-inputtext class="p-d-inline"></p-inputtext>
+
+            <h5>Block</h5>
+            <p-inputtext class="p-mb-2 p-d-block"></p-inputtext>
+            <p-inputtext class="p-d-block"></p-inputtext>
+
+            <h5>Visible on a Small Screen</h5>
+            <p>Resize to view.</p>
+            <p-button type="button" icon="pi pi-bars" class="p-button-rounded p-d-md-none"></p-button>
+
+            <h5>Hidden on a Small Screen</h5>
+            <p>Resize to hide.</p>
+            <p-button type="button" icon="pi pi-search" class="p-button-rounded p-button-success p-d-none p-d-md-inline-flex"></p-button>
+
+            <h5>Visible to Print, Invisible for Screen</h5>
+            <p class="p-d-none p-d-print-block">Only visible when printed.</p>
+
+            <h5>Visible to Screen, Invisible for Print</h5>
+            <p class="p-d-block p-d-print-none">Not available for printing.</p>
+        </div>
+
+    <script type="module">
+    const { createApp } = Vue;
+    
+    const App = {
+        components: {
+            "p-inputtext": primevue.inputtext,
+            "p-button": primevue.button
+        }
+    };
+
+    createApp(App)
+            .use(primevue.config.default)
+            .mount("#app");
+    <\\/script>
+`
                 }
             }
         }

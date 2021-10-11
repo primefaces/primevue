@@ -94,6 +94,42 @@ export default {
 }
 </style>                    
 `
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    content: `
+        <div id="app">
+            <div class="p-grid">
+                <div class="p-col" v-for="index in 24" :key="index">
+                    <div :class="['shadow-box', 'p-shadow-' + index]">
+                        p-shadow-{{index}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script type="module">
+        const { createApp } = Vue;
+        
+        const App = {};
+
+        createApp(App).mount("#app");
+        <\\/script>
+
+        <style lang="scss" scoped>
+        .shadow-box {
+            min-height: 100px;
+            min-width: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            margin: 2rem;
+            border-radius: 4px;
+            background-color: var(--surface-e);
+        }
+        </style>                    
+`
                 }
 			}
 		}

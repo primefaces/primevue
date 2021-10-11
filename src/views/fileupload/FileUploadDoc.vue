@@ -426,6 +426,55 @@ export default {
 }
 <\\/script>
 `
+				},
+				'browser-source': {
+					tabName: 'Browser Source',
+					imports: `<script src="https://unpkg.com/primevue@^3/fileupload/fileupload.min.js"><\\/script>
+			<script src="https://unpkg.com/primevue@^3/toast/toast.min.js"><\\/script>
+			<script src="https://unpkg.com/primevue@^3/toastservice/toastservice.min.js"><\\/script>`,
+					content: `
+			<div id="app">
+				<p-toast></p-toast>
+
+				<h5>Advanced</h5>
+				<p-fileupload name="demo[]" url="./upload.php" @upload="onUpload" :multiple="true" accept="image/*" :max-file-size="1000000">
+					<template #empty>
+						<p>Drag and drop files to here to upload.</p>
+					</template>
+				</p-fileupload>
+
+				<h5>Basic</h5>
+				<p-fileupload mode="basic" name="demo[]" url="./upload.php" accept="image/*" :max-file-size="1000000" @upload="onUpload"></p-fileupload>
+
+				<h5>Basic with Auto</h5>
+				<p-fileupload mode="basic" name="demo[]" url="./upload.php" accept="image/*" :max-file-size="1000000" @upload="onUpload" :auto="true" choose-label="Browse"></p-fileupload>
+			</div>
+
+			<script type="module">
+			const { createApp, ref } = Vue;
+			const { useToast } = primevue.usetoast;
+
+			const App = {
+				setup() {
+					const toast = useToast();
+					const onUpload = () => {
+						toast.add({severity: 'info', summary: 'Success', detail: 'File Uploaded', life: 3000});
+					}
+
+					return { onUpload };
+				},
+				components: {
+					"p-fileupload": primevue.fileupload,
+					"p-toast": primevue.toast
+				}
+			};
+
+			createApp(App)
+				.use(primevue.config.default)
+				.use(primevue.toastservice)
+				.mount("#app");
+			<\\/script>
+`
 				}
 			}
 		}

@@ -232,6 +232,94 @@ export default {
 }
 </style>
 `
+				},
+                'browser-source': {
+					tabName: 'Browser Source',
+					content: `
+        <div id="app">
+            <div class="card">
+                <h5>Margin</h5>
+                <h6>Without Spacing</h6>
+                <p-button type="button" label="Button 1" style="width:20rem"></p-button>
+                <p-button type="button" label="Button 2" style="width:20rem"></p-button>
+
+                <h6>With Spacing</h6>
+                <p-button type="button" label="Button 1" style="width:20rem" class="p-mr-2 p-mb-2"></p-button>
+                <p-button type="button" label="Button 2" style="width:20rem" class="p-mb-2"></p-button>
+
+                <h5>Responsive Margin</h5>
+                <h6>Without Spacing</h6>
+                <div class="p-grid p-formgrid p-fluid">
+                    <div class="p-col-12 p-lg-4">
+                        <p-inputtext></p-inputtext>
+                    </div>
+                    <div class="p-col-12 p-lg-4">
+                        <p-inputtext></p-inputtext>
+                    </div>
+                    <div class="p-col-12 p-lg-4">
+                        <p-inputtext></p-inputtext>
+                    </div>
+                </div>
+
+                <h6>With Spacing</h6>
+                <div class="p-grid p-formgrid p-fluid">
+                    <div class="p-col-12 p-mb-2 p-lg-4 p-mb-lg-0">
+                        <p-inputtext></p-inputtext>
+                    </div>
+                    <div class="p-col-12 p-mb-2 p-lg-4 p-mb-lg-0">
+                        <p-inputtext></p-inputtext>
+                    </div>
+                    <div class="p-col-12 p-mb-2 p-lg-4 p-mb-lg-0">
+                        <p-inputtext></p-inputtext>
+                    </div>
+                </div>
+
+                <h6>Center</h6>
+                <div class="demo-container p-p-4">
+                    <p-button type="button" label="Button" class="p-d-block p-mx-auto"></p-button>
+                </div>
+            </div>
+
+            <div class="card">
+                <h5>Padding</h5>
+                <h6>Without Spacing</h6>
+                <div class="demo-container">
+                    <p-button type="button" label="Button"></p-button>
+                </div>
+
+                <h6>With Spacing</h6>
+                <div class="demo-container p-p-3">
+                    <p-button type="button" label="Button"></p-button>
+                </div>
+
+                <h6>Responsive Spacing</h6>
+                <div class="demo-container p-p-0 p-p-sm-1 p-p-md-2 p-p-lg-3">
+                    <p-button type="button" label="Button"></p-button>
+                </div>
+            </div>
+        </div>    
+
+        <script type="module">
+        const { createApp } = Vue;
+
+        const App = {
+            components: {
+                "p-inputtext": primevue.inputtext,
+                "p-button": primevue.button
+            }
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .mount("#app");
+        <\\/script>
+
+        <style>
+        .demo-container {
+            border: 1px solid var(--surface-d);
+        }
+        </style>
+`
 				}
             }
         }

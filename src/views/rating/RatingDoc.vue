@@ -199,6 +199,45 @@ export default {
 }
 <\\/script>
 `
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/rating/rating.min.js"><\\/script>`,
+                    content: `
+        <div id="app">
+            <h5>Basic {{val1}}</h5>
+            <p-rating v-model="val1"></p-rating>
+
+            <h5>Without Cancel</h5>
+            <p-rating v-model="val2" :cancel="false"></p-rating>
+
+            <h5>ReadOnly</h5>
+            <p-rating :model-value="5" :readonly="true" :stars="10" :cancel="false"></p-rating>
+
+            <h5>Disabled</h5>
+            <p-rating :model-value="8" :disabled="true" :stars="10"></p-rating>
+        </div>
+
+        <script type="module">
+        const { createApp, ref } = Vue;
+
+        const App = {
+            setup() {
+                const val1 = ref();
+                const val2 = ref(3);
+
+                return { val1, val2 }
+            },
+            components: {
+                "p-rating": primevue.rating
+            }
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .mount("#app");
+        <\\/script>
+`
                 }
             }
         }

@@ -231,6 +231,39 @@ export default {
 }
 <\\/script>
 `
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/colorpicker/colorpicker.min.js"><\\/script>`,
+                    content: `
+        <div id="app">
+            <h5>Inline</h5>
+            <p-colorpicker v-model="color1" :inline="true"></p-colorpicker>
+
+            <h5>Overlay</h5>
+            <p-colorpicker v-model="color2"></p-colorpicker>
+        </div>
+
+        <script type="module">
+        const { createApp, ref } = Vue;
+
+        const App = {
+            setup() {
+                const color1 = ref(null);
+                const color2 = ref('1976D2');
+
+                return { color1, color2 }
+            },
+            components: {
+                "p-colorpicker": primevue.colorpicker
+            }
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .mount("#app");
+        <\\/script>
+`
                 }
             },
             extFiles: {
