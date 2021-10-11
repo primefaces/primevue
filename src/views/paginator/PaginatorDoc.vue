@@ -380,6 +380,66 @@ export default {
     padding: 1rem;
 }
 </style>`
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/paginator/paginator.min.js"><\\/script>`,
+                    content: `
+        <div id="app">
+            <h5>Basic</h5>
+            <p-paginator :rows="10" :total-records="totalRecords" :rows-per-page-options="[10,20,30]"></p-paginator>
+
+            <h5>Custom</h5>
+            <p-paginator v-model:first="first" :rows="1" :total-records="totalRecords2"
+                template="FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink">
+                <template #left>
+                    <p-button type="button" icon="pi pi-refresh" @click="reset()"></p-button>
+                </template>
+                <template #right>
+                    <p-button type="button" icon="pi pi-search"></p-button>
+                </template>
+            </p-paginator>
+
+            <div class="image-gallery">
+                <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png"  />
+            </div>
+        </div>
+
+        <script type="module">
+        const { createApp, ref } = Vue;
+
+        const App = {
+            setup() {
+                const first = ref(0);
+                const totalRecords = ref(120);
+                const totalRecords2 = ref(12);
+                const reset = () => {
+                    first.value = 0;
+                }
+
+                return { first, totalRecords, totalRecords2, reset }
+            },
+            components: {
+                "p-paginator": primevue.paginator,
+                "p-button": primevue.button
+            }
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .mount("#app");
+        <\\/script>
+
+        <style scoped>
+        .p-button.p-button-icon-only {
+            border-radius: 0;
+        }
+
+        .image-gallery {
+            text-align: center;
+            padding: 1rem;
+        }
+        </style>`
                 }
             }
         }

@@ -480,6 +480,113 @@ export default {
     }
 }
 </style>`
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/picklist/picklist.min.js"><\\/script>
+        <script src="./ProductService.js"><\\/script>`,
+                    content: `
+        <div id="app">
+            <p-picklist v-model="products" list-style="height:342px" data-key="id">
+                <template #sourceHeader>
+                    Available
+                </template>
+                <template #targetHeader>
+                    Selected
+                </template>
+                <template #item="slotProps">
+                    <div class="product-item">
+                        <div class="image-container">
+                            <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" />
+                        </div>
+                        <div class="product-list-detail">
+                            <h6 class="p-mb-2">{{slotProps.item.name}}</h6>
+                            <i class="pi pi-tag product-category-icon"></i>
+                            <span class="product-category">{{slotProps.item.category}}</span>
+                        </div>
+                        <div class="product-list-action">
+                            <h6 class="p-mb-2">\${{slotProps.item.price}}</h6>
+                            <span :class="'product-badge status-'+slotProps.item.inventoryStatus.toLowerCase()">{{slotProps.item.inventoryStatus}}</span>
+                        </div>
+                    </div>
+                </template>
+            </p-picklist>
+        </div>
+
+        <script type="module">
+        const { createApp, ref, onMounted } = Vue;
+
+        const App = {
+            setup() {
+                onMounted(() => {
+                    productService.value.getProductsSmall().then(data => products.value = [data, []]);
+                })
+
+                const products = ref(null);
+                const productService = ref(new ProductService());
+
+                return { products, productService }
+            },
+            components: {
+                "p-picklist": primevue.picklist
+            }
+        };
+
+        createApp(App).use(primevue.config.default).mount("#app")
+        <\\/script>
+
+<style>
+.product-item {
+	display: flex;
+	align-items: center;
+	padding: .5rem;
+	width: 100%;
+}
+
+.product-item img {
+	width: 75px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    margin-right: 1rem;
+}
+
+.product-item .product-list-detail {
+	flex: 1 1 0;
+}
+
+.product-item .product-list-action {
+	display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.product-item .product-category-icon {
+    vertical-align: middle;
+    margin-right: .5rem;
+    font-size: .875rem;
+}
+
+.product-item .product-category {
+    vertical-align: middle;
+    line-height: 1;
+    font-size: .875rem;
+}
+
+@media screen and (max-width: 576px) {
+    .product-item {
+        flex-wrap: wrap;
+    }
+
+    .product-item .image-container {
+        width: 100%;
+        text-align: center;
+    }
+
+    .product-item img {
+        margin: 0 0 1rem 0;
+        width: 100px;
+    }
+}
+</style>`
                 }
             }
         }

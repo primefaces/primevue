@@ -117,6 +117,65 @@ export default {
     }
 }
 </style>`
+				},
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/fullcalendar@5.7.2/main.min.js"><\\/script>
+        <link rel="stylesheet" href="https://unpkg.com/fullcalendar@5.7.2/main.min.css"><\\/link>
+
+        <script src="https://unpkg.com/primevue@^3/fullcalendar/fullcalendar.min.js"><\\/script>
+        <script src="./EventService.js"><\\/script>`,
+					content: `
+        <div id="app">
+            <p-fullcalendar :events="events" :options="options"></p-fullcalendar>
+        </div>
+
+        <script>
+        const { createApp, ref, onMounted } = Vue;
+        const { dayGridPlugin, timeGridPlugin, interactionPlugin } = FullCalendar.Calendar;
+
+        const App = {
+            setup() {
+                onMounted(() => {
+                    eventService.value.getEvents().then(data => events.value = data);
+                })
+
+                const options =  ref({
+                    plugins:[dayGridPlugin, timeGridPlugin, interactionPlugin],
+                    initialDate : '2017-02-01',
+                    headerToolbar: {
+                        left: 'prev,next today',
+                        center: 'title',
+                        right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                    },
+                    editable: true,
+                        selectable:true, 
+                        selectMirror: true, 
+                        dayMaxEvents: true
+                });
+                const events =  ref(null);
+                const eventService = ref(new EventService());
+
+                return { options, events, eventService };
+            },
+            components: {
+                "p-fullcalendar": primevue.fullcalendar
+            }
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .mount("#app");
+        <\\/script>
+
+        <style scoped>
+        @media screen and (max-width: 960px) {
+            ::v-deep(.fc-header-toolbar) {
+                display: flex;
+                flex-wrap: wrap;
+            }
+        }
+        </style>`
 				}
 			}
 		}
