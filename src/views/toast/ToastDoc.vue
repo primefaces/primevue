@@ -599,6 +599,141 @@ button {
     }
 }
 </style>`
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/toast/toast.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/toastservice/toastservice.min.js"><\\/script>`,
+                    content: `
+        <div id="app">
+            <p-toast></p-toast>
+            <p-toast position="top-left" group="tl"></p-toast>
+            <p-toast position="bottom-left" group="bl"></p-toast>
+            <p-toast position="bottom-right" group="br"></p-toast>
+
+            <p-toast position="bottom-center" group="bc">
+                <template #message="slotProps">
+                    <div class="p-d-flex p-flex-column">
+                        <div class="p-text-center">
+                            <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
+                            <h4>{{slotProps.message.summary}}</h4>
+                            <p>{{slotProps.message.detail}}</p>
+                        </div>
+                        <div class="p-grid p-fluid">
+                            <div class="p-col-6">
+                                <p-button class="p-button-success" label="Yes" @click="onConfirm"></p-button>
+                            </div>
+                            <div class="p-col-6">
+                                <p-button class="p-button-secondary" label="No" @click="onReject"></p-button>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </p-toast>
+
+            <div class="card">
+                <h5>Severities</h5>
+                <p-button label="Success" class="p-button-success" @click="showSuccess"></p-button>
+                <p-button label="Info" class="p-button-info" @click="showInfo"></p-button>
+                <p-button label="Warn" class="p-button-warning" @click="showWarn"></p-button>
+                <p-button label="Error" class="p-button-danger" @click="showError"></p-button>
+
+                <h5>Positions</h5>
+                <p-button label="Top Left" class="p-mr-2" @click="showTopLeft"></p-button>
+                <p-button label="Bottom Left" class="p-button-warning" @click="showBottomLeft"></p-button>
+                <p-button label="Bottom Right" class="p-button-success" @click="showBottomRight"></p-button>
+
+                <h5>Options</h5>
+                <p-button @click="showMultiple" label="Multiple" class="p-button-warning"></p-button>
+                <p-button @click="showSticky" label="Sticky"></p-button>
+
+                <h5>Remove All</h5>
+                <p-button @click="clear" label="Clear"></p-button>
+
+                <h5>Template</h5>
+                <p-button @click="showTemplate" label="Confirm"></p-button>
+            </div>
+        </div>
+
+        <script type="module">
+        const { createApp } = Vue;
+        const { useToast } = primevue.usetoast;
+
+        const App = {
+            setup() {
+                const toast = useToast();
+            
+                const showSuccess = () => {
+                    toast.add({severity:'success', summary: 'Success Message', detail:'Message Content', life: 3000});
+                }
+                const showInfo = () => {
+                    toast.add({severity:'info', summary: 'Info Message', detail:'Message Content', life: 3000});
+                }
+                const showWarn = () => {
+                    toast.add({severity:'warn', summary: 'Warn Message', detail:'Message Content', life: 3000});
+                }
+                const showError = () => {
+                    toast.add({severity:'error', summary: 'Error Message', detail:'Message Content', life: 3000});
+                }
+                const showTopLeft = () => {
+                    toast.add({severity: 'info', summary: 'Info Message', detail: 'Message Content', group: 'tl', life: 3000});
+                }
+                const showBottomLeft = () => {
+                    toast.add({severity:'warn', summary: 'Warn Message', detail:'Message Content', group: 'bl', life: 3000});
+                }
+                const showBottomRight = () => {
+                    toast.add({severity:'success', summary: 'Success Message', detail:'Message Content', group: 'br', life: 3000});
+                }
+                const showSticky = () => {
+                    toast.add({severity: 'info', summary: 'Sticky Message', detail: 'Message Content'});
+                }
+                const showMultiple = () => {
+                    toast.add({severity:'info', summary:'Message 1', detail:'Message 1 Content', life: 3000});
+                    toast.add({severity:'info', summary:'Message 2', detail:'Message 2 Content', life: 3000});
+                    toast.add({severity:'info', summary:'Message 3', detail:'Message 3 Content', life: 3000});
+                }
+                const showTemplate = () => {
+                    toast.add({severity: 'warn', summary: 'Are you sure?', detail: 'Proceed to confirm', group: 'bc'});
+                }
+                const onConfirm = () => {
+                    toast.removeGroup('bc');
+                }
+                const onReject = () => {
+                    toast.removeGroup('bc');
+                }
+                const clear = () => {
+                    toast.removeAllGroups();
+                }
+
+                return { showSuccess, showInfo, showWarn, showError, showTopLeft, showBottomLeft, 
+                    showBottomRight, showSticky, showMultiple, showTemplate, onConfirm, onReject, clear };
+            },
+            components: {
+                "p-toast": primevue.toast,
+                "p-button": primevue.button
+            }
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .use(primevue.toastservice)
+            .mount("#app");
+        <\\/script>
+
+        <style>
+        .p-button {
+            min-width: 10rem;
+            margin-right: .5rem;
+        }
+
+        @media screen and (max-width: 960px) {
+            .p-button {
+                width: 100%;
+                margin-bottom: .5rem;
+            }
+        }
+        </style>
+        `
                 }
             }
         }
