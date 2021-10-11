@@ -395,6 +395,97 @@ export default {
 }
 <\\/script>
 `
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/vue-router@4.0.0/dist/vue-router.global.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/toast/toast.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/toastservice/toastservice.min.js"><\\/script>`,
+                    content: `
+        <div id="app">
+            <p-toast></p-toast>
+
+            <h5>Inline</h5>
+            <p-menu :model="items"></p-menu>
+
+            <h5>Overlay</h5>
+            <p-button type="button" label="Toggle" @click="toggle" aria-haspopup="true" aria-controls="overlay_menu"></p-button>
+            <p-menu id="overlay_menu" ref="menu" :model="items" :popup="true"></p-menu>
+        </div>
+
+        <script type="module">
+        const { createApp, ref } = Vue;
+        const { useToast } = primevue.usetoast;
+
+        const App = {
+            setup() {
+                const toast = useToast();
+                const menu = ref();
+                const items = ref([
+                    {
+                        label: 'Options',
+                        items: [{
+                            label: 'Update',
+                            icon: 'pi pi-refresh',
+                            command: () => {
+                                toast.add({severity:'success', summary:'Updated', detail:'Data Updated', life: 3000});
+                            }
+                        },
+                        {
+                            label: 'Delete',
+                            icon: 'pi pi-times',
+                            command: () => {
+                                toast.add({ severity: 'warn', summary: 'Delete', detail: 'Data Deleted', life: 3000});
+                            }
+                        }
+                    ]},
+                    {
+                        label: 'Navigate',
+                        items: [{
+                            label: 'Vue Website',
+                            icon: 'pi pi-external-link',
+                            url: 'https://vuejs.org/'
+                        },
+                        {
+                            label: 'Router',
+                            icon: 'pi pi-upload',
+                            command: () => {
+                                window.location.hash = "/fileupload"
+                            }
+                        }
+                    ]}
+                ]);
+
+                const toggle = (event) => {
+                    menu.value.toggle(event);
+                };
+                const save = () => {
+                    toast.add({severity: 'success', summary: 'Success', detail: 'Data Saved', life: 3000});
+                };
+
+                return { items, menu, toggle, save }
+            },
+            components: {
+                "p-menu": primevue.menu,
+                "p-button": primevue.button,
+                "p-toast": primevue.toast
+            }
+        };
+
+        const routes = [{ path: "/", component: App }];
+
+        const router = VueRouter.createRouter({
+            history: VueRouter.createWebHashHistory(),
+            routes
+        });
+
+        createApp(App)
+            .use(router)
+            .use(primevue.config.default)
+            .use(primevue.toastservice)
+            .mount("#app");
+        <\\/script>
+`
                 }
             }
         }

@@ -572,6 +572,158 @@ export default {
 }
 <\\/script>
 `
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/vue-router@4.0.0/dist/vue-router.global.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/megamenu/megamenu.min.js"><\\/script>`,
+                    content: `
+        <div id="app">
+            <h5>Horizontal</h5>
+            <p-megamenu :model="items"></p-megamenu>
+
+            <h5>Vertical</h5>
+            <p-megamenu :model="items" orientation="vertical"></p-megamenu>
+        </div>
+
+        <script type="module">
+        const { createApp, ref } = Vue;
+
+        const App = {
+            setup() {
+                const items = ref([
+                    {
+                        label: 'Videos', icon: 'pi pi-fw pi-video',
+                        items: [
+                            [
+                                {
+                                    label: 'Video 1',
+                                    items: [{label: 'Video 1.1'}, {label: 'Video 1.2'}]
+                                },
+                                {
+                                    label: 'Video 2',
+                                    items: [{label: 'Video 2.1'}, {label: 'Video 2.2'}]
+                                }
+                            ],
+                            [
+                                {
+                                    label: 'Video 3',
+                                    items: [{label: 'Video 3.1'}, {label: 'Video 3.2'}]
+                                },
+                                {
+                                    label: 'Video 4',
+                                    items: [{label: 'Video 4.1'}, {label: 'Video 4.2'}]
+                                }
+                            ]
+                        ]
+                    },
+                    {
+                        label: 'Users', icon: 'pi pi-fw pi-users',
+                        items: [
+                            [
+                                {
+                                    label: 'User 1',
+                                    items: [{label: 'User 1.1'}, {label: 'User 1.2'}]
+                                },
+                                {
+                                    label: 'User 2',
+                                    items: [{label: 'User 2.1'}, {label: 'User 2.2'}]
+                                },
+                            ],
+                            [
+                                {
+                                    label: 'User 3',
+                                    items: [{label: 'User 3.1'}, {label: 'User 3.2'}]
+                                },
+                                {
+                                    label: 'User 4',
+                                    items: [{label: 'User 4.1'}, {label: 'User 4.2'}]
+                                }
+                            ],
+                            [
+                                {
+                                    label: 'User 5',
+                                    items: [{label: 'User 5.1'}, {label: 'User 5.2'}]
+                                },
+                                {
+                                    label: 'User 6',
+                                    items: [{label: 'User 6.1'}, {label: 'User 6.2'}]
+                                }
+                            ]
+                        ]
+                    },
+                    {
+                        label: 'Events', icon: 'pi pi-fw pi-calendar',
+                        items: [
+                            [
+                                {
+                                    label: 'Event 1',
+                                    items: [{label: 'Event 1.1'}, {label: 'Event 1.2'}]
+                                },
+                                {
+                                    label: 'Event 2',
+                                    items: [{label: 'Event 2.1'}, {label: 'Event 2.2'}]
+                                }
+                            ],
+                            [
+                                {
+                                    label: 'Event 3',
+                                    items: [{label: 'Event 3.1'}, {label: 'Event 3.2'}]
+                                },
+                                {
+                                    label: 'Event 4',
+                                    items: [{label: 'Event 4.1'}, {label: 'Event 4.2'}]
+                                }
+                            ]
+                        ]
+                    },
+                    {
+                        label: 'Settings', icon: 'pi pi-fw pi-cog',
+                        items: [
+                            [
+                                {
+                                    label: 'Setting 1',
+                                    items: [{label: 'Setting 1.1'}, {label: 'Setting 1.2'}]
+                                },
+                                {
+                                    label: 'Setting 2',
+                                    items: [{label: 'Setting 2.1'}, {label: 'Setting 2.2'}]
+                                },
+                                {
+                                    label: 'Setting 3',
+                                    items: [{label: 'Setting 3.1'}, {label: 'Setting 3.2'}]
+                                }
+                            ],
+                            [
+                                {
+                                    label: 'Setting 4',
+                                    items: [{label: 'Setting 4.1'}, {label: 'Setting 4.2'}]
+                                }
+                            ]
+                        ]
+                    }
+                ]);
+
+                return { items }
+            },
+            components: {
+                "p-megamenu": primevue.megamenu
+            }
+        };
+
+        const routes = [{ path: "/", component: App }];
+
+        const router = VueRouter.createRouter({
+            history: VueRouter.createWebHashHistory(),
+            routes
+        });
+
+        createApp(App)
+            .use(router)
+            .use(primevue.config.default)
+            .mount("#app");
+        <\\/script>
+`
                 }
             }
         }

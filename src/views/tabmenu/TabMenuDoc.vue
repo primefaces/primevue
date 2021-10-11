@@ -385,6 +385,151 @@ export default {
     padding: 2rem 1rem;
 }
 </style>`
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/vue-router@4.0.0/dist/vue-router.global.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/tabmenu/tabmenu.min.js"><\\/script>`,
+                    content: `
+        <div id="app">
+            <div class="card">
+                <h5>Default</h5>
+                <p-tabmenu :model="items"></p-tabmenu>
+                <router-view></router-view>
+            </div>
+                
+            <div class="card">
+                <h5>Programmatic</h5>
+                <div class="p-py-2">
+                    <p-button @click="active = 0" class="p-button-text" label="Activate 1st"></p-button>
+                    <p-button @click="active = 1" class="p-button-text p-mr-2" label="Activate 2nd"></p-button>
+                    <p-button @click="active = 2" class="p-button-text p-mr-2" label="Activate 3rd"></p-button>
+                </div>
+
+                <p-tabmenu :model="items2" v-model:active-index="active"></p-tabmenu>
+            </div>
+        </div>
+
+        <script type="module">
+        const { createApp, ref } = Vue;
+
+        const App = {
+            setup() {
+                const active = ref(3);
+                const items = ref([
+                    {
+                        label: 'Home',
+                        icon: 'pi pi-fw pi-home',
+                        to: '/'
+                    },
+                    {
+                        label: 'Calendar',
+                        icon: 'pi pi-fw pi-calendar',
+                        to: '/calendar'
+                    },
+                    {
+                        label: 'Edit',
+                        icon: 'pi pi-fw pi-pencil',
+                        to: '/edit'
+                    },
+                    {
+                        label: 'Documentation',
+                        icon: 'pi pi-fw pi-file',
+                        to: '/documentation'
+                    },
+                    {
+                        label: 'Settings',
+                        icon: 'pi pi-fw pi-cog',
+                        to: '/settings'
+                    }
+                ]);
+                const items2 = ref([
+                    {
+                        label: 'Home',
+                        icon: 'pi pi-fw pi-home'
+                    },
+                    {
+                        label: 'Calendar',
+                        icon: 'pi pi-fw pi-calendar'
+                    },
+                    {
+                        label: 'Edit',
+                        icon: 'pi pi-fw pi-pencil'
+                    },
+                    {
+                        label: 'Documentation',
+                        icon: 'pi pi-fw pi-file'
+                    },
+                    {
+                        label: 'Settings',
+                        icon: 'pi pi-fw pi-cog'
+                    }
+                ]);
+                
+                return { active, items, items2 }
+            },
+            components: {
+                "p-tabmenu": primevue.tabmenu,
+                "p-button": primevue.button
+            }
+        };
+
+        const Home = {
+            template: \`<div class="tabmenudemo-content">
+                <h5>Home Component Content</h5>
+            </div>\`
+        };
+
+        const Calendar = {
+            template: \`<div class="tabmenudemo-content">
+                <h5>Calendar Component Content</h5>
+            </div>\`
+        };
+
+        const Edit = {
+            template: \`<div class="tabmenudemo-content">
+                <h5>Edit Component Content</h5>
+            </div>\`
+        };
+
+        const Documentation = {
+            template: \`<div class="tabmenudemo-content">
+                <h5>Documentation Component Content</h5>
+            </div>\`
+        };
+
+        const Settings = {
+            template: \`<div class="tabmenudemo-content">
+                <h5>Settings Component Content</h5>
+            </div>\`
+        };
+
+        const routes = [
+            { path: "/", component: Home },
+            { path: "/home", component: Home },
+            { path: "/calendar", component: Calendar },
+            { path: "/edit", component: Edit },
+            { path: "/documentation", component: Documentation },
+            { path: "/settings", component: Settings }
+        ];
+
+        const router = VueRouter.createRouter({
+            history: VueRouter.createWebHashHistory(),
+            routes
+        });
+
+        createApp(App)
+            .use(router)
+            .use(primevue.config.default)
+            .mount("#app");
+
+        <\\/script>
+
+        <style>
+        .tabmenudemo-content {
+            padding: 2rem 1rem;
+        }
+        </style>`
                 }
             },
             pages: [

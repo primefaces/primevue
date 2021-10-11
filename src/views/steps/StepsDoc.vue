@@ -323,6 +323,399 @@ export default {
 </style>
 `
                 },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/vue-router@4.0.0/dist/vue-router.global.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/steps/steps.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/toast/toast.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/toastservice/toastservice.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/card/card.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/inputnumber/inputnumber.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/inputmask/inputmask.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/checkbox/checkbox.min.js"><\\/script>`,
+                    content: `
+        <div id="app">
+            <p-toast></p-toast>
+
+            <div class="card">
+                <p-steps :model="items" :readonly="true"></p-steps>
+            </div>
+
+            <router-view v-slot="{Component}" :form-data="formObject" @prev-page="prevPage($event)" @next-page="nextPage($event)" @complete="complete">
+                <keep-alive>
+                    <component :is="Component"></component>
+                </keep-alive>
+            </router-view>
+        </div>
+
+        <script type="module">
+        const { createApp, ref } = Vue;
+        const { useToast } = primevue.usetoast;
+
+        const App = {
+            setup() {
+                const toast = useToast();
+                const items = ref([
+                    {
+                        label: 'Personal',
+                        to: "/"
+                    },
+                    {
+                        label: 'Seat',
+                        to: "/seat",
+                    },
+                    {
+                        label: 'Payment',
+                        to: "/payment",
+                    },
+                    {
+                        label: 'Confirmation',
+                        to: "/confirmation",
+                    }
+                ]);
+                const formObject = ref({});
+
+                const nextPage = (event) => {
+                    for (let field in event.formData) {
+                        formObject.value[field] = event.formData[field];
+                    }
+
+                    router.push(items.value[event.pageIndex + 1].to);
+                };
+                const prevPage = (event) => {
+                    router.push(items.value[event.pageIndex - 1].to);
+                };
+                const complete = () => {
+                    toast.add({severity:'success', summary:'Order submitted', detail: 'Dear, ' + formObject.value.firstname + ' ' + formObject.value.lastname + ' your order completed.'});
+                };
+
+                return { items, formObject, nextPage, prevPage, complete }
+            },
+            components: {
+                "p-steps": primevue.steps,
+                "p-toast": primevue.toast,
+                "p-card": primevue.card
+            }
+        };
+
+        const Personal = {
+            template: \`<div class="stepsdemo-content">
+                <p-card>
+                    <template v-slot:title>
+                        Personal Information
+                    </template>
+                    <template v-slot:subtitle>
+                        Enter your personal information
+                    </template>
+                    <template v-slot:content>
+                        <div class="p-fluid">
+                            <div class="p-field">
+                                <label for="firstname">Firstname</label>
+                                <p-inputtext id="firstname" v-model="firstname" :class="{'p-invalid': validationErrors.firstname && submitted}"></p-inputtext>
+                                <small v-show="validationErrors.firstname && submitted" class="p-error">Firstname is required.</small>
+                            </div>
+                            <div class="p-field">
+                                <label for="lastname">Lastname</label>
+                                <p-inputtext id="lastname" v-model="lastname" :class="{'p-invalid': validationErrors.lastname && submitted}"></p-inputtext>
+                                <small v-show="validationErrors.lastname && submitted" class="p-error">Lastname is required.</small>
+                            </div>
+                            <div class="p-field">
+                                <label for="age">Age</label>
+                                <p-inputnumber id="age" v-model="age"></p-inputnumber>
+                            </div>
+                        </div>
+                    </template>
+                    <template v-slot:footer>
+                        <div class="p-grid p-nogutter p-justify-between">
+                            <i></i>
+                            <p-button label="Next" @click="nextPage()" icon="pi pi-angle-right" icon-pos="right"></p-button>
+                        </div>
+                    </template>
+                </p-card>
+            </div>\`,
+            data () {
+                return {
+                    firstname: '',
+                    lastname: '',
+                    age: null,
+                    submitted: false,
+                    validationErrors: {}
+                }
+            },
+            methods: {
+                nextPage() {
+                    this.submitted = true;
+                    if (this.validateForm() ) {
+                        this.$emit('next-page', {formData: {firstname: this.firstname, lastname: this.lastname, age: this.age}, pageIndex: 0});
+                    }
+                },
+                validateForm() {
+                    if (!this.firstname.trim())
+                        this.validationErrors['firstname'] = true;
+                    else
+                        delete this.validationErrors['firstname'];
+
+                    if (!this.lastname.trim())
+                        this.validationErrors['lastname'] = true;
+                    else
+                        delete this.validationErrors['lastname'];
+
+                    return !Object.keys(this.validationErrors).length;
+                }
+            },
+            components: {
+                "p-card": primevue.card,
+                "p-inputtext": primevue.inputtext,
+                "p-inputnumber": primevue.inputnumber,
+                "p-button": primevue.button 
+            }
+        };
+
+        const Seat = {
+            template: \`<div class="stepsdemo-content">
+                <p-card>
+                <template v-slot:title>
+                        Seat Information
+                    </template>
+                    <template v-slot:subtitle>
+                        Choose your seat
+                    </template>
+                    <template v-slot:content>
+                        <div class="p-fluid p-formgrid p-grid">
+                            <div class="p-field p-col-12 p-md-6">
+                                <label for="class">Class</label>
+                                <p-dropdown input-id="class" v-model="selectedClass" :options="classes" @change="setWagons($event)" option-label="name" placeholder="Select a Class"></p-dropdown>
+                            </div>
+                            <div class="p-field p-col-12 p-md-6">
+                                <label for="lastname">Wagon</label>
+                                <p-dropdown input-id="wagon" v-model="selectedWagon" :options="wagons" @change="setSeats($event)" option-label="wagon" placeholder="Select a Wagon"></p-dropdown>
+                            </div>
+                            <div class="p-field p-col-12">
+                                <label for="seat">Seat</label>
+                                <p-dropdown input-id="seat" v-model="selectedSeat" :options="seats" option-label="seat" placeholder="Select a Seat"></p-dropdown>
+                            </div>
+                        </div>
+                    </template>
+                    <template v-slot:footer>
+                        <div class="p-grid p-nogutter p-justify-between">
+                            <p-button label="Back" @click="prevPage()" icon="pi pi-angle-left"></p-button>
+                            <p-button label="Next" @click="nextPage()" icon="pi pi-angle-right" icon-pos="right"></p-button>
+                        </div>
+                    </template>
+                </p-card>
+            </div>\`,
+            data() {
+                return {
+                    selectedClass: '',
+                    classes: [
+                        {name: 'First Class', code: 'A', factor: 1},
+                        {name: 'Second Class', code: 'B', factor: 2},
+                        {name: 'Third Class', code: 'C', factor: 3}
+                    ],
+                    wagons: [],
+                    selectedWagon: '',
+                    seats: [],
+                    selectedSeat: ''
+                }
+            },
+            methods: {
+                setWagons(event) {
+                    if (this.selectedClass && event.value) {
+                        this.wagons = [];
+                        this.seats = [];
+                        for (let i = 1; i < 3 * event.value.factor; i++) {
+                            this.wagons.push({wagon: i + event.value.code, type: event.value.name, factor: event.value.factor});
+                        }
+                    }
+                },
+                setSeats(event) {
+                    if (this.selectedWagon && event.value) {
+                        this.seats = [];
+                        for (let i = 1; i < 10 * event.value.factor; i++) {
+                            this.seats.push({seat: i, type: event.value.type});
+                        }
+                    }
+                },
+                nextPage() {
+                    this.$emit('next-page', {formData: {class: this.selectedClass.name, wagon: this.selectedWagon.wagon, seat: this.selectedSeat.seat}, pageIndex: 1});
+                },
+                prevPage() {
+                    this.$emit('prev-page', {pageIndex: 1});
+                }
+            },
+            components: {
+                "p-card": primevue.card,
+                "p-dropdown": primevue.dropdown,
+                "p-button": primevue.button
+            }
+        };
+
+        const Payment = {
+            template: \`<div class="stepsdemo-content">
+                <p-card>
+                    <template v-slot:title>
+                        Payment Information
+                    </template>
+                    <template v-slot:subtitle>
+                        Enter your card details
+                    </template>
+                    <template v-slot:content>
+                        <div class="p-fluid p-formgrid p-grid">
+                            <div class="p-field p-col-12">
+                                <label for="class">Card Holder Name</label>
+                                <p-inputtext type="text" v-model="cardholderName"></p-inputext>
+                            </div>
+                            <div class="p-field p-col-8">
+                                <label id="number" for="lastname">Number</label>
+                                <p-inputmask id="number" mask="9999-9999-9999-9999" v-model="cardholderNumber"></p-inputmask>
+                            </div>
+                            <div class="p-field p-col-2">
+                                <label id="date" for="date">Date</label>
+                                <p-inputmask id="date" mask="99/99" v-model="date"></p-inputmask>
+                            </div>
+                            <div class="p-field p-col-2">
+                                <label for="cvv">CVV</label>
+                                <p-inputmask id="cvv" mask="999" v-model="cvv"></p-inputmask>
+                            </div>
+                            <div class="p-field-checkbox p-col-12">
+                                <p-checkbox id="remember" v-model="remember" :binary="true"></p-checkbox>
+                                <label for="remember" class="p-checkbox-label">Save credit card information for future</label>
+                            </div>
+                        </div>
+                    </template>
+                    <template v-slot:footer>
+                        <div class="p-grid p-nogutter p-justify-between">
+                            <p-button label="Back" @click="prevPage()" icon="pi pi-angle-left"></p-button>
+                            <p-button label="Next" @click="nextPage()" icon="pi pi-angle-right" icon-pos="right"></p-button>
+                        </div>
+                    </template>
+                </p-card>
+            </div>\`,
+            data() {
+                return {
+                    cardholderName:'',
+                    cardholderNumber:'',
+                    date:'',
+                    cvv:'',
+                    remember:false
+                }
+            },
+            methods: {
+                nextPage() {
+                    this.$emit('next-page', {formData: {cardholderName: this.cardholderName, cardholderNumber: this.cardholderNumber, date: this.date, cvv: this.cvv}, pageIndex: 2});
+                },
+                prevPage() {
+                    this.$emit('prev-page', {pageIndex: 2});
+                }
+            },
+            components: {
+                "p-card": primevue.card,
+                "p-inputtext": primevue.inputtext,
+                "p-inputmask": primevue.inputmask,
+                "p-checkbox": primevue.checkbox,
+                "p-button": primevue.button
+            }
+        };
+
+        const Confirmation = {
+            template: \`<div class="stepsdemo-content">
+                <p-card>
+                    <template v-slot:title>
+                        Confirmation
+                    </template>
+                    <template v-slot:content>
+                        <div class="p-field p-col-12">
+                            <label for="class">Name</label>
+                            <b>{{formData.firstname ? formData.firstname : '-'}} {{formData.lastname ? formData.lastname : '-'}}</b>
+                        </div>
+                        <div class="p-field p-col-12">
+                            <label for="Age">Age</label>
+                            <b>{{formData.age ? formData.age : '-'}}</b>
+                        </div>
+                        <div class="p-field p-col-12">
+                            <label for="Age">Seat Class</label>
+                            <b>{{formData.class ? formData.class : '-'}}</b>
+                        </div>
+                        <div class="p-field p-col-12">
+                            <label for="Age">Wagon Number</label>
+                            <b>{{formData.vagon ? formData.vagon : '-'}}</b>
+                        </div>
+                        <div class="p-field p-col-12">
+                            <label for="Age">Seat</label>
+                            <b>{{formData.seat ? formData.seat : '-'}}</b>
+                        </div>
+                        <div class="p-field p-col-12">
+                            <label for="Age">Cardholder Name</label>
+                            <b>{{formData.cardholderName ? formData.cardholderName : '-'}}</b>
+                        </div>
+                        <div class="p-field p-col-12">
+                            <label for="Age">Card Number</label>
+                            <b>{{formData.cardholderNumber ? formData.cardholderNumber : '-'}}</b>
+                        </div>
+                        <div class="p-field p-col-12">
+                            <label for="Age">Date</label>
+                            <b>{{formData.date ? formData.date : '-'}}</b>
+                        </div>
+                        <div class="p-field p-col-12">
+                            <label for="Age">CVV</label>
+                            <b>{{formData.cvv && formData.cvv.length === 3  ? '**' + formData.cvv[2] : '-'}}</b>
+                        </div>
+                    </template>
+                    <template v-slot:footer>
+                        <div class="p-grid p-nogutter p-justify-between">
+                            <p-button label="Back" @click="prevPage()" icon="pi pi-angle-left"></p-button>
+                            <p-button label="Complete" @click="complete()" icon="pi pi-check" icon-pos="right" class="p-button-success"></p-button>
+                        </div>
+                    </template>
+                </p-card>
+            </div>\`,
+            props: {
+                formData: Object
+            },
+            methods: {
+                prevPage() {
+                    this.$emit('prev-page', {pageIndex: 3});
+                },
+                complete() {
+                    this.$emit('complete');
+                }
+            },
+            components: {
+                "p-card": primevue.card,
+                "p-button": primevue.button
+            }
+        };
+
+        const routes = [
+            { path: "/", component: Personal },
+            { path: "/seat", component: Seat },
+            { path: "/payment", component: Payment },
+            { path: "/confirmation", component: Confirmation }
+        ];
+
+        const router = VueRouter.createRouter({
+            history: VueRouter.createWebHashHistory(),
+            routes
+        });
+
+        createApp(App)
+            .use(router)
+            .use(primevue.config.default)
+            .use(primevue.toastservice)
+            .mount("#app");
+        <\\/script>
+
+        <style>
+        b {
+            display: block;
+        }
+
+        .p-card-body {
+            padding: 2rem;
+        }
+        </style>
+`
+                }
             },
             pages: [
                     {
