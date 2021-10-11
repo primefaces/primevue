@@ -161,6 +161,7 @@ export default {
 <template>
     <div>
         <div class="dock-demo">
+            <Toast />
             <Toast position="top-center" group="tc" />
 
             <h5>Basic</h5>
@@ -544,6 +545,7 @@ export default {
 <template>
     <div>
         <div class="content-section implementation dock-demo">
+            <Toast />
             <Toast position="top-center" group="tc" />
 
             <h5>Basic</h5>
@@ -865,7 +867,8 @@ export default {
             TerminalService.emit('response', response);
         };
 
-        return { images, nodes, dockItems, dockBasicItems, menubarItems, onDockItemClick, commandHandler }
+        return { images, nodes, dockItems, dockBasicItems, menubarItems, onDockItemClick, commandHandler,
+            displayTerminal, displayFinder, displayPhotos, responsiveOptions }
     },
     methods: {
         onDockItemClick(event, item) {
@@ -953,6 +956,449 @@ export default {
     }
 }
 </style>
+`
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/vue-router@4.0.0/dist/vue-router.global.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/dock/dock.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/toast/toast.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/toastservice/toastservice.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/menubar/menubar.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/terminal/terminal.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/galleria/galleria.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/tooltip/tooltip.min.js"><\\/script>
+        <script src="./NodeService.js"><\\/script>
+        <script src="./PhotoService.js"><\\/script>`,
+                    content: `<div id="app" class="dock-demo">
+            <p-toast></p-toast>
+            <p-toast position="top-center" group="tc"></p-toast>
+
+            <h5>Basic</h5>
+            <div class="dock-window">
+                <p-dock :model="dockBasicItems" position="bottom"></p-dock>
+                <p-dock :model="dockBasicItems" position="top"></p-dock>
+                <p-dock :model="dockBasicItems" position="left"></p-dock>
+                <p-dock :model="dockBasicItems" position="right"></p-dock>
+            </div>
+
+            <h5>Advanced</h5>
+            <p-menubar :model="menubarItems">
+                <template #start>
+                    <i class="pi pi-apple"></i>
+                </template>
+                <template #end>
+                    <i class="pi pi-video"></i>
+                    <i class="pi pi-wifi"></i>
+                    <i class="pi pi-volume-up"></i>
+                    <span>Fri 13:07</span>
+                    <i class="pi pi-search"></i>
+                    <i class="pi pi-bars"></i>
+                </template>
+            </p-menubar>
+
+            <div class="dock-window dock-advanced">
+                <p-dock :model="dockItems">
+                    <template #item="{ item }">
+                        <a href="#" class="p-dock-action" v-tooltip.top="item.label" @click="onDockItemClick($event, item)">
+                            <img :alt="item.label" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" style="width: 100%" />
+                        </a>
+                    </template>
+                </p-dock>
+
+                <p-dialog v-model:visible="displayTerminal" header="Terminal" :breakpoints="{ '960px': '50vw' }" :style="{ width: '40vw' }" :maximizable="true">
+                    <p-terminal welcome-message="Welcome to PrimeVue(cmd: 'date', 'greet {0}', 'random' and 'clear')" prompt="primevue $"></p-terminal>
+                </p-dialog>
+
+                <p-dialog v-model:visible="displayFinder" header="Finder" :breakpoints="{ '960px': '50vw' }" :style="{ width: '40vw' }" :maximizable="true">
+                    <p-tree :value="nodes"></p-tree>
+                </p-dialog>
+
+                <p-galleria v-model:visible="displayPhotos" :value="images" :responsive-options="responsiveOptions" :num-visible="2" container-style="width: 400px"
+                    :circular="true" :full-screen="true" :show-thumbnails="false" :show-item-navigators="true">
+                    <template #item="slotProps">
+                        <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" :alt="slotProps.item.alt" style="width: 100%" />
+                    </template>
+                </p-galleria>
+            </div>
+        </div>
+
+        <script type="module">
+        const { createApp, ref, onMounted, onBeforeUnmount } = Vue;
+        const { useToast } = primevue.usetoast;
+        const TerminalService = primevue.terminalservice;
+        const Tooltip = primevue.tooltip;
+
+        const App = {
+            setup() {
+                onMounted(() => {
+                    photoService.value.getImages().then(data => images.value = data);
+                    nodeService.value.getTreeNodes().then(data => nodes.value = data);
+                    TerminalService.on('command', commandHandler);
+                })
+
+                onBeforeUnmount(() => {
+                    TerminalService.off('command', commandHandler);
+                })
+
+
+                const displayFinder = ref(false);
+                const displayTerminal = ref(false);
+                const displayPhotos = ref(false);
+                const nodeService = ref(new NodeService());
+                const photoService = ref(new PhotoService());
+                const images = ref();
+                const nodes = ref();
+                const toast = useToast();
+                const imgErrorPath = ref('https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png');
+                const dockItems = ref([
+                    {
+                        label: 'Finder',
+                        icon: "demo/images/dock/finder.svg",
+                        command: () => {
+                            displayFinder.value = true;
+                        }
+                    },
+                    {
+                        label: 'Terminal',
+                        icon: "demo/images/dock/terminal.svg",
+                        command: () => {
+                            displayTerminal.value = true;
+                        }
+                    },
+                    {
+                        label: 'App Store',
+                        icon: "demo/images/dock/appstore.svg",
+                        command: () => {
+                            toast.add({ severity: 'error', summary: 'An unexpected error occurred while signing in.', detail: 'UNTRUSTED_CERT_TITLE', group: 'tc', life: 3000 });
+                        }
+                    },
+                    {
+                        label: 'Safari',
+                        icon: "demo/images/dock/safari.svg",
+                        command: () => {
+                            toast.add({ severity: 'warn', summary: 'Safari has stopped working', group: 'tc', life: 3000 });
+                        }
+                    },
+                    {
+                        label: 'Photos',
+                        icon: "demo/images/dock/photos.svg",
+                        command: () => {
+                            displayPhotos.value = true;
+                        }
+                    },
+                    {
+                        label: 'GitHub',
+                        icon: "demo/images/dock/github.svg",
+                    },
+                    {
+                        label: 'Trash',
+                        icon: "demo/images/dock/trash.png",
+                        command: () => {
+                            toast.add({ severity: 'info', summary: 'Empty Trash', life: 3000 });
+                        }
+                    }
+                ]);
+                const dockBasicItems = ref([
+                    {
+                        label: 'Finder',
+                        icon: () => <img alt="Finder" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" style="width: 100%" />
+                    },
+                    {
+                        label: 'App Store',
+                        icon: () => <img alt="App Store" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" style="width: 100%" />
+                    },
+                    {
+                        label: 'Photos',
+                        icon: () => <img alt="Photos" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" style="width: 100%" />
+                    },
+                    {
+                        label: 'Trash',
+                        icon: () => <img alt="trash" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" style="width: 100%" />
+                    }
+                ]);
+                const menubarItems = ref([
+                    {
+                        label: 'Finder',
+                        class: 'menubar-root'
+                    },
+                    {
+                        label: 'File',
+                        items: [
+                            {
+                                label: 'New',
+                                icon: 'pi pi-fw pi-plus',
+                                items: [
+                                    {
+                                        label: 'Bookmark',
+                                        icon: 'pi pi-fw pi-bookmark'
+                                    },
+                                    {
+                                        label: 'Video',
+                                        icon: 'pi pi-fw pi-video'
+                                    },
+
+                                ]
+                            },
+                            {
+                                label: 'Delete',
+                                icon: 'pi pi-fw pi-trash'
+                            },
+                            {
+                                separator: true
+                            },
+                            {
+                                label: 'Export',
+                                icon: 'pi pi-fw pi-external-link'
+                            }
+                        ]
+                    },
+                    {
+                        label: 'Edit',
+                        items: [
+                            {
+                                label: 'Left',
+                                icon: 'pi pi-fw pi-align-left'
+                            },
+                            {
+                                label: 'Right',
+                                icon: 'pi pi-fw pi-align-right'
+                            },
+                            {
+                                label: 'Center',
+                                icon: 'pi pi-fw pi-align-center'
+                            },
+                            {
+                                label: 'Justify',
+                                icon: 'pi pi-fw pi-align-justify'
+                            },
+
+                        ]
+                    },
+                    {
+                        label: 'Users',
+                        items: [
+                            {
+                                label: 'New',
+                                icon: 'pi pi-fw pi-user-plus',
+                            },
+                            {
+                                label: 'Delete',
+                                icon: 'pi pi-fw pi-user-minus',
+
+                            },
+                            {
+                                label: 'Search',
+                                icon: 'pi pi-fw pi-users',
+                                items: [
+                                    {
+                                        label: 'Filter',
+                                        icon: 'pi pi-fw pi-filter',
+                                        items: [
+                                            {
+                                                label: 'Print',
+                                                icon: 'pi pi-fw pi-print'
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        icon: 'pi pi-fw pi-bars',
+                                        label: 'List'
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        label: 'Events',
+                        items: [
+                            {
+                                label: 'Edit',
+                                icon: 'pi pi-fw pi-pencil',
+                                items: [
+                                    {
+                                        label: 'Save',
+                                        icon: 'pi pi-fw pi-calendar-plus'
+                                    },
+                                    {
+                                        label: 'Delete',
+                                        icon: 'pi pi-fw pi-calendar-minus'
+                                    }
+                                ]
+                            },
+                            {
+                                label: 'Archieve',
+                                icon: 'pi pi-fw pi-calendar-times',
+                                items: [
+                                    {
+                                        label: 'Remove',
+                                        icon: 'pi pi-fw pi-calendar-minus'
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        label: 'Quit'
+                    }
+                ]);
+                const responsiveOptions = ref([
+                    {
+                        breakpoint: '1024px',
+                        numVisible: 3
+                    },
+                    {
+                        breakpoint: '768px',
+                        numVisible: 2
+                    },
+                    {
+                        breakpoint: '560px',
+                        numVisible: 1
+                    }
+                ]);
+
+                const onDockItemClick = (event, item) => {
+                    if (item.command) {
+                        item.command();
+                    }
+
+                    event.preventDefault();
+                };
+
+                const commandHandler = (text) => {
+                    let response;
+                    let argsIndex = text.indexOf(' ');
+                    let command = argsIndex !== -1 ? text.substring(0, argsIndex) : text;
+
+                    switch(command) {
+                        case "date":
+                            response = 'Today is ' + new Date().toDateString();
+                            break;
+
+                        case "greet":
+                            response = 'Hola ' + text.substring(argsIndex + 1);
+                            break;
+
+                        case "random":
+                            response = Math.floor(Math.random() * 100);
+                            break;
+
+                        default:
+                            response = "Unknown command: " + command;
+                    }
+
+                    TerminalService.emit('response', response);
+                };
+
+                return { images, nodes, dockItems, dockBasicItems, menubarItems, onDockItemClick, commandHandler,
+                    displayTerminal, displayFinder, displayPhotos, responsiveOptions }
+            },
+            methods: {
+                onDockItemClick(event, item) {
+                    if (item.command) {
+                        item.command();
+                    }
+
+                    event.preventDefault();
+                },
+                commandHandler(text) {
+                    let response;
+                    let argsIndex = text.indexOf(' ');
+                    let command = argsIndex !== -1 ? text.substring(0, argsIndex) : text;
+
+                    switch(command) {
+                        case "date":
+                            response = 'Today is ' + new Date().toDateString();
+                            break;
+
+                        case "greet":
+                            response = 'Hola ' + text.substring(argsIndex + 1);
+                            break;
+
+                        case "random":
+                            response = Math.floor(Math.random() * 100);
+                            break;
+
+                        default:
+                            response = "Unknown command: " + command;
+                    }
+
+                    TerminalService.emit('response', response);
+                }
+            },
+            components: {
+                "p-dock": primevue.dock,
+                "p-toast": primevue.toast,
+                "p-menubar": primevue.menubar,
+                "p-dialog": primevue.dialog,
+                "p-terminal": primevue.terminal,
+                "p-galleria": primevue.galleria,
+                "p-tree": primevue.tree
+            }
+        };
+
+        const routes = [{ path: "/", component: App }];
+
+        const router = VueRouter.createRouter({
+            history: VueRouter.createWebHashHistory(),
+            routes
+        });
+
+        createApp(App)
+            .use(router)
+            .use(primevue.config.default, { ripple: true })
+            .use(primevue.toastservice)
+            .directive("tooltip", Tooltip)
+            .mount("#app");
+        <\\/script>
+
+        <style>
+            .dock-demo .dock-window {
+                width: 100%;
+                height: 450px;
+                position: relative;
+                background-image: url("https://www.primefaces.org/wp-content/uploads/2021/02/primevue-blog.jpg");
+                background-repeat: no-repeat;
+                background-size: cover;
+                z-index: 1;
+            }
+
+            .dock-demo .p-dock {
+                z-index: 1000;
+            }
+
+            .dock-demo .p-menubar {
+                padding-top: 0;
+                padding-bottom: 0;
+                border-radius: 0;
+            }
+
+            .dock-demo .p-menubar .menubar-root {
+                font-weight: bold;
+                padding: 0 1rem;
+            }
+
+            .dock-demo .p-menubar .p-menuitem-link {
+                padding: 0.5rem .75rem;
+            }
+
+            .dock-demo .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link {
+                padding: 0.5rem .75rem;
+            }
+
+            .dock-demo .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link > .p-submenu-icon {
+                display: none;
+            }
+
+            .dock-demo .p-menubar .p-menubar-end span,
+            .dock-demo .p-menubar .p-menubar-end  i {
+                padding: 0 .75rem;
+            }
+
+            .dock-demo .p-menubar .p-submenu-list {
+                z-index: 2;
+            }
+        </style>
 `
                 }
             }
