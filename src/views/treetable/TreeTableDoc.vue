@@ -1892,6 +1892,99 @@ button {
     margin-right: .5rem;
 }
 </style>`
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/treetable/treetable.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/column/column.min.js"><\\/script>
+        <script src="./NodeService.js"><\\/script>`,
+                    content: `
+        <div id="app">
+            <div class="card">
+                <h5>Basic</h5>
+                <p-treetable :value="nodes">
+                    <p-column field="name" header="Name" :expander="true"></p-column>
+                    <p-column field="size" header="Size"></p-column>
+                    <p-column field="type" header="Type"></p-column>
+                </p-treetable>
+            </div>
+
+            <div class="card">
+                <h5>Dynamic Columns</h5>
+                <p-treetable :value="nodes">
+                    <p-column v-for="col of columns" :key="col.field"
+                        :field="col.field" :header="col.header" :expander="col.expander"></p-column>
+                </p-treetable>
+            </div>
+
+            <div class="card">
+                <h5>Programmatic Control</h5>
+                <div style="margin-bottom: 1em">
+                    <p-button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll"></p-button>
+                    <p-button type="button" icon="pi pi-minus" label="Collapse All" @click="collapseAll"></p-button>
+                </div>
+                <p-treetable :value="nodes" :expanded-keys="expandedKeys">
+                    <p-column field="name" header="Name" :expander="true"></p-column>
+                    <p-column field="size" header="Size"></p-column>
+                    <p-column field="type" header="Type"></p-column>
+                </p-treetable>
+            </div>
+        </div>
+
+        <script type="module">
+        const { createApp, ref, onMounted } = Vue;
+
+        const App = {
+            setup() {
+                onMounted(() => {
+                    nodeService.value.getTreeTableNodes().then(data => nodes.value = data);
+                })
+                const nodes = ref();
+                const expandedKeys = ref({});
+                const nodeService = ref(new NodeService());
+                const columns = ref([
+                    {field: 'name', header: 'Vin', expander: true},
+                    {field: 'size', header: 'Size'},
+                    {field: 'type', header: 'Type'}
+                ]);
+                const expandAll = () => {
+                    for (let node of nodes.value) {
+                        expandNode(node);
+                    }
+
+                    expandedKeys.value = {...expandedKeys.value};
+                };
+                const collapseAll = () => {
+                    expandedKeys.value = {};
+                };
+                const expandNode = (node) => {
+                    if (node.children && node.children.length) {
+                        expandedKeys.value[node.key] = true;
+
+                        for (let child of node.children) {
+                            expandNode(child);
+                        }
+                    }
+                };
+                return { nodes, columns, expandedKeys, nodeService, expandAll, collapseAll, expandNode }
+            },
+            components: {
+                "p-treetable": primevue.treetable,
+                "p-column": primevue.column,
+                "p-button": primevue.button
+            }
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .mount("#app");
+        <\\/script>
+
+        <style >
+        .p-button {
+            margin-right: .5rem;
+        }
+        </style>`
                 }
             }
         }
