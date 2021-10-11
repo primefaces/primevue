@@ -420,7 +420,6 @@ export default {
         <link href="https://unpkg.com/primevue@^3/resources/primevue.min.css" rel="stylesheet" />
         <link href="https://unpkg.com/primeflex@2.0.0/primeflex.min.css" rel="stylesheet" />
         <link href="https://unpkg.com/primeicons/primeicons.css" rel="stylesheet" />
-        <link href="./index.css" rel="stylesheet" />
 
         <!-- Dependencies -->
         <script src="https://unpkg.com/vue@next"><\/script>
@@ -428,6 +427,7 @@ export default {
 
         <!-- Demo -->
         ${imports}
+        <link href="./index.css" rel="stylesheet" />
     </head>
     <body>${content}
     </body>
