@@ -414,14 +414,19 @@ export default {
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width,initial-scale=1.0" />
         <title>${name}</title>
+
+        <!-- PrimeVue -->
         <link href="https://unpkg.com/primevue@^3/resources/themes/saga-blue/theme.css" rel="stylesheet" />
         <link href="https://unpkg.com/primevue@^3/resources/primevue.min.css" rel="stylesheet" />
         <link href="https://unpkg.com/primeflex@2.0.0/primeflex.min.css" rel="stylesheet" />
         <link href="https://unpkg.com/primeicons/primeicons.css" rel="stylesheet" />
         <link href="./index.css" rel="stylesheet" />
 
+        <!-- Dependencies -->
         <script src="https://unpkg.com/vue@next"><\/script>
         <script src="https://unpkg.com/primevue@^3/core/core.min.js"><\/script>
+
+        <!-- Demo -->
         ${imports}
     </head>
     <body>${content}
