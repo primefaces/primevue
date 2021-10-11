@@ -208,6 +208,77 @@ export default {
     margin-bottom: 0.5rem;
 }
 </style>`
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/toolbar/toolbar.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/splitbutton/splitbutton.min.js"><\\/script>`,
+                    content: `
+        <div id="app">
+            <p-toolbar>
+                <template #left>
+                    <p-button label="New" icon="pi pi-plus" class="p-mr-2"></p-button>
+                    <p-button label="Upload" icon="pi pi-upload" class="p-button-success"></p-button>
+                    <i class="pi pi-bars p-toolbar-separator p-mr-2"></i>
+                    <p-splitbutton label="Save" icon="pi pi-check" :model="items" class="p-button-warning"></p-splitbutton>
+                </template>
+
+                <template #right>
+                    <p-button icon="pi pi-search" class="p-mr-2"></p-button>
+                    <p-button icon="pi pi-calendar" class="p-button-success p-mr-2"></p-button>
+                    <p-button icon="pi pi-times" class="p-button-danger"></p-button>
+                </template>
+            </p-toolbar>
+        </div>
+
+        <script type="module">
+        const { createApp, ref } = Vue;
+
+        const App = {
+            setup() {
+                const items = ref([
+                    {
+                        label: 'Update',
+                        icon: 'pi pi-refresh'
+                    },
+                    {
+                        label: 'Delete',
+                        icon: 'pi pi-times'
+                    },
+                    {
+                        label: 'Vue Website',
+                        icon: 'pi pi-external-link',
+                        command: () => {
+                            window.location.href = 'https://vuejs.org/'
+                        }
+                    },
+                    {   label: 'Upload',
+                        icon: 'pi pi-upload',
+                        command: () => {
+                            window.location.hash = "/fileupload"
+                        }
+                    }
+                ]);
+
+                return { items }
+            },
+            components: {
+                "p-toolbar": primevue.toolbar,
+                "p-splitbutton": primevue.splitbutton,
+                "p-button": primevue.button
+            }
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .mount("#app");
+        <\\/script>
+
+        <style>
+        .p-button {
+            margin-bottom: 0.5rem;
+        }
+        </style>`
                 }
             }
         }
