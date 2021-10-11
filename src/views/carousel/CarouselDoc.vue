@@ -577,6 +577,152 @@ export default {
     }
 }
 </style>`
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/carousel/carousel.min.js"><\\/script>
+        <script src="./ProductService.js"><\\/script>`,
+                    content: `
+        <div id="app">
+            <div class="card">
+                <p-carousel :value="products" :num-visible="3" :num-scroll="3" :responsive-options="responsiveOptions">
+                    <template #header>
+                        <h5>Basic</h5>
+                    </template>
+                    <template #item="slotProps">
+                        <div class="product-item">
+                            <div class="product-item-content">
+                                <div class="p-mb-3">
+                                    <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" :alt="slotProps.data.name" class="product-image" />
+                                </div>
+                                <div>
+                                    <h4 class="p-mb-1">{{slotProps.data.name}}</h4>
+                                    <h6 class="p-mt-0 p-mb-3">\${{slotProps.data.price}}</h6>
+                                    <span :class="'product-badge status-'+slotProps.data.inventoryStatus.toLowerCase()">{{slotProps.data.inventoryStatus}}</span>
+                                    <div class="car-buttons p-mt-5">
+                                        <p-button icon="pi pi-search" class="p-button p-button-rounded p-mr-2"></p-button>
+                                        <p-button icon="pi pi-star" class="p-button-success p-button-rounded p-mr-2"></p-button>
+                                        <p-button icon="pi pi-cog" class="p-button-help p-button-rounded"></p-button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </p-carousel>
+            </div>
+
+            <div class="card">
+                <p-carousel :value="products" :num-visible="3" :num-scroll="1" :responsive-options="responsiveOptions" class="custom-carousel" :circular="true" :autoplay-interval="3000">
+                    <template #header>
+                        <h5>Circular, AutoPlay, 3 Items per Page and Scroll by 1</h5>
+                    </template>
+                    <template #item="slotProps">
+                        <div class="product-item">
+                            <div class="product-item-content">
+                                <div class="p-mb-3">
+                                    <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" :alt="slotProps.data.name" class="product-image" />
+                                </div>
+                                <div>
+                                    <h4 class="p-mb-1">{{slotProps.data.name}}</h4>
+                                    <h6 class="p-mt-0 p-mb-3">\${{slotProps.data.price}}</h6>
+                                    <span :class="'product-badge status-'+slotProps.data.inventoryStatus.toLowerCase()">{{slotProps.data.inventoryStatus}}</span>
+                                    <div class="car-buttons p-mt-5">
+                                        <p-button icon="pi pi-search" class="p-button p-button-rounded p-mr-2"></p-button>
+                                        <p-button icon="pi pi-star" class="p-button-success p-button-rounded p-mr-2"></p-button>
+                                        <p-button icon="pi pi-cog" class="p-button-help p-button-rounded"></p-button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </p-carousel>
+            </div>
+
+            <div class="card">
+                <p-carousel :value="products" :num-visible="1" :num-scroll="1" orientation="vertical" vertical-view-portHeight="430px"
+                            style="max-width: 400px; margin-top: 2em">
+                    <template #header>
+                        <h5>Vertical</h5>
+                    </template>
+                    <template #item="slotProps">
+                        <div class="product-item">
+                            <div class="product-item-content">
+                                <div class="p-mb-3">
+                                    <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" :alt="slotProps.data.name" class="product-image" />
+                                </div>
+                                <div>
+                                    <h4 class="p-mb-1">{{slotProps.data.name}}</h4>
+                                    <h6 class="p-mt-0 p-mb-3">\${{slotProps.data.price}}</h6>
+                                    <span :class="'product-badge status-'+slotProps.data.inventoryStatus.toLowerCase()">{{slotProps.data.inventoryStatus}}</span>
+                                    <div class="car-buttons p-mt-5">
+                                        <p-button icon="pi pi-search" class="p-button p-button-rounded p-mr-2"></p-button>
+                                        <p-button icon="pi pi-star" class="p-button-success p-button-rounded p-mr-2"></p-button>
+                                        <p-button icon="pi pi-cog" class="p-button-help p-button-rounded"></p-button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </p-carousel>
+            </div>
+        </div>
+
+        <script type="module">
+        const { createApp, ref, onMounted } = Vue;
+
+        const App = {
+            setup() {
+                onMounted(() => {
+                    productService.value.getProductsSmall().then(data => products.value = data.slice(0,9));
+                })
+                const products = ref(null);
+                const productService = ref(new ProductService());
+                const responsiveOptions = ref([
+                    {
+                        breakpoint: '1024px',
+                        numVisible: 3,
+                        numScroll: 3
+                    },
+                    {
+                        breakpoint: '600px',
+                        numVisible: 2,
+                        numScroll: 2
+                    },
+                    {
+                        breakpoint: '480px',
+                        numVisible: 1,
+                        numScroll: 1
+                    }
+                ]);
+
+                return {products, productService, responsiveOptions }
+            },
+            components: {
+                "p-carousel": primevue.carousel,
+                "p-button": primevue.button
+            }
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .mount("#app");
+        <\\/script>
+
+        <style>
+        .product-item .product-item-content {
+            border: 1px solid var(--surface-d);
+            border-radius: 3px;
+            margin: .3rem;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .product-item .product-image {
+            width: 50%;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+        }
+        </style>
+`
                 }
             }
         }
