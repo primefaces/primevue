@@ -94,11 +94,11 @@ export default {
 
         <!-- Dependencies -->
         <script src="https://unpkg.com/vue@next"><\/script>
-        <script src="./core.js"><\/script>
+        <script src="https://unpkg.com/primevue@^3/core/core.min.js"><\/script>
 
         <!-- Demo -->
-        <link href="./index.css" rel="stylesheet" />
         ${_imports}
+        <link href="./index.css" rel="stylesheet" />
     </head>
     <body>
         ${source.content.replace('<\\/script>', '<\/script>')}
