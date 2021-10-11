@@ -2828,7 +2828,7 @@ export default {
             </Column>
             <Column field="country.name" header="Country" sortable filterMatchMode="contains" style="min-width: 14rem">
                 <template #body="{data}">
-                    <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="30" />
+                    <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="30" style="vertical-align: middle" />
                     <span class="image-text">{{data.country.name}}</span>
                 </template>
                 <template #filter="{filterModel}">
@@ -2837,7 +2837,7 @@ export default {
             </Column>
             <Column header="Agent" sortable filterField="representative" sortField="representative.name" :showFilterMatchModes="false" :filterMenuStyle="{'width':'14rem'}" style="min-width: 14rem">
                  <template #body="{data}">
-                    <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="30" />
+                    <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="30" style="vertical-align: middle" />
                     <span class="image-text">{{data.representative.name}}</span>
                 </template>
                 <template #filter="{filterModel}">
@@ -2845,7 +2845,7 @@ export default {
                     <MultiSelect v-model="filterModel.value" :options="representatives" optionLabel="name" placeholder="Any" class="p-column-filter">
                         <template #option="slotProps">
                             <div class="p-multiselect-representative-option">
-                                <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="30" />
+                                <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="30" style="vertical-align: middle" />
                                 <span class="image-text">{{slotProps.option.name}}</span>
                             </div>
                         </template>
@@ -3048,6 +3048,280 @@ img {
     }
 }
 </style>`
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/datatable/datatable.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/column/column.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/dropdown/dropdown.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/multiselect/multiselect.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/calendar/calendar.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/slider/slider.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/progressbar/progressbar.min.js"><\\/script>
+        <script src="./CustomerService.js"><\\/script>`,
+                    content: `
+        <div id="app">
+            <p-datatable :value="customers" :paginator="true" class="p-datatable-customers" :rows="10"
+                data-key="id" :row-hover="true" v-model:selection="selectedCustomers" v-model:filters="filters" filter-display="menu" :loading="loading"
+                paginator-template="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" :rows-per-page-options="[10,25,50]"
+                current-page-report-template="Showing {first} to {last} of {totalRecords} entries"
+                :global-filter-fields="['name','country.name','representative.name','status']" responsive-layout="scroll">
+                <template #header>
+                    <div class="p-d-flex p-jc-between p-ai-center">
+                        <h5 class="p-m-0">Customers</h5>
+                        <span class="p-input-icon-left">
+                            <i class="pi pi-search"></i>
+                            <p-inputtext v-model="filters['global'].value" placeholder="Keyword Search"></p-inputtext>
+                        </span>
+                    </div>
+                </template>
+                <template #empty>
+                    No customers found.
+                </template>
+                <template #loading>
+                    Loading customers data. Please wait.
+                </template>
+                <p-column selection-mode="multiple" header-style="width: 3rem"></p-column>
+                <p-column field="name" header="Name" sortable style="min-width: 14rem">
+                    <template #body="{data}">
+                        {{data.name}}
+                    </template>
+                    <template #filter="{filterModel}">
+                        <p-inputtext type="text" v-model="filterModel.value" class="p-column-filter" placeholder="Search by name"></p-inputtext>
+                    </template>
+                </p-column>
+                <p-column field="country.name" header="Country" sortable filter-match-mode="contains" style="min-width: 14rem">
+                    <template #body="{data}">
+                        <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="30" style="vertical-align: middle" />
+                        <span class="image-text">{{data.country.name}}</span>
+                    </template>
+                    <template #filter="{filterModel}">
+                        <p-inputtext type="text" v-model="filterModel.value" class="p-column-filter" placeholder="Search by country"></p-inputtext>
+                    </template>
+                </p-column>
+                <p-column header="Agent" sortable filter-field="representative" sort-field="representative.name" :show-filter-match-modes="false" :filter-menu-style="{'width':'14rem'}" style="min-width: 14rem">
+                    <template #body="{data}">
+                        <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="30" style="vertical-align: middle" />
+                        <span class="image-text">{{data.representative.name}}</span>
+                    </template>
+                    <template #filter="{filterModel}">
+                        <div class="p-mb-3 p-text-bold">Agent Picker</div>
+                        <p-multiselect v-model="filterModel.value" :options="representatives" option-label="name" placeholder="Any" class="p-column-filter">
+                            <template #option="slotProps">
+                                <div class="p-multiselect-representative-option">
+                                    <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="30" />
+                                    <span class="image-text">{{slotProps.option.name}}</span>
+                                </div>
+                            </template>
+                        </p-multiselect>
+                    </template>
+                </p-column>
+                <p-column field="date" header="Date" sortable data-type="date" style="min-width: 8rem">
+                    <template #body="{data}">
+                        {{formatDate(data.date)}}
+                    </template>
+                    <template #filter="{filterModel}">
+                        <p-calendar v-model="filterModel.value" date-format="mm/dd/yy" placeholder="mm/dd/yyyy"></p-calendar>
+                    </template>
+                </p-column>
+                <p-column field="balance" header="Balance" sortable data-type="numeric" style="min-width: 8rem">
+                    <template #body="{data}">
+                        {{formatCurrency(data.balance)}}
+                    </template>
+                    <template #filter="{filterModel}">
+                        <p-inputnumber v-model="filterModel.value" mode="currency" currency="USD" locale="en-US"></p-inputnumber>
+                    </template>
+                </p-column>
+                <p-column field="status" header="Status" sortable :filter-menu-style="{'width':'14rem'}" style="min-width: 10rem">
+                    <template #body="{data}">
+                        <span :class="'customer-badge status-' + data.status">{{data.status}}</span>
+                    </template>
+                    <template #filter="{filterModel}">
+                        <p-dropdown v-model="filterModel.value" :options="statuses" placeholder="Any" class="p-column-filter" :show-clear="true">
+                            <template #value="slotProps">
+                                <span :class="'customer-badge status-' + slotProps.value">{{slotProps.value}}</span>
+                            </template>
+                            <template #option="slotProps">
+                                <span :class="'customer-badge status-' + slotProps.option">{{slotProps.option}}</span>
+                            </template>
+                        </p-dropdown>
+                    </template>
+                </p-column>
+                <p-column field="activity" header="Activity" sortable :show-filter-match-modes="false" style="min-width: 10rem">
+                    <template #body="{data}">
+                        <p-progressbar :value="data.activity" :show-value="false"></p-progressbar>
+                    </template>
+                    <template #filter="{filterModel}">
+                        <p-slider v-model="filterModel.value" range class="p-m-3"></p-slider>
+                        <div class="p-d-flex p-ai-center p-jc-between p-px-2">
+                            <span>{{filterModel.value ? filterModel.value[0] : 0}}</span>
+                            <span>{{filterModel.value ? filterModel.value[1] : 100}}</span>
+                        </div>
+                    </template>
+                </p-column>
+                <p-column header-style="width: 4rem; text-align: center" body-style="text-align: center; overflow: visible">
+                    <template #body>
+                        <p-button type="button" icon="pi pi-cog"></p-button>
+                    </template>
+                </p-column>
+            </p-datatable>
+        </div>
+    </template>
+
+    <script type="module">
+    const { createApp, ref, onMounted } = Vue;
+    const { FilterMatchMode, FilterOperator } = primevue.api;
+
+    const App = {
+        setup() {
+            onMounted(() => {
+                customerService.value.getCustomersLarge().then((data) => {
+                    customers.value = data;
+                    customers.value.forEach(
+                        (customer) => (customer.date = new Date(customer.date))
+                    );
+                    loading.value = false;
+                });
+            });
+            const customers = ref();
+            const selectedCustomers = ref();
+            const filters = ref({
+                global: { value: null, matchMode: FilterMatchMode.CONTAINS },
+                name: {
+                    operator: FilterOperator.AND,
+                    constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }],
+                },
+                "country.name": {
+                    operator: FilterOperator.AND,
+                    constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }],
+                },
+                representative: { value: null, matchMode: FilterMatchMode.IN },
+                date: {
+                    operator: FilterOperator.AND,
+                    constraints: [{ value: null, matchMode: FilterMatchMode.DATE_IS }],
+                },
+                balance: {
+                    operator: FilterOperator.AND,
+                    constraints: [{ value: null, matchMode: FilterMatchMode.EQUALS }],
+                },
+                status: {
+                    operator: FilterOperator.OR,
+                    constraints: [{ value: null, matchMode: FilterMatchMode.EQUALS }],
+                },
+                activity: { value: null, matchMode: FilterMatchMode.BETWEEN },
+                verified: { value: null, matchMode: FilterMatchMode.EQUALS },
+            });
+            const customerService = ref(new CustomerService());
+            const loading = ref(true);
+            const representatives = [
+                { name: "Amy Elsner", image: "amyelsner.png" },
+                { name: "Anna Fali", image: "annafali.png" },
+                { name: "Asiya Javayant", image: "asiyajavayant.png" },
+                { name: "Bernardo Dominic", image: "bernardodominic.png" },
+                { name: "Elwin Sharvill", image: "elwinsharvill.png" },
+                { name: "Ioni Bowcher", image: "ionibowcher.png" },
+                { name: "Ivan Magalhaes", image: "ivanmagalhaes.png" },
+                { name: "Onyama Limba", image: "onyamalimba.png" },
+                { name: "Stephen Shaw", image: "stephenshaw.png" },
+                { name: "XuXue Feng", image: "xuxuefeng.png" },
+            ];
+            const statuses = ref([
+                "unqualified",
+                "qualified",
+                "new",
+                "negotiation",
+                "renewal",
+                "proposal",
+            ]);
+            const formatDate = (value) => {
+                return value.toLocaleDateString("en-US", {
+                    day: "2-digit",
+                    month: "2-digit",
+                    year: "numeric",
+                });
+            };
+            const formatCurrency = (value) => {
+                return value.toLocaleString("en-US", {
+                    style: "currency",
+                    currency: "USD",
+                });
+            };
+            return {
+                customers,
+                filters,
+                loading,
+                representatives,
+                formatCurrency,
+                selectedCustomers,
+                formatDate,
+                statuses,
+            };
+        },
+        components: {
+            "p-datatable": primevue.datatable,
+            "p-column": primevue.column,
+            "p-inputtext": primevue.inputtext,
+            "p-multiselect": primevue.multiselect,
+            "p-calendar": primevue.calendar,
+            "p-inputnumber": primevue.inputnumber,
+            "p-dropdown": primevue.dropdown,
+            "p-progressbar": primevue.progressbar,
+            "p-slider": primevue.slider,
+            "p-button": primevue.button
+        }
+    };
+
+    const app = createApp(App);
+    app.use(primevue.config.default);
+    app.mount("#app");
+    <\\/script>
+
+    <style lang="scss" scoped>
+    img {
+        vertical-align: middle;
+    }
+    .p-paginator .p-paginator-current {
+        margin-left: auto;
+    }
+
+    .p-progressbar {
+        height: .5rem;
+        background-color: #D8DADC;
+    }
+    .p-progressbar .p-progressbar-value {
+        background-color: #607D8B;
+    }
+
+    .p-datepicker {
+        min-width: 25rem;
+    }
+
+    .p-datepicker td {
+        font-weight: 400;
+    }
+
+    .p-datatable.p-datatable-customers .p-datatable-header {
+        padding: 1rem;
+        text-align: left;
+        font-size: 1.5rem;
+    }
+
+    .p-datatable.p-datatable-customers .p-paginator {
+        padding: 1rem;
+    }
+
+    .p-datatable.p-datatable-customers .p-datatable-thead > tr > th {
+        text-align: left;
+    }
+
+    .p-datatable.p-datatable-customers .p-datatable-tbody > tr > td {
+        cursor: auto;
+    }
+
+    .p-datatable.p-datatable-customers .p-dropdown-label:not(.p-placeholder) {
+        text-transform: uppercase;
+    }
+    </style>`
                 }
             }
         }

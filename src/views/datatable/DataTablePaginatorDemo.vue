@@ -125,6 +125,57 @@ export default {
 }
 <\\/script>                  
 `
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/datatable/datatable.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/column/column.min.js"><\\/script>
+        <script src="./CustomerService.js"><\\/script>`,
+                    content: `
+        <div id="app">
+            <p-datatable :value="customers" :paginator="true" :rows="10"
+                paginator-template="CurrentPageReport FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown"
+                :rows-per-page-options="[10,20,50]" responsive-layout="scroll"
+                current-page-report-template="Showing {first} to {last} of {totalRecords}">
+                <p-column field="name" header="Name"></p-column>
+                <p-column field="country.name" header="Country"></p-column>
+                <p-column field="company" header="Company"></p-column>
+                <p-column field="representative.name" header="Representative"></p-column>
+                <template #paginatorLeft>
+                    <p-button type="button" icon="pi pi-refresh" class="p-button-text"></p-button>
+                </template>
+                <template #paginatorRight>
+                    <p-button type="button" icon="pi pi-cloud" class="p-button-text"></p-button>
+                </template>
+            </p-datatable>
+        </div>
+
+        <script type="module">
+        const { createApp, ref, onMounted } = Vue;
+
+        const App = {
+            setup() {
+                onMounted(() => {
+                    customerService.value.getCustomersLarge().then(data => customers.value = data);
+                })
+
+                const customers = ref();
+                const customerService = ref(new CustomerService());
+
+                return { customers }
+            },
+            components: {
+                "p-datatable": primevue.datatable,
+                "p-column": primevue.column,
+                "p-button": primevue.button
+            }
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .mount("#app");
+        <\\/script>                  
+`
                 }
             }
         }

@@ -368,6 +368,161 @@ export default {
     padding-bottom: 0;
 }
 </style>`
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/datatable/datatable.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/column/column.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/dropdown/dropdown.min.js"><\\/script>
+        <script src="./ProductService.js"><\\/script>`,
+                    content: `
+        <div id="app" class="p-fluid card">
+            <div class="card">
+                <h5>Cell Editing</h5>
+                <p>Validations, dynamic columns and reverting values with the escape key.</p>
+                <p-datatable :value="products1" edit-mode="cell" @cell-edit-complete="onCellEditComplete" class="editable-cells-table" responsive-layout="scroll">
+                    <p-column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field" style="width:25%">
+                        <template #editor="{ data, field }">
+                            <p-inputtext v-model="data[field]" autofocus></p-inputtext>
+                        </template>
+                    </p-column>
+                </p-datatable>
+            </div>
+
+            <div class="card">
+                <h5>Row Editing</h5>
+                <p-datatable :value="products2" edit-mode="row" dataKey="id" v-model:editing-rows="editingRows" @row-edit-save="onRowEditSave" responsive-layout="scroll">
+                    <p-column field="code" header="Code" style="width:20%">
+                        <template #editor="{ data, field }">
+                            <p-inputtext v-model="data[field]" autofocus></p-inputtext>
+                        </template>
+                    </p-column>
+                    <p-column field="name" header="Name" style="width:20%">
+                        <template #editor="{ data, field }">
+                            <p-inputtext v-model="data[field]"></p-inputtext>
+                        </template>
+                    </p-column>
+                    <p-column field="inventoryStatus" header="Status" style="width:20%">
+                        <template #editor="{ data, field }">
+                            <p-dropdown v-model="data[field]" :options="statuses" option-label="label" option-value="value" placeholder="Select a Status">
+                                <template #option="slotProps">
+                                    <span :class="'product-badge status-' + slotProps.option.value.toLowerCase()">{{slotProps.option.label}}</span>
+                                </template>
+                            </p-dropdown>
+                        </template>
+                        <template #body="slotProps">
+                            {{getStatusLabel(slotProps.data.inventoryStatus)}}
+                        </template>
+                    </p-column>
+                    <p-column field="price" header="Price" style="width:20%">
+                        <template #editor="{ data, field }">
+                            <p-inputtext v-model="data[field]"></p-inputtext>
+                        </template>
+                    </p-column>
+                    <p-column :row-editor="true" style="width:10%; min-width:8rem" bodyStyle="text-align:center"></p-column>
+                </p-datatable>
+            </div>
+        </div>
+
+        <script type="module">
+        const { createApp, ref, onMounted } = Vue;
+
+        const App = {
+            setup() {
+                onMounted(() => {
+                    productService.value.getProductsSmall().then(data => products1.value = data);
+                    productService.value.getProductsSmall().then(data => products2.value = data);
+                });
+
+                const productService = ref(new ProductService());
+                const editingRows = ref([]);
+                const columns = ref([
+                    {field: 'code', header: 'Code'},
+                    {field: 'name', header: 'Name'},
+                    {field: 'quantity', header: 'Quantity'},
+                    {field: 'price', header: 'Price'}
+                ]);
+                const products1 = ref(null);
+                const products2 = ref(null);
+                const statuses = ref([
+                    {label: 'In Stock', value: 'INSTOCK'},
+                    {label: 'Low Stock', value: 'LOWSTOCK'},
+                    {label: 'Out of Stock', value: 'OUTOFSTOCK'}
+                ]);
+
+                const onCellEditComplete = (event) => {
+                    let { data, newValue, field } = event;
+
+                    switch (field) {
+                        case 'quantity':
+                        case 'price':
+                            if (isPositiveInteger(newValue))
+                                data[field] = newValue;
+                            else
+                                event.preventDefault();
+                        break;
+
+                        default:
+                            if (newValue.trim().length > 0)
+                                data[field] = newValue;
+                            else
+                                event.preventDefault();
+                        break;
+                    }
+                };
+                const isPositiveInteger = (val) => {
+                    let str = String(val);
+                    str = str.trim();
+                    if (!str) {
+                        return false;
+                    }
+                    str = str.replace(/^0+/, "") || "0";
+                    var n = Math.floor(Number(str));
+                    return n !== Infinity && String(n) === str && n >= 0;
+                };
+                const onRowEditSave = (event) => {
+                    let { newData, index } = event;
+
+                    products2[index] = newData;
+                };
+                const getStatusLabel = (status) => {
+                    switch(status) {
+                        case 'INSTOCK':
+                            return 'In Stock';
+
+                        case 'LOWSTOCK':
+                            return 'Low Stock';
+
+                        case 'OUTOFSTOCK':
+                            return 'Out of Stock';
+
+                        default:
+                            return 'NA';
+                    }
+                };
+
+                return { productService, editingRows, columns, products1, products2, statuses, onCellEditComplete,
+                    isPositiveInteger, onRowEditSave, getStatusLabel }
+            },
+            components: {
+                "p-datatable": primevue.datatable,
+                "p-column": primevue.column,
+                "p-dropdown": primevue.dropdown,
+                "p-inputtext": primevue.inputtext
+            }
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .mount("#app");
+        <\\/script>
+
+<style>
+.editable-cells-table td.p-cell-editing {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+</style>`
                 }
             }
         }

@@ -49,13 +49,13 @@
                             {{formatCurrency(slotProps.data.price)}}
                         </template>
                     </Column>
-                    <Column field="category" header="Category" :sortable="true" style="min-width:10rem">></Column>
+                    <Column field="category" header="Category" :sortable="true" style="min-width:10rem"></Column>
                     <Column field="rating" header="Reviews" :sortable="true" style="min-width:12rem">
                         <template #body="slotProps">
                            <Rating :modelValue="slotProps.data.rating" :readonly="true" :cancel="false" />
                         </template>
                     </Column>
-                    <Column field="inventoryStatus" header="Status" :sortable="true" style="min-width:12rem">>
+                    <Column field="inventoryStatus" header="Status" :sortable="true" style="min-width:12rem">
                         <template #body="slotProps">
                             <span :class="'product-badge status-' + (slotProps.data.inventoryStatus ? slotProps.data.inventoryStatus.toLowerCase() : '')">{{slotProps.data.inventoryStatus}}</span>
                         </template>
@@ -229,13 +229,13 @@ export default {
                         {{formatCurrency(slotProps.data.price)}}
                     </template>
                 </Column>
-                <Column field="category" header="Category" :sortable="true" style="min-width:10rem">></Column>
+                <Column field="category" header="Category" :sortable="true" style="min-width:10rem"></Column>
                 <Column field="rating" header="Reviews" :sortable="true" style="min-width:12rem">
                     <template #body="slotProps">
                        <Rating :modelValue="slotProps.data.rating" :readonly="true" :cancel="false" />
                     </template>
                 </Column>
-                <Column field="inventoryStatus" header="Status" :sortable="true" style="min-width:12rem">>
+                <Column field="inventoryStatus" header="Status" :sortable="true" style="min-width:12rem">
                     <template #body="slotProps">
                         <span :class="'product-badge status-' + (slotProps.data.inventoryStatus ? slotProps.data.inventoryStatus.toLowerCase() : '')">{{slotProps.data.inventoryStatus}}</span>
                     </template>
@@ -545,13 +545,13 @@ export default {
                         {{formatCurrency(slotProps.data.price)}}
                     </template>
                 </Column>
-                <Column field="category" header="Category" :sortable="true" style="min-width:10rem">></Column>
+                <Column field="category" header="Category" :sortable="true" style="min-width:10rem"></Column>
                 <Column field="rating" header="Reviews" :sortable="true" style="min-width:12rem">
                     <template #body="slotProps">
                        <Rating :modelValue="slotProps.data.rating" :readonly="true" :cancel="false" />
                     </template>
                 </Column>
-                <Column field="inventoryStatus" header="Status" :sortable="true" style="min-width:12rem">>
+                <Column field="inventoryStatus" header="Status" :sortable="true" style="min-width:12rem">
                     <template #body="slotProps">
                         <span :class="'product-badge status-' + (slotProps.data.inventoryStatus ? slotProps.data.inventoryStatus.toLowerCase() : '')">{{slotProps.data.inventoryStatus}}</span>
                     </template>
@@ -813,6 +813,350 @@ export default {
 	}
 }
 </style>
+`
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/datatable/datatable.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/column/column.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/toolbar/toolbar.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/fileupload/fileupload.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/rating/rating.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/toast/toast.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/toastservice/toastservice.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/textarea/textarea.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/radiobutton/radiobutton.min.js"><\\/script>
+        <script src="./ProductService.js"><\\/script>`,
+                    content: `
+        <div id="app">
+            <div class="card">
+                <p-toast></p-toast>
+
+                <p-toolbar class="p-mb-4">
+                    <template #left>
+                        <p-button label="New" icon="pi pi-plus" class="p-button-success p-mr-2" @click="openNew"></p-button>
+                        <p-button label="Delete" icon="pi pi-trash" class="p-button-danger" @click="confirmDeleteSelected" :disabled="!selectedProducts || !selectedProducts.length"></p-button>
+                    </template>
+
+                    <template #right>
+                        <p-fileupload mode="basic" accept="image/*" :maxFileSize="1000000" label="Import" chooseLabel="Import" class="p-mr-2 p-d-inline-block"></p-fileupload>
+                        <p-button label="Export" icon="pi pi-upload" class="p-button-help" @click="exportCSV($event)"></p-button>
+                    </template>
+                </p-toolbar>
+
+                <p-datatable ref="dt" :value="products" v-model:selection="selectedProducts" dataKey="id"
+                    :paginator="true" :rows="10" :filters="filters"
+                    paginator-template="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" :rows-per-page-options="[5,10,25]"
+                    current-page-report-template="Showing {first} to {last} of {totalRecords} products" responsive-layout="scroll">
+                    <template #header>
+                        <div class="table-header p-d-flex p-flex-column p-flex-md-row p-jc-md-between">
+							<h5 class="p-mb-2 p-m-md-0 p-as-md-center">Manage Products</h5>
+							<span class="p-input-icon-left">
+                                <i class="pi pi-search"></i>
+                                <p-inputtext v-model="filters['global'].value" placeholder="Search..."></p-inputtext>
+                            </span>
+						</div>
+                    </template>
+
+                    <p-column selectionMode="multiple" style="width: 3rem" :exportable="false"></p-column>
+                    <p-column field="code" header="Code" :sortable="true" style="min-width:12rem"></p-column>
+                    <p-column field="name" header="Name" :sortable="true" style="min-width:16rem"></p-column>
+                    <p-column header="Image">
+                         <template #body="slotProps">
+                            <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="product-image" />
+                        </template>
+                    </p-column>
+                    <p-column field="price" header="Price" :sortable="true" style="min-width:8rem">
+                        <template #body="slotProps">
+                            {{formatCurrency(slotProps.data.price)}}
+                        </template>
+                    </p-column>
+                    <p-column field="category" header="Category" :sortable="true" style="min-width:10rem"></p-column>
+                    <p-column field="rating" header="Reviews" :sortable="true" style="min-width:12rem">
+                        <template #body="slotProps">
+                           <p-rating :modelValue="slotProps.data.rating" :readonly="true" :cancel="false"></p-rating>
+                        </template>
+                    </p-column>
+                    <p-column field="inventoryStatus" header="Status" :sortable="true" style="min-width:12rem">
+                        <template #body="slotProps">
+                            <span :class="'product-badge status-' + (slotProps.data.inventoryStatus ? slotProps.data.inventoryStatus.toLowerCase() : '')">{{slotProps.data.inventoryStatus}}</span>
+                        </template>
+                    </p-column>
+                    <p-column :exportable="false" style="min-width:8rem">
+                        <template #body="slotProps">
+                            <p-button icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2" @click="editProduct(slotProps.data)"></p-button>
+                            <p-button icon="pi pi-trash" class="p-button-rounded p-button-warning" @click="confirmDeleteProduct(slotProps.data)"></p-button>
+                        </template>
+                    </p-column>
+                </p-datatable>
+            </div>
+
+            <p-dialog v-model:visible="productDialog" :style="{width: '450px'}" header="Product Details" :modal="true" class="p-fluid">
+                <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="product-image" v-if="product.image" />
+                <div class="p-field">
+                    <label for="name">Name</label>
+                    <p-inputtext id="name" v-model.trim="product.name" required="true" autofocus :class="{'p-invalid': submitted && !product.name}"></p-inputtext>
+                    <small class="p-error" v-if="submitted && !product.name">Name is required.</small>
+                </div>
+                <div class="p-field">
+                    <label for="description">Description</label>
+                    <p-textarea id="description" v-model="product.description" required="true" rows="3" cols="20"></p-textarea>
+                </div>
+
+                <div class="p-field">
+					<label for="inventoryStatus" class="p-mb-3">Inventory Status</label>
+					<p-dropdown id="inventoryStatus" v-model="product.inventoryStatus" :options="statuses" option-label="label" placeholder="Select a Status">
+						<template #value="slotProps">
+							<div v-if="slotProps.value && slotProps.value.value">
+								<span :class="'product-badge status-' +slotProps.value.value">{{slotProps.value.label}}</span>
+							</div>
+							<div v-else-if="slotProps.value && !slotProps.value.value">
+								<span :class="'product-badge status-' +slotProps.value.toLowerCase()">{{slotProps.value}}</span>
+							</div>
+							<span v-else>
+								{{slotProps.placeholder}}
+							</span>
+						</template>
+					</p-dropdown>
+				</div>
+
+                <div class="p-field">
+                    <label class="p-mb-3">Category</label>
+                    <div class="p-formgrid p-grid">
+                        <div class="p-field-radiobutton p-col-6">
+                            <p-radiobutton id="category1" name="category" value="Accessories" v-model="product.category"></p-radiobutton>
+                            <label for="category1">Accessories</label>
+                        </div>
+                        <div class="p-field-radiobutton p-col-6">
+                            <p-radiobutton id="category2" name="category" value="Clothing" v-model="product.category"></p-radiobutton>
+                            <label for="category2">Clothing</label>
+                        </div>
+                        <div class="p-field-radiobutton p-col-6">
+                            <p-radiobutton id="category3" name="category" value="Electronics" v-model="product.category"></p-radiobutton>
+                            <label for="category3">Electronics</label>
+                        </div>
+                        <div class="p-field-radiobutton p-col-6">
+                            <p-radiobutton id="category4" name="category" value="Fitness" v-model="product.category"></p-radiobutton>
+                            <label for="category4">Fitness</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-formgrid p-grid">
+                    <div class="p-field p-col">
+                        <label for="price">Price</label>
+                        <p-inputnumber id="price" v-model="product.price" mode="currency" currency="USD" locale="en-US"></p-inputnumber></p-inputnumber>
+                    </div>
+                    <div class="p-field p-col">
+                        <label for="quantity">Quantity</label>
+                        <p-inputnumber id="quantity" v-model="product.quantity" integeronly></p-inputnumber>
+                    </div>
+                </div>
+                <template #footer>
+                    <p-button label="Cancel" icon="pi pi-times" class="p-button-text" @click="hideDialog"></p-button>
+                    <p-button label="Save" icon="pi pi-check" class="p-button-text" @click="saveProduct"></p-button>
+                </template>
+            </p-dialog>
+
+            <p-dialog v-model:visible="deleteProductDialog" :style="{width: '450px'}" header="Confirm" :modal="true">
+                <div class="confirmation-content">
+                    <i class="pi pi-exclamation-triangle p-mr-3" style="font-size: 2rem"></i>
+                    <span v-if="product">Are you sure you want to delete <b>{{product.name}}</b>?</span>
+                </div>
+                <template #footer>
+                    <p-button label="No" icon="pi pi-times" class="p-button-text" @click="deleteProductDialog = false"></p-button>
+                    <p-button label="Yes" icon="pi pi-check" class="p-button-text" @click="deleteProduct"></p-button>
+                </template>
+            </p-dialog>
+
+            <p-dialog v-model:visible="deleteProductsDialog" :style="{width: '450px'}" header="Confirm" :modal="true">
+                <div class="confirmation-content">
+                    <i class="pi pi-exclamation-triangle p-mr-3" style="font-size: 2rem"></i>
+                    <span v-if="product">Are you sure you want to delete the selected products?</span>
+                </div>
+                <template #footer>
+                    <p-button label="No" icon="pi pi-times" class="p-button-text" @click="deleteProductsDialog = false"></p-button>
+                    <p-button label="Yes" icon="pi pi-check" class="p-button-text" @click="deleteSelectedProducts"></p-button>
+                </template>
+            </p-dialog>            
+        </div>
+
+        <script type="module">
+            const { createApp, onMounted, ref } = Vue;
+            const { useToast } = primevue.usetoast;
+            const { FilterMatchMode } = primevue.api;
+
+            const App = {
+                setup() {
+                    onMounted(() => {
+                        productService.value.getProducts().then(data => products.value = data);
+                    })
+
+                    const toast = useToast();
+                    const dt = ref();
+                    const products = ref();
+                    const productDialog = ref(false);
+                    const deleteProductDialog = ref(false);
+                    const deleteProductsDialog = ref(false);
+                    const product = ref({});
+                    const productService = ref(new ProductService());
+                    const selectedProducts = ref();
+                    const filters = ref({
+                        'global': {value: null, matchMode: FilterMatchMode.CONTAINS},
+                    });
+                    const submitted = ref(false);
+                    const statuses = ref([
+	                 	{label: 'INSTOCK', value: 'instock'},
+	                 	{label: 'LOWSTOCK', value: 'lowstock'},
+	                 	{label: 'OUTOFSTOCK', value: 'outofstock'}
+                    ]);
+
+                    const formatCurrency = (value) => {
+                        if(value)
+		            		return value.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
+		            	return;
+                    };
+                    const openNew = () => {
+                        product.value = {};
+                        submitted.value = false;
+                        productDialog.value = true;
+                    };
+                    const hideDialog = () => {
+                        productDialog.value = false;
+                        submitted.value = false;
+                    };
+                    const saveProduct = () => {
+                        submitted.value = true;
+
+		            	if (product.value.name.trim()) {
+                            if (product.value.id) {
+                                product.value.inventoryStatus = product.value.inventoryStatus.value ? product.value.inventoryStatus.value : product.value.inventoryStatus;
+                                products.value[findIndexById(product.value.id)] = product.value;
+                                toast.add({severity:'success', summary: 'Successful', detail: 'Product Updated', life: 3000});
+                            }
+                            else {
+                                product.value.id = createId();
+                                product.value.code = createId();
+                                product.value.image = 'product-placeholder.svg';
+                                product.value.inventoryStatus = product.value.inventoryStatus ? product.value.inventoryStatus.value : 'INSTOCK';
+                                products.value.push(product.value);
+                                toast.add({severity:'success', summary: 'Successful', detail: 'Product Created', life: 3000});
+                            }
+
+                            productDialog.value = false;
+                            product.value = {};
+                        }
+                    };
+                    const editProduct = (prod) => {
+                        product.value = {...prod};
+                        productDialog.value = true;
+                    };
+                    const confirmDeleteProduct = (prod) => {
+                        product.value = prod;
+                        deleteProductDialog.value = true;
+                    };
+                    const deleteProduct = () => {
+                        products.value = products.value.filter(val => val.id !== product.value.id);
+                        deleteProductDialog.value = false;
+                        product.value = {};
+                        toast.add({severity:'success', summary: 'Successful', detail: 'Product Deleted', life: 3000});
+                    };
+                    const findIndexById = (id) => {
+                        let index = -1;
+                        for (let i = 0; i < products.value.length; i++) {
+                            if (products.value[i].id === id) {
+                                index = i;
+                                break;
+                            }
+                        }
+
+                        return index;
+                    };
+                    const createId = () => {
+                        let id = '';
+                        var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+                        for ( var i = 0; i < 5; i++ ) {
+                            id += chars.charAt(Math.floor(Math.random() * chars.length));
+                        }
+                        return id;
+                    }
+                    const exportCSV = () => {
+                        dt.value.exportCSV();
+                    };
+                    const confirmDeleteSelected = () => {
+                        deleteProductsDialog.value = true;
+                    };
+                    const deleteSelectedProducts = () => {
+                        products.value = products.value.filter(val => !selectedProducts.value.includes(val));
+                        deleteProductsDialog.value = false;
+                        selectedProducts.value = null;
+                        toast.add({severity:'success', summary: 'Successful', detail: 'Products Deleted', life: 3000});
+                    };
+
+                    return { dt, products, productDialog, deleteProductDialog, deleteProductsDialog, product, 
+                        selectedProducts, filters, submitted, statuses, formatCurrency, openNew, hideDialog, saveProduct, editProduct,
+                        confirmDeleteProduct, deleteProduct, findIndexById, createId, exportCSV, confirmDeleteSelected, deleteSelectedProducts}
+                },
+                components: {
+                    "p-datatable": primevue.datatable,
+                    "p-column": primevue.column,
+                    "p-toolbar": primevue.toolbar,
+                    "p-fileupload": primevue.fileupload,
+                    "p-rating": primevue.rating,
+                    "p-toast": primevue.toast,
+                    "p-inputtext": primevue.inputtext,
+                    "p-inputnumber": primevue.inputnumber,
+                    "p-button": primevue.button,
+                    "p-dialog": primevue.dialog,
+                    "p-textarea": primevue.textarea,
+                    "p-dropdown": primevue.dropdown,
+                    "p-radiobutton": primevue.radiobutton
+                }
+            };
+
+            createApp(App)
+                .use(primevue.config.default)
+                .use(primevue.toastservice)
+                .mount("#app");
+        <\\/script>
+        
+        <style lang="scss" scoped>
+        .table-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .product-image {
+            width: 50px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+        }
+
+        .p-dialog .product-image {
+            width: 50px;
+            margin: 0 auto 2rem auto;
+            display: block;
+        }
+
+        .confirmation-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        @media screen and (max-width: 960px) {
+            .table-header {
+                align-items: start;
+            }
+
+            .p-toolbar {
+                flex-wrap: wrap;
+            }
+                
+            .p-toolbar .p-button {
+                margin-bottom: 0.25rem;
+            }
+        }
+        </style>
 `
                 }
             }
