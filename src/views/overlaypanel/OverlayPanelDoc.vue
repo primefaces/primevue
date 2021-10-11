@@ -327,6 +327,91 @@ button {
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)
 }
 </style>`
+				},
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/overlaypanel/overlaypanel.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/datatable/datatable.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/column/column.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/toast/toast.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/toastservice/toastservice.min.js"><\\/script>
+        <script src="./ProductService.js"><\\/script>`,
+					content: `
+        <div id="app">
+            <p-toast></p-toast>
+
+            <p-button type="button" icon="pi pi-search" :label="selectedProduct ? selectedProduct.name : 'Select a Product'" @click="toggle" aria:haspopup="true" aria-controls="overlay_panel"></p-button>
+
+            <p-overlaypanel ref="op" append-to="body" :show-close-icon="true" id="overlay_panel" style="width: 450px" :breakpoints="{'960px': '75vw'}">
+                <p-datatable :value="products" v-model:selection="selectedProduct" selection-mode="single" :paginator="true" :rows="5" @row-select="onProductSelect" responsive-layout="scroll" >
+                    <p-column field="name" header="Name" sortable style="width: 50%"></p-column>
+                    <p-column header="Image" style="width: 20%">
+                        <template #body="slotProps">
+                            <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" :alt="slotProps.data.image" class="product-image" />
+                        </template>
+                    </p-column>
+                    <p-column field="price" header="Price" sortable style="width: 30%">
+                        <template #body="slotProps">
+                            {{formatCurrency(slotProps.data.price)}}
+                        </template>
+                    </p-column>
+                </p-datatable>
+            </p-overlaypanel>
+        </div>
+
+        <script type="module">
+        const { createApp, ref, onMounted } = Vue;
+        const { useToast } = primevue.usetoast;
+
+        const App = {
+            setup() {
+                onMounted(() => {
+                    productService.value.getProductsSmall().then(data => products.value = data);
+                })
+
+                const toast = useToast();
+                const op = ref();
+                const productService = ref(new ProductService());
+                const products = ref();
+                const selectedProduct = ref();
+                const toggle = (event) => {
+                    op.value.toggle(event);
+                };
+                const formatCurrency = (value) => {
+                    return value.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
+                };
+                const onProductSelect = (event) => {
+                    op.value.hide();
+                    toast.add({severity:'info', summary: 'Product Selected', detail: event.data.name, life: 3000});
+                };
+
+                return { op, productService, products, selectedProduct, toggle, formatCurrency, onProductSelect}
+            },
+            components: {
+                "p-overlaypanel": primevue.overlaypanel,
+                "p-datatable": primevue.datatable,
+                "p-column": primevue.column,
+                "p-button": primevue.button,
+                "p-toast": primevue.toast
+            }
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .use(primevue.toastservice)
+            .mount("#app");
+        <\\/script>
+
+        <style>
+        .p-button {
+            min-width: 15rem;
+        }
+
+        .product-image {
+            width: 50px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)
+        }
+        </style>`
 				}
 			}
 		}

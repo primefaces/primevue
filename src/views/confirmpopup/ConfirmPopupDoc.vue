@@ -355,6 +355,79 @@ export default defineComponent({
 })
 <\\/script>
 `
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/confirmpopup/confirmpopup.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/confirmationservice/confirmationservice.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/toast/toast.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/toastservice/toastservice.min.js"><\\/script>`,
+                    content: `
+        <div id="app">
+            <p-confirmpopup></p-confirmpopup>
+            <p-toast></p-toast>
+
+            <div class="card">
+                <p-button @click="confirm1($event)" icon="pi pi-check" label="Confirm" class="p-mr-2"></p-button>
+                <p-button @click="confirm2($event)" icon="pi pi-times" label="Delete" class="p-button-danger p-button-outlined"></p-button>
+            </div>
+        </div>
+
+        <script type="module">
+        const { createApp } = Vue;
+        const { useConfirm } = primevue.useconfirm;
+        const { useToast } = primevue.usetoast;
+
+        const App = {
+            setup() {
+                const confirm = useConfirm();
+                const toast = useToast();
+
+                const confirm1 = (event) => {
+                    confirm.require({
+                        target: event.currentTarget,
+                        message: 'Are you sure you want to proceed?',
+                        icon: 'pi pi-exclamation-triangle',
+                        accept: () => {
+                            toast.add({severity:'info', summary:'Confirmed', detail:'You have accepted', life: 3000});
+                        },
+                        reject: () => {
+                            toast.add({severity:'error', summary:'Rejected', detail:'You have rejected', life: 3000});
+                        }
+                    });
+                }
+
+                const confirm2 = (event) => {
+                    confirm.require({
+                        target: event.currentTarget,
+                        message: 'Do you want to delete this record?',
+                        icon: 'pi pi-info-circle',
+                        acceptClass: 'p-button-danger',
+                        accept: () => {
+                            toast.add({severity:'info', summary:'Confirmed', detail:'Record deleted', life: 3000});
+                        },
+                        reject: () => {
+                            toast.add({severity:'error', summary:'Rejected', detail:'You have rejected', life: 3000});
+                        }
+                    });
+                }
+
+                return { confirm1, confirm2 };
+            },
+            components: {
+                "p-confirmpopup": primevue.confirmpopup,
+                "p-toast": primevue.toast,
+                "p-button": primevue.button
+            }
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .use(primevue.confirmationservice)
+            .use(primevue.toastservice)
+            .mount("#app");
+        <\\/script>
+`
                 }
             }
         }
