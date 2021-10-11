@@ -563,6 +563,111 @@ export default {
 }
 <\\/script>
 `
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/listbox/listbox.min.js"><\\/script>`,
+                    content: `
+        <div id="app">
+            <h5>Single</h5>
+            <p-listbox v-model="selectedCity" :options="cities" option-label="name" style="width:15rem"></p-listbox>
+
+            <h5>Grouped</h5>
+            <p-listbox v-model="selectedGroupedCity" :options="groupedCities" option-label="label" style="width:15rem" option-group-label="label" option-group-children="items" list-style="max-height:250px">
+                <template #optiongroup="slotProps">
+                    <div class="p-d-flex p-ai-center country-item">
+                        <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="18" class="p-mr-2" />
+                        <div>{{slotProps.option.label}}</div>
+                    </div>
+                </template>
+            </p-listbox>
+
+        <h5>Advanced with Templating, Filtering and Multiple Selection</h5>
+        <p-listbox v-model="selectedCountries" :options="countries" :multiple="true" :filter="true" option-label="name" list-style="max-height:250px" style="width:15rem" filter-placeholder="Search">
+            <template #option="slotProps">
+                <div class="country-item">
+                    <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="18" class="p-mr-2" />
+                    <div>{{slotProps.option.name}}</div>
+                </div>
+            </template>
+        </p-listbox>
+
+            <h5>Virtual Scroll (1000 Items)</h5>
+            <p-listbox v-model="selectedItem" :options="items" option-label="label" option-value="value" :virtual-scroller-options="{ itemSize: 31 }" style="width:15rem" list-style="height:250px"></p-listbox>
+        </div>
+
+        <script type="module">
+        const { createApp, ref } = Vue;
+
+        const App = {
+            setup() {
+                const selectedCity = ref();
+                const selectedCountries = ref();
+                const selectedGroupedCity = ref();
+                const selectedItem = ref();
+                const cities = ref([
+                    {name: 'New York', code: 'NY'},
+                    {name: 'Rome', code: 'RM'},
+                    {name: 'London', code: 'LDN'},
+                    {name: 'Istanbul', code: 'IST'},
+                    {name: 'Paris', code: 'PRS'}
+                ]);
+                const countries = ref([
+                    {name: 'Australia', code: 'AU'},
+                    {name: 'Brazil', code: 'BR'},
+                    {name: 'China', code: 'CN'},
+                    {name: 'Egypt', code: 'EG'},
+                    {name: 'France', code: 'FR'},
+                    {name: 'Germany', code: 'DE'},
+                    {name: 'India', code: 'IN'},
+                    {name: 'Japan', code: 'JP'},
+                    {name: 'Spain', code: 'ES'},
+                    {name: 'United States', code: 'US'}
+                ]);
+                const groupedCities = ref([
+                    {
+                        label: 'Germany', code: 'DE',
+                        items: [
+                            {label: 'Berlin', value: 'Berlin'},
+                            {label: 'Frankfurt', value: 'Frankfurt'},
+                            {label: 'Hamburg', value: 'Hamburg'},
+                            {label: 'Munich', value: 'Munich'}
+                        ]
+                    },
+                    {
+                        label: 'USA', code: 'US',
+                        items: [
+                            {label: 'Chicago', value: 'Chicago'},
+                            {label: 'Los Angeles', value: 'Los Angeles'},
+                            {label: 'New York', value: 'New York'},
+                            {label: 'San Francisco', value: 'San Francisco'}
+                        ]
+                    },
+                    {
+                        label: 'Japan', code: 'JP',
+                        items: [
+                            {label: 'Kyoto', value: 'Kyoto'},
+                                {label: 'Osaka', value: 'Osaka'},
+                                {label: 'Tokyo', value: 'Tokyo'},
+                                {label: 'Yokohama', value: 'Yokohama'}
+                            ]
+                        }
+                    ]);
+
+                const items = ref(Array.from({ length: 1000 }, (_, i) => ({ label: \`Item #\${i}\`, value: i })));
+
+                return { selectedCity, selectedCountries, selectedGroupedCity, cities, countries, groupedCities, items, selectedItem }
+            },
+            components: {
+                "p-listbox": primevue.listbox
+            }
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .mount("#app");
+        <\\/script>
+`
                 }
             }
         }

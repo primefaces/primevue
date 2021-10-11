@@ -139,6 +139,37 @@ export default {
 }
 <\\/script>
 `
+				},
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/tristatecheckbox/tristatecheckbox.min.js"><\\/script>`,
+					content: `
+        <div id="app">
+            <div class="p-field-checkbox p-m-0">
+                <p-tristatecheckbox v-model="value"></p-tristatecheckbox>
+                <label>{{value == null ? 'null' : value}}</label>
+            </div>
+        </div>
+
+        <script type="module">
+        const { createApp, ref } = Vue;
+
+        const App = {
+            setup() {
+                const value = ref(null);
+
+                return { value }
+            },
+            components: {
+                "p-tristatecheckbox": primevue.tristatecheckbox
+            }
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .mount("#app");
+        <\\/script>
+`
 				}
 			}
 		}

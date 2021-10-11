@@ -351,6 +351,70 @@ export default {
 }
 </style>
 `
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/password/password.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/divider/divider.min.js"><\\/script>`,
+                    content: `
+        <div id="app">
+            <h5>Basic</h5>
+            <p-password v-model="value1" :feedback="false"></p-password>
+
+            <h5>p-password Meter</h5>
+            <p-password v-model="value2"></p-password>
+
+            <h5>Show p-password</h5>
+            <p-password v-model="value3" toggle-mask></p-password>
+
+            <h5>Templating</h5>
+            <p-password v-model="value4">
+                <template #header>
+                    <h6>Pick a password</h6>
+                </template>
+                <template #footer="sp">
+                    {{sp.level}}
+                    <p-divider></p-divider>
+                    <p class="p-mt-2">Suggestions</p>
+                    <ul class="p-pl-2 p-ml-2 p-mt-0" style="line-height: 1.5">
+                        <li>At least one lowercase</li>
+                        <li>At least one uppercase</li>
+                        <li>At least one numeric</li>
+                        <li>Minimum 8 characters</li>
+                    </ul>
+                </template>
+            </p-password>
+        </div>
+
+        <script type="module">
+        const { createApp, ref } = Vue;
+
+        const App = {
+            setup() {
+                const value1 = ref();
+                const value2 = ref();
+                const value3 = ref();
+                const value4 = ref();
+
+                return { value1, value2, value3, value4 }
+            },
+            components: {
+                "p-password": primevue.password,
+                "p-divider": primevue.divider
+            }
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .mount("#app");
+        <\\/script>
+
+        <style>
+        .p-password input {
+            width: 15rem
+        }
+        </style>
+`
                 }
             }
         }

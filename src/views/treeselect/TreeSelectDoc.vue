@@ -577,17 +577,17 @@ import NodeService from './service/NodeService';
 export default {
     setup() {
          onMounted(() => {
-            nodeService.value.getTreeNodes().then(data => options.value = data);
+            nodeService.value.getTreeNodes().then(data => nodes.value = data);
         });
 
-        const options = ref();
+        const nodes = ref();
         const nodeService = ref(new NodeService());
 
         const selectedNode = ref();
         const selectedNodes1 = ref();
         const selectedNodes2 = ref();
 
-        return { options, selectedNode, selectedNodes1, selectedNodes2 };
+        return { nodes, selectedNode, selectedNodes1, selectedNodes2 };
     }
 }
 <\\/script>
@@ -603,6 +603,62 @@ export default {
     }
 }
 </style>`
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/treeselect/treeselect.min.js"><\\/script>
+        <script src="./NodeService.js"><\\/script>`,
+                    content: `
+        <div id="app">
+            <h5>Single</h5>
+            <p-treeselect v-model="selectedNode" :options="nodes" placeholder="Select Item"></p-treeselect>
+
+            <h5>Multiple</h5>
+            <p-treeselect v-model="selectedNodes1" :options="nodes" selection-mode="multiple" :meta-key-selection="false" placeholder="Select Items"></p-treeselect>
+
+            <h5>Checkbox</h5>
+            <p-treeselect v-model="selectedNodes2" :options="nodes" display="chip" selection-mode="checkbox" placeholder="Select Items"></p-treeselect>
+        </div>
+
+        <script type="module">
+        const { createApp, ref, onMounted } = Vue;
+
+        const App = {
+            setup() {
+                onMounted(() => {
+                    nodeService.value.getTreeNodes().then(data => nodes.value = data);
+                });
+
+                const nodes = ref();
+                const nodeService = ref(new NodeService());
+
+                const selectedNode = ref();
+                const selectedNodes1 = ref();
+                const selectedNodes2 = ref();
+
+                return { nodes, selectedNode, selectedNodes1, selectedNodes2 };
+            },
+            components: {
+                "p-treeselect": primevue.treeselect
+            }
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .mount("#app");
+        <\\/script>
+
+        <style>
+        .p-treeselect {
+            width:20rem;
+        }
+
+        @media screen and (max-width: 640px) {
+            .p-treeselect {
+                width: 100%;
+            }
+        }
+        </style>`
                 }
             }
         }

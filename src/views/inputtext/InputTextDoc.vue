@@ -317,6 +317,98 @@ export default {
     display: block;
 }
 </style>`
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@version/inputtext/inputtext.min.js"><\\/script>`,
+                    content: `
+        <div id="app">
+            <div class="card">
+                <h5>Basic</h5>
+                <p-inputtext type="text" v-model="value1"></p-inputtext>
+                <span :style="{marginLeft: '.5em'}">{{value1}}</span>
+
+                <h5>Floating Label</h5>
+                <span class="p-float-label">
+                    <p-inputtext id="username" type="text" v-model="value2"></p-inputtext>
+                    <label for="username">Username</label>
+                </span>
+
+                <h5>Left Icon</h5>
+                <span class="p-input-icon-left">
+                    <i class="pi pi-search"></i>
+                    <p-inputtext type="text" v-model="value3" placeholder="Search"></p-inputtext>
+                </span>
+
+                <h5>Right Icon</h5>
+                <span class="p-input-icon-right">
+                    <i class="pi pi-spin pi-spinner"></i>
+                    <p-inputtext type="text" v-model="value4"></p-inputtext>
+                </span>
+
+                <h5>Help Text</h5>
+                <div class="p-field">
+                    <label for="username1">Username</label>
+                    <p-inputtext id="username1" type="username" aria-describedby="username1-help"></p-inputtext>
+                    <small id="username1-help">Enter your username to reset your password.</small>
+                </div>
+
+                <h5>Invalid</h5>
+                <div class="p-field">
+                    <label for="username2">Username</label>
+                    <p-inputtext id="username2" type="username" aria-describedby="username2-help" class="p-invalid"></p-inputtext>
+                    <small id="username2-help" class="p-error">Username is not available.</small>
+                </div>
+
+                <h5>Disabled</h5>
+                <p-inputtext type="text" v-model="value5" disabled></p-inputtext>
+
+                <h5>Sizes</h5>
+                <div class="sizes">
+                    <p-inputtext type="text" class="p-inputtext-sm" placeholder="Small"></p-inputtext>
+                    <p-inputtext type="text" placeholder="Normal"></p-inputtext>
+                    <p-inputtext type="text" class="p-inputtext-lg"  placeholder="Large"></p-inputtext>
+                </div>
+            </div>
+        </div>
+
+        <script type="module">
+            const { createApp, ref } = Vue;
+
+            const App = {
+                setup() {
+                    const value1 = ref();
+                    const value2 = ref();
+                    const value3 = ref();
+                    const value4 = ref();
+                    const value5 = ref('PrimeVue');
+
+                    return { value1, value2, value3, value4, value5 }
+                },
+                components: {
+                    "p-inputtext": primevue.inputtext
+                }
+            };
+
+            createApp(App)
+            .use(primevue.config.default)
+            .mount("#app");
+        <\\/script>
+
+        <style>
+            .sizes .p-inputtext {
+                display: block;
+                margin-bottom: .5rem;
+            }
+
+            .sizes:last-child {
+                margin-bottom: 0;
+            }
+
+            .p-field * {
+                display: block;
+            }
+        </style>`
                 }
             }
         }

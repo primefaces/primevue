@@ -850,6 +850,146 @@ export default {
 }
 </style>
 `
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/calendar/calendar.min.js"><\\/script>`,
+                    content: `
+        <div id="app">
+            <h5>Popup</h5>
+            <div class="p-fluid p-grid p-formgrid">
+                <div class="p-field p-col-12 p-md-4">
+                    <label for="basic">Basic</label>
+                    <p-calendar id="basic" v-model="date1"></p-calendar>
+                </div>
+                <div class="p-field p-col-12 p-md-4">
+                    <label for="dateformat">DateFormat</label>
+                    <p-calendar id="dateformat" v-model="date2" date-format="mm-dd-yy"></p-calendar>
+                </div>
+                <div class="p-field p-col-12 p-md-4">
+                    <label for="icon">Icon</label>
+                    <p-calendar id="icon" v-model="date3" :show-icon="true"></p-calendar>
+                </div>
+                <div class="p-field p-col-12 p-md-4">
+                    <label for="minmax">MinMax</label>
+                    <p-calendar id="minmax" v-model="date4" :min-date="minDate" :max-date="maxDate" :manual-input="false"></p-calendar>
+                </div>
+                <div class="p-field p-col-12 p-md-4">
+                    <label for="disableddays">Disabled Days</label>
+                    <p-calendar id="disableddays" v-model="date5" :disabled-dates="invalidDates" :disabled-days="[0,6]" :manual-input="false"></p-calendar>
+                </div>
+                <div class="p-field p-col-12 p-md-4">
+                    <label for="navigators">Navigators</label>
+                    <p-calendar id="navigators" v-model="date6" :month-navigator="true" :year-navigator="true" year-range="2000:2030"></p-calendar>
+                </div>
+                <div class="p-field p-col-12 p-md-4">
+                    <label for="multiple">Multiple</label>
+                    <p-calendar id="multiple" v-model="dates1" selection-mode="multiple" :manual-input="false"></p-calendar>
+                </div>
+                <div class="p-field p-col-12 p-md-4">
+                    <label for="range">Range</label>
+                    <p-calendar id="range" v-model="dates2" selection-mode="range" :manual-input="false"></p-calendar>
+                </div>
+                <div class="p-field p-col-12 p-md-4">
+                    <label for="buttonbar">Button Bar</label>
+                    <p-calendar id="buttonbar" v-model="date7" :show-button-bar="true"></p-calendar>
+                </div>
+                <div class="p-field p-col-12 p-md-4">
+                    <label for="time24">Time / 24h</label>
+                    <p-calendar id="time24" v-model="date8" :show-time="true" :show-seconds="true"></p-calendar>
+                </div>
+                <div class="p-field p-col-12 p-md-4">
+                    <label for="time12">Time / 12h</label>
+                    <p-calendar id="time12" v-model="date9" :time-only="true" hour-format="12"></p-calendar>
+                </div>
+                <div class="p-field p-col-12 p-md-4">
+                    <label for="monthpicker">Month Picker</label>
+                    <p-calendar id="monthpicker" v-model="date10" view="month" date-format="mm/yy" :year-navigator="true" year-range="2000:2030"></p-calendar>
+                </div>
+                <div class="p-field p-col-12 p-md-4">
+                    <label for="multiplemonths">Multiple Months</label>
+                    <p-calendar id="multiplemonths" v-model="date11" :number-of-months="3"></p-calendar>
+                </div>
+                <div class="p-field p-col-12 p-md-4">
+                    <label for="datetemplate">Date Template</label>
+                    <p-calendar id="datetemplate" v-model="date12">
+                        <template #date="slotProps">
+                            <strong v-if="slotProps.date.day > 10 && slotProps.date.day < 15" class="special-day">{{slotProps.date.day}}</strong>
+                            <template v-else>{{slotProps.date.day}}</template>
+                        </template>
+                    </p-calendar>
+                </div>
+                <div class="p-field p-col-12 p-md-4">
+                    <label for="touchUI">TouchUI</label>
+                    <p-calendar id="touchUI" v-model="date13" :touch-u-i="true"></p-calendar>
+                </div>
+            </div>
+
+            <h5>Inline</h5>
+            <p-calendar v-model="date14" :inline="true" :show-week="true" />
+        </div>
+
+        <script type="module">
+        const { createApp, ref } = Vue;
+
+        const App = {
+            setup() {
+                let today = new Date();
+                let month = today.getMonth();
+                let year = today.getFullYear();
+                let prevMonth = (month === 0) ? 11 : month -1;
+                let prevYear = (prevMonth === 11) ? year - 1 : year;
+                let nextMonth = (month === 11) ? 0 : month + 1;
+                let nextYear = (nextMonth === 0) ? year + 1 : year;
+
+                const minDate = ref(new Date());
+                const maxDate = ref(new Date());
+                const invalidDates = ref();
+                const date1 = ref();
+                const date2 = ref();
+                const date3 = ref();
+                const date4 = ref();
+                const date5 = ref();
+                const date6 = ref();
+                const date7 = ref();
+                const date8 = ref();
+                const date9 = ref();
+                const date10 = ref();
+                const date11 = ref();
+                const date12 = ref();
+                const date13 = ref();
+                const date14 = ref();
+                const dates1 = ref();
+                const dates2 = ref();
+
+                minDate.value.setMonth(prevMonth);
+                minDate.value.setFullYear(prevYear);
+                maxDate.value.setMonth(nextMonth);
+                maxDate.value.setFullYear(nextYear);
+
+                let invalidDate = new Date();
+                invalidDate.setDate(today.getDate() - 1);
+                invalidDates.value = [today, invalidDate];
+
+                return { minDate, maxDate, invalidDates, date1, date2, date3, date4, date5, date6, date7,
+                    date8, date9, date10, date11, date12, date13, date14, dates1, dates2 }
+            },
+            components: {
+                "p-calendar": primevue.calendar
+            }
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .mount("#app");
+        <\\/script>
+
+        <style>
+        .special-day {
+            text-decoration: line-through;
+        }
+        </style>
+`
                 }
             }
         }

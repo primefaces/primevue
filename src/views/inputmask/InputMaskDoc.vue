@@ -238,6 +238,69 @@ export default {
 }
 <\\/script>
 `
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/inputmask/inputmask.min.js"><\\/script>`,
+                    content: `
+        <div id="app">
+            <div class="p-fluid p-formgrid p-grid">
+                <div class="p-field p-col-12 p-md-4">
+                    <label for="basic">Basic</label>
+                    <p-inputmask mask="99-999999" v-model="val1" placeholder="99-999999"></p-inputmask>
+                </div>
+
+                <div class="p-field p-col-12 p-md-4">
+                    <label for="ssn">SSN</label>
+                    <p-inputmask mask="999-99-9999" v-model="val2" placeholder="999-99-9999"></p-inputmask>
+                </div>
+
+                <div class="p-field p-col-12 p-md-4">
+                    <label for="date">Date</label>
+                    <p-inputmask mask="99/99/9999" v-model="val3" placeholder="99/99/9999" slot-char="mm/dd/yyyy"></p-inputmask>
+                </div>
+
+                <div class="p-field p-col-12 p-md-4">
+                    <label for="Phone">Phone</label>
+                    <p-inputmask mask="(999) 999-9999" v-model="val4" placeholder="(999) 999-9999"></p-inputmask>
+                </div>
+
+                <div class="p-field p-col-12 p-md-4">
+                    <label for="phoneext">Phone Ext</label>
+                    <p-inputmask mask="(999) 999-9999? x99999" v-model="val5" placeholder="(999) 999-9999? x99999"></p-inputmask>
+                </div>
+
+                <div class="p-field p-col-12 p-md-4">
+                    <label for="serial">Serial</label>
+                    <p-inputmask mask="a*-999-a999" v-model="val6" placeholder="a*-999-a999"></p-inputmask>
+                </div>
+            </div>
+        </div>
+
+        <script type="module">
+        const { createApp, ref } = Vue;
+
+        const App = {
+            setup() {
+                const val1 = ref();
+                const val2 = ref();
+                const val3 = ref();
+                const val4 = ref();
+                const val5 = ref();
+                const val6 = ref();
+
+                return { val1, val2, val3, val4, val5, val6 }
+            },
+            components: {
+                "p-inputmask": primevue.inputmask
+            }
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .mount("#app");
+        <\\/script>
+`
                 }
             }
         }

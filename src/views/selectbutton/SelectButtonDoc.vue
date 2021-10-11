@@ -265,6 +265,59 @@ export default {
 }
 <\\/script>
 `
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/selectbutton/selectbutton.min.js"><\\/script>`,
+                    content: `
+        <div id="app">
+            <h5>Single Selection</h5>
+            <p-selectbutton v-model="value1" :options="options"></p-selectbutton>
+
+            <h5>Multiple Selection</h5>
+            <p-selectbutton v-model="value2" :options="paymentOptions" option-label="name" multiple></p-selectbutton>
+
+            <h5>Custom Content</h5>
+            <p-selectbutton v-model="value3" :options="justifyOptions" dataKey="value">
+                <template #option="slotProps">
+                    <i :class="slotProps.option.icon"></i>
+                </template>
+            </p-selectbutton>
+        </div>
+
+        <script type="module">
+        const { createApp, ref } = Vue;
+
+        const App = {
+            setup() {
+                const value1 = ref('Off');
+                const value2 = ref();
+                const value3 = ref();
+                const options = ref(['Off', 'On']);
+                const paymentOptions = ref([
+                    {name: 'Option 1', value: 1},
+                    {name: 'Option 2', value: 2},
+                    {name: 'Option 3', value: 3}
+                ]);
+                const justifyOptions = ref([
+                    {icon: 'pi pi-align-left', value: 'left'},
+                    {icon: 'pi pi-align-right', value: 'Right'},
+                    {icon: 'pi pi-align-center', value: 'Center'},
+                    {icon: 'pi pi-align-justify', value: 'Justify'}
+                ]);
+
+                return { value1, value2, value3, options, paymentOptions, justifyOptions }
+            },
+            components: {
+                "p-selectbutton": primevue.selectbutton
+            }
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .mount("#app");
+        <\\/script>
+`
                 }
             }
         }

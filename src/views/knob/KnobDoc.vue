@@ -340,6 +340,79 @@ export default {
 }
 <\\/script>
 `
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/knob/knob.min.js"><\\/script>`,
+                    content: `
+        <div id="app">
+            <div class="p-grid p-formgrid p-text-center">
+                <div class="p-field p-col-12 p-md-4">
+                    <h5>Basic</h5>
+                    <p-knob v-model="value1"></p-knob>
+                </div>
+                <div class="p-field p-col-12 p-md-4">
+                    <h5>Readonly</h5>
+                    <p-knob v-model="value2" readonly></p-knob>
+                </div>
+                <div class="p-field p-col-12 p-md-4">
+                    <h5>Disabled</h5>
+                    <p-knob v-model="value3" disabled></p-knob>
+                </div>
+                <div class="p-field p-col-12 p-md-4">
+                    <h5 class="p-mt-3">Min/Max</h5>
+                    <p-knob v-model="value4" :min="-50" :max="50"></p-knob>
+                </div>
+                <div class="p-field p-col-12 p-md-4">
+                    <h5 class="p-mt-3">Step</h5>
+                    <p-knob v-model="value5" :step="10"></p-knob>
+                </div>
+                <div class="p-field p-col-12 p-md-4">
+                    <h5 class="p-mt-3">Template</h5>
+                    <p-knob v-model="value6" value-template="{value}%"></p-knob>
+                </div>
+                <div class="p-field p-col-12 p-md-4">
+                    <h5 class="p-mt-3">Stroke</h5>
+                    <p-knob v-model="value7" :stroke-width="5"></p-knob>
+                </div>
+                <div class="p-field p-col-12 p-md-4">
+                    <h5 class="p-mt-3">Size</h5>
+                    <p-knob v-model="value8" :size="200"></p-knob>
+                </div>
+                <div class="p-field p-col-12 p-md-4">
+                    <h5 class="p-mt-3">Color</h5>
+                    <p-knob v-model="value9" value-color="SlateGray" range-color="MediumTurquoise"></p-knob>
+                </div>
+            </div>
+        </div>
+
+        <script type="module">
+        const { createApp, ref } = Vue;
+
+        const App = {
+            setup() {
+                const value1 = ref(0);
+                const value2 = ref(50);
+                const value3 = ref(75);
+                const value4 = ref(10);
+                const value5 = ref(40);
+                const value6 = ref(60);
+                const value7 = ref(40);
+                const value8 = ref(60);
+                const value9 = ref(50);
+
+                return { value1, value2, value3, value4, value5, value6, value7, value8, value9 }
+            },
+            components: {
+                "p-knob": primevue.knob
+            }
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .mount("#app");
+        <\\/script>
+`
                 }
             }
         }

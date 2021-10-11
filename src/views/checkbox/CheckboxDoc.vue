@@ -272,6 +272,68 @@ export default {
     }
 }
 <\\/script>`
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/checkbox/checkbox.min.js"><\\/script>`,
+                    content: `
+    <div id="app">
+        <h5>Basic</h5>
+        <div class="p-field-checkbox">
+            <p-checkbox id="binary" v-model="checked" :binary="true"></p-checkbox>
+            <label for="binary">{{checked}}</label>
+        </div>
+
+        <h5>Multiple</h5>
+        <div class="p-field-checkbox">
+            <p-checkbox id="city1" name="city" value="Chicago" v-model="cities"></p-checkbox>
+            <label for="city1">Chicago</label>
+        </div>
+        <div class="p-field-checkbox">
+            <p-checkbox id="city2" name="city" value="Los Angeles" v-model="cities"></p-checkbox>
+            <label for="city2">Los Angeles</label>
+        </div>
+        <div class="p-field-checkbox">
+            <p-checkbox id="city3" name="city" value="New York" v-model="cities"></p-checkbox>
+            <label for="city3">New York</label>
+        </div>
+        <div class="p-field-checkbox">
+            <p-checkbox id="city4" name="city" value="San Francisco" v-model="cities"></p-checkbox>
+            <label for="city4">San Francisco</label>
+        </div>
+
+        <h5>Dynamic Values, Preselection, Value Binding and Disabled Option</h5>
+        <div v-for="category of categories" :key="category.key" class="p-field-checkbox">
+            <p-checkbox :id="category.key" name="category" :value="category" v-model="selectedCategories" :disabled="category.key === 'R'"></p-checkbox>
+            <label :for="category.key">{{category.name}}</label>
+        </div>
+    </div>
+
+    <script type="module">
+        const { createApp, ref } = Vue;
+
+        const App = {
+            setup() {
+                const checked = ref(false);
+                const cities = ref([]);
+                const categories = ref([
+                    {name: 'Accounting', key: 'A'},
+                    {name: 'Marketing', key: 'M'},
+                    {name: 'Production', key: 'P'},
+                    {name: 'Research', key: 'R'}
+                ]);
+                const selectedCategories = ref(categories.value.slice(1,3));
+
+                return { checked, cities, categories, selectedCategories }
+            },
+            components: {
+                "p-checkbox": primevue.checkbox
+            }
+        };
+
+        createApp(App).use(primevue.config.default).mount('#app');
+    <\\/script>
+`
                 }
             }
         }
