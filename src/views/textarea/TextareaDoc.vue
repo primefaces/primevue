@@ -144,13 +144,12 @@ export default {
                 'browser-source': {
 					tabName: 'Browser Source',
                     imports: `<script src="https://unpkg.com/primevue@^3/textarea/textarea.min.js"><\\/script>`,
-					content: `
-        <div id="app">
+					content: `<div id="app">
             <h5>Basic</h5>
             <p-textarea v-model="value1" rows="5" cols="30"></p-textarea>
 
             <h5>Auto Resize</h5>
-            <p-textarea v-model="value2" :autoResize="true" rows="5" cols="30"></p-textarea>
+            <p-textarea v-model="value2" :auto-resize="true" rows="5" cols="30"></p-textarea>
 
             <h5>Disabled</h5>
             <p-textarea v-model="value3" disabled rows="5" cols="30"></p-textarea>

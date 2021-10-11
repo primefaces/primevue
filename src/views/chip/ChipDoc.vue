@@ -245,8 +245,7 @@ export default {
 				'browser-source': {
 					tabName: 'Browser Source',
 					imports: `<script src="https://unpkg.com/primevue@^3/chip/chip.min.js"><\\/script>`,
-					content: `
-	<div id="app">
+					content: `<div id="app">
 		<h5>Basic</h5>
         <div class="p-d-flex p-ai-center p-flex-column p-flex-sm-row">
             <p-chip label="Action" class="p-mr-2 p-mb-2"></p-chip>

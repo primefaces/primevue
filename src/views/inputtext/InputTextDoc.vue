@@ -321,8 +321,7 @@ export default {
                 'browser-source': {
                     tabName: 'Browser Source',
                     imports: `<script src="https://unpkg.com/primevue@version/inputtext/inputtext.min.js"><\\/script>`,
-                    content: `
-        <div id="app">
+                    content: `<div id="app">
             <div class="card">
                 <h5>Basic</h5>
                 <p-inputtext type="text" v-model="value1"></p-inputtext>

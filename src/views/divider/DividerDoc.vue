@@ -478,8 +478,7 @@ export default {
                 'browser-source': {
                     tabName: 'Browser Source',
                     imports: `<script src="https://unpkg.com/primevue@^3/divider/divider.min.js"><\\/script>`,
-                    content: `
-        <div id="app">
+                    content: `<div id="app">
             <div class="card">
                 <h5>Basic</h5>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation

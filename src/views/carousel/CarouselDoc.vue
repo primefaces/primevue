@@ -582,8 +582,7 @@ export default {
                     tabName: 'Browser Source',
                     imports: `<script src="https://unpkg.com/primevue@^3/carousel/carousel.min.js"><\\/script>
         <script src="./ProductService.js"><\\/script>`,
-                    content: `
-        <div id="app">
+                    content: `<div id="app">
             <div class="card">
                 <p-carousel :value="products" :num-visible="3" :num-scroll="3" :responsive-options="responsiveOptions">
                     <template #header>

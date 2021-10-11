@@ -246,8 +246,7 @@ export default {
                     tabName: 'Browser Source',
                     imports: `<script src="https://unpkg.com/primevue@^3/treetable/treetable.min.js"><\\/script>
         <script src="https://unpkg.com/primevue@^3/column/column.min.js"><\\/script>`,
-                    content: `
-        <div id="app">
+                    content: `<div id="app">
             <p-treetable :value="nodes" :lazy="true" :paginator="true" :rows="rows" :loading="loading"
                 @node-expand="onExpand" @page="onPage" :total-records="totalRecords">
                 <p-column field="name" header="Name" :expander="true"></p-column>

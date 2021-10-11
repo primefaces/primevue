@@ -323,8 +323,7 @@ export default {
         <script src="https://unpkg.com/primevue@^3/datatable/datatable.min.js"><\\/script>
         <script src="https://unpkg.com/primevue@^3/column/column.min.js"><\\/script>
         <script src="./ProductService.js"><\\/script>`,
-                    content: `
-        <div id="app">
+                    content: `<div id="app">
             <h5>Input</h5>
             <p-inplace :closable="true">
                 <template #display>

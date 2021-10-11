@@ -455,8 +455,7 @@ export default {
                     imports: `<script src="https://unpkg.com/primevue@^3/skeleton/skeleton.min.js"><\\/script>
         <script src="https://unpkg.com/primevue@^3/datatable/datatable.min.js"><\\/script>
         <script src="https://unpkg.com/primevue@^3/column/column.min.js"><\\/script>`,
-					content: `
-        <div id="app">
+					content: `<div id="app">
             <div class="card">
                 <div class="p-grid p-formgrid">
                     <div class="p-field p-col-12 p-md-6">

@@ -143,8 +143,7 @@ export default {
                 'browser-source': {
                     tabName: 'Browser Source',
                     imports: `<script src="https://unpkg.com/primevue@^3/tristatecheckbox/tristatecheckbox.min.js"><\\/script>`,
-					content: `
-        <div id="app">
+					content: `<div id="app">
             <div class="p-field-checkbox p-m-0">
                 <p-tristatecheckbox v-model="value"></p-tristatecheckbox>
                 <label>{{value == null ? 'null' : value}}</label>

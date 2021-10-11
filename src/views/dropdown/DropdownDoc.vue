@@ -834,8 +834,7 @@ export default {
                 'browser-source': {
                     tabName: 'Browser Source',
                     imports: `<script src="https://unpkg.com/primevue@^3/skeleton/skeleton.min.js"><\\/script>`,
-                    content: `
-        <div id="app">
+                    content: `<div id="app">
             <h5>Basic</h5>
             <p-dropdown v-model="selectedCity1" :options="cities" option-label="name" option-value="code" placeholder="Select a City"></p-dropdown>
 

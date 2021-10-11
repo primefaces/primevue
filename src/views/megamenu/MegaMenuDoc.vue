@@ -577,8 +577,7 @@ export default {
                     tabName: 'Browser Source',
                     imports: `<script src="https://unpkg.com/vue-router@4.0.0/dist/vue-router.global.js"><\\/script>
         <script src="https://unpkg.com/primevue@^3/megamenu/megamenu.min.js"><\\/script>`,
-                    content: `
-        <div id="app">
+                    content: `<div id="app">
             <h5>Horizontal</h5>
             <p-megamenu :model="items"></p-megamenu>
 

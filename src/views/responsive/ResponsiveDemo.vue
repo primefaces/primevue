@@ -2563,8 +2563,7 @@ export default {
         <script src="./CustomerService.js"><\\/script>
         <script src="./CountryService.js"><\\/script>
         <script src="./ProductService.js"><\\/script>`,
-                    content: `
-        <div id="app">
+                    content: `<div id="app">
             <h1>Responsive Design</h1>
             <div class="p-grid">
                 <div class="p-col-12 p-md-6 p-fluid">

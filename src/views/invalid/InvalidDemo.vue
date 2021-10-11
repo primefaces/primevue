@@ -537,8 +537,7 @@ export default {
         <script src="https://unpkg.com/primevue@^3/textarea/textarea.min.js"><\\/script>
         <script src="./CountryService.js"><\\/script>
         <script src="./NodeService.js"><\\/script>`,
-                    content: `
-        <div id="app">
+                    content: `<div id="app">
             <div class="p-fluid p-grid">
                 <div class="p-field p-col-12 p-md-4">
                     <p-inputtext id="inputtext" type="text" v-model="value1" placeholder="InputText" class="p-invalid"></p-inputtext>

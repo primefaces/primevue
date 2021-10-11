@@ -205,8 +205,7 @@ export default {
                     tabName: 'Browser Source',
                     imports: `<script src="https://unpkg.com/primevue@^3/scrolltop/scrolltop.min.js"><\\/script>
         <script src="https://unpkg.com/primevue@^3/scrollpanel/scrollpanel.min.js"><\\/script>`,
-					content: `
-    <div id="app">
+					content: `<div id="app">
         <h5>Element</h5>
         <p-scrollpanel style="width: 250px; height: 200px">
             <p>

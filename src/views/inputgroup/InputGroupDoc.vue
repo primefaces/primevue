@@ -257,8 +257,7 @@ export default {
                     tabName: 'Browser Source',
                     imports: `<script src="https://unpkg.com/primevue@^3/checkbox/checkbox.min.js"><\\/script>
         <script src="https://unpkg.com/primevue@^3/radiobutton/radiobutton.min.js"><\\/script>`,
-                    content: `
-        <div id="app">
+                    content: `<div id="app">
             <h5>Addons</h5>
             <div class="p-grid p-fluid">
                 <div class="p-col-12 p-md-4">

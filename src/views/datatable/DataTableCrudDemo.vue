@@ -827,8 +827,7 @@ export default {
         <script src="https://unpkg.com/primevue@^3/textarea/textarea.min.js"><\\/script>
         <script src="https://unpkg.com/primevue@^3/radiobutton/radiobutton.min.js"><\\/script>
         <script src="./ProductService.js"><\\/script>`,
-                    content: `
-        <div id="app">
+                    content: `<div id="app">
             <div class="card">
                 <p-toast></p-toast>
 

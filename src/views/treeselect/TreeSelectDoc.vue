@@ -608,8 +608,7 @@ export default {
                     tabName: 'Browser Source',
                     imports: `<script src="https://unpkg.com/primevue@^3/treeselect/treeselect.min.js"><\\/script>
         <script src="./NodeService.js"><\\/script>`,
-                    content: `
-        <div id="app">
+                    content: `<div id="app">
             <h5>Single</h5>
             <p-treeselect v-model="selectedNode" :options="nodes" placeholder="Select Item"></p-treeselect>
 

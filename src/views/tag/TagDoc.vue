@@ -192,8 +192,7 @@ export default {
                 'browser-source': {
                     tabName: 'Browser Source',
                     imports: `<script src="https://unpkg.com/primevue@^3/tag/tag.min.js"><\\/script>`,
-					content: `
-        <div id="app">
+					content: `<div id="app">
             <h5>Tags</h5>
             <p-tag class="p-mr-2" value="Primary"></p-tag>
             <p-tag class="p-mr-2" severity="success" value="Success"></p-tag>

@@ -376,8 +376,7 @@ export default {
                     imports: `<script src="https://unpkg.com/primevue@^3/avatar/avatar.min.js"><\\/script>
         <script src="https://unpkg.com/primevue@^3/avatargroup/avatargroup.min.js"><\\/script>
         <script src="https://unpkg.com/primevue@^3/badgedirective/badgedirective.min.js"><\\/script>`,
-					content: `
-        <div id="app">
+					content: `<div id="app">
             <div class="p-grid">
                 <div class="p-col-12 p-md-4">
                     <div class="card">

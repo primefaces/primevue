@@ -255,8 +255,7 @@ export default {
                     tabName: 'Browser Source',
                     imports: `<script src="https://unpkg.com/primevue@^3/badge/badge.min.js"><\\/script>
         <script src="https://unpkg.com/primevue@^3/badgedirective/badgedirective.min.js"><\\/script>`,
-                    content: `
-        <div id="app">
+                    content: `<div id="app">
             <h5>Numbers</h5>
             <p-badge value="2" class="p-mr-2"></p-badge>
             <p-badge value="8" severity="success" class="p-mr-2"></p-badge>

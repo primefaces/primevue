@@ -328,8 +328,7 @@ export default {
         <script src="https://unpkg.com/primevue@^3/toast/toast.min.js"><\\/script>
         <script src="https://unpkg.com/primevue@^3/toastservice/toastservice.min.js"><\\/script>
         <script src="./ProductService.js"><\\/script>`,
-                    content: `
-        <div id="app">
+                    content: `<div id="app">
             <p-toast></p-toast>
             
             <p-datatable :value="products" v-model:expanded-rows="expandedRows" dataKey="id"

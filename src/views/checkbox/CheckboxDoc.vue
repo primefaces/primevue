@@ -276,8 +276,7 @@ export default {
                 'browser-source': {
                     tabName: 'Browser Source',
                     imports: `<script src="https://unpkg.com/primevue@^3/checkbox/checkbox.min.js"><\\/script>`,
-                    content: `
-    <div id="app">
+                    content: `<div id="app">
         <h5>Basic</h5>
         <div class="p-field-checkbox">
             <p-checkbox id="binary" v-model="checked" :binary="true"></p-checkbox>

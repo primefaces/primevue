@@ -485,8 +485,7 @@ export default {
                     tabName: 'Browser Source',
                     imports: `<script src="https://unpkg.com/primevue@^3/picklist/picklist.min.js"><\\/script>
         <script src="./ProductService.js"><\\/script>`,
-                    content: `
-        <div id="app">
+                    content: `<div id="app">
             <p-picklist v-model="products" list-style="height:342px" data-key="id">
                 <template #sourceHeader>
                     Available

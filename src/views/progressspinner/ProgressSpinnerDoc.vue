@@ -147,8 +147,7 @@ export default {
                 'browser-source': {
                     tabName: 'Browser Source',
                     imports: `<script src="https://unpkg.com/primevue@^3/progressspinner/progressspinner.min.js"><\\/script>`,
-                    content: `
-        <div id="app">
+                    content: `<div id="app">
             <h5>Basic</h5>
             <p-progressspinner></p-progressspinner>
 

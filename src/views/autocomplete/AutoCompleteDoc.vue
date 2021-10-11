@@ -698,8 +698,7 @@ export default {
                     tabName: 'Browser Source',
                     imports: `<script src="https://unpkg.com/primevue@^3/autocomplete/autocomplete.min.js"><\\/script>
         <script src="./CountryService.js"><\\/script>`,
-                    content:`
-        <div id="app">
+                    content:`<div id="app">
             <h5>Basic</h5>
             <p-autocomplete v-model="selectedCountry1" :suggestions="filteredCountries" @complete="searchCountry($event)" field="name"></p-autocomplete>
 

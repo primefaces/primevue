@@ -600,8 +600,7 @@ export default {
 					tabName: 'Browser Source',
 					imports: `<script src="https://unpkg.com/vue-router@4.0.0/dist/vue-router.global.js"><\\/script>
 		<script src="https://unpkg.com/primevue@^3/menubar/menubar.min.js"><\\/script>`,
-					content: `
-		<div id="app">
+					content: `<div id="app">
 			<p-menubar :model="items">
 				<template #start>
 					<img alt="logo" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" height="40" class="p-mr-2">

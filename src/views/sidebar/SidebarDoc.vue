@@ -308,8 +308,7 @@ export default {
 				'browser-source': {
 					tabName: 'Browser Source',
 					imports: `<script src="https://unpkg.com/primevue@^3/sidebar/sidebar.min.js"><\\/script>`,
-					content: `
-		<div id="app">
+					content: `<div id="app">
 			<p-button icon="pi pi-arrow-right" @click="visibleLeft = true" class="p-mr-2"></p-button>
 			<p-button icon="pi pi-arrow-left" @click="visibleRight = true" class="p-mr-2"></p-button>
 			<p-button icon="pi pi-arrow-down" @click="visibleTop = true" class="p-mr-2"></p-button>

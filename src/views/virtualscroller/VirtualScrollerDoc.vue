@@ -801,8 +801,7 @@ export default {
                 'browser-source': {
                     tabName: 'Browser Source',
                     imports: `<script src="https://unpkg.com/primevue@^3/skeleton/skeleton.min.js"><\\/script>`,
-                    content: `
-        <div id="app">
+                    content: `<div id="app">
             <div class="virtualscroller-demo">
                 <div class="card">
                     <h5 class="p-mb-0">Basic</h5>

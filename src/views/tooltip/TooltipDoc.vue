@@ -223,8 +223,7 @@ export default {
                 'browser-source': {
                     tabName: 'Browser Source',
                     imports: `<script src="https://unpkg.com/primevue@^3/tooltip/tooltip.min.js"><\\/script>`,
-                    content: `
-        <div id="app">
+                    content: `<div id="app">
             <h5>Positions</h5>
             <div class="p-grid p-fluid">
                 <div class="p-col-12 p-md-3">

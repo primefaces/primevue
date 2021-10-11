@@ -308,8 +308,7 @@ export default {
                 'browser-source': {
                     tabName: 'Browser Source',
                     imports: `<script src="https://unpkg.com/primevue@^3/scrollpanel/scrollpanel.min.js"><\\/script>`,
-                    content: `
-        <div id="app">
+                    content: `<div id="app">
             <div class="p-grid">
                 <div class="p-col-12 p-md-4 p-p-5">
                     <p-scrollpanel style="width: 100%; height: 200px">

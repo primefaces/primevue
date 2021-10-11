@@ -653,8 +653,7 @@ export default {
                     tabName: 'Browser Source',
                     imports: `<script src="https://unpkg.com/primevue@^3/tabview/tabview.min.js"><\\/script>
         <script src="https://unpkg.com/primevue@^3/tabpanel/tabpanel.min.js"><\\/script>`,
-                    content: `
-        <div id="app">
+                    content: `<div id="app">
             <div class="card">
                 <h5>Default</h5>
                 <p-tabview ref="tabview1">

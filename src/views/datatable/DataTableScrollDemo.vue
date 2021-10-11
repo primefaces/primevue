@@ -597,8 +597,7 @@ export default {
         <script src="https://unpkg.com/primevue@^3/dialog/dialog.min.js"><\\/script>
         <script src="https://unpkg.com/primevue@^3/togglebutton/togglebutton.min.js"><\\/script>
         <script src="./CustomerService.js"><\\/script>`,
-                    content: `
-        <div id="app">
+                    content: `<div id="app">
             <div class="card">
                 <h5>Vertical</h5>
                 <p-datatable :value="customers1" :scrollable="true" scroll-height="400px" :loading="loading">

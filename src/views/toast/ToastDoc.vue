@@ -604,8 +604,7 @@ button {
                     tabName: 'Browser Source',
                     imports: `<script src="https://unpkg.com/primevue@^3/toast/toast.min.js"><\\/script>
         <script src="https://unpkg.com/primevue@^3/toastservice/toastservice.min.js"><\\/script>`,
-                    content: `
-        <div id="app">
+                    content: `<div id="app">
             <p-toast></p-toast>
             <p-toast position="top-left" group="tl"></p-toast>
             <p-toast position="bottom-left" group="bl"></p-toast>

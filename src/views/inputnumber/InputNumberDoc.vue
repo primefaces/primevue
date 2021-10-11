@@ -677,8 +677,7 @@ export default {
                 'browser-source': {
                     tabName: 'Browser Source',
                     imports: `<script src="https://unpkg.com/primevue@version/inputnumber/inputnumber.min.js"><\\/script>`,
-                    content: `
-        <div id="app">
+                    content: `<div id="app">
             <h5>Numerals</h5>
             <div class="p-fluid p-grid p-formgrid">
                 <div class="p-field p-col-12 p-md-3">

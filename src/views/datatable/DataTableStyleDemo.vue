@@ -192,8 +192,7 @@ export default {
                     imports: `<script src="https://unpkg.com/primevue@^3/datatable/datatable.min.js"><\\/script>
         <script src="https://unpkg.com/primevue@^3/column/column.min.js"><\\/script>
         <script src="./ProductService.js"><\\/script>`,
-                    content: `
-	    <div id="app">
+                    content: `<div id="app">
             <p-datatable :value="products" :row-class="rowClass" responsive-layout="scroll">
                 <p-column field="code" header="Code"></p-column>
                 <p-column field="name" header="Name"></p-column>

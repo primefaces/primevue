@@ -1238,8 +1238,7 @@ export default {
                 'browser-source': {
 					tabName: 'Browser Source',
                     imports: `<script src="https://unpkg.com/primevue@^3/panel/panel.min.js"><\\/script>`,
-					content: `
-        <div id="app">
+					content: `<div id="app">
             <div class="flexgrid-demo p-p-2">
                 <h5>Basic</h5>
                 <div class="p-grid">

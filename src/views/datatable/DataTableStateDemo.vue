@@ -513,8 +513,7 @@ export default {
         <script src="https://unpkg.com/primevue@^3/column/column.min.js"><\\/script>
         <script src="https://unpkg.com/primevue@^3/multiselect/multiselect.min.js"><\\/script>
         <script src="./CustomerService.js"><\\/script>`,
-                    content: `
-        <div id="app">
+                    content: `<div id="app">
             <div class="card">
                 <h5>Session Storage</h5>
                 <p-datatable :value="customers" :paginator="true" :rows="10" v-model:filters="filters1"

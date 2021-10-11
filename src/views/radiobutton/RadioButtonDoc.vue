@@ -249,8 +249,7 @@ export default {
                 'browser-source': {
                     tabName: 'Browser Source',
                     imports: `<script src="https://unpkg.com/primevue@^3/radiobutton/radiobutton.min.js"><\\/script>`,
-                    content: `
-        <div id="app">
+                    content: `<div id="app">
             <h5>Basic</h5>
             <div class="p-field-radiobutton">
                 <p-radiobutton id="city1" name="city" value="Chicago" v-model="city"></p-radiobutton>

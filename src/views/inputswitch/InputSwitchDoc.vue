@@ -207,8 +207,7 @@ export default {
 				'browser-source': {
 					tabName: 'Browser Source',
 					imports: `<script src="https://unpkg.com/primevue@^3/inputswitch/inputswitch.min.js"><\\/script>`,
-					content: `
-		<div id="app">
+					content: `<div id="app">
 			<h5>Basic</h5>
 			<p-inputswitch v-model="checked1"></p-inputswitch>
 

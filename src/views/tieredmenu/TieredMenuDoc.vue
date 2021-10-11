@@ -667,8 +667,7 @@ export default {
                     tabName: 'Browser Source',
                     imports: `<script src="https://unpkg.com/vue-router@4.0.0/dist/vue-router.global.js"><\\/script>
         <script src="https://unpkg.com/primevue@^3/tieredmenu/tieredmenu.min.js"><\\/script>`,
-                    content: `
-        <div id="app">
+                    content: `<div id="app">
             <h5>Inline</h5>
             <p-tieredmenu :model="items"></p-tieredmenu>
 

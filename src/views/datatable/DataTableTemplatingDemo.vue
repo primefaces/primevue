@@ -218,8 +218,7 @@ export default {
         <script src="https://unpkg.com/primevue@^3/column/column.min.js"><\\/script>
         <script src="https://unpkg.com/primevue@^3/rating/rating.min.js"><\\/script>
         <script src="./ProductService.js"><\\/script>`,
-                    content: `
-        <div id="app">
+                    content: `<div id="app">
             <p-datatable :value="products" responsive-layout="scroll">
                 <template #header>
                     <div class="table-header">

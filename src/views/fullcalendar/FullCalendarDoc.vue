@@ -125,8 +125,7 @@ export default {
 
         <script src="https://unpkg.com/primevue@^3/fullcalendar/fullcalendar.min.js"><\\/script>
         <script src="./EventService.js"><\\/script>`,
-					content: `
-        <div id="app">
+					content: `<div id="app">
             <p-fullcalendar :events="events" :options="options"></p-fullcalendar>
         </div>
 

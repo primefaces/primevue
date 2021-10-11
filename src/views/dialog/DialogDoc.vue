@@ -754,8 +754,7 @@ p {
                 },
                 'browser-source': {
                     tabName: 'Browser Source',
-                    content: `
-        <div id="app">
+                    content: `<div id="app">
             <h5>Basic</h5>
             <p-button label="Show" icon="pi pi-external-link" @click="openBasic"></p-button>
             <p-dialog header="Header" v-model:visible="displayBasic" :style="{width: '50vw'}">

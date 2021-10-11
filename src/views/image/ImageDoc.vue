@@ -204,8 +204,7 @@ export default {
                 'browser-source': {
                     tabName: 'Browser Source',
                     imports: `<script src="https://unpkg.com/primevue@^3/image/image.min.js"><\\/script>`,
-                    content:`
-        <div id="app">
+                    content:`<div id="app">
             <h5>Basic</h5>
             <p-image src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" alt="Image" width="250"></p-image>
 

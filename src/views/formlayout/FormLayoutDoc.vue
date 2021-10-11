@@ -658,8 +658,7 @@ textarea {
         <script src="https://unpkg.com/primevue@^3/radiobutton/radiobutton.min.js"><\\/script>
         <script src="https://unpkg.com/primevue@^3/textarea/textarea.min.js"><\\/script>
         <script src="https://unpkg.com/primevue@^3/dropdown/dropdown.min.js"><\\/script>`,
-                    content: `
-        <div id="app">
+                    content: `<div id="app">
             <div class="card">
                 <h5>Vertical</h5>
                 <div class="p-fluid">

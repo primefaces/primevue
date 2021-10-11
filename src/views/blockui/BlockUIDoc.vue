@@ -273,8 +273,7 @@ button {
                     tabName: 'Browser Source',
                     imports: `<script src="https://unpkg.com/primevue@^3/blockui/blockui.min.js"><\\/script>
         <script src="https://unpkg.com/primevue@^3/panel/panel.min.js"><\\/script>`,
-                    content: `
-        <div id="app">
+                    content: `<div id="app">
             <h5>Document</h5>
             <p-blockui :blocked="blockedDocument" :full-screen="true"></p-blockui>
 

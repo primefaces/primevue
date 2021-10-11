@@ -339,8 +339,7 @@ export default {
         <script src="https://unpkg.com/primevue@^3/column/column.min.js"><\\/script>
         <script src="https://unpkg.com/primevue@^3/togglebutton/togglebutton.min.js"><\\/script>
         <script src="./NodeService.js"><\\/script>`,
-                    content: `
-        <div id="app">
+                    content: `<div id="app">
             <div class="card">
                 <h5>Vertical</h5>
                 <p-treetable :value="nodes" style="margin-bottom: 2rem" :scrollable="true" scroll-height="400px">

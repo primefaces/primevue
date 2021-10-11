@@ -139,8 +139,7 @@ export default {
                 'browser-source': {
                     tabName: 'Browser Source',
                     imports: `<script src="./NodeService.js"><\\/script>`,
-                    content: `
-        <div id="app">
+                    content: `<div id="app">
             <h5>Lenient Filter</h5>
             <p-tree :value="nodes" :filter="true" filter-mode="lenient"></p-tree>
 

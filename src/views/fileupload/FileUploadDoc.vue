@@ -432,8 +432,7 @@ export default {
 					imports: `<script src="https://unpkg.com/primevue@^3/fileupload/fileupload.min.js"><\\/script>
 			<script src="https://unpkg.com/primevue@^3/toast/toast.min.js"><\\/script>
 			<script src="https://unpkg.com/primevue@^3/toastservice/toastservice.min.js"><\\/script>`,
-					content: `
-			<div id="app">
+					content: `<div id="app">
 				<p-toast></p-toast>
 
 				<h5>Advanced</h5>

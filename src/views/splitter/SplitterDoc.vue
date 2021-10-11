@@ -390,8 +390,7 @@ export default {
 					tabName: 'Browser Source',
                     imports: `<script src="https://unpkg.com/primevue@^3/splitter/splitter.min.js"><\\/script>
         <script src="https://unpkg.com/primevue@^3/splitterpanel/splitterpanel.min.js"><\\/script>`,
-					content: `
-        <div id="app">
+					content: `<div id="app">
             <div class="card">
                 <h5>Horizontal</h5>
                 <p-splitter style="height: 300px" class="p-mb-5">

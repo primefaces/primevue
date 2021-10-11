@@ -928,8 +928,7 @@ export default {
         <script src="https://unpkg.com/primevue@^3/dropdown/dropdown.min.js"><\\/script>
         <script src="https://unpkg.com/primevue@^3/rating/rating.min.js"><\\/script>
         <script src="./ProductService.js"><\\/script>`,
-                    content: `
-        <div id="app">
+                    content: `<div id="app">
             <div class="card">
                 <p-dataview :value="products" :layout="layout" :paginator="true" :rows="9" :sort-order="sortOrder" :sort-field="sortField">
                     <template #header>

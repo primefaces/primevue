@@ -375,8 +375,7 @@ export default {
         <script src="https://unpkg.com/primevue@^3/column/column.min.js"><\\/script>
         <script src="https://unpkg.com/primevue@^3/dropdown/dropdown.min.js"><\\/script>
         <script src="./ProductService.js"><\\/script>`,
-                    content: `
-        <div id="app" class="p-fluid card">
+                    content: `<div id="app" class="p-fluid card">
             <div class="card">
                 <h5>Cell Editing</h5>
                 <p>Validations, dynamic columns and reverting values with the escape key.</p>

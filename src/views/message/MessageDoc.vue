@@ -421,8 +421,7 @@ button.p-button {
                     tabName: 'Browser Source',
                     imports: `<script src="https://unpkg.com/primevue@^3/message/message.min.js"><\\/script>
         <script src="https://unpkg.com/primevue@^3/inlinemessage/inlinemessage.min.js"><\\/script>`,
-                    content: `
-        <div id="app">
+                    content: `<div id="app">
             <h5>Severities</h5>
             <p-message severity="success">Success Message Content</p-message>
             <p-message severity="info">Info Message Content</p-message>

@@ -427,8 +427,7 @@ export default {
                     tabName: 'Browser Source',
                     imports: `<script src="https://unpkg.com/primevue@^3/orderlist/orderlist.min.js"><\\/script>
         <script src="./ProductService.js"><\\/script>`,
-                    content: `
-        <div id="app">
+                    content: `<div id="app">
             <div class="card">
                 <p-orderlist v-model="products" listStyle="height:auto" dataKey="id">
                     <template #header>

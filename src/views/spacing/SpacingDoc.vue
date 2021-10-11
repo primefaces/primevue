@@ -235,8 +235,7 @@ export default {
 				},
                 'browser-source': {
 					tabName: 'Browser Source',
-					content: `
-        <div id="app">
+					content: `<div id="app">
             <div class="card">
                 <h5>Margin</h5>
                 <h6>Without Spacing</h6>

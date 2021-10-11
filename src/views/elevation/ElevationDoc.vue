@@ -97,8 +97,7 @@ export default {
                 },
                 'browser-source': {
                     tabName: 'Browser Source',
-                    content: `
-        <div id="app">
+                    content: `<div id="app">
             <div class="p-grid">
                 <div class="p-col" v-for="index in 24" :key="index">
                     <div :class="['shadow-box', 'p-shadow-' + index]">

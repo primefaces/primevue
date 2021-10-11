@@ -203,8 +203,7 @@ export default {
                 'browser-source': {
                     tabName: 'Browser Source',
                     imports: `<script src="https://unpkg.com/primevue@^3/rating/rating.min.js"><\\/script>`,
-                    content: `
-        <div id="app">
+                    content: `<div id="app">
             <h5>Basic {{val1}}</h5>
             <p-rating v-model="val1"></p-rating>
 

@@ -591,8 +591,7 @@ export default {
 					tabName: 'Browser Source',
                     imports: `<script src="https://unpkg.com/primevue@^3/accordion/accordion.min.js"><\\/script>
         <script src="https://unpkg.com/primevue@^3/accordiontab/accordiontab.min.js"><\\/script>`,
-					content: `
-        <div id="app">
+					content: `<div id="app">
             <h5>Default</h5>
             <p-accordion :active-index="0">
                 <p-accordiontab header="Header I">

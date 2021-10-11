@@ -181,8 +181,7 @@ export default {
         <script src="https://unpkg.com/primevue@^3/toast/toast.min.js"><\\/script>
         <script src="https://unpkg.com/primevue@^3/toastservice/toastservice.min.js"><\\/script>
         <script src="./NodeService.js"><\\/script>`,
-                    content: `
-        <div id="app">
+                    content: `<div id="app">
             <h5>Regular Scroll</h5>
             <p>Scrollable viewport is fixed.</p>
             <p-tree :value="nodes1" scroll-height="200px"></p-tree>

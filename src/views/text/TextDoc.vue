@@ -158,8 +158,7 @@ export default {
                 },
                 'browser-source': {
                     tabName: 'Browser Source',
-                    content: `
-        <div id="app">
+                    content: `<div id="app">
             <h5>Alignment</h5>
             <div class="p-mb-3 p-text-left">Left</div>
             <div class="p-mb-3 p-text-center">Center</div>

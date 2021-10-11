@@ -733,8 +733,7 @@ export default {
         <script src="https://unpkg.com/primevue@^3/textarea/textarea.min.js"><\\/script>
         <script src="./CountryService.js"><\\/script>
         <script src="./NodeService.js"><\\/script>`,
-                    content: `
-        <div id="app">
+                    content: `<div id="app">
             <div class="card">
                 <div class="p-fluid p-grid">
                     <div class="p-field p-col-12 p-md-4">

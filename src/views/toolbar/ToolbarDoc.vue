@@ -213,8 +213,7 @@ export default {
                     tabName: 'Browser Source',
                     imports: `<script src="https://unpkg.com/primevue@^3/toolbar/toolbar.min.js"><\\/script>
         <script src="https://unpkg.com/primevue@^3/splitbutton/splitbutton.min.js"><\\/script>`,
-                    content: `
-        <div id="app">
+                    content: `<div id="app">
             <p-toolbar>
                 <template #left>
                     <p-button label="New" icon="pi pi-plus" class="p-mr-2"></p-button>

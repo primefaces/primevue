@@ -221,13 +221,12 @@ export default {
                 'browser-source': {
                     tabName: 'Browser Source',
                     imports: `<script src="https://unpkg.com/primevue@^3/progressbar/progressbar.min.js"><\\/script>`,
-					content: `
-        <div id="app">
+					content: `<div id="app">
             <h5>Dynamic</h5>
             <p-progressbar :value="value1"></p-progressbar>
 
             <h5>Static</h5>
-            <p-progressbar :value="value2" :showValue="false"></p-progressbar>
+            <p-progressbar :value="value2" :show-value="false"></p-progressbar>
 
             <h5>Indeterminate</h5>
             <p-progressbar mode="indeterminate" style="height: .5em"></p-progressbar>

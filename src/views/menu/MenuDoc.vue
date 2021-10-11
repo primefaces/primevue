@@ -401,8 +401,7 @@ export default {
                     imports: `<script src="https://unpkg.com/vue-router@4.0.0/dist/vue-router.global.js"><\\/script>
         <script src="https://unpkg.com/primevue@^3/toast/toast.min.js"><\\/script>
         <script src="https://unpkg.com/primevue@^3/toastservice/toastservice.min.js"><\\/script>`,
-                    content: `
-        <div id="app">
+                    content: `<div id="app">
             <p-toast></p-toast>
 
             <h5>Inline</h5>

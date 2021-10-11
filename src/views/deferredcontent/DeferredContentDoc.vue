@@ -187,8 +187,7 @@ export default {
         <script src="https://unpkg.com/primevue@^3/datatable/datatable.min.js"><\\/script>
         <script src="https://unpkg.com/primevue@^3/column/column.min.js"><\\/script>
         <script src="./ProductService.js"><\\/script>`,
-                    content: `
-        <div id="app">
+                    content: `<div id="app">
             <p-toast></p-toast>
             
             <div style="height: 800px">

@@ -235,8 +235,7 @@ export default {
                 'browser-source': {
                     tabName: 'Browser Source',
                     imports: `<script src="https://unpkg.com/primevue@^3/colorpicker/colorpicker.min.js"><\\/script>`,
-                    content: `
-        <div id="app">
+                    content: `<div id="app">
             <h5>Inline</h5>
             <p-colorpicker v-model="color1" :inline="true"></p-colorpicker>
 

@@ -177,8 +177,7 @@ button {
                 'browser-source': {
                     tabName: 'Browser Source',
                     imports: `<script src="./NodeService.js"><\\/script>`,
-                    content: `
-        <div id="app">
+                    content: `<div id="app">
             <p-tree :value="nodes">
                 <template #default="slotProps">
                     <b>{{slotProps.node.label}}</b>

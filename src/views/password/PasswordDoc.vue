@@ -356,8 +356,7 @@ export default {
                     tabName: 'Browser Source',
                     imports: `<script src="https://unpkg.com/primevue@^3/password/password.min.js"><\\/script>
         <script src="https://unpkg.com/primevue@^3/divider/divider.min.js"><\\/script>`,
-                    content: `
-        <div id="app">
+                    content: `<div id="app">
             <h5>Basic</h5>
             <p-password v-model="value1" :feedback="false"></p-password>
 

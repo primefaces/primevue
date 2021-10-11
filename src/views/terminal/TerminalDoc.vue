@@ -282,10 +282,9 @@ p {
                 'browser-source': {
                     tabName: 'Browser Source',
                     imports: `<script src="https://unpkg.com/primevue@^3/terminal/terminal.min.js"><\\/script>`,
-                    content: `
-        <div id="app">
+                    content: `<div id="app">
             <p>Enter "date" to display the current date, "greet {0}" for a message and "random" to get a random number.</p>
-            <p-terminal welcomeMessage="Welcome to PrimeVue" prompt="primevue $" class="dark-demo-terminal"></p-terminal>
+            <p-terminal welcome-message="Welcome to PrimeVue" prompt="primevue $" class="dark-demo-terminal"></p-terminal>
         </div>
 
         <script type="module">

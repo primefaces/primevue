@@ -182,8 +182,7 @@ export default {
                 'browser-source': {
                     tabName: 'Browser Source',
                     imports: `<script src="./NodeService.js"><\\/script>`,
-                    content: `
-        <div id="app">
+                    content: `<div id="app">
             <p-tree :value="nodes" @node-expand="onNodeExpand" :loading="loading"></p-tree>
         </div>                   
 

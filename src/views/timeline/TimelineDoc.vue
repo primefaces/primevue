@@ -600,8 +600,7 @@ export default {
                     tabName: 'Browser Source',
                     imports: `<script src="https://unpkg.com/primevue@^3/timeline/timeline.min.js"><\\/script>
         <script src="https://unpkg.com/primevue@^3/card/card.min.js"><\\/script>`,
-					content: `
-        <div id="app">
+					content: `<div id="app">
             <div class="card">
                 <h5>Left Align</h5>
                 <p-timeline :value="events1">

@@ -3059,8 +3059,7 @@ img {
         <script src="https://unpkg.com/primevue@^3/slider/slider.min.js"><\\/script>
         <script src="https://unpkg.com/primevue@^3/progressbar/progressbar.min.js"><\\/script>
         <script src="./CustomerService.js"><\\/script>`,
-                    content: `
-        <div id="app">
+                    content: `<div id="app">
             <p-datatable :value="customers" :paginator="true" class="p-datatable-customers" :rows="10"
                 data-key="id" :row-hover="true" v-model:selection="selectedCustomers" v-model:filters="filters" filter-display="menu" :loading="loading"
                 paginator-template="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" :rows-per-page-options="[10,25,50]"

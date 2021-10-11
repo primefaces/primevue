@@ -131,8 +131,7 @@ export default {
                     imports: `<script src="https://unpkg.com/primevue@^3/datatable/datatable.min.js"><\\/script>
         <script src="https://unpkg.com/primevue@^3/column/column.min.js"><\\/script>
         <script src="./CustomerService.js"><\\/script>`,
-                    content: `
-        <div id="app">
+                    content: `<div id="app">
             <p-datatable :value="customers" :paginator="true" :rows="10"
                 paginator-template="CurrentPageReport FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown"
                 :rows-per-page-options="[10,20,50]" responsive-layout="scroll"

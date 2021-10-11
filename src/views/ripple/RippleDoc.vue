@@ -225,8 +225,7 @@ export default {
                 },
                 'browser-source': {
                     tabName: 'Browser Source',
-                    content: `
-    <div id="app" class="p-d-flex">
+                    content: `<div id="app" class="p-d-flex">
         <div class="card primary-box p-ripple" v-ripple>Default</div>
         <div class="card styled-box-green p-ripple" v-ripple>Green</div>
         <div class="card styled-box-orange p-ripple" v-ripple>Orange</div>

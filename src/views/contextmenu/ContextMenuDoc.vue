@@ -672,8 +672,7 @@ export default {
 					tabName: 'Browser Source',
 					imports: `<script src="https://unpkg.com/vue-router@4.0.0/dist/vue-router.global.js"><\\/script>
 			<script src="https://unpkg.com/primevue@^3/contextmenu/contextmenu.min.js"><\\/script>`,
-					content: `
-		<div id="app">
+					content: `<div id="app">
 			<img alt="logo" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" @contextmenu="onImageRightClick" aria-haspopup="true">
 			<p-contextmenu ref="menu" :model="items"></p-contextmenu>
 		</div>

@@ -123,8 +123,7 @@ export default {
                 },
                 'browser-source': {
                     tabName: 'Browser Source',
-                    content: `
-    <div id="app">
+                    content: `<div id="app">
             <h5>Inline</h5>
             <p-inputtext class="p-mr-2 p-d-inline"></p-inputtext>
             <p-inputtext class="p-d-inline"></p-inputtext>

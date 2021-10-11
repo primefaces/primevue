@@ -189,8 +189,7 @@ export default {
                     imports: `<script src="https://unpkg.com/primevue@^3/datatable/datatable.min.js"><\\/script>
         <script src="https://unpkg.com/primevue@^3/column/column.min.js"><\\/script>
         <script src="./ProductService.js"><\\/script>`,
-                    content: `
-        <div id="app">
+                    content: `<div id="app">
             <div class="card">
                 <p-datatable :value="products" class="p-datatable-sm" responsive-layout="scroll">
                     <template #header>

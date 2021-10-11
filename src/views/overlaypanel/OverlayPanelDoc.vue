@@ -336,8 +336,7 @@ button {
         <script src="https://unpkg.com/primevue@^3/toast/toast.min.js"><\\/script>
         <script src="https://unpkg.com/primevue@^3/toastservice/toastservice.min.js"><\\/script>
         <script src="./ProductService.js"><\\/script>`,
-					content: `
-        <div id="app">
+					content: `<div id="app">
             <p-toast></p-toast>
 
             <p-button type="button" icon="pi pi-search" :label="selectedProduct ? selectedProduct.name : 'Select a Product'" @click="toggle" aria:haspopup="true" aria-controls="overlay_panel"></p-button>

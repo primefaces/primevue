@@ -208,8 +208,7 @@ p {
                 'browser-source': {
                     tabName: 'Browser Source',
                     imports: `<script src="https://unpkg.com/primevue@^3/card/card.min.js"><\\/script>`,
-                    content: `
-    <div id="app">
+                    content: `<div id="app">
         <p-card style="width: 25rem; margin-bottom: 2em">
             <template #title>
                 Simple Card

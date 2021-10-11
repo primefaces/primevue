@@ -840,8 +840,7 @@ export default {
                 'browser-source': {
                     tabName: 'Browser Source',
                     imports: `<script src="https://unpkg.com/primevue@^3/multiselect/multiselect.min.js"><\\/script>`,
-                    content: `
-        <div id="app">
+                    content: `<div id="app">
             <h5>Basic</h5>
             <p-multiselect v-model="selectedCities1" :options="cities" option-label="name" placeholder="Select Cities"></p-multiselect>
 

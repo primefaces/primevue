@@ -281,8 +281,7 @@ export default {
                     imports: `<script src="https://unpkg.com/primevue@^3/datatable/datatable.min.js"><\\/script>
         <script src="https://unpkg.com/primevue@^3/column/column.min.js"><\\/script>
         <script src="./CustomerService.js"><\\/script>`,
-                    content: `
-        <div id="app">
+                    content: `<div id="app">
             <p-datatable :value="customers" :lazy="true" :paginator="true" :rows="10" v-model:filters="filters" ref="dt"
                 :total-records="totalRecords" :loading="loading" @page="onPage($event)" @sort="onSort($event)" @filter="onFilter($event)" filter-display="row"
                 :global-filter-fields="['name','country.name', 'company', 'representative.name']" responsive-layout="scroll">

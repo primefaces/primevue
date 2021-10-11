@@ -632,8 +632,7 @@ export default({
                 },
                 'browser-source': {
                     tabName: 'Browser Source',
-                    content: `
-    <div id="app">
+                    content: `<div id="app">
         <div class="card">
             <h5>Basic</h5>
             <p-button label="Submit"></p-button>

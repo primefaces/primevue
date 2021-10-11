@@ -269,8 +269,7 @@ export default {
                 'browser-source': {
                     tabName: 'Browser Source',
                     imports: `<script src="https://unpkg.com/primevue@^3/selectbutton/selectbutton.min.js"><\\/script>`,
-                    content: `
-        <div id="app">
+                    content: `<div id="app">
             <h5>Single Selection</h5>
             <p-selectbutton v-model="value1" :options="options"></p-selectbutton>
 

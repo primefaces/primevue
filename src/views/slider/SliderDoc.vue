@@ -290,8 +290,7 @@ export default {
                 'browser-source': {
                     imports: `<script src="https://unpkg.com/primevue@^3/slider/slider.min.js"><\\/script>`,
                     tabName: 'Browser Source',
-                    content: `
-        <div id="app">
+                    content: `<div id="app">
             <h5>Basic: {{value1}}</h5>
             <p-slider v-model="value1"></p-slider>
 

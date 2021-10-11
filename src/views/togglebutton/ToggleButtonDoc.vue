@@ -197,8 +197,7 @@ export default {
                 'browser-source': {
                     tabName: 'Browser Source',
                     imports: `<script src="https://unpkg.com/primevue@^3/togglebutton/togglebutton.min.js"><\\/script>`,
-                    content: `
-        <div id="app">
+                    content: `<div id="app">
             <h5>Basic</h5>
             <p-togglebutton v-model="checked1" on-icon="pi pi-check" off-icon="pi pi-times"></p-togglebutton>
 

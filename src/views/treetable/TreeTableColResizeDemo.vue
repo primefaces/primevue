@@ -136,8 +136,7 @@ export default {
                     imports: `<script src="https://unpkg.com/primevue@^3/treetable/treetable.min.js"><\\/script>
         <script src="https://unpkg.com/primevue@^3/column/column.min.js"><\\/script>
         <script src="./NodeService.js"><\\/script>`,
-                    content: `
-        <div id="app">
+                    content: `<div id="app">
             <div class="card">
                 <h5>Fit Mode</h5>
                 <p-treetable :value="nodes" :resizable-columns="true" column-resize-mode="fit" show-gridlines>

@@ -101,8 +101,7 @@ export default {
                     imports: `<script src="https://unpkg.com/primevue@^3/datatable/datatable.min.js"><\\/script>
         <script src="https://unpkg.com/primevue@^3/column/column.min.js"><\\/script>
         <script src="./CustomerService.js"><\\/script>`,
-                    content: `
-        <div id="app">
+                    content: `<div id="app">
             <div class="card" style="height: calc(100vh - 143px)">
                 <p-datatable :value="customers" :scrollable="true" scroll-height="flex">
                     <p-column field="name" header="Name"></p-column>

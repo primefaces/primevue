@@ -251,8 +251,7 @@ export default {
                 'browser-source': {
                     tabName: 'Browser Source',
                     imports: `<script src="https://unpkg.com/primevue@^3/styleclass/styleclass.min.js"><\\/script>`,
-                    content: `
-        <div id="app">
+                    content: `<div id="app">
             <h5>Toggle Class</h5>
             <p-button label="Toggle p-disabled" v-styleclass="{ selector: '@next', toggleClass: 'p-disabled' }"></p-button>
             <p-inputtext class="p-d-block p-mt-3"></p-inputtext>

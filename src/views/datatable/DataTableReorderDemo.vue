@@ -137,8 +137,7 @@ export default {
         <script src="https://unpkg.com/primevue@^3/toast/toast.min.js"><\\/script>
         <script src="https://unpkg.com/primevue@^3/toastservice/toastservice.min.js"><\\/script>
         <script src="./ProductService.js"><\\/script>`,
-                    content: `
-        <div id="app">
+                    content: `<div id="app">
             <p-toast></p-toast>
             <p-datatable :value="products" :reorderable-columns="true" @column-reorder="onColReorder" @row-reorder="onRowReorder" responsive-layout="scroll">
                 <p-column :row-reorder="true" header-style="width: 3rem" :reorderable-column="false"></p-column>

@@ -333,8 +333,7 @@ export default {
         <script src="https://unpkg.com/primevue@^3/inputnumber/inputnumber.min.js"><\\/script>
         <script src="https://unpkg.com/primevue@^3/inputmask/inputmask.min.js"><\\/script>
         <script src="https://unpkg.com/primevue@^3/checkbox/checkbox.min.js"><\\/script>`,
-                    content: `
-        <div id="app">
+                    content: `<div id="app">
             <p-toast></p-toast>
 
             <div class="card">
