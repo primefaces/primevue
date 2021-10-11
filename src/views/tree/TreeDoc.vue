@@ -824,7 +824,7 @@ export default {
 <\\/script>
 
 <style scoped>
-button {
+.p-button {
     margin-right: .5rem;
 }
 </style>`
@@ -885,10 +885,77 @@ export default {
 <\\/script>
 
 <style scoped>
-button {
+.p-button {
     margin-right: .5rem;
 }
 </style>`
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="./NodeService.js"><\\/script>`,
+                    content: `
+        <div id="app">
+            <h5>Basic</h5>
+            <p-tree :value="nodes"></p-tree>
+
+            <h5>Programmatic Control</h5>
+            <div style="margin-bottom: 1em">
+                <p-button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll"></p-button>
+                <p-button type="button" icon="pi pi-minus" label="Collapse All" @click="collapseAll"></p-button>
+            </div>
+            <p-tree :value="nodes" :expanded-keys="expandedKeys"></p-tree>
+        </div>
+
+        <script type="module">
+        const { createApp, ref, onMounted } = Vue;
+
+        const App = {
+            setup() {
+                onMounted(() => {
+                    nodeService.value.getTreeNodes().then(data => nodes.value = data);
+                })
+
+                const nodes = ref();
+                const expandedKeys = ref({});
+                const nodeService = ref(new NodeService());
+                const expandAll = () => {
+                    for (let node of nodes.value) {
+                        expandNode(node);
+                    }
+
+                    expandedKeys.value = {...expandedKeys.value};
+                };
+                const collapseAll = () => {
+                    expandedKeys.value = {};
+                };
+                const expandNode = (node) => {
+                    if (node.children && node.children.length) {
+                        expandedKeys.value[node.key] = true;
+
+                        for (let child of node.children) {
+                            expandNode(child);
+                        }
+                    }
+                };
+
+                return { nodes, expandedKeys, nodeService, expandAll, collapseAll, expandNode }
+            },
+            components: {
+                "p-tree": primevue.tree,
+                "p-button": primevue.button
+            }
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .mount("#app");
+        <\\/script>
+
+        <style>
+        .p-button {
+            margin-right: .5rem;
+        }
+        </style>`
                 }
             }
         }
