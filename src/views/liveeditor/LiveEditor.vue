@@ -15,7 +15,8 @@ export default {
             showCodeHighlight: false,
             items: [
                 {label: "Options API", command: () => { this.postSandboxParameters('options-api') }},
-                {label: "Composition API", command: () => { this.postSandboxParameters('composition-api') }}
+                {label: "Composition API", command: () => { this.postSandboxParameters('composition-api') }},
+                {label: "Browser Source", command: () => { this.postSandboxParameters('browser-source') }}
             ]
         }
     },
@@ -78,13 +79,229 @@ export default {
             .catch(() => this.showCodeHighlight = true );
         },
 
-        createSandboxParameters(nameWithExt, files, extDependencies) {
+        createSandboxParameters(sourceType, nameWithExt, files, extDependencies) {
             const boolExtFiles = !this.extFiles;
             let extFiles = !boolExtFiles ? {...this.extFiles} : {};
             let extIndexCSS = extFiles['index.css'] || '';
             delete extFiles['index.css'];
 
             const dependencies = require('../../../package.json') ? require('../../../package.json').devDependencies : {};
+
+            let defaultCss = {
+                content: `html {
+        font-size: 14px;
+    }
+
+    body {
+        background-color: #ffffff;
+        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+        font-weight: normal;
+        color: #495057;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        padding: .5em;
+        margin-bottom: 50px;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        margin: 1.5rem 0 1rem 0;
+        font-family: inherit;
+        font-weight: 600;
+        line-height: 1.2;
+        color: inherit;
+    }
+
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
+    h3 { font-size: 1.75rem; }
+    h4 { font-size: 1.5rem; }
+    h5 { font-size: 1.25rem; }
+    h6 { font-size: 1rem; }
+    p {
+        line-height: 1.5;
+        margin: 0 0 1rem 0;
+    }
+
+    .card {
+        margin-bottom: 2rem;
+    }
+
+    input[type="number"] {
+        -moz-appearance: textfield;
+    }
+
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    @keyframes pulse {
+        0% {
+            background-color: rgba(165, 165, 165, 0.1)
+        }
+        50% {
+            background-color: rgba(165, 165, 165, 0.3)
+        }
+        100% {
+            background-color: rgba(165, 165, 165, 0.1)
+        }
+    }
+
+    .customer-badge {
+        border-radius: 2px;
+        padding: .25em .5rem;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 12px;
+        letter-spacing: .3px;
+    }
+
+    .customer-badge.status-qualified {
+        background-color: #C8E6C9;
+        color: #256029;
+    }
+
+    .customer-badge.status-unqualified {
+        background-color: #FFCDD2;
+        color: #C63737;
+    }
+
+    .customer-badge.status-negotiation {
+        background-color: #FEEDAF;
+        color: #8A5340;
+    }
+
+    .customer-badge.status-new {
+        background-color: #B3E5FC;
+        color: #23547B;
+    }
+
+    .customer-badge.status-renewal {
+        background-color: #ECCFFF;
+        color: #694382;
+    }
+
+    .customer-badge.status-proposal {
+        background-color: #FFD8B2;
+        color: #805B36;
+    }
+
+    .product-badge {
+        border-radius: 2px;
+        padding: .25em .5rem;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 12px;
+        letter-spacing: .3px;
+    }
+
+    .product-badge.status-instock {
+        background: #C8E6C9;
+        color: #256029;
+    }
+
+    .product-badge.status-outofstock {
+        background: #FFCDD2;
+        color: #C63737;
+    }
+
+    .product-badge.status-lowstock {
+        background: #FEEDAF;
+        color: #8A5340;
+    }
+
+    .order-badge {
+        border-radius: 2px;
+        padding: .25em .5rem;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 12px;
+        letter-spacing: .3px;
+    }
+
+    .order-badge.order-delivered {
+        background: #C8E6C9;
+        color: #256029;
+    }
+
+    .order-badge.order-cancelled {
+        background: #FFCDD2;
+        color: #C63737;
+    }
+
+    .order-badge.order-pending {
+        background: #FEEDAF;
+        color: #8A5340;
+    }
+
+    .order-badge.order-returned {
+        background: #ECCFFF;
+        color: #694382;
+    }
+
+    .image-text {
+        margin-left: .5rem;
+    }
+
+    .p-multiselect-representative-option {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .p-multiselect-representative-option img {
+        vertical-align: middle;
+        width: 24px;
+    }
+
+    .p-multiselect-representative-option span {
+        margin-top: .125rem;
+    }
+
+    .country-item {
+        display: flex;
+        align-items: center;
+    }
+
+    .country-item img.flag {
+        width: 18px;
+        margin-right: .5rem;
+    }
+
+    .flag {
+        vertical-align: middle;
+    }
+
+    span.flag {
+        width:44px;
+        height:30px;
+        display:inline-block;
+    }
+
+    img.flag {
+        width:30px
+    }
+
+    .true-icon {
+        color: #256029;
+    }
+
+    .false-icon {
+        color: #C63737;
+    }
+    ${extIndexCSS}
+    `
+};
+            
+            if (sourceType === 'browser-source') {
+                return {
+                    files: {
+                        'index.css': defaultCss,
+                        ...files
+                    }
+                }
+            }
+             
 
             return {
                 files: {
@@ -112,7 +329,7 @@ export default {
                         }
                     },
                     'babel.config.js': {
-                content: `module.exports = {
+                        content: `module.exports = {
     presets: [
         '@vue/cli-plugin-babel/preset'
     ]
@@ -133,211 +350,7 @@ export default {
   }
 }`
                     },
-                    'src/index.css': {
-                        content: `html {
-    font-size: 14px;
-}
-
-body {
-    background-color: #ffffff;
-    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
-    font-weight: normal;
-    color: #495057;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    padding: .5em;
-    margin-bottom: 50px;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    margin: 1.5rem 0 1rem 0;
-    font-family: inherit;
-    font-weight: 600;
-    line-height: 1.2;
-    color: inherit;
-}
-
-h1 { font-size: 2.5rem; }
-h2 { font-size: 2rem; }
-h3 { font-size: 1.75rem; }
-h4 { font-size: 1.5rem; }
-h5 { font-size: 1.25rem; }
-h6 { font-size: 1rem; }
-p {
-    line-height: 1.5;
-    margin: 0 0 1rem 0;
-}
-
-.card {
-    margin-bottom: 2rem;
-}
-
-input[type="number"] {
-    -moz-appearance: textfield;
-}
-
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-@keyframes pulse {
-    0% {
-        background-color: rgba(165, 165, 165, 0.1)
-    }
-    50% {
-        background-color: rgba(165, 165, 165, 0.3)
-    }
-    100% {
-        background-color: rgba(165, 165, 165, 0.1)
-    }
-}
-
-.customer-badge {
-    border-radius: 2px;
-    padding: .25em .5rem;
-    text-transform: uppercase;
-    font-weight: 700;
-    font-size: 12px;
-    letter-spacing: .3px;
-}
-
-.customer-badge.status-qualified {
-    background-color: #C8E6C9;
-    color: #256029;
-}
-
-.customer-badge.status-unqualified {
-    background-color: #FFCDD2;
-    color: #C63737;
-}
-
-.customer-badge.status-negotiation {
-    background-color: #FEEDAF;
-    color: #8A5340;
-}
-
-.customer-badge.status-new {
-    background-color: #B3E5FC;
-    color: #23547B;
-}
-
-.customer-badge.status-renewal {
-    background-color: #ECCFFF;
-    color: #694382;
-}
-
-.customer-badge.status-proposal {
-    background-color: #FFD8B2;
-    color: #805B36;
-}
-
-.product-badge {
-    border-radius: 2px;
-    padding: .25em .5rem;
-    text-transform: uppercase;
-    font-weight: 700;
-    font-size: 12px;
-    letter-spacing: .3px;
-}
-
-.product-badge.status-instock {
-    background: #C8E6C9;
-    color: #256029;
-}
-
-.product-badge.status-outofstock {
-    background: #FFCDD2;
-    color: #C63737;
-}
-
-.product-badge.status-lowstock {
-    background: #FEEDAF;
-    color: #8A5340;
-}
-
-.order-badge {
-    border-radius: 2px;
-    padding: .25em .5rem;
-    text-transform: uppercase;
-    font-weight: 700;
-    font-size: 12px;
-    letter-spacing: .3px;
-}
-
-.order-badge.order-delivered {
-    background: #C8E6C9;
-    color: #256029;
-}
-
-.order-badge.order-cancelled {
-    background: #FFCDD2;
-    color: #C63737;
-}
-
-.order-badge.order-pending {
-    background: #FEEDAF;
-    color: #8A5340;
-}
-
-.order-badge.order-returned {
-    background: #ECCFFF;
-    color: #694382;
-}
-
-.image-text {
-    margin-left: .5rem;
-}
-
-.p-multiselect-representative-option {
-    display: inline-block;
-    vertical-align: middle;
-}
-
-.p-multiselect-representative-option img {
-    vertical-align: middle;
-    width: 24px;
-}
-
-.p-multiselect-representative-option span {
-    margin-top: .125rem;
-}
-
-.country-item {
-    display: flex;
-    align-items: center;
-}
-
-.country-item img.flag {
-    width: 18px;
-    margin-right: .5rem;
-}
-
-.flag {
-    vertical-align: middle;
-}
-
-span.flag {
-    width:44px;
-    height:30px;
-    display:inline-block;
-}
-
-img.flag {
-    width:30px
-}
-
-.true-icon {
-    color: #256029;
-}
-
-.false-icon {
-    color: #C63737;
-}
-${extIndexCSS}
-`
-                    },
+                    'src/index.css': defaultCss,
                     ...files,
                     ...extFiles
                 }
@@ -351,30 +364,29 @@ ${extIndexCSS}
             let extDependencies = this.dependencies || {};
             let extImport = '';
             let extElement = '';
-            let content = this.sources[sourceType].content.replace('<\\/script>', '<\/script>');
+            let content = this.sources[sourceType].content.replaceAll('<\\/script>', '<\/script>');
+            let imports = this.sources[sourceType].imports ? this.sources[sourceType].imports.replaceAll('<\\/script>', '<\/script>') : '';
             let pages = this.extPages ? this.extPages : '';
             let _files = {}, element = '';
 
-            if(this.component) {
-                extImport += `import ${this.component} from 'primevue/${this.component.toLowerCase()}';`
-                extElement += `app.component('${this.component}', ${this.component});`;
-            }
-
             if (this.service) {
-                let dataArr = [], serviceArr = [];
+                let dataArr = [], serviceArr = [], path = '';
 
                 this.service.forEach(el => {
                     serviceArr.push(el.split(','))
                 })
 
-                if(this.data) {
+                if (this.data) {
                     this.data.forEach(el => {
                         dataArr.push(el.split(','))
                     })
 
-                    if(dataArr) {
+                    if (dataArr) {
                         dataArr.forEach(el => {
-                            _files[`public/data/${el}.json`] = {
+                            let _path = `${el}.json`;
+                            path = sourceType === 'browser-source' ? _path : `public/demo/data/${_path}`;
+
+                            _files[path] = {
                                 content: data[el]
                             };
                         });
@@ -382,16 +394,46 @@ ${extIndexCSS}
                 }
 
                 serviceArr.forEach(serv => {
-                     _files[`src/service/${serv}.js`] = {
-                            content: `${services[serv]}`
-                    };
+                    path = sourceType === 'browser-source' ? `${serv}.js` : `src/service/${serv}.js`;
+                    let _content = sourceType === 'browser-source' ? 
+                                `${services[serv].replaceAll('export default class', 'class').replaceAll('demo/data/', './')}` : 
+                                `${services[serv]}`;
+
+                    _files[path] = {
+                        content: _content
+                    }
                 })
             }
 
-            element += `import ${name} from "./${name}.vue"`;
+            if (sourceType === 'browser-source') {
+                _files['index.html'] = {
+                    content: `<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+        <title>${name}</title>
+        <link href="https://unpkg.com/primevue@^3/resources/themes/saga-blue/theme.css" rel="stylesheet" />
+        <link href="https://unpkg.com/primevue@^3/resources/primevue.min.css" rel="stylesheet" />
+        <link href="https://unpkg.com/primeflex@2.0.0/primeflex.min.css" rel="stylesheet" />
+        <link href="https://unpkg.com/primeicons/primeicons.css" rel="stylesheet" />
+        <link href="./index.css" rel="stylesheet" />
 
-            _files['src/main.js'] = {
-                content: `import "primeflex/primeflex.css";
+        <script src="https://unpkg.com/vue@next"><\/script>
+        <script src="https://unpkg.com/primevue@^3/core/core.min.js"><\/script>
+        ${imports}
+    </head>
+    <body>${content}
+    </body>
+</html>`
+                }
+            }
+            else {
+                element += `import ${name} from "./${name}.vue"`;
+
+                _files['src/main.js'] = {
+                    content: `import "primeflex/primeflex.css";
 import "primevue/resources/themes/saga-blue/theme.css";
 import "primevue/resources/primevue.min.css";
 import "primeicons/primeicons.css";
@@ -475,6 +517,7 @@ import SplitButton from 'primevue/splitbutton';
 import Splitter from 'primevue/splitter';
 import SplitterPanel from 'primevue/splitterpanel';
 import Steps from 'primevue/steps';
+import StyleClass from 'primevue/styleclass';
 import TabMenu from 'primevue/tabmenu';
 import TieredMenu from 'primevue/tieredmenu';
 import Textarea from 'primevue/textarea';
@@ -505,6 +548,7 @@ app.use(router);
 app.directive('tooltip', Tooltip);
 app.directive('badge', BadgeDirective);
 app.directive('ripple', Ripple);
+app.directive('styleclass', StyleClass);
 
 app.component('Accordion', Accordion);
 app.component('AccordionTab', AccordionTab);
@@ -597,60 +641,65 @@ ${extElement}
 
 app.mount("#app");
 `
-            }
+                }
 
-            _files['public/index.html'] = {
-                content: `<!DOCTYPE html>
+                _files['public/index.html'] = {
+                    content: `<!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <link href="https://unpkg.com/primeicons/primeicons.css" rel="stylesheet">
-  </head>
-  <body>
+</head>
+<body>
     <div id="app"></div>
-  </body>
+</body>
 </html>
 `
-            }
+                }
 
-            _files[`src/${name}${extension}`] = {
+                _files[`src/${name}${extension}`] = {
                     content: `${content}
 `
-            }
+                }
 
-            if(pages) {
-                let routes = [], routeImports = '';
+                if (this.component) {
+                    extImport += `import ${this.component} from 'primevue/${this.component.toLowerCase()}';`
+                    extElement += `app.component('${this.component}', ${this.component});`;
+                }
 
-                pages.forEach((page, i) => {
-                    _files[`src/components/${page.tabName}.vue`] = {
-                        'content': `${page.content.replace('<\\/script>', '<\/script>')}`
-                    }
+                if (pages) {
+                    let routes = [], routeImports = '';
 
-                    let route = '';
+                    pages.forEach((page, i) => {
+                        _files[`src/components/${page.tabName}.vue`] = {
+                            'content': `${page.content.replace('<\\/script>', '<\/script>')}`
+                        }
 
-                    routeImports += `import ${page.tabName} from './components/${page.tabName}.vue';
-`;
+                        let route = '';
 
-                    if(i === 0) {
-                        route += `{
-    path: "/",
-    component: ${page.tabName}
-}`;
-                    }
-                    else {
-                        route += `{
-    path: "/${page.tabName.slice(0, -4).toLowerCase()}",
-    component: ${page.tabName}
-}`;
-                    }
+                        routeImports += `import ${page.tabName} from './components/${page.tabName}.vue';
+    `;
 
-                    routes.push(route);
-                })
+                        if(i === 0) {
+                            route += `{
+        path: "/",
+        component: ${page.tabName}
+    }`;
+                        }
+                        else {
+                            route += `{
+        path: "/${page.tabName.slice(0, -4).toLowerCase()}",
+        component: ${page.tabName}
+    }`;
+                        }
 
-                _files['src/router.js'] = {
-                    'content': `import { createRouter, createWebHistory } from "vue-router";
+                        routes.push(route);
+                    })
+
+                    _files['src/router.js'] = {
+                        'content': `import { createRouter, createWebHistory } from "vue-router";
 ${routeImports}
 export const router = createRouter({
     history: createWebHistory(),
@@ -659,21 +708,22 @@ export const router = createRouter({
     ]
 });
 `
+                    }
                 }
-            }
-            else {
-                _files[`src/router.js`] = {
-                    content: `import { createRouter, createWebHistory } from "vue-router";
-${element}
+                else {
+                    _files[`src/router.js`] = {
+                        content: `import { createRouter, createWebHistory } from "vue-router";
+    ${element}
 
-export const router = createRouter({
-  history: createWebHistory(),
-  routes: [{ path: "/", component: ${name} }]
+    export const router = createRouter({
+    history: createWebHistory(),
+    routes: [{ path: "/", component: ${name} }]
 });`
+                    }
                 }
             }
 
-            return this.createSandboxParameters(`${name}${extension}`, _files, extDependencies);
+            return this.createSandboxParameters(sourceType, `${name}${extension}`, _files, extDependencies);
         },
 
         openDefaultCSB() {
