@@ -188,6 +188,48 @@ export default {
 }
 <\\/script>
 `
+				},
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/tag/tag.min.js"><\\/script>`,
+					content: `
+        <div id="app">
+            <h5>Tags</h5>
+            <p-tag class="p-mr-2" value="Primary"></p-tag>
+            <p-tag class="p-mr-2" severity="success" value="Success"></p-tag>
+            <p-tag class="p-mr-2" severity="info" value="Info"></p-tag>
+            <p-tag class="p-mr-2" severity="warning" value="Warning"></p-tag>
+            <p-tag severity="danger" value="Danger"></p-tag>
+
+            <h5>Pills</h5>
+            <p-tag class="p-mr-2" value="Primary" rounded></p-tag>
+            <p-tag class="p-mr-2" severity="success" value="Success" rounded></p-tag>
+            <p-tag class="p-mr-2" severity="info" value="Info" rounded></p-tag>
+            <p-tag class="p-mr-2" severity="warning" value="Warning" rounded></p-tag>
+            <p-tag severity="danger" value="Danger" rounded></p-tag>
+
+            <h5>Icons</h5>
+            <p-tag class="p-mr-2" icon="pi pi-user" value="Primary"></p-tag>
+            <p-tag class="p-mr-2" icon="pi pi-check" severity="success" value="Success"></p-tag>
+            <p-tag class="p-mr-2" icon="pi pi-info-circle" severity="info" value="Info"></p-tag>
+            <p-tag class="p-mr-2" icon="pi pi-exclamation-triangle" severity="warning" value="Warning"></p-tag>
+            <p-tag icon="pi pi-times" severity="danger" value="Danger"></p-tag>
+        </div>
+
+        <script type="module">
+        const { createApp } = Vue;
+
+        const App = {
+            components: {
+                "p-tag": primevue.tag
+            }
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .mount("#app");
+        <\\/script>
+`
 				}
 			}
 		}

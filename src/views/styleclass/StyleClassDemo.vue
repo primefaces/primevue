@@ -5,6 +5,7 @@
                 <h1>StyleClass</h1>
                 <p>StyleClass manages css classes declaratively to during enter/leave animations or just to toggle classes on an element.</p>
             </div>
+            <AppDemoActions />
         </div>
     </div>
 

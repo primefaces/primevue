@@ -143,7 +143,32 @@ export default {
 export default {
 }
 <\\/script>`
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/progressspinner/progressspinner.min.js"><\\/script>`,
+                    content: `
+        <div id="app">
+            <h5>Basic</h5>
+            <p-progressspinner></p-progressspinner>
 
+            <h5>Custom</h5>
+            <p-progressspinner style="width:50px;height:50px" stroke-width="8" fill="#EEEEEE" animation-duration=".5s"></p-progressspinner>
+        </div>
+
+        <script type="module">
+        const { createApp } = Vue;
+
+        const App = {
+            components: {
+                "p-progressspinner": primevue.progressspinner
+            }
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .mount("#app");
+        <\\/script>`
                 }
             }
         }

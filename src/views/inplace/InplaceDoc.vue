@@ -316,6 +316,78 @@ export default {
     }
 }
 <\\/script>`
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/inplace/inplace.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/datatable/datatable.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/column/column.min.js"><\\/script>
+        <script src="./ProductService.js"><\\/script>`,
+                    content: `
+        <div id="app">
+            <h5>Input</h5>
+            <p-inplace :closable="true">
+                <template #display>
+                    {{text || 'Click to Edit'}}
+                </template>
+                <template #content>
+                    <p-inputtext v-model="text" autoFocus></p-inputtext>
+                </template>
+            </p-inplace>
+
+            <h5>Image</h5>
+            <p-inplace>
+                <template #display>
+                    <span class="pi pi-search" style="vertical-align: middle"></span>
+                    <span style="margin-left:.5rem; vertical-align: middle">View Picture</span>
+                </template>
+                <template #content>
+                    <img src="https://www.primefaces.org/wp-content/uploads/2020/12/primevue-min.png" width="200" />
+                </template>
+            </p-inplace>
+
+            <h5>Lazy Data</h5>
+            <p-inplace @open="loadData">
+                <template #display>
+                    View Data
+                </template>
+                <template #content>
+                    <p-datatable :value="products" responsive-layout="scroll" >
+                        <p-column field="code" header="Code"></p-column>
+                        <p-column field="name" header="Name"></p-column>
+                        <p-column field="category" header="Category"></p-column>
+                        <p-column field="quantity" header="Quantity"></p-column>
+                    </p-datatable>
+                </template>
+            </p-inplace>
+        </div>
+
+        <script type="module">
+        const { createApp, ref } = Vue;
+
+        const App = {
+            setup() {
+                const productService = ref(new ProductService());
+                const text = ref(null);
+                const products = ref(null);
+                const loadData = () => {
+                    productService.value.getProductsSmall().then(data => products.value = data);
+                }
+
+                return { productService, text, products, loadData }
+            },
+            components: {
+                "p-inplace": primevue.inplace,
+                "p-datatable": primevue.datatable,
+                "p-column": primevue.column,
+                "p-inputtext": primevue.inputtext
+            }
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .mount("#app");
+        <\\/script>`
                 }
             }
         }
