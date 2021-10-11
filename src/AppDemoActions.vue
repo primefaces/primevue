@@ -29,6 +29,12 @@ export default {
                     command: () => {
                         EventBus.emit('run-demo', 'composition-api');
                     }
+                },
+                {
+                    label: 'Browser Demo',
+                    command: () => {
+                        EventBus.emit('run-demo', 'browser-source');
+                    }
                 }
 			]
 		}
