@@ -1039,7 +1039,7 @@ export default {
             .mount("#app");
         <\\/script>
 
-        <style scoped lang="scss">
+        <style>
         .p-panelmenu {
             width: 22rem;
         }
