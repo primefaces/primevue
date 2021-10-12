@@ -291,8 +291,7 @@
                 },
                 {
                     "name": "Speed Dial",
-                    "to": "/speeddial",
-                    "badge": "New"
+                    "to": "/speeddial"
                 },
                 {
                     "name": "SplitButton",
@@ -434,8 +433,7 @@
                 },
                 {
                     "name": "VirtualScroller",
-                    "to": "/virtualscroller",
-                    "badge": "New"
+                    "to": "/virtualscroller"
                 },
                 {
                     "name": "FilterService",
@@ -468,7 +466,6 @@
                 {
                     "name": "Tree",
                     "meta": ["tree"],
-                    "badge": "New",
                     "children": [
                         {
                             "name": "Documentation",
@@ -492,15 +489,13 @@
                         },
                         {
                             "name": "Scroll",
-                            "to": "/tree/scroll",
-                            "badge": "New"
+                            "to": "/tree/scroll"
                         }
                     ]
                 },
                 {
                     "name": "TreeTable",
                     "meta": ["treetable"],
-                    "badge": "New",
                     "children": [
                         {
                             "name": "Documentation",
@@ -544,8 +539,7 @@
                         },
                         {
                             "name": "Scroll",
-                            "to": "/treetable/scroll",
-                            "badge": "New"
+                            "to": "/treetable/scroll"
                         },
                         {
                             "name": "Responsive",
@@ -687,8 +681,7 @@
                 },
                 {
                     "name": "Dock",
-                    "to": "/dock",
-                    "badge": "New"
+                    "to": "/dock"
                 }
             ]
         },
@@ -802,8 +795,7 @@
                 },
                 {
                     "name": "Image",
-                    "to": "/image",
-                    "badge": "New"
+                    "to": "/image"
                 }
             ]
         },
@@ -853,8 +845,7 @@
                 },
                 {
                     "name": "StyleClass",
-                    "to": "/styleclass",
-                    "badge": "New"
+                    "to": "/styleclass"
                 },
                 {
                     "name": "Tag",
