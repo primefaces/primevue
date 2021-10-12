@@ -482,7 +482,7 @@ export default {
                 const onRowEditSave = (event) => {
                     let { newData, index } = event;
 
-                    products2[index] = newData;
+                    products2.value[index] = newData;
                 };
                 const getStatusLabel = (status) => {
                     switch(status) {
