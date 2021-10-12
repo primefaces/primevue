@@ -102,6 +102,12 @@ export default {
                                 <td>false</td>
                                 <td>Displays a button to switch back to display mode.</td>
                             </tr>
+                            <tr>
+                                <td>disabled</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>When present, it specifies that the element should be disabled.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>

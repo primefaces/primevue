@@ -3,6 +3,7 @@ import { VNode } from 'vue';
 interface InplaceProps {
     closable?: boolean;
     active?: boolean;
+    disabled?: boolean;
 }
 
 declare class Inplace {
