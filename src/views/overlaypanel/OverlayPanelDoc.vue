@@ -107,30 +107,30 @@ toggle(event) {
 		<div class="doc-tablewrapper">
 			<table class="doc-table">
 				<thead>
-				<tr>
-					<th>Name</th>
-					<th>Parameters</th>
-					<th>Description</th>
-				</tr>
+                    <tr>
+                        <th>Name</th>
+                        <th>Parameters</th>
+                        <th>Description</th>
+                    </tr>
 				</thead>
 				<tbody>
-				<tr>
-					<td>toggle</td>
-					<td>event: Browser event <br />
-						target: Optional target if event.currentTarget should not be used</td>
-					<td>Toggles the visibility of the overlay.</td>
-				</tr>
-				<tr>
-					<td>show</td>
-					<td>event: Browser event <br />
-						target: Optional target if event.currentTarget should not be used</td>
-					<td>Shows the overlay.</td>
-				</tr>
-				<tr>
-					<td>hide</td>
-					<td>-</td>
-					<td>Hides the overlay.</td>
-				</tr>
+                    <tr>
+                        <td>toggle</td>
+                        <td>event: Browser event <br />
+                            target: Optional target if event.currentTarget should not be used</td>
+                        <td>Toggles the visibility of the overlay.</td>
+                    </tr>
+                    <tr>
+                        <td>show</td>
+                        <td>event: Browser event <br />
+                            target: Optional target if event.currentTarget should not be used</td>
+                        <td>Shows the overlay.</td>
+                    </tr>
+                    <tr>
+                        <td>hide</td>
+                        <td>-</td>
+                        <td>Hides the overlay.</td>
+                    </tr>
 				</tbody>
 			</table>
 		</div>
@@ -138,16 +138,25 @@ toggle(event) {
         <h5>Events</h5>
 		<div class="doc-tablewrapper">
 			<table class="doc-table">
-                <tr>
-                    <td>show</td>
-                    <td>-</td>
-                    <td>Callback to invoke when the overlay is shown.</td>
-                </tr>
-                <tr>
-                    <td>hide</td>
-                    <td>-</td>
-                    <td>Callback to invoke when the overlay is hidden.</td>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Parameters</th>
+                        <th>Description</th>
+                    </tr>
+				</thead>
+                <tbody>
+                    <tr>
+                        <td>show</td>
+                        <td>-</td>
+                        <td>Callback to invoke when the overlay is shown.</td>
+                    </tr>
+                    <tr>
+                        <td>hide</td>
+                        <td>-</td>
+                        <td>Callback to invoke when the overlay is hidden.</td>
+                    </tr>
+                </tbody>
             </table>
         </div>
 
