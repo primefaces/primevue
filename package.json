@@ -22,7 +22,9 @@
     "ui library",
     "component library",
     "material",
-    "bootstrap"
+    "bootstrap",
+    "fluent",
+    "tailwind"
   ],
   "devDependencies": {
     "@babel/cli": "^7.4.4",
