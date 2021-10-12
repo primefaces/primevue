@@ -13,10 +13,26 @@
 
             <h5>Basic</h5>
             <div class="dock-window">
-                <Dock :model="dockBasicItems" position="bottom"/>
-                <Dock :model="dockBasicItems" position="top"/>
-                <Dock :model="dockBasicItems" position="left"/>
-                <Dock :model="dockBasicItems" position="right"/>
+                <Dock :model="dockBasicItems" position="bottom">
+                    <template #icon="{ item }">
+                        <img :alt="item.label" :src="item.icon" style="width: 100%" />
+                    </template>
+                </Dock>
+                <Dock :model="dockBasicItems" position="top">
+                    <template #icon="{ item }">
+                        <img :alt="item.label" :src="item.icon" style="width: 100%" />
+                    </template>
+                </Dock>
+                <Dock :model="dockBasicItems" position="left">
+                    <template #icon="{ item }">
+                        <img :alt="item.label" :src="item.icon" style="width: 100%" />
+                    </template>
+                </Dock>
+                <Dock :model="dockBasicItems" position="right">
+                    <template #icon="{ item }">
+                        <img :alt="item.label" :src="item.icon" style="width: 100%" />
+                    </template>
+                </Dock>
             </div>
 
             <h5>Advanced</h5>
@@ -129,20 +145,20 @@ export default {
             ],
             dockBasicItems: [
                 {
-                    label: 'Finder',
-                    icon: () => <img alt="Finder" src="demo/images/dock/finder.svg" style="width: 100%" />
+                    label: "Finder",
+                    icon: "demo/images/dock/finder.svg"
                 },
                 {
-                    label: 'App Store',
-                    icon: () => <img alt="App Store" src="demo/images/dock/appstore.svg" style="width: 100%" />
+                    label: "App Store",
+                    icon: "demo/images/dock/appstore.svg"
                 },
                 {
-                    label: 'Photos',
-                    icon: () => <img alt="Photos" src="demo/images/dock/photos.svg" style="width: 100%" />
+                    label: "Photos",
+                    icon: "demo/images/dock/photos.svg"
                 },
                 {
-                    label: 'Trash',
-                    icon: () => <img alt="trash" src="demo/images/dock/trash.png" style="width: 100%" />
+                    label: "Trash",
+                    icon: "demo/images/dock/trash.png"
                 }
             ],
             menubarItems: [

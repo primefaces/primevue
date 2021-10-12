@@ -2,25 +2,25 @@
     <div class="p-dock-list-container">
         <ul ref="list" class="p-dock-list" role="menu" @mouseleave="onListMouseLeave">
             <li v-for="(item, index) of model" :class="itemClass(index)" :key="index" role="none" @mouseenter="onItemMouseEnter(index)">
-                <template v-if="!template">
+                <template v-if="!templates['item']">
                     <router-link v-if="item.to && !disabled(item)" :to="item.to" custom v-slot="{navigate, href, isActive, isExactActive}">
                         <a :href="href" role="menuitem" :class="linkClass(item, {isActive, isExactActive})" :target="item.target"
                             v-tooltip:[tooltipOptions]="{value: item.label, disabled: !tooltipOptions}" @click="onItemClick($event, item, navigate)">
-                            <template v-if="typeof item.icon === 'string'">
+                            <template v-if="!templates['icon']">
                                 <span :class="['p-dock-action-icon', item.icon]" v-ripple></span>
                             </template>
-                            <component v-else :is="item.icon"></component>
+                            <component v-else :is="templates['icon']" :item="item"></component>
                         </a>
                     </router-link>
                     <a v-else :href="item.url" role="menuitem" :class="linkClass(item)" :target="item.target"
                         v-tooltip:[tooltipOptions]="{value: item.label, disabled: !tooltipOptions}" @click="onItemClick($event, item)" :tabindex="disabled(item) ? null : '0'">
-                        <template v-if="typeof item.icon === 'string'">
+                        <template v-if="!templates['icon']">
                             <span :class="['p-dock-action-icon', item.icon]" v-ripple></span>
                         </template>
-                        <component v-else :is="item.icon"></component>
+                        <component v-else :is="templates['icon']" :item="item"></component>
                     </a>
                 </template>
-                <component v-else :is="template" :item="item"></component>
+                <component v-else :is="templates['item']" :item="item"></component>
             </li>
         </ul>
     </div>
@@ -36,8 +36,8 @@ export default {
             type: Array,
             default: null
         },
-        template: {
-            type: Function,
+        templates: {
+            type: null,
             default: null
         },
         exact: {

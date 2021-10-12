@@ -13,6 +13,7 @@ declare class Dock {
     $props: DockProps;
     $slots: {
         'item': VNode[];
+        'icon': VNode[];
     }
 }
 

@@ -1,6 +1,6 @@
 <template>
     <div :class="containerClass" :style="style">
-        <DockSub :model="model" :template="$slots.item" :exact="exact" :tooltipOptions="tooltipOptions"></DockSub>
+        <DockSub :model="model" :templates="$slots" :exact="exact" :tooltipOptions="tooltipOptions"></DockSub>
     </div>
 </template>
 
