@@ -9,6 +9,15 @@ import ColumnGroup from 'primevue/columngroup';     //optional for column groupi
 
 </code></pre>
 
+            <h5>Import via CDN</h5>
+<pre v-code><code>
+&lt;script src="https://unpkg.com/primevue@^3/core/core.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue@^3/datatable/datatable.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue@^3/column/column.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue@^3/columngroup/columngroup.min.js"&gt;&lt;/script&gt;
+
+</code></pre>
+
             <h5>Getting Started</h5>
             <p>DataTable requires a value as an array of objects and columns defined with Column component. Throughout the samples, a car interface having vin, brand, year and color properties is used to define an object to be displayed by the datatable.
                 Cars are loaded by a CarService that connects to a server to fetch the cars with a fetch API. Note that this is only for demo purposes, DataTable does not have any restrictions on how the data is provided.</p>

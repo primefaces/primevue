@@ -9,6 +9,13 @@ import Badge from 'primevue/badge';
 
 </code></pre>
 
+        <h6>Import via CDN</h6>
+<pre v-code><code>
+&lt;script src="https://unpkg.com/primevue@^3/core/core.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue@^3/badge/badge.min.js"&gt;&lt;/script&gt;
+
+</code></pre>
+
 		<p>Content of the badge is specified using the <i>value</i> property.</p>
 <pre v-code><code>
 &lt;Badge value="2"&gt;&lt;/Badge&gt;
@@ -18,6 +25,13 @@ import Badge from 'primevue/badge';
         <h6>Directive</h6>
         <pre v-code.script><code>
 import BadgeDirective from 'primevue/badgedirective';
+
+</code></pre>
+
+        <h6>Import via CDN</h6>
+<pre v-code><code>
+&lt;script src="https://unpkg.com/primevue@^3/core/core.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue@^3/badgedirective/badgedirective.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 

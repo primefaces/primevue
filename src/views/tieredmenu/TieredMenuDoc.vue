@@ -6,6 +6,12 @@ import TieredMenu from 'primevue/tieredmenu';
 
 </code></pre>
 
+        <h5>Import via CDN</h5>
+<pre v-code><code>
+&lt;script src="https://unpkg.com/primevue@^3/core/core.js"&gt;&lt;/script&gt;
+
+</code></pre>
+
         <h5>MenuModel</h5>
         <p>TieredMenu uses the common MenuModel API to define the items, visit <router-link to="/menumodel">MenuModel API</router-link> for details.</p>
 
@@ -665,8 +671,7 @@ export default {
                 },
                 'browser-source': {
                     tabName: 'Browser Source',
-                    imports: `<script src="https://unpkg.com/vue-router@4.0.0/dist/vue-router.global.js"><\\/script>
-        <script src="https://unpkg.com/primevue@^3/tieredmenu/tieredmenu.min.js"><\\/script>`,
+                    imports: `<script src="https://unpkg.com/vue-router@4.0.0/dist/vue-router.global.js"><\\/script>`,
                     content: `<div id="app">
             <h5>Inline</h5>
             <p-tieredmenu :model="items"></p-tieredmenu>

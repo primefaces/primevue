@@ -6,6 +6,13 @@ import Divider from 'primevue/divider';
 
 </code></pre>
 
+        <h5>Import via CDN</h5>
+<pre v-code><code>
+&lt;script src="https://unpkg.com/primevue@^3/core/core.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue@^3/divider/divider.min.js"&gt;&lt;/script&gt;
+
+</code></pre>
+
 		<h5>Getting Started</h5>
 		<p>Divider has two orientations defined with the <i>layout</i> property, default is "horizontal" and the alternative is "vertical".</p>
 <pre v-code><code>

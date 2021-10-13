@@ -6,6 +6,13 @@ import SpeedDial from 'primevue/speeddial';
 
 </code></pre>
 
+        <h5>Import via CDN</h5>
+<pre v-code><code>
+&lt;script src="https://unpkg.com/primevue@^3/core/core.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue@^3/speeddial/speeddial.min.js"&gt;&lt;/script&gt;
+
+</code></pre>
+
         <h5>Getting Started</h5>
         <p>When pressed, a floating action button can display multiple primary actions that can be performed on a page. It has a collection of additional options defined by the <i>model</i> property.
         SpeedDial's position is calculated according to the container element with the position type style.</p>

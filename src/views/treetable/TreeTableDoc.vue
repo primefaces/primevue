@@ -7,6 +7,14 @@ import Column from 'primevue/column';
 
 </code></pre>
 
+        <h5>Import via CDN</h5>
+<pre v-code><code>
+&lt;script src="https://unpkg.com/primevue@^3/core/core.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue@^3/treetable/treetable.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue@^3/column/column.min.js"&gt;&lt;/script&gt;
+
+</code></pre>
+
 		<h5>Getting Started</h5>
 		<p>Tree component requires an array of TreeNode objects as its <i>value</i> and columns defined with Column component.</p>
 

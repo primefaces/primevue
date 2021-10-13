@@ -6,8 +6,15 @@ import Dock from 'primevue/dock';
 
 </code></pre>
 
-    <h5>Getting Started</h5>
-    <p>Dock is a navigation component consisting of menuitems. It has a collection of additional options defined by the <i>model</i> property.</p>
+        <h5>Import via CDN</h5>
+<pre v-code><code>
+&lt;script src="https://unpkg.com/primevue@^3/core/core.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue@^3/slider/slider.min.js"&gt;&lt;/script&gt;
+
+</code></pre>
+
+        <h5>Getting Started</h5>
+        <p>Dock is a navigation component consisting of menuitems. It has a collection of additional options defined by the <i>model</i> property.</p>
 
 <pre v-code><code>
 &lt;Dock :model="items" /&gt;
@@ -43,113 +50,113 @@ import Dock from 'primevue/dock';
 </template>
 </code></pre>
 
-    <h5>MenuModel API</h5>
-    <p>Dock uses the common MenuModel API to define the items, visit <router-link to="/menumodel">MenuModel API</router-link> for details.</p>
+        <h5>MenuModel API</h5>
+        <p>Dock uses the common MenuModel API to define the items, visit <router-link to="/menumodel">MenuModel API</router-link> for details.</p>
 
-    <h5>Properties</h5>
-    <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
-    <div class="doc-tablewrapper">
-        <table class="doc-table">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Type</th>
-                    <th>Default</th>
-                    <th>Description</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>model</td>
-                    <td>object</td>
-                    <td>null</td>
-                    <td>MenuModel instance to define the action items.</td>
-                </tr>
-                <tr>
-                    <td>position</td>
-                    <td>string</td>
-                    <td>bottom</td>
-                    <td>Position of element. Valid values are 'bottom', 'top', 'left' and 'right'.</td>
-                </tr>
-                <tr>
-                    <td>class</td>
-                    <td>string</td>
-                    <td>null</td>
-                    <td>Style class of the element.</td>
-                </tr>
-                <tr>
-                    <td>style</td>
-                    <td>object</td>
-                    <td>null</td>
-                    <td>Inline style of the element.</td>
-                </tr>
-                <tr>
-                    <td>exact</td>
-                    <td>boolean</td>
-                    <td>true</td>
-                    <td>Whether to apply 'router-link-active-exact' class if route exactly matches the item path.</td>
-                </tr>
-                <tr>
-                    <td>tooltipOptions</td>
-                    <td>object</td>
-                    <td>null</td>
-                    <td>Whether to display the tooltip on items. The modifiers of <router-link to="/tooltip">Tooltip</router-link> can be used like an object in it. Valid keys are 'event' and 'position'.</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+        <h5>Properties</h5>
+        <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Default</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>model</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td>MenuModel instance to define the action items.</td>
+                    </tr>
+                    <tr>
+                        <td>position</td>
+                        <td>string</td>
+                        <td>bottom</td>
+                        <td>Position of element. Valid values are 'bottom', 'top', 'left' and 'right'.</td>
+                    </tr>
+                    <tr>
+                        <td>class</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Style class of the element.</td>
+                    </tr>
+                    <tr>
+                        <td>style</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td>Inline style of the element.</td>
+                    </tr>
+                    <tr>
+                        <td>exact</td>
+                        <td>boolean</td>
+                        <td>true</td>
+                        <td>Whether to apply 'router-link-active-exact' class if route exactly matches the item path.</td>
+                    </tr>
+                    <tr>
+                        <td>tooltipOptions</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td>Whether to display the tooltip on items. The modifiers of <router-link to="/tooltip">Tooltip</router-link> can be used like an object in it. Valid keys are 'event' and 'position'.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-    <h5>Styling</h5>
-    <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
-    <div class="doc-tablewrapper">
-        <table class="doc-table">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Element</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>p-dock</td>
-                    <td>Container element.</td>
-                </tr>
-                <tr>
-                    <td>p-dock-list</td>
-                    <td>List of items.</td>
-                </tr>
-                <tr>
-                    <td>p-dock-item</td>
-                    <td>Each items in list.</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+        <h5>Styling</h5>
+        <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Element</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>p-dock</td>
+                        <td>Container element.</td>
+                    </tr>
+                    <tr>
+                        <td>p-dock-list</td>
+                        <td>List of items.</td>
+                    </tr>
+                    <tr>
+                        <td>p-dock-item</td>
+                        <td>Each items in list.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-    <h5>Slots</h5>
-    <div class="doc-tablewrapper">
-        <table class=doc-table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Parameters</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>item</td>
-                    <td>item: Custom content for item</td>
-                </tr>
-                <tr>
-                    <td>icon</td>
-                    <td>item: Custom content for icon</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+        <h5>Slots</h5>
+        <div class="doc-tablewrapper">
+            <table class=doc-table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Parameters</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>item</td>
+                        <td>item: Custom content for item</td>
+                    </tr>
+                    <tr>
+                        <td>icon</td>
+                        <td>item: Custom content for icon</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-    <h5>Dependencies</h5>
-    <p>None.</p>
+        <h5>Dependencies</h5>
+        <p>None.</p>
 
     </AppDoc>
 </template>

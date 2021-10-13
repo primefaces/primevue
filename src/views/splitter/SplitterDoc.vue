@@ -7,6 +7,14 @@ import SplitterPanel from 'primevue/splitterpanel';
 
 </code></pre>
 
+        <h5>Import via CDN</h5>
+<pre v-code><code>
+&lt;script src="https://unpkg.com/primevue@^3/core/core.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue@^3/splitter/splitter.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue@^3/splitterpanel/splitterpanel.min.js"&gt;&lt;/script&gt;
+
+</code></pre>
+
 		<h5>Getting Started</h5>
 		<p>Splitter requires two SplitterPanel components to wrap.</p>
 <pre v-code><code>

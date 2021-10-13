@@ -6,6 +6,13 @@ import BlockUI from 'primevue/blockui';
 
 </code></pre>
 
+        <h5>Import via CDN</h5>
+<pre v-code><code>
+&lt;script src="https://unpkg.com/primevue@^3/core/core.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue@^3/blockui/blockui.min.js"&gt;&lt;/script&gt;
+
+</code></pre>
+
 		<h5>Getting Started</h5>
 		<p>BlockUI is controlled using the <i>blocked</i> property, by default target element to block is the child component. In example below, panel gets blocked
             with a mask when blockedPanel is enabled and gets unblock when the bound variable is set to false.

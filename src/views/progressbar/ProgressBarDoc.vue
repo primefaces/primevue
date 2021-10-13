@@ -6,6 +6,12 @@ import ProgressBar from 'primevue/progressbar';
 
 </code></pre>
 
+        <h5>Import via CDN</h5>
+<pre v-code><code>
+&lt;script src="https://unpkg.com/primevue@^3/core/core.js"&gt;&lt;/script&gt;
+
+</code></pre>
+
 		<h5>Getting Started</h5>
 		<p>ProgressBar has two modes; "determinate" (default) and "indeterminate". In determinate mode, a value between 0 and 100 is required to display the progress.</p>
 <pre v-code><code>
@@ -220,7 +226,6 @@ export default {
 				},
                 'browser-source': {
                     tabName: 'Browser Source',
-                    imports: `<script src="https://unpkg.com/primevue@^3/progressbar/progressbar.min.js"><\\/script>`,
 					content: `<div id="app">
             <h5>Dynamic</h5>
             <p-progressbar :value="value1"></p-progressbar>

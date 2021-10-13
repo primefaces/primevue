@@ -6,6 +6,13 @@ import ToggleButton from 'primevue/togglebutton';
 
 </code></pre>
 
+        <h5>Import via CDN</h5>
+<pre v-code><code>
+&lt;script src="https://unpkg.com/primevue@^3/core/core.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue@^3/togglebutton/togglebutton.min.js"&gt;&lt;/script&gt;
+
+</code></pre>
+
 		<h5>Getting Started</h5>
 		<p>Two-way binding to a boolean property is defined using the standard v-model directive.</p>
 <pre v-code><code>

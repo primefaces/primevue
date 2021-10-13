@@ -6,20 +6,26 @@ import &#123;FilterService&#125; from 'primevue/api';
 
 </code></pre>
 
+		<h5>Import via CDN</h5>
+<pre v-code><code>
+&lt;script src="https://unpkg.com/primevue@^3/core/core.js"&gt;&lt;/script&gt;
+
+</code></pre>
+
 		<h5>Getting Started</h5>
 		<p>Filters are accessed with <i>FilterService.filters</i>.</p>
 <pre v-code.script><code>
-const value = 'PrimeNG';
+const value = 'PrimeVue';
 
-FilterService.filters.equals(value, 'NG');                            //false
+FilterService.filters.equals(value, 'Vue');                            //false
 FilterService.filters.equals(value, 8);                               //false
 FilterService.filters.equals(value, new Date());                      //false
-FilterService.filters.contains(value, 'NG');                          //true
-FilterService.filters.startsWith(value, 'NG');                        //false
-FilterService.filters.endsWith(value, 'NG');                          //true
+FilterService.filters.contains(value, 'Vue');                          //true
+FilterService.filters.startsWith(value, 'Vue');                        //false
+FilterService.filters.endsWith(value, 'Vue');                          //true
 FilterService.filters.lt(10, 20);                                     //true
 FilterService.filters.gt(50, 20);                                     //true
-FilterService.filters.in(value, ['PrimeFaces', 'PrimeNG']);           //true   
+FilterService.filters.in(value, ['PrimeFaces', 'PrimeVue']);           //true   
 
 </code></pre>
 

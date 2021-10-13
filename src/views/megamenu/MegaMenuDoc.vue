@@ -6,6 +6,13 @@ import MegaMenu from 'primevue/megamenu';
 
 </code></pre>
 
+        <h5>Import via CDN</h5>
+<pre v-code><code>
+&lt;script src="https://unpkg.com/primevue@^3/core/core.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue@^3/megamenu/megamenu.min.js"&gt;&lt;/script&gt;
+
+</code></pre>
+
         <h5>MenuModel</h5>
         <p>MegaMenu uses the common MenuModel API to define the items of the model, visit <router-link to="/menumodel">MenuModel API</router-link> for details.</p>
 <pre v-code><code>

@@ -6,6 +6,12 @@ import InputText from 'primevue/inputtext';
 
 </code></pre>
 
+        <h5>Import via CDN</h5>
+<pre v-code><code>
+&lt;script src="https://unpkg.com/primevue@^3/core/core.js"&gt;&lt;/script&gt;
+
+</code></pre>
+
 		<h5>Getting Started</h5>
 		<p>A model can be bound using the standard v-model directive.</p>
 <pre v-code><code>
@@ -320,7 +326,6 @@ export default {
                 },
                 'browser-source': {
                     tabName: 'Browser Source',
-                    imports: `<script src="https://unpkg.com/primevue@version/inputtext/inputtext.min.js"><\\/script>`,
                     content: `<div id="app">
             <div class="card">
                 <h5>Basic</h5>

@@ -6,6 +6,13 @@ import TreeSelect from 'primevue/treeselect';
 
 </code></pre>
 
+        <h5>Import via CDN</h5>
+<pre v-code><code>
+&lt;script src="https://unpkg.com/primevue@^3/core/core.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue@^3/treeselect/treeselect.min.js"&gt;&lt;/script&gt;
+
+</code></pre>
+
         <h5>Getting Started</h5>
 		<p>TreeSelect component requires an array of TreeNode objects as its <i>options</i> and keys of the nodes as its value.</p>
 

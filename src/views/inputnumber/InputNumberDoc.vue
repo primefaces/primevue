@@ -6,6 +6,12 @@ import InputNumber from 'primevue/inputnumber';
 
 </code></pre>
 
+        <h5>Import via CDN</h5>
+<pre v-code><code>
+&lt;script src="https://unpkg.com/primevue@^3/core/core.js"&gt;&lt;/script&gt;
+
+</code></pre>
+
 <h5>Getting Started</h5>
         <p>InputNumber is used with the standard v-model directive. Component always provides a number type although formatting on the input is a string.</p>
 
@@ -676,7 +682,6 @@ export default {
                 },
                 'browser-source': {
                     tabName: 'Browser Source',
-                    imports: `<script src="https://unpkg.com/primevue@version/inputnumber/inputnumber.min.js"><\\/script>`,
                     content: `<div id="app">
             <h5>Numerals</h5>
             <div class="p-fluid p-grid p-formgrid">

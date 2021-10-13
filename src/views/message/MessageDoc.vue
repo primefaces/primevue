@@ -6,6 +6,12 @@ import Message from 'primevue/message';
 
 </code></pre>
 
+        <h5>Import via CDN</h5>
+<pre v-code><code>
+&lt;script src="https://unpkg.com/primevue@^3/core/core.js"&gt;&lt;/script&gt;
+
+</code></pre>
+
 		<h5>Getting Started</h5>
 		<p>Message component requires a content to display.</p>
 <pre v-code><code>
@@ -419,8 +425,7 @@ button.p-button {
                 },
                 'browser-source': {
                     tabName: 'Browser Source',
-                    imports: `<script src="https://unpkg.com/primevue@^3/message/message.min.js"><\\/script>
-        <script src="https://unpkg.com/primevue@^3/inlinemessage/inlinemessage.min.js"><\\/script>`,
+                    imports: `<script src="https://unpkg.com/primevue@^3/inlinemessage/inlinemessage.min.js"><\\/script>`,
                     content: `<div id="app">
             <h5>Severities</h5>
             <p-message severity="success">Success Message Content</p-message>

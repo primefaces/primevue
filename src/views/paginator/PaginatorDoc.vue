@@ -6,6 +6,12 @@ import Paginator from 'primevue/paginator';
 
 </code></pre>
 
+        <h5>Import via CDN</h5>
+<pre v-code><code>
+&lt;script src="https://unpkg.com/primevue@^3/core/core.js"&gt;&lt;/script&gt;
+
+</code></pre>
+
         <h5>Getting Started</h5>
         <p><i>rows</i> and <i>totalRecords</i> are the required properties of the Paginator.</p>
 <pre v-code><code>
@@ -383,7 +389,6 @@ export default {
                 },
                 'browser-source': {
                     tabName: 'Browser Source',
-                    imports: `<script src="https://unpkg.com/primevue@^3/paginator/paginator.min.js"><\\/script>`,
                     content: `<div id="app">
             <h5>Basic</h5>
             <p-paginator :rows="10" :total-records="totalRecords" :rows-per-page-options="[10,20,30]"></p-paginator>

@@ -87,7 +87,7 @@ import Dialog from 'primevue/dialog/sfc';
         &lt;link href="https://unpkg.com/primeicons/primeicons.css" rel="stylesheet"&gt;
 
         &lt;script src="https://unpkg.com/vue@next"&gt;&lt;/script&gt;
-        &lt;script src="https://unpkg.com/primevue/core/core.min.js"&gt;&lt;/script&gt;
+        &lt;script src="https://unpkg.com/primevue/core/core.js"&gt;&lt;/script&gt;
         &lt;script src="https://unpkg.com/primevue/slider/slider.min.js"&gt;&lt;/script&gt;
     &lt;/head&gt;
 

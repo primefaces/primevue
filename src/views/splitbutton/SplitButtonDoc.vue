@@ -6,6 +6,13 @@ import SplitButton from 'primevue/splitbutton';
 
 </code></pre>
 
+      <h5>Import via CDN</h5>
+<pre v-code><code>
+&lt;script src="https://unpkg.com/primevue@^3/core/core.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue@^3/splitbutton/splitbutton.min.js"&gt;&lt;/script&gt;
+
+</code></pre>
+
 		<h5>Getting Started</h5>
 		<p>SplitButton has a default command button and a collection of additional options defined by the <i>model</i> property.</p>
 <pre v-code.script><code>

@@ -6,6 +6,13 @@ import Image from 'primevue/image';
 
 </code></pre>
 
+        <h5>Import via CDN</h5>
+<pre v-code><code>
+&lt;script src="https://unpkg.com/primevue@^3/core/core.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue@^3/image/image.min.js"&gt;&lt;/script&gt;
+
+</code></pre>
+
 		<h5>Getting Started</h5>
 		<p>Image is used as the native <i>img</i> element and supports all properties that the native element has.</p>
 <pre v-code><code>

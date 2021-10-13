@@ -6,6 +6,12 @@ import VirtualScroller from 'primevue/virtualscroller';
 
 </code></pre>
 
+        <h5>Import via CDN</h5>
+<pre v-code><code>
+&lt;script src="https://unpkg.com/primevue@^3/core/core.js"&gt;&lt;/script&gt;
+
+</code></pre>
+
         <h5>Getting Started</h5>
         <p>VirtualScroller is used to display huge data. It periodically adds special elements defined according to the scroll's position to the DOM.
             The <i>item</i> and <i>itemSize</i> properties and <i>item</i> template are required on component. In addition, an initial array is required based on the total number of items to display.<br />

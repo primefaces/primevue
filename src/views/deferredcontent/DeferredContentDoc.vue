@@ -6,6 +6,13 @@ import DeferredContent from 'primevue/deferredcontent';
 
 </code></pre>
 
+        <h5>Import via CDN</h5>
+<pre v-code><code>
+&lt;script src="https://unpkg.com/primevue@^3/core/core.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue@^3/deferredcontent/deferredcontent.min.js"&gt;&lt;/script&gt;
+
+</code></pre>
+
 		<h5>Getting Started</h5>
 		<p>DeferredContent is used as a wrapper element of its content..</p>
 <pre v-code><code><template v-pre>

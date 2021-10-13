@@ -6,6 +6,13 @@ import PickList from 'primevue/picklist';
 
 </code></pre>
 
+        <h5>Import via CDN</h5>
+<pre v-code><code>
+&lt;script src="https://unpkg.com/primevue@^3/core/core.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue@^3/picklist/picklist.min.js"&gt;&lt;/script&gt;
+
+</code></pre>
+
 		<h5>Getting Started</h5>
         <p>PickList requires a multidimensional array as its value bound with the v-model directive and a template for its content
             that gets the <i>item</i> instance and the <i>index</i> via slotProps.</p>

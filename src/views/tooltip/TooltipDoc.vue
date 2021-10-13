@@ -9,6 +9,13 @@ app.directive('tooltip', Tooltip);
 
 </code></pre>
 
+        <h5>Import via CDN</h5>
+<pre v-code><code>
+&lt;script src="https://unpkg.com/primevue@^3/core/core.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue@^3/tooltip/tooltip.min.js"&gt;&lt;/script&gt;
+
+</code></pre>
+
         <p>Tooltip can also be configured locally using the directives property of your component.</p>
 <pre v-code.script><code>
 directives: {
