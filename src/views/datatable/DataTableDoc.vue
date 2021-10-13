@@ -717,7 +717,7 @@ export default {
 </template>
 </code></pre>
 
-            <h6>Filter Row</h6>
+            <h6>Filter Menu</h6>
             <p>Input field is displayed in an overlay.</p>
 
 <pre v-code><code><template v-pre>
