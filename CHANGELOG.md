@@ -6,6 +6,7 @@
 
 **Implemented New Features and Enhancements:**
 
+- Script tag with CDN samples [\#1662](https://github.com/primefaces/primevue/issues/1662)
 - disabled props for Inplace [\#1651](https://github.com/primefaces/primevue/issues/1651)
 
 **Fixed bugs:**
