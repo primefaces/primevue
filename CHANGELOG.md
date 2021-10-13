@@ -1,5 +1,21 @@
 # Changelog
 
+## [3.8.1](https://github.com/primefaces/primevue/tree/3.8.1) (2021-10-13)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.8.0...3.8.1)
+
+**Implemented New Features and Enhancements:**
+
+- disabled props for Inplace [\#1651](https://github.com/primefaces/primevue/issues/1651)
+
+**Fixed bugs:**
+
+- Menu Model icon defect for Dock [\#1658](https://github.com/primefaces/primevue/issues/1658)
+- Ripple added Dock [\#1652](https://github.com/primefaces/primevue/issues/1652)
+- Kebab-case properties are not working on DataTable and TreeTable [\#1646](https://github.com/primefaces/primevue/issues/1646)
+- The virtualscroller component is missing in core.min.js [\#1642](https://github.com/primefaces/primevue/issues/1642)
+- VirtualScroller.scrollToIndex programming error [\#1610](https://github.com/primefaces/primevue/issues/1610)
+
 ## [3.8.0](https://github.com/primefaces/primevue/tree/3.8.0) (2021-10-05)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.7.2...3.8.0)
