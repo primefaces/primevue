@@ -423,7 +423,7 @@ export default {
 
         <!-- Dependencies -->
         <script src="https://unpkg.com/vue@next"><\/script>
-        <script src="https://unpkg.com/primevue@^3/core/core.min.js"><\/script>
+        <script src="https://unpkg.com/primevue@^3/core/core.js"><\/script>
 
         <!-- Demo -->
         ${imports}
