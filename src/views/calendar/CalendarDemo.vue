@@ -18,7 +18,7 @@
                     </div>
                     <div class="p-field p-col-12 p-md-4">
                         <label for="dateformat">DateFormat</label>
-                        <Calendar id="dateformat" v-model="date2"  dateFormat="mm-dd-yy" />
+                        <Calendar id="dateformat" v-model="date2"  dateFormat="mm-dd-yy" placeholder="dd-mm-yy" />
                     </div>
                     <div class="p-field p-col-12 p-md-4">
                         <label for="icon">Icon</label>

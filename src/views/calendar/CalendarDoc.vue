@@ -433,6 +433,12 @@ export default {
                         <td>false</td>
                         <td>Keep invalid value when input blur.</td>
                     </tr>
+                    <tr>
+                        <td>placeholder</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Placeholder of the input field.</td>
+                    </tr>
                 </tbody>
             </table>
         </div>

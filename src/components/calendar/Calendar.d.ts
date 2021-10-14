@@ -43,6 +43,7 @@ interface CalendarProps {
     style?: any;
     class?: string;
     keepInvalid?: boolean;
+    placeholder?: string;
 }
 
 declare class Calendar {

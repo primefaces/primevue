@@ -1,7 +1,7 @@
 <template>
     <span ref="container" :class="containerClass" :style="style">
         <CalendarInputText ref="input" v-if="!inline" type="text" v-bind="$attrs" :value="inputFieldValue" @input="onInput" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" :readonly="!manualInput" inputmode="none"
-            :class="inputClass" :style="inputStyle" />
+            :class="inputClass" :style="inputStyle" :placeholder="placeholder" />
         <CalendarButton v-if="showIcon" :icon="icon" tabindex="-1" class="p-datepicker-trigger" :disabled="$attrs.disabled" @click="onButtonClick" type="button" :aria-label="inputFieldValue"/>
         <Teleport :to="appendTarget" :disabled="appendDisabled">
             <transition name="p-connected-overlay" @enter="onOverlayEnter($event)" @after-enter="onOverlayEnterComplete" @after-leave="onOverlayAfterLeave" @leave="onOverlayLeave">
@@ -293,10 +293,14 @@ export default {
             type: Boolean,
             default: false
         },
+        placeholder: {
+            type: String,
+            default: null,
+        },
         inputClass: null,
         inputStyle: null,
         class: null,
-        style: null
+        style: null,
     },
     navigationState: null,
     scrollHandler: null,
