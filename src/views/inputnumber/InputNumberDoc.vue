@@ -288,13 +288,13 @@ Vertical
                         <td>style</td>
                         <td>any</td>
                         <td>null</td>
-                        <td>Style class of the component input field.</td>
+                        <td>Inline style of the component.</td>
                     </tr>
                     <tr>
                         <td>class</td>
                         <td>string</td>
                         <td>null</td>
-                        <td>Inline style of the component.</td>
+                        <td>Style class of the element.</td>
                     </tr>
                 </tbody>
             </table>
