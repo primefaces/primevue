@@ -24,7 +24,7 @@ interface InputNumberProps {
     inputStyle?: any;
     inputClass?: string;
     style?: any;
-    class?: string;
+    class?: any;
 }
 
 declare class InputNumber {
