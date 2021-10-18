@@ -21,7 +21,7 @@
                             <span v-if="category.items" :class="getCategorySubMenuIcon()"></span>
                         </a>
                     </template>
-                    <component v-else :is="$slots.item" :item="item"></component>
+                    <component v-else :is="$slots.item" :item="category"></component>
                     <div class="p-megamenu-panel" v-if="category.items">
                         <div class="p-megamenu-grid">
                             <div v-for="(column,columnIndex) of category.items" :key="category.label + '_column_' + columnIndex" :class="getColumnClassName(category)">
