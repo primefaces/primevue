@@ -79,7 +79,8 @@ export default {
         renderContent(source) {
             if (source.tabName === 'Browser Source') {
                 const _imports = source.imports ? source.imports.replaceAll('<\\/script>', '<\/script>') : '';
-                return `<!DOCTYPE html>
+                return `
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8" />
