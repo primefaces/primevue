@@ -549,6 +549,9 @@ export default {
     transition: none;
     transform: none;
     width: 100vw !important;
+    height: 100vh !important;
+    top: 0px !important;
+    left: 0px !important;
     max-height: 100%;
     height: 100%;
 }
