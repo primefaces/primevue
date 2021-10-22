@@ -440,6 +440,7 @@ export default {
             this.bindOutsideClickListener();
             this.bindScrollListener();
             this.bindResizeListener();
+            this.scrollValueInView();
 
             if (this.filter) {
                 this.$refs.filterInput.focus();
