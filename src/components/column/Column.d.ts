@@ -48,15 +48,15 @@ interface ColumnProps {
 declare class Column {
     $props: ColumnProps;
     $slots: {
-        body: VNode[];
-        header: VNode[];
-        footer: VNode[];
-        editor: VNode[];
-        filter: VNode[];
-        filterheader: VNode[];
-        filterfooter: VNode[];
-        filterclear: VNode[];
-        filterapply: VNode[];
+        body: (binds: ContentSlotBindings) => VNode[];
+        header: (binds: ContentSlotBindings) => VNode[];
+        footer: (binds: ContentSlotBindings) => VNode[];
+        editor: (binds: ContentSlotBindings) => VNode[];
+        filter: (binds: ContentSlotBindings) => VNode[];
+        filterheader: (binds: ContentSlotBindings) => VNode[];
+        filterfooter: (binds: ContentSlotBindings) => VNode[];
+        filterclear: (binds: ContentSlotBindings) => VNode[];
+        filterapply: (binds: ContentSlotBindings) => VNode[];
     }
 }
 
