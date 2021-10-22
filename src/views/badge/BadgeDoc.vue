@@ -3,7 +3,8 @@
         <h5>Getting Started</h5>
         <p>Badge can either be used as a standalone component or as a directive.</p>
 
-        <h6>Component</h6>
+        <h5>Component</h5>
+        <h6>Import via Module</h6>
 <pre v-code.script><code>
 import Badge from 'primevue/badge';
 
@@ -22,7 +23,8 @@ import Badge from 'primevue/badge';
 
 </code></pre>
 
-        <h6>Directive</h6>
+        <h5>Directive</h5>
+        <h6>Import via Module</h6>
         <pre v-code.script><code>
 import BadgeDirective from 'primevue/badgedirective';
 
