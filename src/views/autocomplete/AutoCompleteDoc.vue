@@ -1,6 +1,6 @@
 <template>
     <AppDoc name="AutoCompleteDemo" :sources="sources" :service="['CountryService']" :data="['countries']" github="autocomplete/AutoCompleteDemo.vue">
-        <h5>Import</h5>
+        <h5>Import via Module</h5>
 <pre v-code.script><code>
 import AutoComplete from 'primevue/autocomplete';
 

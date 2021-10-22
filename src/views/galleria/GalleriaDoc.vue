@@ -2,7 +2,7 @@
 	<div class="content-section documentation">
 		<TabView>
 			<TabPanel header="Documentation">
-				<h5>Import</h5>
+				<h5>Import via Module</h5>
 <pre v-code.script><code>
 import Galleria from 'primevue/galleria';
 

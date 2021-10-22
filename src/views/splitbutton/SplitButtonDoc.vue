@@ -1,6 +1,6 @@
 <template>
 	<AppDoc name="SplitButtonDemo" :sources="sources" github="splitbutton/SplitButtonDemo.vue" >
-		<h5>Import</h5>
+		<h5>Import via Module</h5>
 <pre v-code.script><code>
 import SplitButton from 'primevue/splitbutton';
 

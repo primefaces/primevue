@@ -1,6 +1,6 @@
 <template>
 	<AppDoc name="TagDemo" :sources="sources" github="tag/TagDemo.vue" >
-        <h5>Import</h5>
+        <h5>Import via Module</h5>
 <pre v-code.script><code>
 import Tag from 'primevue/tag';
 

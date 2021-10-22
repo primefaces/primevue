@@ -1,6 +1,6 @@
 <template>
 	<AppDoc name="InputNumberDemo" :sources="sources" github="inputnumber/InputNumberDemo.vue">
-        <h5>Import</h5>
+        <h5>Import via Module</h5>
 <pre v-code.script><code>
 import InputNumber from 'primevue/inputnumber';
 

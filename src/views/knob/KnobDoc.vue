@@ -1,6 +1,6 @@
 <template>
 	<AppDoc name="KnobDemo" :sources="sources" github="knob/KnobDemo.vue">
-        <h5>Import</h5>
+        <h5>Import via Module</h5>
 <pre v-code.script><code>
 import Knob from 'primevue/knob';
 

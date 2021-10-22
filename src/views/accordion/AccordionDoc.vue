@@ -1,6 +1,6 @@
 <template>
 	<AppDoc name="AccordionDemo" :sources="sources" github="accordion/AccordionDemo.vue">
-		<h5>Import</h5>
+		<h5>Import via Module</h5>
 <pre v-code.script><code>
 import Accordion from 'primevue/accordion';
 import AccordionTab from 'primevue/accordiontab';

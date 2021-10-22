@@ -1,6 +1,6 @@
 <template>
 	<AppDoc name="OverlayPanelDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="overlaypanel/OverlayPanelDemo.vue" >
-        <h5>Import</h5>
+        <h5>Import via Module</h5>
 <pre v-code.script><code>
 import OverlayPanel from 'primevue/overlaypanel';
 
