@@ -1,6 +1,19 @@
 <template>
 	<AppDoc name="FieldsetDemo" :sources="sources" github="fieldset/FieldsetDemo.vue">
-        <h5>Getting Started</h5>
+        <h5>Import</h5>
+<pre v-code.script><code>
+import Fieldset from 'primevue/fieldset';
+
+</code></pre>
+
+        <h5>Import via CDN</h5>
+<pre v-code><code>
+&lt;script src="https://unpkg.com/primevue@^3/core/core.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue@^3/fieldset/fieldset.min.js"&gt;&lt;/script&gt;
+
+</code></pre>
+
+		<h5>Getting Started</h5>
 		<p>Fieldset is a container component that accepts content as its children.</p>
 <pre v-code><code>
 &lt;Fieldset legend="Godfather I"&gt;
@@ -9,19 +22,6 @@
 	Through Michael's life the nature of the family business becomes clear. The business of the family is just like the head of the family,
 	kind and benevolent to those who give respect, but given to ruthless violence whenever anything stands against the good of the family.
 &lt;/Fieldset&gt;
-
-</code></pre>
-        
-        <h6>Import via Module</h6>
-<pre v-code.script><code>
-import Fieldset from 'primevue/fieldset';
-
-</code></pre>
-
-        <h6>Import via CDN</h6>
-<pre v-code><code>
-&lt;script src="https://unpkg.com/primevue@^3/core/core.js"&gt;&lt;/script&gt;
-&lt;script src="https://unpkg.com/primevue@^3/fieldset/fieldset.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
