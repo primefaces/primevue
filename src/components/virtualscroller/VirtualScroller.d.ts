@@ -29,7 +29,7 @@ declare class VirtualScroller {
     scrollTo(options?: ScrollToOptions): void;
     scrollToIndex(index: number, behavior: ScrollBehavior): void;
     scrollInView(index: number, to: "to-start" | "to-end", behavior: ScrollBehavior): void;
-    getRenderedRange(): Range
+    getRenderedRange(): Range;
     $emit(eventName: 'update:numToleratedItems', value: number): this;
     $emit(eventName: 'scroll-index-change', value: { first: number, last: number }): this;
     $emit(eventName: 'lazy-load', value: { first: number, last: number }): this;
