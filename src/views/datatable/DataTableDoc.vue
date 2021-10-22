@@ -2437,7 +2437,7 @@ export default {
 					<tbody>
                         <tr>
                             <td>header</td>
-                            <td>-</td>
+                            <td>column: Column node</td>
                         </tr>
                         <tr>
                             <td>paginatorLeft</td>
@@ -2449,7 +2449,7 @@ export default {
                         </tr>
                         <tr>
                             <td>footer</td>
-                            <td>-</td>
+                            <td>column: Column node</td>
                         </tr>
                         <tr>
                             <td>groupheader</td>
@@ -2465,6 +2465,14 @@ export default {
                             <td>expansion</td>
                             <td>data: Row data <br />
                             index: Row index</td>
+                        </tr>
+                        <tr>
+                            <td>empty</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>loading</td>
+                            <td>-</td>
                         </tr>
 					</tbody>
 				</table>
