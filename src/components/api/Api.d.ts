@@ -253,3 +253,10 @@ export const PrimeIcons: {
     WINDOW_MAXIMIZE?: string,
     WINDOW_MINIMIZE?: string
 }
+
+export const ToastSeverity: {
+    INFO?: string;
+    WARN?: string;
+    ERROR?: string;
+    SUCCESS?: string;
+}
