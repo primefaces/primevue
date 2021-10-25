@@ -358,7 +358,9 @@ app.use(PrimeVue, {
             <h5>Quickstart with Vite</h5>
             <p>A <a href="https://github.com/primefaces/primevue-quickstart-vite">starter application</a> is also provided for Vite users.</p>
 
-            
+            <h5>Quickstart with Nuxt</h5>
+            <p>A <a href="https://github.com/primefaces/primevue-quickstart-nuxt3">sample application</a> is also available for Nuxt 3 users.</p>
+
         </div>
     </div>
 </template>
