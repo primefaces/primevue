@@ -6,12 +6,16 @@ interface MegaMenuProps {
     exact?: boolean;
 }
 
+interface MegaMenuItemSlotInterface {
+    item: any;
+}
+
 declare class MegaMenu {
     $props: MegaMenuProps;
     $slots: {
         start: VNode[];
         end: VNode[];
-        item: VNode[];
+        item: MegaMenuItemSlotInterface;
     }
 }
 

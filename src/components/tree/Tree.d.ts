@@ -16,6 +16,10 @@ interface TreeProps {
     scrollHeight?: string;
 }
 
+interface TreeSlotInterface{
+    node: any;
+}
+
 declare class Tree {
     $props: TreeProps;
     $emit(eventName: 'update:expandedKeys', value: any): this;
@@ -25,7 +29,7 @@ declare class Tree {
     $emit(eventName: 'node-expand', node: any): this;
     $emit(eventName: 'node-collapse', node: any): this;
     $slots: {
-        [key: string]: VNode[];
+        [key: string]: TreeSlotInterface;
     }
 }
 

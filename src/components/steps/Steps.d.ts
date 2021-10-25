@@ -1,5 +1,3 @@
-import { VNode } from 'vue';
-
 interface StepsProps {
     id?: string;
     model?: any[];
@@ -7,10 +5,14 @@ interface StepsProps {
     exact?: boolean;
 }
 
+interface StepsItemSlotInterface {
+    item: any;
+}
+
 declare class Steps {
     $props: StepsProps;
     $slots: {
-        item: VNode[];
+        item: StepsItemSlotInterface;
     }
 }
 

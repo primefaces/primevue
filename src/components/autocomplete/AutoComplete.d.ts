@@ -1,5 +1,4 @@
-import { VNode } from 'vue';
-import { VirtualScrollerProps } from '../virtualscroller';
+import VirtualScrollerProps from '../virtualscroller';
 
 interface AutoCompleteProps {
     modelValue?: any;
@@ -25,6 +24,41 @@ interface AutoCompleteProps {
     virtualScrollerOptions?: VirtualScrollerProps;
 }
 
+interface AutoCompleteItemSlotInterface {
+    item: any;
+    index: number;
+}
+
+interface AutoCompleteOptionGroupInterface {
+    item: any;
+    index: number;
+}
+
+interface AutoCompleteHeaderInterface {
+    value: any;
+    suggestions: any;
+}
+
+interface AutoCompleteFooterInterface {
+    value: any;
+    suggestions: any;
+}
+
+interface AutoCompleteChipInterface {
+    value: any;
+}
+
+interface AutoCompleteContentInterface {
+    items: any;
+    styleClass: string;
+    contentRef: string;
+    getItemOptions: any;
+}
+
+interface AutoCompleteLoaderInterface {
+    options: any[];
+}
+
 declare class AutoComplete {
     $props: AutoCompleteProps;
     $emit(eventName: 'update:modelValue', value: any): this;
@@ -34,13 +68,13 @@ declare class AutoComplete {
     $emit(eventName: 'complete', e: {originalEvent: Event, query: string}): this;
     $emit(eventName: 'clear'): this;
     $slots: {
-        item: VNode[];
-        optiongroup: VNode[];
-        header: VNode[];
-        footer: VNode[];
-        chip: VNode[];
-        content: VNode[];
-        loader: VNode[];
+        item: AutoCompleteItemSlotInterface;
+        optiongroup: AutoCompleteOptionGroupInterface;
+        header: AutoCompleteHeaderInterface;
+        footer: AutoCompleteFooterInterface;
+        chip: AutoCompleteChipInterface;
+        content: AutoCompleteContentInterface;
+        loader: AutoCompleteLoaderInterface;
     };
 }
 

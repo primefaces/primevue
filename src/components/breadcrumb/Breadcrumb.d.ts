@@ -4,8 +4,15 @@ interface BreadcrumbProps {
     exact?: boolean;
 }
 
+interface BreadcrumbItemSlotInterface {
+    item: any;
+}
+
 declare class Breadcrumb {
     $props: BreadcrumbProps;
+    $slots: {
+        item: BreadcrumbItemSlotInterface
+    }
 }
 
 export default Breadcrumb;

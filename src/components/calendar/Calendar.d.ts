@@ -45,6 +45,10 @@ interface CalendarProps {
     keepInvalid?: boolean;
 }
 
+interface CalendarDateSlotInterface {
+    date: any;
+}
+
 declare class Calendar {
     $props: CalendarProps;
     $emit(eventName: 'update:modelValue', value: Date | Date[]): this;
@@ -57,7 +61,7 @@ declare class Calendar {
     $emit(eventName: 'clear-click', event: Event): this;
     $slots: {
         header: VNode[];
-        date: VNode[];
+        date: CalendarDateSlotInterface;
         footer: VNode[];
     };
 }

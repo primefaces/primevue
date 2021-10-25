@@ -63,6 +63,29 @@ interface DataTableProps {
     stripedRows?: boolean;
 }
 
+interface DataTableHeaderSlotInterface {
+    column: any;
+}
+
+interface DataTableFooterSlotInterface {
+    column: any;
+}
+
+interface DataTableGroupHeaderSlotInterface {
+    data: any;
+    index: number;
+}
+
+interface DataTableGroupFooterSlotInterface {
+    data: any;
+    index: number;
+}
+
+interface DataTableExpansionSlotInterface {
+    data: any;
+    index: number;
+}
+
 declare class DataTable {
     $props: DataTableProps;
 
@@ -104,16 +127,18 @@ declare class DataTable {
     $emit(eventName: 'state-restore', value: any[]): this;
     $emit(eventName: 'state-save', value: any[]): this;
 
+    exportCSV(options?: any): void;
+
     $slots: {
-        header: VNode[];
+        header: DataTableHeaderSlotInterface;
+        footer: DataTableFooterSlotInterface;
         paginatorLeft: VNode[];
         paginatorRight: VNode[];
         empty: VNode[];
-        footer: VNode[];
-        groupheader: VNode[];
-        groupfooter: VNode[];
+        groupheader: DataTableGroupHeaderSlotInterface;
+        groupfooter: DataTableGroupFooterSlotInterface;
         loading: VNode[];
-        expansion: VNode[];
+        expansion: DataTableExpansionSlotInterface;
     };
 }
 

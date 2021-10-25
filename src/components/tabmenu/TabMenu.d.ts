@@ -1,15 +1,17 @@
-import { VNode } from 'vue';
-
 interface TabMenuProps {
     model?: any[];
     exact?: boolean;
     activeIndex?: number;
 }
 
+interface TabMenuItemSlotInterface {
+    item: any;
+}
+
 declare class TabMenu {
     $props: TabMenuProps;
     $slots: {
-        item: VNode[];
+        item: TabMenuItemSlotInterface;
     }
 }
 

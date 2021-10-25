@@ -17,6 +17,21 @@ interface TreeSelectProps {
     metaKeySelection?: boolean;
 }
 
+interface TreeSelectValueSlotInterface {
+    value: any;
+    placeholder: string;
+}
+
+interface TreeSelectHeaderSlotInterface {
+    value: any;
+    options: any[];
+}
+
+interface TreeSelectFooterSlotInterface {
+    value: any;
+    options: any[];
+}
+
 declare class TreeSelect {
     $props: TreeSelectProps;
     $emit(eventName: 'update:modelValue', value: any): this;
@@ -29,10 +44,12 @@ declare class TreeSelect {
     $emit(eventName: 'node-unselect', node: any): this;
     $emit(eventName: 'node-expand', node: any): this;
     $emit(eventName: 'node-collapse', node: any): this;
+    show(): void;
+    hide(): void;
     $slots: {
-        value: VNode[];
-        header: VNode[];
-        footer: VNode[];
+        value: TreeSelectValueSlotInterface;
+        header: TreeSelectHeaderSlotInterface;
+        footer: TreeSelectFooterSlotInterface;
         empty: VNode[];
         indicator: VNode[];
     }

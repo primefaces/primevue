@@ -21,13 +21,17 @@ interface SpeedDialProps {
     tooltipOptions?: any;
 }
 
+interface SpeedDialItemSlotInterface {
+    item: any;
+}
+
 declare class SpeedDial {
     $props: SpeedDialProps;
     $emit(eventName: 'click', event: Event): this;
     $emit(eventName: 'show'): this;
     $emit(eventName: 'hide'): this;
     $slots: {
-        item: VNode[];
+        item: SpeedDialItemSlotInterface;
         button: VNode[];
     };
 }

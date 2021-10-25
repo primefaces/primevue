@@ -1,5 +1,3 @@
-import { VNode } from 'vue';
-
 interface TieredMenuProps {
     popup?: boolean;
     model?: any[];
@@ -9,13 +7,17 @@ interface TieredMenuProps {
     exact?: boolean;
 }
 
+interface TieredMenuItemSlotInterface {
+    item: any;
+}
+
 declare class TieredMenu {
     $props: TieredMenuProps;
     toggle(event: Event): void;
     show(event: Event, target?: any): void;
     hide(): void;
     $slots: {
-        item: VNode[];
+        item: TieredMenuItemSlotInterface;
     }
 }
 

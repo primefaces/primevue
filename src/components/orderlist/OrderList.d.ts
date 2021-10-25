@@ -10,6 +10,11 @@ interface OrderListProps {
     breakpoint?: string;
 }
 
+interface OrderListItemSlotInterface {
+    item: any;
+    index: number;
+}
+
 declare class OrderList {
     $props: OrderListProps;
     $emit(eventName: 'update:modelValue', value: any[]): this;
@@ -18,7 +23,7 @@ declare class OrderList {
     $emit(eventName: 'selection-change', e: { originalEvent: Event, value: any[]}): this;
     $slots: {
         header: VNode[];
-        item: VNode[];
+        item: OrderListItemSlotInterface;
     }
 }
 

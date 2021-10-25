@@ -1,5 +1,5 @@
 import { VNode } from 'vue';
-import { VirtualScrollerProps } from '../virtualscroller';
+import VirtualScrollerProps from '../virtualscroller';
 
 interface DropdownProps {
     modelValue?: any;
@@ -32,6 +32,42 @@ interface DropdownProps {
     virtualScrollerOptions?: VirtualScrollerProps;
 }
 
+interface DropdownValueSlotInterface {
+    value: any;
+    placeholder: string;
+}
+
+interface DropdownHeaderSlotInterface {
+    value: any;
+    options: any[];
+}
+
+interface DropdownFooterSlotInterface {
+    value: any;
+    options: any[];
+}
+
+interface DropdownOptionSlotInterface {
+    option: any;
+    index: number;
+}
+
+interface DropdownOptionGroupSlotInterface {
+    option: any;
+    index: number;
+}
+
+interface DropdownContentInterface {
+    items: any;
+    styleClass: string;
+    contentRef: string;
+    getItemOptions: any;
+}
+
+interface DropdownLoaderInterface {
+    options: any[];
+}
+
 declare class Dropdown {
     $props: DropdownProps;
     $emit(eventName: 'update:modelValue', value: any): this;
@@ -43,16 +79,18 @@ declare class Dropdown {
     $emit(eventName: 'focus', e: Event): this;
     $emit(eventName: 'blur', e: Event): this;
     $emit(eventName: 'filter', e: { originalEvent: Event, value: string }): this;
+    show(): void;
+    hide(): void;
     $slot: {
-        value: VNode[];
-        header: VNode[];
-        footer: VNode[];
-        option: VNode[];
-        optiongroup: VNode[];
+        value: DropdownValueSlotInterface;
+        header: DropdownHeaderSlotInterface;
+        footer: DropdownFooterSlotInterface;
+        option: DropdownOptionSlotInterface;
+        optiongroup: DropdownOptionGroupSlotInterface;
         emptyfilter: VNode[];
         empty: VNode[];
-        content: VNode[];
-        loader: VNode[];
+        content: DropdownContentInterface;
+        loader: DropdownLoaderInterface;
         indicator: VNode[];
     }
 }

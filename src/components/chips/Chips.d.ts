@@ -10,13 +10,17 @@ interface ChipsProps {
     style?: any;
 }
 
+interface ChipsChipSlotInterface {
+    value: any;
+}
+
 declare class Chips {
     $props: ChipsProps;
     $emit(eventName: 'update:modelValue', value: any[]): this;
     $emit(eventName: 'add', e: { originalEvent: Event, value: any }): this;
     $emit(eventName: 'remove', e: { originalEvent: Event, value: any }): this;
     $slots: {
-        chip: VNode[];
+        chip: ChipsChipSlotInterface;
     }
 }
 

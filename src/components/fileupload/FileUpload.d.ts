@@ -1,3 +1,5 @@
+import { VNode } from 'vue';
+
 interface FileUploadProps {
     name?: string;
     url?: string;
@@ -34,6 +36,9 @@ declare class FileUpload {
     $emit(eventName: 'before-send', e: { xhr: XMLHttpRequest, formData: any }): this;
     $emit(eventName: 'clear'): this;
     $emit(eventName: 'remove', e: { file: File, files: File[] }): this;
+    $slots: {
+        empty: VNode[];
+    }
 }
 
 export default FileUpload;

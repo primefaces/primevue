@@ -5,12 +5,16 @@ interface MenubarProps {
     exact?: boolean;
 }
 
+interface MenubarItemSlotInterface {
+    item: any;
+}
+
 declare class Menubar {
     $props: MenubarProps;
     $slots: {
         start: VNode[];
         end: VNode[];
-        item: VNode[];
+        item: MenubarItemSlotInterface;
     }
 }
 

@@ -6,8 +6,15 @@ interface ToastProps {
     breakpoints?: {[key: string]: string};
 }
 
+interface ToastMessageSlotInterface {
+    message: any;
+}
+
 declare class Toast {
     $props: ToastProps;
+    $slots: {
+        message: ToastMessageSlotInterface;
+    }
 }
 
 export default Toast;

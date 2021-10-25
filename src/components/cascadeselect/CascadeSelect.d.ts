@@ -19,6 +19,15 @@ interface CascadeSelectProps {
     loadingIcon?: string;
 }
 
+interface CascadeSelectOptionSlotInterface {
+    option: any;
+}
+
+interface CascadeSelectValueSlotInterface {
+    value: any;
+    placeholder: string;
+}
+
 declare class CascadeSelect {
     $props: CascadeSelectProps;
     $emit(eventName: 'update:modelValue', value: string): this;
@@ -29,8 +38,8 @@ declare class CascadeSelect {
     $emit(eventName: 'show'): this;
     $emit(eventName: 'hide'): this;
     $slot: {
-        option: VNode[];
-        value: VNode[];
+        option: CascadeSelectOptionSlotInterface;
+        value: CascadeSelectValueSlotInterface;
         indicator: VNode[];
     }
 }

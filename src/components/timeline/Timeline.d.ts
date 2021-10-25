@@ -7,12 +7,17 @@ interface TimelineProps {
     dataKey?: string;
 }
 
+interface TimelineSlotInterface {
+    item: any;
+    index: number;
+}
+
 declare class Timeline {
     $props: TimelineProps;
     $slots: {
-        content: VNode[];
-        opposite: VNode[];
-        marker: VNode[];
+        content: TimelineSlotInterface;
+        opposite: TimelineSlotInterface;
+        marker: TimelineSlotInterface;
         connector: VNode[];
     }
 }

@@ -1,5 +1,3 @@
-import { VNode } from 'vue';
-
 interface VirtualScrollerProps {
     items?: any[]|any[][];
     itemSize?: number|any[];
@@ -24,6 +22,39 @@ interface VirtualScrollerRangeMethodInterface {
     }
 }
 
+interface VirtualScrollerGetItemOptionsInterface {
+    index: number;
+    count: number;
+    first: number;
+    last: number;
+    even: number;
+    odd: number;
+}
+
+interface VirtualScrollerGetLoaderOptionsInterface {
+    loading: boolean;
+    first: number;
+    last: number;
+    even: number;
+    odd: number;
+}
+
+interface VirtualScrollerContentSlotInterface {
+    contentRef: string;
+    styleClass: string;
+    items: any[];
+    getItemOptions: VirtualScrollerGetItemOptionsInterface;
+}
+
+interface VirtualScrollerItemSlotInterface {
+    item: any;
+    options: VirtualScrollerGetItemOptionsInterface;
+}
+
+interface VirtualScrollerLoaderSlotInterface {
+    options: VirtualScrollerGetLoaderOptionsInterface;
+}
+
 declare class VirtualScroller {
     $props: VirtualScrollerProps;
     scrollTo(options?: ScrollToOptions): void;
@@ -34,8 +65,10 @@ declare class VirtualScroller {
     $emit(eventName: 'scroll-index-change', value: { first: number, last: number }): this;
     $emit(eventName: 'lazy-load', value: { first: number, last: number }): this;
     $slots: { 
-        content: VNode[];
-        items: VNode[];
-        loader: VNode[];
+        content: VirtualScrollerContentSlotInterface;
+        item: VirtualScrollerItemSlotInterface;
+        loader: VirtualScrollerLoaderSlotInterface;
     }
 }
+
+export default VirtualScroller;

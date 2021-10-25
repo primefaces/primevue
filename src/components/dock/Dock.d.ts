@@ -9,11 +9,19 @@ interface DockProps {
     tooltipOptions?: any;
 }
 
+interface DockItemSlotInterface {
+    item: any;
+}
+
+interface DockIconSlotInterface {
+    item: any;
+}
+
 declare class Dock {
     $props: DockProps;
     $slots: {
-        'item': VNode[];
-        'icon': VNode[];
+        item: DockItemSlotInterface;
+        icon: DockIconSlotInterface;
     }
 }
 

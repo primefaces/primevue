@@ -9,10 +9,14 @@ interface ContextMenuProps {
     exact?: boolean;
 }
 
+interface ContextMenuItemSlotInterface {
+    item: object;
+}
+
 declare class ContextMenu {
     $props: ContextMenuProps;
     $slots: {
-        item: VNode[];
+        item: ContextMenuItemSlotInterface;
     }
     toggle(event: Event): void;
     show(event: Event, target?: any): void;

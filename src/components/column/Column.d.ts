@@ -1,5 +1,3 @@
-import { VNode } from 'vue';
-
 interface ColumnProps {
     columnKey?: any;
     field?: string | ((item: any) => any);
@@ -45,18 +43,51 @@ interface ColumnProps {
     hidden?: boolean;
 }
 
+interface ColumnBodySlotInterface {
+    data: any;
+    column: any;
+    field: string;
+    index: number;
+    frozenRow: boolean;
+}
+
+interface ColumnHeaderSlotInterface {
+    column: any;
+}
+
+interface ColumnFooterSlotInterface {
+    column: any;
+}
+
+interface ColumnEditorSlotInterface {
+    data: any;
+    column: any;
+    field: string;
+    index: number;
+    frozenRow: boolean;
+}
+
+interface ColumnFilterSlotInterface {
+    field: string;
+    filterModel: {
+        value: any;
+        matchMode: string;
+    };
+    filterCallback: any;
+}
+
 declare class Column {
     $props: ColumnProps;
     $slots: {
-        body: VNode[];
-        header: VNode[];
-        footer: VNode[];
-        editor: VNode[];
-        filter: VNode[];
-        filterheader: VNode[];
-        filterfooter: VNode[];
-        filterclear: VNode[];
-        filterapply: VNode[];
+        body: ColumnBodySlotInterface;
+        header: ColumnHeaderSlotInterface;
+        footer: ColumnFooterSlotInterface;
+        editor: ColumnEditorSlotInterface;
+        filter: ColumnFilterSlotInterface;
+        filterheader: ColumnFilterSlotInterface;
+        filterfooter: ColumnFilterSlotInterface;
+        filterclear: ColumnFilterSlotInterface;
+        filterapply: ColumnFilterSlotInterface;
     }
 }
 

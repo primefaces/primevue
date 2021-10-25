@@ -1,5 +1,5 @@
 import { VNode } from 'vue';
-import { VirtualScrollerProps } from '../virtualscroller';
+import VirtualScrollerProps from '../virtualscroller';
 
 interface MultiSelectProps {
     modelValue?: any;
@@ -36,6 +36,46 @@ interface MultiSelectProps {
     selectAll?: boolean;
 }
 
+interface MultiSelectValueSlotInterface {
+    value: any;
+    placeholder: string;
+}
+
+interface MultiSelectHeaderSlotInterface {
+    value: any;
+    options: any[];
+}
+
+interface MultiSelectFooterSlotInterface {
+    value: any;
+    options: any[];
+}
+
+interface MultiSelectOptionSlotInterface {
+    option: any;
+    index: number;
+}
+
+interface MultiSelectOptionGroupSlotInterface {
+    option: any;
+    index: number;
+}
+
+interface MultiSelectChipSlotContent {
+    value: any;
+}
+
+interface MultiSelectContentInterface {
+    items: any;
+    styleClass: string;
+    contentRef: string;
+    getItemOptions: any;
+}
+
+interface MultiSelectLoaderSlotInterface {
+    options: any[];
+}
+
 declare class MultiSelect {
     $props: MultiSelectProps;
     $emit(eventName: 'update:modelValue', value: any): this;
@@ -46,17 +86,19 @@ declare class MultiSelect {
     $emit(eventName: 'hide'): this;
     $emit(eventName: 'filter', e: { originalEvent: Event, value: string }): this;
     $emit(eventName: 'selectall-change', e: { originalEvent: Event, checked: boolean }): this;
+    show(): void;
+    hide(): void;
     $slots: {
-        value: VNode[];
-        header: VNode[];
-        footer: VNode[];
+        value: MultiSelectValueSlotInterface;
+        header: MultiSelectHeaderSlotInterface;
+        footer: MultiSelectFooterSlotInterface;
         emptyfilter: VNode[];
         empty: VNode[];
-        option: VNode[];
-        optiongroup: VNode[];
-        chip: VNode[];
-        content: VNode[];
-        loader: VNode[];
+        option: MultiSelectOptionSlotInterface;
+        optiongroup: MultiSelectOptionGroupSlotInterface;
+        chip: MultiSelectChipSlotContent;
+        content: MultiSelectContentInterface;
+        loader: MultiSelectLoaderSlotInterface;
         indicator: VNode[];
     }
 }

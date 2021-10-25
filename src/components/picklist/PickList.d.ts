@@ -10,6 +10,11 @@ interface PickListProps {
     breakpoint?: string;
 }
 
+interface PickListItemSlotInterface {
+    item: any;
+    index: number;
+}
+
 declare class PickList {
     $props: PickListProps;
     $emit(eventName: 'update:modelValue', value: any[]): this;
@@ -22,7 +27,7 @@ declare class PickList {
     $emit(eventName: 'move-all-tou-source', e: { originalEvent: Event, items: [] }): this;
     $slots: {
         header: VNode[];
-        item: VNode[];
+        item: PickListItemSlotInterface;
         sourceHeader: VNode[];
         targetHeader: VNode[];
     }

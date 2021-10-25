@@ -18,6 +18,11 @@ interface DataViewProps {
     lazy?: boolean;
 }
 
+interface DataViewSlotInterface {
+    data: any;
+    index: number;
+}
+
 declare class DataView {
     $props: DataViewProps;
     $emit(eventName: 'update:first', value: number): this;
@@ -27,8 +32,8 @@ declare class DataView {
         header: VNode[];
         paginatorLeft: VNode[];
         paginatorRight: VNode[];
-        list: VNode[];
-        grid: VNode[];
+        list: DataViewSlotInterface;
+        grid: DataViewSlotInterface;
         empty: VNode[];
         footer: VNode[];
     }

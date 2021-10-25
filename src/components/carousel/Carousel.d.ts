@@ -15,11 +15,16 @@ interface CarouselProps {
 	autoplayInterval?: number;
 }
 
+interface CarouselItemSlotInterface {
+	data: any;
+	index: number;
+}
+
 declare class Carousel {
 	$props: CarouselProps;
 	$emit(eventName: 'update:page', value: number): this;
 	$slots: {
-		item: VNode[];
+		item: CarouselItemSlotInterface;
 		header: VNode[];
 		footer: VNode[];
 	}

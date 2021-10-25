@@ -9,13 +9,17 @@ interface MenuProps {
     exact?: boolean;
 }
 
+interface MenuItemSlotInterface {
+    item: any;
+}
+
 declare class Menu {
     $props: MenuProps;
     toggle(event: Event): void;
     show(event: Event, target?: any): void;
     hide(): void;
     $slots: {
-        item: VNode[];
+        item: MenuItemSlotInterface;
     }
 }
 
