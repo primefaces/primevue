@@ -61,6 +61,8 @@ interface DataTableProps {
     breakpoing?: string;
     showGridlines?: boolean;
     stripedRows?: boolean;
+    tableStyle?: object;
+    tableClass?: string;
 }
 
 interface DataTableHeaderSlotInterface {

@@ -17,7 +17,7 @@
             </template>
         </DTPaginator>
         <div class="p-datatable-wrapper" :style="{maxHeight: scrollHeight}">
-            <table ref="table" role="table" class="p-datatable-table">
+            <table ref="table" role="table" :class="[tableClass, 'p-datatable-table']" :tableStyle="tableStyle">
                 <DTTableHeader :columnGroup="headerColumnGroup" :columns="columns" :rowGroupMode="rowGroupMode"
                         :groupRowsBy="groupRowsBy" :groupRowSortField="groupRowSortField" :resizableColumns="resizableColumns" :allRowsSelected="allRowsSelected" :empty="empty"
                         :sortMode="sortMode" :sortField="d_sortField" :sortOrder="d_sortOrder" :multiSortMeta="d_multiSortMeta" :filters="d_filters" :filtersStore="filters" :filterDisplay="filterDisplay"
@@ -316,6 +316,14 @@ export default {
         stripedRows: {
             type: Boolean,
             default: false
+        },
+        tableStyle: {
+            type: null,
+            default: null
+        },
+        tableClass: {
+            type: String,
+            default: null
         }
     },
     data() {

@@ -346,6 +346,18 @@ const DataTableProps = [
         type: "boolean",
         default: "false",
         description: "Whether to displays rows with alternating colors."
+    },
+    {
+        name: "tableStyle",
+        type: "object",
+        default: "null",
+        description: "Inline style of the table element."
+    },
+    {
+        name: "tableClass",
+        type: "string",
+        default: "null",
+        description: "Style class of the table element."
     }
 ];
 

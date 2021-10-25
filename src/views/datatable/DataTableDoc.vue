@@ -2156,6 +2156,18 @@ export default {
                             <td>false</td>
                             <td>Whether to displays rows with alternating colors.</td>
                         </tr>
+                        <tr>
+                            <td>tableStyle</td>
+                            <td>object</td>
+                            <td>null</td>
+                            <td>Inline style of the table element.</td>
+                        </tr>
+                        <tr>
+                            <td>tableClass</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Style class of the table element.</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
