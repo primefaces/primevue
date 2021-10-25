@@ -214,6 +214,40 @@ primevue/resources/themes/rhea/theme.css
 
 </code></pre>
 
+            <h5>Nuxt Integration</h5>
+            <p>Nuxt 3 is currently in beta and an official module is planned after the final release. At the moment, PrimeVue can easily be used with Nuxt 3 using a custom plugin.</p>
+
+            <b>nuxt.config.js</b>
+            <p>Open the nuxt configuration file and add the css dependencies.</p>
+<pre v-code.script><code>
+import { defineNuxtConfig } from 'nuxt3'
+
+export default defineNuxtConfig({
+    css: [
+        'primevue/resources/themes/saga-blue/theme.css',
+        'primevue/resources/primevue.css',
+        'primeicons/primeicons.css'
+    ]
+})
+
+</code></pre>
+
+            <b>primevue.js</b>
+            <p>Create a file like <i>primevue.js</i> under the plugins directory for the configuration.</p>
+
+<pre v-code.script><code>
+import { defineNuxtPlugin } from "#app";
+import PrimeVue from "primevue/config";
+import Button from "primevue/button";
+
+export default defineNuxtPlugin((nuxtApp) => {
+    nuxtApp.vueApp.use(PrimeVue, {ripple: true});
+    nuxtApp.vueApp.component('Button', Button);
+    //other components that you need
+});
+
+</code></pre>
+
             <h5>PrimeFlex</h5>
             <p>PrimeFlex is a CSS utility library featuring various helpers such as a grid system, flexbox, spacing, elevation and more. Although it is not required, it is highly
                 recommended to add PrimeFlex as it is likely to need such utilities when developing applications. View the <router-link to="/primeflex">PrimeFlex</router-link> section for the installation.</p>
