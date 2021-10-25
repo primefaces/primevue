@@ -1,5 +1,5 @@
 <template>
-    <div ref="container" class="p-blockui-container">
+    <div ref="container" class="p-blockui-container" v-bind="$attrs">
         <slot></slot>
     </div>
 </template>
