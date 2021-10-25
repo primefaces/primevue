@@ -156,7 +156,9 @@ export default {
             this.bindGlobalListeners();
         },
         onBeforeLeave() {
-            DomHandler.addClass(this.mask, 'p-component-overlay-leave');
+            if (this.modal) {
+                DomHandler.addClass(this.mask, 'p-component-overlay-leave');
+            }
         },
         onLeave() {
 
