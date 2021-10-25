@@ -1,5 +1,30 @@
 # Changelog
 
+## [3.8.2](https://github.com/primefaces/primevue/tree/3.8.2) (2021-10-25)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.8.1...3.8.2)
+
+**Implemented New Features and Enhancements:**
+
+- Nuxt3 integration [\#1660](https://github.com/primefaces/primevue/issues/1660)
+- Update all .d.ts files for events and slots [\#1695](https://github.com/primefaces/primevue/issues/1695)
+- Add tableStyle and tableClass to Table [\#1696](https://github.com/primefaces/primevue/issues/1696)
+- VirtualScroll update d.ts [\#1687](https://github.com/primefaces/primevue/issues/1687)
+- Dropdown should automatically scroll to show the selected option [\#1657](https://github.com/primefaces/primevue/issues/1657)
+- BlockUI not working with div as child component [\#1625](https://github.com/primefaces/primevue/issues/1625)
+- Accessibility issue with Accordion keyboard navigation [\#1616](https://github.com/primefaces/primevue/issues/1616)
+
+**Fixed bugs:**
+
+- Flicker on non-modal Dialogs [\#1697](https://github.com/primefaces/primevue/issues/1697)
+- ToastSeverity added .d.ts [\#1690](https://github.com/primefaces/primevue/issues/1690)
+- ContextMenu "template" prop type error [\#1688](https://github.com/primefaces/primevue/issues/1688)
+- Dragging a Dialog breaks "maximize" feature [\#1684](https://github.com/primefaces/primevue/issues/1684)
+- MegaMenu templating not work [\#1679](https://github.com/primefaces/primevue/issues/1679)
+- Wrong TypeScript-types for InputText component [\#1674](https://github.com/primefaces/primevue/issues/1674)
+- inputNumber class prop type defect [\#1661](https://github.com/primefaces/primevue/issues/1661)
+- Menubar templating error [\#1526](https://github.com/primefaces/primevue/issues/1526)
+
 ## [3.8.1](https://github.com/primefaces/primevue/tree/3.8.1) (2021-10-13)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.8.0...3.8.1)
