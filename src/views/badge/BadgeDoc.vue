@@ -12,7 +12,7 @@ import Badge from 'primevue/badge';
 
         <h6>Import via CDN</h6>
 <pre v-code><code>
-&lt;script src="https://unpkg.com/primevue@^3/core/core.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/badge/badge.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
@@ -32,7 +32,7 @@ import BadgeDirective from 'primevue/badgedirective';
 
         <h6>Import via CDN</h6>
 <pre v-code><code>
-&lt;script src="https://unpkg.com/primevue@^3/core/core.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/badgedirective/badgedirective.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
