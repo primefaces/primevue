@@ -12,6 +12,13 @@ npm install primeicons --save
 
 </code></pre>
 
+<p>Then import the library.</p>
+
+<pre v-code.script><code>
+import 'primeicons/primeicons.css';
+
+</code></pre>
+
             <h5>Getting Started</h5>
             <p>PrimeIcons use the <strong>pi pi-&#123;icon&#125;</strong> syntax such as <strong>pi pi-check</strong>.
             A standalone icon can be displayed using an element like <i>i</i> or <i>span</i></p>
