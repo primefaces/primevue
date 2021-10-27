@@ -993,7 +993,7 @@ export default {
                     </template>
                 </p-dataview>
             </div>
-        </template>
+        </div>
 
         <script type="module">
         const { createApp, ref, onMounted } = Vue;
