@@ -4,7 +4,7 @@ import VirtualScrollerProps from '../virtualscroller';
 interface DropdownProps {
     modelValue?: any;
     options?: any[];
-    optionLabel?: string;
+    optionLabel?: string | ((option: any) => string);
     optionValue?: any;
     optionDisabled?: boolean;
     optionGroupLabel?: string;
