@@ -209,6 +209,24 @@ export default {
 			</table>
 		</div>
 
+        <h5>Slots</h5>
+		<div class="doc-tablewrapper">
+			<table class="doc-table">
+				<thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Parameters</th>
+                    </tr>
+				</thead>
+				<tbody>
+                    <tr>
+                        <td>message</td>
+                        <td>-</td>
+                    </tr>
+				</tbody>
+			</table>
+		</div>
+
 		<h5>Styling</h5>
 		<p>ConfirmDialog inherits all the classes from the Dialog component, visit <router-link to="/dialog">dialog</router-link> for more information.</p>
 		<div class="doc-tablewrapper">
