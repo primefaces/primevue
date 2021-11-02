@@ -269,7 +269,7 @@ export default {
 		},
 		onTouchMove(e) {
 			if (e.cancelable) {
-				e.preventDefault();
+				e.stopPropagation();
 			}
 		},
 		onTouchEnd(e) {
