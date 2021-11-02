@@ -13,6 +13,7 @@ declare class Panel {
     $slots: {
         '': VNode[];
         header: VNode[];
+        icons: VNode[];
     }
 }
 
