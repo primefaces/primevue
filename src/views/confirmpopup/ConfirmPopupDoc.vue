@@ -97,6 +97,21 @@ export default {
 
 </code></pre>
 
+        <h5>Templating</h5>
+        <p>Templating allows customizing the content where the message instance is available as the implicit variable.</p>
+<pre v-code><code><template v-pre>
+&lt;ConfirmPopup group="demo">
+    &lt;template #message="slotProps"&gt;
+        &lt;div class="p-d-flex p-p-4"&gt;
+            &lt;i :class="slotProps.message.icon" style="font-size: 1.5rem"&gt;&lt;/i&gt;
+            &lt;p class="p-pl-2"&gt;{{slotProps.message.message}}&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/template&gt;
+&lt;/ConfirmPopup&gt;
+
+</template>
+</code></pre>
+
         <h5>Confirmation Options</h5>
         <p>ConfirmDialog can be customized with various options listed here.</p>
         <div class="doc-tablewrapper">
@@ -278,11 +293,23 @@ export default {
 <template>
     <div>
         <ConfirmPopup></ConfirmPopup>
+        <ConfirmPopup group="demo">
+            <template #message="slotProps">
+                <div class="p-d-flex p-p-4">
+                    <i :class="slotProps.message.icon" style="font-size: 1.5rem"></i>
+                    <p class="p-pl-2">{{slotProps.message.message}}</p>
+                </div>
+            </template>
+        </ConfirmPopup>
         <Toast />
 
         <div class="card">
+            <h5>Overlay</h5>
             <Button @click="confirm1($event)" icon="pi pi-check" label="Confirm" class="p-mr-2"></Button>
             <Button @click="confirm2($event)" icon="pi pi-times" label="Delete" class="p-button-danger p-button-outlined"></Button>
+    
+            <h5>Templating</h5>
+            <Button @click="showTemplate($event)" icon="pi pi-check" label="Terms and Conditions" class="p-mr-2"></Button>
         </div>
     </div>
 </template>
@@ -316,6 +343,22 @@ export default {
                     this.$toast.add({severity:'error', summary:'Rejected', detail:'You have rejected', life: 3000});
                 }
             });
+        },
+        showTemplate(event) {
+            this.$confirm.require({
+                target: event.currentTarget,
+                group: 'demo',
+                message: 'Do you accept that?',
+                icon: 'pi pi-question-circle',
+                acceptIcon: 'pi pi-check',
+                rejectIcon: 'pi pi-times',
+                accept: () => {
+                    this.$toast.add({severity:'info', summary:'Confirmed', detail:'You have accepted', life: 3000});
+                },
+                reject: () => {
+                    this.$toast.add({severity:'error', summary:'Rejected', detail:'You have rejected', life: 3000});
+                }
+            });
         }
     }
 }
@@ -327,11 +370,23 @@ export default {
                     content: `<template>
     <div>
         <ConfirmPopup></ConfirmPopup>
+        <ConfirmPopup group="demo">
+            <template #message="slotProps">
+                <div class="p-d-flex p-p-4">
+                    <i :class="slotProps.message.icon" style="font-size: 1.5rem"></i>
+                    <p class="p-pl-2">{{slotProps.message.message}}</p>
+                </div>
+            </template>
+        </ConfirmPopup>
         <Toast />
 
         <div class="card">
+            <h5>Overlay</h5>
             <Button @click="confirm1($event)" icon="pi pi-check" label="Confirm" class="p-mr-2"></Button>
             <Button @click="confirm2($event)" icon="pi pi-times" label="Delete" class="p-button-danger p-button-outlined"></Button>
+    
+            <h5>Templating</h5>
+            <Button @click="showTemplate($event)" icon="pi pi-check" label="Terms and Conditions" class="p-mr-2"></Button>
         </div>
     </div>
 </template>
@@ -375,7 +430,24 @@ export default defineComponent({
             });
         }
 
-        return { confirm1, confirm2 };
+        const showTemplate = (event) => {
+            confirm.require({
+                target: event.currentTarget,
+                group: 'demo',
+                message: 'Do you accept that?',
+                icon: 'pi pi-question-circle',
+                acceptIcon: 'pi pi-check',
+                rejectIcon: 'pi pi-times',
+                accept: () => {
+                    toast.add({severity:'info', summary:'Confirmed', detail:'You have accepted', life: 3000});
+                },
+                reject: () => {
+                    toast.add({severity:'error', summary:'Rejected', detail:'You have rejected', life: 3000});
+                }
+            });
+        }
+
+        return { confirm1, confirm2, showTemplate };
     },
 })
 <\\/script>
@@ -389,11 +461,23 @@ export default defineComponent({
         <script src="https://unpkg.com/primevue@^3/toastservice/toastservice.min.js"><\\/script>`,
                     content: `<div id="app">
             <p-confirmpopup></p-confirmpopup>
+            <p-confirmpopup group="demo">
+                <template #message="slotProps">
+                    <div class="p-d-flex p-p-4">
+                        <i :class="slotProps.message.icon" style="font-size: 1.5rem"></i>
+                        <p class="p-pl-2">{{slotProps.message.message}}</p>
+                    </div>
+                </template>
+            </p-confirmpopup>
             <p-toast></p-toast>
 
             <div class="card">
+                <h5>Overlay</h5>
                 <p-button @click="confirm1($event)" icon="pi pi-check" label="Confirm" class="p-mr-2"></p-button>
                 <p-button @click="confirm2($event)" icon="pi pi-times" label="Delete" class="p-button-danger p-button-outlined"></p-button>
+
+                <h5>Templating</h5>
+                <p-button @click="showTemplate($event)" icon="pi pi-check" label="Terms and Conditions" class="p-mr-2"></p-button>
             </div>
         </div>
 
@@ -436,7 +520,24 @@ export default defineComponent({
                     });
                 }
 
-                return { confirm1, confirm2 };
+                const showTemplate = (event) => {
+                    confirm.require({
+                        target: event.currentTarget,
+                        group: 'demo',
+                        message: 'Do you accept that?',
+                        icon: 'pi pi-question-circle',
+                        acceptIcon: 'pi pi-check',
+                        rejectIcon: 'pi pi-times',
+                        accept: () => {
+                            toast.add({severity:'info', summary:'Confirmed', detail:'You have accepted', life: 3000});
+                        },
+                        reject: () => {
+                            toast.add({severity:'error', summary:'Rejected', detail:'You have rejected', life: 3000});
+                        }
+                    });
+                }
+
+                return { confirm1, confirm2, showTemplate };
             },
             components: {
                 "p-confirmpopup": primevue.confirmpopup,
