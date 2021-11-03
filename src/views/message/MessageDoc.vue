@@ -114,6 +114,12 @@ import InlineMessage from 'primevue/inlinemessage';
                         <td>3000</td>
                         <td>Delay in milliseconds to close the message automatically.</td>
                     </tr>
+                    <tr>
+                        <td>icon</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Display a custom icon for the message.</td>
+                    </tr>
 				</tbody>
 			</table>
 		</div>
