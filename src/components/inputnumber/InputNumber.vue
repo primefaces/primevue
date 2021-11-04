@@ -129,10 +129,14 @@ export default {
     timer: null,
     data() {
         return {
+            d_modelValue: this.modelValue,
             focused: false
         }
     },
     watch: {
+        modelValue(newValue) {
+            this.d_modelValue = newValue;
+        },
 		locale(newValue, oldValue) {
             this.updateConstructParser(newValue, oldValue);
         },
@@ -891,6 +895,7 @@ export default {
             return 0;
         },
         updateModel(event, value) {
+            this.d_modelValue = value;
             this.$emit('update:modelValue', value);
         },
         onInputFocus() {
@@ -909,7 +914,13 @@ export default {
             if (this.timer) {
                 clearInterval(this.timer);
             }
-        }
+        },
+        maxBoundry() {
+            return this.d_modelValue >= this.max;
+        },
+        minBoundry() {
+            return this.d_modelValue <= this.min;
+        },
     },
     computed: {
         containerClass() {
@@ -921,11 +932,16 @@ export default {
                 'p-inputnumber-buttons-vertical': this.showButtons && this.buttonLayout === 'vertical'
             }];
         },
+        
         upButtonClass() {
-            return ['p-inputnumber-button p-inputnumber-button-up', this.incrementButtonClass];
+            return ['p-inputnumber-button p-inputnumber-button-up', this.incrementButtonClass, {
+                'p-disabled': this.showButtons && this.max !== null && this.maxBoundry()
+            }];
         },
         downButtonClass() {
-            return ['p-inputnumber-button p-inputnumber-button-down', this.decrementButtonClass];
+            return ['p-inputnumber-button p-inputnumber-button-down', this.decrementButtonClass, {
+                'p-disabled': this.showButtons && this.min !== null && this.minBoundry()
+            }];
         },
         filled() {
             return (this.modelValue != null && this.modelValue.toString().length > 0)
