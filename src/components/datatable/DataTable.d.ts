@@ -106,8 +106,9 @@ declare class DataTable {
     $emit(eventName: 'sort', event: Event): this;
     $emit(eventName: 'filter', event: Event): this;
     $emit(eventName: 'value-change', value: any[]): this;
-    $emit(eventName: 'row-click', event: Event): this;
-    $emit(eventName: 'row-dblclick', event: Event): this;
+    $emit(eventName: 'row-click', event: {originalEvent: Event, data: any, index: number}): this;
+    $emit(eventName: 'row-dblclick', event: {originalEvent: Event, data: any, index: number}): this;
+    $emit(eventName: 'row-rightclick', event: {originalEvent: Event, data: any, index: number}): this;
     $emit(eventName: 'row-contextmenu', event: Event): this;
     $emit(eventName: 'row-select', event: {originalEvent: Event, data: any, index: number, type: string}): this;
     $emit(eventName: 'row-select-all', event: {originalEvent: Event, data: any}): this;
