@@ -39,7 +39,7 @@ export default {
             default: null
         },
         template: {
-            type: Object,
+            type: Function,
             default: null
         },
         expandedKeys: {

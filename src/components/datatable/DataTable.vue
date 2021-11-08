@@ -687,7 +687,7 @@ export default {
 
             if (this.selectionMode) {
                 const rowData = e.data;
-                const rowIndex = e.index;
+                const rowIndex = this.d_first + e.index;
 
                 if (this.isMultipleSelectionMode() && event.shiftKey && this.anchorRowIndex != null) {
                     DomHandler.clearSelection();
