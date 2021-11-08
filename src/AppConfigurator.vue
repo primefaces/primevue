@@ -138,13 +138,13 @@
                             <span>Lara Indigo</span>
                         </div>
                         <div class="p-col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'lara-light-purple')">
+                            <button class="p-link" type="button" @click="changeTheme($event, 'lara-dark-indigo')">
                                 <img src="demo/images/themes/saga-green.png" alt="Saga Green" />
                             </button>
                             <span>Lara Purple</span>
                         </div>
                         <div class="p-col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'lara-dark-indigo')">
+                            <button class="p-link" type="button" @click="changeTheme($event, 'lara-light-purple')">
                                 <img src="demo/images/themes/saga-orange.png" alt="Saga Orange" />
                             </button>
                             <span>Lara Dark Indigo</span>
