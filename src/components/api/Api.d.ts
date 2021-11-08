@@ -289,8 +289,8 @@ export const PrimeIcons: {
 }
 
 export const ToastSeverity: {
-    INFO?: string;
-    WARN?: string;
-    ERROR?: string;
-    SUCCESS?: string;
+    INFO?: string,
+    WARN?: string,
+    ERROR?: string,
+    SUCCESS?: string
 }
