@@ -43,7 +43,7 @@ export default {
         return {
             sidebarActive: false,
             newsActive: true,
-            theme: 'saga-blue'
+            theme: 'lara-dark-indigo'
         }
     },
     mounted() {

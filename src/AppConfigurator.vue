@@ -131,6 +131,30 @@
 
                     <h5>PrimeOne Design</h5>
                     <div class="p-grid free-themes">
+                         <div class="p-col-3">
+                            <button class="p-link" type="button" @click="changeTheme($event, 'lara-light-indigo')">
+                                <img src="demo/images/themes/saga-blue.png" alt="Saga Blue" />
+                            </button>
+                            <span>Lara Indigo</span>
+                        </div>
+                        <div class="p-col-3">
+                            <button class="p-link" type="button" @click="changeTheme($event, 'lara-light-purple')">
+                                <img src="demo/images/themes/saga-green.png" alt="Saga Green" />
+                            </button>
+                            <span>Lara Purple</span>
+                        </div>
+                        <div class="p-col-3">
+                            <button class="p-link" type="button" @click="changeTheme($event, 'lara-dark-indigo')">
+                                <img src="demo/images/themes/saga-orange.png" alt="Saga Orange" />
+                            </button>
+                            <span>Lara Dark Indigo</span>
+                        </div>
+                        <div class="p-col-3">
+                            <button class="p-link" type="button" @click="changeTheme($event, 'lara-dark-purple')">
+                                <img src="demo/images/themes/saga-purple.png" alt="Saga Purple" />
+                            </button>
+                            <span>Lara Dark Purple</span>
+                        </div>
                         <div class="p-col-3">
                             <button class="p-link" type="button" @click="changeTheme($event, 'saga-blue')">
                                 <img src="demo/images/themes/saga-blue.png" alt="Saga Blue" />
