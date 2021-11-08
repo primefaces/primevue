@@ -46,7 +46,7 @@
                                 <i class="pi pi-clock"></i>
                             </span>
                             <span class="p-inputgroup-addon">
-                                <i class="pi pi-star"></i>
+                                <i class="pi pi-star-fill"></i>
                             </span>
                             <InputText placeholder="Price" />
                             <span class="p-inputgroup-addon">$</span>

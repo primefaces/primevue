@@ -13,7 +13,7 @@
                     <h4>Component Scale</h4>
                     <div class="config-scale">
                         <Button icon="pi pi-minus" @click="decrementScale()" class="p-button-text" :disabled="scale === scales[0]"/>
-                        <i class="pi pi-circle-on" v-for="s of scales" :class="{'scale-active': s === scale}" :key="s"/>
+                        <i class="pi pi-circle-fill" v-for="s of scales" :class="{'scale-active': s === scale}" :key="s"/>
                         <Button icon="pi pi-plus"  @click="incrementScale()" class="p-button-text" :disabled="scale === scales[scales.length - 1]" />
                     </div>
 

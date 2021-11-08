@@ -159,7 +159,7 @@
             "meta": ["primeicons"],
             "children": [
                 {
-                    "name": "Icons v4.1",
+                    "name": "Icons v5",
                     "to": "/icons"
                 }
             ]

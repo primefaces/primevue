@@ -53,7 +53,7 @@ import Carousel from 'primevue/carousel';
 
                     &lt;div class="car-buttons"&gt;
                         &lt;Button icon="pi pi-search" class="p-button-secondary" /&gt;
-                        &lt;Button icon="pi pi-star" class="p-button-secondary" /&gt;
+                        &lt;Button icon="pi pi-star-fill" class="p-button-secondary" /&gt;
                         &lt;Button icon="pi pi-cog" class="p-button-secondary" /&gt;
                     &lt;/div&gt;
                 &lt;/div&gt;
@@ -325,7 +325,7 @@ export default {
                                 <span :class="'product-badge status-'+slotProps.data.inventoryStatus.toLowerCase()">{{slotProps.data.inventoryStatus}}</span>
                                 <div class="car-buttons p-mt-5">
                                     <Button icon="pi pi-search" class="p-button p-button-rounded p-mr-2" />
-                                    <Button icon="pi pi-star" class="p-button-success p-button-rounded p-mr-2" />
+                                    <Button icon="pi pi-star-fill" class="p-button-success p-button-rounded p-mr-2" />
                                     <Button icon="pi pi-cog" class="p-button-help p-button-rounded" />
                                 </div>
                             </div>
@@ -352,7 +352,7 @@ export default {
                                 <span :class="'product-badge status-'+slotProps.data.inventoryStatus.toLowerCase()">{{slotProps.data.inventoryStatus}}</span>
                                 <div class="car-buttons p-mt-5">
                                     <Button icon="pi pi-search" class="p-button p-button-rounded p-mr-2" />
-                                    <Button icon="pi pi-star" class="p-button-success p-button-rounded p-mr-2" />
+                                    <Button icon="pi pi-star-fill" class="p-button-success p-button-rounded p-mr-2" />
                                     <Button icon="pi pi-cog" class="p-button-help p-button-rounded" />
                                 </div>
                             </div>
@@ -380,7 +380,7 @@ export default {
                                 <span :class="'product-badge status-'+slotProps.data.inventoryStatus.toLowerCase()">{{slotProps.data.inventoryStatus}}</span>
                                 <div class="car-buttons p-mt-5">
                                     <Button icon="pi pi-search" class="p-button p-button-rounded p-mr-2" />
-                                    <Button icon="pi pi-star" class="p-button-success p-button-rounded p-mr-2" />
+                                    <Button icon="pi pi-star-fill" class="p-button-success p-button-rounded p-mr-2" />
                                     <Button icon="pi pi-cog" class="p-button-help p-button-rounded" />
                                 </div>
                             </div>
@@ -467,7 +467,7 @@ export default {
                                 <span :class="'product-badge status-'+slotProps.data.inventoryStatus.toLowerCase()">{{slotProps.data.inventoryStatus}}</span>
                                 <div class="car-buttons p-mt-5">
                                     <Button icon="pi pi-search" class="p-button p-button-rounded p-mr-2" />
-                                    <Button icon="pi pi-star" class="p-button-success p-button-rounded p-mr-2" />
+                                    <Button icon="pi pi-star-fill" class="p-button-success p-button-rounded p-mr-2" />
                                     <Button icon="pi pi-cog" class="p-button-help p-button-rounded" />
                                 </div>
                             </div>
@@ -494,7 +494,7 @@ export default {
                                 <span :class="'product-badge status-'+slotProps.data.inventoryStatus.toLowerCase()">{{slotProps.data.inventoryStatus}}</span>
                                 <div class="car-buttons p-mt-5">
                                     <Button icon="pi pi-search" class="p-button p-button-rounded p-mr-2" />
-                                    <Button icon="pi pi-star" class="p-button-success p-button-rounded p-mr-2" />
+                                    <Button icon="pi pi-star-fill" class="p-button-success p-button-rounded p-mr-2" />
                                     <Button icon="pi pi-cog" class="p-button-help p-button-rounded" />
                                 </div>
                             </div>
@@ -522,7 +522,7 @@ export default {
                                 <span :class="'product-badge status-'+slotProps.data.inventoryStatus.toLowerCase()">{{slotProps.data.inventoryStatus}}</span>
                                 <div class="car-buttons p-mt-5">
                                     <Button icon="pi pi-search" class="p-button p-button-rounded p-mr-2" />
-                                    <Button icon="pi pi-star" class="p-button-success p-button-rounded p-mr-2" />
+                                    <Button icon="pi pi-star-fill" class="p-button-success p-button-rounded p-mr-2" />
                                     <Button icon="pi pi-cog" class="p-button-help p-button-rounded" />
                                 </div>
                             </div>
@@ -607,7 +607,7 @@ export default {
                                     <span :class="'product-badge status-'+slotProps.data.inventoryStatus.toLowerCase()">{{slotProps.data.inventoryStatus}}</span>
                                     <div class="car-buttons p-mt-5">
                                         <p-button icon="pi pi-search" class="p-button p-button-rounded p-mr-2"></p-button>
-                                        <p-button icon="pi pi-star" class="p-button-success p-button-rounded p-mr-2"></p-button>
+                                        <p-button icon="pi pi-star-fill" class="p-button-success p-button-rounded p-mr-2"></p-button>
                                         <p-button icon="pi pi-cog" class="p-button-help p-button-rounded"></p-button>
                                     </div>
                                 </div>
@@ -634,7 +634,7 @@ export default {
                                     <span :class="'product-badge status-'+slotProps.data.inventoryStatus.toLowerCase()">{{slotProps.data.inventoryStatus}}</span>
                                     <div class="car-buttons p-mt-5">
                                         <p-button icon="pi pi-search" class="p-button p-button-rounded p-mr-2"></p-button>
-                                        <p-button icon="pi pi-star" class="p-button-success p-button-rounded p-mr-2"></p-button>
+                                        <p-button icon="pi pi-star-fill" class="p-button-success p-button-rounded p-mr-2"></p-button>
                                         <p-button icon="pi pi-cog" class="p-button-help p-button-rounded"></p-button>
                                     </div>
                                 </div>
@@ -662,7 +662,7 @@ export default {
                                     <span :class="'product-badge status-'+slotProps.data.inventoryStatus.toLowerCase()">{{slotProps.data.inventoryStatus}}</span>
                                     <div class="car-buttons p-mt-5">
                                         <p-button icon="pi pi-search" class="p-button p-button-rounded p-mr-2"></p-button>
-                                        <p-button icon="pi pi-star" class="p-button-success p-button-rounded p-mr-2"></p-button>
+                                        <p-button icon="pi pi-star-fill" class="p-button-success p-button-rounded p-mr-2"></p-button>
                                         <p-button icon="pi pi-cog" class="p-button-help p-button-rounded"></p-button>
                                     </div>
                                 </div>

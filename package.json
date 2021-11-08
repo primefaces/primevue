@@ -54,7 +54,7 @@
     "gulp-uglifycss": "^1.0.6",
     "node-sass": "^4.12.0",
     "primeflex": "2.0.0",
-    "primeicons": "4.1.0",
+    "primeicons": "5.0.0",
     "prismjs": "^1.15.0",
     "quill": "^1.3.7",
     "rollup-plugin-postcss": "^4.0.0",

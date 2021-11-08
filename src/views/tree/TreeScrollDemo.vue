@@ -98,7 +98,7 @@ export default {
                     return {
                         label: 'Node ' + i + '.' + j, 
                         data: 'Node ' + i + '.' + j, 
-                        icon: 'pi pi-file-o'
+                        icon: 'pi pi-file'
                     }
                 })
             };
@@ -152,7 +152,7 @@ export default {
                     return {
                         label: 'Node ' + i + '.' + j, 
                         data: 'Node ' + i + '.' + j, 
-                        icon: 'pi pi-file-o'
+                        icon: 'pi pi-file'
                     }
                 })
             };
@@ -217,7 +217,7 @@ export default {
                             return {
                                 label: 'Node ' + i + '.' + j, 
                                 data: 'Node ' + i + '.' + j, 
-                                icon: 'pi pi-file-o'
+                                icon: 'pi pi-file'
                             }
                         })
                     };
@@ -274,7 +274,7 @@ export default {
                     return {
                         label: 'Node ' + i + '.' + j, 
                         data: 'Node ' + i + '.' + j, 
-                        icon: 'pi pi-file-o'
+                        icon: 'pi pi-file'
                     }
                 })
             };

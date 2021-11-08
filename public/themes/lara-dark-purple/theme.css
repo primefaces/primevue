@@ -1,5 +1,5 @@
 /* Error: Only 4 arguments allowed, but 5 were passed.
- *   ,--> ../../Development/projects/designer/designer-vue/designer-ui/src/assets/themes/lara/lara-dark/purple/theme.scss
+ *   ,--> ../Documents/GitHub/designer-vue/designer-ui/src/assets/themes/lara/lara-dark/purple/theme.scss
  * 7 | $highlightBg:rgba(196, 181, 253, 1, .16) !default;
  *   |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^ invocation
  *   '
@@ -7,7 +7,7 @@
  * 1 | @function rgba($red, $green, $blue, $alpha) {
  *   |           ================================= declaration
  *   '
- *   ../../Development/projects/designer/designer-vue/designer-ui/src/assets/themes/lara/lara-dark/purple/theme.scss 7:14  root stylesheet */
+ *   ../Documents/GitHub/designer-vue/designer-ui/src/assets/themes/lara/lara-dark/purple/theme.scss 7:14  root stylesheet */
 
 body::before {
   font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
@@ -17,5 +17,5 @@ body::before {
   padding: 1em;
   margin-bottom: 1em;
   border-bottom: 2px solid black;
-  content: "Error: Only 4 arguments allowed, but 5 were passed.\a   \250c \2500 \2500 > ../../Development/projects/designer/designer-vue/designer-ui/src/assets/themes/lara/lara-dark/purple/theme.scss\a 7 \2502  $highlightBg:rgba(196, 181, 253, 1, .16) !default;\a   \2502               ^^^^^^^^^^^^^^^^^^^^^^^^^^^ invocation\a   \2575 \a   \2577 \a 1 \2502  @function rgba($red, $green, $blue, $alpha) {\a   \2502            \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501  declaration\a   \2575 \a   ../../Development/projects/designer/designer-vue/designer-ui/src/assets/themes/lara/lara-dark/purple/theme.scss 7:14  root stylesheet";
+  content: "Error: Only 4 arguments allowed, but 5 were passed.\a   \250c \2500 \2500 > ../Documents/GitHub/designer-vue/designer-ui/src/assets/themes/lara/lara-dark/purple/theme.scss\a 7 \2502  $highlightBg:rgba(196, 181, 253, 1, .16) !default;\a   \2502               ^^^^^^^^^^^^^^^^^^^^^^^^^^^ invocation\a   \2575 \a   \2577 \a 1 \2502  @function rgba($red, $green, $blue, $alpha) {\a   \2502            \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501  declaration\a   \2575 \a   ../Documents/GitHub/designer-vue/designer-ui/src/assets/themes/lara/lara-dark/purple/theme.scss 7:14  root stylesheet";
 }

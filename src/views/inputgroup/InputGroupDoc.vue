@@ -47,7 +47,7 @@ export default {
                         <i class="pi pi-clock"></i>
                     </span>
                     <span class="p-inputgroup-addon">
-                        <i class="pi pi-star"></i>
+                        <i class="pi pi-star-fill"></i>
                     </span>
                     <InputText placeholder="Price" />
                     <span class="p-inputgroup-addon">$</span>
@@ -169,7 +169,7 @@ export default {
                         <i class="pi pi-clock"></i>
                     </span>
                     <span class="p-inputgroup-addon">
-                        <i class="pi pi-star"></i>
+                        <i class="pi pi-star-fill"></i>
                     </span>
                     <InputText placeholder="Price" />
                     <span class="p-inputgroup-addon">$</span>
@@ -293,7 +293,7 @@ export default {
                             <i class="pi pi-clock"></i>
                         </span>
                         <span class="p-inputgroup-addon">
-                            <i class="pi pi-star"></i>
+                            <i class="pi pi-star-fill"></i>
                         </span>
                         <p-inputtext placeholder="Price"></p-inputtext>
                         <span class="p-inputgroup-addon">$</span>

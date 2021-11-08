@@ -1,3 +1,4 @@
+@charset "UTF-8";
 :root {
   --surface-a: #191919;
   --surface-b: #191919;
@@ -1415,7 +1416,7 @@
 .p-rating .p-rating-icon:first-child {
   margin-left: 0;
 }
-.p-rating .p-rating-icon.pi-star {
+.p-rating .p-rating-icon.pi-star-fill {
   color: #C5E1A5;
 }
 .p-rating:not(.p-disabled):not(.p-readonly) .p-rating-icon:hover {
@@ -2644,7 +2645,7 @@
   font-size: 1rem;
 }
 .fc.fc-unthemed .fc-toolbar .fc-button .fc-icon-chevron-left:before {
-  content: "\e900";
+  content: "";
 }
 .fc.fc-unthemed .fc-toolbar .fc-button .fc-icon-chevron-right {
   font-family: "PrimeIcons" !important;
@@ -2652,7 +2653,7 @@
   font-size: 1rem;
 }
 .fc.fc-unthemed .fc-toolbar .fc-button .fc-icon-chevron-right:before {
-  content: "\e901";
+  content: "";
 }
 .fc.fc-unthemed .fc-toolbar .fc-button:focus {
   outline: 0 none;
@@ -2739,7 +2740,7 @@
   transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
 }
 .fc.fc-theme-standard .fc-view-harness .fc-popover .fc-popover-header .fc-popover-close:before {
-  content: "\e90b";
+  content: "";
 }
 .fc.fc-theme-standard .fc-view-harness .fc-popover .fc-popover-header .fc-popover-close:hover {
   color: #dedede;
@@ -2812,7 +2813,7 @@
   font-size: 1rem;
 }
 .fc.fc-theme-standard .fc-toolbar .fc-button .fc-icon-chevron-left:before {
-  content: "\e900";
+  content: "";
 }
 .fc.fc-theme-standard .fc-toolbar .fc-button .fc-icon-chevron-right {
   font-family: "PrimeIcons" !important;
@@ -2820,7 +2821,7 @@
   font-size: 1rem;
 }
 .fc.fc-theme-standard .fc-toolbar .fc-button .fc-icon-chevron-right:before {
-  content: "\e901";
+  content: "";
 }
 .fc.fc-theme-standard .fc-toolbar .fc-button:focus {
   outline: 0 none;
