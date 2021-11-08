@@ -118,6 +118,7 @@
                         <li><a href="https://twitter.com/primevue?lang=en" target="_blank"><span>Twitter</span></a></li>
                         <li><a href="https://www.primefaces.org/whouses" target="_blank"><span>Who Uses</span></a></li>
                         <li><a href="https://www.primefaces.org/newsletter" target="_blank"><span>Newsletter</span></a></li>
+                        <li><a href="https://gear.primefaces.org" target="_blank"><span>Gear Store</span></a></li>
                         <li><a href="https://www.primetek.com.tr" target="_blank"><span>About PrimeTek</span></a></li>
                     </ul>
                 </transition>
