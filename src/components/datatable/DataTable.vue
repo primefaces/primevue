@@ -25,7 +25,7 @@
                         @column-dragstart="onColumnHeaderDragStart($event)" @column-dragover="onColumnHeaderDragOver($event)" @column-dragleave="onColumnHeaderDragLeave($event)" @column-drop="onColumnHeaderDrop($event)"
                         @column-resizestart="onColumnResizeStart($event)" @checkbox-change="toggleRowsWithCheckbox($event)" />
                 <DTTableBody v-if="frozenValue" :value="frozenValue" :frozenRow="true" class="p-datatable-frozen-tbody" :columns="columns" :dataKey="dataKey" :selection="selection" :selectionKeys="d_selectionKeys" :selectionMode="selectionMode" :contextMenu="contextMenu" :contextMenuSelection="contextMenuSelection"
-                    :rowGroupMode="rowGroupMode" :groupRowsBy="groupRowsBy" :expandableRowGroups="expandableRowGroups" :rowClass="rowClass" :editMode="editMode" :compareSelectionBy="compareSelectionBy" :scrollable="scrollable"
+                    :rowGroupMode="rowGroupMode" :groupRowsBy="groupRowsBy" :expandableRowGroups="expandableRowGroups" :rowClass="rowClass" :rowStyle="rowStyle" :editMode="editMode" :compareSelectionBy="compareSelectionBy" :scrollable="scrollable"
                     :expandedRowIcon="expandedRowIcon" :collapsedRowIcon="collapsedRowIcon" :expandedRows="expandedRows" :expandedRowKeys="d_expandedRowKeys" :expandedRowGroups="expandedRowGroups"
                     :editingRows="editingRows" :editingRowKeys="d_editingRowKeys" :templates="$slots" :loading="loading" :responsiveLayout="responsiveLayout"
                     @rowgroup-toggle="toggleRowGroup" @row-click="onRowClick($event)" @row-dblclick="onRowDblClick($event)" @row-rightclick="onRowRightClick($event)" @row-touchend="onRowTouchEnd" @row-keydown="onRowKeyDown"
@@ -35,7 +35,7 @@
                     @row-edit-init="onRowEditInit($event)" @row-edit-save="onRowEditSave($event)" @row-edit-cancel="onRowEditCancel($event)"
                     :editingMeta="d_editingMeta" @editing-meta-change="onEditingMetaChange" />
                 <DTTableBody :value="dataToRender" :columns="columns" :empty="empty" :dataKey="dataKey" :selection="selection" :selectionKeys="d_selectionKeys" :selectionMode="selectionMode" :contextMenu="contextMenu" :contextMenuSelection="contextMenuSelection"
-                    :rowGroupMode="rowGroupMode" :groupRowsBy="groupRowsBy" :expandableRowGroups="expandableRowGroups" :rowClass="rowClass" :editMode="editMode" :compareSelectionBy="compareSelectionBy" :scrollable="scrollable"
+                    :rowGroupMode="rowGroupMode" :groupRowsBy="groupRowsBy" :expandableRowGroups="expandableRowGroups" :rowClass="rowClass" :rowStyle="rowStyle" :editMode="editMode" :compareSelectionBy="compareSelectionBy" :scrollable="scrollable"
                     :expandedRowIcon="expandedRowIcon" :collapsedRowIcon="collapsedRowIcon" :expandedRows="expandedRows" :expandedRowKeys="d_expandedRowKeys" :expandedRowGroups="expandedRowGroups"
                     :editingRows="editingRows" :editingRowKeys="d_editingRowKeys" :templates="$slots" :loading="loading" :responsiveLayout="responsiveLayout"
                     @rowgroup-toggle="toggleRowGroup" @row-click="onRowClick($event)" @row-dblclick="onRowDblClick($event)" @row-rightclick="onRowRightClick($event)" @row-touchend="onRowTouchEnd" @row-keydown="onRowKeyDown"
@@ -282,6 +282,10 @@ export default {
             default: null
         },
         rowClass: {
+            type: null,
+            default: null
+        },
+        rowStyle: {
             type: null,
             default: null
         },

@@ -10,7 +10,7 @@
                         <component :is="templates['groupheader']" :data="rowData" :index="index" />
                     </td>
                 </tr>
-                <tr :class="getRowClass(rowData)" :key="getRowKey(rowData, index)"
+                <tr :class="getRowClass(rowData)" :style="rowStyle" :key="getRowKey(rowData, index)"
                     v-if="expandableRowGroups ? isRowGroupExpanded(rowData): true"
                     @click="onRowClick($event, rowData, index)" @dblclick="onRowDblClick($event, rowData, index)" @contextmenu="onRowRightClick($event, rowData, index)" @touchend="onRowTouchEnd($event)" @keydown="onRowKeyDown($event, rowData, index)" :tabindex="selectionMode || contextMenu ? '0' : null"
                     @mousedown="onRowMouseDown($event)" @dragstart="onRowDragStart($event, index)" @dragover="onRowDragOver($event,index)" @dragleave="onRowDragLeave($event)" @dragend="onRowDragEnd($event)" @drop="onRowDrop($event)" role="row">
@@ -128,6 +128,10 @@ export default {
             default: null
         },
         rowClass: {
+            type: null,
+            default: null
+        },
+        rowStyle: {
             type: null,
             default: null
         },
