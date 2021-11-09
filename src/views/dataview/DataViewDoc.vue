@@ -638,7 +638,7 @@ export default {
 
 ::v-deep(.product-grid-item) {
 	margin: .5rem;
-	border: 1px solid #dee2e6;
+	border: 1px solid var(--surface-border);
 
 	.product-grid-item-top,
 	.product-grid-item-bottom {
@@ -871,7 +871,7 @@ export default {
 
 ::v-deep(.product-grid-item) {
 	margin: .5rem;
-	border: 1px solid #dee2e6;
+	border: 1px solid var(--surface-border);
 
 	.product-grid-item-top,
 	.product-grid-item-bottom {
@@ -1118,7 +1118,7 @@ export default {
 
         .product-grid-item {
             margin: .5rem;
-            border: 1px solid #dee2e6;
+            border: 1px solid var(--surface-border);
         }
 
         .product-grid-item .product-grid-item-top,
