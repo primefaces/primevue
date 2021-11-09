@@ -11,26 +11,26 @@
   --primary-color-text:#ffffff;
   --font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
   --surface-0: #ffffff;
-  --surface-50: #f1f4f6;
-  --surface-100: #e2e8ee;
-  --surface-200: #c6d1dd;
-  --surface-300: #a9bbcb;
-  --surface-400: #8da4ba;
-  --surface-500: #708da9;
-  --surface-600: #5a7187;
-  --surface-700: #435565;
-  --surface-800: #2d3844;
-  --surface-900: #161c22;
-  --gray-50: #f1f4f6;
-  --gray-100: #e2e8ee;
-  --gray-200: #c6d1dd;
-  --gray-300: #a9bbcb;
-  --gray-400: #8da4ba;
-  --gray-500: #708da9;
-  --gray-600: #5a7187;
-  --gray-700: #435565;
-  --gray-800: #2d3844;
-  --gray-900: #161c22;
+  --surface-50: #FAFAFA;
+  --surface-100: #F5F5F5;
+  --surface-200: #EEEEEE;
+  --surface-300: #E0E0E0;
+  --surface-400: #BDBDBD;
+  --surface-500: #9E9E9E;
+  --surface-600: #757575;
+  --surface-700: #616161;
+  --surface-800: #424242;
+  --surface-900: #212121;
+  --gray-50: #FAFAFA;
+  --gray-100: #F5F5F5;
+  --gray-200: #EEEEEE;
+  --gray-300: #E0E0E0;
+  --gray-400: #BDBDBD;
+  --gray-500: #9E9E9E;
+  --gray-600: #757575;
+  --gray-700: #616161;
+  --gray-800: #424242;
+  --gray-900: #212121;
   --content-padding:1.25rem;
   --inline-spacing:0.5rem;
   --border-radius:6px;
@@ -332,26 +332,26 @@
 
 .p-datepicker {
   padding: 0.5rem;
-  background: linear-gradient(90deg, #8B5CF6 0%, #a85cf6 100%);
-  color: #ffffff;
-  border: 0 none;
+  background: #ffffff;
+  color: #495057;
+  border: 1px solid #ced4da;
   border-radius: 6px;
 }
 .p-datepicker:not(.p-datepicker-inline) {
-  background: linear-gradient(90deg, #8B5CF6 0%, #a85cf6 100%);
+  background: #ffffff;
   border: 0 none;
   box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
 }
 .p-datepicker:not(.p-datepicker-inline) .p-datepicker-header {
-  background: transparent;
+  background: #ffffff;
 }
 .p-datepicker .p-datepicker-header {
   padding: 0.5rem;
-  color: #ffffff;
-  background: linear-gradient(90deg, #8B5CF6 0%, #a85cf6 100%);
-  font-weight: 700;
+  color: #495057;
+  background: #ffffff;
+  font-weight: 600;
   margin: 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid #dee2e6;
   border-top-right-radius: 6px;
   border-top-left-radius: 6px;
 }
@@ -423,8 +423,8 @@
   box-shadow: 0 0 0 0.2rem #d1befb;
 }
 .p-datepicker table td.p-datepicker-today > span {
-  background: rgba(255, 255, 255, 0.1);
-  color: #ffffff;
+  background: #ced4da;
+  color: #495057;
   border-color: transparent;
 }
 .p-datepicker table td.p-datepicker-today > span.p-highlight {
@@ -500,7 +500,7 @@
   border-right: 0 none;
 }
 .p-datepicker:not(.p-disabled) table td span:not(.p-highlight):not(.p-disabled):hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: #e9ecef;
 }
 .p-datepicker:not(.p-disabled) table td span:not(.p-highlight):not(.p-disabled):focus {
   outline: 0 none;
@@ -508,7 +508,7 @@
   box-shadow: 0 0 0 0.2rem #d1befb;
 }
 .p-datepicker:not(.p-disabled) .p-monthpicker .p-monthpicker-month:not(.p-highlight):not(.p-disabled):hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: #e9ecef;
 }
 .p-datepicker:not(.p-disabled) .p-monthpicker .p-monthpicker-month:not(.p-highlight):not(.p-disabled):focus {
   outline: 0 none;
@@ -1442,7 +1442,7 @@
 .p-rating .p-rating-icon:first-child {
   margin-left: 0;
 }
-.p-rating .p-rating-icon.pi-star {
+.p-rating .p-rating-icon.pi-star-fill {
   color: #8B5CF6;
 }
 .p-rating:not(.p-disabled):not(.p-readonly) .p-rating-icon:hover {
@@ -2888,6 +2888,10 @@
   border-top-right-radius: 6px;
   border-bottom-right-radius: 6px;
 }
+.fc.fc-theme-standard .fc-highlight {
+  color: #6D28D9;
+  background: #F5F3FF;
+}
 
 .p-orderlist .p-orderlist-controls {
   padding: 1.25rem;
@@ -3004,12 +3008,12 @@
   color: #343a40;
 }
 .p-paginator .p-paginator-first {
-  border-top-left-radius: 6px;
-  border-bottom-left-radius: 6px;
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 50%;
 }
 .p-paginator .p-paginator-last {
-  border-top-right-radius: 6px;
-  border-bottom-right-radius: 6px;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
 }
 .p-paginator .p-dropdown {
   margin-left: 0.5rem;
@@ -3976,6 +3980,7 @@
   color: #495057;
   border: 0 none;
   box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
   width: 12.5rem;
 }
 .p-contextmenu .p-menuitem-link {
@@ -4017,6 +4022,7 @@
   background: #ffffff;
   border: 0 none;
   box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
 }
 .p-contextmenu .p-menuitem.p-menuitem-active > .p-menuitem-link {
   background: #F5F3FF;
@@ -4620,19 +4626,18 @@
 }
 
 .p-steps .p-steps-item .p-menuitem-link {
-  background: transparent;
   transition: box-shadow 0.2s;
   border-radius: 6px;
-  background: #ffffff;
+  background: transparent;
 }
 .p-steps .p-steps-item .p-menuitem-link .p-steps-number {
   color: #495057;
   border: 1px solid #e9ecef;
-  background: #ffffff;
   min-width: 2rem;
   height: 2rem;
   line-height: 2rem;
   font-size: 1.143rem;
+  background: #ffffff;
   z-index: 1;
   border-radius: 50%;
 }

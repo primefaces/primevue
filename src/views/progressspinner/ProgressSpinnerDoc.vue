@@ -123,7 +123,7 @@ export default {
         <ProgressSpinner />
 
         <h5>Custom</h5>
-        <ProgressSpinner style="width:50px;height:50px" strokeWidth="8" fill="#EEEEEE" animationDuration=".5s"/>
+        <ProgressSpinner style="width:50px;height:50px" strokeWidth="8" fill="var(--surface-ground)" animationDuration=".5s"/>
     </div>
 </template>
 
@@ -142,7 +142,7 @@ export default {
         <ProgressSpinner />
 
         <h5>Custom</h5>
-        <ProgressSpinner style="width:50px;height:50px" strokeWidth="8" fill="#EEEEEE" animationDuration=".5s"/>
+        <ProgressSpinner style="width:50px;height:50px" strokeWidth="8" fill="var(--surface-ground)" animationDuration=".5s"/>
     </div>
 </template>
 
@@ -159,7 +159,7 @@ export default {
             <p-progressspinner></p-progressspinner>
 
             <h5>Custom</h5>
-            <p-progressspinner style="width:50px;height:50px" stroke-width="8" fill="#EEEEEE" animation-duration=".5s"></p-progressspinner>
+            <p-progressspinner style="width:50px;height:50px" stroke-width="8" fill="var(--surface-ground)" animation-duration=".5s"></p-progressspinner>
         </div>
 
         <script type="module">

@@ -191,7 +191,8 @@ export default {
             this.bindResizeListener();
 
             if (this.autoHighlight && this.suggestions && this.suggestions.length) {
-                DomHandler.addClass(this.overlay.firstElementChild.firstElementChild, 'p-highlight')
+                let itemList = DomHandler.findSingle(this.overlay, '.p-autocomplete-items');
+                DomHandler.addClass(itemList.firstElementChild, 'p-highlight');
             }
         },
         onOverlayLeave() {

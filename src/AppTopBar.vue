@@ -49,6 +49,10 @@
                         <li><a @click="changeTheme($event, 'fluent-light')"><img src="demo/images/themes/fluent-light.png" alt="Fluent Light" /><span>Fluent Light</span></a></li>
 
                         <li class="topbar-submenu-header">PRIMEONE</li>
+                        <li><a @click="changeTheme($event, 'lara-light-indigo')"><img src="demo/images/themes/lara-light-indigo.svg" alt="Lara Light Indigo" /><span>Lara Light Indigo</span></a></li>
+                        <li><a @click="changeTheme($event, 'lara-dark-indigo')"><img src="demo/images/themes/lara-dark-indigo.svg" alt="Lara Dark Indigo" /><span>Lara Dark Indigo</span></a></li>
+                        <li><a @click="changeTheme($event, 'lara-light-purple')"><img src="demo/images/themes/lara-light-purple.svg" alt="Lara Light Purple" /><span>Lara Light Purple</span></a></li>
+                        <li><a @click="changeTheme($event, 'lara-dark-purple')"><img src="demo/images/themes/lara-dark-purple.svg" alt="Lara Dark Purple" /><span>Lara Dark Purple</span></a></li>
                         <li><a @click="changeTheme($event, 'saga-blue')"><img src="demo/images/themes/saga-blue.png" alt="Saga Blue" /><span>Saga Blue</span></a></li>
                         <li><a @click="changeTheme($event, 'saga-green')"><img src="demo/images/themes/saga-green.png" alt="Saga Green" /><span>Saga Green</span></a></li>
                         <li><a @click="changeTheme($event, 'saga-orange')"><img src="demo/images/themes/saga-orange.png" alt="Saga Orange" /><span>Saga Orange</span></a></li>
@@ -69,17 +73,6 @@
                         <li><a @click="changeTheme($event, 'viva-dark', true)"><img src="demo/images/themes/viva-dark.svg" alt="Viva Dark" /><span>Viva Dark</span></a></li>
                         <li><a @click="changeTheme($event, 'mira')"><img src="demo/images/themes/mira.jpg" alt="Mira" /><span>Mira</span></a></li>
                         <li><a @click="changeTheme($event, 'nano')"><img src="demo/images/themes/nano.jpg" alt="Nano" /><span>Nano</span></a></li>
-
-                        <li class="topbar-submenu-header">LEGACY</li>
-                        <li><a @click="changeTheme($event, 'nova')"><img src="demo/images/themes/nova.png" alt="Nova" /><span>Nova</span></a></li>
-                        <li><a @click="changeTheme($event, 'nova-alt')"><img src="demo/images/themes/nova-alt.png" alt="Nova Alt" /><span>Nova Alt</span></a></li>
-                        <li><a @click="changeTheme($event, 'nova-accent')"><img src="demo/images/themes/nova-accent.png" alt="Nova Accent" /><span>Nova Accent</span></a></li>
-                        <li><a @click="changeTheme($event, 'nova-vue')"><img src="demo/images/themes/nova-vue.png" alt="Nova Vue" /><span>Nova Vue</span></a></li>
-                        <li><a @click="changeTheme($event, 'luna-amber', true)"><img src="demo/images/themes/luna-amber.png" alt="Luna Amber" /><span>Luna Amber</span></a></li>
-                        <li><a @click="changeTheme($event, 'luna-blue', true)"><img src="demo/images/themes/luna-blue.png" alt="Luna Blue" /><span>Luna Blue</span></a></li>
-                        <li><a @click="changeTheme($event, 'luna-green', true)"><img src="demo/images/themes/luna-green.png" alt="Luna Green" /><span>Luna Green</span></a></li>
-                        <li><a @click="changeTheme($event, 'luna-pink', true)"><img src="demo/images/themes/luna-pink.png" alt="Luna Pink" /><span>Luna Pink</span></a></li>
-                        <li><a @click="changeTheme($event, 'rhea')"><img src="demo/images/themes/rhea.png" alt="Rhea" /><span>Rhea</span></a></li>
                     </ul>
                 </transition>
             </li>
@@ -187,7 +180,7 @@ export default {
                 'lara-dark-indigo': 'lara-dark-indigo.svg',
                 'lara-dark-purple': 'lara-dark-purple.svg',
                 'lara-light-indigo': 'lara-light-indigo.svg',
-                'lara-light-purple': 'lara-light-purple.svg',
+                'lara-light-purple': 'lara-light-purple.svg'
             }
         }
     },
