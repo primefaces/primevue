@@ -133,25 +133,25 @@
                     <div class="p-grid free-themes">
                          <div class="p-col-3">
                             <button class="p-link" type="button" @click="changeTheme($event, 'lara-light-indigo')">
-                                <img src="demo/images/themes/saga-blue.png" alt="Lara Light Indigo" />
+                                <img src="demo/images/themes/lara-light-indigo.svg" alt="Lara Light Indigo" />
                             </button>
                             <span>Lara Light Indigo</span>
                         </div>
                         <div class="p-col-3">
                             <button class="p-link" type="button" @click="changeTheme($event, 'lara-dark-indigo')">
-                                <img src="demo/images/themes/saga-green.png" alt="Lara Dark Indigo" />
+                                <img src="demo/images/themes/lara-dark-indigo.svg" alt="Lara Dark Indigo" />
                             </button>
                             <span>Lara Dark Indigo</span>
                         </div>
                         <div class="p-col-3">
                             <button class="p-link" type="button" @click="changeTheme($event, 'lara-light-purple')">
-                                <img src="demo/images/themes/saga-orange.png" alt="Lara Light Purple" />
+                                <img src="demo/images/themes/lara-light-purple.svg" alt="Lara Light Purple" />
                             </button>
                             <span>Lara Light Purple</span>
                         </div>
                         <div class="p-col-3">
                             <button class="p-link" type="button" @click="changeTheme($event, 'lara-dark-purple')">
-                                <img src="demo/images/themes/saga-purple.png" alt="Lara Dark Purple" />
+                                <img src="demo/images/themes/lara-dark-purple.svg" alt="Lara Dark Purple" />
                             </button>
                             <span>Lara Dark Purple</span>
                         </div>
