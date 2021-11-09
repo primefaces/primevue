@@ -324,10 +324,6 @@ export default {
 <\\/script>
 
 <style scoped>
-.p-button.p-button-icon-only {
-    border-radius: 0;
-}
-
 .image-gallery {
     text-align: center;
     padding: 1rem;
@@ -377,10 +373,6 @@ export default {
 <\\/script>
 
 <style scoped>
-.p-button.p-button-icon-only {
-    border-radius: 0;
-}
-
 .image-gallery {
     text-align: center;
     padding: 1rem;
@@ -435,10 +427,6 @@ export default {
         <\\/script>
 
         <style scoped>
-        .p-button.p-button-icon-only {
-            border-radius: 0;
-        }
-
         .image-gallery {
             text-align: center;
             padding: 1rem;
