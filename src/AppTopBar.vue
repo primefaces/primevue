@@ -184,6 +184,10 @@ export default {
                 'mira': 'mira.jpg',
                 'nano': 'nano.jpg',
                 'tailwind-light': 'tailwind-light.png',
+                'lara-dark-indigo': 'lara-dark-indigo.svg',
+                'lara-dark-purple': 'lara-dark-purple.svg',
+                'lara-light-indigo': 'lara-light-indigo.svg',
+                'lara-light-purple': 'lara-light-purple.svg',
             }
         }
     },
