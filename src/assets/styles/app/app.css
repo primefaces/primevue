@@ -835,7 +835,7 @@ pre[class*=language-] code .token.operator, pre[class*=language-] code .token.st
   position: relative;
 }
 .home .introduction.introduction-dark {
-  background-image: url("./assets/images/home/intro-bg-d.jpg");
+  background-image: url("./assets/images/home/intro-bg-d.png");
   color: var(--text-color);
 }
 .home .introduction.introduction-dark .introduction-promo {
