@@ -4,6 +4,7 @@ interface OrderListProps {
     modelValue?: any[];
     dataKey?: string;
     selection?: any[];
+    selectionMode?: string;
     metaKeySelection?: boolean;
     listStyle?: any;
     responsive?: boolean;

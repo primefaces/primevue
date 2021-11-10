@@ -40,6 +40,10 @@ export default {
             type: Array,
             default: null
         },
+        selectionMode: {
+            type: String,
+            default: null
+        },
         dataKey: {
             type: String,
             default: null
@@ -200,30 +204,45 @@ export default {
         },
         onItemClick(event, item, index) {
             this.itemTouched = false;
+            let selection = this.d_selection;
             let selectedIndex = ObjectUtils.findIndexInList(item, this.d_selection);
             let selected = (selectedIndex != -1);
             let metaSelection = this.itemTouched ? false : this.metaKeySelection;
+            let _selection = [];
 
             if (metaSelection) {
                 let metaKey = (event.metaKey || event.ctrlKey);
 
                 if (selected && metaKey) {
-                    this.d_selection = this.d_selection.filter((val, index) => index !== selectedIndex);
+                    _selection = selection.filter((val, index) => index !== selectedIndex);
                 }
                 else {
-                    this.d_selection = (metaKey) ? this.d_selection ? [...this.d_selection] : [] : [];
-                    ObjectUtils.insertIntoOrderedArray(item, index, this.d_selection, this.modelValue);
+                    if (this.isMultipleSelectionMode()) {
+                        _selection = (selection && metaKey) ? [...selection] : [];
+                    }
+                    ObjectUtils.insertIntoOrderedArray(item, index, _selection, this.modelValue);
                 }
             }
             else {
                 if (selected) {
-                    this.d_selection = this.d_selection.filter((val, index) => index !== selectedIndex);
+                    if (this.isSingleSelectionMode()) {
+                        _selection = [...selection];
+                    }
+                    else if (this.isMultipleSelectionMode()) {
+                        _selection = selection.filter((val, index) => index !== selectedIndex);
+                    }
                 }
                 else {
-                    this.d_selection = this.d_selection ? [...this.d_selection] : [];
-                    ObjectUtils.insertIntoOrderedArray(item, index, this.d_selection, this.modelValue);
+                    if (this.isMultipleSelectionMode()) {
+                        _selection = selection ? [...selection] : [];
+                    }
+                    ObjectUtils.insertIntoOrderedArray(item, index, _selection, this.modelValue);
                 }
             }
+
+            let newSelection = [this.d_selection];
+            newSelection = _selection;
+            this.d_selection = newSelection;
 
             this.$emit('update:selection', this.d_selection);
             this.$emit('selection-change', {
@@ -347,6 +366,12 @@ export default {
                 document.head.removeChild(this.styleElement);
                 this.styleElement = null;
             }
+        },
+        isSingleSelectionMode() {
+            return this.selectionMode === 'single';
+        },
+        isMultipleSelectionMode() {
+            return this.selectionMode === 'multiple';
         }
     },
     computed: {
