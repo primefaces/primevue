@@ -33,7 +33,7 @@
         </template>
         <template v-else>
             <tr v-for="(row,i) of columnGroup.children.default()" :key="i" role="row">
-                <template v-for="(col,j) of row.children.default()" :key="columnProp(col, 'columnKey')||columnProp(col, 'field')||j">
+                <template v-for="(col,j) of getHeaderColumns(row)" :key="columnProp(col, 'columnKey')||columnProp(col, 'field')||j">
                     <DTHeaderCell v-if="!columnProp(col, 'hidden') && (rowGroupMode !== 'subheader' || (groupRowsBy !== columnProp(col, 'field'))) && (typeof col.children !== 'string')" :column="col"
                     @column-click="$emit('column-click', $event)" @column-mousedown="$emit('column-mousedown', $event)"
                     :groupRowsBy="groupRowsBy" :groupRowSortField="groupRowSortField" :sortMode="sortMode" :sortField="sortField" :sortOrder="sortOrder" :multiSortMeta="multiSortMeta"
@@ -131,6 +131,20 @@ export default {
         },
         getFilterColumnHeaderStyle(column) {
             return [this.columnProp(column, 'filterHeaderStyle'), this.columnProp(column, 'style')];
+        },
+        getHeaderColumns(row){
+            let cols = [];
+
+            if (row.children && row.children.default) {
+                row.children.default().forEach(child => {
+                    if (child.children && child.children instanceof Array)
+                        cols = [...cols, ...child.children];
+                    else if (child.type.name === 'Column')
+                        cols.push(child);
+                });
+
+                return cols;
+            }
         }
     },
     components: {

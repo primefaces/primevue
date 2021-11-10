@@ -7,7 +7,7 @@
         </tr>
         <template v-else>
             <tr v-for="(row,i) of columnGroup.children.default()" :key="i" role="row">
-                <template v-for="(col,j) of row.children.default()" :key="columnProp(col,'columnKey')||columnProp(col,'field')||j">
+                <template v-for="(col,j) of getFooterColumns(row)" :key="columnProp(col,'columnKey')||columnProp(col,'field')||j">
                     <DTFooterCell :column="col" v-if="!columnProp(col,'hidden')"/>
                 </template>
             </tr>
@@ -34,6 +34,20 @@ export default {
     methods: {
         columnProp(col, prop) {
             return ObjectUtils.getVNodeProp(col, prop);
+        },
+        getFooterColumns(row){
+            let cols = [];
+
+            if (row.children && row.children.default) {
+                row.children.default().forEach(child => {
+                    if (child.children && child.children instanceof Array)
+                        cols = [...cols, ...child.children];
+                    else if (child.type.name === 'Column')
+                        cols.push(child);
+                });
+
+                return cols;
+            }
         }
     },
     computed: {
