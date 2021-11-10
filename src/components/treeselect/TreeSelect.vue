@@ -218,6 +218,7 @@ export default {
             this.bindOutsideClickListener();
             this.bindScrollListener();
             this.bindResizeListener();
+            this.scrollValueInView();
             this.$emit('show');
         },
         onOverlayLeave() {
@@ -352,6 +353,14 @@ export default {
             if (path.length > 0) {
                 for (let key of path) {
                     this.expandedKeys[key] = true;
+                }
+            }
+        },
+        scrollValueInView() {
+            if (this.overlay) {
+                let selectedItem = DomHandler.findSingle(this.overlay, 'li.p-highlight');
+                if (selectedItem) {
+                    selectedItem.scrollIntoView({ block: 'nearest', inline: 'start' });
                 }
             }
         }
