@@ -4,8 +4,8 @@
         <i :class="iconClass" />
         <span class="p-confirm-dialog-message">{{message}}</span>
         <template #footer>
-            <CDButton :label="rejectLabel" :icon="rejectIcon" :class="rejectClass" @click="reject()"/>
-            <CDButton :label="acceptLabel" :icon="acceptIcon" :class="acceptClass" @click="accept()" autofocus />
+            <CDButton :label="rejectLabel" :icon="rejectIcon" :class="rejectClass" @click="reject()" :autofocus="autoFocusReject"/>
+            <CDButton :label="acceptLabel" :icon="acceptIcon" :class="acceptClass" @click="accept()" :autofocus="autoFocusAccept" />
         </template>
     </CDialog>
 </template>
@@ -104,6 +104,13 @@ export default {
         },
         rejectClass() {
             return ['p-confirm-dialog-reject', this.confirmation ? (this.confirmation.rejectClass || 'p-button-text') : null];
+        },
+        autoFocusAccept() {
+            return this.confirmation.defaultFocus === 'accept' ? true : false;
+        },
+        autoFocusReject() {
+            // backward compatibility
+            return this.confirmation.defaultFocus !== 'accept' ? true : false;
         }
     },
     components: {

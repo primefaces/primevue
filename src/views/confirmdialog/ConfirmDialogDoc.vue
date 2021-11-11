@@ -192,6 +192,12 @@ export default {
                         <td>true</td>
                         <td>Whether background scroll should be blocked when dialog is visible.</td>
                     </tr>
+                    <tr>
+                        <td>defaultFocus</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Element to receive the focus when the dialog gets visible, valid values are "accept" and "reject".</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
