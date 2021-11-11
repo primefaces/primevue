@@ -322,6 +322,7 @@ export default {
     mounted() {
         if (this.inline && !this.$attrs.disabled) {
             this.initFocusableCell();
+            this.overlay.style.width = DomHandler.getOuterWidth(this.$el) + 'px';
         }
     },
     updated() {
