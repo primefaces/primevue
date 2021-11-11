@@ -170,12 +170,12 @@
             "children": [
                 {
                     "name": "AutoComplete",
-                    "to": "/autocomplete",
-                    "badge":"Updated"
+                    "to": "/autocomplete"
                 },
                 {
                     "name": "Calendar",
-                    "to": "/calendar"
+                    "to": "/calendar",
+                    "badge": "Updated"
                 },
                 {
                     "name": "CascadeSelect",
@@ -195,8 +195,7 @@
                 },
                 {
                     "name": "Dropdown",
-                    "to": "/dropdown",
-                    "badge": "Updated"
+                    "to": "/dropdown"
                 },
                 {
                     "name": "Editor",
@@ -236,8 +235,7 @@
                 },
                 {
                     "name": "Listbox",
-                    "to": "/listbox",
-                    "badge":"Updated"
+                    "to": "/listbox"
                 },
                 {
                     "name": "MultiSelect",
@@ -688,7 +686,6 @@
         {
             "name": "Chart",
             "meta": ["chart"],
-            "badge": "Updated",
             "children": [
                 {
                     "name": "ChartModel",

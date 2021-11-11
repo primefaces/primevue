@@ -345,14 +345,16 @@
 .p-datepicker .p-datepicker-header .p-datepicker-title {
   line-height: 2rem;
 }
-.p-datepicker .p-datepicker-header .p-datepicker-title select {
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+.p-datepicker .p-datepicker-header .p-datepicker-title .p-datepicker-year,
+.p-datepicker .p-datepicker-header .p-datepicker-title .p-datepicker-month {
+  color: #323130;
+  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+  font-weight: 600;
+  padding: 0.5rem;
 }
-.p-datepicker .p-datepicker-header .p-datepicker-title select:focus {
-  outline: 0 none;
-  outline-offset: 0;
-  box-shadow: inset 0 0 0 1px #605e5c;
-  border-color: #0078d4;
+.p-datepicker .p-datepicker-header .p-datepicker-title .p-datepicker-year:enabled:hover,
+.p-datepicker .p-datepicker-header .p-datepicker-title .p-datepicker-month:enabled:hover {
+  color: #0078d4;
 }
 .p-datepicker .p-datepicker-header .p-datepicker-title .p-datepicker-month {
   margin-right: 0.5rem;
@@ -450,6 +452,18 @@
   color: #323130;
   background: #edebe9;
 }
+.p-datepicker .p-yearpicker {
+  margin: 0;
+}
+.p-datepicker .p-yearpicker .p-yearpicker-year {
+  padding: 1px;
+  transition: box-shadow 0.2s;
+  border-radius: 2px;
+}
+.p-datepicker .p-yearpicker .p-yearpicker-year.p-highlight {
+  color: #323130;
+  background: #edebe9;
+}
 .p-datepicker.p-datepicker-multiple-month .p-datepicker-group {
   border-right: 1px solid #edebe9;
   padding-right: 0.75rem;
@@ -476,6 +490,14 @@
   background: #f3f2f1;
 }
 .p-datepicker:not(.p-disabled) .p-monthpicker .p-monthpicker-month:not(.p-highlight):not(.p-disabled):focus {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: inset 0 0 0 1px #605e5c;
+}
+.p-datepicker:not(.p-disabled) .p-yearpicker .p-yearpicker-year:not(.p-highlight):not(.p-disabled):hover {
+  background: #f3f2f1;
+}
+.p-datepicker:not(.p-disabled) .p-yearpicker .p-yearpicker-year:not(.p-highlight):not(.p-disabled):focus {
   outline: 0 none;
   outline-offset: 0;
   box-shadow: inset 0 0 0 1px #605e5c;
@@ -4591,18 +4613,19 @@
 }
 
 .p-steps .p-steps-item .p-menuitem-link {
+  background: transparent;
   transition: box-shadow 0.2s;
   border-radius: 2px;
-  background: transparent;
+  background: #ffffff;
 }
 .p-steps .p-steps-item .p-menuitem-link .p-steps-number {
   color: #323130;
   border: 1px solid #f3f2f1;
+  background: #ffffff;
   min-width: 2rem;
   height: 2rem;
   line-height: 2rem;
   font-size: 1.143rem;
-  background: #ffffff;
   z-index: 1;
   border-radius: 50%;
 }

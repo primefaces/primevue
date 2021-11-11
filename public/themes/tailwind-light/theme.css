@@ -380,14 +380,16 @@
 .p-datepicker .p-datepicker-header .p-datepicker-title {
   line-height: 2rem;
 }
-.p-datepicker .p-datepicker-header .p-datepicker-title select {
+.p-datepicker .p-datepicker-header .p-datepicker-title .p-datepicker-year,
+.p-datepicker .p-datepicker-header .p-datepicker-title .p-datepicker-month {
+  color: #3f3f46;
   transition: none;
+  font-weight: 600;
+  padding: 0.5rem;
 }
-.p-datepicker .p-datepicker-header .p-datepicker-title select:focus {
-  outline: 0 none;
-  outline-offset: 0;
-  box-shadow: 0 0 0 1px #6366F1;
-  border-color: #4F46E5;
+.p-datepicker .p-datepicker-header .p-datepicker-title .p-datepicker-year:enabled:hover,
+.p-datepicker .p-datepicker-header .p-datepicker-title .p-datepicker-month:enabled:hover {
+  color: #4F46E5;
 }
 .p-datepicker .p-datepicker-header .p-datepicker-title .p-datepicker-month {
   margin-right: 0.5rem;
@@ -485,6 +487,18 @@
   color: #312E81;
   background: #EEF2FF;
 }
+.p-datepicker .p-yearpicker {
+  margin: 0.5rem 0;
+}
+.p-datepicker .p-yearpicker .p-yearpicker-year {
+  padding: 0.5rem;
+  transition: none;
+  border-radius: 0.375rem;
+}
+.p-datepicker .p-yearpicker .p-yearpicker-year.p-highlight {
+  color: #312E81;
+  background: #EEF2FF;
+}
 .p-datepicker.p-datepicker-multiple-month .p-datepicker-group {
   border-right: 1px solid #f3f4f6;
   padding-right: 0.5rem;
@@ -511,6 +525,14 @@
   background: #f4f4f5;
 }
 .p-datepicker:not(.p-disabled) .p-monthpicker .p-monthpicker-month:not(.p-highlight):not(.p-disabled):focus {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: 0 0 0 1px #6366F1;
+}
+.p-datepicker:not(.p-disabled) .p-yearpicker .p-yearpicker-year:not(.p-highlight):not(.p-disabled):hover {
+  background: #f4f4f5;
+}
+.p-datepicker:not(.p-disabled) .p-yearpicker .p-yearpicker-year:not(.p-highlight):not(.p-disabled):focus {
   outline: 0 none;
   outline-offset: 0;
   box-shadow: 0 0 0 1px #6366F1;
@@ -4675,18 +4697,19 @@
 }
 
 .p-steps .p-steps-item .p-menuitem-link {
+  background: transparent;
   transition: none;
   border-radius: 0.375rem;
-  background: transparent;
+  background: #ffffff;
 }
 .p-steps .p-steps-item .p-menuitem-link .p-steps-number {
   color: #3f3f46;
   border: 1px solid #f4f4f5;
+  background: #ffffff;
   min-width: 2rem;
   height: 2rem;
   line-height: 2rem;
   font-size: 1.143rem;
-  background: #ffffff;
   z-index: 1;
   border-radius: 50%;
 }
@@ -5442,4 +5465,12 @@
 
 .p-radiobutton:not(.p-radiobutton-disabled) .p-radiobutton-box.p-focus {
   box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #6366F1, 0 1px 2px 0 rgba(0, 0, 0, 0);
+}
+
+.p-carousel .p-carousel-indicators .p-carousel-indicator.p-highlight button {
+  background-color: #4F46E5;
+}
+
+.p-galleria .p-galleria-indicators .p-galleria-indicator.p-highlight button {
+  background-color: #4F46E5;
 }
