@@ -1,5 +1,5 @@
 <template>
-    <input :class="['p-inputtext p-component', {'p-filled': filled}]" :value="modelValue" @input="onInput" />
+    <input :class="['p-inputtext p-component', {'p-filled': filled}]" :value="modelValue" @input="onInput" v-bind="$attrs" />
 </template>
 
 <script>
