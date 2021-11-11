@@ -658,10 +658,6 @@ export default {
         },
         switchToMonthView(event) {
             this.currentView = 'month';
-            setTimeout(() => {
-
-                this.alignOverlay();
-            }, 1000);
             event.preventDefault();
         },
         switchToYearView(event) {
@@ -752,7 +748,14 @@ export default {
                     DomHandler.relativePosition(this.overlay, this.$el);
                 }
                 else {
-                    this.overlay.style.minWidth = DomHandler.getOuterWidth(this.$el) + 'px';
+                    if (this.view === 'date') {
+                        this.overlay.style.width = DomHandler.getOuterWidth(this.overlay) + 'px';
+                        this.overlay.style.minWidth = DomHandler.getOuterWidth(this.$el) + 'px';
+                    }
+                    else {
+                        this.overlay.style.width = DomHandler.getOuterWidth(this.$el) + 'px';
+                    }
+                    
                     DomHandler.absolutePosition(this.overlay, this.$el);
                 }
             }
