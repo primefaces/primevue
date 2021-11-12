@@ -62,7 +62,7 @@
                     </div>
                     <div class="p-field p-col-12 p-md-4">
                         <label for="multiplemonths">Multiple Months</label>
-                        <Calendar id="multiplemonths" v-model="date11" :numberOfMonths="3" />
+                        <Calendar id="multiplemonths" v-model="date11" :numberOfMonths="3" :responsiveOptions="responsiveOptions" />
                     </div>
                     <div class="p-field p-col-12 p-md-4">
                         <label for="datetemplate">Date Template</label>
@@ -131,7 +131,17 @@ export default {
             dates2: null,
             minDate: null,
             maxDate: null,
-            invalidDates: null
+            invalidDates: null,
+            responsiveOptions: [
+                {
+					breakpoint: '1400px',
+					numMonths: 2
+				},
+				{
+					breakpoint: '1200px',
+					numMonths: 1
+				}
+			]
         }
     },
 	components: {
