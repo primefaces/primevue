@@ -122,6 +122,38 @@ export default {
             </table>
         </div>
 
+        <h5>Events</h5>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Parameters</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>change</td>
+                        <td>event.originalEvent: Browser event <br >
+                            event.value: Selected color
+                        </td>
+                        <td>Callback to invoke when a color is selected.</td>
+                    </tr>
+                    <tr>
+                        <td>show</td>
+                        <td>-</td>
+                        <td>Callback to invoke when popup is shown.</td>
+                    </tr>
+                    <tr>
+                        <td>hide</td>
+                        <td>-</td>
+                        <td>Callback to invoke when popup is hidden.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
         <h5>Styling</h5>
         <p>Following is the list style classed of the component.</p>
         <div class="doc-tablewrapper">
