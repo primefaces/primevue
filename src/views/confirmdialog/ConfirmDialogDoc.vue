@@ -281,14 +281,14 @@ export default {
                     <Button @click="confirmPosition('right')" icon="pi pi-arrow-left" label="Right" class="p-button-help"></Button>
                 </div>
                 <div class="p-col">
-                    <Button @click="confirmPosition('topleft')" icon="pi pi-arrow-down" label="TopLeft" class="p-button-warning p-mr-2"></Button>
+                    <Button @click="confirmPosition('topleft')" icon="pi pi-arrow-down-right" label="TopLeft" class="p-button-warning p-mr-2"></Button>
                     <Button @click="confirmPosition('top')" icon="pi pi-arrow-down" label="Top" class="p-button-warning p-mr-2"></Button>
-                    <Button @click="confirmPosition('topright')" icon="pi pi-arrow-down" label="TopRight" class="p-button-warning"></Button>
+                    <Button @click="confirmPosition('topright')" icon="pi pi-arrow-down-left" label="TopRight" class="p-button-warning"></Button>
                 </div>
                 <div class="p-col">
-                    <Button @click="confirmPosition('bottomleft')" icon="pi pi-arrow-up" label="BottomLeft" class="p-button-success p-mr-2"></Button>
+                    <Button @click="confirmPosition('bottomleft')" icon="pi pi-arrow-up-right" label="BottomLeft" class="p-button-success p-mr-2"></Button>
                     <Button @click="confirmPosition('bottom')" icon="pi pi-arrow-up" label="Bottom" class="p-button-success p-mr-2"></Button>
-                    <Button @click="confirmPosition('bottomright')" icon="pi pi-arrow-up" label="BottomRight" class="p-button-success"></Button>
+                    <Button @click="confirmPosition('bottomright')" icon="pi pi-arrow-up-left" label="BottomRight" class="p-button-success"></Button>
                 </div>
             </div>
         </div>
@@ -366,14 +366,14 @@ export default {
                     <Button @click="confirmPosition('right')" icon="pi pi-arrow-left" label="Right" class="p-button-help"></Button>
                 </div>
                 <div class="p-col">
-                    <Button @click="confirmPosition('topleft')" icon="pi pi-arrow-down" label="TopLeft" class="p-button-warning p-mr-2"></Button>
+                    <Button @click="confirmPosition('topleft')" icon="pi pi-arrow-down-right" label="TopLeft" class="p-button-warning p-mr-2"></Button>
                     <Button @click="confirmPosition('top')" icon="pi pi-arrow-down" label="Top" class="p-button-warning p-mr-2"></Button>
-                    <Button @click="confirmPosition('topright')" icon="pi pi-arrow-down" label="TopRight" class="p-button-warning"></Button>
+                    <Button @click="confirmPosition('topright')" icon="pi pi-arrow-down-left" label="TopRight" class="p-button-warning"></Button>
                 </div>
                 <div class="p-col">
-                    <Button @click="confirmPosition('bottomleft')" icon="pi pi-arrow-up" label="BottomLeft" class="p-button-success p-mr-2"></Button>
+                    <Button @click="confirmPosition('bottomleft')" icon="pi pi-arrow-up-right" label="BottomLeft" class="p-button-success p-mr-2"></Button>
                     <Button @click="confirmPosition('bottom')" icon="pi pi-arrow-up" label="Bottom" class="p-button-success p-mr-2"></Button>
-                    <Button @click="confirmPosition('bottomright')" icon="pi pi-arrow-up" label="BottomRight" class="p-button-success"></Button>
+                    <Button @click="confirmPosition('bottomright')" icon="pi pi-arrow-up-left" label="BottomRight" class="p-button-success"></Button>
                 </div>
             </div>
         </div>
@@ -464,14 +464,14 @@ export default defineComponent({
                         <p-button @click="confirmPosition('right')" icon="pi pi-arrow-left" label="Right" class="p-button-help"></p-button>
                     </div>
                     <div class="p-col">
-                        <p-button @click="confirmPosition('topleft')" icon="pi pi-arrow-down" label="TopLeft" class="p-button-warning p-mr-2"></p-button>
+                        <p-button @click="confirmPosition('topleft')" icon="pi pi-arrow-down-right" label="TopLeft" class="p-button-warning p-mr-2"></p-button>
                         <p-button @click="confirmPosition('top')" icon="pi pi-arrow-down" label="Top" class="p-button-warning p-mr-2"></p-button>
-                        <p-button @click="confirmPosition('topright')" icon="pi pi-arrow-down" label="TopRight" class="p-button-warning"></p-button>
+                        <p-button @click="confirmPosition('topright')" icon="pi pi-arrow-down-left" label="TopRight" class="p-button-warning"></p-button>
                     </div>
                     <div class="p-col">
-                        <p-button @click="confirmPosition('bottomleft')" icon="pi pi-arrow-up" label="BottomLeft" class="p-button-success p-mr-2"></p-button>
+                        <p-button @click="confirmPosition('bottomleft')" icon="pi pi-arrow-up-right" label="BottomLeft" class="p-button-success p-mr-2"></p-button>
                         <p-button @click="confirmPosition('bottom')" icon="pi pi-arrow-up" label="Bottom" class="p-button-success p-mr-2"></p-button>
-                        <p-button @click="confirmPosition('bottomright')" icon="pi pi-arrow-up" label="BottomRight" class="p-button-success"></p-button>
+                        <p-button @click="confirmPosition('bottomright')" icon="pi pi-arrow-up-left" label="BottomRight" class="p-button-success"></p-button>
                     </div>
                 </div>
             </div>

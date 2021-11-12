@@ -447,18 +447,18 @@ export default {
             </div>
             <div class="p-col">
                 <Button label="Top" icon="pi pi-arrow-down" @click="openPosition('top')" class="p-button-warning" />
-                <Button label="TopLeft" icon="pi pi-arrow-down" @click="openPosition('topleft')" class="p-button-warning" />
-                <Button label="TopRight" icon="pi pi-arrow-down" @click="openPosition('topright')" class="p-button-warning" />
+                <Button label="TopLeft" icon="pi pi-arrow-down-right" @click="openPosition('topleft')" class="p-button-warning" />
+                <Button label="TopRight" icon="pi pi-arrow-down-left" @click="openPosition('topright')" class="p-button-warning" />
             </div>
             <div class="p-col">
                 <Button label="Bottom" icon="pi pi-arrow-up" @click="openPosition('bottom')" class="p-button-warning" />
-                <Button label="BottomLeft" icon="pi pi-arrow-up" @click="openPosition('bottomleft')" class="p-button-warning" />
-                <Button label="BottomRight" icon="pi pi-arrow-up" @click="openPosition('bottomright')" class="p-button-warning" />
+                <Button label="BottomLeft" icon="pi pi-arrow-up-right" @click="openPosition('bottomleft')" class="p-button-warning" />
+                <Button label="BottomRight" icon="pi pi-arrow-up-left" @click="openPosition('bottomright')" class="p-button-warning" />
             </div>
         </div>
 
         <Dialog header="Header" v-model:visible="displayPosition" :style="{width: '50vw'}" :position="position" :modal="true">
-           <p class="p-m-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+            <p class="p-m-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
                 laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                 Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             <template #footer>
@@ -650,18 +650,18 @@ p {
             </div>
             <div class="p-col">
                 <Button label="Top" icon="pi pi-arrow-down" @click="openPosition('top')" class="p-button-warning" />
-                <Button label="TopLeft" icon="pi pi-arrow-down" @click="openPosition('topleft')" class="p-button-warning" />
-                <Button label="TopRight" icon="pi pi-arrow-down" @click="openPosition('topright')" class="p-button-warning" />
+                <Button label="TopLeft" icon="pi pi-arrow-down-right" @click="openPosition('topleft')" class="p-button-warning" />
+                <Button label="TopRight" icon="pi pi-arrow-down-left" @click="openPosition('topright')" class="p-button-warning" />
             </div>
             <div class="p-col">
                 <Button label="Bottom" icon="pi pi-arrow-up" @click="openPosition('bottom')" class="p-button-warning" />
-                <Button label="BottomLeft" icon="pi pi-arrow-up" @click="openPosition('bottomleft')" class="p-button-warning" />
-                <Button label="BottomRight" icon="pi pi-arrow-up" @click="openPosition('bottomright')" class="p-button-warning" />
+                <Button label="BottomLeft" icon="pi pi-arrow-up-right" @click="openPosition('bottomleft')" class="p-button-warning" />
+                <Button label="BottomRight" icon="pi pi-arrow-up-left" @click="openPosition('bottomright')" class="p-button-warning" />
             </div>
         </div>
 
         <Dialog header="Header" v-model:visible="displayPosition" :style="{width: '50vw'}" :position="position" :modal="true">
-           <p class="p-m-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+            <p class="p-m-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
                 laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                 Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             <template #footer>
@@ -854,13 +854,13 @@ p {
                 </div>
                 <div class="p-col">
                     <p-button label="Top" icon="pi pi-arrow-down" @click="openPosition('top')" class="p-button-warning"></p-button>
-                    <p-button label="TopLeft" icon="pi pi-arrow-down" @click="openPosition('topleft')" class="p-button-warning"></p-button>
-                    <p-button label="TopRight" icon="pi pi-arrow-down" @click="openPosition('topright')" class="p-button-warning"></p-button>
+                    <p-button label="TopLeft" icon="pi pi-arrow-down-right" @click="openPosition('topleft')" class="p-button-warning"></p-button>
+                    <p-button label="TopRight" icon="pi pi-arrow-down-left" @click="openPosition('topright')" class="p-button-warning"></p-button>
                 </div>
                 <div class="p-col">
                     <p-button label="Bottom" icon="pi pi-arrow-up" @click="openPosition('bottom')" class="p-button-warning"></p-button>
-                    <p-button label="BottomLeft" icon="pi pi-arrow-up" @click="openPosition('bottomleft')" class="p-button-warning"></p-button>
-                    <p-button label="BottomRight" icon="pi pi-arrow-up" @click="openPosition('bottomright')" class="p-button-warning"></p-button>
+                    <p-button label="BottomLeft" icon="pi pi-arrow-up-right" @click="openPosition('bottomleft')" class="p-button-warning"></p-button>
+                    <p-button label="BottomRight" icon="pi pi-arrow-up-left" @click="openPosition('bottomright')" class="p-button-warning"></p-button>
                 </div>
             </div>
 
