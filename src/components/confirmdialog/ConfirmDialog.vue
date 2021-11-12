@@ -58,9 +58,7 @@ export default {
         },
         closeDialog($event) {
             if(DomHandler.hasClass($event.target, 'p-dialog-header-close') || DomHandler.hasClass($event.target, 'p-dialog-header-close-icon')) {
-                ConfirmationEventBus.off('confirm');
-                ConfirmationEventBus.off('close');
-                this.visible = false;
+                this.reject();
             }
         }
     },
