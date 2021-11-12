@@ -242,6 +242,12 @@ export default {
                         <td>Number of months to display.</td>
                     </tr>
                     <tr>
+                        <td>responsiveOptions</td>
+                        <td>any</td>
+                        <td>null</td>
+                        <td>An array of options for responsive design.</td>
+                    </tr>
+                    <tr>
                         <td>view</td>
                         <td>string</td>
                         <td>date</td>
@@ -656,7 +662,7 @@ export default {
             </div>
             <div class="p-field p-col-12 p-md-4">
                 <label for="multiplemonths">Multiple Months</label>
-                <Calendar id="multiplemonths" v-model="date11" :numberOfMonths="3" />
+                <Calendar id="multiplemonths" v-model="date11" :numberOfMonths="3" :responsiveOptions="responsiveOptions" />
             </div>
             <div class="p-field p-col-12 p-md-4">
                 <label for="datetemplate">Date Template</label>
@@ -719,7 +725,17 @@ export default {
             dates2: null,
             minDate: null,
             maxDate: null,
-            invalidDates: null
+            invalidDates: null,
+            responsiveOptions: [
+                {
+					breakpoint: '1400px',
+					numMonths: 2
+				},
+				{
+					breakpoint: '1200px',
+					numMonths: 1
+				}
+			]
         }
     }
 }
@@ -789,7 +805,7 @@ export default {
             </div>
             <div class="p-field p-col-12 p-md-4">
                 <label for="multiplemonths">Multiple Months</label>
-                <Calendar id="multiplemonths" v-model="date11" :numberOfMonths="3" />
+                <Calendar id="multiplemonths" v-model="date11" :numberOfMonths="3" :responsiveOptions="responsiveOptions" />
             </div>
             <div class="p-field p-col-12 p-md-4">
                 <label for="datetemplate">Date Template</label>
@@ -843,6 +859,16 @@ export default {
         const date14 = ref();
         const dates1 = ref();
         const dates2 = ref();
+        const responsiveOptions = ref([
+            {
+                breakpoint: '1400px',
+                numMonths: 2
+            },
+            {
+                breakpoint: '1200px',
+                numMonths: 1
+            }
+        ]);
 
         minDate.value.setMonth(prevMonth);
         minDate.value.setFullYear(prevYear);
@@ -854,7 +880,7 @@ export default {
         invalidDates.value = [today, invalidDate];
 
         return { minDate, maxDate, invalidDates, date1, date2, date3, date4, date5, date6, date7,
-            date8, date9, date10, date11, date12, date13, date14, dates1, dates2 }
+            date8, date9, date10, date11, date12, date13, date14, dates1, dates2, responsiveOptions }
     }
 }
 <\\/script>
@@ -922,7 +948,7 @@ export default {
                 </div>
                 <div class="p-field p-col-12 p-md-4">
                     <label for="multiplemonths">Multiple Months</label>
-                    <Calendar id="multiplemonths" v-model="date11" :numberOfMonths="3" />
+                    <Calendar id="multiplemonths" v-model="date11" :numberOfMonths="3" :responsiveOptions="responsiveOptions" />
                 </div>
                 <div class="p-field p-col-12 p-md-4">
                     <label for="datetemplate">Date Template</label>
@@ -975,6 +1001,16 @@ export default {
                 const date14 = ref();
                 const dates1 = ref();
                 const dates2 = ref();
+                const responsiveOptions = ref([
+                    {
+                        breakpoint: '1400px',
+                        numMonths: 2
+                    },
+                    {
+                        breakpoint: '1200px',
+                        numMonths: 1
+                    }
+                ]);
 
                 minDate.value.setMonth(prevMonth);
                 minDate.value.setFullYear(prevYear);
@@ -986,7 +1022,7 @@ export default {
                 invalidDates.value = [today, invalidDate];
 
                 return { minDate, maxDate, invalidDates, date1, date2, date3, date4, date5, date6, date7,
-                    date8, date9, date10, date11, date12, date13, date14, dates1, dates2 }
+                    date8, date9, date10, date11, date12, date13, date14, dates1, dates2, responsiveOptions }
             },
             components: {
                 "p-calendar": primevue.calendar

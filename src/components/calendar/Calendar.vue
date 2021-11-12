@@ -11,14 +11,14 @@
                             <div class="p-datepicker-group" v-for="(month,groupIndex) of months" :key="month.month + month.year">
                                 <div class="p-datepicker-header">
                                     <slot name="header"></slot>
-                                    <button class="p-datepicker-prev p-link" v-if="groupIndex === 0" @click="onPrevButtonClick" type="button" @keydown="onContainerButtonKeydown" v-ripple :disabled="$attrs.disabled">
+                                    <button class="p-datepicker-prev p-link" v-show="groupIndex === 0" @click="onPrevButtonClick" type="button" @keydown="onContainerButtonKeydown" v-ripple :disabled="$attrs.disabled">
                                         <span class="p-datepicker-prev-icon pi pi-chevron-left"></span>
                                     </button>
                                     <div class="p-datepicker-title">
-                                        <button type="button" @click="switchToMonthView" v-if="currentView === 'date'" class="p-datepicker-month p-link" :disabled="$attrs.disabled">
+                                        <button type="button" @click="switchToMonthView" v-if="currentView === 'date'" class="p-datepicker-month p-link" :disabled="switchViewButtonDisabled">
                                             {{getMonthName(month.month)}}
                                         </button>
-                                        <button type="button" @click="switchToYearView" v-if="currentView !== 'year'" class="p-datepicker-year p-link" :disabled="$attrs.disabled">
+                                        <button type="button" @click="switchToYearView" v-if="currentView !== 'year'" class="p-datepicker-year p-link" :disabled="switchViewButtonDisabled">
                                             {{currentYear}}
                                         </button>
                                         <span class="p-datepicker-decade" v-if="currentView === 'year'">
@@ -27,7 +27,7 @@
                                             </slot>
                                         </span>
                                     </div>
-                                    <button class="p-datepicker-next p-link" v-if="numberOfMonths === 1 ? true : (groupIndex === numberOfMonths - 1)"
+                                    <button class="p-datepicker-next p-link" v-show="numberOfMonths === 1 ? true : (groupIndex === numberOfMonths - 1)"
                                         @click="onNextButtonClick" type="button" @keydown="onContainerButtonKeydown" v-ripple :disabled="$attrs.disabled">
                                         <span class="p-datepicker-next-icon pi pi-chevron-right"></span>
                                     </button>
@@ -142,7 +142,7 @@
 </template>
 
 <script>
-import {ConnectedOverlayScrollHandler,DomHandler,ZIndexUtils} from 'primevue/utils';
+import {ConnectedOverlayScrollHandler,DomHandler,ZIndexUtils,UniqueComponentId} from 'primevue/utils';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import InputText from 'primevue/inputtext';
 import Button from 'primevue/button';
@@ -186,6 +186,7 @@ export default {
             type: Number,
             default: 1
         },
+        responsiveOptions: Array,
         view: {
             type: String,
             default: 'date'
@@ -320,9 +321,15 @@ export default {
         this.updateCurrentMetaData();
     },
     mounted() {
-        if (this.inline && !this.$attrs.disabled) {
-            this.initFocusableCell();
-            this.overlay.style.width = DomHandler.getOuterWidth(this.$el) + 'px';
+        this.createResponsiveStyle();
+
+        if (this.inline) {
+            this.overlay && this.overlay.setAttribute(this.attributeSelector, '');
+
+            if (!this.$attrs.disabled) {
+                this.initFocusableCell();
+                this.overlay.style.width = DomHandler.getOuterWidth(this.$el) + 'px';
+            }
         }
     },
     updated() {
@@ -343,8 +350,9 @@ export default {
         }
 
         if (this.mask) {
-            this.destroyMask();
+           this.destroyMask();
         }
+        this.destroyResponsiveStyleElement();
 
         this.unbindOutsideClickListener();
         this.unbindResizeListener();
@@ -383,6 +391,14 @@ export default {
             if (this.overlay) {
                 setTimeout(this.updateFocus, 0);
             }
+        },
+        numberOfMonths() {
+            this.destroyResponsiveStyleElement();
+            this.createResponsiveStyle();
+        },
+        responsiveOptions() {
+            this.destroyResponsiveStyleElement();
+            this.createResponsiveStyle();
         }
     },
     methods: {
@@ -551,12 +567,15 @@ export default {
             return validMin && validMax && validDate && validDay;
         },
         onOverlayEnter(el) {
+            el.setAttribute(this.attributeSelector, '');
+
             if (this.autoZIndex) {
                 if (this.touchUI)
                     ZIndexUtils.set('modal', el, this.baseZIndex || this.$primevue.config.zIndex.modal);
                 else
                     ZIndexUtils.set('overlay', el, this.baseZIndex || this.$primevue.config.zIndex.overlay);
             }
+
             this.alignOverlay();
             this.$emit('show');
         },
@@ -756,7 +775,7 @@ export default {
                     else {
                         this.overlay.style.width = DomHandler.getOuterWidth(this.$el) + 'px';
                     }
-                    
+
                     DomHandler.absolutePosition(this.overlay, this.$el);
                 }
             }
@@ -2116,6 +2135,53 @@ export default {
                     target: this.$el
                 });
             }
+        },
+        createResponsiveStyle() {
+            if (this.numberOfMonths > 1 && this.responsiveOptions) {
+                if (!this.responsiveStyleElement) {
+                    this.responsiveStyleElement = document.createElement('style');
+                    this.responsiveStyleElement.type = 'text/css';
+                    document.body.appendChild(this.responsiveStyleElement);
+                }
+
+                let innerHTML = '';
+                if (this.responsiveOptions) {
+                    let responsiveOptions = [...this.responsiveOptions]
+                        .filter(o => !!(o.breakpoint && o.numMonths))
+                        .sort((o1, o2) => -1 * o1.breakpoint.localeCompare(o2.breakpoint, undefined, { numeric: true }));
+
+                    for (let i = 0; i < responsiveOptions.length; i++) {
+                        let { breakpoint, numMonths } = responsiveOptions[i];
+                        let styles = `
+                            .p-datepicker[${this.attributeSelector}] .p-datepicker-group:nth-child(${numMonths}) .p-datepicker-next {
+                                display: inline-flex !important;
+                            }
+                        `;
+
+                        for (let j = numMonths; j < this.numberOfMonths; j++) {
+                            styles += `
+                                .p-datepicker[${this.attributeSelector}] .p-datepicker-group:nth-child(${j + 1}) {
+                                    display: none !important;
+                                }
+                            `
+                        }
+
+                        innerHTML += `
+                            @media screen and (max-width: ${breakpoint}) {
+                                ${styles}
+                            }
+                        `
+                    }
+                }
+
+                this.responsiveStyleElement.innerHTML = innerHTML;
+            }
+		},
+        destroyResponsiveStyleElement() {
+            if (this.responsiveStyleElement) {
+                this.responsiveStyleElement.remove();
+                this.responsiveStyleElement = null;
+            }
         }
     },
     computed: {
@@ -2315,6 +2381,12 @@ export default {
         },
         appendTarget() {
             return this.appendDisabled ? null : this.appendTo;
+        },
+        attributeSelector() {
+            return UniqueComponentId();
+        },
+        switchViewButtonDisabled() {
+            return this.numberOfMonths > 1 || this.$attrs.disabled;
         }
     },
     components: {
@@ -2331,6 +2403,7 @@ export default {
 .p-calendar {
     position: relative;
     display: inline-flex;
+    max-width: 100%;
 }
 
 .p-calendar .p-inputtext {
@@ -2372,6 +2445,7 @@ export default {
 .p-datepicker-inline {
     display: inline-block;
     position: static;
+    overflow-x: auto;
 }
 
 /* Header */
@@ -2398,6 +2472,10 @@ export default {
 /* Multiple Month DatePicker */
 .p-datepicker-multiple-month .p-datepicker-group-container {
     display: flex;
+}
+
+.p-datepicker-multiple-month .p-datepicker-group-container .p-datepicker-group {
+    flex: 1 1 auto;
 }
 
 /* DatePicker Table */

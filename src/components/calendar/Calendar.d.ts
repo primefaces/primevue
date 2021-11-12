@@ -10,6 +10,7 @@ interface CalendarProps {
     showIcon?: boolean;
     icon?: string;
     numberOfMonths?: number;
+    responsiveOptions?: any[];
     view?: string;
     touchUI?: boolean;
     monthNavigator?: boolean;

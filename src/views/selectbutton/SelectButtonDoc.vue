@@ -140,6 +140,12 @@ export default {
 				</thead>
 				<tbody>
                     <tr>
+                        <td>change</td>
+                        <td>event.originalEvent: browser event <br>
+                            event.value: Single value or an array of values that are selected.</td>
+                        <td>Callback to invoke on value change.</td>
+                    </tr>
+                    <tr>
                         <td>focus</td>
                         <td>event: Browser event</td>
                         <td>Callback to invoke on focus.</td>
