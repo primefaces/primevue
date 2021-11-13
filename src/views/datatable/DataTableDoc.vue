@@ -721,7 +721,7 @@ export default {
             &lt;InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" :placeholder="`Search by name - ${filterModel.matchMode}`"/&gt;
         &lt;/template&gt;
     &lt;/Column&gt;
-&lt;DataTable&gt;
+&lt;/DataTable&gt;
 
 </template>
 </code></pre>
@@ -737,7 +737,7 @@ export default {
             &lt;InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" :placeholder="`Search by name - ${filterModel.matchMode}`"/&gt;
         &lt;/template&gt;
     &lt;/Column&gt;
-&lt;DataTable&gt;
+&lt;/DataTable&gt;
 
 </template>
 </code></pre>
