@@ -135,8 +135,8 @@ declare class DataTable {
     $slots: {
         header: DataTableHeaderSlotInterface;
         footer: DataTableFooterSlotInterface;
-        paginatorLeft: VNode[];
-        paginatorRight: VNode[];
+        paginatorstart: VNode[];
+        paginatorend: VNode[];
         empty: VNode[];
         groupheader: DataTableGroupHeaderSlotInterface;
         groupfooter: DataTableGroupFooterSlotInterface;

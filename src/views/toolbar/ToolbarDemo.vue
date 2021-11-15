@@ -10,14 +10,14 @@
 
         <div class="content-section implementation">
             <Toolbar>
-                <template #left>
+                <template #start>
                     <Button label="New" icon="pi pi-plus" class="p-mr-2" />
                     <Button label="Upload" icon="pi pi-upload" class="p-button-success" />
                     <i class="pi pi-bars p-toolbar-separator p-mr-2" />
                     <SplitButton label="Save" icon="pi pi-check" :model="items" class="p-button-warning"></SplitButton>
                 </template>
 
-                <template #right>
+                <template #end>
                     <Button icon="pi pi-search" class="p-mr-2" />
                     <Button icon="pi pi-calendar" class="p-button-success p-mr-2" />
                     <Button icon="pi pi-times" class="p-button-danger" />

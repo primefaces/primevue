@@ -18,10 +18,10 @@
                     <Column field="country.name" header="Country"></Column>
                     <Column field="company" header="Company"></Column>
                     <Column field="representative.name" header="Representative"></Column>
-                    <template #paginatorLeft>
+                    <template #paginatorstart>
                         <Button type="button" icon="pi pi-refresh" class="p-button-text" />
                     </template>
-                    <template #paginatorRight>
+                    <template #paginatorend>
                         <Button type="button" icon="pi pi-cloud" class="p-button-text" />
                     </template>
                 </DataTable>
@@ -54,10 +54,10 @@ export default {
             <Column field="country.name" header="Country"></Column>
             <Column field="company" header="Company"></Column>
             <Column field="representative.name" header="Representative"></Column>
-            <template #paginatorLeft>
+            <template #paginatorstart>
                 <Button type="button" icon="pi pi-refresh" class="p-button-text" />
             </template>
-            <template #paginatorRight>
+            <template #paginatorend>
                 <Button type="button" icon="pi pi-cloud" class="p-button-text" />
             </template>
         </DataTable>    
@@ -97,10 +97,10 @@ export default {
             <Column field="country.name" header="Country"></Column>
             <Column field="company" header="Company"></Column>
             <Column field="representative.name" header="Representative"></Column>
-            <template #paginatorLeft>
+            <template #paginatorstart>
                 <Button type="button" icon="pi pi-refresh" class="p-button-text" />
             </template>
-            <template #paginatorRight>
+            <template #paginatorend>
                 <Button type="button" icon="pi pi-cloud" class="p-button-text" />
             </template>
         </DataTable>    
@@ -140,10 +140,10 @@ export default {
                 <p-column field="country.name" header="Country"></p-column>
                 <p-column field="company" header="Company"></p-column>
                 <p-column field="representative.name" header="Representative"></p-column>
-                <template #paginatorLeft>
+                <template #paginatorstart>
                     <p-button type="button" icon="pi pi-refresh" class="p-button-text"></p-button>
                 </template>
-                <template #paginatorRight>
+                <template #paginatorend>
                     <p-button type="button" icon="pi pi-cloud" class="p-button-text"></p-button>
                 </template>
             </p-datatable>

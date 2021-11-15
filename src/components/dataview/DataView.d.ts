@@ -30,8 +30,8 @@ declare class DataView {
     $emit(eventName: 'page', event: Event): this;
     $slots: {
         header: VNode[];
-        paginatorLeft: VNode[];
-        paginatorRight: VNode[];
+        paginatorstart: VNode[];
+        paginatorend: VNode[];
         list: DataViewSlotInterface;
         grid: DataViewSlotInterface;
         empty: VNode[];

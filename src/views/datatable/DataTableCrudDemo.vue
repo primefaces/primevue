@@ -11,12 +11,12 @@
 		<div class="content-section implementation">
             <div class="card">
                 <Toolbar class="p-mb-4">
-                    <template #left>
+                    <template #start>
                         <Button label="New" icon="pi pi-plus" class="p-button-success p-mr-2" @click="openNew" />
                         <Button label="Delete" icon="pi pi-trash" class="p-button-danger" @click="confirmDeleteSelected" :disabled="!selectedProducts || !selectedProducts.length" />
                     </template>
 
-                    <template #right>
+                    <template #end>
                         <FileUpload mode="basic" accept="image/*" :maxFileSize="1000000" label="Import" chooseLabel="Import" class="p-mr-2 p-d-inline-block" />
                         <Button label="Export" icon="pi pi-upload" class="p-button-help" @click="exportCSV($event)"  />
                     </template>
@@ -191,12 +191,12 @@ export default {
     <div>
         <div class="card">
             <Toolbar class="p-mb-4">
-                <template #left>
+                <template #start>
                     <Button label="New" icon="pi pi-plus" class="p-button-success p-mr-2" @click="openNew" />
                     <Button label="Delete" icon="pi pi-trash" class="p-button-danger" @click="confirmDeleteSelected" :disabled="!selectedProducts || !selectedProducts.length" />
                 </template>
 
-                <template #right>
+                <template #end>
                     <FileUpload mode="basic" accept="image/*" :maxFileSize="1000000" label="Import" chooseLabel="Import" class="p-mr-2 p-d-inline-block" />
                     <Button label="Export" icon="pi pi-upload" class="p-button-help" @click="exportCSV($event)"  />
                 </template>
@@ -507,12 +507,12 @@ export default {
     <div>
         <div class="card">
             <Toolbar class="p-mb-4">
-                <template #left>
+                <template #start>
                     <Button label="New" icon="pi pi-plus" class="p-button-success p-mr-2" @click="openNew" />
                     <Button label="Delete" icon="pi pi-trash" class="p-button-danger" @click="confirmDeleteSelected" :disabled="!selectedProducts || !selectedProducts.length" />
                 </template>
 
-                <template #right>
+                <template #end>
                     <FileUpload mode="basic" accept="image/*" :maxFileSize="1000000" label="Import" chooseLabel="Import" class="p-mr-2 p-d-inline-block" />
                     <Button label="Export" icon="pi pi-upload" class="p-button-help" @click="exportCSV($event)"  />
                 </template>
@@ -832,12 +832,12 @@ export default {
                 <p-toast></p-toast>
 
                 <p-toolbar class="p-mb-4">
-                    <template #left>
+                    <template #start>
                         <p-button label="New" icon="pi pi-plus" class="p-button-success p-mr-2" @click="openNew"></p-button>
                         <p-button label="Delete" icon="pi pi-trash" class="p-button-danger" @click="confirmDeleteSelected" :disabled="!selectedProducts || !selectedProducts.length"></p-button>
                     </template>
 
-                    <template #right>
+                    <template #end>
                         <p-fileupload mode="basic" accept="image/*" :maxFileSize="1000000" label="Import" chooseLabel="Import" class="p-mr-2 p-d-inline-block"></p-fileupload>
                         <p-button label="Export" icon="pi pi-upload" class="p-button-help" @click="exportCSV($event)"></p-button>
                     </template>

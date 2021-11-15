@@ -108,13 +108,13 @@ export default {
 
 		<h5>Paginator</h5>
 		<p>Pagination is enabled by setting paginator property to true, rows attribute defines the number of rows per page and pageLinks specify the the number
-			of page links to display. To customize the left and right side of the paginators, use <i>paginatorLeft</i> and <i>paginatorRight</i> templates.</p>
+			of page links to display. To customize the left and right side of the paginators, use <i>paginatorstart</i> and <i>paginatorend</i> templates.</p>
 <pre v-code><code><template v-pre>
 &lt;DataView :value="cars" :layout="layout" paginatorPosition="both" :paginator="true" :rows="20"&gt;
-	&lt;template #paginatorLeft&gt;
+	&lt;template #paginatorstart&gt;
 		&lt;Button type="button" icon="pi pi-refresh"/&gt;
 	&lt;/template&gt;
-	&lt;template #paginatorRight&gt;
+	&lt;template #paginatorend&gt;
 		&lt;Button type="button" icon="pi pi-search" /&gt;
 	&lt;/template&gt;
 	&lt;template #list="slotProps" &gt;
@@ -378,11 +378,11 @@ export default {
                         <td>-</td>
                     </tr>
                     <tr>
-                        <td>paginatorLeft</td>
+                        <td>paginatorstart</td>
                         <td>-</td>
                     </tr>
                     <tr>
-                        <td>paginatorRight</td>
+                        <td>paginatorend</td>
                         <td>-</td>
                     </tr>
                     <tr>

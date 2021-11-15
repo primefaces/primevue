@@ -78,17 +78,17 @@ import Paginator from 'primevue/paginator';
         </ul>
 
         <h5>Custom Content</h5>
-        <p>There are two templates available named "left" and "right" to add custom content to these locations. Both templates get
+        <p>There are two templates available named <i>start</i> and <i>end</i> to add custom content to these locations. Both templates get
             a state object as a slot property to provide the current page, first index and the rows.
         </p>
 <pre v-code><code><template v-pre>
 &lt;Paginator v-model:first="offset" :rows="10" :totalRecords="totalItemsCount"&gt;
-    &lt;template #left="slotProps"&gt;
+    &lt;template #start="slotProps"&gt;
         Page: &#123;&#123;slotProps.state.page&#125;&#125;
         First: &#123;&#123;slotProps.state.first&#125;&#125;
         Rows: &#123;&#123;slotProps.state.rows&#125;&#125;
     &lt;/template&gt;
-    &lt;template #right&gt;
+    &lt;template #end&gt;
         &lt;Button type="button" icon="pi pi-search" /&gt;
     &lt;/template&gt;
 &lt;/Paginator&gt;
@@ -213,11 +213,11 @@ onPage(event) {
 				</thead>
 				<tbody>
                     <tr>
-                        <td>left</td>
+                        <td>start</td>
                         <td>state: State of the paginator</td>
                     </tr>
                     <tr>
-                        <td>right</td>
+                        <td>end</td>
                         <td>state: State of the paginator</td>
                     </tr>
 				</tbody>
@@ -292,10 +292,10 @@ export default {
         <h5>Custom</h5>
         <Paginator v-model:first="first" :rows="1" :totalRecords="totalRecords2"
             template="FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink">
-            <template #left>
+            <template #start>
                 <Button type="button" icon="pi pi-refresh" @click="reset()"/>
             </template>
-            <template #right>
+            <template #end>
                 <Button type="button" icon="pi pi-search" />
             </template>
         </Paginator>
@@ -341,10 +341,10 @@ export default {
         <h5>Custom</h5>
         <Paginator v-model:first="first" :rows="1" :totalRecords="totalRecords2"
             template="FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink">
-            <template #left>
+            <template #start>
                 <Button type="button" icon="pi pi-refresh" @click="reset()"/>
             </template>
-            <template #right>
+            <template #end>
                 <Button type="button" icon="pi pi-search" />
             </template>
         </Paginator>
@@ -388,10 +388,10 @@ export default {
             <h5>Custom</h5>
             <p-paginator v-model:first="first" :rows="1" :total-records="totalRecords2"
                 template="FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink">
-                <template #left>
+                <template #start>
                     <p-button type="button" icon="pi pi-refresh" @click="reset()"></p-button>
                 </template>
-                <template #right>
+                <template #end>
                     <p-button type="button" icon="pi pi-search"></p-button>
                 </template>
             </p-paginator>

@@ -14,17 +14,17 @@ import Toolbar from 'primevue/toolbar';
 </code></pre>
 
 		<h5>Getting Started</h5>
-		<p>Toolbar provides <i>left</i> and <i>right</i> templates to place content at these sections.</p>
+		<p>Toolbar provides <i>start</i> and <i>end</i> templates to place content at these sections.</p>
 <pre v-code><code>
 &lt;Toolbar&gt;
-    &lt;template #left&gt;
+    &lt;template #start&gt;
         &lt;Button label="New" icon="pi pi-plus" class="p-mr-2" /&gt;
         &lt;Button label="Upload" icon="pi pi-upload" class="p-button-success" /&gt;
         &lt;i class="pi pi-bars p-toolbar-separator p-mr-2" /&gt;
         &lt;SplitButton label="Save" icon="pi pi-check" :model="items" class="p-button-warning"&gt;&lt;/SplitButton&gt;
     &lt;/template&gt;
 
-    &lt;template #right&gt;
+    &lt;template #end&gt;
         &lt;Button icon="pi pi-search" class="p-mr-2" /&gt;
         &lt;Button icon="pi pi-calendar" class="p-button-success p-mr-2" /&gt;
         &lt;Button icon="pi pi-times" class="p-button-danger" /&gt;
@@ -44,11 +44,11 @@ import Toolbar from 'primevue/toolbar';
 				</thead>
 				<tbody>
                     <tr>
-                        <td>left</td>
+                        <td>start</td>
                         <td>-</td>
                     </tr>
                     <tr>
-                        <td>right</td>
+                        <td>end</td>
                         <td>-</td>
                     </tr>
 				</tbody>
@@ -98,14 +98,14 @@ export default {
 <template>
     <div>
         <Toolbar>
-            <template #left>
+            <template #start>
                 <Button label="New" icon="pi pi-plus" class="p-mr-2" />
                 <Button label="Upload" icon="pi pi-upload" class="p-button-success" />
                 <i class="pi pi-bars p-toolbar-separator p-mr-2" />
                 <SplitButton label="Save" icon="pi pi-check" :model="items" class="p-button-warning"></SplitButton>
             </template>
 
-            <template #right>
+            <template #end>
                 <Button icon="pi pi-search" class="p-mr-2" />
                 <Button icon="pi pi-calendar" class="p-button-success p-mr-2" />
                 <Button icon="pi pi-times" class="p-button-danger" />
@@ -159,14 +159,14 @@ export default {
 <template>
     <div>
         <Toolbar>
-            <template #left>
+            <template #start>
                 <Button label="New" icon="pi pi-plus" class="p-mr-2" />
                 <Button label="Upload" icon="pi pi-upload" class="p-button-success" />
                 <i class="pi pi-bars p-toolbar-separator p-mr-2" />
                 <SplitButton label="Save" icon="pi pi-check" :model="items" class="p-button-warning"></SplitButton>
             </template>
 
-            <template #right>
+            <template #end>
                 <Button icon="pi pi-search" class="p-mr-2" />
                 <Button icon="pi pi-calendar" class="p-button-success p-mr-2" />
                 <Button icon="pi pi-times" class="p-button-danger" />
@@ -222,14 +222,14 @@ export default {
         <script src="https://unpkg.com/primevue@^3/splitbutton/splitbutton.min.js"><\\/script>`,
                     content: `<div id="app">
             <p-toolbar>
-                <template #left>
+                <template #start>
                     <p-button label="New" icon="pi pi-plus" class="p-mr-2"></p-button>
                     <p-button label="Upload" icon="pi pi-upload" class="p-button-success"></p-button>
                     <i class="pi pi-bars p-toolbar-separator p-mr-2"></i>
                     <p-splitbutton label="Save" icon="pi pi-check" :model="items" class="p-button-warning"></p-splitbutton>
                 </template>
 
-                <template #right>
+                <template #end>
                     <p-button icon="pi pi-search" class="p-mr-2"></p-button>
                     <p-button icon="pi pi-calendar" class="p-button-success p-mr-2"></p-button>
                     <p-button icon="pi pi-times" class="p-button-danger"></p-button>

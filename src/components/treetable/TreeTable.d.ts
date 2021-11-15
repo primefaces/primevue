@@ -61,8 +61,8 @@ declare class TreeTable {
     $emit(eventName: 'column-resize-end', event: Event): this;
     $slots: {
         header: VNode[];
-        paginatorLeft: VNode[];
-        paginatorRight: VNode[];
+        paginatorstart: VNode[];
+        paginatorend: VNode[];
         empty: VNode[];
         footer: VNode[];
     }

@@ -5,11 +5,11 @@
 		</div>
 		<DVPaginator v-if="paginatorTop" :rows="d_rows" :first="d_first" :totalRecords="getTotalRecords" :pageLinkSize="pageLinkSize" :template="paginatorTemplate" :rowsPerPageOptions="rowsPerPageOptions"
 					:currentPageReportTemplate="currentPageReportTemplate" :class="{'p-paginator-top': paginatorTop}" :alwaysShow="alwaysShowPaginator" @page="onPage($event)">
-			<template #left v-if="$slots.paginatorLeft">
-				<slot name="paginatorLeft"></slot>
+			<template #start v-if="$slots.paginatorstart">
+				<slot name="paginatorstart"></slot>
 			</template>
-			<template #right v-if="$slots.paginatorRight">
-				<slot name="paginatorRight"></slot>
+			<template #end v-if="$slots.paginatorend">
+				<slot name="paginatorend"></slot>
 			</template>
 		</DVPaginator>
 		<div class="p-dataview-content">
@@ -27,11 +27,11 @@
 		</div>
 		<DVPaginator v-if="paginatorBottom" :rows="d_rows" :first="d_first" :totalRecords="getTotalRecords" :pageLinkSize="pageLinkSize" :template="paginatorTemplate" :rowsPerPageOptions="rowsPerPageOptions"
 					:currentPageReportTemplate="currentPageReportTemplate" :class="{'p-paginator-bottom': paginatorBottom}" :alwaysShow="alwaysShowPaginator" @page="onPage($event)">
-			<template #left v-if="$slots.paginatorLeft">
-				<slot name="paginatorLeft"></slot>
+			<template #start v-if="$slots.paginatorstart">
+				<slot name="paginatorstart"></slot>
 			</template>
-			<template #right v-if="$slots.paginatorRight">
-				<slot name="paginatorRight"></slot>
+			<template #end v-if="$slots.paginatorend">
+				<slot name="paginatorend"></slot>
 			</template>
 		</DVPaginator>
 		<div class="p-dataview-footer" v-if="$slots.footer">
