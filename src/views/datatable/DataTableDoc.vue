@@ -2106,13 +2106,13 @@ export default {
                             <td>rowClass</td>
                             <td>function</td>
                             <td>null</td>
-                            <td>A function that takes the row data and returns a string to apply a particular class for the row.</td>
+                            <td>A function that takes the row data as a parameter and returns a string to apply a particular class for the row.</td>
                         </tr>
                         <tr>
                             <td>rowStyle</td>
                             <td>object</td>
                             <td>null</td>
-                            <td>Inline style of the row.</td>
+                            <td>A function that takes the row data as a parameter and returns the inline style for the corresponding row.</td>
                         </tr>
                         <tr>
                             <td>scrollable</td>

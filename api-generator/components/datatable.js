@@ -303,7 +303,7 @@ const DataTableProps = [
         name: "rowStyle",
         type: "object",
         default: "null",
-        description: "Inline style of the row."
+        description: "A function that takes the row data as a parameter and returns the inline style for the corresponding row."
     },
     {
         name: "scrollable",
