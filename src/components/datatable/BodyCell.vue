@@ -131,9 +131,6 @@ export default {
             return ObjectUtils.getVNodeProp(this.column, prop);
         },
         resolveFieldData() {
-            if (!this.column.children.editor && this.editMode === 'row') {
-                return this.rowData;
-            }
             return ObjectUtils.resolveFieldData(this.rowData, this.field);
         },
         toggleRow(event) {
