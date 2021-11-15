@@ -66,6 +66,10 @@ export default {
             type: Array,
             default: () => [[],[]]
         },
+        selectionMode: {
+            type: String,
+            default: null
+        },
         dataKey: {
             type: String,
             default: null
@@ -381,18 +385,19 @@ export default {
                     _selection = selectionList.filter((val, index) => index !== selectedIndex);
                 }
                 else {
-                    _selection = (metaKey) ? selectionList ? [...selectionList] : [] : [];
+                    if (metaKey) {
+                        _selection = this.isMultipleSelectionMode() ? selectionList ? [...selectionList] : [] : [];
+                    }
+                    else {
+                        _selection = [];
+                    }
+
                     _selection.push(item);
                 }
             }
             else {
-                if (selected) {
-                    _selection = selectionList.filter((val, index) => index !== selectedIndex);
-                }
-                else {
-                    _selection = selectionList ? [...selectionList] : [];
-                    _selection.push(item);
-                }
+                _selection = this.isMultipleSelectionMode() ? selectionList ? [...selectionList] : [] : [];
+                _selection.push(item);
             }
 
             let newSelection = [...this.d_selection];
@@ -543,6 +548,12 @@ export default {
                 document.head.removeChild(this.styleElement);
                 this.styleElement = null;
             }
+        },
+        isSingleSelectionMode() {
+            return this.selectionMode === 'single';
+        },
+        isMultipleSelectionMode() {
+            return this.selectionMode === 'multiple';
         }
     },
     computed: {

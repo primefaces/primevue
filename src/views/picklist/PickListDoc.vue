@@ -103,6 +103,12 @@ import PickList from 'primevue/picklist';
                         <td>Selected items in the list as a multidimensional array.</td>
                     </tr>
                     <tr>
+                        <td>selectionMode</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Defines selection mode, options are "single" and "multiple".</td>
+                    </tr>
+                    <tr>
                         <td>metaKeySelection</td>
                         <td>boolean</td>
                         <td>true</td>

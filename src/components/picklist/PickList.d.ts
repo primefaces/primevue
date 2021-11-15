@@ -3,6 +3,7 @@ import { VNode } from 'vue';
 interface PickListProps {
     modelValue?: any[][];
     selection?: any[][];
+    selectionMode?: string;
     dataKey?: string;
     metaKeySelection?: boolean;
     listStyle?: any;
