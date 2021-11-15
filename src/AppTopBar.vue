@@ -48,11 +48,17 @@
                         <li class="topbar-submenu-header">FLUENT UI</li>
                         <li><a @click="changeTheme($event, 'fluent-light')"><img src="demo/images/themes/fluent-light.png" alt="Fluent Light" /><span>Fluent Light</span></a></li>
 
-                        <li class="topbar-submenu-header">PRIMEONE</li>
+                        <li class="topbar-submenu-header">PRIMEONE 2022</li>
                         <li><a @click="changeTheme($event, 'lara-light-indigo')"><img src="demo/images/themes/lara-light-indigo.svg" alt="Lara Light Indigo" /><span>Lara Light Indigo</span></a></li>
                         <li><a @click="changeTheme($event, 'lara-dark-indigo')"><img src="demo/images/themes/lara-dark-indigo.svg" alt="Lara Dark Indigo" /><span>Lara Dark Indigo</span></a></li>
                         <li><a @click="changeTheme($event, 'lara-light-purple')"><img src="demo/images/themes/lara-light-purple.svg" alt="Lara Light Purple" /><span>Lara Light Purple</span></a></li>
                         <li><a @click="changeTheme($event, 'lara-dark-purple')"><img src="demo/images/themes/lara-dark-purple.svg" alt="Lara Dark Purple" /><span>Lara Dark Purple</span></a></li>
+                        <li><a @click="changeTheme($event, 'lara-light-blue')"><img src="demo/images/themes/lara-light-blue.svg" alt="Lara Light Blue" /><span>Lara Light Blue</span></a></li>
+                        <li><a @click="changeTheme($event, 'lara-dark-blue')"><img src="demo/images/themes/lara-dark-blue.svg" alt="Lara Dark Blue" /><span>Lara Dark Blue</span></a></li>
+                        <li><a @click="changeTheme($event, 'lara-light-teal')"><img src="demo/images/themes/lara-light-teal.svg" alt="Lara Light Teal" /><span>Lara Light Teal</span></a></li>
+                        <li><a @click="changeTheme($event, 'lara-dark-teal')"><img src="demo/images/themes/lara-dark-teal.svg" alt="Lara Dark Teal" /><span>Lara Dark Teal</span></a></li>
+
+                        <li class="topbar-submenu-header">PRIMEONE 2021</li>
                         <li><a @click="changeTheme($event, 'saga-blue')"><img src="demo/images/themes/saga-blue.png" alt="Saga Blue" /><span>Saga Blue</span></a></li>
                         <li><a @click="changeTheme($event, 'saga-green')"><img src="demo/images/themes/saga-green.png" alt="Saga Green" /><span>Saga Green</span></a></li>
                         <li><a @click="changeTheme($event, 'saga-orange')"><img src="demo/images/themes/saga-orange.png" alt="Saga Orange" /><span>Saga Orange</span></a></li>

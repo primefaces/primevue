@@ -69,7 +69,7 @@ import Dialog from 'primevue/dialog/sfc';
     &lt;head&gt;
         &lt;meta charset="utf-8"&gt;
         &lt;title&gt;PrimeVue Demo&lt;/title&gt;
-        &lt;link href="https://unpkg.com/primevue/resources/themes/saga-blue/theme.css" rel="stylesheet"&gt;
+        &lt;link href="https://unpkg.com/primevue/resources/themes/lara-light-indigo/theme.css" rel="stylesheet"&gt;
         &lt;link href="https://unpkg.com/primevue/resources/primevue.min.css" rel="stylesheet"&gt;
         &lt;link href="https://unpkg.com/primeicons/primeicons.css" rel="stylesheet"&gt;
 
@@ -135,6 +135,14 @@ primevue/resources/themes/mdc-dark-indigo/theme.css
 primevue/resources/themes/mdc-dark-deeppurple/theme.css
 primevue/resources/themes/tailwind-light/theme.css
 primevue/resources/themes/fluent-light/theme.css
+primevue/resources/themes/lara-light-indigo/theme.css
+primevue/resources/themes/lara-dark-indigo/theme.css
+primevue/resources/themes/lara-light-purple/theme.css
+primevue/resources/themes/lara-dark-purple/theme.css
+primevue/resources/themes/lara-light-blue/theme.css
+primevue/resources/themes/lara-dark-blue/theme.css
+primevue/resources/themes/lara-light-teal/theme.css
+primevue/resources/themes/lara-dark-teal/theme.css
 primevue/resources/themes/saga-blue/theme.css
 primevue/resources/themes/saga-green/theme.css
 primevue/resources/themes/saga-orange/theme.css
