@@ -528,6 +528,11 @@ export default {
                         <td>date</td>
                         <td>date: Value of the component</td>
                     </tr>
+                    <tr>
+                        <td>decade</td>
+                        <td>years: An array containing the start and and year of a decade
+                        to display at header of the year picker</td>
+                    </tr>
 				</tbody>
 			</table>
         </div>
