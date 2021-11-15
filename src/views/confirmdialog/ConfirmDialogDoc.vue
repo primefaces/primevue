@@ -195,7 +195,7 @@ export default {
                     <tr>
                         <td>defaultFocus</td>
                         <td>string</td>
-                        <td>null</td>
+                        <td>accept</td>
                         <td>Element to receive the focus when the dialog gets visible, valid values are "accept" and "reject".</td>
                     </tr>
                 </tbody>

@@ -106,11 +106,10 @@ export default {
             return ['p-confirm-dialog-reject', this.confirmation ? (this.confirmation.rejectClass || 'p-button-text') : null];
         },
         autoFocusAccept() {
-            return this.confirmation.defaultFocus === 'accept' ? true : false;
+            return (this.confirmation.defaultFocus === undefined || this.confirmation.defaultFocus === 'accept') ? true : false;
         },
         autoFocusReject() {
-            // backward compatibility
-            return this.confirmation.defaultFocus !== 'accept' ? true : false;
+            return this.confirmation.defaultFocus === 'reject' ? true : false;
         }
     },
     components: {
