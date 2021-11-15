@@ -25,6 +25,8 @@ declare class OrderList {
     $slots: {
         header: VNode[];
         item: OrderListItemSlotInterface;
+        controlsstart: VNode[];
+        controlsend: VNode[];
     }
 }
 
