@@ -156,6 +156,18 @@
                             <span>Lara Dark Purple</span>
                         </div>
                         <div class="p-col-3">
+                            <button class="p-link" type="button" @click="changeTheme($event, 'lara-light-blue')">
+                                <img src="demo/images/themes/lara-light-blue.svg" alt="Lara Light Blue" />
+                            </button>
+                            <span>Lara Light Blue</span>
+                        </div>
+                        <div class="p-col-3">
+                            <button class="p-link" type="button" @click="changeTheme($event, 'lara-dark-blue', true)">
+                                <img src="demo/images/themes/lara-dark-blue.svg" alt="Lara Dark Blue" />
+                            </button>
+                            <span>Lara Dark Blue</span>
+                        </div>
+                        <div class="p-col-3">
                             <button class="p-link" type="button" @click="changeTheme($event, 'lara-light-teal')">
                                 <img src="demo/images/themes/lara-light-teal.svg" alt="Lara Light Teal" />
                             </button>
@@ -166,18 +178,6 @@
                                 <img src="demo/images/themes/lara-dark-teal.svg" alt="Lara Dark Teal" />
                             </button>
                             <span>Lara Dark Teal</span>
-                        </div>
-                        <div class="p-col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'lara-light-cyan')">
-                                <img src="demo/images/themes/lara-light-cyan.svg" alt="Lara Light Cyan" />
-                            </button>
-                            <span>Lara Light Cyan</span>
-                        </div>
-                        <div class="p-col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'lara-dark-cyan', true)">
-                                <img src="demo/images/themes/lara-dark-cyan.svg" alt="Lara Dark Cyan" />
-                            </button>
-                            <span>Lara Dark Cyan</span>
                         </div>
                     </div>
 

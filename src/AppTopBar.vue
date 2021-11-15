@@ -180,7 +180,11 @@ export default {
                 'lara-dark-indigo': 'lara-dark-indigo.svg',
                 'lara-dark-purple': 'lara-dark-purple.svg',
                 'lara-light-indigo': 'lara-light-indigo.svg',
-                'lara-light-purple': 'lara-light-purple.svg'
+                'lara-light-purple': 'lara-light-purple.svg',
+                'lara-dark-teal': 'lara-dark-indigo.svg',
+                'lara-dark-blue': 'lara-dark-blue.svg',
+                'lara-light-teal': 'lara-light-teal.svg',
+                'lara-light-blue': 'lara-light-blue.svg'
             }
         }
     },
