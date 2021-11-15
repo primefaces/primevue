@@ -1,8 +1,9 @@
 <template>
     <div role="progressbar" :class="containerClass" aria-valuemin="0" :aria-valuenow="value" aria-valuemax="100">
-        <div v-if="determinate" class="p-progressbar-value p-progressbar-value-animate" :style="progressStyle"></div>
-        <div v-if="determinate && (value !== null) && showValue" class="p-progressbar-label">
-            <slot>{{value + '%'}}</slot>
+        <div v-if="determinate" class="p-progressbar-value p-progressbar-value-animate" :style="progressStyle">
+          <div v-if="(value != null && value !== 0) && showValue" class="p-progressbar-label">
+              <slot>{{value + '%'}}</slot>
+          </div>
         </div>
         <div v-if="indeterminate" class="p-progressbar-indeterminate-container">
             <div class="p-progressbar-value p-progressbar-value-animate"></div>
@@ -40,7 +41,7 @@ export default {
         progressStyle() {
             return {
                 width: this.value + '%',
-                display: 'block'
+                display: 'flex'
             };
         },
         indeterminate() {
@@ -65,18 +66,18 @@ export default {
     position: absolute;
     display: none;
     border: 0 none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.p-progressbar-determinate .p-progressbar-label {
+    display: inline-flex;
 }
 
 .p-progressbar-determinate .p-progressbar-value-animate {
     transition: width 1s ease-in-out;
-}
-
-.p-progressbar-determinate .p-progressbar-label {
-    text-align: center;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    font-weight: bold;
 }
 
 .p-progressbar-indeterminate .p-progressbar-value::before {

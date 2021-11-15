@@ -5317,7 +5317,7 @@
   background: #3F51B5;
 }
 .p-progressbar .p-progressbar-label {
-  color: rgba(0, 0, 0, 0.87);
+  color: #ffffff;
   line-height: 4px;
 }
 
@@ -6507,7 +6507,7 @@
 .p-progressbar {
   border-radius: 0;
 }
-.p-progressbar .p-progressbar-label {
+.p-progressbar.p-progressbar-determinate .p-progressbar-label {
   display: none;
 }
 
