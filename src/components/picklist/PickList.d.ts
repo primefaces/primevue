@@ -29,8 +29,14 @@ declare class PickList {
     $slots: {
         header: VNode[];
         item: PickListItemSlotInterface;
-        sourceHeader: VNode[];
-        targetHeader: VNode[];
+        sourceheader: VNode[];
+        targetheader: VNode[];
+        sourcecontrolsstart: VNode[];
+        sourcecontrolsend: VNode[];
+        movecontrolsstart: VNode[];
+        movecontrolsend: VNode[];
+        targetcontrolsstart: VNode[];
+        targetcontrolsend: VNode[];
     }
 }
 

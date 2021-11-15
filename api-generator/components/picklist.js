@@ -160,7 +160,7 @@ const PickListEvents = [
 
 const PickListSlots = [
     {
-        name: "sourceHeader",
+        name: "sourceheader",
         description: "Custom content for the component's source header"
     },
     {
@@ -168,8 +168,32 @@ const PickListSlots = [
         description: "Custom content for the item"
     },
     {
-        name: "targetHeader",
+        name: "targetheader",
         description: "Custom content for the component's target header"
+    },
+    {
+        name: "sourcecontrolsstart",
+        description: "Custom content before source control buttons"
+    },
+    {
+        name: "sourcecontrolsend",
+        description: "Custom content after source control buttons"
+    },
+    {
+        name: "movecontrolsstart",
+        description: "Custom content before move buttons"
+    },
+    {
+        name: "movecontrolsend",
+        description: "Custom content after move buttons"
+    },
+    {
+        name: "targetcontrolsstart",
+        description: "Custom content before target control buttons"
+    },
+    {
+        name: "targetcontrolsend",
+        description: "Custom content after target control buttons"
     }
 ];
 
