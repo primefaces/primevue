@@ -95,7 +95,7 @@
 
             &.scale-active {
                 font-size: 1.25rem;
-                color: $linkColor;
+                color: var(--primary-color);
             }
         }
     }

@@ -129,7 +129,7 @@
                         </div>
                     </div>
 
-                    <h5>PrimeOne Design</h5>
+                    <h5>PrimeOne Design - 2022</h5>
                     <div class="p-grid free-themes">
                         <div class="p-col-3">
                             <button class="p-link" type="button" @click="changeTheme($event, 'lara-light-indigo')">
@@ -179,6 +179,10 @@
                             </button>
                             <span>Lara Dark Cyan</span>
                         </div>
+                    </div>
+
+                    <h5>PrimeOne Design - 2021</h5>
+                    <div class="p-grid free-themes">
                         <div class="p-col-3">
                             <button class="p-link" type="button" @click="changeTheme($event, 'saga-blue')">
                                 <img src="demo/images/themes/saga-blue.png" alt="Saga Blue" />
