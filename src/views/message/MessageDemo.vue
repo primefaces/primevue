@@ -16,6 +16,9 @@
                 <Message severity="warn">Warning Message Content</Message>
                 <Message severity="error">Error Message Content</Message>
 
+                <h5>Custom Icon</h5>
+                <Message severity="info" icon="pi-send">Info Message Content</Message>
+
                 <h5>Dynamic</h5>
                 <Button label="Show" @click="addMessages()" />
                 <transition-group name="p-message" tag="div">
