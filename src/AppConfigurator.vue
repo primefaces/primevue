@@ -129,7 +129,7 @@
                         </div>
                     </div>
 
-                    <h5>PrimeOne Design - 2022</h5>
+                    <h5 class="p-d-flex p-ai-center">PrimeOne Design - 2022 <Tag class="p-ml-3" value="NEW" rounded severity="success"></Tag></h5>
                     <div class="p-grid free-themes">
                         <div class="p-col-3">
                             <button class="p-link" type="button" @click="changeTheme($event, 'lara-light-indigo')">
@@ -138,10 +138,10 @@
                             <span>Lara Light Indigo</span>
                         </div>
                         <div class="p-col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'lara-dark-indigo', true)">
-                                <img src="demo/images/themes/lara-dark-indigo.png" alt="Lara Dark Indigo" />
+                            <button class="p-link" type="button" @click="changeTheme($event, 'lara-light-blue')">
+                                <img src="demo/images/themes/lara-light-blue.png" alt="Lara Light Blue" />
                             </button>
-                            <span>Lara Dark Indigo</span>
+                            <span>Lara Light Blue</span>
                         </div>
                         <div class="p-col-3">
                             <button class="p-link" type="button" @click="changeTheme($event, 'lara-light-purple')">
@@ -150,16 +150,16 @@
                             <span>Lara Light Purple</span>
                         </div>
                         <div class="p-col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'lara-dark-purple', true)">
-                                <img src="demo/images/themes/lara-dark-purple.png" alt="Lara Dark Purple" />
+                            <button class="p-link" type="button" @click="changeTheme($event, 'lara-light-teal')">
+                                <img src="demo/images/themes/lara-light-teal.png" alt="Lara Light Teal" />
                             </button>
-                            <span>Lara Dark Purple</span>
+                            <span>Lara Light Teal</span>
                         </div>
                         <div class="p-col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'lara-light-blue')">
-                                <img src="demo/images/themes/lara-light-blue.png" alt="Lara Light Blue" />
+                            <button class="p-link" type="button" @click="changeTheme($event, 'lara-dark-indigo', true)">
+                                <img src="demo/images/themes/lara-dark-indigo.png" alt="Lara Dark Indigo" />
                             </button>
-                            <span>Lara Light Blue</span>
+                            <span>Lara Dark Indigo</span>
                         </div>
                         <div class="p-col-3">
                             <button class="p-link" type="button" @click="changeTheme($event, 'lara-dark-blue', true)">
@@ -168,10 +168,10 @@
                             <span>Lara Dark Blue</span>
                         </div>
                         <div class="p-col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'lara-light-teal')">
-                                <img src="demo/images/themes/lara-light-teal.png" alt="Lara Light Teal" />
+                            <button class="p-link" type="button" @click="changeTheme($event, 'lara-dark-purple', true)">
+                                <img src="demo/images/themes/lara-dark-purple.png" alt="Lara Dark Purple" />
                             </button>
-                            <span>Lara Light Teal</span>
+                            <span>Lara Dark Purple</span>
                         </div>
                         <div class="p-col-3">
                             <button class="p-link" type="button" @click="changeTheme($event, 'lara-dark-teal', true)">

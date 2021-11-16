@@ -48,14 +48,14 @@
                         <li class="topbar-submenu-header">FLUENT UI</li>
                         <li><a @click="changeTheme($event, 'fluent-light')"><img src="demo/images/themes/fluent-light.png" alt="Fluent Light" /><span>Fluent Light</span></a></li>
 
-                        <li class="topbar-submenu-header">PRIMEONE 2022</li>
+                        <li class="topbar-submenu-header p-d-flex p-ai-center">PRIMEONE 2022 <Tag class="p-ml-3" value="NEW" rounded severity="success"></Tag></li>
                         <li><a @click="changeTheme($event, 'lara-light-indigo')"><img src="demo/images/themes/lara-light-indigo.png" alt="Lara Light Indigo" /><span>Lara Light Indigo</span></a></li>
-                        <li><a @click="changeTheme($event, 'lara-dark-indigo')"><img src="demo/images/themes/lara-dark-indigo.png" alt="Lara Dark Indigo" /><span>Lara Dark Indigo</span></a></li>
-                        <li><a @click="changeTheme($event, 'lara-light-purple')"><img src="demo/images/themes/lara-light-purple.png" alt="Lara Light Purple" /><span>Lara Light Purple</span></a></li>
-                        <li><a @click="changeTheme($event, 'lara-dark-purple')"><img src="demo/images/themes/lara-dark-purple.png" alt="Lara Dark Purple" /><span>Lara Dark Purple</span></a></li>
                         <li><a @click="changeTheme($event, 'lara-light-blue')"><img src="demo/images/themes/lara-light-blue.png" alt="Lara Light Blue" /><span>Lara Light Blue</span></a></li>
-                        <li><a @click="changeTheme($event, 'lara-dark-blue')"><img src="demo/images/themes/lara-dark-blue.png" alt="Lara Dark Blue" /><span>Lara Dark Blue</span></a></li>
+                        <li><a @click="changeTheme($event, 'lara-light-purple')"><img src="demo/images/themes/lara-light-purple.png" alt="Lara Light Purple" /><span>Lara Light Purple</span></a></li>
                         <li><a @click="changeTheme($event, 'lara-light-teal')"><img src="demo/images/themes/lara-light-teal.png" alt="Lara Light Teal" /><span>Lara Light Teal</span></a></li>
+                        <li><a @click="changeTheme($event, 'lara-dark-blue')"><img src="demo/images/themes/lara-dark-blue.png" alt="Lara Dark Blue" /><span>Lara Dark Blue</span></a></li>
+                        <li><a @click="changeTheme($event, 'lara-dark-indigo')"><img src="demo/images/themes/lara-dark-indigo.png" alt="Lara Dark Indigo" /><span>Lara Dark Indigo</span></a></li>
+                        <li><a @click="changeTheme($event, 'lara-dark-purple')"><img src="demo/images/themes/lara-dark-purple.png" alt="Lara Dark Purple" /><span>Lara Dark Purple</span></a></li>
                         <li><a @click="changeTheme($event, 'lara-dark-teal')"><img src="demo/images/themes/lara-dark-teal.png" alt="Lara Dark Teal" /><span>Lara Dark Teal</span></a></li>
 
                         <li class="topbar-submenu-header">PRIMEONE 2021</li>
