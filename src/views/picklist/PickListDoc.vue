@@ -37,10 +37,10 @@ import PickList from 'primevue/picklist';
         the slots section for more information.</p>
 <pre v-code><code><template v-pre>
 &lt;PickList v-model="cars" dataKey="vin"&gt;
-    &lt;template #sourceHeader&gt;
+    &lt;template #sourceheader&gt;
         Available
     &lt;/template&gt;
-    &lt;template #targetHeader&gt;
+    &lt;template #targetheader&gt;
         Selected
     &lt;/template&gt;
     &lt;template #item="slotProps"&gt;
@@ -319,10 +319,10 @@ export default {
 <template>
     <div>
         <PickList v-model="products" listStyle="height:342px" dataKey="id">
-            <template #sourceHeader>
+            <template #sourceheader>
                 Available
             </template>
-            <template #targetHeader>
+            <template #targetheader>
                 Selected
             </template>
             <template #item="slotProps">
@@ -423,10 +423,10 @@ export default {
 <template>
     <div>
         <PickList v-model="products" listStyle="height:342px" dataKey="id">
-            <template #sourceHeader>
+            <template #sourceheader>
                 Available
             </template>
-            <template #targetHeader>
+            <template #targetheader>
                 Selected
             </template>
             <template #item="slotProps">
@@ -526,10 +526,10 @@ export default {
         <script src="./ProductService.js"><\\/script>`,
                     content: `<div id="app">
             <p-picklist v-model="products" list-style="height:342px" data-key="id">
-                <template #sourceHeader>
+                <template #sourceheader>
                     Available
                 </template>
-                <template #targetHeader>
+                <template #targetheader>
                     Selected
                 </template>
                 <template #item="slotProps">
