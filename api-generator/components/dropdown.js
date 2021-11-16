@@ -1,4 +1,4 @@
-const DividerProps = [
+const DropdownProps = [
     {
         name: "modelValue",
         type: "any",
@@ -163,7 +163,7 @@ const DividerProps = [
     }
 ];
 
-const DividerEvents = [
+const DropdownEvents = [
     {
         name: "change",
         description: "Callback to invoke on value change.",
@@ -247,7 +247,7 @@ const DividerEvents = [
     }
 ];
 
-const DividerSlots = [
+const DropdownSlots = [
     {
         name: "option",
         description: "Custom content for the item's option"
@@ -294,8 +294,8 @@ module.exports = {
     dropdown: {
         name: "Dropdown",
         description: "Dropdown is used to select an item from a list of options.",
-        props: DividerProps,
-        events: DividerEvents,
-        slots: DividerSlots
+        props: DropdownProps,
+        events: DropdownEvents,
+        slots: DropdownSlots
     }
 };
