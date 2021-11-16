@@ -5,6 +5,7 @@ interface MessageProps {
     closable?: boolean;
     sticky?: boolean;
     life?: number;
+    icon?: string;
 }
 
 declare class Message {
