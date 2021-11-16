@@ -189,7 +189,7 @@ import OrderList from 'primevue/orderlist';
                         <td>controlsstart</td>
                         <td>-</td>
                     </tr>
-                    <tr>ı
+                    <tr>
                         <td>controlsend</td>
                         <td>-</td>
                     </tr>
