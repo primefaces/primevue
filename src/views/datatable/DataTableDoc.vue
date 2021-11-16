@@ -899,7 +899,7 @@ matchModes: [
 
             <p>If you prefer a radioButton or a checkbox instead of a row click, use the <i>selectionMode</i> of a column instead. Following datatable displays a checkbox at the first column of each row and automatically adds a header checkbox to toggle selection of all rows.</p>
 <pre v-code><code><template v-pre>
-&lt;DataTable :value="cars" v-model:selection="selectedCars" selectionMode="multiple" dataKey="vin"&gt;
+&lt;DataTable :value="cars" v-model:selection="selectedCars" dataKey="vin"&gt;
     &lt;Column selectionMode="multiple"&gt;&lt;/Column&gt;
     &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
     &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
@@ -1835,7 +1835,7 @@ export default {
                             <td>null</td>
                             <td>Number of total records, defaults to length of value when not defined.</td>
                         </tr>
-                         <tr>
+                        <tr>
                             <td>paginator</td>
                             <td>boolean</td>
                             <td>false</td>
