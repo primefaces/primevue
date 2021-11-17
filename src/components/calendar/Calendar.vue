@@ -1229,7 +1229,6 @@ export default {
             let newHour = this.currentHour + this.stepHour;
             let newPM = this.pm;
 
-
             if (this.hourFormat == '24')
                 newHour = (newHour >= 24) ? (newHour - 24) : newHour;
             else if (this.hourFormat == '12') {
@@ -1239,7 +1238,6 @@ export default {
                 }
                 newHour = (newHour >= 13) ? (newHour - 12) : newHour;
             }
-
 
             if (this.validateTime(newHour, this.currentMinute, this.currentSecond, newPM)) {
                 this.currentHour = newHour;
@@ -1300,7 +1298,7 @@ export default {
             event.preventDefault();
         },
         updateModelTime() {
-            let value = this.isComparable() ? this.modelValue : new Date();
+            let value = this.isComparable() ? this.modelValue : this.viewDate;
 
             if (this.isRangeSelection()) {
                 value = this.modelValue[1] || this.modelValue[0];
