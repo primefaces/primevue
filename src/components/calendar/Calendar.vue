@@ -316,7 +316,6 @@ export default {
     overlay: null,
     mask: null,
     timePickerTimer: null,
-    isKeydown: false,
     created() {
         this.updateCurrentMetaData();
     },
@@ -1418,6 +1417,10 @@ export default {
             }
         },
         isValidSelection(value) {
+            if (value == null) {
+                return true;
+            }
+
             let isValid = true;
             if (this.isSingleSelection()) {
                 if (!this.isSelectable(value.getDate(), value.getMonth(), value.getFullYear(), false)) {
@@ -2071,12 +2074,6 @@ export default {
              }
         },
         onInput(event) {
-            // IE 11 Workaround for input placeholder : https://github.com/primefaces/primeng/issues/2026
-            if (!this.isKeydown) {
-                return;
-            }
-            this.isKeydown = false;
-
             try {
                 this.selectionStart = this.$refs.input.$el.selectionStart;
                 this.selectionEnd = this.$refs.input.$el.selectionEnd;
@@ -2087,9 +2084,9 @@ export default {
                 }
             }
             catch(err) {
-                // invalid date
-                let value = this.keepInvalid ? event.target.value : null;
-                this.updateModel(value);
+                if (this.keepInvalid) {
+                    this.updateModel(event.target.value);
+                }
             }
         },
         onFocus() {
@@ -2101,8 +2098,7 @@ export default {
         onBlur() {
             this.focused = false;
         },
-        onKeyDown(event) {
-            this.isKeydown = true;
+        onKeyDown() {
             if (event.keyCode === 40 && this.overlay) {
                 this.trapFocus(event);
             }
@@ -2198,7 +2194,7 @@ export default {
             return propValue || new Date();
         },
         inputFieldValue() {
-            return this.keepInvalid ? this.modelValue : this.formatValue(this.modelValue);
+            return this.formatValue(this.modelValue);
         },
         containerClass() {
             return [
