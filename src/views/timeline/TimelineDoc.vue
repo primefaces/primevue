@@ -1,8 +1,15 @@
 <template>
 	<AppDoc name="TimelineDemo" :sources="sources" github="timeline/TimelineDemo.vue">
-		<h5>Import</h5>
+		<h5>Import via Module</h5>
 <pre v-code.script><code>
 import Timeline from 'primevue/timeline';
+
+</code></pre>
+
+        <h5>Import via CDN</h5>
+<pre v-code><code>
+&lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue@^3/timeline/timeline.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
@@ -194,8 +201,7 @@ export default {
                     </tr>
                     <tr>
                         <td>connector</td>
-                        <td>item: Content of the event<br />
-							index: Index of the event</td>
+                        <td>-</td>
                     </tr>
 				</tbody>
 			</table>
@@ -595,6 +601,170 @@ export default {
         }
 }
 </style>`
+				},
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/timeline/timeline.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/card/card.min.js"><\\/script>`,
+					content: `<div id="app">
+            <div class="card">
+                <h5>Left Align</h5>
+                <p-timeline :value="events1">
+                    <template #content="slotProps">
+                        {{slotProps.item.status}}
+                    </template>
+                </p-timeline>
+            </div>
+
+            <div class="card">
+                <h5>Right Align</h5>
+                <p-timeline :value="events1" align="right">
+                    <template #content="slotProps">
+                        {{slotProps.item.status}}
+                    </template>
+                </p-timeline>
+            </div>
+
+            <div class="card">
+                <h5>Alternate Align</h5>
+                <p-timeline :value="events1" align="alternate">
+                    <template #content="slotProps">
+                        {{slotProps.item.status}}
+                    </template>
+                </p-timeline>
+            </div>
+
+            <div class="card">
+                <h5>Opposite Content</h5>
+                <p-timeline :value="events1">
+                    <template #opposite="slotProps">
+                        <small class="p-text-secondary">{{slotProps.item.date}}</small>
+                    </template>
+                    <template #content="slotProps">
+                        {{slotProps.item.status}}
+                    </template>
+                </p-timeline>
+            </div>
+
+            <div class="card">
+                <h5>Customized</h5>
+                <p-timeline :value="events1" align="alternate" class="customized-timeline">
+                    <template #marker="slotProps">
+                        <span class="custom-marker p-shadow-2" :style="{backgroundColor: slotProps.item.color}">
+                            <i :class="slotProps.item.icon"></i>
+                        </span>
+                    </template>
+                    <template #content="slotProps">
+                        <p-card>
+                            <template #title>
+                                {{slotProps.item.status}}
+                            </template>
+                            <template #subtitle>
+                                {{slotProps.item.date}}
+                            </template>
+                            <template #content>
+                                <img v-if="slotProps.item.image" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" :alt="slotProps.item.name" width="200" class="p-shadow-2" />
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
+                                    quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!</p>
+                                <p-button label="Read more" class="p-button-text"></p-button>
+                            </template>
+                        </p-card>
+                    </template>
+                </p-timeline>
+            </div>
+
+            <div class="card">
+                <h5>Horizontal</h5>
+                <h6>Top Align</h6>
+                <p-timeline :value="events2" layout="horizontal" align="top">
+                    <template #content="slotProps">
+                        {{slotProps.item}}
+                    </template>
+                </p-timeline>
+
+                <h6>Bottom Align</h6>
+                <p-timeline :value="events2" layout="horizontal" align="bottom">
+                    <template #content="slotProps">
+                        {{slotProps.item}}
+                    </template>
+                </p-timeline>
+
+                <h6>Alternate Align</h6>
+                <p-timeline :value="events2" layout="horizontal" align="alternate">
+                    <template #opposite>
+                        &nbsp;
+                    </template>
+                    <template #content="slotProps">
+                        {{slotProps.item}}
+                    </template>
+                </p-timeline>
+            </div>
+        </div>
+
+        <script type="module">
+        const { createApp, ref } = Vue;
+
+        const App = {
+            setup() {
+                const events1 = ref([
+                    {status: 'Ordered', date: '15/10/2020 10:30', icon: 'pi pi-shopping-cart', color: '#9C27B0', image: 'game-controller.jpg'},
+                    {status: 'Processing', date: '15/10/2020 14:00', icon: 'pi pi-cog', color: '#673AB7'},
+                    {status: 'Shipped', date: '15/10/2020 16:15', icon: 'pi pi-shopping-cart', color: '#FF9800'},
+                    {status: 'Delivered', date: '16/10/2020 10:00', icon: 'pi pi-check', color: '#607D8B'}
+                ]);
+                const events2 = ref([
+                    "2020", "2021", "2022", "2023"
+                ]);
+
+                return { events1, events2 }
+            },
+            components: {
+                "p-timeline": primevue.timeline,
+                "p-card": primevue.card,
+                "p-button": primevue.button
+            }
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .mount("#app");
+        <\\/script>
+
+        <style>
+        .custom-marker {
+            display: flex;
+            width: 2rem;
+            height: 2rem;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .p-timeline-event-content,
+        .p-timeline-event-opposite, {
+            line-height: 1;
+        }
+
+        @media screen and (max-width: 960px) {
+            .customized-timeline .p-timeline-event:nth-child(even) {
+                flex-direction: row !important;
+            }
+                    
+            .customized-timeline .p-timeline-event:nth-child(even) .p-timeline-event-content {
+                text-align: left !important;
+            }
+
+            .customized-timeline .p-timeline-event-opposite {
+                flex: 0;
+            }
+
+            .customized-timeline .p-card {
+                margin-top: 1rem;
+            }
+        }
+        </style>`
 				}
 			}
 		}

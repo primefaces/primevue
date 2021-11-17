@@ -1,8 +1,14 @@
 <template>
 	<AppDoc name="ProgressBarDemo" :sources="sources" github="progressbar/ProgressBarDemo.vue">
-        <h5>Import</h5>
+        <h5>Import via Module</h5>
 <pre v-code.script><code>
 import ProgressBar from 'primevue/progressbar';
+
+</code></pre>
+
+        <h5>Import via CDN</h5>
+<pre v-code><code>
+&lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
@@ -216,6 +222,62 @@ export default {
     }
 }
 <\\/script>`
+
+				},
+                'browser-source': {
+                    tabName: 'Browser Source',
+					content: `<div id="app">
+            <h5>Dynamic</h5>
+            <p-progressbar :value="value1"></p-progressbar>
+
+            <h5>Static</h5>
+            <p-progressbar :value="value2" :show-value="false"></p-progressbar>
+
+            <h5>Indeterminate</h5>
+            <p-progressbar mode="indeterminate" style="height: .5em"></p-progressbar>
+        </div>
+
+        <script type="module">
+        const { createApp, ref, onMounted, onBeforeUnmount } = Vue;
+
+        const App = {
+            setup() {
+                onMounted(() => {
+                    startProgress();
+                })
+
+                onBeforeUnmount(() => {
+                    endProgress();
+                })
+                
+                const value1 = ref(0);
+                const value2 = ref(50);
+                const interval = ref(null);
+                const startProgress = () => {
+                    interval.value = setInterval(() => {
+                        let newValue = value1.value + Math.floor(Math.random() * 10) + 1;
+                        if (newValue >= 100) {
+                            newValue = 100;
+                        }
+                        value1.value = newValue;
+                    }, 2000);
+                };
+                const endProgress = () => {
+                    clearInterval(interval.value);
+                    interval.value = null;
+                };
+
+                return { value1, value2 }
+            },
+            components: {
+                "p-progressbar": primevue.progressbar
+            }
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .mount("#app");
+        <\\/script>`
 
 				}
 			}

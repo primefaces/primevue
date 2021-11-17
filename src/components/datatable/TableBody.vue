@@ -10,7 +10,7 @@
                         <component :is="templates['groupheader']" :data="rowData" :index="index" />
                     </td>
                 </tr>
-                <tr :class="getRowClass(rowData)" :key="getRowKey(rowData, index)"
+                <tr :class="getRowClass(rowData)" :style="rowStyle" :key="getRowKey(rowData, index)"
                     v-if="expandableRowGroups ? isRowGroupExpanded(rowData): true"
                     @click="onRowClick($event, rowData, index)" @dblclick="onRowDblClick($event, rowData, index)" @contextmenu="onRowRightClick($event, rowData, index)" @touchend="onRowTouchEnd($event)" @keydown="onRowKeyDown($event, rowData, index)" :tabindex="selectionMode || contextMenu ? '0' : null"
                     @mousedown="onRowMouseDown($event)" @dragstart="onRowDragStart($event, index)" @dragover="onRowDragOver($event,index)" @dragleave="onRowDragLeave($event)" @dragend="onRowDragEnd($event)" @drop="onRowDrop($event)" role="row">
@@ -21,7 +21,8 @@
                             :editMode="editMode" :editing="editMode === 'row' && isRowEditing(rowData)" :responsiveLayout="responsiveLayout"
                             @radio-change="onRadioChange($event)" @checkbox-change="onCheckboxChange($event)" @row-toggle="onRowToggle($event)"
                             @cell-edit-init="onCellEditInit($event)" @cell-edit-complete="onCellEditComplete($event)" @cell-edit-cancel="onCellEditCancel($event)"
-                            @row-edit-init="onRowEditInit($event)" @row-edit-save="onRowEditSave($event)" @row-edit-cancel="onRowEditCancel($event)" @editing-cell-change="onEditingCellChange($event)"/>
+                            @row-edit-init="onRowEditInit($event)" @row-edit-save="onRowEditSave($event)" @row-edit-cancel="onRowEditCancel($event)"
+                            :editingMeta="editingMeta" @editing-meta-change="onEditingMetaChange"/>
                     </template>
                 </tr>
                 <tr class="p-datatable-row-expansion" v-if="templates['expansion'] && expandedRows && isRowExpanded(rowData)" :key="getRowKey(rowData, index) + '_expansion'" role="row">
@@ -52,7 +53,7 @@ export default {
     emits: ['rowgroup-toggle', 'row-click', 'row-dblclick', 'row-rightclick', 'row-touchend', 'row-keydown', 'row-mousedown',
         'row-dragstart', 'row-dragover', 'row-dragleave', 'row-dragend', 'row-drop', 'row-toggle',
         'radio-change', 'checkbox-change', 'cell-edit-init', 'cell-edit-complete', 'cell-edit-cancel',
-        'row-edit-init', 'row-edit-save', 'row-edit-cancel', 'editing-cell-change'],
+        'row-edit-init', 'row-edit-save', 'row-edit-cancel', 'editing-meta-change'],
     props: {
         value: {
             type: Array,
@@ -130,6 +131,10 @@ export default {
             type: null,
             default: null
         },
+        rowStyle: {
+            type: null,
+            default: null
+        },
         editMode: {
             type: String,
             default: null
@@ -144,6 +149,10 @@ export default {
         },
         editingRowKeys: {
             type: null,
+            default: null
+        },
+        editingMeta: {
+            type: Object,
             default: null
         },
         loading: {
@@ -188,7 +197,7 @@ export default {
     },
     methods: {
         columnProp(col, prop) {
-            return col.props ? ((col.type.props[prop].type === Boolean && col.props[prop] === '') ? true : col.props[prop]) : null;
+            return ObjectUtils.getVNodeProp(col, prop);
         },
         shouldRenderRowGroupHeader(value, rowData, i) {
             let currentRowFieldData = ObjectUtils.resolveFieldData(rowData, this.groupRowsBy);
@@ -447,8 +456,8 @@ export default {
         onRowEditCancel(event) {
             this.$emit('row-edit-cancel', event);
         },
-        onEditingCellChange(event) {
-            this.$emit('editing-cell-change', event);
+        onEditingMetaChange(event) {
+            this.$emit('editing-meta-change', event);
         },
         updateFrozenRowStickyPosition() {
             this.$el.style.top = DomHandler.getOuterHeight(this.$el.previousElementSibling) + 'px';

@@ -198,6 +198,12 @@ const DataTableProps = [
         description: "Name of the exported file."
     },
     {
+        name: "exportFunction",
+        type: "function",
+        default: "null",
+        description: "Custom function to export data."
+    },
+    {
         name: "autoLayout",
         type: "boolean",
         default: "false",
@@ -294,6 +300,12 @@ const DataTableProps = [
         description: "A function that takes the row data and returns a string to apply a particular class for the row."
     },
     {
+        name: "rowStyle",
+        type: "object",
+        default: "null",
+        description: "A function that takes the row data as a parameter and returns the inline style for the corresponding row."
+    },
+    {
         name: "scrollable",
         type: "boolean",
         default: "false",
@@ -340,6 +352,18 @@ const DataTableProps = [
         type: "boolean",
         default: "false",
         description: "Whether to displays rows with alternating colors."
+    },
+    {
+        name: "tableStyle",
+        type: "object",
+        default: "null",
+        description: "Inline style of the table element."
+    },
+    {
+        name: "tableClass",
+        type: "string",
+        default: "null",
+        description: "Style class of the table element."
     }
 ];
 
@@ -772,6 +796,21 @@ const DataTableEvents = [
                 description: "Row data to edit."
             },
             {
+                name: "event.newData",
+                type: "object",
+                description: "New row data after editing."
+            },
+            {
+                name: "event.value",
+                type: "object",
+                description: "Field value of row data to edit."
+            },
+            {
+                name: "event.newValue",
+                type: "object",
+                description: "Field value of new row data after editing"
+            },
+            {
                 name: "event.field",
                 type: "string",
                 description: "Field name of the row data."
@@ -830,30 +869,9 @@ const DataTableEvents = [
                 description: "Row data to edit."
             },
             {
-                name: "event.field",
-                type: "string",
-                description: "Field name of the row data."
-            },
-            {
-                name: "event.index",
-                type: "number",
-                description: "Index of the row data to edit."
-            }
-        ]
-    },
-    {
-        name: "cell-edit-save",
-        description: "Callback to invoke when cell edit is saved.",
-        arguments: [
-            {
-                name: "event.originalEvent",
+                name: "event.newData",
                 type: "object",
-                description: "Browser event"
-            },
-            {
-                name: "event.data",
-                type: "object",
-                description: "Row data to edit."
+                description: "New row data after editing."
             },
             {
                 name: "event.field",
@@ -868,8 +886,8 @@ const DataTableEvents = [
         ]
     },
     {
-        name: "cell-edit-cancel",
-        description: "Callback to invoke when cell edit is cancelled.",
+        name: "row-edit-save",
+        description: "Callback to invoke when row edit is saved.",
         arguments: [
             {
                 name: "event.originalEvent",
@@ -880,6 +898,42 @@ const DataTableEvents = [
                 name: "event.data",
                 type: "object",
                 description: "Row data to edit."
+            },
+            {
+                name: "event.newData",
+                type: "object",
+                description: "New row data after editing."
+            },
+            {
+                name: "event.field",
+                type: "string",
+                description: "Field name of the row data."
+            },
+            {
+                name: "event.index",
+                type: "number",
+                description: "Index of the row data to edit."
+            }
+        ]
+    },
+    {
+        name: "row-edit-cancel",
+        description: "Callback to invoke when row edit is cancelled.",
+        arguments: [
+            {
+                name: "event.originalEvent",
+                type: "object",
+                description: "Browser event"
+            },
+            {
+                name: "event.data",
+                type: "object",
+                description: "Row data to edit."
+            },
+            {
+                name: "event.newData",
+                type: "object",
+                description: "New row data after editing."
             },
             {
                 name: "event.field",
@@ -1043,11 +1097,11 @@ const DataTableSlots = [
         description: "Custom content for the component's header"
     },
     {
-        name: "paginatorLeft",
+        name: "paginatorstart",
         description: "Custom content for the component paginator's left side"
     },
     {
-        name: "paginatorRight",
+        name: "paginatorend",
         description: "Custom content for the component paginator's right side"
     },
     {

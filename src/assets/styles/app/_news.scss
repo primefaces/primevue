@@ -4,7 +4,8 @@
     justify-content: center;
     align-items: center;
     margin-left: 250px;
-    background-image: url("./assets/images/topbar-freya-bg.png");
+    background-image: linear-gradient(197.37deg, rgba(0, 120, 227, 0.07) -0.38%, rgba(165, 72, 181, 0) 101.89%), linear-gradient(115.93deg, rgba(62, 136, 246, 0.15) 4.86%, rgba(62, 180, 246, 0.0495) 38.05%, rgba(62, 235, 246, 0) 74.14%), radial-gradient(56.47% 76.87% at 6.92% 7.55%, rgba(62, 136, 246, 0.05) 0%, rgba(62, 158, 246, 0.013) 52.16%, rgba(62, 246, 246, 0) 100%), linear-gradient(306.53deg, rgba(163, 171, 217, 0.1) 19.83%, rgba(163, 171, 217, 0) 97.33%);
+    background-color: white;
 
     .layout-news-container {
         width: 100%;
@@ -16,16 +17,21 @@
         font-weight: bold;
         font-size: 20px;
 
+        .layouts-news-mockup {
+            display: inline-block;
+            overflow: hidden;
+        }
+
         img.layouts-news-mockup-image {
-            max-width: 500px;
+            height: 70px;
         }
 
         .layout-news-button {
-            border: 2px solid #ffffff;
-            color: #ffffff;
+            border: 2px solid #283738;
+            color: #283738;
             font-size: 15px;
-            padding: 0.5em 1em;
-            font-weight: bolder;
+            padding: 0.3em 0.3em 0.5em 1em;
+            font-weight: 700;
             border-radius: 3px;
             display: flex;
             justify-content: center;
@@ -37,7 +43,7 @@
             z-index: 1;
 
             &:hover {
-                background-color: rgba(255, 255, 255, 0.25);
+                background-color: rgba(0, 0, 0, 0.25);
             }
         }
     }

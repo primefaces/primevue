@@ -129,6 +129,58 @@ export default {
 }
 <\\/script>
 `
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/treetable/treetable.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/column/column.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/multiselect/multiselect.min.js"><\\/script>
+        <script src="./NodeService.js"><\\/script>`,
+                    content: `<div id="app">
+            <p-treetable :value="nodes">
+                <template #header>
+                    <div style="text-align:left">
+                        <p-multiselect :model-value="selectedColumns" @update:model-value="onToggle" :options="columns" option-label="header" placeholder="Select Columns" style="width: 20em"></p-multiselect>
+                    </div>
+                </template>
+                <p-column field="name" header="Name" :expander="true"></p-column>
+                <p-column v-for="col of selectedColumns" :field="col.field" :header="col.header" :key="col.field"></p-olumn>
+            </p-treetable>
+        </div>                    
+
+        <script type="module">
+        const { createApp, ref, onMounted } = Vue;
+
+        const App = {
+            setup() {
+                onMounted(() => {
+                    nodeService.value.getTreeTableNodes().then(data => nodes.value = data);
+                })
+                const columns = ref([
+                    {field: 'size', header: 'Size'},
+                    {field: 'type', header: 'Type'}
+                ]);
+                const nodes = ref();
+                const nodeService = ref(new NodeService());
+                const selectedColumns = ref(columns.value);
+                const onToggle = (val) => {
+                    selectedColumns.value = columns.value.filter(col => val.includes(col));
+                }
+
+                return { columns, nodes, nodeService, selectedColumns, onToggle }
+            },
+            components: {
+                "p-treetable": primevue.treetable,
+                "p-column": primevue.column,
+                "p-multiselect": primevue.multiselect
+            }
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .mount("#app");
+        <\\/script>
+`
                 }
             }
         }

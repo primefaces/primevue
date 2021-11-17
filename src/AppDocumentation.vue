@@ -36,6 +36,7 @@ export default {
 
             this.renderSource('options-api', tabs);
             this.renderSource('composition-api', tabs);
+            this.renderSource('browser-source', tabs);
 
             if (this.service) {
                 let serviceArr = [];
@@ -75,12 +76,45 @@ export default {
 
             return tabs;
         },
+        renderContent(source) {
+            if (source.tabName === 'Browser Source') {
+                const _imports = source.imports ? source.imports.replaceAll('<\\/script>', '<\/script>') : '';
+                return `
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+
+        <!-- PrimeVue -->
+        <link href="https://unpkg.com/primevue@^3/resources/themes/saga-blue/theme.css" rel="stylesheet" />
+        <link href="https://unpkg.com/primevue@^3/resources/primevue.min.css" rel="stylesheet" />
+        <link href="https://unpkg.com/primeflex@2.0.0/primeflex.min.css" rel="stylesheet" />
+        <link href="https://unpkg.com/primeicons/primeicons.css" rel="stylesheet" />
+
+        <!-- Dependencies -->
+        <script src="https://unpkg.com/vue@next"><\/script>
+        <script src="https://unpkg.com/primevue@^3/core/core.min.js"><\/script>
+
+        <!-- Demo -->
+        ${_imports}
+        <link href="./index.css" rel="stylesheet" />
+    </head>
+    <body>
+        ${source.content.replace('<\\/script>', '<\/script>')}
+    </body>
+</html>
+                `
+            }
+            return source.content.replace('<\\/script>', '<\/script>');
+        },
         renderSource(sourceType, tabs) {
             if (this.sources && this.sources[sourceType]) {
                 tabs.push(
                     <TabPanel key={sourceType} header={this.sources[sourceType].tabName}>
                         <pre v-code><code>
-                            {this.sources[sourceType].content.replace('<\\/script>', '<\/script>')}
+                            {this.renderContent(this.sources[sourceType])}
                         </code></pre>
                     </TabPanel>
                 );

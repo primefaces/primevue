@@ -1,8 +1,15 @@
 <template>
 	<AppDoc name="DeferredContentDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="deferredcontent/DeferredContentDemo.vue">
-        <h5>Import</h5>
+        <h5>Import via Module</h5>
 <pre v-code.script><code>
 import DeferredContent from 'primevue/deferredcontent';
+
+</code></pre>
+
+        <h5>Import via CDN</h5>
+<pre v-code><code>
+&lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue@^3/deferredcontent/deferredcontent.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
@@ -177,6 +184,73 @@ export default {
     }
 }
 <\\/script>
+`
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/deferredcontent/deferredcontent.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/toast/toast.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/toastservice/toastservice.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/datatable/datatable.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/column/column.min.js"><\\/script>
+        <script src="./ProductService.js"><\\/script>`,
+                    content: `<div id="app">
+            <p-toast></p-toast>
+            
+            <div style="height: 800px">
+                Scroll down to lazy load an image and the DataTable which initiates a query that is not executed on initial page load to speed up load performance.
+            </div>
+
+            <p-deferredcontent @load="onImageLoad">
+                <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" alt="Nature"/>
+            </p-deferredcontent>
+
+            <div style="height: 500px">
+            </div>
+
+            <p-deferredcontent @load="onDataLoad">
+                <p-datatable :value="products" responsive-layout="scroll">
+                    <p-column field="code" header="Code"></p-column>
+                    <p-column field="name" header="Name"></p-column>
+                    <p-column field="category" header="Category"></p-column>
+                    <p-column field="quantity" header="Quantity"></p-column>
+                </p-datatable>
+            </p-deferredcontent>
+        </div>
+
+        <script type="module">
+        const { createApp, ref } = Vue;
+        const { useToast } = primevue.usetoast;
+
+        const App = {
+            setup() {
+                const toast = useToast();
+
+                const products = ref();
+                const productService = ref(new ProductService());
+                const onImageLoad = () => {
+                    toast.add({severity: 'success', summary: 'Image Initialized', detail: 'Scroll down to load the datatable'});
+                };
+                const onDataLoad = () => {
+                    productService.value.getProductsSmall().then(data => products.value = data);
+                    toast.add({severity: 'success', summary: 'Data Initialized', detail: 'Render Completed'});
+                };
+
+                return { products, productService, onImageLoad, onDataLoad }
+            },
+            components: {
+                "p-deferredcontent": primevue.deferredcontent,
+                "p-toast": primevue.toast,
+                "p-datatable": primevue.datatable,
+                "p-column": primevue.column
+            } 
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .use(primevue.toastservice)
+            .mount("#app");
+        <\\/script>
 `
                 }
             }

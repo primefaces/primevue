@@ -1,8 +1,15 @@
 <template>
 	<AppDoc name="ProgressSpinnerDemo" :sources="sources" github="progressspinner/ProgressSpinnerDemo.vue">
-        <h5>Import</h5>
+        <h5>Import via Module</h5>
 <pre v-code.script><code>
 import ProgressSpinner from 'primevue/progressspinner';
+
+</code></pre>
+
+        <h5>Import via CDN</h5>
+<pre v-code><code>
+&lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue@^3/progressspinner/progressspinner.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
@@ -116,7 +123,7 @@ export default {
         <ProgressSpinner />
 
         <h5>Custom</h5>
-        <ProgressSpinner style="width:50px;height:50px" strokeWidth="8" fill="#EEEEEE" animationDuration=".5s"/>
+        <ProgressSpinner style="width:50px;height:50px" strokeWidth="8" fill="var(--surface-ground)" animationDuration=".5s"/>
     </div>
 </template>
 
@@ -135,7 +142,7 @@ export default {
         <ProgressSpinner />
 
         <h5>Custom</h5>
-        <ProgressSpinner style="width:50px;height:50px" strokeWidth="8" fill="#EEEEEE" animationDuration=".5s"/>
+        <ProgressSpinner style="width:50px;height:50px" strokeWidth="8" fill="var(--surface-ground)" animationDuration=".5s"/>
     </div>
 </template>
 
@@ -143,7 +150,31 @@ export default {
 export default {
 }
 <\\/script>`
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/progressspinner/progressspinner.min.js"><\\/script>`,
+                    content: `<div id="app">
+            <h5>Basic</h5>
+            <p-progressspinner></p-progressspinner>
 
+            <h5>Custom</h5>
+            <p-progressspinner style="width:50px;height:50px" stroke-width="8" fill="var(--surface-ground)" animation-duration=".5s"></p-progressspinner>
+        </div>
+
+        <script type="module">
+        const { createApp } = Vue;
+
+        const App = {
+            components: {
+                "p-progressspinner": primevue.progressspinner
+            }
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .mount("#app");
+        <\\/script>`
                 }
             }
         }

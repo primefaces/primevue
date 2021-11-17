@@ -1,25 +1,31 @@
 <template>
 	<AppDoc name="FilterServiceDemo" :sources="sources" :service="['CustomerService']" :data="['customers-large']" github="filterservice/FilterServiceDemo.vue">
-		<h5>Import</h5>
+		<h5>Import via Module</h5>
 <pre v-code.script><code>
 import &#123;FilterService&#125; from 'primevue/api';
+
+</code></pre>
+
+		<h5>Import via CDN</h5>
+<pre v-code><code>
+&lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
 		<h5>Getting Started</h5>
 		<p>Filters are accessed with <i>FilterService.filters</i>.</p>
 <pre v-code.script><code>
-const value = 'PrimeNG';
+const value = 'PrimeVue';
 
-FilterService.filters.equals(value, 'NG');                            //false
+FilterService.filters.equals(value, 'Vue');                            //false
 FilterService.filters.equals(value, 8);                               //false
 FilterService.filters.equals(value, new Date());                      //false
-FilterService.filters.contains(value, 'NG');                          //true
-FilterService.filters.startsWith(value, 'NG');                        //false
-FilterService.filters.endsWith(value, 'NG');                          //true
+FilterService.filters.contains(value, 'Vue');                          //true
+FilterService.filters.startsWith(value, 'Vue');                        //false
+FilterService.filters.endsWith(value, 'Vue');                          //true
 FilterService.filters.lt(10, 20);                                     //true
 FilterService.filters.gt(50, 20);                                     //true
-FilterService.filters.in(value, ['PrimeFaces', 'PrimeNG']);           //true   
+FilterService.filters.in(value, ['PrimeFaces', 'PrimeVue']);           //true   
 
 </code></pre>
 
@@ -363,6 +369,95 @@ export default {
     }
 }
 <\\/script>
+`
+				},
+				'browser-source': {
+					tabName: 'Browser Source',
+					imports: `<script src="https://unpkg.com/primevue@^3/datatable/datatable.min.js"><\\/script>
+			<script src="https://unpkg.com/primevue@^3/column/column.min.js"><\\/script>
+			<script src="./CustomerService.js"><\\/script>`,
+					content: `<div id="app">
+				<div class="card">
+					<p-datatable :value="customers" :paginator="true" :rows="10" responsive-layout="scroll"
+						data-key="id" v-model:filters="filters" filter-display="row" :loading="loading">
+						<template #empty>
+							No customers found.
+						</template>
+						<template #loading>
+							Loading customers data. Please wait.
+						</template>
+						<p-column field="name" header="Name" :filter-match-mode-options="matchModeOptions">
+							<template #body="{data}">
+								{{data.name}}
+							</template>
+							<template #filter="{filterModel,filterCallback}">
+								<p-inputtext type="text" v-model="filterModel.value" @input="filterCallback()" class="p-column-filter" :placeholder="\`Search by name - \${filterModel.matchMode}\`"></p-inputtext>
+							</template>
+						</p-column>
+						<p-column header="Country" filter-field="country.name" :filter-match-mode-options="matchModeOptions">
+							<template #body="{data}">
+								<img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="30" />
+								<span class="image-text">{{data.country.name}}</span>
+							</template>
+							<template #filter="{filterModel,filterCallback}">
+								<p-inputtext type="text" v-model="filterModel.value" @input="filterCallback()" class="p-column-filter" :placeholder="\`Search by country - \${filterModel.matchMode}\`"></p-inputtext>
+							</template>
+						</p-column>
+					</p-datatable>
+				</div>
+			</div>
+
+			<script type="module">
+			const { createApp, ref, onMounted } = Vue;
+			const { FilterMatchMode, FilterService } = primevue.api;
+
+			const App = {
+				setup() {
+					onMounted(() => {
+						customerService.value.getCustomersLarge().then(data => {
+							customers.value = data; 
+							loading.value = false;
+						});
+
+						FilterService.register(YOUR_FILTER.value, (value, filter) => {
+							if (filter === undefined || filter === null || filter.trim() === '') {
+								return true;
+							}
+				
+							if (value === undefined || value === null) {
+								return false;
+							}
+				
+							return value.toString() === filter.toString();
+						});
+					})
+
+					const YOUR_FILTER = ref('YOUR FILTER');
+					const customers = ref();
+					const customerService = ref(new CustomerService());
+					const filters = ref({
+						'name': {value: null, matchMode: YOUR_FILTER.value},
+						'country.name': {value: null, matchMode: FilterMatchMode.STARTS_WITH}
+					});
+					const matchModeOptions = ref([
+						{label: 'Your Equals', value: YOUR_FILTER.value},
+						{label: 'Starts With', value: FilterMatchMode.STARTS_WITH}
+					]);
+					const loading = ref(true);
+
+					return { customers, customerService, filters, matchModeOptions, loading }
+				},
+				components: {
+					"p-datatable": primevue.datatable,
+					"p-column": primevue.column,
+					"p-inputtext": primevue.inputtext
+				}
+			};
+
+			createApp(App)
+            .use(primevue.config.default)
+            .mount("#app");
+			<\\/script>
 `
 				}
 			}

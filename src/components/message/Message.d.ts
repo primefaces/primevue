@@ -5,10 +5,12 @@ interface MessageProps {
     closable?: boolean;
     sticky?: boolean;
     life?: number;
+    icon?: string;
 }
 
 declare class Message {
     $props: MessageProps;
+    $emit(eventName: 'close', event: Event): this;
     $slots: {
         '': VNode[];
     }

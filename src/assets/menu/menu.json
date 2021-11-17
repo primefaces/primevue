@@ -94,12 +94,30 @@
                 },
                 {
                     "name": "SASS API",
-                    "href": "https://www.primefaces.org/designer/api/primevue/3.0.0"
+                    "href": "https://www.primefaces.org/designer/api/primevue/3.5.0"
                 }
             ]
         },
         {
-            "name": "PrimeFlex",
+            "name": "PrimeBlocks",
+            "meta": ["primeblocks"],
+            "banner": true,
+            "imageLight": "demo/images/banner-primeblocks.png",
+            "imageDark": "demo/images/banner-primeblocks-dark.png",
+            "url": "https://www.primefaces.org/primeblocks-vue",
+            "children": []
+        },
+        {
+            "name": "PrimeFlex 3.0",
+            "meta": ["primeflex"],
+            "banner": true,
+            "imageLight": "demo/images/banner-primeflex.svg",
+            "imageDark": "demo/images/banner-primeflex-dark.svg",
+            "url": "https://www.primefaces.org/primeflex",
+            "children": []
+        },
+        {
+            "name": "PrimeFlex 2.0",
             "meta": ["primeflex"],
             "children": [
                 {
@@ -141,7 +159,7 @@
             "meta": ["primeicons"],
             "children": [
                 {
-                    "name": "Icons v4.1",
+                    "name": "Icons v5",
                     "to": "/icons"
                 }
             ]
@@ -156,7 +174,8 @@
                 },
                 {
                     "name": "Calendar",
-                    "to": "/calendar"
+                    "to": "/calendar",
+                    "badge": "Updated"
                 },
                 {
                     "name": "CascadeSelect",
@@ -267,6 +286,10 @@
                 {
                     "name": "Button",
                     "to": "/button"
+                },
+                {
+                    "name": "Speed Dial",
+                    "to": "/speeddial"
                 },
                 {
                     "name": "SplitButton",
@@ -407,6 +430,10 @@
                     "to": "/dataview"
                 },
                 {
+                    "name": "VirtualScroller",
+                    "to": "/virtualscroller"
+                },
+                {
                     "name": "FilterService",
                     "to": "/filterservice"
                 },
@@ -437,7 +464,6 @@
                 {
                     "name": "Tree",
                     "meta": ["tree"],
-                    "badge": "New",
                     "children": [
                         {
                             "name": "Documentation",
@@ -461,15 +487,13 @@
                         },
                         {
                             "name": "Scroll",
-                            "to": "/tree/scroll",
-                            "badge": "New"
+                            "to": "/tree/scroll"
                         }
                     ]
                 },
                 {
                     "name": "TreeTable",
                     "meta": ["treetable"],
-                    "badge": "New",
                     "children": [
                         {
                             "name": "Documentation",
@@ -513,8 +537,7 @@
                         },
                         {
                             "name": "Scroll",
-                            "to": "/treetable/scroll",
-                            "badge": "New"
+                            "to": "/treetable/scroll"
                         },
                         {
                             "name": "Responsive",
@@ -653,6 +676,10 @@
                 {
                     "name": "TieredMenu",
                     "to": "/tieredmenu"
+                },
+                {
+                    "name": "Dock",
+                    "to": "/dock"
                 }
             ]
         },
@@ -762,6 +789,10 @@
                             "to": "/galleria/advanced"
                         }
                     ]
+                },
+                {
+                    "name": "Image",
+                    "to": "/image"
                 }
             ]
         },
@@ -808,6 +839,10 @@
                 {
                     "name": "Ripple",
                     "to": "/ripple"
+                },
+                {
+                    "name": "StyleClass",
+                    "to": "/styleclass"
                 },
                 {
                     "name": "Tag",

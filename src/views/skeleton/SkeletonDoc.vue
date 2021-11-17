@@ -1,8 +1,15 @@
 <template>
 	<AppDoc name="SkeletonDemo" :sources="sources" github="skeleton/SkeletonDemo.vue">
-        <h5>Import</h5>
+        <h5>Import via Module</h5>
 <pre v-code.script><code>
 import Skeleton from 'primevue/skeleton';
+
+</code></pre>
+
+        <h5>Import via CDN</h5>
+<pre v-code><code>
+&lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue@^3/skeleton/skeleton.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
@@ -449,6 +456,175 @@ export default {
     }
 }
 </style>`
+				},
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/skeleton/skeleton.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/datatable/datatable.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/column/column.min.js"><\\/script>`,
+					content: `<div id="app">
+            <div class="card">
+                <div class="p-grid p-formgrid">
+                    <div class="p-field p-col-12 p-md-6">
+                        <h5>Rectangle</h5>
+                        <p-skeleton class="p-mb-2"></p-skeleton>
+                        <p-skeleton width="10rem" class="p-mb-2"></p-skeleton>
+                        <p-skeleton width="5rem" class="p-mb-2"></p-skeleton>
+                        <p-skeleton height="2rem" class="p-mb-2"></p-skeleton>
+                        <p-skeleton width="10rem" height="4rem"></p-skeleton>
+                    </div>
+                    <div class="p-field p-col-12 p-md-6">
+                        <h5>Rounded</h5>
+                        <p-skeleton class="p-mb-2" border-radius="16px"></p-skeleton>
+                        <p-skeleton width="10rem" class="p-mb-2" border-radius="16px"></p-skeleton>
+                        <p-skeleton width="5rem" border-radius="16px" class="p-mb-2"></p-skeleton>
+                        <p-skeleton height="2rem" class="p-mb-2" border-radius="16px"></p-skeleton>
+                        <p-skeleton width="10rem" height="4rem" border-radius="16px"></p-skeleton>
+                    </div>
+                    <div class="p-field p-col-12 p-md-6">
+                        <h5 class="p-mt-3">Square</h5>
+                        <div class="p-d-flex p-ai-end">
+                            <p-skeleton size="2rem" class="p-mr-2"></p-skeleton>
+                            <p-skeleton size="3rem" class="p-mr-2"></p-skeleton>
+                            <p-skeleton size="4rem" class="p-mr-2"></p-skeleton>
+                            <p-skeleton size="5rem"></p-skeleton>
+                        </div>
+                    </div>
+                    <div class="p-field p-col-12 p-md-6">
+                        <h5 class="p-mt-3">Circle</h5>
+                        <div class="p-d-flex p-ai-end">
+                            <p-skeleton shape="circle" size="2rem" class="p-mr-2"></p-skeleton>
+                            <p-skeleton shape="circle" size="3rem" class="p-mr-2"></p-skeleton>
+                            <p-skeleton shape="circle" size="4rem" class="p-mr-2"></p-skeleton>
+                            <p-skeleton shape="circle" size="5rem"></p-skeleton>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="p-grid p-formgrid">
+                    <div class="p-field p-col-12 p-md-6 p-pr-md-6 p-pr-0">
+                        <h5>Card</h5>
+                        <div class="custom-skeleton p-p-4">
+                            <div class="p-d-flex p-mb-3">
+                                <p-skeleton shape="circle" size="4rem" class="p-mr-2"></p-skeleton>
+                                <div>
+                                    <p-skeleton width="10rem" class="p-mb-2"></p-skeleton>
+                                    <p-skeleton width="5rem" class="p-mb-2"></p-skeleton>
+                                    <p-skeleton height=".5rem"></p-skeleton>
+                                </div>
+                            </div>
+                            <p-skeleton width="100%" height="150px"></p-skeleton>
+                            <div class="p-d-flex p-jc-between p-mt-3">
+                                <p-skeleton width="4rem" height="2rem"></p-skeleton>
+                                <p-skeleton width="4rem" height="2rem"></p-skeleton>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-field p-col-12 p-md-6">
+                        <h5>List</h5>
+                        <div class="custom-skeleton p-p-4">
+                            <ul class="p-m-0 p-p-0">
+                                <li class="p-mb-3">
+                                    <div class="p-d-flex">
+                                        <p-skeleton shape="circle" size="4rem" class="p-mr-2"></p-skeleton>
+                                        <div style="flex: 1">
+                                            <p-skeleton width="100%" class="p-mb-2"></p-skeleton>
+                                            <p-skeleton width="75%"></p-skeleton>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="p-mb-3">
+                                    <div class="p-d-flex">
+                                        <p-skeleton shape="circle" size="4rem" class="p-mr-2"></p-skeleton>
+                                        <div style="flex: 1">
+                                            <p-skeleton width="100%" class="p-mb-2"></p-skeleton>
+                                            <p-skeleton width="75%"></p-skeleton>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="p-mb-3">
+                                    <div class="p-d-flex">
+                                        <p-skeleton shape="circle" size="4rem" class="p-mr-2"></p-skeleton>
+                                        <div style="flex: 1">
+                                            <p-skeleton width="100%" class="p-mb-2"></p-skeleton>
+                                            <p-skeleton width="75%"></p-skeleton>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="p-d-flex">
+                                        <p-skeleton shape="circle" size="4rem" class="p-mr-2"></p-skeleton>
+                                        <div style="flex: 1">
+                                            <p-skeleton width="100%" class="p-mb-2"></p-skeleton>
+                                            <p-skeleton width="75%"></p-skeleton>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <h5>DataTable</h5>
+                <p-datatable :value="products" responsive-layout="scroll">
+                    <p-column field="code" header="Code">
+                        <template #body>
+                            <p-skeleton></p-skeleton>
+                        </template>
+                    </p-column>
+                    <p-column field="name" header="Name">
+                        <template #body>
+                            <p-skeleton></p-skeleton>
+                        </template>
+                    </p-column>
+                    <p-column field="category" header="Category">
+                        <template #body>
+                            <p-skeleton></p-skeleton>
+                        </template>
+                    </p-column>
+                    <p-column field="quantity" header="Quantity">
+                        <template #body>
+                            <p-skeleton></p-skeleton>
+                        </template>
+                    </p-column>
+                </p-datatable>
+            </div>
+        </div>
+
+        <script type="module">
+        const { createApp, ref } = Vue;
+
+        const App = {
+            setup() {
+                const products = ref(new Array(4));
+
+                return { products }
+            },
+            components: {
+                "p-skeleton": primevue.skeleton,
+                "p-datatable": primevue.datatable,
+                "p-column": primevue.column
+            }
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .mount("#app");
+        <\\/script>
+
+        <style>
+        .custom-skeleton {
+            border: 1px solid var(--surface-d);
+            border-radius: 4px;
+        }
+
+        .custom-skeleton ul {
+            list-style: none;
+        }
+        </style>`
 				}
 			}
 		}

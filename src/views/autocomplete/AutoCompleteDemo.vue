@@ -33,6 +33,9 @@
                     </template>
                 </AutoComplete>
 
+                <h5>Virtual Scroll (1000 Items)</h5>
+                <AutoComplete v-model="selectedItem" :suggestions="filteredItems" @complete="searchItems" :virtualScrollerOptions="{ itemSize: 31 }" field="label" dropdown />
+
                 <h5>Multiple</h5>
                 <span class="p-fluid">
                     <AutoComplete :multiple="true" v-model="selectedCountries" :suggestions="filteredCountries" @complete="searchCountry($event)" field="name" />
@@ -59,8 +62,10 @@ export default {
             filteredCities: null,
             filteredCountries: null,
             selectedCountries: [],
+            selectedItem: null,
+            filteredItems: null,
             groupedCities: [{
-                label: 'Germany', code: 'DE', 
+                label: 'Germany', code: 'DE',
                 items: [
                     {label: 'Berlin', value: 'Berlin'},
                     {label: 'Frankfurt', value: 'Frankfurt'},
@@ -69,7 +74,7 @@ export default {
                 ]
             },
             {
-                label: 'USA', code: 'US', 
+                label: 'USA', code: 'US',
                 items: [
                     {label: 'Chicago', value: 'Chicago'},
                     {label: 'Los Angeles', value: 'Los Angeles'},
@@ -78,14 +83,15 @@ export default {
                 ]
             },
             {
-                label: 'Japan', code: 'JP', 
+                label: 'Japan', code: 'JP',
                 items: [
                     {label: 'Kyoto', value: 'Kyoto'},
                     {label: 'Osaka', value: 'Osaka'},
                     {label: 'Tokyo', value: 'Tokyo'},
                     {label: 'Yokohama', value: 'Yokohama'}
                 ]
-            }]
+            }],
+            items: Array.from({ length: 1000 }, (_, i) => ({ label: `Item #${i}`, value: i }))
         }
     },
     countryService: null,
@@ -120,6 +126,20 @@ export default {
             }
 
             this.filteredCities = filteredCities;
+        },
+        searchItems(event) {
+            //in a real application, make a request to a remote url with the query and return filtered results, for demo we filter at client side
+            let query = event.query;
+            let filteredItems = [];
+
+            for(let i = 0; i < this.items.length; i++) {
+                let item = this.items[i];
+                if (item.label.toLowerCase().indexOf(query.toLowerCase()) === 0) {
+                    filteredItems.push(item);
+                }
+            }
+
+            this.filteredItems = filteredItems;
         }
     },
     components: {

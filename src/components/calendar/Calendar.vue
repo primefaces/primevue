@@ -11,25 +11,28 @@
                             <div class="p-datepicker-group" v-for="(month,groupIndex) of months" :key="month.month + month.year">
                                 <div class="p-datepicker-header">
                                     <slot name="header"></slot>
-                                    <button class="p-datepicker-prev p-link" v-if="groupIndex === 0" @click="onPrevButtonClick" type="button" @keydown="onContainerButtonKeydown" v-ripple :disabled="$attrs.disabled">
+                                    <button class="p-datepicker-prev p-link" v-show="groupIndex === 0" @click="onPrevButtonClick" type="button" @keydown="onContainerButtonKeydown" v-ripple :disabled="$attrs.disabled">
                                         <span class="p-datepicker-prev-icon pi pi-chevron-left"></span>
                                     </button>
                                     <div class="p-datepicker-title">
-                                        <span class="p-datepicker-month" v-if="!monthNavigator && (view !== 'month')">{{getMonthName(month.month)}}</span>
-                                        <select class="p-datepicker-month" v-if="monthNavigator && (view !== 'month') && numberOfMonths === 1" @change="onMonthDropdownChange($event.target.value)">
-                                            <option :value="index" v-for="(monthName, index) of monthNames" :key="monthName" :selected="index === month.month">{{monthName}}</option>
-                                        </select>
-                                        <span class="p-datepicker-year" v-if="!yearNavigator">{{view === 'month' ? currentYear : month.year}}</span>
-                                        <select class="p-datepicker-year" v-if="yearNavigator && numberOfMonths === 1" @change="onYearDropdownChange($event.target.value)">
-                                            <option :value="year" v-for="year of yearOptions" :key="year" :selected="year === currentYear">{{year}}</option>
-                                        </select>
+                                        <button type="button" @click="switchToMonthView" v-if="currentView === 'date'" class="p-datepicker-month p-link" :disabled="switchViewButtonDisabled">
+                                            {{getMonthName(month.month)}}
+                                        </button>
+                                        <button type="button" @click="switchToYearView" v-if="currentView !== 'year'" class="p-datepicker-year p-link" :disabled="switchViewButtonDisabled">
+                                            {{currentYear}}
+                                        </button>
+                                        <span class="p-datepicker-decade" v-if="currentView === 'year'">
+                                            <slot name="decade" :years="yearPickerValues">
+                                                {{yearPickerValues[0]}} - {{yearPickerValues[yearPickerValues.length - 1]}}
+                                            </slot>
+                                        </span>
                                     </div>
-                                    <button class="p-datepicker-next p-link" v-if="numberOfMonths === 1 ? true : (groupIndex === numberOfMonths - 1)"
+                                    <button class="p-datepicker-next p-link" v-show="numberOfMonths === 1 ? true : (groupIndex === numberOfMonths - 1)"
                                         @click="onNextButtonClick" type="button" @keydown="onContainerButtonKeydown" v-ripple :disabled="$attrs.disabled">
                                         <span class="p-datepicker-next-icon pi pi-chevron-right"></span>
                                     </button>
                                 </div>
-                                <div class="p-datepicker-calendar-container" v-if="view ==='date'">
+                                <div class="p-datepicker-calendar-container" v-if="currentView ==='date'">
                                     <table class="p-datepicker-calendar">
                                         <thead>
                                             <tr>
@@ -61,10 +64,16 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="p-monthpicker" v-if="view === 'month'">
+                        <div class="p-monthpicker" v-if="currentView === 'month'">
                             <span v-for="(m,i) of monthPickerValues" :key="m" @click="onMonthSelect($event, i)" @keydown="onMonthCellKeydown($event,i)"
                                     class="p-monthpicker-month" :class="{'p-highlight': isMonthSelected(i)}" v-ripple>
                                 {{m}}
+                            </span>
+                        </div>
+                        <div class="p-yearpicker" v-if="currentView === 'year'">
+                            <span v-for="y of yearPickerValues" :key="y" @click="onYearSelect($event, y)" @keydown="onYearCellKeydown($event,y)"
+                                    class="p-yearpicker-year" :class="{'p-highlight': isYearSelected(y)}" v-ripple>
+                                {{y}}
                             </span>
                         </div>
                     </template>
@@ -133,7 +142,7 @@
 </template>
 
 <script>
-import {ConnectedOverlayScrollHandler,DomHandler,ZIndexUtils} from 'primevue/utils';
+import {ConnectedOverlayScrollHandler,DomHandler,ZIndexUtils,UniqueComponentId} from 'primevue/utils';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import InputText from 'primevue/inputtext';
 import Button from 'primevue/button';
@@ -177,6 +186,7 @@ export default {
             type: Number,
             default: 1
         },
+        responsiveOptions: Array,
         view: {
             type: String,
             default: 'date'
@@ -289,6 +299,10 @@ export default {
             type: String,
             default: 'body'
         },
+        keepInvalid: {
+            type: Boolean,
+            default: false
+        },
         inputClass: null,
         inputStyle: null,
         class: null,
@@ -307,8 +321,15 @@ export default {
         this.updateCurrentMetaData();
     },
     mounted() {
-        if (this.inline && !this.$attrs.disabled) {
-            this.initFocusableCell();
+        this.createResponsiveStyle();
+
+        if (this.inline) {
+            this.overlay && this.overlay.setAttribute(this.attributeSelector, '');
+
+            if (!this.$attrs.disabled) {
+                this.initFocusableCell();
+                this.overlay.style.width = DomHandler.getOuterWidth(this.$el) + 'px';
+            }
         }
     },
     updated() {
@@ -329,8 +350,9 @@ export default {
         }
 
         if (this.mask) {
-            this.destroyMask();
+           this.destroyMask();
         }
+        this.destroyResponsiveStyleElement();
 
         this.unbindOutsideClickListener();
         this.unbindResizeListener();
@@ -354,7 +376,8 @@ export default {
             currentSecond: null,
             pm: null,
 			focused: false,
-            overlayVisible: false
+            overlayVisible: false,
+            currentView: this.view
         }
     },
     watch: {
@@ -363,6 +386,19 @@ export default {
         },
         showTime() {
             this.updateCurrentMetaData();
+        },
+        months() {
+            if (this.overlay) {
+                setTimeout(this.updateFocus, 0);
+            }
+        },
+        numberOfMonths() {
+            this.destroyResponsiveStyleElement();
+            this.createResponsiveStyle();
+        },
+        responsiveOptions() {
+            this.destroyResponsiveStyleElement();
+            this.createResponsiveStyle();
         }
     },
     methods: {
@@ -403,6 +439,9 @@ export default {
         },
         isMonthSelected(month) {
             return this.isComparable() ? (this.modelValue.getMonth() === month && this.modelValue.getFullYear() === this.currentYear) : false;
+        },
+        isYearSelected(year) {
+            return this.isComparable() ? (this.modelValue.getFullYear() === year) : false;
         },
         isDateEquals(value, dateMeta) {
             if (value)
@@ -528,12 +567,15 @@ export default {
             return validMin && validMax && validDate && validDay;
         },
         onOverlayEnter(el) {
+            el.setAttribute(this.attributeSelector, '');
+
             if (this.autoZIndex) {
                 if (this.touchUI)
                     ZIndexUtils.set('modal', el, this.baseZIndex || this.$primevue.config.zIndex.modal);
                 else
                     ZIndexUtils.set('overlay', el, this.baseZIndex || this.$primevue.config.zIndex.overlay);
             }
+
             this.alignOverlay();
             this.$emit('show');
         },
@@ -548,6 +590,7 @@ export default {
             }
         },
         onOverlayLeave() {
+            this.currentView = this.view;
             this.unbindOutsideClickListener();
             this.unbindScrollListener();
             this.unbindResizeListener();
@@ -578,8 +621,11 @@ export default {
                 return;
             }
 
-            if (this.view === 'month') {
+            if (this.currentView === 'month') {
                 this.decrementYear();
+            }
+            else if (this.currentView === 'year') {
+                this.decrementDecade();
             }
             else {
                 if (this.currentMonth === 0) {
@@ -600,8 +646,11 @@ export default {
                 return;
             }
 
-            if (this.view === 'month') {
+            if (this.currentView === 'month') {
                 this.incrementYear();
+            }
+            else if (this.currentView === 'year') {
+                this.incrementDecade();
             }
             else {
                 if (this.currentMonth === 11) {
@@ -618,8 +667,22 @@ export default {
         decrementYear() {
             this.currentYear--;
         },
+        decrementDecade() {
+            this.currentYear = this.currentYear - 10;
+        },
         incrementYear() {
             this.currentYear++;
+        },
+        incrementDecade() {
+            this.currentYear = this.currentYear + 10;
+        },
+        switchToMonthView(event) {
+            this.currentView = 'month';
+            event.preventDefault();
+        },
+        switchToYearView(event) {
+            this.currentView = 'year';
+            event.preventDefault();
         },
         isEnabled() {
             return !this.$attrs.disabled && !this.$attrs.readonly;
@@ -705,7 +768,14 @@ export default {
                     DomHandler.relativePosition(this.overlay, this.$el);
                 }
                 else {
-                    this.overlay.style.minWidth = DomHandler.getOuterWidth(this.$el) + 'px';
+                    if (this.view === 'date') {
+                        this.overlay.style.width = DomHandler.getOuterWidth(this.overlay) + 'px';
+                        this.overlay.style.minWidth = DomHandler.getOuterWidth(this.$el) + 'px';
+                    }
+                    else {
+                        this.overlay.style.width = DomHandler.getOuterWidth(this.$el) + 'px';
+                    }
+
                     DomHandler.absolutePosition(this.overlay, this.$el);
                 }
             }
@@ -1276,13 +1346,30 @@ export default {
             }
         },
         onMonthSelect(event, index) {
-            this.onDateSelect(event, {year: this.currentYear, month: index, day: 1, selectable: true});
+            if (this.view === 'month') {
+                this.onDateSelect(event, {year: this.currentYear, month: index, day: 1, selectable: true});
+            }
+            else {
+                this.currentMonth = index;
+                this.currentView = 'date';
+                this.$emit('month-change', {month: this.currentMonth + 1, year: this.currentYear});
+            }
+        },
+        onYearSelect(event, year) {
+            if (this.view === 'year') {
+                this.onDateSelect(event, {year: year, month: 0, day: 1, selectable: true});
+            }
+            else {
+                this.currentYear = year;
+                this.currentView = 'month';
+                this.$emit('year-change', {month: this.currentMonth + 1, year: this.currentYear});
+            }
         },
         enableModality() {
             if (!this.mask) {
                 this.mask = document.createElement('div');
                 this.mask.style.zIndex = String(parseInt(this.overlay.style.zIndex, 10) - 1);
-                DomHandler.addMultipleClasses(this.mask, 'p-datepicker-mask p-datepicker-mask-scrollblocker');
+                DomHandler.addMultipleClasses(this.mask, 'p-datepicker-mask p-datepicker-mask-scrollblocker p-component-overlay p-component-overlay-enter');
 
                 this.maskClickListener = () => {
                     this.overlayVisible = false;
@@ -1291,16 +1378,12 @@ export default {
 
                 document.body.appendChild(this.mask);
                 DomHandler.addClass(document.body, 'p-overflow-hidden');
-
-                setTimeout(() => {
-                    DomHandler.addClass(this.mask, 'p-component-overlay');
-                }, 1);
             }
         },
         disableModality() {
             if (this.mask) {
-                DomHandler.addClass(this.mask, 'p-datepicker-mask-leave');
-                this.mask.addEventListener('transitionend', () => {
+                DomHandler.addClass(this.mask, 'p-component-overlay-leave');
+                this.mask.addEventListener('animationend', () => {
                     this.destroyMask();
                 });
             }
@@ -1503,7 +1586,7 @@ export default {
                 iValue++;
             };
 
-            if (this.view === 'month') {
+            if (this.currentView === 'month') {
                 day = 1;
             }
 
@@ -1819,6 +1902,74 @@ export default {
                 break;
             }
         },
+        onYearCellKeydown(event, index) {
+            const cell = event.currentTarget;
+
+            switch (event.which) {
+                //arrows
+                case 38:
+                case 40: {
+                    cell.tabIndex = '-1';
+                    var cells = cell.parentElement.children;
+                    var cellIndex = DomHandler.index(cell);
+                    let nextCell = cells[event.which === 40 ? cellIndex + 3 : cellIndex -3];
+                    if (nextCell) {
+                        nextCell.tabIndex = '0';
+                        nextCell.focus();
+                    }
+                    event.preventDefault();
+                    break;
+                }
+
+                //left arrow
+                case 37: {
+                    cell.tabIndex = '-1';
+                    let prevCell = cell.previousElementSibling;
+                    if (prevCell) {
+                        prevCell.tabIndex = '0';
+                        prevCell.focus();
+                    }
+                    event.preventDefault();
+                    break;
+                }
+
+                //right arrow
+                case 39: {
+                    cell.tabIndex = '-1';
+                    let nextCell = cell.nextElementSibling;
+                    if (nextCell) {
+                        nextCell.tabIndex = '0';
+                        nextCell.focus();
+                    }
+                    event.preventDefault();
+                    break;
+                }
+
+                //enter
+                case 13: {
+                    this.onMonthSelect(event, index);
+                    event.preventDefault();
+                    break;
+                }
+
+                //escape
+                case 27: {
+                    this.overlayVisible = false;
+                    event.preventDefault();
+                    break;
+                }
+
+                //tab
+                case 9: {
+                    this.trapFocus(event);
+                    break;
+                }
+
+                default:
+                    //no op
+                break;
+            }
+        },
         updateFocus() {
             let cell;
             if (this.navigationState) {
@@ -1854,7 +2005,7 @@ export default {
         initFocusableCell() {
             let cell;
 
-            if (this.view === 'month') {
+            if (this.currentView === 'month') {
                 let cells = DomHandler.find(this.overlay, '.p-monthpicker .p-monthpicker-month');
                 let selectedCell= DomHandler.findSingle(this.overlay, '.p-monthpicker .p-monthpicker-month.p-highlight');
                 cells.forEach(cell => cell.tabIndex = -1);
@@ -1936,7 +2087,9 @@ export default {
                 }
             }
             catch(err) {
-                this.updateModel(event.target.value);
+                // invalid date
+                let value = this.keepInvalid ? event.target.value : null;
+                this.updateModel(value);
             }
         },
         onFocus() {
@@ -1982,6 +2135,53 @@ export default {
                     target: this.$el
                 });
             }
+        },
+        createResponsiveStyle() {
+            if (this.numberOfMonths > 1 && this.responsiveOptions) {
+                if (!this.responsiveStyleElement) {
+                    this.responsiveStyleElement = document.createElement('style');
+                    this.responsiveStyleElement.type = 'text/css';
+                    document.body.appendChild(this.responsiveStyleElement);
+                }
+
+                let innerHTML = '';
+                if (this.responsiveOptions) {
+                    let responsiveOptions = [...this.responsiveOptions]
+                        .filter(o => !!(o.breakpoint && o.numMonths))
+                        .sort((o1, o2) => -1 * o1.breakpoint.localeCompare(o2.breakpoint, undefined, { numeric: true }));
+
+                    for (let i = 0; i < responsiveOptions.length; i++) {
+                        let { breakpoint, numMonths } = responsiveOptions[i];
+                        let styles = `
+                            .p-datepicker[${this.attributeSelector}] .p-datepicker-group:nth-child(${numMonths}) .p-datepicker-next {
+                                display: inline-flex !important;
+                            }
+                        `;
+
+                        for (let j = numMonths; j < this.numberOfMonths; j++) {
+                            styles += `
+                                .p-datepicker[${this.attributeSelector}] .p-datepicker-group:nth-child(${j + 1}) {
+                                    display: none !important;
+                                }
+                            `
+                        }
+
+                        innerHTML += `
+                            @media screen and (max-width: ${breakpoint}) {
+                                ${styles}
+                            }
+                        `
+                    }
+                }
+
+                this.responsiveStyleElement.innerHTML = innerHTML;
+            }
+		},
+        destroyResponsiveStyleElement() {
+            if (this.responsiveStyleElement) {
+                this.responsiveStyleElement.remove();
+                this.responsiveStyleElement = null;
+            }
         }
     },
     computed: {
@@ -1998,7 +2198,7 @@ export default {
             return propValue || new Date();
         },
         inputFieldValue() {
-            return this.formatValue(this.modelValue);
+            return this.keepInvalid ? this.modelValue : this.formatValue(this.modelValue);
         },
         containerClass() {
             return [
@@ -2017,7 +2217,8 @@ export default {
                 'p-disabled': this.$attrs.disabled,
                 'p-datepicker-timeonly': this.timeOnly,
                 'p-datepicker-multiple-month': this.numberOfMonths > 1,
-                'p-datepicker-monthpicker': (this.view === 'month'),
+                'p-datepicker-monthpicker': (this.currentView === 'month'),
+                'p-datepicker-yearpicker': (this.currentView === 'year'),
                 'p-datepicker-touch-ui': this.touchUI,
                 'p-input-filled': this.$primevue.config.inputStyle === 'filled',
                 'p-ripple-disabled': this.$primevue.config.ripple === false
@@ -2145,6 +2346,15 @@ export default {
 
             return monthPickerValues;
         },
+        yearPickerValues() {
+            let yearPickerValues = [];
+            let base = this.currentYear -  (this.currentYear % 10);
+            for (let i = 0; i < 10; i++) {
+                yearPickerValues.push(base + i);
+            }
+
+            return yearPickerValues;
+        },
         formattedCurrentHour() {
             return this.currentHour < 10 ? '0' + this.currentHour : this.currentHour;
         },
@@ -2171,6 +2381,12 @@ export default {
         },
         appendTarget() {
             return this.appendDisabled ? null : this.appendTo;
+        },
+        attributeSelector() {
+            return UniqueComponentId();
+        },
+        switchViewButtonDisabled() {
+            return this.numberOfMonths > 1 || this.$attrs.disabled;
         }
     },
     components: {
@@ -2187,6 +2403,7 @@ export default {
 .p-calendar {
     position: relative;
     display: inline-flex;
+    max-width: 100%;
 }
 
 .p-calendar .p-inputtext {
@@ -2221,11 +2438,14 @@ export default {
 .p-datepicker {
 	width: auto;
     position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .p-datepicker-inline {
-    display: inline-flex;
+    display: inline-block;
     position: static;
+    overflow-x: auto;
 }
 
 /* Header */
@@ -2254,6 +2474,10 @@ export default {
     display: flex;
 }
 
+.p-datepicker-multiple-month .p-datepicker-group-container .p-datepicker-group {
+    flex: 1 1 auto;
+}
+
 /* DatePicker Table */
 .p-datepicker table {
 	width: 100%;
@@ -2273,6 +2497,17 @@ export default {
 /* Month Picker */
 .p-monthpicker-month {
     width: 33.3%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Year Picker */
+.p-yearpicker-year {
+    width: 50%;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -2318,14 +2553,5 @@ export default {
     left: 50%;
     min-width: 80vw;
     transform: translate(-50%, -50%);
-}
-
-.p-datepicker-mask {
-    background-color: transparent;
-    transition-property: background-color;
-}
-
-.p-datepicker-mask.p-datepicker-mask-leave.p-component-overlay {
-    background-color: transparent;
 }
 </style>

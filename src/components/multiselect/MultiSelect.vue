@@ -12,7 +12,9 @@
                     </template>
                     <template v-else-if="display === 'chip'">
                         <div v-for="item of modelValue" class="p-multiselect-token" :key="getLabelByValue(item)">
-                            <span class="p-multiselect-token-label">{{getLabelByValue(item)}}</span>
+                             <slot name="chip" :value="item">
+                                <span class="p-multiselect-token-label">{{getLabelByValue(item)}}</span>
+                             </slot>
                             <span v-if="!disabled" class="p-multiselect-token-icon pi pi-times-circle" @click="removeChip(item)"></span>
                         </div>
                         <template v-if="!modelValue || modelValue.length === 0">{{placeholder || 'empty'}}</template>
@@ -21,13 +23,15 @@
             </div>
         </div>
         <div class="p-multiselect-trigger">
-            <span :class="dropdownIconClass"></span>
+            <slot name="indicator">
+                <span :class="dropdownIconClass"></span>
+            </slot>
         </div>
         <Teleport :to="appendTarget" :disabled="appendDisabled">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
                 <div :ref="overlayRef" :class="panelStyleClass" v-if="overlayVisible" @click="onOverlayClick">
                     <slot name="header" :value="modelValue" :options="visibleOptions"></slot>
-                    <div class="p-multiselect-header" v-if="(showToggleAll && selectionLimit == null) || filter">                      
+                    <div class="p-multiselect-header" v-if="(showToggleAll && selectionLimit == null) || filter">
                         <div class="p-checkbox p-component" @click="onToggleAll" role="checkbox" :aria-checked="allSelected" v-if="showToggleAll && selectionLimit == null">
                             <div class="p-hidden-accessible">
                                 <input type="checkbox" readonly @focus="onHeaderCheckboxFocus" @blur="onHeaderCheckboxBlur">
@@ -44,46 +48,53 @@
                             <span class="p-multiselect-close-icon pi pi-times" />
                         </button>
                     </div>
-                    <div class="p-multiselect-items-wrapper" :style="{'max-height': scrollHeight}">
-                        <ul class="p-multiselect-items p-component" role="listbox" aria-multiselectable="true">
-                            <template v-if="!optionGroupLabel">
-                                <li v-for="(option, i) of visibleOptions" :class="['p-multiselect-item', {'p-highlight': isSelected(option), 'p-disabled': isOptionDisabled(option)}]" role="option" :aria-selected="isSelected(option)"
-                                    :key="getOptionRenderKey(option)" @click="onOptionSelect($event, option)" @keydown="onOptionKeyDown($event, option)" :tabindex="tabindex||'0'" :aria-label="getOptionLabel(option)"  v-ripple>
-                                    <div class="p-checkbox p-component">
-                                        <div :class="['p-checkbox-box', {'p-highlight': isSelected(option)}]">
-                                            <span :class="['p-checkbox-icon', {'pi pi-check': isSelected(option)}]"></span>
-                                        </div>
-                                    </div>
-                                    <slot name="option" :option="option" :index="i">
-                                        <span>{{getOptionLabel(option)}}</span>
-                                    </slot>
-                                </li>
-                            </template>
-                            <template v-else>
-                                <template v-for="(optionGroup, i) of visibleOptions" :key="getOptionGroupRenderKey(optionGroup)">
-                                    <li  class="p-multiselect-item-group">
-                                        <slot name="optiongroup" :option="optionGroup" :index="i">{{getOptionGroupLabel(optionGroup)}}</slot>
-                                    </li>
-                                    <li v-for="(option, i) of getOptionGroupChildren(optionGroup)" :class="['p-multiselect-item', {'p-highlight': isSelected(option), 'p-disabled': isOptionDisabled(option)}]" role="option" :aria-selected="isSelected(option)"
-                                        :key="getOptionRenderKey(option)" @click="onOptionSelect($event, option)" @keydown="onOptionKeyDown($event, option)" :tabindex="tabindex||'0'" :aria-label="getOptionLabel(option)"  v-ripple>
-                                        <div class="p-checkbox p-component">
-                                            <div :class="['p-checkbox-box', {'p-highlight': isSelected(option)}]">
-                                                <span :class="['p-checkbox-icon', {'pi pi-check': isSelected(option)}]"></span>
+                    <div class="p-multiselect-items-wrapper" :style="{'max-height': virtualScrollerDisabled ? scrollHeight : ''}">
+                        <VirtualScroller :ref="virtualScrollerRef" v-bind="virtualScrollerOptions" :items="visibleOptions" :style="{'height': scrollHeight}" :disabled="virtualScrollerDisabled">
+                            <template v-slot:content="{ styleClass, contentRef, items, getItemOptions }">
+                                <ul :ref="contentRef" :class="['p-multiselect-items p-component', styleClass]" role="listbox" aria-multiselectable="true">
+                                    <template v-if="!optionGroupLabel">
+                                        <li v-for="(option, i) of items" :class="['p-multiselect-item', {'p-highlight': isSelected(option), 'p-disabled': isOptionDisabled(option)}]" role="option" :aria-selected="isSelected(option)"
+                                            :key="getOptionRenderKey(option)" @click="onOptionSelect($event, option)" @keydown="onOptionKeyDown($event, option)" :tabindex="tabindex||'0'" :aria-label="getOptionLabel(option)"  v-ripple>
+                                            <div class="p-checkbox p-component">
+                                                <div :class="['p-checkbox-box', {'p-highlight': isSelected(option)}]">
+                                                    <span :class="['p-checkbox-icon', {'pi pi-check': isSelected(option)}]"></span>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <slot name="option" :option="option" :index="i">
-                                            <span>{{getOptionLabel(option)}}</span>
-                                        </slot>
+                                            <slot name="option" :option="option" :index="getOptionIndex(i, getItemOptions)">
+                                                <span>{{getOptionLabel(option)}}</span>
+                                            </slot>
+                                        </li>
+                                    </template>
+                                    <template v-else>
+                                        <template v-for="(optionGroup, i) of items" :key="getOptionGroupRenderKey(optionGroup)">
+                                            <li  class="p-multiselect-item-group">
+                                                <slot name="optiongroup" :option="optionGroup" :index="getOptionIndex(i, getItemOptions)">{{getOptionGroupLabel(optionGroup)}}</slot>
+                                            </li>
+                                            <li v-for="(option, i) of getOptionGroupChildren(optionGroup)" :class="['p-multiselect-item', {'p-highlight': isSelected(option), 'p-disabled': isOptionDisabled(option)}]" role="option" :aria-selected="isSelected(option)"
+                                                :key="getOptionRenderKey(option)" @click="onOptionSelect($event, option)" @keydown="onOptionKeyDown($event, option)" :tabindex="tabindex||'0'" :aria-label="getOptionLabel(option)"  v-ripple>
+                                                <div class="p-checkbox p-component">
+                                                    <div :class="['p-checkbox-box', {'p-highlight': isSelected(option)}]">
+                                                        <span :class="['p-checkbox-icon', {'pi pi-check': isSelected(option)}]"></span>
+                                                    </div>
+                                                </div>
+                                                <slot name="option" :option="option" :index="getOptionIndex(i, getItemOptions)">
+                                                    <span>{{getOptionLabel(option)}}</span>
+                                                </slot>
+                                            </li>
+                                        </template>
+                                    </template>
+                                    <li v-if="filterValue && (!items || (items && items.length === 0))" class="p-multiselect-empty-message">
+                                        <slot name="emptyfilter">{{emptyFilterMessageText}}</slot>
                                     </li>
-                                </template>
+                                    <li v-else-if="(!options || (options && options.length === 0))" class="p-multiselect-empty-message">
+                                        <slot name="empty">{{emptyMessageText}}</slot>
+                                    </li>
+                                </ul>
                             </template>
-                            <li v-if="filterValue && (!visibleOptions || (visibleOptions && visibleOptions.length === 0))" class="p-multiselect-empty-message">
-                                <slot name="emptyfilter">{{emptyFilterMessageText}}</slot>
-                            </li>
-                            <li v-else-if="(!options || (options && options.length === 0))" class="p-multiselect-empty-message">
-                                <slot name="empty">{{emptyMessageText}}</slot>
-                            </li>
-                        </ul>
+                            <template v-slot:loader="{ options }" v-if="$slots.loader">
+                                <slot name="loader" :options="options"></slot>
+                            </template>
+                        </VirtualScroller>
                     </div>
                     <slot name="footer" :value="modelValue" :options="visibleOptions"></slot>
                 </div>
@@ -97,10 +108,11 @@ import {ConnectedOverlayScrollHandler,ObjectUtils,DomHandler,ZIndexUtils} from '
 import OverlayEventBus from 'primevue/overlayeventbus';
 import {FilterService} from 'primevue/api';
 import Ripple from 'primevue/ripple';
+import VirtualScroller from 'primevue/virtualscroller';
 
 export default {
     name: 'MultiSelect',
-    emits: ['update:modelValue', 'before-show', 'before-hide', 'change', 'show', 'hide', 'filter'],
+    emits: ['update:modelValue', 'before-show', 'before-hide', 'change', 'show', 'hide', 'filter', 'selectall-change'],
     props: {
         modelValue: null,
         options: Array,
@@ -147,6 +159,14 @@ export default {
             default: 'comma'
         },
         panelClass: null,
+        selectedItemsLabel: {
+            type: String,
+            default: '{0} items selected'
+        },
+        maxSelectedLabels: {
+            type: Number,
+            default: null
+        },
         selectionLimit: {
             type: Number,
             default: null
@@ -162,6 +182,14 @@ export default {
         loadingIcon: {
             type: String,
             default: 'pi pi-spinner pi-spin'
+        },
+        virtualScrollerOptions: {
+            type: Object,
+            default: null
+        },
+        selectAll: {
+            type: Boolean,
+            default: null
         }
     },
     data() {
@@ -176,6 +204,7 @@ export default {
     resizeListener: null,
     scrollHandler: null,
     overlay: null,
+    virtualScroller: null,
     beforeUnmount() {
         this.unbindOutsideClickListener();
         this.unbindResizeListener();
@@ -191,6 +220,9 @@ export default {
         }
     },
     methods: {
+        getOptionIndex(index, fn) {
+            return this.virtualScrollerDisabled ? index : (fn && fn(index)['index']);
+        },
         getOptionLabel(option) {
             return this.optionLabel ? ObjectUtils.resolveFieldData(option, this.optionLabel) : option;
         },
@@ -216,20 +248,35 @@ export default {
 
             return this.optionDisabled ? ObjectUtils.resolveFieldData(option, this.optionDisabled) : false;
         },
-        isSelected(option) {
-            let selected = false;
-            let optionValue = this.getOptionValue(option);
-
-            if (this.modelValue) {
-                for (let val of this.modelValue) {
-                    if (ObjectUtils.equals(val, optionValue, this.equalityKey)) {
-                        selected = true;
-                        break;
+        getSelectedOptionIndex() {
+            if (this.modelValue != null && this.options) {
+                if (this.optionGroupLabel) {
+                    for (let i = 0; i < this.options.length; i++) {
+                        let selectedOptionIndex = this.findOptionIndexInList(this.modelValue, this.getOptionGroupChildren(this.options[i]));
+                        if (selectedOptionIndex !== -1) {
+                            return {group: i, option: selectedOptionIndex};
+                        }
                     }
+                }
+                else {
+                    return this.findOptionIndexInList(this.modelValue, this.options);
                 }
             }
 
-            return selected;
+            return -1;
+        },
+        findOptionIndexInList(value, list) {
+            return value ? list.findIndex(item => value.some(val => ObjectUtils.equals(val, this.getOptionValue(item), this.equalityKey))) : -1;
+        },
+        isSelected(option) {
+            if (this.modelValue) {
+                let optionValue = this.getOptionValue(option);
+                let key = this.equalityKey;
+
+                return this.modelValue.some(val => ObjectUtils.equals(val, optionValue, key));
+            }
+
+            return false;
         },
         show() {
             this.$emit('before-show');
@@ -315,7 +362,7 @@ export default {
             if (selected)
                 value = this.modelValue.filter(val => !ObjectUtils.equals(val, this.getOptionValue(option), this.equalityKey));
             else
-                value = [...this.modelValue || [], this.getOptionValue(option)];
+                value = [...(this.modelValue || []), this.getOptionValue(option)];
 
             this.$emit('update:modelValue', value);
             this.$emit('change', {originalEvent: event, value: value});
@@ -379,6 +426,13 @@ export default {
 
             if (this.filter) {
                 this.$refs.filterInput.focus();
+            }
+
+            if (!this.virtualScrollerDisabled) {
+                const selectedIndex = this.getSelectedOptionIndex();
+                if (selectedIndex !== -1) {
+                    this.virtualScroller.scrollToIndex(selectedIndex);
+                }
             }
 
             this.$emit('show');
@@ -482,24 +536,37 @@ export default {
 
             return null;
         },
+        getSelectedItemsLabel() {
+            let pattern = /{(.*?)}/;
+            if (pattern.test(this.selectedItemsLabel)) {
+                return this.selectedItemsLabel.replace(this.selectedItemsLabel.match(pattern)[0], this.modelValue.length + '');
+            }
+
+            return this.selectedItemsLabel;
+        },
         onToggleAll(event) {
-            let value = null;
-
-            if (this.allSelected) {
-                value = [];
+            if (this.selectAll !== null) {
+                this.$emit('selectall-change', {originalEvent: event, checked: !this.allSelected});
             }
-            else if (this.visibleOptions) {
-                if (this.optionGroupLabel) {
+            else {
+                let value = null;
+
+                if (this.allSelected) {
                     value = [];
-                    this.visibleOptions.forEach(optionGroup => value = [...value, ...this.getOptionGroupChildren(optionGroup)]);
                 }
-                else  {
-                    value = this.visibleOptions.map(option => this.getOptionValue(option));
+                else if (this.visibleOptions) {
+                    if (this.optionGroupLabel) {
+                        value = [];
+                        this.visibleOptions.forEach(optionGroup => value = [...value, ...this.getOptionGroupChildren(optionGroup)]);
+                    }
+                    else  {
+                        value = this.visibleOptions.map(option => this.getOptionValue(option));
+                    }
                 }
-            }
 
-            this.$emit('update:modelValue', value);
-            this.$emit('change', {originalEvent: event, value: value});
+                this.$emit('update:modelValue', value);
+                this.$emit('change', {originalEvent: event, value: value});
+            }
         },
         onFilterChange(event) {
             this.$emit('filter', {originalEvent: event, value: event.target.value});
@@ -509,6 +576,9 @@ export default {
         },
         overlayRef(el) {
             this.overlay = el;
+        },
+        virtualScrollerRef(el) {
+            this.virtualScroller = el;
         },
         removeChip(item) {
             let value = this.modelValue.filter(val => !ObjectUtils.equals(val, item, this.equalityKey));
@@ -569,13 +639,18 @@ export default {
             let label;
 
             if (this.modelValue && this.modelValue.length) {
-                label = '';
-                for(let i = 0; i < this.modelValue.length; i++) {
-                    if(i !== 0) {
-                        label += ', ';
-                    }
+                if (!this.maxSelectedLabels || this.modelValue.length <= this.maxSelectedLabels) {
+                    label = '';
+                    for(let i = 0; i < this.modelValue.length; i++) {
+                        if(i !== 0) {
+                            label += ', ';
+                        }
 
-                    label += this.getLabelByValue(this.modelValue[i]);
+                        label += this.getLabelByValue(this.modelValue[i]);
+                    }
+                }
+                else {
+                    return this.getSelectedItemsLabel();
                 }
             }
             else {
@@ -585,42 +660,47 @@ export default {
             return label;
         },
         allSelected() {
-            if (this.filterValue && this.filterValue.trim().length > 0) {
-                if (this.visibleOptions.length === 0) {
-                    return false;
-                }
+            if (this.selectAll !== null) {
+                return this.selectAll;
+            }
+            else {
+                if (this.filterValue && this.filterValue.trim().length > 0) {
+                    if (this.visibleOptions.length === 0) {
+                        return false;
+                    }
 
-				if (this.optionGroupLabel) {
-                    for (let optionGroup of this.visibleOptions) {
-                        for (let option of this.getOptionGroupChildren(optionGroup)) {
+                    if (this.optionGroupLabel) {
+                        for (let optionGroup of this.visibleOptions) {
+                            for (let option of this.getOptionGroupChildren(optionGroup)) {
+                                if (!this.isSelected(option)) {
+                                    return false;
+                                }
+                            }
+                        }
+                    }
+                    else {
+                        for (let option of this.visibleOptions) {
                             if (!this.isSelected(option)) {
                                 return false;
                             }
                         }
                     }
+
+                    return true;
                 }
                 else {
-                    for (let option of this.visibleOptions) {
-                        if (!this.isSelected(option)) {
-                            return false;
-                        }
+                    if (this.modelValue && this.options) {
+                        let optionCount = 0;
+                        if (this.optionGroupLabel)
+                            this.options.forEach(optionGroup => optionCount += this.getOptionGroupChildren(optionGroup).length);
+                        else
+                            optionCount = this.options.length;
+
+                        return optionCount > 0 && optionCount === this.modelValue.length;
                     }
+
+                    return false;
                 }
-
-                return true;
-            }
-            else {
-                if (this.modelValue && this.options) {
-                    let optionCount = 0;
-                    if (this.optionGroupLabel)
-                        this.options.forEach(optionGroup => optionCount += this.getOptionGroupChildren(optionGroup).length);
-                    else
-                        optionCount = this.options.length;
-
-                    return optionCount > 0 && optionCount === this.modelValue.length;
-                }
-
-                return false;
             }
         },
         equalityKey() {
@@ -641,6 +721,9 @@ export default {
         appendTarget() {
             return this.appendDisabled ? null : this.appendTo;
         },
+        virtualScrollerDisabled() {
+            return !this.virtualScrollerOptions;
+        },
         maxSelectionLimitReached() {
             return this.selectionLimit && (this.modelValue && this.modelValue.length === this.selectionLimit);
         },
@@ -650,6 +733,9 @@ export default {
     },
     directives: {
         'ripple': Ripple
+    },
+    components: {
+        'VirtualScroller': VirtualScroller
     }
 }
 </script>
@@ -705,6 +791,8 @@ export default {
 
 .p-multiselect-panel {
     position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .p-multiselect-items-wrapper {

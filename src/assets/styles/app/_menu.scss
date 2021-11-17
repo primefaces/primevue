@@ -87,6 +87,24 @@
                 }
             }
 
+            &.menu-banner {
+                a {
+                    padding: 0;
+
+                    &:hover {
+                        background-color: transparent;
+
+                        img {
+                            background-color: var(--surface-c);
+                        }
+                    }
+
+                    &:focus {
+                        box-shadow: none;
+                    }
+                }
+            }
+
             div {
                 &.router-link-exact-active {
                     > a {
@@ -108,6 +126,14 @@
                         padding: .475rem .5rem .475rem 2rem;
                     }
                 }
+            }
+        }
+
+        .menu-image {
+            padding: 0 0 1rem 0;
+            
+            img {
+                width: 100%;
             }
         }
     }

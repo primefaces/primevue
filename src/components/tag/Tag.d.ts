@@ -1,3 +1,5 @@
+import { VNode } from 'vue';
+
 interface TagProps {
     value?: any;
     severity?: string;
@@ -7,6 +9,9 @@ interface TagProps {
 
 declare class Tag {
     $props: TagProps;
+    $slots: {
+        '': VNode[];
+    }
 }
 
 export default Tag;

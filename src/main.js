@@ -34,11 +34,13 @@ import DataViewLayoutOptions from './components/dataviewlayoutoptions/DataViewLa
 import DeferredContent from './components/deferredcontent/DeferredContent';
 import Dialog from './components/dialog/Dialog';
 import Divider from './components/divider/Divider';
+import Dock from './components/dock/Dock';
 import Dropdown from './components/dropdown/Dropdown';
 import Editor from './components/editor/Editor';
 import Fieldset from './components/fieldset/Fieldset';
 import FileUpload from './components/fileupload/FileUpload';
 import FullCalendar from './components/fullcalendar/FullCalendar';
+import Image from './components/image/Image';
 import InlineMessage from './components/inlinemessage/InlineMessage';
 import Inplace from './components/inplace/Inplace';
 import InputMask from './components/inputmask/InputMask';
@@ -73,9 +75,11 @@ import Skeleton from './components/skeleton/Skeleton';
 import Slider from './components/slider/Slider';
 import Sidebar from './components/sidebar/Sidebar';
 import SplitButton from './components/splitbutton/SplitButton';
+import SpeedDial from './components/speeddial/SpeedDial';
 import Splitter from './components/splitter/Splitter';
 import SplitterPanel from './components/splitterpanel/SplitterPanel';
 import Steps from './components/steps/Steps';
+import StyleClass from './components/styleclass/StyleClass';
 import TabMenu from './components/tabmenu/TabMenu';
 import TabView from './components/tabview/TabView';
 import TabPanel from './components/tabpanel/TabPanel';
@@ -94,6 +98,7 @@ import Toolbar from './components/toolbar/Toolbar';
 import Tooltip from './components/tooltip/Tooltip';
 import TriStateCheckbox from './components/tristatecheckbox/TriStateCheckbox';
 import Galleria from './components/galleria/Galleria';
+import VirtualScroller from './components/virtualscroller/VirtualScroller';
 
 import AppInputStyleSwitch from './AppInputStyleSwitch';
 import AppDemoActions from './AppDemoActions';
@@ -113,7 +118,7 @@ router.beforeEach(function (to, from, next) {
 
 const app = createApp(App);
 
-app.config.globalProperties.$appState = reactive({darkTheme: false, codeSandbox: true, sourceType: 'options-api'});
+app.config.globalProperties.$appState = reactive({darkTheme: false, codeSandbox: false, sourceType: 'options-api'});
 
 app.use(PrimeVue, {ripple: true});
 app.use(ToastService);
@@ -123,6 +128,7 @@ app.use(router);
 app.directive('badge', BadgeDirective);
 app.directive('tooltip', Tooltip);
 app.directive('ripple', Ripple);
+app.directive('styleclass', StyleClass);
 
 app.component('Accordion', Accordion);
 app.component('AccordionTab', AccordionTab);
@@ -153,11 +159,13 @@ app.component('DataViewLayoutOptions', DataViewLayoutOptions);
 app.component('DeferredContent', DeferredContent);
 app.component('Dialog', Dialog);
 app.component('Divider', Divider);
+app.component('Dock', Dock);
 app.component('Dropdown', Dropdown);
 app.component('Editor', Editor);
 app.component('Fieldset', Fieldset);
 app.component('FileUpload', FileUpload);
 app.component('FullCalendar', FullCalendar);
+app.component('Image', Image);
 app.component('InlineMessage', InlineMessage);
 app.component('Inplace', Inplace);
 app.component('InputMask', InputMask);
@@ -190,6 +198,7 @@ app.component('SelectButton', SelectButton);
 app.component('Slider', Slider);
 app.component('Sidebar', Sidebar);
 app.component('Skeleton', Skeleton);
+app.component('SpeedDial', SpeedDial);
 app.component('SplitButton', SplitButton);
 app.component('Splitter', Splitter);
 app.component('SplitterPanel', SplitterPanel);
@@ -210,6 +219,7 @@ app.component('TreeSelect', TreeSelect);
 app.component('TreeTable', TreeTable);
 app.component('TriStateCheckbox', TriStateCheckbox);
 app.component('Galleria', Galleria);
+app.component('VirtualScroller', VirtualScroller);
 
 app.component('AppDemoActions', AppDemoActions);
 app.component('AppInputStyleSwitch', AppInputStyleSwitch);

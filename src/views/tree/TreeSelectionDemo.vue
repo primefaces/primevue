@@ -158,7 +158,70 @@ export default {
     }
 }
 <\\/script>`
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/toast/toast.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/toastservice/toastservice.min.js"><\\/script>
+        <script src="./NodeService.js"><\\/script>`,
+                    content: `<div id="app">
+            <p-toast></p-toast>
 
+            <h5>Single Selection</h5>
+            <p-tree :value="nodes" selection-mode="single" v-model:selection-keys="selectedKey1"></p-tree>
+
+            <h5>Multiple Selection with MetaKey</h5>
+            <p-tree :value="nodes" selection-mode="multiple" v-model:selection-keys="selectedKeys1"></p-tree>
+
+            <h5>Multiple Selection without MetaKey</h5>
+            <p-tree :value="nodes" selection-mode="multiple" v-model:selection-keys="selectedKeys2" :meta-key-selection="false"></p-tree>
+
+            <h5>Checkbox Selection</h5>
+            <p-tree :value="nodes" selection-mode="checkbox" v-model:selection-keys="selectedKeys3"></p-tree>
+
+            <h5>Events</h5>
+            <p-tree :value="nodes" selection-mode="single" v-model:selection-keys="selectedKey2" :meta-key-delection="false"
+                @node-select="onNodeSelect" @node-unselect="onNodeUnselect"></p-tree>
+        </div>
+
+        <script type="module">
+        const { createApp, ref, onMounted } = Vue;
+        const { useToast } = primevue.usetoast;
+
+        const App = {
+            setup() {
+                onMounted(() => {
+                    nodeService.value.getTreeNodes().then(data => nodes.value = data);
+                })
+
+                const toast = useToast();
+                const selectedKey1 = ref(null);
+                const selectedKey2 = ref(null);
+                const selectedKeys1 = ref(null);
+                const selectedKeys2 = ref(null);
+                const selectedKeys3 = ref(null);
+                const nodes = ref(null);
+                const nodeService = ref(new NodeService());
+                const onNodeSelect = (node) => {
+                    toast.add({severity:'success', summary: 'Node Selected', detail: node.label, life: 3000});
+                };
+                const onNodeUnselect = (node) => {
+                    toast.add({severity:'success', summary: 'Node Unselected', detail: node.label, life: 3000});
+                };
+
+                return { selectedKey1, selectedKey2, selectedKeys1, selectedKeys2, selectedKeys3, nodes, nodeService, onNodeSelect, onNodeUnselect }
+            },
+            components: {
+                "p-tree": primevue.tree,
+                "p-toast": primevue.toast
+            }
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .use(primevue.toastservice)
+            .mount("#app");
+        <\\/script>`
                 }
             }
         }

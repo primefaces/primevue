@@ -2,11 +2,11 @@ interface SplitButtonProps {
     label?: string;
     icon?: string;
     model?: any[];
-    disabled?: boolean;
-    tabindex?: string;
     autoZIndex?: boolean;
     baseZIndex?: number;
     appendTo?: string;
+    class?: string;
+    style?: any;
 }
 
 declare class SplitButton {

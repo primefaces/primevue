@@ -34,6 +34,18 @@ const SplitButtonProps = [
         type: "string",
         default: "body",
         description: "A valid query selector or an HTMLElement to specify where the overlay gets attached."
+    },
+    {
+        name: "class",
+        type: "string",
+        default: "null",
+        description: "Style class of the component."
+    },
+    {
+        name: "style",
+        type: "any",
+        default: "null",
+        description: "Inline of the component."
     }
 ];
 

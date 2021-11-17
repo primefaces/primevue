@@ -1,7 +1,7 @@
 <template>
     <div class="p-fileupload p-fileupload-advanced p-component" v-if="isAdvanced">
         <div class="p-fileupload-buttonbar">
-            <span :class="advancedChooseButtonClass" @click="choose" @keydown.enter="choose" @focus="onFocus" @blur="onBlur" v-ripple tabindex="0">
+            <span :class="advancedChooseButtonClass" :style="style" @click="choose" @keydown.enter="choose" @focus="onFocus" @blur="onBlur" v-ripple tabindex="0">
                 <input ref="fileInput" type="file" @change="onFileSelect" :multiple="multiple" :accept="accept" :disabled="chooseDisabled" />
                 <span class="p-button-icon p-button-icon-left pi pi-fw pi-plus"></span>
                 <span class="p-button-label">{{chooseButtonLabel}}</span>
@@ -11,7 +11,7 @@
         </div>
         <div ref="content" class="p-fileupload-content" @dragenter="onDragEnter" @dragover="onDragOver" @dragleave="onDragLeave" @drop="onDrop">
             <FileUploadProgressBar :value="progress" v-if="hasFiles" />
-            <FileUploadMessage v-for="msg of messages" severity="error" :key="msg">{{msg}}</FileUploadMessage>
+            <FileUploadMessage v-for="msg of messages" severity="error" :key="msg" @close="onMessageClose">{{msg}}</FileUploadMessage>
             <div class="p-fileupload-files" v-if="hasFiles">
                 <div class="p-fileupload-row" v-for="(file, index) of files" :key="file.name + file.type + file.size">
                     <div>
@@ -30,11 +30,11 @@
         </div>
     </div>
     <div class="p-fileupload p-fileupload-basic p-component" v-else-if="isBasic">
-        <FileUploadMessage v-for="msg of messages" severity="error" :key="msg">{{msg}}</FileUploadMessage>
-        <span :class="basicChooseButtonClass" @mouseup="onBasicUploaderClick"  @keydown.enter="choose" @focus="onFocus" @blur="onBlur" v-ripple tabindex="0" >
+        <FileUploadMessage v-for="msg of messages" severity="error" :key="msg" @close="onMessageClose">{{msg}}</FileUploadMessage>
+        <span :class="basicChooseButtonClass" :style="style" @mouseup="onBasicUploaderClick"  @keydown.enter="choose" @focus="onFocus" @blur="onBlur" v-ripple tabindex="0" >
             <span :class="basicChooseButtonIconClass"></span>
             <span class="p-button-label">{{basicChooseButtonLabel}}</span>
-            <input ref="fileInput" type="file" :accept="accept" :disabled="disabled" @change="onFileSelect" @focus="onFocus" @blur="onBlur" v-if="!hasFiles" />
+            <input ref="fileInput" type="file" :accept="accept" :disabled="disabled" :multiple="multiple" @change="onFileSelect" @focus="onFocus" @blur="onBlur" v-if="!hasFiles" />
         </span>
     </div>
 </template>
@@ -129,7 +129,9 @@ export default {
         showCancelButton: {
             type: Boolean,
             default: true
-        }
+        },
+        style: null,
+        class: null
     },
     duplicateIEEvent: false,
     data() {
@@ -395,6 +397,9 @@ export default {
             if (this.isFileLimitExceeded()) {
                 this.messages.push(this.invalidFileLimitMessage.replace('{0}', this.fileLimit.toString()))
             }
+        },
+        onMessageClose() {
+            this.messages = null;
         }
     },
     computed: {
@@ -405,14 +410,14 @@ export default {
             return this.mode === 'basic';
         },
         advancedChooseButtonClass() {
-            return ['p-button p-component p-fileupload-choose', {
+            return ['p-button p-component p-fileupload-choose', this.class, {
                     'p-disabled': this.disabled,
                     'p-focus': this.focused
                 }
             ];
         },
         basicChooseButtonClass() {
-            return ['p-button p-component p-fileupload-choose', {
+            return ['p-button p-component p-fileupload-choose', this.class, {
                 'p-fileupload-choose-selected': this.hasFiles,
                 'p-disabled': this.disabled,
                 'p-focus': this.focused
@@ -425,7 +430,7 @@ export default {
             }];
         },
         basicChooseButtonLabel() {
-            return this.auto ? this.chooseButtonLabel : (this.hasFiles ? this.files[0].name : this.chooseButtonLabel);
+            return this.auto ? this.chooseButtonLabel : (this.hasFiles ? this.files.map(f => f.name).join(', ') : this.chooseButtonLabel);
         },
         hasFiles() {
             return this.files && this.files.length > 0;
@@ -434,7 +439,7 @@ export default {
             return this.disabled || (this.fileLimit && this.fileLimit <= this.files.length + this.uploadedFileCount);
         },
         uploadDisabled() {
-            return this.disabled || !this.hasFiles || (this.fileLimit < this.files.length);
+            return this.disabled || !this.hasFiles || (this.fileLimit && this.fileLimit < this.files.length);
         },
         cancelDisabled() {
             return this.disabled || !this.hasFiles;

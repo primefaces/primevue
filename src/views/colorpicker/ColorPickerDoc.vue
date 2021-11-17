@@ -1,8 +1,15 @@
 <template>
 	<AppDoc name="ColorPickerDemo" :sources="sources" :extFiles="extFiles" github="colorpicker/ColorPickerDemo.vue">
-        <h5>Import</h5>
+        <h5>Import via Module</h5>
 <pre v-code.script><code>
 import ColorPicker from 'primevue/colorpicker';
+
+</code></pre>
+
+        <h5>Import via CDN</h5>
+<pre v-code><code>
+&lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue@^3/colorpicker/colorpicker.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
@@ -110,6 +117,38 @@ export default {
                         <td>body</td>
                         <td>A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are "body" for document body
                         and "self" for the element itself.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h5>Events</h5>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Parameters</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>change</td>
+                        <td>event.originalEvent: Browser event <br >
+                            event.value: Selected color
+                        </td>
+                        <td>Callback to invoke when a color is selected.</td>
+                    </tr>
+                    <tr>
+                        <td>show</td>
+                        <td>-</td>
+                        <td>Callback to invoke when popup is shown.</td>
+                    </tr>
+                    <tr>
+                        <td>hide</td>
+                        <td>-</td>
+                        <td>Callback to invoke when popup is hidden.</td>
                     </tr>
                 </tbody>
             </table>
@@ -230,6 +269,38 @@ export default {
     }
 }
 <\\/script>
+`
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/colorpicker/colorpicker.min.js"><\\/script>`,
+                    content: `<div id="app">
+            <h5>Inline</h5>
+            <p-colorpicker v-model="color1" :inline="true"></p-colorpicker>
+
+            <h5>Overlay</h5>
+            <p-colorpicker v-model="color2"></p-colorpicker>
+        </div>
+
+        <script type="module">
+        const { createApp, ref } = Vue;
+
+        const App = {
+            setup() {
+                const color1 = ref(null);
+                const color2 = ref('1976D2');
+
+                return { color1, color2 }
+            },
+            components: {
+                "p-colorpicker": primevue.colorpicker
+            }
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .mount("#app");
+        <\\/script>
 `
                 }
             },

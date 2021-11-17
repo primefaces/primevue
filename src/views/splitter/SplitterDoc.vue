@@ -1,9 +1,17 @@
 <template>
 	<AppDoc name="SplitterDemo" :sources="sources" github="splitter/SplitterDemo.vue" >
-		<h5>Import</h5>
+		<h5>Import via Module</h5>
 <pre v-code.script><code>
 import Splitter from 'primevue/splitter';
 import SplitterPanel from 'primevue/splitterpanel';
+
+</code></pre>
+
+        <h5>Import via CDN</h5>
+<pre v-code><code>
+&lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue@^3/splitter/splitter.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue@^3/splitterpanel/splitterpanel.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
@@ -384,6 +392,77 @@ export default {
 <script>
 export default {
 }
+<\\/script>`
+				},
+                'browser-source': {
+					tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/splitter/splitter.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/splitterpanel/splitterpanel.min.js"><\\/script>`,
+					content: `<div id="app">
+            <div class="card">
+                <h5>Horizontal</h5>
+                <p-splitter style="height: 300px" class="p-mb-5">
+                    <p-splitterpanel class="p-d-flex p-ai-center p-jc-center">
+                        Panel 1
+                    </p-splitterpanel>
+                    <p-splitterpanel class="p-d-flex p-ai-center p-jc-center">
+                        Panel 2
+                    </p-splitterpanel>
+                </p-splitter>
+            </div>
+
+            <div class="card">
+                <h5>Vertical</h5>
+                <p-splitter style="height: 300px" layout="vertical">
+                    <p-splitterpanel class="p-d-flex p-ai-center p-jc-center">
+                        Panel 1
+                    </p-splitterpanel>
+                    <p-splitterpanel class="p-d-flex p-ai-center p-jc-center">
+                        Panel 2
+                    </p-splitterpanel>
+                </p-splitter>
+            </div>
+
+            <div class="card">
+                <h5>Nested</h5>
+                <p-splitter style="height: 300px">
+                    <p-splitterpanel class="p-d-flex p-ai-center p-jc-center" :size="20" :minSize="10">
+                        Panel 1
+                    </p-splitterpanel>
+                    <p-splitterpanel :size="80">
+                        <p-splitter layout="vertical">
+                            <p-splitterpanel class="p-d-flex p-ai-center p-jc-center" :size="15">
+                                Panel 2
+                            </p-splitterpanel>
+                            <p-splitterpanel :size="85">
+                                <p-splitter>
+                                    <p-splitterpanel class="p-d-flex p-ai-center p-jc-center" :size="20">
+                                        Panel 3
+                                    </p-splitterpanel>
+                                    <p-splitterpanel class="p-d-flex p-ai-center p-jc-center" :size="80">
+                                        Panel 4
+                                    </p-splitterpanel>
+                                </p-splitter>
+                            </p-splitterpanel>
+                        </p-splitter>
+                    </p-splitterpanel>
+                </p-splitter>
+            </div>
+        </div>
+
+<script>
+const { createApp } = Vue;
+
+const App = {
+    components: {
+        "p-splitter": primevue.splitter,
+        "p-splitterpanel": primevue.splitterpanel
+    }
+};
+
+createApp(App)
+            .use(primevue.config.default)
+            .mount("#app");
 <\\/script>`
 				}
 			}

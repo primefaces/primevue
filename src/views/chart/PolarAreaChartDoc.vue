@@ -1,5 +1,5 @@
 <template>
-	<AppDoc name="ChartDemo" :sources="sources" :dependencies="{'chart.js': '2.7.3'}" component="Chart" github="chart/PolarAreaChartDemo.vue" />
+	<AppDoc name="ChartDemo" :sources="sources" :dependencies="{'chart.js': '3.3.2'}" component="Chart" github="chart/PolarAreaChartDemo.vue" />
 </template>
 
 <script>
@@ -12,7 +12,7 @@ export default {
 					content: `
 <template>
     <div>
-        <Chart type="polarArea" :data="chartData" />
+        <Chart type="polarArea" :data="chartData" :options="chartOptions" />
     </div>
 </template>
 
@@ -27,6 +27,22 @@ export default {
                     label: 'My dataset'
                 }],
                 labels: ["Red","Green","Yellow","Grey","Blue"]
+            },
+            chartOptions: {
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#495057'
+                        }
+                    }
+                },
+                scales: {
+                    r: {
+                        grid: {
+                            color: '#ebedef'
+                        }
+                    }
+                }
             }
         }
     }
@@ -39,7 +55,7 @@ export default {
 					content: `
 <template>
     <div>
-        <Chart type="polarArea" :data="chartData" />
+        <Chart type="polarArea" :data="chartData" :options="chartOptions" />
     </div>
 </template>
 
@@ -57,7 +73,26 @@ export default {
             labels: ["Red","Green","Yellow","Grey","Blue"]
         });
 
-		return { chartData }
+        const chartOptions = ref(
+            {
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#495057'
+                        }
+                    }
+                },
+                scales: {
+                    r: {
+                        grid: {
+                            color: '#ebedef'
+                        }
+                    }
+                }
+            }
+        );
+
+		return { chartData, chartOptions }
     }
 }
 <\\/script>

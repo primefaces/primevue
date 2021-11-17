@@ -16,10 +16,10 @@
                 <h5>Custom</h5>
                 <Paginator v-model:first="first" :rows="1" :totalRecords="totalRecords2"
                     template="FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink">
-                    <template #left>
+                    <template #start>
                         <Button type="button" icon="pi pi-refresh" @click="reset()"/>
                     </template>
-                    <template #right>
+                    <template #end>
                         <Button type="button" icon="pi pi-search" />
                     </template>
                 </Paginator>
@@ -62,10 +62,6 @@ export default {
 </script>
 
 <style scoped>
-.p-button.p-button-icon-only {
-    border-radius: 0;
-}
-
 .image-gallery {
     text-align: center;
     padding: 1rem;

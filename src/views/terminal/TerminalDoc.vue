@@ -1,9 +1,16 @@
 <template>
 	<AppDoc name="TerminalDemo" :sources="sources" github="terminal/TerminalDemo.vue" >
-        <h5>Import</h5>
+        <h5>Import via Module</h5>
 <pre v-code.script><code>
 import Terminal from 'primevue/terminal';
 import TerminalService from 'primevue/terminalservice';
+
+</code></pre>
+
+        <h5>Import via CDN</h5>
+<pre v-code><code>
+&lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue@^3/terminal/terminal.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
@@ -278,6 +285,90 @@ p {
     }
 }
 </style>`
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/terminal/terminal.min.js"><\\/script>`,
+                    content: `<div id="app">
+            <p>Enter "date" to display the current date, "greet {0}" for a message and "random" to get a random number.</p>
+            <p-terminal welcome-message="Welcome to PrimeVue" prompt="primevue $" class="dark-demo-terminal"></p-terminal>
+        </div>
+
+        <script type="module">
+        const { createApp, onMounted, onBeforeUnmount } = Vue;
+        const TerminalService = primevue.terminalservice;
+
+        const App = {
+            setup() {
+                onMounted(() => {
+                    TerminalService.on('command', commandHandler);
+                })
+
+                onBeforeUnmount(() => {
+                    TerminalService.off('command', commandHandler);
+                })
+
+                const commandHandler = (text) => {
+                    let response;
+                    let argsIndex = text.indexOf(' ');
+                    let command = argsIndex !== -1 ? text.substring(0, argsIndex) : text;
+
+                    switch(command) {
+                        case "date":
+                            response = 'Today is ' + new Date().toDateString();
+                            break;
+
+                        case "greet":
+                            response = 'Hola ' + text.substring(argsIndex + 1);
+                            break;
+
+                        case "random":
+                            response = Math.floor(Math.random() * 100);
+                            break;
+
+                        default:
+                            response = "Unknown command: " + command;
+                    }
+            
+                    TerminalService.emit('response', response);
+                }
+
+                return { commandHandler }
+            },
+            components: {
+                "p-terminal": primevue.terminal
+            }
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .mount("#app");
+        <\\/script>
+
+        <style>
+        p {
+            margin-top: 0;
+        }
+
+        .dark-demo-terminal {
+            background-color: #212121;
+            color: #ffffff;
+        }
+
+        .dark-demo-terminal .p-terminal-command {
+            color: #80CBC4;
+        }
+
+        .dark-demo-terminal .p-terminal-prompt {
+            color: #FFD54F;
+        }
+
+        .dark-demo-terminal .p-terminal-response {
+            color: #9FA8DA;
+        }
+        </style>
+
+`
                 }
             }
         }

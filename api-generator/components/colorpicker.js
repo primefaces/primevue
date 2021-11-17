@@ -67,10 +67,38 @@ const ColorPickerProps = [
     }
 ];
 
+const ColorPickerEvents = [
+    {
+        name: "change",
+        description: "Callback to invoke when a color is selected.",
+        arguments: [
+            {
+                name: "event.originalEvent",
+                type: "object",
+                description: "Original event"
+            },
+            {
+                name: "event.value",
+                type: "any",
+                description: "Selected color"
+            }
+        ]
+    },
+    {
+        name: "show",
+        description: "Callback to invoke when popup is shown."
+    },
+    {
+        name: "hide",
+        description: "Callback to invoke when popup is hidden."
+    }
+];
+
 module.exports = {
     colorpicker: {
         name: "ColorPicker",
         description: "ColorPicker is an input component to select a color.",
-        props: ColorPickerProps
+        props: ColorPickerProps,
+        events: ColorPickerEvents
     }
 };

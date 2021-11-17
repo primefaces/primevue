@@ -1,8 +1,8 @@
 <template>
     <div :class="containerClass" @click="onClick($event)" :style="style">
         <div class="p-hidden-accessible">
-            <input ref="input" type="checkbox" :checked="modelValue" v-bind="$attrs" @focus="onFocus($event)" @blur="onBlur($event)" @keydown.enter.prevent="onClick($event)"
-                role="switch" :aria-checked="modelValue">
+            <input ref="input" type="checkbox" :checked="checked" v-bind="$attrs" @focus="onFocus($event)" @blur="onBlur($event)" @keydown.enter.prevent="onClick($event)"
+                role="switch" :aria-checked="checked">
         </div>
         <span class="p-inputswitch-slider"></span>
     </div>
@@ -12,11 +12,22 @@
 export default {
     name: 'InputSwitch',
     inheritAttrs: false,
-    emits: ['update:modelValue', 'click', 'change'],
+    emits: ['click', 'update:modelValue', 'change', 'input'],
     props: {
-        modelValue: Boolean,
+        modelValue: {
+            type: null,
+            default: false
+        },
         class: null,
-        style: null
+        style: null,
+        trueValue: {
+            type: null,
+            default: true
+        },
+        falseValue: {
+            type: null,
+            default: false
+        }
     },
     data() {
         return {
@@ -26,9 +37,11 @@ export default {
     methods: {
         onClick(event) {
             if (!this.$attrs.disabled) {
+                const newValue = this.checked ? this.falseValue : this.trueValue;
                 this.$emit('click', event);
-                this.$emit('update:modelValue', !this.modelValue);
+                this.$emit('update:modelValue', newValue);
                 this.$emit('change', event);
+                this.$emit('input', newValue);
                 this.$refs.input.focus();
             }
             event.preventDefault();
@@ -45,11 +58,14 @@ export default {
             return [
                 'p-inputswitch p-component', this.class,
                 {
-                    'p-inputswitch-checked': this.modelValue,
+                    'p-inputswitch-checked': this.checked,
 					'p-disabled': this.$attrs.disabled,
                     'p-focus': this.focused
                 }
             ];
+        },
+        checked() {
+            return this.modelValue === this.trueValue;
         }
     }
 }

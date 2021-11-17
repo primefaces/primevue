@@ -1,9 +1,17 @@
 <template>
 	<AppDoc name="TreeTableDemo" :sources="sources" :service="['NodeService']" :data="['treetablenodes']" github="treetable/TreeTableDemo.vue" >
-        <h5>Import</h5>
+        <h5>Import via Module</h5>
 <pre v-code.script><code>
 import TreeTable from 'primevue/treetable';
 import Column from 'primevue/column';
+
+</code></pre>
+
+        <h5>Import via CDN</h5>
+<pre v-code><code>
+&lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue@^3/treetable/treetable.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue@^3/column/column.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
@@ -93,12 +101,11 @@ export default {
 </code></pre>
 
 <pre v-code.script><code>
-import axios from 'axios';
-
 export default class NodeService {
 
     getTreeTableNodes() {
-        return axios.get('demo/data/treetablenodes.json').then(res => res.data.root);
+        return fetch('demo/data/treetablenodes.json').then(res => res.json())
+                .then(d => d.root);
     }
 
 }
@@ -793,16 +800,16 @@ export default {
 </template>
 </code></pre>
 
-        <p>paginatorLeft and paginatorRight templates are available to specify custom content at the left and right side.</p>
+        <p><i>paginatorstart</i> and <i>paginatorend</i> templates are available to specify custom content at the left and right side.</p>
 <pre v-code><code><template v-pre>
 &lt;TreeTable :value="nodes" :paginator="true" :rows="10"&gt;
     &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column&gt;
     &lt;Column field="size" header="Size"&gt;&lt;/Column&gt;
     &lt;Column field="type" header="Type"&gt;&lt;/Column&gt;
-    &lt;template #paginatorLeft&gt;
+    &lt;template #paginatorstart&gt;
         &lt;Button type="button" icon="pi pi-refresh" /&gt;
     &lt;/template&gt;
-    &lt;template #paginatorRight&gt;
+    &lt;template #paginatorend&gt;
         &lt;Button type="button" icon="pi pi-cloud" /&gt;
     &lt;/template&gt;
 &lt;/TreeTable&gt;
@@ -1074,7 +1081,7 @@ export default {
 </code></pre>
 
             <h6>Flex Scroll</h6>
-            <p>In cases where viewport should adjust itself according to the table parent's height instead of a fixed viewport height, set scrollHeight option as flex. In example below, table is inside a Dialog where viewport size dynamically responds to the dialog size changes such as maximizing. 
+            <p>In cases where viewport should adjust itself according to the table parent's height instead of a fixed viewport height, set scrollHeight option as flex. In example below, table is inside a Dialog where viewport size dynamically responds to the dialog size changes such as maximizing.
             FlexScroll can also be used for cases where scrollable viewport should be responsive with respect to the window size for full page scroll.</p>
 <pre v-code><code><template v-pre>
 &lt;Button label="Show" icon="pi pi-external-link" @click="openDialog" /&gt;
@@ -1619,11 +1626,11 @@ export default {
                         <td>-</td>
                     </tr>
                     <tr>
-                        <td>paginatorLeft</td>
+                        <td>paginatorstart</td>
                         <td>-</td>
                     </tr>
                     <tr>
-                        <td>paginatorRight</td>
+                        <td>paginatorend</td>
                         <td>-</td>
                     </tr>
                     <tr>
@@ -1893,6 +1900,98 @@ button {
     margin-right: .5rem;
 }
 </style>`
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/treetable/treetable.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/column/column.min.js"><\\/script>
+        <script src="./NodeService.js"><\\/script>`,
+                    content: `<div id="app">
+            <div class="card">
+                <h5>Basic</h5>
+                <p-treetable :value="nodes">
+                    <p-column field="name" header="Name" :expander="true"></p-column>
+                    <p-column field="size" header="Size"></p-column>
+                    <p-column field="type" header="Type"></p-column>
+                </p-treetable>
+            </div>
+
+            <div class="card">
+                <h5>Dynamic Columns</h5>
+                <p-treetable :value="nodes">
+                    <p-column v-for="col of columns" :key="col.field"
+                        :field="col.field" :header="col.header" :expander="col.expander"></p-column>
+                </p-treetable>
+            </div>
+
+            <div class="card">
+                <h5>Programmatic Control</h5>
+                <div style="margin-bottom: 1em">
+                    <p-button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll"></p-button>
+                    <p-button type="button" icon="pi pi-minus" label="Collapse All" @click="collapseAll"></p-button>
+                </div>
+                <p-treetable :value="nodes" :expanded-keys="expandedKeys">
+                    <p-column field="name" header="Name" :expander="true"></p-column>
+                    <p-column field="size" header="Size"></p-column>
+                    <p-column field="type" header="Type"></p-column>
+                </p-treetable>
+            </div>
+        </div>
+
+        <script type="module">
+        const { createApp, ref, onMounted } = Vue;
+
+        const App = {
+            setup() {
+                onMounted(() => {
+                    nodeService.value.getTreeTableNodes().then(data => nodes.value = data);
+                })
+                const nodes = ref();
+                const expandedKeys = ref({});
+                const nodeService = ref(new NodeService());
+                const columns = ref([
+                    {field: 'name', header: 'Vin', expander: true},
+                    {field: 'size', header: 'Size'},
+                    {field: 'type', header: 'Type'}
+                ]);
+                const expandAll = () => {
+                    for (let node of nodes.value) {
+                        expandNode(node);
+                    }
+
+                    expandedKeys.value = {...expandedKeys.value};
+                };
+                const collapseAll = () => {
+                    expandedKeys.value = {};
+                };
+                const expandNode = (node) => {
+                    if (node.children && node.children.length) {
+                        expandedKeys.value[node.key] = true;
+
+                        for (let child of node.children) {
+                            expandNode(child);
+                        }
+                    }
+                };
+                return { nodes, columns, expandedKeys, nodeService, expandAll, collapseAll, expandNode }
+            },
+            components: {
+                "p-treetable": primevue.treetable,
+                "p-column": primevue.column,
+                "p-button": primevue.button
+            }
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .mount("#app");
+        <\\/script>
+
+        <style >
+        .p-button {
+            margin-right: .5rem;
+        }
+        </style>`
                 }
             }
         }

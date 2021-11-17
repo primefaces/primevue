@@ -1,8 +1,15 @@
 <template>
 	<AppDoc name="TabMenuDemo" :sources="sources" :extPages="pages" github="tabmenu/TabMenuDemo.vue" >
-        <h5>Import</h5>
+        <h5>Import via Module</h5>
 <pre v-code.script><code>
 import TabMenu from 'primevue/tabmenu';
+
+</code></pre>
+
+        <h5>Import via CDN</h5>
+<pre v-code><code>
+&lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue@^3/tabmenu/tabmenu.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
@@ -10,8 +17,31 @@ import TabMenu from 'primevue/tabmenu';
         <p>TabMenu uses the common MenuModel API to define the items, visit <router-link to="/menumodel">MenuModel API</router-link> for details.</p>
 
 		<h5>Getting Started</h5>
-		<p>TabMenu is integrated with Vue Router and requires a collection of menuitems as its model.</p>
+		<p>TabMenu requires a collection of menuitems as its model.</p>
 <pre v-code><code>
+&lt;TabMenu :model="items" /&gt;
+
+</code></pre>
+
+<pre v-code.script><code>
+export default {
+	data() {
+		return {
+			items: [
+                {label: 'Home', icon: 'pi pi-fw pi-home'},
+                {label: 'Calendar', icon: 'pi pi-fw pi-calendar'},
+                {label: 'Edit', icon: 'pi pi-fw pi-pencil'},
+                {label: 'Documentation', icon: 'pi pi-fw pi-file'},
+                {label: 'Settings', icon: 'pi pi-fw pi-cog'}
+            ]
+		}
+	}
+}
+
+</code></pre>
+
+        <p>TabMenu can be also integrated with Vue Router.</p>
+        <pre v-code><code>
 &lt;TabMenu :model="items" /&gt;
 &lt;router-view /&gt;
 
@@ -34,8 +64,22 @@ export default {
 
 </code></pre>
 
+        <h5>Active</h5>
+        <p>Visibility of the content is specified with the activeIndex property that supports one or two-way binding.</p>
+
+<pre v-code><code>
+&lt;TabMenu :model="items" :activeIndex="activeIndex" /&gt;
+
+</code></pre>
+
+        <p>Two-way binding requires v-model.</p>
+<pre v-code><code>
+&lt;TabMenu :model="items" v-model:activeIndex="activeIndex" /&gt;
+
+</code></pre>
+
         <h5>Templating</h5>
-         <p>TabMenu offers content customization with the <i>item</i> template that receives the menuitem instance from the model as a parameter.</p>
+        <p>TabMenu offers content customization with the <i>item</i> template that receives the menuitem instance from the model as a parameter.</p>
 <pre v-code><code><template v-pre>
 &lt;TabMenu :model="items"&gt;
     &lt;template #item="{item}"&gt;
@@ -69,6 +113,34 @@ export default {
                         <td>boolean</td>
                         <td>true</td>
                         <td>Defines if active route highlight should match the exact route path.</td>
+                    </tr>
+                    <tr>
+                        <td>activeIndex</td>
+                        <td>number</td>
+                        <td>0</td>
+                        <td>Active index of menuitem.</td>
+                    </tr>
+				</tbody>
+			</table>
+		</div>
+
+        <h5>Events</h5>
+		<div class="doc-tablewrapper">
+			<table class="doc-table">
+				<thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Parameters</th>
+                        <th>Description</th>
+                    </tr>
+				</thead>
+				<tbody>
+                    <tr>
+                        <td>tab-change</td>
+                        <td>event.originalEvent: Browser event  <br/>
+                            event.index: Index of the selected tab
+                        </td>
+                        <td>Callback to invoke when an active tab is changed.</td>
                     </tr>
 				</tbody>
 			</table>
@@ -146,8 +218,22 @@ export default {
                     content: `
 <template>
     <div>
-        <TabMenu :model="items" />
-        <router-view />
+        <div class="card">
+            <h5>Default</h5>
+            <TabMenu :model="items" />
+            <router-view/>
+        </div>
+            
+        <div class="card">
+            <h5>Programmatic</h5>
+            <div class="p-py-2">
+                <Button @click="active = 0" class="p-button-text" label="Activate 1st" />
+                <Button @click="active = 1" class="p-button-text p-mr-2" label="Activate 2nd" />
+                <Button @click="active = 2" class="p-button-text p-mr-2" label="Activate 3rd" />
+            </div>
+
+            <TabMenu :model="items2" v-model:activeIndex="active" />
+        </div>
     </div>
 </template>
 
@@ -155,31 +241,54 @@ export default {
 export default {
     data() {
         return {
+            active: 3,
             items: [
                 {
-                    label: 'Home', 
-                    icon: 'pi pi-fw pi-home', 
+                    label: 'Home',
+                    icon: 'pi pi-fw pi-home',
                     to: '/'
                 },
                 {
-                    label: 'Calendar', 
-                    icon: 'pi pi-fw pi-calendar', 
+                    label: 'Calendar',
+                    icon: 'pi pi-fw pi-calendar',
                     to: '/calendar'
                 },
                 {
-                    label: 'Edit', 
-                    icon: 'pi pi-fw pi-pencil', 
+                    label: 'Edit',
+                    icon: 'pi pi-fw pi-pencil',
                     to: '/edit'
                 },
                 {
-                    label: 'Documentation', 
-                    icon: 'pi pi-fw pi-file', 
+                    label: 'Documentation',
+                    icon: 'pi pi-fw pi-file',
                     to: '/documentation'
                 },
                 {
-                    label: 'Settings', 
-                    icon: 'pi pi-fw pi-cog', 
+                    label: 'Settings',
+                    icon: 'pi pi-fw pi-cog',
                     to: '/settings'
+                }
+            ],
+            items2: [
+                {
+                    label: 'Home',
+                    icon: 'pi pi-fw pi-home'
+                },
+                {
+                    label: 'Calendar',
+                    icon: 'pi pi-fw pi-calendar'
+                },
+                {
+                    label: 'Edit',
+                    icon: 'pi pi-fw pi-pencil'
+                },
+                {
+                    label: 'Documentation',
+                    icon: 'pi pi-fw pi-file'
+                },
+                {
+                    label: 'Settings',
+                    icon: 'pi pi-fw pi-cog'
                 }
             ]
         }
@@ -198,8 +307,22 @@ export default {
                     content: `
 <template>
     <div>
-        <TabMenu :model="items" />
-        <router-view />
+        <div class="card">
+            <h5>Default</h5>
+            <TabMenu :model="items" />
+            <router-view/>
+        </div>
+            
+        <div class="card">
+            <h5>Programmatic</h5>
+            <div class="p-py-2">
+                <Button @click="active = 0" class="p-button-text" label="Activate 1st" />
+                <Button @click="active = 1" class="p-button-text p-mr-2" label="Activate 2nd" />
+                <Button @click="active = 2" class="p-button-text p-mr-2" label="Activate 3rd" />
+            </div>
+
+            <TabMenu :model="items2" v-model:activeIndex="active" />
+        </div>
     </div>
 </template>
 
@@ -208,35 +331,58 @@ import { ref } from 'vue';
 
 export default {
     setup() {
+        const active = ref(3);
         const items = ref([
             {
-                label: 'Home', 
-                icon: 'pi pi-fw pi-home', 
+                label: 'Home',
+                icon: 'pi pi-fw pi-home',
                 to: '/'
             },
             {
-                label: 'Calendar', 
-                icon: 'pi pi-fw pi-calendar', 
+                label: 'Calendar',
+                icon: 'pi pi-fw pi-calendar',
                 to: '/calendar'
             },
             {
-                label: 'Edit', 
-                icon: 'pi pi-fw pi-pencil', 
+                label: 'Edit',
+                icon: 'pi pi-fw pi-pencil',
                 to: '/edit'
             },
             {
-                label: 'Documentation', 
-                icon: 'pi pi-fw pi-file', 
+                label: 'Documentation',
+                icon: 'pi pi-fw pi-file',
                 to: '/documentation'
             },
             {
-                label: 'Settings', 
-                icon: 'pi pi-fw pi-cog', 
+                label: 'Settings',
+                icon: 'pi pi-fw pi-cog',
                 to: '/settings'
             }
         ]);
+        const items2 = ref([
+            {
+                label: 'Home',
+                icon: 'pi pi-fw pi-home'
+            },
+            {
+                label: 'Calendar',
+                icon: 'pi pi-fw pi-calendar'
+            },
+            {
+                label: 'Edit',
+                icon: 'pi pi-fw pi-pencil'
+            },
+            {
+                label: 'Documentation',
+                icon: 'pi pi-fw pi-file'
+            },
+            {
+                label: 'Settings',
+                icon: 'pi pi-fw pi-cog'
+            }
+        ]);
         
-        return { items }
+        return { active, items, items2 }
     }
 }
 <\\/script>
@@ -246,6 +392,150 @@ export default {
     padding: 2rem 1rem;
 }
 </style>`
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/vue-router@4.0.0/dist/vue-router.global.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/tabmenu/tabmenu.min.js"><\\/script>`,
+                    content: `<div id="app">
+            <div class="card">
+                <h5>Default</h5>
+                <p-tabmenu :model="items"></p-tabmenu>
+                <router-view></router-view>
+            </div>
+                
+            <div class="card">
+                <h5>Programmatic</h5>
+                <div class="p-py-2">
+                    <p-button @click="active = 0" class="p-button-text" label="Activate 1st"></p-button>
+                    <p-button @click="active = 1" class="p-button-text p-mr-2" label="Activate 2nd"></p-button>
+                    <p-button @click="active = 2" class="p-button-text p-mr-2" label="Activate 3rd"></p-button>
+                </div>
+
+                <p-tabmenu :model="items2" v-model:active-index="active"></p-tabmenu>
+            </div>
+        </div>
+
+        <script type="module">
+        const { createApp, ref } = Vue;
+
+        const App = {
+            setup() {
+                const active = ref(3);
+                const items = ref([
+                    {
+                        label: 'Home',
+                        icon: 'pi pi-fw pi-home',
+                        to: '/'
+                    },
+                    {
+                        label: 'Calendar',
+                        icon: 'pi pi-fw pi-calendar',
+                        to: '/calendar'
+                    },
+                    {
+                        label: 'Edit',
+                        icon: 'pi pi-fw pi-pencil',
+                        to: '/edit'
+                    },
+                    {
+                        label: 'Documentation',
+                        icon: 'pi pi-fw pi-file',
+                        to: '/documentation'
+                    },
+                    {
+                        label: 'Settings',
+                        icon: 'pi pi-fw pi-cog',
+                        to: '/settings'
+                    }
+                ]);
+                const items2 = ref([
+                    {
+                        label: 'Home',
+                        icon: 'pi pi-fw pi-home'
+                    },
+                    {
+                        label: 'Calendar',
+                        icon: 'pi pi-fw pi-calendar'
+                    },
+                    {
+                        label: 'Edit',
+                        icon: 'pi pi-fw pi-pencil'
+                    },
+                    {
+                        label: 'Documentation',
+                        icon: 'pi pi-fw pi-file'
+                    },
+                    {
+                        label: 'Settings',
+                        icon: 'pi pi-fw pi-cog'
+                    }
+                ]);
+                
+                return { active, items, items2 }
+            },
+            components: {
+                "p-tabmenu": primevue.tabmenu,
+                "p-button": primevue.button
+            }
+        };
+
+        const Home = {
+            template: \`<div class="tabmenudemo-content">
+                <h5>Home Component Content</h5>
+            </div>\`
+        };
+
+        const Calendar = {
+            template: \`<div class="tabmenudemo-content">
+                <h5>Calendar Component Content</h5>
+            </div>\`
+        };
+
+        const Edit = {
+            template: \`<div class="tabmenudemo-content">
+                <h5>Edit Component Content</h5>
+            </div>\`
+        };
+
+        const Documentation = {
+            template: \`<div class="tabmenudemo-content">
+                <h5>Documentation Component Content</h5>
+            </div>\`
+        };
+
+        const Settings = {
+            template: \`<div class="tabmenudemo-content">
+                <h5>Settings Component Content</h5>
+            </div>\`
+        };
+
+        const routes = [
+            { path: "/", component: Home },
+            { path: "/home", component: Home },
+            { path: "/calendar", component: Calendar },
+            { path: "/edit", component: Edit },
+            { path: "/documentation", component: Documentation },
+            { path: "/settings", component: Settings }
+        ];
+
+        const router = VueRouter.createRouter({
+            history: VueRouter.createWebHashHistory(),
+            routes
+        });
+
+        createApp(App)
+            .use(router)
+            .use(primevue.config.default)
+            .mount("#app");
+
+        <\\/script>
+
+        <style>
+        .tabmenudemo-content {
+            padding: 2rem 1rem;
+        }
+        </style>`
                 }
             },
             pages: [

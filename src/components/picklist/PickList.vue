@@ -1,14 +1,16 @@
 <template>
     <div class="p-picklist p-component">
         <div class="p-picklist-buttons p-picklist-source-controls">
+            <slot name="sourcecontrolsstart"></slot>
             <PLButton type="button" icon="pi pi-angle-up" @click="moveUp($event, 0)"></PLButton>
             <PLButton type="button" icon="pi pi-angle-double-up" @click="moveTop($event, 0)"></PLButton>
             <PLButton type="button" icon="pi pi-angle-down" @click="moveDown($event, 0)"></PLButton>
             <PLButton type="button" icon="pi pi-angle-double-down" @click="moveBottom($event, 0)"></PLButton>
+            <slot name="sourcecontrolsend"></slot>
         </div>
         <div class="p-picklist-list-wrapper p-picklist-source-wrapper">
-            <div class="p-picklist-header" v-if="$slots.sourceHeader">
-                <slot name="sourceHeader"></slot>
+            <div class="p-picklist-header" v-if="$slots.sourceheader">
+                <slot name="sourceheader"></slot>
             </div>
             <transition-group ref="sourceList" name="p-picklist-flip" tag="ul" class="p-picklist-list p-picklist-source" :style="listStyle" role="listbox" aria-multiselectable="multiple">
                 <template v-for="(item, i) of sourceList" :key="getItemKey(item, i)">
@@ -21,14 +23,16 @@
             </transition-group>
         </div>
         <div class="p-picklist-buttons p-picklist-transfer-buttons">
+            <slot name="movecontrolsstart"></slot>
             <PLButton type="button" icon="pi pi-angle-right" @click="moveToTarget"></PLButton>
             <PLButton type="button" icon="pi pi-angle-double-right" @click="moveAllToTarget"></PLButton>
             <PLButton type="button" icon="pi pi-angle-left" @click="moveToSource"></PLButton>
             <PLButton type="button" icon="pi pi-angle-double-left" @click="moveAllToSource"></PLButton>
+            <slot name="movecontrolsend"></slot>
         </div>
         <div class="p-picklist-list-wrapper p-picklist-target-wrapper">
-            <div class="p-picklist-header" v-if="$slots.targetHeader">
-                <slot name="targetHeader"></slot>
+            <div class="p-picklist-header" v-if="$slots.targetheader">
+                <slot name="targetheader"></slot>
             </div>
             <transition-group ref="targetList" name="p-picklist-flip" tag="ul" class="p-picklist-list p-picklist-target" :style="listStyle" role="listbox" aria-multiselectable="multiple">
                 <template v-for="(item, i) of targetList" :key="getItemKey(item, i)">
@@ -41,10 +45,12 @@
             </transition-group>
         </div>
         <div class="p-picklist-buttons p-picklist-target-controls">
+            <slot name="targetcontrolsstart"></slot>
             <PLButton type="button" icon="pi pi-angle-up" @click="moveUp($event, 1)"></PLButton>
             <PLButton type="button" icon="pi pi-angle-double-up" @click="moveTop($event, 1)"></PLButton>
             <PLButton type="button" icon="pi pi-angle-down" @click="moveDown($event, 1)"></PLButton>
             <PLButton type="button" icon="pi pi-angle-double-down" @click="moveBottom($event, 1)"></PLButton>
+            <slot name="targetcontrolsend"></slot>
         </div>
     </div>
 </template>
@@ -65,6 +71,10 @@ export default {
         selection: {
             type: Array,
             default: () => [[],[]]
+        },
+        selectionMode: {
+            type: String,
+            default: null
         },
         dataKey: {
             type: String,
@@ -381,18 +391,19 @@ export default {
                     _selection = selectionList.filter((val, index) => index !== selectedIndex);
                 }
                 else {
-                    _selection = (metaKey) ? selectionList ? [...selectionList] : [] : [];
+                    if (metaKey) {
+                        _selection = this.isMultipleSelectionMode() ? selectionList ? [...selectionList] : [] : [];
+                    }
+                    else {
+                        _selection = [];
+                    }
+
                     _selection.push(item);
                 }
             }
             else {
-                if (selected) {
-                    _selection = selectionList.filter((val, index) => index !== selectedIndex);
-                }
-                else {
-                    _selection = selectionList ? [...selectionList] : [];
-                    _selection.push(item);
-                }
+                _selection = this.isMultipleSelectionMode() ? selectionList ? [...selectionList] : [] : [];
+                _selection.push(item);
             }
 
             let newSelection = [...this.d_selection];
@@ -543,6 +554,12 @@ export default {
                 document.head.removeChild(this.styleElement);
                 this.styleElement = null;
             }
+        },
+        isSingleSelectionMode() {
+            return this.selectionMode === 'single';
+        },
+        isMultipleSelectionMode() {
+            return this.selectionMode === 'multiple';
         }
     },
     computed: {

@@ -1,0 +1,9 @@
+{
+    "main": "./image.cjs.js",
+    "module": "./image.esm.js",
+    "unpkg": "./image.min.js",
+    "types": "./Image.d.ts",
+    "browser": {
+      "./sfc": "./Image.vue"
+    }
+  }

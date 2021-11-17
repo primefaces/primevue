@@ -1,8 +1,15 @@
 <template>
 	<AppDoc name="MultiSelectDemo" :sources="sources" github="multiselect/MultiSelectDemo.vue">
-        <h5>Import</h5>
+        <h5>Import via Module</h5>
 <pre v-code.script><code>
 import MultiSelect from 'primevue/multiselect';
+
+</code></pre>
+
+        <h5>Import via CDN</h5>
+<pre v-code><code>
+&lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue@^3/multiselect/multiselect.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
@@ -48,7 +55,7 @@ export default {
         return {
             selectedGroupedCities: null,
             groupedCities: [{
-                label: 'Germany', code: 'DE', 
+                label: 'Germany', code: 'DE',
                 items: [
                     {label: 'Berlin', value: 'Berlin'},
                     {label: 'Frankfurt', value: 'Frankfurt'},
@@ -57,7 +64,7 @@ export default {
                 ]
             },
             {
-                label: 'USA', code: 'US', 
+                label: 'USA', code: 'US',
                 items: [
                     {label: 'Chicago', value: 'Chicago'},
                     {label: 'Los Angeles', value: 'Los Angeles'},
@@ -66,7 +73,7 @@ export default {
                 ]
             },
             {
-                label: 'Japan', code: 'JP', 
+                label: 'Japan', code: 'JP',
                 items: [
                     {label: 'Kyoto', value: 'Kyoto'},
                     {label: 'Osaka', value: 'Osaka'},
@@ -80,7 +87,7 @@ export default {
 </code></pre>
 
 <pre v-code><code><template v-pre>
-&lt;MultiSelect v-model="selectedGroupedCities" :options="groupedCities" 
+&lt;MultiSelect v-model="selectedGroupedCities" :options="groupedCities"
         optionLabel="label" optionGroupLabel="label" optionGroupChildren="items"&gt;
 &lt;/MultiSelect&gt;
 </template>
@@ -98,7 +105,7 @@ export default {
 
 		<h5>Templating</h5>
 		<p>Label of an option is used as the display text of an item by default, for custom content support define an <i>option</i> template that gets the option instance as a parameter.
-        In addition <i>value</i>, <i>optiongroup</i>, <i>header</i>, <i>footer</i>, <i>emptyfilter</i> and <i>empty</i> slots are provided for further customization.</p>
+        In addition <i>value</i>, <i>optiongroup</i>, <i>chip</i>, <i>header</i>, <i>footer</i>, <i>emptyfilter</i> and <i>empty</i> slots are provided for further customization.</p>
 <pre v-code><code><template v-pre>
 &lt;MultiSelect v-model="selectedCars2" :options="cars" optionLabel="brand" placeholder="Select a Car"&gt;
 	&lt;template #value="slotProps"&gt;
@@ -147,31 +154,31 @@ export default {
                     </tr>
                     <tr>
                         <td>optionLabel</td>
-                        <td>string</td>
+                        <td>string | function</td>
                         <td>null</td>
                         <td>Property name or getter function to use as the label of an option.</td>
                     </tr>
                     <tr>
                         <td>optionValue</td>
-                        <td>string</td>
+                        <td>string | function</td>
                         <td>null</td>
                         <td>Property name or getter function to use as the value of an option, defaults to the option itself when not defined.</td>
                     </tr>
                     <tr>
                         <td>optionDisabled</td>
-                        <td>boolean</td>
+                        <td>string | function</td>
                         <td>null</td>
                         <td>Property name or getter function to use as the disabled flag of an option, defaults to false when not defined.</td>
                     </tr>
                     <tr>
                         <td>optionGroupLabel</td>
-                        <td>string</td>
+                        <td>string | function</td>
                         <td>null</td>
                         <td>Property name or getter function to use as the label of an option group.</td>
                     </tr>
                     <tr>
                         <td>optionGroupChildren</td>
-                        <td>string</td>
+                        <td>string | function</td>
                         <td>null</td>
                         <td>Property name or getter function that refers to the children options of option group.</td>
                     </tr>
@@ -302,6 +309,30 @@ export default {
                         <td>pi pi-spinner pi-spin</td>
                         <td>Icon to display in loading state.</td>
                     </tr>
+                    <tr>
+                        <td>maxSelectedLabels</td>
+                        <td>number</td>
+                        <td>null</td>
+                        <td>Decides how many selected item labels to show at most.</td>
+                    </tr>
+                    <tr>
+                        <td>selectedItemsLabel</td>
+                        <td>string</td>
+                        <td>&#123;0&#125; items selected</td>
+                        <td>Label to display after exceeding max selected labels.</td>
+                    </tr>
+                    <tr>
+                        <td>selectAll</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>Whether all data is selected.</td>
+                    </tr>
+                    <tr>
+                        <td>virtualScrollerOptions</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td>Whether to use the virtualScroller feature. The properties of <router-link to="/virtualscroller">VirtualScroller</router-link> component can be used like an object in it.</td>
+                    </tr>
 				</tbody>
 			</table>
 		</div>
@@ -349,6 +380,12 @@ export default {
                             event.value: Filter value </td>
                         <td>Callback to invoke on filter input.</td>
                     </tr>
+                    <tr>
+                        <td>selectall-change</td>
+                        <td>event.originalEvent: Original event <br />
+                            event.checked: Whether all data is selected.</td>
+                        <td>Callback to invoke when all data is selected.</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -370,7 +407,7 @@ export default {
                         <td>Shows the overlay.</td>
                     </tr>
                     <tr>
-                        <td>Hide</td>
+                        <td>hide</td>
                         <td>-</td>
                         <td>Hides the overlay.</td>
                     </tr>
@@ -419,6 +456,25 @@ export default {
                     </tr>
                     <tr>
                         <td>empty</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>chip</td>
+                        <td>value: A value in the selection</td>
+                    </tr>
+                    <tr>
+                        <td>content</td>
+                        <td>items: An array of objects to display for virtualscroller<br />
+                            styleClass: Style class of the component<br />
+                            contentRef: Referance of the content<br />
+                            getItemOptions: Options of the items</td>
+                    </tr>
+                    <tr>
+                        <td>loader</td>
+                        <td>options: Options of the loader items for virtualscroller</td>
+                    </tr>
+                    <tr>
+                        <td>indicator</td>
                         <td>-</td>
                     </tr>
 				</tbody>
@@ -524,6 +580,9 @@ export default {
 
         <h5>Loading State</h5>
         <MultiSelect placeholder="Loading..." loading></MultiSelect>
+
+        <h5>Virtual Scroll (1000 Items)</h5>
+        <MultiSelect v-model="selectedItems" :options="items" :maxSelectedLabels="3" :selectAll="selectAll" @selectall-change="onSelectAllChange($event)" @change="onChange($event)" optionLabel="label" optionValue="value" :virtualScrollerOptions="{ itemSize: 34 }" placeholder="Select Item" />
     </div>
 </template>
 
@@ -535,6 +594,8 @@ export default {
             selectedCities2: null,
             selectedCountries: null,
             selectedGroupedCities: null,
+            selectedItems: null,
+            selectAll: false,
             cities: [
                 {name: 'New York', code: 'NY'},
                 {name: 'Rome', code: 'RM'},
@@ -555,7 +616,7 @@ export default {
                 {name: 'United States', code: 'US'}
             ],
             groupedCities: [{
-                label: 'Germany', code: 'DE', 
+                label: 'Germany', code: 'DE',
                 items: [
                     {label: 'Berlin', value: 'Berlin'},
                     {label: 'Frankfurt', value: 'Frankfurt'},
@@ -564,7 +625,7 @@ export default {
                 ]
             },
             {
-                label: 'USA', code: 'US', 
+                label: 'USA', code: 'US',
                 items: [
                     {label: 'Chicago', value: 'Chicago'},
                     {label: 'Los Angeles', value: 'Los Angeles'},
@@ -573,14 +634,24 @@ export default {
                 ]
             },
             {
-                label: 'Japan', code: 'JP', 
+                label: 'Japan', code: 'JP',
                 items: [
                     {label: 'Kyoto', value: 'Kyoto'},
                     {label: 'Osaka', value: 'Osaka'},
                     {label: 'Tokyo', value: 'Tokyo'},
                     {label: 'Yokohama', value: 'Yokohama'}
                 ]
-            }]
+            }],
+            items: Array.from({ length: 1000 }, (_, i) => ({ label: \`Item #\${i}\`, value: i }))
+        }
+    },
+    methods: {
+        onSelectAllChange(event) {
+            this.selectedItems = event.checked ? this.items.map((item) => item.value) : [];
+            this.selectAll = event.checked;
+        },
+        onChange(event) {
+            this.selectAll = event.value.length === this.items.length
         }
     }
 }
@@ -660,6 +731,9 @@ export default {
 
         <h5>Loading State</h5>
         <MultiSelect placeholder="Loading..." loading></MultiSelect>
+
+        <h5>Virtual Scroll (1000 Items)</h5>
+        <MultiSelect v-model="selectedItems" :options="items" :maxSelectedLabels="3" :selectAll="selectAll" @selectall-change="onSelectAllChange($event)" @change="onChange($event)" optionLabel="label" optionValue="value" :virtualScrollerOptions="{ itemSize: 34 }" placeholder="Select Item" />
     </div>
 </template>
 
@@ -672,6 +746,8 @@ export default {
         const selectedCities2 = ref();
         const selectedCountries = ref();
         const selectedGroupedCities = ref();
+        const selectedItems = ref();
+        const selectAll = ref(false);
         const cities = ref([
             {name: 'New York', code: 'NY'},
             {name: 'Rome', code: 'RM'},
@@ -693,7 +769,7 @@ export default {
         ]);
         const groupedCities = ref([
             {
-                label: 'Germany', code: 'DE', 
+                label: 'Germany', code: 'DE',
                 items: [
                     {label: 'Berlin', value: 'Berlin'},
                     {label: 'Frankfurt', value: 'Frankfurt'},
@@ -702,7 +778,7 @@ export default {
                 ]
             },
             {
-                label: 'USA', code: 'US', 
+                label: 'USA', code: 'US',
                 items: [
                     {label: 'Chicago', value: 'Chicago'},
                     {label: 'Los Angeles', value: 'Los Angeles'},
@@ -711,7 +787,7 @@ export default {
                 ]
             },
             {
-                label: 'Japan', code: 'JP', 
+                label: 'Japan', code: 'JP',
                 items: [
                     {label: 'Kyoto', value: 'Kyoto'},
                     {label: 'Osaka', value: 'Osaka'},
@@ -720,8 +796,18 @@ export default {
                 ]
             }
         ]);
+        const items = Array.from({ length: 1000 }, (_, i) => ({ label: \`Item #\${i}\`, value: i }))
 
-        return { selectedCities1, selectedCities2, selectedCountries, selectedGroupedCities, cities, countries, groupedCities }
+        return { selectedCities1, selectedCities2, selectedCountries, selectedGroupedCities, cities, countries, groupedCities, items, selectedItems, selectAll }
+    },
+    methods: {
+        onSelectAllChange(event) {
+            this.selectedItems = event.checked ? this.items.map((item) => item.value) : [];
+            this.selectAll = event.checked;
+        },
+        onChange(event) {
+            this.selectAll = event.value.length === this.items.length
+        }
     }
 }
 <\\/script>
@@ -757,6 +843,164 @@ export default {
     }
 }
 </style>`
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/multiselect/multiselect.min.js"><\\/script>`,
+                    content: `<div id="app">
+            <h5>Basic</h5>
+            <p-multiselect v-model="selectedCities1" :options="cities" option-label="name" placeholder="Select Cities"></p-multiselect>
+
+            <h5>Chips</h5>
+            <p-multiselect v-model="selectedCities2" :options="cities" option-label="name" placeholder="Select Cities" display="chip"></p-multiselect>
+
+            <h5>Grouped</h5>
+            <p-multiselect v-model="selectedGroupedCities" :options="groupedCities" option-label="label"  option-group-label="label" option-group-children="items" placeholder="Select Cities">
+                <template #optiongroup="slotProps">
+                    <div class="p-d-flex p-ai-center country-item">
+                        <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="p-mr-2" width="18" />
+                        <div>{{slotProps.option.label}}</div>
+                    </div>
+                </template>
+            </p-multiselect >
+
+            <h5>Advanced with Templating and Filtering</h5>
+            <p-multiselect  v-model="selectedCountries" :options="countries" option-label="name" placeholder="Select Countries" :filter="true" class="multiselect-custom">
+                <template #value="slotProps">
+                    <div class="country-item country-item-value" v-for="option of slotProps.value" :key="option.code">
+                        <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="p-mr-2" width="18" />
+                        <div>{{option.name}}</div>
+                    </div>
+                    <template v-if="!slotProps.value || slotProps.value.length === 0">
+                        Select Countries
+                    </template>
+                </template>
+                <template #option="slotProps">
+                    <div class="country-item">
+                        <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="p-mr-2" width="18" />
+                        <div>{{slotProps.option.name}}</div>
+                    </div>
+                </template>
+            </p-multiselect >
+
+            <h5>Loading State</h5>
+            <p-multiselect  placeholder="Loading..." loading></p-multiselect >
+
+            <h5>Virtual Scroll (1000 Items)</h5>
+            <p-multiselect  v-model="selectedItems" :options="items" :max-selected-labels="3" :select-all="selectAll" @selectall-change="onSelectAllChange($event)" @change="onChange($event)" option-label="label" option-value="value" :virtual-scroller-options="{ itemSize: 34 }" placeholder="Select Item"></p-multiselect>
+        </div>
+
+        <script type="module">
+        const { createApp, ref } = Vue;
+
+        const App = {
+            setup() {
+                const selectedCities1 = ref();
+                const selectedCities2 = ref();
+                const selectedCountries = ref();
+                const selectedGroupedCities = ref();
+                const selectedItems = ref();
+                const selectAll = ref(false);
+                const cities = ref([
+                    {name: 'New York', code: 'NY'},
+                    {name: 'Rome', code: 'RM'},
+                    {name: 'London', code: 'LDN'},
+                    {name: 'Istanbul', code: 'IST'},
+                    {name: 'Paris', code: 'PRS'}
+                ]);
+                const countries = ref([
+                    {name: 'Australia', code: 'AU'},
+                    {name: 'Brazil', code: 'BR'},
+                    {name: 'China', code: 'CN'},
+                    {name: 'Egypt', code: 'EG'},
+                    {name: 'France', code: 'FR'},
+                    {name: 'Germany', code: 'DE'},
+                    {name: 'India', code: 'IN'},
+                    {name: 'Japan', code: 'JP'},
+                    {name: 'Spain', code: 'ES'},
+                    {name: 'United States', code: 'US'}
+                ]);
+                const groupedCities = ref([
+                    {
+                        label: 'Germany', code: 'DE',
+                        items: [
+                            {label: 'Berlin', value: 'Berlin'},
+                            {label: 'Frankfurt', value: 'Frankfurt'},
+                            {label: 'Hamburg', value: 'Hamburg'},
+                            {label: 'Munich', value: 'Munich'}
+                        ]
+                    },
+                    {
+                        label: 'USA', code: 'US',
+                        items: [
+                            {label: 'Chicago', value: 'Chicago'},
+                            {label: 'Los Angeles', value: 'Los Angeles'},
+                            {label: 'New York', value: 'New York'},
+                            {label: 'San Francisco', value: 'San Francisco'}
+                        ]
+                    },
+                    {
+                        label: 'Japan', code: 'JP',
+                        items: [
+                            {label: 'Kyoto', value: 'Kyoto'},
+                            {label: 'Osaka', value: 'Osaka'},
+                            {label: 'Tokyo', value: 'Tokyo'},
+                            {label: 'Yokohama', value: 'Yokohama'}
+                        ]
+                    }
+                ]);
+                const items = Array.from({ length: 1000 }, (_, i) => ({ label: \`Item #\${i}\`, value: i }))
+
+                return { selectedCities1, selectedCities2, selectedCountries, selectedGroupedCities, cities, countries, groupedCities, items, selectedItems, selectAll }
+            },
+            methods: {
+                onSelectAllChange(event) {
+                    this.selectedItems = event.checked ? this.items.map((item) => item.value) : [];
+                    this.selectAll = event.checked;
+                },
+                onChange(event) {
+                    this.selectAll = event.value.length === this.items.length
+                }
+            },
+            components: {
+                "p-multiselect": primevue.multiselect
+            }
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .mount("#app");
+        <\\/script>
+
+        <style>
+        .p-multiselect {
+            width: 18rem;
+        }
+
+        .multiselect-custom .p-multiselect-label:not(.p-placeholder) {
+            padding-top: .25rem;
+            padding-bottom: .25rem;
+        }
+
+        .multiselect-custom .country-item-value {
+            padding: .25rem .5rem;
+            border-radius: 3px;
+            display: inline-flex;
+            margin-right: .5rem;
+            background-color: var(--primary-color);
+            color: var(--primary-color-text);
+        }
+
+        .multiselect-custom .country-item-value img.flag {
+            width: 17px;
+        }
+
+        @media screen and (max-width: 640px) {
+            .p-multiselect {
+                width: 100%;
+            }
+        }
+        </style>`
                 }
             }
         }

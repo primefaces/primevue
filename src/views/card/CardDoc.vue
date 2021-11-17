@@ -1,8 +1,15 @@
 <template>
 	<AppDoc name="CardDemo" :sources="sources" github="card/CardDemo.vue">
-        <h5>Import</h5>
+        <h5>Import via Module</h5>
 <pre v-code.script><code>
 import Card from 'primevue/card';
+
+</code></pre>
+
+        <h5>Import via CDN</h5>
+<pre v-code><code>
+&lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue@^3/card/card.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
@@ -204,7 +211,57 @@ p {
     margin: 0;
 }
 </style>`
-				}
+				},
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/card/card.min.js"><\\/script>`,
+                    content: `<div id="app">
+        <p-card style="width: 25rem; margin-bottom: 2em">
+            <template #title>
+                Simple Card
+            </template>
+            <template #content>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
+                quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!</p>
+            </template>
+        </p-card>
+
+        <p-card style="width: 25em">
+            <template #header>
+                <img alt="user header" src="https://www.primefaces.org/wp-content/uploads/2020/02/primefacesorg-primevue-2020.png" style="height: 15rem">
+            </template>
+            <template #title>
+                Advanced Card
+            </template>
+            <template #subtitle>
+                Card subtitle
+            </template>
+            <template #content>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
+                quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!</p>
+            </template>
+            <template #footer>
+                <p-button icon="pi pi-check" label="Save"></p-button>
+                <p-button icon="pi pi-times" label="Cancel" class="p-button-secondary" style="margin-left: .5em"></p-button>
+            </template>
+        </p-card>
+    </div>
+
+    <script type="module">
+        const { createApp } = Vue;
+
+        const App = {
+            components: {
+                "p-card": primevue.card,
+                "p-button": primevue.button
+            }
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .mount("#app");
+    <\\/script>`
+                }
 			}
 		}
 	}

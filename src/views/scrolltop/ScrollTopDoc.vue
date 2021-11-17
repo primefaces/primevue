@@ -1,8 +1,15 @@
 <template>
 	<AppDoc name="ScrollTopDemo" :sources="sources" github="scrolltop/ScrollTopDemo.vue">
-        <h5>Import</h5>
+        <h5>Import via Module</h5>
 <pre v-code.script><code>
 import ScrollTop from 'primevue/scrolltop';
+
+</code></pre>
+
+        <h5>Import via CDN</h5>
+<pre v-code><code>
+&lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue@^3/scrolltop/scrolltop.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
@@ -198,6 +205,63 @@ export default {
         font-size: 1rem;
         color: var(--primary-color-text);
     }
+}
+</style>`
+				},
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/scrolltop/scrolltop.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/scrollpanel/scrollpanel.min.js"><\\/script>`,
+					content: `<div id="app">
+        <h5>Element</h5>
+        <p-scrollpanel style="width: 250px; height: 200px">
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Vitae et leo duis ut diam.
+                Ultricies mi quis hendrerit dolor magna eget est lorem. Amet consectetur adipiscing elit ut.
+                Nam libero justo laoreet sit amet. Pharetra massa massa ultricies mi quis hendrerit dolor magna.
+                Est ultricies integer quis auctor elit sed vulputate. Consequat ac felis donec et. Tellus orci ac auctor augue mauris.
+                Semper feugiat nibh sed pulvinar proin gravida hendrerit lectus a. Tincidunt arcu non sodales neque sodales.
+                Metus aliquam eleifend mi in nulla posuere sollicitudin aliquam ultrices. Sodales ut etiam sit amet nisl purus.
+                Cursus sit amet dictum sit amet. Tristique senectus et netus et malesuada fames ac turpis egestas.
+                Et tortor consequat id porta nibh venenatis cras sed. Diam maecenas ultricies mi eget mauris.
+                Eget egestas purus viverra accumsan in nisl nisi. Suscipit adipiscing bibendum est ultricies integer.
+                Mattis aliquam faucibus purus in massa tempor nec.
+            </p>
+            <p-scrolltop target="parent" :threshold="100" class="custom-scrolltop" icon="pi pi-arrow-up"></p-scrolltop>
+        </p-scrollpanel>
+    </div>
+
+        <script type="module">
+        const { createApp } = Vue;
+
+        const App = {
+            components: {
+                "p-scrolltop": primevue.scrolltop,
+                "p-scrollpanel": primevue.scrollpanel
+            }
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .mount("#app");
+        <\\/script>
+
+<style>
+.custom-scrolltop {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 4px;
+    background-color: var(--primary-color) !important;
+}
+
+.custom-scrolltop:hover {
+	background-color: var(--primary-color);
+}
+
+.custom-scrolltop .p-scrolltop-icon {
+    font-size: 1rem;
+    color: var(--primary-color-text);
 }
 </style>`
 				}

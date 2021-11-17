@@ -112,6 +112,18 @@ const FileUploadProps = [
         type: "boolean",
         default: "true",
         description: "Whether to cancel the upload button."
+    },
+    {
+        name: "style",
+        type: "any",
+        default: "null",
+        description: "Inline style of the component."
+    },
+    {
+        name: "class",
+        type: "string",
+        default: "null",
+        description: "Style class of the component."
     }
 ];
 
@@ -232,12 +244,12 @@ const FileUploadEvents = [
         description: "Callback to invoke when a singe file is removed from the list.",
         arguments: [
             {
-                file: "event.file",
+                name: "event.file",
                 type: "object",
                 description: "Removed file."
             },
             {
-                file: "event.files",
+                name: "event.files",
                 type: "object",
                 description: "Remaining files to be uploaded."
             }

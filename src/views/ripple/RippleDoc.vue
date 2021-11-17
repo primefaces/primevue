@@ -222,6 +222,69 @@ export default {
     }
 }
 </style>`
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    content: `<div id="app" class="p-d-flex">
+        <div class="card primary-box p-ripple" v-ripple>Default</div>
+        <div class="card styled-box-green p-ripple" v-ripple>Green</div>
+        <div class="card styled-box-orange p-ripple" v-ripple>Orange</div>
+        <div class="card styled-box-purple p-ripple" v-ripple>Purple</div>
+    </div>
+
+    <script type="module">
+        const { createApp } = Vue;
+        const Ripple = primevue.ripple;
+
+        const App = {
+            directives: {
+                "ripple": Ripple
+            }
+        };
+
+        const app = createApp(App);
+        app.use(primevue.config.default, { ripple: true });
+        app.mount("#app");
+    <\\/script>
+    
+    <style>
+        .card {
+            width: 75px;
+            height: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            user-select: none;
+            padding: 0;
+            background: #ffffff;
+            padding: 2rem;
+            box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+            border-radius: 4px;
+            margin-bottom: 2rem;
+        }
+        .card.primary-box {
+            background-color: var(--primary-color);
+            padding: 0;
+            color: var(--primary-color-text);
+        }
+
+        .card.styled-box-green .p-ink {
+            background: #4baf50;
+        }
+
+        .card.styled-box-orange .p-ink {
+            background: #ffc106;
+        }
+
+        .card.styled-box-purple .p-ink {
+            background: #9c27b0;
+        }
+
+        .card:last-child {
+            margin-right: 0;
+        }
+    </style>`
                 }
             }
         }

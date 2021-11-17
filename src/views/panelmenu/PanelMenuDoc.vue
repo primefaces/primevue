@@ -1,8 +1,15 @@
 <template>
 	<AppDoc name="PanelMenuDemo" :sources="sources" github="panelmenu/PanelMenuDemo.vue">
-        <h5>Import</h5>
+        <h5>Import via Module</h5>
 <pre v-code.script><code>
 import PanelMenu from 'primevue/panelmenu';
+
+</code></pre>
+
+        <h5>Import via CDN</h5>
+<pre v-code><code>
+&lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue@^3/panelmenu/panelmenu.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
@@ -151,6 +158,18 @@ export default {
 &lt;PanelMenu :model="items"&gt;
     &lt;template #item="{item}"&gt;
         &lt;a :href="item.url"&gt;{{item.label}}&lt;/a&gt;
+    &lt;/template&gt;
+&lt;/PanelMenu&gt;
+</template>
+</code></pre>
+
+        <p><i>router-link</i> with route configuration can also be used within templating for further customization.</p>
+<pre v-code><code><template v-pre>
+&lt;PanelMenu :model="items"&gt;
+    &lt;template #item="{item}"&gt;
+        &lt;router-link :to="item.to" custom v-slot="{href, route, navigate, isActive, isExactActive}"&gt;
+            &lt;a :href="href" @click="navigate" :class="{'active-link': isActive, 'active-link-exact": isExactActive}&gt;{{route.fullPath}}&lt;/a&gt;
+        &lt;/router-link&gt;
     &lt;/template&gt;
 &lt;/PanelMenu&gt;
 </template>
@@ -376,6 +395,12 @@ export default {
                         <td>array</td>
                         <td>null</td>
                         <td>A map of keys to represent the expansion state in controlled mode.</td>
+                    </tr>
+                    <tr>
+                        <td>exact</td>
+                        <td>boolean</td>
+                        <td>true</td>
+                        <td>Whether to apply 'router-link-active-exact' class if route exactly matches the item path.</td>
                     </tr>
 				</tbody>
 			</table>
@@ -825,6 +850,206 @@ export default {
     width: 22rem;
 }
 </style>
+`
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/vue-router@4.0.0/dist/vue-router.global.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/panelmenu/panelmenu.min.js"><\\/script>`,
+                    content: `<div id="app">
+            <h5>Default</h5>
+            <p-panelmenu :model="items"></p-panelmenu>
+
+            <h5>Programmatic</h5>
+            <div class="p-mb-3">
+                <p-button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll" class="p-mr-2"></p-button>
+                <p-button type="button" icon="pi pi-minus" label="Collapse All" @click="collapseAll"></p-button>
+                </div>
+            <p-panelmenu :model="items" :expanded-keys="expandedKeys"></p-panelmenu>
+        </div>
+
+        <script type="module">
+        const { createApp, ref } = Vue;
+
+        const App = {
+            setup() {
+                const expandedKeys = ref({});
+                const items = ref([{
+                        key: '0',
+                        label: 'File',
+                        icon: 'pi pi-fw pi-file',
+                        items: [{
+                                key: '0_0',
+                                label: 'New',
+                                icon: 'pi pi-fw pi-plus',
+                                items: [{
+                                        key: '0_0_0',
+                                        label: 'Bookmark',
+                                        icon: 'pi pi-fw pi-bookmark'
+                                    },
+                                    {
+                                        key: '0_0_1',
+                                        label: 'Video',
+                                        icon: 'pi pi-fw pi-video'
+                                    }
+                                ]
+                            },
+                            {
+                                key: '0_1',
+                                label: 'Delete',
+                                icon: 'pi pi-fw pi-trash'
+                            },
+                            {
+                                key: '0_2',
+                                label: 'Export',
+                                icon: 'pi pi-fw pi-external-link'
+                            }
+                        ]
+                    },
+                    {
+                        key: '1',
+                        label: 'Edit',
+                        icon: 'pi pi-fw pi-pencil',
+                        items: [{
+                                key: '1_0',
+                                label: 'Left',
+                                icon: 'pi pi-fw pi-align-left'
+                            },
+                            {
+                                key: '1_1',
+                                label: 'Right',
+                                icon: 'pi pi-fw pi-align-right'
+                            },
+                            {
+                                key: '1_2',
+                                label: 'Center',
+                                icon: 'pi pi-fw pi-align-center'
+                            },
+                            {
+                                key: '1_3',
+                                label: 'Justify',
+                                icon: 'pi pi-fw pi-align-justify'
+                            }
+                        ]
+                    },
+                    {
+                        key: '2',
+                        label: 'Users',
+                        icon: 'pi pi-fw pi-user',
+                        items: [{
+                                key: '2_0',
+                                label: 'New',
+                                icon: 'pi pi-fw pi-user-plus',
+
+                            },
+                            {
+                                key: '2_1',
+                                label: 'Delete',
+                                icon: 'pi pi-fw pi-user-minus',
+                            },
+                            {
+                                key: '2_2',
+                                label: 'Search',
+                                icon: 'pi pi-fw pi-users',
+                                items: [{
+                                        key: '2_2_0',
+                                        label: 'Filter',
+                                        icon: 'pi pi-fw pi-filter',
+                                        items: [{
+                                            key: '2_2_0_0',
+                                            label: 'Print',
+                                            icon: 'pi pi-fw pi-print'
+                                        }]
+                                    },
+                                    {
+                                        key: '2_2_1',
+                                        icon: 'pi pi-fw pi-bars',
+                                        label: 'List'
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        key: '3',
+                        label: 'Events',
+                        icon: 'pi pi-fw pi-calendar',
+                        items: [{
+                                key: '3_0',
+                                label: 'Edit',
+                                icon: 'pi pi-fw pi-pencil',
+                                items: [{
+                                        key: '3_0_0',
+                                        label: 'Save',
+                                        icon: 'pi pi-fw pi-calendar-plus'
+                                    },
+                                    {
+                                        key: '3_0_0',
+                                        label: 'Delete',
+                                        icon: 'pi pi-fw pi-calendar-minus'
+                                    }
+                                ]
+                            },
+                            {
+                                key: '3_1',
+                                label: 'Archieve',
+                                icon: 'pi pi-fw pi-calendar-times',
+                                items: [{
+                                    key: '3_1_0',
+                                    label: 'Remove',
+                                    icon: 'pi pi-fw pi-calendar-minus'
+                                }]
+                            }
+                        ]
+                    }
+                ]);
+
+                const expandAll = () => {
+                    for (let node of nodes.value) {
+                        expandNode(node);
+                    }
+
+                    expandedKeys.value = {...expandedKeys.value};
+                };
+                const collapseAll = () => {
+                    expandedKeys.value = {};
+                };
+                const expandNode = (node) => {
+                    if (node.children && node.children.length) {
+                        expandedKeys.value[node.key] = true;
+
+                        for (let child of node.children) {
+                            expandNode(child);
+                        }
+                    }
+                };
+
+                return { items, expandedKeys, expandAll, collapseAll, expandNode }
+            },
+            components: {
+                "p-panelmenu": primevue.panelmenu,
+                "p-button": primevue.button
+            }
+        };
+
+        const routes = [{ path: "/", component: App }];
+
+        const router = VueRouter.createRouter({
+            history: VueRouter.createWebHashHistory(),
+            routes
+        });
+
+        createApp(App)
+            .use(router)
+            .use(primevue.config.default)
+            .mount("#app");
+        <\\/script>
+
+        <style>
+        .p-panelmenu {
+            width: 22rem;
+        }
+        </style>
 `
                 }
             }

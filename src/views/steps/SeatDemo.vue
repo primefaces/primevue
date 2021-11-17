@@ -11,11 +11,11 @@
                 <div class="p-fluid p-formgrid p-grid">
                     <div class="p-field p-col-12 p-md-6">
                         <label for="class">Class</label>
-                        <Dropdown inputId="class" v-model="selectedClass" :options="classes" @change="setVagons($event)" optionLabel="name" placeholder="Select a Class" />
+                        <Dropdown inputId="class" v-model="selectedClass" :options="classes" @change="setWagons($event)" optionLabel="name" placeholder="Select a Class" />
                     </div>
                     <div class="p-field p-col-12 p-md-6">
                         <label for="lastname">Wagon</label>
-                        <Dropdown inputId="wagon" v-model="selectedVagon" :options="vagons" @change="setSeats($event)" optionLabel="vagon" placeholder="Select a Vagon" />
+                        <Dropdown inputId="wagon" v-model="selectedWagon" :options="wagons" @change="setSeats($event)" optionLabel="wagon" placeholder="Select a Wagon" />
                     </div>
                     <div class="p-field p-col-12">
                         <label for="seat">Seat</label>
@@ -43,24 +43,24 @@ export default {
                 {name: 'Second Class', code: 'B', factor: 2},
                 {name: 'Third Class', code: 'C', factor: 3}
             ],
-            vagons: [],
-            selectedVagon: '',
+            wagons: [],
+            selectedWagon: '',
             seats: [],
             selectedSeat: ''
         }
     },
     methods: {
-        setVagons(event) {
+        setWagons(event) {
             if (this.selectedClass && event.value) {
-                this.vagons = [];
+                this.wagons = [];
                 this.seats = [];
                 for (let i = 1; i < 3 * event.value.factor; i++) {
-                    this.vagons.push({vagon: i + event.value.code, type: event.value.name, factor: event.value.factor});
+                    this.wagons.push({wagon: i + event.value.code, type: event.value.name, factor: event.value.factor});
                 }
             }
         },
         setSeats(event) {
-            if (this.selectedVagon && event.value) {
+            if (this.selectedWagon && event.value) {
                 this.seats = [];
                 for (let i = 1; i < 10 * event.value.factor; i++) {
                     this.seats.push({seat: i, type: event.value.type});
@@ -68,7 +68,7 @@ export default {
             }
         },
         nextPage() {
-            this.$emit('next-page', {formData: {class: this.selectedClass.name, vagon: this.selectedVagon.vagon, seat: this.selectedSeat.seat}, pageIndex: 1});
+            this.$emit('next-page', {formData: {class: this.selectedClass.name, wagon: this.selectedWagon.wagon, seat: this.selectedSeat.seat}, pageIndex: 1});
         },
         prevPage() {
             this.$emit('prev-page', {pageIndex: 1});

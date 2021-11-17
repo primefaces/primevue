@@ -10,7 +10,9 @@
             </slot>
         </span>
         <div class="p-cascadeselect-trigger" role="button" aria-haspopup="listbox" :aria-expanded="overlayVisible">
-            <span :class="dropdownIconClass"></span>
+            <slot name="indicator">
+                <span :class="dropdownIconClass"></span>
+            </slot>
         </div>
         <Teleport :to="appendTarget" :disabled="appendDisabled">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
@@ -373,6 +375,8 @@ export default {
 
 .p-cascadeselect-panel {
     position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .p-cascadeselect-item {

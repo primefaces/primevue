@@ -1,8 +1,14 @@
 <template>
 	<AppDoc name="ButtonDemo" :sources="sources" github="button/ButtonDemo.vue">
-                <h5>Import</h5>
+        <h5>Import via Module</h5>
 <pre v-code.script><code>
 import Button from 'primevue/button';
+
+</code></pre>
+
+        <h5>Import via CDN</h5>
+<pre v-code><code>
+&lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
@@ -624,6 +630,198 @@ export default({
 }
 </style>`
                 },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    content: `<div id="app">
+        <div class="card">
+            <h5>Basic</h5>
+            <p-button label="Submit"></p-button>
+            <p-button label="Disabled" disabled="disabled"></p-button>
+            <p-button label="Link" class="p-button-link"></p-button>
+
+            <h5>Icons</h5>
+            <p-button icon="pi pi-check"></p-button>
+            <p-button label="Submit" icon="pi pi-check"></p-button>
+            <p-button label="Submit" icon="pi pi-check" iconPos="right"></p-button>
+
+            <h5>Severities</h5>
+            <p-button label="Primary"></p-button>
+            <p-button label="Secondary" class="p-button-secondary"></p-button>
+            <p-button label="Success" class="p-button-success"></p-button>
+            <p-button label="Info" class="p-button-info"></p-button>
+            <p-button label="Warning" class="p-button-warning"></p-button>
+            <p-button label="Help" class="p-button-help"></p-button>
+            <p-button label="Danger" class="p-button-danger"></p-button>
+
+            <h5>Raised Buttons</h5>
+            <p-button label="Primary" class="p-button-raised"></p-button>
+            <p-button label="Secondary" class="p-button-raised p-button-secondary"></p-button>
+            <p-button label="Success" class="p-button-raised p-button-success"></p-button>
+            <p-button label="Info" class="p-button-raised p-button-info"></p-button>
+            <p-button label="Warning" class="p-button-raised p-button-warning"></p-button>
+            <p-button label="Help" class="p-button-raised p-button-help"></p-button>
+            <p-button label="Danger" class="p-button-raised p-button-danger"></p-button>
+
+            <h5>Rounded Buttons</h5>
+            <p-button label="Primary" class="p-button-rounded"></p-button>
+            <p-button label="Secondary" class="p-button-rounded p-button-secondary"></p-button>
+            <p-button label="Success" class="p-button-rounded p-button-success"></p-button>
+            <p-button label="Info" class="p-button-rounded p-button-info"></p-button>
+            <p-button label="Warning" class="p-button-rounded p-button-warning"></p-button>
+            <p-button label="Help" class="p-button-rounded p-button-help"></p-button>
+            <p-button label="Danger" class="p-button-rounded p-button-danger"></p-button>
+
+            <h5>Text Buttons</h5>
+            <p-button label="Primary" class="p-button-text"></p-button>
+            <p-button label="Secondary" class="p-button-secondary p-button-text"></p-button>
+            <p-button label="Success" class="p-button-success p-button-text"></p-button>
+            <p-button label="Info" class="p-button-info p-button-text"></p-button>
+            <p-button label="Warning" class="p-button-warning p-button-text"></p-button>
+            <p-button label="Help" class="p-button-help p-button-text"></p-button>
+            <p-button label="Danger" class="p-button-danger p-button-text"></p-button>
+            <p-button label="Plain" class="p-button-text p-button-plain"></p-button>
+
+            <h5>Raised Text Buttons</h5>
+            <p-button label="Primary" class="p-button-raised p-button-text"></p-button>
+            <p-button label="Secondary" class="p-button-raised p-button-secondary p-button-text"></p-button>
+            <p-button label="Success" class="p-button-raised p-button-success p-button-text"></p-button>
+            <p-button label="Info" class="p-button-raised p-button-info p-button-text"></p-button>
+            <p-button label="Warning" class="p-button-raised p-button-warning p-button-text"></p-button>
+            <p-button label="Help" class="p-button-raised p-button-help p-button-text"></p-button>
+            <p-button label="Danger" class="p-button-raised p-button-danger p-button-text"></p-button>
+            <p-button label="Plain" class="p-button-raised p-button-text p-button-plain"></p-button>
+
+            <h5>Outlined Buttons</h5>
+            <p-button label="Primary" class="p-button-outlined"></p-button>
+            <p-button label="Secondary" class="p-button-outlined p-button-secondary"></p-button>
+            <p-button label="Success" class="p-button-outlined p-button-success"></p-button>
+            <p-button label="Info" class="p-button-outlined p-button-info"></p-button>
+            <p-button label="Warning" class="p-button-outlined p-button-warning"></p-button>
+            <p-button label="Help" class="p-button-outlined p-button-help"></p-button>
+            <p-button label="Danger" class="p-button-outlined p-button-danger"></p-button>
+
+            <h5>Rounded Icon Buttons</h5>
+            <p-button icon="pi pi-bookmark" class="p-button-rounded p-button-secondary"></p-button>
+            <p-button icon="pi pi-search" class="p-button-rounded p-button-success"></p-button>
+            <p-button icon="pi pi-user" class="p-button-rounded p-button-info"></p-button>
+            <p-button icon="pi pi-bell" class="p-button-rounded p-button-warning"></p-button>
+            <p-button icon="pi pi-heart" class="p-button-rounded p-button-help"></p-button>
+            <p-button icon="pi pi-times" class="p-button-rounded p-button-danger"></p-button>
+            <p-button icon="pi pi-check" class="p-button-rounded"></p-button>
+
+            <h5>Rounded Text Icon Buttons</h5>
+            <p-button icon="pi pi-check" class="p-button-rounded p-button-text"></p-button>
+            <p-button icon="pi pi-bookmark" class="p-button-rounded p-button-secondary p-button-text"></p-button>
+            <p-button icon="pi pi-search" class="p-button-rounded p-button-success p-button-text"></p-button>
+            <p-button icon="pi pi-user" class="p-button-rounded p-button-info p-button-text"></p-button>
+            <p-button icon="pi pi-bell" class="p-button-rounded p-button-warning p-button-text"></p-button>
+            <p-button icon="pi pi-heart" class="p-button-rounded p-button-help p-button-text"></p-button>
+            <p-button icon="pi pi-times" class="p-button-rounded p-button-danger p-button-text"></p-button>
+            <p-button icon="pi pi-filter" class="p-button-rounded p-button-text p-button-plain"></p-button>
+
+            <h5>Rounded and Outlined Icon Buttons</h5>
+            <p-button icon="pi pi-check" class="p-button-rounded p-button-outlined"></p-button>
+            <p-button icon="pi pi-bookmark" class="p-button-rounded p-button-secondary p-button-outlined"></p-button>
+            <p-button icon="pi pi-search" class="p-button-rounded p-button-success p-button-outlined"></p-button>
+            <p-button icon="pi pi-user" class="p-button-rounded p-button-info p-button-outlined"></p-button>
+            <p-button icon="pi pi-bell" class="p-button-rounded p-button-warning p-button-outlined"></p-button>
+            <p-button icon="pi pi-heart" class="p-button-rounded p-button-help p-button-outlined"></p-button>
+            <p-button icon="pi pi-times" class="p-button-rounded p-button-danger p-button-outlined"></p-button>
+
+            <h5>Badges</h5>
+            <p-button type="button" label="Emails" badge="8"></p-button>
+            <p-button type="button" label="Messages" icon="pi pi-users" class="p-button-warning" badge="8" badgeClass="p-badge-danger"></p-button>
+
+            <h5>Loading</h5>
+            <p-button type="button" label="Search" icon="pi pi-search" :loading="loading[0]" @click="load(0)"></p-button>
+            <p-button type="button" label="Search" icon="pi pi-search" iconPos="right" :loading="loading[1]" @click="load(1)"></p-button>
+            <p-button type="button" icon="pi pi-search" :loading="loading[2]" @click="load(2)"></p-button>
+            <p-button type="button" label="Search" :loading="loading[3]" @click="load(3)"></p-button>
+
+            <h5>Templating</h5>
+            <p-button type="button" class="p-px-3">
+                <img alt="logo" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" style="width: 1.5rem" />
+            </p-button>
+            <p-button type="button" class="p-button-outlined p-button-success">
+                <img alt="logo" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" style="width: 1.5rem" />
+                <span class="p-ml-2 p-text-bold">PrimeVue</span>
+            </p-button>
+
+            <h5>Button Set</h5>
+            <span class="p-buttonset">
+                <p-button label="Save" icon="pi pi-check"></p-button>
+                <p-button label="Delete" icon="pi pi-trash"></p-button>
+                <p-button label="Cancel" icon="pi pi-times"></p-button>
+            </span>
+
+            <h5>Sizes</h5>
+            <div class="sizes">
+                <p-button label="Small" icon="pi pi-check" class="p-button-sm"></p-button>
+                <p-button label="Normal" icon="pi pi-check" class="p-button"></p-button>
+                <p-button label="Large" icon="pi pi-check" class="p-button-lg"></p-button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        const { createApp, ref } = Vue;
+
+        const App = {
+            setup() {
+                const loading = ref([false, false, false]);
+                const load = (index) => {
+                    loading.value[index] = true;
+                    setTimeout(() => loading.value[index] = false, 1000);
+                }
+        
+                return {loading, load};
+            },
+            components: {
+                "p-button": primevue.button
+            }
+        };
+
+        createApp(App)
+            .use(primevue.config.default, { ripple: true })
+            .mount("#app");
+    <\\/script>
+
+    <style>
+    .p-button {
+        margin-right: .5rem;
+    }
+
+    .p-buttonset .p-button {
+        margin-right: 0;
+    }
+
+    .sizes .button {
+        margin-bottom: .5rem;
+        display: block;
+    }
+
+    .sizes .button:last-child {
+        margin-bottom: 0;
+    }
+
+    @media screen and (max-width: 640px) {
+        .p-button {
+            margin-bottom: .5rem;
+        }
+
+        .p-button:not(.p-button-icon-only) {
+            display: flex;
+            width: 100%;
+        }
+
+        .p-buttonset .p-button {
+            margin-bottom: 0;
+        }
+    }
+    </style>
+    
+`
+                }
             }
         }
     }

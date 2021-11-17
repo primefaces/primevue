@@ -9,8 +9,8 @@
         </div>
 
         <div class="content-section implementation">
-            <div class="card">
-                <Chart type="polarArea" :data="chartData" :options="chartOptions" />
+            <div class="card p-d-flex p-jc-center">
+                <Chart type="polarArea" :data="chartData" :options="chartOptions" style="width: 40%" />
             </div>
         </div>
 
@@ -73,28 +73,36 @@ export default {
         },
         getLightTheme() {
             return {
-                legend: {
-                    labels: {
-                        fontColor: '#495057'
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#495057'
+                        }
                     }
                 },
-                scale: {
-                    gridLines: {
-                        color: '#ebedef'
+                scales: {
+                    r: {
+                        grid: {
+                            color: '#ebedef'
+                        }
                     }
                 }
             };
         },
         getDarkTheme() {
             return {
-                legend: {
-                    labels: {
-                        fontColor: '#ebedef'
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#ebedef'
+                        }
                     }
                 },
-                scale: {
-                    gridLines: {
-                        color: 'rgba(255,255,255,0.2)'
+                scales: {
+                    r: {
+                        grid: {
+                            color: 'rgba(255,255,255,0.2)'
+                        }
                     }
                 }
             };

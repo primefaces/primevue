@@ -2,9 +2,16 @@
 	<div class="content-section documentation">
 		<TabView>
 			<TabPanel header="Documentation">
-				<h5>Import</h5>
+				<h5>Import via Module</h5>
 <pre v-code.script><code>
 import Galleria from 'primevue/galleria';
+
+</code></pre>
+
+                <h5>Import via CDN</h5>
+<pre v-code><code>
+&lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue@^3/galleria/galleria.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
@@ -121,12 +128,11 @@ import Galleria from 'primevue/galleria';
 </div>
 
 <pre v-code.script><code>
-import axios from 'axios'
-
 export default class PhotoService {
 
 	getImages() {
-        return axios.get('demo/data/photos.json').then(res => res.data.data);
+        return fetch('demo/data/photos.json').then(res => res.json())
+                .then(d => d.data);
     }
 }
 

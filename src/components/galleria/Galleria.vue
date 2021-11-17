@@ -147,7 +147,7 @@ export default {
             DomHandler.addClass(document.body, 'p-overflow-hidden');
         },
         onBeforeLeave() {
-            DomHandler.addClass(this.mask, 'p-galleria-mask-leave');
+            DomHandler.addClass(this.mask, 'p-component-overlay-leave');
         },
         onAfterLeave(el) {
             ZIndexUtils.clear(el);
@@ -171,7 +171,7 @@ export default {
     },
     computed: {
         maskContentClass() {
-            return ['p-galleria-mask p-component-overlay', this.maskClass, {
+            return ['p-galleria-mask p-component-overlay p-component-overlay-enter', this.maskClass, {
                 'p-input-filled': this.$primevue.config.inputStyle === 'filled',
                 'p-ripple-disabled': this.$primevue.config.ripple === false
             }];
@@ -286,6 +286,7 @@ export default {
 
 .p-galleria-thumbnail-items-container {
     overflow: hidden;
+    width: 100%;
 }
 
 .p-galleria-thumbnail-items {
@@ -420,8 +421,6 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: transparent;
-    transition-property: background-color;
 }
 
 .p-galleria-close {
@@ -457,10 +456,6 @@ export default {
 
 .p-galleria-enter-active .p-galleria-item-nav {
     opacity: 0;
-}
-
-.p-galleria-mask.p-galleria-mask-leave {
-    background-color: transparent;
 }
 
 /* Keyboard Support */

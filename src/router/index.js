@@ -333,6 +333,11 @@ const routes = [
         component: () => import('../views/divider/DividerDemo.vue')
     },
     {
+        path: '/dock',
+        name: 'dock',
+        component: () => import('../views/dock/DockDemo.vue')
+    },
+    {
         path: '/dropdown',
         name: 'dropdown',
         component: () => import('../views/dropdown/DropdownDemo.vue')
@@ -376,6 +381,11 @@ const routes = [
         path: '/fullcalendar',
         name: 'fullcalendar',
         component: () => import('../views/fullcalendar/FullCalendarDemo.vue')
+    },
+    {
+        path: '/image',
+        name: 'image',
+        component: () => import('../views/image/ImageDemo.vue')
     },
     {
         path: '/inplace',
@@ -578,6 +588,11 @@ const routes = [
         component: () => import('../views/spacing/SpacingDemo.vue')
     },
     {
+        path: '/speeddial',
+        name: 'speeddial',
+        component: () => import('../views/speeddial/SpeedDialDemo.vue')
+    },
+    {
         path: '/splitbutton',
         name: 'splitbutton',
         component: () => import('../views/splitbutton/SplitButtonDemo.vue')
@@ -625,6 +640,11 @@ const routes = [
             path: '/tabmenu/settings',
             component: () => import('../views/tabmenu/SettingsDemo.vue')
         }]
+    },
+    {
+        path: '/styleclass',
+        name: 'styleclass',
+        component: () => import('../views/styleclass/StyleClassDemo.vue')
     },
     {
         path: '/tabview',
@@ -830,6 +850,11 @@ const routes = [
         path: '/galleria/advanced',
         name: 'galleriaadvvanced',
         component: () => import('../views/galleria/GalleriaAdvancedDemo.vue')
+    },
+    {
+        path: '/virtualscroller',
+        name: 'virtualscroller',
+        component: () => import('../views/virtualscroller/VirtualScrollerDemo.vue')
     },
     {
         path: '/vuelidate',

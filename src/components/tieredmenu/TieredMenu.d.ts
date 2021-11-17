@@ -4,6 +4,11 @@ interface TieredMenuProps {
     appendTo?: string;
     autoZIndex?: boolean;
     baseZIndex?: number;
+    exact?: boolean;
+}
+
+interface TieredMenuItemSlotInterface {
+    item: any;
 }
 
 declare class TieredMenu {
@@ -11,6 +16,9 @@ declare class TieredMenu {
     toggle(event: Event): void;
     show(event: Event, target?: any): void;
     hide(): void;
+    $slots: {
+        item: TieredMenuItemSlotInterface;
+    }
 }
 
 export default TieredMenu;

@@ -1,11 +1,14 @@
 <template>
     <div :class="containerClass" role="alert" aria-live="assertive" aria-atomic="true">
-        <div class="p-toast-message-content">
-            <span :class="iconClass"></span>
-            <div class="p-toast-message-text">
-                <span class="p-toast-summary">{{message.summary}}</span>
-                <div class="p-toast-detail">{{message.detail}}</div>
-            </div>
+        <div class="p-toast-message-content" :class="message.contentStyleClass">
+            <template v-if="!template">
+                <span :class="iconClass"></span>
+                <div class="p-toast-message-text">
+                    <span class="p-toast-summary">{{message.summary}}</span>
+                    <div class="p-toast-detail">{{message.detail}}</div>
+                </div>
+            </template>
+            <component v-else :is="template" :message="message"></component>
             <button class="p-toast-icon-close p-link" @click="onCloseClick" v-if="message.closable !== false" type="button" v-ripple>
                 <span class="p-toast-icon-close-icon pi pi-times"></span>
             </button>
@@ -20,7 +23,8 @@ export default {
     name: 'ToastMessage',
     emits: ['close'],
     props: {
-        message: null
+        message: null,
+        template: null
     },
     closeTimeout: null,
     mounted() {
@@ -30,21 +34,27 @@ export default {
             }, this.message.life)
         }
     },
+    beforeUnmount() {
+        this.clearCloseTimeout();
+    },
     methods: {
         close() {
             this.$emit('close', this.message);
         },
         onCloseClick() {
+            this.clearCloseTimeout();
+            this.close();
+        },
+        clearCloseTimeout() {
             if (this.closeTimeout) {
                 clearTimeout(this.closeTimeout);
+                this.closeTimeout = null;
             }
-
-            this.close();
         }
     },
     computed: {
         containerClass() {
-            return ['p-toast-message', {
+            return ['p-toast-message', this.message.styleClass, {
                 'p-toast-message-info': this.message.severity === 'info',
                 'p-toast-message-warn': this.message.severity === 'warn',
                 'p-toast-message-error': this.message.severity === 'error',

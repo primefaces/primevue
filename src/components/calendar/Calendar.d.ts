@@ -10,6 +10,7 @@ interface CalendarProps {
     showIcon?: boolean;
     icon?: string;
     numberOfMonths?: number;
+    responsiveOptions?: any[];
     view?: string;
     touchUI?: boolean;
     monthNavigator?: boolean;
@@ -40,10 +41,18 @@ interface CalendarProps {
     appendTo?: string;
     inputStyle?: any;
     inputClass?: string;
+    style?: any;
+    class?: string;
+    keepInvalid?: boolean;
+}
+
+interface CalendarDateSlotInterface {
+    date: any;
 }
 
 declare class Calendar {
     $props: CalendarProps;
+    $emit(eventName: 'update:modelValue', value: Date | Date[]): this;
     $emit(eventName: 'show'): this;
     $emit(eventName: 'hide'): this;
     $emit(eventName: 'month-change', e: { month: number, year: number }): this;
@@ -53,7 +62,7 @@ declare class Calendar {
     $emit(eventName: 'clear-click', event: Event): this;
     $slots: {
         header: VNode[];
-        date: VNode[];
+        date: CalendarDateSlotInterface;
         footer: VNode[];
     };
 }

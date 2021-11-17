@@ -13,6 +13,7 @@ interface SidebarProps {
 
 declare class Sidebar {
     $props: SidebarProps;
+    $emit(eventName: 'update:modelValue', value: boolean): this;
     $emit(eventName: 'show'): this;
     $emit(eventName: 'hide'): this;
     $slots: {

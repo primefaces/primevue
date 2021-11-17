@@ -44,6 +44,13 @@ interface TreeTableProps {
 
 declare class TreeTable {
     $props: TreeTableProps;
+    $emit(eventName: 'update:expandedKeys', value: any): this;
+    $emit(eventName: 'update:selectionKeys', value: any): this;
+    $emit(eventName: 'update:first', value: number): this;
+    $emit(eventName: 'update:rows', value: number): this;
+    $emit(eventName: 'update:sortField', value: string | Function): this;
+    $emit(eventName: 'update:sortOrder', value: number): this;
+    $emit(eventName: 'update:multiSortMeta', value: any[]): this;
     $emit(eventName: 'page', event: Event): this;
     $emit(eventName: 'sort', event: Event): this;
     $emit(eventName: 'filter', event: Event): this;
@@ -54,8 +61,8 @@ declare class TreeTable {
     $emit(eventName: 'column-resize-end', event: Event): this;
     $slots: {
         header: VNode[];
-        paginatorLeft: VNode[];
-        paginatorRight: VNode[];
+        paginatorstart: VNode[];
+        paginatorend: VNode[];
         empty: VNode[];
         footer: VNode[];
     }

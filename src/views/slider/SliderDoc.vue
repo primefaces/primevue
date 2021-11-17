@@ -1,8 +1,15 @@
 <template>
 	<AppDoc name="SliderDemo" :sources="sources" github="slider/SliderDemo.vue" >
-        <h5>Import</h5>
+        <h5>Import via Module</h5>
 <pre v-code.script><code>
 import Slider from 'primevue/slider';
+
+</code></pre>
+
+        <h5>Import via CDN</h5>
+<pre v-code><code>
+&lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue@^3/slider/slider.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
@@ -279,6 +286,64 @@ export default {
      height: 14rem;
 }
 </style>`
+                },
+                'browser-source': {
+                    imports: `<script src="https://unpkg.com/primevue@^3/slider/slider.min.js"><\\/script>`,
+                    tabName: 'Browser Source',
+                    content: `<div id="app">
+            <h5>Basic: {{value1}}</h5>
+            <p-slider v-model="value1"></p-slider>
+
+            <h5>Input: {{value2}}</h5>
+            <p-inputtext v-model.number="value2"></p-inputtext>
+            <p-slider v-model="value2"></p-slider>
+
+            <h5>Step: {{value3}}</h5>
+            <p-slider v-model="value3" :step="20"></p-slider>
+
+            <h5>Decimal Step: {{value4}}</h5>
+            <p-slider v-model="value4" :step="0.5"></p-slider>
+
+            <h5>Range: {{value5}}</h5>
+            <p-slider v-model="value5" :range="true"></p-slider>
+
+            <h5>Vertical: {{value6}}</h5>
+            <p-slider v-model="value6" orientation="vertical"></p-slider>
+        </div>
+
+        <script type="module">
+        const { createApp, ref } = Vue;
+
+        const App = {
+            setup() {
+                const value1 = ref(null);
+                const value2 = ref(50);
+                const value3 = ref(20);
+                const value4 = ref(30.5);
+                const value5 = ref([20,80]);
+                const value6 = ref(50);
+
+                return { value1, value2, value3, value4, value5, value6 }
+            },
+            components: {
+                "p-slider": primevue.slider,
+                "p-inputtext": primevue.inputtext
+            }
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .mount("#app");
+        <\\/script>
+
+        <style scoped>
+        .p-slider-horizontal, .p-inputtext {
+            width: 14rem;
+        }
+        .p-slider-vertical {
+            height: 14rem;
+        }
+        </style>`
                 }
             }
         }

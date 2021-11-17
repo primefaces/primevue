@@ -1,8 +1,15 @@
 <template>
 	<AppDoc name="OrganizationChartDemo" :sources="sources" github="organizationchart/OrganizationChartDemo.vue">
-        <h5>Import</h5>
+        <h5>Import via Module</h5>
 <pre v-code.script><code>
 import OrganizationChart from 'primevue/organizationchart';
+
+</code></pre>
+
+        <h5>Import via CDN</h5>
+<pre v-code><code>
+&lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue@^3/organizationchart/organizationchart.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
@@ -916,6 +923,231 @@ export default {
     }
 }
 </style>`
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/organizationchart/organizationchart.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/toast/toast.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/toastservice/toastservice.min.js"><\\/script>`,
+                    content: `<div id="app">
+                <p-toast></p-toast>
+
+                <div class="card">
+                    <h5>Advanced</h5>
+                    <p-organizationchart :value="data1" :collapsible="true" class="company" selection-mode="single" v-model:selection-keys="selection"
+                        @node-select="onNodeSelect" @node-unselect="onNodeUnselect" @node-collapse="onNodeCollapse" @node-expand="onNodeExpand">
+                        <template #person="slotProps">
+                            <div class="node-header ui-corner-top">{{slotProps.node.data.label}}</div>
+                            <div class="node-content">
+                                <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="32">
+                                <div>{{slotProps.node.data.name}}</div>
+                            </div>
+                        </template>
+                        <template #default="slotProps">
+                            <span>{{slotProps.node.data.label}}</span>
+                        </template>
+                    </p-organizationchart>
+                </div>
+
+                <div class="card">
+                    <h5>Basic</h5>
+                    <p-organizationchart :value="data2">
+                        <template #default="slotProps">
+                            <span>{{slotProps.node.data.label}}</span>
+                        </template>
+                    </p-organizationchart>
+                </div>
+            </div>
+
+            <script>
+            const { createApp, ref } = Vue;
+            const { useToast } = primevue.usetoast;
+
+            const App = {
+                setup() {
+                    const toast = useToast();
+
+                    const data1 = ref({
+                        key: '0',
+                        type: 'person',
+                        styleClass: 'p-person',
+                        data: {label: 'CEO', name: 'Walter White', avatar: 'walter.jpg'},
+                        children: [
+                            {
+                                key: '0_0',
+                                type: 'person',
+                                styleClass: 'p-person',
+                                data: {label: 'CFO', name:'Saul Goodman', avatar: 'saul.jpg'},
+                                children:[{
+                                    key: '0_0_0',
+                                    data: {label: 'Tax'},
+                                    selectable: false,
+                                    styleClass: 'department-cfo'
+                                },
+                                {
+                                    key: '0_0_1',
+                                    data: {label: 'Legal'},
+                                    selectable: false,
+                                    styleClass: 'department-cfo'
+                                }],
+                            },
+                            {
+                                key: '0_1',
+                                type: 'person',
+                                styleClass: 'p-person',
+                                data: {label: 'COO', name:'Mike E.', avatar: 'mike.jpg'},
+                                children:[{
+                                    key: '0_1_0',
+                                    data: {label: 'Operations'},
+                                    selectable: false,
+                                    styleClass: 'department-coo'
+                                }]
+                            },
+                            {
+                                key: '0_2',
+                                type: 'person',
+                                styleClass: 'p-person',
+                                data: {label: 'CTO', name:'Jesse Pinkman', avatar: 'jesse.jpg'},
+                                children:[{
+                                    key: '0_2_0',
+                                    data: {label: 'Development'},
+                                    selectable: false,
+                                    styleClass: 'department-cto',
+                                    children:[{
+                                    key: '0_2_0_0',
+                                        data: {label: 'Analysis'},
+                                        selectable: false,
+                                        styleClass: 'department-cto'
+                                    },
+                                    {
+                                        key: '0_2_0_1',
+                                        data: {label: 'Front End'},
+                                        selectable: false,
+                                        styleClass: 'department-cto'
+                                    },
+                                    {
+                                        key: '0_2_0_2',
+                                        data: {label: 'Back End'},
+                                        selectable: false,
+                                        styleClass: 'department-cto'
+                                    }]
+                                },
+                                {
+                                    key: '0_2_1',
+                                    data: {label: 'QA'},
+                                    selectable: false,
+                                    styleClass: 'department-cto'
+                                },
+                                {
+                                    key: '0_2_2',
+                                    data: {label: 'R&D'},
+                                    selectable: false,
+                                    styleClass: 'department-cto'
+                                }]
+                            }
+                        ]
+                    });
+                    const data2 = ref({
+                        key: '0',
+                        data: {label: 'F.C. Barcelona'},
+                        children: [
+                            {
+                                key: '0_0',
+                                data: {label: 'F.C. Barcelona'},
+                                children: [
+                                    {
+                                        key: '0_0_0',
+                                        data: {label: 'Chelsea F.C.'}
+                                    },
+                                    {
+                                        key: '0_0_1',
+                                        data: {label: 'F.C. Barcelona'}
+                                    }
+                                ]
+                            },
+                            {
+                                key: '0_1',
+                                data: {label: 'Real Madrid'},
+                                children: [
+                                    {
+                                        key: '0_1_0',
+                                        data: {label: 'Bayern Munich'}
+                                    },
+                                    {
+                                        key: '0_1_1',
+                                        data: {label: 'Real Madrid'}
+                                    }
+                                ]
+                            }
+                        ]
+                    });
+                    const selection = ref({});
+                    const onNodeSelect = (node) => {
+                        toast.add({severity:'success', summary: 'Node Selected', detail: node.data.label, life: 3000});
+                    };
+                    const onNodeUnselect = (node) => {
+                        toast.add({severity:'success', summary: 'Node Unselected', detail: node.data.label, life: 3000});
+                    };
+                    const onNodeExpand = (node) => {
+                        toast.add({severity:'success', summary: 'Node Expanded', detail: node.data.label, life: 3000});
+                    };
+                    const onNodeCollapse = (node) => {
+                        toast.add({severity:'success', summary: 'Node Collapsed', detail: node.data.label, life: 3000});
+                    };
+
+                    return { data1, data2, selection, onNodeSelect, onNodeUnselect, onNodeExpand, onNodeCollapse }
+                },
+                components: {
+                    "p-organizationchart": primevue.organizationchart,
+                    "p-toast": primevue.toast
+                }
+            };
+
+            createApp(App)
+                .use(primevue.config.default)
+                .use(primevue.toastservice)
+                .mount("#app");
+            <\\/script>
+
+            <style>
+            .p-organizationchart .p-person {
+                padding: 0;
+                border: 0 none;
+            }
+
+            .p-organizationchart .node-header, .p-organizationchart .node-content {
+                padding: .5em .7rem;
+            }
+
+            .p-organizationchart .node-header {
+                background-color: #495ebb;
+                color: #ffffff;
+            }
+
+            .p-organizationchart .node-content {
+                text-align: center;
+                border: 1px solid #495ebb;
+            }
+
+            .p-organizationchart .node-content img {
+                border-radius: 50%;
+            }
+
+            .p-organizationchart .department-cfo {
+                background-color: #7247bc;
+                color: #ffffff;
+            }
+
+            .p-organizationchart .department-coo {
+                background-color: #a534b6;
+                color: #ffffff;
+            }
+
+            .p-organizationchart .department-cto {
+                background-color: #e9286f;
+                color: #ffffff;
+            }
+            </style>`
                 }
             }
         }

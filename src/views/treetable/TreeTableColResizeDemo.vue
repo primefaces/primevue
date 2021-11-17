@@ -130,6 +130,57 @@ export default {
 }
 <\\/script>
 `
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/treetable/treetable.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/column/column.min.js"><\\/script>
+        <script src="./NodeService.js"><\\/script>`,
+                    content: `<div id="app">
+            <div class="card">
+                <h5>Fit Mode</h5>
+                <p-treetable :value="nodes" :resizable-columns="true" column-resize-mode="fit" show-gridlines>
+                    <p-column field="name" header="Name" :expander="true"></p-column>
+                    <p-column field="size" header="Size"></p-column>
+                    <p-column field="type" header="Type"></p-column>
+                </p-treetable>
+            </div>
+
+            <div class="card">
+                <h5>Expand Mode</h5>
+                <p-treetable :value="nodes" :resizable-columns="true" column-resize-mode="expand" show-gridlines>
+                    <p-column field="name" header="Name" :expander="true"></p-column>
+                    <p-column field="size" header="Size"></p-column>
+                    <p-column field="type" header="Type"></p-column>
+                </p-treetable>
+            </div>
+        </div>
+
+        <script type="module">
+        const { createApp, ref, onMounted } = Vue;
+
+        const App = {
+            setup() {
+                onMounted(() => {
+                    nodeService.value.getTreeTableNodes().then(data => nodes.value = data);
+                })
+
+                const nodes = ref(null);
+                const nodeService = ref(new NodeService());
+
+                return { nodes, nodeService }
+            },
+            components: {
+                "p-treetable": primevue.treetable,
+                "p-column": primevue.column
+            }
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .mount("#app");
+        <\\/script>
+`
                 }
             }
         }

@@ -10,8 +10,11 @@
         </div>
         <div class="layout-menu">
             <template v-for="item of menu" :key="item.name">
-                <div class="menu-category">{{item.name}}</div>
-                <div class="menu-items">
+                <div class="menu-category">
+                    {{item.name}}
+                    <Tag v-if="item.badge" :value="item.badge"></Tag>
+                </div>
+                <div class="menu-items" v-if="item.children && item.children.length">
                     <template v-for="child of item.children" :key="child.name">
                         <a v-if="child.href" :href="child.href" target="_blank">{{child.name}}</a>
                         <router-link v-if="child.to" :to="child.to">
@@ -41,6 +44,11 @@
                             </router-link>
                         </template>
                     </template>
+                </div>
+                <div v-if="item.banner" class="menu-image">
+                    <a :href="item.url">
+                        <img :src="darkTheme ? item.imageDark : item.imageLight">
+                    </a>
                 </div>
             </template> 
         </div>
@@ -114,6 +122,11 @@ export default {
                 this.$router.push(event.value.to)
             else if (event.value.href)
                 window.location.href = event.value.href;
+        }
+    },
+    computed: {
+        darkTheme() {
+            return this.$appState.darkTheme === true;
         }
     }
 }

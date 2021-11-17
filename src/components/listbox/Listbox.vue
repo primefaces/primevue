@@ -8,31 +8,38 @@
             </div>
         </div>
         <div class="p-listbox-list-wrapper" :style="listStyle">
-            <ul class="p-listbox-list" role="listbox" aria-multiselectable="multiple">
-                <template v-if="!optionGroupLabel">
-                    <li v-for="(option, i) of visibleOptions" :tabindex="isOptionDisabled(option) ? null : '0'" :class="['p-listbox-item', {'p-highlight': isSelected(option), 'p-disabled': isOptionDisabled(option)}]" v-ripple
-                        :key="getOptionRenderKey(option)" @click="onOptionSelect($event, option)" @touchend="onOptionTouchEnd()" @keydown="onOptionKeyDown($event, option)" role="option" :aria-label="getOptionLabel(option)" :aria-selected="isSelected(option)" >
-                        <slot name="option" :option="option" :index="i">{{getOptionLabel(option)}} </slot>
-                    </li>
-                </template>
-                <template v-else>
-                    <template v-for="(optionGroup, i) of visibleOptions" :key="getOptionGroupRenderKey(optionGroup)">
-                        <li  class="p-listbox-item-group" >
-                            <slot name="optiongroup" :option="optionGroup" :index="i">{{getOptionGroupLabel(optionGroup)}}</slot>
+            <VirtualScroller :ref="virtualScrollerRef" v-bind="virtualScrollerOptions" :style="listStyle" :items="visibleOptions" :disabled="virtualScrollerDisabled">
+                <template v-slot:content="{ styleClass, contentRef, items, getItemOptions }">
+                    <ul :ref="contentRef" :class="['p-listbox-list', styleClass]" role="listbox" aria-multiselectable="multiple">
+                        <template v-if="!optionGroupLabel">
+                            <li v-for="(option, i) of items" :tabindex="isOptionDisabled(option) ? null : '0'" :class="['p-listbox-item', {'p-highlight': isSelected(option), 'p-disabled': isOptionDisabled(option)}]" v-ripple
+                                :key="getOptionRenderKey(option)" @click="onOptionSelect($event, option)" @touchend="onOptionTouchEnd()" @keydown="onOptionKeyDown($event, option)" role="option" :aria-label="getOptionLabel(option)" :aria-selected="isSelected(option)" >
+                                <slot name="option" :option="option" :index="getOptionIndex(i, getItemOptions)">{{getOptionLabel(option)}} </slot>
+                            </li>
+                        </template>
+                        <template v-else>
+                            <template v-for="(optionGroup, i) of items" :key="getOptionGroupRenderKey(optionGroup)">
+                                <li  class="p-listbox-item-group">
+                                    <slot name="optiongroup" :option="optionGroup" :index="getOptionIndex(i, getItemOptions)">{{getOptionGroupLabel(optionGroup)}}</slot>
+                                </li>
+                                <li v-for="(option, i) of getOptionGroupChildren(optionGroup)" :tabindex="isOptionDisabled(option) ? null : '0'" :class="['p-listbox-item', {'p-highlight': isSelected(option), 'p-disabled': isOptionDisabled(option)}]" v-ripple
+                                    :key="getOptionRenderKey(option)" @click="onOptionSelect($event, option)" @touchend="onOptionTouchEnd()" @keydown="onOptionKeyDown($event, option)" role="option" :aria-label="getOptionLabel(option)" :aria-selected="isSelected(option)" >
+                                    <slot name="option" :option="option" :index="getOptionIndex(i, getItemOptions)">{{getOptionLabel(option)}}</slot>
+                                </li>
+                            </template>
+                        </template>
+                        <li v-if="filterValue && (!items || (items && items.length === 0))" class="p-listbox-empty-message">
+                            <slot name="emptyfilter">{{emptyFilterMessageText}}</slot>
                         </li>
-                        <li v-for="(option, i) of getOptionGroupChildren(optionGroup)" :tabindex="isOptionDisabled(option) ? null : '0'" :class="['p-listbox-item', {'p-highlight': isSelected(option), 'p-disabled': isOptionDisabled(option)}]" v-ripple
-                            :key="getOptionRenderKey(option)" @click="onOptionSelect($event, option)" @touchend="onOptionTouchEnd()" @keydown="onOptionKeyDown($event, option)" role="option" :aria-label="getOptionLabel(option)" :aria-selected="isSelected(option)" >
-                            <slot name="option" :option="option" :index="i">{{getOptionLabel(option)}}</slot>
+                        <li v-else-if="(!options || (options && options.length === 0))" class="p-listbox-empty-message">
+                            <slot name="empty">{{emptyMessageText}}</slot>
                         </li>
-                    </template>
+                    </ul>
                 </template>
-                <li v-if="filterValue && (!visibleOptions || (visibleOptions && visibleOptions.length === 0))" class="p-listbox-empty-message">
-                    <slot name="emptyfilter">{{emptyFilterMessageText}}</slot>
-                </li>
-                <li v-else-if="(!options || (options && options.length === 0))" class="p-listbox-empty-message">
-                    <slot name="empty">{{emptyMessageText}}</slot>
-                </li>
-            </ul>
+                <template v-slot:loader="{ options }" v-if="$slots.loader">
+                    <slot name="loader" :options="options"></slot>
+                </template>
+            </VirtualScroller>
         </div>
         <slot name="footer" :value="modelValue" :options="visibleOptions"></slot>
     </div>
@@ -43,6 +50,7 @@ import {ObjectUtils} from 'primevue/utils';
 import {DomHandler} from 'primevue/utils';
 import {FilterService} from 'primevue/api';
 import Ripple from 'primevue/ripple';
+import VirtualScroller from 'primevue/virtualscroller';
 
 export default {
     name: 'Listbox',
@@ -78,15 +86,23 @@ export default {
         emptyMessage: {
             type: String,
             default: null
+        },
+        virtualScrollerOptions: {
+            type: Object,
+            default: null
         }
     },
     optionTouched: false,
+    virtualScroller: null,
     data() {
         return {
             filterValue: null
         };
     },
     methods: {
+        getOptionIndex(index, fn) {
+            return this.virtualScrollerDisabled ? index : (fn && fn(index)['index']);
+        },
         getOptionLabel(option) {
             return this.optionLabel ? ObjectUtils.resolveFieldData(option, this.optionLabel) : option;
         },
@@ -268,6 +284,9 @@ export default {
         },
         onFilterChange(event) {
             this.$emit('filter', {originalEvent: event, value: event.target.value});
+        },
+        virtualScrollerRef(el) {
+            this.virtualScroller = el;
         }
     },
     computed: {
@@ -302,10 +321,16 @@ export default {
         },
         emptyMessageText() {
             return this.emptyMessage || this.$primevue.config.locale.emptyMessage;
+        },
+        virtualScrollerDisabled() {
+            return !this.virtualScrollerOptions;
         }
     },
     directives: {
         'ripple': Ripple
+    },
+    components: {
+        'VirtualScroller': VirtualScroller
     }
 }
 </script>

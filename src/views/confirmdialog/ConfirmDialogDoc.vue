@@ -12,9 +12,16 @@ app.use(ConfirmationService);
 
 </code></pre>
 
-		<h5>Import</h5>
+		<h5>Import via Module</h5>
 <pre v-code.script><code>
 import ConfirmDialog from 'primevue/confirmdialog';
+
+</code></pre>
+
+        <h5>Import via CDN</h5>
+<pre v-code><code>
+&lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue@^3/confirmdialog/confirmdialog.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
@@ -185,6 +192,12 @@ export default {
                         <td>true</td>
                         <td>Whether background scroll should be blocked when dialog is visible.</td>
                     </tr>
+                    <tr>
+                        <td>defaultFocus</td>
+                        <td>string</td>
+                        <td>accept</td>
+                        <td>Element to receive the focus when the dialog gets visible, valid values are "accept" and "reject".</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -268,14 +281,14 @@ export default {
                     <Button @click="confirmPosition('right')" icon="pi pi-arrow-left" label="Right" class="p-button-help"></Button>
                 </div>
                 <div class="p-col">
-                    <Button @click="confirmPosition('topleft')" icon="pi pi-arrow-down" label="TopLeft" class="p-button-warning p-mr-2"></Button>
+                    <Button @click="confirmPosition('topleft')" icon="pi pi-arrow-down-right" label="TopLeft" class="p-button-warning p-mr-2"></Button>
                     <Button @click="confirmPosition('top')" icon="pi pi-arrow-down" label="Top" class="p-button-warning p-mr-2"></Button>
-                    <Button @click="confirmPosition('topright')" icon="pi pi-arrow-down" label="TopRight" class="p-button-warning"></Button>
+                    <Button @click="confirmPosition('topright')" icon="pi pi-arrow-down-left" label="TopRight" class="p-button-warning"></Button>
                 </div>
                 <div class="p-col">
-                    <Button @click="confirmPosition('bottomleft')" icon="pi pi-arrow-up" label="BottomLeft" class="p-button-success p-mr-2"></Button>
+                    <Button @click="confirmPosition('bottomleft')" icon="pi pi-arrow-up-right" label="BottomLeft" class="p-button-success p-mr-2"></Button>
                     <Button @click="confirmPosition('bottom')" icon="pi pi-arrow-up" label="Bottom" class="p-button-success p-mr-2"></Button>
-                    <Button @click="confirmPosition('bottomright')" icon="pi pi-arrow-up" label="BottomRight" class="p-button-success"></Button>
+                    <Button @click="confirmPosition('bottomright')" icon="pi pi-arrow-up-left" label="BottomRight" class="p-button-success"></Button>
                 </div>
             </div>
         </div>
@@ -353,14 +366,14 @@ export default {
                     <Button @click="confirmPosition('right')" icon="pi pi-arrow-left" label="Right" class="p-button-help"></Button>
                 </div>
                 <div class="p-col">
-                    <Button @click="confirmPosition('topleft')" icon="pi pi-arrow-down" label="TopLeft" class="p-button-warning p-mr-2"></Button>
+                    <Button @click="confirmPosition('topleft')" icon="pi pi-arrow-down-right" label="TopLeft" class="p-button-warning p-mr-2"></Button>
                     <Button @click="confirmPosition('top')" icon="pi pi-arrow-down" label="Top" class="p-button-warning p-mr-2"></Button>
-                    <Button @click="confirmPosition('topright')" icon="pi pi-arrow-down" label="TopRight" class="p-button-warning"></Button>
+                    <Button @click="confirmPosition('topright')" icon="pi pi-arrow-down-left" label="TopRight" class="p-button-warning"></Button>
                 </div>
                 <div class="p-col">
-                    <Button @click="confirmPosition('bottomleft')" icon="pi pi-arrow-up" label="BottomLeft" class="p-button-success p-mr-2"></Button>
+                    <Button @click="confirmPosition('bottomleft')" icon="pi pi-arrow-up-right" label="BottomLeft" class="p-button-success p-mr-2"></Button>
                     <Button @click="confirmPosition('bottom')" icon="pi pi-arrow-up" label="Bottom" class="p-button-success p-mr-2"></Button>
-                    <Button @click="confirmPosition('bottomright')" icon="pi pi-arrow-up" label="BottomRight" class="p-button-success"></Button>
+                    <Button @click="confirmPosition('bottomright')" icon="pi pi-arrow-up-left" label="BottomRight" class="p-button-success"></Button>
                 </div>
             </div>
         </div>
@@ -426,6 +439,114 @@ export default defineComponent({
     }
 });
 <\\/script>
+`
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/confirmdialog/confirmdialog.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/confirmationservice/confirmationservice.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/toast/toast.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/toastservice/toastservice.min.js"><\\/script>`,
+                    content: `<div id="app">
+            <p-toast></p-toast>
+            <p-confirmdialog></p-confirmdialog>
+            <p-confirmdialog group="positionDialog"></p-confirmdialog>
+
+            <div class="card">
+                <h5>Basic</h5>
+                <p-button @click="confirm1()" icon="pi pi-check" label="Confirm" class="p-mr-2"></p-button>
+                <p-button @click="confirm2()" icon="pi pi-times" label="Delete"></p-button>
+
+                <h5>Position</h5>
+                <div class="p-grid p-dir-col">
+                    <div class="p-col">
+                        <p-button @click="confirmPosition('left')" icon="pi pi-arrow-right" label="Left" class="p-button-help p-mr-2"></p-button>
+                        <p-button @click="confirmPosition('right')" icon="pi pi-arrow-left" label="Right" class="p-button-help"></p-button>
+                    </div>
+                    <div class="p-col">
+                        <p-button @click="confirmPosition('topleft')" icon="pi pi-arrow-down-right" label="TopLeft" class="p-button-warning p-mr-2"></p-button>
+                        <p-button @click="confirmPosition('top')" icon="pi pi-arrow-down" label="Top" class="p-button-warning p-mr-2"></p-button>
+                        <p-button @click="confirmPosition('topright')" icon="pi pi-arrow-down-left" label="TopRight" class="p-button-warning"></p-button>
+                    </div>
+                    <div class="p-col">
+                        <p-button @click="confirmPosition('bottomleft')" icon="pi pi-arrow-up-right" label="BottomLeft" class="p-button-success p-mr-2"></p-button>
+                        <p-button @click="confirmPosition('bottom')" icon="pi pi-arrow-up" label="Bottom" class="p-button-success p-mr-2"></p-button>
+                        <p-button @click="confirmPosition('bottomright')" icon="pi pi-arrow-up-left" label="BottomRight" class="p-button-success"></p-button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script type="module">
+        const { createApp } = Vue;
+        const { useConfirm } = primevue.useconfirm;
+        const { useToast } = primevue.usetoast;
+
+        const App = {
+            setup() {
+                const confirm = useConfirm();
+                const toast = useToast();
+
+                const confirm1 = () => {
+                    confirm.require({
+                        message: 'Are you sure you want to proceed?',
+                        header: 'Confirmation',
+                        icon: 'pi pi-exclamation-triangle',
+                        accept: () => {
+                            toast.add({severity:'info', summary:'Confirmed', detail:'You have accepted', life: 3000});
+                        },
+                        reject: () => {
+                            toast.add({severity:'error', summary:'Rejected', detail:'You have rejected', life: 3000});
+                        }
+                    });
+                }
+
+                const confirm2 = () => {
+                    confirm.require({
+                        message: 'Do you want to delete this record?',
+                        header: 'Delete Confirmation',
+                        icon: 'pi pi-info-circle',
+                        acceptClass: 'p-button-danger',
+                        accept: () => {
+                            toast.add({severity:'info', summary:'Confirmed', detail:'Record deleted', life: 3000});
+                        },
+                        reject: () => {
+                            toast.add({severity:'error', summary:'Rejected', detail:'You have rejected', life: 3000});
+                        }
+                    });
+                }
+
+                const confirmPosition = (position) => {
+                    confirm.require({
+                        group: 'positionDialog',
+                        message: 'Do you want to delete this record?',
+                        header: 'Delete Confirmation',
+                        icon: 'pi pi-info-circle',
+                        position: position,
+                        accept: () => {
+                            toast.add({severity:'info', summary:'Confirmed', detail:'Record deleted', life: 3000});
+                        },
+                        reject: () => {
+                            toast.add({severity:'error', summary:'Rejected', detail:'You have rejected', life: 3000});
+                        }
+                    });
+                }
+
+                return { confirm1, confirm2, confirmPosition };
+            },
+            components: {
+                "p-confirmdialog": primevue.confirmdialog,
+                "p-toast": primevue.toast,
+                "p-button": primevue.button
+            }
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .use(primevue.confirmationservice)
+            .use(primevue.toastservice)
+            .mount("#app");
+        <\\/script>
 `
                 }
             }

@@ -1,8 +1,15 @@
 <template>
 	<AppDoc name="BlockUIDemo" :sources="sources" github="blockui/BlockUIDemo.vue">
-        <h5>Import</h5>
+        <h5>Import via Module</h5>
 <pre v-code.script><code>
 import BlockUI from 'primevue/blockui';
+
+</code></pre>
+
+        <h5>Import via CDN</h5>
+<pre v-code><code>
+&lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue@^3/blockui/blockui.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
@@ -268,6 +275,77 @@ button {
     margin-right: .5rem;
 }
 </style>`
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/blockui/blockui.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/panel/panel.min.js"><\\/script>`,
+                    content: `<div id="app">
+            <h5>Document</h5>
+            <p-blockui :blocked="blockedDocument" :full-screen="true"></p-blockui>
+
+            <p-button type="button" label="Block" @click="blockDocument()"></p-button>
+
+            <h5>Panel</h5>
+            <p-button type="button" label="Block" @click="blockPanel()"></p-button>
+            <p-button type="button" label="Unblock" @click="unblockPanel()"></p-button>
+
+            <p-blockui :blocked="blockedPanel">
+                <p-panel header="Godfather I" style="margin-top: 20px">
+                    <p>The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
+                    His beloved son Michael has just come home from the war, but does not intend to become part of his father's business.
+                    Through Michael's life the nature of the family business becomes clear. The business of the family is just like the head of the family,
+                    kind and benevolent to those who give respect, but given to ruthless violence whenever anything stands against the good of the family.</p>
+                </p-panel>
+            </p-blockui>
+        </div>
+
+        <script type="module">
+        const { createApp, ref } = Vue;
+
+        const App = {
+            setup() {
+                const blockedPanel = ref(false);
+                const blockedDocument = ref(false);
+                const blockDocument = () => {
+                    blockedDocument.value = true;
+
+                    setTimeout(() => {
+                        blockedDocument.value = false;
+                    }, 3000);
+                };
+                const blockPanel = () => {
+                    blockedPanel.value = true;
+                };
+                const unblockPanel = () => {
+                    blockedPanel.value = false;
+                };
+
+                return { blockedPanel, blockedDocument, blockDocument, blockPanel, unblockPanel }
+            },
+            components: {
+                "p-blockui": primevue.blockui,
+                "p-panel": primevue.panel,
+                "p-button": primevue.button
+            }
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .mount("#app");
+        <\\/script>
+
+        <style>
+        .p-panel p {
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .p-button {
+            margin-right: .5rem;
+        }
+        </style>
+`
                 }
             }
         }

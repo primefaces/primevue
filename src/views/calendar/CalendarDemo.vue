@@ -14,7 +14,7 @@
                 <div class="p-fluid p-grid p-formgrid">
                     <div class="p-field p-col-12 p-md-4">
                         <label for="basic">Basic</label>
-                        <Calendar id="basic" v-model="date1" />
+                        <Calendar id="basic" v-model="date1" autocomplete="off" />
                     </div>
                     <div class="p-field p-col-12 p-md-4">
                         <label for="dateformat">DateFormat</label>
@@ -33,10 +33,6 @@
                         <Calendar id="disableddays" v-model="date5" :disabledDates="invalidDates" :disabledDays="[0,6]" :manualInput="false" />
                     </div>
                     <div class="p-field p-col-12 p-md-4">
-                        <label for="navigators">Navigators</label>
-                        <Calendar id="navigators" v-model="date6" :monthNavigator="true" :yearNavigator="true" yearRange="2000:2030" />
-                    </div>
-                    <div class="p-field p-col-12 p-md-4">
                         <label for="multiple">Multiple</label>
                         <Calendar id="multiple" v-model="dates1" selectionMode="multiple" :manualInput="false" />
                     </div>
@@ -46,23 +42,27 @@
                     </div>
                     <div class="p-field p-col-12 p-md-4">
                         <label for="buttonbar">Button Bar</label>
-                        <Calendar id="buttonbar" v-model="date7" :showButtonBar="true" />
+                        <Calendar id="buttonbar" v-model="date6" :showButtonBar="true" />
                     </div>
                     <div class="p-field p-col-12 p-md-4">
                         <label for="time24">Time / 24h</label>
-                        <Calendar id="time24" v-model="date8" :showTime="true" :showSeconds="true" />
+                        <Calendar id="time24" v-model="date7" :showTime="true" :showSeconds="true" />
                     </div>
                     <div class="p-field p-col-12 p-md-4">
                         <label for="time12">Time / 12h</label>
-                        <Calendar id="time12" v-model="date9" :timeOnly="true" hourFormat="12" />
+                        <Calendar id="time12" v-model="date8" :timeOnly="true" hourFormat="12" />
                     </div>
                     <div class="p-field p-col-12 p-md-4">
                         <label for="monthpicker">Month Picker</label>
-                        <Calendar id="monthpicker" v-model="date10" view="month" dateFormat="mm/yy" :yearNavigator="true" yearRange="2000:2030" />
+                        <Calendar id="monthpicker" v-model="date9" view="month" dateFormat="mm/yy" />
+                    </div>
+                    <div class="p-field p-col-12 p-md-4">
+                        <label for="yearpicker">Year Picker</label>
+                        <Calendar id="yearpicker" v-model="date10" view="year" dateFormat="yy"/>
                     </div>
                     <div class="p-field p-col-12 p-md-4">
                         <label for="multiplemonths">Multiple Months</label>
-                        <Calendar id="multiplemonths" v-model="date11" :numberOfMonths="3" />
+                        <Calendar id="multiplemonths" v-model="date11" :numberOfMonths="3" :responsiveOptions="responsiveOptions" />
                     </div>
                     <div class="p-field p-col-12 p-md-4">
                         <label for="datetemplate">Date Template</label>
@@ -131,7 +131,17 @@ export default {
             dates2: null,
             minDate: null,
             maxDate: null,
-            invalidDates: null
+            invalidDates: null,
+            responsiveOptions: [
+                {
+					breakpoint: '1400px',
+					numMonths: 2
+				},
+				{
+					breakpoint: '1200px',
+					numMonths: 1
+				}
+			]
         }
     },
 	components: {

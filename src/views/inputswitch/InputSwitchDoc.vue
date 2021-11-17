@@ -1,8 +1,15 @@
 <template>
 	<AppDoc name="InputSwitchDemo" :sources="sources" github="inputswitch/InputSwitchDemo.vue">
-		<h5>Import</h5>
+		<h5>Import via Module</h5>
 <pre v-code.script><code>
 import InputSwitch from 'primevue/inputswitch';
+
+</code></pre>
+
+		<h5>Import via CDN</h5>
+<pre v-code><code>
+&lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue@^3/inputswitch/inputswitch.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
@@ -56,12 +63,64 @@ export default {
                         <td>null</td>
                         <td>Specifies whether a inputswitch should be checked or not.</td>
                     </tr>
+					<tr>
+                        <td>style</td>
+                        <td>any</td>
+                        <td>null</td>
+                        <td>Style class of the component input field.</td>
+                    </tr>
+                    <tr>
+                        <td>class</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Inline style of the component.</td>
+                    </tr>
+					<tr>
+                        <td>trueValue</td>
+                        <td>any</td>
+                        <td>null</td>
+                        <td>Value in checked state.</td>
+                    </tr>
+                    <tr>
+                        <td>falseValue</td>
+                        <td>any</td>
+                        <td>null</td>
+                        <td>Value in unchecked state.</td>
+                    </tr>
 				</tbody>
 			</table>
 		</div>
 
 		<h5>Events</h5>
-		<p>Any valid event such as focus, blur and input are passed to the underlying input element. Following are the additional events to configure the component.</p>
+		<p>In addition to the following events, any other valid events such as focus and blur are passed implicitly.</p>
+		<div class="doc-tablewrapper">
+			<table class="doc-table">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Parameters</th>
+						<th>Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>click</td>
+						<td>event: Browser event</td>
+						<td>Callback to invoke on click.</td>
+					</tr>
+					<tr>
+						<td>change</td>
+						<td>event: Browser event</td>
+						<td>Callback to invoke on value change.</td>
+					</tr>
+					<tr>
+						<td>input</td>
+						<td>value: New value</td>
+						<td>Callback to invoke on value change.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 
 		<h5>Styling</h5>
 		<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
@@ -150,6 +209,38 @@ export default {
     }
 }
 <\\/script>
+`
+				},
+				'browser-source': {
+					tabName: 'Browser Source',
+					imports: `<script src="https://unpkg.com/primevue@^3/inputswitch/inputswitch.min.js"><\\/script>`,
+					content: `<div id="app">
+			<h5>Basic</h5>
+			<p-inputswitch v-model="checked1"></p-inputswitch>
+
+			<h5>Preselection</h5>
+			<p-inputswitch v-model="checked2"></p-inputswitch>
+		</div>
+
+		<script>
+		const { createApp, ref } = Vue;
+
+		const App = {
+			setup() {
+				const checked1 = ref(false);
+				const checked2 = ref(true);
+
+				return { checked1, checked2 }
+			},
+			components: {
+				"p-inputswitch": primevue.inputswitch
+			}
+		};
+
+		createApp(App)
+            .use(primevue.config.default)
+            .mount("#app");
+		<\\/script>
 `
 				}
 			}

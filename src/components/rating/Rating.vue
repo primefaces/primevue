@@ -2,7 +2,7 @@
     <div :class="containerClass">
         <span class="p-rating-icon p-rating-cancel pi pi-ban" :tabindex="focusIndex" v-if="cancel" @click="onCancelClick"></span>
         <span :key="i" v-for="i in stars" @click="onStarClick($event,i)" :tabindex="focusIndex" @keydown.enter.prevent="onStarClick($event,i)"
-            :class="['p-rating-icon', {'pi pi-star-o': (i > modelValue), 'pi pi-star': (i <= modelValue)}]"></span>
+            :class="['p-rating-icon', {'pi pi-star': (i > modelValue), 'pi pi-star-fill': (i <= modelValue)}]"></span>
     </div>
 </template>
 

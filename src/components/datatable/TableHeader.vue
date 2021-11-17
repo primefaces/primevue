@@ -6,7 +6,7 @@
                     <DTHeaderCell v-if="!columnProp(col, 'hidden') && (rowGroupMode !== 'subheader' || (groupRowsBy !== columnProp(col, 'field')))" :column="col"
                     @column-click="$emit('column-click', $event)" @column-mousedown="$emit('column-mousedown', $event)"
                     @column-dragstart="$emit('column-dragstart', $event)" @column-dragover="$emit('column-dragover', $event)" @column-dragleave="$emit('column-dragleave', $event)" @column-drop="$emit('column-drop', $event)"
-                    :resizableColumns="resizableColumns" @column-resizestart="$emit('column-resizestart', $event)"
+                    :groupRowsBy="groupRowsBy" :groupRowSortField="groupRowSortField" :resizableColumns="resizableColumns" @column-resizestart="$emit('column-resizestart', $event)"
                     :sortMode="sortMode" :sortField="sortField" :sortOrder="sortOrder" :multiSortMeta="multiSortMeta"
                     :allRowsSelected="allRowsSelected" :empty="empty" @checkbox-change="$emit('checkbox-change', $event)"
                     :filters="filters" :filterDisplay="filterDisplay" :filtersStore="filtersStore" @filter-change="$emit('filter-change', $event)" @filter-apply="$emit('filter-apply')"
@@ -16,7 +16,7 @@
             </tr>
             <tr v-if="filterDisplay === 'row'" role="row">
                 <template v-for="(col,i) of columns" :key="columnProp(col, 'columnKey')||columnProp(col, 'field')||i">
-                    <th :style="getFilterColumnHeaderStyle(col)" :class="getFilterColumnHeaderClass(col)" v-if="!columnProp(col, 'hidden')">
+                    <th :style="getFilterColumnHeaderStyle(col)" :class="getFilterColumnHeaderClass(col)" v-if="!columnProp(col, 'hidden') && (rowGroupMode !== 'subheader' || (groupRowsBy !== columnProp(col, 'field')))">
                         <DTHeaderCheckbox :checked="allRowsSelected" @change="$emit('checkbox-change', $event)" :disabled="empty" v-if="columnProp(col, 'selectionMode') ==='multiple'" />
                         <DTColumnFilter v-if="col.children && col.children.filter" :field="columnProp(col,'filterField')||columnProp(col,'field')" :type="columnProp(col,'dataType')" display="row"
                         :showMenu="columnProp(col,'showFilterMenu')" :filterElement="col.children && col.children.filter"
@@ -33,10 +33,10 @@
         </template>
         <template v-else>
             <tr v-for="(row,i) of columnGroup.children.default()" :key="i" role="row">
-                <template v-for="(col,j) of row.children.default()" :key="columnProp(col, 'columnKey')||columnProp(col, 'field')||j">
-                    <DTHeaderCell v-if="!columnProp(col, 'hidden') && (rowGroupMode !== 'subheader' || (groupRowsBy !== columnProp(col, 'field')))" :column="col"
+                <template v-for="(col,j) of getHeaderColumns(row)" :key="columnProp(col, 'columnKey')||columnProp(col, 'field')||j">
+                    <DTHeaderCell v-if="!columnProp(col, 'hidden') && (rowGroupMode !== 'subheader' || (groupRowsBy !== columnProp(col, 'field'))) && (typeof col.children !== 'string')" :column="col"
                     @column-click="$emit('column-click', $event)" @column-mousedown="$emit('column-mousedown', $event)"
-                    :sortMode="sortMode" :sortField="sortField" :sortOrder="sortOrder" :multiSortMeta="multiSortMeta"
+                    :groupRowsBy="groupRowsBy" :groupRowSortField="groupRowSortField" :sortMode="sortMode" :sortField="sortField" :sortOrder="sortOrder" :multiSortMeta="multiSortMeta"
                     :allRowsSelected="allRowsSelected" :empty="empty" @checkbox-change="$emit('checkbox-change', $event)"
                     :filters="filters" :filterDisplay="filterDisplay" :filtersStore="filtersStore" @filter-change="$emit('filter-change', $event)" @filter-apply="$emit('filter-apply')"
                     @operator-change="$emit('operator-change',$event)" @matchmode-change="$emit('matchmode-change', $event)" @constraint-add="$emit('constraint-add', $event)"
@@ -51,6 +51,7 @@
 import HeaderCell from './HeaderCell.vue';
 import HeaderCheckbox from './HeaderCheckbox.vue';
 import ColumnFilter from './ColumnFilter.vue';
+import {ObjectUtils} from 'primevue/utils';
 
 export default {
     name: 'TableHeader',
@@ -90,6 +91,10 @@ export default {
             type: String,
             default: 'single'
         },
+        groupRowSortField: {
+            type: [String, Function],
+            default: null
+        },
         sortField: {
             type: [String, Function],
             default: null
@@ -117,7 +122,7 @@ export default {
     },
     methods: {
         columnProp(col, prop) {
-            return col.props ? ((col.type.props[prop].type === Boolean && col.props[prop] === '') ? true : col.props[prop]) : null;
+            return ObjectUtils.getVNodeProp(col, prop);
         },
         getFilterColumnHeaderClass(column) {
             return ['p-filter-column', this.columnProp(column, 'filterHeaderClass'), this.columnProp(column, 'class'), {
@@ -126,6 +131,20 @@ export default {
         },
         getFilterColumnHeaderStyle(column) {
             return [this.columnProp(column, 'filterHeaderStyle'), this.columnProp(column, 'style')];
+        },
+        getHeaderColumns(row){
+            let cols = [];
+
+            if (row.children && row.children.default) {
+                row.children.default().forEach(child => {
+                    if (child.children && child.children instanceof Array)
+                        cols = [...cols, ...child.children];
+                    else if (child.type.name === 'Column')
+                        cols.push(child);
+                });
+
+                return cols;
+            }
         }
     },
     components: {

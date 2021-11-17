@@ -7,10 +7,18 @@ const ConfirmPopupProps = [
     }
 ];
 
+const ConfirmPopupSlots = [
+    {
+        name: "message",
+        description: "Custom content for the component."
+    }
+];
+
 module.exports = {
     confirmpopup: {
         name: "ConfirmPopup",
         description: "ConfirmPopup displays a confirmation overlay displayed relatively to its target.",
-        props: ConfirmPopupProps
+        props: ConfirmPopupProps,
+        slots: ConfirmPopupSlots
     }
 };

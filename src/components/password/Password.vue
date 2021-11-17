@@ -10,7 +10,7 @@
                         <div class="p-password-meter">
                             <div :class="strengthClass" :style="{'width': meter ? meter.width : ''}"></div>
                         </div>
-                        <div className="p-password-info">{{infoText}}</div>
+                        <div class="p-password-info">{{infoText}}</div>
                     </slot>
                     <slot name="footer"></slot>
                 </div>
@@ -164,7 +164,7 @@ export default {
         },
         onKeyUp(event) {
             if (this.feedback) {
-                let value = event.target.value;
+                const value = event.target.value;
                 let label = null;
                 let meter = null;
 
@@ -316,6 +316,8 @@ export default {
 
 .p-password-panel {
     position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .p-password .p-password-panel {
@@ -328,7 +330,7 @@ export default {
 
 .p-password-strength {
     height: 100%;
-    width: 0%;
+    width: 0;
     transition: width 1s ease-in-out;
 }
 

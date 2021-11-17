@@ -18,10 +18,10 @@
             <h5>Customization</h5>
             <p>CSS of the themes share the same license as PrimeVue which is MIT, this means the generated CSS can be customized per your needs however this should be avoided if your customizations
                 are not simple. For instance even to change a primary color, since there is no variable a find and replace should be performed various times. On the other hand, this can be achieved
-                by changing a single variable e.g. $primaryColor. Visit the <a href="https://www.primefaces.org/designer/api/primevue/2.0.0">SASS API</a> for the documentation of available customization options.</p>
+                by changing a single variable e.g. $primaryColor. Visit the <a href="https://www.primefaces.org/designer/api/primevue/3.5.0">SASS API</a> for the documentation of available customization options.</p>
 
             <p><a href="https://www.primefaces.org/designer/primevue">Designer</a> is the ultimate tool to create your own PrimeVue experience powered by a SASS based theme engine
-                with 500+ variables and a Visual Designer. PrimeVue only ships the generated CSS of <b>Material</b>, <b>Bootstrap</b>, <b>Saga</b>, <b>Vela</b>, <b>Arya</b> and legacy themes whereas Designer provides
+                with 500+ variables and a Visual Designer. PrimeVue only ships the generated CSS of <b>Material</b>, <b>Bootstrap</b>, <b>Tailwind</b>, <b>FluentUI</b>, <b>Saga</b>, <b>Vela</b>, <b>Arya</b> and legacy themes whereas Designer provides
                 full access to the whole SASS structure and the variables of these pre-built themes for easier customization. In addition, designer provides exclusive premium themes to subscribers including Soho, Viva, Mira and Nano that are not available in core PrimeVue distribution.</p>
 
             <p>Whether you have your own style guide or just need a custom theme, Designer API is the right tool to design and bring them to existence.</p>

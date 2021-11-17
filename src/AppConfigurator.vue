@@ -13,7 +13,7 @@
                     <h4>Component Scale</h4>
                     <div class="config-scale">
                         <Button icon="pi pi-minus" @click="decrementScale()" class="p-button-text" :disabled="scale === scales[0]"/>
-                        <i class="pi pi-circle-on" v-for="s of scales" :class="{'scale-active': s === scale}" :key="s"/>
+                        <i class="pi pi-circle-fill" v-for="s of scales" :class="{'scale-active': s === scale}" :key="s"/>
                         <Button icon="pi pi-plus"  @click="incrementScale()" class="p-button-text" :disabled="scale === scales[scales.length - 1]" />
                     </div>
 
@@ -109,9 +109,19 @@
                         </div>
                     </div>
 
+                    <h5>Tailwind</h5>
+                    <div class="p-grid free-themes">
+                        <div class="p-col-3">
+                            <button class="p-link" type="button" @click="changeTheme($event, 'tailwind-light')">
+                                <img src="demo/images/themes/tailwind-light.png" alt="Tailwind Light"/>
+                            </button>
+                            <span>Tailwind Light</span>
+                        </div>
+                    </div>
+
                     <h5>Fluent UI</h5>
                     <div class="p-grid free-themes">
-                         <div class="p-col-3">
+                        <div class="p-col-3">
                             <button class="p-link" type="button" @click="changeTheme($event, 'fluent-light')">
                                 <img src="demo/images/themes/fluent-light.png" alt="Fluent Light"/>
                             </button>
@@ -119,7 +129,59 @@
                         </div>
                     </div>
 
-                    <h5>PrimeOne Design</h5>
+                    <h5 class="p-d-flex p-ai-center">PrimeOne Design - 2022 <Tag class="p-ml-3" value="NEW" rounded severity="success"></Tag></h5>
+                    <div class="p-grid free-themes">
+                        <div class="p-col-3">
+                            <button class="p-link" type="button" @click="changeTheme($event, 'lara-light-indigo')">
+                                <img src="demo/images/themes/lara-light-indigo.png" alt="Lara Light Indigo" />
+                            </button>
+                            <span>Lara Light Indigo</span>
+                        </div>
+                        <div class="p-col-3">
+                            <button class="p-link" type="button" @click="changeTheme($event, 'lara-light-blue')">
+                                <img src="demo/images/themes/lara-light-blue.png" alt="Lara Light Blue" />
+                            </button>
+                            <span>Lara Light Blue</span>
+                        </div>
+                        <div class="p-col-3">
+                            <button class="p-link" type="button" @click="changeTheme($event, 'lara-light-purple')">
+                                <img src="demo/images/themes/lara-light-purple.png" alt="Lara Light Purple" />
+                            </button>
+                            <span>Lara Light Purple</span>
+                        </div>
+                        <div class="p-col-3">
+                            <button class="p-link" type="button" @click="changeTheme($event, 'lara-light-teal')">
+                                <img src="demo/images/themes/lara-light-teal.png" alt="Lara Light Teal" />
+                            </button>
+                            <span>Lara Light Teal</span>
+                        </div>
+                        <div class="p-col-3">
+                            <button class="p-link" type="button" @click="changeTheme($event, 'lara-dark-indigo', true)">
+                                <img src="demo/images/themes/lara-dark-indigo.png" alt="Lara Dark Indigo" />
+                            </button>
+                            <span>Lara Dark Indigo</span>
+                        </div>
+                        <div class="p-col-3">
+                            <button class="p-link" type="button" @click="changeTheme($event, 'lara-dark-blue', true)">
+                                <img src="demo/images/themes/lara-dark-blue.png" alt="Lara Dark Blue" />
+                            </button>
+                            <span>Lara Dark Blue</span>
+                        </div>
+                        <div class="p-col-3">
+                            <button class="p-link" type="button" @click="changeTheme($event, 'lara-dark-purple', true)">
+                                <img src="demo/images/themes/lara-dark-purple.png" alt="Lara Dark Purple" />
+                            </button>
+                            <span>Lara Dark Purple</span>
+                        </div>
+                        <div class="p-col-3">
+                            <button class="p-link" type="button" @click="changeTheme($event, 'lara-dark-teal', true)">
+                                <img src="demo/images/themes/lara-dark-teal.png" alt="Lara Dark Teal" />
+                            </button>
+                            <span>Lara Dark Teal</span>
+                        </div>
+                    </div>
+
+                    <h5>PrimeOne Design - 2021</h5>
                     <div class="p-grid free-themes">
                         <div class="p-col-3">
                             <button class="p-link" type="button" @click="changeTheme($event, 'saga-blue')">
@@ -236,70 +298,22 @@
                         </div>
                     </div>
 
-                    <h4>Legacy Free Themes</h4>
-                    <div class="p-grid free-themes">
-                        <div class="p-col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'nova')">
-                                <img src="demo/images/themes/nova.png" alt="Nova" />
-                            </button>
-                            <span>Nova</span>
-                        </div>
-                        <div class="p-col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'nova-alt')">
-                                <img src="demo/images/themes/nova-alt.png" alt="Nova Alt" />
-                            </button>
-                            <span>Nova Alt</span>
-                        </div>
-                        <div class="p-col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'nova-accent')">
-                                <img src="demo/images/themes/nova-accent.png" alt="Nova Accent" />
-                            </button>
-                            <span>Nova Accent</span>
-                        </div>
-                        <div class="p-col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'nova-vue')">
-                                <img src="demo/images/themes/nova-vue.png" alt="Nova Colored" />
-                            </button>
-                            <span>Nova Vue</span>
-                        </div>
-                        <div class="p-col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'luna-blue', true)">
-                                <img src="demo/images/themes/luna-blue.png" alt="Luna Blue" />
-                            </button>
-                            <span>Luna Blue</span>
-                        </div>
-                        <div class="p-col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'luna-green', true)">
-                                <img src="demo/images/themes/luna-green.png" alt="Luna Green" />
-                            </button>
-                            <span>Luna Green</span>
-                        </div>
-                        <div class="p-col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'luna-amber', true)">
-                                <img src="demo/images/themes/luna-amber.png" alt="Luna Amber" />
-                            </button>
-                            <span>Luna Amber</span>
-                        </div>
-                        <div class="p-col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'luna-pink', true)">
-                                <img src="demo/images/themes/luna-pink.png" alt="Luna Pink" />
-                            </button>
-                            <span>Luna Pink</span>
-                        </div>
-                        <div class="p-col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'rhea', false)">
-                                <img src="demo/images/themes/rhea.png" alt="Rhea" />
-                            </button>
-                            <span>Rhea</span>
-                        </div>
-                    </div>
-
-                    <h4>Premium Vue-CLI Templates</h4>
-                    <p>Beautifully crafted premium <a href="https://cli.vuejs.org">Vue CLI</a> application templates by the PrimeTek design team.</p>
+                    <h4>Admin Templates</h4>
+                    <p>Beautifully crafted <a href="https://cli.vuejs.org">Vue CLI</a> application templates by the PrimeTek design team.</p>
                     <div class="p-grid premium-themes">
                         <div class="p-col-12 p-md-6">
+                            <a href="https://www.primefaces.org/sakai-vue">
+                                <img alt="Ultima" src="./assets/images/layouts/sakai-vue.jpg">
+                            </a>
+                        </div>
+                        <div class="p-col-12 p-md-6">
+                            <a href="https://www.primefaces.org/layouts/atlantis-vue">
+                                <img alt="Atlantis" src="./assets/images/layouts/atlantis-vue.jpg">
+                            </a>
+                        </div>
+                        <div class="p-col-12 p-md-6">
                             <a href="https://www.primefaces.org/layouts/freya-vue">
-                                <img alt="Ultima" src="./assets/images/layouts/freya-vue.png">
+                                <img alt="Freya" src="./assets/images/layouts/freya-vue.png">
                             </a>
                         </div>
                         <div class="p-col-12 p-md-6">

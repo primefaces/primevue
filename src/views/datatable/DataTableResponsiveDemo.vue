@@ -208,6 +208,85 @@ export default {
 }
 <\\/script>                  
 `
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/datatable/datatable.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/column/column.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/rating/rating.min.js"><\\/script>
+        <script src="./ProductService.js"><\\/script>`,
+                    content: `<div id="app">
+            <div class="card">
+                <p-datatable :value="products" responsive-layout="scroll">
+                    <template #header>
+                        Scroll
+                    </template>
+                    <p-column field="code" header="Code"></p-column>
+                    <p-column field="name" header="Name"></p-column>
+                    <p-column field="category" header="Category"></p-column>
+                    <p-column field="quantity" header="Quantity"></p-column>
+                    <p-column field="inventoryStatus" header="Status">
+                        <template #body="slotProps">
+                            <span :class="'product-badge status-' + (slotProps.data.inventoryStatus ? slotProps.data.inventoryStatus.toLowerCase() : '')">{{slotProps.data.inventoryStatus}}</span>
+                        </template>
+                    </p-column>
+                    <p-column field="rating" header="Rating">
+                        <template #body="slotProps">
+                        <p-rating :model-value="slotProps.data.rating" :readonly="true" :cancel="false"></p-rating>
+                        </template>
+                    </p-column>
+                </p-datatable>
+            </div>
+
+            <div class="card">
+                <p-datatable :value="products" responsive-layout="stack" breakpoint="960px">
+                    <template #header>
+                        Stack
+                    </template>
+                    <p-column field="code" header="Code"></p-column>
+                    <p-column field="name" header="Name"></p-column>
+                    <p-column field="category" header="Category"></p-column>
+                    <p-column field="quantity" header="Quantity"></p-column>
+                    <p-column field="inventoryStatus" header="Status">
+                        <template #body="slotProps">
+                            <span :class="'product-badge status-' + (slotProps.data.inventoryStatus ? slotProps.data.inventoryStatus.toLowerCase() : '')">{{slotProps.data.inventoryStatus}}</span>
+                        </template>
+                    </p-column>
+                    <p-column field="rating" header="Rating">
+                        <template #body="slotProps">
+                        <p-rating :model-value="slotProps.data.rating" :readonly="true" :cancel="false"></p-rating>
+                        </template>
+                    </p-column>
+                </p-datatable>
+            </div>
+        </div>
+
+        <script type="module">
+        const { createApp, ref, onMounted } = Vue;
+
+        const App = {
+            setup() {
+                onMounted(() => {
+                    productService.value.getProductsSmall().then(data => products.value = data);
+                })
+
+                const products = ref();
+                const productService = ref(new ProductService());
+
+                return { products }
+            },
+            components: {
+                "p-datatable": primevue.datatable,
+                "p-column": primevue.column,
+                "p-rating": primevue.rating
+            }
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .mount("#app");
+        <\\/script>                  
+`
                 }
             }
         }

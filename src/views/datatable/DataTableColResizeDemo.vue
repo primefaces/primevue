@@ -135,6 +135,59 @@ export default {
 }
 <\\/script>
 `
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/datatable/datatable.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/column/column.min.js"><\\/script>
+        <script src="./ProductService.js"><\\/script>`,
+                    content: `<div id="app">
+            <div class="card">
+                <h5>Fit Mode</h5>
+                <p-datatable :value="products" :resizable-columns="true" column-resize-mode="fit" show-gridlines responsive-layout="scroll">
+                    <p-column field="code" header="Code"></p-column>
+                    <p-column field="name" header="Name"></p-column>
+                    <p-column field="category" header="Category"></p-column>
+                    <p-column field="quantity" header="Quantity"></p-column>
+                </p-datatable>
+            </div>
+
+            <div class="card">
+                <h5>Expand Mode</h5>
+                <p-datatable :value="products" :resizable-columns="true" column-resize-mode="expand" show-gridlines responsive-layout="scroll">
+                    <p-column field="code" header="Code"></p-column>
+                    <p-column field="name" header="Name"></p-column>
+                    <p-column field="category" header="Category"></p-column>
+                    <p-column field="quantity" header="Quantity"></p-column>
+                </p-datatable>
+            </div>
+        </div>
+
+        <script type="module">
+        const { createApp, ref, onMounted } = Vue;
+
+        const App = {
+            setup() {
+                onMounted(() => {
+                    productService.value.getProductsSmall().then(data => products.value = data);
+                })
+
+                const products = ref();
+                const productService = ref(new ProductService());
+
+                return { products, productService }
+            },
+            components: {
+                "p-datatable": primevue.datatable,
+                "p-column": primevue.column
+            }
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .mount("#app");
+        <\\/script>
+`
                 }
             }
         }

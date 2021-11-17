@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="content-section documentation">
-            <h1>PrimeFlex</h1>
+            <h1>PrimeFlex (v2.0.0)</h1>
             <p>PrimeFlex is a CSS utility library featuring various helpers such as a grid system, flexbox, spacing, elevation and more. Although it is not required, it is highly
                 recommended to add PrimeFlex as it is likely to need such utilities when developing applications with PrimeVue.</p>
 
@@ -9,7 +9,7 @@
             <p>PrimeFlex is available at <a href="https://www.npmjs.com/package/primeflex">npm</a>, if you have an existing application run the following commands to install it.</p>
 
 <pre v-code.script><code>
-npm install primeflex --save
+npm install primeflex@2.0.0 --save
 
 </code></pre>
 
@@ -112,7 +112,7 @@ $xl:1080px;
 import './assets/_overrides.scss';
 import 'primeflex/src/_variables.css';
 import 'primeflex/src/_grid.css';
-import 'primeflex/src/_formlayour.css';
+import 'primeflex/src/_formlayout.css';
 import 'primeflex/src/_display.css';
 import 'primeflex/src/_text.css';
 import 'primeflex/src/flexbox/_flexbox.css';

@@ -8,6 +8,7 @@ interface FieldsetProps {
 
 declare class Fieldset {
     $props: FieldsetProps;
+    $emit(eventName: 'update:collapsed', value: boolean): this;
     $emit(eventName: 'toggle', e: { originalEvent: Event, value: boolean }): this;
     $slots: {
         '': VNode[];

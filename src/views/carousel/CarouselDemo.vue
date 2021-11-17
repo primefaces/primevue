@@ -26,7 +26,7 @@
                                     <span :class="'product-badge status-'+slotProps.data.inventoryStatus.toLowerCase()">{{slotProps.data.inventoryStatus}}</span>
                                     <div class="car-buttons p-mt-5">
                                         <Button icon="pi pi-search" class="p-button p-button-rounded p-mr-2" />
-                                        <Button icon="pi pi-star" class="p-button-success p-button-rounded p-mr-2" />
+                                        <Button icon="pi pi-star-fill" class="p-button-success p-button-rounded p-mr-2" />
                                         <Button icon="pi pi-cog" class="p-button-help p-button-rounded" />
                                     </div>
                                 </div>
@@ -53,7 +53,7 @@
                                     <span :class="'product-badge status-'+slotProps.data.inventoryStatus.toLowerCase()">{{slotProps.data.inventoryStatus}}</span>
                                     <div class="car-buttons p-mt-5">
                                         <Button icon="pi pi-search" class="p-button p-button-rounded p-mr-2" />
-                                        <Button icon="pi pi-star" class="p-button-success p-button-rounded p-mr-2" />
+                                        <Button icon="pi pi-star-fill" class="p-button-success p-button-rounded p-mr-2" />
                                         <Button icon="pi pi-cog" class="p-button-help p-button-rounded" />
                                     </div>
                                 </div>
@@ -81,7 +81,7 @@
                                     <span :class="'product-badge status-'+slotProps.data.inventoryStatus.toLowerCase()">{{slotProps.data.inventoryStatus}}</span>
                                     <div class="car-buttons p-mt-5">
                                         <Button icon="pi pi-search" class="p-button p-button-rounded p-mr-2" />
-                                        <Button icon="pi pi-star" class="p-button-success p-button-rounded p-mr-2" />
+                                        <Button icon="pi pi-star-fill" class="p-button-success p-button-rounded p-mr-2" />
                                         <Button icon="pi pi-cog" class="p-button-help p-button-rounded" />
                                     </div>
                                 </div>

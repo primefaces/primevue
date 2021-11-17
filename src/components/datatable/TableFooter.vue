@@ -7,7 +7,7 @@
         </tr>
         <template v-else>
             <tr v-for="(row,i) of columnGroup.children.default()" :key="i" role="row">
-                <template v-for="(col,j) of row.children.default()" :key="columnProp(col,'columnKey')||columnProp(col,'field')||j">
+                <template v-for="(col,j) of getFooterColumns(row)" :key="columnProp(col,'columnKey')||columnProp(col,'field')||j">
                     <DTFooterCell :column="col" v-if="!columnProp(col,'hidden')"/>
                 </template>
             </tr>
@@ -17,6 +17,7 @@
 
 <script>
 import FooterCell from './FooterCell.vue';
+import {ObjectUtils} from 'primevue/utils';
 
 export default {
     name: 'TableFooter',
@@ -32,7 +33,21 @@ export default {
     },
     methods: {
         columnProp(col, prop) {
-            return col.props ? ((col.type.props[prop].type === Boolean && col.props[prop] === '') ? true : col.props[prop]) : null;
+            return ObjectUtils.getVNodeProp(col, prop);
+        },
+        getFooterColumns(row){
+            let cols = [];
+
+            if (row.children && row.children.default) {
+                row.children.default().forEach(child => {
+                    if (child.children && child.children instanceof Array)
+                        cols = [...cols, ...child.children];
+                    else if (child.type.name === 'Column')
+                        cols.push(child);
+                });
+
+                return cols;
+            }
         }
     },
     computed: {

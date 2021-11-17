@@ -63,7 +63,7 @@ function onClick(event) {
 }
 
 function show(el) {
-    if (!el.$_ptooltipValue) {
+    if (el.$_ptooltipDisabled) {
         return;
     }
 
@@ -72,7 +72,9 @@ function show(el) {
     DomHandler.fadeIn(tooltipElement, 250);
 
     window.addEventListener('resize', function onWindowResize() {
-        hide(el);
+        if (!DomHandler.isAndroid()) {
+            hide(el);
+        }
         this.removeEventListener('resize', onWindowResize);
     });
 
@@ -220,7 +222,7 @@ function preAlign(el, position) {
     let tooltipElement = getTooltipElement(el);
     tooltipElement.style.left = -999 + 'px';
     tooltipElement.style.top = -999 + 'px';
-    tooltipElement.className = 'p-tooltip p-component p-tooltip-' + position;
+    tooltipElement.className = `p-tooltip p-component p-tooltip-${position} ${el.$_ptooltipClass||''}`;
 }
 
 function isOutOfBounds(el) {
@@ -239,11 +241,40 @@ function getTarget(el) {
     return DomHandler.hasClass(el, 'p-inputwrapper') ? DomHandler.findSingle(el, 'input'): el;
 }
 
+function getModifiers(options) {
+    // modifiers
+    if (options.modifiers && Object.keys(options.modifiers).length) {
+        return options.modifiers;
+    }
+
+    // arg
+    if (options.arg && typeof options.arg === 'object') {
+        return Object.entries(options.arg).reduce((acc, [key, val]) => {
+            if (key === 'event' || key === 'position') acc[val] = true;
+            return acc;
+        }, {});
+    }
+
+    return {};
+}
+
 const Tooltip = {
     beforeMount(el, options) {
         let target = getTarget(el);
-        target.$_ptooltipModifiers = options.modifiers;
-        target.$_ptooltipValue = options.value;
+        target.$_ptooltipModifiers = getModifiers(options);
+
+        if (!options.value) return;
+        else if (typeof options.value === 'string') {
+            target.$_ptooltipValue = options.value;
+            target.$_ptooltipDisabled = false;
+            target.$_ptooltipClass = null;
+        }
+        else {
+            target.$_ptooltipValue = options.value.value;
+            target.$_ptooltipDisabled = options.value.disabled || false;
+            target.$_ptooltipClass = options.value.class;
+        }
+
         target.$_ptooltipZIndex = options.instance.$primevue && options.instance.$primevue.config && options.instance.$primevue.config.zIndex.tooltip;
         bindEvents(target);
     },
@@ -261,10 +292,20 @@ const Tooltip = {
     },
     updated(el, options) {
         let target = getTarget(el);
-        target.$_ptooltipModifiers = options.modifiers;
-        target.$_ptooltipValue = options.value;
-    },
+        target.$_ptooltipModifiers = getModifiers(options);
 
+        if (!options.value) return;
+        if (typeof options.value === 'string') {
+            target.$_ptooltipValue = options.value;
+            target.$_ptooltipDisabled = false;
+            target.$_ptooltipClass = null;
+        }
+        else {
+            target.$_ptooltipValue = options.value.value;
+            target.$_ptooltipDisabled = options.value.disabled || false;
+            target.$_ptooltipClass = options.value.class;
+        }
+    }
 };
 
 export default Tooltip;

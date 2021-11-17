@@ -48,6 +48,12 @@ const AutoCompleteProps = [
         description: 'Specifies the behavior dropdown button. Default "blank" mode sends an empty string and "current" mode sends the input value.'
     },
     {
+        name: "autoHighlight",
+        type: "boolean",
+        default: false,
+        description: "Highlights automatically the first item of the dropdown to be selected."
+    },
+    {
         name: "multiple",
         type: "boolean",
         default: "false",
@@ -62,7 +68,7 @@ const AutoCompleteProps = [
     {
         name: "completeOnFocus",
         type: "boolean",
-        default: false,
+        default: "false",
         description: "Whether to run a query when input receives focus."
     },
     {
@@ -96,10 +102,28 @@ const AutoCompleteProps = [
         description: "When present, autocomplete clears the manual input if it does not match of the suggestions to force only accepting values from the suggestions."
     },
     {
+        name: "class",
+        type: "string",
+        default: "null",
+        description: "Style class of the component."
+    },
+    {
+        name: "style",
+        type: "any",
+        default: "null",
+        description: "Inline of the component."
+    },
+    {
         name: "panelClass",
         type: "string",
         default: "null",
         description: "Style class of the overlay panel."
+    },
+    {
+        name: "virtualScrollerOptions",
+        type: "object",
+        default: "null",
+        description: "Whether to use the virtualScroller feature. The properties of VirtualScroller component can be used like an object in it."
     }
 ];
 
@@ -190,6 +214,18 @@ const AutoCompleteSlots = [
     {
         name: "footer",
         description: "Custom content for the component footer."
+    },
+    {
+        name: "chip",
+        description: "Custom content for the chip display."
+    },
+    {
+        name: "content",
+        description: "Custom content for the virtual scroller"
+    },
+    {
+        name: "loader",
+        description: "Custom content for the virtual scroller loader items"
     }
 ];
 

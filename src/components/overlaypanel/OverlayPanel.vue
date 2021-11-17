@@ -2,7 +2,7 @@
     <Teleport :to="appendTo">
         <transition name="p-overlaypanel" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave">
             <div :class="containerClass" v-if="visible" :ref="containerRef" v-bind="$attrs" @click="onOverlayClick">
-                <div class="p-overlaypanel-content" @click="onContentClick">
+                <div class="p-overlaypanel-content" @click="onContentClick" @mousedown="onContentClick">
                     <slot></slot>
                 </div>
                 <button class="p-overlaypanel-close p-link" @click="hide" v-if="showCloseIcon" :aria-label="ariaCloseLabel" type="button" v-ripple>
@@ -51,6 +51,7 @@ export default {
             default: null
         }
     },
+    emits: ['show', 'hide'],
     data() {
         return {
             visible: false
@@ -58,6 +59,7 @@ export default {
     },
     selfClick: false,
     target: null,
+    eventTarget: null,
     outsideClickListener: null,
     scrollHandler: null,
     resizeListener: null,
@@ -94,15 +96,16 @@ export default {
         }
     },
     methods: {
-        toggle(event) {
+        toggle(event, target) {
             if (this.visible)
                 this.hide();
             else
-                this.show(event);
+                this.show(event, target);
         },
-        show(event) {
+        show(event, target) {
             this.visible = true;
-            this.target = event.currentTarget;
+            this.eventTarget = event.currentTarget;
+            this.target = target || event.currentTarget;
         },
         hide() {
             this.visible = false;
@@ -131,6 +134,7 @@ export default {
             };
 
             OverlayEventBus.on('overlay-click', this.overlayEventListener);
+            this.$emit('show');
         },
         onLeave() {
             this.unbindOutsideClickListener();
@@ -138,6 +142,7 @@ export default {
             this.unbindResizeListener();
             OverlayEventBus.off('overlay-click', this.overlayEventListener);
             this.overlayEventListener = null;
+            this.$emit('hide');
         },
         onAfterLeave(el) {
             if (this.autoZIndex) {
@@ -211,7 +216,7 @@ export default {
             }
         },
         isTargetClicked(event) {
-            return this.target && (this.target === event.target || this.target.contains(event.target));
+            return (this.eventTarget && (this.eventTarget === event.target || this.eventTarget.contains(event.target)));
         },
         containerRef(el) {
             this.container = el;
@@ -270,6 +275,8 @@ export default {
 .p-overlaypanel {
     position: absolute;
     margin-top: 10px;
+    top: 0;
+    left: 0;
 }
 
 .p-overlaypanel-flipped {

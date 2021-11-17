@@ -1,8 +1,8 @@
 <template>
     <Teleport to="body">
         <div ref="container" :class="containerClass" v-bind="$attrs">
-            <transition-group name="p-toast-message" tag="div">
-                <ToastMessage v-for="msg of messages" :key="msg.id" :message="msg" @close="remove($event)"/>
+            <transition-group name="p-toast-message" tag="div" @enter="onEnter" @leave="onLeave">
+                <ToastMessage v-for="msg of messages" :key="msg.id" :message="msg" @close="remove($event)" :template="$slots.message"/>
             </transition-group>
         </div>
     </Teleport>
@@ -11,7 +11,7 @@
 <script>
 import ToastEventBus from 'primevue/toasteventbus';
 import ToastMessage from './ToastMessage.vue';
-import {ZIndexUtils} from 'primevue/utils';
+import {ZIndexUtils,UniqueComponentId} from 'primevue/utils';
 
 var messageIdx = 0;
 
@@ -34,6 +34,10 @@ export default {
         baseZIndex: {
             type: Number,
             default: 0
+        },
+        breakpoints: {
+            type: Object,
+            default: null
         }
     },
     data() {
@@ -41,16 +45,19 @@ export default {
             messages: []
         }
     },
+    styleElement: null,
     mounted() {
         ToastEventBus.on('add', this.onAdd);
         ToastEventBus.on('remove-group', this.onRemoveGroup);
         ToastEventBus.on('remove-all-groups', this.onRemoveAllGroups);
 
-        if (this.autoZIndex) {
-            ZIndexUtils.set('modal', this.$refs.container, this.baseZIndex || this.$primevue.config.zIndex.modal);
+        if (this.breakpoints) {
+            this.createStyle();
         }
     },
     beforeUnmount() {
+        this.destroyStyle();
+
         if (this.$refs.container && this.autoZIndex) {
             ZIndexUtils.clear(this.$refs.container);
         }
@@ -90,6 +97,48 @@ export default {
         },
         onRemoveAllGroups() {
             this.messages = [];
+        },
+        onEnter() {
+            this.$refs.container.setAttribute(this.attributeSelector, '');
+
+            if (this.autoZIndex) {
+                ZIndexUtils.set('modal', this.$refs.container, this.baseZIndex || this.$primevue.config.zIndex.modal);
+            }
+        },
+        onLeave() {
+            if (this.$refs.container && this.autoZIndex) {
+                ZIndexUtils.clear(this.$refs.container);
+            }
+        },
+        createStyle() {
+            if (!this.styleElement) {
+                this.styleElement = document.createElement('style');
+                this.styleElement.type = 'text/css';
+                document.head.appendChild(this.styleElement);
+
+                let innerHTML = '';
+                for (let breakpoint in this.breakpoints) {
+                    let breakpointStyle = '';
+                    for (let styleProp in this.breakpoints[breakpoint]) {
+                        breakpointStyle += styleProp + ':' + this.breakpoints[breakpoint][styleProp] + '!important;';
+                    }
+                    innerHTML += `
+                        @media screen and (max-width: ${breakpoint}) {
+                            .p-toast[${this.attributeSelector}] {
+                                ${breakpointStyle}
+                            }
+                        }
+                    `;
+                }
+
+                this.styleElement.innerHTML = innerHTML;
+            }
+        },
+        destroyStyle() {
+            if (this.styleElement) {
+                document.head.removeChild(this.styleElement);
+                this.styleElement = null;
+            }
         }
     },
     components: {
@@ -101,6 +150,9 @@ export default {
                 'p-input-filled': this.$primevue.config.inputStyle === 'filled',
                 'p-ripple-disabled': this.$primevue.config.ripple === false
             }];
+        },
+        attributeSelector() {
+            return UniqueComponentId();
         }
     }
 }
@@ -144,13 +196,13 @@ export default {
 .p-toast-top-center {
 	top: 20px;
     left: 50%;
-    margin-left: -10em;
+    transform: translateX(-50%);
 }
 
 .p-toast-bottom-center {
 	bottom: 20px;
-	left: 50%;
-    margin-left: -10em;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .p-toast-center {

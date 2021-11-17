@@ -9,6 +9,26 @@
         </div>
 
         <div class="content-section implementation">
+            <Toast position="bottom-center" group="bc">
+                <template #message="slotProps">
+                    <div class="p-d-flex p-flex-column">
+                        <div class="p-text-center">
+                            <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
+                            <h4>{{slotProps.message.summary}}</h4>
+                            <p>{{slotProps.message.detail}}</p>
+                        </div>
+                        <div class="p-grid p-fluid">
+                            <div class="p-col-6">
+                                <Button class="p-button-success" label="Yes" @click="onConfirm"></Button>
+                            </div>
+                            <div class="p-col-6">
+                                <Button class="p-button-secondary" label="No" @click="onReject"></Button>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </Toast>
+
             <div class="card">
                 <h5>Severities</h5>
                 <Button label="Success" class="p-button-success" @click="showSuccess" />
@@ -27,6 +47,10 @@
 
                 <h5>Remove All</h5>
                 <Button @click="clear" label="Clear" />
+
+                <h5>Template</h5>
+                <Button @click="showTemplate" label="Confirm" />
+
             </div>
         </div>
 
@@ -72,6 +96,15 @@ export default {
             this.$toast.add({severity:'info', summary:'Message 1', detail:'Message 1 Content', life: 3000});
             this.$toast.add({severity:'info', summary:'Message 2', detail:'Message 2 Content', life: 3000});
             this.$toast.add({severity:'info', summary:'Message 3', detail:'Message 3 Content', life: 3000});
+        },
+        showTemplate() {
+            this.$toast.add({severity: 'warn', summary: 'Are you sure?', detail: 'Proceed to confirm', group: 'bc'});
+        },
+        onConfirm() {
+            this.$toast.removeGroup('bc');
+        },
+        onReject() {
+            this.$toast.removeGroup('bc');
         },
         clear() {
             this.$toast.removeAllGroups();

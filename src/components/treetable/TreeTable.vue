@@ -10,11 +10,11 @@
         </div>
          <TTPaginator v-if="paginatorTop" :rows="d_rows" :first="d_first" :totalRecords="totalRecordsLength" :pageLinkSize="pageLinkSize" :template="paginatorTemplate" :rowsPerPageOptions="rowsPerPageOptions"
                 :currentPageReportTemplate="currentPageReportTemplate" class="p-paginator-top" @page="onPage($event)" :alwaysShow="alwaysShowPaginator">
-            <template #left v-if="$slots.paginatorLeft">
-                <slot name="paginatorLeft"></slot>
+            <template #start v-if="$slots.paginatorstart">
+                <slot name="paginatorstart"></slot>
             </template>
-            <template #right v-if="$slots.paginatorRight">
-                <slot name="paginatorRight"></slot>
+            <template #end v-if="$slots.paginatorend">
+                <slot name="paginatorend"></slot>
             </template>
         </TTPaginator>
         <div class="p-treetable-wrapper" :style="{maxHeight: scrollHeight}">
@@ -58,11 +58,11 @@
         </div>
         <TTPaginator v-if="paginatorBottom" :rows="d_rows" :first="d_first" :totalRecords="totalRecordsLength" :pageLinkSize="pageLinkSize" :template="paginatorTemplate" :rowsPerPageOptions="rowsPerPageOptions"
                 :currentPageReportTemplate="currentPageReportTemplate" class="p-paginator-bottom" @page="onPage($event)" :alwaysShow="alwaysShowPaginator">
-            <template #left v-if="$slots.paginatorLeft">
-                <slot name="paginatorLeft"></slot>
+            <template #start v-if="$slots.paginatorstart">
+                <slot name="paginatorstart"></slot>
             </template>
-            <template #right v-if="$slots.paginatorRight">
-                <slot name="paginatorRight"></slot>
+            <template #end v-if="$slots.paginatorend">
+                <slot name="paginatorend"></slot>
             </template>
         </TTPaginator>
         <div class="p-treetable-footer" v-if="$slots.footer">
@@ -280,7 +280,7 @@ export default {
     },
     methods: {
         columnProp(col, prop) {
-            return col.props ? ((col.type.props[prop].type === Boolean && col.props[prop] === '') ? true : col.props[prop]) : null;
+            return ObjectUtils.getVNodeProp(col, prop);
         },
         onNodeToggle(node) {
             const key = node.key;
@@ -693,7 +693,7 @@ export default {
                 else if (this.columnResizeMode === 'expand') {
                     this.$refs.table.style.width = this.$refs.table.offsetWidth + delta + 'px';
 
-                    if (!this.scrollable) 
+                    if (!this.scrollable)
                         this.resizeColumnElement.style.width = newColumnWidth + 'px';
                     else
                         this.resizeTableCells(newColumnWidth);
@@ -805,7 +805,7 @@ export default {
             let children = this.$slots.default();
 
             children.forEach(child => {
-                if (child.dynamicChildren)
+                if (child.children && child.children instanceof Array)
                     cols = [...cols, ...child.children];
                 else if (child.type.name === 'Column')
                     cols.push(child);

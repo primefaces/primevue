@@ -1,6 +1,7 @@
-import Vue, { PluginFunction } from 'vue';
+import Vue, { Plugin } from 'vue';
 
-export const install: PluginFunction<{}>;
+declare const plugin: Plugin;
+export default plugin;
 
 interface ToastServiceMethods {
     add(message: any): any;

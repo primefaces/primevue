@@ -178,6 +178,85 @@ export default {
 }
 <\\/script>
 `
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="./NodeService.js"><\\/script>`,
+                    content: `<div id="app">
+            <p-tree :value="nodes" @node-expand="onNodeExpand" :loading="loading"></p-tree>
+        </div>                   
+
+        <script type="module">
+        const { createApp, ref, onMounted } = Vue;
+
+        const App = {
+            setup() {
+                onMounted(() => {
+                    loading.value = true;
+
+                    setTimeout(() => {
+                        nodes.value = initateNodes();
+                        loading.value = false;
+                    }, 2000);
+                })
+
+                const loading = ref(false);
+                const nodes = ref(null);
+                const nodeService = ref(new NodeService());
+                const onNodeExpand = (node) => {
+                    if (!node.children) {
+                        loading.value = true;
+
+                        setTimeout(() => {
+                            let _node = {...node};
+                            _node.children = [];
+
+                            for (let i = 0; i < 3; i++) {
+                                _node.children.push({
+                                    key: node.key + '-' + i,
+                                    label: 'Lazy ' + node.label + '-' + i
+                                });
+                            }
+
+                            let _nodes = {...nodes.value}
+                            _nodes[parseInt(node.key, 10)] = _node;
+
+                            nodes.value = _nodes;
+                            loading.value = false;
+                        }, 500);
+                    }
+                };
+
+                const initateNodes = () => {
+                    return [{
+                        key: '0',
+                        label: 'Node 0',
+                        leaf: false
+                    },
+                    {
+                        key: '1',
+                        label: 'Node 1',
+                        leaf: false
+                    },
+                    {
+                        key: '2',
+                        label: 'Node 2',
+                        leaf: false
+                    }];
+                }
+
+                return { loading, nodes, nodeService, onNodeExpand, initateNodes }
+            },
+            components: {
+                "p-tree": primevue.tree
+            }
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .mount("#app");
+        <\\/script>
+`
                 }
             }
         }

@@ -32,6 +32,9 @@
                         </div>
                     </template>
                 </Listbox>
+
+                <h5>Virtual Scroll (1000 Items)</h5>
+                <Listbox v-model="selectedItem" :options="items" optionLabel="label" optionValue="value" :virtualScrollerOptions="{ itemSize: 31 }" style="width:15rem" listStyle="height:250px" />
             </div>
         </div>
 
@@ -48,6 +51,7 @@ export default {
             selectedCity: null,
             selectedCountries: null,
             selectedGroupedCity: null,
+            selectedItem: null,
             cities: [
                 {name: 'New York', code: 'NY'},
                 {name: 'Rome', code: 'RM'},
@@ -68,7 +72,7 @@ export default {
                 {name: 'United States', code: 'US'}
             ],
             groupedCities: [{
-                label: 'Germany', code: 'DE', 
+                label: 'Germany', code: 'DE',
                 items: [
                     {label: 'Berlin', value: 'Berlin'},
                     {label: 'Frankfurt', value: 'Frankfurt'},
@@ -77,7 +81,7 @@ export default {
                 ]
             },
             {
-                label: 'USA', code: 'US', 
+                label: 'USA', code: 'US',
                 items: [
                     {label: 'Chicago', value: 'Chicago'},
                     {label: 'Los Angeles', value: 'Los Angeles'},
@@ -86,14 +90,15 @@ export default {
                 ]
             },
             {
-                label: 'Japan', code: 'JP', 
+                label: 'Japan', code: 'JP',
                 items: [
                     {label: 'Kyoto', value: 'Kyoto'},
                     {label: 'Osaka', value: 'Osaka'},
                     {label: 'Tokyo', value: 'Tokyo'},
                     {label: 'Yokohama', value: 'Yokohama'}
                 ]
-            }]
+            }],
+            items: Array.from({ length: 1000 }, (_, i) => ({ label: `Item #${i}`, value: i }))
         }
     },
     components: {

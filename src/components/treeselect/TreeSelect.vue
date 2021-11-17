@@ -20,7 +20,9 @@
             </div>
         </div>
         <div class="p-treeselect-trigger">
-            <span class="p-treeselect-trigger-icon pi pi-chevron-down"></span>
+            <slot name="indicator">
+                <span class="p-treeselect-trigger-icon pi pi-chevron-down"></span>
+            </slot>
         </div>
         <Teleport :to="appendTarget" :disabled="appendDisabled">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
@@ -180,6 +182,7 @@ export default {
                 case 40:
                     if (!this.overlayVisible && event.altKey) {
                         this.show();
+                        event.preventDefault();
                     }
                 break;
 
@@ -215,6 +218,7 @@ export default {
             this.bindOutsideClickListener();
             this.bindScrollListener();
             this.bindResizeListener();
+            this.scrollValueInView();
             this.$emit('show');
         },
         onOverlayLeave() {
@@ -351,6 +355,14 @@ export default {
                     this.expandedKeys[key] = true;
                 }
             }
+        },
+        scrollValueInView() {
+            if (this.overlay) {
+                let selectedItem = DomHandler.findSingle(this.overlay, 'li.p-highlight');
+                if (selectedItem) {
+                    selectedItem.scrollIntoView({ block: 'nearest', inline: 'start' });
+                }
+            }
         }
     },
     computed: {
@@ -466,6 +478,8 @@ export default {
 
 .p-treeselect-panel {
     position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .p-treeselect-items-wrapper {

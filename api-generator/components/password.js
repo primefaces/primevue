@@ -60,6 +60,18 @@ const PasswordProps = [
         description: 'A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are "body" for document body and "self" for the element itself.'
     },
     {
+        name: "hideIcon",
+        type: "string",
+        default: "pi pi-eye-slash",
+        description: "Icon to hide displaying the password as plain text."
+    },
+    {
+        name: "showIcon",
+        type: "string",
+        default: "pi pi-eye",
+        description: "Icon to show displaying the password as plain text."
+    },
+    {
         name: "inputStyle",
         type: "any",
         default: "null",
@@ -72,16 +84,22 @@ const PasswordProps = [
         description: "Style class of the input field."
     },
     {
-        name: "hideIcon",
+        name: "class",
         type: "string",
-        default: "pi pi-eye-slash",
-        description: "Icon to hide displaying the password as plain text."
+        default: "null",
+        description: "Style class of the component."
     },
     {
-        name: "showIcon",
+        name: "style",
+        type: "any",
+        default: "null",
+        description: "Inline of the component."
+    },
+    {
+        name: "panelClass",
         type: "string",
-        default: "pi pi-eye",
-        description: "Icon to show displaying the password as plain text."
+        default: "null",
+        description: "Style class of the overlay panel."
     }
 ];
 

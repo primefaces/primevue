@@ -1,7 +1,7 @@
 <template>
     <div class="content-section documentation">
         <AppDoc name="DataTableDemo" :sources="sources" :service="['CustomerService']" :data="['customers-large']" github="datatable/DataTableDemo.vue">
-            <h5>Import</h5>
+            <h5>Import via Module</h5>
 			<pre v-code.script><code>
 import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
@@ -9,25 +9,32 @@ import ColumnGroup from 'primevue/columngroup';     //optional for column groupi
 
 </code></pre>
 
+            <h5>Import via CDN</h5>
+<pre v-code><code>
+&lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue@^3/datatable/datatable.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue@^3/column/column.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue@^3/columngroup/columngroup.min.js"&gt;&lt;/script&gt;
+
+</code></pre>
+
             <h5>Getting Started</h5>
             <p>DataTable requires a value as an array of objects and columns defined with Column component. Throughout the samples, a car interface having vin, brand, year and color properties is used to define an object to be displayed by the datatable.
-                Cars are loaded by a CarService that connects to a server to fetch the cars with a axios. Note that this is only for demo purposes, DataTable does not have any restrictions on how the data is provided.</p>
+                Cars are loaded by a CarService that connects to a server to fetch the cars with a fetch API. Note that this is only for demo purposes, DataTable does not have any restrictions on how the data is provided.</p>
 
             <pre v-code.script><code>
-import axios from 'axios'
-
 export default class CarService {
 
 	getCarsSmall() {
-		return axios.get('demo/data/cars-small.json').then(res => res.data.data);
+		return fetch.get('demo/data/cars-small.json').then(res => res.json()).then(d => d.data);
 	}
 
 	getCarsMedium() {
-		return axios.get('demo/data/cars-medium.json').then(res => res.data.data);
+		return fetch.get('demo/data/cars-medium.json').then(res => res.json()).then(d => d.data);
 	}
 
 	getCarsLarge() {
-		return axios.get('demo/data/cars-large.json').then(res => res.data.data);
+		return fetch.get('demo/data/cars-large.json').then(res => res.json()).then(d => d.data);
 	}
 }
 
@@ -400,6 +407,7 @@ export default {
                             <td>body</td>
                             <td>data: Row data <br />
                                 column: Column node <br />
+                                field: Column field <br />
                                 index: Row index <br />
                                 frozenRow: Is row frozen</td>
                         </tr>
@@ -411,6 +419,7 @@ export default {
                             <td>editor</td>
                             <td>data: Row data <br />
                                 column: Column node <br />
+                                field: Column field <br />
                                 index: Row index <br />
                                 frozenRow: Is row frozen</td>
                         </tr>
@@ -575,17 +584,17 @@ export default {
 </template>
 </code></pre>
 
-            <p>paginatorLeft and paginatorLeft templates are available to specify custom content at the left and right side.</p>
+            <p><i>paginatorstart</i> and <i>paginatorend</i> templates are available to specify custom content at the left and right side.</p>
 <pre v-code><code><template v-pre>
 &lt;DataTable :value="cars" :paginator="true" :rows="10"&gt;
     &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
     &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
     &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
     &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
-    &lt;template #paginatorLeft&gt;
+    &lt;template #paginatorstart&gt;
         &lt;Button type="button" icon="pi pi-refresh" /&gt;
     &lt;/template&gt;
-    &lt;template #paginatorRight&gt;
+    &lt;template #paginatorend&gt;
         &lt;Button type="button" icon="pi pi-cloud" /&gt;
     &lt;/template&gt;
 &lt;/DataTable&gt;
@@ -712,12 +721,12 @@ export default {
             &lt;InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" :placeholder="`Search by name - ${filterModel.matchMode}`"/&gt;
         &lt;/template&gt;
     &lt;/Column&gt;
-&lt;DataTable&gt;
+&lt;/DataTable&gt;
 
 </template>
 </code></pre>
 
-            <h6>Filter Row</h6>
+            <h6>Filter Menu</h6>
             <p>Input field is displayed in an overlay.</p>
 
 <pre v-code><code><template v-pre>
@@ -728,7 +737,7 @@ export default {
             &lt;InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" :placeholder="`Search by name - ${filterModel.matchMode}`"/&gt;
         &lt;/template&gt;
     &lt;/Column&gt;
-&lt;DataTable&gt;
+&lt;/DataTable&gt;
 
 </template>
 </code></pre>
@@ -890,7 +899,7 @@ matchModes: [
 
             <p>If you prefer a radioButton or a checkbox instead of a row click, use the <i>selectionMode</i> of a column instead. Following datatable displays a checkbox at the first column of each row and automatically adds a header checkbox to toggle selection of all rows.</p>
 <pre v-code><code><template v-pre>
-&lt;DataTable :value="cars" v-model:selection="selectedCars" selectionMode="multiple" dataKey="vin"&gt;
+&lt;DataTable :value="cars" v-model:selection="selectedCars" dataKey="vin"&gt;
     &lt;Column selectionMode="multiple"&gt;&lt;/Column&gt;
     &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
     &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
@@ -1116,21 +1125,21 @@ export default {
                 so that the editing behavior is implemented by the page author whether it utilizes v-model or vuex.
             </p>
 
-            <p>Individuals cell editing is configured by setting the <i>editMode</i> to "cell" and defining editors with the "editor" template. The content of the
-            editor defines how the editing is implemented, below example demonstrates two cases. In the first example, simple v-model editors are utilized. This is pretty straightforward in most cases.
-            On the other hand, second example is more advanced to consider validations and ability to revert values with the escape key.</p>
+            <p>Individual cell editing is configured by setting the <i>editMode</i> to <b>cell</b>, defining editors with the <b>editor</b> template along with the <i>@cell-edit-complete</i> event. The content of the
+            editor defines how the editing is implemented. The editor template receives a clone of the row data and using <i>@cell-edit-complete</i> event the new value can be updated to the model or cancelled. 
+            This also provides flexibility to apply conditional logic such as implementing validations.</p>
+
 <pre v-code><code><template v-pre>
-&lt;h3&gt;Basic Cell Editing&lt;/h3&gt;
-&lt;p&gt;Simple editors with v-model.&lt;/p&gt;
-&lt;DataTable :value="cars1" editMode="cell"&gt;
+&lt;h5&gt;Cell Editing&lt;/h5&gt;
+&lt;DataTable :value="cars" editMode="cell" @cell-edit-complete="onCellEditComplete"&gt;
     &lt;Column field="vin" header="Vin"&gt;
         &lt;template #editor="slotProps"&gt;
-            &lt;InputText v-model="slotProps.data[slotProps.column.field]" /&gt;
+            &lt;InputText v-model="slotProps.data[slotProps.field]" /&gt;
         &lt;/template&gt;
     &lt;/Column&gt;
     &lt;Column field="year" header="Year"&gt;
         &lt;template #editor="slotProps"&gt;
-            &lt;InputText v-model="slotProps.data[slotProps.column.field]" /&gt;
+            &lt;InputText v-model="slotProps.data[slotProps.field]" /&gt;
         &lt;/template&gt;
     &lt;/Column&gt;
     &lt;Column field="brand" header="Brand"&gt;
@@ -1147,17 +1156,7 @@ export default {
     &lt;/Column&gt;
     &lt;Column field="color" header="Color"&gt;
         &lt;template #editor="slotProps"&gt;
-            &lt;InputText v-model="slotProps.data[slotProps.column.field]" /&gt;
-        &lt;/template&gt;
-    &lt;/Column&gt;
-&lt;/DataTable&gt;
-
-&lt;h3&gt;Advanced Cell Editing&lt;/h3&gt;
-&lt;p&gt;Custom implementation with validations, dynamic columns and reverting values with the escape key.&lt;/p&gt;
-&lt;DataTable :value="cars2" editMode="cell" @cell-edit-complete="onCellEditComplete"&gt;
-    &lt;Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field"&gt;
-        &lt;template #editor="slotProps"&gt;
-            &lt;InputText :value="slotProps.data[slotProps.column.field]" @input="onCellEdit($event, slotProps)" /&gt;
+            &lt;InputText v-model="slotProps.data[slotProps.field]" /&gt;
         &lt;/template&gt;
     &lt;/Column&gt;
 &lt;/DataTable&gt;
@@ -1171,11 +1170,7 @@ import Vue from 'vue';
 export default {
     data() {
         return {
-            cars1: null,
-            cars2: null,
-            cars3: null,
-            editingCellRows: {},
-            columns: null,
+            cars: null,
             brands: [
                 {brand: 'Audi', value: 'Audi'},
                 {brand: 'BMW', value: 'BMW'},
@@ -1192,44 +1187,26 @@ export default {
     carService: null,
     created() {
         this.carService = new CarService();
-
-        this.columns = [
-            {field: 'vin', header: 'Vin'},
-            {field: 'year', header: 'Year'},
-            {field: 'brand', header: 'Brand'},
-            {field: 'color', header: 'Color'}
-        ];
     },
     methods: {
         onCellEditComplete(event) {
-            if (!this.editingCellRows[event.index]) {
-                return;
-            }
-
-            const editingCellValue = this.editingCellRows[event.index][event.field];
+            let { data, newValue, field } = event;
 
             switch (event.field) {
                 case 'year':
-                    if (this.isPositiveInteger(editingCellValue))
-                        Vue.set(this.cars2, event.index, this.editingCellRows[event.index]);
+                    if (this.isPositiveInteger(newValue))
+                        data[field] = newValue;
                     else
                         event.preventDefault();
                 break;
 
                 default:
-                    if (editingCellValue.trim().length > 0)
-                        Vue.set(this.cars2, event.index, this.editingCellRows[event.index]);
+                    if (newValue.trim().length > 0)
+                        data[field] = newValue;
                     else
                         event.preventDefault();
                 break;
             }
-        },
-        onCellEdit(newValue, props) {
-            if (!this.editingCellRows[props.index]) {
-                this.editingCellRows[props.index] = {...props.data};
-            }
-
-            this.editingCellRows[props.index][props.column.field] = newValue;
         },
         isPositiveInteger(val) {
             let str = String(val);
@@ -1243,33 +1220,32 @@ export default {
         }
     },
     mounted() {
-        this.carService.getCarsSmall().then(data => this.cars1 = data);
-        this.carService.getCarsSmall().then(data => this.cars2 = data);
+        this.carService.getCarsSmall().then(data => this.cars = data);
     }
 }
 
 </code></pre>
 
-            <p>Row Editing is defined by setting <i>cellEdit</i> as "row", defining <i>editingRows</i> with the v-model directive to hold the reference to the editing rows and adding a row editor column to provide the editing controls. Note that
+            <p>Row Editing is specified by setting <i>cellEdit</i> as <b>row</b>, defining <i>editingRows</i> with the v-model directive to hold the reference of the editing rows, 
+            adding a row editor column to provide the editing controls and implementing <i>@row-edit-save</i> to update the original row data. Note that
             since <i>editingRows</i> is two-way binding enabled, you may use it to initially display one or more rows in editing more or programmatically toggle row editing.</p>
 <pre v-code><code><template v-pre>
 &lt;h3&gt;Row Editing&lt;/h3&gt;
-&lt;DataTable :value="cars" editMode="row" dataKey="vin" v-model:editingRows="editingRows"
-    @row-edit-init="onRowEditInit" @row-edit-cancel="onRowEditCancel"&gt;
+&lt;DataTable :value="cars" editMode="row" dataKey="vin" v-model:editingRows="editingRows" @row-edit-save="onRowEditSave"&gt;
     &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
     &lt;Column field="year" header="Year"&gt;
         &lt;template #editor="slotProps"&gt;
-            &lt;InputText v-model="slotProps.data[slotProps.column.field]" autofocus/&gt;
+            &lt;InputText v-model="slotProps.data[slotProps.field]" autofocus/&gt;
         &lt;/template&gt;
     &lt;/Column&gt;
     &lt;Column field="brand" header="Brand"&gt;
         &lt;template #editor="slotProps"&gt;
-            &lt;InputText v-model="slotProps.data[slotProps.column.field]" /&gt;
+            &lt;InputText v-model="slotProps.data[slotProps.field]" /&gt;
         &lt;/template&gt;
     &lt;/Column&gt;
     &lt;Column field="color" header="Color"&gt;
         &lt;template #editor="slotProps"&gt;
-            &lt;InputText v-model="slotProps.data[slotProps.column.field]" /&gt;
+            &lt;InputText v-model="slotProps.data[slotProps.field]" /&gt;
         &lt;/template&gt;
     &lt;/Column&gt;
     &lt;Column :rowEditor="true" headerStyle="width:7rem" bodyStyle="text-align:center"&gt;&lt;/Column&gt;
@@ -1289,19 +1265,15 @@ export default {
         }
     },
     carService: null,
-    originalRows: null,
     created() {
         this.carService = new CarService();
-
-        this.originalRows = {};
     },
     methods: {
-        onRowEditInit(event) {
-            this.originalRows[event.index] = {...this.cars3[event.index]};
+        onRowEditSave(event) {
+            let { newData, index } = event;
+
+            this.cars[index] = newData;
         },
-        onRowEditCancel(event) {
-            Vue.set(this.cars3, event.index, this.originalRows[event.index]);
-        }
     },
     mounted() {
         this.carService.getCarsSmall().then(data => this.cars = data);
@@ -1348,7 +1320,7 @@ export default {
 </code></pre>
 
             <h5>Row Reorder</h5>
-            <p>Data can be reordered using drag drop by adding a reorder column that will display an icon as a drag handle along with the <i>row-order</i> event which is <b>mandatory</b> to update the new order. Note that the reorder icon can be customized using <i>rowReorderIcon</i> of the column component.</p>
+            <p>Data can be reordered using drag drop by adding a reorder column that will display an icon as a drag handle along with the <i>row-reorder</i> event which is <b>mandatory</b> to update the new order. Note that the reorder icon can be customized using <i>rowReorderIcon</i> of the column component.</p>
 <pre v-code><code><template v-pre>
 &lt;DataTable :value="cars" @row-reorder="onRowReorder"&gt;
     &lt;Column :rowReorder="true" headerStyle="width: 3em" /&gt;
@@ -1863,7 +1835,7 @@ export default {
                             <td>null</td>
                             <td>Number of total records, defaults to length of value when not defined.</td>
                         </tr>
-                         <tr>
+                        <tr>
                             <td>paginator</td>
                             <td>boolean</td>
                             <td>false</td>
@@ -2034,6 +2006,12 @@ export default {
                             <td>download</td>
                             <td>Name of the exported file.</td>
                         </tr>
+                         <tr>
+                            <td>exportFunction</td>
+                            <td>function</td>
+                            <td>download</td>
+                            <td>Custom function to export data.</td>
+                        </tr>
                         <tr>
                             <td>autoLayout</td>
                             <td>boolean</td>
@@ -2128,7 +2106,13 @@ export default {
                             <td>rowClass</td>
                             <td>function</td>
                             <td>null</td>
-                            <td>A function that takes the row data and returns a string to apply a particular class for the row.</td>
+                            <td>A function that takes the row data as a parameter and returns a string to apply a particular class for the row.</td>
+                        </tr>
+                        <tr>
+                            <td>rowStyle</td>
+                            <td>object</td>
+                            <td>null</td>
+                            <td>A function that takes the row data as a parameter and returns the inline style for the corresponding row.</td>
                         </tr>
                         <tr>
                             <td>scrollable</td>
@@ -2177,6 +2161,18 @@ export default {
                             <td>boolean</td>
                             <td>false</td>
                             <td>Whether to displays rows with alternating colors.</td>
+                        </tr>
+                        <tr>
+                            <td>tableStyle</td>
+                            <td>object</td>
+                            <td>null</td>
+                            <td>Inline style of the table element.</td>
+                        </tr>
+                        <tr>
+                            <td>tableClass</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Style class of the table element.</td>
                         </tr>
                     </tbody>
                 </table>
@@ -2277,6 +2273,17 @@ export default {
                             <td>Callback to invoke when a row is unselected.</td>
                         </tr>
                         <tr>
+                            <td>row-select-all</td>
+                            <td>event.originalEvent: Browser event. <br />
+                                event.data: Selected dataset</td>
+                            <td>Fired when header checkbox is checked.</td>
+                        </tr>
+                        <tr>
+                            <td>row-unselect-all</td>
+                            <td>event.originalEvent: Browser event.</td>
+                            <td>Fired when header checkbox is unchecked.</td>
+                        </tr>
+                        <tr>
                             <td>column-resize-end</td>
                             <td>event.element: DOM element of the resized column.<br />
                                 event.delta: Change in column width</td>
@@ -2333,6 +2340,9 @@ export default {
                             <td>cell-edit-complete</td>
                             <td>event.originalEvent: Browser event<br />
                                 event.data: Row data to edit. <br />
+                                event.newData: New row data after editing. <br />
+                                event.value: Field value of row data to edit. <br />
+                                event.newValue: Field value of new row data after editing. <br />
                                 event.field: Field name of the row data. <br />
                                 event.index: Index of the row data to edit. <br />
                                 event.type: Type of completion such as "enter", "outside" or "tab". <br /></td>
@@ -2350,6 +2360,7 @@ export default {
                             <td>row-edit-init</td>
                             <td>event.originalEvent: Browser event<br />
                                 event.data: Row data to edit. <br />
+                                event.newData: New row data after editing. <br />
                                 event.field: Field name of the row data. <br />
                                 event.index: Index of the row data to edit. <br /></td>
                             <td>Callback to invoke when row edit is initiated.</td>
@@ -2358,6 +2369,7 @@ export default {
                             <td>row-edit-save</td>
                             <td>event.originalEvent: Browser event<br />
                                 event.data: Row data to edit. <br />
+                                event.newData: New row data after editing. <br />
                                 event.field: Field name of the row data. <br />
                                 event.index: Index of the row data to edit. <br /></td>
                             <td>Callback to invoke when row edit is saved.</td>
@@ -2366,6 +2378,7 @@ export default {
                             <td>row-edit-cancel</td>
                             <td>event.originalEvent: Browser event<br />
                                 event.data: Row data to edit. <br />
+                                event.newData: New row data after editing. <br />
                                 event.field: Field name of the row data. <br />
                                 event.index: Index of the row data to edit. <br /></td>
                             <td>Callback to invoke when row edit is cancelled.</td>
@@ -2442,19 +2455,19 @@ export default {
 					<tbody>
                         <tr>
                             <td>header</td>
+                            <td>column: Column node</td>
+                        </tr>
+                        <tr>
+                            <td>paginatorstart</td>
                             <td>-</td>
                         </tr>
                         <tr>
-                            <td>paginatorLeft</td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td>paginatorRight</td>
+                            <td>paginatorend</td>
                             <td>-</td>
                         </tr>
                         <tr>
                             <td>footer</td>
-                            <td>-</td>
+                            <td>column: Column node</td>
                         </tr>
                         <tr>
                             <td>groupheader</td>
@@ -2470,6 +2483,14 @@ export default {
                             <td>expansion</td>
                             <td>data: Row data <br />
                             index: Row index</td>
+                        </tr>
+                        <tr>
+                            <td>empty</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>loading</td>
+                            <td>-</td>
                         </tr>
 					</tbody>
 				</table>
@@ -2635,7 +2656,7 @@ export default {
                     <MultiSelect v-model="filterModel.value" :options="representatives" optionLabel="name" placeholder="Any" class="p-column-filter">
                         <template #option="slotProps">
                             <div class="p-multiselect-representative-option">
-                                <img :alt="slotProps.option.name" :src="'demo/images/avatar/' + slotProps.option.image" width="32" style="vertical-align: middle" />
+                                <img :alt="slotProps.option.name" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="32" style="vertical-align: middle" />
                                 <span class="image-text">{{slotProps.option.name}}</span>
                             </div>
                         </template>
@@ -2842,7 +2863,7 @@ export default {
             </Column>
             <Column field="country.name" header="Country" sortable filterMatchMode="contains" style="min-width: 14rem">
                 <template #body="{data}">
-                    <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="30" />
+                    <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="30" style="vertical-align: middle" />
                     <span class="image-text">{{data.country.name}}</span>
                 </template>
                 <template #filter="{filterModel}">
@@ -2851,7 +2872,7 @@ export default {
             </Column>
             <Column header="Agent" sortable filterField="representative" sortField="representative.name" :showFilterMatchModes="false" :filterMenuStyle="{'width':'14rem'}" style="min-width: 14rem">
                  <template #body="{data}">
-                    <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="30" />
+                    <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="30" style="vertical-align: middle" />
                     <span class="image-text">{{data.representative.name}}</span>
                 </template>
                 <template #filter="{filterModel}">
@@ -2859,7 +2880,7 @@ export default {
                     <MultiSelect v-model="filterModel.value" :options="representatives" optionLabel="name" placeholder="Any" class="p-column-filter">
                         <template #option="slotProps">
                             <div class="p-multiselect-representative-option">
-                                <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="30" />
+                                <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="30" style="vertical-align: middle" />
                                 <span class="image-text">{{slotProps.option.name}}</span>
                             </div>
                         </template>
@@ -3062,6 +3083,279 @@ img {
     }
 }
 </style>`
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/datatable/datatable.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/column/column.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/dropdown/dropdown.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/multiselect/multiselect.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/calendar/calendar.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/slider/slider.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/progressbar/progressbar.min.js"><\\/script>
+        <script src="./CustomerService.js"><\\/script>`,
+                    content: `<div id="app">
+            <p-datatable :value="customers" :paginator="true" class="p-datatable-customers" :rows="10"
+                data-key="id" :row-hover="true" v-model:selection="selectedCustomers" v-model:filters="filters" filter-display="menu" :loading="loading"
+                paginator-template="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" :rows-per-page-options="[10,25,50]"
+                current-page-report-template="Showing {first} to {last} of {totalRecords} entries"
+                :global-filter-fields="['name','country.name','representative.name','status']" responsive-layout="scroll">
+                <template #header>
+                    <div class="p-d-flex p-jc-between p-ai-center">
+                        <h5 class="p-m-0">Customers</h5>
+                        <span class="p-input-icon-left">
+                            <i class="pi pi-search"></i>
+                            <p-inputtext v-model="filters['global'].value" placeholder="Keyword Search"></p-inputtext>
+                        </span>
+                    </div>
+                </template>
+                <template #empty>
+                    No customers found.
+                </template>
+                <template #loading>
+                    Loading customers data. Please wait.
+                </template>
+                <p-column selection-mode="multiple" header-style="width: 3rem"></p-column>
+                <p-column field="name" header="Name" sortable style="min-width: 14rem">
+                    <template #body="{data}">
+                        {{data.name}}
+                    </template>
+                    <template #filter="{filterModel}">
+                        <p-inputtext type="text" v-model="filterModel.value" class="p-column-filter" placeholder="Search by name"></p-inputtext>
+                    </template>
+                </p-column>
+                <p-column field="country.name" header="Country" sortable filter-match-mode="contains" style="min-width: 14rem">
+                    <template #body="{data}">
+                        <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="30" style="vertical-align: middle" />
+                        <span class="image-text">{{data.country.name}}</span>
+                    </template>
+                    <template #filter="{filterModel}">
+                        <p-inputtext type="text" v-model="filterModel.value" class="p-column-filter" placeholder="Search by country"></p-inputtext>
+                    </template>
+                </p-column>
+                <p-column header="Agent" sortable filter-field="representative" sort-field="representative.name" :show-filter-match-modes="false" :filter-menu-style="{'width':'14rem'}" style="min-width: 14rem">
+                    <template #body="{data}">
+                        <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="30" style="vertical-align: middle" />
+                        <span class="image-text">{{data.representative.name}}</span>
+                    </template>
+                    <template #filter="{filterModel}">
+                        <div class="p-mb-3 p-text-bold">Agent Picker</div>
+                        <p-multiselect v-model="filterModel.value" :options="representatives" option-label="name" placeholder="Any" class="p-column-filter">
+                            <template #option="slotProps">
+                                <div class="p-multiselect-representative-option">
+                                    <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="30" />
+                                    <span class="image-text">{{slotProps.option.name}}</span>
+                                </div>
+                            </template>
+                        </p-multiselect>
+                    </template>
+                </p-column>
+                <p-column field="date" header="Date" sortable data-type="date" style="min-width: 8rem">
+                    <template #body="{data}">
+                        {{formatDate(data.date)}}
+                    </template>
+                    <template #filter="{filterModel}">
+                        <p-calendar v-model="filterModel.value" date-format="mm/dd/yy" placeholder="mm/dd/yyyy"></p-calendar>
+                    </template>
+                </p-column>
+                <p-column field="balance" header="Balance" sortable data-type="numeric" style="min-width: 8rem">
+                    <template #body="{data}">
+                        {{formatCurrency(data.balance)}}
+                    </template>
+                    <template #filter="{filterModel}">
+                        <p-inputnumber v-model="filterModel.value" mode="currency" currency="USD" locale="en-US"></p-inputnumber>
+                    </template>
+                </p-column>
+                <p-column field="status" header="Status" sortable :filter-menu-style="{'width':'14rem'}" style="min-width: 10rem">
+                    <template #body="{data}">
+                        <span :class="'customer-badge status-' + data.status">{{data.status}}</span>
+                    </template>
+                    <template #filter="{filterModel}">
+                        <p-dropdown v-model="filterModel.value" :options="statuses" placeholder="Any" class="p-column-filter" :show-clear="true">
+                            <template #value="slotProps">
+                                <span :class="'customer-badge status-' + slotProps.value">{{slotProps.value}}</span>
+                            </template>
+                            <template #option="slotProps">
+                                <span :class="'customer-badge status-' + slotProps.option">{{slotProps.option}}</span>
+                            </template>
+                        </p-dropdown>
+                    </template>
+                </p-column>
+                <p-column field="activity" header="Activity" sortable :show-filter-match-modes="false" style="min-width: 10rem">
+                    <template #body="{data}">
+                        <p-progressbar :value="data.activity" :show-value="false"></p-progressbar>
+                    </template>
+                    <template #filter="{filterModel}">
+                        <p-slider v-model="filterModel.value" range class="p-m-3"></p-slider>
+                        <div class="p-d-flex p-ai-center p-jc-between p-px-2">
+                            <span>{{filterModel.value ? filterModel.value[0] : 0}}</span>
+                            <span>{{filterModel.value ? filterModel.value[1] : 100}}</span>
+                        </div>
+                    </template>
+                </p-column>
+                <p-column header-style="width: 4rem; text-align: center" body-style="text-align: center; overflow: visible">
+                    <template #body>
+                        <p-button type="button" icon="pi pi-cog"></p-button>
+                    </template>
+                </p-column>
+            </p-datatable>
+        </div>
+    </template>
+
+    <script type="module">
+    const { createApp, ref, onMounted } = Vue;
+    const { FilterMatchMode, FilterOperator } = primevue.api;
+
+    const App = {
+        setup() {
+            onMounted(() => {
+                customerService.value.getCustomersLarge().then((data) => {
+                    customers.value = data;
+                    customers.value.forEach(
+                        (customer) => (customer.date = new Date(customer.date))
+                    );
+                    loading.value = false;
+                });
+            });
+            const customers = ref();
+            const selectedCustomers = ref();
+            const filters = ref({
+                global: { value: null, matchMode: FilterMatchMode.CONTAINS },
+                name: {
+                    operator: FilterOperator.AND,
+                    constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }],
+                },
+                "country.name": {
+                    operator: FilterOperator.AND,
+                    constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }],
+                },
+                representative: { value: null, matchMode: FilterMatchMode.IN },
+                date: {
+                    operator: FilterOperator.AND,
+                    constraints: [{ value: null, matchMode: FilterMatchMode.DATE_IS }],
+                },
+                balance: {
+                    operator: FilterOperator.AND,
+                    constraints: [{ value: null, matchMode: FilterMatchMode.EQUALS }],
+                },
+                status: {
+                    operator: FilterOperator.OR,
+                    constraints: [{ value: null, matchMode: FilterMatchMode.EQUALS }],
+                },
+                activity: { value: null, matchMode: FilterMatchMode.BETWEEN },
+                verified: { value: null, matchMode: FilterMatchMode.EQUALS },
+            });
+            const customerService = ref(new CustomerService());
+            const loading = ref(true);
+            const representatives = [
+                { name: "Amy Elsner", image: "amyelsner.png" },
+                { name: "Anna Fali", image: "annafali.png" },
+                { name: "Asiya Javayant", image: "asiyajavayant.png" },
+                { name: "Bernardo Dominic", image: "bernardodominic.png" },
+                { name: "Elwin Sharvill", image: "elwinsharvill.png" },
+                { name: "Ioni Bowcher", image: "ionibowcher.png" },
+                { name: "Ivan Magalhaes", image: "ivanmagalhaes.png" },
+                { name: "Onyama Limba", image: "onyamalimba.png" },
+                { name: "Stephen Shaw", image: "stephenshaw.png" },
+                { name: "XuXue Feng", image: "xuxuefeng.png" },
+            ];
+            const statuses = ref([
+                "unqualified",
+                "qualified",
+                "new",
+                "negotiation",
+                "renewal",
+                "proposal",
+            ]);
+            const formatDate = (value) => {
+                return value.toLocaleDateString("en-US", {
+                    day: "2-digit",
+                    month: "2-digit",
+                    year: "numeric",
+                });
+            };
+            const formatCurrency = (value) => {
+                return value.toLocaleString("en-US", {
+                    style: "currency",
+                    currency: "USD",
+                });
+            };
+            return {
+                customers,
+                filters,
+                loading,
+                representatives,
+                formatCurrency,
+                selectedCustomers,
+                formatDate,
+                statuses,
+            };
+        },
+        components: {
+            "p-datatable": primevue.datatable,
+            "p-column": primevue.column,
+            "p-inputtext": primevue.inputtext,
+            "p-multiselect": primevue.multiselect,
+            "p-calendar": primevue.calendar,
+            "p-inputnumber": primevue.inputnumber,
+            "p-dropdown": primevue.dropdown,
+            "p-progressbar": primevue.progressbar,
+            "p-slider": primevue.slider,
+            "p-button": primevue.button
+        }
+    };
+
+    const app = createApp(App);
+    app.use(primevue.config.default);
+    app.mount("#app");
+    <\\/script>
+
+    <style lang="scss" scoped>
+    img {
+        vertical-align: middle;
+    }
+    .p-paginator .p-paginator-current {
+        margin-left: auto;
+    }
+
+    .p-progressbar {
+        height: .5rem;
+        background-color: #D8DADC;
+    }
+    .p-progressbar .p-progressbar-value {
+        background-color: #607D8B;
+    }
+
+    .p-datepicker {
+        min-width: 25rem;
+    }
+
+    .p-datepicker td {
+        font-weight: 400;
+    }
+
+    .p-datatable.p-datatable-customers .p-datatable-header {
+        padding: 1rem;
+        text-align: left;
+        font-size: 1.5rem;
+    }
+
+    .p-datatable.p-datatable-customers .p-paginator {
+        padding: 1rem;
+    }
+
+    .p-datatable.p-datatable-customers .p-datatable-thead > tr > th {
+        text-align: left;
+    }
+
+    .p-datatable.p-datatable-customers .p-datatable-tbody > tr > td {
+        cursor: auto;
+    }
+
+    .p-datatable.p-datatable-customers .p-dropdown-label:not(.p-placeholder) {
+        text-transform: uppercase;
+    }
+    </style>`
                 }
             }
         }

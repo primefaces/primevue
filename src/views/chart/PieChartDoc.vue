@@ -1,5 +1,5 @@
 <template>
-	<AppDoc name="ChartDemo" :sources="sources" :dependencies="{'chart.js': '2.7.3'}" component="Chart" github="chart/PieChartDemo.vue" />
+	<AppDoc name="ChartDemo" :sources="sources" :dependencies="{'chart.js': '3.3.2'}" component="Chart" github="chart/PieChartDemo.vue" />
 </template>
 
 <script>
@@ -13,7 +13,7 @@ export default {
 					content: `
 <template>
     <div>
-        <Chart type="pie" :data="chartData" />
+        <Chart type="pie" :data="chartData" :options="lightOptions" />
     </div>
 </template>
 
@@ -30,6 +30,15 @@ export default {
                         hoverBackgroundColor: ["#64B5F6","#81C784","#FFB74D"]
                     }
                 ]
+            },
+            lightOptions: {
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#495057'
+                        }
+                    }
+                }
             }
         }
     }
@@ -42,7 +51,7 @@ export default {
 					content: `
 <template>
     <div>
-        <Chart type="pie" :data="chartData" />
+        <Chart type="pie" :data="chartData" :options="lightOptions" />
     </div>
 </template>
 
@@ -62,7 +71,17 @@ export default {
             ]
         });
 
-		return { chartData }
+        const lightOptions = ref({
+            plugins: {
+                legend: {
+                    labels: {
+                        color: '#495057'
+                    }
+                }
+            }
+        });
+
+		return { chartData, lightOptions }
     }
 }
 <\\/script>

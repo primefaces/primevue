@@ -1,11 +1,12 @@
 <template>
     <td :style="containerStyle" :class="containerClass" @click="onClick" @keydown="onKeyDown" role="cell">
         <span v-if="responsiveLayout === 'stack'" class="p-column-title">{{columnProp('header')}}</span>
-        <component :is="column.children.body" :data="rowData" :column="column" :index="index" :frozenRow="frozenRow" v-if="column.children && column.children.body && !d_editing" />
-        <component :is="column.children.editor" :data="rowData" :column="column" :index="index" :frozenRow="frozenRow" v-else-if="column.children && column.children.editor && d_editing" />
+        <component :is="column.children.body" :data="rowData" :column="column" :field="field" :index="rowIndex" :frozenRow="frozenRow" v-if="column.children && column.children.body && !d_editing" />
+        <component :is="column.children.editor" :data="editingRowData" :column="column" :field="field" :index="rowIndex" :frozenRow="frozenRow" v-else-if="column.children && column.children.editor && d_editing" />
+        <component :is="column.children.body" :data="editingRowData" :column="column" :field="field" :index="rowIndex" :frozenRow="frozenRow" v-else-if="column.children && column.children.body && !column.children.editor && d_editing" />
         <template v-else-if="columnProp('selectionMode')">
-            <DTRadioButton :value="rowData" :checked="selected" @change="toggleRowWithRadio" v-if="column.props.selectionMode === 'single'" />
-            <DTCheckbox :value="rowData" :checked="selected" @change="toggleRowWithCheckbox" v-else-if="column.props.selectionMode ==='multiple'" />
+            <DTRadioButton :value="rowData" :checked="selected" @change="toggleRowWithRadio" v-if="columnProp('selectionMode') === 'single'" />
+            <DTCheckbox :value="rowData" :checked="selected" @change="toggleRowWithCheckbox" v-else-if="columnProp('selectionMode') ==='multiple'" />
         </template>
         <template v-else-if="columnProp('rowReorder')">
             <i :class="['p-datatable-reorderablerow-handle', (columnProp('rowReorderIcon') || 'pi pi-bars')]"></i>
@@ -39,8 +40,8 @@ import Ripple from 'primevue/ripple';
 
 export default {
     name: 'BodyCell',
-    emits: ['cell-edit-init', 'cell-edit-complete', 'cell-edit-cancel', 'row-edit-init', 'row-edit-save', 'row-edit-cancel', 'editing-cell-change',
-            'row-toggle', 'radio-change', 'checkbox-change'],
+    emits: ['cell-edit-init', 'cell-edit-complete', 'cell-edit-cancel', 'row-edit-init', 'row-edit-save', 'row-edit-cancel',
+            'row-toggle', 'radio-change', 'checkbox-change', 'editing-meta-change'],
     props: {
         rowData: {
             type: Object,
@@ -74,6 +75,10 @@ export default {
             type: Boolean,
             default: false
         },
+        editingMeta: {
+            type: Object,
+            default: null
+        },
         editMode: {
             type: String,
             default: null
@@ -95,6 +100,9 @@ export default {
     watch: {
         editing(newValue) {
             this.d_editing = newValue;
+        },
+        '$data.d_editing': function(newValue) {
+            this.$emit('editing-meta-change', {data: this.rowData, field: (this.field || `field_${this.index}`), index: this.rowIndex, editing: newValue});
         }
     },
     mounted() {
@@ -106,6 +114,11 @@ export default {
         if (this.columnProp('frozen')) {
             this.updateStickyPosition();
         }
+
+        if (this.d_editing && (this.editMode === 'cell' || (this.editMode === 'row' && this.columnProp('rowEditor')))) {
+            const focusableEl = DomHandler.getFirstFocusableElement(this.$el);
+            focusableEl && focusableEl.focus();
+        }
     },
     beforeUnmount() {
         if (this.overlayEventListener) {
@@ -115,10 +128,10 @@ export default {
     },
     methods: {
         columnProp(prop) {
-            return this.column.props ? ((this.column.type.props[prop].type === Boolean && this.column.props[prop] === '') ? true : this.column.props[prop]) : null;
+            return ObjectUtils.getVNodeProp(this.column, prop);
         },
         resolveFieldData() {
-            return ObjectUtils.resolveFieldData(this.rowData, this.columnProp('field'));
+            return ObjectUtils.resolveFieldData(this.rowData, this.field);
         },
         toggleRow(event) {
             this.$emit('row-toggle', {
@@ -157,7 +170,6 @@ export default {
         switchCellToViewMode() {
             this.d_editing = false;
             this.unbindDocumentEditListener();
-            this.$emit('editing-cell-change', {rowIndex: this.rowIndex, cellIndex: this.index, editing: false});
             OverlayEventBus.off('overlay-click', this.overlayEventListener);
             this.overlayEventListener = null;
         },
@@ -168,8 +180,7 @@ export default {
                 if (!this.d_editing) {
                     this.d_editing = true;
                     this.bindDocumentEditListener();
-                    this.$emit('cell-edit-init', {originalEvent: event, data: this.rowData, field: this.columnProp('field'), index: this.rowIndex});
-                    this.$emit('editing-cell-change', {rowIndex: this.rowIndex, cellIndex: this.index, editing: true});
+                    this.$emit('cell-edit-init', {originalEvent: event, data: this.rowData, field: this.field, index: this.rowIndex});
 
                     this.overlayEventListener = (e) => {
                         if (this.$el && this.$el.contains(e.target)) {
@@ -181,10 +192,13 @@ export default {
             }
         },
         completeEdit(event, type) {
-            let completeEvent = {
+            const completeEvent = {
                 originalEvent: event,
                 data: this.rowData,
-                field: this.columnProp('field'),
+                newData: this.editingRowData,
+                value: this.rowData[this.field],
+                newValue: this.editingRowData[this.field],
+                field: this.field,
                 index: this.rowIndex,
                 type: type,
                 defaultPrevented: false,
@@ -208,7 +222,7 @@ export default {
 
                     case 27:
                         this.switchCellToViewMode();
-                        this.$emit('cell-edit-cancel', {originalEvent: event, data: this.rowData, field: this.columnProp('field'), index: this.rowIndex});
+                        this.$emit('cell-edit-cancel', {originalEvent: event, data: this.rowData, field: this.field, index: this.rowIndex});
                     break;
 
                     case 9:
@@ -297,13 +311,13 @@ export default {
             return (DomHandler.find(this.$el, '.p-invalid').length === 0);
         },
         onRowEditInit(event) {
-            this.$emit('row-edit-init', {originalEvent: event, data: this.rowData, field: this.columnProp('field'), index: this.rowIndex});
+            this.$emit('row-edit-init', {originalEvent: event, data: this.rowData, newData: this.editingRowData, field: this.field, index: this.rowIndex});
         },
         onRowEditSave(event) {
-            this.$emit('row-edit-save', {originalEvent: event, data: this.rowData, field: this.columnProp('field'), index: this.rowIndex});
+            this.$emit('row-edit-save', {originalEvent: event, data: this.rowData, newData: this.editingRowData, field: this.field, index: this.rowIndex});
         },
         onRowEditCancel(event) {
-            this.$emit('row-edit-cancel', {originalEvent: event, data: this.rowData, field: this.columnProp('field'), index: this.rowIndex});
+            this.$emit('row-edit-cancel', {originalEvent: event, data: this.rowData, newData: this.editingRowData, field: this.field, index: this.rowIndex});
         },
         updateStickyPosition() {
             if (this.columnProp('frozen')) {
@@ -312,7 +326,7 @@ export default {
                     let right = 0;
                     let next = this.$el.nextElementSibling;
                     if (next) {
-                        right = DomHandler.getOuterWidth(next) + parseFloat(next.style.left);
+                        right = DomHandler.getOuterWidth(next) + parseFloat(next.style.right || 0);
                     }
                     this.styleObject.right = right + 'px';
                 }
@@ -320,7 +334,7 @@ export default {
                     let left = 0;
                     let prev = this.$el.previousElementSibling;
                     if (prev) {
-                        left = DomHandler.getOuterWidth(prev) + parseFloat(prev.style.left);
+                        left = DomHandler.getOuterWidth(prev) + parseFloat(prev.style.left || 0);
                     }
                     this.styleObject.left = left + 'px';
                 }
@@ -328,6 +342,12 @@ export default {
         }
     },
     computed: {
+        editingRowData() {
+            return this.editingMeta[this.rowIndex] ? this.editingMeta[this.rowIndex].data : this.rowData;
+        },
+        field() {
+            return this.columnProp('field');
+        },
         containerClass() {
             return [this.columnProp('bodyClass'), this.columnProp('class'), {
                 'p-selection-column': this.columnProp('selectionMode') != null,

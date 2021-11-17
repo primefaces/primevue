@@ -1,4 +1,4 @@
-const DividerProps = [
+const DropdownProps = [
     {
         name: "modelValue",
         type: "any",
@@ -154,10 +154,16 @@ const DividerProps = [
         type: "string",
         default: "pi pi-spinner pi-spin",
         description: "Icon to display in loading state."
+    },
+    {
+        name: "virtualScrollerOptions",
+        type: "object",
+        default: "null",
+        description: "Whether to use the virtualScroller feature. The properties of VirtualScroller component can be used like an object in it."
     }
 ];
 
-const DividerEvents = [
+const DropdownEvents = [
     {
         name: "change",
         description: "Callback to invoke on value change.",
@@ -241,7 +247,7 @@ const DividerEvents = [
     }
 ];
 
-const DividerSlots = [
+const DropdownSlots = [
     {
         name: "option",
         description: "Custom content for the item's option"
@@ -269,6 +275,18 @@ const DividerSlots = [
     {
         name: "empty",
         description: "Custom content when there is no data to display"
+    },
+    {
+        name: "content",
+        description: "Custom content for the virtual scroller"
+    },
+    {
+        name: "loader",
+        description: "Custom content for the virtual scroller loader items"
+    },
+    {
+        name: "indicator",
+        description: "Custom content for the dropdown indicator"
     }
 ];
 
@@ -276,8 +294,8 @@ module.exports = {
     dropdown: {
         name: "Dropdown",
         description: "Dropdown is used to select an item from a list of options.",
-        props: DividerProps,
-        events: DividerEvents,
-        slots: DividerSlots
+        props: DropdownProps,
+        events: DropdownEvents,
+        slots: DropdownSlots
     }
 };

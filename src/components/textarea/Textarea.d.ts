@@ -1,11 +1,11 @@
 interface TextareaProps {
-    value?: string;
+    modelValue?: string;
     autoResize?: boolean;
 }
 
 declare class Textarea {
     $props: TextareaProps;
-    $emit(eventName: 'input', value: string): this;
+    $emit(eventName: 'update:modelValue', value: string): this;
 }
 
 export default Textarea;

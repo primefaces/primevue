@@ -10,6 +10,8 @@ interface OrganizationChartProps {
 
 declare class OrganizationChart {
     $props: OrganizationChartProps;
+    $emit(eventName: 'update:selectionKeys', value: any): this;
+    $emit(eventName: 'update:collapsedKeys', value: boolean): this;
     $emit(eventName: 'node-select', node: any): this;
     $emit(eventName: 'node-unselect', node: any): this;
     $emit(eventName: 'node-expand', node: any): this;

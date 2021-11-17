@@ -43,10 +43,22 @@ const OverlayPanelProps = [
     }
 ];
 
+const OverlayPanelEvents = [
+    {
+        name: "show",
+        description: "Callback to invoke before the overlay is shown."
+    },
+    {
+        name: "hide",
+        description: "Callback to invoke before the overlay is hidden."
+    },
+];
+
 module.exports = {
     overlaypanel: {
         name: "OverlayPanel",
         description: "OverlayPanel is a container component positioned as connected to its target.",
-        props: OverlayPanelProps
+        props: OverlayPanelProps,
+        events: OverlayPanelEvents
     }
 };

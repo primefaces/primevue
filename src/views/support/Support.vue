@@ -11,8 +11,8 @@
             <div class="p-col-12 p-md-6 p-lg-6">
                 <div class="card support-box">
                     <h5>Community Support</h5>
-                    <p><a href="https://forum.primefaces.org/viewforum.php?f=35">Forum</a> is where the community users gather to seek support, post topics and discuss the technology. PrimeTek does not
-                    guarantee response at forum although it is monitored and maintained by our staff. If you need to secure our response within 1 business day, you may consider PrimeVue PRO support.</p>
+                    <p><a href="https://forum.primefaces.org/viewforum.php?f=35">Forum</a> and <a href="https://discord.gg/gzKFYnpmCY">Discord</a> are where the community users gather to seek support, post topics and discuss the technology. PrimeTek does not
+                    guarantee response at forum and discord although they are monitored and maintained by our staff. If you need to secure our response within 1 business day, you may consider PrimeVue PRO support.</p>
                 </div>
             </div>
 
@@ -30,7 +30,7 @@
         </div>
 
         <div class="content-section section-moreaboutpro">
-            <h5 class="section-header">More About Pro</h5> 
+            <h5 class="section-header">Included in PRO</h5> 
             <div class="p-grid">
                 <div class="p-col-6 p-lg-3">
                     <div class="p-d-flex">
@@ -53,19 +53,10 @@
                 </div>
                 <div class="p-col-6 p-lg-3">
                     <div class="p-d-flex">
-                        <div class="dot color-2">&nbsp;</div>
+                        <div class="dot color-7">&nbsp;</div>
                         <div class="p-d-flex p-flex-column p-pl-3">
-                            <h6>Long Term Support License</h6>
-                            <p>LTS Support ensures stability, premium quality and advanced security for the prior versions. </p>
-                        </div>
-                    </div>     
-                </div>
-                <div class="p-col-6 p-lg-3">
-                    <div class="p-d-flex">
-                        <div class="dot color-3">&nbsp;</div>
-                        <div class="p-d-flex p-flex-column p-pl-3">
-                            <h6>Theme Designer License</h6>
-                            <p>Designer is the ultimate tool to create your own PrimeVue experience powered by a SASS based theme engine with 500+ variables and a Visual Designer. </p>
+                            <h6>Unlimited Number of Cases</h6>
+                            <p>Take advantage of the unlimited number of cases. Our PRO team is at your side to solve all the problems you are experiencing. </p>
                         </div>
                     </div>     
                 </div>
@@ -80,10 +71,19 @@
                 </div>
                 <div class="p-col-6 p-lg-3">
                     <div class="p-d-flex">
+                        <div class="dot color-3">&nbsp;</div>
+                        <div class="p-d-flex p-flex-column p-pl-3">
+                            <h6>Theme Designer</h6>
+                            <p><a href="https://www.primefaces.org/designer-vue">Designer</a> is the ultimate tool to create your own PrimeVue experience powered by a SASS based theme engine with 500+ variables and a Visual Designer. </p>
+                        </div>
+                    </div>     
+                </div>
+                <div class="p-col-6 p-lg-3">
+                    <div class="p-d-flex">
                         <div class="dot color-5">&nbsp;</div>
                         <div class="p-d-flex p-flex-column p-pl-3">
-                            <h6>Private Branch Management</h6>
-                            <p>Our PRO Team provides private customized branch management.</p>
+                            <h6>Premium Template</h6>
+                            <p>Choose one premium template of your choice with an extended license.</p>
                         </div>
                     </div>     
                 </div>
@@ -91,17 +91,17 @@
                     <div class="p-d-flex">
                         <div class="dot color-6">&nbsp;</div>
                         <div class="p-d-flex p-flex-column p-pl-3">
-                            <h6>Customized Builds</h6>
-                            <p>We deliver you customized build folders to help to support your project.</p>
+                            <h6>PrimeBlocks</h6>
+                            <p>An enterprise license for all of the ready to use <a href="https://www.primefaces.org/primeblocks-vue">UI blocks</a> to build spectacular applications in no time.</p>
                         </div>
                     </div>     
                 </div>
                 <div class="p-col-6 p-lg-3">
                     <div class="p-d-flex">
-                        <div class="dot color-7">&nbsp;</div>
+                        <div class="dot color-2">&nbsp;</div>
                         <div class="p-d-flex p-flex-column p-pl-3">
-                            <h6>Unlimited Number of Cases</h6>
-                            <p>Take advantage of the unlimited number of cases. Our PRO team is at your side to solve all the problems you are experiencing. </p>
+                            <h6>Long Term Support</h6>
+                            <p>LTS Support ensures stability, premium quality and advanced security for any version.</p>
                         </div>
                     </div>     
                 </div>
@@ -145,7 +145,7 @@
         </div>
 
         <div class="content-section section-newfeatures">
-            <h5>New Features</h5> 
+            <h5>Enhancement Credits</h5> 
             <div class="p-d-flex p-mb-4">
                 <p>New feature and enhancement requests are not available in core services and provided via an hour based model instead. When you have a feature request we provide an estimate, if you confirm we deliver your request within an estimated timeframe and deduct the amount of work from your hours. These requests can be;</p>
             </div>
@@ -269,6 +269,15 @@
         padding: 1rem;
         display: inline;
         border-radius: 4px 4px 0 0;
+    }
+
+    a {
+        color: #2196f3;
+        font-weight: 600;
+
+        &:hover {
+            text-decoration: underline;
+        }
     }
 }
 

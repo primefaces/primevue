@@ -8,10 +8,12 @@ interface PanelProps {
 
 declare class Panel {
     $props: PanelProps;
+    $emit(eventName: 'update:collapsed', value: boolean): this;
     $emit(eventName: 'toggle', e: { originalEvent: Event, value: boolean; }): this;
     $slots: {
         '': VNode[];
         header: VNode[];
+        icons: VNode[];
     }
 }
 

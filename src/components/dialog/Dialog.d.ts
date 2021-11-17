@@ -18,19 +18,21 @@ interface DialogProps {
     position?: string;
     maximizable?: boolean;
     breakpoints?: {[key: string]: string};
-    draggable: boolean;
-    keepInViewPort: boolean;
-    minX: number;
-    minY: number;
+    draggable?: boolean;
+    keepInViewPort?: boolean;
+    minX?: number;
+    minY?: number;
+    appendTo?: string;
 }
 
 declare class Dialog {
     $props: DialogProps;
+    $emit(eventName: 'update:visible', value: boolean): this;
     $emit(eventName: 'show'): this;
     $emit(eventName: 'hide'): this;
-    $emit(eventName: 'maximize'): this;
-    $emit(eventName: 'unmaximize'): this;
-    $emit(eventName: 'dragend'): this;
+    $emit(eventName: 'maximize', event: Event): this;
+    $emit(eventName: 'unmaximize', event: Event): this;
+    $emit(eventName: 'dragend', event: Event): this;
     $slots: {
         '': VNode[];
         header: VNode[];

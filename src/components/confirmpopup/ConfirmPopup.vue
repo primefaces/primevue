@@ -2,10 +2,13 @@
     <Teleport to="body">
         <transition name="p-confirm-popup" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave">
             <div :class="containerClass" v-if="visible" :ref="containerRef" v-bind="$attrs" @click="onOverlayClick">
-                <div class="p-confirm-popup-content">
-                    <i :class="iconClass" />
-                    <span class="p-confirm-popup-message">{{confirmation.message}}</span>
-                </div>
+                <template v-if="!$slots.message">
+                    <div class="p-confirm-popup-content">
+                        <i :class="iconClass" />
+                        <span class="p-confirm-popup-message">{{confirmation.message}}</span>
+                    </div>
+                </template>
+                <component v-else :is="$slots.message" :message="confirmation"></component>
                 <div class="p-confirm-popup-footer">
                     <CPButton :label="rejectLabel" :icon="rejectIcon" :class="rejectClass" @click="reject()"/>
                     <CPButton :label="acceptLabel" :icon="acceptIcon" :class="acceptClass" @click="accept()" autofocus />
@@ -228,6 +231,8 @@ export default {
 .p-confirm-popup {
     position: absolute;
     margin-top: 10px;
+    top: 0;
+    left: 0;
 }
 
 .p-confirm-popup-flipped {

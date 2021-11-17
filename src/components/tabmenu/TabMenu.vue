@@ -2,22 +2,22 @@
     <div class="p-tabmenu p-component">
         <ul ref="nav" class="p-tabmenu-nav p-reset" role="tablist">
             <template v-for="(item,i) of model" :key="label(item) + '_' + i.toString()">
-                <router-link v-if="item.to && !item.disabled" :to="item.to" custom v-slot="{navigate, href, isActive, isExactActive}">
+                <router-link v-if="item.to && !disabled(item)" :to="item.to" custom v-slot="{navigate, href, isActive, isExactActive}">
                     <li :class="getRouteItemClass(item,isActive,isExactActive)" :style="item.style" v-if="visible(item)" role="tab">
                         <template v-if="!$slots.item">
-                            <a :href="href" class="p-menuitem-link" @click="onItemClick($event, item, navigate)" role="presentation" v-ripple>
+                            <a :href="href" class="p-menuitem-link" @click="onItemClick($event, item, i, navigate)" role="presentation" v-ripple>
                                 <span :class="getItemIcon(item)" v-if="item.icon"></span>
-                                <span class="p-menuitem-text">{{itemlabel()}}</span>
+                                <span class="p-menuitem-text">{{label(item)}}</span>
                             </a>
                         </template>
                         <component v-else :is="$slots.item" :item="item"></component>
                     </li>
                 </router-link>
-                <li v-else-if="visible(item)" :class="getItemClass(item)" role="tab">
+                <li v-else-if="visible(item)" :class="getItemClass(item, i)" role="tab">
                     <template v-if="!$slots.item">
-                        <a :href="item.url" class="p-menuitem-link" :target="item.target" @click="onItemClick($event, item)" role="presentation" :tabindex="item.disabled ? null : '0'" v-ripple>
+                        <a :href="item.url" class="p-menuitem-link" :target="item.target" @click="onItemClick($event, item, i)" role="presentation" :tabindex="disabled(item) ? null : '0'" v-ripple>
                             <span :class="getItemIcon(item)" v-if="item.icon"></span>
-                            <span class="p-menuitem-text">{{itemlabel()}}</span>
+                            <span class="p-menuitem-text">{{label(item)}}</span>
                         </a>
                      </template>
                      <component v-else :is="$slots.item" :item="item"></component>
@@ -34,6 +34,7 @@ import Ripple from 'primevue/ripple';
 
 export default {
     name: 'TabMenu',
+    emits: ['update:activeIndex', 'tab-change'],
     props: {
 		model: {
             type: Array,
@@ -42,9 +43,18 @@ export default {
         exact: {
             type: Boolean,
             default: true
+        },
+        activeIndex: {
+            type: Number,
+            default: 0
         }
     },
     timeout: null,
+    data() {
+        return {
+            d_activeIndex: this.activeIndex
+        }
+    },
     mounted() {
         this.updateInkBar();
     },
@@ -57,11 +67,14 @@ export default {
     watch: {
         $route() {
             this.timeout = setTimeout(() => this.updateInkBar(), 50);
+        },
+        activeIndex(newValue) {
+            this.d_activeIndex = newValue;
         }
     },
     methods: {
-        onItemClick(event, item, navigate) {
-            if (item.disabled) {
+        onItemClick(event, item, index, navigate) {
+            if (this.disabled(item)) {
                 event.preventDefault();
                 return;
             }
@@ -76,16 +89,27 @@ export default {
             if (item.to && navigate) {
                 navigate(event);
             }
+
+            if (index !== this.d_activeIndex) {
+                this.d_activeIndex = index;
+                this.$emit('update:activeIndex', this.d_activeIndex);
+            }
+
+            this.$emit('tab-change', {
+                originalEvent: event,
+                index: index
+            });
         },
-        getItemClass(item) {
+        getItemClass(item, index) {
             return ['p-tabmenuitem', item.class, {
-                'p-disabled': item.disabled
+                'p-highlight': this.d_activeIndex === index,
+                'p-disabled': this.disabled(item)
             }];
         },
         getRouteItemClass(item, isActive, isExactActive) {
             return ['p-tabmenuitem', item.class, {
                  'p-highlight': this.exact ? isExactActive : isActive,
-                'p-disabled': item.disabled
+                'p-disabled': this.disabled(item)
             }];
         },
         getItemIcon(item) {
@@ -94,8 +118,11 @@ export default {
         visible(item) {
             return (typeof item.visible === 'function' ? item.visible() : item.visible !== false);
         },
-        label(item){
+        label(item) {
             return (typeof item.label === 'function' ? item.label() : item.label);
+        },
+        disabled(item) {
+            return (typeof item.disabled === 'function' ? item.disabled() : item.disabled);
         },
         updateInkBar() {
             let tabs = this.$refs.nav.children;
@@ -122,12 +149,16 @@ export default {
 </script>
 
 <style>
+.p-tabmenu {
+    overflow-x: auto;
+}
+
 .p-tabmenu-nav {
     display: flex;
     margin: 0;
     padding: 0;
     list-style-type: none;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
 }
 
 .p-tabmenu-nav a {
@@ -152,5 +183,9 @@ export default {
 .p-tabmenu-ink-bar {
     display: none;
     z-index: 1;
+}
+
+.p-tabmenu::-webkit-scrollbar {
+    display: none;
 }
 </style>

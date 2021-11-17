@@ -2,7 +2,7 @@
     <Teleport :to="appendTo" :disabled="!popup">
         <transition name="p-connected-overlay" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave">
             <div :ref="containerRef" :class="containerClass" v-if="popup ? visible : true" v-bind="$attrs" @click="onOverlayClick">
-                <TieredMenuSub :model="model" :root="true" :popup="popup" @leaf-click="onLeafClick" :template="$slots.item" />
+                <TieredMenuSub :model="model" :root="true" :popup="popup" @leaf-click="onLeafClick" :template="$slots.item" :exact="exact" />
             </div>
         </transition>
     </Teleport>
@@ -36,6 +36,10 @@ export default {
         baseZIndex: {
             type: Number,
             default: 0
+        },
+        exact: {
+            type: Boolean,
+            default: true
         }
     },
     target: null,
@@ -192,6 +196,8 @@ export default {
 <style>
 .p-tieredmenu-overlay {
     position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .p-tieredmenu ul {

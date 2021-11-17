@@ -1,8 +1,14 @@
 <template>
-	<AppDoc name="TreeDemo" :sources="sources" :service="['NodeService']" :data="['treenodes']" github="tree/TreeDemo.vue"> 
-        <h5>Import</h5>
+	<AppDoc name="TreeDemo" :sources="sources" :service="['NodeService']" :data="['treenodes']" github="tree/TreeDemo.vue">
+        <h5>Import via Module</h5>
 <pre v-code.script><code>
 import Tree from 'primevue/tree';
+
+</code></pre>
+
+        <h5>Import via CDN</h5>
+<pre v-code><code>
+&lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
@@ -112,12 +118,11 @@ export default {
 </code></pre>
 
 <pre v-code.script><code>
-import axios from 'axios';
-
 export default class NodeService {
 
     getTreeNodes() {
-        return axios.get('demo/data/treenodes.json').then(res => res.data.root);
+       return fetch('demo/data/treenodes.json').then(res => res.json())
+                .then(d => d.root);
     }
 
 }
@@ -162,10 +167,10 @@ export default class NodeService {
             "key": "2",
             "label": "Movies",
             "data": "Movies Folder",
-            "icon": "pi pi-fw pi-star",
+            "icon": "pi pi-fw pi-star-fill",
             "children": [{
                 "key": "2-0",
-                "icon": "pi pi-fw pi-star",
+                "icon": "pi pi-fw pi-star-fill",
                 "label": "Al Pacino",
                 "data": "Pacino Movies",
                 "children": [{ "key": "2-0-0", "label": "Scarface", "icon": "pi pi-fw pi-video", "data": "Scarface Movie" }, { "key": "2-0-1", "label": "Serpico", "icon": "pi pi-fw pi-video", "data": "Serpico Movie" }]
@@ -173,7 +178,7 @@ export default class NodeService {
             {
                 "key": "2-1",
                 "label": "Robert De Niro",
-                "icon": "pi pi-fw pi-star",
+                "icon": "pi pi-fw pi-star-fill",
                 "data": "De Niro Movies",
                 "children": [{ "key": "2-1-0", "label": "Goodfellas", "icon": "pi pi-fw pi-video", "data": "Goodfellas Movie" }, { "key": "2-1-1", "label": "Untouchables", "icon": "pi pi-fw pi-video", "data": "Untouchables Movie" }]
             }]
@@ -825,7 +830,7 @@ export default {
 <\\/script>
 
 <style scoped>
-button {
+.p-button {
     margin-right: .5rem;
 }
 </style>`
@@ -886,10 +891,76 @@ export default {
 <\\/script>
 
 <style scoped>
-button {
+.p-button {
     margin-right: .5rem;
 }
 </style>`
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="./NodeService.js"><\\/script>`,
+                    content: `<div id="app">
+            <h5>Basic</h5>
+            <p-tree :value="nodes"></p-tree>
+
+            <h5>Programmatic Control</h5>
+            <div style="margin-bottom: 1em">
+                <p-button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll"></p-button>
+                <p-button type="button" icon="pi pi-minus" label="Collapse All" @click="collapseAll"></p-button>
+            </div>
+            <p-tree :value="nodes" :expanded-keys="expandedKeys"></p-tree>
+        </div>
+
+        <script type="module">
+        const { createApp, ref, onMounted } = Vue;
+
+        const App = {
+            setup() {
+                onMounted(() => {
+                    nodeService.value.getTreeNodes().then(data => nodes.value = data);
+                })
+
+                const nodes = ref();
+                const expandedKeys = ref({});
+                const nodeService = ref(new NodeService());
+                const expandAll = () => {
+                    for (let node of nodes.value) {
+                        expandNode(node);
+                    }
+
+                    expandedKeys.value = {...expandedKeys.value};
+                };
+                const collapseAll = () => {
+                    expandedKeys.value = {};
+                };
+                const expandNode = (node) => {
+                    if (node.children && node.children.length) {
+                        expandedKeys.value[node.key] = true;
+
+                        for (let child of node.children) {
+                            expandNode(child);
+                        }
+                    }
+                };
+
+                return { nodes, expandedKeys, nodeService, expandAll, collapseAll, expandNode }
+            },
+            components: {
+                "p-tree": primevue.tree,
+                "p-button": primevue.button
+            }
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .mount("#app");
+        <\\/script>
+
+        <style>
+        .p-button {
+            margin-right: .5rem;
+        }
+        </style>`
                 }
             }
         }

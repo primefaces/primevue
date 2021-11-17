@@ -1,99 +1,90 @@
 const services = {
     'CountryService': `
-import axios from 'axios'
-
 export default class CountryService {
-    
+
     getCountries() {
-        return axios.get('data/countries.json').then(res => res.data.data);
+        return fetch('demo/data/countries.json').then(res => res.json())
+            .then(d => d.data);
     }
-}    
+}
     `,
     'CustomerService': `
-import axios from 'axios'
-
 export default class CustomerService {
-    
+
     getCustomersSmall() {
-        return axios.get('data/customers-small.json').then(res => res.data.data);
+        return fetch('demo/data/customers-small.json').then(res => res.json())
+                .then(d => d.data);
     }
-    
+
     getCustomersMedium() {
-        return axios.get('data/customers-medium.json').then(res => res.data.data);
+        return fetch('demo/data/customers-medium.json').then(res => res.json())
+                .then(d => d.data);
     }
-    
+
     getCustomersLarge() {
-        return axios.get('data/customers-large.json').then(res => res.data.data);
+        return fetch('demo/data/customers-large.json').then(res => res.json())
+                .then(d => d.data);
     }
-    
+
     getCustomersXLarge() {
-        return axios.get('data/customers-xlarge.json').then(res => res.data.data);
+        return fetch('demo/data/customers-xlarge.json').then(res => res.json())
+                .then(d => d.data);
     }
-      
+
     getCustomers(params) {
-        return axios.get('https://www.primefaces.org/data/customers', { params }).then(res => res.data)
+        const queryParams = Object.keys(params).map(k => encodeURIComponent(k) + '=' + encodeURIComponent(params[k])).join('&');
+        return fetch('https://www.primefaces.org/demo/data/customers?' + queryParams).then(res => res.json())
     }
 }
     `,
     'EventService': `
-import axios from 'axios';
-
 export default class EventService {
 
     getEvents() {
-        return axios.get('data/events.json').then(res => res.data.data);
+        return fetch('demo/data/events.json').then(res => res.json())
+                .then(d => d.data);
     }
 }
     `,
     'NodeService': `
-import axios from 'axios';
-
 export default class NodeService {
-    
+
     getTreeTableNodes() {
-        return axios.get('data/treetablenodes.json')
-            .then(res => res.data.root);
+        return fetch('demo/data/treetablenodes.json').then(res => res.json())
+                .then(d => d.root);
     }
-    
+
     getTreeNodes() {
-        return axios.get('data/treenodes.json')
-            .then(res => res.data.root);
+        return fetch('demo/data/treenodes.json').then(res => res.json())
+                .then(d => d.root);
     }
-    
 }
     `,
     'PhotoService': `
-import axios from 'axios'
-
 export default class PhotoService {
 
     getImages() {
-        return axios.get('data/photos.json')
-            .then(res => res.data.data);
+        return fetch('demo/data/photos.json').then(res => res.json())
+                .then(d => d.data);
     }
 }
 `,
     'ProductService': `
-import axios from 'axios';
-
 export default class ProductService {
 
     getProductsSmall() {
-        return axios.get('data/products-small.json')
-            .then(res => res.data.data);
-    }
+		return fetch('demo/data/products-small.json').then(res => res.json()).then(d => d.data);
+	}
 
-    getProducts() {
-        return axios.get('data/products.json')
-            .then(res => res.data.data);
+	getProducts() {
+		return fetch('demo/data/products.json').then(res => res.json()).then(d => d.data);
     }
 
     getProductsWithOrdersSmall() {
-        return axios.get('data/products-orders-small.json')
-            .then(res => res.data.data);
-    }
+		return fetch('demo/data/products-orders-small.json').then(res => res.json()).then(d => d.data);
+	}
 }
-    
+
     `
 }
 
@@ -391,7 +382,7 @@ const data = {
     "root": [
         {"key":"0","label":"Documents","data":"Documents Folder","icon":"pi pi-fw pi-inbox","children": [{"key": "0-0","label": "Work","data": "Work Folder","icon": "pi pi-fw pi-cog","children": [{ "key": "0-0-0", "label": "Expenses.doc", "icon": "pi pi-fw pi-file", "data": "Expenses Document" }, { "key": "0-0-1", "label": "Resume.doc", "icon": "pi pi-fw pi-file", "data": "Resume Document" }]},{"key": "0-1","label": "Home","data": "Home Folder","icon": "pi pi-fw pi-home","children": [{ "key": "0-1-0", "label": "Invoices.txt", "icon": "pi pi-fw pi-file", "data": "Invoices for this month" }]}]},
         {"key":"1","label":"Events","data":"Events Folder","icon":"pi pi-fw pi-calendar","children": [{ "key": "1-0", "label": "Meeting", "icon": "pi pi-fw pi-calendar-plus", "data": "Meeting" },{ "key": "1-1", "label": "Product Launch", "icon": "pi pi-fw pi-calendar-plus", "data": "Product Launch" },{ "key": "1-2", "label": "Report Review", "icon": "pi pi-fw pi-calendar-plus", "data": "Report Review" }]},
-        {"key":"2","label":"Movies","data":"Movies Folder","icon":"pi pi-fw pi-star","children": [{"key": "2-0","icon": "pi pi-fw pi-star","label": "Al Pacino","data": "Pacino Movies","children": [{ "key": "2-0-0", "label": "Scarface", "icon": "pi pi-fw pi-video", "data": "Scarface Movie" }, { "key": "2-0-1", "label": "Serpico", "icon": "pi pi-fw pi-video", "data": "Serpico Movie" }]},{"key": "2-1","label": "Robert De Niro","icon": "pi pi-fw pi-star","data": "De Niro Movies","children": [{ "key": "2-1-0", "label": "Goodfellas", "icon": "pi pi-fw pi-video", "data": "Goodfellas Movie" }, { "key": "2-1-1", "label": "Untouchables", "icon": "pi pi-fw pi-video", "data": "Untouchables Movie" }]}]}
+        {"key":"2","label":"Movies","data":"Movies Folder","icon":"pi pi-fw pi-star-fill","children": [{"key": "2-0","icon": "pi pi-fw pi-star-fill","label": "Al Pacino","data": "Pacino Movies","children": [{ "key": "2-0-0", "label": "Scarface", "icon": "pi pi-fw pi-video", "data": "Scarface Movie" }, { "key": "2-0-1", "label": "Serpico", "icon": "pi pi-fw pi-video", "data": "Serpico Movie" }]},{"key": "2-1","label": "Robert De Niro","icon": "pi pi-fw pi-star-fill","data": "De Niro Movies","children": [{ "key": "2-1-0", "label": "Goodfellas", "icon": "pi pi-fw pi-video", "data": "Goodfellas Movie" }, { "key": "2-1-1", "label": "Untouchables", "icon": "pi pi-fw pi-video", "data": "Untouchables Movie" }]}]}
     ]
 }
     `,

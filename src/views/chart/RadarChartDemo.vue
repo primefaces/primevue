@@ -9,8 +9,8 @@
         </div>
 
         <div class="content-section implementation">
-            <div class="card">
-                <Chart type="radar" :data="chartData" :options="chartOptions" />
+            <div class="card p-d-flex p-jc-center">
+                <Chart type="radar" :data="chartData" :options="chartOptions" style="width: 40%" />
             </div>
         </div>
 
@@ -72,34 +72,48 @@ export default {
         },
         getLightTheme() {
             return {
-                legend: {
-                    labels: {
-                        fontColor: '#495057'
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#495057'
+                        }
                     }
                 },
-                scale: {
-                    pointLabels: {
-                        fontColor: '#495057'
-                    },
-                    gridLines: {
-                        color: '#ebedef'
+                scales: {
+                    r: {
+                        pointLabels: {
+                            color: '#495057',
+                        },
+                        grid: {
+                            color: '#ebedef',
+                        },
+                        angleLines: {
+                            color: '#ebedef'
+                        }
                     }
                 }
             };
         },
         getDarkTheme() {
             return {
-                legend: {
-                    labels: {
-                        fontColor: '#ebedef'
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#ebedef'
+                        }
                     }
                 },
-                scale: {
-                    pointLabels: {
-                        fontColor: '#ebedef'
-                    },
-                    gridLines: {
-                        color: 'rgba(255,255,255,0.2)'
+                scales: {
+                    r: {
+                        pointLabels: {
+                            color: '#ebedef',
+                        },
+                        grid: {
+                            color: 'rgba(255,255,255,0.2)',
+                        },
+                        angleLines: {
+                            color: 'rgba(255,255,255,0.2)'
+                        }
                     }
                 }
             };

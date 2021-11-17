@@ -247,6 +247,104 @@ export default {
 }
 <\\/script>
 `
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/treetable/treetable.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/column/column.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/toast/toast.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/toastservice/toastservice.min.js"><\\/script>
+        <script src="./NodeService.js"><\\/script>`,
+                    content: `<div id="app">
+            <p-toast></p-toast>
+
+            <div class="card">
+                <h5>Single Selection</h5>
+                <p-treetable :value="nodes" selection-mode="single" v-model:selection-keys="selectedKey1">
+                    <p-column field="name" header="Name" :expander="true"></p-column>
+                    <p-column field="size" header="Size"></p-column>
+                    <p-column field="type" header="Type"></p-column>
+                </p-treetable>
+            </div>
+
+            <div class="card">
+                <h5>Multiple Selection with MetaKey</h5>
+                <p-treetable :value="nodes" selection-mode="multiple" v-model:selection-keys="selectedKeys1">
+                    <p-column field="name" header="Name" :expander="true"></p-column>
+                    <p-column field="size" header="Size"></p-column>
+                    <p-column field="type" header="Type"></p-column>
+                </p-treetable>
+            </div>
+
+            <div class="card">
+                <h5>Multiple Selection without MetaKey</h5>
+                <p-treetable :value="nodes" selection-mode="multiple" v-model:selection-keys="selectedKeys2" :meta-key-selection="false">
+                    <p-column field="name" header="Name" :expander="true"></p-column>
+                    <p-column field="size" header="Size"></p-column>
+                    <p-column field="type" header="Type"></p-column>
+                </p-treetable>
+            </div>
+
+            <div class="card">
+                <h5>Checkbox Selection</h5>
+                <p-treetable :value="nodes" selection-mode="checkbox" v-model:selection-keys="selectedKeys3">
+                    <p-column field="name" header="Name" :expander="true"></p-column>
+                    <p-column field="size" header="Size"></p-column>
+                    <p-column field="type" header="Type"></p-column>
+                </p-treetable>
+            </div>
+
+            <div class="card">
+                <h5>Events</h5>
+                <p-treetable :value="nodes" selection-mode="single" v-model:selection-keys="selectedKey2"
+                    @node-select="onNodeSelect" @node-unselect="onNodeUnselect">
+                    <p-column field="name" header="Name" :expander="true"></p-column>
+                    <p-column field="size" header="Size"></p-column>
+                    <p-column field="type" header="Type"></p-column>
+                </p-treetable>
+            </div>
+        </div>                    
+
+        <script type="module">
+        const { createApp, ref, onMounted } = Vue;
+        const { useToast } = primevue.usetoast;
+
+        const App = {
+            setup() {
+                onMounted(() => {
+                    nodeService.value.getTreeTableNodes().then(data => nodes.value = data);
+                })
+
+                const toast = useToast();
+                const selectedKey1 = ref();
+                const selectedKey2 = ref();
+                const selectedKeys1 = ref();
+                const selectedKeys2 = ref();
+                const selectedKeys3 = ref();
+                const nodes = ref();
+                const nodeService = ref(new NodeService());
+                const onNodeSelect = (node) => {
+                    toast.add({severity:'success', summary: 'Node Selected', detail: node.data.name, life: 3000});
+                }
+                const onNodeUnselect = (node) => {
+                    toast.add({severity:'success', summary: 'Node Unselected', detail: node.data.name, life: 3000});
+                }
+
+                return { selectedKey1, selectedKey2, selectedKeys1, selectedKeys2, selectedKeys3, nodes, onNodeSelect, onNodeUnselect}
+            },
+            components: {
+                "p-treetable": primevue.treetable,
+                "p-column": primevue.column,
+                "p-toast": primevue.toast
+            }
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .use(primevue.toastservice)
+            .mount("#app");
+        <\\/script>
+`
                 }
             }
         }

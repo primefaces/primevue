@@ -62,6 +62,12 @@
 &lt;div class="p-text-italic"&gt;Italic&lt;/div&gt;
 </template>
 </code></pre>
+
+        <h5>Customization</h5>
+        <p>A custom build with different values can be obtained from <a href="https://github.com/primefaces/primeflex">PrimeFlex</a> using the _variables.scss file.</p>
+        
+        <h5>Dependencies</h5>
+        <p>PrimeFlex 2.0.0.</p>
     </AppDoc>
 </template>
 
@@ -148,6 +154,50 @@ export default {
     border: 2px solid var(--surface-d);
 }
 </style>                    
+`
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    content: `<div id="app">
+            <h5>Alignment</h5>
+            <div class="p-mb-3 p-text-left">Left</div>
+            <div class="p-mb-3 p-text-center">Center</div>
+            <div class="p-text-right">Right</div>
+
+            <h5>Wrap</h5>
+            <div class="p-mb-3 demo-container" style="width: 10rem">Long text wraps and does not overlow.</div>
+            <div class="p-mb-3 demo-container p-text-nowrap" style="width: 10rem">Long text does not wrap and overflows the parent.</div>
+            <div class="p-mb-3 demo-container p-text-nowrap p-text-truncate" style="width: 10rem">Long text does not wrap and overflows the parent.</div>
+
+            <h5>Transform</h5>
+            <div class="p-mb-3 p-text-lowercase">LOWERCASE</div>
+            <div class="p-mb-3 p-text-uppercase">uppercase</div>
+            <div class="p-text-capitalize">capitalize</div>
+
+            <h5>Style</h5>
+            <div class="p-mb-3 p-text-bold">Bold</div>
+            <div class="p-mb-3 p-text-normal">Normal</div>
+            <div class="p-mb-3 p-text-light">Light</div>
+            <div class="p-mb-3 p-text-italic">Italic</div>
+        </div>
+
+        <script type="module">
+        const { createApp } = Vue;
+
+        const App = {
+
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .mount("#app");
+        <\\/script>
+
+        <style>
+        .demo-container {
+            border: 2px solid var(--surface-d);
+        }
+        </style>                    
 `
                 }
             }

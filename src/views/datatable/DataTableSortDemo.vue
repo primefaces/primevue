@@ -265,6 +265,103 @@ export default {
 }
 <\\/script>                   
 `
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/datatable/datatable.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/column/column.min.js"><\\/script>
+        <script src="./ProductService.js"><\\/script>`,
+                    content: `<div id="app">
+            <div class="card">
+                <h5>Single Column</h5>
+                <p-datatable :value="products" responsive-layout="scroll">
+                    <p-column field="code" header="Code" :sortable="true"></p-column>
+                    <p-column field="name" header="Name" :sortable="true"></p-column>
+                    <p-column field="category" header="Category" :sortable="true"></p-column>
+                    <p-column field="quantity" header="Quantity" :sortable="true"></p-column>
+                    <p-column field="price" header="Price" :sortable="true">
+                        <template #body="slotProps">
+                            {{formatCurrency(slotProps.data.price)}}
+                        </template>
+                    </p-column>
+                </p-datatable>
+            </div>
+
+            <div class="card">
+                <h5>Multiple Columns</h5>
+                <p-datatable :value="products" sort-mode="multiple" responsive-layout="scroll">
+                    <p-column field="code" header="Code" :sortable="true"></p-column>
+                    <p-column field="name" header="Name" :sortable="true"></p-column>
+                    <p-column field="category" header="Category" :sortable="true"></p-column>
+                    <p-column field="quantity" header="Quantity" :sortable="true"></p-column>
+                    <p-column field="price" header="Price" :sortable="true">
+                        <template #body="slotProps">
+                            {{formatCurrency(slotProps.data.price)}}
+                        </template>
+                    </p-column>
+                </p-datatable>
+            </div>
+
+            <div class="card">
+                <h5>Presort</h5>
+                <p-datatable :value="products" sort-field="category" :sort-order="-1" responsive-layout="scroll">
+                    <p-column field="code" header="Code" :sortable="true"></p-column>
+                    <p-column field="name" header="Name" :sortable="true"></p-column>
+                    <p-column field="category" header="Category" :sortable="true"></p-column>
+                    <p-column field="quantity" header="Quantity" :sortable="true"></p-column>
+                    <p-column field="price" header="Price" :sortable="true">
+                        <template #body="slotProps">
+                            {{formatCurrency(slotProps.data.price)}}
+                        </template>
+                    </p-column>
+                </p-datatable>
+            </div>
+
+            <div class="card">
+                <h5>Removable Sort</h5>
+                <p-datatable :value="products" removable-sort responsive-layout="scroll">
+                    <p-column field="code" header="Code" :sortable="true"></p-column>
+                    <p-column field="name" header="Name" :sortable="true"></p-column>
+                    <p-column field="category" header="Category" :sortable="true"></p-column>
+                    <p-column field="quantity" header="Quantity" :sortable="true"></p-column>
+                    <p-column field="price" header="Price" :sortable="true">
+                        <template #body="slotProps">
+                            {{formatCurrency(slotProps.data.price)}}
+                        </template>
+                    </p-column>
+                </p-datatable>
+            </div>
+        </div>
+
+        <script type="module">
+        const { createApp, ref, onMounted } = Vue;
+
+        const App = {
+            setup() {
+                onMounted(() => {
+                    productService.value.getProductsSmall().then(data => products.value = data);
+                })
+
+                const products = ref();
+                const productService = ref(new ProductService());
+                
+                const formatCurrency = (value) => {
+                    return value.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
+                };
+
+                return { products, formatCurrency }
+            },
+            components: {
+                "p-datatable": primevue.datatable,
+                "p-column": primevue.column
+            }
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .mount("#app");
+        <\\/script>                   
+`
                 }
             }
         }

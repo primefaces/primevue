@@ -1,8 +1,15 @@
 <template>
 	<AppDoc name="TreeSelectDemo" :sources="sources" github="treeselect/TreeSelectDemo.vue" :service="['NodeService']" :data="['treenodes']">
-        <h5>Import</h5>
+        <h5>Import via Module</h5>
 <pre v-code.script><code>
 import TreeSelect from 'primevue/treeselect';
+
+</code></pre>
+
+        <h5>Import via CDN</h5>
+<pre v-code><code>
+&lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue@^3/treeselect/treeselect.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
@@ -38,12 +45,11 @@ export default {
 </code></pre>
 
 <pre v-code.script><code>
-import axios from 'axios';
-
 export default class NodeService {
 
     getTreeNodes() {
-        return axios.get('demo/data/treenodes.json').then(res => res.data.root);
+        return fetch('demo/data/treenodes.json').then(res => res.json())
+                .then(d => d.root);
     }
 
 }
@@ -88,10 +94,10 @@ export default class NodeService {
             "key": "2",
             "label": "Movies",
             "data": "Movies Folder",
-            "icon": "pi pi-fw pi-star",
+            "icon": "pi pi-fw pi-star-fill",
             "children": [{
                 "key": "2-0",
-                "icon": "pi pi-fw pi-star",
+                "icon": "pi pi-fw pi-star-fill",
                 "label": "Al Pacino",
                 "data": "Pacino Movies",
                 "children": [{ "key": "2-0-0", "label": "Scarface", "icon": "pi pi-fw pi-video", "data": "Scarface Movie" }, { "key": "2-0-1", "label": "Serpico", "icon": "pi pi-fw pi-video", "data": "Serpico Movie" }]
@@ -99,7 +105,7 @@ export default class NodeService {
             {
                 "key": "2-1",
                 "label": "Robert De Niro",
-                "icon": "pi pi-fw pi-star",
+                "icon": "pi pi-fw pi-star-fill",
                 "data": "De Niro Movies",
                 "children": [{ "key": "2-1-0", "label": "Goodfellas", "icon": "pi pi-fw pi-video", "data": "Goodfellas Movie" }, { "key": "2-1-1", "label": "Untouchables", "icon": "pi pi-fw pi-video", "data": "Untouchables Movie" }]
             }]
@@ -411,7 +417,7 @@ data() {
                         <td>Shows the overlay.</td>
                     </tr>
                     <tr>
-                        <td>Hide</td>
+                        <td>hide</td>
                         <td>-</td>
                         <td>Hides the overlay.</td>
                     </tr>
@@ -446,6 +452,10 @@ data() {
                     </tr>
                     <tr>
                         <td>empty</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>indicator</td>
                         <td>-</td>
                     </tr>
 				</tbody>
@@ -574,17 +584,17 @@ import NodeService from './service/NodeService';
 export default {
     setup() {
          onMounted(() => {
-            nodeService.value.getTreeNodes().then(data => options.value = data);
+            nodeService.value.getTreeNodes().then(data => nodes.value = data);
         });
 
-        const options = ref();
+        const nodes = ref();
         const nodeService = ref(new NodeService());
 
         const selectedNode = ref();
         const selectedNodes1 = ref();
         const selectedNodes2 = ref();
-       
-        return { options, selectedNode, selectedNodes1, selectedNodes2 };
+
+        return { nodes, selectedNode, selectedNodes1, selectedNodes2 };
     }
 }
 <\\/script>
@@ -600,6 +610,61 @@ export default {
     }
 }
 </style>`
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/treeselect/treeselect.min.js"><\\/script>
+        <script src="./NodeService.js"><\\/script>`,
+                    content: `<div id="app">
+            <h5>Single</h5>
+            <p-treeselect v-model="selectedNode" :options="nodes" placeholder="Select Item"></p-treeselect>
+
+            <h5>Multiple</h5>
+            <p-treeselect v-model="selectedNodes1" :options="nodes" selection-mode="multiple" :meta-key-selection="false" placeholder="Select Items"></p-treeselect>
+
+            <h5>Checkbox</h5>
+            <p-treeselect v-model="selectedNodes2" :options="nodes" display="chip" selection-mode="checkbox" placeholder="Select Items"></p-treeselect>
+        </div>
+
+        <script type="module">
+        const { createApp, ref, onMounted } = Vue;
+
+        const App = {
+            setup() {
+                onMounted(() => {
+                    nodeService.value.getTreeNodes().then(data => nodes.value = data);
+                });
+
+                const nodes = ref();
+                const nodeService = ref(new NodeService());
+
+                const selectedNode = ref();
+                const selectedNodes1 = ref();
+                const selectedNodes2 = ref();
+
+                return { nodes, selectedNode, selectedNodes1, selectedNodes2 };
+            },
+            components: {
+                "p-treeselect": primevue.treeselect
+            }
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .mount("#app");
+        <\\/script>
+
+        <style>
+        .p-treeselect {
+            width:20rem;
+        }
+
+        @media screen and (max-width: 640px) {
+            .p-treeselect {
+                width: 100%;
+            }
+        }
+        </style>`
                 }
             }
         }

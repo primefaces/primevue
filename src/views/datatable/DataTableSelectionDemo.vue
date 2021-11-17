@@ -321,6 +321,127 @@ export default {
 }
 <\\/script>                 
 `
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/datatable/datatable.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/column/column.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/toast/toast.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/usetoast/usetoast.min.js"><\\/script>
+        <script src="./ProductService.js"><\\/script>`,
+                    content: `<div id="app">
+            <p-toast></p-toast>
+
+            <div class="card">
+                <h5>Single</h5>
+                <p-datatable :value="products" v-model:selection="selectedProduct1" selection-mode="single" dataKey="id" responsive-layout="scroll" >
+                    <p-column field="code" header="Code"></p-column>
+                    <p-column field="name" header="Name"></p-column>
+                    <p-column field="category" header="Category"></p-column>
+                    <p-column field="quantity" header="Quantity"></p-column>
+                </p-datatable>
+            </div>
+
+            <div class="card">
+                <h5>Multiple</h5>
+                <p-datatable :value="products" v-model:selection="selectedProducts1" selection-mode="multiple" dataKey="id" responsive-layout="scroll" >
+                    <template #header>
+                        Multiple Selection with MetaKey
+                    </template>
+                    <p-column field="code" header="Code"></p-column>
+                    <p-column field="name" header="Name"></p-column>
+                    <p-column field="category" header="Category"></p-column>
+                    <p-column field="quantity" header="Quantity"></p-column>
+                </p-datatable>
+
+                <p-datatable :value="products" v-model:selection="selectedProducts2" selection-mode="multiple" dataKey="id" :meta-key-selection="false" style="margin-top: 2em" responsive-layout="scroll" >
+                    <template #header>
+                        Multiple Selection without MetaKey
+                    </template>
+                    <p-column field="code" header="Code"></p-column>
+                    <p-column field="name" header="Name"></p-column>
+                    <p-column field="category" header="Category"></p-column>
+                    <p-column field="quantity" header="Quantity"></p-column>
+                </p-datatable>
+            </div>
+
+            <div class="card">
+                <h5>Events</h5>
+                <p-datatable :value="products" v-model:selection="selectedProduct2" selection-mode="single" dataKey="id"
+                    @row-select="onRowSelect" @row-unselect="onRowUnselect" responsive-layout="scroll">
+                    <p-column field="code" header="Code"></p-column>
+                    <p-column field="name" header="Name"></p-column>
+                    <p-column field="category" header="Category"></p-column>
+                    <p-column field="quantity" header="Quantity"></p-column>
+                </p-datatable>
+            </div>
+
+            <div class="card">
+                <h5>RadioButton</h5>
+                <p-datatable :value="products" v-model:selection="selectedProduct3" dataKey="id" responsive-layout="scroll" >
+                    <p-column selection-mode="single" header-style="width: 3em"></p-column>
+                    <p-column field="code" header="Code"></p-column>
+                    <p-column field="name" header="Name"></p-column>
+                    <p-column field="category" header="Category"></p-column>
+                    <p-column field="quantity" header="Quantity"></p-column>
+                </p-datatable>
+            </div>
+
+            <div class="card">
+                <h5>Checkbox</h5>
+
+                <p-datatable :value="products" v-model:selection="selectedProducts3" dataKey="id" responsive-layout="scroll" >
+                    <p-column selection-mode="multiple" header-style="width: 3em"></p-column>
+                    <p-column field="code" header="Code"></p-column>
+                    <p-column field="name" header="Name"></p-column>
+                    <p-column field="category" header="Category"></p-column>
+                    <p-column field="quantity" header="Quantity"></p-column>
+                </p-datatable>
+            </div>    
+        </div>
+
+    <script type="module">
+    const { createApp, ref, onMounted } = Vue;
+    const { useToast } = primevue.usetoast;
+
+    const App = {
+        setup() {
+            onMounted(() => {
+                productService.value.getProductsSmall().then(data => products.value = data);
+            })
+
+            const toast = useToast();
+            const products = ref();
+            const selectedProduct1 = ref();
+            const selectedProduct2 = ref();
+            const selectedProduct3 = ref();
+            const selectedProducts1 = ref();
+            const selectedProducts2 = ref();
+            const selectedProducts3 = ref();
+            const productService = ref(new ProductService());
+
+            const onRowSelect = (event) => {
+                toast.add({severity: 'info', summary: 'Product Selected', detail: 'Name: ' + event.data.name, life: 3000});
+            };
+
+            const onRowUnselect = (event) => {
+                toast.add({severity: 'warn', summary: 'Product Unselected', detail: 'Name: ' + event.data.name, life: 3000});
+            };
+
+            return { products, selectedProduct1, selectedProduct2, selectedProduct3, selectedProducts1, selectedProducts2, selectedProducts3, onRowSelect, onRowUnselect}
+        },
+        components: {
+            "p-datatable": primevue.datatable,
+            "p-column": primevue.column,
+            "p-toast": primevue.toast
+        }
+    };
+
+    createApp(App)
+            .use(primevue.config.default)
+            .mount("#app");
+    <\\/script>                 
+`
                 }
             }
         }

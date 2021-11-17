@@ -2,11 +2,12 @@
     <div class="layout-wrapper" :class="containerClass">
         <div class="layout-news" v-if="newsActive">
             <div class="layout-news-container">
-                <a href="https://www.primefaces.org/store" target="_blank">
-                    <img class="layouts-news-mockup-image" src="./assets/images/topbar-freya-mockup.png">
+                <a href="https://www.primefaces.org/primeblocks-vue" class="layouts-news-mockup" target="_blank">
+                    <img class="layouts-news-mockup-image" src="./assets/images/topbar-primeblocks-device.png">
                 </a>
-                <a href="https://www.primefaces.org/store" target="_blank" tabindex="-1" style="text-decoration: none" class="layout-news-button">
+                <a href="https://www.primefaces.org/primeblocks-vue" target="_blank" tabindex="-1" style="text-decoration: none" class="layout-news-button">
                     LEARN MORE
+                    <i class="pi pi-angle-right"></i>
                 </a>
                 <a tabindex="0" class="layout-news-close" @click="hideNews">
                     <i class="pi pi-times"></i>
@@ -42,7 +43,7 @@ export default {
         return {
             sidebarActive: false,
             newsActive: true,
-            theme: 'saga-blue'
+            theme: 'lara-dark-indigo'
         }
     },
     mounted() {
@@ -77,7 +78,7 @@ export default {
             if (queryString)
                 appTheme = new URLSearchParams(queryString.substring(1)).get('theme');
             else
-                appTheme = localStorage.getItem('theme');
+                appTheme = localStorage.getItem('primevue-theme');
 
             if (appTheme) {
                 let darkTheme = this.isDarkTheme(appTheme);
@@ -119,7 +120,7 @@ export default {
                 this.$primevue.config.ripple = true;
             }
 
-            localStorage.setItem('theme', this.theme);
+            localStorage.setItem('primevue-theme', this.theme);
         },
         addClass(element, className) {
             if (!this.hasClass(element, className)) {

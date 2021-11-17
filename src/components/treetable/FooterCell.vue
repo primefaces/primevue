@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import {DomHandler} from 'primevue/utils';
+import {DomHandler,ObjectUtils} from 'primevue/utils';
 
 export default {
     name: 'FooterCell',
@@ -33,7 +33,7 @@ export default {
     },
     methods: {
         columnProp(prop) {
-            return this.column.props ? ((this.column.type.props[prop].type === Boolean && this.column.props[prop] === '') ? true : this.column.props[prop]) : null;
+            return ObjectUtils.getVNodeProp(this.column, prop);
         },
         updateStickyPosition() {
             if (this.columnProp('frozen')) {

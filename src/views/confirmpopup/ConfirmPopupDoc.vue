@@ -12,9 +12,16 @@ app.use(ConfirmationService);
 
 </code></pre>
 
-		<h5>Import</h5>
+		<h5>Import via Module</h5>
 <pre v-code.script><code>
 import ConfirmPopup from 'primevue/confirmpopup';
+
+</code></pre>
+
+        <h5>Import via CDN</h5>
+<pre v-code><code>
+&lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue@^3/confirmpopup/confirmpopup.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
@@ -88,6 +95,21 @@ export default {
     }
 }
 
+</code></pre>
+
+        <h5>Templating</h5>
+        <p>Templating allows customizing the content where the message instance is available as the implicit variable.</p>
+<pre v-code><code><template v-pre>
+&lt;ConfirmPopup group="demo">
+    &lt;template #message="slotProps"&gt;
+        &lt;div class="p-d-flex p-p-4"&gt;
+            &lt;i :class="slotProps.message.icon" style="font-size: 1.5rem"&gt;&lt;/i&gt;
+            &lt;p class="p-pl-2"&gt;{{slotProps.message.message}}&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/template&gt;
+&lt;/ConfirmPopup&gt;
+
+</template>
 </code></pre>
 
         <h5>Confirmation Options</h5>
@@ -202,6 +224,24 @@ export default {
 			</table>
 		</div>
 
+        <h5>Slots</h5>
+		<div class="doc-tablewrapper">
+			<table class="doc-table">
+				<thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Parameters</th>
+                    </tr>
+				</thead>
+				<tbody>
+                    <tr>
+                        <td>message</td>
+                        <td>-</td>
+                    </tr>
+				</tbody>
+			</table>
+		</div>
+
 		<h5>Styling</h5>
 		<p>ConfirmDialog inherits all the classes from the Dialog component, visit <router-link to="/dialog">dialog</router-link> for more information.</p>
 		<div class="doc-tablewrapper">
@@ -253,11 +293,23 @@ export default {
 <template>
     <div>
         <ConfirmPopup></ConfirmPopup>
+        <ConfirmPopup group="demo">
+            <template #message="slotProps">
+                <div class="p-d-flex p-p-4">
+                    <i :class="slotProps.message.icon" style="font-size: 1.5rem"></i>
+                    <p class="p-pl-2">{{slotProps.message.message}}</p>
+                </div>
+            </template>
+        </ConfirmPopup>
         <Toast />
 
         <div class="card">
+            <h5>Overlay</h5>
             <Button @click="confirm1($event)" icon="pi pi-check" label="Confirm" class="p-mr-2"></Button>
             <Button @click="confirm2($event)" icon="pi pi-times" label="Delete" class="p-button-danger p-button-outlined"></Button>
+    
+            <h5>Templating</h5>
+            <Button @click="showTemplate($event)" icon="pi pi-check" label="Terms and Conditions" class="p-mr-2"></Button>
         </div>
     </div>
 </template>
@@ -291,6 +343,22 @@ export default {
                     this.$toast.add({severity:'error', summary:'Rejected', detail:'You have rejected', life: 3000});
                 }
             });
+        },
+        showTemplate(event) {
+            this.$confirm.require({
+                target: event.currentTarget,
+                group: 'demo',
+                message: 'Do you accept that?',
+                icon: 'pi pi-question-circle',
+                acceptIcon: 'pi pi-check',
+                rejectIcon: 'pi pi-times',
+                accept: () => {
+                    this.$toast.add({severity:'info', summary:'Confirmed', detail:'You have accepted', life: 3000});
+                },
+                reject: () => {
+                    this.$toast.add({severity:'error', summary:'Rejected', detail:'You have rejected', life: 3000});
+                }
+            });
         }
     }
 }
@@ -302,11 +370,23 @@ export default {
                     content: `<template>
     <div>
         <ConfirmPopup></ConfirmPopup>
+        <ConfirmPopup group="demo">
+            <template #message="slotProps">
+                <div class="p-d-flex p-p-4">
+                    <i :class="slotProps.message.icon" style="font-size: 1.5rem"></i>
+                    <p class="p-pl-2">{{slotProps.message.message}}</p>
+                </div>
+            </template>
+        </ConfirmPopup>
         <Toast />
 
         <div class="card">
+            <h5>Overlay</h5>
             <Button @click="confirm1($event)" icon="pi pi-check" label="Confirm" class="p-mr-2"></Button>
             <Button @click="confirm2($event)" icon="pi pi-times" label="Delete" class="p-button-danger p-button-outlined"></Button>
+    
+            <h5>Templating</h5>
+            <Button @click="showTemplate($event)" icon="pi pi-check" label="Terms and Conditions" class="p-mr-2"></Button>
         </div>
     </div>
 </template>
@@ -350,10 +430,128 @@ export default defineComponent({
             });
         }
 
-        return { confirm1, confirm2 };
+        const showTemplate = (event) => {
+            confirm.require({
+                target: event.currentTarget,
+                group: 'demo',
+                message: 'Do you accept that?',
+                icon: 'pi pi-question-circle',
+                acceptIcon: 'pi pi-check',
+                rejectIcon: 'pi pi-times',
+                accept: () => {
+                    toast.add({severity:'info', summary:'Confirmed', detail:'You have accepted', life: 3000});
+                },
+                reject: () => {
+                    toast.add({severity:'error', summary:'Rejected', detail:'You have rejected', life: 3000});
+                }
+            });
+        }
+
+        return { confirm1, confirm2, showTemplate };
     },
 })
 <\\/script>
+`
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/confirmpopup/confirmpopup.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/confirmationservice/confirmationservice.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/toast/toast.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/toastservice/toastservice.min.js"><\\/script>`,
+                    content: `<div id="app">
+            <p-confirmpopup></p-confirmpopup>
+            <p-confirmpopup group="demo">
+                <template #message="slotProps">
+                    <div class="p-d-flex p-p-4">
+                        <i :class="slotProps.message.icon" style="font-size: 1.5rem"></i>
+                        <p class="p-pl-2">{{slotProps.message.message}}</p>
+                    </div>
+                </template>
+            </p-confirmpopup>
+            <p-toast></p-toast>
+
+            <div class="card">
+                <h5>Overlay</h5>
+                <p-button @click="confirm1($event)" icon="pi pi-check" label="Confirm" class="p-mr-2"></p-button>
+                <p-button @click="confirm2($event)" icon="pi pi-times" label="Delete" class="p-button-danger p-button-outlined"></p-button>
+
+                <h5>Templating</h5>
+                <p-button @click="showTemplate($event)" icon="pi pi-check" label="Terms and Conditions" class="p-mr-2"></p-button>
+            </div>
+        </div>
+
+        <script type="module">
+        const { createApp } = Vue;
+        const { useConfirm } = primevue.useconfirm;
+        const { useToast } = primevue.usetoast;
+
+        const App = {
+            setup() {
+                const confirm = useConfirm();
+                const toast = useToast();
+
+                const confirm1 = (event) => {
+                    confirm.require({
+                        target: event.currentTarget,
+                        message: 'Are you sure you want to proceed?',
+                        icon: 'pi pi-exclamation-triangle',
+                        accept: () => {
+                            toast.add({severity:'info', summary:'Confirmed', detail:'You have accepted', life: 3000});
+                        },
+                        reject: () => {
+                            toast.add({severity:'error', summary:'Rejected', detail:'You have rejected', life: 3000});
+                        }
+                    });
+                }
+
+                const confirm2 = (event) => {
+                    confirm.require({
+                        target: event.currentTarget,
+                        message: 'Do you want to delete this record?',
+                        icon: 'pi pi-info-circle',
+                        acceptClass: 'p-button-danger',
+                        accept: () => {
+                            toast.add({severity:'info', summary:'Confirmed', detail:'Record deleted', life: 3000});
+                        },
+                        reject: () => {
+                            toast.add({severity:'error', summary:'Rejected', detail:'You have rejected', life: 3000});
+                        }
+                    });
+                }
+
+                const showTemplate = (event) => {
+                    confirm.require({
+                        target: event.currentTarget,
+                        group: 'demo',
+                        message: 'Do you accept that?',
+                        icon: 'pi pi-question-circle',
+                        acceptIcon: 'pi pi-check',
+                        rejectIcon: 'pi pi-times',
+                        accept: () => {
+                            toast.add({severity:'info', summary:'Confirmed', detail:'You have accepted', life: 3000});
+                        },
+                        reject: () => {
+                            toast.add({severity:'error', summary:'Rejected', detail:'You have rejected', life: 3000});
+                        }
+                    });
+                }
+
+                return { confirm1, confirm2, showTemplate };
+            },
+            components: {
+                "p-confirmpopup": primevue.confirmpopup,
+                "p-toast": primevue.toast,
+                "p-button": primevue.button
+            }
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .use(primevue.confirmationservice)
+            .use(primevue.toastservice)
+            .mount("#app");
+        <\\/script>
 `
                 }
             }

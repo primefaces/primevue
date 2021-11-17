@@ -1,8 +1,15 @@
 <template>
 	<AppDoc name="SidebarDemo" :sources="sources" github="sidebar/SidebarDemo.vue" >
-		<h5>Import</h5>
+		<h5>Import via Module</h5>
 <pre v-code.script><code>
 import Sidebar from 'primevue/sidebar';
+
+</code></pre>
+
+		<h5>Import via CDN</h5>
+<pre v-code><code>
+&lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue@^3/sidebar/sidebar.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
@@ -303,6 +310,62 @@ export default {
     }
 }
 <\\/script>
+`
+				},
+				'browser-source': {
+					tabName: 'Browser Source',
+					imports: `<script src="https://unpkg.com/primevue@^3/sidebar/sidebar.min.js"><\\/script>`,
+					content: `<div id="app">
+			<p-button icon="pi pi-arrow-right" @click="visibleLeft = true" class="p-mr-2"></p-button>
+			<p-button icon="pi pi-arrow-left" @click="visibleRight = true" class="p-mr-2"></p-button>
+			<p-button icon="pi pi-arrow-down" @click="visibleTop = true" class="p-mr-2"></p-button>
+			<p-button icon="pi pi-arrow-up" @click="visibleBottom = true" class="p-mr-2"></p-button>
+			<p-button icon="pi pi-th-large" @click="visibleFull = true"></p-button>
+
+			<p-sidebar v-model:visible="visibleLeft" :base-z-index="1000">
+				<h3>Left Sidebar</h3>
+			</p-sidebar>
+
+			<p-sidebar v-model:visible="visibleRight" :base-z-index="1000" position="right">
+				<h3>Right Sidebar</h3>
+			</p-sidebar>
+
+			<p-sidebar v-model:visible="visibleTop" :base-z-index="1000" position="top">
+				<h3>Top Sidebar</h3>
+			</p-sidebar>
+
+			<p-sidebar v-model:visible="visibleBottom" :base-z-index="1000" position="bottom">
+				<h3>Bottom Sidebar</h3>
+			</p-sidebar>
+
+			<p-sidebar v-model:visible="visibleFull" :base-z-index="1000" position="full">
+				<h3>Full Screen</h3>
+			</p-sidebar>
+		</div>
+
+		<script>
+		const { createApp, ref } = Vue;
+
+		const App = {
+			setup() {
+				const visibleLeft = ref(false);
+				const visibleRight = ref(false);
+				const visibleTop = ref(false);
+				const visibleBottom = ref(false);
+				const visibleFull = ref(false);
+
+				return { visibleLeft, visibleRight, visibleTop, visibleBottom, visibleFull }
+			},
+			components: {
+				"p-sidebar": primevue.sidebar,
+				"p-button": primevue.button
+			}
+		};
+
+		createApp(App)
+            .use(primevue.config.default)
+            .mount("#app");
+		<\\/script>
 `
 				}
 			}

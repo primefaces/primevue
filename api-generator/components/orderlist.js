@@ -12,6 +12,12 @@ const OrderListProps = [
         description: "Selected items in the list."
     },
     {
+        name: "selectionMode",
+        type: "string",
+        default: "null",
+        description: 'Defines selection mode, options are "single" and "multiple".'
+    },
+    {
         name: "metaKeySelection",
         type: "boolean",
         default: "true",
@@ -65,6 +71,22 @@ const OrderListEvents = [
                     'Direction of the change; "up", "down", "bottom", "top"'
             }
         ]
+    },
+    {
+        name: "selection-change",
+        description: "Callback to invoke when selection changes.",
+        arguments: [
+            {
+                name: "event.originalEvent",
+                type: "object",
+                description: "Browser event"
+            },
+            {
+                name: "event.value",
+                type: "array",
+                description: "Ordered list"
+            }
+        ]
     }
 ];
 
@@ -76,6 +98,14 @@ const OrderListSlots = [
     {
         name: "item",
         description: "Custom content for the item"
+    },
+    {
+        name: "controlsstart",
+        description: "Custom content before the buttons"
+    },
+    {
+        name: "controlsend",
+        description: "Custom content after the buttons"
     }
 ];
 

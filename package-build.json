@@ -1,6 +1,6 @@
 {
     "name": "primevue",
-    "version": "3.5.1-SNAPSHOT",
+    "version": "3.8.3-SNAPSHOT",
     "homepage": "https://www.primefaces.org/primevue",
     "repository": {
       "type": "git",
@@ -24,5 +24,8 @@
     "vetur": {
       "tags": "./vetur-tags.json",
       "attributes": "./vetur-attributes.json"
+    },
+    "peerDependencies": {
+      "vue": "^3.0.0"
     }
   }

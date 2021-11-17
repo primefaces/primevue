@@ -1,23 +1,30 @@
 <template>
 	<AppDoc name="ToolbarDemo" :sources="sources" github="toolbar/ToolbarDemo.vue" >
-        <h5>Import</h5>
+        <h5>Import via Module</h5>
 <pre v-code.script><code>
 import Toolbar from 'primevue/toolbar';
 
 </code></pre>
 
+        <h5>Import via CDN</h5>
+<pre v-code><code>
+&lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue@^3/toolbar/toolbar.min.js"&gt;&lt;/script&gt;
+
+</code></pre>
+
 		<h5>Getting Started</h5>
-		<p>Toolbar provides <i>left</i> and <i>right</i> templates to place content at these sections.</p>
+		<p>Toolbar provides <i>start</i> and <i>end</i> templates to place content at these sections.</p>
 <pre v-code><code>
 &lt;Toolbar&gt;
-    &lt;template #left&gt;
+    &lt;template #start&gt;
         &lt;Button label="New" icon="pi pi-plus" class="p-mr-2" /&gt;
         &lt;Button label="Upload" icon="pi pi-upload" class="p-button-success" /&gt;
         &lt;i class="pi pi-bars p-toolbar-separator p-mr-2" /&gt;
         &lt;SplitButton label="Save" icon="pi pi-check" :model="items" class="p-button-warning"&gt;&lt;/SplitButton&gt;
     &lt;/template&gt;
 
-    &lt;template #right&gt;
+    &lt;template #end&gt;
         &lt;Button icon="pi pi-search" class="p-mr-2" /&gt;
         &lt;Button icon="pi pi-calendar" class="p-button-success p-mr-2" /&gt;
         &lt;Button icon="pi pi-times" class="p-button-danger" /&gt;
@@ -37,11 +44,11 @@ import Toolbar from 'primevue/toolbar';
 				</thead>
 				<tbody>
                     <tr>
-                        <td>left</td>
+                        <td>start</td>
                         <td>-</td>
                     </tr>
                     <tr>
-                        <td>right</td>
+                        <td>end</td>
                         <td>-</td>
                     </tr>
 				</tbody>
@@ -91,14 +98,14 @@ export default {
 <template>
     <div>
         <Toolbar>
-            <template #left>
+            <template #start>
                 <Button label="New" icon="pi pi-plus" class="p-mr-2" />
                 <Button label="Upload" icon="pi pi-upload" class="p-button-success" />
                 <i class="pi pi-bars p-toolbar-separator p-mr-2" />
                 <SplitButton label="Save" icon="pi pi-check" :model="items" class="p-button-warning"></SplitButton>
             </template>
 
-            <template #right>
+            <template #end>
                 <Button icon="pi pi-search" class="p-mr-2" />
                 <Button icon="pi pi-calendar" class="p-button-success p-mr-2" />
                 <Button icon="pi pi-times" class="p-button-danger" />
@@ -152,14 +159,14 @@ export default {
 <template>
     <div>
         <Toolbar>
-            <template #left>
+            <template #start>
                 <Button label="New" icon="pi pi-plus" class="p-mr-2" />
                 <Button label="Upload" icon="pi pi-upload" class="p-button-success" />
                 <i class="pi pi-bars p-toolbar-separator p-mr-2" />
                 <SplitButton label="Save" icon="pi pi-check" :model="items" class="p-button-warning"></SplitButton>
             </template>
 
-            <template #right>
+            <template #end>
                 <Button icon="pi pi-search" class="p-mr-2" />
                 <Button icon="pi pi-calendar" class="p-button-success p-mr-2" />
                 <Button icon="pi pi-times" class="p-button-danger" />
@@ -208,6 +215,76 @@ export default {
     margin-bottom: 0.5rem;
 }
 </style>`
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/toolbar/toolbar.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/splitbutton/splitbutton.min.js"><\\/script>`,
+                    content: `<div id="app">
+            <p-toolbar>
+                <template #start>
+                    <p-button label="New" icon="pi pi-plus" class="p-mr-2"></p-button>
+                    <p-button label="Upload" icon="pi pi-upload" class="p-button-success"></p-button>
+                    <i class="pi pi-bars p-toolbar-separator p-mr-2"></i>
+                    <p-splitbutton label="Save" icon="pi pi-check" :model="items" class="p-button-warning"></p-splitbutton>
+                </template>
+
+                <template #end>
+                    <p-button icon="pi pi-search" class="p-mr-2"></p-button>
+                    <p-button icon="pi pi-calendar" class="p-button-success p-mr-2"></p-button>
+                    <p-button icon="pi pi-times" class="p-button-danger"></p-button>
+                </template>
+            </p-toolbar>
+        </div>
+
+        <script type="module">
+        const { createApp, ref } = Vue;
+
+        const App = {
+            setup() {
+                const items = ref([
+                    {
+                        label: 'Update',
+                        icon: 'pi pi-refresh'
+                    },
+                    {
+                        label: 'Delete',
+                        icon: 'pi pi-times'
+                    },
+                    {
+                        label: 'Vue Website',
+                        icon: 'pi pi-external-link',
+                        command: () => {
+                            window.location.href = 'https://vuejs.org/'
+                        }
+                    },
+                    {   label: 'Upload',
+                        icon: 'pi pi-upload',
+                        command: () => {
+                            window.location.hash = "/fileupload"
+                        }
+                    }
+                ]);
+
+                return { items }
+            },
+            components: {
+                "p-toolbar": primevue.toolbar,
+                "p-splitbutton": primevue.splitbutton,
+                "p-button": primevue.button
+            }
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .mount("#app");
+        <\\/script>
+
+        <style>
+        .p-button {
+            margin-bottom: 0.5rem;
+        }
+        </style>`
                 }
             }
         }

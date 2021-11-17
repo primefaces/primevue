@@ -1,3 +1,5 @@
+import { VNode } from 'vue';
+
 interface PasswordProps {
     modelValue?: string;
     promptLabel?: string;
@@ -9,16 +11,23 @@ interface PasswordProps {
     feedback?: boolean;
     appendTo?: string;
     toggleMask?: boolean;
-    inputStyle?: any;
-    inputClass?: string;
-    panelClass?: string;
     hideIcon?: string;
     showIcon?: string;
+    inputStyle?: any;
+    inputClass?: string;
+    style?: any;
+    class?: string;
+    panelClass?: string;
 }
 
 declare class Password {
     $props: PasswordProps;
-    $emit(eventName: string, event: Event): this;
+    $emit(eventName: 'update:modelValue', value: string): this;
+    $slots: {
+        header: VNode[];
+        footer: VNode[];
+        content: VNode[];
+    }
 }
 
 export default Password;

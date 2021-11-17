@@ -1,8 +1,15 @@
 <template>
 	<AppDoc name="TextareaDemo" :sources="sources" github="textarea/TextareaDemo.vue">
-		<h5>Import</h5>
+		<h5>Import via Module</h5>
 <pre v-code.script><code>
 import Textarea from 'primevue/textarea';
+
+</code></pre>
+
+        <h5>Import via CDN</h5>
+<pre v-code><code>
+&lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue@^3/textarea/textarea.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
@@ -139,6 +146,42 @@ export default {
     }
 }
 <\\/script>
+`
+				},
+                'browser-source': {
+					tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/textarea/textarea.min.js"><\\/script>`,
+					content: `<div id="app">
+            <h5>Basic</h5>
+            <p-textarea v-model="value1" rows="5" cols="30"></p-textarea>
+
+            <h5>Auto Resize</h5>
+            <p-textarea v-model="value2" :auto-resize="true" rows="5" cols="30"></p-textarea>
+
+            <h5>Disabled</h5>
+            <p-textarea v-model="value3" disabled rows="5" cols="30"></p-textarea>
+        </div>
+
+        <script type="module">
+        const { createApp, ref } = Vue;
+
+        const App = {
+            setup() {
+                const value1 = ref('');
+                const value2 = ref('');
+                const value3 = ref('');
+
+                return { value1, value2, value3 }
+            },
+            components: {
+                "p-textarea": primevue.textarea
+            }
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .mount("#app");
+        <\\/script>
 `
 				}
 			}

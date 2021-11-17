@@ -1,8 +1,15 @@
 <template>
 	<AppDoc name="OverlayPanelDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="overlaypanel/OverlayPanelDemo.vue" >
-        <h5>Import</h5>
+        <h5>Import via Module</h5>
 <pre v-code.script><code>
 import OverlayPanel from 'primevue/overlaypanel';
+
+</code></pre>
+
+        <h5>Import via CDN</h5>
+<pre v-code><code>
+&lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue@^3/overlaypanel/overlaypanel.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
@@ -107,32 +114,58 @@ toggle(event) {
 		<div class="doc-tablewrapper">
 			<table class="doc-table">
 				<thead>
-				<tr>
-					<th>Name</th>
-					<th>Parameters</th>
-					<th>Description</th>
-				</tr>
+                    <tr>
+                        <th>Name</th>
+                        <th>Parameters</th>
+                        <th>Description</th>
+                    </tr>
 				</thead>
 				<tbody>
-				<tr>
-					<td>toggle</td>
-					<td>event: Browser event</td>
-					<td>Toggles the visibility of the overlay.</td>
-				</tr>
-				<tr>
-					<td>show</td>
-					<td>event: Browser event <br />
-						target: Optional target if event.target should not be used</td>
-					<td>Shows the overlay.</td>
-				</tr>
-				<tr>
-					<td>hide</td>
-					<td>-</td>
-					<td>Hides the overlay.</td>
-				</tr>
+                    <tr>
+                        <td>toggle</td>
+                        <td>event: Browser event <br />
+                            target: Optional target if event.currentTarget should not be used</td>
+                        <td>Toggles the visibility of the overlay.</td>
+                    </tr>
+                    <tr>
+                        <td>show</td>
+                        <td>event: Browser event <br />
+                            target: Optional target if event.currentTarget should not be used</td>
+                        <td>Shows the overlay.</td>
+                    </tr>
+                    <tr>
+                        <td>hide</td>
+                        <td>-</td>
+                        <td>Hides the overlay.</td>
+                    </tr>
 				</tbody>
 			</table>
 		</div>
+
+        <h5>Events</h5>
+		<div class="doc-tablewrapper">
+			<table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Parameters</th>
+                        <th>Description</th>
+                    </tr>
+				</thead>
+                <tbody>
+                    <tr>
+                        <td>show</td>
+                        <td>-</td>
+                        <td>Callback to invoke when the overlay is shown.</td>
+                    </tr>
+                    <tr>
+                        <td>hide</td>
+                        <td>-</td>
+                        <td>Callback to invoke when the overlay is hidden.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
 		<h5>Styling</h5>
 		<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
@@ -310,6 +343,90 @@ button {
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)
 }
 </style>`
+				},
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/overlaypanel/overlaypanel.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/datatable/datatable.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/column/column.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/toast/toast.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/toastservice/toastservice.min.js"><\\/script>
+        <script src="./ProductService.js"><\\/script>`,
+					content: `<div id="app">
+            <p-toast></p-toast>
+
+            <p-button type="button" icon="pi pi-search" :label="selectedProduct ? selectedProduct.name : 'Select a Product'" @click="toggle" aria:haspopup="true" aria-controls="overlay_panel"></p-button>
+
+            <p-overlaypanel ref="op" append-to="body" :show-close-icon="true" id="overlay_panel" style="width: 450px" :breakpoints="{'960px': '75vw'}">
+                <p-datatable :value="products" v-model:selection="selectedProduct" selection-mode="single" :paginator="true" :rows="5" @row-select="onProductSelect" responsive-layout="scroll" >
+                    <p-column field="name" header="Name" sortable style="width: 50%"></p-column>
+                    <p-column header="Image" style="width: 20%">
+                        <template #body="slotProps">
+                            <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" :alt="slotProps.data.image" class="product-image" />
+                        </template>
+                    </p-column>
+                    <p-column field="price" header="Price" sortable style="width: 30%">
+                        <template #body="slotProps">
+                            {{formatCurrency(slotProps.data.price)}}
+                        </template>
+                    </p-column>
+                </p-datatable>
+            </p-overlaypanel>
+        </div>
+
+        <script type="module">
+        const { createApp, ref, onMounted } = Vue;
+        const { useToast } = primevue.usetoast;
+
+        const App = {
+            setup() {
+                onMounted(() => {
+                    productService.value.getProductsSmall().then(data => products.value = data);
+                })
+
+                const toast = useToast();
+                const op = ref();
+                const productService = ref(new ProductService());
+                const products = ref();
+                const selectedProduct = ref();
+                const toggle = (event) => {
+                    op.value.toggle(event);
+                };
+                const formatCurrency = (value) => {
+                    return value.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
+                };
+                const onProductSelect = (event) => {
+                    op.value.hide();
+                    toast.add({severity:'info', summary: 'Product Selected', detail: event.data.name, life: 3000});
+                };
+
+                return { op, productService, products, selectedProduct, toggle, formatCurrency, onProductSelect}
+            },
+            components: {
+                "p-overlaypanel": primevue.overlaypanel,
+                "p-datatable": primevue.datatable,
+                "p-column": primevue.column,
+                "p-button": primevue.button,
+                "p-toast": primevue.toast
+            }
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .use(primevue.toastservice)
+            .mount("#app");
+        <\\/script>
+
+        <style>
+        .p-button {
+            min-width: 15rem;
+        }
+
+        .product-image {
+            width: 50px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)
+        }
+        </style>`
 				}
 			}
 		}

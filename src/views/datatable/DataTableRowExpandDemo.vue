@@ -319,6 +319,138 @@ export default {
 }
 </style>                    
 `
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/datatable/datatable.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/column/column.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/rating/rating.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/toast/toast.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/toastservice/toastservice.min.js"><\\/script>
+        <script src="./ProductService.js"><\\/script>`,
+                    content: `<div id="app">
+            <p-toast></p-toast>
+            
+            <p-datatable :value="products" v-model:expanded-rows="expandedRows" dataKey="id"
+                @row-expand="onRowExpand" @row-collapse="onRowCollapse" responsive-layout="scroll">
+                <template #header>
+                    <div class="table-header-container">
+                        <p-button icon="pi pi-plus" label="Expand All" @click="expandAll" class="p-mr-2"></p-button>
+                        <p-button icon="pi pi-minus" label="Collapse All" @click="collapseAll"></p-button>
+                    </div>
+                </template>
+                <p-column :expander="true" headerStyle="width: 3rem"></p-column>
+                <p-column field="name" header="Name" sortable></p-column>
+                <p-column header="Image">
+                    <template #body="slotProps">
+                        <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" :alt="slotProps.data.image" class="product-image" />
+                    </template>
+                </p-column>
+                <p-column field="price" header="Price" sortable>
+                    <template #body="slotProps">
+                        {{formatCurrency(slotProps.data.price)}}
+                    </template>
+                </p-column>
+                <p-column field="category" header="Category" sortable></p-column>
+                <p-column field="rating" header="Reviews" sortable>
+                    <template #body="slotProps">
+                    <p-rating :modelValue="slotProps.data.rating" :readonly="true" :cancel="false"></p-rating>
+                    </template>
+                </p-column>
+                <p-column field="inventoryStatus" header="Status" sortable>
+                    <template #body="slotProps">
+                        <span :class="'product-badge status-' + slotProps.data.inventoryStatus.toLowerCase()">{{slotProps.data.inventoryStatus}}</span>
+                    </template>
+                </p-column>
+                <template #expansion="slotProps">
+                    <div class="orders-subtable">
+                        <h5>Orders for {{slotProps.data.name}}</h5>
+                        <p-datatable :value="slotProps.data.orders" responsive-layout="scroll">
+                            <p-column field="id" header="Id" sortable></p-column>
+                            <p-column field="customer" header="Customer" sortable></p-column>
+                            <p-column field="date" header="Date" sortable></p-column>
+                            <p-column field="amount" header="Amount" sortable>
+                                <template #body="slotProps" sortable>
+                                    {{formatCurrency(slotProps.data.amount)}}
+                                </template>
+                            </p-column>
+                            <p-column field="status" header="Status" sortable>
+                                <template #body="slotProps">
+                                    <span :class="'order-badge order-' + slotProps.data.status.toLowerCase()">{{slotProps.data.status}}</span>
+                                </template>
+                            </p-column>
+                            <p-column header-style="width:4rem">
+                                <template #body>
+                                    <p-button icon="pi pi-search"></p-button>
+                                </template>
+                            </p-column>
+                        </p-datatable>
+                    </div>
+                </template>
+            </p-datatable>
+        </div>
+
+        <script type="module">
+        const { createApp, ref, onMounted } = Vue;
+        const { useToast } = primevue.usetoast;
+
+        const App = {
+            setup() {
+                onMounted(() => {
+                    productService.value.getProductsWithOrdersSmall().then(data => products.value = data);
+                })
+
+                const toast = useToast();
+                const products = ref();
+                const productService = ref(new ProductService());
+                const expandedRows = ref([]);
+
+                const onRowExpand = (event) => {
+                    toast.add({severity: 'info', summary: 'Product Expanded', detail: event.data.name, life: 3000});
+                };
+                const onRowCollapse = (event) => {
+                    toast.add({severity: 'success', summary: 'Product Collapsed', detail: event.data.name, life: 3000});
+                };
+                const expandAll = () => {
+                    expandedRows.value = products.value.filter(p => p.id);
+                    toast.add({severity: 'success', summary: 'All Rows Expanded', life: 3000});
+                };
+                const collapseAll = () => {
+                    expandedRows.value = null;
+                    toast.add({severity: 'success', summary: 'All Rows Collapsed', life: 3000});
+                };
+                const formatCurrency = (value) => {
+                    return value.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
+                };
+
+                return { products, expandedRows, onRowExpand, onRowCollapse, expandAll, collapseAll, formatCurrency }
+            },
+            components: {
+                "p-datatable": primevue.datatable,
+                "p-column": primevue.column,
+                "p-button": primevue.button,
+                "p-toast": primevue.toast,
+                "p-rating": primevue.rating
+            }
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .use(primevue.toastservice)
+            .mount("#app");
+        <\\/script>
+
+        <style>
+        .product-image {
+            width: 50px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)
+        }
+
+        .orders-subtable {
+            padding: 1rem;
+        }
+        </style>                    
+`
                 }
             }
         }

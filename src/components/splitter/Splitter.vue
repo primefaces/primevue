@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import {DomHandler} from 'primevue/utils';
+import {DomHandler,ObjectUtils} from 'primevue/utils';
 
 export default {
     name: 'Splitter',
@@ -150,11 +150,13 @@ export default {
             }
         },
         validateResize(newPrevPanelSize, newNextPanelSize) {
-            if (this.panels[0].props && this.panels[0].props.minSize && this.panels[0].props.minSize > newPrevPanelSize) {
+            let prevPanelMinSize = ObjectUtils.getVNodeProp(this.panels[0], 'minSize');
+            if (this.panels[0].props && prevPanelMinSize && prevPanelMinSize > newPrevPanelSize) {
                 return false;
             }
 
-            if (this.panels[1].props && this.panels[1].props.minSize && this.panels[1].props.minSize > newNextPanelSize) {
+            let newPanelMinSize = ObjectUtils.getVNodeProp(this.panels[1], 'minSize');
+            if (this.panels[1].props && newPanelMinSize && newPanelMinSize > newNextPanelSize) {
                 return false;
             }
 

@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import {DomHandler} from 'primevue/utils';
+import {DomHandler, ObjectUtils} from 'primevue/utils';
 import BodyCell from './BodyCell.vue';
 
 export default {
@@ -58,7 +58,7 @@ export default {
     nodeTouched: false,
     methods: {
         columnProp(col, prop) {
-            return col.props ? ((col.type.props[prop].type === Boolean && col.props[prop] === '') ? true : col.props[prop]) : null;
+            return ObjectUtils.getVNodeProp(col, prop);
         },
         toggle() {
             this.$emit('node-toggle', this.node);

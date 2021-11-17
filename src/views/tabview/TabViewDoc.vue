@@ -1,9 +1,17 @@
 <template>
 	<AppDoc name="TabViewDemo" :sources="sources" github="tabview/TabViewDemo.vue" >
-        <h5>Import</h5>
+        <h5>Import via Module</h5>
 <pre v-code.script><code>
 import TabView from 'primevue/tabview';
 import TabPanel from 'primevue/tabpanel';
+
+</code></pre>
+
+        <h5>Import via CDN</h5>
+<pre v-code><code>
+&lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue@^3/tabview/tabview.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue@^3/tabpanel/tabpanel.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
@@ -173,6 +181,23 @@ export default {
 
 </code></pre>
 
+        <h5>Scrollable</h5>
+		<p>Enable <i>scrollable</i> property to display buttons at each side of the tab headers that scrolls the tab list.</p>
+<pre v-code><code>
+&lt;TabView scrollable&gt;
+	&lt;TabPanel header="Header I"&gt;
+		Content I
+	&lt;/TabPanel&gt;
+	&lt;TabPanel header="Header II"&gt;
+		Content II
+	&lt;/TabPanel&gt;
+	&lt;TabPanel header="Header III"&gt;
+		Content III
+	&lt;/TabPanel&gt;
+&lt;/TabView&gt;
+
+</code></pre>
+
 		<h5>Properties of TabPanel</h5>
 		<div class="doc-tablewrapper">
 			<table class="doc-table">
@@ -225,6 +250,12 @@ export default {
                         <td>boolean</td>
                         <td>false</td>
                         <td>When enabled, hidden tabs are not rendered at all. Defaults to false that hides tabs with css.</td>
+                    </tr>
+                    <tr>
+                        <td>scrollable</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>When enabled displays buttons at each side of the tab headers to scroll the tab list.</td>
                     </tr>
 				</tbody>
 			</table>
@@ -327,12 +358,12 @@ export default {
         <div class="card">
             <h5>Programmatic</h5>
             <div class="p-py-2">
-                <Button @click="active = 0" class="p-button-text" label="Activate 1st" />
-                <Button @click="active = 1" class="p-button-text p-mr-2" label="Activate 2nd" />
-                <Button @click="active = 2" class="p-button-text p-mr-2" label="Activate 3rd" />
+                <Button @click="active1 = 0" class="p-button-text" label="Activate 1st" />
+                <Button @click="active1 = 1" class="p-button-text p-mr-2" label="Activate 2nd" />
+                <Button @click="active1 = 2" class="p-button-text p-mr-2" label="Activate 3rd" />
             </div>
 
-            <TabView ref="tabview2" v-model:activeIndex="active">
+            <TabView ref="tabview2" v-model:activeIndex="active1">
                 <TabPanel header="Header I">
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                 </TabPanel>
@@ -403,6 +434,21 @@ export default {
                 </TabPanel>
             </TabView>
         </div>
+
+        <div class="card">
+            <h5>Scrollable</h5>
+            <div class="p-py-2">
+                <Button @click="active2 = 0" class="p-button-text" label="Activate 1st" />
+                <Button @click="active2 = 29" class="p-button-text p-mr-2" label="Activate 30th" />
+                <Button @click="active2 = 49" class="p-button-text p-mr-2" label="Activate 50th" />
+            </div>
+
+            <TabView v-model:activeIndex="active2" :scrollable="true">
+                <TabPanel v-for="tab in scrollableTabs" :key="tab.title" :header="tab.title">
+                    <p>{{tab.content}}</p>
+                </TabPanel>
+            </TabView>
+        </div>
     </div>
 </template>
 
@@ -410,21 +456,23 @@ export default {
 export default {
     data() {
         return {
-            active: 0,
+            active1: 0,
+            active2: 0,
             tabs: [
                 {
-                    title: 'Header I', 
+                    title: 'Header I',
                     content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
                 },
                 {
-                    title: 'Header II', 
+                    title: 'Header II',
                     content: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi."
                 },
                 {
-                    title: 'Header III', 
+                    title: 'Header III',
                     content: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus."
                 }
-            ]
+            ],
+            scrollableTabs: Array.from({ length: 50 }, (_, i) => ({ title: \`Tab \${i + 1}\`, content: \`Tab \${i + 1} Content\` }))
         }
     }
 }
@@ -470,12 +518,12 @@ export default {
         <div class="card">
             <h5>Programmatic</h5>
             <div class="p-py-2">
-                <Button @click="active = 0" class="p-button-text" label="Activate 1st" />
-                <Button @click="active = 1" class="p-button-text p-mr-2" label="Activate 2nd" />
-                <Button @click="active = 2" class="p-button-text p-mr-2" label="Activate 3rd" />
+                <Button @click="active1 = 0" class="p-button-text" label="Activate 1st" />
+                <Button @click="active1 = 1" class="p-button-text p-mr-2" label="Activate 2nd" />
+                <Button @click="active1 = 2" class="p-button-text p-mr-2" label="Activate 3rd" />
             </div>
 
-            <TabView ref="tabview2" v-model:activeIndex="active">
+            <TabView ref="tabview2" v-model:activeIndex="active1">
                 <TabPanel header="Header I">
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                 </TabPanel>
@@ -546,6 +594,21 @@ export default {
                 </TabPanel>
             </TabView>
         </div>
+
+        <div class="card">
+            <h5>Scrollable</h5>
+            <div class="p-py-2">
+                <Button @click="active2 = 0" class="p-button-text" label="Activate 1st" />
+                <Button @click="active2 = 29" class="p-button-text p-mr-2" label="Activate 30th" />
+                <Button @click="active2 = 49" class="p-button-text p-mr-2" label="Activate 50th" />
+            </div>
+
+            <TabView v-model:activeIndex="active2" :scrollable="true">
+                <TabPanel v-for="tab in scrollableTabs" :key="tab.title" :header="tab.title">
+                    <p>{{tab.content}}</p>
+                </TabPanel>
+            </TabView>
+        </div>
     </div>
 </template>
 
@@ -554,23 +617,25 @@ import { ref } from 'vue';
 
 export default {
     setup() {
-        const active = ref(0);
+        const active1 = ref(0);
+        const active2 = ref(0);
         const tabs = ref([
             {
-                title: 'Header I', 
+                title: 'Header I',
                 content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
             },
             {
-                title: 'Header II', 
+                title: 'Header II',
                 content: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi."
             },
             {
-                title: 'Header III', 
+                title: 'Header III',
                 content: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus."
             }
         ]);
+        const scrollableTabs = ref(Array.from({ length: 50 }, (_, i) => ({ title: \`Tab \${i + 1}\`, content: \`Tab \${i + 1} Content\` })));
 
-        return { active, tabs }
+        return { active1, active2, tabs, scrollableTabs }
     }
 }
 <\\/script>
@@ -591,6 +656,175 @@ export default {
     margin: 0;
 }
 </style>`
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/tabview/tabview.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/tabpanel/tabpanel.min.js"><\\/script>`,
+                    content: `<div id="app">
+            <div class="card">
+                <h5>Default</h5>
+                <p-tabview ref="tabview1">
+                    <p-tabpanel header="Header I">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    </p-tabpanel>
+                    <p-tabpanel header="Header II">
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.</p>
+                    </p-tabpanel>
+                    <p-tabpanel header="Header III">
+                        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.</p>
+                    </p-tabpanel>
+                </p-tabview>
+            </div>
+
+            <div class="card">
+                <h5>Programmatic</h5>
+                <div class="p-py-2">
+                    <p-button @click="active1 = 0" class="p-button-text" label="Activate 1st"></p-button>
+                    <p-button @click="active1 = 1" class="p-button-text p-mr-2" label="Activate 2nd"></p-button>
+                    <p-button @click="active1 = 2" class="p-button-text p-mr-2" label="Activate 3rd"></p-button>
+                </div>
+
+                <p-tabview ref="tabview2" v-model:active-index="active1">
+                    <p-tabpanel header="Header I">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    </p-tabpanel>
+                    <p-tabpanel header="Header II">
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.</p>
+                    </p-tabpanel>
+                    <p-tabpanel header="Header III">
+                        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.</p>
+                    </p-tabpanel>
+                </p-tabview>
+            </div>
+
+            <div class="card">
+                <h5>Disabled</h5>
+                <p-tabview ref="tabview3">
+                    <p-tabpanel header="Header I">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    </p-tabpanel>
+                    <p-tabpanel header="Header II">
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.</p>
+                    </p-tabpanel>
+                    <p-tabpanel header="Header III">
+                        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.</p>
+                    </p-tabpanel>
+                    <p-tabpanel header="Header IV" :disabled="true"></p-tabpanel>
+                </p-tabview>
+            </div>
+
+            <div class="card">
+                <h5>Custom Headers</h5>
+                <p-tabview class="tabview-custom" ref="tabview4">
+                    <p-tabpanel>
+                        <template #header>
+                            <i class="pi pi-calendar"></i>
+                            <span>Header I</span>
+                        </template>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                            ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    </p-tabpanel>
+                    <p-tabpanel>
+                        <template #header>
+                            <span>Header II</span>
+                            <i class="pi pi-user"></i>
+                        </template>
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
+                            architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione
+                            voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.</p>
+                    </p-tabpanel>
+                    <p-tabpanel>
+                        <template #header>
+                            <i class="pi pi-search"></i>
+                            <span>Header III</span>
+                            <i class="pi pi-cog"></i>
+                        </template>
+                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati
+                            cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.
+                            Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.</p>
+                    </p-tabpanel>
+                </p-tabview>
+            </div>
+
+            <div class="card">
+                <h5>Dynamic Tabs</h5>
+                <p-tabview>
+                    <p-tabpanel v-for="tab in tabs" :key="tab.title" :header="tab.title">
+                        <p>{{tab.content}}</p>
+                    </p-tabpanel>
+                </p-tabview>
+            </div>
+
+            <div class="card">
+                <h5>Scrollable</h5>
+                <div class="p-py-2">
+                    <p-button @click="active2 = 0" class="p-button-text" label="Activate 1st"></p-button>
+                    <p-button @click="active2 = 29" class="p-button-text p-mr-2" label="Activate 30th"></p-button>
+                    <p-button @click="active2 = 49" class="p-button-text p-mr-2" label="Activate 50th"></p-button>
+                </div>
+
+                <p-tabview v-model:active-index="active2" :scrollable="true">
+                    <p-tabpanel v-for="tab in scrollableTabs" :key="tab.title" :header="tab.title">
+                        <p>{{tab.content}}</p>
+                    </p-tabpanel>
+                </p-tabview>
+            </div>
+        </div>
+
+        <script type="module">
+        const { createApp, ref } = Vue;
+
+        const App = {
+            setup() {
+                const active1 = ref(0);
+                const active2 = ref(0);
+                const tabs = ref([
+                    {
+                        title: 'Header I',
+                        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                    },
+                    {
+                        title: 'Header II',
+                        content: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi."
+                    },
+                    {
+                        title: 'Header III',
+                        content: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus."
+                    }
+                ]);
+                const scrollableTabs = ref(Array.from({ length: 50 }, (_, i) => ({ title: \`Tab \${i + 1}\`, content: \`Tab \${i + 1} Content\` })));
+
+                return { active1, active2, tabs, scrollableTabs }
+            },
+            components: {
+                "p-tabview": primevue.tabview,
+                "p-tabpanel": primevue.tabpanel,
+                "p-button": primevue.button
+            }
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .mount("#app");
+        <\\/script>
+
+        <style>
+        .tabview-custom i, .tabview-custom span {
+            vertical-align: middle;
+        }
+
+        .tabview-custom span {
+            margin: 0 .5rem;
+        }
+        
+
+        .p-tabview p {
+            line-height: 1.5;
+            margin: 0;
+        }
+        </style>`
                 }
             }
         }

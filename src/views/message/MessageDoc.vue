@@ -1,8 +1,14 @@
 <template>
 	<AppDoc name="MessageDemo" :sources="sources" github="message/MessageDemo.vue">
-        <h5>Import</h5>
+        <h5>Import via Module</h5>
 <pre v-code.script><code>
 import Message from 'primevue/message';
+
+</code></pre>
+
+        <h5>Import via CDN</h5>
+<pre v-code><code>
+&lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
@@ -107,6 +113,12 @@ import InlineMessage from 'primevue/inlinemessage';
                         <td>number</td>
                         <td>3000</td>
                         <td>Delay in milliseconds to close the message automatically.</td>
+                    </tr>
+                    <tr>
+                        <td>icon</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Display a custom icon for the message.</td>
                     </tr>
 				</tbody>
 			</table>
@@ -416,6 +428,95 @@ button.p-button {
     margin-right: .5rem;
 }
 </style>`
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/inlinemessage/inlinemessage.min.js"><\\/script>`,
+                    content: `<div id="app">
+            <h5>Severities</h5>
+            <p-message severity="success">Success Message Content</p-message>
+            <p-message severity="info">Info Message Content</p-message>
+            <p-message severity="warn">Warning Message Content</p-message>
+            <p-message severity="error">Error Message Content</p-message>
+
+            <h5>Dynamic</h5>
+            <p-button label="Show" @click="addMessages()"></p-button>
+            <transition-group name="p-message" tag="div">
+                <p-message v-for="msg of messages" :severity="msg.severity" :key="msg.id">{{msg.content}}</p-message>
+            </transition-group>
+
+            <h5>Inline Messages</h5>
+            <p>Message component is used to display inline messages mostly within forms.</p>
+            <div class="p-grid">
+                <div class="p-col-12 p-md-3">
+                    <p-inlinemessage severity="info">Message Content</p-inlinemessage>
+                </div>
+                <div class="p-col-12 p-md-3">
+                    <p-inlinemessage severity="success">Message Content</p-inlinemessage>
+                </div>
+                <div class="p-col-12 p-md-3">
+                    <p-inlinemessage severity="warn">Message Content</p-inlinemessage>
+                </div>
+                <div class="p-col-12 p-md-3">
+                    <p-inlinemessage severity="error">Message Content</p-inlinemessage>
+                </div>
+            </div>
+
+            <h5>Auto Dismiss</h5>
+            <p-message severity="warn" :life="3000" :sticky="false">This message will hide in 3 seconds.</p-message>
+
+            <h5>Validation Message</h5>
+            <div class="p-formgroup-inline" style="margin-bottom:.5rem">
+                <label for="username" class="p-sr-only">Username</label>
+                <p-inputtext id="username" placeholder="Username" class="p-invalid"></p-inputtext>
+                <p-inlinemessage>Username is required</p-inlinemessage>
+            </div>
+            <div class="p-formgroup-inline">
+                <label for="email" class="p-sr-only">email</label>
+                <p-inputtext id="email" placeholder="Email" class="p-invalid"></p-inputtext>
+                <p-inlinemessage></p-inlinemessage>
+            </div>
+        </div>
+
+        <script type="module">
+        const { createApp, ref } = Vue;
+
+        const App = {
+            setup() {
+                const messages = ref([]);
+                const count = ref(0);
+                const addMessages = () => {
+                    messages.value = [
+                        {severity: 'info', content: 'Dynamic Info Message', id: count.value++},
+                        {severity: 'success', content: 'Dynamic Success Message', id: count.value++},
+                        {severity: 'warn', content: 'Dynamic Warning Message', id: count.value++}
+                    ]
+                };
+
+                return { messages, count, addMessages }
+            },
+            components: {
+                "p-message": primevue.message,
+                "p-inlinemessage": primevue.inlinemessage,
+                "p-button": primevue.button,
+                "p-inputtext": primevue.inputtext
+            }
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .mount("#app");
+        <\\/script>
+
+        <style>
+        button.p-button {
+            margin-right: .5rem;
+        }
+
+        .p-inputtext {
+            margin-right: .5rem;
+        }
+        </style>`
                 }
             }
         }

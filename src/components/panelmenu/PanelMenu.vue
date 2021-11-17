@@ -4,13 +4,13 @@
             <div v-if="visible(item)"  :class="getPanelClass(item)" :style="item.style">
                 <div :class="getHeaderClass(item)" :style="item.style">
                     <template v-if="!$slots.item">
-                        <router-link v-if="item.to && !item.disabled" :to="item.to" custom v-slot="{navigate, href}">
-                            <a :href="href" class="p-panelmenu-header-link" @click="onItemClick($event, item, navigate)" role="treeitem">
+                        <router-link v-if="item.to && !disabled(item)" :to="item.to" custom v-slot="{navigate, href, isActive, isExactActive}">
+                            <a :href="href" :class="getHeaderLinkClass(item, {isActive, isExactActive})" @click="onItemClick($event, item, navigate)" role="treeitem">
                                 <span v-if="item.icon" :class="getPanelIcon(item)"></span>
                                 <span class="p-menuitem-text">{{label(item)}}</span>
                             </a>
                         </router-link>
-                        <a v-else :href="item.url" class="p-panelmenu-header-link" @click="onItemClick($event, item)" :tabindex="item.disabled ? null : '0'"
+                        <a v-else :href="item.url" :class="getHeaderLinkClass(item)" @click="onItemClick($event, item)" :tabindex="disabled(item) ? null : '0'"
                             :aria-expanded="isActive(item)" :id="ariaId +'_header'" :aria-controls="ariaId +'_content'">
                             <span v-if="item.items" :class="getPanelToggleIcon(item)"></span>
                             <span v-if="item.icon" :class="getPanelIcon(item)"></span>
@@ -24,7 +24,7 @@
                         role="region" :id="ariaId +'_content' " :aria-labelledby="ariaId +'_header'">
                         <div class="p-panelmenu-content" v-if="item.items">
                             <PanelMenuSub :model="item.items" class="p-panelmenu-root-submenu" :template="$slots.item" 
-                                :expandedKeys="expandedKeys" @item-toggle="updateExpandedKeys" />
+                                :expandedKeys="expandedKeys" @item-toggle="updateExpandedKeys" :exact="exact" />
                         </div>
                     </div>
                 </transition>
@@ -48,6 +48,10 @@ export default {
         expandedKeys: {
             type: null,
             default: null
+        },
+        exact: {
+            type: Boolean,
+            default: true
         }
     },
     data() {
@@ -57,7 +61,11 @@ export default {
     },
     methods: {
         onItemClick(event, item, navigate) {
-            if (item.disabled) {
+            if (this.isActive(item) && this.activeItem === null) {
+                this.activeItem = item;
+            }
+            
+            if (this.disabled(item)) {
                 event.preventDefault();
                 return;
             }
@@ -97,23 +105,32 @@ export default {
             return ['p-panelmenu-panel', item.class];
         },
         getPanelToggleIcon(item) {
-            const active = item === this.activeItem;
+            const active = this.isActive(item);
             return ['p-panelmenu-icon pi', {'pi-chevron-right': !active,' pi-chevron-down': active}];
         },
         getPanelIcon(item) {
             return ['p-menuitem-icon', item.icon];
         },
+        getHeaderLinkClass(item, routerProps) {
+            return ['p-panelmenu-header-link', {
+                'router-link-active': routerProps && routerProps.isActive,
+                'router-link-active-exact': this.exact && routerProps && routerProps.isExactActive
+            }];
+        },
         isActive(item) {
             return this.expandedKeys ? this.expandedKeys[item.key] : item === this.activeItem;
         },
         getHeaderClass(item) {
-            return ['p-component p-panelmenu-header', {'p-highlight': this.isActive(item), 'p-disabled': item.disabled}];
+            return ['p-component p-panelmenu-header', {'p-highlight': this.isActive(item), 'p-disabled': this.disabled(item)}];
         },
         visible(item) {
             return (typeof item.visible === 'function' ? item.visible() : item.visible !== false);
         },
         label(item){
             return (typeof item.label === 'function' ? item.label() : item.label);
+        },
+        disabled(item) {
+            return (typeof item.disabled === 'function' ? item.disabled() : item.disabled);
         }
     },
     components: {

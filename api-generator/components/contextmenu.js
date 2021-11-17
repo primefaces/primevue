@@ -28,6 +28,12 @@ const ContextMenuProps = [
         type: "boolean",
         default: "false",
         description: "Attaches the menu to document instead of a particular item."
+    },
+    {
+        name: "exact",
+        type: "boolean",
+        default: "true",
+        description: "Whether to apply 'router-link-active-exact' class if route exactly matches the item path."
     }
 ];
 

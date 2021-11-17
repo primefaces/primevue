@@ -42,10 +42,23 @@
                         <li><a @click="changeTheme($event, 'mdc-dark-indigo', true)"><img src="demo/images/themes/md-dark-indigo.svg" alt="Indigo Dark" /><span>Indigo Dark</span></a></li>
                         <li><a @click="changeTheme($event, 'mdc-dark-deeppurple', true)"><img src="demo/images/themes/md-dark-deeppurple.svg" alt="Deep Purple Dark" /><span>Deep Purple Dark</span></a></li>
 
+                        <li class="topbar-submenu-header">TAILWIND</li>
+                        <li><a @click="changeTheme($event, 'tailwind-light')"><img src="demo/images/themes/tailwind-light.png" alt="Tailwind Light" /><span>Tailwind Light</span></a></li>
+
                         <li class="topbar-submenu-header">FLUENT UI</li>
                         <li><a @click="changeTheme($event, 'fluent-light')"><img src="demo/images/themes/fluent-light.png" alt="Fluent Light" /><span>Fluent Light</span></a></li>
 
-                        <li class="topbar-submenu-header">PRIMEONE</li>
+                        <li class="topbar-submenu-header p-d-flex p-ai-center">PRIMEONE 2022 <Tag class="p-ml-3" value="NEW" rounded severity="success"></Tag></li>
+                        <li><a @click="changeTheme($event, 'lara-light-indigo')"><img src="demo/images/themes/lara-light-indigo.png" alt="Lara Light Indigo" /><span>Lara Light Indigo</span></a></li>
+                        <li><a @click="changeTheme($event, 'lara-light-blue')"><img src="demo/images/themes/lara-light-blue.png" alt="Lara Light Blue" /><span>Lara Light Blue</span></a></li>
+                        <li><a @click="changeTheme($event, 'lara-light-purple')"><img src="demo/images/themes/lara-light-purple.png" alt="Lara Light Purple" /><span>Lara Light Purple</span></a></li>
+                        <li><a @click="changeTheme($event, 'lara-light-teal')"><img src="demo/images/themes/lara-light-teal.png" alt="Lara Light Teal" /><span>Lara Light Teal</span></a></li>
+                        <li><a @click="changeTheme($event, 'lara-dark-blue')"><img src="demo/images/themes/lara-dark-blue.png" alt="Lara Dark Blue" /><span>Lara Dark Blue</span></a></li>
+                        <li><a @click="changeTheme($event, 'lara-dark-indigo')"><img src="demo/images/themes/lara-dark-indigo.png" alt="Lara Dark Indigo" /><span>Lara Dark Indigo</span></a></li>
+                        <li><a @click="changeTheme($event, 'lara-dark-purple')"><img src="demo/images/themes/lara-dark-purple.png" alt="Lara Dark Purple" /><span>Lara Dark Purple</span></a></li>
+                        <li><a @click="changeTheme($event, 'lara-dark-teal')"><img src="demo/images/themes/lara-dark-teal.png" alt="Lara Dark Teal" /><span>Lara Dark Teal</span></a></li>
+
+                        <li class="topbar-submenu-header">PRIMEONE 2021</li>
                         <li><a @click="changeTheme($event, 'saga-blue')"><img src="demo/images/themes/saga-blue.png" alt="Saga Blue" /><span>Saga Blue</span></a></li>
                         <li><a @click="changeTheme($event, 'saga-green')"><img src="demo/images/themes/saga-green.png" alt="Saga Green" /><span>Saga Green</span></a></li>
                         <li><a @click="changeTheme($event, 'saga-orange')"><img src="demo/images/themes/saga-orange.png" alt="Saga Orange" /><span>Saga Orange</span></a></li>
@@ -66,17 +79,6 @@
                         <li><a @click="changeTheme($event, 'viva-dark', true)"><img src="demo/images/themes/viva-dark.svg" alt="Viva Dark" /><span>Viva Dark</span></a></li>
                         <li><a @click="changeTheme($event, 'mira')"><img src="demo/images/themes/mira.jpg" alt="Mira" /><span>Mira</span></a></li>
                         <li><a @click="changeTheme($event, 'nano')"><img src="demo/images/themes/nano.jpg" alt="Nano" /><span>Nano</span></a></li>
-
-                        <li class="topbar-submenu-header">LEGACY</li>
-                        <li><a @click="changeTheme($event, 'nova')"><img src="demo/images/themes/nova.png" alt="Nova" /><span>Nova</span></a></li>
-                        <li><a @click="changeTheme($event, 'nova-alt')"><img src="demo/images/themes/nova-alt.png" alt="Nova Alt" /><span>Nova Alt</span></a></li>
-                        <li><a @click="changeTheme($event, 'nova-accent')"><img src="demo/images/themes/nova-accent.png" alt="Nova Accent" /><span>Nova Accent</span></a></li>
-                        <li><a @click="changeTheme($event, 'nova-vue')"><img src="demo/images/themes/nova-vue.png" alt="Nova Vue" /><span>Nova Vue</span></a></li>
-                        <li><a @click="changeTheme($event, 'luna-amber', true)"><img src="demo/images/themes/luna-amber.png" alt="Luna Amber" /><span>Luna Amber</span></a></li>
-                        <li><a @click="changeTheme($event, 'luna-blue', true)"><img src="demo/images/themes/luna-blue.png" alt="Luna Blue" /><span>Luna Blue</span></a></li>
-                        <li><a @click="changeTheme($event, 'luna-green', true)"><img src="demo/images/themes/luna-green.png" alt="Luna Green" /><span>Luna Green</span></a></li>
-                        <li><a @click="changeTheme($event, 'luna-pink', true)"><img src="demo/images/themes/luna-pink.png" alt="Luna Pink" /><span>Luna Pink</span></a></li>
-                        <li><a @click="changeTheme($event, 'rhea')"><img src="demo/images/themes/rhea.png" alt="Rhea" /><span>Rhea</span></a></li>
                     </ul>
                 </transition>
             </li>
@@ -85,8 +87,9 @@
                 <transition name="p-connected-overlay" @enter="onMenuEnter">
                     <ul v-show="activeMenuIndex === 1">
                         <li class="topbar-submenu-header">FREE ADMIN TEMPLATE</li>
-                        <li><a href="https://www.primefaces.org/sigma-vue"><img src="./assets/images/layouts/themeswitcher-sigma.png" alt="Sigma" /><span>Sigma</span></a></li>
+                        <li><a href="https://www.primefaces.org/sakai-vue"><img src="./assets/images/layouts/themeswitcher-sakai.svg" alt="Sakai" /><span>Sakai</span></a></li>
                         <li class="topbar-submenu-header">PREMIUM ADMIN TEMPLATES</li>
+                        <li><a href="https://www.primefaces.org/layouts/atlantis-vue"><img src="./assets/images/layouts/themeswitcher-atlantis.svg" alt="Atlantis" /><span>Atlantis</span></a></li>
                         <li><a href="https://www.primefaces.org/layouts/freya-vue"><img src="./assets/images/layouts/themeswitcher-freya.png" alt="Freya" /><span>Freya</span></a></li>
                         <li><a href="https://www.primefaces.org/layouts/diamond-vue"><img src="./assets/images/layouts/themeswitcher-diamond.png" alt="Diamond" /><span>Diamond</span></a></li>
                         <li><a href="https://www.primefaces.org/layouts/sapphire-vue"><img src="./assets/images/layouts/themeswitcher-sapphire.png" alt="Sapphire" /><span>Sapphire</span><span class="theme-badge material">material</span></a></li>
@@ -114,6 +117,7 @@
                         <li><a href="https://twitter.com/primevue?lang=en" target="_blank"><span>Twitter</span></a></li>
                         <li><a href="https://www.primefaces.org/whouses" target="_blank"><span>Who Uses</span></a></li>
                         <li><a href="https://www.primefaces.org/newsletter" target="_blank"><span>Newsletter</span></a></li>
+                        <li><a href="https://gear.primefaces.org" target="_blank"><span>Gear Store</span></a></li>
                         <li><a href="https://www.primetek.com.tr" target="_blank"><span>About PrimeTek</span></a></li>
                     </ul>
                 </transition>
@@ -178,6 +182,15 @@ export default {
                 'viva-dark': 'viva-dark.svg',
                 'mira': 'mira.jpg',
                 'nano': 'nano.jpg',
+                'tailwind-light': 'tailwind-light.png',
+                'lara-dark-indigo': 'lara-dark-indigo.png',
+                'lara-dark-purple': 'lara-dark-purple.png',
+                'lara-light-indigo': 'lara-light-indigo.png',
+                'lara-light-purple': 'lara-light-purple.png',
+                'lara-dark-teal': 'lara-dark-indigo.png',
+                'lara-dark-blue': 'lara-dark-blue.png',
+                'lara-light-teal': 'lara-light-teal.png',
+                'lara-light-blue': 'lara-light-blue.png'
             }
         }
     },

@@ -241,6 +241,117 @@ export default {
 }
 <\\/script>
 `
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/treetable/treetable.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/column/column.min.js"><\\/script>`,
+                    content: `<div id="app">
+            <p-treetable :value="nodes" :lazy="true" :paginator="true" :rows="rows" :loading="loading"
+                @node-expand="onExpand" @page="onPage" :total-records="totalRecords">
+                <p-column field="name" header="Name" :expander="true"></p-column>
+                <p-column field="size" header="Size"></p-column>
+                <p-column field="type" header="Type"></p-column>
+            </p-treetable>
+        </div>                   
+
+        <script type="module">
+        const { createApp, ref, onMounted } = Vue;
+
+        const App = {
+            setup() {
+                onMounted(() => {
+                    loading.value = true;
+
+                    setTimeout(() => {
+                        loading.value = false;
+                        nodes.value = loadNodes(0, rows.value);
+                        totalRecords.value = 1000;
+                    }, 1000);
+                })
+                const nodes = ref();
+                const rows = ref(10);
+                const loading = ref(false);
+                const totalRecords = ref(0);
+                const onExpand = (node) => {
+                    if (!node.children) {
+                        loading.value = true;
+
+                        setTimeout(() => {
+                            let lazyNode = {...node};
+
+                            lazyNode.children = [
+                                {
+                                    data: {
+                                        name: lazyNode.data.name + ' - 0',
+                                        size: Math.floor(Math.random() * 1000) + 1 + 'kb',
+                                        type: 'File'
+                                    },
+                                },
+                                {
+                                    data: {
+                                        name: lazyNode.data.name + ' - 1',
+                                        size: Math.floor(Math.random() * 1000) + 1 + 'kb',
+                                        type: 'File'
+                                    }
+                                }
+                            ];
+
+                            let newNodes = nodes.value.map(n => {
+                                if (n.key === node.key) {
+                                    n = lazyNode;
+                                }
+
+                                return n;
+                            });
+
+                            loading.value = false;
+                            nodes.value = newNodes;
+                        }, 250);
+                    }
+                };
+                const onPage = (event) => {
+                    loading.value = true;
+
+                    //imitate delay of a backend call
+                    setTimeout(() => {
+                        loading.value = false;
+                        nodes.value = loadNodes(event.first, rows.value);
+                    }, 1000);
+                };
+                const loadNodes = (first, rows) => {
+                    let nodes = [];
+
+                    for(let i = 0; i < rows; i++) {
+                        let node = {
+                            key: (first + i),
+                            data: {
+                                name: 'Item ' + (first + i),
+                                size: Math.floor(Math.random() * 1000) + 1 + 'kb',
+                                type: 'Type ' + (first + i)
+                            },
+                            leaf: false
+                        };
+
+                        nodes.push(node);
+                    }
+
+                    return nodes;
+                }
+
+                return { nodes, rows, loading, totalRecords, onExpand, onPage, loadNodes }
+            },
+            components: {
+                "p-treetable": primevue.treetable,
+                "p-column": primevue.column
+            }
+        };
+        
+        createApp(App)
+            .use(primevue.config.default)
+            .mount("#app");
+        <\\/script>
+`
                 }
             }
         }

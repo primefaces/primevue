@@ -3,9 +3,17 @@
         <h5>Getting Started</h5>
         <p>Badge can either be used as a standalone component or as a directive.</p>
 
-        <h6>Component</h6>
+        <h5>Component</h5>
+        <h6>Import via Module</h6>
 <pre v-code.script><code>
 import Badge from 'primevue/badge';
+
+</code></pre>
+
+        <h6>Import via CDN</h6>
+<pre v-code><code>
+&lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue@^3/badge/badge.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
@@ -15,9 +23,17 @@ import Badge from 'primevue/badge';
 
 </code></pre>
 
-        <h6>Directive</h6>
+        <h5>Directive</h5>
+        <h6>Import via Module</h6>
         <pre v-code.script><code>
 import BadgeDirective from 'primevue/badgedirective';
+
+</code></pre>
+
+        <h6>Import via CDN</h6>
+<pre v-code><code>
+&lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue@^3/badgedirective/badgedirective.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
@@ -249,6 +265,50 @@ export default {
 <script>
 export default {
 }
+<\\/script>`
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/badge/badge.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/badgedirective/badgedirective.min.js"><\\/script>`,
+                    content: `<div id="app">
+            <h5>Numbers</h5>
+            <p-badge value="2" class="p-mr-2"></p-badge>
+            <p-badge value="8" severity="success" class="p-mr-2"></p-badge>
+            <p-badge value="4" severity="info" class="p-mr-2"></p-badge>
+            <p-badge value="12" severity="warning" class="p-mr-2"></p-badge>
+            <p-badge value="3" severity="danger"></p-badge>
+
+            <h5 class="p-mb-4">Positioned Badge</h5>
+            <i class="pi pi-bell p-mr-4 p-text-secondary" style="font-size: 2rem" v-badge="2"></i>
+            <i class="pi pi-calendar p-mr-4 p-text-secondary" style="font-size: 2rem" v-badge.danger="'10+'"></i>
+            <i class="pi pi-envelope p-text-secondary" style="font-size: 2rem" v-badge.danger></i>
+
+            <h5>Button Badge</h5>
+            <p-button type="button" label="Emails" badge="8" class="p-mr-2"></p-button>
+            <p-button type="button" label="Messages" icon="pi pi-users" class="p-button-warning" badge="8" badgeClass="p-badge-danger"></p-button>
+
+            <h5>Sizes</h5>
+            <p-badge value="2" class="p-mr-2"></p-badge>
+            <p-badge value="4" class="p-mr-2" size="large" severity="warning"></p-badge>
+            <p-badge value="6" size="xlarge" severity="success"></p-badge>
+        </div>
+
+<script type="module">
+const { createApp } = Vue;
+const BadgeDirective = primevue.badgedirective;
+
+const App = {
+    components: {
+        "p-badge": primevue.badge,
+        "p-button": primevue.button
+    }
+};
+
+const app = createApp(App);
+app.use(primevue.config.default);
+app.directive('badge', BadgeDirective);
+app.mount('#app');
 <\\/script>`
                 }
             }

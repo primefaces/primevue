@@ -1,8 +1,15 @@
 <template>
     <AppDoc name="AutoCompleteDemo" :sources="sources" :service="['CountryService']" :data="['countries']" github="autocomplete/AutoCompleteDemo.vue">
-        <h5>Import</h5>
+        <h5>Import via Module</h5>
 <pre v-code.script><code>
 import AutoComplete from 'primevue/autocomplete';
+
+</code></pre>
+
+        <h5>Import via CDN</h5>
+<pre v-code><code>
+&lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue@^3/autocomplete/autocomplete.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
@@ -68,7 +75,7 @@ export default {
         return {
             selectedGroupedCity: null,
             groupedCities: [{
-                label: 'Germany', code: 'DE', 
+                label: 'Germany', code: 'DE',
                 items: [
                     {label: 'Berlin', value: 'Berlin'},
                     {label: 'Frankfurt', value: 'Frankfurt'},
@@ -77,7 +84,7 @@ export default {
                 ]
             },
             {
-                label: 'USA', code: 'US', 
+                label: 'USA', code: 'US',
                 items: [
                     {label: 'Chicago', value: 'Chicago'},
                     {label: 'Los Angeles', value: 'Los Angeles'},
@@ -86,7 +93,7 @@ export default {
                 ]
             },
             {
-                label: 'Japan', code: 'JP', 
+                label: 'Japan', code: 'JP',
                 items: [
                     {label: 'Kyoto', value: 'Kyoto'},
                     {label: 'Osaka', value: 'Osaka'},
@@ -100,7 +107,7 @@ export default {
 </code></pre>
 
 <pre v-code><code><template v-pre>
-&lt;AutoComplete v-model="selectedCity" :suggestions="filteredCities" @complete="searchCity($event)" 
+&lt;AutoComplete v-model="selectedCity" :suggestions="filteredCities" @complete="searchCity($event)"
     field="label" optionGroupLabel="label" optionGroupChildren="items"&gt;&lt;/AutoComplete&gt;
 </template>
 </code></pre>
@@ -114,8 +121,8 @@ export default {
 </code></pre>
 
 		<h5>Templating</h5>
-		<p>Item template allows displaying custom content inside the suggestions panel. The slotProps variable passed to the template provides an item property to represent an item in the suggestions collection. 
-            In addition <i>optiongroup</i>, <i>header</i> and <i>footer</i> slots are provided for further customization</p>
+		<p>Item template allows displaying custom content inside the suggestions panel. The slotProps variable passed to the template provides an item property to represent an item in the suggestions collection.
+            In addition <i>optiongroup</i>, <i>chip</i>, <i>header</i> and <i>footer</i> slots are provided for further customization</p>
 <pre v-code><code><template v-pre>
 &lt;AutoComplete v-model="brand" :suggestions="filteredBrands" @complete="searchBrand($event)" placeholder="Hint: type 'v' or 'f'" :dropdown="true"&gt;
     &lt;template #item="slotProps"&gt;
@@ -188,6 +195,12 @@ export default {
                         <td>Specifies the behavior dropdown button. Default "blank" mode sends an empty string and "current" mode sends the input value.</td>
                     </tr>
                     <tr>
+                        <td>autoHighlight</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>Highlights automatically the first item of the dropdown to be selected.</td>
+                    </tr>
+                    <tr>
                         <td>multiple</td>
                         <td>boolean</td>
                         <td>false</td>
@@ -219,6 +232,13 @@ export default {
                         and "self" for the element itself.</td>
                     </tr>
                     <tr>
+                        <td>forceSelection</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>When present, autocomplete clears the manual input if it does not match of the suggestions to force only
+                        accepting values from the suggestions.</td>
+                    </tr>
+                    <tr>
                         <td>inputStyle</td>
                         <td>any</td>
                         <td>null</td>
@@ -231,17 +251,28 @@ export default {
                         <td>Style class of the input field.</td>
                     </tr>
                     <tr>
-                        <td>forceSelection</td>
-                        <td>boolean</td>
-                        <td>false</td>
-                        <td>When present, autocomplete clears the manual input if it does not match of the suggestions to force only
-                        accepting values from the suggestions.</td>
+                        <td>style</td>
+                        <td>any</td>
+                        <td>null</td>
+                        <td>Style class of the component input field.</td>
+                    </tr>
+                    <tr>
+                        <td>class</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Inline style of the component.</td>
                     </tr>
                     <tr>
                         <td>panelClass</td>
                         <td>string</td>
                         <td>null</td>
                         <td>Style class of the overlay panel.</td>
+                    </tr>
+                    <tr>
+                        <td>virtualScrollerOptions</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td>Whether to use the virtualScroller feature. The properties of <router-link to="/virtualscroller">VirtualScroller</router-link> component can be used like an object in it.</td>
                     </tr>
 				</tbody>
 			</table>
@@ -325,6 +356,21 @@ export default {
                         <td>footer</td>
                         <td>value: Value of the component <br />
                             suggestions: Displayed options</td>
+                    </tr>
+                    <tr>
+                        <td>chip</td>
+                        <td>value: A value in the selection</td>
+                    </tr>
+                    <tr>
+                        <td>content</td>
+                        <td>items: An array of objects to display for virtualscroller<br />
+                            styleClass: Style class of the component<br />
+                            contentRef: Referance of the content<br />
+                            getItemOptions: Options of the items</td>
+                    </tr>
+                    <tr>
+                        <td>loader</td>
+                        <td>options: Options of the loader items for virtualscroller</td>
                     </tr>
 				</tbody>
 			</table>
@@ -412,6 +458,9 @@ export default {
                 </template>
             </AutoComplete>
 
+            <h5>Virtual Scroll (1000 Items)</h5>
+            <AutoComplete v-model="selectedItem" :suggestions="filteredItems" @complete="searchItems" :virtualScrollerOptions="{ itemSize: 31 }" field="label" dropdown />
+
             <h5>Multiple</h5>
             <span class="p-fluid">
                 <AutoComplete :multiple="true" v-model="selectedCountries" :suggestions="filteredCountries" @complete="searchCountry($event)" field="name" />
@@ -434,8 +483,10 @@ export default {
             filteredCities: null,
             filteredCountries: null,
             selectedCountries: [],
+            selectedItem: null,
+            filteredItems: null,
             groupedCities: [{
-                label: 'Germany', code: 'DE', 
+                label: 'Germany', code: 'DE',
                 items: [
                     {label: 'Berlin', value: 'Berlin'},
                     {label: 'Frankfurt', value: 'Frankfurt'},
@@ -444,7 +495,7 @@ export default {
                 ]
             },
             {
-                label: 'USA', code: 'US', 
+                label: 'USA', code: 'US',
                 items: [
                     {label: 'Chicago', value: 'Chicago'},
                     {label: 'Los Angeles', value: 'Los Angeles'},
@@ -453,14 +504,15 @@ export default {
                 ]
             },
             {
-                label: 'Japan', code: 'JP', 
+                label: 'Japan', code: 'JP',
                 items: [
                     {label: 'Kyoto', value: 'Kyoto'},
                     {label: 'Osaka', value: 'Osaka'},
                     {label: 'Tokyo', value: 'Tokyo'},
                     {label: 'Yokohama', value: 'Yokohama'}
                 ]
-            }]
+            }],
+            items: Array.from({ length: 1000 }, (_, i) => ({ label: \`Item #\${i}\`, value: i }))
         }
     },
     countryService: null,
@@ -495,6 +547,20 @@ export default {
             }
 
             this.filteredCities = filteredCities;
+        },
+        searchItems(event) {
+            //in a real application, make a request to a remote url with the query and return filtered results, for demo we filter at client side
+            let query = event.query;
+            let filteredItems = [];
+
+            for(let i = 0; i < this.items.length; i++) {
+                let item = this.items[i];
+                if (item.label.toLowerCase().indexOf(query.toLowerCase()) === 0) {
+                    filteredItems.push(item);
+                }
+            }
+
+            this.filteredItems = filteredItems;
         }
     }
 }
@@ -529,6 +595,9 @@ export default {
                 </template>
             </AutoComplete>
 
+            <h5>Virtual Scroll (1000 Items)</h5>
+            <AutoComplete v-model="selectedItem" :suggestions="filteredItems" @complete="searchItems" :virtualScrollerOptions="{ itemSize: 31 }" field="label" dropdown />
+
             <h5>Multiple</h5>
             <span class="p-fluid">
                 <AutoComplete :multiple="true" v-model="selectedCountries" :suggestions="filteredCountries" @complete="searchCountry($event)" field="name" />
@@ -556,6 +625,8 @@ export default {
         const filteredCities = ref();
         const filteredCountries = ref();
         const selectedCountries = ref([]);
+        const selectedItem = ref();
+        const filteredItems = ref();
         const groupedCities = ref ([{
             label: 'Germany', code: 'DE',
             items: [
@@ -583,6 +654,8 @@ export default {
                 {label: 'Yokohama', value: 'Yokohama'}
             ]
         }]);
+        const items = Array.from({ length: 1000 }, (_, i) => ({ label: \`Item #\${i}\`, value: i }));
+
         const searchCountry = (event) => {
             setTimeout(() => {
                 if (!event.query.trim().length) {
@@ -608,10 +681,163 @@ export default {
 
             filteredCities.value = newFilteredCities;
         }
-        return { countries, countryService, selectedCountry1, selectedCountry2, selectedCity, filteredCities, filteredCountries, selectedCountries, groupedCities, searchCountry, searchCity }
+        const searchItems = (event) => {
+            //in a real application, make a request to a remote url with the query and return filtered results, for demo we filter at client side
+            let query = event.query;
+            let _filteredItems = [];
+
+            for(let i = 0; i < this.items.length; i++) {
+                let item = this.items[i];
+                if (item.label.toLowerCase().indexOf(query.toLowerCase()) === 0) {
+                    _filteredItems.push(item);
+                }
+            }
+
+            filteredItems.value = _filteredItems;
+        }
+
+        return { countries, countryService, selectedCountry1, selectedCountry2, selectedCity, filteredCities, filteredCountries, selectedCountries, groupedCities, searchCountry, searchCity, searchItems, selectedItem, filteredItems, items }
     }
 }
 <\\/script>`
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/autocomplete/autocomplete.min.js"><\\/script>
+        <script src="./CountryService.js"><\\/script>`,
+                    content:`<div id="app">
+            <h5>Basic</h5>
+            <p-autocomplete v-model="selectedCountry1" :suggestions="filteredCountries" @complete="searchCountry($event)" field="name"></p-autocomplete>
+
+            <h5>Grouped</h5>
+            <p-autocomplete v-model="selectedCity" :suggestions="filteredCities" @complete="searchCity($event)" field="label" option-group-label="label" option-group-children="items">
+                <template #optiongroup="slotProps">
+                    <div class="p-d-flex p-ai-center country-item">
+                        <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="18" />
+                        <div class="p-ml-2">{{slotProps.item.label}}</div>
+                    </div>
+                </template>
+            </p-autocomplete>
+
+            <h5>Dropdown, Templating and Force Selection</h5>
+            <p-autocomplete v-model="selectedCountry2" :suggestions="filteredCountries" @complete="searchCountry($event)" :dropdown="true" field="name" force-selection>
+                <template #item="slotProps">
+                    <div class="country-item">
+                        <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="18" />
+                        <div class="p-ml-2">{{slotProps.item.name}}</div>
+                    </div>
+                </template>
+            </p-autocomplete>
+
+            <h5>Virtual Scroll (1000 Items)</h5>
+            <p-autocomplete v-model="selectedItem" :suggestions="filteredItems" @complete="searchItems" :virtual-scroller-options="{ itemSize: 31 }" field="label" dropdown></p-autocomplete>
+
+            <h5>Multiple</h5>
+            <span class="p-fluid">
+                <p-autocomplete :multiple="true" v-model="selectedCountries" :suggestions="filteredCountries" @complete="searchCountry($event)" field="name"></p-autocomplete>
+            </span>
+        </div>
+
+        <script type="module">
+        const { createApp, ref, onMounted } = Vue;
+        const { FilterService,FilterMatchMode } = primevue.api;
+
+        const App = {
+            setup() {
+                onMounted(() => {
+                    countryService.value.getCountries().then(data => countries.value = data);
+                })
+
+                const countries = ref();
+                const countryService = ref(new CountryService());
+                const selectedCountry1 = ref();
+                const selectedCountry2 = ref();
+                const selectedCity = ref();
+                const filteredCities = ref();
+                const filteredCountries = ref();
+                const selectedCountries = ref([]);
+                const selectedItem = ref();
+                const filteredItems = ref();
+                const groupedCities = ref ([{
+                    label: 'Germany', code: 'DE',
+                    items: [
+                        {label: 'Berlin', value: 'Berlin'},
+                        {label: 'Frankfurt', value: 'Frankfurt'},
+                        {label: 'Hamburg', value: 'Hamburg'},
+                        {label: 'Munich', value: 'Munich'}
+                    ]
+                },
+                {
+                    label: 'USA', code: 'US',
+                    items: [
+                        {label: 'Chicago', value: 'Chicago'},
+                        {label: 'Los Angeles', value: 'Los Angeles'},
+                        {label: 'New York', value: 'New York'},
+                        {label: 'San Francisco', value: 'San Francisco'}
+                    ]
+                },
+                {
+                    label: 'Japan', code: 'JP',
+                    items: [
+                        {label: 'Kyoto', value: 'Kyoto'},
+                        {label: 'Osaka', value: 'Osaka'},
+                        {label: 'Tokyo', value: 'Tokyo'},
+                        {label: 'Yokohama', value: 'Yokohama'}
+                    ]
+                }]);
+                const items = Array.from({ length: 1000 }, (_, i) => ({ label: \`Item #\${i}\`, value: i }));
+
+                const searchCountry = (event) => {
+                    setTimeout(() => {
+                        if (!event.query.trim().length) {
+                            filteredCountries.value = [...countries.value];
+                        }
+                        else {
+                            filteredCountries.value = countries.value.filter((country) => {
+                                return country.name.toLowerCase().startsWith(event.query.toLowerCase());
+                            });
+                        }
+                    }, 250);
+                };
+                const searchCity = (event) => {
+                    let query = event.query;
+                    let newFilteredCities = [];
+
+                    for (let country of groupedCities.value) {
+                        let filteredItems = FilterService.filter(country.items, ['label'], query, FilterMatchMode.CONTAINS);
+                        if (filteredItems && filteredItems.length) {
+                            newFilteredCities.push({...country, ...{items: filteredItems}});
+                        }
+                    }
+
+                    filteredCities.value = newFilteredCities;
+                };
+                const searchItems = (event) => {
+                    //in a real application, make a request to a remote url with the query and return filtered results, for demo we filter at client side
+                    let query = event.query;
+                    let _filteredItems = [];
+
+                    for(let i = 0; i < this.items.length; i++) {
+                        let item = this.items[i];
+                        if (item.label.toLowerCase().indexOf(query.toLowerCase()) === 0) {
+                            _filteredItems.push(item);
+                        }
+                    }
+
+                    filteredItems.value = _filteredItems;
+                }
+
+                return { countries, countryService, selectedCountry1, selectedCountry2, selectedCity, filteredCities, filteredCountries, selectedCountries, groupedCities, searchCountry, searchCity, searchItems, selectedItem, filteredItems, items }
+            },
+            components: {
+                "p-autocomplete": primevue.autocomplete
+            }
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .mount("#app");
+        <\\/script>`
                 }
             }
         }

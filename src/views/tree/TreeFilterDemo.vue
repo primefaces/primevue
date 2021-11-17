@@ -135,6 +135,61 @@ export default {
 }
 <\\/script>
 `
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="./NodeService.js"><\\/script>`,
+                    content: `<div id="app">
+            <h5>Lenient Filter</h5>
+            <p-tree :value="nodes" :filter="true" filter-mode="lenient"></p-tree>
+
+            <h5>Strict Filter</h5>
+            <p-tree :value="nodes" :filter="true" filter-mode="strict"></p-tree>
+        </div>
+
+        <script type="module">
+        const { createApp, ref, onMounted } = Vue;
+
+        const App = {
+            setup() {
+                onMounted(() => {
+                    nodeService.value.getTreeNodes().then(data => nodes.value = data);
+                })
+
+                const nodes = ref(null);
+                const nodeService = ref(new NodeService());
+                const expandedKeys = ref({});
+                const expandAll = () => {
+                    for (let node of nodes.value) {
+                        expandNode(node);
+                    }
+
+                    expandedKeys.value = {...expandedKeys.value};
+                };
+                const collapseAll = () => {
+                    expandedKeys.value = {};
+                };
+                const expandNode = (node) => {
+                    expandedKeys.value[node.key] = true;
+                    if (node.children && node.children.length) {
+                        for (let child of node.children) {
+                            expandNode(child);
+                        }
+                    }
+                };
+
+                return { nodes, nodeService, expandedKeys, expandAll, collapseAll, expandNode }
+            },
+            components: {
+                "p-tree": primevue.tree
+            }
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .mount("#app");
+        <\\/script>
+`
                 }
             }
         }

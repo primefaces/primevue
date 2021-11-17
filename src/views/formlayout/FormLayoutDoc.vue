@@ -651,6 +651,230 @@ textarea {
 }
 </style>
 `
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/checkbox/checkbox.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/radiobutton/radiobutton.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/textarea/textarea.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/dropdown/dropdown.min.js"><\\/script>`,
+                    content: `<div id="app">
+            <div class="card">
+                <h5>Vertical</h5>
+                <div class="p-fluid">
+                    <div class="p-field">
+                        <label for="firstname1">Firstname</label>
+                        <p-inputtext id="firstname1" type="text"></p-inputtext>
+                    </div>
+                    <div class="p-field">
+                        <label for="lastname1">Lastname</label>
+                        <p-inputtext id="lastname1" type="text"></p-inputtext>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h5>Vertical and Grid</h5>
+                <div class="p-fluid p-formgrid p-grid">
+                    <div class="p-field p-col">
+                        <label for="firstname2">Firstname</label>
+                        <p-inputtext id="firstname2" type="text"></p-inputtext>
+                    </div>
+                    <div class="p-field p-col">
+                        <label for="lastname2">Lastname</label>
+                        <p-inputtext id="lastname2" type="text"></p-inputtext>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h5>Horizontal and Fixed Width</h5>
+                <div class="p-field p-grid">
+                    <label for="firstname3" class="p-col-fixed" style="width:100px">Firstname</label>
+                    <div class="p-col">
+                        <p-inputtext id="firstname3" type="text"></p-inputtext>
+                    </div>
+                </div>
+                <div class="p-field p-grid">
+                    <label for="lastname3" class="p-col-fixed" style="width:100px">Lastname</label>
+                    <div class="p-col">
+                        <p-inputtext id="lastname3" type="text"></p-inputtext>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h5>Horizontal and Fluid</h5>
+                <div class="p-fluid">
+                    <div class="p-field p-grid">
+                        <label for="firstname4" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Firstname</label>
+                        <div class="p-col-12 p-md-10">
+                            <p-inputtext id="firstname4" type="text"></p-inputtext>
+                        </div>
+                    </div>
+                    <div class="p-field p-grid">
+                        <label for="lastname4" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Lastname</label>
+                        <div class="p-col-12 p-md-10">
+                            <p-inputtext id="lastname4" type="text"></p-inputtext>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h5>Inline</h5>
+                <div class="p-formgroup-inline">
+                    <div class="p-field">
+                        <label for="firstname5" class="p-sr-only">Firstname</label>
+                        <p-inputtext id="firstname5" type="text" placeholder="Firstname"></p-inputtext>
+                    </div>
+                    <div class="p-field">
+                        <label for="lastname5" class="p-sr-only">Lastname</label>
+                        <p-inputtext id="lastname5" type="text" placeholder="Lastname"></p-inputtext>
+                    </div>
+                    <p-button type="button" label="Submit"></p-button>
+                </div>
+            </div>
+
+            <div class="card">
+                <h5>Vertical Checkbox</h5>
+                <div class="p-field-checkbox">
+                    <p-checkbox id="city1" name="city1" value="Chicago" v-model="cities1"></p-checkbox>
+                    <label for="city1">Chicago</label>
+                </div>
+                <div class="p-field-checkbox">
+                    <p-checkbox id="city2" name="city1" value="Los Angeles" v-model="cities1"></p-checkbox>
+                    <label for="city2">Los Angeles</label>
+                </div>
+
+                <h5>Horizontal Checkbox</h5>
+                <div class="p-formgroup-inline">
+                    <div class="p-field-checkbox">
+                        <p-checkbox id="city3" name="city2" value="Chicago" v-model="cities2"></p-checkbox>
+                        <label for="city3">Chicago</label>
+                    </div>
+                    <div class="p-field-checkbox">
+                        <p-checkbox id="city4" name="city2" value="Los Angeles" v-model="cities2"></p-checkbox>
+                        <label for="city4">Los Angeles</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h5>Vertical RadioButton</h5>
+                <div class="p-field-radiobutton">
+                    <p-radiobutton id="city5" name="city1" value="Chicago" v-model="city1"></p-radiobutton>
+                    <label for="city5">Chicago</label>
+                </div>
+                <div class="p-field-radiobutton">
+                    <p-radiobutton id="city6" name="city1" value="Los Angeles" v-model="city1"></p-radiobutton>
+                    <label for="city6">Los Angeles</label>
+                </div>
+
+                <h5>Horizontal RadioButton</h5>
+                <div class="p-formgroup-inline">
+                    <div class="p-field-radiobutton">
+                        <p-radiobutton id="city7" name="city2" value="Chicago" v-model="city2"></p-radiobutton>
+                        <label for="city7">Chicago</label>
+                    </div>
+                    <div class="p-field-radiobutton">
+                        <p-radiobutton id="city8" name="city2" value="Los Angeles" v-model="city2"></p-radiobutton>
+                        <label for="city8">Los Angeles</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h5>Help Text</h5>
+                <div class="p-field p-fluid">
+                    <label for="username">Username</label>
+                    <p-inputtext id="username" type="username" aria-describedby="username-help"></p-inputtext>
+                    <small id="username-help">Enter your username to reset your password.</small>
+                </div>
+            </div>
+
+            <div class="card">
+                <h5>Advanced</h5>
+                <div class="p-fluid p-formgrid p-grid">
+                    <div class="p-field p-col-12 p-md-6">
+                        <label for="firstname6">Firstname</label>
+                        <p-inputtext id="firstname6" type="text"></p-inputtext>
+                    </div>
+                    <div class="p-field p-col-12 p-md-6">
+                        <label for="lastname6">Lastname</label>
+                        <p-inputtext id="lastname6" type="text"></p-inputtext>
+                    </div>
+                    <div class="p-field p-col-12">
+                        <label for="address">Address</label>
+                        <p-textarea id="address" rows="4"></p-textarea>
+                    </div>
+                    <div class="p-field p-col-12 p-md-6">
+                        <label for="city">City</label>
+                        <p-inputtext id="city" type="text"></p-inputtext>
+                    </div>
+                    <div class="p-field p-col-12 p-md-3">
+                        <label for="state">State</label>
+                        <p-dropdown inputId="state" v-model="selectedState" :options="states" optionLabel="name" placeholder="Select"></p-dropdown>
+                    </div>
+                    <div class="p-field p-col-12 p-md-3">
+                        <label for="zip">Zip</label>
+                        <p-inputtext id="zip" type="text"></p-inputtext>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script type="module">
+        const { createApp, ref } = Vue;
+
+        const App = {
+            setup() {
+                const selectedState = ref(null);
+                const states = ref([
+                    {name: 'Arizona', code: 'Arizona'},
+                    {name: 'California', value: 'California'},
+                    {name: 'Florida', code: 'Florida'},
+                    {name: 'Ohio', code: 'Ohio'},
+                    {name: 'Washington', code: 'Washington'}
+                ]);
+                const cities1 = ref([]);
+                const cities2 = ref([]);
+                const city1 = ref(null);
+                const city2 = ref(null);
+
+                return { selectedState, states, cities1, cities2, city1, city2 }
+            },
+            components: {
+                "p-inputtext": primevue.inputtext,
+                "p-button": primevue.button,
+                "p-checkbox": primevue.checkbox,
+                "p-radiobutton": primevue.radiobutton,
+                "p-textarea": primevue.textarea,
+                "p-dropdown": primevue.dropdown
+            }
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .mount("#app");
+        <\\/script>
+
+        <style>
+        @media screen and (max-width: 489px) {
+            .p-formgroup-inline .p-field {
+                margin-bottom: 1em !important;
+            }
+        }
+
+        .layout-content .content-section.implementation > h3 {
+            font-weight: 600;
+        }
+
+        textarea {
+            resize: none;
+        }
+        </style>
+`
                 }
             }
         }

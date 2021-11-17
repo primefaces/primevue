@@ -211,6 +211,92 @@ export default {
 }
 </style>                    
 `
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/datatable/datatable.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/column/column.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/rating/rating.min.js"><\\/script>
+        <script src="./ProductService.js"><\\/script>`,
+                    content: `<div id="app">
+            <p-datatable :value="products" responsive-layout="scroll">
+                <template #header>
+                    <div class="table-header">
+                        Products
+                        <p-button icon="pi pi-refresh"></p-button>
+                    </div>
+                </template>
+                <p-column field="name" header="Name"></p-column>
+                <p-column header="Image">
+                    <template #body="slotProps">
+                        <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" :alt="slotProps.data.image" class="product-image" />
+                    </template>
+                </p-column>
+                <p-column field="price" header="Price">
+                    <template #body="slotProps">
+                        {{formatCurrency(slotProps.data.price)}}
+                    </template>
+                </p-column>
+                <p-column field="rating" header="Reviews">
+                    <template #body="slotProps">
+                    <p-rating :model-value="slotProps.data.rating" :readonly="true" :cancel="false"></p-rating>
+                    </template>
+                </p-column>
+                <p-column header="Status">
+                    <template #body="slotProps">
+                        <span :class="'product-badge status-' + slotProps.data.inventoryStatus.toLowerCase()">{{slotProps.data.inventoryStatus}}</span>
+                    </template>
+                </p-column>
+                <template #footer>
+                    In total there are {{products ? products.length : 0 }} products.
+                </template>
+            </p-datatable>
+        </div>
+
+    <script type="module">
+    const { createApp, ref, onMounted } = Vue;
+
+    const App = {
+        setup() {
+            onMounted(() => {
+                productService.value.getProductsSmall().then(data => products.value = data);
+            })
+
+            const products = ref();
+            const productService = ref(new ProductService());
+
+            const formatCurrency = (value) => {
+                return value.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
+            };
+
+            return { products, formatCurrency }
+        },
+        components: {
+                "p-datatable": primevue.datatable,
+                "p-column": primevue.column,
+                "p-button": primevue.button,
+                "p-rating": primevue.rating
+            }
+    };
+
+    createApp(App)
+            .use(primevue.config.default)
+            .mount("#app");
+    <\\/script>
+
+    <style>
+    .table-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .product-image {
+        width: 50px;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)
+    }
+    </style>                    
+`
                 }
             }
         }

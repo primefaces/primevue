@@ -186,6 +186,88 @@ export default {
 }
 </style>                    
 `
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/datatable/datatable.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/column/column.min.js"><\\/script>
+        <script src="./ProductService.js"><\\/script>`,
+                    content: `<div id="app">
+            <p-datatable :value="products" :row-class="rowClass" responsive-layout="scroll">
+                <p-column field="code" header="Code"></p-column>
+                <p-column field="name" header="Name"></p-column>
+                <p-column field="category" header="Category"></p-column>
+                <p-column field="quantity" header="Quantity">
+                    <template #body="slotProps">
+                        <div :class="stockClass(slotProps.data)">
+                            {{slotProps.data.quantity}}
+                        </div>
+                    </template>
+                </p-column>
+            </p-datatable>
+        </div>
+
+        <script type="module">
+        const { createApp, ref, onMounted } = Vue;
+
+        const App = {
+            setup() {
+                onMounted(() => {
+                    productService.value.getProductsSmall().then(data => products.value = data);
+                })
+
+                const products = ref();
+                const productService = ref(new ProductService());
+
+                const rowClass = (data) => {
+                    return data.category === 'Accessories' ? 'row-accessories': null;
+                };
+                const stockClass = (data) => {
+                    return [
+                        {
+                            'outofstock': data.quantity === 0,
+                            'lowstock': data.quantity > 0 && data.quantity<10,
+                            'instock': data.quantity > 10
+                        }
+                    ];
+                };
+
+                return { products, rowClass, stockClass }
+            },
+            components: {
+                "p-datatable": primevue.datatable,
+                "p-column": primevue.column,
+                "p-button": primevue.button
+            }
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .mount("#app");
+        <\\/script>
+
+        <style>
+        .outofstock {
+            font-weight: 700;
+            color: #FF5252;
+            text-decoration: line-through;
+        }
+
+        .lowstock {
+            font-weight: 700;
+            color: #FFA726;
+        }
+
+        .instock {
+            font-weight: 700;
+            color: #66BB6A;
+        }
+
+        .row-accessories {
+            background-color: rgba(0,0,0,.15) !important;
+        }
+        </style>                    
+`
                 }
             }
         }

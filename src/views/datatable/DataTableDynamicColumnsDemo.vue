@@ -51,6 +51,7 @@ export default {
             products: null
         }
     },
+    productService: null,
     created() {
         this.productService = new ProductService();
 
@@ -102,6 +103,49 @@ export default {
     }
 }
 <\\/script>
+`
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/datatable/datatable.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/column/column.min.js"><\\/script>
+        <script src="./ProductService.js"><\\/script>`,
+                    content: `<div id="app">
+            <p-datatable :value="products" responsive-layout="scroll">
+                <p-column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field"></p-column>
+            </p-datatable>
+        </div>
+
+        <script type="module">
+        const { createApp, ref, onMounted } = Vue;
+
+        const App = {
+            setup() {
+                onMounted(() => {
+                    productService.value.getProductsSmall().then(data => products.value = data);
+                })
+
+                const productService = ref(new ProductService());
+                const columns = ref([
+                    {field: 'code', header: 'Code'},
+                    {field: 'name', header: 'Name'},
+                    {field: 'category', header: 'Category'},
+                    {field: 'quantity', header: 'Quantity'}
+                ]);
+                const products = ref();
+
+                return { columns, products }
+            },
+            components: {
+                "p-datatable": primevue.datatable,
+                "p-column": primevue.column
+            }
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .mount("#app");
+        <\\/script>
 `
                 }
             }

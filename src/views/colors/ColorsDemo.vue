@@ -87,7 +87,7 @@
 export default {
     data() {
         return {
-            colors: ['blue', 'green', 'yellow', 'cyan', 'pink', 'indigo', 'teal', 'orange', 'bluegray', 'purple'],
+            colors: ['blue', 'green', 'yellow', 'cyan', 'pink', 'indigo', 'teal', 'orange', 'bluegray', 'purple', 'gray'],
             shades: [0, 50, 100, 200, 300, 400, 500, 600, 700, 800, 900]
         }
     }

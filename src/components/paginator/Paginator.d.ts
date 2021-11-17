@@ -1,5 +1,3 @@
-import { VNode } from 'vue';
-
 export interface PageState {
     first: number,
     rows: number,
@@ -18,12 +16,22 @@ interface PaginatorProps {
     alwaysShow?: boolean;
 }
 
+interface PaginatorSlotInterface {
+    currentState: {
+        page: number;
+        first: number;
+        rows: number;
+    }
+}
+
 declare class Paginator {
     $props: PaginatorProps;
+    $emit(eventName: 'update:first', value: number): this;
+    $emit(eventName: 'update:rows', value: number): this;
     $emit(eventName: 'page', event: PageState): this;
     $slots: {
-        left: VNode[];
-        right: VNode[];
+        left: PaginatorSlotInterface;
+        right: PaginatorSlotInterface;
     }
 }
 

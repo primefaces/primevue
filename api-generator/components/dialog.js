@@ -125,30 +125,22 @@ const DialogProps = [
         default: "true",
         description: "Keeps dialog in the viewport when dragging."
     },
+    {
+        name: "appendTo",
+        type: "string",
+        default: "body",
+        description: 'A valid query selector or an HTMLElement to specify where the dialog gets attached. Special keywords are "body" for document body and "self" for the element itself.'
+    }
 ];
 
 const DialogEvents = [
     {
         name: "hide",
-        description: "Callback to invoke when dialog is hidden.",
-        arguments: [
-            {
-                name: "event",
-                type: "object",
-                description: "Event Object"
-            }
-        ]
+        description: "Callback to invoke when dialog is hidden."
     },
     {
         name: "show",
-        description: "Callback to invoke when dialog is showed.",
-        arguments: [
-            {
-                name: "event",
-                type: "object",
-                description: "Event Object"
-            }
-        ]
+        description: "Callback to invoke when dialog is showed."
     },
     {
         name: "maximize",

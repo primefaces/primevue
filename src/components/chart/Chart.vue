@@ -32,8 +32,15 @@ export default {
         }
     },
     watch: {
-        data() {
-            this.reinit();
+        /*
+         * Use deep watch to enable triggering watch for changes within structure
+         * otherwise the entire data object needs to be replaced to trigger watch
+         */
+        data: {
+            handler() {
+                this.reinit();
+            },
+            deep: true
         },
         type() {
             this.reinit();
@@ -44,7 +51,12 @@ export default {
     },
     methods: {
         initChart() {
-            import('chart.js').then((module) => {
+            import('chart.js/auto').then((module) => {
+                if (this.chart) {
+                    this.chart.destroy();
+                    this.chart = null;
+                }
+
                 if (module && module.default) {
                     this.chart = new module.default(this.$refs.canvas, {
                         type: this.type,
@@ -66,15 +78,12 @@ export default {
             }
         },
         reinit() {
-            if (this.chart) {
-                this.chart.destroy();
-                this.initChart();
-            }
+            this.initChart();
         },
         onCanvasClick(event) {
             if (this.chart) {
-                const element = this.chart.getElementAtEvent(event);
-                const dataset = this.chart.getDatasetAtEvent(event);
+                const element = this.chart.getElementsAtEventForMode(event, 'nearest', { intersect: true }, false);
+                const dataset = this.chart.getElementsAtEventForMode(event, 'dataset', { intersect: true }, false);
 
                 if (element && element[0] && dataset) {
                     this.$emit('select', {originalEvent: event, element: element[0], dataset: dataset});

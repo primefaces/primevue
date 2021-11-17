@@ -1,13 +1,19 @@
 import { VNode } from 'vue';
+import VirtualScrollerProps from '../virtualscroller';
+
+type DropdownOptionLabelType = string | ((data: any) => string) | undefined;
+type DropdownOptionValueType = string | ((data: any) => any) | undefined;
+type DropdownOptionDisabledType = string | ((data: any) => boolean) | undefined;
+type DropdownOptionChildrenType = string | ((data: any) => any[]) | undefined;
 
 interface DropdownProps {
     modelValue?: any;
     options?: any[];
-    optionLabel?: string;
-    optionValue?: any;
-    optionDisabled?: boolean;
-    optionGroupLabel?: string;
-    optionGroupChildren?: string;
+    optionLabel?: DropdownOptionLabelType;
+    optionValue?: DropdownOptionValueType;
+    optionDisabled?: DropdownOptionDisabledType;
+    optionGroupLabel?: DropdownOptionLabelType;
+    optionGroupChildren?: DropdownOptionChildrenType;
     scrollHeight?: string;
     filter?: boolean;
     filterPlaceholder?: string;
@@ -28,11 +34,48 @@ interface DropdownProps {
     panelClass?: string;
     loading?: boolean;
     loadingIcon?: string;
+    virtualScrollerOptions?: VirtualScrollerProps;
+}
+
+interface DropdownValueSlotInterface {
+    value: any;
+    placeholder: string;
+}
+
+interface DropdownHeaderSlotInterface {
+    value: any;
+    options: any[];
+}
+
+interface DropdownFooterSlotInterface {
+    value: any;
+    options: any[];
+}
+
+interface DropdownOptionSlotInterface {
+    option: any;
+    index: number;
+}
+
+interface DropdownOptionGroupSlotInterface {
+    option: any;
+    index: number;
+}
+
+interface DropdownContentInterface {
+    items: any;
+    styleClass: string;
+    contentRef: string;
+    getItemOptions: any;
+}
+
+interface DropdownLoaderInterface {
+    options: any[];
 }
 
 declare class Dropdown {
     $props: DropdownProps;
-    $emit(eventName: 'input', value: string): this;
+    $emit(eventName: 'update:modelValue', value: any): this;
     $emit(eventName: 'change', e: { originalEvent: Event, value: string }): this;
     $emit(eventName: 'before-show'): this;
     $emit(eventName: 'before-leave'): this;
@@ -41,8 +84,19 @@ declare class Dropdown {
     $emit(eventName: 'focus', e: Event): this;
     $emit(eventName: 'blur', e: Event): this;
     $emit(eventName: 'filter', e: { originalEvent: Event, value: string }): this;
+    show(): void;
+    hide(): void;
     $slot: {
-        option: VNode[];
+        value: DropdownValueSlotInterface;
+        header: DropdownHeaderSlotInterface;
+        footer: DropdownFooterSlotInterface;
+        option: DropdownOptionSlotInterface;
+        optiongroup: DropdownOptionGroupSlotInterface;
+        emptyfilter: VNode[];
+        empty: VNode[];
+        content: DropdownContentInterface;
+        loader: DropdownLoaderInterface;
+        indicator: VNode[];
     }
 }
 

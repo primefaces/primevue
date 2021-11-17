@@ -121,6 +121,56 @@ export default {
 }
 <\\/script>
 `
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/datatable/datatable.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/column/column.min.js"><\\/script>
+        <script src="./ProductService.js"><\\/script>`,
+                    content: `<div id="app">
+            <p-datatable :value="products" ref="dt" responsive-layout="scroll">
+                <template #header>
+                    <div style="text-align: left">
+                        <p-button icon="pi pi-external-link" label="Export" @click="exportCSV($event)"></p-button>
+                    </div>
+                </template>
+                <p-column field="code" header="Code"></p-column>
+                <p-column field="name" header="Name"></p-column>
+                <p-column field="category" header="Category"></p-column>
+                <p-column field="quantity" header="Quantity"></p-column>
+            </p-datatable>
+        </div>
+
+        <script type="module">
+        const { createApp, ref, onMounted } = Vue;
+
+        const App =  {
+            setup() {
+                onMounted(() => {
+                    productService.value.getProductsSmall().then(data => products.value = data);
+                })
+
+                const dt = ref();
+                const products = ref();
+                const productService = ref(new ProductService());
+                const exportCSV = () => {
+                    dt.value.exportCSV();
+                };
+
+                return { dt, products, exportCSV }
+            },
+            components: {
+                "p-datatable": primevue.datatable,
+                "p-column": primevue.column,
+                "p-button": primevue.button
+            }
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .mount("#app");
+        <\\/script>
+`
                 }
             }
         }

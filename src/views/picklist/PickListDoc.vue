@@ -1,8 +1,15 @@
 <template>
 	<AppDoc name="PickListDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="picklist/PickListDemo.vue" >
-        <h5>Import</h5>
+        <h5>Import via Module</h5>
 <pre v-code.script><code>
 import PickList from 'primevue/picklist';
+
+</code></pre>
+
+        <h5>Import via CDN</h5>
+<pre v-code><code>
+&lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue@^3/picklist/picklist.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
@@ -25,13 +32,15 @@ import PickList from 'primevue/picklist';
 </code></pre>
 
         <h5>Templates</h5>
-        <p>In addition to the mandatory "item" template, picklist provides "sourceHeader" and "targetHeader" slots as optional templates.</p>
+        <p>In addition to the mandatory "item" template, picklist provides "sourceheader" and "targetheader" slots to define content
+        at header sections. Similarly custom content can be placed before and after the button controls for each section can be templates. View
+        the slots section for more information.</p>
 <pre v-code><code><template v-pre>
 &lt;PickList v-model="cars" dataKey="vin"&gt;
-    &lt;template #sourceHeader&gt;
+    &lt;template #sourceheader&gt;
         Available
     &lt;/template&gt;
-    &lt;template #targetHeader&gt;
+    &lt;template #targetheader&gt;
         Selected
     &lt;/template&gt;
     &lt;template #item="slotProps"&gt;
@@ -94,6 +103,12 @@ import PickList from 'primevue/picklist';
                         <td>array</td>
                         <td>null</td>
                         <td>Selected items in the list as a multidimensional array.</td>
+                    </tr>
+                    <tr>
+                        <td>selectionMode</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Defines selection mode, options are "single" and "multiple".</td>
                     </tr>
                     <tr>
                         <td>metaKeySelection</td>
@@ -180,6 +195,12 @@ import PickList from 'primevue/picklist';
                         </td>
                         <td>Callback to invoke when all items are moved to the source list.</td>
                     </tr>
+                    <tr>
+                        <td>selection-change</td>
+                        <td>event.originalEvent: browser event <br />
+                            event.value: Selected item</td>
+                        <td>Callback to invoke when one or more items are moved to the other list.</td>
+                    </tr>
 				</tbody>
 			</table>
 		</div>
@@ -195,7 +216,7 @@ import PickList from 'primevue/picklist';
 				</thead>
 				<tbody>
                     <tr>
-                        <td>sourceHeader</td>
+                        <td>header</td>
                         <td>-</td>
                     </tr>
                     <tr>
@@ -204,7 +225,35 @@ import PickList from 'primevue/picklist';
                             index: Index of the item</td>
                     </tr>
                     <tr>
-                        <td>targetHeader</td>
+                        <td>sourceheader</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>targetheader</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>sourcecontrolsstart</td>
+                        <td>-</td>
+                    </tr>
+                     <tr>
+                        <td>sourcecontrolsend</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>movecontrolsstart</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>movecontrolsend</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>targetcontrolsstart</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>targetcontrolsend</td>
                         <td>-</td>
                     </tr>
 				</tbody>
@@ -270,10 +319,10 @@ export default {
 <template>
     <div>
         <PickList v-model="products" listStyle="height:342px" dataKey="id">
-            <template #sourceHeader>
+            <template #sourceheader>
                 Available
             </template>
-            <template #targetHeader>
+            <template #targetheader>
                 Selected
             </template>
             <template #item="slotProps">
@@ -374,10 +423,10 @@ export default {
 <template>
     <div>
         <PickList v-model="products" listStyle="height:342px" dataKey="id">
-            <template #sourceHeader>
+            <template #sourceheader>
                 Available
             </template>
-            <template #targetHeader>
+            <template #targetheader>
                 Selected
             </template>
             <template #item="slotProps">
@@ -467,6 +516,112 @@ export default {
             margin: 0 0 1rem 0;
             width: 100px;
         }
+    }
+}
+</style>`
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/picklist/picklist.min.js"><\\/script>
+        <script src="./ProductService.js"><\\/script>`,
+                    content: `<div id="app">
+            <p-picklist v-model="products" list-style="height:342px" data-key="id">
+                <template #sourceheader>
+                    Available
+                </template>
+                <template #targetheader>
+                    Selected
+                </template>
+                <template #item="slotProps">
+                    <div class="product-item">
+                        <div class="image-container">
+                            <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" />
+                        </div>
+                        <div class="product-list-detail">
+                            <h6 class="p-mb-2">{{slotProps.item.name}}</h6>
+                            <i class="pi pi-tag product-category-icon"></i>
+                            <span class="product-category">{{slotProps.item.category}}</span>
+                        </div>
+                        <div class="product-list-action">
+                            <h6 class="p-mb-2">\${{slotProps.item.price}}</h6>
+                            <span :class="'product-badge status-'+slotProps.item.inventoryStatus.toLowerCase()">{{slotProps.item.inventoryStatus}}</span>
+                        </div>
+                    </div>
+                </template>
+            </p-picklist>
+        </div>
+
+        <script type="module">
+        const { createApp, ref, onMounted } = Vue;
+
+        const App = {
+            setup() {
+                onMounted(() => {
+                    productService.value.getProductsSmall().then(data => products.value = [data, []]);
+                })
+
+                const products = ref(null);
+                const productService = ref(new ProductService());
+
+                return { products, productService }
+            },
+            components: {
+                "p-picklist": primevue.picklist
+            }
+        };
+
+        createApp(App).use(primevue.config.default).mount("#app")
+        <\\/script>
+
+<style>
+.product-item {
+	display: flex;
+	align-items: center;
+	padding: .5rem;
+	width: 100%;
+}
+
+.product-item img {
+	width: 75px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    margin-right: 1rem;
+}
+
+.product-item .product-list-detail {
+	flex: 1 1 0;
+}
+
+.product-item .product-list-action {
+	display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.product-item .product-category-icon {
+    vertical-align: middle;
+    margin-right: .5rem;
+    font-size: .875rem;
+}
+
+.product-item .product-category {
+    vertical-align: middle;
+    line-height: 1;
+    font-size: .875rem;
+}
+
+@media screen and (max-width: 576px) {
+    .product-item {
+        flex-wrap: wrap;
+    }
+
+    .product-item .image-container {
+        width: 100%;
+        text-align: center;
+    }
+
+    .product-item img {
+        margin: 0 0 1rem 0;
+        width: 100px;
     }
 }
 </style>`

@@ -129,6 +129,65 @@ export default {
 }
 <\\/script>                  
 `
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/datatable/datatable.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/column/column.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/toast/toast.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/toastservice/toastservice.min.js"><\\/script>
+        <script src="./ProductService.js"><\\/script>`,
+                    content: `<div id="app">
+            <p-toast></p-toast>
+            <p-datatable :value="products" :reorderable-columns="true" @column-reorder="onColReorder" @row-reorder="onRowReorder" responsive-layout="scroll">
+                <p-column :row-reorder="true" header-style="width: 3rem" :reorderable-column="false"></p-column>
+                <p-column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field"></p-column>
+            </p-datatable>
+        </div>
+
+        <script type="module">
+        const { createApp, ref, onMounted } = Vue;
+        const { useToast } = primevue.usetoast;
+
+        const App = {
+            setup() {
+                onMounted(() => {
+                    productService.value.getProductsSmall().then(data => products.value = data);
+                }) 
+
+                const toast = useToast();
+                const columns = ref([
+                    {field: 'code', header: 'Code'},
+                    {field: 'name', header: 'Name'},
+                    {field: 'category', header: 'Category'},
+                    {field: 'quantity', header: 'Quantity'}
+                ]);
+                const products = ref();
+                const productService = ref(new ProductService());
+
+                const onColReorder = () => {
+                    toast.add({severity:'success', summary: 'Column Reordered', life: 3000});
+                };
+                const onRowReorder = (event) => {
+                    products.value = event.value;
+                    toast.add({severity:'success', summary: 'Rows Reordered', life: 3000});
+                };
+
+                return { columns, products, onColReorder, onRowReorder }
+            },
+            components: {
+                "p-datatable": primevue.datatable,
+                "p-column": primevue.column,
+                "p-toast": primevue.toast
+            }
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .use(primevue.toastservice)
+            .mount("#app");
+        <\\/script>                  
+`
                 }
             }
         }

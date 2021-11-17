@@ -1,3 +1,5 @@
+import { VNode } from 'vue';
+
 interface FileUploadProps {
     name?: string;
     url?: string;
@@ -19,6 +21,8 @@ interface FileUploadProps {
     customUpload?: boolean;
     showUploadButton?: boolean;
     showCancelButton?: boolean;
+    style?: any;
+    class?: string;
 }
 
 declare class FileUpload {
@@ -26,11 +30,15 @@ declare class FileUpload {
     $emit(eventName: 'select', e: { originalEvent: Event, files: any }): this;
     $emit(eventName: 'before-upload', e: { xhr: XMLHttpRequest, formData: any }): this;
     $emit(eventName: 'progress', e: { originalEvent: Event, progress: any }): this;
-    $emit(eventName: 'upload', e: { originalEvent: Event, files: any }): this;
-    $emit(eventName: 'error', e: { originalEvent: Event, files: any }): this;
+    $emit(eventName: 'upload', e: { xhr: XMLHttpRequest, files: any }): this;
+    $emit(eventName: 'uploader', e: { files: any }): this;
+    $emit(eventName: 'error', e: { xhr: XMLHttpRequest, files: any }): this;
     $emit(eventName: 'before-send', e: { xhr: XMLHttpRequest, formData: any }): this;
     $emit(eventName: 'clear'): this;
     $emit(eventName: 'remove', e: { file: File, files: File[] }): this;
+    $slots: {
+        empty: VNode[];
+    }
 }
 
 export default FileUpload;

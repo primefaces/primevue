@@ -1,5 +1,5 @@
 <template>
-	<AppDoc name="ChartDemo" :sources="sources" :dependencies="{'chart.js': '2.7.3'}" component="Chart" github="chart/BarChartDemo.vue"/>
+	<AppDoc name="ChartDemo" :sources="sources" :dependencies="{'chart.js': '3.3.2'}" component="Chart" github="chart/BarChartDemo.vue"/>
 </template>
 
 <script>
@@ -19,7 +19,7 @@ export default {
 
         <div class="card">
             <h5>Horizontal</h5>
-            <Chart type="horizontalBar" :data="basicData" :options="basicOptions" />
+            <Chart type="bar" :data="basicData" :options="horizontalOptions" />
         </div>
 
         <div class="card">
@@ -67,38 +67,6 @@ export default {
                     data: [28, 48, 40, 19, 86, 27, 90]
                 }]
             },
-            multiAxisOptions: {
-                responsive: true,
-                tooltips: {
-                    mode: 'index',
-                    intersect: true
-                },
-                scales: {
-                    yAxes: [{
-                        type: 'linear',
-                        display: true,
-                        position: 'left',
-                        id: 'y-axis-1',
-                        ticks: {
-                            min: 0,
-                            max: 100
-                        }
-                    },
-                    {
-                        type: 'linear',
-                        display: true,
-                        position: 'right',
-                        id: 'y-axis-2',
-                        gridLines: {
-                            drawOnChartArea: false
-                        },
-                        ticks: {
-                            min: 0,
-                            max: 100
-                        }
-                    }]
-                }
-            },
             stackedData: {
                 labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
                 datasets: [{
@@ -118,22 +86,144 @@ export default {
                     data: [41,52,24,74,23,21,32]
                 }]
             },
-            stackedOptions: {
-                tooltips: {
-                    mode: 'index',
-                    intersect: false
+            basicOptions: {
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#495057'
+                        }
+                    }
                 },
-                responsive: true,
                 scales: {
-                    xAxes: [{
-                        stacked: true,
-                    }],
-                    yAxes: [{
-                        stacked: true
-                    }]
+                    x: {
+                        ticks: {
+                            color: '#495057'
+                        },
+                        grid: {
+                            color: '#ebedef'
+                        }
+                    },
+                    y: {
+                        ticks: {
+                            color: '#495057'
+                        },
+                        grid: {
+                            color: '#ebedef'
+                        }
+                    }
                 }
             },
-            basicOptions: null
+            horizontalOptions: {
+                indexAxis: 'y',
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#495057'
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            color: '#495057'
+                        },
+                        grid: {
+                            color: '#ebedef'
+                        }
+                    },
+                    y: {
+                        ticks: {
+                            color: '#495057'
+                        },
+                        grid: {
+                            color: '#ebedef'
+                        }
+                    }
+                }
+            },
+            multiAxisOptions: {
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#495057'
+                        }
+                    },
+                    tooltips: {
+                        mode: 'index',
+                        intersect: true
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            color: '#495057'
+                        },
+                        grid: {
+                            color: '#ebedef'
+                        }
+                    },
+                    y: {
+                        type: 'linear',
+                        display: true,
+                        position: 'left',
+                        ticks: {
+                            min: 0,
+                            max: 100,
+                            color: '#495057'
+                        },
+                        grid: {
+                            color: '#ebedef'
+                        }
+                    },
+                    y1: {
+                        type: 'linear',
+                        display: true,
+                        position: 'right',
+                        grid: {
+                            drawOnChartArea: false,
+                            color: '#ebedef'
+                        },
+                        ticks: {
+                            min: 0,
+                            max: 100,
+                            color: '#495057'
+                        }
+                    }
+                }
+            },
+            stackedOptions: {
+                plugins: {
+                    tooltips: {
+                        mode: 'index',
+                        intersect: false
+                    },
+                    legend: {
+                        labels: {
+                            color: '#495057'
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        stacked: true,
+                        ticks: {
+                            color: '#495057'
+                        },
+                        grid: {
+                            color: '#ebedef'
+                        }
+                    },
+                    y: {
+                        stacked: true,
+                        ticks: {
+                            color: '#495057'
+                        },
+                        grid: {
+                            color: '#ebedef'
+                        }
+                    }
+                }
+            }
         }
     }
 }
@@ -152,7 +242,7 @@ export default {
 
         <div class="card">
             <h5>Horizontal</h5>
-            <Chart type="horizontalBar" :data="basicData" :options="basicOptions" />
+            <Chart type="bar" :data="basicData" :options="horizontalOptions" />
         </div>
 
         <div class="card">
@@ -187,6 +277,7 @@ export default {
                 }
             ]
         });
+
         const multiAxisData = ref({
             labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
             datasets: [{
@@ -201,38 +292,7 @@ export default {
                 data: [28, 48, 40, 19, 86, 27, 90]
             }]
         });
-        const multiAxisOptions = ref({
-            responsive: true,
-            tooltips: {
-                mode: 'index',
-                intersect: true
-            },
-            scales: {
-                yAxes: [{
-                    type: 'linear',
-                    display: true,
-                    position: 'left',
-                    id: 'y-axis-1',
-                    ticks: {
-                        min: 0,
-                        max: 100
-                    }
-                },
-                {
-                    type: 'linear',
-                    display: true,
-                    position: 'right',
-                    id: 'y-axis-2',
-                    gridLines: {
-                        drawOnChartArea: false
-                    },
-                    ticks: {
-                        min: 0,
-                        max: 100
-                    }
-                }]
-            }
-        });
+
         const stackedData = ref({
             labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
             datasets: [{
@@ -252,24 +312,159 @@ export default {
                 data: [41,52,24,74,23,21,32]
             }]
         });
-        const stackedOptions = ref({
-            tooltips: {
-                mode: 'index',
-                intersect: false
-            },
-            responsive: true,
-            scales: {
-                xAxes: [{
-                    stacked: true,
-                }],
-                yAxes: [{
-                    stacked: true
-                }]
+        
+        const basicOptions = ref(
+            {
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#495057'
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            color: '#495057'
+                        },
+                        grid: {
+                            color: '#ebedef'
+                        }
+                    },
+                    y: {
+                        ticks: {
+                            color: '#495057'
+                        },
+                        grid: {
+                            color: '#ebedef'
+                        }
+                    }
+                }
             }
-        });
-        const basicOptions = ref(null);
+        );
 
-		return { basicData, multiAxisData, multiAxisOptions, stackedData, stackedOptions, basicOptions }
+        const horizontalOptions = ref(
+            {
+                indexAxis: 'y',
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#495057'
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            color: '#495057'
+                        },
+                        grid: {
+                            color: '#ebedef'
+                        }
+                    },
+                    y: {
+                        ticks: {
+                            color: '#495057'
+                        },
+                        grid: {
+                            color: '#ebedef'
+                        }
+                    }
+                }
+            }
+        );
+
+        const multiAxisOptions = ref(
+            {
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#495057'
+                        }
+                    },
+                    tooltips: {
+                        mode: 'index',
+                        intersect: true
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            color: '#495057'
+                        },
+                        grid: {
+                            color: '#ebedef'
+                        }
+                    },
+                    y: {
+                        type: 'linear',
+                        display: true,
+                        position: 'left',
+                        ticks: {
+                            min: 0,
+                            max: 100,
+                            color: '#495057'
+                        },
+                        grid: {
+                            color: '#ebedef'
+                        }
+                    },
+                    y1: {
+                        type: 'linear',
+                        display: true,
+                        position: 'right',
+                        grid: {
+                            drawOnChartArea: false,
+                            color: '#ebedef'
+                        },
+                        ticks: {
+                            min: 0,
+                            max: 100,
+                            color: '#495057'
+                        }
+                    }
+                }
+            }
+        );
+
+        const stackedOptions = ref(
+            {
+                plugins: {
+                    tooltips: {
+                        mode: 'index',
+                        intersect: false
+                    },
+                    legend: {
+                        labels: {
+                            color: '#495057'
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        stacked: true,
+                        ticks: {
+                            color: '#495057'
+                        },
+                        grid: {
+                            color: '#ebedef'
+                        }
+                    },
+                    y: {
+                        stacked: true,
+                        ticks: {
+                            color: '#495057'
+                        },
+                        grid: {
+                            color: '#ebedef'
+                        }
+                    }
+                }
+            }
+        );
+
+		return { basicData, multiAxisData, stackedData, 
+            basicOptions, horizontalOptions, multiAxisOptions, stackedOptions }
     }
 }
 <\\/script>

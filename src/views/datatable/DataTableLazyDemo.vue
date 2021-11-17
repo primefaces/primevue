@@ -164,7 +164,6 @@ export default {
             this.loadLazyData();
         },
         onFilter() {
-            this.loading = true;
             this.lazyParams.filters = this.filters;
             this.loadLazyData();
         }
@@ -267,7 +266,6 @@ export default {
             loadLazyData();
         };
         const onFilter = () => {
-            loading.value  = true;
             lazyParams.value.filters = filters.value ;
             loadLazyData();
         }
@@ -276,6 +274,118 @@ export default {
     }
 }
 <\\/script>                  
+`
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/datatable/datatable.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/column/column.min.js"><\\/script>
+        <script src="./CustomerService.js"><\\/script>`,
+                    content: `<div id="app">
+            <p-datatable :value="customers" :lazy="true" :paginator="true" :rows="10" v-model:filters="filters" ref="dt"
+                :total-records="totalRecords" :loading="loading" @page="onPage($event)" @sort="onSort($event)" @filter="onFilter($event)" filter-display="row"
+                :global-filter-fields="['name','country.name', 'company', 'representative.name']" responsive-layout="scroll">
+                <p-column field="name" header="Name" filter-match-mode="startsWith" ref="name" :sortable="true">  
+                    <template #filter="{filterModel,filterCallback}">
+                        <p-inputtext type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" placeholder="Search by name"></p-inputtext>
+                    </template>                    
+                </p-column>
+                <p-column field="country.name" header="Country" filter-field="country.name" filter-match-mode="contains" ref="country.name" :sortable="true">
+                    <template #filter="{filterModel,filterCallback}">
+                        <p-inputtext type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" placeholder="Search by country"></p-inputtext>
+                    </template>
+                </p-column>
+                <p-column field="company" header="Company" filter-match-mode="contains" ref="company" :sortable="true">
+                    <template #filter="{filterModel,filterCallback}">
+                        <p-inputtext type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" placeholder="Search by company"></p-inputtext>
+                    </template>
+                </p-column>
+                <p-column field="representative.name" header="Representative" filter-field="representative.name" ref="representative.name" :sortable="true">
+                    <template #filter="{filterModel,filterCallback}">
+                        <p-inputtext type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" placeholder="Search by representative"></p-inputtext>
+                    </template>
+                </p-column>
+            </p-datatable>
+        </div>
+
+        <script type="module">
+        const { createApp, ref, onMounted } = Vue;
+
+        const App = {
+            setup() {
+                onMounted(() => {
+                    loading.value = true;
+                
+                    lazyParams.value = {
+                        first: 0,
+                        rows: dt.value.rows,
+                        sortField: null,
+                        sortOrder: null,
+                        filters: filters.value
+                    };
+
+                    loadLazyData();
+                })
+
+                const dt = ref();
+                const loading = ref(false);
+                const totalRecords = ref(0);
+                const customers = ref();
+                const customerService = ref(new CustomerService());
+                const filters = ref({
+                    'name': {value: '', matchMode: 'contains'},
+                    'country.name': {value: '', matchMode: 'contains'},
+                    'company': {value: '', matchMode: 'contains'},
+                    'representative.name': {value: '', matchMode: 'contains'},
+                });
+                const lazyParams = ref({});
+                const columns = ref([
+                    {field: 'name', header: 'Name'},
+                    {field: 'country.name', header: 'Country'},
+                    {field: 'company', header: 'Company'},
+                    {field: 'representative.name', header: 'Representative'}
+                ]);
+
+                const loadLazyData = () => {
+                    loading.value = true;
+
+                    setTimeout(() => {
+                        customerService.value.getCustomers(
+                            {lazyEvent: JSON.stringify( lazyParams.value )})
+                                .then(data => {
+                                    customers.value = data.customers;
+                                    totalRecords.value  = data.totalRecords;
+                                    loading.value = false;
+                            }
+                        );
+                    }, Math.random() * 1000 + 250);
+                };
+                const onPage = (event) => {
+                    lazyParams.value = event;
+                    loadLazyData();
+                };
+                const onSort = (event) => {
+                    lazyParams.value = event;
+                    loadLazyData();
+                };
+                const onFilter = () => {
+                    lazyParams.value.filters = filters.value ;
+                    loadLazyData();
+                }
+
+                return { dt, loading, totalRecords, customers, filters, lazyParams, columns, loadLazyData, onPage, onSort, onFilter }
+            },
+            components: {
+                "p-datatable": primevue.datatable,
+                "p-column": primevue.column,
+                "p-inputtext": primevue.inputtext
+            }
+        };
+        
+        createApp(App)
+            .use(primevue.config.default)
+            .mount("#app");
+        <\\/script>                  
 `
                 }
             }
@@ -319,7 +429,6 @@ export default {
             this.loadLazyData();
         },
         onFilter() {
-            this.loading = true;
             this.lazyParams.filters = this.filters;
             this.loadLazyData();
         }

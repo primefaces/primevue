@@ -17,7 +17,7 @@ import Ripple from 'primevue/ripple';
 
 export default {
     name: 'SelectButton',
-    emits: ['update:modelValue', 'focus', 'blur'],
+    emits: ['update:modelValue', 'focus', 'blur', 'change'],
     props: {
         modelValue: null,
         options: Array,
@@ -62,6 +62,7 @@ export default {
             }
 
             this.$emit('update:modelValue', newValue);
+            this.$emit('change', {event: event, value: newValue});
         },
         isSelected(option) {
             let selected = false;

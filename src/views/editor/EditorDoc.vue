@@ -1,8 +1,15 @@
 <template>
 	<AppDoc name="EditorDemo" :sources="sources" :dependencies="{'quill': '^1.3.7'}" component="Editor" github="editor/EditorDemo.vue">
-        <h5>Import</h5>
+        <h5>Import via Module</h5>
 <pre v-code.script><code>
 import Editor from 'primevue/editor';
+
+</code></pre>
+
+        <h5>Import via CDN</h5>
+<pre v-code><code>
+&lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue@^3/editor/editor.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
@@ -231,6 +238,51 @@ export default {
     }
 }
 <\\/script>
+`
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/quill/dist/quill.min.js"><\\/script>
+                    
+        <script src="https://unpkg.com/primevue@^3/editor/editor.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/tooltip/tooltip.min.js"><\\/script>`,
+                    content: `<div id="app">
+            <h5>Default</h5>
+            <p-editor v-model="value1" editor-style="height: 320px"></p-editor>
+
+            <h5>Customized</h5>
+            <p-editor v-model="value2" editor-style="height: 320px">
+                <template v-slot:toolbar>
+                    <span class="ql-formats">
+                        <button class="ql-bold" v-tooltip.bottom="'Bold'"></button>
+                        <button class="ql-italic" v-tooltip.bottom="'Italic'"></button>
+                        <button class="ql-underline" v-tooltip.bottom="'Underline'"></button>
+                    </span>
+                </template>
+            </p-editor>
+        </div>
+
+        <script type="module">
+        const { createApp, ref } = Vue;
+        const Tooltip = primevue.tooltip;
+
+        const App = {
+            setup() {
+                const value1 = ref('<div>Welcome to PrimeVue <b>Editor</b></div><div><br></div>');
+                const value2 = ref('');
+
+                return { value1, value2 }
+            },
+            components: {
+                "p-editor": primevue.editor
+            }
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .directive("tooltip", Tooltip)
+            .mount("#app");
+        <\\/script>
 `
                 }
             }

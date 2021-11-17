@@ -57,6 +57,22 @@ const SelectButtonProps = [
 
 const SelectButtonEvents = [
     {
+        name: "change",
+        description: "Callback to invoke on value change.",
+        arguments: [
+            {
+                name: "event.originalEvent",
+                type: "object",
+                description: "Browser event"
+            },
+            {
+                name: "event.value",
+                type: "any",
+                description: "Single value or an array of values that are selected."
+            }
+        ]
+    },
+    {
         name: "focus",
         description: "Callback to invoke on focus.",
         arguments: [

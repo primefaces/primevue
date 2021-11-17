@@ -445,11 +445,11 @@ const TreeTableSlots = [
         description: "Custom content for the component's header"
     },
     {
-        name: "paginatorLeft",
+        name: "paginatorstart",
         description: "Custom content for the component paginator's left side"
     },
     {
-        name: "paginatorRight",
+        name: "paginatorend",
         description: "Custom content for the component paginator's right side"
     },
     {

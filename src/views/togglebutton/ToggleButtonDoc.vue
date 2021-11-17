@@ -1,8 +1,15 @@
 <template>
     <AppDoc name="ToggleButtonDemo" :sources="sources" github="togglebutton/ToggleButtonDemo.vue" >
-        <h5>Import</h5>
+        <h5>Import via Module</h5>
 <pre v-code.script><code>
 import ToggleButton from 'primevue/togglebutton';
+
+</code></pre>
+
+        <h5>Import via CDN</h5>
+<pre v-code><code>
+&lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue@^3/togglebutton/togglebutton.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
@@ -192,6 +199,38 @@ export default {
     }
 }
 <\\/script>
+`
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/togglebutton/togglebutton.min.js"><\\/script>`,
+                    content: `<div id="app">
+            <h5>Basic</h5>
+            <p-togglebutton v-model="checked1" on-icon="pi pi-check" off-icon="pi pi-times"></p-togglebutton>
+
+            <h5>Customized</h5>
+            <p-togglebutton v-model="checked2" on-label="I confirm" off-label="I reject" on-icon="pi pi-check" off-icon="pi pi-times" style="width: 10em"></p-togglebutton>
+        </div>
+
+        <script type="module">
+        const { createApp, ref } = Vue;
+
+        const App = {
+            setup() {
+                const checked1 = ref(false);
+                const checked2 = ref(true);
+
+                return { checked1, checked2 }
+            },
+            components: {
+                "p-togglebutton": primevue.togglebutton
+            }
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .mount("#app");
+        <\\/script>
 `
                 }
             }

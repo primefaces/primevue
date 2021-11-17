@@ -233,6 +233,24 @@ const CalendarProps = [
         type: "string",
         default: "null",
         description: "Style class of the input field."
+    },
+    {
+        name: "class",
+        type: "string",
+        default: "null",
+        description: "Style class of the component."
+    },
+    {
+        name: "style",
+        type: "any",
+        default: "null",
+        description: "Inline style of the component."
+    },
+    {
+        name: "keepInvalid",
+        type: "boolean",
+        default: "false",
+        description: "Keep invalid value when input blur."
     }
 ];
 

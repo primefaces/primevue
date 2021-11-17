@@ -1,8 +1,15 @@
 <template>
 	<AppDoc name="RatingDemo" :sources="sources" github="rating/RatingDemo.vue" >
-        <h5>Import</h5>
+        <h5>Import via Module</h5>
 <pre v-code.script><code>
 import Rating from 'primevue/rating';
+
+</code></pre>
+
+        <h5>Import via CDN</h5>
+<pre v-code><code>
+&lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue@^3/rating/rating.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
@@ -198,6 +205,44 @@ export default {
     }
 }
 <\\/script>
+`
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/rating/rating.min.js"><\\/script>`,
+                    content: `<div id="app">
+            <h5>Basic {{val1}}</h5>
+            <p-rating v-model="val1"></p-rating>
+
+            <h5>Without Cancel</h5>
+            <p-rating v-model="val2" :cancel="false"></p-rating>
+
+            <h5>ReadOnly</h5>
+            <p-rating :model-value="5" :readonly="true" :stars="10" :cancel="false"></p-rating>
+
+            <h5>Disabled</h5>
+            <p-rating :model-value="8" :disabled="true" :stars="10"></p-rating>
+        </div>
+
+        <script type="module">
+        const { createApp, ref } = Vue;
+
+        const App = {
+            setup() {
+                const val1 = ref();
+                const val2 = ref(3);
+
+                return { val1, val2 }
+            },
+            components: {
+                "p-rating": primevue.rating
+            }
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .mount("#app");
+        <\\/script>
 `
                 }
             }

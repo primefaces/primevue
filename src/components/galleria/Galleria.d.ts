@@ -27,15 +27,33 @@ interface GalleriaProps {
     containerClass?: string;
 }
 
+interface GalleriaItemSlotInterface {
+    item: any;
+}
+
+interface GalleriaCaptionSlotInterface {
+    item: any;
+}
+
+interface GalleriaIndicatorlotInterface {
+    index: number;
+}
+
+interface GalleriaThumbnailSlotInterface {
+    item: any;
+}
+
 declare class Galleria {
     $props: GalleriaProps;
+    $emit(eventName: 'update:activeIndex', value: number): this;
+    $emit(eventName: 'update:visible', value: boolean): this;
 	$slots: {
 		header: VNode[];
         footer: VNode[];
-        item: VNode[];
-        caption: VNode[];
-        indicator: VNode[];
-        thumbnail: VNode[];
+        item: GalleriaItemSlotInterface;
+        caption: GalleriaCaptionSlotInterface;
+        indicator: GalleriaIndicatorlotInterface;
+        thumbnail: GalleriaThumbnailSlotInterface;
 	}
 }
 

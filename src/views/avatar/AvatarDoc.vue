@@ -1,9 +1,17 @@
 <template>
 	<AppDoc name="AvatarDemo" :sources="sources" github="avatar/AvatarDemo.vue">
-		<h5>Import</h5>
+		<h5>Import via Module</h5>
 <pre v-code.script><code>
 import Avatar from 'primevue/avatar';
 import AvatarGroup from 'primevue/avatargroup';
+
+</code></pre>
+
+        <h5>Import via CDN</h5>
+<pre v-code><code>
+&lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue@^3/avatar/avatar.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue@^3/avatargroup/avatargroup.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
@@ -370,6 +378,116 @@ export default {
 export default {
 }
 <\\/script>`
+				},
+                'browser-source': {
+					tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/avatar/avatar.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/avatargroup/avatargroup.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/badgedirective/badgedirective.min.js"><\\/script>`,
+					content: `<div id="app">
+            <div class="p-grid">
+                <div class="p-col-12 p-md-4">
+                    <div class="card">
+                        <h5>Label</h5>
+                        <p-avatar label="P" class="p-mr-2" size="xlarge"></p-avatar>
+                        <p-avatar label="V" class="p-mr-2" size="large" style="background-color:#2196F3; color: #ffffff"></p-avatar>
+                        <p-avatar label="U" class="p-mr-2" style="background-color:#9c27b0; color: #ffffff"></p-avatar>
+                    </div>
+                </div>
+
+                <div class="p-col-12 p-md-4">
+                    <div class="card">
+                        <h5>Label - Circle</h5>
+                        <p-avatar label="P" class="p-mr-2" size="xlarge" shape="circle"></p-avatar>
+                        <p-avatar label="V" class="p-mr-2" size="large" style="background-color:#2196F3; color: #ffffff" shape="circle"></p-avatar>
+                        <p-avatar label="U" class="p-mr-2" style="background-color:#9c27b0; color: #ffffff" shape="circle"></p-avatar>
+                    </div>
+                </div>
+
+                <div class="p-col-12 p-md-4">
+                    <div class="card">
+                        <h5>Label - Badge</h5>
+                        <p-avatar label="U" size="xlarge" style="background-color:#4caf4f; color: #ffffff" v-badge="4"></p-avatar>
+                    </div>
+                </div>
+            </div>
+           
+            <div class="p-grid">
+                <div class="p-col-12 p-md-4">
+                    <div class="card">
+                        <h5>Icon</h5>
+                        <p-avatar icon="pi pi-user" class="p-mr-2" size="xlarge"></p-avatar>
+                        <p-avatar icon="pi pi-user" class="p-mr-2" size="large" style="background-color:#2196F3; color: #ffffff"></p-avatar>
+                        <p-avatar icon="pi pi-user" class="p-mr-2" style="background-color:#9c27b0; color: #ffffff"></p-avatar>
+                    </div>
+                </div>
+
+                <div class="p-col-12 p-md-4">
+                    <div class="card">
+                        <h5>Icon - Circle</h5>
+                        <p-avatar icon="pi pi-user" class="p-mr-2" size="xlarge" shape="circle"></p-avatar>
+                        <p-avatar icon="pi pi-user" class="p-mr-2" size="large" style="background-color:#2196F3; color: #ffffff" shape="circle"></p-avatar>
+                        <p-avatar icon="pi pi-user" class="p-mr-2" style="background-color:#9c27b0; color: #ffffff" shape="circle"></p-avatar>
+                    </div>
+                </div>
+
+                <div class="p-col-12 p-md-4">
+                    <div class="card">
+                        <h5>Icon - Badge</h5>
+                        <p-avatar icon="pi pi-user" size="xlarge" v-badge="4"></p-avatar>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-grid">
+                <div class="p-col-12 p-md-4">
+                    <div class="card">
+                        <h5>Image</h5>
+                        <p-avatar image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="p-mr-2" size="xlarge" shape="circle"></p-avatar>
+                        <p-avatar image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="p-mr-2" size="large" shape="circle"></p-avatar>
+                        <p-avatar image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="p-mr-2" shape="circle"></p-avatar>
+                    </div>
+                </div>
+
+                <div class="p-col-12 p-md-4">
+                    <div class="card">
+                        <h5>p-avatar Group</h5>
+                        <p-avatargroup class="p-mb-3">
+                            <p-avatar image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" size="large" shape="circle"></p-avatar>
+                            <p-avatar image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" size="large" shape="circle"></p-avatar>
+                            <p-avatar image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" size="large" shape="circle"></p-avatar>
+                            <p-avatar image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" size="large" shape="circle"></p-avatar>
+                            <p-avatar image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" size="large" shape="circle"></p-avatar>
+                            <p-avatar label="+2" shape="circle" size="large" style="background-color:#9c27b0; color: #ffffff"></p-avatar>
+                        </p-avatargroup>
+                    </div>
+                </div>
+
+                <div class="p-col-12 p-md-4">
+                    <div class="card">
+                        <h5>Image - Badge</h5>
+                        <p-avatar image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" size="xlarge" v-badge.danger="4"></p-avatar>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script type="module">
+        const { createApp } = Vue;
+        const BadgeDirective = primevue.badgedirective;
+        
+        const App = {
+            components: {
+                "p-avatar": primevue.avatar,
+                "p-avatargroup": primevue.avatargroup
+            }
+        };
+
+        createApp(App)
+            .use(primevue.config.default)
+            .directive("badge", BadgeDirective)
+            .mount("#app");
+        <\\/script>`
 				}
 			}
 		}

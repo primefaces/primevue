@@ -14,6 +14,9 @@
 &lt;div class="p-shadow-24" /&gt;
 
 </code></pre>
+
+        <h5>Dependencies</h5>
+        <p>PrimeFlex 2.0.0.</p>
 	</AppDoc>
 </template>
 
@@ -29,7 +32,7 @@ export default {
     <div>
         <div class="p-grid">
             <div class="p-col" v-for="index in 24" :key="index">
-                <div :class="['box', 'p-shadow-' + index]">
+                <div :class="['shadow-box', 'p-shadow-' + index]">
                     p-shadow-{{index}}
                 </div>
             </div>
@@ -43,7 +46,7 @@ export default {
 <\\/script>
 
 <style lang="scss" scoped>
-.box {
+.shadow-box {
     min-height: 100px;
     min-width: 150px;
     display: flex;
@@ -52,6 +55,7 @@ export default {
     font-weight: 600;
     margin: 2rem;
     border-radius: 4px;
+    background-color: var(--surface-e);
 }
 </style>                    
 `
@@ -63,7 +67,7 @@ export default {
     <div>
         <div class="p-grid">
             <div class="p-col" v-for="index in 24" :key="index">
-                <div :class="['box', 'p-shadow-' + index]">
+                <div :class="['shadow-box', 'p-shadow-' + index]">
                     p-shadow-{{index}}
                 </div>
             </div>
@@ -77,7 +81,7 @@ export default {
 <\\/script>
 
 <style lang="scss" scoped>
-.box {
+.shadow-box {
     min-height: 100px;
     min-width: 150px;
     display: flex;
@@ -86,8 +90,44 @@ export default {
     font-weight: 600;
     margin: 2rem;
     border-radius: 4px;
+    background-color: var(--surface-e);
 }
 </style>                    
+`
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    content: `<div id="app">
+            <div class="p-grid">
+                <div class="p-col" v-for="index in 24" :key="index">
+                    <div :class="['shadow-box', 'p-shadow-' + index]">
+                        p-shadow-{{index}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script type="module">
+        const { createApp } = Vue;
+        
+        const App = {};
+
+        createApp(App).mount("#app");
+        <\\/script>
+
+        <style lang="scss" scoped>
+        .shadow-box {
+            min-height: 100px;
+            min-width: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            margin: 2rem;
+            border-radius: 4px;
+            background-color: var(--surface-e);
+        }
+        </style>                    
 `
                 }
 			}
