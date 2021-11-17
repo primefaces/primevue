@@ -1,10 +1,12 @@
+type SelectButtonOptionLabelType = string | ((data: any) => string) | undefined;
+type SelectButtonOptionValueType = string | ((data: any) => any) | undefined;
 type SelectButtonOptionDisabledType = string | ((data: any) => boolean) | undefined;
 
 interface SelectButtonProps {
     modelValue?: any;
     options?: any[];
-    optionLabel?: string;
-    optionValue?: any;
+    optionLabel?: SelectButtonOptionLabelType;
+    optionValue?: SelectButtonOptionValueType;
     optionDisabled?: SelectButtonOptionDisabledType;
     multiple?: boolean;
     disabled?: boolean;

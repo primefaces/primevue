@@ -1,16 +1,19 @@
 import { VNode } from 'vue';
 import VirtualScrollerProps from '../virtualscroller';
 
+type ListboxOptionLabelType = string | ((data: any) => string) | undefined;
+type ListboxOptionValueType = string | ((data: any) => any) | undefined;
 type ListboxOptionDisabledType = string | ((data: any) => boolean) | undefined;
+type ListboxOptionChildrenType = string | ((data: any) => any[]) | undefined;
 
 interface ListboxProps {
     modelValue?: any;
     options?: any[];
-    optionLabel?: string;
-    optionValue?: any;
+    optionLabel?: ListboxOptionLabelType;
+    optionValue?: ListboxOptionValueType;
     optionDisabled?: ListboxOptionDisabledType;
-    optionGroupLabel?: string;
-    optionGroupChildren?: string;
+    optionGroupLabel?: ListboxOptionLabelType;
+    optionGroupChildren?: ListboxOptionChildrenType;
     listStyle?: string;
     disabled?: boolean;
     dataKey?: string;

@@ -1,16 +1,19 @@
 import { VNode } from 'vue';
 import VirtualScrollerProps from '../virtualscroller';
 
+type MultiSelectOptionLabelType = string | ((data: any) => string) | undefined;
+type MultiSelectOptionValueType = string | ((data: any) => any) | undefined;
 type MultiSelectOptionDisabledType = string | ((data: any) => boolean) | undefined;
+type MultiSelectOptionChildrenType = string | ((data: any) => any[]) | undefined;
 
 interface MultiSelectProps {
     modelValue?: any;
     options?: any[];
-    optionLabel?: string;
-    optionValue?: any;
+    optionLabel?: MultiSelectOptionLabelType;
+    optionValue?: MultiSelectOptionValueType;
     optionDisabled?: MultiSelectOptionDisabledType;
-    optionGroupLabel?: string;
-    optionGroupChildren?: string;
+    optionGroupLabel?: MultiSelectOptionLabelType;
+    optionGroupChildren?: MultiSelectOptionChildrenType;
     scrollHeight?: string;
     placeholder?: string;
     disabled?: boolean;

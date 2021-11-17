@@ -1,12 +1,16 @@
 import { VNode } from 'vue';
 
+type CascadeSelectOptionLabelType = string | ((data: any) => string) | undefined;
+type CascadeSelectOptionValueType = string | ((data: any) => any) | undefined;
+type CascadeSelectOptionChildrenType = string[] | string | ((data: any) => any[]) | undefined;
+
 interface CascadeSelectProps {
     modelValue?: any;
     options?: any[];
-    optionLabel?: string;
-    optionValue?: any;
-    optionGroupLabel?: string;
-    optionGroupChildren?: string[];
+    optionLabel?: CascadeSelectOptionLabelType;
+    optionValue?: CascadeSelectOptionValueType;
+    optionGroupLabel?: CascadeSelectOptionLabelType;
+    optionGroupChildren?: CascadeSelectOptionChildrenType;
     placeholder?: string;
     disabled?: boolean;
     dataKey?: string;

@@ -1,16 +1,19 @@
 import { VNode } from 'vue';
 import VirtualScrollerProps from '../virtualscroller';
 
+type DropdownOptionLabelType = string | ((data: any) => string) | undefined;
+type DropdownOptionValueType = string | ((data: any) => any) | undefined;
 type DropdownOptionDisabledType = string | ((data: any) => boolean) | undefined;
+type DropdownOptionChildrenType = string | ((data: any) => any[]) | undefined;
 
 interface DropdownProps {
     modelValue?: any;
     options?: any[];
-    optionLabel?: string;
-    optionValue?: any;
+    optionLabel?: DropdownOptionLabelType;
+    optionValue?: DropdownOptionValueType;
     optionDisabled?: DropdownOptionDisabledType;
-    optionGroupLabel?: string;
-    optionGroupChildren?: string;
+    optionGroupLabel?: DropdownOptionLabelType;
+    optionGroupChildren?: DropdownOptionChildrenType;
     scrollHeight?: string;
     filter?: boolean;
     filterPlaceholder?: string;

@@ -84,13 +84,13 @@ export default {
                     </tr>
                     <tr>
                         <td>optionLabel</td>
-                        <td>string</td>
+                        <td>string | function</td>
                         <td>null</td>
                         <td>Property name or getter function to use as the label of an option.</td>
                     </tr>
                     <tr>
                         <td>optionValue</td>
-                        <td>string</td>
+                        <td>string | function</td>
                         <td>null</td>
                         <td>Property name or getter function to use as the value of an option, defaults to the option itself when not defined.</td>
                     </tr>

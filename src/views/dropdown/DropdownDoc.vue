@@ -145,13 +145,13 @@ export default {
                     </tr>
                     <tr>
                         <td>optionLabel</td>
-                        <td>string</td>
+                        <td>string | function</td>
                         <td>null</td>
                         <td>Property name or getter function to use as the label of an option.</td>
                     </tr>
                     <tr>
                         <td>optionValue</td>
-                        <td>string</td>
+                        <td>string | function</td>
                         <td>null</td>
                         <td>Property name or getter function to use as the value of an option, defaults to the option itself when not defined.</td>
                     </tr>
@@ -163,13 +163,13 @@ export default {
                     </tr>
                     <tr>
                         <td>optionGroupLabel</td>
-                        <td>string</td>
+                        <td>string | function</td>
                         <td>null</td>
                         <td>Property name or getter function to use as the label of an option group.</td>
                     </tr>
                     <tr>
                         <td>optionGroupChildren</td>
-                        <td>string</td>
+                        <td>string | function</td>
                         <td>null</td>
                         <td>Property name or getter function that refers to the children options of option group.</td>
                     </tr>
