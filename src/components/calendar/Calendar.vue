@@ -2194,7 +2194,19 @@ export default {
                 propValue = propValue[0];
             }
 
-            return propValue || new Date();
+            if (propValue) {
+                return propValue;
+            }
+            else {
+                let today = new Date();
+                if (this.maxDate && this.maxDate < today) {
+                    return this.maxDate;
+                }
+                if (this.minDate && this.minDate > today) {
+                    return this.minDate;
+                }
+                return today;
+            }
         },
         inputFieldValue() {
             return this.formatValue(this.modelValue);
