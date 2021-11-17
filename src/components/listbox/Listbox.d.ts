@@ -1,12 +1,14 @@
 import { VNode } from 'vue';
 import VirtualScrollerProps from '../virtualscroller';
 
+type ListboxOptionDisabledType = string | ((data: any) => boolean) | undefined;
+
 interface ListboxProps {
     modelValue?: any;
     options?: any[];
     optionLabel?: string;
     optionValue?: any;
-    optionDisabled?: boolean;
+    optionDisabled?: ListboxOptionDisabledType;
     optionGroupLabel?: string;
     optionGroupChildren?: string;
     listStyle?: string;
