@@ -1,8 +1,11 @@
-declare class TerminalService {
-    $on(action: string, fn: any): any;
-    $emit(action: string, params?: any): any;
-    $off(action: string, id: number): void;
-    $subscribed(action: string): boolean;
+type TerminalServiceActionType = 'command' | 'response';
+
+export interface TerminalServiceOptions {
+    on(action: TerminalServiceActionType, fn: any): void;
+    emit(action: TerminalServiceActionType, params?: any): void;
+    off(action: TerminalServiceActionType, fn: any): void;
 }
+
+declare const TerminalService: TerminalServiceOptions;
 
 export default TerminalService;
