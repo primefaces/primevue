@@ -1750,7 +1750,22 @@ export default {
                 document.head.removeChild(this.styleElement);
                 this.styleElement = null;
             }
-        }
+        },
+        recursiveGetChildren(children, results) {
+            if (!results) {
+                results = [];
+            }
+            if (children && children.length) {
+                children.forEach((child) => {
+                    if (child.children instanceof Array) {
+                        results.concat(this.recursiveGetChildren(child.children, results));
+                    } else if (child.type.name == 'Column') {
+                        results.push(child);
+                    }
+                });
+            }
+            return results;
+        },
     },
     computed: {
         containerClass() {
@@ -1775,19 +1790,13 @@ export default {
             ];
         },
         columns() {
-            let cols = [];
             let children = this.getChildren();
 
             if (!children) {
                 return;
             }
 
-            children.forEach(child => {
-                if (child.children && child.children instanceof Array)
-                    cols = [...cols, ...child.children];
-                else if (child.type.name === 'Column')
-                    cols.push(child);
-            });
+            const cols = this.recursiveGetChildren(children, []);
 
             if (this.reorderableColumns && this.d_columnOrder) {
                 let orderedColumns = [];
