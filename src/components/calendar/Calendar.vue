@@ -2186,15 +2186,11 @@ export default {
     computed: {
         viewDate() {
             let propValue = this.modelValue;
-            if (typeof propValue === 'string') {
-                return new Date();
-            }
-
             if (propValue && Array.isArray(propValue)) {
                 propValue = propValue[0];
             }
 
-            if (propValue) {
+            if (propValue && typeof propValue !== 'string') {
                 return propValue;
             }
             else {
