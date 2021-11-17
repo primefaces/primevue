@@ -37,6 +37,17 @@ const MenuProps = [
     }
 ];
 
+const MenuEvents = [
+    {
+        name: "show",
+        description: "Callback to invoke when the overlay is shown."
+    },
+    {
+        name: "hide",
+        description: "Callback to invoke when the overlay is hidden."
+    }
+];
+
 const MenuSlots = [
     {
         name: "item",
@@ -49,6 +60,7 @@ module.exports = {
         name: "Menu",
         description: "Menu is a navigation / command component that supports dynamic and static positioning.",
         props: MenuProps,
+        events: MenuEvents,
         slots: MenuSlots
     }
 };

@@ -327,7 +327,10 @@ export default {
 
             if (!this.$attrs.disabled) {
                 this.initFocusableCell();
-                this.overlay.style.width = DomHandler.getOuterWidth(this.$el) + 'px';
+
+                if (this.numberOfMonths === 1) {
+                    this.overlay.style.width = DomHandler.getOuterWidth(this.$el) + 'px';
+                }
             }
         }
     },
