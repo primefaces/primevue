@@ -79,12 +79,15 @@
                     </template>
                     <div class="p-timepicker" v-if="showTime||timeOnly">
                         <div class="p-hour-picker">
-                            <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 0, 1)" @mouseup="onTimePickerElementMouseUp($event)" @keydown="onContainerButtonKeydown" v-ripple
+                            <button v-if="showTimePickArrows" class="p-link" @mousedown="onTimePickerElementMouseDown($event, 0, 1)" @mouseup="onTimePickerElementMouseUp($event)" @keydown="onContainerButtonKeydown" v-ripple
                                 @mouseleave="onTimePickerElementMouseLeave()" @keydown.enter="onTimePickerElementMouseDown($event, 0, 1)" @keydown.space="onTimePickerElementMouseDown($event, 0, 1)" @keyup.enter="onTimePickerElementMouseUp($event)" @keyup.space="onTimePickerElementMouseUp($event)" type="button">
                                 <span class="pi pi-chevron-up"></span>
                             </button>
-                            <span>{{formattedCurrentHour}}</span>
-                            <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 0, -1)" @mouseup="onTimePickerElementMouseUp($event)" @keydown="onContainerButtonKeydown" v-ripple
+                            <input v-if="manualTimeInput" class="p-inputtext" :value="formattedCurrentHour" :disabled="$attrs.disabled" @input="onTimePickerInput($event, 0)" @keydown.up="onTimePickerElementMouseDown($event, 0, 1)" 
+                                @keyup.up="onTimePickerElementMouseUp($event)" @keydown.down="onTimePickerElementMouseDown($event, 0, -1)" @keyup.down="onTimePickerElementMouseUp($event)" 
+                                @keypress="onTimePickerInputKeyPress" />
+                            <span v-else>{{formattedCurrentHour}}</span>
+                            <button v-if="showTimePickArrows" class="p-link" @mousedown="onTimePickerElementMouseDown($event, 0, -1)" @mouseup="onTimePickerElementMouseUp($event)" @keydown="onContainerButtonKeydown" v-ripple
                                 @mouseleave="onTimePickerElementMouseLeave()" @keydown.enter="onTimePickerElementMouseDown($event, 0, -1)" @keydown.space="onTimePickerElementMouseDown($event, 0, -1)" @keyup.enter="onTimePickerElementMouseUp($event)" @keyup.space="onTimePickerElementMouseUp($event)" type="button">
                                 <span class="pi pi-chevron-down"></span>
                             </button>
@@ -93,12 +96,15 @@
                             <span>{{timeSeparator}}</span>
                         </div>
                         <div class="p-minute-picker">
-                            <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 1, 1)" @mouseup="onTimePickerElementMouseUp($event)" @keydown="onContainerButtonKeydown" v-ripple :disabled="$attrs.disabled"
+                            <button v-if="showTimePickArrows" class="p-link" @mousedown="onTimePickerElementMouseDown($event, 1, 1)" @mouseup="onTimePickerElementMouseUp($event)" @keydown="onContainerButtonKeydown" v-ripple :disabled="$attrs.disabled"
                                 @mouseleave="onTimePickerElementMouseLeave()" @keydown.enter="onTimePickerElementMouseDown($event, 1, 1)"  @keydown.space="onTimePickerElementMouseDown($event, 1, 1)" @keyup.enter="onTimePickerElementMouseUp($event)" @keyup.space="onTimePickerElementMouseUp($event)" type="button">
                                 <span class="pi pi-chevron-up"></span>
                             </button>
-                        <span>{{formattedCurrentMinute}}</span>
-                            <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 1, -1)" @mouseup="onTimePickerElementMouseUp($event)" @keydown="onContainerButtonKeydown" v-ripple :disabled="$attrs.disabled"
+                            <input v-if="manualTimeInput" class="p-inputtext" :value="formattedCurrentMinute" :disabled="$attrs.disabled" @input="onTimePickerInput($event, 1)" @keydown.up="onTimePickerElementMouseDown($event, 1, 1)" 
+                                @keyup.up="onTimePickerElementMouseUp($event)" @keydown.down="onTimePickerElementMouseDown($event, 1, -1)" @keyup.down="onTimePickerElementMouseUp($event)" 
+                                @keypress="onTimePickerInputKeyPress" />
+                            <span v-else>{{formattedCurrentMinute}}</span>
+                            <button v-if="showTimePickArrows" class="p-link" @mousedown="onTimePickerElementMouseDown($event, 1, -1)" @mouseup="onTimePickerElementMouseUp($event)" @keydown="onContainerButtonKeydown" v-ripple :disabled="$attrs.disabled"
                                 @mouseleave="onTimePickerElementMouseLeave()" @keydown.enter="onTimePickerElementMouseDown($event, 1, -1)" @keydown.space="onTimePickerElementMouseDown($event, 1, -1)" @keyup.enter="onTimePickerElementMouseUp($event)" @keyup.space="onTimePickerElementMouseUp($event)" type="button">
                                 <span class="pi pi-chevron-down"></span>
                             </button>
@@ -107,12 +113,15 @@
                             <span>{{timeSeparator}}</span>
                         </div>
                         <div class="p-second-picker" v-if="showSeconds">
-                            <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 2, 1)" @mouseup="onTimePickerElementMouseUp($event)" @keydown="onContainerButtonKeydown" v-ripple  :disabled="$attrs.disabled"
+                            <button v-if="showTimePickArrows" class="p-link" @mousedown="onTimePickerElementMouseDown($event, 2, 1)" @mouseup="onTimePickerElementMouseUp($event)" @keydown="onContainerButtonKeydown" v-ripple  :disabled="$attrs.disabled"
                                 @mouseleave="onTimePickerElementMouseLeave()" @keydown.enter="onTimePickerElementMouseDown($event, 2, 1)" @keydown.space="onTimePickerElementMouseDown($event, 2, 1)" @keyup.enter="onTimePickerElementMouseUp($event)" @keyup.space="onTimePickerElementMouseUp($event)" type="button">
                                 <span class="pi pi-chevron-up"></span>
                             </button>
-                            <span>{{formattedCurrentSecond}}</span>
-                            <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 2, -1)" @mouseup="onTimePickerElementMouseUp($event)" @keydown="onContainerButtonKeydown" v-ripple  :disabled="$attrs.disabled"
+                            <input v-if="manualTimeInput" class="p-inputtext" :value="formattedCurrentSecond" :disabled="$attrs.disabled" @input="onTimePickerInput($event, 2)" @keydown.up="onTimePickerElementMouseDown($event, 2, 1)" 
+                                @keyup.up="onTimePickerElementMouseUp($event)" @keydown.down="onTimePickerElementMouseDown($event, 2, -1)" @keyup.down="onTimePickerElementMouseUp($event)" 
+                                @keypress="onTimePickerInputKeyPress" />
+                            <span v-else>{{formattedCurrentSecond}}</span>
+                            <button v-if="showTimePickArrows" class="p-link" @mousedown="onTimePickerElementMouseDown($event, 2, -1)" @mouseup="onTimePickerElementMouseUp($event)" @keydown="onContainerButtonKeydown" v-ripple  :disabled="$attrs.disabled"
                                 @mouseleave="onTimePickerElementMouseLeave()" @keydown.enter="onTimePickerElementMouseDown($event, 2, -1)" @keydown.space="onTimePickerElementMouseDown($event, 2, -1)" @keyup.enter="onTimePickerElementMouseUp($event)" @keyup.space="onTimePickerElementMouseUp($event)" type="button">
                                 <span class="pi pi-chevron-down"></span>
                             </button>
@@ -278,6 +287,14 @@ export default {
         showSeconds: {
             type: Boolean,
             default: false
+        },
+        manualTimeInput: {
+            type: Boolean,
+            default: false,
+        },
+        showTimePickArrows: {
+            type: Boolean,
+            default: true,
         },
         hideOnDateTimeSelect: {
             type: Boolean,
@@ -1124,6 +1141,36 @@ export default {
             this.$emit('clear-click', event);
             event.preventDefault();
         },
+        onTimePickerInputKeyPress(event) {
+            if (Number.isNaN(Number(event.key))) {
+                event.preventDefault();
+            }
+        },
+        onTimePickerInput(event, type) {
+            event.preventDefault();
+
+            if (this.isEnabled()) {
+                const { value } = event.target;
+
+                switch(type) {
+                    case 0:
+                        this.manualSetHour(value);
+                        event.target.value = this.formattedCurrentHour;
+                    break;
+
+                    case 1:
+                        this.manualSetMinute(value);
+                        event.target.value = this.formattedCurrentMinute;
+                    break;
+
+                    case 2:
+                        this.manualSetSecond(value);
+                        event.target.value = this.formattedCurrentSecond;
+                    break;
+                }
+                this.updateModelTime();
+            }
+        },
         onTimePickerElementMouseDown(event, type, direction) {
             if (this.isEnabled()) {
                 this.repeat(event, null, type, direction);
@@ -1265,6 +1312,27 @@ export default {
             }
             event.preventDefault();
         },
+        manualSetHour(value) {
+            let newHour = parseInt(value, 10);
+
+            if (this.hourFormat == '24') {
+                if (newHour > 24) {
+                    newHour = parseInt(newHour.toString(10).split('').pop(), 10);
+                } else if (newHour < 0) {
+                    newHour = 0;
+                }
+            } else if (this.hourFormat == '12') {
+                if (newHour > 12) {
+                    newHour = parseInt(newHour.toString(10).split('').pop(), 10);
+                } else if (newHour < 0) {
+                    newHour = 0;
+                }
+            }
+
+            if (this.validateTime(newHour, this.currentMinute, this.currentSecond, this.pm)) {
+                this.currentHour = newHour;
+            }
+        },
         incrementMinute(event) {
             let newMinute = this.currentMinute + this.stepMinute;
             if (this.validateTime(this.currentHour, newMinute, this.currentSecond, true)) {
@@ -1280,6 +1348,19 @@ export default {
             }
 
             event.preventDefault();
+        },
+        manualSetMinute(value) {
+            let newMinute = parseInt(value, 10);
+
+            if (newMinute > 59) {
+                newMinute = parseInt(newMinute.toString(10).split('').pop(), 10);
+            } else if (newMinute < 0) {
+                newMinute = 0;
+            }
+
+            if (this.validateTime(this.currentHour, newMinute, this.currentSecond, true)) {
+                this.currentMinute = newMinute;
+            }
         },
         incrementSecond(event) {
             let newSecond = this.currentSecond + this.stepSecond;
@@ -1297,6 +1378,19 @@ export default {
             }
 
             event.preventDefault();
+        },
+        manualSetSecond(value) {
+            let newSecond = parseInt(value, 10);
+
+            if (newSecond > 59) {
+                newSecond = parseInt(newSecond.toString(10).split('').pop(), 10);
+            } else if (newSecond < 0) {
+                newSecond = 0;
+            }
+
+            if (this.validateTime(this.currentHour, this.currentMinute, newSecond, true)) {
+                this.currentSecond = newSecond;
+            }
         },
         updateModelTime() {
             this.timePickerChange = true;
@@ -2613,6 +2707,11 @@ export default {
     align-items: center;
     flex-direction: column;
 }
+
+.p-timepicker .p-inputtext {
+    width: 44px;
+    text-align: center;
+} 
 
 /* Touch UI */
 .p-datepicker-touch-ui,

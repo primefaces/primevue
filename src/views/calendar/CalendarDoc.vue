@@ -387,6 +387,18 @@ export default {
                         <td>Whether to show the seconds in time picker.</td>
                     </tr>
                     <tr>
+                        <td>manualTimeInput</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>Whether to allow entering values in time picker via typing.</td>
+                    </tr>
+                    <tr>
+                        <td>showTimePickArrows</td>
+                        <td>boolean</td>
+                        <td>true</td>
+                        <td>Whether to show the value-change-arrows in time picker.</td>
+                    </tr>
+                    <tr>
                         <td>hideOnDateTimeSelect</td>
                         <td>boolean</td>
                         <td>false</td>

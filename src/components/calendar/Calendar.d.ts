@@ -174,6 +174,14 @@ export interface CalendarProps {
     /**
      * Whether to display timepicker only.
      */
+    showTimePickArrows?: boolean | undefined;
+    /**
+     * Whether to display time-change-arrows in the timepicker.
+     */
+    manualTimeInput?: boolean | undefined;
+    /**
+     * Whether to allow entering values in timepicker via typing.
+     */
     timeOnly?: boolean | undefined;
     /**
      * Specifies 12 or 24 hour format.
