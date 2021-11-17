@@ -1178,12 +1178,10 @@ export default {
             }
             return hours;
         },
-         validateTime(hour, minute, second, pm) {
-            let value = this.modelValue;
+        validateTime(hour, minute, second, pm) {
+            let value = this.isComparable() ? this.modelValue : this.viewDate;
             const convertedHour = this.convertTo24Hour(hour, pm);
-            if (!this.isComparable()) {
-                return true;
-            }
+
             if (this.isRangeSelection()) {
                 value = this.modelValue[1] || this.modelValue[0];
             }
