@@ -2327,7 +2327,6 @@
   background: #ffffff;
   color: #495057;
   transition: box-shadow 0.2s;
-  outline-color: #C7D2FE;
 }
 .p-datatable .p-datatable-tbody > tr > td {
   text-align: left;
@@ -2368,6 +2367,10 @@
 }
 .p-datatable .p-datatable-tbody > tr > td > .p-column-title {
   font-weight: 700;
+}
+.p-datatable .p-datatable-tbody > tr:focus {
+  outline: 1px solid #C7D2FE;
+  outline-offset: -1px;
 }
 .p-datatable .p-datatable-tbody > tr.p-highlight {
   background: #EEF2FF;
@@ -3314,7 +3317,6 @@
   background: #ffffff;
   color: #495057;
   transition: box-shadow 0.2s;
-  outline-color: #C7D2FE;
 }
 .p-treetable .p-treetable-tbody > tr > td {
   text-align: left;
@@ -3347,6 +3349,10 @@
 }
 .p-treetable .p-treetable-tbody > tr > td .p-treetable-toggler + .p-checkbox .p-indeterminate .p-checkbox-icon {
   color: #495057;
+}
+.p-treetable .p-treetable-tbody > tr:focus {
+  outline: 1px solid #C7D2FE;
+  outline-offset: -1px;
 }
 .p-treetable .p-treetable-tbody > tr.p-highlight {
   background: #EEF2FF;
