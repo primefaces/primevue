@@ -1320,7 +1320,7 @@ export default {
 </code></pre>
 
             <h5>Row Reorder</h5>
-            <p>Data can be reordered using drag drop by adding a reorder column that will display an icon as a drag handle along with the <i>row-order</i> event which is <b>mandatory</b> to update the new order. Note that the reorder icon can be customized using <i>rowReorderIcon</i> of the column component.</p>
+            <p>Data can be reordered using drag drop by adding a reorder column that will display an icon as a drag handle along with the <i>row-reorder</i> event which is <b>mandatory</b> to update the new order. Note that the reorder icon can be customized using <i>rowReorderIcon</i> of the column component.</p>
 <pre v-code><code><template v-pre>
 &lt;DataTable :value="cars" @row-reorder="onRowReorder"&gt;
     &lt;Column :rowReorder="true" headerStyle="width: 3em" /&gt;
