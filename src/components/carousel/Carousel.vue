@@ -9,8 +9,8 @@
 					<span :class="['p-carousel-prev-icon pi', {'pi-chevron-left': !isVertical(),'pi-chevron-up': isVertical()}]"></span>
 				</button>
 
-				<div class="p-carousel-items-content" :style="[{'height': isVertical() ? verticalViewPortHeight : 'auto'}]">
-					<div ref="itemsContainer" class="p-carousel-items-container" @transitionend="onTransitionEnd" @touchend="onTouchEnd" @touchstart="onTouchStart" @touchmove="onTouchMove">
+				<div class="p-carousel-items-content" :style="[{'height': isVertical() ? verticalViewPortHeight : 'auto'}]" @touchend="onTouchEnd" @touchstart="onTouchStart" @touchmove="onTouchMove">
+					<div ref="itemsContainer" class="p-carousel-items-container" @transitionend="onTransitionEnd">
 						<template v-if="isCircular()">
 							<div v-for="(item, index) of value.slice(-1 * d_numVisible)" :key="index + '_scloned'" :class="['p-carousel-item p-carousel-item-cloned',
 								{'p-carousel-item-active': (totalShiftedItems * -1) === (value.length + d_numVisible),
