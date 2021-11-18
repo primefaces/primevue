@@ -311,7 +311,7 @@ export default {
                             dependencies: {
                                 ...extDependencies,
                                 'vue': dependencies['vue'],
-                                'primevue': '^3.7.2',
+                                'primevue': '^3.9.0',
                                 'primeflex': dependencies['primeflex'],
                                 'primeicons': dependencies['primeicons'],
                                 '@babel/cli': dependencies['@babel/cli'],
@@ -337,17 +337,17 @@ export default {
                     },
                     '.eslintrc.js': {
                         content: `module.exports = {
-  root: true,
-  env: {
-    node: true
-  },
-  'extends': [
-    'plugin:vue/vue3-essential',
-    'eslint:recommended'
-  ],
-  parserOptions: {
-    parser: 'babel-eslint'
-  }
+    root: true,
+    env: {
+        node: true
+    },
+    'extends': [
+        'plugin:vue/vue3-essential',
+        'eslint:recommended'
+    ],
+    parserOptions: {
+        parser: 'babel-eslint'
+    }
 }`
                     },
                     'src/index.css': defaultCss,
