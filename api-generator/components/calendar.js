@@ -342,6 +342,10 @@ const CalendarSlots = [
     {
         name: "date",
         description: "Custom content for the calendar cell."
+    },
+    {
+        name: "decade",
+        description: "Custom content for the calendar decade."
     }
 ];
 

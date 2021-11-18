@@ -50,6 +50,10 @@ interface CalendarDateSlotInterface {
     date: any;
 }
 
+interface CalendarDecadeSlotInterface {
+    years: any;
+}
+
 declare class Calendar {
     $props: CalendarProps;
     $emit(eventName: 'update:modelValue', value: Date | Date[]): this;
@@ -64,6 +68,7 @@ declare class Calendar {
         header: VNode[];
         date: CalendarDateSlotInterface;
         footer: VNode[];
+        decade: CalendarDecadeSlotInterface;
     };
 }
 
