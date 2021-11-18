@@ -3120,7 +3120,7 @@ export default {
                 const calendarValue = ref(null);
                 const inputNumberValue = ref(null);
                 const chipsValue = ref(null);
-                const sliderValue = ref(null);
+                const sliderValue = ref(50);
                 const ratingValue = ref(null);
                 const colorValue = ref('1976D2');
                 const radioValue = ref(null);
