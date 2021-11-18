@@ -12,12 +12,6 @@ const PickListProps = [
         description: "Selected items in the list as a multidimensional array."
     },
     {
-        name: "selectionMode",
-        type: "string",
-        default: "null",
-        description: 'Defines selection mode, options are "single" and "multiple".'
-    },
-    {
         name: "metaKeySelection",
         type: "boolean",
         default: "true",
