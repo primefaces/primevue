@@ -80,12 +80,12 @@
                     <div class="p-timepicker" v-if="showTime||timeOnly">
                         <div class="p-hour-picker">
                             <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 0, 1)" @mouseup="onTimePickerElementMouseUp($event)" @keydown="onContainerButtonKeydown" v-ripple
-                                @mouseleave="onTimePickerElementMouseLeave()" @keydown.enter="onTimePickerElementMouseDown($event, 0, 1)" @keyup.enter="onTimePickerElementMouseUp($event)" type="button">
+                                @mouseleave="onTimePickerElementMouseLeave()" @keydown.enter="onTimePickerElementMouseDown($event, 0, 1)" @keydown.space="onTimePickerElementMouseDown($event, 0, 1)" @keyup.enter="onTimePickerElementMouseUp($event)" @keyup.space="onTimePickerElementMouseUp($event)" type="button">
                                 <span class="pi pi-chevron-up"></span>
                             </button>
                             <span>{{formattedCurrentHour}}</span>
                             <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 0, -1)" @mouseup="onTimePickerElementMouseUp($event)" @keydown="onContainerButtonKeydown" v-ripple
-                                @mouseleave="onTimePickerElementMouseLeave()" @keydown.enter="onTimePickerElementMouseDown($event, 0, -1)" @keyup.enter="onTimePickerElementMouseUp($event)" type="button">
+                                @mouseleave="onTimePickerElementMouseLeave()" @keydown.enter="onTimePickerElementMouseDown($event, 0, -1)" @keydown.space="onTimePickerElementMouseDown($event, 0, -1)" @keyup.enter="onTimePickerElementMouseUp($event)" @keyup.space="onTimePickerElementMouseUp($event)" type="button">
                                 <span class="pi pi-chevron-down"></span>
                             </button>
                         </div>
@@ -94,12 +94,12 @@
                         </div>
                         <div class="p-minute-picker">
                             <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 1, 1)" @mouseup="onTimePickerElementMouseUp($event)" @keydown="onContainerButtonKeydown" v-ripple :disabled="$attrs.disabled"
-                                @mouseleave="onTimePickerElementMouseLeave()" @keydown.enter="onTimePickerElementMouseDown($event, 1, 1)" @keyup.enter="onTimePickerElementMouseUp($event)" type="button">
+                                @mouseleave="onTimePickerElementMouseLeave()" @keydown.enter="onTimePickerElementMouseDown($event, 1, 1)"  @keydown.space="onTimePickerElementMouseDown($event, 1, 1)" @keyup.enter="onTimePickerElementMouseUp($event)" @keyup.space="onTimePickerElementMouseUp($event)" type="button">
                                 <span class="pi pi-chevron-up"></span>
                             </button>
                         <span>{{formattedCurrentMinute}}</span>
                             <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 1, -1)" @mouseup="onTimePickerElementMouseUp($event)" @keydown="onContainerButtonKeydown" v-ripple :disabled="$attrs.disabled"
-                                @mouseleave="onTimePickerElementMouseLeave()" @keydown.enter="onTimePickerElementMouseDown($event, 1, -1)" @keyup.enter="onTimePickerElementMouseUp($event)" type="button">
+                                @mouseleave="onTimePickerElementMouseLeave()" @keydown.enter="onTimePickerElementMouseDown($event, 1, -1)" @keydown.space="onTimePickerElementMouseDown($event, 1, -1)" @keyup.enter="onTimePickerElementMouseUp($event)" @keyup.space="onTimePickerElementMouseUp($event)" type="button">
                                 <span class="pi pi-chevron-down"></span>
                             </button>
                         </div>
@@ -108,12 +108,12 @@
                         </div>
                         <div class="p-second-picker" v-if="showSeconds">
                             <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 2, 1)" @mouseup="onTimePickerElementMouseUp($event)" @keydown="onContainerButtonKeydown" v-ripple  :disabled="$attrs.disabled"
-                                @mouseleave="onTimePickerElementMouseLeave()" @keydown.enter="onTimePickerElementMouseDown($event, 2, 1)" @keyup.enter="onTimePickerElementMouseUp($event)" type="button">
+                                @mouseleave="onTimePickerElementMouseLeave()" @keydown.enter="onTimePickerElementMouseDown($event, 2, 1)" @keydown.space="onTimePickerElementMouseDown($event, 2, 1)" @keyup.enter="onTimePickerElementMouseUp($event)" @keyup.space="onTimePickerElementMouseUp($event)" type="button">
                                 <span class="pi pi-chevron-up"></span>
                             </button>
                             <span>{{formattedCurrentSecond}}</span>
                             <button class="p-link" @mousedown="onTimePickerElementMouseDown($event, 2, -1)" @mouseup="onTimePickerElementMouseUp($event)" @keydown="onContainerButtonKeydown" v-ripple  :disabled="$attrs.disabled"
-                                @mouseleave="onTimePickerElementMouseLeave()" @keydown.enter="onTimePickerElementMouseDown($event, 2, -1)" @keyup.enter="onTimePickerElementMouseUp($event)" type="button">
+                                @mouseleave="onTimePickerElementMouseLeave()" @keydown.enter="onTimePickerElementMouseDown($event, 2, -1)" @keydown.space="onTimePickerElementMouseDown($event, 2, -1)" @keyup.enter="onTimePickerElementMouseUp($event)" @keyup.space="onTimePickerElementMouseUp($event)" type="button">
                                 <span class="pi pi-chevron-down"></span>
                             </button>
                         </div>
