@@ -309,6 +309,7 @@ export default {
         style: null
     },
     navigationState: null,
+    timePickerChange: false,
     scrollHandler: null,
     outsideClickListener: null,
     maskClickListener: null,
@@ -1298,6 +1299,7 @@ export default {
             event.preventDefault();
         },
         updateModelTime() {
+            this.timePickerChange = true;
             let value = this.isComparable() ? this.modelValue : this.viewDate;
 
             if (this.isRangeSelection()) {
@@ -1334,6 +1336,7 @@ export default {
 
             this.updateModel(value);
             this.$emit('date-select', value);
+            setTimeout(() => this.timePickerChange = false, 0);
         },
         toggleAMPM(event) {
             this.pm = !this.pm;
@@ -2083,7 +2086,7 @@ export default {
             if (cell) {
                 cell.tabIndex = '0';
 
-                if (!this.navigationState || !this.navigationState.button) {
+                if ((!this.navigationState || !this.navigationState.button) && !this.timePickerChange) {
                     cell.focus();
                 }
             }
