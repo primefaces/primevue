@@ -26,6 +26,7 @@
       "attributes": "./vetur-attributes.json"
     },
     "peerDependencies": {
-      "vue": "^3.0.0"
+      "vue": "^3.0.0",
+      "primeicons": "^5.0.0"
     }
   }
