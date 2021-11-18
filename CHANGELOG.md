@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.9.1](https://github.com/primefaces/primevue/tree/3.9.1) (2021-11-18)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.9.0...3.9.1)
+
+**Breaking Changes:**
+- Rename slots for toolbar  [\#1761](https://github.com/primefaces/primevue/issues/1761)
+
 ## [3.9.0](https://github.com/primefaces/primevue/tree/3.9.0) (2021-11-18)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.8.1...3.9.0)
@@ -26,7 +33,6 @@
 - Dynamic labels for Menu components [\#449](https://github.com/primefaces/primevue/issues/449)
 
 **Breaking Changes:**
-- Rename slots for toolbar  [\#1761](https://github.com/primefaces/primevue/issues/1761)
 - Rename slot names for paginatorLeft and paginatorRight  [\#1760](https://github.com/primefaces/primevue/issues/1760)
 - Lowercase slot names for PickList sourceHeader-targetHeader  [\#1759](https://github.com/primefaces/primevue/issues/1759)
 
