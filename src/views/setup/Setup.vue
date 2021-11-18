@@ -12,7 +12,7 @@
             <p>PrimeVue is available at <a href="https://www.npmjs.com/package/primevue">npm</a>, if you have an existing application run the following commands to download PrimeVue and PrimeIcons to your project.</p>
 
 <pre v-code.script><code>
-npm install primevue@^3.8.2 --save
+npm install primevue@^3.9.0 --save
 npm install primeicons --save
 
 </code></pre>
@@ -214,7 +214,7 @@ export default defineNuxtPlugin((nuxtApp) => {
 <pre v-code.script><code>
 dependencies: {
     "vue": "^3.0.0",
-    "primeicons": "^4.0.0"
+    "primeicons": "^5.0.0"
 }
 
 </code></pre>
