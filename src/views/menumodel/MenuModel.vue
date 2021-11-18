@@ -40,7 +40,7 @@ const items: [
                         <tbody>
                             <tr>
                                 <td>label</td>
-                                <td>string | function</td>
+                                <td>string | function</td>
                                 <td>null</td>
                                  <td>Property name or getter function to use as the label of an item.</td>
                             </tr>
