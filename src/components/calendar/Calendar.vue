@@ -5,7 +5,7 @@
         <CalendarButton v-if="showIcon" :icon="icon" tabindex="-1" class="p-datepicker-trigger" :disabled="$attrs.disabled" @click="onButtonClick" type="button" :aria-label="inputFieldValue"/>
         <Teleport :to="appendTarget" :disabled="appendDisabled">
             <transition name="p-connected-overlay" @enter="onOverlayEnter($event)" @after-enter="onOverlayEnterComplete" @after-leave="onOverlayAfterLeave" @leave="onOverlayLeave">
-                <div :ref="overlayRef" :class="panelStyleClass" v-if="inline ? true : overlayVisible" :role="inline ? null : 'dialog'" @click="onOverlayClick">
+                <div :ref="overlayRef" :class="panelStyleClass" v-if="inline ? true : overlayVisible" :role="inline ? null : 'dialog'" @click="onOverlayClick" @mouseup="onOverlayMouseUp">
                     <template v-if="!timeOnly">
                         <div class="p-datepicker-group-container">
                             <div class="p-datepicker-group" v-for="(month,groupIndex) of months" :key="month.month + month.year">
@@ -2130,6 +2130,9 @@ export default {
                     target: this.$el
                 });
             }
+        },
+        onOverlayMouseUp(event) {
+            this.onOverlayClick(event);
         },
         createResponsiveStyle() {
             if (this.numberOfMonths > 1 && this.responsiveOptions) {

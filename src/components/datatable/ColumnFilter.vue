@@ -9,7 +9,7 @@
         <button v-if="showClearButton && display === 'row'" :class="{'p-hidden-space': !hasRowFilter()}" type="button" class="p-column-filter-clear-button p-link" @click="clearFilter()"><span class="pi pi-filter-slash"></span></button>
         <Teleport to="body">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
-                <div :ref="overlayRef" :class="overlayClass" v-if="overlayVisible" @keydown.escape="onEscape" @click="onContentClick">
+                <div :ref="overlayRef" :class="overlayClass" v-if="overlayVisible" @keydown.escape="onEscape" @click="onContentClick" @mousedown="onContentMouseDown">
                     <component :is="filterHeaderTemplate" :field="field" :filterModel="filters[field]" :filterCallback="filterCallback" />
                     <template v-if="display === 'row'">
                         <ul class="p-column-filter-row-items">
@@ -346,7 +346,15 @@ export default {
         hide() {
             this.overlayVisible = false;
         },
-        onContentClick() {
+        onContentClick(event) {
+            this.selfClick = true;
+
+            OverlayEventBus.emit('overlay-click', {
+                originalEvent: event,
+                target: this.overlay
+            });
+        },
+        onContentMouseDown() {
             this.selfClick = true;
         },
         onOverlayEnter(el) {
@@ -360,7 +368,7 @@ export default {
             this.bindResizeListener();
 
             this.overlayEventListener = (e) => {
-                if (this.overlay.contains(e.target)) {
+                if (!this.isOutsideClicked(e.target)) {
                     this.selfClick = true;
                 }
             }
@@ -383,13 +391,16 @@ export default {
         overlayRef(el) {
             this.overlay = el;
         },
-        isTargetClicked(event) {
-            return this.$refs.icon && (this.$refs.icon === event.target || this.$refs.icon.contains(event.target));
+        isOutsideClicked(target) {
+            return !this.isTargetClicked(target) && this.overlay && !(this.overlay.isSameNode(target) || this.overlay.contains(target));
+        },
+        isTargetClicked(target) {
+            return this.$refs.icon && (this.$refs.icon.isSameNode(target) || this.$refs.icon.contains(target));
         },
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
                 this.outsideClickListener = (event) => {
-                    if (this.overlayVisible && !this.selfClick && !this.isTargetClicked(event)) {
+                    if (this.overlayVisible && !this.selfClick && this.isOutsideClicked(event.target)) {
                         this.overlayVisible = false;
                     }
                     this.selfClick = false;
