@@ -1,5 +1,64 @@
 # Changelog
 
+## [3.9.0](https://github.com/primefaces/primevue/tree/3.9.0) (2021-11-18)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.8.1...3.9.0)
+
+**Implemented New Features and Enhancements:**
+
+- Improve table row reorder highlight [\#1777](https://github.com/primefaces/primevue/issues/1777)
+- PickList slots before and after the buttons [\#1758](https://github.com/primefaces/primevue/issues/1758)
+- OrderList slots before and after the buttons [\#1757](https://github.com/primefaces/primevue/issues/1757)
+- Add responsiveOptions property to Calendar [\#1750](https://github.com/primefaces/primevue/issues/1750)
+- New change event for SelectButton [\#1748](https://github.com/primefaces/primevue/issues/1748)
+- Year Picker for Calendar [\#1744](https://github.com/primefaces/primevue/issues/1744)
+- New Lara Theme Family as the Default Theme [\#1742](https://github.com/primefaces/primevue/issues/1742)
+- TreeSelect should automatically scroll to show the selected option [\#1735](https://github.com/primefaces/primevue/issues/1735)
+- New rowStyle prop for DataTable [\#1734](https://github.com/primefaces/primevue/issues/1734)
+- Update PrimeIcons v5.0.0 [\#1733](https://github.com/primefaces/primevue/issues/1733)
+- Material | Use box-shadow for outlined Buttons [\#1729](https://github.com/primefaces/primevue/issues/1729)
+- Material Focus Improvements [\#1728](https://github.com/primefaces/primevue/issues/1728)
+- ColorPicker: events  [\#1719](https://github.com/primefaces/primevue/issues/1719)
+- Templating Support for ConfirmPopup [\#1685](https://github.com/primefaces/primevue/issues/1685)
+- Default focus button should be configurable for ConfirmDialog [\#1663](https://github.com/primefaces/primevue/issues/1663)
+- \[Feature Request\] Disable +- Button on InputNumber when value reach min, max [\#1621](https://github.com/primefaces/primevue/issues/1621)
+- Enhanced UI for month and year picker for Calendar [\#1580](https://github.com/primefaces/primevue/issues/1580)
+- Dynamic labels for Menu components [\#449](https://github.com/primefaces/primevue/issues/449)
+
+**Breaking Changes:**
+- Rename slots for toolbar  [\#1761](https://github.com/primefaces/primevue/issues/1761)
+- Rename slot names for paginatorLeft and paginatorRight  [\#1760](https://github.com/primefaces/primevue/issues/1760)
+- Lowercase slot names for PickList sourceHeader-targetHeader  [\#1759](https://github.com/primefaces/primevue/issues/1759)
+
+**Fixed bugs:**
+
+- Cannot select date in calendar in small viewports [\#1775](https://github.com/primefaces/primevue/issues/1775)
+- Disabled not working for SelectButton [\#1773](https://github.com/primefaces/primevue/issues/1773)
+- Formatting is not applied when keepInvalid is on [\#1772](https://github.com/primefaces/primevue/issues/1772)
+- DataTable Focus Row Rectangle on Safari [\#1768](https://github.com/primefaces/primevue/issues/1768)
+- DataTable lazy loading paginator defect [\#1766](https://github.com/primefaces/primevue/issues/1766)
+- ProgressBar: color text accessibility issue [\#1752](https://github.com/primefaces/primevue/issues/1752)
+- Cell editing without editor templating defect [\#1745](https://github.com/primefaces/primevue/issues/1745)
+- Missing InputText events [\#1738](https://github.com/primefaces/primevue/issues/1738)
+- \[Bug\] PanelMenu template prop type issue [\#1732](https://github.com/primefaces/primevue/issues/1732)
+- BUG: Autocomplete \#header slot with autoHighlight option [\#1720](https://github.com/primefaces/primevue/issues/1720)
+- Calendar in timeonly mode ignores minDate, maxDate [\#1716](https://github.com/primefaces/primevue/issues/1716)
+- DataTable wrong TypeScript definition for row click events [\#1715](https://github.com/primefaces/primevue/issues/1715)
+- Calendar manual input 1st digit does not appear [\#1713](https://github.com/primefaces/primevue/issues/1713)
+- Calendar manual input not working properly [\#1712](https://github.com/primefaces/primevue/issues/1712)
+- optionDisabled prop on Dropdown wrongly typed [\#1705](https://github.com/primefaces/primevue/issues/1705)
+- TS Typings for TerminalService are incorrect [\#1701](https://github.com/primefaces/primevue/issues/1701)
+- Panel \#icons template causes vue-tsc compile error [\#1698](https://github.com/primefaces/primevue/issues/1698)
+- Cannot create dynamic ColumnGroup columns in DataTable [\#1630](https://github.com/primefaces/primevue/issues/1630)
+- keyboard navigation is broken in AutoComplete with VirtualScroller [\#1597](https://github.com/primefaces/primevue/issues/1597)
+- Carousel swipe function is broken on iOS devices [\#1584](https://github.com/primefaces/primevue/issues/1584)
+- DataTable with selectionMode 'multiple' select with shift [\#1562](https://github.com/primefaces/primevue/issues/1562)
+- bug ConfirmDialog \(async accept\reject\) [\#1454](https://github.com/primefaces/primevue/issues/1454)
+
+**Deprecated:**
+
+- Deprecated props in Calendar [\#1743](https://github.com/primefaces/primevue/issues/1743)
+
 ## [3.8.2](https://github.com/primefaces/primevue/tree/3.8.2) (2021-10-25)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.8.1...3.8.2)
