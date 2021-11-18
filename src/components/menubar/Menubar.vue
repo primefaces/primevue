@@ -159,5 +159,6 @@ export default {
     cursor: pointer;
     align-items: center;
     justify-content: center;
+    text-decoration: none;
 }
 </style>

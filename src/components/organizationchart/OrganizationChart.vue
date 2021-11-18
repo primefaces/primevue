@@ -117,6 +117,7 @@ export default {
     cursor: pointer;
     width: 1.5rem;
     height: 1.5rem;
+    text-decoration: none;
 }
 
 .p-organizationchart-node-content .p-node-toggler .p-node-toggler-icon {
