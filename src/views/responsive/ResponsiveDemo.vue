@@ -2526,7 +2526,8 @@ export default {
                 },
                 'browser-source': {
                     tabName: 'Browser Source',
-                    imports: `<script src="https://unpkg.com/primevue@^3/textarea/textarea.min.js"><\\/script>
+                    imports: `<script src="https://unpkg.com/vue-router@4.0.0/dist/vue-router.global.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/textarea/textarea.min.js"><\\/script>
         <script src="https://unpkg.com/primevue@^3/autocomplete/autocomplete.min.js"><\\/script>
         <script src="https://unpkg.com/primevue@^3/calendar/calendar.min.js"><\\/script>
         <script src="https://unpkg.com/primevue@^3/chips/chips.min.js"><\\/script>
@@ -2563,7 +2564,8 @@ export default {
         <script src="./CustomerService.js"><\\/script>
         <script src="./CountryService.js"><\\/script>
         <script src="./ProductService.js"><\\/script>`,
-                    content: `<div id="app">
+                    content: `
+        <div id="app">
             <h1>Responsive Design</h1>
             <div class="p-grid">
                 <div class="p-col-12 p-md-6 p-fluid">
@@ -3432,7 +3434,15 @@ export default {
             }
         };
 
+        const routes = [{ path: "/", component: App }];
+
+        const router = VueRouter.createRouter({
+            history: VueRouter.createWebHashHistory(),
+            routes
+        });
+
         createApp(App)
+            .use(router)
             .use(primevue.config.default, { ripple: true })
             .use(primevue.toastservice)
             .use(primevue.confirmationservice)

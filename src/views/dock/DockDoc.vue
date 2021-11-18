@@ -1023,22 +1023,22 @@ export default {
             <div class="dock-window">
                 <p-dock :model="dockBasicItems" position="bottom">
                     <template #icon="{ item }">
-                        <img :alt="item.label" :src="item.icon" style="width: 100%" />
+                        <img :alt="item.label" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" style="width: 100%" />
                     </template>
                 </p-dock>
                 <p-dock :model="dockBasicItems" position="top">
                     <template #icon="{ item }">
-                        <img :alt="item.label" :src="item.icon" style="width: 100%" />
+                        <img :alt="item.label" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" style="width: 100%" />
                     </template>
                 </p-dock>
                 <p-dock :model="dockBasicItems" position="left">
                     <template #icon="{ item }">
-                        <img :alt="item.label" :src="item.icon" style="width: 100%" />
+                        <img :alt="item.label" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" style="width: 100%" />
                     </template>
                 </p-dock>
                 <p-dock :model="dockBasicItems" position="right">
                     <template #icon="{ item }">
-                        <img :alt="item.label" :src="item.icon" style="width: 100%" />
+                        <img :alt="item.label" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" style="width: 100%" />
                     </template>
                 </p-dock>
             </div>
