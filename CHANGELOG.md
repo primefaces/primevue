@@ -26,9 +26,9 @@
 - Dynamic labels for Menu components [\#449](https://github.com/primefaces/primevue/issues/449)
 
 **Breaking Changes:**
-- Rename slots for toolbar  [\#1719](https://github.com/primefaces/primevue/issues/1761)
-- Rename slot names for paginatorLeft and paginatorRight  [\#1719](https://github.com/primefaces/primevue/issues/1760)
-- Lowercase slot names for PickList sourceHeader-targetHeader  [\#1719](https://github.com/primefaces/primevue/issues/1759)
+- Rename slots for toolbar  [\#1761](https://github.com/primefaces/primevue/issues/1761)
+- Rename slot names for paginatorLeft and paginatorRight  [\#1760](https://github.com/primefaces/primevue/issues/1760)
+- Lowercase slot names for PickList sourceHeader-targetHeader  [\#1759](https://github.com/primefaces/primevue/issues/1759)
 
 **Fixed bugs:**
 
