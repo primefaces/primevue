@@ -25,6 +25,11 @@
 - Enhanced UI for month and year picker for Calendar [\#1580](https://github.com/primefaces/primevue/issues/1580)
 - Dynamic labels for Menu components [\#449](https://github.com/primefaces/primevue/issues/449)
 
+**Breaking Changes:**
+- Rename slots for toolbar  [\#1719](https://github.com/primefaces/primevue/issues/1761)
+- Rename slot names for paginatorLeft and paginatorRight  [\#1719](https://github.com/primefaces/primevue/issues/1760)
+- Lowercase slot names for PickList sourceHeader-targetHeader  [\#1719](https://github.com/primefaces/primevue/issues/1759)
+
 **Fixed bugs:**
 
 - Cannot select date in calendar in small viewports [\#1775](https://github.com/primefaces/primevue/issues/1775)
