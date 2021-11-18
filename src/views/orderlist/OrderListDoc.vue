@@ -454,7 +454,7 @@ export default {
         <script src="./ProductService.js"><\\/script>`,
                     content: `<div id="app">
             <div class="card">
-                <p-orderlist v-model="products" listStyle="height:auto" dataKey="id">
+                <p-orderlist v-model="products" list-style="height:auto" data-key="id">
                     <template #header>
                         List of Products
                     </template>

@@ -697,12 +697,12 @@ export default {
                             icon:'pi pi-fw pi-plus',
                             items:[
                                 {
-                                label:'Bookmark',
-                                icon:'pi pi-fw pi-bookmark'
+                                    label:'Bookmark',
+                                    icon:'pi pi-fw pi-bookmark'
                                 },
                                 {
-                                label:'Video',
-                                icon:'pi pi-fw pi-video'
+                                    label:'Video',
+                                    icon:'pi pi-fw pi-video'
                                 },
                             ]
                         },
