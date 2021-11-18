@@ -2327,7 +2327,6 @@
   background: #ffffff;
   color: #3f3f46;
   transition: none;
-  outline-color: #6366F1;
 }
 .p-datatable .p-datatable-tbody > tr > td {
   text-align: left;
@@ -2368,6 +2367,10 @@
 }
 .p-datatable .p-datatable-tbody > tr > td > .p-column-title {
   font-weight: 500;
+}
+.p-datatable .p-datatable-tbody > tr:focus {
+  outline: 1px solid #6366F1;
+  outline-offset: -1px;
 }
 .p-datatable .p-datatable-tbody > tr.p-highlight {
   background: #EEF2FF;
@@ -3314,7 +3317,6 @@
   background: #ffffff;
   color: #3f3f46;
   transition: none;
-  outline-color: #6366F1;
 }
 .p-treetable .p-treetable-tbody > tr > td {
   text-align: left;
@@ -3347,6 +3349,10 @@
 }
 .p-treetable .p-treetable-tbody > tr > td .p-treetable-toggler + .p-checkbox .p-indeterminate .p-checkbox-icon {
   color: #3f3f46;
+}
+.p-treetable .p-treetable-tbody > tr:focus {
+  outline: 1px solid #6366F1;
+  outline-offset: -1px;
 }
 .p-treetable .p-treetable-tbody > tr.p-highlight {
   background: #EEF2FF;
@@ -5328,7 +5334,7 @@
   background: #4F46E5;
 }
 .p-progressbar .p-progressbar-label {
-  color: #3f3f46;
+  color: #ffffff;
   line-height: 1.5rem;
 }
 
@@ -5473,4 +5479,11 @@
 
 .p-galleria .p-galleria-indicators .p-galleria-indicator.p-highlight button {
   background-color: #4F46E5;
+}
+
+.p-datatable .p-datatable-tbody > tr.p-datatable-dragpoint-top > td {
+  box-shadow: inset 0 2px 0 0 #4F46E5;
+}
+.p-datatable .p-datatable-tbody > tr.p-datatable-dragpoint-bottom > td {
+  box-shadow: inset 0 -2px 0 0 #4F46E5;
 }

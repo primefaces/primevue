@@ -2292,7 +2292,6 @@
   background: #1f2d40;
   color: rgba(255, 255, 255, 0.87);
   transition: box-shadow 0.2s;
-  outline-color: #a7d8a9;
 }
 .p-datatable .p-datatable-tbody > tr > td {
   text-align: left;
@@ -2333,6 +2332,10 @@
 }
 .p-datatable .p-datatable-tbody > tr > td > .p-column-title {
   font-weight: 600;
+}
+.p-datatable .p-datatable-tbody > tr:focus {
+  outline: 1px solid #a7d8a9;
+  outline-offset: -1px;
 }
 .p-datatable .p-datatable-tbody > tr.p-highlight {
   background: rgba(129, 199, 132, 0.16);
@@ -3279,7 +3282,6 @@
   background: #1f2d40;
   color: rgba(255, 255, 255, 0.87);
   transition: box-shadow 0.2s;
-  outline-color: #a7d8a9;
 }
 .p-treetable .p-treetable-tbody > tr > td {
   text-align: left;
@@ -3312,6 +3314,10 @@
 }
 .p-treetable .p-treetable-tbody > tr > td .p-treetable-toggler + .p-checkbox .p-indeterminate .p-checkbox-icon {
   color: rgba(255, 255, 255, 0.87);
+}
+.p-treetable .p-treetable-tbody > tr:focus {
+  outline: 1px solid #a7d8a9;
+  outline-offset: -1px;
 }
 .p-treetable .p-treetable-tbody > tr.p-highlight {
   background: rgba(129, 199, 132, 0.16);
@@ -5293,7 +5299,7 @@
   background: #81C784;
 }
 .p-progressbar .p-progressbar-label {
-  color: rgba(255, 255, 255, 0.87);
+  color: #212529;
   line-height: 1.5rem;
 }
 
@@ -5373,4 +5379,11 @@
 }
 .p-galleria.p-galleria-indicator-onitem .p-galleria-indicators .p-galleria-indicator.p-highlight button {
   background: #81C784;
+}
+
+.p-datatable .p-datatable-tbody > tr.p-datatable-dragpoint-top > td {
+  box-shadow: inset 0 2px 0 0 #81C784;
+}
+.p-datatable .p-datatable-tbody > tr.p-datatable-dragpoint-bottom > td {
+  box-shadow: inset 0 -2px 0 0 #81C784;
 }

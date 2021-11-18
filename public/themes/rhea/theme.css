@@ -2292,7 +2292,6 @@
   background: #ffffff;
   color: #666666;
   transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
-  outline-color: #e4e9ec;
 }
 .p-datatable .p-datatable-tbody > tr > td {
   text-align: left;
@@ -2333,6 +2332,10 @@
 }
 .p-datatable .p-datatable-tbody > tr > td > .p-column-title {
   font-weight: 700;
+}
+.p-datatable .p-datatable-tbody > tr:focus {
+  outline: 1px solid #e4e9ec;
+  outline-offset: -1px;
 }
 .p-datatable .p-datatable-tbody > tr.p-highlight {
   background: #AFD3C8;
@@ -3279,7 +3282,6 @@
   background: #ffffff;
   color: #666666;
   transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
-  outline-color: #e4e9ec;
 }
 .p-treetable .p-treetable-tbody > tr > td {
   text-align: left;
@@ -3312,6 +3314,10 @@
 }
 .p-treetable .p-treetable-tbody > tr > td .p-treetable-toggler + .p-checkbox .p-indeterminate .p-checkbox-icon {
   color: #666666;
+}
+.p-treetable .p-treetable-tbody > tr:focus {
+  outline: 1px solid #e4e9ec;
+  outline-offset: -1px;
 }
 .p-treetable .p-treetable-tbody > tr.p-highlight {
   background: #AFD3C8;
@@ -5244,7 +5250,7 @@
   background: #7B95A3;
 }
 .p-progressbar .p-progressbar-label {
-  color: #666666;
+  color: #ffffff;
   line-height: 24px;
 }
 
