@@ -22,9 +22,9 @@
                     <slot name="header" :value="modelValue" :suggestions="suggestions"></slot>
                     <VirtualScroller :ref="virtualScrollerRef" v-bind="virtualScrollerOptions" :style="{'height': scrollHeight}" :items="suggestions" :disabled="virtualScrollerDisabled">
                         <template v-slot:content="{ styleClass, contentRef, items, getItemOptions }">
-                            <ul :id="listId" :ref="contentRef" :class="['p-autocomplete-items', styleClass]" role="listbox">
+                            <ul :id="listId" :ref="(el) => listRef(el, contentRef)" :class="['p-autocomplete-items', styleClass]" role="listbox">
                                 <template v-if="!optionGroupLabel">
-                                    <li v-for="(item, i) of items" class="p-autocomplete-item" :key="i" @click="selectItem($event, item)" role="option" v-ripple>
+                                    <li v-for="(item, i) of items" class="p-autocomplete-item" :key="getOptionRenderKey(item)" @click="selectItem($event, item)" role="option" v-ripple :data-index="getOptionIndex(i, getItemOptions)">
                                         <slot name="item" :item="item" :index="getOptionIndex(i, getItemOptions)">{{getItemContent(item)}}</slot>
                                     </li>
                                 </template>
@@ -33,7 +33,7 @@
                                         <li  class="p-autocomplete-item-group">
                                             <slot name="optiongroup" :item="optionGroup" :index="getOptionIndex(i, getItemOptions)">{{getOptionGroupLabel(optionGroup)}}</slot>
                                         </li>
-                                        <li v-for="(item, j) of getOptionGroupChildren(optionGroup)" class="p-autocomplete-item" :key="j" @click="selectItem($event, item)" role="option" v-ripple :data-group="i" :data-index="j">
+                                        <li v-for="(item, j) of getOptionGroupChildren(optionGroup)" class="p-autocomplete-item" :key="j" @click="selectItem($event, item)" role="option" v-ripple :data-group="i" :data-index="getOptionIndex(j, getItemOptions)">
                                             <slot name="item" :item="item" :index="getOptionIndex(j, getItemOptions)">{{getItemContent(item)}}</slot>
                                         </li>
                                     </template>
@@ -174,6 +174,9 @@ export default {
         getOptionIndex(index, fn) {
             return this.virtualScrollerDisabled ? index : (fn && fn(index)['index']);
         },
+        getOptionRenderKey(option) {
+            return this.getItemContent(option);
+        },
         getOptionGroupRenderKey(optionGroup) {
             return ObjectUtils.resolveFieldData(optionGroup, this.optionGroupLabel);
         },
@@ -191,8 +194,7 @@ export default {
             this.bindResizeListener();
 
             if (this.autoHighlight && this.suggestions && this.suggestions.length) {
-                let itemList = DomHandler.findSingle(this.overlay, '.p-autocomplete-items');
-                DomHandler.addClass(itemList.firstElementChild, 'p-highlight');
+                DomHandler.addClass(this.list.firstElementChild, 'p-highlight');
             }
         },
         onOverlayLeave() {
@@ -394,7 +396,7 @@ export default {
         },
         onKeyDown(event) {
             if (this.overlayVisible) {
-                let highlightItem = DomHandler.findSingle(this.overlay, 'li.p-highlight');
+                let highlightItem = DomHandler.findSingle(this.list, 'li.p-highlight');
 
                 switch(event.which) {
                     //down
@@ -404,11 +406,11 @@ export default {
                             if (nextElement) {
                                 DomHandler.addClass(nextElement, 'p-highlight');
                                 DomHandler.removeClass(highlightItem, 'p-highlight');
-                                DomHandler.scrollInView(this.overlay, nextElement);
+                                nextElement.scrollIntoView({ block: 'nearest', inline: 'start' });
                             }
                         }
                         else {
-                            highlightItem = this.overlay.firstElementChild.firstElementChild;
+                            highlightItem = this.list.firstElementChild;
                             if (DomHandler.hasClass(highlightItem, 'p-autocomplete-item-group')) {
                                 highlightItem = this.findNextItem(highlightItem);
                             }
@@ -428,7 +430,7 @@ export default {
                             if (previousElement) {
                                 DomHandler.addClass(previousElement, 'p-highlight');
                                 DomHandler.removeClass(highlightItem, 'p-highlight');
-                                DomHandler.scrollInView(this.overlay, previousElement);
+                                previousElement.scrollIntoView({ block: 'nearest', inline: 'start' });
                             }
                         }
 
@@ -492,7 +494,7 @@ export default {
                 this.selectItem(event, this.getOptionGroupChildren(optionGroup)[item.dataset.index]);
             }
             else {
-                this.selectItem(event, this.suggestions[DomHandler.index(item)]);
+                this.selectItem(event, this.suggestions[item.dataset.index]);
             }
         },
         findNextItem(item) {
@@ -552,6 +554,10 @@ export default {
         },
         overlayRef(el) {
             this.overlay = el;
+        },
+        listRef(el, contentRef) {
+            this.list = el;
+            contentRef && contentRef(el); // for virtualScroller
         },
         virtualScrollerRef(el) {
             this.virtualScroller = el;
