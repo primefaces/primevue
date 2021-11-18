@@ -680,10 +680,12 @@ export default {
         },
         switchToMonthView(event) {
             this.currentView = 'month';
+            setTimeout(this.updateFocus, 0);
             event.preventDefault();
         },
         switchToYearView(event) {
             this.currentView = 'year';
+            setTimeout(this.updateFocus, 0);
             event.preventDefault();
         },
         isEnabled() {
@@ -1352,6 +1354,8 @@ export default {
                 this.currentView = 'date';
                 this.$emit('month-change', {month: this.currentMonth + 1, year: this.currentYear});
             }
+
+            setTimeout(this.updateFocus, 0);
         },
         onYearSelect(event, year) {
             if (this.view === 'year') {
@@ -1362,6 +1366,8 @@ export default {
                 this.currentView = 'month';
                 this.$emit('year-change', {month: this.currentMonth + 1, year: this.currentYear});
             }
+
+            setTimeout(this.updateFocus, 0);
         },
         enableModality() {
             if (!this.mask) {
@@ -1783,7 +1789,9 @@ export default {
                 }
 
                 //enter
-                case 13: {
+                //space
+                case 13:
+                case 32: {
                     this.onDateSelect(event, date);
                     event.preventDefault();
                     break;
@@ -1817,7 +1825,7 @@ export default {
                 }
                 else {
                     let prevMonthContainer = this.overlay.children[groupIndex - 1];
-                    let cells = DomHandler.find(prevMonthContainer, '.p-datepicker-calendar td span:not(.p-disabled)');
+                    let cells = DomHandler.find(prevMonthContainer, '.p-datepicker-calendar td span:not(.p-disabled):not(.p-ink)');
                     let focusCell = cells[cells.length - 1];
                     focusCell.tabIndex = '0';
                     focusCell.focus();
@@ -1830,7 +1838,7 @@ export default {
                 }
                 else {
                     let nextMonthContainer = this.overlay.children[groupIndex + 1];
-                    let focusCell = DomHandler.findSingle(nextMonthContainer, '.p-datepicker-calendar td span:not(.p-disabled)');
+                    let focusCell = DomHandler.findSingle(nextMonthContainer, '.p-datepicker-calendar td span:not(.p-disabled):not(.p-ink)');
                     focusCell.tabIndex = '0';
                     focusCell.focus();
                 }
@@ -1863,6 +1871,10 @@ export default {
                         prevCell.tabIndex = '0';
                         prevCell.focus();
                     }
+                    else {
+                        this.navigationState = {backward: true};
+                        this.navBackward(event);
+                    }
                     event.preventDefault();
                     break;
                 }
@@ -1875,12 +1887,18 @@ export default {
                         nextCell.tabIndex = '0';
                         nextCell.focus();
                     }
+                    else {
+                        this.navigationState = {backward: false};
+                        this.navForward(event);
+                    }
                     event.preventDefault();
                     break;
                 }
 
                 //enter
-                case 13: {
+                //space
+                case 13:
+                case 32: {
                     this.onMonthSelect(event, index);
                     event.preventDefault();
                     break;
@@ -1914,7 +1932,7 @@ export default {
                     cell.tabIndex = '-1';
                     var cells = cell.parentElement.children;
                     var cellIndex = DomHandler.index(cell);
-                    let nextCell = cells[event.which === 40 ? cellIndex + 3 : cellIndex -3];
+                    let nextCell = cells[event.which === 40 ? cellIndex + 2 : cellIndex - 2];
                     if (nextCell) {
                         nextCell.tabIndex = '0';
                         nextCell.focus();
@@ -1931,6 +1949,10 @@ export default {
                         prevCell.tabIndex = '0';
                         prevCell.focus();
                     }
+                    else {
+                        this.navigationState = {backward: true};
+                        this.navBackward(event);
+                    }
                     event.preventDefault();
                     break;
                 }
@@ -1943,13 +1965,19 @@ export default {
                         nextCell.tabIndex = '0';
                         nextCell.focus();
                     }
+                    else {
+                        this.navigationState = {backward: false};
+                        this.navForward(event);
+                    }
                     event.preventDefault();
                     break;
                 }
 
                 //enter
-                case 13: {
-                    this.onMonthSelect(event, index);
+                //space
+                case 13:
+                case 32: {
+                    this.onYearSelect(event, index);
                     event.preventDefault();
                     break;
                 }
@@ -1974,6 +2002,7 @@ export default {
         },
         updateFocus() {
             let cell;
+
             if (this.navigationState) {
                 if (this.navigationState.button) {
                     this.initFocusableCell();
@@ -1985,11 +2014,32 @@ export default {
                 }
                 else {
                     if (this.navigationState.backward) {
-                        let cells = DomHandler.find(this.overlay, '.p-datepicker-calendar td span:not(.p-disabled)');
-                        cell = cells[cells.length - 1];
+                        let cells;
+
+                        if (this.currentView === 'month') {
+                            cells = DomHandler.find(this.overlay, '.p-monthpicker .p-monthpicker-month:not(.p-disabled)');
+                        }
+                        else if (this.currentView === 'year') {
+                            cells = DomHandler.find(this.overlay, '.p-yearpicker .p-yearpicker-year:not(.p-disabled)');
+                        }
+                        else {
+                            cells = DomHandler.find(this.overlay, '.p-datepicker-calendar td span:not(.p-disabled):not(.p-ink)');
+                        }
+
+                        if (cells && cells.length > 0) {
+                            cell = cells[cells.length - 1];
+                        }
                     }
                     else {
-                        cell = DomHandler.findSingle(this.overlay, '.p-datepicker-calendar td span:not(.p-disabled)');
+                        if (this.currentView === 'month') {
+                            cell = DomHandler.findSingle(this.overlay, '.p-monthpicker .p-monthpicker-month:not(.p-disabled)');
+                        }
+                        else if (this.currentView === 'year') {
+                            cell = DomHandler.findSingle(this.overlay, '.p-yearpicker .p-yearpicker-year:not(.p-disabled)');
+                        }
+                        else {
+                            cell = DomHandler.findSingle(this.overlay, '.p-datepicker-calendar td span:not(.p-disabled):not(.p-ink)');
+                        }
                     }
 
                     if (cell) {
@@ -2013,19 +2063,29 @@ export default {
                 cells.forEach(cell => cell.tabIndex = -1);
                 cell = selectedCell || cells[0];
             }
+            else if (this.currentView === 'year') {
+                let cells = DomHandler.find(this.overlay, '.p-yearpicker .p-yearpicker-year');
+                let selectedCell= DomHandler.findSingle(this.overlay, '.p-yearpicker .p-yearpicker-year.p-highlight');
+                cells.forEach(cell => cell.tabIndex = -1);
+                cell = selectedCell || cells[0];
+            }
             else {
                 cell = DomHandler.findSingle(this.overlay, 'span.p-highlight');
                 if (!cell) {
-                    let todayCell = DomHandler.findSingle(this.overlay, 'td.p-datepicker-today span:not(.p-disabled)');
+                    let todayCell = DomHandler.findSingle(this.overlay, 'td.p-datepicker-today span:not(.p-disabled):not(.p-ink');
                     if (todayCell)
                         cell = todayCell;
                     else
-                        cell = DomHandler.findSingle(this.overlay, '.p-datepicker-calendar td span:not(.p-disabled)');
+                        cell = DomHandler.findSingle(this.overlay, '.p-datepicker-calendar td span:not(.p-disabled):not(.p-ink');
                 }
             }
 
             if (cell) {
                 cell.tabIndex = '0';
+
+                if (!this.navigationState || !this.navigationState.button) {
+                    cell.focus();
+                }
             }
         },
         trapFocus(event) {

@@ -486,18 +486,18 @@
   outline-offset: 0;
   box-shadow: 0 0 0 0.2rem #8dcdff;
 }
-.p-datepicker:not(.p-disabled) .p-monthpicker .p-monthpicker-month:not(.p-highlight):not(.p-disabled):hover {
+.p-datepicker:not(.p-disabled) .p-monthpicker .p-monthpicker-month:not(.p-disabled):not(.p-highlight):hover {
   background: #eaeaea;
 }
-.p-datepicker:not(.p-disabled) .p-monthpicker .p-monthpicker-month:not(.p-highlight):not(.p-disabled):focus {
+.p-datepicker:not(.p-disabled) .p-monthpicker .p-monthpicker-month:not(.p-disabled):focus {
   outline: 0 none;
   outline-offset: 0;
   box-shadow: 0 0 0 0.2rem #8dcdff;
 }
-.p-datepicker:not(.p-disabled) .p-yearpicker .p-yearpicker-year:not(.p-highlight):not(.p-disabled):hover {
+.p-datepicker:not(.p-disabled) .p-yearpicker .p-yearpicker-year:not(.p-disabled):not(.p-highlight):hover {
   background: #eaeaea;
 }
-.p-datepicker:not(.p-disabled) .p-yearpicker .p-yearpicker-year:not(.p-highlight):not(.p-disabled):focus {
+.p-datepicker:not(.p-disabled) .p-yearpicker .p-yearpicker-year:not(.p-disabled):focus {
   outline: 0 none;
   outline-offset: 0;
   box-shadow: 0 0 0 0.2rem #8dcdff;
@@ -2292,6 +2292,7 @@
   background: #ffffff;
   color: #333333;
   transition: background-color 0.2s, box-shadow 0.2s;
+  outline-color: #8dcdff;
 }
 .p-datatable .p-datatable-tbody > tr > td {
   text-align: left;
@@ -2332,10 +2333,6 @@
 }
 .p-datatable .p-datatable-tbody > tr > td > .p-column-title {
   font-weight: 700;
-}
-.p-datatable .p-datatable-tbody > tr:focus {
-  outline: 1px solid #8dcdff;
-  outline-offset: -1px;
 }
 .p-datatable .p-datatable-tbody > tr.p-highlight {
   background: #e02365;
@@ -3282,6 +3279,7 @@
   background: #ffffff;
   color: #333333;
   transition: background-color 0.2s, box-shadow 0.2s;
+  outline-color: #8dcdff;
 }
 .p-treetable .p-treetable-tbody > tr > td {
   text-align: left;
@@ -3314,10 +3312,6 @@
 }
 .p-treetable .p-treetable-tbody > tr > td .p-treetable-toggler + .p-checkbox .p-indeterminate .p-checkbox-icon {
   color: #333333;
-}
-.p-treetable .p-treetable-tbody > tr:focus {
-  outline: 1px solid #8dcdff;
-  outline-offset: -1px;
 }
 .p-treetable .p-treetable-tbody > tr.p-highlight {
   background: #e02365;
@@ -5250,7 +5244,7 @@
   background: #007ad9;
 }
 .p-progressbar .p-progressbar-label {
-  color: #ffffff;
+  color: #333333;
   line-height: 24px;
 }
 

@@ -486,18 +486,18 @@
   outline-offset: 0;
   box-shadow: 0 0 0 0.2rem rgba(136, 60, 174, 0.5);
 }
-.p-datepicker:not(.p-disabled) .p-monthpicker .p-monthpicker-month:not(.p-highlight):not(.p-disabled):hover {
+.p-datepicker:not(.p-disabled) .p-monthpicker .p-monthpicker-month:not(.p-disabled):not(.p-highlight):hover {
   background: #e9ecef;
 }
-.p-datepicker:not(.p-disabled) .p-monthpicker .p-monthpicker-month:not(.p-highlight):not(.p-disabled):focus {
+.p-datepicker:not(.p-disabled) .p-monthpicker .p-monthpicker-month:not(.p-disabled):focus {
   outline: 0 none;
   outline-offset: 0;
   box-shadow: 0 0 0 0.2rem rgba(136, 60, 174, 0.5);
 }
-.p-datepicker:not(.p-disabled) .p-yearpicker .p-yearpicker-year:not(.p-highlight):not(.p-disabled):hover {
+.p-datepicker:not(.p-disabled) .p-yearpicker .p-yearpicker-year:not(.p-disabled):not(.p-highlight):hover {
   background: #e9ecef;
 }
-.p-datepicker:not(.p-disabled) .p-yearpicker .p-yearpicker-year:not(.p-highlight):not(.p-disabled):focus {
+.p-datepicker:not(.p-disabled) .p-yearpicker .p-yearpicker-year:not(.p-disabled):focus {
   outline: 0 none;
   outline-offset: 0;
   box-shadow: 0 0 0 0.2rem rgba(136, 60, 174, 0.5);
@@ -2304,6 +2304,7 @@
   background: #ffffff;
   color: #212529;
   transition: box-shadow 0.15s;
+  outline-color: rgba(136, 60, 174, 0.5);
 }
 .p-datatable .p-datatable-tbody > tr > td {
   text-align: left;
@@ -2344,10 +2345,6 @@
 }
 .p-datatable .p-datatable-tbody > tr > td > .p-column-title {
   font-weight: 600;
-}
-.p-datatable .p-datatable-tbody > tr:focus {
-  outline: 1px solid rgba(136, 60, 174, 0.5);
-  outline-offset: -1px;
 }
 .p-datatable .p-datatable-tbody > tr.p-highlight {
   background: #883cae;
@@ -3294,6 +3291,7 @@
   background: #ffffff;
   color: #212529;
   transition: box-shadow 0.15s;
+  outline-color: rgba(136, 60, 174, 0.5);
 }
 .p-treetable .p-treetable-tbody > tr > td {
   text-align: left;
@@ -3326,10 +3324,6 @@
 }
 .p-treetable .p-treetable-tbody > tr > td .p-treetable-toggler + .p-checkbox .p-indeterminate .p-checkbox-icon {
   color: #212529;
-}
-.p-treetable .p-treetable-tbody > tr:focus {
-  outline: 1px solid rgba(136, 60, 174, 0.5);
-  outline-offset: -1px;
 }
 .p-treetable .p-treetable-tbody > tr.p-highlight {
   background: #883cae;
@@ -5311,7 +5305,7 @@
   background: #883cae;
 }
 .p-progressbar .p-progressbar-label {
-  color: #ffffff;
+  color: #212529;
   line-height: 1.5rem;
 }
 
