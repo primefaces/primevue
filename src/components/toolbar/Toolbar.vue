@@ -1,10 +1,10 @@
 <template>
     <div class="p-toolbar p-component" role="toolbar">
         <div class="p-toolbar-group-left">
-             <slot name="left"></slot>
+             <slot name="start"></slot>
         </div>
         <div class="p-toolbar-group-right">
-             <slot name="right"></slot>
+             <slot name="end"></slot>
         </div>
     </div>
 </template>
