@@ -1,24 +1,24 @@
 <template>
     <ul :class="containerClass" :role="root ? 'menubar' : 'menu'">
-        <template v-for="(item, i) of model" :key="item.label + i.toString()">
+        <template v-for="(item, i) of model" :key="label(item) + i.toString()">
             <li role="none" :class="getItemClass(item)" :style="item.style" v-if="visible(item) && !item.separator"
                 @mouseenter="onItemMouseEnter($event, item)">
                 <template v-if="!template">
                     <router-link v-if="item.to && !disabled(item)" :to="item.to" custom v-slot="{navigate, href, isActive, isExactActive}">
                         <a :href="href" @click="onItemClick($event, item, navigate)" :class="linkClass(item, {isActive, isExactActive})" v-ripple @keydown="onItemKeyDown($event, item)" role="menuitem">
                             <span :class="['p-menuitem-icon', item.icon]"></span>
-                            <span class="p-menuitem-text">{{item.label}}</span>
+                            <span class="p-menuitem-text">{{label(item)}}</span>
                         </a>
                     </router-link>
                     <a v-else :href="item.url" :class="linkClass(item)" :target="item.target" :aria-haspopup="item.items != null" :aria-expanded="item === activeItem"
                         @click="onItemClick($event, item)" @keydown="onItemKeyDown($event, item)" role="menuitem" :tabindex="disabled(item) ? null : '0'" v-ripple>
                         <span :class="['p-menuitem-icon', item.icon]"></span>
-                        <span class="p-menuitem-text">{{item.label}}</span>
+                        <span class="p-menuitem-text">{{label(item)}}</span>
                         <span :class="getSubmenuIcon()" v-if="item.items"></span>
                     </a>
                 </template>
                 <component v-else :is="template" :item="item"></component>
-                <MenubarSub :model="item.items" v-if="visible(item) && item.items" :key="item.label + '_sub_'" :mobileActive="mobileActive"
+                <MenubarSub :model="item.items" v-if="visible(item) && item.items" :key="label(item) + '_sub_'" :mobileActive="mobileActive"
                     @leaf-click="onLeafClick" @keydown-item="onChildItemKeyDown" :parentActive="item === activeItem" :template="template" :exact="exact" />
             </li>
             <li :class="['p-menu-separator', item.class]" :style="item.style" v-if="visible(item) && item.separator" :key="'separator' + i.toString()" role="separator"></li>
@@ -289,6 +289,9 @@ export default {
         },
         disabled(item) {
             return (typeof item.disabled === 'function' ? item.disabled() : item.disabled);
+        },
+        label(item) {
+            return (typeof item.label === 'function' ? item.label() : item.label);
         }
     },
     computed: {
