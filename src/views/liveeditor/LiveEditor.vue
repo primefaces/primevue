@@ -437,6 +437,64 @@ export default {
             else {
                 element += `import ${name} from "./${name}.vue"`;
 
+                if (this.component) {
+                    extImport += `import ${this.component} from 'primevue/${this.component.toLowerCase()}';`
+                    extElement += `app.component('${this.component}', ${this.component});`;
+                }
+
+                if (pages) {
+                    let routes = [], routeImports = '';
+
+                    pages.forEach((page, i) => {
+                        _files[`src/components/${page.tabName}.vue`] = {
+                            'content': `${page.content.replace('<\\/script>', '<\/script>')}`
+                        }
+
+                        let route = '';
+
+                        routeImports += `import ${page.tabName} from './components/${page.tabName}.vue';
+    `;
+
+                        if(i === 0) {
+                            route += `{
+        path: "/",
+        component: ${page.tabName}
+    }`;
+                        }
+                        else {
+                            route += `{
+        path: "/${page.tabName.slice(0, -4).toLowerCase()}",
+        component: ${page.tabName}
+    }`;
+                        }
+
+                        routes.push(route);
+                    })
+
+                    _files['src/router.js'] = {
+                        'content': `import { createRouter, createWebHistory } from "vue-router";
+${routeImports}
+export const router = createRouter({
+    history: createWebHistory(),
+    routes: [
+        ${routes}
+    ]
+});
+`
+                    }
+                }
+                else {
+                    _files[`src/router.js`] = {
+                        content: `import { createRouter, createWebHistory } from "vue-router";
+    ${element}
+
+    export const router = createRouter({
+    history: createWebHistory(),
+    routes: [{ path: "/", component: ${name} }]
+});`
+                    }
+                }
+
                 _files['src/main.js'] = {
                     content: `import "primeflex/primeflex.css";
 import "primevue/resources/themes/saga-blue/theme.css";
@@ -667,64 +725,6 @@ app.mount("#app");
                 _files[`src/${name}${extension}`] = {
                     content: `${content}
 `
-                }
-
-                if (this.component) {
-                    extImport += `import ${this.component} from 'primevue/${this.component.toLowerCase()}';`
-                    extElement += `app.component('${this.component}', ${this.component});`;
-                }
-
-                if (pages) {
-                    let routes = [], routeImports = '';
-
-                    pages.forEach((page, i) => {
-                        _files[`src/components/${page.tabName}.vue`] = {
-                            'content': `${page.content.replace('<\\/script>', '<\/script>')}`
-                        }
-
-                        let route = '';
-
-                        routeImports += `import ${page.tabName} from './components/${page.tabName}.vue';
-    `;
-
-                        if(i === 0) {
-                            route += `{
-        path: "/",
-        component: ${page.tabName}
-    }`;
-                        }
-                        else {
-                            route += `{
-        path: "/${page.tabName.slice(0, -4).toLowerCase()}",
-        component: ${page.tabName}
-    }`;
-                        }
-
-                        routes.push(route);
-                    })
-
-                    _files['src/router.js'] = {
-                        'content': `import { createRouter, createWebHistory } from "vue-router";
-${routeImports}
-export const router = createRouter({
-    history: createWebHistory(),
-    routes: [
-        ${routes}
-    ]
-});
-`
-                    }
-                }
-                else {
-                    _files[`src/router.js`] = {
-                        content: `import { createRouter, createWebHistory } from "vue-router";
-    ${element}
-
-    export const router = createRouter({
-    history: createWebHistory(),
-    routes: [{ path: "/", component: ${name} }]
-});`
-                    }
                 }
             }
 
