@@ -4,12 +4,12 @@
             <router-link v-if="item.to && !disabled(item)" :to="item.to" custom v-slot="{navigate, href, isActive, isExactActive}">
                 <a :href="href" @click="onClick($event, navigate)" :class="linkClass(item, {isActive, isExactActive})" v-ripple role="menuitem">
                     <span :class="['p-menuitem-icon', item.icon]"></span>
-                    <span class="p-menuitem-text">{{item.label}}</span>
+                    <span class="p-menuitem-text">{{label()}}</span>
                 </a>
             </router-link>
             <a v-else :href="item.url" :class="linkClass(item)" @click="onClick" :target="item.target" role="menuitem" :tabindex="disabled(item) ? null : '0'" v-ripple>
                 <span :class="['p-menuitem-icon', item.icon]"></span>
-                <span class="p-menuitem-text">{{item.label}}</span>
+                <span class="p-menuitem-text">{{label()}}</span>
             </a>
         </template>
         <component v-else :is="template" :item="item"></component>
@@ -48,6 +48,9 @@ export default {
         },
         disabled(item) {
             return (typeof item.disabled === 'function' ? item.disabled() : item.disabled);
+        },
+        label() {
+            return (typeof this.item.label === 'function' ? this.item.label() : this.item.label);
         }
     },
     computed: {

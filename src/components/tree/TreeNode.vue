@@ -13,7 +13,7 @@
             <span :class="icon"></span>
             <span class="p-treenode-label">
                 <component :is="templates[node.type]||templates['default']" :node="node" v-if="templates[node.type]||templates['default']"/>
-                <template v-else>{{node.label}}</template>
+                <template v-else>{{label(node)}}</template>
             </span>
         </div>
         <ul class="p-treenode-children" role="group" v-if="hasChildren && expanded">
@@ -58,6 +58,9 @@ export default {
     methods: {
         toggle() {
             this.$emit('node-toggle', this.node);
+        },
+        label(node) {
+            return (typeof node.label === 'function' ? node.label() : node.label);
         },
         onChildNodeToggle(node) {
             this.$emit('node-toggle', node);

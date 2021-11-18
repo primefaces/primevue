@@ -1,20 +1,20 @@
 <template>
     <div class="p-panelmenu p-component">
-        <template v-for="(item, index) of model" :key="item.label + '_' + index">
+        <template v-for="(item, index) of model" :key="label(item) + '_' + index">
             <div v-if="visible(item)"  :class="getPanelClass(item)" :style="item.style">
                 <div :class="getHeaderClass(item)" :style="item.style">
                     <template v-if="!$slots.item">
                         <router-link v-if="item.to && !disabled(item)" :to="item.to" custom v-slot="{navigate, href, isActive, isExactActive}">
                             <a :href="href" :class="getHeaderLinkClass(item, {isActive, isExactActive})" @click="onItemClick($event, item, navigate)" role="treeitem">
                                 <span v-if="item.icon" :class="getPanelIcon(item)"></span>
-                                <span class="p-menuitem-text">{{item.label}}</span>
+                                <span class="p-menuitem-text">{{label(item)}}</span>
                             </a>
                         </router-link>
                         <a v-else :href="item.url" :class="getHeaderLinkClass(item)" @click="onItemClick($event, item)" :tabindex="disabled(item) ? null : '0'"
                             :aria-expanded="isActive(item)" :id="ariaId +'_header'" :aria-controls="ariaId +'_content'">
                             <span v-if="item.items" :class="getPanelToggleIcon(item)"></span>
                             <span v-if="item.icon" :class="getPanelIcon(item)"></span>
-                            <span class="p-menuitem-text">{{item.label}}</span>
+                            <span class="p-menuitem-text">{{label(item)}}</span>
                         </a>
                     </template>
                     <component v-else :is="$slots.item" :item="item"></component>
@@ -128,6 +128,9 @@ export default {
         },
         disabled(item) {
             return (typeof item.disabled === 'function' ? item.disabled() : item.disabled);
+        },
+        label(item) {
+            return (typeof item.label === 'function' ? item.label() : item.label);
         }
     },
     components: {
