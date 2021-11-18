@@ -1,13 +1,13 @@
 <template>
     <div class="p-tabmenu p-component">
         <ul ref="nav" class="p-tabmenu-nav p-reset" role="tablist">
-            <template v-for="(item,i) of model" :key="item.label + '_' + i.toString()">
+            <template v-for="(item,i) of model" :key="label(item) + '_' + i.toString()">
                 <router-link v-if="item.to && !disabled(item)" :to="item.to" custom v-slot="{navigate, href, isActive, isExactActive}">
                     <li :class="getRouteItemClass(item,isActive,isExactActive)" :style="item.style" v-if="visible(item)" role="tab">
                         <template v-if="!$slots.item">
                             <a :href="href" class="p-menuitem-link" @click="onItemClick($event, item, i, navigate)" role="presentation" v-ripple>
                                 <span :class="getItemIcon(item)" v-if="item.icon"></span>
-                                <span class="p-menuitem-text">{{item.label}}</span>
+                                <span class="p-menuitem-text">{{label(item)}}</span>
                             </a>
                         </template>
                         <component v-else :is="$slots.item" :item="item"></component>
@@ -17,7 +17,7 @@
                     <template v-if="!$slots.item">
                         <a :href="item.url" class="p-menuitem-link" :target="item.target" @click="onItemClick($event, item, i)" role="presentation" :tabindex="disabled(item) ? null : '0'" v-ripple>
                             <span :class="getItemIcon(item)" v-if="item.icon"></span>
-                            <span class="p-menuitem-text">{{item.label}}</span>
+                            <span class="p-menuitem-text">{{label(item)}}</span>
                         </a>
                      </template>
                      <component v-else :is="$slots.item" :item="item"></component>
@@ -120,6 +120,9 @@ export default {
         },
         disabled(item) {
             return (typeof item.disabled === 'function' ? item.disabled() : item.disabled);
+        },
+        label(item) {
+            return (typeof item.label === 'function' ? item.label() : item.label);
         },
         updateInkBar() {
             let tabs = this.$refs.nav.children;

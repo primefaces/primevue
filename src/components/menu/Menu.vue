@@ -3,10 +3,10 @@
         <transition name="p-connected-overlay" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave">
             <div :ref="containerRef" :class="containerClass" v-if="popup ? overlayVisible : true" v-bind="$attrs" @click="onOverlayClick">
                 <ul class="p-menu-list p-reset" role="menu">
-                    <template v-for="(item, i) of model" :key="item.label + i.toString()">
+                    <template v-for="(item, i) of model" :key="label(item) + i.toString()">
                         <template v-if="item.items && visible(item) && !item.separator">
                             <li class="p-submenu-header" v-if="item.items">
-                                <slot name="item" :item="item">{{item.label}}</slot>
+                                <slot name="item" :item="item">{{label(item)}}</slot>
                             </li>
                             <template v-for="(child, j) of item.items" :key="child.label + i + j">
                                 <Menuitem v-if="visible(child) && !child.separator" :item="child" @click="itemClick" :template="$slots.item" :exact="exact" />
@@ -14,7 +14,7 @@
                             </template>
                         </template>
                         <li v-else-if="visible(item) && item.separator" :class="['p-menu-separator', item.class]" :style="item.style" :key="'separator' + i.toString()" role="separator"></li>
-                        <Menuitem v-else :key="item.label + i.toString()" :item="item" @click="itemClick" :template="$slots.item" :exact="exact" />
+                        <Menuitem v-else :key="label(item) + i.toString()" :item="item" @click="itemClick" :template="$slots.item" :exact="exact" />
                     </template>
                 </ul>
             </div>
@@ -193,6 +193,9 @@ export default {
         },
         visible(item) {
             return (typeof item.visible === 'function' ? item.visible() : item.visible !== false);
+        },
+        label(item) {
+            return (typeof item.label === 'function' ? item.label() : item.label);
         },
         containerRef(el) {
             this.container = el;

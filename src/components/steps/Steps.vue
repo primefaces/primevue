@@ -7,12 +7,12 @@
                         <router-link :to="item.to" v-if="!isItemDisabled(item)" custom v-slot="{navigate, href, isActive, isExactActive}">
                             <a :href="href" :class="linkClass({isActive, isExactActive})" @click="onItemClick($event, item, navigate)" role="presentation">
                                 <span class="p-steps-number">{{index + 1}}</span>
-                                <span class="p-steps-title">{{item.label}}</span>
+                                <span class="p-steps-title">{{label(item)}}</span>
                             </a>
                         </router-link>
                         <span v-else :class="linkClass()" role="presentation">
                             <span class="p-steps-number">{{index + 1}}</span>
-                            <span class="p-steps-title">{{item.label}}</span>
+                            <span class="p-steps-title">{{label(item)}}</span>
                         </span>
                     </template>
                     <component v-else :is="$slots.item" :item="item"></component>
@@ -86,6 +86,9 @@ export default {
         },
         disabled(item) {
             return (typeof item.disabled === 'function' ? item.disabled() : item.disabled);
+        },
+        label(item) {
+            return (typeof item.label === 'function' ? item.label() : item.label);
         }
     },
     computed: {

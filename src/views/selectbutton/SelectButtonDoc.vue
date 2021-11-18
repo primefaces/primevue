@@ -290,7 +290,7 @@ export default {
             <p-selectbutton v-model="value2" :options="paymentOptions" option-label="name" multiple></p-selectbutton>
 
             <h5>Custom Content</h5>
-            <p-selectbutton v-model="value3" :options="justifyOptions" dataKey="value">
+            <p-selectbutton v-model="value3" :options="justifyOptions" data-key="value">
                 <template #option="slotProps">
                     <i :class="slotProps.option.icon"></i>
                 </template>
