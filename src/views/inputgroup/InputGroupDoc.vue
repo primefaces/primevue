@@ -42,7 +42,7 @@
             &lt;i class="pi pi-clock"&gt;&lt;/i&gt;
         &lt;/span&gt;
             &lt;span class="p-inputgroup-addon"&gt;
-            &lt;i class="pi pi-star"&gt;&lt;/i&gt;
+            &lt;i class="pi pi-star-fill"&gt;&lt;/i&gt;
         &lt;/span&gt;
             &lt;InputText placeholder="Price" /&gt;
             &lt;span class="p-inputgroup-addon"&gt;$&lt;/span&gt;

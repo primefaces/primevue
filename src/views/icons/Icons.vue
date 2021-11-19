@@ -73,8 +73,11 @@ export default {
     },
     mounted() {
         axios.get('demo/data/icons.json').then(res => {
-            let icons = res.data.icons;
-            icons.sort((icon1, icon2) => {
+            let icons = res.data.icons;console.log(icons)
+            let data = icons.filter(value => {
+                return value.icon.tags.indexOf('deprecate') === -1;
+            });
+            data.sort((icon1, icon2) => {
                 if(icon1.properties.name < icon2.properties.name)
                     return -1;
                 else if(icon1.properties.name < icon2.properties.name)
@@ -82,8 +85,7 @@ export default {
                 else
                     return 0;
             });
-
-            this.icons = icons;
+            this.icons = data;
         });
     },
     computed: {

@@ -46,7 +46,7 @@ import Carousel from 'primevue/carousel';
 
                     &lt;div class="car-buttons"&gt;
                         &lt;Button icon="pi pi-search" class="p-button-secondary" /&gt;
-                        &lt;Button icon="pi pi-star" class="p-button-secondary" /&gt;
+                        &lt;Button icon="pi pi-star-fill" class="p-button-secondary" /&gt;
                         &lt;Button icon="pi pi-cog" class="p-button-secondary" /&gt;
                     &lt;/div&gt;
                 &lt;/div&gt;
@@ -309,7 +309,7 @@ data() {
                     &lt;span :class="'product-badge status-'+slotProps.data.inventoryStatus.toLowerCase()"&gt;{{slotProps.data.inventoryStatus}}&lt;/span&gt;
                     &lt;div class="car-buttons p-mt-5"&gt;
                         &lt;Button icon="pi pi-search" class="p-button p-button-rounded p-mr-2" /&gt;
-                        &lt;Button icon="pi pi-star" class="p-button-success p-button-rounded p-mr-2" /&gt;
+                        &lt;Button icon="pi pi-star-fill" class="p-button-success p-button-rounded p-mr-2" /&gt;
                         &lt;Button icon="pi pi-cog" class="p-button-help p-button-rounded" /&gt;
                     &lt;/div&gt;
                 &lt;/div&gt;
@@ -336,7 +336,7 @@ data() {
                     &lt;span :class="'product-badge status-'+slotProps.data.inventoryStatus.toLowerCase()"&gt;{{slotProps.data.inventoryStatus}}&lt;/span&gt;
                     &lt;div class="car-buttons p-mt-5"&gt;
                         &lt;Button icon="pi pi-search" class="p-button p-button-rounded p-mr-2" /&gt;
-                        &lt;Button icon="pi pi-star" class="p-button-success p-button-rounded p-mr-2" /&gt;
+                        &lt;Button icon="pi pi-star-fill" class="p-button-success p-button-rounded p-mr-2" /&gt;
                         &lt;Button icon="pi pi-cog" class="p-button-help p-button-rounded" /&gt;
                     &lt;/div&gt;
                 &lt;/div&gt;
@@ -364,7 +364,7 @@ data() {
                     &lt;span :class="'product-badge status-'+slotProps.data.inventoryStatus.toLowerCase()"&gt;{{slotProps.data.inventoryStatus}}&lt;/span&gt;
                     &lt;div class="car-buttons p-mt-5"&gt;
                         &lt;Button icon="pi pi-search" class="p-button p-button-rounded p-mr-2" /&gt;
-                        &lt;Button icon="pi pi-star" class="p-button-success p-button-rounded p-mr-2" /&gt;
+                        &lt;Button icon="pi pi-star-fill" class="p-button-success p-button-rounded p-mr-2" /&gt;
                         &lt;Button icon="pi pi-cog" class="p-button-help p-button-rounded" /&gt;
                     &lt;/div&gt;
                 &lt;/div&gt;
