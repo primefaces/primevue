@@ -930,12 +930,12 @@ export default {
                 'p-inputnumber-buttons-vertical': this.showButtons && this.buttonLayout === 'vertical'
             }];
         },
-        upButtonClass() {console.log('up')
+        upButtonClass() {
             return ['p-inputnumber-button p-inputnumber-button-up', this.incrementButtonClass, {
                 'p-disabled': this.showButtons && this.max !== null && this.maxBoundry()
             }];
         },
-        downButtonClass() {console.log('down')
+        downButtonClass() {
             return ['p-inputnumber-button p-inputnumber-button-down', this.decrementButtonClass, {
                 'p-disabled': this.showButtons && this.min !== null && this.minBoundry()
             }];
