@@ -8,6 +8,7 @@ declare class Panel extends Vue {
     $slots: {
         '': VNode[];
         header: VNode[];
+        icon: VNode[];
     }
 }
 
