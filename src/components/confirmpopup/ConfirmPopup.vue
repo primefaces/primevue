@@ -1,10 +1,13 @@
 <template>
     <transition name="p-confirm-popup" @enter="onEnter" @leave="onLeave">
         <div class="p-confirm-popup p-component" v-if="visible" ref="container">
-            <div class="p-confirm-popup-content">
-                <i :class="iconClass" />
-                <span class="p-confirm-popup-message">{{confirmation.message}}</span>
-            </div>
+            <slot name="message" v-if="$scopedSlots.message"></slot>
+            <template v-else>
+                <div class="p-confirm-popup-content">
+                    <i :class="iconClass" />
+                    <span class="p-confirm-popup-message">{{confirmation.message}}</span>
+                </div>
+            </template>
             <div class="p-confirm-popup-footer">
                 <CPButton :label="rejectLabel" :icon="rejectIcon" :class="rejectClass" @click="reject()"/>
                 <CPButton :label="acceptLabel" :icon="acceptIcon" :class="acceptClass" @click="accept()" autofocus />
@@ -68,7 +71,7 @@ export default {
         this.confirmation = null;
     },
     methods: {
-         accept() {
+        accept() {
             if (this.confirmation.accept) {
                 this.confirmation.accept();
             }
