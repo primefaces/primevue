@@ -127,10 +127,14 @@ export default {
     timer: null,
     data() {
         return {
+            d_value: null,
             focused: false
         }
     },
     watch: {
+        value(newValue) {
+            this.d_value = newValue;
+        },
 		locale(newValue, oldValue) {
             this.updateConstructParser(newValue, oldValue);
         },
@@ -889,6 +893,7 @@ export default {
             return 0;
         },
         updateModel(event, value) {
+            this.d_value = value;
             this.$emit('input', value);
         },
         onInputFocus() {
@@ -907,7 +912,13 @@ export default {
             if (this.timer) {
                 clearInterval(this.timer);
             }
-        }
+        },
+        maxBoundry() {
+            return this.d_value >= this.max;
+        },
+        minBoundry() {
+            return this.d_value <= this.min;
+        },
     },
     computed: {
         containerClass() {
@@ -919,11 +930,15 @@ export default {
                 'p-inputnumber-buttons-vertical': this.showButtons && this.buttonLayout === 'vertical'
             }];
         },
-        upButtonClass() {
-            return ['p-inputnumber-button p-inputnumber-button-up', this.incrementButtonClass];
+        upButtonClass() {console.log('up')
+            return ['p-inputnumber-button p-inputnumber-button-up', this.incrementButtonClass, {
+                'p-disabled': this.showButtons && this.max !== null && this.maxBoundry()
+            }];
         },
-        downButtonClass() {
-            return ['p-inputnumber-button p-inputnumber-button-down', this.decrementButtonClass];
+        downButtonClass() {console.log('down')
+            return ['p-inputnumber-button p-inputnumber-button-down', this.decrementButtonClass, {
+                'p-disabled': this.showButtons && this.min !== null && this.minBoundry()
+            }];
         },
         filled() {
             return (this.value != null && this.value.toString().length > 0)
