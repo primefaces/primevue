@@ -1,4 +1,4 @@
-import Vue from 'vue';
+import Vue, { VNode } from 'vue';
 
 declare class Toast extends Vue {
     group?: string;
@@ -6,6 +6,9 @@ declare class Toast extends Vue {
     autoZIndex?: boolean;
     baseZIndex?: number;
     breakpoints?: {[key: string]: string};
+    $slots: {
+        message: VNode[];
+    }
 }
 
 export default Toast;
