@@ -55,7 +55,7 @@
 
                     <h5>Material Design</h5>
                     <div class="p-grid free-themes">
-                         <div class="p-col-3">
+                        <div class="p-col-3">
                             <button class="p-link" type="button" @click="changeTheme($event, 'md-light-indigo')">
                                 <img src="demo/images/themes/md-light-indigo.svg" alt="Material Light Indigo" />
                             </button>
@@ -83,7 +83,7 @@
 
                     <h5>Material Design Compact</h5>
                     <div class="p-grid free-themes">
-                         <div class="p-col-3">
+                        <div class="p-col-3">
                             <button class="p-link" type="button" @click="changeTheme($event, 'mdc-light-indigo')">
                                 <img src="demo/images/themes/md-light-indigo.svg" alt="Material Compact Light Indigo"/>
                             </button>
@@ -129,7 +129,59 @@
                         </div>
                     </div>
 
-                    <h5>PrimeOne Design</h5>
+                    <h5 class="p-d-flex p-ai-center">PrimeOne Design - 2022 <Tag class="p-ml-3" value="NEW" rounded severity="success"></Tag></h5>
+                    <div class="p-grid free-themes">
+                        <div class="p-col-3">
+                            <button class="p-link" type="button" @click="changeTheme($event, 'lara-light-indigo')">
+                                <img src="demo/images/themes/lara-light-indigo.png" alt="Lara Light Indigo" />
+                            </button>
+                            <span>Lara Light Indigo</span>
+                        </div>
+                        <div class="p-col-3">
+                            <button class="p-link" type="button" @click="changeTheme($event, 'lara-light-blue')">
+                                <img src="demo/images/themes/lara-light-blue.png" alt="Lara Light Blue" />
+                            </button>
+                            <span>Lara Light Blue</span>
+                        </div>
+                        <div class="p-col-3">
+                            <button class="p-link" type="button" @click="changeTheme($event, 'lara-light-purple')">
+                                <img src="demo/images/themes/lara-light-purple.png" alt="Lara Light Purple" />
+                            </button>
+                            <span>Lara Light Purple</span>
+                        </div>
+                        <div class="p-col-3">
+                            <button class="p-link" type="button" @click="changeTheme($event, 'lara-light-teal')">
+                                <img src="demo/images/themes/lara-light-teal.png" alt="Lara Light Teal" />
+                            </button>
+                            <span>Lara Light Teal</span>
+                        </div>
+                        <div class="p-col-3">
+                            <button class="p-link" type="button" @click="changeTheme($event, 'lara-dark-indigo')">
+                                <img src="demo/images/themes/lara-dark-indigo.png" alt="Lara Dark Indigo" />
+                            </button>
+                            <span>Lara Dark Indigo</span>
+                        </div>
+                        <div class="p-col-3">
+                            <button class="p-link" type="button" @click="changeTheme($event, 'lara-dark-blue')">
+                                <img src="demo/images/themes/lara-dark-blue.png" alt="Lara Dark Blue" />
+                            </button>
+                            <span>Lara Dark Blue</span>
+                        </div>
+                        <div class="p-col-3">
+                            <button class="p-link" type="button" @click="changeTheme($event, 'lara-dark-purple')">
+                                <img src="demo/images/themes/lara-dark-purple.png" alt="Lara Dark Purple" />
+                            </button>
+                            <span>Lara Dark Purple</span>
+                        </div>
+                        <div class="p-col-3">
+                            <button class="p-link" type="button" @click="changeTheme($event, 'lara-dark-teal')">
+                                <img src="demo/images/themes/lara-dark-teal.png" alt="Lara Dark Teal" />
+                            </button>
+                            <span>Lara Dark Teal</span>
+                        </div>
+                    </div>
+
+                    <h5>PrimeOne Design - 2021</h5>
                     <div class="p-grid free-themes">
                         <div class="p-col-3">
                             <button class="p-link" type="button" @click="changeTheme($event, 'saga-blue')">

@@ -127,6 +127,14 @@ primevue/resources/themes/mdc-dark-indigo/theme.css
 primevue/resources/themes/mdc-dark-deeppurple/theme.css
 primevue/resources/themes/tailwind-light/theme.css
 primevue/resources/themes/fluent-light/theme.css
+primevue/resources/themes/lara-light-indigo/theme.css
+primevue/resources/themes/lara-dark-indigo/theme.css
+primevue/resources/themes/lara-light-purple/theme.css
+primevue/resources/themes/lara-dark-purple/theme.css
+primevue/resources/themes/lara-light-blue/theme.css
+primevue/resources/themes/lara-dark-blue/theme.css
+primevue/resources/themes/lara-light-teal/theme.css
+primevue/resources/themes/lara-dark-teal/theme.css
 primevue/resources/themes/saga-blue/theme.css
 primevue/resources/themes/saga-green/theme.css
 primevue/resources/themes/saga-orange/theme.css
