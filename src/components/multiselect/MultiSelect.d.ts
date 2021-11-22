@@ -5,7 +5,7 @@ declare class MultiSelect extends Vue {
     options?: any[];
     optionLabel?: string;
     optionValue?: any;
-    optionDisabled?: boolean;
+    optionDisabled?: string | ((data: any) => boolean) | undefined;
     scrollHeight?: string;
     placeholder?: string;
     disabled?: boolean;

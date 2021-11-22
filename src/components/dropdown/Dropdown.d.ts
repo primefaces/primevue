@@ -5,7 +5,7 @@ declare class Dropdown extends Vue {
     options?: any[];
     optionLabel?: string;
     optionValue?: any;
-    optionDisabled?: boolean;
+    optionDisabled?: string | ((data: any) => boolean) | undefined;
     scrollHeight?: string;
     filter?: boolean;
     filterPlaceholder?: string;

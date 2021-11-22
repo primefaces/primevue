@@ -25,7 +25,7 @@ const MultiSelectProps = [
     },
     {
         name: "optionDisabled",
-        type: "boolean",
+        type: "string | function",
         default: "null",
         description: "Property name or getter function to use as the disabled flag of an option, defaults to false when not defined."
     },
