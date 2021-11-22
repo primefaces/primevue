@@ -26,8 +26,11 @@ export default {
         }
     },
     watch: {
-        data() {
-            this.reinit();
+        data: {
+            handler() {
+                this.reinit();
+            },
+            deep: true
         },
         type() {
             this.reinit();
