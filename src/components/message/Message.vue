@@ -34,6 +34,10 @@ export default {
         life: {
             type: Number,
             default: 3000
+        },
+        icon: {
+            type: String,
+            default: null
         }
     },
     timeout: null,
@@ -60,7 +64,7 @@ export default {
             return 'p-message p-component p-message-' + this.severity;
         },
         iconClass() {
-            return ['p-message-icon pi', {
+            return ['p-message-icon pi', this.icon ? this.icon : {
                 'pi-info-circle': this.severity === 'info',
                 'pi-check': this.severity === 'success',
                 'pi-exclamation-triangle': this.severity === 'warn',

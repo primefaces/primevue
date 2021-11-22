@@ -5,6 +5,7 @@ declare class Message extends Vue {
     closable?: boolean;
     sticky?: boolean;
     life?: number;
+    icon?: string;
     $slots: {
         '': VNode[];
     }

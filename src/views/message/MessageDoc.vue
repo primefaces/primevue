@@ -104,6 +104,12 @@ import InlineMessage from 'primevue/inlinemessage';
                                 <td>3000</td>
                                 <td>Delay in milliseconds to close the message automatically.</td>
                             </tr>
+                            <tr>
+                                <td>icon</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Display a custom icon for the message.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
@@ -233,7 +239,7 @@ import InlineMessage from 'primevue/inlinemessage';
                                 <td>p-inline-message-icon</td>
                                 <td>Severity icon.</td>
                             </tr>
-                           <tr>
+                            <tr>
                                 <td>p-inline-message-text</td>
                                 <td>Content of a message.</td>
                             </tr>
@@ -256,6 +262,9 @@ import InlineMessage from 'primevue/inlinemessage';
 &lt;Message severity="info"&gt;Info Message Content&lt;/Message&gt;
 &lt;Message severity="warn"&gt;Warning Message Content&lt;/Message&gt;
 &lt;Message severity="error"&gt;Error Message Content&lt;/Message&gt;
+
+&lt;h5&gt;Custom Icon&lt;/h5&gt;
+&lt;Message severity="info" icon="pi-send"&gt;Info Message Content&lt;/Message&gt;
 
 &lt;h5&gt;Dynamic&lt;/h5&gt;
 &lt;Button label="Show" @click="addMessages()" /&gt;
