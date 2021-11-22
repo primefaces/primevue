@@ -67,12 +67,12 @@
 }
 
 @-webkit-keyframes p-fadein {
-  0%   { opacity: 0; }
-  100% { opacity: 1; }
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
 }
 @keyframes p-fadein {
-  0%   { opacity: 0; }
-  100% { opacity: 1; }
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
 }
 
 input[type="button"],
@@ -91,6 +91,10 @@ button {
 	border: none;
     cursor: pointer;
     user-select: none;
+}
+
+.p-link:disabled {
+	cursor: default;
 }
 
 /* Non vue overlay animations */

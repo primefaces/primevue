@@ -246,6 +246,12 @@ export default {
                                 <td>Number of months to display.</td>
                             </tr>
                             <tr>
+                                <td>responsiveOptions</td>
+                                <td>any</td>
+                                <td>null</td>
+                                <td>An array of options for responsive design.</td>
+                            </tr>
+                            <tr>
                                 <td>view</td>
                                 <td>string</td>
                                 <td>date</td>
@@ -641,7 +647,7 @@ export default {
     &lt;div class="p-field p-col-12 p-md-4"&gt;
         &lt;label for="datetemplate"&gt;Date Template&lt;/label&gt;
         &lt;Calendar id="datetemplate" v-model="date12"&gt;
-           &lt;template #date="slotProps"&gt;
+            &lt;template #date="slotProps"&gt;
                 &lt;strong v-if="slotProps.date.day &gt; 10 && slotProps.date.day &lt; 15" class="special-day"&gt;{{slotProps.date.day}}&lt;/strong&gt;
                 &lt;template v-else&gt;&#123;&#123;slotProps.date.day&#125;&#125;}&lt;/template&gt;
             &lt;/template&gt;

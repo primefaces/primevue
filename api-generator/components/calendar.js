@@ -54,6 +54,12 @@ const CalendarProps = [
         description: "Number of months to display."
     },
     {
+        name: "responsiveOptions",
+        type: "array",
+        default: "null",
+        description: "An array of options for responsive design."
+    },
+    {
         name: "view",
         type: "string",
         default: "date",

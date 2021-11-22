@@ -23,6 +23,7 @@ declare class Calendar extends Vue {
     showIcon?: boolean;
     icon?: string;
     numberOfMonths?: number;
+    responsiveOptions?: any[];
     view?: string;
     touchUI?: boolean;
     monthNavigator?: boolean;

@@ -9,7 +9,7 @@
                         <div class="p-datepicker-group" v-for="(month,groupIndex) of months" :key="month.month + month.year">
                             <div class="p-datepicker-header">
                                 <slot name="header"></slot>
-                                <button class="p-datepicker-prev p-link" v-if="groupIndex === 0" @click="onPrevButtonClick" type="button" @keydown="onContainerButtonKeydown" v-ripple :disabled="$attrs.disabled">
+                                <button class="p-datepicker-prev p-link" v-show="groupIndex === 0" @click="onPrevButtonClick" type="button" @keydown="onContainerButtonKeydown" v-ripple :disabled="$attrs.disabled">
                                     <span class="p-datepicker-prev-icon pi pi-chevron-left"></span>
                                 </button>
                                 <div class="p-datepicker-title">
@@ -25,7 +25,7 @@
                                         </slot>
                                     </span>
                                 </div>
-                                <button class="p-datepicker-next p-link" v-if="numberOfMonths === 1 ? true : (groupIndex === numberOfMonths - 1)"
+                                <button class="p-datepicker-next p-link" v-show="numberOfMonths === 1 ? true : (groupIndex === numberOfMonths - 1)"
                                     @click="onNextButtonClick" type="button" @keydown="onContainerButtonKeydown" v-ripple :disabled="$attrs.disabled">
                                     <span class="p-datepicker-next-icon pi pi-chevron-right"></span>
                                 </button>
@@ -140,6 +140,7 @@
 
 <script>
 import ConnectedOverlayScrollHandler from '../utils/ConnectedOverlayScrollHandler';
+import UniqueComponentId from '../utils/UniqueComponentId';
 import InputText from '../inputtext/InputText';
 import Button from '../button/Button';
 import DomHandler from '../utils/DomHandler';
@@ -178,6 +179,7 @@ export default {
             type: Number,
             default: 1
         },
+        responsiveOptions: Array,
         view: {
             type: String,
             default: 'date'
@@ -311,8 +313,13 @@ export default {
         this.updateCurrentMetaData();
     },
     mounted() {
-        if (this.inline && !this.$attrs.disabled) {
-            this.initFocusableCell();
+        this.createResponsiveStyle();
+        if (this.inline) {
+            this.$refs.overlay && this.$refs.overlay.setAttribute(this.attributeSelector, '');
+            if (!this.$attrs.disabled) {
+                this.initFocusableCell();
+                this.$refs.overlay.style.width = DomHandler.getOuterWidth(this.$el) + 'px';
+            }
         }
     },
     updated() {
@@ -336,6 +343,7 @@ export default {
             this.destroyMask();
         }
 
+        this.destroyResponsiveStyleElement();
         this.restoreAppend();
         this.unbindOutsideClickListener();
         this.unbindResizeListener();
@@ -366,7 +374,15 @@ export default {
             if (this.$refs.overlay) {
                 setTimeout(this.updateFocus, 0);
             }
-        }
+        },
+        numberOfMonths() {
+            this.destroyResponsiveStyleElement();
+            this.createResponsiveStyle();
+        },
+        responsiveOptions() {
+            this.destroyResponsiveStyleElement();
+            this.createResponsiveStyle();
+        },
     },
     methods: {
         isComparable() {
@@ -533,7 +549,9 @@ export default {
 
             return validMin && validMax && validDate && validDay;
         },
-        onOverlayEnter() {
+        onOverlayEnter(el) {
+            el.setAttribute(this.attributeSelector, '');
+
             if (this.autoZIndex) {
                 this.$refs.overlay.style.zIndex = String(this.baseZIndex + DomHandler.generateZIndex());
             }
@@ -2084,6 +2102,48 @@ export default {
         },
         getMonthName(index) {
             return this.$primevue.config.locale.monthNames[index];
+        },
+        createResponsiveStyle() {
+            if (this.numberOfMonths > 1 && this.responsiveOptions) {
+                if (!this.responsiveStyleElement) {
+                    this.responsiveStyleElement = document.createElement('style');
+                    this.responsiveStyleElement.type = 'text/css';
+                    document.body.appendChild(this.responsiveStyleElement);
+                }
+                let innerHTML = '';
+                if (this.responsiveOptions) {
+                    let responsiveOptions = [...this.responsiveOptions]
+                        .filter(o => !!(o.breakpoint && o.numMonths))
+                        .sort((o1, o2) => -1 * o1.breakpoint.localeCompare(o2.breakpoint, undefined, { numeric: true }));
+                    for (let i = 0; i < responsiveOptions.length; i++) {
+                        let { breakpoint, numMonths } = responsiveOptions[i];
+                        let styles = `
+                            .p-datepicker[${this.attributeSelector}] .p-datepicker-group:nth-child(${numMonths}) .p-datepicker-next {
+                                display: inline-flex !important;
+                            }
+                        `;
+                        for (let j = numMonths; j < this.numberOfMonths; j++) {
+                            styles += `
+                                .p-datepicker[${this.attributeSelector}] .p-datepicker-group:nth-child(${j + 1}) {
+                                    display: none !important;
+                                }
+                            `
+                        }
+                        innerHTML += `
+                            @media screen and (max-width: ${breakpoint}) {
+                                ${styles}
+                            }
+                        `
+                    }
+                }
+                this.responsiveStyleElement.innerHTML = innerHTML;
+            }
+		},
+        destroyResponsiveStyleElement() {
+            if (this.responsiveStyleElement) {
+                this.responsiveStyleElement.remove();
+                this.responsiveStyleElement = null;
+            }
         }
     },
     computed: {
@@ -2321,6 +2381,9 @@ export default {
         monthNames() {
             return this.$primevue.config.locale.monthNames;
         },
+        attributeSelector() {
+            return UniqueComponentId();
+        },
         switchViewButtonDisabled() {
             return this.numberOfMonths > 1 || this.$attrs.disabled;
         }
@@ -2339,6 +2402,7 @@ export default {
 .p-calendar {
     position: relative;
     display: inline-flex;
+    max-width: 100%;
 }
 
 .p-calendar .p-inputtext {
@@ -2378,6 +2442,7 @@ export default {
 .p-datepicker-inline {
     display: inline-block;
     position: static;
+    overflow-x: auto;
 }
 
 /* Header */
@@ -2404,6 +2469,10 @@ export default {
 /* Multiple Month DatePicker */
 .p-datepicker-multiple-month .p-datepicker-group-container {
     display: flex;
+}
+
+.p-datepicker-multiple-month .p-datepicker-group-container .p-datepicker-group {
+    flex: 1 1 auto;
 }
 
 /* DatePicker Table */
