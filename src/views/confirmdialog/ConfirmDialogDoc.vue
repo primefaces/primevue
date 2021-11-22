@@ -117,7 +117,7 @@ export default {
                                 <td>null</td>
                                 <td>Callback to execute when action is rejected.</td>
                             </tr>
-                             <tr>
+                            <tr>
                                 <td>acceptLabel</td>
                                 <td>string</td>
                                 <td>null</td>
@@ -158,6 +158,12 @@ export default {
                                 <td>boolean</td>
                                 <td>true</td>
                                 <td>Whether background scroll should be blocked when dialog is visible.</td>
+                            </tr>
+                            <tr>
+                                <td>defaultFocus</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Element to receive the focus when the dialog gets visible, valid values are "accept" and "reject".</td>
                             </tr>
                         </tbody>
                     </table>
