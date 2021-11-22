@@ -74,12 +74,12 @@ import Paginator from 'primevue/paginator';
 <CodeHighlight>
 <template v-pre>
 &lt;Paginator :first.sync="offset" :rows="10" :totalRecords="totalItemsCount"&gt;
-    &lt;template #left="slotProps"&gt;
+    &lt;template #start="slotProps"&gt;
         Page: &#123;&#123;slotProps.state.page&#125;&#125;
         First: &#123;&#123;slotProps.state.first&#125;&#125;
         Rows: &#123;&#123;slotProps.state.rows&#125;&#125;
     &lt;/template&gt;
-    &lt;template #right&gt;
+    &lt;template #end&gt;
         &lt;Button type="button" icon="pi pi-search" /&gt;
     &lt;/template&gt;
 &lt;/Paginator&gt;
@@ -275,10 +275,10 @@ onPage(event) {
 &lt;h3&gt;Custom&lt;/h3&gt;
 &lt;Paginator :first.sync="first" :rows="1" :totalRecords="totalRecords2"
     template="FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"&gt;
-    &lt;template #left&gt;
+    &lt;template #start&gt;
         &lt;Button type="button" icon="pi pi-refresh" @click="reset()"/&gt;
     &lt;/template&gt;
-    &lt;template #right&gt;
+    &lt;template #end&gt;
         &lt;Button type="button" icon="pi pi-search" /&gt;
     &lt;/template&gt;
 &lt;/Paginator&gt;

@@ -18,8 +18,8 @@ declare class Paginator extends Vue {
     alwaysShow?: boolean;
     $emit(eventName: 'page', event: PageState): this;
     $slots: {
-        left: VNode[];
-        right: VNode[];
+        start: VNode[];
+        end: VNode[];
     }
 }
 

@@ -429,7 +429,7 @@ export default {
 </template>
 </CodeHighlight>
 
-                <p>paginatorLeft and paginatorLeft templates are available to specify custom content at the left and right side.</p>
+                <p>paginatorstart and paginatorend templates are available to specify custom content at the left and right side.</p>
 <CodeHighlight>
 <template v-pre>
 &lt;DataTable :value="cars" :paginator="true" :rows="10"&gt;
@@ -437,10 +437,10 @@ export default {
     &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
     &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
     &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
-    &lt;template #paginatorLeft&gt;
+    &lt;template #paginatorstart&gt;
         &lt;Button type="button" icon="pi pi-refresh" /&gt;
     &lt;/template&gt;
-    &lt;template #paginatorRight&gt;
+    &lt;template #paginatorend&gt;
         &lt;Button type="button" icon="pi pi-cloud" /&gt;
     &lt;/template&gt;
 &lt;/DataTable&gt;
@@ -2400,11 +2400,11 @@ export default {
                                 <td>-</td>
                             </tr>
                             <tr>
-                                <td>paginatorLeft</td>
+                                <td>paginatorstart</td>
                                 <td>-</td>
                             </tr>
                             <tr>
-                                <td>paginatorRight</td>
+                                <td>paginatorend</td>
                                 <td>-</td>
                             </tr>
                             <tr>

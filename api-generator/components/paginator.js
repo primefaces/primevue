@@ -80,11 +80,11 @@ const PaginatorEvents = [
 
 const PaginatorSlots = [
     {
-        name: "left",
+        name: "start",
         description: "Custom content for the component's left side"
     },
     {
-        name: "right",
+        name: "end",
         description: "Custom content for the component's right side"
     }
 ];

@@ -17,10 +17,10 @@
                     <Column field="country.name" header="Country"></Column>
                     <Column field="company" header="Company"></Column>
                     <Column field="representative.name" header="Representative"></Column>
-                    <template #paginatorLeft>
+                    <template #paginatorstart>
                         <Button type="button" icon="pi pi-refresh" class="p-button-text" />
                     </template>
-                    <template #paginatorRight>
+                    <template #paginatorend>
                         <Button type="button" icon="pi pi-cloud" class="p-button-text" />
                     </template>
                 </DataTable>
@@ -40,10 +40,10 @@
     &lt;Column field="country.name" header="Country"&gt;&lt;/Column&gt;
     &lt;Column field="company" header="Company"&gt;&lt;/Column&gt;
     &lt;Column field="representative.name" header="Representative"&gt;&lt;/Column&gt;
-    &lt;template #paginatorLeft&gt;
+    &lt;template #paginatorstart&gt;
         &lt;Button type="button" icon="pi pi-refresh" class="p-button-text" /&gt;
     &lt;/template&gt;
-    &lt;template #paginatorRight&gt;
+    &lt;template #paginatorend&gt;
         &lt;Button type="button" icon="pi pi-cloud" class="p-button-text" /&gt;
     &lt;/template&gt;
 &lt;/DataTable&gt;

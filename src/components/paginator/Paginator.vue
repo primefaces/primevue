@@ -1,7 +1,7 @@
 <template>
 	<div class="p-paginator p-component" v-if="alwaysShow ? true : (pageLinks && pageLinks.length > 1)">
-        <div class="p-paginator-left-content" v-if="$scopedSlots.left">
-            <slot name="left" :state="currentState"></slot>
+        <div class="p-paginator-left-content" v-if="$scopedSlots.start">
+            <slot name="start" :state="currentState"></slot>
         </div>
 		<template v-for="item of templateItems">
 			<FirstPageLink v-if="item === 'FirstPageLink'" :key="item" @click="changePageToFirst($event)" :disabled="isFirstPage || empty" />
@@ -17,8 +17,8 @@
                 @page-change="changePage($event)" :disabled="empty"/>
             <JumpToPageInput v-else-if="item === 'JumpToPageInput'" :key="item" :page="currentPage" @page-change="changePage($event)" :disabled="empty"/>
         </template>
-        <div class="p-paginator-right-content" v-if="$scopedSlots.right">
-            <slot name="right" :state="currentState"></slot>
+        <div class="p-paginator-right-content" v-if="$scopedSlots.end">
+            <slot name="end" :state="currentState"></slot>
         </div>
 	</div>
 </template>

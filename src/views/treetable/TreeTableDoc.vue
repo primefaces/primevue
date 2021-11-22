@@ -788,17 +788,17 @@ export default {
 </template>
 </CodeHighlight>
 
-                <p>paginatorLeft and paginatorLeft templates are available to specify custom content at the left and right side.</p>
+                <p>paginatorstart and paginatorend templates are available to specify custom content at the left and right side.</p>
 <CodeHighlight>
 <template v-pre>
 &lt;TreeTable :value="nodes" :paginator="true" :rows="10"&gt;
     &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column&gt;
     &lt;Column field="size" header="Size"&gt;&lt;/Column&gt;
     &lt;Column field="type" header="Type"&gt;&lt;/Column&gt;
-    &lt;template #paginatorLeft&gt;
+    &lt;template #paginatorstart&gt;
         &lt;Button type="button" icon="pi pi-refresh" /&gt;
     &lt;/template&gt;
-    &lt;template #paginatorRight&gt;
+    &lt;template #paginatorend&gt;
         &lt;Button type="button" icon="pi pi-cloud" /&gt;
     &lt;/template&gt;
 &lt;/TreeTable&gt;
@@ -1560,11 +1560,11 @@ export default {
                                 <td>-</td>
                             </tr>
                             <tr>
-                                <td>paginatorLeft</td>
+                                <td>paginatorstart</td>
                                 <td>-</td>
                             </tr>
                             <tr>
-                                <td>paginatorRight</td>
+                                <td>paginatorend</td>
                                 <td>-</td>
                             </tr>
                             <tr>

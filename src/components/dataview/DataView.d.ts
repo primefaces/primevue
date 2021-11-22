@@ -19,8 +19,8 @@ declare class DataView extends Vue {
     $emit(eventName: 'page', event: Event): this;
     $slots: {
         header: VNode[];
-        paginatorLeft: VNode[];
-        paginatorRight: VNode[];
+        paginatorstart: VNode[];
+        paginatorend: VNode[];
         list: VNode[];
         grid: VNode[];
         footer: VNode[];

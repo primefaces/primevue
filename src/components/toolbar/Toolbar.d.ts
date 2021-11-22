@@ -2,7 +2,7 @@ import Vue, { VNode } from 'vue';
 
 declare class Toolbar extends Vue {
     $slots: {
-        left: VNode[];
+        start: VNode[];
         right: VNode[];
     }
 }

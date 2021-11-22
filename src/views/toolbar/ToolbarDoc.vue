@@ -8,17 +8,17 @@ import Toolbar from 'primevue/toolbar';
 </CodeHighlight>
 
 				<h5>Getting Started</h5>
-				<p>Toolbar provides <i>left</i> and <i>right</i> templates to place content at these sections.</p>
+				<p>Toolbar provides <i>start</i> and <i>end</i> templates to place content at these sections.</p>
 <CodeHighlight>
 &lt;Toolbar&gt;
-    &lt;template #left&gt;
+    &lt;template #start&gt;
         &lt;Button label="New" icon="pi pi-plus" class="p-mr-2" /&gt;
         &lt;Button label="Upload" icon="pi pi-upload" class="p-button-success" /&gt;
         &lt;i class="pi pi-bars p-toolbar-separator p-mr-2" /&gt;
         &lt;SplitButton label="Save" icon="pi pi-check" :model="items" class="p-button-warning"&gt;&lt;/SplitButton&gt;
     &lt;/template&gt;
 
-    &lt;template #right&gt;
+    &lt;template #end&gt;
         &lt;Button icon="pi pi-search" class="p-mr-2" /&gt;
         &lt;Button icon="pi pi-calendar" class="p-button-success p-mr-2" /&gt;
         &lt;Button icon="pi pi-times" class="p-button-danger" /&gt;
@@ -37,11 +37,11 @@ import Toolbar from 'primevue/toolbar';
                         </thead>
                         <tbody>
                             <tr>
-                                <td>left</td>
+                                <td>start</td>
                                 <td>-</td>
                             </tr>
                             <tr>
-                                <td>right</td>
+                                <td>end</td>
                                 <td>-</td>
                             </tr>
                         </tbody>
@@ -86,14 +86,14 @@ import Toolbar from 'primevue/toolbar';
 <CodeHighlight>
 <template v-pre>
 &lt;Toolbar&gt;
-    &lt;template #left&gt;
+    &lt;template #start&gt;
         &lt;Button label="New" icon="pi pi-plus" class="p-mr-2" /&gt;
         &lt;Button label="Upload" icon="pi pi-upload" class="p-button-success" /&gt;
         &lt;i class="pi pi-bars p-toolbar-separator p-mr-2" /&gt;
         &lt;SplitButton label="Save" icon="pi pi-check" :model="items" class="p-button-warning"&gt;&lt;/SplitButton&gt;
     &lt;/template&gt;
 
-    &lt;template #right&gt;
+    &lt;template #end&gt;
         &lt;Button icon="pi pi-search" class="p-mr-2" /&gt;
         &lt;Button icon="pi pi-calendar" class="p-button-success p-mr-2" /&gt;
         &lt;Button icon="pi pi-times" class="p-button-danger" /&gt;

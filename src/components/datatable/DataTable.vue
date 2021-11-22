@@ -9,11 +9,11 @@
         </div>
         <DTPaginator v-if="paginatorTop" :rows="d_rows" :first="d_first" :totalRecords="totalRecordsLength" :pageLinkSize="pageLinkSize" :template="paginatorTemplate" :rowsPerPageOptions="rowsPerPageOptions"
                 :currentPageReportTemplate="currentPageReportTemplate" class="p-paginator-top" @page="onPage($event)" :alwaysShow="alwaysShowPaginator">
-            <template #left v-if="$scopedSlots.paginatorLeft">
-                <slot name="paginatorLeft"></slot>
+            <template #start v-if="$scopedSlots.paginatorstart">
+                <slot name="paginatorstart"></slot>
             </template>
-            <template #right v-if="$scopedSlots.paginatorRight">
-                <slot name="paginatorRight"></slot>
+            <template #end v-if="$scopedSlots.paginatorend">
+                <slot name="paginatorend"></slot>
             </template>
         </DTPaginator>
         <div class="p-datatable-wrapper" v-if="!scrollable">
@@ -113,11 +113,11 @@
         </div>
         <DTPaginator v-if="paginatorBottom" :rows="d_rows" :first="d_first" :totalRecords="totalRecordsLength" :pageLinkSize="pageLinkSize" :template="paginatorTemplate" :rowsPerPageOptions="rowsPerPageOptions"
                 :currentPageReportTemplate="currentPageReportTemplate" class="p-paginator-bottom" @page="onPage($event)" :alwaysShow="alwaysShowPaginator">
-            <template #left v-if="$scopedSlots.paginatorLeft">
-                <slot name="paginatorLeft"></slot>
+            <template #start v-if="$scopedSlots.paginatorstart">
+                <slot name="paginatorstart"></slot>
             </template>
-            <template #right v-if="$scopedSlots.paginatorRight">
-                <slot name="paginatorRight"></slot>
+            <template #end v-if="$scopedSlots.paginatorend">
+                <slot name="paginatorend"></slot>
             </template>
         </DTPaginator>
         <div class="p-datatable-footer" v-if="$scopedSlots.footer">
