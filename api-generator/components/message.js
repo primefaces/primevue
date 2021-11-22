@@ -22,6 +22,12 @@ const MessageProps = [
         type: "number",
         default: "300",
         description: "Delay in milliseconds to close the message automatically."
+    },
+    {
+        name: "icon",
+        type: "string",
+        default: "null",
+        description: "Display a custom icon for the message."
     }
 ];
 
