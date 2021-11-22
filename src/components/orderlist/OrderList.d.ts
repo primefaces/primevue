@@ -10,6 +10,8 @@ declare class OrderList extends Vue {
     $slots: {
         header: VNode[];
         item: VNode[];
+        controlsstart: VNode[];
+        controlsend: VNode[];
     }
 }
 

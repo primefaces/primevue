@@ -60,6 +60,10 @@ import OrderList from 'primevue/orderlist';
                 <h5>DataKey</h5>
                 <p>It is recommended to provide the name of the field that uniquely identifies the a record in the data via the <i>dataKey</i> property for better performance.</p>
 
+                <h5>Templating</h5>
+                <p>In addition to the <i>item</i> template, <i>header</i> is provided to place custom content at the list header. Controls section
+                can also be customized to place content before and after the buttons with <i>controlsstart</i> and <i>controlsend</i> slots respectively.</p>
+
 				<h5>Properties</h5>
                 <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
 				<div class="doc-tablewrapper">
@@ -151,6 +155,14 @@ import OrderList from 'primevue/orderlist';
                                 <td>item</td>
                                 <td>item: Item of the component<br />
                                     index: Index of the item</td>
+                            </tr>
+                            <tr>
+                                <td>controlsstart</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>ı
+                                <td>controlsend</td>
+                                <td>-</td>
                             </tr>
                         </tbody>
                     </table>

@@ -64,6 +64,14 @@ const OrderListSlots = [
     {
         name: "item",
         description: "Custom content for the item"
+    },
+    {
+        name: "controlsstart",
+        description: "Custom content before the buttons"
+    },
+    {
+        name: "controlsend",
+        description: "Custom content after the buttons"
     }
 ];
 

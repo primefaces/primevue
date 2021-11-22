@@ -1,10 +1,12 @@
 <template>
     <div class="p-orderlist p-component">
         <div class="p-orderlist-controls">
+            <slot name="controlsstart"></slot>
             <OLButton type="button" icon="pi pi-angle-up" @click="moveUp"></OLButton>
             <OLButton type="button" icon="pi pi-angle-double-up" @click="moveTop"></OLButton>
             <OLButton type="button" icon="pi pi-angle-down" @click="moveDown"></OLButton>
             <OLButton type="button" icon="pi pi-angle-double-down" @click="moveBottom"></OLButton>
+            <slot name="controlsend"></slot>
         </div>
         <div class="p-orderlist-list-container">
             <div class="p-orderlist-header" v-if="$slots.header">
