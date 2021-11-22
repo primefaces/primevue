@@ -7,7 +7,7 @@
         <div class="p-datatable-header" v-if="$scopedSlots.header">
             <slot name="header"></slot>
         </div>
-        <DTPaginator v-if="paginatorTop" :rows="d_rows" :first="d_first" :totalRecords="totalRecordsLength" :pageLinkSize="pageLinkSize" :template="paginatorTemplate" :rowsPerPageOptions="rowsPerPageOptions"
+        <DTPaginator v-if="paginatorTop" :rows="d_rows" :first="lazy ? 0 : d_first" :totalRecords="totalRecordsLength" :pageLinkSize="pageLinkSize" :template="paginatorTemplate" :rowsPerPageOptions="rowsPerPageOptions"
                 :currentPageReportTemplate="currentPageReportTemplate" class="p-paginator-top" @page="onPage($event)" :alwaysShow="alwaysShowPaginator">
             <template #start v-if="$scopedSlots.paginatorstart">
                 <slot name="paginatorstart"></slot>
@@ -111,7 +111,7 @@
                 </template>
             </DTScrollableView>
         </div>
-        <DTPaginator v-if="paginatorBottom" :rows="d_rows" :first="d_first" :totalRecords="totalRecordsLength" :pageLinkSize="pageLinkSize" :template="paginatorTemplate" :rowsPerPageOptions="rowsPerPageOptions"
+        <DTPaginator v-if="paginatorBottom" :rows="d_rows" :first="lazy ? 0 : d_first" :totalRecords="totalRecordsLength" :pageLinkSize="pageLinkSize" :template="paginatorTemplate" :rowsPerPageOptions="rowsPerPageOptions"
                 :currentPageReportTemplate="currentPageReportTemplate" class="p-paginator-bottom" @page="onPage($event)" :alwaysShow="alwaysShowPaginator">
             <template #start v-if="$scopedSlots.paginatorstart">
                 <slot name="paginatorstart"></slot>
