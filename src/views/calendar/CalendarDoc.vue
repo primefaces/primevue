@@ -161,9 +161,15 @@ export default {
 </CodeHighlight>
 
                 <h5>Month Picker</h5>
-                <p>Month picker is used to select month and year only without the date, set view mode as "month" to activate month picker.</p>
+                <p>Month picker is used to select month and year only without the date, set <i>view</i>i> mode as "month" to activate month picker.</p>
 <CodeHighlight>
-&lt;Calendar v-model="value" view="month" dateFormat="mm/yy" :yearNavigator="true" yearRange="2000:2030" /&gt;
+&lt;Calendar v-model="value" view="month" dateFormat="mm/yy" /&gt;
+</CodeHighlight>
+
+                <h5>Year Picker</h5>
+                <p>Similar to the month picker, year picker can be used to select years only. Set <i>view</i> to "year" to display the year picker.</p>
+<CodeHighlight>
+&lt;Calendar v-model="value" view="year" dateFormat="yy" /&gt;
 </CodeHighlight>
 
                 <h5>Touch UI</h5>
@@ -243,7 +249,7 @@ export default {
                                 <td>view</td>
                                 <td>string</td>
                                 <td>date</td>
-                                <td>Type of view to display, valid values are "date" for datepicker and "month" for month picker.</td>
+                                <td>Type of view to display, valid values are "date", "month" and "year".</td>
                             </tr>
                             <tr>
                                 <td>touchUI</td>
@@ -252,22 +258,23 @@ export default {
                                 <td>When enabled, calendar overlay is displayed as optimized for touch devices.</td>
                             </tr>
                             <tr>
-                                <td>monthNavigator</td>
+                                <td style="text-decoration: line-through">monthNavigator</td>
                                 <td>boolean</td>
                                 <td>false</td>
-                                <td>Whether the month should be rendered as a dropdown instead of text.</td>
+                                <td>Whether the month should be rendered as a dropdown instead of text. <br /> <br />  <b> Deprecated: </b> Navigator is always on</td>
                             </tr>
                             <tr>
-                                <td>yearNavigator</td>
+                                <td style="text-decoration: line-through">yearNavigator</td>
                                 <td>boolean</td>
                                 <td>false</td>
-                                <td>Whether the year should be rendered as a dropdown instead of text.</td>
+                                <td>Whether the year should be rendered as a dropdown instead of text. <br /> <br /> <b> Deprecated: </b> Navigator is always on.</td>
                             </tr>
                             <tr>
-                                <td>yearRange</td>
+                                <td style="text-decoration: line-through">yearRange</td>
                                 <td>string</td>
                                 <td>null</td>
-                                <td>The range of years displayed in the year drop-down in (nnnn:nnnn) format such as (2000:2020).</td>
+                                <td>The range of years displayed in the year drop-down in (nnnn:nnnn) format such as (2000:2020). <br><br>
+                                <b> Deprecated: </b> Years are based on decades by default.</td>
                             </tr>
                             <tr>
                                 <td>panelClass</td>
