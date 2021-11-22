@@ -3,9 +3,9 @@ import Vue, { VNode } from 'vue';
 declare class SelectButton extends Vue {
     value?: any;
     options?: any[];
-    optionLabel?: string;
-    optionValue?: any;
-    optionDisabled?: boolean;
+    optionLabel?: string | ((data: any) => string) | undefined;
+    optionValue?: string | ((data: any) => any) | undefined;
+    optionDisabled?: string | ((data: any) => boolean) | undefined;
     multiple?: boolean;
     disabled?: boolean;
     dataKey?: string;

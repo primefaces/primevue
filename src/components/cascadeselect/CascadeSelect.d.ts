@@ -3,10 +3,10 @@ import Vue, { VNode } from 'vue';
 declare class CascadeSelect extends Vue {
     value?: any;
     options?: any[];
-    optionLabel?: string;
-    optionValue?: any;
-    optionGroupLabel?: string;
-    optionGroupChildren?: string;
+    optionLabel?: string | ((data: any) => string) | undefined;
+    optionValue?: string | ((data: any) => any) | undefined;
+    optionGroupLabel?: string | ((data: any) => string) | undefined;
+    optionGroupChildren?: string[] | string | ((data: any) => any[]) | undefined;
     placeholder?: string;
     disabled?: boolean;
     dataKey?: string;

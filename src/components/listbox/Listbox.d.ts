@@ -3,8 +3,8 @@ import Vue, { VNode } from 'vue';
 declare class Listbox extends Vue {
     value?: any;
     options?: any[];
-    optionLabel?: string;
-    optionValue?: any;
+    optionLabel?: string | ((data: any) => string) | undefined;
+    optionValue?: string | ((data: any) => any) | undefined;
     optionDisabled?: string | ((data: any) => boolean) | undefined;
     listStyle?: string;
     disabled?: boolean;
