@@ -27,14 +27,16 @@ import PickList from 'primevue/picklist';
 </CodeHighlight>
 
                 <h5>Templates</h5>
-                <p>In addition to the mandatory "item" template, picklist provides "sourceHeader" and "targetHeader" slots as optional templates.</p>
+                <p>In addition to the mandatory "item" template, picklist provides "sourceheader" and "targetheader" slots to define content
+                at header sections. Similarly custom content can be placed before and after the button controls for each section can be templates. View
+                the slots section for more information.</p>
 <CodeHighlight>
 <template v-pre>
 &lt;PickList v-model="cars" dataKey="vin"&gt;
-    &lt;template #sourceHeader&gt;
+    &lt;template #sourceheader&gt;
         Available
     &lt;/template&gt;
-    &lt;template #targetHeader&gt;
+    &lt;template #targetheader&gt;
         Selected
     &lt;/template&gt;
     &lt;template #item="slotProps"&gt;
@@ -187,7 +189,7 @@ import PickList from 'primevue/picklist';
                         </thead>
                         <tbody>
                             <tr>
-                                <td>sourceHeader</td>
+                                <td>sourceheader</td>
                                 <td>-</td>
                             </tr>
                             <tr>
@@ -196,9 +198,33 @@ import PickList from 'primevue/picklist';
                                     index: Index of the item</td>
                             </tr>
                             <tr>
-                                <td>targetHeader</td>
+                                <td>targetheader</td>
                                 <td>-</td>
                             </tr>
+                            <tr>
+                        <td>sourcecontrolsstart</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>sourcecontrolsend</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>movecontrolsstart</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>movecontrolsend</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>targetcontrolsstart</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>targetcontrolsend</td>
+                            <td>-</td>
+                        </tr>
                         </tbody>
                     </table>
                 </div>
@@ -257,10 +283,10 @@ import PickList from 'primevue/picklist';
 <CodeHighlight>
 <template v-pre>
 &lt;PickList v-model="products" listStyle="height:342px" dataKey="id"&gt;
-    &lt;template #sourceHeader&gt;
+    &lt;template #sourceheader&gt;
         Available
     &lt;/template&gt;
-    &lt;template #targetHeader&gt;
+    &lt;template #targetheader&gt;
         Selected
     &lt;/template&gt;
     &lt;template #item="slotProps"&gt;

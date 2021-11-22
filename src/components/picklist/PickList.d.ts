@@ -14,6 +14,14 @@ declare class PickList extends Vue {
     $slots: {
         header: VNode[];
         item: VNode[];
+        sourceheader: VNode[];
+        targetheader: VNode[];
+        sourcecontrolsstart: VNode[];
+        sourcecontrolsend: VNode[];
+        movecontrolsstart: VNode[];
+        movecontrolsend: VNode[];
+        targetcontrolsstart: VNode[];
+        targetcontrolsend: VNode[];
     }
 }
 
