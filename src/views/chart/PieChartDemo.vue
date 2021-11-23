@@ -62,18 +62,22 @@ export default {
         },
         getLightTheme() {
             return {
-                legend: {
-                    labels: {
-                        fontColor: '#495057'
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#495057'
+                        }
                     }
                 }
             }
         },
         getDarkTheme() {
             return {
-                legend: {
-                    labels: {
-                        fontColor: '#ebedef'
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#ebedef'
+                        }
                     }
                 }
             }
