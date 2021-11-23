@@ -4,14 +4,14 @@
             <ul class="p-menu-list p-reset" role="menu">
                 <template v-for="(item, i) of model">
                     <template v-if="item.items && visible(item) && !item.separator">
-                        <li class="p-submenu-header" :key="item.label+i" v-if="item.items">{{item.label}}</li>
+                        <li class="p-submenu-header" :key="label(item) + i" v-if="item.items">{{label(item)}}</li>
                         <template v-for="(child, j) of item.items">
-                            <Menuitem v-if="visible(child) && !child.separator" :key="child.label + i + j" :item="child" @click="itemClick" :exact="exact" />
+                            <Menuitem v-if="visible(child) && !child.separator" :key="label(child) + i + j" :item="child" @click="itemClick" :exact="exact" />
                             <li v-else-if="visible(child) && child.separator" :class="['p-menu-separator', child.class]" :style="child.style" :key="'separator' + i + j" role="separator"></li>
                         </template>
                     </template>
                     <li v-else-if="visible(item) && item.separator" :class="['p-menu-separator', item.class]" :style="item.style" :key="'separator' + i" role="separator"></li>
-                    <Menuitem v-else :key="item.label+i" :item="item" @click="itemClick" :exact="exact" />
+                    <Menuitem v-else :key="label(item) + i" :item="item" @click="itemClick" :exact="exact" />
                 </template>
             </ul>
         </div>
@@ -199,7 +199,10 @@ export default {
         },
         visible(item) {
             return (typeof item.visible === 'function' ? item.visible() : item.visible !== false);
-        }
+        },
+        label(item) {
+            return (typeof item.label === 'function' ? item.label() : item.label);
+        },
     },
     computed: {
         containerClass() {

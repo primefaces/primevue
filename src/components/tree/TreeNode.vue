@@ -41,9 +41,13 @@ const TreeNodeTemplate = {
         }
     },
     render(createElement, context) {
+        const label = (node) => {
+            return (typeof node.label === 'function' ? node.label() : node.label);
+        };
+
         const content = context.props.template ? context.props.template({
             'node': context.props.node
-        }): context.props.node.label;
+        }): label(context.props.node);
 
         return [content];
     }

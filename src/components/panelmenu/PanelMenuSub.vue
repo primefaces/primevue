@@ -1,22 +1,22 @@
 <template>
     <ul class="p-submenu-list" role="tree">
         <template v-for="(item, i) of model">
-            <li role="none" :class="getItemClass(item)" :style="item.style" v-if="visible(item) && !item.separator" :key="item.label + i">
+            <li role="none" :class="getItemClass(item)" :style="item.style" v-if="visible(item) && !item.separator" :key="label(item) + i">
                 <router-link v-if="item.to && !disabled(item)" :to="item.to" custom v-slot="{navigate, href, isActive, isExactActive}">
                     <a :href="href" :class="linkClass(item, {isActive, isExactActive})" @click="onItemClick($event, item, navigate)" role="treeitem" :aria-expanded="isActive(item)">
                         <span :class="['p-menuitem-icon', item.icon]"></span>
-                        <span class="p-menuitem-text">{{item.label}}</span>
+                        <span class="p-menuitem-text">{{label(item)}}</span>
                     </a>
                 </router-link>
                 <a v-else :href="item.url" :class="linkClass(item)" :target="item.target" @click="onItemClick($event, item)"
                     role="treeitem" :aria-expanded="isActive(item)" :tabindex="disabled(item) ? null : '0'">
                     <span :class="getSubmenuIcon(item)" v-if="item.items"></span>
                     <span :class="['p-menuitem-icon', item.icon]"></span>
-                    <span class="p-menuitem-text">{{item.label}}</span>
+                    <span class="p-menuitem-text">{{label(item)}}</span>
                 </a>
                 <transition name="p-toggleable-content">
                     <div class="p-toggleable-content" v-show="item === activeItem">
-                        <sub-panelmenu :model="item.items" v-if="visible(item) && item.items" :key="item.label + '_sub_'" :exact="exact" />
+                        <sub-panelmenu :model="item.items" v-if="visible(item) && item.items" :key="label(item) + '_sub_'" :exact="exact" />
                     </div>
                 </transition>
             </li>
@@ -92,6 +92,9 @@ export default {
         },
         disabled(item) {
             return (typeof item.disabled === 'function' ? item.disabled() : item.disabled);
+        },
+        label(item) {
+            return (typeof item.label === 'function' ? item.label() : item.label);
         }
     }
 }

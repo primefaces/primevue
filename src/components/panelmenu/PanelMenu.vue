@@ -1,19 +1,19 @@
 <template>
     <div class="p-panelmenu p-component">
         <template v-for="(item, index) of model">
-            <div v-if="visible(item)" :key="item.label + '_' + index" :class="getPanelClass(item)" :style="item.style">
+            <div v-if="visible(item)" :key="label(item) + '_' + index" :class="getPanelClass(item)" :style="item.style">
                 <div :class="getHeaderClass(item)" :style="item.style">
                     <router-link v-if="item.to && !disabled(item)" :to="item.to" custom v-slot="{navigate, href, isActive:isRouterActive, isExactActive}">
                         <a :href="href" :class="getHeaderLinkClass(item, {isRouterActive, isExactActive})" @click="onItemClick($event, item, navigate)" role="treeitem">
                             <span v-if="item.icon" :class="getPanelIcon(item)"></span>
-                            <span class="p-menuitem-text">{{item.label}}</span>
+                            <span class="p-menuitem-text">{{label(item)}}</span>
                         </a>
                     </router-link>
                     <a v-else :href="item.url" :class="getHeaderLinkClass(item)" @click="onItemClick($event, item)" :tabindex="disabled(item) ? null : '0'"
                         :aria-expanded="isActive(item)" :id="ariaId +'_header'" :aria-controls="ariaId +'_content'">
                         <span v-if="item.items" :class="getPanelToggleIcon(item)"></span>
                         <span v-if="item.icon" :class="getPanelIcon(item)"></span>
-                        <span class="p-menuitem-text">{{item.label}}</span>
+                        <span class="p-menuitem-text">{{label(item)}}</span>
                     </a>
                 </div>
                 <transition name="p-toggleable-content">
@@ -103,6 +103,9 @@ export default {
         },
         disabled(item) {
             return (typeof item.disabled === 'function' ? item.disabled() : item.disabled);
+        },
+        label(item) {
+            return (typeof item.label === 'function' ? item.label() : item.label);
         }
     },
     components: {
