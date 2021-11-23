@@ -1,6 +1,7 @@
 <template>
-    <span :class="containerClass">
-        <CalendarInputText ref="input" v-if="!inline" type="text" v-bind="$attrs" v-on="listeners" :value="inputFieldValue" :readonly="!manualInput" :aria-labelledby="ariaLabelledBy" inputmode="none" />
+    <span :class="containerClass" :style="styles">
+        <CalendarInputText ref="input" v-if="!inline" type="text" v-bind="$attrs" v-on="listeners" :value="inputFieldValue" :readonly="!manualInput" :aria-labelledby="ariaLabelledBy" inputmode="none"
+            :class="inputClass" :style="inputStyle" />
         <CalendarButton v-if="showIcon" :icon="icon" tabindex="-1" class="p-datepicker-trigger" :disabled="$attrs.disabled" @click="onButtonClick" type="button" :aria-label="inputFieldValue"/>
         <transition name="p-connected-overlay" @enter="onOverlayEnter" @after-enter="onOverlayEnterComplete" @leave="onOverlayLeave">
             <div ref="overlay" :class="panelStyleClass" v-if="inline ? true : overlayVisible" :role="inline ? null : 'dialog'" :aria-labelledby="ariaLabelledBy">
@@ -299,7 +300,11 @@ export default {
         appendTo: {
             type: String,
             default: null
-        }
+        },
+        inputClass: null,
+        inputStyle: null,
+        className: null,
+        styles: null
     },
     navigationState: null,
     scrollHandler: null,
@@ -2205,7 +2210,7 @@ export default {
         },
         containerClass() {
             return [
-                'p-calendar p-component p-inputwrapper',
+                'p-calendar p-component p-inputwrapper', this.className,
                 {
                     'p-calendar-w-btn': this.showIcon,
                     'p-calendar-timeonly': this.timeOnly,
