@@ -1144,11 +1144,9 @@ export default {
             return hours;
         },
         validateTime(hour, minute, second, pm) {
-            let value = this.value;
+            let value = this.isComparable() ? this.value : this.viewDate;
             const convertedHour = this.convertTo24Hour(hour, pm);
-            if (!this.isComparable()) {
-                return true;
-            }
+
             if (this.isRangeSelection()) {
                 value = this.value[1] || this.value[0];
             }
