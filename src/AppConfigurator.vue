@@ -298,64 +298,6 @@
                         </div>
                     </div>
 
-                    <h4>Legacy Free Themes</h4>
-                    <div class="p-grid free-themes">
-                        <div class="p-col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'nova')">
-                                <img src="demo/images/themes/nova.png" alt="Nova" />
-                            </button>
-                            <span>Nova</span>
-                        </div>
-                        <div class="p-col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'nova-alt')">
-                                <img src="demo/images/themes/nova-alt.png" alt="Nova Alt" />
-                            </button>
-                            <span>Nova Alt</span>
-                        </div>
-                        <div class="p-col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'nova-accent')">
-                                <img src="demo/images/themes/nova-accent.png" alt="Nova Accent" />
-                            </button>
-                            <span>Nova Accent</span>
-                        </div>
-                        <div class="p-col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'nova-vue')">
-                                <img src="demo/images/themes/nova-vue.png" alt="Nova Colored" />
-                            </button>
-                            <span>Nova Vue</span>
-                        </div>
-                        <div class="p-col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'luna-blue', true)">
-                                <img src="demo/images/themes/luna-blue.png" alt="Luna Blue" />
-                            </button>
-                            <span>Luna Blue</span>
-                        </div>
-                        <div class="p-col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'luna-green', true)">
-                                <img src="demo/images/themes/luna-green.png" alt="Luna Green" />
-                            </button>
-                            <span>Luna Green</span>
-                        </div>
-                        <div class="p-col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'luna-amber', true)">
-                                <img src="demo/images/themes/luna-amber.png" alt="Luna Amber" />
-                            </button>
-                            <span>Luna Amber</span>
-                        </div>
-                        <div class="p-col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'luna-pink', true)">
-                                <img src="demo/images/themes/luna-pink.png" alt="Luna Pink" />
-                            </button>
-                            <span>Luna Pink</span>
-                        </div>
-                        <div class="p-col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'rhea', false)">
-                                <img src="demo/images/themes/rhea.png" alt="Rhea" />
-                            </button>
-                            <span>Rhea</span>
-                        </div>
-                    </div>
-
                     <h4>Premium Vue-CLI Templates</h4>
                     <p>Beautifully crafted premium <a href="https://cli.vuejs.org">Vue CLI</a> application templates by the PrimeTek design team.</p>
                     <div class="p-grid premium-themes">
@@ -370,8 +312,18 @@
                             </a>
                         </div>
                         <div class="p-col-12 p-md-6">
+                            <a href="https://www.primefaces.org/layouts/freya-vue">
+                                <img alt="Freya" src="./assets/images/layouts/freya-vue.png">
+                            </a>
+                        </div>
+                        <div class="p-col-12 p-md-6">
                             <a href="https://www.primefaces.org/layouts/ultima-vue">
                                 <img alt="Ultima" src="./assets/images/layouts/ultima-vue.jpg">
+                            </a>
+                        </div>
+                        <div class="p-col-12 p-md-6">
+                            <a href="https://www.primefaces.org/layouts/diamond-vue">
+                                <img alt="Diamond" src="./assets/images/layouts/diamond-vue.jpg">
                             </a>
                         </div>
                         <div class="p-col-12 p-md-6">
