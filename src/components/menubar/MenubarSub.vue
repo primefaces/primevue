@@ -4,7 +4,7 @@
             <li role="none" :class="getItemClass(item)" :style="item.style" v-if="visible(item) && !item.separator" :key="label(item) + i"
                 @mouseenter="onItemMouseEnter($event, item)">
                 <router-link v-if="item.to && !disabled(item)" :to="item.to" custom v-slot="{navigate, href, isActive, isExactActive}">
-                    <a :href="href" :class="linkClass(item, {isActive, isExactActive})" @click="onItemClick($event, item, navigate)" @keydown.native="onItemKeyDown($event, item)"
+                    <a :href="href" :class="linkClass(item, {isActive, isExactActive})" @click="onItemClick($event, item, navigate)" @keydown="onItemKeyDown($event, item)"
                         role="menuitem" v-ripple>
                         <span :class="['p-menuitem-icon', item.icon]"></span>
                         <span class="p-menuitem-text">{{label(item)}}</span>
