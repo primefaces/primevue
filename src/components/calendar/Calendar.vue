@@ -1901,7 +1901,7 @@ export default {
                     cell.tabIndex = '-1';
                     var cells = cell.parentElement.children;
                     var cellIndex = DomHandler.index(cell);
-                    let nextCell = cells[event.which === 40 ? cellIndex + 3 : cellIndex - 2];
+                    let nextCell = cells[event.which === 40 ? cellIndex + 2 : cellIndex - 2];
                     if (nextCell) {
                         nextCell.tabIndex = '0';
                         nextCell.focus();
