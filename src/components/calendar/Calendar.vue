@@ -1807,7 +1807,7 @@ export default {
                 }
                 else {
                     let nextMonthContainer = this.$refs.overlay.children[groupIndex + 1];
-                    let focusCell = DomHandler.findSingle(nextMonthContainer, '.p-datepicker-calendar td span:not(.p-disabled):not(.p-ink');
+                    let focusCell = DomHandler.findSingle(nextMonthContainer, '.p-datepicker-calendar td span:not(.p-disabled):not(.p-ink)');
                     focusCell.tabIndex = '0';
                     focusCell.focus();
                 }
