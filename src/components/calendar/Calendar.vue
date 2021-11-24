@@ -1759,7 +1759,8 @@ export default {
                 }
 
                 //enter
-                case 13: {
+                case 13:
+                case 32: {
                     this.onDateSelect(event, date);
                     event.preventDefault();
                     break;
@@ -1793,7 +1794,7 @@ export default {
                 }
                 else {
                     let prevMonthContainer = this.$refs.overlay.children[groupIndex - 1];
-                    let cells = DomHandler.find(prevMonthContainer, '.p-datepicker-calendar td span:not(.p-disabled)');
+                    let cells = DomHandler.find(prevMonthContainer, '.p-datepicker-calendar td span:not(.p-disabled):not(.p-ink)');
                     let focusCell = cells[cells.length - 1];
                     focusCell.tabIndex = '0';
                     focusCell.focus();
@@ -1806,7 +1807,7 @@ export default {
                 }
                 else {
                     let nextMonthContainer = this.$refs.overlay.children[groupIndex + 1];
-                    let focusCell = DomHandler.findSingle(nextMonthContainer, '.p-datepicker-calendar td span:not(.p-disabled)');
+                    let focusCell = DomHandler.findSingle(nextMonthContainer, '.p-datepicker-calendar td span:not(.p-disabled):not(.p-ink');
                     focusCell.tabIndex = '0';
                     focusCell.focus();
                 }
@@ -1839,6 +1840,10 @@ export default {
                         prevCell.tabIndex = '0';
                         prevCell.focus();
                     }
+                    else {
+                        this.navigationState = {backward: true};
+                        this.navBackward(event);
+                    }
                     event.preventDefault();
                     break;
                 }
@@ -1851,12 +1856,17 @@ export default {
                         nextCell.tabIndex = '0';
                         nextCell.focus();
                     }
+                    else {
+                        this.navigationState = {backward: false};
+                        this.navForward(event);
+                    }
                     event.preventDefault();
                     break;
                 }
 
                 //enter
-                case 13: {
+                case 13:
+                case 32: {
                     this.onMonthSelect(event, index);
                     event.preventDefault();
                     break;
@@ -1891,7 +1901,7 @@ export default {
                     cell.tabIndex = '-1';
                     var cells = cell.parentElement.children;
                     var cellIndex = DomHandler.index(cell);
-                    let nextCell = cells[event.which === 40 ? cellIndex + 3 : cellIndex -3];
+                    let nextCell = cells[event.which === 40 ? cellIndex + 3 : cellIndex - 2];
                     if (nextCell) {
                         nextCell.tabIndex = '0';
                         nextCell.focus();
@@ -1907,6 +1917,10 @@ export default {
                         prevCell.tabIndex = '0';
                         prevCell.focus();
                     }
+                    else {
+                        this.navigationState = {backward: true};
+                        this.navBackward(event);
+                    }
                     event.preventDefault();
                     break;
                 }
@@ -1918,11 +1932,16 @@ export default {
                         nextCell.tabIndex = '0';
                         nextCell.focus();
                     }
+                    else {
+                        this.navigationState = {backward: false};
+                        this.navForward(event);
+                    }
                     event.preventDefault();
                     break;
                 }
                 //enter
-                case 13: {
+                case 13:
+                case 32: {
                     this.onMonthSelect(event, index);
                     event.preventDefault();
                     break;
@@ -2009,16 +2028,20 @@ export default {
             else {
                 cell = DomHandler.findSingle(this.$refs.overlay, 'span.p-highlight');
                 if (!cell) {
-                    let todayCell = DomHandler.findSingle(this.$refs.overlay, 'td.p-datepicker-today span:not(.p-disabled)');
+                    let todayCell = DomHandler.findSingle(this.$refs.overlay, 'td.p-datepicker-today span:not(.p-disabled):not(.p-ink)');
                     if (todayCell)
                         cell = todayCell;
                     else
-                        cell = DomHandler.findSingle(this.$refs.overlay, '.p-datepicker-calendar td span:not(.p-disabled)');
+                        cell = DomHandler.findSingle(this.$refs.overlay, '.p-datepicker-calendar td span:not(.p-disabled):not(.p-ink');
                 }
             }
 
             if (cell) {
                 cell.tabIndex = '0';
+
+                if (!this.navigationState || !this.navigationState.button) {
+                    cell.focus();
+                }
             }
         },
         trapFocus(event) {
