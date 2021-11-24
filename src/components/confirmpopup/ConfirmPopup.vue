@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import ConfirmationEventBus from '../confirmationservice/ConfirmationEventBus';
+import ConfirmationEventBus from '../confirmationeventbus/ConfirmationEventBus';
 import ConnectedOverlayScrollHandler from '../utils/ConnectedOverlayScrollHandler';
 import DomHandler from '../utils/DomHandler';
 import Button from '../button/Button';

@@ -1,4 +1,4 @@
-import ConfirmationEventBus from './ConfirmationEventBus';
+import ConfirmationEventBus from '../confirmationeventbus/ConfirmationEventBus';
 
 const ConfirmationService = {
     install: (Vue) => {

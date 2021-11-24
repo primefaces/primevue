@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import ConfirmationEventBus from '../confirmationservice/ConfirmationEventBus';
+import ConfirmationEventBus from '../confirmationeventbus/ConfirmationEventBus';
 import Dialog from '../dialog/Dialog';
 import Button from '../button/Button';
 import DomHandler from '../utils/DomHandler';
