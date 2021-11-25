@@ -2382,6 +2382,10 @@
 .p-datatable .p-datatable-scrollable-footer {
   background: #1e1e1e;
 }
+.p-datatable.p-datatable-scrollable > .p-datatable-wrapper > .p-datatable-table > .p-datatable-thead,
+.p-datatable.p-datatable-scrollable > .p-datatable-wrapper > .p-datatable-table > .p-datatable-tfoot {
+  background-color: #1e1e1e;
+}
 .p-datatable .p-datatable-loading-icon {
   font-size: 2rem;
 }
