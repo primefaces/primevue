@@ -232,7 +232,7 @@
                     <p>No time to wait for a response at forum or issue tracker? Then PrimeVue PRO Support is definitely for you.</p>
                     <p>PrimeVUE PRO is an exceptional support service where you'll contact the PrimeTek via a private channel and receive assistance just in a couple of hours. Optionally PrimeVue PRO offers the ability to request changes and new features for the component library.</p>
                     <a class="action-button" href="mailto:contact@primetek.com.tr">
-                        Get a Quote
+                        LEARN MORE
                     </a>
                 </div>
                 <div class="p-col-12 p-md-6">
