@@ -812,6 +812,54 @@
 - Button not registered in FileUpload [\#478](https://github.com/primefaces/primevue/issues/478)
 - BlockUI documentation indicates "show" event whereas the actual event is "unblock" [\#485](https://github.com/primefaces/primevue/issues/485)
 
+## [2.7.0](https://github.com/primefaces/primevue/tree/2.7.0) (2021-11-25)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/2.6.0...2.7.0)
+
+**Implemented New Features and Enhancements:**
+
+- Remove mitt event bus [\#1826](https://github.com/primefaces/primevue/issues/1826)
+- New calendar styple props for v2 [\#1824](https://github.com/primefaces/primevue/issues/1824)
+- Dynamic labels for Menu components v2 [\#1821](https://github.com/primefaces/primevue/issues/1821)
+- Update Chart to trigger on any change to object data - v2 [\#1813](https://github.com/primefaces/primevue/issues/1813)
+- Vue as peer dependency [\#1812](https://github.com/primefaces/primevue/issues/1812)
+- icon templating for Message v2 [\#1811](https://github.com/primefaces/primevue/issues/1811)
+- PickList v2 slots before and after the buttons [\#1806](https://github.com/primefaces/primevue/issues/1806)
+- OrderList v2 slots before and after the buttons [\#1805](https://github.com/primefaces/primevue/issues/1805)
+- Add responsiveOptions property to Calendar v2 [\#1803](https://github.com/primefaces/primevue/issues/1803)
+- Year Picker for Calendar v2 [\#1802](https://github.com/primefaces/primevue/issues/1802)
+- Enhanced UI for month and year picker for Calendar v2 [\#1801](https://github.com/primefaces/primevue/issues/1801)
+- Default focus button should be configurable for ConfirmDialog v2 [\#1797](https://github.com/primefaces/primevue/issues/1797)
+- New rowStyle prop for DataTable v2 [\#1790](https://github.com/primefaces/primevue/issues/1790)
+- Disabled buttons on InputNumber v2 when value reach min, max [\#1789](https://github.com/primefaces/primevue/issues/1789)
+- Templating Support for ConfirmPopup v2 [\#1787](https://github.com/primefaces/primevue/issues/1787)
+- Update PrimeIcons v5 [\#1785](https://github.com/primefaces/primevue/issues/1785)
+- Update Themes and add New Lara Theme [\#1784](https://github.com/primefaces/primevue/issues/1784)
+
+**Fixed bugs:**
+
+- Carousel swipe function is broken on iOS devices v2 [\#1822](https://github.com/primefaces/primevue/issues/1822)
+- Disabled not working for SelectButton v2 [\#1819](https://github.com/primefaces/primevue/issues/1819)
+- Calendar in timeonly mode ignores minDate, maxDate - v2 [\#1818](https://github.com/primefaces/primevue/issues/1818)
+- Fix TypeScript definitions for selects - v2 [\#1816](https://github.com/primefaces/primevue/issues/1816)
+- optionDisabled wrongly typed [\#1815](https://github.com/primefaces/primevue/issues/1815)
+- DataTable lazy loading paginator defect - v2 [\#1814](https://github.com/primefaces/primevue/issues/1814)
+- ProgressBar: color text accessibility issue - v2 [\#1810](https://github.com/primefaces/primevue/issues/1810)
+- Cell editing without editor templating defect for DataTable v2 [\#1804](https://github.com/primefaces/primevue/issues/1804)
+- DataTable v2 events wrong TypeScript  definitions [\#1788](https://github.com/primefaces/primevue/issues/1788)
+- Panel missing icon template in d.ts [\#1786](https://github.com/primefaces/primevue/issues/1786)
+- MenuModel 'to' is not working as routerlink - refreshing the whole app [\#1749](https://github.com/primefaces/primevue/issues/1749)
+
+**Breaking Changes:**
+
+- Rename slots for toolbar - v2 [\#1809](https://github.com/primefaces/primevue/issues/1809)
+- Rename slot names for paginatorLeft and paginatorRight - v2 [\#1808](https://github.com/primefaces/primevue/issues/1808)
+- Lowercase slot names for PickList sourceHeader-targetHeader v2 [\#1807](https://github.com/primefaces/primevue/issues/1807)
+
+**Deprecated:**
+
+- Deprecated props in Calendar v2 [\#1798](https://github.com/primefaces/primevue/issues/1798)
+
 ## [2.6.0](https://github.com/primefaces/primevue/tree/2.6.0) (2021-09-29)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/2.5.1...2.6.0)
