@@ -690,7 +690,7 @@
 
 .p-colorpicker-panel {
   background: #1f2d40;
-  border-color: #304562;
+  border: 1px solid #304562;
 }
 .p-colorpicker-panel .p-colorpicker-color-handle,
 .p-colorpicker-panel .p-colorpicker-hue-handle {
