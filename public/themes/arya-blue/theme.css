@@ -486,18 +486,18 @@
   outline-offset: 0;
   box-shadow: 0 0 0 1px #93cbf9;
 }
-.p-datepicker:not(.p-disabled) .p-monthpicker .p-monthpicker-month:not(.p-highlight):not(.p-disabled):hover {
+.p-datepicker:not(.p-disabled) .p-monthpicker .p-monthpicker-month:not(.p-disabled):not(.p-highlight):hover {
   background: rgba(255, 255, 255, 0.03);
 }
-.p-datepicker:not(.p-disabled) .p-monthpicker .p-monthpicker-month:not(.p-highlight):not(.p-disabled):focus {
+.p-datepicker:not(.p-disabled) .p-monthpicker .p-monthpicker-month:not(.p-disabled):focus {
   outline: 0 none;
   outline-offset: 0;
   box-shadow: 0 0 0 1px #93cbf9;
 }
-.p-datepicker:not(.p-disabled) .p-yearpicker .p-yearpicker-year:not(.p-highlight):not(.p-disabled):hover {
+.p-datepicker:not(.p-disabled) .p-yearpicker .p-yearpicker-year:not(.p-disabled):not(.p-highlight):hover {
   background: rgba(255, 255, 255, 0.03);
 }
-.p-datepicker:not(.p-disabled) .p-yearpicker .p-yearpicker-year:not(.p-highlight):not(.p-disabled):focus {
+.p-datepicker:not(.p-disabled) .p-yearpicker .p-yearpicker-year:not(.p-disabled):focus {
   outline: 0 none;
   outline-offset: 0;
   box-shadow: 0 0 0 1px #93cbf9;
@@ -690,7 +690,7 @@
 
 .p-colorpicker-panel {
   background: #1e1e1e;
-  border-color: #383838;
+  border: 1px solid #383838;
 }
 .p-colorpicker-panel .p-colorpicker-color-handle,
 .p-colorpicker-panel .p-colorpicker-hue-handle {
@@ -2357,6 +2357,10 @@
 .p-datatable .p-datatable-scrollable-header,
 .p-datatable .p-datatable-scrollable-footer {
   background: #1e1e1e;
+}
+.p-datatable.p-datatable-scrollable > .p-datatable-wrapper > .p-datatable-table > .p-datatable-thead,
+.p-datatable.p-datatable-scrollable > .p-datatable-wrapper > .p-datatable-table > .p-datatable-tfoot {
+  background-color: #1e1e1e;
 }
 .p-datatable .p-datatable-loading-icon {
   font-size: 2rem;
@@ -5379,4 +5383,11 @@
 }
 .p-galleria.p-galleria-indicator-onitem .p-galleria-indicators .p-galleria-indicator.p-highlight button {
   background: #64B5F6;
+}
+
+.p-datatable .p-datatable-tbody > tr.p-datatable-dragpoint-top > td {
+  box-shadow: inset 0 2px 0 0 #64B5F6;
+}
+.p-datatable .p-datatable-tbody > tr.p-datatable-dragpoint-bottom > td {
+  box-shadow: inset 0 -2px 0 0 #64B5F6;
 }
