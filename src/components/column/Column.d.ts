@@ -1,94 +1,401 @@
-interface ColumnProps {
-    columnKey?: any;
-    field?: string | ((item: any) => any);
-    sortField?: string | ((item: any) => any);
-    filterField?: string | ((item: any) => any);
-    dataType?: string;
-    sortable?: boolean;
-    header?: any;
-    footer?: any;
-    style?: object;
-    class?: string;
-    headerStyle?: object;
-    headerClass?: string;
-    bodyStyle?: object;
-    bodyClass?: string;
-    footerStyle?: object;
-    footerClass?: string;
-    showFilterMenu?: boolean;
-    showFilterOperator?: boolean;
-    showClearButton?: boolean;
-    showApplyButton?: boolean;
-    showFilterMatchModes?: boolean;
-    showAddButton?: boolean;
-    filterMatchModeOptions?: any[];
-    maxConstraints?: number;
-    excludeGlobalFilter?: boolean;
-    filterHeaderStyle?: object;
-    filterHeaderClass?: string;
-    filterMenuStyle?: object;
-    filterMenuClass?: string;
-    selectionMode?: string;
-    expander?: boolean;
-    colspan?: number;
-    rowspan?: number;
-    rowReorder?: boolean;
-    rowReorderIcon?: string;
-    reorderableColumn?: boolean;
-    rowEditor?: boolean;
-    frozen?: boolean;
-    alignFrozen?: string;
-    exportable?: boolean;
-    filterMatchMode?: string;
-    hidden?: boolean;
+import { VNode } from 'vue';
+import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+
+type ColumnFieldType = string | ((item: any) => string) | undefined;
+
+type ColumnSelectionModeType = 'single' | 'multiple' | undefined;
+
+type ColumnAlignFrozenType = 'left' | 'right';
+
+export interface ColumnFilterModelType {
+    /**
+     * Value of filterModel.
+     */
+    value: any;
+    /**
+     * Match mode of filterModel.
+     */
+    matchMode: string;
 }
 
-interface ColumnBodySlotInterface {
-    data: any;
-    column: any;
-    field: string;
-    index: number;
-    frozenRow: boolean;
+export interface ColumnFilterMatchModeOptions {
+    [key: string]: string;
 }
 
-interface ColumnHeaderSlotInterface {
-    column: any;
+export interface ColumnProps {
+    /**
+     * Identifier of a column if field property is not defined.
+     */
+    columnKey?: string | undefined;
+    /**
+     * Property represented by the column.
+     * @see ColumnFieldType
+     */
+    field?: ColumnFieldType;
+    /**
+     * Property name to use in sorting, defaults to field.
+     * @see ColumnFieldType
+     */
+    sortField?: ColumnFieldType;
+    /**
+     * Property name to use in filtering, defaults to field.
+     * @see ColumnFieldType
+     */
+    filterField?: ColumnFieldType;
+    /**
+     * Type of data. It's value is related to PrimeVue.filterMatchModeOptions config.
+     */
+    dataType?: string | undefined;
+    /**
+     * Defines if a column is sortable.
+     */
+    sortable?: boolean | undefined;
+    /**
+     * Header content of the column.
+     */
+    header?: string | undefined;
+    /**
+     * Footer content of the column.
+     */
+    footer?: string | undefined;
+    /**
+     * Inline style of header, body and footer cells.
+     */
+    style?: any;
+    /**
+     * Style class of header, body and footer cells.
+     */
+    class?: string | undefined;
+    /**
+     * Inline style of the column header.
+     */
+    headerStyle?: any;
+    /**
+     * Style class of the column header.
+     */
+    headerClass?: string | undefined;
+    /**
+     * Inline style of the column body.
+     */
+    bodyStyle?: any;
+    /**
+     * Style class of the column body.
+     */
+    bodyClass?: string | undefined;
+    /**
+     * Inline style of the column footer.
+     */
+    footerStyle?: any;
+    /**
+     * Style class of the column footer.
+     */
+    footerClass?: string | undefined;
+    /**
+     * Whether to display the filter overlay.
+     * Default value is true.
+     */
+    showFilterMenu?: boolean | undefined;
+    /**
+     * When enabled, match all and match any operator selector is displayed.
+     * Default value is true.
+     */
+    showFilterOperator?: boolean | undefined;
+    /**
+     * Displays a button to clear the column filtering.
+     * Default value is true.
+     */
+    showClearButton?: boolean | undefined;
+    /**
+     * Displays a button to apply the column filtering.
+     * Default value is true.
+     */
+    showApplyButton?: boolean | undefined;
+    /**
+     * Whether to show the match modes selector.
+     * Default value is true.
+     */
+    showFilterMatchModes?: boolean | undefined;
+    /**
+     * When enabled, a button is displayed to add more rules.
+     * Default value is true.
+     */
+    showAddButton?: boolean | undefined;
+    /**
+     * An array of label-value pairs to override the global match mode options.
+     */
+    filterMatchModeOptions?: ColumnFilterMatchModeOptions[];
+    /**
+     * Maximum number of constraints for a column filter.
+     * Default value is 2.
+     */
+    maxConstraints?: number | undefined;
+    /**
+     * Whether to exclude from global filtering or not.
+     */
+    excludeGlobalFilter?: boolean | undefined;
+    /**
+     * Inline style of the column filter header in row filter display.
+     */
+    filterHeaderStyle?: any;
+    /**
+     * Style class of the column filter header in row filter display.
+     */
+    filterHeaderClass?: string | undefined;
+    /**
+     * Inline style of the column filter overlay.
+     */
+    filterMenuStyle?: any;
+    /**
+     * Style class of the column filter overlay.
+     */
+    filterMenuClass?: string | undefined;
+    /**
+     * Defines column based selection mode, options are "single" and "multiple".
+     * @see ColumnSelectionModeType
+     */
+    selectionMode?: ColumnSelectionModeType;
+    /**
+     * Displays an icon to toggle row expansion.
+     */
+    expander?: boolean | undefined;
+    /**
+     * Number of columns to span for grouping.
+     */
+    colspan?: number | undefined;
+    /**
+     * Number of rows to span for grouping.
+     */
+    rowspan?: number | undefined;
+    /**
+     * Whether this column displays an icon to reorder the rows.
+     */
+    rowReorder?: boolean | undefined;
+    /**
+     * Icon of the drag handle to reorder rows.
+     * Default value is 'pi pi-bars'.
+     */
+    rowReorderIcon?: string | undefined;
+    /**
+     * Defines if the column itself can be reordered with dragging.
+     */
+    reorderableColumn?: boolean | undefined;
+    /**
+     * When enabled, column displays row editor controls.
+     */
+    rowEditor?: boolean | undefined;
+    /**
+     * Whether the column is fixed in horizontal scrolling.
+     */
+    frozen?: boolean | undefined;
+    /**
+     * Position of a frozen column, valid values are left and right.
+     * @see ColumnAlignFrozenType
+     * Default value is 'left'.
+     */
+    alignFrozen?: ColumnAlignFrozenType;
+    /**
+     * Whether the column is included in data export.
+     */
+    exportable?: boolean | undefined;
+    /**
+     * Defines the filtering algorithm to use when searching the options.
+     */
+    filterMatchMode?: string | undefined;
+    /**
+     * Whether the column is rendered.
+     */
+    hidden?: boolean | undefined;
 }
 
-interface ColumnFooterSlotInterface {
-    column: any;
+export interface ColumnSlots {
+    /**
+     * Custom body template.
+     * @param {Object} scope - body slot's params.
+     */
+    body: (scope: {
+        /**
+         * Row data.
+         */
+        data: any;
+        /**
+         * Column node.
+         */
+        column: Column;
+        /**
+         * Column field.
+         */
+        field: string;
+        /**
+         * Row index.
+         */
+        index: number;
+        /**
+         * Whether the row is frozen.
+         */
+        frozenRow: boolean;
+    }) => VNode[];
+    /**
+     * Custom header template.
+     * @param {Object} scope - header slot's params.
+     */
+    header: (scope: {
+        /**
+         * Column node.
+         */
+        column: Column;
+    }) => VNode[];
+     /**
+     * Custom footer template.
+     * @param {Object} scope - footer slot's params.
+     */
+    footer: (scope: {
+        /**
+         * Column node.
+         */
+        column: Column;
+    }) => VNode[];
+    /**
+     * Custom editor template.
+     * @param {Object} scope - editor slot's params.
+     */
+    editor: (scope: {
+        /**
+         * Row data.
+         */
+        data: any;
+        /**
+         * Column node.
+         */
+        column: Column;
+        /**
+         * Column field.
+         */
+        field: string;
+        /**
+         * Row index.
+         */
+        index: number;
+        /**
+         * Whether the row is frozen.
+         */
+        frozenRow: boolean;
+    }) => VNode[];
+     /**
+     * Custom filter template.
+     * @param {Object} scope - filter slot's params.
+     */
+    filter: (scope: {
+        /**
+         * Column field.
+         */
+        field: string;
+        /**
+         * Filter metadata
+         * @see ColumnFilterModelType
+         */
+        filterModel: ColumnFilterModelType;
+        /**
+         * Callback function
+         */
+        filterCallback: () => void;
+    }) => VNode[];
+    /**
+     * Custom filter header template.
+     * @param {Object} scope - filter header slot's params.
+     */
+    filterheader: (scope: {
+        /**
+         * Column field.
+         */
+        field: string;
+        /**
+         * Filter metadata
+         * @see ColumnFilterModelType
+         */
+        filterModel: ColumnFilterModelType;
+        /**
+         * Callback function
+         */
+        filterCallback: () => void;
+    }) => VNode[];
+     /**
+     * Custom filter footer template.
+     * @param {Object} scope - filter footer slot's params.
+     */
+    filterfooter: (scope: {
+        /**
+         * Column field.
+         */
+        field: string;
+        /**
+         * Filter metadata
+         * @see ColumnFilterModelType
+         */
+        filterModel: ColumnFilterModelType;
+        /**
+         * Callback function
+         */
+        filterCallback: () => void;
+    }) => VNode[];
+    /**
+     * Custom filter clear template.
+     * @param {Object} scope - filter clear slot's params.
+     */
+    filterclear: (scope: {
+        /**
+         * Column field.
+         */
+        field: string;
+        /**
+         * Filter metadata
+         * @see ColumnFilterModelType
+         */
+        filterModel: ColumnFilterModelType;
+        /**
+         * Callback function
+         */
+        filterCallback: () => void;
+    }) => VNode[];
+    /**
+     * Custom filter apply template.
+     * @param {Object} scope - filter apply slot's params.
+     */
+    filterapply: (scope: {
+        /**
+         * Column field.
+         */
+        field: string;
+        /**
+         * Filter metadata
+         * @see ColumnFilterModelType
+         */
+        filterModel: ColumnFilterModelType;
+        /**
+         * Callback function
+         */
+        filterCallback: () => void;
+    }) => VNode[];
 }
 
-interface ColumnEditorSlotInterface {
-    data: any;
-    column: any;
-    field: string;
-    index: number;
-    frozenRow: boolean;
+export declare type ColumnEmits = {
 }
 
-interface ColumnFilterSlotInterface {
-    field: string;
-    filterModel: {
-        value: any;
-        matchMode: string;
-    };
-    filterCallback: any;
-}
+declare class Column extends ClassComponent<ColumnProps, ColumnSlots, ColumnEmits> { }
 
-declare class Column {
-    $props: ColumnProps;
-    $slots: {
-        body: ColumnBodySlotInterface;
-        header: ColumnHeaderSlotInterface;
-        footer: ColumnFooterSlotInterface;
-        editor: ColumnEditorSlotInterface;
-        filter: ColumnFilterSlotInterface;
-        filterheader: ColumnFilterSlotInterface;
-        filterfooter: ColumnFilterSlotInterface;
-        filterclear: ColumnFilterSlotInterface;
-        filterapply: ColumnFilterSlotInterface;
+declare module '@vue/runtime-core' {
+    interface GlobalComponents {
+        Column: GlobalComponentConstructor<Column>
     }
 }
 
+/**
+ *
+ * Column is a helper component for DataTable and TreeTable.
+ *
+ * Demos:
+ *
+ * - [DataTable](https://www.primefaces.org/primevue/showcase/#/datatable)
+ * - [TreeTable](https://www.primefaces.org/primevue/showcase/#/treetable)
+ *
+ */
 export default Column;
