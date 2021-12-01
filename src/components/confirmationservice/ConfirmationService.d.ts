@@ -1,10 +1,11 @@
 import Vue, { Plugin } from 'vue';
+import { ConfirmationOptions } from '../confirmationoptions';
 
 declare const plugin: Plugin;
 export default plugin;
 
 interface ConfirmationServiceMethods {
-    require(options: any): any;
+    require(options: ConfirmationOptions): any;
     close(): void;
 }
 
