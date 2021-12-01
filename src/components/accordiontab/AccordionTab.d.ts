@@ -35,7 +35,7 @@ declare module '@vue/runtime-core' {
 
 /**
  *
- * AccordionTab is a helper component for Accordion
+ * AccordionTab is a helper component for Accordion.
  *
  * Demos:
  *
