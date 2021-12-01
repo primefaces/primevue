@@ -1,16 +1,61 @@
 import { VNode } from 'vue';
+import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-interface DividerProps {
-    align?: string;
-    layout?: string;
-    type?: string;
+type DividerHorizontalAlignType = 'left' | 'center' | 'right';
+
+type DividerVerticalAlignType = 'top' | 'center' | 'bottom';
+
+type DividerAlignType = DividerHorizontalAlignType | DividerVerticalAlignType | undefined;
+
+type DividerLayoutType = 'horizontal' | 'vertical';
+
+type DividerType = 'solid' | 'dashed' | 'dotted';
+
+export interface DividerProps {
+    /**
+     * Alignment of the content, options are "left", "center", "right" for horizontal layout and "top", "center", "bottom" for vertical.
+     * @see DividerAlignType
+     */
+    align?: DividerAlignType;
+    /**
+     * Specifies the orientation, valid values are "horizontal" and "vertical".
+     * @see DividerLayoutType
+     * Default value is 'horizontal'.
+     */
+    layout?: DividerLayoutType;
+    /**
+     * Border style type.
+     * @see DividerType
+     * Default value is 'solid'.
+     */
+    type?: DividerType;
 }
 
-declare class Divider {
-    $props: DividerProps;
-    $slots: {
-        '': VNode[];
+export interface DividerSlots {
+    /**
+     * Default content slot.
+     */
+    default: () => VNode[];
+}
+
+export declare type DividerEmits = {
+}
+
+declare class Divider extends ClassComponent<DividerProps, DividerSlots, DividerEmits> { }
+
+declare module '@vue/runtime-core' {
+    interface GlobalComponents {
+        Divider: GlobalComponentConstructor<Divider>
     }
 }
 
+/**
+ *
+ * Divider is used to separate contents.
+ *
+ * Demos:
+ *
+ * - [Divider](https://www.primefaces.org/primevue/showcase/#/divider)
+ *
+ */
 export default Divider;
