@@ -1,19 +1,95 @@
-interface SliderProps {
-    modelValue?: number | any[];
-    min?: number;
-    max?: number;
-    orientation?: string;
-    step?: number;
-    range?: boolean;
-    disabled?: boolean;
-    ariaLabelledBy?: string;
+import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+
+type SliderOrientationType = 'horizontal' | 'vertical';
+
+export interface SliderSlideEndEvent {
+    /**
+     * Original event
+     */
+    originalEvent: Event;
+    /**
+     * New value.
+     */
+    value: number;
 }
 
-declare class Slider {
-    $props: SliderProps;
-    $emit(eventName: 'update:modelValue', value: number | any[]): this;
-    $emit(eventName: 'change', value: any): this;
-    $emit(eventName: 'slideend', e: {originalEvent: Event, value: any}): this;
+export interface SliderProps {
+    /**
+     * Value of the component.
+     * Default value is 0.
+     */
+    modelValue?: number | number[] | undefined;
+    /**
+     * Mininum boundary value.
+     * Default value is 0.
+     */
+    min?: number | undefined;
+    /**
+     * Maximum boundary value.
+     * Default value is 100.
+     */
+    max?: number | undefined;
+    /**
+     * Orientation of the slider.
+     * @see SliderOrientationType
+     * Default value is 'horizontal'.
+     */
+    orientation?: SliderOrientationType;
+    /**
+     * Step factor to increment/decrement the value.
+     * Default value is 1.
+     */
+    step?: number | undefined;
+    /**
+     * When speficed, allows two boundary values to be picked.
+     */
+    range?: boolean | undefined;
+    /**
+     * When present, it specifies that the component should be disabled.
+     */
+    disabled?: boolean | undefined;
+    /**
+     * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
+     */
+    ariaLabelledBy?: string | undefined;
 }
 
+export interface SliderSlots {
+}
+
+export declare type SliderEmits = {
+    /**
+     * Emitted when the value changes.
+     * @param {number | number[]} value - New value.
+     */
+    'update:modelValue': (value: number | number[]) => void;
+    /**
+     * Callback to invoke on value change.
+     * @param {number} value - New value
+     */
+    'change': (value: number) => void;
+    /**
+     * Callback to invoke when slide ends.
+     * @param {SliderSlideEndEvent} event - Custom slide end event.
+     */
+    'slideend': (event: SliderSlideEndEvent) => void;
+}
+
+declare class Slider extends ClassComponent<SliderProps, SliderSlots, SliderEmits> { }
+
+declare module '@vue/runtime-core' {
+    interface GlobalComponents {
+        Slider: GlobalComponentConstructor<Slider>
+    }
+}
+
+/**
+ *
+ * Slider is an input component to provide a numerical input.
+ *
+ * Demos:
+ *
+ * - [Slider](https://www.primefaces.org/primevue/showcase/#/slider)
+ *
+ */
 export default Slider;
