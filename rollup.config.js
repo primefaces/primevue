@@ -140,14 +140,16 @@ function addCore() {
 }
 
 function addSFC() {
-    fs.readdirSync(path.resolve(__dirname, './src/components/')).forEach(folder => {
-        fs.readdirSync(path.resolve(__dirname, './src/components/' + folder)).forEach(file => {
-            let name = file.split(/(.vue)$|(.js)$/)[0].toLowerCase();
-            if (/\.vue$/.test(file) && (name === folder)) {
-                addEntry(folder, file, name);
-            }
+    fs.readdirSync(path.resolve(__dirname, './src/components/'), { withFileTypes: true })
+        .filter(dir => dir.isDirectory())
+        .forEach(({ name: folderName }) => {
+            fs.readdirSync(path.resolve(__dirname, './src/components/' + folderName)).forEach(file => {
+                let name = file.split(/(.vue)$|(.js)$/)[0].toLowerCase();
+                if (/\.vue$/.test(file) && (name === folderName)) {
+                    addEntry(folderName, file, name);
+                }
+            });
         });
-    });
 }
 
 function addDirectives() {
