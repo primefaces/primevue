@@ -1,7 +1,7 @@
 import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-interface AccordionTabProps {
+export interface AccordionTabProps {
     /**
      * Orientation of tab headers.
      */
@@ -12,7 +12,7 @@ interface AccordionTabProps {
     disabled?: boolean | undefined;
 }
 
-interface AccordionTabSlots {
+export interface AccordionTabSlots {
     /**
      * Default slot for content.
      */
@@ -23,7 +23,7 @@ interface AccordionTabSlots {
     header: () => VNode[];
 }
 
-type AccordionTabEmits = { }
+export declare type AccordionTabEmits = { }
 
 declare class AccordionTab extends ClassComponent<AccordionTabProps, AccordionTabSlots, AccordionTabEmits> { }
 

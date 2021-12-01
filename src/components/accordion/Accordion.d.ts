@@ -1,7 +1,7 @@
 import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-interface AccordionTabOpenEvent {
+export interface AccordionTabOpenEvent {
     /**
      * Browser mouse event.
      * @type {MouseEvent}
@@ -16,9 +16,9 @@ interface AccordionTabOpenEvent {
 /**
  * @extends {AccordionTabOpenEvent}
  */
-interface AccordionTabCloseEvent extends AccordionTabOpenEvent { }
+export interface AccordionTabCloseEvent extends AccordionTabOpenEvent { }
 
-interface AccordionProps {
+export interface AccordionProps {
     /**
      * When enabled, multiple tabs can be activated at the same time.
      */
@@ -33,14 +33,14 @@ interface AccordionProps {
     lazy?: boolean | undefined;
 }
 
-interface AccordionSlots {
+export interface AccordionSlots {
     /**
      * Default slot to detect AccordionTab components.
      */
     default: () => VNode[];
 }
 
-type AccordionEmits = {
+export declare type AccordionEmits = {
     /**
      * Emitted when the active tab changes.
      * @param {number | undefined} value - Index of new active tab.
