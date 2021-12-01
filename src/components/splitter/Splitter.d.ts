@@ -1,9 +1,9 @@
 import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-type SplitterLayoutType = 'horizontal' | 'vertical';
+type SplitterLayoutType = 'horizontal' | 'vertical' | undefined;
 
-type SplitterStateStorageType = 'local' | 'session';
+type SplitterStateStorageType = 'local' | 'session' | undefined;
 
 export interface SplitterResizeEndEvent {
     /**
@@ -33,7 +33,7 @@ export interface SplitterProps {
      */
     stateKey?: string | undefined;
     /**
-     * Defines where a stateful splitter keeps its state, valid values are "session" for sessionStorage and "local" for localStorage.
+     * Defines where a stateful splitter keeps its state, valid values are 'session' for sessionStorage and 'local' for localStorage.
      * @see SplitterStateStorageType
      * Default value is 'session'.
      */

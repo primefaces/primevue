@@ -1,7 +1,7 @@
 import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-type MessageSeverityType = 'success' | 'info' | 'warn' | 'error';
+type MessageSeverityType = 'success' | 'info' | 'warn' | 'error' | undefined;
 
 export interface MessageProps {
     /**

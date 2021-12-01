@@ -3,11 +3,11 @@ import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 type VirtualScrollerItemsType = any[] | any[][] | undefined | null;
 
-type VirtualScrollerItemSizeType = number | number[];
+type VirtualScrollerItemSizeType = number | number[] | undefined;
 
-type VirtualScrollerOrientationType = 'vertical' | 'horizontal' | 'both';
+type VirtualScrollerOrientationType = 'vertical' | 'horizontal' | 'both' | undefined;
 
-type VirtualScrollerToType = 'to-start' | 'to-end';
+type VirtualScrollerToType = 'to-start' | 'to-end' | undefined;
 
 export interface VirtualScrollerScrollIndexChangeEvent {
     /**

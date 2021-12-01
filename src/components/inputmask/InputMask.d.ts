@@ -51,7 +51,7 @@ export declare type InputMaskEmits = {
      */
     'keypress': (event: Event) => void;
     /**
-     * Callback to invoke when the user has initiated a "paste" action through the browser's user interface.
+     * Callback to invoke when the user has initiated a 'paste' action through the browser's user interface.
      */
     'paste': (event: Event) => void;
     /**

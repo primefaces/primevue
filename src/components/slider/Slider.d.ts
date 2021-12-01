@@ -1,6 +1,6 @@
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-type SliderOrientationType = 'horizontal' | 'vertical';
+type SliderOrientationType = 'horizontal' | 'vertical' | undefined;
 
 export interface SliderSlideEndEvent {
     /**

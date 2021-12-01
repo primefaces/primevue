@@ -11,7 +11,7 @@ export interface OrderListReorderEvent {
      */
     value: any[];
     /**
-     * Direction of the change; "up", "down", "bottom", "top"
+     * Direction of the change; 'up', 'down', 'bottom', 'top'
      */
     direction: string;
 }

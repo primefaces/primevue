@@ -1,7 +1,7 @@
 import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-type TagSeverityType = 'success' | 'info' | 'warning' | 'danger';
+type TagSeverityType = 'success' | 'info' | 'warning' | 'danger' | undefined;
 
 export interface TagProps {
     /**

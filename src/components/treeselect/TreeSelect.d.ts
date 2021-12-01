@@ -2,11 +2,11 @@ import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 import { TreeNode } from '../tree';
 
-type TreeSelectSelectionModeType = 'single' | 'multiple' | 'checkbox';
+type TreeSelectSelectionModeType = 'single' | 'multiple' | 'checkbox' | undefined;
 
 type TreeSelectAppendToType = 'body' | 'self' | string | undefined;
 
-type TreeSelectDisplayType = 'comma' | 'chip';
+type TreeSelectDisplayType = 'comma' | 'chip' | undefined;
 
 export interface TreeSelectProps {
     /**
@@ -52,7 +52,7 @@ export interface TreeSelectProps {
      */
     panelClass?: string | undefined;
     /**
-     * A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are "body" for document body and "self" for the element itself.
+     * A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are 'body' for document body and 'self' for the element itself.
      * @see TreeSelectAppendToType
      * Default value is 'body'.
      */

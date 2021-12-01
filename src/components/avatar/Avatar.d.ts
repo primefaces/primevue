@@ -1,9 +1,9 @@
 import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-type AvatarSizeType = 'normal' | 'large' | 'xlarge';
+type AvatarSizeType = 'normal' | 'large' | 'xlarge' | undefined;
 
-type AvatarShapeType = 'square' | 'circle';
+type AvatarShapeType = 'square' | 'circle' | undefined;
 
 export interface AvatarProps {
     /**
@@ -19,13 +19,13 @@ export interface AvatarProps {
      */
     image?: string | undefined;
     /**
-     * Size of the element, valid options are "normal", "large" and "xlarge".
+     * Size of the element, valid options are 'normal', 'large' and 'xlarge'.
      * @see AvatarSizeType
      * Default value is 'normal'.
      */
     size?: AvatarSizeType;
     /**
-     * Shape of the element, valid options are "square" and "circle".
+     * Shape of the element, valid options are 'square' and 'circle'.
      * @see AvatarShapeType
      * Default value is 'square'.
      */

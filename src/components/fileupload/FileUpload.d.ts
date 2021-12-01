@@ -1,7 +1,7 @@
 import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-type FileUploadModeType = 'advanced' | 'basic';
+type FileUploadModeType = 'advanced' | 'basic' | undefined;
 
 export interface FileUploadSelectEvent {
     /**
@@ -97,7 +97,7 @@ export interface FileUploadProps {
      */
     url?: string | undefined;
     /**
-     * Defines the UI of the component, possible values are "advanced" and "basic".
+     * Defines the UI of the component, possible values are 'advanced' and 'basic'.
      * @see FileUploadModeType
      * Default value is 'advanced'.
      */
@@ -107,7 +107,7 @@ export interface FileUploadProps {
      */
     multiple?: boolean | undefined;
     /**
-     * Pattern to restrict the allowed file types such as "image/*".
+     * Pattern to restrict the allowed file types such as 'image/*'.
      */
     accept?: string | undefined;
     /**

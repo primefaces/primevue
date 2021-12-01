@@ -1,7 +1,7 @@
 import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-type DialogPositionType = 'center' | 'top' | 'bottom' | 'left' | 'right' | 'topleft' | 'topright' | 'bottomleft' | 'bottomright';
+type DialogPositionType = 'center' | 'top' | 'bottom' | 'left' | 'right' | 'topleft' | 'topright' | 'bottomleft' | 'bottomright' | undefined;
 
 type DialogAppendToType = 'body' | 'self' | string | undefined;
 
@@ -88,7 +88,7 @@ export interface DialogProps {
      */
     ariaCloseLabel?: string | undefined;
     /**
-     * Position of the dialog, options are "center", "top", "bottom", "left", "right", "topleft", "topright", "bottomleft" or "bottomright".
+     * Position of the dialog, options are 'center', 'top', 'bottom', 'left', 'right', 'topleft', 'topright', 'bottomleft' or 'bottomright'.
      * @see DialogPositionType
      * Default value is 'center'.
      */
@@ -123,7 +123,7 @@ export interface DialogProps {
      */
     minY?: number | undefined;
     /**
-     * A valid query selector or an HTMLElement to specify where the dialog gets attached. Special keywords are "body" for document body and "self" for the element itself.
+     * A valid query selector or an HTMLElement to specify where the dialog gets attached. Special keywords are 'body' for document body and 'self' for the element itself.
      * @see DialogAppendToType
      * Default value is 'body'.
      */

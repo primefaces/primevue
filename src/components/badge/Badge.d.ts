@@ -1,7 +1,7 @@
 import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-type BadgeSeverityType = 'info' | 'success' | 'warning' | 'danger';
+type BadgeSeverityType = 'info' | 'success' | 'warning' | 'danger' | undefined;
 
 type BadgeSizeType = 'large' | 'xlarge' | undefined;
 
@@ -16,7 +16,7 @@ export interface BadgeProps {
      */
     severity?: BadgeSeverityType;
     /**
-     * Size of the badge, valid options are "large" and "xlarge".
+     * Size of the badge, valid options are 'large' and 'xlarge'.
      * @see BadgeSizeType
      */
     size?: BadgeSizeType;

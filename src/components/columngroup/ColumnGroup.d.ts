@@ -1,6 +1,6 @@
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-type ColumnGroupType = 'header' | 'footer';
+type ColumnGroupType = 'header' | 'footer' | undefined;
 
 export interface ColumnGroupProps {
     /**

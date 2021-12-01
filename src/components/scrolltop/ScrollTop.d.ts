@@ -1,6 +1,6 @@
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-type ScrollTopTargetType = 'window' | 'parent';
+type ScrollTopTargetType = 'window' | 'parent' | undefined;
 
 export interface ScrollTopProps {
     /**
@@ -20,7 +20,7 @@ export interface ScrollTopProps {
      */
     icon?: string | undefined;
     /**
-     * Defines the scrolling behaviour, "smooth" adds an animation and "auto" scrolls with a jump.
+     * Defines the scrolling behaviour, 'smooth' adds an animation and 'auto' scrolls with a jump.
      * Default value is 'smooth'.
      */
     behavior?: string | undefined;

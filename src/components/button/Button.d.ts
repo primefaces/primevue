@@ -1,7 +1,7 @@
 import { ButtonHTMLAttributes, VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-type ButtonIconPosType = 'left' | 'right' | 'top' | 'bottom';
+type ButtonIconPosType = 'left' | 'right' | 'top' | 'bottom' | undefined;
 
 export interface ButtonProps extends ButtonHTMLAttributes {
     /**
@@ -21,7 +21,7 @@ export interface ButtonProps extends ButtonHTMLAttributes {
      */
     icon?: string | undefined;
     /**
-     * Position of the icon, valid values are "left", "right", "bottom" and "top".
+     * Position of the icon, valid values are 'left', 'right', 'bottom' and 'top'.
      * Default value is 'left'.
      */
     iconPos?: ButtonIconPosType;

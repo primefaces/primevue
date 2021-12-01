@@ -1,24 +1,24 @@
 import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-type DividerHorizontalAlignType = 'left' | 'center' | 'right';
+type DividerHorizontalAlignType = 'left' | 'center' | 'right' | undefined;
 
-type DividerVerticalAlignType = 'top' | 'center' | 'bottom';
+type DividerVerticalAlignType = 'top' | 'center' | 'bottom' | undefined;
 
 type DividerAlignType = DividerHorizontalAlignType | DividerVerticalAlignType | undefined;
 
-type DividerLayoutType = 'horizontal' | 'vertical';
+type DividerLayoutType = 'horizontal' | 'vertical' | undefined;
 
-type DividerType = 'solid' | 'dashed' | 'dotted';
+type DividerType = 'solid' | 'dashed' | 'dotted' | undefined;
 
 export interface DividerProps {
     /**
-     * Alignment of the content, options are "left", "center", "right" for horizontal layout and "top", "center", "bottom" for vertical.
+     * Alignment of the content, options are 'left', 'center', 'right' for horizontal layout and 'top', 'center', 'bottom' for vertical.
      * @see DividerAlignType
      */
     align?: DividerAlignType;
     /**
-     * Specifies the orientation, valid values are "horizontal" and "vertical".
+     * Specifies the orientation, valid values are 'horizontal' and 'vertical'.
      * @see DividerLayoutType
      * Default value is 'horizontal'.
      */

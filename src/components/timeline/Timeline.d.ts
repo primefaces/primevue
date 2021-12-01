@@ -1,13 +1,13 @@
 import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-type TimelineVerticalAlignType = 'left' | 'right';
+type TimelineVerticalAlignType = 'left' | 'right' | undefined;
 
-type TimelineHorizontalAlignType = 'top' | 'bottom';
+type TimelineHorizontalAlignType = 'top' | 'bottom' | undefined;
 
-type TimelineAlignType = TimelineVerticalAlignType | TimelineHorizontalAlignType;
+type TimelineAlignType = TimelineVerticalAlignType | TimelineHorizontalAlignType | undefined;
 
-type TimelineLayoutType = 'vertical' | 'horizontal';
+type TimelineLayoutType = 'vertical' | 'horizontal' | undefined;
 
 export interface TimelineProps {
     /**

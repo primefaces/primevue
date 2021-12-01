@@ -15,7 +15,7 @@ export interface EditorTextChangeEvent {
      */
     delta: any;
     /**
-     * Source of change. Will be either "user" or "api".
+     * Source of change. Will be either 'user' or 'api'.
      */
     source: string;
     /**

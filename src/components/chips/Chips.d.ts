@@ -36,7 +36,7 @@ export interface ChipsProps {
      */
     allowDuplicate?: boolean | undefined;
     /**
-     * Separator char to add an item when pressed in addition to the enter key. Currently only possible value is ","
+     * Separator char to add an item when pressed in addition to the enter key. Currently only possible value is ','
      */
     separator?: string | undefined;
     /**

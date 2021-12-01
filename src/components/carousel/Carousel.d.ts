@@ -1,7 +1,7 @@
 import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-type CarouselOrientationType = 'horizontal' | 'vertical';
+type CarouselOrientationType = 'horizontal' | 'vertical' | undefined;
 
 export interface CarouselResponsiveOptions {
     /**
@@ -44,7 +44,7 @@ export interface CarouselProps {
      */
 	responsiveOptions?: CarouselResponsiveOptions[] | undefined;
     /**
-     * Specifies the layout of the component, valid values are "horizontal" and "vertical".
+     * Specifies the layout of the component, valid values are 'horizontal' and 'vertical'.
      * @see CarouselOrientationType
      * Default value is 'horizontal'.
      */

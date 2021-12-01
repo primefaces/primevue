@@ -1,6 +1,6 @@
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-type ToggleButtonType = 'left' | 'right';
+type ToggleButtonType = 'left' | 'right' | undefined;
 
 export interface ToggleButtonProps {
     /**

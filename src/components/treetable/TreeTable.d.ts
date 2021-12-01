@@ -10,21 +10,21 @@ type TreeTableMultiSortMetaType = TreeTableSortMeta[] | undefined | null;
 
 type TreeTableSortOrderType = 1 | 0 | -1 | undefined | null;
 
-type TreeTableSortModeType = 'single' | 'multiple';
+type TreeTableSortModeType = 'single' | 'multiple' | undefined;
 
-type TreeTableFilterMatchModeType = 'startsWith' | 'contains' | 'notContains' | 'endsWith' | 'equals' | 'notEquals' | 'in' | 'lt' | 'lte' | 'gt' | 'gte' | 'between' | 'dateIs' | 'dateIsNot' | 'dateBefore' | 'dateAfter';
+type TreeTableFilterMatchModeType = 'startsWith' | 'contains' | 'notContains' | 'endsWith' | 'equals' | 'notEquals' | 'in' | 'lt' | 'lte' | 'gt' | 'gte' | 'between' | 'dateIs' | 'dateIsNot' | 'dateBefore' | 'dateAfter' | undefined;
 
-type TreeTableSelectionModeType = 'single' | 'multiple';
+type TreeTableSelectionModeType = 'single' | 'multiple' | undefined;
 
-type TreeTableFilterModeType = 'lenient' | 'strict';
+type TreeTableFilterModeType = 'lenient' | 'strict' | undefined;
 
-type TreeTableColumnResizeModeType = 'fit' | 'expand';
+type TreeTableColumnResizeModeType = 'fit' | 'expand' | undefined;
 
-type TreeTableScrollDirectionType = 'vertical' | 'horizontal' | 'both';
+type TreeTableScrollDirectionType = 'vertical' | 'horizontal' | 'both' | undefined;
 
 type TreeTableScrollHeightType = 'flex' | string | undefined;
 
-type TreeTableResponsiveLayoutType = 'stack' | 'scroll';
+type TreeTableResponsiveLayoutType = 'stack' | 'scroll' | undefined;
 
 export interface TreeTableFilterMetaData {
     /**
@@ -191,7 +191,7 @@ export interface TreeTableProps {
      */
     paginator?: boolean | undefined;
     /**
-     * Position of the paginator, options are "top","bottom" or "both".
+     * Position of the paginator, options are 'top','bottom' or 'both'.
      * @see TreeTablePaginatorPositionType
      * Default value is 'bottom'.
      */
@@ -202,7 +202,7 @@ export interface TreeTableProps {
      */
     alwaysShowPaginator?: boolean | undefined;
     /**
-     * Template of the paginator. It can be customized using the template property using the predefined keys, default value is "FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown". Here are the available elements that can be placed inside a paginator in any order.
+     * Template of the paginator. It can be customized using the template property using the predefined keys, default value is 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown'. Here are the available elements that can be placed inside a paginator in any order.
      *
      * - FirstPageLink
      * - PrevPageLink
@@ -324,7 +324,7 @@ export interface TreeTableProps {
      */
     scrollable?: boolean | undefined;
     /**
-     * Height of the scroll viewport in fixed pixels or the "flex" keyword for a dynamic size.
+     * Height of the scroll viewport in fixed pixels or the 'flex' keyword for a dynamic size.
      * @see TreeTableScrollHeightType
      */
     scrollHeight?: TreeTableScrollHeightType;

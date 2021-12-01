@@ -1,11 +1,11 @@
 import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-type DataViewLayoutType = 'list' | 'grid';
+type DataViewLayoutType = 'list' | 'grid' | undefined;
 
-type DataTablePositionType = 'top' | 'bottom' | 'both';
+type DataTablePositionType = 'top' | 'bottom' | 'both' | undefined;
 
-type DataViewSortFieldType = string | ((item: any) => string);
+type DataViewSortFieldType = string | ((item: any) => string) | undefined;
 
 export interface DataViewPageEvent {
     /**
@@ -32,7 +32,7 @@ export interface DataViewProps {
      */
     value?: any[] | undefined;
     /**
-     * Layout of the items, valid values are "list" and "grid".
+     * Layout of the items, valid values are 'list' and 'grid'.
      * @see DataViewLayoutType
      * Default value is 'list'.
      */
@@ -56,7 +56,7 @@ export interface DataViewProps {
      */
     paginator?: boolean | undefined;
     /**
-     * Position of the paginator, options are "top","bottom" or "both".
+     * Position of the paginator, options are 'top','bottom' or 'both'.
      * @see DataTablePositionType
      * Default value is 'bottom'.
      */
@@ -67,7 +67,7 @@ export interface DataViewProps {
      */
     alwaysShowPaginator?: boolean | undefined;
     /**
-     * Template of the paginator. It can be customized using the template property using the predefined keys, default value is "FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown". Here are the available elements that can be placed inside a paginator in any order.
+     * Template of the paginator. It can be customized using the template property using the predefined keys, default value is 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown'. Here are the available elements that can be placed inside a paginator in any order.
      *
      * - FirstPageLink
      * - PrevPageLink

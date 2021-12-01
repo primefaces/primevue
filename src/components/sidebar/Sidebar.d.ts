@@ -1,7 +1,7 @@
 import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-type SidebarPositionType = 'left' | 'right' | 'top' | 'bottom' | 'full';
+type SidebarPositionType = 'left' | 'right' | 'top' | 'bottom' | 'full' | undefined;
 
 export interface SidebarProps {
     /**

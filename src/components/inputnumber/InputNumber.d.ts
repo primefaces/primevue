@@ -1,10 +1,10 @@
 import { ClassComponent, GlobalComponentConstructor, Nullable } from '../ts-helpers';
 
-type InputNumberButtonLayoutType = 'stacked' | 'horizontal' | 'vertical';
+type InputNumberButtonLayoutType = 'stacked' | 'horizontal' | 'vertical' | undefined;
 
-type InputNumberLocaleMatcherType = 'lookup' | 'best fit';
+type InputNumberLocaleMatcherType = 'lookup' | 'best fit' | undefined;
 
-type InputNumberModeType = 'decimal' | 'currency';
+type InputNumberModeType = 'decimal' | 'currency' | undefined;
 
 export interface InputNumberInputEvent {
     /**
@@ -59,7 +59,7 @@ export interface InputNumberProps {
      */
     locale?: string | undefined;
     /**
-     * The locale matching algorithm to use. Possible values are "lookup" and "best fit"; the default is "best fit".
+     * The locale matching algorithm to use. Possible values are 'lookup' and 'best fit'; the default is 'best fit'.
      * See [Locale Negotation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_negotiation) for details.
      * @see InputNumberLocaleMatcherType
      * Default value is 'best fit'
@@ -80,12 +80,12 @@ export interface InputNumberProps {
      */
     suffix?: string | undefined;
     /**
-     * The currency to use in currency formatting. Possible values are the [ISO 4217 currency codes](https://www.six-group.com/en/products-services/financial-information/data-standards.html#scrollTo=maintenance-agency), such as "USD" for the US dollar, "EUR" for the euro, or "CNY" for the Chinese RMB.
-     * There is no default value; if the style is "currency", the currency property must be provided.
+     * The currency to use in currency formatting. Possible values are the [ISO 4217 currency codes](https://www.six-group.com/en/products-services/financial-information/data-standards.html#scrollTo=maintenance-agency), such as 'USD' for the US dollar, 'EUR' for the euro, or 'CNY' for the Chinese RMB.
+     * There is no default value; if the style is 'currency', the currency property must be provided.
      */
     currency?: string | undefined;
     /**
-     * How to display the currency in currency formatting. Possible values are "symbol" to use a localized currency symbol such as €, "code" to use the ISO currency code, "name" to use a localized currency name such as "dollar".
+     * How to display the currency in currency formatting. Possible values are 'symbol' to use a localized currency symbol such as €, 'code' to use the ISO currency code, 'name' to use a localized currency name such as 'dollar'.
      * Default value is 'symbol'.
      */
     currencyDisplay?: string | undefined;

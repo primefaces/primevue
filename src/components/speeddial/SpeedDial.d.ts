@@ -2,13 +2,13 @@ import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 import { MenuItem } from '../menuitem';
 
-type SpeedDialDirectionType = 'up' | 'down' | 'left' | 'right' | 'up-left' | 'up-right' | 'down-left' | 'down-right';
+type SpeedDialDirectionType = 'up' | 'down' | 'left' | 'right' | 'up-left' | 'up-right' | 'down-left' | 'down-right' | undefined;
 
-type SpeedDialType = 'linear' | 'circle' | 'semi-circle' | 'quarter-circle';
+type SpeedDialType = 'linear' | 'circle' | 'semi-circle' | 'quarter-circle' | undefined;
 
-type SpeedDialTooltipPositionType = 'bottom' | 'top' | 'left' | 'right';
+type SpeedDialTooltipPositionType = 'bottom' | 'top' | 'left' | 'right' | undefined;
 
-type SpeedDialTooltipEventType = 'hover' | 'focus';
+type SpeedDialTooltipEventType = 'hover' | 'focus' | undefined;
 
 export interface SpeedDialTooltipOptions {
     /**

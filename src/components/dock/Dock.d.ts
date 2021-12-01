@@ -2,9 +2,9 @@ import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 import { MenuItem } from '../menuitem';
 
-type DockPositionType = 'bottom' | 'top' | 'left' | 'right';
+type DockPositionType = 'bottom' | 'top' | 'left' | 'right' | undefined;
 
-type DockTooltipEventType = 'hover' | 'focus';
+type DockTooltipEventType = 'hover' | 'focus' | undefined;
 
 export interface DockTooltipOptions {
     /**

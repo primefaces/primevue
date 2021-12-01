@@ -3,11 +3,11 @@ import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 type CalendarValueType = Date | Date[] | undefined;
 
-type CalendarSelectionModeType = 'single' | 'multiple' | 'range';
+type CalendarSelectionModeType = 'single' | 'multiple' | 'range' | undefined;
 
-type CalendarViewType = 'date' | 'month' | 'year';
+type CalendarViewType = 'date' | 'month' | 'year' | undefined;
 
-type CalendarHourFormatType = '12' | '24';
+type CalendarHourFormatType = '12' | '24' | undefined;
 
 type CalendarAppendToType = 'body' | 'self' | string | undefined;
 
@@ -50,7 +50,7 @@ export interface CalendarProps {
      */
     modelValue?: CalendarValueType;
     /**
-     * Defines the quantity of the selection, valid values are "single", "multiple" and "range".
+     * Defines the quantity of the selection, valid values are 'single', 'multiple' and 'range'.
      * @see CalendarSelectionModeType
      * Default value is 'single'.
      */
@@ -92,7 +92,7 @@ export interface CalendarProps {
      */
     responsiveOptions?: CalendarResponsiveOptions[];
     /**
-     * Type of view to display, valid values are "date", "month" and "year".
+     * Type of view to display, valid values are 'date', 'month' and 'year'.
      * @see CalendarViewType
      * Default value is 'date'.
      */
@@ -217,7 +217,7 @@ export interface CalendarProps {
      */
     manualInput?: boolean | undefined;
     /**
-     * A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are "body" for document body and "self" for the element itself.
+     * A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are 'body' for document body and 'self' for the element itself.
      * Default value is 'body'.
      */
     appendTo?: CalendarAppendToType;

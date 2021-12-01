@@ -1,4 +1,4 @@
-type TerminalServiceActionType = 'command' | 'response';
+type TerminalServiceActionType = 'command' | 'response' | undefined;
 
 export interface TerminalServiceOptions {
     on(action: TerminalServiceActionType, fn: any): void;

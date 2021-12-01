@@ -1,7 +1,7 @@
 import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-type ProgressBarModeType = 'determinate' | 'indeterminate';
+type ProgressBarModeType = 'determinate' | 'indeterminate' | undefined;
 
 export interface ProgressBarProps {
     /**

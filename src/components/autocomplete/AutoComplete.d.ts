@@ -4,9 +4,9 @@ import { VirtualScrollerProps, VirtualScrollerItemOptions } from '../virtualscro
 
 type AutoCompleteFieldType = string | ((data: any) => string) | undefined;
 
-type AutoCompleteDropdownMode = 'blank' | 'current';
+type AutoCompleteDropdownMode = 'blank' | 'current' | undefined;
 
-type AutoCompleteAppendTo = 'body' | 'self';
+type AutoCompleteAppendTo = 'body' | 'self' | string | undefined;
 
 export interface AutoCompleteItemSelectEvent {
     /**
@@ -78,7 +78,7 @@ export interface AutoCompleteProps {
      */
     dropdown?: boolean | undefined;
     /**
-     * Specifies the behavior dropdown button. Default "blank" mode sends an empty string and "current" mode sends the input value.
+     * Specifies the behavior dropdown button. Default 'blank' mode sends an empty string and 'current' mode sends the input value.
      * @see AutoCompleteDropdownMode
      * Default value is 'blank'.
      */
@@ -103,7 +103,7 @@ export interface AutoCompleteProps {
     delay?: number | undefined;
     /**
      * A valid query selector or an HTMLElement to specify where the overlay gets attached.
-     * Special keywords are "body" for document body and "self" for the element itself.
+     * Special keywords are 'body' for document body and 'self' for the element itself.
      * Default value is body.
      */
     appendTo?: AutoCompleteAppendTo;

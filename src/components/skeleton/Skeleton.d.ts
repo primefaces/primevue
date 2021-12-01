@@ -1,8 +1,8 @@
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-type SkeletonShapeType = 'rectangle' | 'circle';
+type SkeletonShapeType = 'rectangle' | 'circle' | undefined;
 
-type SkeletonAnimationType = 'wave' | 'none';
+type SkeletonAnimationType = 'wave' | 'none' | undefined;
 
 export interface SkeletonProps {
     /**

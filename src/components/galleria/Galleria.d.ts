@@ -1,9 +1,9 @@
 import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-type GalleriaThumbnailsPositionType = 'bottom' | 'top' | 'left' | 'right';
+type GalleriaThumbnailsPositionType = 'bottom' | 'top' | 'left' | 'right' | undefined;
 
-type GalleriaIndicatorsPositionType = 'bottom' | 'top' | 'left' | 'right';
+type GalleriaIndicatorsPositionType = 'bottom' | 'top' | 'left' | 'right' | undefined;
 
 export interface GalleriaResponsiveOptions {
     /**

@@ -5,7 +5,7 @@ type ColumnFieldType = string | ((item: any) => string) | undefined;
 
 type ColumnSelectionModeType = 'single' | 'multiple' | undefined;
 
-type ColumnAlignFrozenType = 'left' | 'right';
+type ColumnAlignFrozenType = 'left' | 'right' | undefined;
 
 export interface ColumnFilterModelType {
     /**
@@ -150,7 +150,7 @@ export interface ColumnProps {
      */
     filterMenuClass?: string | undefined;
     /**
-     * Defines column based selection mode, options are "single" and "multiple".
+     * Defines column based selection mode, options are 'single' and 'multiple'.
      * @see ColumnSelectionModeType
      */
     selectionMode?: ColumnSelectionModeType;

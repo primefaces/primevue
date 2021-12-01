@@ -48,9 +48,9 @@ export interface TreeNode {
     [key: string]: any;
 }
 
-type TreeSelectionModeType = 'single' | 'multiple' | 'checkbox';
+type TreeSelectionModeType = 'single' | 'multiple' | 'checkbox' | undefined;
 
-type TreeFilterModeType = 'lenient' | 'strict';
+type TreeFilterModeType = 'lenient' | 'strict' | undefined;
 
 type TreeScrollHeightType = 'flex' | string | undefined;
 
@@ -124,7 +124,7 @@ export interface TreeProps {
      */
     filterLocale?: string | undefined;
     /**
-     * Height of the scroll viewport in fixed units or the "flex" keyword for a dynamic size.
+     * Height of the scroll viewport in fixed units or the 'flex' keyword for a dynamic size.
      * @see TreeScrollHeightType
      */
     scrollHeight?: TreeScrollHeightType;

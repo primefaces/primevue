@@ -1,7 +1,7 @@
 import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-type InlineMessageSeverityType = 'success' | 'info' | 'warn' | 'error';
+type InlineMessageSeverityType = 'success' | 'info' | 'warn' | 'error' | undefined;
 
 export interface InlineMessageProps {
     /**

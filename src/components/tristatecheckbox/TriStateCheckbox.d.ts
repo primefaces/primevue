@@ -36,7 +36,7 @@ declare module '@vue/runtime-core' {
 
 /**
  *
- * TriStateCheckbox is used to select either "true", "false" or "null" as the value.
+ * TriStateCheckbox is used to select either 'true', 'false' or 'null' as the value.
  *
  * Demos:
  *

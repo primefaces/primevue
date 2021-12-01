@@ -1,6 +1,6 @@
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-type ColorPickerFormatType = 'hex' | 'rgb' | 'hsb';
+type ColorPickerFormatType = 'hex' | 'rgb' | 'hsb' | undefined;
 
 type ColorPickerAppendToType = 'body' | 'self' | string | undefined;
 
@@ -30,7 +30,7 @@ export interface ColorPickerProps {
      */
     inline?: boolean | undefined;
     /**
-     * Format to use in value binding, supported formats are "hex", "rgb" and "hsb".
+     * Format to use in value binding, supported formats are 'hex', 'rgb' and 'hsb'.
      * @see ColorPickerFormatType
      * Default value is 'hex'.
      */
@@ -62,7 +62,7 @@ export interface ColorPickerProps {
      */
     panelClass?: string | undefined;
     /**
-     * A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are "body" for document body and "self" for the element itself.
+     * A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are 'body' for document body and 'self' for the element itself.
      * Default value is 'body'.
      */
     appendTo?: ColorPickerAppendToType;

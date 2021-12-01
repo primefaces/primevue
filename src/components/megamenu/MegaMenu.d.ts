@@ -2,7 +2,7 @@ import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 import { MenuItem } from '../menuitem';
 
-type MegaMenuOrientationType = 'horizontal' | 'vertical';
+type MegaMenuOrientationType = 'horizontal' | 'vertical' | undefined;
 
 export interface MegaMenuProps {
     /**

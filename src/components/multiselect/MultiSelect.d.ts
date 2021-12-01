@@ -10,11 +10,11 @@ type MultiSelectOptionDisabledType = string | ((data: any) => boolean) | undef
 
 type MultiSelectOptionChildrenType = string | ((data: any) => any[]) | undefined;
 
-type MultiSelectFilterMatchModeType = 'contains' | 'startsWith' | 'endsWith';
+type MultiSelectFilterMatchModeType = 'contains' | 'startsWith' | 'endsWith' | undefined;
 
 type MultiSelectAppendToType = 'body' | 'self' | string | undefined;
 
-type MultiSelectDisplayType = 'comma' | 'chip';
+type MultiSelectDisplayType = 'comma' | 'chip' | undefined;
 
 export interface MultiSelectChangeEvent {
     /**
@@ -130,7 +130,7 @@ export interface MultiSelectProps {
      */
     ariaLabelledBy?: string | undefined;
     /**
-     * A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are "body" for document body and "self" for the element itself.
+     * A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are 'body' for document body and 'self' for the element itself.
      * @see MultiSelectAppendToType
      * Default value is 'body'.
      */

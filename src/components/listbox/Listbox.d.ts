@@ -11,7 +11,7 @@ type ListboxOptionDisabledType = string | ((data: any) => boolean) | undefined
 
 type ListboxOptionChildrenType = string | ((data: any) => any[]) | undefined;
 
-type ListboxFilterMatchModeType = 'contains' | 'startsWith' | 'endsWith';
+type ListboxFilterMatchModeType = 'contains' | 'startsWith' | 'endsWith' | undefined;
 
 export interface ListboxChangeEvent {
     /**

@@ -46,7 +46,7 @@ export interface PaginatorProps {
      */
     rowsPerPageOptions?: number[] | undefined;
     /**
-     * Template of the paginator. It can be customized using the template property using the predefined keys, default value is "FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown". Here are the available elements that can be placed inside a paginator in any order.
+     * Template of the paginator. It can be customized using the template property using the predefined keys, default value is 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown'. Here are the available elements that can be placed inside a paginator in any order.
      *
      * - FirstPageLink
      * - PrevPageLink

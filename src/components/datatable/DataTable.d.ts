@@ -10,29 +10,29 @@ type DataTableMultiSortMetaType = DataTableSortMeta[] | undefined | null;
 
 type DataTableSortOrderType = 1 | 0 | -1 | undefined | null;
 
-type DataTableSortModeType = 'single' | 'multiple';
+type DataTableSortModeType = 'single' | 'multiple' | undefined;
 
-type DataTableFilterMatchModeType = 'startsWith' | 'contains' | 'notContains' | 'endsWith' | 'equals' | 'notEquals' | 'in' | 'lt' | 'lte' | 'gt' | 'gte' | 'between' | 'dateIs' | 'dateIsNot' | 'dateBefore' | 'dateAfter';
+type DataTableFilterMatchModeType = 'startsWith' | 'contains' | 'notContains' | 'endsWith' | 'equals' | 'notEquals' | 'in' | 'lt' | 'lte' | 'gt' | 'gte' | 'between' | 'dateIs' | 'dateIsNot' | 'dateBefore' | 'dateAfter' | undefined;
 
 type DataTableFilterDisplayType = 'menu' | 'row' | undefined;
 
-type DataTableSelectionModeType = 'single' | 'multiple';
+type DataTableSelectionModeType = 'single' | 'multiple' | undefined;
 
-type DataTableCompareSelectionBy = 'equals' | 'deepEquals';
+type DataTableCompareSelectionBy = 'equals' | 'deepEquals' | undefined;
 
-type DataTableColumnResizeModeType = 'fit' | 'expand';
+type DataTableColumnResizeModeType = 'fit' | 'expand' | undefined;
 
-type DataTableRowGroupModeType = 'subheader' | 'rowspan';
+type DataTableRowGroupModeType = 'subheader' | 'rowspan' | undefined;
 
-type DataTableStateStorageType = 'session' | 'local';
+type DataTableStateStorageType = 'session' | 'local' | undefined;
 
-type DataTableEditModeType = 'cell' | 'row';
+type DataTableEditModeType = 'cell' | 'row' | undefined;
 
-type DataTableScrollDirectionType = 'vertical' | 'horizontal' | 'both';
+type DataTableScrollDirectionType = 'vertical' | 'horizontal' | 'both' | undefined;
 
 type DataTableScrollHeightType = 'flex' | string | undefined;
 
-type DataTableResponsiveLayoutType = 'stack' | 'scroll';
+type DataTableResponsiveLayoutType = 'stack' | 'scroll' | undefined;
 
 export interface DataTableExportFunctionOptions {
     /**
@@ -206,7 +206,7 @@ export interface DataTableRowSelectEvent {
      */
     index: number;
     /**
-     * Type of the selection, valid values are "row", "radio" or "checkbox".
+     * Type of the selection, valid values are 'row', 'radio' or 'checkbox'.
      */
     type: string;
 }
@@ -349,7 +349,7 @@ export interface DataTableCellEditCompleteEvent {
      */
     index: number;
     /**
-     * Type of completion such as "enter", "outside" or "tab".
+     * Type of completion such as 'enter', 'outside' or 'tab'.
      */
     type: string;
 }
@@ -473,7 +473,7 @@ export interface DataTableProps {
      */
     paginator?: boolean | undefined;
     /**
-     * Position of the paginator, options are "top","bottom" or "both".
+     * Position of the paginator, options are 'top','bottom' or 'both'.
      * @see DataTablePaginatorPositionType
      * Default value is 'bottom'.
      */
@@ -484,7 +484,7 @@ export interface DataTableProps {
      */
     alwaysShowPaginator?: boolean | undefined;
     /**
-     * Template of the paginator. It can be customized using the template property using the predefined keys, default value is "FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown". Here are the available elements that can be placed inside a paginator in any order.
+     * Template of the paginator. It can be customized using the template property using the predefined keys, default value is 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown'. Here are the available elements that can be placed inside a paginator in any order.
      *
      * - FirstPageLink
      * - PrevPageLink
@@ -565,7 +565,7 @@ export interface DataTableProps {
      */
     filters?: DataTableFilterMeta;
     /**
-     * Layout of the filter elements, valid values are "row" and "menu".
+     * Layout of the filter elements, valid values are 'row' and 'menu'.
      * @see DataTableFilterDisplayType
      */
     filterDisplay?: DataTableFilterDisplayType;
@@ -582,12 +582,12 @@ export interface DataTableProps {
      */
     selection?: any[] | any | undefined;
     /**
-     * Specifies the selection mode, valid values are "single" and "multiple".
+     * Specifies the selection mode, valid values are 'single' and 'multiple'.
      * @see DataTableSelectionModeType
      */
     selectionMode?: DataTableSelectionModeType;
     /**
-     * Algorithm to define if a row is selected, valid values are "equals" that compares by reference and "deepEquals" that compares all fields.
+     * Algorithm to define if a row is selected, valid values are 'equals' that compares by reference and 'deepEquals' that compares all fields.
      * @see DataTableCompareSelectionBy
      * Default value is 'deepEquals'.
      */
@@ -634,7 +634,7 @@ export interface DataTableProps {
      */
     resizableColumns?: boolean | undefined;
     /**
-     * Defines whether the overall table width should change on column resize, valid values are "fit" and "expand".
+     * Defines whether the overall table width should change on column resize, valid values are 'fit' and 'expand'.
      * @see DataTableColumnResizeModeType
      * Default value is 'fit'.
      */
@@ -659,7 +659,7 @@ export interface DataTableProps {
      */
     collapsedRowIcon?: string | undefined;
     /**
-     * Defines the row group mode, valid options are "subheader" and "rowspan".
+     * Defines the row group mode, valid options are 'subheader' and 'rowspan'.
      * @see DataTableRowGroupModeType
      */
     rowGroupMode?: DataTableRowGroupModeType;
@@ -677,7 +677,7 @@ export interface DataTableProps {
      */
     expandedRowGroups?: any[] | DataTableExpandedRows;
     /**
-     * Defines where a stateful table keeps its state, valid values are "session" for sessionStorage and "local" for localStorage.
+     * Defines where a stateful table keeps its state, valid values are 'session' for sessionStorage and 'local' for localStorage.
      * @see DataTableStateStorageType
      * Default value is 'session'.
      */
@@ -687,7 +687,7 @@ export interface DataTableProps {
      */
     stateKey?: string | undefined;
     /**
-     * Defines the incell editing mode, valid options are "cell" and "row".
+     * Defines the incell editing mode, valid options are 'cell' and 'row'.
      * @see DataTableEditModeType
      */
     editMode?: DataTableEditModeType;
@@ -710,12 +710,12 @@ export interface DataTableProps {
      */
     scrollable?: boolean | undefined;
     /**
-     * Height of the scroll viewport in fixed pixels or the "flex" keyword for a dynamic size.
+     * Height of the scroll viewport in fixed pixels or the 'flex' keyword for a dynamic size.
      * @see DataTableScrollHeightType
      */
     scrollHeight?: DataTableScrollHeightType;
     /**
-     * Orientation of the scrolling, options are "vertical", "horizontal" and "both".
+     * Orientation of the scrolling, options are 'vertical', 'horizontal' and 'both'.
      * @see DataTableScrollDirectionType
      * Default value is 'vertical'.
      */
@@ -725,7 +725,7 @@ export interface DataTableProps {
      */
     frozenValue?: any[] | undefined;
     /**
-     * Defines the responsive mode, valid options are "stack" and "scroll".
+     * Defines the responsive mode, valid options are 'stack' and 'scroll'.
      * @see DataTableResponsiveLayoutType
      * Default value is 'stack'.
      */
