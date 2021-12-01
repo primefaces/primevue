@@ -1,10 +1,10 @@
 const ToolbarSlots = [
     {
-        name: "start",
+        name: "left",
         description: "Custom content for the component's left side"
     },
     {
-        name: "end",
+        name: "right",
         description: "Custom content for the component's right side"
     }
 ];

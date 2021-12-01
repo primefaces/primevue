@@ -5,8 +5,8 @@ interface ToolbarProps {}
 declare class Toolbar {
     $props: ToolbarProps;
     $slots: {
-        start: VNode[];
-        end: VNode[];
+        left: VNode[];
+        right: VNode[];
     }
 }
 
