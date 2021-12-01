@@ -1,22 +1,70 @@
 import { VNode } from 'vue';
+import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { MenuItem } from '../menuitem';
 
-interface MegaMenuProps {
-    model?: any[];
-    orientation?: string;
-    exact?: boolean;
+type MegaMenuOrientationType = 'horizontal' | 'vertical';
+
+export interface MegaMenuProps {
+    /**
+     * An array of menuitems.
+     */
+    model?: MenuItem[] | undefined;
+    /**
+     * Defines the orientation.
+     * @see MegaMenuOrientationType
+     * Default value is 'horizontal'.
+     */
+    orientation?: MegaMenuOrientationType;
+    /**
+     * Whether to apply 'router-link-active-exact' class if route exactly matches the item path.
+     * Default value is true.
+     */
+    exact?: boolean | undefined;
 }
 
-interface MegaMenuItemSlotInterface {
-    item: any;
+export interface MegaMenuSlots {
+    /**
+     * Custom start template.
+     */
+    start: () => VNode[];
+    /**
+     * Custom end template.
+     */
+    end: () => VNode[];
+    /**
+     * Custom item template.
+     * @param {Object} scope - item slot's params.
+     */
+    item: (scope: {
+        /**
+         * Menuitem instance
+         */
+        item: MenuItem;
+    }) => VNode[];
 }
 
-declare class MegaMenu {
-    $props: MegaMenuProps;
-    $slots: {
-        start: VNode[];
-        end: VNode[];
-        item: MegaMenuItemSlotInterface;
+export declare type MegaMenuEmits = {
+}
+
+declare class MegaMenu extends ClassComponent<MegaMenuProps, MegaMenuSlots, MegaMenuEmits> { }
+
+declare module '@vue/runtime-core' {
+    interface GlobalComponents {
+        MegaMenu: GlobalComponentConstructor<MegaMenu>
     }
 }
 
+/**
+ *
+ * MegaMenu is navigation component that displays submenus together.
+ *
+ * Helper API:
+ *
+ * - [MenuItem](https://www.primefaces.org/primevue/showcase/#/menumodel)
+ *
+ * Demos:
+ *
+ * - [MegaMenu](https://www.primefaces.org/primevue/showcase/#/megamenu)
+ *
+ */
 export default MegaMenu;
