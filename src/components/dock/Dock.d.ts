@@ -1,28 +1,105 @@
 import { VNode } from 'vue';
+import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { MenuItem } from '../menuitem';
 
-interface DockProps {
-    position?: string;
-    model?: any[];
-    class?: string;
+type DockPositionType = 'bottom' | 'top' | 'left' | 'right';
+
+type DockTooltipEventType = 'hover' | 'focus';
+
+export interface DockTooltipOptions {
+    /**
+     * Event to show the tooltip, valid values are hover and focus.
+     * @see DockTooltipEventType
+     */
+    event: DockTooltipEventType;
+    /**
+     * Position of element.
+     * @see DockPositionType
+     * Default value is 'bottom'.
+     */
+    position: DockPositionType;
+    /**
+     * Optional options.
+     */
+    [key: string]: string;
+}
+
+export interface DockProps {
+    /**
+     * MenuModel instance to define the action items.
+     */
+    model?: MenuItem[] | undefined;
+    /**
+     * Position of element.
+     * @see DockPositionType
+     * Default value is 'bottom'.
+     */
+    position?: DockPositionType;
+    /**
+     * Style class of the element.
+     */
+    class?: string | undefined;
+    /**
+     * Inline style of the element.
+     */
     style?: any;
-    exact?: boolean;
-    tooltipOptions?: any;
+    /**
+     * Whether to apply 'router-link-active-exact' class if route exactly matches the item path.
+     * Default value is true.
+     */
+    exact?: boolean | undefined;
+    /**
+     * Whether to display the tooltip on items. The modifiers of Tooltip can be used like an object in it. Valid keys are 'event' and 'position'.
+     * @see DockTooltipOptions
+     */
+    tooltipOptions?: DockTooltipOptions;
 }
 
-interface DockItemSlotInterface {
-    item: any;
+export interface DockSlots {
+    /**
+     * Custom item content.
+     * @param {Object} scope - item slot's params.
+     */
+    item: (scope: {
+        /**
+         * Custom content for item.
+         */
+        item: MenuItem;
+    }) => VNode[];
+    /**
+     * Custom icon content.
+     * @param {Object} scope - icon slot's params.
+     */
+    icon: (scope: {
+        /**
+         * Custom content for icon.
+         */
+        item: MenuItem;
+    }) => VNode[];
 }
 
-interface DockIconSlotInterface {
-    item: any;
+export declare type DockEmits = {
 }
 
-declare class Dock {
-    $props: DockProps;
-    $slots: {
-        item: DockItemSlotInterface;
-        icon: DockIconSlotInterface;
+declare class Dock extends ClassComponent<DockProps, DockSlots, DockEmits> { }
+
+declare module '@vue/runtime-core' {
+    interface GlobalComponents {
+        Dock: GlobalComponentConstructor<Dock>
     }
 }
 
+/**
+ *
+ * Dock is a navigation component consisting of menuitems.
+ *
+ * Helper API:
+ *
+ * - [MenuItem](https://www.primefaces.org/primevue/showcase/#/menumodel)
+ *
+ * Demos:
+ *
+ * - [Dock](https://www.primefaces.org/primevue/showcase/#/dock)
+ *
+ */
 export default Dock;
