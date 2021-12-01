@@ -1,19 +1,82 @@
 import { VNode } from 'vue';
+import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-interface AccordionProps {
-    multiple?: boolean;
-    activeIndex?: Number|[Number];
-    lazy?: boolean;
+interface AccordionTabOpenEvent {
+    /**
+     * Browser mouse event.
+     * @type {MouseEvent}
+     */
+    originalEvent: MouseEvent;
+    /**
+     * Opened tab index.
+     */
+    index: number;
 }
 
-declare class Accordion {
-    $props: AccordionProps;
-    $emit(eventName: 'update:activeIndex', value: number): this;
-    $emit(eventName: 'tab-open', e: {originalEvent: Event, tab: any}): this;
-    $emit(eventName: 'tab-close', e: {originalEvent: Event, tab: any}): this;
-    $slots: {
-        '': VNode[];
+/**
+ * @extends {AccordionTabOpenEvent}
+ */
+interface AccordionTabCloseEvent extends AccordionTabOpenEvent { }
+
+interface AccordionProps {
+    /**
+     * When enabled, multiple tabs can be activated at the same time.
+     */
+    multiple?: boolean | undefined;
+    /**
+     * Index of the active tab or an array of indexes in multiple mode.
+     */
+    activeIndex?: number | number[] | undefined;
+    /**
+     * When enabled, hidden tabs are not rendered at all. Defaults to false that hides tabs with css.
+     */
+    lazy?: boolean | undefined;
+}
+
+interface AccordionSlots {
+    /**
+     * Default slot to detect AccordionTab components.
+     */
+    default: () => VNode[];
+}
+
+type AccordionEmits = {
+    /**
+     * Emitted when the active tab changes.
+     * @param {number | undefined} value - Index of new active tab.
+     */
+    'update:activeIndex': (value: number | undefined) => void;
+    /**
+     * Callback to invoke when a tab gets expanded.
+     * @param {AccordionTabOpenEvent} event - Custom tab open event.
+     */
+    'tab-open': (event: AccordionTabOpenEvent) => void;
+    /**
+     * Callback to invoke when an active tab is collapsed by clicking on the header.
+     * @param {AccordionTabCloseEvent} event - Custom tab close event.
+     */
+    'tab-close': (event: AccordionTabCloseEvent) => void;
+}
+
+declare class Accordion extends ClassComponent<AccordionProps, AccordionSlots, AccordionEmits> { }
+
+declare module '@vue/runtime-core' {
+    interface GlobalComponents {
+        Accordion: GlobalComponentConstructor<Accordion>
     }
 }
 
+/**
+ *
+ * Accordion groups a collection of contents in tabs.
+ *
+ * Helper Components:
+ *
+ * - AccordionTab
+ *
+ * Demos:
+ *
+ * - [Accordion](https://www.primefaces.org/primevue/showcase/#/accordion)
+ *
+ */
 export default Accordion;
