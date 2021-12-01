@@ -1,74 +1,270 @@
-interface VirtualScrollerProps {
-    items?: any[]|any[][];
-    itemSize?: number|any[];
-    scrollHeight?: string;
-    scrollWidth?: string;
-    orientation?: string;
-    numToleratedItems?: number;
-    delay?: number;
-    lazy?: boolean;
-    showLoader?: boolean;
-    loading?: boolean;
-    style?: any;
-    class?: string;
-}
+import { VNode } from 'vue';
+import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-interface VirtualScrollerRangeMethodInterface {
+type VirtualScrollerItemsType = any[] | any[][] | undefined | null;
+
+type VirtualScrollerItemSizeType = number | number[];
+
+type VirtualScrollerOrientationType = 'vertical' | 'horizontal' | 'both';
+
+type VirtualScrollerToType = 'to-start' | 'to-end';
+
+export interface VirtualScrollerScrollIndexChangeEvent {
+    /**
+     * First index of the new data range to be loaded.
+     */
     first: number;
+    /**
+     * Last index of the new data range to be loaded.
+     */
     last: number;
-    viewport: {
-        first: number;
-        last: number;
-    }
 }
 
-interface VirtualScrollerGetItemOptionsInterface {
-    index: number;
-    count: number;
+/**
+ * @extends VirtualScrollerScrollIndexChangeEvent
+ */
+export interface VirtualScrollerLazyEvent extends VirtualScrollerScrollIndexChangeEvent { }
+
+/**
+ * @extends VirtualScrollerScrollIndexChangeEvent
+ */
+export interface VirtualScrollerViewport extends VirtualScrollerScrollIndexChangeEvent { }
+
+export interface VirtualScrollerRangeMethod {
+    /**
+     * Whether the item is first.
+     */
     first: number;
+    /**
+     * Whether the item is last.
+     */
     last: number;
-    even: number;
-    odd: number;
+    /**
+     * Viewport info.
+     * @see VirtualScrollerViewport
+     */
+    viewport: VirtualScrollerViewport;
 }
 
-interface VirtualScrollerGetLoaderOptionsInterface {
+export interface VirtualScrollerGetLoaderOptions {
+    /**
+     * Whether the loader is active.
+     */
     loading: boolean;
+    /**
+     * Whether the item is first.
+     */
     first: number;
+    /**
+     * Whether the item is last.
+     */
     last: number;
+    /**
+     * Whether the item is even.
+     */
     even: number;
+    /**
+     * Whether the item is odd.
+     */
     odd: number;
 }
 
-interface VirtualScrollerContentSlotInterface {
-    contentRef: string;
-    styleClass: string;
-    items: any[];
-    getItemOptions: VirtualScrollerGetItemOptionsInterface;
+export interface VirtualScrollerItemOptions {
+    /**
+     * Item index
+     */
+    index: number;
+    /**
+     * Items count
+     */
+    count: number;
+    /**
+     * Whether the item is first.
+     */
+    first: number;
+    /**
+     * Whether the item is first.
+     */
+    last: number;
+    /**
+     * Whether the item is even.
+     */
+    even: number;
+    /**
+     * Whether the item is odd.
+     */
+    odd: number;
 }
 
-interface VirtualScrollerItemSlotInterface {
-    item: any;
-    options: VirtualScrollerGetItemOptionsInterface;
+export interface VirtualScrollerProps {
+    /**
+     * An array of objects to display.
+     */
+    items?: VirtualScrollerItemsType;
+    /**
+     * The height/width of item according to orientation.
+     */
+    itemSize?: VirtualScrollerItemSizeType;
+    /**
+     * Height of the scroll viewport.
+     */
+    scrollHeight?: string | undefined;
+    /**
+     * Width of the scroll viewport.
+     */
+    scrollWidth?: string | undefined;
+    /**
+     * The orientation of scrollbar.
+     * @see VirtualScrollerOrientationType
+     * Default value is 'vertical'.
+     */
+    orientation?: VirtualScrollerOrientationType;
+    /**
+     * Determines how many additional elements to add to the DOM outside of the view.
+     * According to the scrolls made up and down, extra items are added in a certain algorithm in the form of multiples of this number.
+     * Default value is half the number of items shown in the view.
+     */
+    numToleratedItems?: number | undefined;
+    /**
+     * Delay in scroll before new data is loaded.
+     * Default value is 0.
+     */
+    delay?: number | undefined;
+    /**
+     * Defines if data is loaded and interacted with in lazy manner.
+     */
+    lazy?: boolean | undefined;
+    /**
+     * Whether to show loader.
+     */
+    showLoader?: boolean | undefined;
+    /**
+     * Whether to load items.
+     */
+    loading?: boolean | undefined;
+    /**
+     * Inline style of the component.
+     */
+    style?: any;
+    /**
+     * Style class of the component.
+     */
+    class?: string | undefined;
 }
 
-interface VirtualScrollerLoaderSlotInterface {
-    options: VirtualScrollerGetLoaderOptionsInterface;
+export interface VirtualScrollerSlots {
+    /**
+     * Custom content template.
+     * @param {Object} scope - content slot's params.
+     */
+    content: (scope: {
+        /**
+         * An array of objects to display for virtualscroller
+         */
+        items: any;
+        /**
+         * Style class of the component
+         */
+        styleClass: string;
+        /**
+         * Referance of the content
+         * @param {HTMLElement} el - Element of 'ref' property
+         */
+        contentRef(el: any): void;
+        /**
+         * Options of the items
+         * @param {number} index - Rendered index
+         * @return {@link VirtualScroller.VirtualScrollerItemOptions}
+         */
+        getItemOptions(index: number): VirtualScrollerItemOptions;
+    }) => VNode[];
+    /**
+     * Custom item template.
+     * @param {Object} scope - item slot's params.
+     */
+    item: (scope: {
+        /**
+         * Item data.
+         */
+        item: any;
+        /**
+         * Item options.
+         */
+        options: VirtualScrollerItemOptions;
+    }) => VNode[];
+    /**
+     * Custom loader template.
+     * @param {Object} scope - header slot's params.
+     */
+    loader: (scope: {
+        /**
+         * Loader options.
+         */
+        options: VirtualScrollerGetLoaderOptions;
+    }) => VNode[];
 }
 
-declare class VirtualScroller {
-    $props: VirtualScrollerProps;
+export declare type VirtualScrollerEmits = {
+    /**
+     * Emitted when the numToleratedItems changes.
+     * @param {number} value - New number tolerated items
+     */
+    'update:numToleratedItems': (value: number) => void;
+    /**
+     * Callback to invoke when scroll position changes.
+     * @param {Event} event - Browser event.
+    */
+    'scroll': (event: Event) => void;
+    /**
+     * Callback to invoke when scroll position and item's range in view changes.
+     * @param {AccordionTabOpenEvent} event - Custom tab open event.
+    */
+    'scroll-index-change': (event: VirtualScrollerScrollIndexChangeEvent) => void;
+    /**
+     * Callback to invoke in lazy mode to load new data.
+     * @param {VirtualScrollerLazyEvent} event - Custom lazy event.
+     */
+    'lazy-load': (event: VirtualScrollerLazyEvent) => void;
+}
+
+declare class VirtualScroller extends ClassComponent<VirtualScrollerProps, VirtualScrollerSlots, VirtualScrollerEmits> {
+    /**
+     * Scroll to move to a specific position.
+     * @param {ScrollToOptions} [options] - scoll options.
+     */
     scrollTo(options?: ScrollToOptions): void;
-    scrollToIndex(index: number, behavior: ScrollBehavior): void;
-    scrollInView(index: number, to: "to-start" | "to-end", behavior: ScrollBehavior): void;
-    getRenderedRange(): VirtualScrollerRangeMethodInterface;
-    $emit(eventName: 'update:numToleratedItems', value: number): this;
-    $emit(eventName: 'scroll-index-change', value: { first: number, last: number }): this;
-    $emit(eventName: 'lazy-load', value: { first: number, last: number }): this;
-    $slots: { 
-        content: VirtualScrollerContentSlotInterface;
-        item: VirtualScrollerItemSlotInterface;
-        loader: VirtualScrollerLoaderSlotInterface;
+    /**
+     * Scroll to move to a specific item.
+     * @param {number} index - Index of item according to orientation mode.
+     * @param {ScrollBehavior} [behavior] - Behavior of scroll.
+     */
+    scrollToIndex(index: number, behavior?: ScrollBehavior): void;
+    /**
+     * It is used to move the specified index into the view. It is a method that will usually be needed when keyboard support is added to the virtualScroller component.
+     * @param {number} index - Index of item according to orientation mode.
+     * @param {VirtualScrollerToType} to - Defines the location of the item in view,
+     * @param {ScrollBehavior} [behavior] Behavior of scroll
+     */
+    scrollInView(index: number, to: VirtualScrollerToType, behavior?: ScrollBehavior): void;
+    /**
+     * Returns the range of items added to the DOM.
+     */
+    getRenderedRange(): VirtualScrollerRangeMethod;
+}
+
+declare module '@vue/runtime-core' {
+    interface GlobalComponents {
+        VirtualScroller: GlobalComponentConstructor<VirtualScroller>
     }
 }
 
+/**
+ *
+ * VirtualScroller is a performant approach to handle huge data efficiently.
+ *
+ * Demos:
+ *
+ * - [VirtualScroller](https://www.primefaces.org/primevue/showcase/#/virtualscroller)
+ *
+ */
 export default VirtualScroller;
