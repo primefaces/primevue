@@ -1,296 +1,303 @@
-export const FilterMatchMode: {
-    STARTS_WITH?: string,
-    CONTAINS?: string,
-    NOT_CONTAINS?: string,
-    ENDS_WITH?: string,
-    EQUALS?: string,
-    NOT_EQUALS?: string,
-    IN?: string,
-    LESS_THAN?: string,
-    LESS_THAN_OR_EQUAL_TO?: string,
-    GREATER_THAN?: string,
-    GREATER_THAN_OR_EQUAL_TO?: string,
-    BETWEEN?: string,
-    DATE_IS?: string,
-    DATE_IS_NOT?: string,
-    DATE_BEFORE?: string,
-    DATE_AFTER?: string
+// Filter
+export interface FilterMatchModeOptions {
+    readonly STARTS_WITH: string;
+    readonly CONTAINS: string;
+    readonly NOT_CONTAINS: string;
+    readonly ENDS_WITH: string;
+    readonly EQUALS: string;
+    readonly NOT_EQUALS: string;
+    readonly IN: string;
+    readonly LESS_THAN: string;
+    readonly LESS_THAN_OR_EQUAL_TO: string;
+    readonly GREATER_THAN: string;
+    readonly GREATER_THAN_OR_EQUAL_TO: string;
+    readonly BETWEEN: string;
+    readonly DATE_IS: string;
+    readonly DATE_IS_NOT: string;
+    readonly DATE_BEFORE: string;
+    readonly DATE_AFTER: string;
 }
 
-export const FilterOperator: {
-    AND?: string,
-    OR?: string
+export declare const FilterMatchMode: FilterMatchModeOptions;
+
+export interface FilterOperatorOptions {
+    readonly AND: string;
+    readonly OR: string;
 }
 
-interface FiltersOptions {
-    startsWith?(value: any, filter: any, filterLocale: string): boolean,
-    contains?(value: any, filter: any, filterLocale: string): boolean,
-    notContains?(value: any, filter: any, filterLocale: string): boolean,
-    endsWith?(value: any, filter: any, filterLocale: string): boolean,
-    equals?(value: any, filter: any, filterLocale: string): boolean,
-    notEquals?(value: any, filter: any, filterLocale: string): boolean,
-    in?(value: any, filter: any): boolean,
-    between?(value: any, filter: any): boolean,
-    lt?(value: any, filter: any): boolean,
-    lte?(value: any, filter: any): boolean,
-    gt?(value: any, filter: any): boolean,
-    gte?(value: any, filter: any): boolean,
-    dateIs?(value: any, filter: any): boolean,
-    dateIsNot?(value: any, filter: any): boolean,
-    dateBefore?(value: any, filter: any): boolean,
-    dateAfter?(value: any, filter: any): boolean
+export declare const FilterOperator: FilterOperatorOptions;
+
+export declare namespace FilterService {
+    export function filter(value: any, fields: string[], filterValue: any, filterMatchMode: string, filterLocale?: string): any[];
+    export interface filters {
+        startsWith(value: any, filter: string, filterLocale?: string): boolean;
+        contains(value: any, filter: string, filterLocale?: string): boolean;
+        notContains(value: any, filter: string, filterLocale?: string): boolean;
+        endsWith(value: any, filter: string, filterLocale?: string): boolean;
+        equals(value: any, filter: string, filterLocale?: string): boolean;
+        notEquals(value: any, filter: string, filterLocale?: string): boolean;
+        in(value: any, filter: string): boolean;
+        between(value: any, filter: string): boolean;
+        lt(value: any, filter: string): boolean;
+        lte(value: any, filter: string): boolean;
+        gt(value: any, filter: string): boolean;
+        gte(value: any, filter: string): boolean;
+        dateIs(value: any, filter: string): boolean;
+        dateIsNot(value: any, filter: string): boolean;
+        dateBefore(value: any, filter: string): boolean;
+        dateAfter(value: any, filter: string): boolean;
+    }
+    export function register(rule: string, fn: (...arg: any[]) => boolean): void;
 }
 
-interface FilterServiceOptions {
-    filter?(value: any[], fields: any[], filterValue: any, filterMatchMode: string, filterLocale: string): any[],
-    filters?: FiltersOptions,
-    register?(rule: string, fn: any): void
+// Icons
+export interface PrimeIconsOptions {
+    readonly ALIGN_CENTER: string;
+    readonly ALIGN_JUSTIFY: string;
+    readonly ALIGN_LEFT: string;
+    readonly ALIGN_RIGHT: string;
+    readonly AMAZON: string;
+    readonly ANDROID: string;
+    readonly ANGLE_DOUBLE_DOWN: string;
+    readonly ANGLE_DOUBLE_LEFT: string;
+    readonly ANGLE_DOUBLE_RIGHT: string;
+    readonly ANGLE_DOUBLE_UP: string;
+    readonly ANGLE_DOWN: string;
+    readonly ANGLE_LEFT: string;
+    readonly ANGLE_RIGHT: string;
+    readonly ANGLE_UP: string;
+    readonly APPLE: string;
+    readonly ARROW_CIRCLE_DOWN: string;
+    readonly ARROW_CIRCLE_LEFT: string;
+    readonly ARROW_CIRCLE_RIGHT: string;
+    readonly ARROW_CIRCLE_UP: string;
+    readonly ARROW_DOWN: string;
+    readonly ARROW_DOWN_LEFT: string;
+    readonly ARROW_DOWN_RIGHT: string;
+    readonly ARROW_LEFT: string;
+    readonly ARROW_RIGHT: string;
+    readonly ARROW_UP: string;
+    readonly ARROW_UP_LEFT: string;
+    readonly ARROW_UP_RIGHT: string;
+    readonly ARROW_H: string;
+    readonly ARROW_V: string;
+    readonly AT: string;
+    readonly BACKWARD: string;
+    readonly BAN: string;
+    readonly BARS: string;
+    readonly BELL: string;
+    readonly BOLT: string;
+    readonly BOOK: string;
+    readonly BOOKMARK: string;
+    readonly BOOKMARK_FILL: string;
+    readonly BOX: string;
+    readonly BRIEFCASE: string;
+    readonly BUILDING: string;
+    readonly CALENDAR: string;
+    readonly CALENDAR_MINUS: string;
+    readonly CALENDAR_PLUS: string;
+    readonly CALENDAR_TIMES: string;
+    readonly CAMERA: string;
+    readonly CAR: string;
+    readonly CARET_DOWN: string;
+    readonly CARET_LEFT: string;
+    readonly CARET_RIGHT: string;
+    readonly CARET_UP: string;
+    readonly CHART_BAR: string;
+    readonly CHART_LINE: string;
+    readonly CHART_PIE: string;
+    readonly CHECK: string;
+    readonly CHECK_CIRCLE: string;
+    readonly CHECK_SQUARE: string;
+    readonly CHEVRON_CIRCLE_DOWN: string;
+    readonly CHEVRON_CIRCLE_LEFT: string;
+    readonly CHEVRON_CIRCLE_RIGHT: string;
+    readonly CHEVRON_CIRCLE_UP: string;
+    readonly CHEVRON_DOWN: string;
+    readonly CHEVRON_LEFT: string;
+    readonly CHEVRON_RIGHT: string;
+    readonly CHEVRON_UP: string;
+    readonly CIRCLE: string;
+    readonly CIRCLE_FILL: string;
+    readonly CLOCK: string;
+    readonly CLONE: string;
+    readonly CLOUD: string;
+    readonly CLOUD_DOWNLOAD: string;
+    readonly CLOUD_UPLOAD: string;
+    readonly CODE: string;
+    readonly COG: string;
+    readonly COMMENT: string;
+    readonly COMMENTS: string;
+    readonly COMPASS: string;
+    readonly COPY: string;
+    readonly CREDIT_CARD: string;
+    readonly DATABASE: string;
+    readonly DESKTOP: string;
+    readonly DIRECTIONS: string;
+    readonly DIRECTIONS_ALT: string;
+    readonly DISCORD: string;
+    readonly DOLLAR: string;
+    readonly DOWNLOAD: string;
+    readonly EJECT: string;
+    readonly ELLIPSIS_H: string;
+    readonly ELLIPSIS_V: string;
+    readonly ENVELOPE: string;
+    readonly EURO: string;
+    readonly EXCLAMATION_CIRCLE: string;
+    readonly EXCLAMATION_TRIANGLE : string;
+    readonly EXTERNAL_LINK: string;
+    readonly EYE: string;
+    readonly EYE_SLASH: string;
+    readonly FACEBOOK: string;
+    readonly FAST_BACKWARD: string;
+    readonly FAST_FORWARD: string;
+    readonly FILE: string;
+    readonly FILE_EXCEL: string;
+    readonly FILE_PDF: string;
+    readonly FILTER: string;
+    readonly FILTER_FILL: string;
+    readonly FILTER_SLASH: string;
+    readonly FLAG: string;
+    readonly FLAG_FILL: string;
+    readonly FOLDER: string;
+    readonly FOLDER_OPEN: string;
+    readonly FORWARD: string;
+    readonly GITHUB: string;
+    readonly GLOBE: string;
+    readonly GOOGLE: string;
+    readonly HASHTAG: string;
+    readonly HEART: string;
+    readonly HEART_FILL: string;
+    readonly HISTORY: string;
+    readonly HOME: string;
+    readonly ID_CARD: string;
+    readonly IMAGE: string;
+    readonly IMAGES: string;
+    readonly INBOX: string;
+    readonly INFO: string;
+    readonly INFO_CIRCLE: string;
+    readonly INSTAGRAM: string;
+    readonly KEY: string;
+    readonly LINK: string;
+    readonly LINKEDIN: string;
+    readonly LIST: string;
+    readonly LOCK: string;
+    readonly LOCK_OPEN: string;
+    readonly MAP: string;
+    readonly MAP_MARKER: string;
+    readonly MICROSOFT: string;
+    readonly MINUS: string;
+    readonly MINUS_CIRCLE: string;
+    readonly MOBILE: string;
+    readonly MONEY_BILL: string;
+    readonly MOON: string;
+    readonly PALETTE: string;
+    readonly PAPERCLIP: string;
+    readonly PAUSE: string;
+    readonly PAYPAL: string;
+    readonly PENCIL: string;
+    readonly PERCENTAGE: string;
+    readonly PHONE: string;
+    readonly PLAY: string;
+    readonly PLUS: string;
+    readonly PLUS_CIRCLE: string;
+    readonly POUND: string;
+    readonly POWER_OFF: string;
+    readonly PRIME: string;
+    readonly PRINT: string;
+    readonly QRCODE: string;
+    readonly QUESTION: string;
+    readonly QUESTION_CIRCLE: string;
+    readonly REDDIT: string;
+    readonly REFRESH: string;
+    readonly REPLAY: string;
+    readonly REPLY: string;
+    readonly SAVE: string;
+    readonly SEARCH: string;
+    readonly SEARCH_MINUS: string;
+    readonly SEARCH_PLUS: string;
+    readonly SEND: string;
+    readonly SERVER: string;
+    readonly SHARE_ALT: string;
+    readonly SHIELD: string;
+    readonly SHOPPING_BAG: string;
+    readonly SHOPPING_CART: string;
+    readonly SIGN_IN: string;
+    readonly SIGN_OUT: string;
+    readonly SITEMAP: string;
+    readonly SLACK: string;
+    readonly SLIDERS_H: string;
+    readonly SLIDERS_V: string;
+    readonly SORT: string;
+    readonly SORT_ALPHA_DOWN: string;
+    readonly SORT_ALPHA_ALT_DOWN: string;
+    readonly SORT_ALPHA_UP: string;
+    readonly SORT_ALPHA_ALT_UP: string;
+    readonly SORT_ALT: string;
+    readonly SORT_ALT_SLASH: string;
+    readonly SORT_AMOUNT_DOWN: string;
+    readonly SORT_AMOUNT_DOWN_ALT: string;
+    readonly SORT_AMOUNT_UP: string;
+    readonly SORT_AMOUNT_UP_ALT: string;
+    readonly SORT_DOWN: string;
+    readonly SORT_NUMERIC_DOWN: string;
+    readonly SORT_NUMERIC_ALT_DOWN: string;
+    readonly SORT_NUMERIC_UP: string;
+    readonly SORT_NUMERIC_ALT_UP: string;
+    readonly SORT_UP: string;
+    readonly SPINNER: string;
+    readonly STAR: string;
+    readonly STAR_FILL: string;
+    readonly STEP_BACKWARD: string;
+    readonly STEP_BACKWARD_ALT: string;
+    readonly STEP_FORWARD: string;
+    readonly STEP_FORWARD_ALT: string;
+    readonly STOP: string;
+    readonly STOP_CIRCLE: string;
+    readonly SUN: string;
+    readonly SYNC: string;
+    readonly TABLE: string;
+    readonly TABLET: string;
+    readonly TAG: string;
+    readonly TAGS: string;
+    readonly TELEGRAM: string;
+    readonly TH_LARGE: string;
+    readonly THUMBS_DOWN: string;
+    readonly THUMBS_UP: string;
+    readonly TICKET: string;
+    readonly TIMES: string;
+    readonly TIMES_CIRCLE: string;
+    readonly TRASH: string;
+    readonly TWITTER: string;
+    readonly UNDO: string;
+    readonly UNLOCK: string;
+    readonly UPLOAD: string;
+    readonly USER: string;
+    readonly USER_EDIT: string;
+    readonly USER_MINUS: string;
+    readonly USER_PLUS: string;
+    readonly USERS: string;
+    readonly VIDEO: string;
+    readonly VIMEO: string;
+    readonly VOLUME_DOWN: string;
+    readonly VOLUME_OFF: string;
+    readonly VOLUME_UP: string;
+    readonly WALLET: string;
+    readonly WHATSAPP: string;
+    readonly WIFI: string;
+    readonly WINDOW_MAXIMIZE: string;
+    readonly WINDOW_MINIMIZE: string;
+    readonly YOUTUBE: string;
 }
 
-export const FilterService: FilterServiceOptions;
+export declare const PrimeIcons: PrimeIconsOptions;
 
-export const PrimeIcons: {
-    ALIGN_CENTER?: string,
-    ALIGN_JUSTIFY?: string,
-    ALIGN_LEFT?: string,
-    ALIGN_RIGHT?: string,
-    AMAZON?: string,
-    ANDROID?: string,
-    ANGLE_DOUBLE_DOWN?: string,
-    ANGLE_DOUBLE_LEFT?: string,
-    ANGLE_DOUBLE_RIGHT?: string,
-    ANGLE_DOUBLE_UP?: string,
-    ANGLE_DOWN?: string,
-    ANGLE_LEFT?: string,
-    ANGLE_RIGHT?: string,
-    ANGLE_UP?: string,
-    APPLE?: string,
-    ARROW_CIRCLE_DOWN?: string,
-    ARROW_CIRCLE_LEFT?: string,
-    ARROW_CIRCLE_RIGHT?: string,
-    ARROW_CIRCLE_UP?: string,
-    ARROW_DOWN?: string,
-    ARROW_DOWN_LEFT?: string,
-    ARROW_DOWN_RIGHT?: string,
-    ARROW_LEFT?: string,
-    ARROW_RIGHT?: string,
-    ARROW_UP?: string,
-    ARROW_UP_LEFT?: string,
-    ARROW_UP_RIGHT?: string,
-    ARROW_H?: string,
-    ARROW_V?: string,
-    AT?: string,
-    BACKWARD?: string,
-    BAN?: string,
-    BARS?: string,
-    BELL?: string,
-    BOLT?: string,
-    BOOK?: string,
-    BOOKMARK?: string,
-    BOOKMARK_FILL?: string,
-    BOX?: string,
-    BRIEFCASE?: string,
-    BUILDING?: string,
-    CALENDAR?: string,
-    CALENDAR_MINUS?: string,
-    CALENDAR_PLUS?: string,
-    CALENDAR_TIMES?: string,
-    CAMERA?: string,
-    CAR?: string,
-    CARET_DOWN?: string,
-    CARET_LEFT?: string,
-    CARET_RIGHT?: string,
-    CARET_UP?: string,
-    CHART_BAR?: string,
-    CHART_LINE?: string,
-    CHART_PIE?: string,
-    CHECK?: string,
-    CHECK_CIRCLE?: string,
-    CHECK_SQUARE?: string,
-    CHEVRON_CIRCLE_DOWN?: string,
-    CHEVRON_CIRCLE_LEFT?: string,
-    CHEVRON_CIRCLE_RIGHT?: string,
-    CHEVRON_CIRCLE_UP?: string,
-    CHEVRON_DOWN?: string,
-    CHEVRON_LEFT?: string,
-    CHEVRON_RIGHT?: string,
-    CHEVRON_UP?: string,
-    CIRCLE?: string,
-    CIRCLE_FILL?: string,
-    CLOCK?: string,
-    CLONE?: string,
-    CLOUD?: string,
-    CLOUD_DOWNLOAD?: string,
-    CLOUD_UPLOAD?: string,
-    CODE?: string,
-    COG?: string,
-    COMMENT?: string,
-    COMMENTS?: string,
-    COMPASS?: string,
-    COPY?: string,
-    CREDIT_CARD?: string,
-    DATABASE?: string,
-    DESKTOP?: string,
-    DIRECTIONS?: string,
-    DIRECTIONS_ALT?: string,
-    DISCORD?: string,
-    DOLLAR?: string,
-    DOWNLOAD?: string,
-    EJECT?: string,
-    ELLIPSIS_H?: string,
-    ELLIPSIS_V?: string,
-    ENVELOPE?: string,
-    EURO?: string,
-    EXCLAMATION_CIRCLE?: string,
-    EXCLAMATION_TRIANGLE ?: string,
-    EXTERNAL_LINK?: string,
-    EYE?: string,
-    EYE_SLASH?: string,
-    FACEBOOK?: string,
-    FAST_BACKWARD?: string,
-    FAST_FORWARD?: string,
-    FILE?: string,
-    FILE_EXCEL?: string,
-    FILE_PDF?: string,
-    FILTER?: string,
-    FILTER_FILL?: string,
-    FILTER_SLASH?: string,
-    FLAG?: string,
-    FLAG_FILL?: string,
-    FOLDER?: string,
-    FOLDER_OPEN?: string,
-    FORWARD?: string,
-    GITHUB?: string,
-    GLOBE?: string,
-    GOOGLE?: string,
-    HASHTAG?: string,
-    HEART?: string,
-    HEART_FILL?: string,
-    HISTORY?: string,
-    HOME?: string,
-    ID_CARD?: string,
-    IMAGE?: string,
-    IMAGES?: string,
-    INBOX?: string,
-    INFO?: string,
-    INFO_CIRCLE?: string,
-    INSTAGRAM?: string,
-    KEY?: string,
-    LINK?: string,
-    LINKEDIN?: string,
-    LIST?: string,
-    LOCK?: string,
-    LOCK_OPEN?: string,
-    MAP?: string,
-    MAP_MARKER?: string,
-    MICROSOFT?: string,
-    MINUS?: string,
-    MINUS_CIRCLE?: string,
-    MOBILE?: string,
-    MONEY_BILL?: string,
-    MOON?: string,
-    PALETTE?: string,
-    PAPERCLIP?: string,
-    PAUSE?: string,
-    PAYPAL?: string,
-    PENCIL?: string,
-    PERCENTAGE?: string,
-    PHONE?: string,
-    PLAY?: string,
-    PLUS?: string,
-    PLUS_CIRCLE?: string,
-    POUND?: string,
-    POWER_OFF?: string,
-    PRIME?: string,
-    PRINT?: string,
-    QRCODE?: string,
-    QUESTION?: string,
-    QUESTION_CIRCLE?: string,
-    REDDIT?: string,
-    REFRESH?: string,
-    REPLAY?: string,
-    REPLY?: string,
-    SAVE?: string,
-    SEARCH?: string,
-    SEARCH_MINUS?: string,
-    SEARCH_PLUS?: string,
-    SEND?: string,
-    SERVER?: string,
-    SHARE_ALT?: string,
-    SHIELD?: string,
-    SHOPPING_BAG?: string,
-    SHOPPING_CART?: string,
-    SIGN_IN?: string,
-    SIGN_OUT?: string,
-    SITEMAP?: string,
-    SLACK?: string,
-    SLIDERS_H?: string,
-    SLIDERS_V?: string,
-    SORT?: string,
-    SORT_ALPHA_DOWN?: string,
-    SORT_ALPHA_ALT_DOWN?: string,
-    SORT_ALPHA_UP?: string,
-    SORT_ALPHA_ALT_UP?: string,
-    SORT_ALT?: string,
-    SORT_ALT_SLASH?: string,
-    SORT_AMOUNT_DOWN?: string,
-    SORT_AMOUNT_DOWN_ALT?: string,
-    SORT_AMOUNT_UP?: string,
-    SORT_AMOUNT_UP_ALT?: string,
-    SORT_DOWN?: string,
-    SORT_NUMERIC_DOWN?: string,
-    SORT_NUMERIC_ALT_DOWN?: string,
-    SORT_NUMERIC_UP?: string,
-    SORT_NUMERIC_ALT_UP?: string,
-    SORT_UP?: string,
-    SPINNER?: string,
-    STAR?: string,
-    STAR_FILL?: string,
-    STEP_BACKWARD?: string,
-    STEP_BACKWARD_ALT?: string,
-    STEP_FORWARD?: string,
-    STEP_FORWARD_ALT?: string,
-    STOP?: string,
-    STOP_CIRCLE?: string,
-    SUN?: string,
-    SYNC?: string,
-    TABLE?: string,
-    TABLET?: string,
-    TAG?: string,
-    TAGS?: string,
-    TELEGRAM?: string,
-    TH_LARGE?: string,
-    THUMBS_DOWN?: string,
-    THUMBS_UP?: string,
-    TICKET?: string,
-    TIMES?: string,
-    TIMES_CIRCLE?: string,
-    TRASH?: string,
-    TWITTER?: string,
-    UNDO?: string,
-    UNLOCK?: string,
-    UPLOAD?: string,
-    USER?: string,
-    USER_EDIT?: string,
-    USER_MINUS?: string,
-    USER_PLUS?: string,
-    USERS?: string,
-    VIDEO?: string,
-    VIMEO?: string,
-    VOLUME_DOWN?: string,
-    VOLUME_OFF?: string,
-    VOLUME_UP?: string,
-    WALLET?: string,
-    WHATSAPP?: string,
-    WIFI?: string,
-    WINDOW_MAXIMIZE?: string,
-    WINDOW_MINIMIZE?: string,
-    YOUTUBE?: string
+// Severity
+export interface ToastSeverityOptions {
+    readonly SUCCESS: string;
+    readonly INFO: string;
+    readonly WARN: string;
+    readonly ERROR: string;
 }
 
-export const ToastSeverity: {
-    INFO?: string,
-    WARN?: string,
-    ERROR?: string,
-    SUCCESS?: string
-}
+export declare const ToastSeverity: ToastSeverityOptions;
