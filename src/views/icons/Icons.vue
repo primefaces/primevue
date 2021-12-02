@@ -73,7 +73,7 @@ export default {
     },
     mounted() {
         axios.get('demo/data/icons.json').then(res => {
-            let icons = res.data.icons;console.log(icons)
+            let icons = res.data.icons;
             let data = icons.filter(value => {
                 return value.icon.tags.indexOf('deprecate') === -1;
             });
