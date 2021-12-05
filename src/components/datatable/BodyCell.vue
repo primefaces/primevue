@@ -1,5 +1,8 @@
 <template>
-    <td :style="containerStyle" :class="containerClass" @click="onClick" @keydown="onKeyDown" role="cell">
+    <td v-if="loading" :style="containerStyle" :class="containerClass">
+        <component :is="column.children.loading" :data="rowData" :column="column" :field="field" :index="rowIndex" :frozenRow="frozenRow" :loadingOptions="loadingOptions"  />
+    </td>
+    <td v-else :style="containerStyle" :class="containerClass" @click="onClick" @keydown="onKeyDown" role="cell">
         <span v-if="responsiveLayout === 'stack'" class="p-column-title">{{columnProp('header')}}</span>
         <component :is="column.children.body" :data="rowData" :column="column" :field="field" :index="rowIndex" :frozenRow="frozenRow" v-if="column.children && column.children.body && !d_editing" />
         <component :is="column.children.editor" :data="editingRowData" :column="column" :field="field" :index="rowIndex" :frozenRow="frozenRow" v-else-if="column.children && column.children.editor && d_editing" />
@@ -86,6 +89,10 @@ export default {
         responsiveLayout: {
             type: String,
             default: 'stack'
+        },
+        virtualScrollerContentProps: {
+            type: Object,
+            default: null
         }
     },
     documentEditListener: null,
@@ -339,6 +346,9 @@ export default {
                     this.styleObject.left = left + 'px';
                 }
             }
+        },
+        getVirtualScrollerProp(option) {
+            return this.virtualScrollerContentProps ? this.virtualScrollerContentProps[option] : null;
         }
     },
     computed: {
@@ -361,6 +371,21 @@ export default {
             let columnStyle = this.columnProp('style');
 
             return this.columnProp('frozen') ? [columnStyle, bodyStyle, this.styleObject]: [columnStyle, bodyStyle];
+        },
+        loading() {
+            return this.getVirtualScrollerProp('loading');
+        },
+        loadingOptions() {
+            const getLoaderOptions = this.getVirtualScrollerProp('getLoaderOptions');
+            return getLoaderOptions && getLoaderOptions(this.rowIndex, {
+                cellIndex: this.index,
+                cellFirst: this.index === 0,
+                cellLast: this.index === (this.getVirtualScrollerProp('columns').length - 1),
+                cellEven: this.index % 2 === 0,
+                cellOdd: this.index % 2 !== 0,
+                column: this.column,
+                field: this.field
+            });
         }
     },
     components: {

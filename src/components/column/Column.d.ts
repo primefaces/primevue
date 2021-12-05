@@ -1,5 +1,6 @@
 import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { VirtualScrollerLoaderOptions } from '../virtualscroller';
 
 type ColumnFieldType = string | ((item: any) => string) | undefined;
 
@@ -20,6 +21,37 @@ export interface ColumnFilterModelType {
 
 export interface ColumnFilterMatchModeOptions {
     [key: string]: string;
+}
+
+export interface ColumnLoadingOptions extends VirtualScrollerLoaderOptions {
+    /**
+     * Cell index
+     */
+    cellIndex: number;
+    /**
+     * Whether the cell is first.
+     */
+    cellFirst: boolean;
+    /**
+     * Whether the cell is last.
+     */
+    cellLast: boolean;
+    /**
+     * Whether the cell is even.
+     */
+    cellEven: boolean;
+    /**
+     * Whether the item is odd.
+     */
+    cellOdd: boolean;
+    /**
+     * Column instance
+     */
+    column: Column;
+    /**
+     * Column field
+     */
+    field: string;
 }
 
 export interface ColumnProps {
@@ -374,6 +406,37 @@ export interface ColumnSlots {
          * Callback function
          */
         filterCallback: () => void;
+    }) => VNode[];
+    /**
+     * Custom loading template.
+     * @param {Object} scope - loading slot's params.
+     */
+    loading: (scope: {
+        /**
+         * Row data.
+         */
+        data: any;
+        /**
+         * Column node.
+         */
+        column: Column;
+        /**
+         * Column field.
+         */
+        field: string;
+        /**
+         * Row index.
+         */
+        index: number;
+        /**
+         * Whether the row is frozen.
+         */
+        frozenRow: boolean;
+        /**
+         * Loading options.
+         * @see ColumnLoadingOptions
+         */
+        loadingOptions: ColumnLoadingOptions;
     }) => VNode[];
 }
 

@@ -1,37 +1,37 @@
 <template>
-    <tbody class="p-datatable-tbody" role="rowgroup">
+    <tbody :ref="bodyRef" class="p-datatable-tbody" role="rowgroup" :style="bodyStyle">
         <template v-if="!empty">
-            <template v-for="(rowData, index) of value" :key="getRowKey(rowData, index) + '_subheader'">
-                <tr class="p-rowgroup-header" :style="rowGroupHeaderStyle" v-if="templates['groupheader'] && rowGroupMode === 'subheader' && shouldRenderRowGroupHeader(value, rowData, index)" role="row">
+            <template v-for="(rowData, index) of value" :key="getRowKey(rowData, getRowIndex(index)) + '_subheader'">
+                <tr class="p-rowgroup-header" :style="rowGroupHeaderStyle" v-if="templates['groupheader'] && rowGroupMode === 'subheader' && shouldRenderRowGroupHeader(value, rowData, getRowIndex(index))" role="row">
                     <td :colspan="columnsLength - 1">
                         <button class="p-row-toggler p-link" @click="onRowGroupToggle($event, rowData)" v-if="expandableRowGroups" type="button">
                             <span :class="rowGroupTogglerIcon(rowData)"></span>
                         </button>
-                        <component :is="templates['groupheader']" :data="rowData" :index="index" />
+                        <component :is="templates['groupheader']" :data="rowData" :index="getRowIndex(index)" />
                     </td>
                 </tr>
-                <tr :class="getRowClass(rowData)" :style="rowStyle" :key="getRowKey(rowData, index)"
+                <tr :class="getRowClass(rowData)" :style="rowStyle" :key="getRowKey(rowData, getRowIndex(index))"
                     v-if="expandableRowGroups ? isRowGroupExpanded(rowData): true"
-                    @click="onRowClick($event, rowData, index)" @dblclick="onRowDblClick($event, rowData, index)" @contextmenu="onRowRightClick($event, rowData, index)" @touchend="onRowTouchEnd($event)" @keydown="onRowKeyDown($event, rowData, index)" :tabindex="selectionMode || contextMenu ? '0' : null"
-                    @mousedown="onRowMouseDown($event)" @dragstart="onRowDragStart($event, index)" @dragover="onRowDragOver($event,index)" @dragleave="onRowDragLeave($event)" @dragend="onRowDragEnd($event)" @drop="onRowDrop($event)" role="row">
+                    @click="onRowClick($event, rowData, getRowIndex(index))" @dblclick="onRowDblClick($event, rowData, getRowIndex(index))" @contextmenu="onRowRightClick($event, rowData, getRowIndex(index))" @touchend="onRowTouchEnd($event)" @keydown="onRowKeyDown($event, rowData, getRowIndex(index))" :tabindex="selectionMode || contextMenu ? '0' : null"
+                    @mousedown="onRowMouseDown($event)" @dragstart="onRowDragStart($event, getRowIndex(index))" @dragover="onRowDragOver($event, getRowIndex(index))" @dragleave="onRowDragLeave($event)" @dragend="onRowDragEnd($event)" @drop="onRowDrop($event)" role="row">
                     <template v-for="(col,i) of columns" :key="columnProp(col,'columnKey')||columnProp(col,'field')||i">
-                        <DTBodyCell v-if="shouldRenderBodyCell(value, col, index)" :rowData="rowData" :column="col" :rowIndex="index" :index="i" :selected="isSelected(rowData)"
+                        <DTBodyCell v-if="shouldRenderBodyCell(value, col, getRowIndex(index))" :rowData="rowData" :column="col" :rowIndex="getRowIndex(index)" :index="i" :selected="isSelected(rowData)"
                             :rowTogglerIcon="columnProp(col,'expander') ? rowTogglerIcon(rowData): null" :frozenRow="frozenRow"
-                            :rowspan="rowGroupMode === 'rowspan' ? calculateRowGroupSize(value, col, index) : null"
+                            :rowspan="rowGroupMode === 'rowspan' ? calculateRowGroupSize(value, col, getRowIndex(index)) : null"
                             :editMode="editMode" :editing="editMode === 'row' && isRowEditing(rowData)" :responsiveLayout="responsiveLayout"
                             @radio-change="onRadioChange($event)" @checkbox-change="onCheckboxChange($event)" @row-toggle="onRowToggle($event)"
                             @cell-edit-init="onCellEditInit($event)" @cell-edit-complete="onCellEditComplete($event)" @cell-edit-cancel="onCellEditCancel($event)"
                             @row-edit-init="onRowEditInit($event)" @row-edit-save="onRowEditSave($event)" @row-edit-cancel="onRowEditCancel($event)"
-                            :editingMeta="editingMeta" @editing-meta-change="onEditingMetaChange"/>
+                            :editingMeta="editingMeta" @editing-meta-change="onEditingMetaChange" :virtualScrollerContentProps="virtualScrollerContentProps"/>
                     </template>
                 </tr>
-                <tr class="p-datatable-row-expansion" v-if="templates['expansion'] && expandedRows && isRowExpanded(rowData)" :key="getRowKey(rowData, index) + '_expansion'" role="row">
+                <tr class="p-datatable-row-expansion" v-if="templates['expansion'] && expandedRows && isRowExpanded(rowData)" :key="getRowKey(rowData, getRowIndex(index)) + '_expansion'" role="row">
                     <td :colspan="columnsLength">
-                        <component :is="templates['expansion']" :data="rowData" :index="index" />
+                        <component :is="templates['expansion']" :data="rowData" :index="getRowIndex(index)" />
                     </td>
                 </tr>
-                <tr class="p-rowgroup-footer" v-if="templates['groupfooter'] && rowGroupMode === 'subheader' && shouldRenderRowGroupFooter(value, rowData, index)" :key="getRowKey(rowData, index) + '_subfooter'" role="row">
-                    <component :is="templates['groupfooter']" :data="rowData" :index="index" />
+                <tr class="p-rowgroup-footer" v-if="templates['groupfooter'] && rowGroupMode === 'subheader' && shouldRenderRowGroupFooter(value, rowData, getRowIndex(index))" :key="getRowKey(rowData, getRowIndex(index)) + '_subfooter'" role="row">
+                    <component :is="templates['groupfooter']" :data="rowData" :index="getRowIndex(index)" />
                 </tr>
             </template>
         </template>
@@ -170,6 +170,21 @@ export default {
         responsiveLayout: {
             type: String,
             default: 'stack'
+        },
+        virtualScrollerContentProps: {
+            type: Object,
+            default: null
+        },
+        isVirtualScrollerDisabled: {
+            type: Boolean,
+            default: false
+        }
+    },
+    watch: {
+        virtualScrollerContentProps(newValue, oldValue) {
+            if (!this.isVirtualScrollerDisabled && this.getVirtualScrollerProp('vertical') && this.getVirtualScrollerProp('itemSize', oldValue) !== this.getVirtualScrollerProp('itemSize', newValue)) {
+                this.updateVirtualScrollerPosition();
+            }
         }
     },
     mounted() {
@@ -179,6 +194,10 @@ export default {
 
         if (this.scrollable && this.rowGroupMode === 'subheader') {
             this.updateFrozenRowGroupHeaderStickyPosition();
+        }
+
+        if (!this.isVirtualScrollerDisabled && this.getVirtualScrollerProp('vertical')) {
+            this.updateVirtualScrollerPosition();
         }
     },
     updated() {
@@ -212,6 +231,10 @@ export default {
         },
         getRowKey(rowData, index) {
             return this.dataKey ? ObjectUtils.resolveFieldData(rowData, this.dataKey): index;
+        },
+        getRowIndex(index) {
+            const getItemOptions = this.getVirtualScrollerProp('getItemOptions');
+            return getItemOptions ? getItemOptions(index).index : index;
         },
         getRowClass(rowData) {
             let rowStyleClass = [];
@@ -465,6 +488,19 @@ export default {
         updateFrozenRowGroupHeaderStickyPosition() {
             let tableHeaderHeight = DomHandler.getOuterHeight(this.$el.previousElementSibling);
             this.rowGroupHeaderStyleObject.top = tableHeaderHeight + 'px'
+        },
+        updateVirtualScrollerPosition() {
+            const tableHeaderHeight = DomHandler.getOuterHeight(this.$el.previousElementSibling);
+            this.$el.style.top = (this.$el.style.top || 0) + tableHeaderHeight + 'px';
+        },
+        getVirtualScrollerProp(option, options) {
+            options = options || this.virtualScrollerContentProps;
+            return options ? options[option] : null;
+        },
+        bodyRef(el) {
+            // For VirtualScroller
+            const contentRef = this.getVirtualScrollerProp('contentRef');
+            contentRef && contentRef(el);
         }
     },
     computed: {
@@ -477,6 +513,9 @@ export default {
             }
 
             return null;
+        },
+        bodyStyle() {
+            return this.getVirtualScrollerProp('contentStyle');
         }
     },
     components: {

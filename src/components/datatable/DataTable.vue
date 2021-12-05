@@ -16,36 +16,41 @@
                 <slot name="paginatorend"></slot>
             </template>
         </DTPaginator>
-        <div class="p-datatable-wrapper" :style="{maxHeight: scrollHeight}">
-            <table ref="table" role="table" :class="[tableClass, 'p-datatable-table']" :style="tableStyle">
-                <DTTableHeader :columnGroup="headerColumnGroup" :columns="columns" :rowGroupMode="rowGroupMode"
-                        :groupRowsBy="groupRowsBy" :groupRowSortField="groupRowSortField" :resizableColumns="resizableColumns" :allRowsSelected="allRowsSelected" :empty="empty"
-                        :sortMode="sortMode" :sortField="d_sortField" :sortOrder="d_sortOrder" :multiSortMeta="d_multiSortMeta" :filters="d_filters" :filtersStore="filters" :filterDisplay="filterDisplay"
-                        @column-click="onColumnHeaderClick($event)" @column-mousedown="onColumnHeaderMouseDown($event)" @filter-change="onFilterChange" @filter-apply="onFilterApply"
-                        @column-dragstart="onColumnHeaderDragStart($event)" @column-dragover="onColumnHeaderDragOver($event)" @column-dragleave="onColumnHeaderDragLeave($event)" @column-drop="onColumnHeaderDrop($event)"
-                        @column-resizestart="onColumnResizeStart($event)" @checkbox-change="toggleRowsWithCheckbox($event)" />
-                <DTTableBody v-if="frozenValue" :value="frozenValue" :frozenRow="true" class="p-datatable-frozen-tbody" :columns="columns" :dataKey="dataKey" :selection="selection" :selectionKeys="d_selectionKeys" :selectionMode="selectionMode" :contextMenu="contextMenu" :contextMenuSelection="contextMenuSelection"
-                    :rowGroupMode="rowGroupMode" :groupRowsBy="groupRowsBy" :expandableRowGroups="expandableRowGroups" :rowClass="rowClass" :rowStyle="rowStyle" :editMode="editMode" :compareSelectionBy="compareSelectionBy" :scrollable="scrollable"
-                    :expandedRowIcon="expandedRowIcon" :collapsedRowIcon="collapsedRowIcon" :expandedRows="expandedRows" :expandedRowKeys="d_expandedRowKeys" :expandedRowGroups="expandedRowGroups"
-                    :editingRows="editingRows" :editingRowKeys="d_editingRowKeys" :templates="$slots" :loading="loading" :responsiveLayout="responsiveLayout"
-                    @rowgroup-toggle="toggleRowGroup" @row-click="onRowClick($event)" @row-dblclick="onRowDblClick($event)" @row-rightclick="onRowRightClick($event)" @row-touchend="onRowTouchEnd" @row-keydown="onRowKeyDown"
-                    @row-mousedown="onRowMouseDown" @row-dragstart="onRowDragStart($event)" @row-dragover="onRowDragOver($event)" @row-dragleave="onRowDragLeave($event)" @row-dragend="onRowDragEnd($event)" @row-drop="onRowDrop($event)"
-                    @row-toggle="toggleRow($event)" @radio-change="toggleRowWithRadio($event)" @checkbox-change="toggleRowWithCheckbox($event)"
-                    @cell-edit-init="onCellEditInit($event)" @cell-edit-complete="onCellEditComplete($event)" @cell-edit-cancel="onCellEditCancel($event)"
-                    @row-edit-init="onRowEditInit($event)" @row-edit-save="onRowEditSave($event)" @row-edit-cancel="onRowEditCancel($event)"
-                    :editingMeta="d_editingMeta" @editing-meta-change="onEditingMetaChange" />
-                <DTTableBody :value="dataToRender" :columns="columns" :empty="empty" :dataKey="dataKey" :selection="selection" :selectionKeys="d_selectionKeys" :selectionMode="selectionMode" :contextMenu="contextMenu" :contextMenuSelection="contextMenuSelection"
-                    :rowGroupMode="rowGroupMode" :groupRowsBy="groupRowsBy" :expandableRowGroups="expandableRowGroups" :rowClass="rowClass" :rowStyle="rowStyle" :editMode="editMode" :compareSelectionBy="compareSelectionBy" :scrollable="scrollable"
-                    :expandedRowIcon="expandedRowIcon" :collapsedRowIcon="collapsedRowIcon" :expandedRows="expandedRows" :expandedRowKeys="d_expandedRowKeys" :expandedRowGroups="expandedRowGroups"
-                    :editingRows="editingRows" :editingRowKeys="d_editingRowKeys" :templates="$slots" :loading="loading" :responsiveLayout="responsiveLayout"
-                    @rowgroup-toggle="toggleRowGroup" @row-click="onRowClick($event)" @row-dblclick="onRowDblClick($event)" @row-rightclick="onRowRightClick($event)" @row-touchend="onRowTouchEnd" @row-keydown="onRowKeyDown"
-                    @row-mousedown="onRowMouseDown" @row-dragstart="onRowDragStart($event)" @row-dragover="onRowDragOver($event)" @row-dragleave="onRowDragLeave($event)" @row-dragend="onRowDragEnd($event)" @row-drop="onRowDrop($event)"
-                    @row-toggle="toggleRow($event)" @radio-change="toggleRowWithRadio($event)" @checkbox-change="toggleRowWithCheckbox($event)"
-                    @cell-edit-init="onCellEditInit($event)" @cell-edit-complete="onCellEditComplete($event)" @cell-edit-cancel="onCellEditCancel($event)"
-                    @row-edit-init="onRowEditInit($event)" @row-edit-save="onRowEditSave($event)" @row-edit-cancel="onRowEditCancel($event)"
-                    :editingMeta="d_editingMeta" @editing-meta-change="onEditingMetaChange" />
-                <DTTableFooter :columnGroup="footerColumnGroup" :columns="columns" />
-            </table>
+        <div class="p-datatable-wrapper" :style="{ maxHeight: virtualScrollerDisabled ? scrollHeight : '' }">
+            <DTVirtualScroller v-bind="virtualScrollerOptions" :items="processedData" :columns="columns" :style="{ height: scrollHeight }" :disabled="virtualScrollerDisabled" loaderDisabled :showSpacer="false">
+                <template #content="slotProps">
+                    <table ref="table" role="table" :class="[tableClass, 'p-datatable-table']" :style="[tableStyle, slotProps.spacerStyle]">
+                        <DTTableHeader :columnGroup="headerColumnGroup" :columns="slotProps.columns" :rowGroupMode="rowGroupMode"
+                                :groupRowsBy="groupRowsBy" :groupRowSortField="groupRowSortField" :resizableColumns="resizableColumns" :allRowsSelected="allRowsSelected" :empty="empty"
+                                :sortMode="sortMode" :sortField="d_sortField" :sortOrder="d_sortOrder" :multiSortMeta="d_multiSortMeta" :filters="d_filters" :filtersStore="filters" :filterDisplay="filterDisplay"
+                                @column-click="onColumnHeaderClick($event)" @column-mousedown="onColumnHeaderMouseDown($event)" @filter-change="onFilterChange" @filter-apply="onFilterApply"
+                                @column-dragstart="onColumnHeaderDragStart($event)" @column-dragover="onColumnHeaderDragOver($event)" @column-dragleave="onColumnHeaderDragLeave($event)" @column-drop="onColumnHeaderDrop($event)"
+                                @column-resizestart="onColumnResizeStart($event)" @checkbox-change="toggleRowsWithCheckbox($event)" />
+                        <DTTableBody v-if="frozenValue" :value="frozenValue" :frozenRow="true" class="p-datatable-frozen-tbody" :columns="slotProps.columns" :dataKey="dataKey" :selection="selection" :selectionKeys="d_selectionKeys" :selectionMode="selectionMode" :contextMenu="contextMenu" :contextMenuSelection="contextMenuSelection"
+                            :rowGroupMode="rowGroupMode" :groupRowsBy="groupRowsBy" :expandableRowGroups="expandableRowGroups" :rowClass="rowClass" :rowStyle="rowStyle" :editMode="editMode" :compareSelectionBy="compareSelectionBy" :scrollable="scrollable"
+                            :expandedRowIcon="expandedRowIcon" :collapsedRowIcon="collapsedRowIcon" :expandedRows="expandedRows" :expandedRowKeys="d_expandedRowKeys" :expandedRowGroups="expandedRowGroups"
+                            :editingRows="editingRows" :editingRowKeys="d_editingRowKeys" :templates="$slots" :loading="loading" :responsiveLayout="responsiveLayout"
+                            @rowgroup-toggle="toggleRowGroup" @row-click="onRowClick($event)" @row-dblclick="onRowDblClick($event)" @row-rightclick="onRowRightClick($event)" @row-touchend="onRowTouchEnd" @row-keydown="onRowKeyDown"
+                            @row-mousedown="onRowMouseDown" @row-dragstart="onRowDragStart($event)" @row-dragover="onRowDragOver($event)" @row-dragleave="onRowDragLeave($event)" @row-dragend="onRowDragEnd($event)" @row-drop="onRowDrop($event)"
+                            @row-toggle="toggleRow($event)" @radio-change="toggleRowWithRadio($event)" @checkbox-change="toggleRowWithCheckbox($event)"
+                            @cell-edit-init="onCellEditInit($event)" @cell-edit-complete="onCellEditComplete($event)" @cell-edit-cancel="onCellEditCancel($event)"
+                            @row-edit-init="onRowEditInit($event)" @row-edit-save="onRowEditSave($event)" @row-edit-cancel="onRowEditCancel($event)"
+                            :editingMeta="d_editingMeta" @editing-meta-change="onEditingMetaChange" :isVirtualScrollerDisabled="true"  />
+                        <DTTableBody :value="dataToRender(slotProps.rows)" :class="slotProps.styleClass" :columns="slotProps.columns" :empty="empty" :dataKey="dataKey" :selection="selection" :selectionKeys="d_selectionKeys" :selectionMode="selectionMode" :contextMenu="contextMenu" :contextMenuSelection="contextMenuSelection"
+                            :rowGroupMode="rowGroupMode" :groupRowsBy="groupRowsBy" :expandableRowGroups="expandableRowGroups" :rowClass="rowClass" :rowStyle="rowStyle" :editMode="editMode" :compareSelectionBy="compareSelectionBy" :scrollable="scrollable"
+                            :expandedRowIcon="expandedRowIcon" :collapsedRowIcon="collapsedRowIcon" :expandedRows="expandedRows" :expandedRowKeys="d_expandedRowKeys" :expandedRowGroups="expandedRowGroups"
+                            :editingRows="editingRows" :editingRowKeys="d_editingRowKeys" :templates="$slots" :loading="loading" :responsiveLayout="responsiveLayout"
+                            @rowgroup-toggle="toggleRowGroup" @row-click="onRowClick($event)" @row-dblclick="onRowDblClick($event)" @row-rightclick="onRowRightClick($event)" @row-touchend="onRowTouchEnd" @row-keydown="onRowKeyDown"
+                            @row-mousedown="onRowMouseDown" @row-dragstart="onRowDragStart($event)" @row-dragover="onRowDragOver($event)" @row-dragleave="onRowDragLeave($event)" @row-dragend="onRowDragEnd($event)" @row-drop="onRowDrop($event)"
+                            @row-toggle="toggleRow($event)" @radio-change="toggleRowWithRadio($event)" @checkbox-change="toggleRowWithCheckbox($event)"
+                            @cell-edit-init="onCellEditInit($event)" @cell-edit-complete="onCellEditComplete($event)" @cell-edit-cancel="onCellEditCancel($event)"
+                            @row-edit-init="onRowEditInit($event)" @row-edit-save="onRowEditSave($event)" @row-edit-cancel="onRowEditCancel($event)"
+                            :editingMeta="d_editingMeta" @editing-meta-change="onEditingMetaChange"
+                            :virtualScrollerContentProps="slotProps" :isVirtualScrollerDisabled="virtualScrollerDisabled" />
+                        <DTTableFooter :columnGroup="footerColumnGroup" :columns="slotProps.columns" />
+                    </table>
+                </template>
+            </DTVirtualScroller>
         </div>
         <DTPaginator v-if="paginatorBottom" :rows="d_rows" :first="lazy ? 0 : d_first" :totalRecords="totalRecordsLength" :pageLinkSize="pageLinkSize" :template="paginatorTemplate" :rowsPerPageOptions="rowsPerPageOptions"
                 :currentPageReportTemplate="currentPageReportTemplate" class="p-paginator-bottom" @page="onPage($event)" :alwaysShow="alwaysShowPaginator">
@@ -69,6 +74,7 @@
 import {ObjectUtils,DomHandler,UniqueComponentId} from 'primevue/utils';
 import {FilterMatchMode,FilterOperator,FilterService} from 'primevue/api';
 import Paginator from 'primevue/paginator';
+import VirtualScroller from 'primevue/virtualscroller';
 import TableHeader from './TableHeader.vue';
 import TableBody from './TableBody.vue';
 import TableFooter from './TableFooter.vue';
@@ -296,6 +302,10 @@ export default {
         scrollDirection: {
             type: String,
             default: "vertical"
+        },
+        virtualScrollerOptions: {
+            type: Object,
+            default: null
         },
         scrollHeight: {
             type: String,
@@ -1766,6 +1776,16 @@ export default {
             }
             return results;
         },
+        dataToRender(data) {
+            const _data = data || this.processedData;
+
+            if (_data && this.paginator) {
+                const first = this.lazy ? 0 : this.d_first;
+                return _data.slice(first, first + this.d_rows);
+            }
+
+            return _data;
+        }
     },
     computed: {
         containerClass() {
@@ -1859,17 +1879,6 @@ export default {
 
             return data;
         },
-        dataToRender() {
-            const data = this.processedData;
-
-            if (data && this.paginator) {
-                const first = this.lazy ? 0 : this.d_first;
-                return data.slice(first, first + this.d_rows);
-            }
-            else {
-                return data;
-            }
-        },
         totalRecordsLength() {
             if (this.lazy) {
                 return this.totalRecords;
@@ -1905,6 +1914,9 @@ export default {
         },
         groupRowSortField() {
             return this.sortMode === 'single' ? this.sortField : (this.d_groupRowsSortMeta ? this.d_groupRowsSortMeta.field : null);
+        },
+        virtualScrollerDisabled() {
+            return ObjectUtils.isEmpty(this.virtualScrollerOptions) || !this.scrollable;
         }
     },
     components: {
@@ -1912,6 +1924,7 @@ export default {
         'DTTableHeader': TableHeader,
         'DTTableBody': TableBody,
         'DTTableFooter': TableFooter,
+        'DTVirtualScroller': VirtualScroller
     }
 }
 </script>
@@ -2204,5 +2217,14 @@ export default {
 /* Responsive */
 .p-datatable .p-datatable-tbody > tr > td > .p-column-title {
     display: none;
+}
+
+/* VirtualScroller */
+.p-datatable .p-virtualscroller-loading {
+    transform: none !important;
+    min-height: 0;
+    position: sticky;
+    top: 0;
+    left: 0;
 }
 </style>
