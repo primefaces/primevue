@@ -46,29 +46,6 @@ export interface VirtualScrollerRangeMethod {
     viewport: VirtualScrollerViewport;
 }
 
-export interface VirtualScrollerGetLoaderOptions {
-    /**
-     * Whether the loader is active.
-     */
-    loading: boolean;
-    /**
-     * Whether the item is first.
-     */
-    first: number;
-    /**
-     * Whether the item is last.
-     */
-    last: number;
-    /**
-     * Whether the item is even.
-     */
-    even: number;
-    /**
-     * Whether the item is odd.
-     */
-    odd: number;
-}
-
 export interface VirtualScrollerItemOptions {
     /**
      * Item index
@@ -81,22 +58,43 @@ export interface VirtualScrollerItemOptions {
     /**
      * Whether the item is first.
      */
-    first: number;
+    first: boolean;
     /**
-     * Whether the item is first.
+     * Whether the item is last.
      */
-    last: number;
+    last: boolean;
     /**
      * Whether the item is even.
      */
-    even: number;
+    even: boolean;
     /**
      * Whether the item is odd.
      */
-    odd: number;
+    odd: boolean;
+    /**
+     * Optional
+     */
+    [key: string]: any;
 }
 
+/**
+ * @extends VirtualScrollerItemOptions
+ */
+export interface VirtualScrollerLoaderOptions extends VirtualScrollerItemOptions { }
+
 export interface VirtualScrollerProps {
+    /**
+     * Unique identifier of the element.
+     */
+    id?: string | undefined;
+    /**
+     * Inline style of the component.
+     */
+    style?: any;
+    /**
+     * Style class of the component.
+     */
+    class?: string | undefined;
     /**
      * An array of objects to display.
      */
@@ -135,21 +133,26 @@ export interface VirtualScrollerProps {
      */
     lazy?: boolean | undefined;
     /**
+     * If disabled, the VirtualScroller feature is eliminated and the content is displayed directly.
+     */
+    disabled?: boolean | undefined;
+    /**
+     * Used to implement a custom loader instead of using the loader feature in the VirtualScroller.
+     */
+    loaderDisabled?: boolean | undefined;
+    /**
      * Whether to show loader.
      */
     showLoader?: boolean | undefined;
     /**
+     * Used to implement a custom spacer instead of using the spacer feature in the VirtualScroller.
+     * Default value is true.
+     */
+    showSpacer?: boolean | undefined;
+    /**
      * Whether to load items.
      */
     loading?: boolean | undefined;
-    /**
-     * Inline style of the component.
-     */
-    style?: any;
-    /**
-     * Style class of the component.
-     */
-    class?: string | undefined;
 }
 
 export interface VirtualScrollerSlots {
@@ -163,7 +166,7 @@ export interface VirtualScrollerSlots {
          */
         items: any;
         /**
-         * Style class of the component
+         * Style class of the content
          */
         styleClass: string;
         /**
@@ -177,6 +180,48 @@ export interface VirtualScrollerSlots {
          * @return {@link VirtualScroller.VirtualScrollerItemOptions}
          */
         getItemOptions(index: number): VirtualScrollerItemOptions;
+        /**
+         * Whether the data is loaded.
+         */
+        loading: boolean;
+        /**
+         * Loader options of the items while the data is loading.
+         * @param {number} index - Rendered index
+         * @param {*} [ext] - Extra options
+         */
+        getLoaderOptions(index: number, ext?: any): VirtualScrollerLoaderOptions;
+        /**
+         * The height/width of item according to orientation.
+         */
+        itemSize: VirtualScrollerItemSizeType;
+        /**
+         * The number of the rendered rows.
+         */
+        rows: number | undefined;
+        /**
+         * The number of the rendered columns.
+         */
+        columns: number | undefined;
+        /**
+         * The style of spacer element.
+         */
+        spacerStyle: any;
+        /**
+         * The style of content element.
+         */
+        contentStyle: any;
+        /**
+         * Whether the orientation is vertical.
+         */
+        vertical: boolean;
+        /**
+         * Whether the orientation is horizontal.
+         */
+        horizontal: boolean;
+        /**
+         * Whether the orientation is both.
+         */
+        both: boolean;
     }) => VNode[];
     /**
      * Custom item template.
@@ -200,7 +245,7 @@ export interface VirtualScrollerSlots {
         /**
          * Loader options.
          */
-        options: VirtualScrollerGetLoaderOptions;
+        options: VirtualScrollerLoaderOptions;
     }) => VNode[];
 }
 
