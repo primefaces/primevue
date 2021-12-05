@@ -324,6 +324,12 @@ const DataTableProps = [
         description: 'Height of the scroll viewport in fixed units or the "flex" keyword for a dynamic size.'
     },
     {
+        name: "virtualScrollerOptions",
+        type: "object",
+        default: "null",
+        description: 'Whether to use the virtualScroller feature. The properties of VirtualScroller component can be used like an object in it. Note: Currently only vertical orientation mode is supported.'
+    },
+    {
         name: "frozenValue",
         type: "array",
         default: "null",

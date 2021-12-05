@@ -453,6 +453,15 @@ export default {
                                 filterModel: {value,matchMode} Filter metadata <br />
                                 filterCallback: Callback function</td>
                         </tr>
+                        <tr>
+                            <td>loading</td>
+                            <td>data: Row data <br />
+                                column: Column node <br />
+                                field: Column field <br />
+                                index: Row index <br />
+                                frozenRow: Is row frozen <br />
+                                loadingOptions: Loading options.</td>
+                        </tr>
 					</tbody>
 				</table>
             </div>
@@ -1126,7 +1135,7 @@ export default {
             </p>
 
             <p>Individual cell editing is configured by setting the <i>editMode</i> to <b>cell</b>, defining editors with the <b>editor</b> template along with the <i>@cell-edit-complete</i> event. The content of the
-            editor defines how the editing is implemented. The editor template receives a clone of the row data and using <i>@cell-edit-complete</i> event the new value can be updated to the model or cancelled. 
+            editor defines how the editing is implemented. The editor template receives a clone of the row data and using <i>@cell-edit-complete</i> event the new value can be updated to the model or cancelled.
             This also provides flexibility to apply conditional logic such as implementing validations.</p>
 
 <pre v-code><code><template v-pre>
@@ -1226,7 +1235,7 @@ export default {
 
 </code></pre>
 
-            <p>Row Editing is specified by setting <i>cellEdit</i> as <b>row</b>, defining <i>editingRows</i> with the v-model directive to hold the reference of the editing rows, 
+            <p>Row Editing is specified by setting <i>cellEdit</i> as <b>row</b>, defining <i>editingRows</i> with the v-model directive to hold the reference of the editing rows,
             adding a row editor column to provide the editing controls and implementing <i>@row-edit-save</i> to update the original row data. Note that
             since <i>editingRows</i> is two-way binding enabled, you may use it to initially display one or more rows in editing more or programmatically toggle row editing.</p>
 <pre v-code><code><template v-pre>
@@ -2131,6 +2140,13 @@ export default {
                             <td>string</td>
                             <td>null</td>
                             <td>Height of the scroll viewport in fixed pixels or the "flex" keyword for a dynamic size.</td>
+                        </tr>
+                        <tr>
+                            <td>virtualScrollerOptions</td>
+                            <td>object</td>
+                            <td>null</td>
+                            <td>Whether to use the virtualScroller feature. The properties of <router-link to="/virtualscroller">VirtualScroller</router-link> component can be used like an object in it.
+                            <br /><b>Note:</b> Currently only vertical orientation mode is supported.</td>
                         </tr>
                         <tr>
                             <td>frozenValue</td>
