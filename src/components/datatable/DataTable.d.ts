@@ -1,6 +1,7 @@
 import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 import Column from '../column';
+import { VirtualScrollerProps } from '../virtualscroller';
 
 type DataTablePaginatorPositionType = 'top' | 'bottom' | 'both' | undefined;
 
@@ -720,6 +721,12 @@ export interface DataTableProps {
      * Default value is 'vertical'.
      */
     scrollDirection?: DataTableScrollDirectionType;
+    /**
+     * Whether to use the virtualScroller feature. The properties of VirtualScroller component can be used like an object in it.
+     * Note: Currently only vertical orientation mode is supported.
+     * @see VirtualScroller.VirtualScrollerProps
+     */
+    virtualScrollerOptions?: VirtualScrollerProps;
     /**
      * Items of the frozen part in scrollable DataTable.
      */
