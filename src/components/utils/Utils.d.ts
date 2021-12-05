@@ -62,6 +62,8 @@ export declare class ObjectUtils {
     static contains(value: any, list: any[]): boolean;
     static insertIntoOrderedArray(item: any, index: number, arr: any[], sourceArr: any[]): void;
     static removeAccents(str: any): string;
+    static isEmpty(value: any): boolean;
+    static isNotEmpty(value: any): boolean;
 }
 
 export declare namespace ZIndexUtils {

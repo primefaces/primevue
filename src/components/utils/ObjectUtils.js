@@ -198,10 +198,22 @@ export default {
             let kebapProp = prop.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
             let propName = Object.prototype.hasOwnProperty.call(props, kebapProp) ? kebapProp : prop;
 
-            return ((vnode.type.props[prop].type === Boolean && props[propName] === '') ? true : props[propName]);            
+            return ((vnode.type.props[prop].type === Boolean && props[propName] === '') ? true : props[propName]);
         }
 
         return null;
-    }  
+    },
+
+    isEmpty(value) {
+        return (
+            value === null || value === undefined || value === '' ||
+            (Array.isArray(value) && value.length === 0) ||
+            (!(value instanceof Date) && typeof value === 'object' && Object.keys(value).length === 0)
+        );
+    },
+
+    isNotEmpty(value) {
+        return !this.isEmpty(value);
+    }
 
 }
