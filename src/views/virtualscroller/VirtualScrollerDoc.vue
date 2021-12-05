@@ -123,6 +123,24 @@ export default {
                 </thead>
                 <tbody>
                     <tr>
+                        <td>id</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Unique identifier of the element.</td>
+                    </tr>
+                    <tr>
+                        <td>style</td>
+                        <td>any</td>
+                        <td>null</td>
+                        <td>Inline style of the component.</td>
+                    </tr>
+                    <tr>
+                        <td>class</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Style class of the component.</td>
+                    </tr>
+                    <tr>
                         <td>items</td>
                         <td>array</td>
                         <td>null</td>
@@ -173,22 +191,34 @@ export default {
                         <td>Defines if data is loaded and interacted with in lazy manner.</td>
                     </tr>
                     <tr>
+                        <td>disabled</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>If disabled, the VirtualScroller feature is eliminated and the content is displayed directly.</td>
+                    </tr>
+                    <tr>
+                        <td>loaderDisabled</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>Used to implement a custom loader instead of using the loader feature in the VirtualScroller.</td>
+                    </tr>
+                    <tr>
+                        <td>loading</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>Whether the data is loaded.</td>
+                    </tr>
+                    <tr>
+                        <td>showSpacer</td>
+                        <td>boolean</td>
+                        <td>true</td>
+                        <td>Used to implement a custom spacer instead of using the spacer feature in the VirtualScroller.</td>
+                    </tr>
+                    <tr>
                         <td>showLoader</td>
                         <td>boolean</td>
                         <td>false</td>
                         <td>Whether to show loader.</td>
-                    </tr>
-                    <tr>
-                        <td>style</td>
-                        <td>any</td>
-                        <td>null</td>
-                        <td>Inline style of the component.</td>
-                    </tr>
-                    <tr>
-                        <td>class</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Style class of the component.</td>
                     </tr>
                 </tbody>
             </table>
@@ -289,7 +319,18 @@ export default {
                         <td>items: An array of objects to display.<br />
                             styleClass: Style class of the component<br />
                             contentRef: Referance of the content<br />
-                            getItemOptions: Options of the items</td>
+                            getItemOptions: Options of the items<br/>
+                            loading: Whether the data is loaded<br />
+                            getLoaderOptions: Loader options of the items while the data is loading.<br />
+                            itemSize: The height/width of item according to orientation.<br/>
+                            rows: The number of the rendered rows.<br />
+                            columns: The number of the rendered columns.<br />
+                            spacerStyle: The style of spacer element.<br/>
+                            contentStyle: The style of content element.<br />
+                            vertical: Whether the orientation is vertical.<br />
+                            horizontal: Whether the orientation is horizontal.<br/>
+                            both: Whether the orientation is both.<br />
+                            </td>
                     </tr>
                     <tr>
                         <td>item</td>
@@ -1028,11 +1069,11 @@ export default {
             .virtualscroller-demo .p-horizontal-scroll .scroll-item {
                 writing-mode: vertical-lr;
             }
-            
+
             .virtualscroller-demo .custom-loading > .p-virtualscroller-loader {
                 display: block;
             }
-        
+
         </style>
 `
                 }

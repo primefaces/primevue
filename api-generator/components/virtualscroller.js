@@ -1,5 +1,23 @@
 const VirtualScrollerProps = [
     {
+        name: "id",
+        type: "string",
+        default: "null",
+        description: "Unique identifier of the element."
+    },
+    {
+        name: "style",
+        type: "any",
+        default: "null",
+        description: "Inline style of the component."
+    },
+    {
+        name: "class",
+        type: "string",
+        default: "null",
+        description: "Style class of the component."
+    },
+    {
         name: "items",
         type: "array",
         default: "null",
@@ -48,26 +66,49 @@ const VirtualScrollerProps = [
         description: "Defines if data is loaded and interacted with in lazy manner."
     },
     {
+        name: "disabled",
+        type: "boolean",
+        default: "false",
+        description: "If disabled, the VirtualScroller feature is eliminated and the content is displayed directly."
+    },
+    {
+        name: "loaderDisabled",
+        type: "boolean",
+        default: "false",
+        description: "Used to implement a custom loader instead of using the loader feature in the VirtualScroller."
+    },
+    {
+        name: "loading",
+        type: "boolean",
+        default: "false",
+        description: "Whether the data is loaded."
+    },
+    {
+        name: "showSpacer",
+        type: "boolean",
+        default: "true",
+        description: "Used to implement a custom spacer instead of using the spacer feature in the VirtualScroller."
+    },
+    {
         name: "showLoader",
         type: "boolean",
         default: "false",
         description: "Whether to show loader."
-    },
-    {
-        name: "style",
-        type: "any",
-        default: "null",
-        description: "Inline style of the component."
-    },
-    {
-        name: "class",
-        type: "string",
-        default: "null",
-        description: "Style class of the component."
     }
 ];
 
 const VirtualScrollerEvents = [
+    {
+        name: "scroll",
+        description: "Callback to invoke when scroll position changes.",
+        arguments: [
+            {
+                name: "event",
+                type: "any",
+                description: "Browser event."
+            }
+        ]
+    },
     {
         name: "scroll-index-change",
         description: "Callback to invoke when scroll position and item's range in view changes.",
