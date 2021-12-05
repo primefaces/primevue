@@ -372,6 +372,10 @@
                             "to": "/datatable/scroll"
                         },
                         {
+                            "name": "VirtualScroll",
+                            "to": "/datatable/virtualscroll"
+                        },
+                        {
                             "name": "FlexScroll",
                             "to": "/datatable/flexscroll"
                         },

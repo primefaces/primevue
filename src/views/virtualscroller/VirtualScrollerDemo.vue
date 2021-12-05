@@ -41,7 +41,7 @@
                                 </div>
                             </template>
                         </VirtualScroller>
-                    </div> 
+                    </div>
                 </div>
             </div>
 
@@ -109,7 +109,7 @@
                 <h5 class="p-mb-0">Lazy</h5>
                 <div class="p-d-flex p-ai-center p-flex-wrap">
                     <div class="p-d-flex p-dir-col p-mr-3 p-mt-3">
-                        <VirtualScroller :items="lazyItems" :itemSize="50" showLoader :delay="250" :loading="lazyLoading" :lazy=true @lazy-load="onLazyLoad">
+                        <VirtualScroller :items="lazyItems" :itemSize="50" showLoader :delay="250" :loading="lazyLoading" lazy @lazy-load="onLazyLoad">
                             <template v-slot:item="{ item, options }">
                                 <div :class="['scroll-item p-p-2', {'odd': options.odd}]" style="height: 50px">{{ item }}</div>
                             </template>
@@ -180,12 +180,12 @@ export default {
             if (this.loadLazyTimeout) {
                 clearTimeout(this.loadLazyTimeout);
             }
-            
+
             //imitate delay of a backend call
             this.loadLazyTimeout = setTimeout(() => {
                 const { first, last } = event;
                 const lazyItems = [...this.lazyItems];
-            
+
                 for (let i = first; i < last; i++) {
                     lazyItems[i] = `Item #${i}`;
                 }
@@ -230,7 +230,7 @@ export default {
             display: flex;
             flex-direction: row;
         }
-        
+
         .scroll-item {
             writing-mode: vertical-lr;
         }

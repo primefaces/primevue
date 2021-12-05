@@ -288,6 +288,11 @@ const routes = [
         component: () => import('../views/datatable/DataTableFlexScrollDemo.vue')
     },
     {
+        path: '/datatable/virtualscroll',
+        name: 'datatablevirtualscroll',
+        component: () => import('../views/datatable/DataTableVirtualScrollDemo.vue')
+    },
+    {
         path: '/datatable/style',
         name: 'datatablestyle',
         component: () => import('../views/datatable/DataTableStyleDemo.vue')
