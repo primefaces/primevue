@@ -419,9 +419,9 @@ export default {
             else if (!this.overlay || !this.overlay.contains(event.target)) {
                 if (this.overlayVisible)
                     this.hide();
-                else 
+                else
                     this.show();
-                
+
                 this.$refs.focusInput.focus();
             }
         },
