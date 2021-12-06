@@ -29,6 +29,10 @@ export interface ChartProps {
      */
     options?: object | undefined;
     /**
+     * Used to custom plugins of the chart.
+     */
+    plugins?: any;
+    /**
      * Width of the chart in non-responsive mode.
      * Default value is 300.
      */
@@ -49,6 +53,11 @@ export declare type ChartEmits = {
      * @param {ChartSelectEvent} event - Custom select event.
      */
     'select': (event: ChartSelectEvent) => void;
+    /**
+     * Callback to invoke when chart is loaded.
+     * @param {*} chart - Chart instance.
+     */
+    'loaded': (chart: any) => void;
 }
 
 declare class Chart extends ClassComponent<ChartProps, ChartSlots, ChartEmits> {
@@ -70,6 +79,12 @@ declare class Chart extends ClassComponent<ChartProps, ChartSlots, ChartEmits> {
      * @memberof Chart
      */
     generateLegend: () => string | any;
+    /**
+     * Returns Chart instance.
+     *
+     * @memberof Chart
+     */
+    getChart: () => any;
 }
 
 declare module '@vue/runtime-core' {

@@ -18,6 +18,12 @@ const ChartProps = [
         description: "Options to customize the chart."
     },
     {
+        name: "plugins",
+        type: "any",
+        default: "null",
+        description: "Used to custom plugins of the chart."
+    },
+    {
         name: "width",
         type: "number",
         default: "300",
@@ -60,6 +66,17 @@ const ChartEvents = [
                 name: "element._index",
                 type: "number",
                 description: "Index of the data in dataset"
+            }
+        ]
+    },
+    {
+        name: "loaded",
+        description: "Callback to invoke when chart is loaded.",
+        arguments: [
+            {
+                name: "chart",
+                type: "object",
+                description: "Chart instance."
             }
         ]
     }
