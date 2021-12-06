@@ -239,7 +239,10 @@ export default {
         },
         show() {
             this.$emit('before-show');
-            this.overlayVisible = true;
+            setTimeout(() => {
+                this.overlayVisible = true;
+                this.$refs.focusInput.focus();
+            });
         },
         hide() {
             this.$emit('before-hide');
@@ -416,9 +419,9 @@ export default {
             else if (!this.overlay || !this.overlay.contains(event.target)) {
                 if (this.overlayVisible)
                     this.hide();
-                else
+                else 
                     this.show();
-
+                
                 this.$refs.focusInput.focus();
             }
         },
