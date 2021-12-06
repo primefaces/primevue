@@ -49,6 +49,7 @@ export declare class DomHandler {
     static isIOS(): boolean;
     static isAndroid(): boolean;
     static isTouchDevice(): boolean;
+    static exportCSV(csv: any, filename: string): void;
 }
 
 export declare class ObjectUtils {

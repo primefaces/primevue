@@ -997,14 +997,17 @@ export default {
 
             this.$emit('update:selection', _selection);
         },
-        exportCSV(options) {
-            let data = this.processedData;
+        exportCSV(options, data) {
             let csv = '\ufeff';
 
-            if (options && options.selectionOnly)
-                data = this.selection || [];
-            else if (this.frozenValue)
-                data = data ? [...this.frozenValue, ...data] : this.frozenValue;
+            if (!data) {
+                data = this.processedData;
+
+                if (options && options.selectionOnly)
+                    data = this.selection || [];
+                else if (this.frozenValue)
+                    data = data ? [...this.frozenValue, ...data] : this.frozenValue;
+            }
 
             //headers
             let headerInitiated = false;
@@ -1055,28 +1058,7 @@ export default {
                 });
             }
 
-            let blob = new Blob([csv], {
-                type: 'text/csv;charset=utf-8;'
-            });
-
-            if (window.navigator.msSaveOrOpenBlob) {
-                navigator.msSaveOrOpenBlob(blob, this.exportFilename + '.csv');
-            }
-            else {
-                let link = document.createElement("a");
-                link.style.display = 'none';
-                document.body.appendChild(link);
-                if (link.download !== undefined) {
-                    link.setAttribute('href', URL.createObjectURL(blob));
-                    link.setAttribute('download', this.exportFilename + '.csv');
-                    link.click();
-                }
-                else {
-                    csv = 'data:text/csv;charset=utf-8,' + csv;
-                    window.open(encodeURI(csv));
-                }
-                document.body.removeChild(link);
-            }
+            DomHandler.exportCSV(csv, this.exportFilename);
         },
         resetPage() {
             this.d_first = 0;

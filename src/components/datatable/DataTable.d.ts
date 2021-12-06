@@ -1032,9 +1032,10 @@ export declare type DataTableEmits = {
 declare class DataTable extends ClassComponent<DataTableProps, DataTableSlots, DataTableEmits> {
     /**
      * Exports the data to CSV format.
-     * @param {DataTableExportCSVOptions} options - Export options.
+     * @param {DataTableExportCSVOptions} [options] - Export options.
+     * @param {Object[]} [data] - Custom exportable data. This param can be used on lazy dataTable.
      */
-    exportCSV: (options?: DataTableExportCSVOptions) => void;
+    exportCSV: (options?: DataTableExportCSVOptions, data?: any[]) => void;
 }
 
 declare module '@vue/runtime-core' {
