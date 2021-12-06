@@ -82,7 +82,7 @@ import TableFooter from './TableFooter.vue';
 export default {
     name: 'DataTable',
     emits: ['value-change', 'update:first', 'update:rows', 'page', 'update:sortField', 'update:sortOrder', 'update:multiSortMeta', 'sort', 'filter', 'row-click', 'row-dblclick',
-        'update:selection', 'row-select', 'row-unselect', 'update:contextMenuSelection', 'row-contextmenu', 'row-unselect-all', 'row-select-all',
+        'update:selection', 'row-select', 'row-unselect', 'update:contextMenuSelection', 'row-contextmenu', 'row-unselect-all', 'row-select-all', 'select-all-change',
         'column-resize-end', 'column-reorder', 'row-reorder', 'update:expandedRows', 'row-collapse', 'row-expand',
         'update:expandedRowGroups', 'rowgroup-collapse', 'rowgroup-expand', 'update:filters', 'state-restore', 'state-save',
         'cell-edit-init', 'cell-edit-complete', 'cell-edit-cancel', 'update:editingRows', 'row-edit-init', 'row-edit-save', 'row-edit-cancel'],
@@ -209,6 +209,10 @@ export default {
         },
         contextMenuSelection: {
             type: Object,
+            default: null
+        },
+        selectAll: {
+            type: Boolean,
             default: null
         },
         rowHover: {
@@ -883,15 +887,24 @@ export default {
             }
         },
         toggleRowsWithCheckbox(event) {
-            const processedData = this.processedData;
-            const checked = this.allRowsSelected;
-            const _selection = checked ? [] : (this.frozenValue ? [...this.frozenValue, ...processedData]: processedData);
-            this.$emit('update:selection', _selection);
+            if (this.selectAll !== null) {
+                this.$emit('select-all-change', event);
+            }
+            else {
+                const { originalEvent, checked } = event;
+                let _selection = [];
 
-            if (checked)
-                this.$emit('row-unselect-all', {originalEvent: event});
-            else
-                this.$emit('row-select-all', {originalEvent: event, data: _selection});
+                if (checked) {
+                    _selection = this.frozenValue ? [...this.frozenValue, ...this.processedData] : this.processedData;
+                    this.$emit('row-select-all', {originalEvent, data: _selection});
+                }
+                else {
+                    this.$emit('row-unselect-all', {originalEvent});
+                }
+
+                this.$emit('update:selection', _selection);
+
+            }
         },
         isSingleSelectionMode() {
             return this.selectionMode === 'single';
@@ -1887,9 +1900,13 @@ export default {
             return ['p-datatable-loading-icon pi-spin', this.loadingIcon];
         },
         allRowsSelected() {
-            const val = this.frozenValue ? [...this.frozenValue, ...this.processedData]: this.processedData;
-            const length = this.lazy ? this.totalRecords : (val ? val.length : 0);
-            return (val && length > 0 && this.selection && this.selection.length > 0 && this.selection.length === length);
+            if (this.selectAll !== null) {
+                return this.selectAll;
+            }
+            else {
+                const val = this.frozenValue ? [...this.frozenValue, ...this.processedData] : this.processedData;
+                return val && this.selection && Array.isArray(this.selection) && val.every(v => this.selection.some(s => this.equals(s, v)));
+            }
         },
         attributeSelector() {
             return UniqueComponentId();

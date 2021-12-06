@@ -13,13 +13,15 @@
 
 		<div class="content-section implementation">
             <div class="card">
-                <DataTable :value="customers" :lazy="true" :paginator="true" :rows="10" v-model:filters="filters" ref="dt"
+                <DataTable :value="customers" :lazy="true" :paginator="true" :rows="10" v-model:filters="filters" ref="dt" dataKey="id"
                     :totalRecords="totalRecords" :loading="loading" @page="onPage($event)" @sort="onSort($event)" @filter="onFilter($event)" filterDisplay="row"
-                    :globalFilterFields="['name','country.name', 'company', 'representative.name']" responsiveLayout="scroll" >
-                    <Column field="name" header="Name" filterMatchMode="startsWith" ref="name" :sortable="true">  
+                    :globalFilterFields="['name','country.name', 'company', 'representative.name']" responsiveLayout="scroll"
+                    v-model:selection="selectedCustomers" :selectAll="selectAll" @select-all-change="onSelectAllChange" @row-select="onRowSelect" @row-unselect="onRowUnselect">
+                    <Column selectionMode="multiple" headerStyle="width: 3em"></Column>
+                    <Column field="name" header="Name" filterMatchMode="startsWith" ref="name" :sortable="true">
                         <template #filter="{filterModel,filterCallback}">
                             <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" placeholder="Search by name"/>
-                        </template>                    
+                        </template>
                     </Column>
                     <Column field="country.name" header="Country" filterField="country.name" filterMatchMode="contains" ref="country.name" :sortable="true">
                         <template #filter="{filterModel,filterCallback}">
@@ -39,7 +41,7 @@
                 </DataTable>
             </div>
 		</div>
- 
+
         <AppDoc name="DataTableLazyDemo" :sources="sources" :service="['CustomerService']" github="datatable/DataTableLazyDemo.vue" />
 	</div>
 </template>
@@ -53,6 +55,8 @@ export default {
             loading: false,
             totalRecords: 0,
             customers: null,
+            selectedCustomers: null,
+            selectAll: false,
             filters: {
                 'name': {value: '', matchMode: 'contains'},
                 'country.name': {value: '', matchMode: 'contains'},
@@ -72,13 +76,15 @@ export default {
                     content: `
 <template>
 	<div>
-        <DataTable :value="customers" :lazy="true" :paginator="true" :rows="10" v-model:filters="filters" ref="dt"
+        <DataTable :value="customers" :lazy="true" :paginator="true" :rows="10" v-model:filters="filters" ref="dt" dataKey="id"
             :totalRecords="totalRecords" :loading="loading" @page="onPage($event)" @sort="onSort($event)" @filter="onFilter($event)" filterDisplay="row"
-            :globalFilterFields="['name','country.name', 'company', 'representative.name']" responsiveLayout="scroll">
-            <Column field="name" header="Name" filterMatchMode="startsWith" ref="name" :sortable="true">  
+            :globalFilterFields="['name','country.name', 'company', 'representative.name']" responsiveLayout="scroll"
+            v-model:selection="selectedCustomers" :selectAll="selectAll" @select-all-change="onSelectAllChange" @row-select="onRowSelect" @row-unselect="onRowUnselect">
+            <Column selectionMode="multiple" headerStyle="width: 3em"></Column>
+            <Column field="name" header="Name" filterMatchMode="startsWith" ref="name" :sortable="true">
                 <template #filter="{filterModel,filterCallback}">
                     <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" placeholder="Search by name"/>
-                </template>                    
+                </template>
             </Column>
             <Column field="country.name" header="Country" filterField="country.name" filterMatchMode="contains" ref="country.name" :sortable="true">
                 <template #filter="{filterModel,filterCallback}">
@@ -108,6 +114,8 @@ export default {
             loading: false,
             totalRecords: 0,
             customers: null,
+            selectedCustomers: null,
+            selectAll: false,
             filters: {
                 'name': {value: '', matchMode: 'contains'},
                 'country.name': {value: '', matchMode: 'contains'},
@@ -129,7 +137,7 @@ export default {
     },
     mounted() {
         this.loading = true;
-        
+
         this.lazyParams = {
             first: 0,
             rows: this.$refs.dt.rows,
@@ -166,10 +174,30 @@ export default {
         onFilter() {
             this.lazyParams.filters = this.filters;
             this.loadLazyData();
+        },
+        onSelectAllChange(event) {
+            const selectAll = event.checked;
+
+            if (selectAll) {
+                this.customerService.getCustomers().then(data => {
+                    this.selectAll = true;
+                    this.selectedCustomers = data.customers;
+                });
+            }
+            else {
+                this.selectAll = false;
+                this.selectedCustomers = [];
+            }
+        },
+        onRowSelect() {
+            this.selectAll = this.selectedCustomers.length === this.totalRecords
+        },
+        onRowUnselect() {
+            this.selectAll = false;
         }
     }
 }
-<\\/script>                  
+<\\/script>
 `
                 },
                 'composition-api': {
@@ -177,13 +205,15 @@ export default {
                     content: `
 <template>
 	<div>
-        <DataTable :value="customers" :lazy="true" :paginator="true" :rows="10" v-model:filters="filters" ref="dt"
+        <DataTable :value="customers" :lazy="true" :paginator="true" :rows="10" v-model:filters="filters" ref="dt" dataKey="id"
             :totalRecords="totalRecords" :loading="loading" @page="onPage($event)" @sort="onSort($event)" @filter="onFilter($event)" filterDisplay="row"
-            :globalFilterFields="['name','country.name', 'company', 'representative.name']" responsiveLayout="scroll">
-            <Column field="name" header="Name" filterMatchMode="startsWith" ref="name" :sortable="true">  
+            :globalFilterFields="['name','country.name', 'company', 'representative.name']" responsiveLayout="scroll"
+            v-model:selection="selectedCustomers" :selectAll="selectAll" @select-all-change="onSelectAllChange" @row-select="onRowSelect" @row-unselect="onRowUnselect">
+            <Column selectionMode="multiple" headerStyle="width: 3em"></Column>
+            <Column field="name" header="Name" filterMatchMode="startsWith" ref="name" :sortable="true">
                 <template #filter="{filterModel,filterCallback}">
                     <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" placeholder="Search by name"/>
-                </template>                    
+                </template>
             </Column>
             <Column field="country.name" header="Country" filterField="country.name" filterMatchMode="contains" ref="country.name" :sortable="true">
                 <template #filter="{filterModel,filterCallback}">
@@ -212,7 +242,7 @@ export default {
     setup() {
         onMounted(() => {
             loading.value = true;
-        
+
             lazyParams.value = {
                 first: 0,
                 rows: dt.value.rows,
@@ -228,6 +258,8 @@ export default {
         const loading = ref(false);
         const totalRecords = ref(0);
         const customers = ref();
+        const selectedCustomers = ref();
+        const selectAll = ref(false);
         const customerService = ref(new CustomerService());
         const filters = ref({
             'name': {value: '', matchMode: 'contains'},
@@ -269,11 +301,31 @@ export default {
             lazyParams.value.filters = filters.value ;
             loadLazyData();
         }
+        const onSelectAllChange = (event) => {
+            const selectAll = event.checked;
 
-        return { dt, loading, totalRecords, customers, filters, lazyParams, columns, loadLazyData, onPage, onSort, onFilter }
+            if (selectAll) {
+                customerService.value.getCustomers().then(data => {
+                    selectAll.value = true;
+                    selectedCustomers.value = data.customers;
+                });
+            }
+            else {
+                selectAll.value = false;
+                selectedCustomers.value = [];
+            }
+        }
+        const onRowSelect = () => {
+            selectAll.value = selectedCustomers.value.length === totalRecords.value;
+        }
+        const onRowUnselect = () => {
+            selectAll.value = false;
+        }
+
+        return { dt, loading, totalRecords, customers, filters, lazyParams, columns, loadLazyData, onPage, onSort, onFilter, onSelectAllChange, onRowSelect, onRowUnselect }
     }
 }
-<\\/script>                  
+<\\/script>
 `
                 },
                 'browser-source': {
@@ -282,13 +334,15 @@ export default {
         <script src="https://unpkg.com/primevue@^3/column/column.min.js"><\\/script>
         <script src="./CustomerService.js"><\\/script>`,
                     content: `<div id="app">
-            <p-datatable :value="customers" :lazy="true" :paginator="true" :rows="10" v-model:filters="filters" ref="dt"
-                :total-records="totalRecords" :loading="loading" @page="onPage($event)" @sort="onSort($event)" @filter="onFilter($event)" filter-display="row"
-                :global-filter-fields="['name','country.name', 'company', 'representative.name']" responsive-layout="scroll">
-                <p-column field="name" header="Name" filter-match-mode="startsWith" ref="name" :sortable="true">  
+            <p-datatable :value="customers" :lazy="true" :paginator="true" :rows="10" v-model:filters="filters" ref="dt" dataKey="id"
+                :totalRecords="totalRecords" :loading="loading" @page="onPage($event)" @sort="onSort($event)" @filter="onFilter($event)" filterDisplay="row"
+                :globalFilterFields="['name','country.name', 'company', 'representative.name']" responsiveLayout="scroll"
+                v-model:selection="selectedCustomers" :selectAll="selectAll" @select-all-change="onSelectAllChange" @row-select="onRowSelect" @row-unselect="onRowUnselect">
+                <p-column selectionMode="multiple" headerStyle="width: 3em"></Column>
+                <p-column field="name" header="Name" filter-match-mode="startsWith" ref="name" :sortable="true">
                     <template #filter="{filterModel,filterCallback}">
                         <p-inputtext type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" placeholder="Search by name"></p-inputtext>
-                    </template>                    
+                    </template>
                 </p-column>
                 <p-column field="country.name" header="Country" filter-field="country.name" filter-match-mode="contains" ref="country.name" :sortable="true">
                     <template #filter="{filterModel,filterCallback}">
@@ -315,7 +369,7 @@ export default {
             setup() {
                 onMounted(() => {
                     loading.value = true;
-                
+
                     lazyParams.value = {
                         first: 0,
                         rows: dt.value.rows,
@@ -331,6 +385,8 @@ export default {
                 const loading = ref(false);
                 const totalRecords = ref(0);
                 const customers = ref();
+                const selectedCustomers = ref();
+                const selectAll = ref(false);
                 const customerService = ref(new CustomerService());
                 const filters = ref({
                     'name': {value: '', matchMode: 'contains'},
@@ -373,7 +429,28 @@ export default {
                     loadLazyData();
                 }
 
-                return { dt, loading, totalRecords, customers, filters, lazyParams, columns, loadLazyData, onPage, onSort, onFilter }
+                const onSelectAllChange = (event) => {
+                    const selectAll = event.checked;
+
+                    if (selectAll) {
+                        customerService.value.getCustomers().then(data => {
+                            selectAll.value = true;
+                            selectedCustomers.value = data.customers;
+                        });
+                    }
+                    else {
+                        selectAll.value = false;
+                        selectedCustomers.value = [];
+                    }
+                }
+                const onRowSelect = () => {
+                    selectAll.value = selectedCustomers.value.length === totalRecords.value;
+                }
+                const onRowUnselect = () => {
+                    selectAll.value = false;
+                }
+
+                return { dt, loading, totalRecords, customers, filters, lazyParams, columns, loadLazyData, onPage, onSort, onFilter, onSelectAllChange, onRowSelect, onRowUnselect }
             },
             components: {
                 "p-datatable": primevue.datatable,
@@ -381,11 +458,11 @@ export default {
                 "p-inputtext": primevue.inputtext
             }
         };
-        
+
         createApp(App)
             .use(primevue.config.default)
             .mount("#app");
-        <\\/script>                  
+        <\\/script>
 `
                 }
             }
@@ -397,7 +474,7 @@ export default {
     },
     mounted() {
         this.loading = true;
-        
+
         this.lazyParams = {
             first: 0,
             rows: this.$refs.dt.rows,
@@ -431,6 +508,26 @@ export default {
         onFilter() {
             this.lazyParams.filters = this.filters;
             this.loadLazyData();
+        },
+        onSelectAllChange(event) {
+            const selectAll = event.checked;
+
+            if (selectAll) {
+                this.customerService.getCustomers().then(data => {
+                    this.selectAll = true;
+                    this.selectedCustomers = data.customers;
+                });
+            }
+            else {
+                this.selectAll = false;
+                this.selectedCustomers = [];
+            }
+        },
+        onRowSelect() {
+            this.selectAll = this.selectedCustomers.length === this.totalRecords
+        },
+        onRowUnselect() {
+            this.selectAll = false;
         }
     }
 }

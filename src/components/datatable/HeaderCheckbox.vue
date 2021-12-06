@@ -24,7 +24,10 @@ export default {
         onClick(event) {
             if (!this.$attrs.disabled) {
                 this.focused = true;
-                this.$emit('change', event);
+                this.$emit('change', {
+                    originalEvent: event,
+                    checked: !this.checked
+                });
             }
         },
         onFocus() {

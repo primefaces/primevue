@@ -72,7 +72,7 @@
             <div class="card">
                 <h5>Checkbox</h5>
 
-                <DataTable :value="products" v-model:selection="selectedProducts3" dataKey="id" responsiveLayout="scroll" >
+                <DataTable :value="products" v-model:selection="selectedProducts3" dataKey="id" responsiveLayout="scroll">
                     <Column selectionMode="multiple" headerStyle="width: 3em"></Column>
                     <Column field="code" header="Code"></Column>
                     <Column field="name" header="Name"></Column>
@@ -83,7 +83,7 @@
 		</div>
 
         <AppDoc name="DataTableSelectionDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="datatable/DataTableSelectionDemo.vue" />
-                  
+
 	</div>
 </template>
 
@@ -173,7 +173,7 @@ export default {
                 <Column field="category" header="Category"></Column>
                 <Column field="quantity" header="Quantity"></Column>
             </DataTable>
-		</div>    
+		</div>
 	</div>
 </template>
 
@@ -208,7 +208,7 @@ export default {
         }
     }
 }
-<\\/script>                 
+<\\/script>
 `
                 },
                 'composition-api': {
@@ -283,7 +283,7 @@ export default {
                 <Column field="category" header="Category"></Column>
                 <Column field="quantity" header="Quantity"></Column>
             </DataTable>
-		</div>    
+		</div>
 	</div>
 </template>
 
@@ -319,7 +319,7 @@ export default {
         return { products, selectedProduct1, selectedProduct2, selectedProduct3, selectedProducts1, selectedProducts2, selectedProducts3, onRowSelect, onRowUnselect}
     }
 }
-<\\/script>                 
+<\\/script>
 `
                 },
                 'browser-source': {
@@ -397,7 +397,7 @@ export default {
                     <p-column field="category" header="Category"></p-column>
                     <p-column field="quantity" header="Quantity"></p-column>
                 </p-datatable>
-            </div>    
+            </div>
         </div>
 
     <script type="module">
@@ -440,7 +440,7 @@ export default {
     createApp(App)
             .use(primevue.config.default)
             .mount("#app");
-    <\\/script>                 
+    <\\/script>
 `
                 }
             }
