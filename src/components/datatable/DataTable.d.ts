@@ -1,5 +1,5 @@
 import { VNode } from 'vue';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, Nullable } from '../ts-helpers';
 import Column from '../column';
 import { VirtualScrollerProps } from '../virtualscroller';
 
@@ -233,6 +233,17 @@ export interface DataTableRowUnselectAllEvent {
      * Browser event
      */
     originalEvent: Event;
+}
+
+export interface DataTableSelectAllChangeEvent {
+    /**
+     * Browser event
+     */
+    originalEvent: Event;
+    /**
+     * Whether all data is selected.
+     */
+    checked: boolean;
 }
 
 export interface DataTableColumnResizeEndEvent {
@@ -608,6 +619,10 @@ export interface DataTableProps {
      */
     contextMenuSelection?: any | any[] | undefined;
     /**
+     * Whether all data is selected.
+     */
+    selectAll?: Nullable<boolean>;
+    /**
      * When enabled, background of the rows change on hover.
      */
     rowHover?: boolean | undefined;
@@ -952,6 +967,11 @@ export declare type DataTableEmits = {
      * @param {DataTableRowUnselectEvent} event - Custom row unselect event.
      */
     'row-unselect': (event: DataTableRowUnselectEvent) => void;
+    /**
+     * Callback to invoke when all data is selected.
+     * @param {DataTableSelectAllChangeEvent} event - Custom select all change event.
+     */
+    'select-all-change': (event: DataTableSelectAllChangeEvent) => void;
     /**
      * Callback to invoke when a column is resized.
      * @param {DataTableColumnResizeEndEvent} - Custom column resize event.

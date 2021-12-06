@@ -186,6 +186,12 @@ const DataTableProps = [
         description: "When enabled, background of the rows change on hover."
     },
     {
+        name: "selectAll",
+        type: "boolean",
+        default: "null",
+        description: "Whether all data is selected."
+    },
+    {
         name: "csvSeparator",
         type: "string",
         default: ",",
@@ -631,6 +637,22 @@ const DataTableEvents = [
                 type: "string",
                 description:
                     'Type of the selection, valid values are "row", "radio" or "checkbox".'
+            }
+        ]
+    },
+    {
+        name: "select-all-change",
+        description: "Callback to invoke when all data is selected.",
+        arguments: [
+            {
+                name: "event.originalEvent",
+                type: "object",
+                description: "Browser event."
+            },
+            {
+                name: "event.checked",
+                type: "object",
+                description: "Whether all data is selected."
             }
         ]
     },
