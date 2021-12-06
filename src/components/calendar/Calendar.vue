@@ -317,6 +317,7 @@ export default {
     overlay: null,
     mask: null,
     timePickerTimer: null,
+    preventFocus: false,
     created() {
         this.updateCurrentMetaData();
     },
@@ -337,6 +338,7 @@ export default {
     },
     updated() {
         if (this.overlay) {
+            this.preventFocus = true;
             this.updateFocus();
         }
 
@@ -2086,9 +2088,11 @@ export default {
             if (cell) {
                 cell.tabIndex = '0';
 
-                if ((!this.navigationState || !this.navigationState.button) && !this.timePickerChange) {
+                if (!this.preventFocus && (!this.navigationState || !this.navigationState.button) && !this.timePickerChange) {
                     cell.focus();
                 }
+
+                this.preventFocus = false;
             }
         },
         trapFocus(event) {
