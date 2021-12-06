@@ -11,7 +11,7 @@
                             </a>
                         </router-link>
                         <a v-else :href="item.url" :class="getHeaderLinkClass(item)" @click="onItemClick($event, item)" :tabindex="disabled(item) ? null : '0'"
-                            :aria-expanded="isActive(item)" :id="ariaId +'_header'" :aria-controls="ariaId +'_content'">
+                            :aria-expanded="isActive(item)" :id="ariaId +'_header_' + index" :aria-controls="ariaId +'_content_' + index">
                             <span v-if="item.items" :class="getPanelToggleIcon(item)"></span>
                             <span v-if="item.icon" :class="getPanelIcon(item)"></span>
                             <span class="p-menuitem-text">{{label(item)}}</span>
@@ -21,7 +21,7 @@
                 </div>
                 <transition name="p-toggleable-content">
                     <div class="p-toggleable-content" v-show="isActive(item)"
-                        role="region" :id="ariaId +'_content' " :aria-labelledby="ariaId +'_header'">
+                        role="region" :id="ariaId +'_content_' + index" :aria-labelledby="ariaId +'_header_' + index">
                         <div class="p-panelmenu-content" v-if="item.items">
                             <PanelMenuSub :model="item.items" class="p-panelmenu-root-submenu" :template="$slots.item" 
                                 :expandedKeys="expandedKeys" @item-toggle="updateExpandedKeys" :exact="exact" />
