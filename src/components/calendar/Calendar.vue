@@ -394,7 +394,9 @@ export default {
         },
         months() {
             if (this.overlay) {
-                setTimeout(this.updateFocus, 0);
+                if (!this.focused) {
+                    setTimeout(this.updateFocus, 0);
+                }
             }
         },
         numberOfMonths() {
