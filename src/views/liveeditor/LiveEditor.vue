@@ -416,7 +416,7 @@ export default {
         <title>${name}</title>
 
         <!-- PrimeVue -->
-        <link href="https://unpkg.com/primevue@^3/resources/themes/saga-blue/theme.css" rel="stylesheet" />
+        <link href="https://unpkg.com/primevue@^3/resources/themes/lara-light-indigo/theme.css" rel="stylesheet" />
         <link href="https://unpkg.com/primevue@^3/resources/primevue.min.css" rel="stylesheet" />
         <link href="https://unpkg.com/primeflex@2.0.0/primeflex.min.css" rel="stylesheet" />
         <link href="https://unpkg.com/primeicons/primeicons.css" rel="stylesheet" />
