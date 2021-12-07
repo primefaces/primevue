@@ -442,10 +442,10 @@ export default {
                         <td>Style class of the component.</td>
                     </tr>
                     <tr>
-                        <td>keepInvalid</td>
+                        <td>keepInvalid (Deprecated)</td>
                         <td>boolean</td>
                         <td>false</td>
-                        <td>Keep invalid value when input blur.</td>
+                        <td>Keep invalid value when input blur. <b>Deprecated</b>: Invalid values are not kept anymore.</td>
                     </tr>
                 </tbody>
             </table>

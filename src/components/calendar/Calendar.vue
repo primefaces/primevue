@@ -1,7 +1,7 @@
 <template>
     <span ref="container" :class="containerClass" :style="style">
-        <CalendarInputText ref="input" v-if="!inline" type="text" v-bind="$attrs" :value="inputFieldValue" @input="onInput" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" :readonly="!manualInput" inputmode="none"
-            :class="inputClass" :style="inputStyle" />
+        <input :ref="inputRef" v-if="!inline" type="text" :class="['p-inputtext p-component', inputClass]" :style="inputStyle" @input="onInput" v-bind="$attrs" 
+            @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" :readonly="!manualInput" inputmode="none">
         <CalendarButton v-if="showIcon" :icon="icon" tabindex="-1" class="p-datepicker-trigger" :disabled="$attrs.disabled" @click="onButtonClick" type="button" :aria-label="inputFieldValue"/>
         <Teleport :to="appendTarget" :disabled="appendDisabled">
             <transition name="p-connected-overlay" @enter="onOverlayEnter($event)" @after-enter="onOverlayEnterComplete" @after-leave="onOverlayAfterLeave" @leave="onOverlayLeave">
@@ -144,7 +144,6 @@
 <script>
 import {ConnectedOverlayScrollHandler,DomHandler,ZIndexUtils,UniqueComponentId} from 'primevue/utils';
 import OverlayEventBus from 'primevue/overlayeventbus';
-import InputText from 'primevue/inputtext';
 import Button from 'primevue/button';
 import Ripple from 'primevue/ripple';
 
@@ -315,9 +314,11 @@ export default {
     maskClickListener: null,
     resizeListener: null,
     overlay: null,
+    input: null,
     mask: null,
     timePickerTimer: null,
     preventFocus: false,
+    typeUpdate: false,
     created() {
         this.updateCurrentMetaData();
     },
@@ -335,6 +336,9 @@ export default {
                 }
             }
         }
+        else {
+            this.input.value = this.formatValue(this.modelValue);
+        }
     },
     updated() {
         if (this.overlay) {
@@ -342,9 +346,9 @@ export default {
             this.updateFocus();
         }
 
-        if (this.$refs.input && this.selectionStart != null && this.selectionEnd != null) {
-            this.$refs.input.$el.selectionStart = this.selectionStart;
-            this.$refs.input.$el.selectionEnd = this.selectionEnd;
+        if (this.input && this.selectionStart != null && this.selectionEnd != null) {
+            this.input.selectionStart = this.selectionStart;
+            this.input.selectionEnd = this.selectionEnd;
             this.selectionStart = null;
             this.selectionEnd = null;
         }
@@ -386,8 +390,12 @@ export default {
         }
     },
     watch: {
-        modelValue() {
+        modelValue(newValue) {
             this.updateCurrentMetaData();
+            if (!this.typeUpdate && !this.inline && this.input) {
+                this.input.value = this.formatValue(newValue);
+            }
+            this.typeUpdate = false;
         },
         showTime() {
             this.updateCurrentMetaData();
@@ -804,7 +812,7 @@ export default {
         onButtonClick() {
             if (this.isEnabled()) {
                 if (!this.overlayVisible) {
-                    this.$refs.input.$el.focus();
+                    this.input.focus();
                     this.overlayVisible = true;
                 }
                 else {
@@ -2155,18 +2163,17 @@ export default {
         },
         onInput(event) {
             try {
-                this.selectionStart = this.$refs.input.$el.selectionStart;
-                this.selectionEnd = this.$refs.input.$el.selectionEnd;
+                this.selectionStart = this.input.selectionStart;
+                this.selectionEnd = this.input.selectionEnd;
 
                 let value = this.parseValue(event.target.value);
                 if (this.isValidSelection(value)) {
+                    this.typeUpdate = true;
                     this.updateModel(value);
                 }
             }
             catch(err) {
-                if (this.keepInvalid) {
-                    this.updateModel(event.target.value);
-                }
+                /* NoOp */
             }
         },
         onFocus() {
@@ -2177,6 +2184,7 @@ export default {
         },
         onBlur() {
             this.focused = false;
+            this.input.value = this.formatValue(this.modelValue);
         },
         onKeyDown() {
             if (event.keyCode === 40 && this.overlay) {
@@ -2200,6 +2208,9 @@ export default {
         },
         overlayRef(el) {
             this.overlay = el;
+        },
+        inputRef(el) {
+            this.input = el;
         },
         getMonthName(index) {
             return this.$primevue.config.locale.monthNames[index];
@@ -2477,7 +2488,6 @@ export default {
         }
     },
     components: {
-        'CalendarInputText': InputText,
         'CalendarButton': Button
     },
     directives: {
