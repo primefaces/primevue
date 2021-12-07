@@ -1,5 +1,29 @@
 # Changelog
 
+## [3.10.0](https://github.com/primefaces/primevue/tree/3.10.0) (2021-12-07)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/2.7.0...3.10.0)
+
+**Implemented New Features and Enhancements:**
+
+- Calendar | Escape Support For Month and Year Picker [\#1847](https://github.com/primefaces/primevue/issues/1847)
+- Add data param to exportCSV method on DataTable [\#1845](https://github.com/primefaces/primevue/issues/1845)
+- Improve VirtualScroller implementation for Data components [\#1844](https://github.com/primefaces/primevue/issues/1844)
+- Add virtualScroller feature to DataTable [\#1843](https://github.com/primefaces/primevue/issues/1843)
+- DataTable component does not work correctly "Checkbox selection" together with "lazy" [\#1841](https://github.com/primefaces/primevue/issues/1841)
+- Provide chartjs object when Chart component is totally instantiated [\#1840](https://github.com/primefaces/primevue/issues/1840)
+- Improve TypeScript Definitions on all components  [\#1836](https://github.com/primefaces/primevue/issues/1836)
+
+**Fixed bugs:**
+
+- Calendar | Year Picker and Month Picker empty when using Range and Multiple options [\#1848](https://github.com/primefaces/primevue/issues/1848)
+- Calendar manual input doesn't work [\#1825](https://github.com/primefaces/primevue/issues/1825)
+- PanelMenu does not use unique IDs [\#1791](https://github.com/primefaces/primevue/issues/1791)
+
+**Deprecated:**
+
+- Deprecate keepInvalid of Calendar [\#1849](https://github.com/primefaces/primevue/issues/1849)
+
 ## [3.9.1](https://github.com/primefaces/primevue/tree/3.9.1) (2021-11-18)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.9.0...3.9.1)
