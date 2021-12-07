@@ -778,24 +778,12 @@ export interface DataTableProps {
 export interface DataTableSlots {
     /**
      * Custom header template.
-     * @param {Object} scope - header slot's params.
      */
-    header: (scope: {
-        /**
-         * Column node
-         */
-        column: Column;
-    }) => VNode[];
+    header: () => VNode[];
     /**
      * Custom footer template.
-     * @param {Object} scope - footer slot's params.
      */
-    footer: (scope: {
-        /**
-         * Column node
-         */
-        column: Column;
-    }) => VNode[];
+    footer: () => VNode[];
     /**
      * Custom paginator start template.
      */
