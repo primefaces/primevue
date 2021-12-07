@@ -443,10 +443,22 @@ export default {
             return false;
         },
         isMonthSelected(month) {
-            return this.isComparable() ? (this.modelValue.getMonth() === month && this.modelValue.getFullYear() === this.currentYear) : false;
+            if (this.isComparable()) {
+                let value = this.isRangeSelection() ? this.modelValue[0] : this.modelValue;
+
+                return !this.isMultipleSelection() ? (value.getMonth() === month && value.getFullYear() === this.currentYear) : false;
+            }
+
+            return false;
         },
         isYearSelected(year) {
-            return this.isComparable() ? (this.modelValue.getFullYear() === year) : false;
+            if (this.isComparable()) {
+                let value = this.isRangeSelection() ? this.modelValue[0] : this.modelValue;
+
+                return !this.isMultipleSelection() && this.isComparable() ? (value.getFullYear() === year) : false;
+            }
+
+            return false;
         },
         isDateEquals(value, dateMeta) {
             if (value)
