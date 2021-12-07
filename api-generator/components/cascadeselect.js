@@ -13,25 +13,25 @@ const CascadeSelectProps = [
     },
     {
         name: "optionLabel",
-        type: "string",
+        type: "string | function",
         default: "null",
         description: "Property name or getter function to use as the label of an option."
     },
     {
         name: "optionValue",
-        type: "string",
+        type: "string | function",
         default: "null",
         description: "Property name or getter function to use as the value of an option, defaults to the option itself when not defined."
     },
     {
         name: "optionGroupLabel",
-        type: "string",
+        type: "string | function",
         default: "null",
         description: "Property name or getter function to use as the label of an option group."
     },
     {
         name: "optionGroupChildren",
-        type: "array",
+        type: "array | function",
         default: "null",
         description: "Property name or getter function to retrieve the items of a group."
     },

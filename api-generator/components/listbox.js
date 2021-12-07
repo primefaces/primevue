@@ -13,31 +13,31 @@ const ListboxProps = [
     },
     {
         name: "optionLabel",
-        type: "string",
+        type: "string | function",
         default: "null",
         description: "Property name or getter function to use as the label of an option."
     },
     {
         name: "optionValue",
-        type: "string",
+        type: "string | function",
         default: "null",
         description: "Property name or getter function to use as the value of an option, defaults to the option itself when not defined."
     },
     {
         name: "optionDisabled",
-        type: "boolean",
+        type: "boolean | function",
         default: "null",
         description: "Property name or getter function to use as the disabled flag of an option, defaults to false when not defined."
     },
     {
         name: "optionGroupLabel",
-        type: "string",
+        type: "string | function",
         default: "null",
         description: "Property name or getter function to use as the label of an option group."
     },
     {
         name: "optionGroupChildren",
-        type: "string",
+        type: "string | function",
         default: "null",
         description: "Property name or getter function that refers to the children options of option group."
     },
