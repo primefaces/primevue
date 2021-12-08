@@ -42,7 +42,7 @@ export default {
 
         <p>Two-way binding requires v-model.</p>
 <CodeHighlight>
-&lt;TabMenu :model="items" v-model:activeIndex="activeIndex" /&gt;
+&lt;TabMenu :model="items" :activeIndex.sync="activeIndex" /&gt;
 </CodeHighlight>
 
                 <h5>Properties</h5>
