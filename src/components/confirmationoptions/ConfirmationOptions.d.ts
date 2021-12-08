@@ -8,6 +8,10 @@ export interface ConfirmationOptions {
      */
     message?: string | undefined;
     /**
+     * Header text of the dialog.
+     */
+    header?: string | undefined;
+    /**
      * Optional key to match the key of the confirmation, useful to target a specific confirm dialog instance.
      */
     group?: string | undefined;
@@ -15,6 +19,10 @@ export interface ConfirmationOptions {
      * Icon to display next to the message.
      */
     icon?: string | undefined;
+    /**
+     * Whether background scroll should be blocked when dialog is visible.
+     */
+    blockScroll?: boolean | undefined;
     /**
      * Callback to execute when action is confirmed.
      */
