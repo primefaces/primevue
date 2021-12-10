@@ -18,12 +18,12 @@
 export default {
     methods: {
         onChange(value) {
-            this.$appState.inputStyle = value;
+            this.$primevue.config.inputStyle = value;
         }
     },
     computed: {
         value() {
-            return this.$appState.inputStyle;
+            return this.$primevue.config.inputStyle;
         }
     }
 };

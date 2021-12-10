@@ -496,7 +496,7 @@ export default {
             return [this.filterMenuClass, {
                 'p-column-filter-overlay p-component p-fluid': true,
                 'p-column-filter-overlay-menu': this.display === 'menu',
-                'p-input-filled': this.$appState.inputStyle === 'filled',
+                'p-input-filled': this.$primevue.config.inputStyle === 'filled',
                 'p-ripple-disabled': this.$primevue.config.ripple === false
             }];
         },

@@ -131,7 +131,7 @@ export default {
         containerClass() {
             return [{
                 'layout-news-active': this.newsActive,
-                'p-input-filled': this.$appState.inputStyle === 'filled',
+                'p-input-filled': this.$primevue.config.inputStyle === 'filled',
                 'p-ripple-disabled': this.$primevue.config.ripple === false
             }];
         }

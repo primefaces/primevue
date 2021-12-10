@@ -118,7 +118,7 @@ Vue.directive('tooltip', Tooltip);
 Vue.directive('ripple', Ripple);
 Vue.directive('styleclass', StyleClass);
 
-Vue.prototype.$appState = Vue.observable({inputStyle: 'outlined', darkTheme: false});
+Vue.prototype.$appState = Vue.observable({darkTheme: false});
 
 Vue.config.productionTip = false;
 
