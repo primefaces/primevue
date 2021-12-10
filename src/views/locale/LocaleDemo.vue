@@ -39,94 +39,51 @@ export default {
 </CodeHighlight>
 
             <h5>Locale Options</h5>
-            <div class="doc-tablewrapper">
-                <table class="doc-table">
-                    <thead>
-                        <tr>
-                            <th>Key</th>
-                            <th>Value</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>accept</td>
-                            <td>Yes</td>
-                        </tr>
-                        <tr>
-                            <td>reject</td>
-                            <td>No</td>
-                        </tr>
-                        <tr>
-                            <td>choose</td>
-                            <td>Choose</td>
-                        </tr>
-                        <tr>
-                            <td>upload</td>
-                            <td>Upload</td>
-                        </tr>
-                        <tr>
-                            <td>cancel</td>
-                            <td>Cancel</td>
-                        </tr>
-                        <tr>
-                            <td>dayNames</td>
-                            <td>["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]</td>
-                        </tr>
-                        <tr>
-                            <td>dayNamesShort</td>
-                            <td>["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]</td>
-                        </tr>
-                        <tr>
-                            <td>dayNamesMin</td>
-                            <td>["Su","Mo","Tu","We","Th","Fr","Sa"]</td>
-                        </tr>
-                        <tr>
-                            <td>monthNames</td>
-                            <td>["January","February","March","April","May","June","July","August","September","October","November","December"]</td>
-                        </tr>
-                        <tr>
-                            <td>monthNamesShort</td>
-                            <td>["Jan", "Feb", "Mar", "Apr", "May", "Jun","Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]</td>
-                        </tr>
-                        <tr>
-                            <td>today</td>
-                            <td>Today</td>
-                        </tr>
-                        <tr>
-                            <td>today</td>
-                            <td>Today</td>
-                        </tr>
-                        <tr>
-                            <td>weekHeader</td>
-                            <td>Wk</td>
-                        </tr>
-                        <tr>
-                            <td>firstDayOfWeek</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <td>dateFormat</td>
-                            <td>mm/dd/yy</td>
-                        </tr>
-                        <tr>
-                            <td>weak</td>
-                            <td>Weak</td>
-                        </tr>
-                        <tr>
-                            <td>medium</td>
-                            <td>Medium</td>
-                        </tr>
-                        <tr>
-                            <td>strong</td>
-                            <td>Strong</td>
-                        </tr>
-                        <tr>
-                            <td>passwordPrompt</td>
-                            <td>Enter a password</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+<CodeHighlight lang="javascript">
+locale: {
+    startsWith: 'Starts with',
+    contains: 'Contains',
+    notContains: 'Not contains',
+    endsWith: 'Ends with',
+    equals: 'Equals',
+    notEquals: 'Not equals',
+    noFilter: 'No Filter',
+    lt: 'Less than',
+    lte: 'Less than or equal to',
+    gt: 'Greater than',
+    gte: 'Greater than or equal to',
+    dateIs: 'Date is',
+    dateIsNot: 'Date is not',
+    dateBefore: 'Date is before',
+    dateAfter: 'Date is after',
+    clear: 'Clear',
+    apply: 'Apply',
+    matchAll: 'Match All',
+    matchAny: 'Match Any',
+    addRule: 'Add Rule',
+    removeRule: 'Remove Rule',
+    accept: 'Yes',
+    reject: 'No',
+    choose: 'Choose',
+    upload: 'Upload',
+    cancel: 'Cancel',
+    dayNames: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+    dayNamesShort: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+    dayNamesMin: ["Su","Mo","Tu","We","Th","Fr","Sa"],
+    monthNames: ["January","February","March","April","May","June","July","August","September","October","November","December"],
+    monthNamesShort: ["Jan", "Feb", "Mar", "Apr", "May", "Jun","Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+    today: 'Today',
+    weekHeader: 'Wk',
+    firstDayOfWeek: 0,
+    dateFormat: 'mm/dd/yy',
+    weak: 'Weak',
+    medium: 'Medium',
+    strong: 'Strong',
+    passwordPrompt: 'Enter a password',
+    emptyFilterMessage: 'No results found',
+    emptyMessage: 'No available options'
+}
+</CodeHighlight>
         </div>
     </div>
 </template>
