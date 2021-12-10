@@ -46,6 +46,35 @@ npm install primeicons --save
 
             <i class="pi pi-spin pi-spinner" style="font-size: 2rem"></i>
 
+            <h5>Constants</h5>
+            <p>PrimeIcons constants API is provided to easily choose an icon with typescript e.g. when defining a menu model.</p>
+<CodeHighlight>
+&lt;Menu :model="items" /&gt;
+</CodeHighlight>
+
+<CodeHighlight lang="javascript">
+import {PrimeIcons} from 'primevue/api';
+
+export default {
+	data() {
+		return {
+			items: [
+				{
+					label: 'Update',
+					icon: PrimeIcons.REFRESH,
+                    to: '/update'
+				},
+				{
+					label: 'Delete',
+					icon: PrimeIcons.TIMES,
+                    to: '/delete'
+				}
+			]
+		}
+	}
+}
+</CodeHighlight>
+
             <h5>List of Icons</h5>
             <p>Here is the current list of PrimeIcons, more icons are added periodically. You may also <a href="https://github.com/primefaces/primeicons/issues">request new icons</a> at the issue tracker.</p>
 
