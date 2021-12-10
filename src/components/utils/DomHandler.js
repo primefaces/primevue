@@ -486,6 +486,17 @@ export default class DomHandler {
         );
     }
 
+    static applyStyle(element, style) {
+        if (typeof style === 'string') {
+            element.style.cssText = this.style;
+        }
+        else {
+            for (let prop in this.style) {
+                element.style[prop] = style[prop];
+            }
+        }
+    }
+
     static isIOS() {
         return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window['MSStream'];
     }
