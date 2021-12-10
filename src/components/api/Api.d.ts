@@ -287,3 +287,10 @@ export const PrimeIcons: {
     WINDOW_MINIMIZE?: string,
     YOUTUBE?: string
 }
+
+export const ToastSeverity: {
+    INFO?: string,
+    WARN?: string,
+    ERROR?: string,
+    SUCCESS?: string
+}

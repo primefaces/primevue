@@ -203,6 +203,20 @@ this.$toast.removeAllGroups();
 &lt;Toast :breakpoints="&#123;'920px': &#123;width: '100%', right: '0', left: '0'&#125;&#125;"&gt;&lt;/Toast&gt;
 </CodeHighlight>
 
+                <h5>Constants</h5>
+                <p>ToastSeverity constants API is provided to easily choose a severity of the message with typescript.</p>
+<CodeHighlight lang="javascript">
+import {ToastSeverity} from 'primevue/api';
+
+export default {
+    methods: {
+        showInfo() {
+            this.$toast.add({severity: ToastSeverity.INFO, summary: 'Info Message', detail:'Message Content', life: 3000});
+        }
+    }
+}
+</CodeHighlight>
+
 				<h5>Properties</h5>
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
