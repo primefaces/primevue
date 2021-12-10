@@ -9,7 +9,7 @@
         <div class="p-treetable-header" v-if="$scopedSlots.header">
             <slot name="header"></slot>
         </div>
-         <TTPaginator v-if="paginatorTop" :rows="d_rows" :first="d_first" :totalRecords="totalRecordsLength" :pageLinkSize="pageLinkSize" :template="paginatorTemplate" :rowsPerPageOptions="rowsPerPageOptions"
+        <TTPaginator v-if="paginatorTop" :rows="d_rows" :first="d_first" :totalRecords="totalRecordsLength" :pageLinkSize="pageLinkSize" :template="paginatorTemplate" :rowsPerPageOptions="rowsPerPageOptions"
                 :currentPageReportTemplate="currentPageReportTemplate" class="p-paginator-top" @page="onPage($event)" :alwaysShow="alwaysShowPaginator">
             <template #start v-if="$scopedSlots.paginatorstart">
                 <slot name="paginatorstart"></slot>
@@ -27,14 +27,6 @@
                             :sortField="d_sortField" :sortOrder="d_sortOrder" :multiSortMeta="d_multiSortMeta" :sortMode="sortMode"
                             @column-click="onColumnHeaderClick" @column-resizestart="onColumnResizeStart"></TTHeaderCell>
                         </template>
-                        <!-- <th v-for="(col,i) of columns" :key="col.columnKey||col.field||i" :style="col.headerStyle" :class="getColumnHeaderClass(col)" @click="onColumnHeaderClick($event, col)"
-                            :tabindex="col.sortable ? '0' : null"  :aria-sort="getAriaSort(col)" @keydown="onColumnKeyDown($event, col)">
-                            <span class="p-column-resizer" @mousedown="onColumnResizeStart" v-if="resizableColumns"></span>
-                            <TTColumnSlot :column="col" type="header" v-if="col.$scopedSlots.header" />
-                            <span class="p-column-title" v-if="col.header">{{col.header}}</span>
-                            <span v-if="col.sortable" :class="getSortableColumnIcon(col)"></span>
-                            <span v-if="isMultiSorted(col)" class="p-sortable-column-badge">{{getMultiSortMetaIndex(col) + 1}}</span>
-                        </th> -->
                     </tr>
                     <tr v-if="hasColumnFilter()">
                         <template v-for="(col,i) of columns">
@@ -43,11 +35,6 @@
                                 <TTColumnSlot :column="col" type="filter" v-if="col.$scopedSlots.filter" />
                             </th>
                         </template>
-                        <!-- <template v-for="(col,i) of columns">
-                            <th :key="col.columnKey||col.field||i" :class="getFilterColumnHeaderClass(col)" :style="col.filterHeaderStyle">
-                                <TTColumnSlot :column="col" type="filter" v-if="col.$scopedSlots.filter" />
-                            </th>
-                        </template> -->
                     </tr>
                 </thead>
                 <tbody class="p-treetable-tbody">
@@ -67,10 +54,6 @@
                         <template v-for="(col,i) of columns">
                             <TTFooterCell v-if="!columnProp(col, 'hidden')" :key="columnProp(col, 'columnKey')||columnProp(col, 'field')||i" :column="col"></TTFooterCell>
                         </template>
-                        <!-- <td v-for="(col,i) of columns" :key="col.columnKey||col.field||i" :style="col.footerStyle" :class="col.footerClass">
-                            <TTColumnSlot :column="col" type="footer" v-if="col.$scopedSlots.footer" />
-                            {{col.footer}}
-                        </td> -->
                     </tr>
                 </tfoot>
             </table>

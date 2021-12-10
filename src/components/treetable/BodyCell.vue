@@ -11,7 +11,6 @@
                 <span :class="checkboxIcon"></span>
             </div>
         </div>
-        <!-- <TTColumnSlot :data="column.children.body" :node="node" :column="column" v-if="column.children && column.children.body" /> -->
         <TTColumnSlot :node="node" :column="column" v-if="column.children && column.children.body" />
         <template v-else><span>{{resolveFieldData(node.data, columnProp('field'))}}</span></template>
     </td>
