@@ -2,15 +2,15 @@
 	"data": [
 		{
 			"id": "1000",
-			"code": "f230fh0g3",
-			"name": "Bamboo Watch",
+			"code": "vbb124btr",
+			"name": "Game Controller",
 			"description": "Product Description",
-			"image": "bamboo-watch.jpg",
-			"price": 65,
-			"category": "Accessories",
-			"quantity": 24,
-			"inventoryStatus": "INSTOCK",
-			"rating": 5
+			"image": "game-controller.jpg",
+			"price": 99,
+			"category": "Electronics",
+			"quantity": 2,
+			"inventoryStatus": "LOWSTOCK",
+			"rating": 4
 		},
 		{
 			"id": "1001",
@@ -62,15 +62,15 @@
 		},
 		{
 			"id": "1005",
-			"code": "av2231fwg",
-			"name": "Brown Purse",
+			"code": "cm230f032",
+			"name": "Gaming Set",
 			"description": "Product Description",
-			"image": "brown-purse.jpg",
-			"price": 120,
-			"category": "Accessories",
-			"quantity": 0,
-			"inventoryStatus": "OUTOFSTOCK",
-			"rating": 4
+			"image": "gaming-set.jpg",
+			"price": 299,
+			"category": "Electronics",
+			"quantity": 63,
+			"inventoryStatus": "INSTOCK",
+			"rating": 3
 		},
 		{
 			"id": "1006",
@@ -98,27 +98,27 @@
 		},
 		{
 			"id": "1008",
-			"code": "vbb124btr",
-			"name": "Game Controller",
+			"code": "f230fh0g3",
+			"name": "Bamboo Watch",
 			"description": "Product Description",
-			"image": "game-controller.jpg",
-			"price": 99,
-			"category": "Electronics",
-			"quantity": 2,
-			"inventoryStatus": "LOWSTOCK",
-			"rating": 4
+			"image": "bamboo-watch.jpg",
+			"price": 65,
+			"category": "Accessories",
+			"quantity": 24,
+			"inventoryStatus": "INSTOCK",
+			"rating": 5
 		},
 		{
 			"id": "1009",
-			"code": "cm230f032",
-			"name": "Gaming Set",
+			"code": "av2231fwg",
+			"name": "Brown Purse",
 			"description": "Product Description",
-			"image": "gaming-set.jpg",
-			"price": 299,
-			"category": "Electronics",
-			"quantity": 63,
-			"inventoryStatus": "INSTOCK",
-			"rating": 3
+			"image": "brown-purse.jpg",
+			"price": 120,
+			"category": "Accessories",
+			"quantity": 0,
+			"inventoryStatus": "OUTOFSTOCK",
+			"rating": 4
 		}
 	]
 }
