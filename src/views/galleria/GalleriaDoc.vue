@@ -118,12 +118,10 @@ import Galleria from 'primevue/galleria';
 </div>
 
 <CodeHighlight lang="js">
-import axios from 'axios'
-
 export default class PhotoService {
 
 	getImages() {
-        return axios.get('demo/data/photos.json').then(res => res.data.data);
+        return fetch('demo/data/photos.json').then(res => res.json()).then(d => d.data);
     }
 }
 </CodeHighlight>

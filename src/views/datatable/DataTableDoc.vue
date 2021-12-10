@@ -11,23 +11,21 @@ import ColumnGroup from 'primevue/columngroup';     //optional for column groupi
 
                 <h5>Getting Started</h5>
                 <p>DataTable requires a value as an array of objects and columns defined with Column component. Throughout the samples, a car interface having vin, brand, year and color properties is used to define an object to be displayed by the datatable.
-                    Cars are loaded by a CarService that connects to a server to fetch the cars with a axios. Note that this is only for demo purposes, DataTable does not have any restrictions on how the data is provided.</p>
+                    Cars are loaded by a CarService that connects to a server to fetch. Note that this is only for demo purposes, DataTable does not have any restrictions on how the data is provided.</p>
 
                 <CodeHighlight lang="javascript">
-import axios from 'axios'
-
 export default class CarService {
 
 	getCarsSmall() {
-		return axios.get('demo/data/cars-small.json').then(res => res.data.data);
+        return fetch('demo/data/cars-small.json').then(res => res.json()).then(d => d.data);
 	}
 
 	getCarsMedium() {
-		return axios.get('demo/data/cars-medium.json').then(res => res.data.data);
+        return fetch('demo/data/cars-medium.json').then(res => res.json()).then(d => d.data);
 	}
 
 	getCarsLarge() {
-		return axios.get('demo/data/cars-large.json').then(res => res.data.data);
+        return fetch('demo/data/cars-large.json').then(res => res.json()).then(d => d.data);
 	}
 }
 				</CodeHighlight>
@@ -1134,7 +1132,7 @@ export default {
                 </p>
 
                 <p>Individual cell editing is configured by setting the <i>editMode</i> to <b>cell</b>, defining editors with the <b>editor</b> template along with the <i>@cell-edit-complete</i> event. The content of the
-                editor defines how the editing is implemented. The editor template receives a clone of the row data and using <i>@cell-edit-complete</i> event the new value can be updated to the model or cancelled. 
+                editor defines how the editing is implemented. The editor template receives a clone of the row data and using <i>@cell-edit-complete</i> event the new value can be updated to the model or cancelled.
                 This also provides flexibility to apply conditional logic such as implementing validations.</p>
 
 <CodeHighlight>
@@ -1234,7 +1232,7 @@ export default {
 }
 </CodeHighlight>
 
-                <p>Row Editing is specified by setting <i>cellEdit</i> as <b>row</b>, defining <i>editingRows</i> with the v-model directive to hold the reference of the editing rows, 
+                <p>Row Editing is specified by setting <i>cellEdit</i> as <b>row</b>, defining <i>editingRows</i> with the v-model directive to hold the reference of the editing rows,
                 adding a row editor column to provide the editing controls and implementing <i>@row-edit-save</i> to update the original row data. Note that
                 since <i>editingRows</i> is two-way binding enabled, you may use it to initially display one or more rows in editing more or programmatically toggle row editing.</p>
 <CodeHighlight>
@@ -1805,11 +1803,6 @@ export default {
     color: #ffffff !important;
 }
 </CodeHighlight>
-
-
-
-    
-
 
                 <h5>Properties</h5>
                 <div class="doc-tablewrapper">

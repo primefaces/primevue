@@ -94,12 +94,10 @@ export default {
 </CodeHighlight>
 
 <CodeHighlight lang="javascript">
-import axios from 'axios';
-
 export default class NodeService {
 
     getTreeTableNodes() {
-        return axios.get('demo/data/treetablenodes.json').then(res => res.data.root);
+        return fetch('demo/data/treetablenodes.json').then(res => res.json()).then(d => d.data);
     }
 
 }

@@ -7,7 +7,7 @@
             <h5>Download</h5>
             <p>PrimeIcons is available at npm, run the following command to download it to your project.</p>
 
-<CodeHighlight lang="js">
+<CodeHighlight lang="javascript">
 npm install primeicons --save
 </CodeHighlight>
 
@@ -33,18 +33,18 @@ npm install primeicons --save
             <i class="pi pi-check"></i>
 
 <CodeHighlight>
-&lt;i class="pi pi-check" style="fontSize: 2rem"&gt;&lt;/i&gt;
+&lt;i class="pi pi-check" style="font-size: 2rem"&gt;&lt;/i&gt;
 </CodeHighlight>
 
-            <i class="pi pi-check" style="fontSize: 2rem"></i>
+            <i class="pi pi-check" style="font-size: 2rem"></i>
 
             <h5>Spinning Animation</h5>
             <p>Special pi-spin class applies continuous rotation to an icon.</p>
 <CodeHighlight>
-&lt;i class="pi pi-spin pi-spinner" style="fontSize: 2rem"&gt;&lt;/i&gt;
+&lt;i class="pi pi-spin pi-spinner" style="font-size: 2rem"&gt;&lt;/i&gt;
 </CodeHighlight>
 
-            <i class="pi pi-spin pi-spinner" style="fontSize: 2rem"></i>
+            <i class="pi pi-spin pi-spinner" style="font-size: 2rem"></i>
 
             <h5>List of Icons</h5>
             <p>Here is the current list of PrimeIcons, more icons are added periodically. You may also <a href="https://github.com/primefaces/primeicons/issues">request new icons</a> at the issue tracker.</p>
@@ -62,8 +62,6 @@ npm install primeicons --save
 </template>
 
 <script>
-import axios from 'axios';
-
 export default {
     data() {
         return {
@@ -72,21 +70,23 @@ export default {
         }
     },
     mounted() {
-        axios.get('demo/data/icons.json').then(res => {
-            let icons = res.data.icons;
-            let data = icons.filter(value => {
-                return value.icon.tags.indexOf('deprecate') === -1;
+        fetch('demo/data/icons.json', { headers: { 'Cache-Control' : 'no-cache' } }).then(res => res.json())
+            .then(d => {
+                let icons = d.icons;
+                let data = icons.filter(value => {
+                    return value.icon.tags.indexOf('deprecate') === -1;
+                });
+                data.sort((icon1, icon2) => {
+                    if(icon1.properties.name < icon2.properties.name)
+                        return -1;
+                    else if(icon1.properties.name < icon2.properties.name)
+                        return 1;
+                    else
+                        return 0;
+                });
+
+                this.icons = data;
             });
-            data.sort((icon1, icon2) => {
-                if(icon1.properties.name < icon2.properties.name)
-                    return -1;
-                else if(icon1.properties.name < icon2.properties.name)
-                    return 1;
-                else
-                    return 0;
-            });
-            this.icons = data;
-        });
     },
     computed: {
         filteredIcons() {
