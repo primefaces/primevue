@@ -119,191 +119,341 @@ export default {
 </CodeHighlight>
 
                 <h5>Column Component Properties utilized by the DataTable</h5>
-                <div class="doc-tablewrapper">
-                    <table class="doc-table">
-                        <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Type</th>
-                                <th>Default</th>
-                                <th>Description</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>columnKey</td>
-                                <td>any</td>
-                                <td>null</td>
-                                <td>Identifier of a column if field property is not defined.</td>
-                            </tr>
-                            <tr>
-                                <td>field</td>
-                                <td>string</td>
-                                <td>null</td>
-                                <td>Property name or a getter function of a row data.</td>
-                            </tr>
-                            <tr>
-                                <td>sortField</td>
-                                <td>string</td>
-                                <td>null</td>
-                                <td>Property name or a getter function a row data used for sorting, defaults to field.</td>
-                            </tr>
-                            <tr>
-                                <td>filterField</td>
-                                <td>string</td>
-                                <td>null</td>
-                                <td>Property name to use in filtering, defaults to field.</td>
-                            </tr>
-                            <tr>
-                                <td>sortable</td>
-                                <td>any</td>
-                                <td>false</td>
-                                <td>Defines if a column is sortable.</td>
-                            </tr>
-                            <tr>
-                                <td>header</td>
-                                <td>any</td>
-                                <td>null</td>
-                                <td>Header content of the column.</td>
-                            </tr>
-                            <tr>
-                                <td>footer</td>
-                                <td>any</td>
-                                <td>null</td>
-                                <td>Footer content of the column.</td>
-                            </tr>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
                         <tr>
-                                <td>headerStyle</td>
-                                <td>object</td>
-                                <td>null</td>
-                                <td>Inline style of the column.</td>
-                            </tr>
-                            <tr>
-                                <td>headerClass</td>
-                                <td>string</td>
-                                <td>null</td>
-                                <td>Style class of the column.</td>
-                            </tr>
-                            <tr>
-                                <td>bodyStyle</td>
-                                <td>object</td>
-                                <td>null</td>
-                                <td>Inline style of the column.</td>
-                            </tr>
-                            <tr>
-                                <td>bodyClass</td>
-                                <td>string</td>
-                                <td>null</td>
-                                <td>Style class of the column.</td>
-                            </tr>
-                            <tr>
-                                <td>footerStyle</td>
-                                <td>object</td>
-                                <td>null</td>
-                                <td>Inline style of the column.</td>
-                            </tr>
-                            <tr>
-                                <td>footerClass</td>
-                                <td>string</td>
-                                <td>null</td>
-                                <td>Style class of the column.</td>
-                            </tr>
-                            <tr>
-                                <td>filterHeaderStyle</td>
-                                <td>object</td>
-                                <td>null</td>
-                                <td>Inline style of the column filter header.</td>
-                            </tr>
-                            <tr>
-                                <td>filterHeaderClass</td>
-                                <td>string</td>
-                                <td>null</td>
-                                <td>Style class of the column filter header.</td>
-                            </tr>
-                            <tr>
-                                <td>filterMatchMode</td>
-                                <td>string</td>
-                                <td>startsWith</td>
-                                <td>Defines filterMatchMode; "startsWith", "contains", "endsWidth", "equals", "notEquals", "in", "lt", "lte", "gt", "gte" and "custom".</td>
-                            </tr>
-                            <tr>
-                                <td>filterFunction</td>
-                                <td>function</td>
-                                <td>null</td>
-                                <td>A function that takes a value and a filter to compare against by returning either true or false. filterMatchMode must be set
-                                    to "custom" for this function to be triggered.
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>excludeGlobalFilter</td>
-                                <td>boolean</td>
-                                <td>false</td>
-                                <td>Whether to exclude from global filtering or not.</td>
-                            </tr>
-                            <tr>
-                                <td>selectionMode</td>
-                                <td>string</td>
-                                <td>null</td>
-                                <td>Defines column based selection mode, options are "single" and "multiple".</td>
-                            </tr>
-                            <tr>
-                                <td>expander</td>
-                                <td>boolean</td>
-                                <td>false</td>
-                                <td>Displays an icon to toggle row expansion.</td>
-                            </tr>
-                            <tr>
-                                <td>colspan</td>
-                                <td>number</td>
-                                <td>null</td>
-                                <td>Number of columns to span for grouping.</td>
-                            </tr>
-                            <tr>
-                                <td>rowspan</td>
-                                <td>number</td>
-                                <td>null</td>
-                                <td>Number of rows to span for grouping.</td>
-                            </tr>
-                            <tr>
-                                <td>rowReorder</td>
-                                <td>boolean</td>
-                                <td>false</td>
-                                <td>Whether this column displays an icon to reorder the rows.</td>
-                            </tr>
-                            <tr>
-                                <td>rowReorderIcon</td>
-                                <td>string</td>
-                                <td>pi pi-bars</td>
-                                <td>Icon of the drag handle to reorder rows.</td>
-                            </tr>
-                            <tr>
-                                <td>reorderableColumn</td>
-                                <td>boolean</td>
-                                <td>true</td>
-                                <td>Defines if the column itself can be reordered with dragging.</td>
-                            </tr>
-                            <tr>
-                                <td>rowEditor</td>
-                                <td>boolean</td>
-                                <td>false</td>
-                                <td>When enabled, column displays row editor controls.</td>
-                            </tr>
-                            <tr>
-                                <td>frozen</td>
-                                <td>boolean</td>
-                                <td>false</td>
-                                <td>Whether the column is fixed in horizontal scrolling.</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>columnKey</td>
+                            <td>any</td>
+                            <td>null</td>
+                            <td>Identifier of a column if field property is not defined.</td>
+                        </tr>
+                        <tr>
+                            <td>field</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Property represented by the column.</td>
+                        </tr>
+                        <tr>
+                            <td>sortField</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Property name to use in sorting, defaults to field.</td>
+                        </tr>
+                        <tr>
+                            <td>filterField</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Property name to use in filtering, defaults to field.</td>
+                        </tr>
+                        <tr>
+                            <td>sortable</td>
+                            <td>any</td>
+                            <td>false</td>
+                            <td>Defines if a column is sortable.</td>
+                        </tr>
+                        <tr>
+                            <td>header</td>
+                            <td>any</td>
+                            <td>null</td>
+                            <td>Header content of the column.</td>
+                        </tr>
+                        <tr>
+                            <td>footer</td>
+                            <td>any</td>
+                            <td>null</td>
+                            <td>Footer content of the column.</td>
+                        </tr>
+                        <tr>
+                            <td>styles</td>
+                            <td>object</td>
+                            <td>null</td>
+                            <td>Inline style of header, body and footer cells.</td>
+                        </tr>
+                        <tr>
+                            <td>className</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Style class of header, body and footer cells.</td>
+                        </tr>
+                        <tr>
+                            <td>headerStyle</td>
+                            <td>object</td>
+                            <td>null</td>
+                            <td>Inline style of the column header.</td>
+                        </tr>
+                        <tr>
+                            <td>headerClass</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Style class of the column header.</td>
+                        </tr>
+                        <tr>
+                            <td>bodyStyle</td>
+                            <td>object</td>
+                            <td>null</td>
+                            <td>Inline style of the column body.</td>
+                        </tr>
+                        <tr>
+                            <td>bodyClass</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Style class of the column body.</td>
+                        </tr>
+                        <tr>
+                            <td>footerStyle</td>
+                            <td>object</td>
+                            <td>null</td>
+                            <td>Inline style of the column footer.</td>
+                        </tr>
+                        <tr>
+                            <td>footerClass</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Style class of the column footer.</td>
+                        </tr>
+                        <tr>
+                            <td>showFilterMenu</td>
+                            <td>boolean</td>
+                            <td>true</td>
+                            <td>Whether to display the filter overlay.</td>
+                        </tr>
+                        <tr>
+                            <td>showFilterOperator</td>
+                            <td>boolean</td>
+                            <td>true</td>
+                            <td>When enabled, match all and match any operator selector is displayed.</td>
+                        </tr>
+                        <tr>
+                            <td>showClearButton</td>
+                            <td>boolean</td>
+                            <td>true</td>
+                            <td>Displays a button to clear the column filtering.</td>
+                        </tr>
+                        <tr>
+                            <td>showApplyButton</td>
+                            <td>boolean</td>
+                            <td>true</td>
+                            <td>Displays a button to apply the column filtering.</td>
+                        </tr>
+                        <tr>
+                            <td>showFilterMatchModes</td>
+                            <td>boolean</td>
+                            <td>true</td>
+                            <td>Whether to show the match modes selector.</td>
+                        </tr>
+                        <tr>
+                            <td>showAddButton</td>
+                            <td>boolean</td>
+                            <td>true</td>
+                            <td>When enabled, a button is displayed to add more rules.</td>
+                        </tr>
+                        <tr>
+                            <td>filterMatchModeOptions</td>
+                            <td>array</td>
+                            <td>null</td>
+                            <td>An array of label-value pairs to override the global match mode options.</td>
+                        </tr>
+                        <tr>
+                            <td>maxConstraints</td>
+                            <td>number</td>
+                            <td>2</td>
+                            <td>Maximum number of constraints for a column filter.</td>
+                        </tr>
+                        <tr>
+                            <td>excludeGlobalFilter</td>
+                            <td>boolean</td>
+                            <td>false</td>
+                            <td>Whether to exclude from global filtering or not.</td>
+                        </tr>
+                        <tr>
+                            <td>filterHeaderStyle</td>
+                            <td>object</td>
+                            <td>null</td>
+                            <td>Inline style of the column filter header in row filter display.</td>
+                        </tr>
+                        <tr>
+                            <td>filterHeaderClass</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Style class of the column filter header in row filter display.</td>
+                        </tr>
+                        <tr>
+                            <td>filterMenuStyle</td>
+                            <td>object</td>
+                            <td>null</td>
+                            <td>Inline style of the column filter overlay.</td>
+                        </tr>
+                        <tr>
+                            <td>filterMenuClass</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Style class of the column filter overlay.</td>
+                        </tr>
+                        <tr>
+                            <td>selectionMode</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Defines column based selection mode, options are "single" and "multiple".</td>
+                        </tr>
+                        <tr>
+                            <td>expander</td>
+                            <td>boolean</td>
+                            <td>false</td>
+                            <td>Displays an icon to toggle row expansion.</td>
+                        </tr>
+                        <tr>
+                            <td>colspan</td>
+                            <td>number</td>
+                            <td>null</td>
+                            <td>Number of columns to span for grouping.</td>
+                        </tr>
+                        <tr>
+                            <td>rowspan</td>
+                            <td>number</td>
+                            <td>null</td>
+                            <td>Number of rows to span for grouping.</td>
+                        </tr>
+                        <tr>
+                            <td>rowReorder</td>
+                            <td>boolean</td>
+                            <td>false</td>
+                            <td>Whether this column displays an icon to reorder the rows.</td>
+                        </tr>
+                        <tr>
+                            <td>rowReorderIcon</td>
+                            <td>string</td>
+                            <td>pi pi-bars</td>
+                            <td>Icon of the drag handle to reorder rows.</td>
+                        </tr>
+                        <tr>
+                            <td>reorderableColumn</td>
+                            <td>boolean</td>
+                            <td>true</td>
+                            <td>Defines if the column itself can be reordered with dragging.</td>
+                        </tr>
+                        <tr>
+                            <td>rowEditor</td>
+                            <td>boolean</td>
+                            <td>false</td>
+                            <td>When enabled, column displays row editor controls.</td>
+                        </tr>
+                        <tr>
+                            <td>frozen</td>
+                            <td>boolean</td>
+                            <td>false</td>
+                            <td>Whether the column is fixed in horizontal scrolling.</td>
+                        </tr>
+                        <tr>
+                            <td>alignFrozen</td>
+                            <td>string</td>
+                            <td>left</td>
+                            <td>Position of a frozen column, valid values are left and right.</td>
+                        </tr>
+                        <tr>
+                            <td>exportable</td>
+                            <td>boolean</td>
+                            <td>true</td>
+                            <td>Whether the column is included in data export.</td>
+                        </tr>
+                        <tr>
+                            <td>filterMatchMode</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Defines the filtering algorithm to use when searching the options.</td>
+                        </tr>
+                        <tr>
+                            <td>hidden</td>
+                            <td>boolean</td>
+                            <td>false</td>
+                            <td>Whether the column is rendered.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-                <h5>Auto Layout</h5>
-                <p>Default table-layout is fixed meaning the cell widths do not depend on their content. If you require cells to scale based on their contents set <i>autoLayout</i> property to true. Note that Scrollable and/or Resizable tables do not support auto layout due to technical limitations.</p>
+            <h5>Column Slots</h5>
+			<div class="doc-tablewrapper">
+                <table class="doc-table">
+					<thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Parameters</th>
+                        </tr>
+					</thead>
+					<tbody>
+                        <tr>
+                            <td>header</td>
+                            <td>column: Column node</td>
+                        </tr>
+                        <tr>
+                            <td>body</td>
+                            <td>data: Row data <br />
+                                column: Column node <br />
+                                field: Column field <br />
+                                index: Row index <br />
+                                frozenRow: Is row frozen</td>
+                        </tr>
+                        <tr>
+                            <td>footer</td>
+                            <td>column: Column node</td>
+                        </tr>
+                        <tr>
+                            <td>editor</td>
+                            <td>data: Row data <br />
+                                column: Column node <br />
+                                field: Column field <br />
+                                index: Row index <br />
+                                frozenRow: Is row frozen</td>
+                        </tr>
+                        <tr>
+                            <td>filter</td>
+                            <td>field: Column field <br />
+                                filterModel: {value,matchMode} Filter metadata <br />
+                                filterCallback: Callback function</td>
+                        </tr>
+                        <tr>
+                            <td>filterheader</td>
+                            <td>field: Column field <br />
+                                filterModel: {value,matchMode} Filter metadata <br />
+                                filterCallback: Callback function</td>
+                        </tr>
+                        <tr>
+                            <td>filterfooter</td>
+                            <td>field: Column field <br />
+                                filterModel: {value,matchMode} Filter metadata <br />
+                                filterCallback: Callback function</td>
+                        </tr>
+                        <tr>
+                            <td>filterclear</td>
+                            <td>field: Column field <br />
+                                filterModel: {value,matchMode} Filter metadata <br />
+                                filterCallback: Callback function</td>
+                        </tr>
+                        <tr>
+                            <td>filterapply</td>
+                            <td>field: Column field <br />
+                                filterModel: {value,matchMode} Filter metadata <br />
+                                filterCallback: Callback function</td>
+                        </tr>
+					</tbody>
+				</table>
+            </div>
 
-                <h5>Templating</h5>
-                <p>Field data of a corresponding row is displayed as the cell content by default, this can be customized using a <i>body</i> template where current row data and column properties are passed via the slot props.
-                    On the other hand, <i>header</i> and <i>footer</i> sections of a column can either be defined with the properties or the templates. Similarly DataTable itself also provides header and footer properties along with the templates for the main header and footer of the table.</p>
+            <h5>Auto Layout</h5>
+            <p>Default table-layout is fixed meaning the cell widths do not depend on their content. If you require cells to scale based on their contents set <i>autoLayout</i> property to true. Note that Scrollable and/or Resizable tables do not support auto layout due to technical limitations.</p>
+
+            <h5>Templating</h5>
+            <p>Field data of a corresponding row is displayed as the cell content by default, this can be customized using a <i>body</i> template where current row data and column properties are passed via the slot props.
+                On the other hand, <i>header</i> and <i>footer</i> sections of a column can either be defined with the properties or the templates. Similarly DataTable itself also provides header and footer properties along with the templates for the main header and footer of the table.</p>
 
                 <CodeHighlight>
 <template v-pre>
@@ -322,7 +472,7 @@ export default {
         &lt;/template&gt;
     &lt;/Column&gt;
     &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
-    &lt;Column headerStyle="width: 8em" bodyStyle="text-align: center"&gt;
+    &lt;Column :headerStyle="{width: '8em'}" :bodyStyle="'text-align': 'center'"&gt;
         &lt;template #header&gt;
             &lt;Button type="button" icon="pi pi-cog"&gt;&lt;/Button&gt;
         &lt;/template&gt;
@@ -531,83 +681,192 @@ data() {
 }
 </CodeHighlight>
 
-                <h5>Filtering</h5>
-                <p>Filtering is enabled by defining a filter template per column to populate the <i>filters</i> property of the DataTable. The <i>filters</i>
-                property should be an key-value object where keys are the field name and the value is the filter value. The filter template receives the column properties
-                via the slotProps and accepts any form element as the filter element. Default match mode is "startsWith" and this can be configured per column using the <i>filterMatchMode</i> property that also accepts
-                "contains", "endsWith", "equals", "notEquals", "in", "lt", "lte", "gt", "gte" and "custom" as available modes.</p>
-                <p>Optionally a global filter is available to search against all the fields, in this case the special <i>global</i> keyword should be the property to be populated.</p>
+                <h5 id="filtering">Filtering</h5>
+                <p>DataTable has advanced filtering capabilities that does the heavy lifting while providing flexible customization. Filtering has two layout alternatives defined with the <i>filterDisplay</i>.
+                In <b>row</b> setting, filter elements are displayed in a separate row at the header section whereas
+                in <i>menu</i> mode filter elements are displayed inside an overlay. Filter metadata is specified using the <i>filters</i> as a v-model and UI elements for the filtering
+                are placed inside the filter template. The template filter gets a <i>filterModel</i> and <i>filterCallback</i>,
+                use filterModel.value to populate the filter with your own form components and call the filterCallback with the event of your choice like @input, @change, @click.</p>
+<CodeHighlight lang="javascript">
+import CustomerService from '../../service/CustomerService';
+import {FilterMatchMode} from 'primevue/api';
+
+export default {
+    data() {
+        return {
+            customers: null,
+            filters: {
+                'name': {value: null, matchMode: FilterMatchMode.STARTS_WITH}
+            }
+        }
+    },
+    created() {
+        this.customerService = new CustomerService();
+    },
+    mounted() {
+        this.customerService.getCustomersLarge().then(data => this.customers = data);
+    }
+}
+</CodeHighlight>
+
+                <h6>Filter Row</h6>
+                <p>Input field is displayed in a separate header row.</p>
+
 <CodeHighlight>
 <template v-pre>
-&lt;DataTable :value="cars" :filters="filters" :paginator="true" :rows="10"&gt;
-    &lt;template #header&gt;
-        &lt;div style="text-align: right"&gt;
-            &lt;i class="pi pi-search" style="margin: 4px 4px 0px 0px;"&gt;&lt;/i&gt;
-            &lt;InputText v-model="filters['global']" placeholder="Global Search" size="50" /&gt;
-        &lt;/div&gt;
-    &lt;/template&gt;
-    &lt;Column field="vin" header="Vin" filterMatchMode="startsWith"&gt;
-        &lt;template #filter&gt;
-            &lt;InputText type="text" v-model="filters['vin']" class="p-column-filter" /&gt;
-        &lt;/template&gt;
-    &lt;/Column&gt;
-    &lt;Column field="year" header="Year" filterMatchMode="contains"&gt;
-        &lt;template #filter&gt;
-            &lt;InputText type="text" v-model="filters['year']" class="p-column-filter" /&gt;
-        &lt;/template&gt;
-    &lt;/Column&gt;
-    &lt;Column field="brand" header="Brand" filterMatchMode="equals"&gt;
-        &lt;template #filter&gt;
-            &lt;Dropdown v-model="filters['brand']" :options="brands" optionLabel="brand" optionValue="value" placeholder="Select a Brand" class="p-column-filter"&gt;
-                &lt;template #option="slotProps"&gt;
-                    &lt;div class="p-dropdown-car-option"&gt;
-                        &lt;img :alt="slotProps.option.brand" :src="'demo/images/car/' + slotProps.option.brand + '.png'" /&gt;
-                        &lt;span&gt;&#123;&#123;slotProps.option.brand&#125;&#125;&lt;/span&gt;
-                    &lt;/div&gt;
-                &lt;/template&gt;
-            &lt;/Dropdown&gt;
-        &lt;/template&gt;
-    &lt;/Column&gt;
-    &lt;Column field="color" header="Color" filterMatchMode="in"&gt;
-        &lt;template #filter&gt;
-            &lt;MultiSelect v-model="filters['color']" :options="colors" optionLabel="name" optionValue="value" placeholder="Select a Color" /&gt;
+&lt;DataTable :value="customers1" dataKey="id" :filters.sync="filters" filterDisplay="row" :loading="loading"&gt;
+    &lt;Column field="name" header="Name"&gt;
+        &lt;template #filter="{filterModel,filterCallback}"&gt;
+            &lt;InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" :placeholder="`Search by name - ${filterModel.matchMode}`"/&gt;
         &lt;/template&gt;
     &lt;/Column&gt;
 &lt;/DataTable&gt;
 </template>
 </CodeHighlight>
 
-                <p>Custom filtering is implemented by setting the filterMatchMode to "custom" and defining a filter function.</p>
+                <h6>Filter Menu</h6>
+                <p>Input field is displayed in an overlay.</p>
+
 <CodeHighlight>
 <template v-pre>
-&lt;Column field="vin" header="Vin" filterMatchMode="myOwnEquals"&gt;
-        &lt;template #filter&gt;
-            &lt;InputText type="text" v-model="filters['vin']" class="p-column-filter" /&gt;
+&lt;DataTable :value="customers1"
+                    dataKey="id" :filters.sync="filters" filterDisplay="menu" :loading="loading"&gt;
+    &lt;Column field="name" header="Name"&gt;
+        &lt;template #filter="{filterModel,filterCallback}"&gt;
+            &lt;InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" :placeholder="`Search by name - ${filterModel.matchMode}`"/&gt;
         &lt;/template&gt;
     &lt;/Column&gt;
+&lt;/DataTable&gt;
 </template>
 </CodeHighlight>
 
+                <h6>Multiple Constraints</h6>
+                <p>In "menu" display, it is possible to add more constraints to a same filter. In this case, metadata could be an array of constraints. The operator
+                defines whether all or any of the constraints should match.</p>
+
 <CodeHighlight lang="javascript">
-methods: {
-    myOwnEquals(value, filter) {
-        if (filter === undefined || filter === null || (typeof filter === 'string' &amp;&amp; filter.trim() === '')) {
-            return true;
+data() {
+    return {
+        customers: null,
+        filters: {
+            'name': {operator: FilterOperator.AND, constraints: [{value: null, matchMode: FilterMatchMode.STARTS_WITH}]},
         }
-
-        if (value === undefined || value === null) {
-            return false;
-        }
-
-        return value.toString().toLowerCase() === filter.toString().toLowerCase();
     }
 }
 </CodeHighlight>
 
+                <h6>Populate Filters</h6>
+                <p>Providing a filters with predefined values would be enough to display the table as filtered by default. This approach can also be used to clear filters progammatically.</p>
+<CodeHighlight lang="javascript">
+data() {
+    return {
+        customers: null,
+        filters: {
+            'name': {operator: FilterOperator.AND, constraints: [
+                {value: 'Prime', matchMode: FilterMatchMode.STARTS_WITH},
+                {value: 'Vue', matchMode: FilterMatchMode.CONTAINS}
+            ]}
+        }
+    }
+}
+</CodeHighlight>
+
+                <h6>Match Modes</h6>
+                <p>Depending on the <i>dataType</i> of the column, suitable match modes are displayed. Default configuration is available at <i>PrimeVue.filterMatchModeOptions</i> which can be used to customize the modes globally for all tables.</p>
+
+<CodeHighlight lang="javascript">
+import Vue from 'vue';
+import PrimeVue from 'primevue/config';
+import FilterMatchMode from 'primevue/api',
+
+Vue.use(PrimeVue, {
+    filterMatchModeOptions: {
+        text: [
+            FilterMatchMode.STARTS_WITH,
+            FilterMatchMode.CONTAINS,
+            FilterMatchMode.NOT_CONTAINS,
+            FilterMatchMode.ENDS_WITH,
+            FilterMatchMode.EQUALS,
+            FilterMatchMode.NOT_EQUALS
+        ],
+        numeric: [
+            FilterMatchMode.EQUALS,
+            FilterMatchMode.NOT_EQUALS,
+            FilterMatchMode.LESS_THAN,
+            FilterMatchMode.LESS_THAN_OR_EQUAL_TO,
+            FilterMatchMode.GREATER_THAN,
+            FilterMatchMode.GREATER_THAN_OR_EQUAL_TO
+        ],
+        date: [
+            FilterMatchMode.DATE_IS,
+            FilterMatchMode.DATE_IS_NOT,
+            FilterMatchMode.DATE_BEFORE,
+            FilterMatchMode.DATE_AFTER
+        ]
+    }
+});
+</CodeHighlight>
+
+                <p>If you need to override the match modes for a particular column use the <i>filterMatchModeOptions</i> property and provide an array with label-value pairs.</p>
+<CodeHighlight>
+<template v-pre>
+&lt;Column field="name" header="Name" :filterMatchModeOptions="matchModes"&gt;
+    &lt;template #filter="{filterModel,filterCallback}"&gt;
+        &lt;InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" :placeholder="`Search by name - ${filterModel.matchMode}`"/&gt;
+    &lt;/template&gt;
+&lt;/Column&gt;
+</template>
+</CodeHighlight>
+
+<CodeHighlight lang="javascript">
+matchModes: [
+    {label: 'Starts With', FilterMatchMode.STARTS_WITH},
+    {label: 'Contains', FilterMatchMode.CONTAINS},
+]
+</CodeHighlight>
+
+                <h6>Custom Filter</h6>
+                <p>Custom filtering is implemented using the <i>FilterService</i>, first register your filter and add it to your <i>filterMatchModeOptions</i>.</p>
+<CodeHighlight lang="javascript">
+import {FilterService} from 'primevue/api';
+
+FilterService.register('myfilter', (a,b) => a === b);
+</CodeHighlight>
+
+<CodeHighlight lang="javascript">
+matchModes: [
+    {label: 'My Filter', "myfilter"},
+    {label: 'Starts With', FilterMatchMode.STARTS_WITH},
+    {label: 'Contains', FilterMatchMode.CONTAINS},
+]
+</CodeHighlight>
+
+                <h6>Filter Slots</h6>
+                <p>Filter menu overlay can be customized even further with various templates including <i>filterheader</i>, <i>filterfooter</i>, <i>filterclear</i>, <i>filterapply</i>. Example here changes the buttons and adds a footer.</p>
+
+<CodeHighlight>
+<template v-pre>
+&lt;Column header="Country" filterField="country.name"&gt;
+    &lt;template #filter="{filterModel}"&gt;
+        &lt;InputText type="text" v-model="filterModel.value" class="p-column-filter" placeholder="Search by country"/&gt;
+    &lt;/template&gt;
+    &lt;template #filterclear="{filterCallback}"&gt;
+        &lt;Button type="button" icon="pi pi-times" @click="filterCallback()" class="p-button-secondary"&gt;&lt;/Button&gt;
+    &lt;/template&gt;
+    &lt;template #filterapply="{filterCallback}"&gt;
+        &lt;Button type="button" icon="pi pi-check" @click="filterCallback()" class="p-button-success"&gt;&lt;/Button&gt;
+    &lt;/template&gt;
+    &lt;template #filterfooter&gt;
+        &lt;div class="p-px-3 p-pt-0 p-pb-3 p-text-center p-text-bold"&gt;Customized Buttons&lt;/div&gt;
+    &lt;/template&gt;
+&lt;/Column&gt;
+</template>
+</CodeHighlight>
+
                 <h5>Selection</h5>
-                <p>DataTable provides single and multiple selection modes on click of a row. Selected rows are bound to the <i>selection</i> property and updated using the sync keyword.
+                <p>DataTable provides single and multiple selection modes on click of a row. Selected rows are bound to the <i>selection</i> property and updated using the v-model directive.
                     Alternatively column based selection can be done using radio buttons or checkboxes using <i>selectionMode</i> of a particular column. In addition row-select and row-unselect
-                     events are provided as optional callbacks.</p>
+                    events are provided as optional callbacks.</p>
 
                 <p>The <i>dataKey</i> property identifies a unique value of a row in the dataset, it is not mandatory however being able to define it increases the performance of the table signifantly.</p>
 
@@ -624,7 +883,8 @@ methods: {
 </template>
 </CodeHighlight>
 
-                <p>In multiple mode, selection binding should be an array and multiple items can either be selected using metaKey or toggled individually depending on the value of <i>metaKeySelection</i> property value which is true by default. On touch enabled devices metaKeySelection is turned off automatically. Additionally ShiftKey is supported for range selection.</p>
+                <p>In multiple mode, selection binding should be an array and multiple items can either be selected using metaKey or toggled individually depending on the value of
+                    <i>metaKeySelection</i> property value which is true by default. On touch enabled devices metaKeySelection is turned off automatically. Additionally ShiftKey is supported for range selection.</p>
 <CodeHighlight>
 <template v-pre>
 &lt;DataTable :value="cars" :selection.sync="selectedCars" selectionMode="multiple" dataKey="vin"&gt;
@@ -659,6 +919,20 @@ methods: {
     &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
     &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
 &lt;/DataTable&gt;
+</template>
+</CodeHighlight>
+
+                <h5>Column Widths of a Scrollable Table</h5>
+                <p>Scrollable table uses flex layout so there are a couple of rules to consider when adjusting the widths of columns.</p>
+                <ul>
+                    <li>Use <i>min-width</i> in vertical scrolling only so that when there is enough space columns may grow and for smaller screens a horizontal scrollbar is displayed to provide responsive design.</li>
+                    <li>When horizontal scrolling is enabled, prefer <i>width</i> instead of <i>min-width</i>.</li>
+                    <li>In vertical scrolling only, use <i>flex</i> to disable grow and shrink while defining a initial width. When horizontal scrolling is enabled, this is not required as columns do not grow or shrink in horizontal scrolling.</li>
+                </ul>
+
+<CodeHighlight>
+<template v-pre>
+&lt;Column field="vin" header="Vin" style="flex: 0 0 4rem"&gt;&lt;/Column&gt;
 </template>
 </CodeHighlight>
 
@@ -697,207 +971,94 @@ methods: {
 </template>
 </CodeHighlight>
 
-                <h5>Horizontal Scrolling</h5>
-                <p>In horizontal scrolling, it is required to give fixed widths to columns. In general when customizing the column widths of scrollable tables, use colgroup as below to avoid misalignment issues as it will apply both the header, body and footer sections which are different separate elements internally.</p>
+                <h6>Horizontal Scrolling</h6>
+                <p>For horizontal scrolling, it is required to set <i>scrollDirection</i> to "horizontal" and give fixed widths to columns.</p>
 <CodeHighlight>
 <template v-pre>
-&lt;DataTable :value="cars" :scrollable="true" scrollHeight="200px" style="width: 600px"&gt;
-    &lt;Column field="vin" header="Vin" headerStyle="width: 250px" columnKey="vin_1"&gt;&lt;/Column&gt;
-    &lt;Column field="year" header="Year" headerStyle="width: 250px" columnKey="year_1"&gt;&lt;/Column&gt;
-    &lt;Column field="brand" header="Brand" headerStyle="width: 250px" columnKey="brand_1"&gt;&lt;/Column&gt;
-    &lt;Column field="color" header="Color" headerStyle="width: 250px" columnKey="color_1"&gt;&lt;/Column&gt;
-    &lt;Column field="vin" header="Vin" headerStyle="width: 250px" columnKey="vin_2"&gt;&lt;/Column&gt;
-    &lt;Column field="year" header="Year" headerStyle="width: 250px" columnKey="year_2"&gt;&lt;/Column&gt;
-    &lt;Column field="brand" header="Brand" headerStyle="width: 250px" columnKey="brand_2"&gt;&lt;/Column&gt;
-    &lt;Column field="color" header="Color" headerStyle="width: 250px" columnKey="color_2"&gt;&lt;/Column&gt;
+&lt;DataTable :value="customers" :scrollable="true"  scrollDirection="horizontal"&gt;
+    &lt;Column field="id" header="Id" footer="Id" :style="{width:'200px'}"&gt;&lt;/Column&gt;
+    &lt;Column field="name" header="Name" footer="Name" :style="{width:'200px'}"&gt;&lt;/Column&gt;
+    &lt;Column field="country.name" header="Country" footer="Country" :style="{width:'200px'}"&gt;&lt;/Column&gt;
+    &lt;Column field="date" header="Date" footer="Date" :style="{width:'200px'}"&gt;&lt;/Column&gt;
+    &lt;Column field="balance" header="Balance" footer="Balance" :style="{width:'200px'}"&gt;&lt;/Column&gt;
+    &lt;Column field="company" header="Company" footer="Company" :style="{width:'200px'}"&gt;&lt;/Column&gt;
+    &lt;Column field="status" header="Status" footer="Status" :style="{width:'200px'}"&gt;&lt;/Column&gt;
+    &lt;Column field="activity" header="Activity" footer="Activity" :style="{width:'200px'}"&gt;&lt;/Column&gt;
+    &lt;Column field="representative.name" header="Representative" footer="Representative" :style="{width:'200px'}"&gt;&lt;/Column&gt;
 &lt;/DataTable&gt;
 </template>
 </CodeHighlight>
 
-                <h5>Frozen Rows and Columns</h5>
-                <p>Certain columns can be frozen by using the <i>frozen</i> property of the column component. Widths of the frozen section is specified by the <i>frozenWidth</i> property.</p>
+                <h6>Horizontal and Vertical Scrolling</h6>
+                <p>Set <i>scrollDirection</i> to "both" and give fixed widths to columns to scroll both ways.</p>
 <CodeHighlight>
 <template v-pre>
-&lt;DataTable :value="cars" :scrollable="true" scrollHeight="200px" frozenWidth="300px" :loading="loading"&gt;
-    &lt;Column field="vin" header="Vin" headerStyle="width: 300px" columnKey="vin_1" :frozen="true"&gt;
-        &lt;template #body="slotProps"&gt;
-            &lt;span style="font-weight: bold"&gt;&#123;&#123;slotProps.data.vin&#125;&#125;&lt;/span&gt;
-        &lt;/template&gt;
-    &lt;/Column&gt;
-    &lt;Column field="year" header="Year" headerStyle="width: 300px" columnKey="year_1"&gt;&lt;/Column&gt;
-    &lt;Column field="brand" header="Brand" headerStyle="width: 300px" columnKey="brand_1"&gt;&lt;/Column&gt;
-    &lt;Column field="color" header="Color" headerStyle="width: 300px" columnKey="color_1"&gt;&lt;/Column&gt;
-    &lt;Column field="year" header="Year" headerStyle="width: 300px" columnKey="year_2"&gt;&lt;/Column&gt;
-    &lt;Column field="brand" header="Brand" headerStyle="width: 300px" columnKey="brand_2"&gt;&lt;/Column&gt;
-    &lt;Column field="color" header="Color" headerStyle="width: 300px" columnKey="color_2"&gt;&lt;/Column&gt;
-    &lt;Column field="year" header="Year" headerStyle="width: 300px" columnKey="year_3"&gt;&lt;/Column&gt;
-    &lt;Column field="brand" header="Brand" headerStyle="width: 300px" columnKey="brand_3"&gt;&lt;/Column&gt;
-    &lt;Column field="color" header="Color" headerStyle="width: 300px" columnKey="color_3"&gt;&lt;/Column&gt;
+&lt;DataTable :value="customers" :scrollable="true" scrollHeight="400px" scrollDirection="both"&gt;
+    &lt;Column field="id" header="Id" footer="Id" :style="{width:'200px'}"&gt;&lt;/Column&gt;
+    &lt;Column field="name" header="Name" footer="Name" :style="{width:'200px'}"&gt;&lt;/Column&gt;
+    &lt;Column field="country.name" header="Country" footer="Country" :style="{width:'200px'}"&gt;&lt;/Column&gt;
+    &lt;Column field="date" header="Date" footer="Date" :style="{width:'200px'}"&gt;&lt;/Column&gt;
+    &lt;Column field="balance" header="Balance" footer="Balance" :style="{width:'200px'}"&gt;&lt;/Column&gt;
+    &lt;Column field="company" header="Company" footer="Company" :style="{width:'200px'}"&gt;&lt;/Column&gt;
+    &lt;Column field="status" header="Status" footer="Status" :style="{width:'200px'}"&gt;&lt;/Column&gt;
+    &lt;Column field="activity" header="Activity" footer="Activity" :style="{width:'200px'}"&gt;&lt;/Column&gt;
+    &lt;Column field="representative.name" header="Representative" footer="Representative" :style="{width:'200px'}"&gt;&lt;/Column&gt;
 &lt;/DataTable&gt;
 </template>
 </CodeHighlight>
 
-            <p>Note that frozen columns are enabled, frozen and scrollable cells may have content with varying height which leads to misalignment. Provide fixed height to cells to avoid alignment issues.</p>
+                <h6>Frozen Rows</h6>
+                <p>Frozen rows are used to fix certain rows while scrolling, this data is defined with the <i>frozenValue</i> property.</p>
+
 <CodeHighlight>
 <template v-pre>
-&lt;DataTable :value="cars" :scrollable="true" scrollHeight="200px" frozenWidth="300px" :loading="loading"&gt;
-    &lt;Column field="vin" header="Vin" headerStyle="width: 300px" bodyStyle="height: 25px" columnKey="vin" :frozen="true"&gt;
-        &lt;template #body="slotProps"&gt;
-            &lt;span style="font-weight: bold"&gt;&#123;&#123;slotProps.data.vin&#125;&#125;&lt;/span&gt;
-        &lt;/template&gt;
-    &lt;/Column&gt;
-    &lt;Column field="year" header="Year" headerStyle="width: 300px" bodyStyle="height: 25px" columnKey="year"&gt;&lt;/Column&gt;
-    &lt;Column field="brand" header="Brand" headerStyle="width: 300px" bodyStyle="height: 25px" columnKey="brand"&gt;&lt;/Column&gt;
-    &lt;Column field="color" header="Color" headerStyle="width: 300px" bodyStyle="height: 25px" columnKey="color"&gt;&lt;/Column&gt;
+&lt;DataTable :value="customers" :frozenValue="lockedCustomers" :scrollable="true" scrollHeight="400px"&gt;
+    &lt;Column field="name" header="Name"&gt;&lt;/Column&gt;
+    &lt;Column field="country.name" header="Country"&gt;&lt;/Column&gt;
+    &lt;Column field="representative.name" header="Representative"&gt;&lt;/Column&gt;
+    &lt;Column field="status" header="Status"&gt;&lt;/Column&gt;
 &lt;/DataTable&gt;
 </template>
 </CodeHighlight>
 
-            <p>One or more rows can be displayed as fixed using the <i>frozenValue</i> property.</p>
+                <h6>Frozen Columns</h6>
+                <p>Certain columns can be frozen by using the <i>frozen</i> property of the column component. In addition <i>alignFrozen</i> is available to define whether the column should
+                be fixed on the left or right.</p>
+
 <CodeHighlight>
 <template v-pre>
-&lt;DataTable :value="cars" :frozenValue="frozenCars" :scrollable="true" scrollHeight="200px" :loading="loading"&gt;
-    &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
-    &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
-    &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
-    &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
+&lt;DataTable :value="customers" :scrollable="true" scrollHeight="400px" scrollDirection="both"&gt;
+    &lt;Column field="name" header="Name" :style="{width:'200px'}" frozen&gt;&lt;/Column&gt;
+    &lt;Column field="id" header="Id" :style="{width:'100px'}" :frozen="idFrozen"&gt;&lt;/Column&gt;
+    &lt;Column field="name" header="Name" :style="{width:'200px'}"&gt;&lt;/Column&gt;
+    &lt;Column field="country.name" header="Country" :style="{width:'200px'}"&gt;&lt;/Column&gt;
+    &lt;Column field="date" header="Date" :style="{width:'200px'}"&gt;&lt;/Column&gt;
+    &lt;Column field="company" header="Company" :style="{width:'200px'}"&gt;&lt;/Column&gt;
+    &lt;Column field="status" header="Status" :style="{width:'200px'}"&gt;&lt;/Column&gt;
+    &lt;Column field="activity" header="Activity" :style="{width:'200px'}"&gt;&lt;/Column&gt;
+    &lt;Column field="representative.name" header="Representative" :style="{width:'200px'}"&gt;&lt;/Column&gt;
+    &lt;Column field="balance" header="Balance" :style="{width:'200px'}" frozen alignFrozen="right"&gt;&lt;/Column&gt;
 &lt;/DataTable&gt;
 </template>
 </CodeHighlight>
 
-            <p>When using frozen columns with column grouping, use <i>frozenheadergroup</i> and <i>frozenfootergroup</i> types to define grouping for the frozen section.</p>
-
-            <h5>Virtual Scrolling</h5>
-            <p>Virtual scrolling is enabled using <i>virtualScroll</i> and <i>onVirtualScroll</i> properties combined with lazy loading so that data is loaded on the fly during scrolling.
-            For smooth scrolling twice the amount of rows property is loaded on a lazy load event. In addition, to avoid performance problems row height is not calculated automatically and
-            should be provided using <i>virtualRowHeight</i> property which defaults to 28px. View the <router-link to="/datatable/scroll">scrolling demo</router-link> for a sample in-memory implementation.</p>
-
-<CodeHighlight>
-<template v-pre>
-&lt;DataTable :value="lazyCars" :scrollable="true" scrollHeight="200px" :lazy="true" :rows="20"
-    :virtualScroll="true" :virtualRowHeight="30" @virtual-scroll="onVirtualScroll" :totalRecords="lazyTotalRecords"&gt;
-    &lt;Column field="vin" header="Vin"&gt;
-        &lt;template #loading&gt;
-            &lt;span class="loading-text"&gt;&lt;/span&gt;
-        &lt;/template&gt;
-    &lt;/Column&gt;
-    &lt;Column field="year" header="Year"&gt;
-        &lt;template #loading&gt;
-            &lt;span class="loading-text"&gt;&lt;/span&gt;
-        &lt;/template&gt;
-    &lt;/Column&gt;
-    &lt;Column field="brand" header="Brand"&gt;
-        &lt;template #loading&gt;
-            &lt;span class="loading-text"&gt;&lt;/span&gt;
-        &lt;/template&gt;
-    &lt;/Column&gt;
-    &lt;Column field="color" header="Color"&gt;
-        &lt;template #loading&gt;
-            &lt;span class="loading-text"&gt;&lt;/span&gt;
-        &lt;/template&gt;
-    &lt;/Column&gt;
-&lt;/DataTable&gt;
-</template>
-</CodeHighlight>
-
-<CodeHighlight lang="javascript">
-import CarService from '../../service/CarService';
-
-export default {
-    data() {
-        return {
-            lazyCars: null,
-            lazyTotalRecords: 0
-        }
-    },
-    carService: null,
-    mounted() {
-        this.lazyCars = this.loadChunk(0, 40);
-        this.lazyTotalRecords = //retrieve logical number of rows from a datasource;
-    },
-    methods: {
-          loadChunk(index, length) {
-            //return data from a datasource between [index, index + length];
-        },
-        onVirtualScroll(event) {
-            //last chunk
-            if (event.first === (this.lazyTotalRecords - 20))
-                this.lazyCars = this.loadChunk(event.first, 20)
-            else
-                this.lazyCars = this.loadChunk(event.first, event.rows)
-        }
-    }
-}
-</CodeHighlight>
+                <h6>Scrollable RowGroup</h6>
+                <p>Row groups with subheaders have exclusive support for filtering, when the table scrolls the subheaders stay fixed as long as their
+                data are still displayed. No additional configuration is required to enable this feature. View the <router-link to="/datatable/rowgroup">Row Group</router-link> demo for an example.</p>
 
                 <h5>Lazy Loading</h5>
-                <p>Lazy mode is handy to deal with large datasets, instead of loading the entire data, small chunks of data is loaded by invoking corresponding callbacks such as paging and sorting. Sample belows imitates lazy paging by using an in memory list.
-                    It is also important to assign the logical number of rows to totalRecords by doing a projection query for paginator configuration so that paginator displays the UI
-                    assuming there are actually records of totalRecords size although in reality they aren't as in lazy mode, only the records that are displayed on the current page exist.</p>
+                <p>Lazy mode is handy to deal with large datasets, instead of loading the entire data, small chunks of data is loaded by invoking corresponding callbacks such as paging and sorting.
+                    It is also important to assign the logical number of rows to totalRecords by doing a projection query for paginator configuration so that paginator displays the UI accordingly.</p>
 
-                <p>Lazy loading is implemented by handling pagination and sorting using <i>page</i> and <i>sort</i> events by making a remote query using the information
-                passed to the events such as first offset, number of rows and sort field for ordering. Filtering is handled differently as filter elements are defined using templates. <i>filter</i> event is not triggered in
-                lazy mode instead use the event you prefer on your form elements such as input, change, blur to make a remote call by passing the filters property to update the displayed data. Note that,
-                in lazy filtering, totalRecords should also be updated to align the data with the paginator.</p>
+                <p>Lazy loading is implemented by handling <i>page</i>, <i>sort</i>, <i>filter</i> events by making a remote query using the information
+                passed to these events such as first offset, number of rows, sort field for ordering and filters. Note that, in lazy filtering totalRecords should also be updated to align the data with the paginator.</p>
 
-                <p>Here is a sample paging implementation with in memory data, a more enhanced example with a backend is being worked on and will be available at a github repository.</p>
-<CodeHighlight>
-<template v-pre>
-&lt;DataTable :value="cars" :lazy="true" :paginator="true" :rows="10"
-    :totalRecords="totalRecords" :loading="loading" @page="onPage($event)"&gt;
-    &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
-    &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
-    &lt;Column field="brand" header="Brand"&gt;&lt;/Column&gt;
-    &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
-&lt;/DataTable&gt;
-</template>
-</CodeHighlight>
-
-<CodeHighlight lang="javascript">
-import CarService from '../../service/CarService';
-
-export default {
-    data() {
-        return {
-            loading: false,
-            totalRecords: 0,
-            cars: null
-        }
-    },
-    datasource: null,
-    carService: null,
-    created() {
-        this.carService = new CarService();
-    },
-    mounted() {
-        this.loading = true;
-
-        setTimeout(() => {
-            this.carService.getCarsLarge().then(data => {
-                this.datasource = data;
-                this.totalRecords = data.length,
-                this.cars = this.datasource.slice(0, 10);
-                this.loading = false;
-            });
-        }, 1000);
-    },
-    methods: {
-        onPage(event) {
-            this.loading = true;
-
-            setTimeout(() => {
-                this.cars = this.datasource.slice(event.first, event.first + event.rows);
-                this.loading = false;
-            }, 1000);
-        }
-    }
-}
-</CodeHighlight>
+                <p>Visit the <router-link to="/datatable/lazy">lazy loading</router-link> demo for an example with a remote datasource.</p>
 
                 <h5>Row Expansion</h5>
-                <p>Rows can be expanded to display additional content using the <i>expandedRows</i> property with the sync operator accompanied by a template named "expansion". <i>row-expand</i> and <i>row-collapse</i> are optional callbacks that are invoked when a row is expanded or toggled.</p>
+                <p>Rows can be expanded to display additional content using the <i>expandedRows</i> property with the v-model directive accompanied by a template named "expansion". <i>row-expand</i> and <i>row-collapse</i> are optional callbacks that are invoked when a row is expanded or toggled.</p>
 
-                <p>The <i>dataKey</i> property identifies a unique value of a row in the dataset, it is not mandatory in row expansion functionality however being able to define it increases the performance of the table signifantly.</p>
+                <p>The <i>dataKey</i> property identifies a unique value of a row in the dataset, it is not mandatory in row expansion functionality however being able to define it increases the performance of the table significantly.</p>
 <CodeHighlight>
 <template v-pre>
 &lt;DataTable :value="cars" :expandedRows.sync="expandedRows" dataKey="vin"
@@ -972,22 +1133,22 @@ export default {
                     so that the editing behavior is implemented by the page author whether it utilizes v-model or vuex.
                 </p>
 
-                <p>Individuals cell editing is configured by setting the <i>editMode</i> to "cell" and defining editors with the "editor" template. The content of the
-                editor defines how the editing is implemented, below example demonstrates two cases. In the first example, simple v-model editors are utilized. This is pretty straightforward in most cases.
-                On the other hand, second example is more advanced to consider validations and ability to revert values with the escape key.</p>
+                <p>Individual cell editing is configured by setting the <i>editMode</i> to <b>cell</b>, defining editors with the <b>editor</b> template along with the <i>@cell-edit-complete</i> event. The content of the
+                editor defines how the editing is implemented. The editor template receives a clone of the row data and using <i>@cell-edit-complete</i> event the new value can be updated to the model or cancelled. 
+                This also provides flexibility to apply conditional logic such as implementing validations.</p>
+
 <CodeHighlight>
 <template v-pre>
-&lt;h3&gt;Basic Cell Editing&lt;/h3&gt;
-&lt;p&gt;Simple editors with v-model.&lt;/p&gt;
-&lt;DataTable :value="cars1" editMode="cell"&gt;
+&lt;h5&gt;Cell Editing&lt;/h5&gt;
+&lt;DataTable :value="cars" editMode="cell" @cell-edit-complete="onCellEditComplete"&gt;
     &lt;Column field="vin" header="Vin"&gt;
         &lt;template #editor="slotProps"&gt;
-            &lt;InputText v-model="slotProps.data[slotProps.column.field]" /&gt;
+            &lt;InputText v-model="slotProps.data[slotProps.field]" /&gt;
         &lt;/template&gt;
     &lt;/Column&gt;
     &lt;Column field="year" header="Year"&gt;
         &lt;template #editor="slotProps"&gt;
-            &lt;InputText v-model="slotProps.data[slotProps.column.field]" /&gt;
+            &lt;InputText v-model="slotProps.data[slotProps.field]" /&gt;
         &lt;/template&gt;
     &lt;/Column&gt;
     &lt;Column field="brand" header="Brand"&gt;
@@ -1004,17 +1165,7 @@ export default {
     &lt;/Column&gt;
     &lt;Column field="color" header="Color"&gt;
         &lt;template #editor="slotProps"&gt;
-            &lt;InputText v-model="slotProps.data[slotProps.column.field]" /&gt;
-        &lt;/template&gt;
-    &lt;/Column&gt;
-&lt;/DataTable&gt;
-
-&lt;h3&gt;Advanced Cell Editing&lt;/h3&gt;
-&lt;p&gt;Custom implementation with validations, dynamic columns and reverting values with the escape key.&lt;/p&gt;
-&lt;DataTable :value="cars2" editMode="cell" @cell-edit-complete="onCellEditComplete"&gt;
-    &lt;Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field"&gt;
-        &lt;template #editor="slotProps"&gt;
-            &lt;InputText :value="slotProps.data[slotProps.column.field]" @input="onCellEdit($event, slotProps)" /&gt;
+            &lt;InputText v-model="slotProps.data[slotProps.field]" /&gt;
         &lt;/template&gt;
     &lt;/Column&gt;
 &lt;/DataTable&gt;
@@ -1028,11 +1179,7 @@ import Vue from 'vue';
 export default {
     data() {
         return {
-            cars1: null,
-            cars2: null,
-            cars3: null,
-            editingCellRows: {},
-            columns: null,
+            cars: null,
             brands: [
                 {brand: 'Audi', value: 'Audi'},
                 {brand: 'BMW', value: 'BMW'},
@@ -1049,44 +1196,26 @@ export default {
     carService: null,
     created() {
         this.carService = new CarService();
-
-        this.columns = [
-            {field: 'vin', header: 'Vin'},
-            {field: 'year', header: 'Year'},
-            {field: 'brand', header: 'Brand'},
-            {field: 'color', header: 'Color'}
-        ];
     },
     methods: {
         onCellEditComplete(event) {
-            if (!this.editingCellRows[event.index]) {
-                return;
-            }
-
-            const editingCellValue = this.editingCellRows[event.index][event.field];
+            let { data, newValue, field } = event;
 
             switch (event.field) {
                 case 'year':
-                    if (this.isPositiveInteger(editingCellValue))
-                        Vue.set(this.cars2, event.index, this.editingCellRows[event.index]);
+                    if (this.isPositiveInteger(newValue))
+                        data[field] = newValue;
                     else
                         event.preventDefault();
                 break;
 
                 default:
-                    if (editingCellValue.trim().length > 0)
-                        Vue.set(this.cars2, event.index, this.editingCellRows[event.index]);
+                    if (newValue.trim().length > 0)
+                        data[field] = newValue;
                     else
                         event.preventDefault();
                 break;
             }
-        },
-        onCellEdit(newValue, props) {
-            if (!this.editingCellRows[props.index]) {
-                this.editingCellRows[props.index] = {...props.data};
-            }
-
-            this.editingCellRows[props.index][props.column.field] = newValue;
         },
         isPositiveInteger(val) {
             let str = String(val);
@@ -1100,33 +1229,32 @@ export default {
         }
     },
     mounted() {
-        this.carService.getCarsSmall().then(data => this.cars1 = data);
-        this.carService.getCarsSmall().then(data => this.cars2 = data);
+        this.carService.getCarsSmall().then(data => this.cars = data);
     }
 }
 </CodeHighlight>
 
-                <p>Row Editing is defined by setting <i>cellEdit</i> as "row", defining <i>editingRows</i> with the sync operator to hold the reference to the editing rows and adding a row editor column to provide the editing controls. Note that
+                <p>Row Editing is specified by setting <i>cellEdit</i> as <b>row</b>, defining <i>editingRows</i> with the v-model directive to hold the reference of the editing rows, 
+                adding a row editor column to provide the editing controls and implementing <i>@row-edit-save</i> to update the original row data. Note that
                 since <i>editingRows</i> is two-way binding enabled, you may use it to initially display one or more rows in editing more or programmatically toggle row editing.</p>
 <CodeHighlight>
 <template v-pre>
 &lt;h3&gt;Row Editing&lt;/h3&gt;
-&lt;DataTable :value="cars" editMode="row" dataKey="vin" :editingRows.sync="editingRows"
-    @row-edit-init="onRowEditInit" @row-edit-cancel="onRowEditCancel"&gt;
+&lt;DataTable :value="cars" editMode="row" dataKey="vin" :editingRows.sync="editingRows" @row-edit-save="onRowEditSave"&gt;
     &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
     &lt;Column field="year" header="Year"&gt;
         &lt;template #editor="slotProps"&gt;
-            &lt;InputText v-model="slotProps.data[slotProps.column.field]" autofocus/&gt;
+            &lt;InputText v-model="slotProps.data[slotProps.field]" autofocus/&gt;
         &lt;/template&gt;
     &lt;/Column&gt;
     &lt;Column field="brand" header="Brand"&gt;
         &lt;template #editor="slotProps"&gt;
-            &lt;InputText v-model="slotProps.data[slotProps.column.field]" /&gt;
+            &lt;InputText v-model="slotProps.data[slotProps.field]" /&gt;
         &lt;/template&gt;
     &lt;/Column&gt;
     &lt;Column field="color" header="Color"&gt;
         &lt;template #editor="slotProps"&gt;
-            &lt;InputText v-model="slotProps.data[slotProps.column.field]" /&gt;
+            &lt;InputText v-model="slotProps.data[slotProps.field]" /&gt;
         &lt;/template&gt;
     &lt;/Column&gt;
     &lt;Column :rowEditor="true" headerStyle="width:7rem" bodyStyle="text-align:center"&gt;&lt;/Column&gt;
@@ -1146,19 +1274,15 @@ export default {
         }
     },
     carService: null,
-    originalRows: null,
     created() {
         this.carService = new CarService();
-
-        this.originalRows = {};
     },
     methods: {
-        onRowEditInit(event) {
-            this.originalRows[event.index] = {...this.cars3[event.index]};
+        onRowEditSave(event) {
+            let { newData, index } = event;
+
+            this.cars[index] = newData;
         },
-        onRowEditCancel(event) {
-            Vue.set(this.cars3, event.index, this.originalRows[event.index]);
-        }
     },
     mounted() {
         this.carService.getCarsSmall().then(data => this.cars = data);
@@ -1180,7 +1304,7 @@ export default {
 </template>
 </CodeHighlight>
 
-            <p>It is important to note that when you need to change column widths, since table width is 100%, giving fixed pixel widths does not work well as browsers scale them, instead give percentage widths.</p>
+                <p>It is important to note that when you need to change column widths, since table width is 100%, giving fixed pixel widths does not work well as browsers scale them, instead give percentage widths.</p>
 <CodeHighlight>
 <template v-pre>
 &lt;DataTable :value="cars" :resizableColumns="true" columnResizeMode="fit | expand"&gt;
@@ -1207,7 +1331,7 @@ export default {
 </CodeHighlight>
 
                 <h5>Row Reorder</h5>
-                <p>Data can be reordered using drag drop by adding a reorder column that will display an icon as a drag handle along with the <i>row-order</i> event which is <b>mandatory</b> to update the new order. Note that the reorder icon can be customized using <i>rowReorderIcon</i> of the column component.</p>
+                <p>Data can be reordered using drag drop by adding a reorder column that will display an icon as a drag handle along with the <i>row-reorder</i> event which is <b>mandatory</b> to update the new order. Note that the reorder icon can be customized using <i>rowReorderIcon</i> of the column component.</p>
 <CodeHighlight>
 <template v-pre>
 &lt;DataTable :value="cars" @row-reorder="onRowReorder"&gt;
@@ -1484,7 +1608,7 @@ export default {
 </CodeHighlight>
 
                 <h5>ContextMenu</h5>
-                <p>DataTable provides exclusive integration with the ContextMenu component using, <i>contextMenu</i>, <i>contextMenuSelection</i> property along with the <i>row-contextmenu</i> event.
+                <p>DataTable provides exclusive integration with the ContextMenu component using, <i>contextMenu</i>, <i>contextMenuSelection</i> property along with the <i>row-contextmenu</i> event.</p>
 <CodeHighlight>
 <template v-pre>
 &lt;DataTable :value="cars" contextMenu :contextMenuSelection.sync="selectedCar" @row-contextmenu="onRowContextMenu"&gt;
@@ -1595,92 +1719,29 @@ export default {
 </CodeHighlight>
 
                 <h5>Responsive</h5>
-                <p>DataTable display can be optimized according to screen sizes, this example demonstrates a sample demo where columns are stacked on small screens.</p>
+                <p>DataTable responsive layout can be achieved in two ways; first approach is displaying a horizontal scrollbar for smaller screens
+                    and second one is defining a breakpoint to display the cells of a row as stacked. Scrollable tables use the scroll layout approach internally and do not require additional configuration.</p>
+
+                <h6>Scroll Layout</h6>
+                <p>Set <i>responsiveLayout</i> to scroll to enabled this layout. Note that, when scroll mode is enabled table-layout automatically switches to auto from fixed
+                as a result table widths are likely to differ and resizable columns are not supported. Read more about <a href="https://www.w3schools.com/cssref/pr_tab_table-layout.asp">table-layout</a> for more details.</p>
+
 <CodeHighlight>
 <template v-pre>
-&lt;DataTable :value="cars" class="p-datatable-responsive-demo"&gt;
-    &lt;template #header&gt;
-        Responsive
-    &lt;/template&gt;
-    &lt;Column field="vin" header="Vin"&gt;
-        &lt;template #body="slotProps"&gt;
-            &lt;span class="p-column-title"&gt;Vin&lt;/span&gt;
-            &#123;&#123;slotProps.data.vin&#125;&#125;
-        &lt;/template&gt;
-    &lt;/Column&gt;
-    &lt;Column field="year" header="Year"&gt;
-        &lt;template #body="slotProps"&gt;
-            &lt;span class="p-column-title"&gt;Year&lt;/span&gt;
-            &#123;&#123;slotProps.data.year&#125;&#125;
-        &lt;/template&gt;
-    &lt;/Column&gt;
-    &lt;Column field="brand" header="Brand"&gt;
-        &lt;template #body="slotProps"&gt;
-            &lt;span class="p-column-title"&gt;Brand&lt;/span&gt;
-            &#123;&#123;slotProps.data.brand&#125;&#125;
-        &lt;/template&gt;
-    &lt;/Column&gt;
-    &lt;Column field="color" header="Color"&gt;
-        &lt;template #body="slotProps"&gt;
-            &lt;span class="p-column-title"&gt;Color&lt;/span&gt;
-            &#123;&#123;slotProps.data.color&#125;&#125;
-        &lt;/template&gt;
-    &lt;/Column&gt;
+&lt;DataTable :value="products" responsiveLayout="scroll"&gt;
+
 &lt;/DataTable&gt;
 </template>
 </CodeHighlight>
 
-<CodeHighlight lang="javascript">
-import CarService from '../../service/CarService';
+                <h6>Stack Layout</h6>
+                <p>In stack layout, columns are displayed as stacked after a certain breakpoint. Default is '960px'.</p>
+<CodeHighlight>
+<template v-pre>
+&lt;DataTable :value="products" responsiveLayout="stack" breakpoint="640px"&gt;
 
-export default {
-    data() {
-        return {
-            cars: null
-        }
-    },
-    carService: null,
-    created() {
-        this.carService = new CarService();
-    },
-    mounted() {
-        this.carService.getCarsSmall().then(data => this.cars = data);
-    }
-}
-</CodeHighlight>
-
-<CodeHighlight lang="css">
-.p-datatable-responsive-demo .p-datatable-tbody > tr > td .p-column-title {
-    display: none;
-}
-
-@media screen and (max-width: 40em) {
-    /deep/ .p-datatable {
-        &.p-datatable-responsive-demo {
-            .p-datatable-thead > tr > th,
-            .p-datatable-tfoot > tr > td {
-                display: none !important;
-            }
-
-            .p-datatable-tbody > tr > td {
-                text-align: left;
-                display: block;
-                border: 0 none !important;
-                width: 100% !important;
-                float: left;
-                clear: left;
-
-                .p-column-title {
-                    padding: .4rem;
-                    min-width: 30%;
-                    display: inline-block;
-                    margin: -.4em 1em -.4em -.4rem;
-                    font-weight: bold;
-                }
-            }
-        }
-    }
-}
+&lt;/DataTable&gt;
+</template>
 </CodeHighlight>
 
                 <h5>Row and Cell Styling</h5>
@@ -1739,11 +1800,16 @@ export default {
     }
 }
 
-/deep/ .orange-car {
+.orange-car {
     background-color: #344b5f !important;
     color: #ffffff !important;
 }
 </CodeHighlight>
+
+
+
+    
+
 
                 <h5>Properties</h5>
                 <div class="doc-tablewrapper">
@@ -1787,7 +1853,7 @@ export default {
                                 <td>null</td>
                                 <td>Number of total records, defaults to length of value when not defined.</td>
                             </tr>
-                             <tr>
+                            <tr>
                                 <td>paginator</td>
                                 <td>boolean</td>
                                 <td>false</td>
@@ -1809,7 +1875,7 @@ export default {
                                 <td>paginatorTemplate</td>
                                 <td>string</td>
                                 <td>FirstPageLink PrevPageLink PageLinks <br /> NextPageLink LastPageLink RowsPerPageDropdown</td>
-                                <td>Template of the paginator.</td>
+                                <td>Template of the paginator. See the <router-link to="/paginator">Paginator</router-link> for all available options.</td>
                             </tr>
                             <tr>
                                 <td>pageLinkSize</td>
@@ -1890,6 +1956,12 @@ export default {
                                 <td>Filters object with key-value pairs to define the filters.</td>
                             </tr>
                             <tr>
+                                <td>filterDisplay</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Layout of the filter elements, valid values are "row" and "menu".</td>
+                            </tr>
+                            <tr>
                                 <td>filterLocale</td>
                                 <td>string</td>
                                 <td>undefined</td>
@@ -1953,10 +2025,16 @@ export default {
                                 <td>Name of the exported file.</td>
                             </tr>
                             <tr>
+                                <td>exportFunction</td>
+                                <td>function</td>
+                                <td>download</td>
+                                <td>Custom function to export data.</td>
+                            </tr>
+                            <tr>
                                 <td>autoLayout</td>
                                 <td>boolean</td>
                                 <td>false</td>
-                                <td>Whether the cell widths scale according to their content or not.</td>
+                                <td>Whether the cell widths scale according to their content or not. Does not apply to scrollable tables.</td>
                             </tr>
                             <tr>
                                 <td>resizableColumns</td>
@@ -2046,13 +2124,13 @@ export default {
                                 <td>rowClass</td>
                                 <td>function</td>
                                 <td>null</td>
-                                <td>A function that takes the row data and returns a string to apply a particular class for the row.</td>
+                                <td>A function that takes the row data as a parameter and returns a string to apply a particular class for the row.</td>
                             </tr>
                             <tr>
-                            <td>rowStyle</td>
+                                <td>rowStyle</td>
                                 <td>object</td>
                                 <td>null</td>
-                                <td>Inline style of the row.</td>
+                                <td>A function that takes the row data as a parameter and returns the inline style for the corresponding row.</td>
                             </tr>
                             <tr>
                                 <td>scrollable</td>
@@ -2061,40 +2139,58 @@ export default {
                                 <td>When specified, enables horizontal and/or vertical scrolling.</td>
                             </tr>
                             <tr>
+                                <td>scrollDirection</td>
+                                <td>string</td>
+                                <td>vertical</td>
+                                <td>Orientation of the scrolling, options are "vertical", "horizontal" and "both".</td>
+                            </tr>
+                            <tr>
                                 <td>scrollHeight</td>
                                 <td>string</td>
                                 <td>null</td>
                                 <td>Height of the scroll viewport in fixed pixels or the "flex" keyword for a dynamic size.</td>
                             </tr>
                             <tr>
-                                <td>virtualScroll</td>
-                                <td>boolean</td>
-                                <td>false</td>
-                                <td>Whether the data should be loaded on demand during scroll.</td>
-                            </tr>
-                            <tr>
-                                <td>virtualScrollDelay</td>
-                                <td>number</td>
-                                <td>150</td>
-                                <td>Delay in virtual scroll before doing a call to lazy load.</td>
-                            </tr>
-                            <tr>
-                                <td>virtualRowHeight</td>
-                                <td>number</td>
-                                <td>28</td>
-                                <td>Height of a row to use in calculations of virtual scrolling.</td>
-                            </tr>
-                            <tr>
-                                <td>frozenWidth</td>
-                                <td>string</td>
-                                <td>null</td>
-                                <td>Width of the frozen part in scrollable DataTable.</td>
-                            </tr>
-                            <tr>
                                 <td>frozenValue</td>
                                 <td>array</td>
                                 <td>null</td>
                                 <td>Items of the frozen part in scrollable DataTable.</td>
+                            </tr>
+                            <tr>
+                                <td>responsiveLayout</td>
+                                <td>string</td>
+                                <td>stack</td>
+                                <td>Defines the responsive mode, valid options are "stack" and "scroll".</td>
+                            </tr>
+                            <tr>
+                                <td>breakpoint</td>
+                                <td>string</td>
+                                <td>960px</td>
+                                <td>The breakpoint to define the maximum width boundary when using stack responsive layout.</td>
+                            </tr>
+                            <tr>
+                                <td>showGridlines</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>Whether to show grid lines between cells.</td>
+                            </tr>
+                            <tr>
+                                <td>stripedRows</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>Whether to displays rows with alternating colors.</td>
+                            </tr>
+                            <tr>
+                                <td>tableStyle</td>
+                                <td>object</td>
+                                <td>null</td>
+                                <td>Inline style of the table element.</td>
+                            </tr>
+                            <tr>
+                                <td>tableClass</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Style class of the table element.</td>
                             </tr>
                         </tbody>
                     </table>
@@ -2148,10 +2244,14 @@ export default {
                                     event.sortOrder: Sort order as integer <br />
                                     event.multiSortMeta: MultiSort metadata <br />
                                     event.filters: Collection of active filters <br />
-                                    event.filteredValue: Filtered collection <br />
-                                    event.filterMatchModes: Match modes per field
+                                    event.filteredValue: Filtered collection (non-lazy only)<br />
                                 </td>
                                 <td>Event to emit after filtering, not triggered in lazy mode.</td>
+                            </tr>
+                            <tr>
+                                <td>value-change</td>
+                                <td>value: Value displayed by the table</td>
+                                <td>Callback to invoke after filtering, sorting, pagination and cell editing to pass the rendered value.</td>
                             </tr>
                             <tr>
                                 <td>row-click</td>
@@ -2191,6 +2291,17 @@ export default {
                                 <td>Callback to invoke when a row is unselected.</td>
                             </tr>
                             <tr>
+                                <td>row-select-all</td>
+                                <td>event.originalEvent: Browser event. <br />
+                                    event.data: Selected dataset</td>
+                                <td>Fired when header checkbox is checked.</td>
+                            </tr>
+                            <tr>
+                                <td>row-unselect-all</td>
+                                <td>event.originalEvent: Browser event.</td>
+                                <td>Fired when header checkbox is unchecked.</td>
+                            </tr>
+                            <tr>
                                 <td>column-resize-end</td>
                                 <td>event.element: DOM element of the resized column.<br />
                                     event.delta: Change in column width</td>
@@ -2206,8 +2317,8 @@ export default {
                             <tr>
                                 <td>row-reorder</td>
                                 <td>event.originalEvent: Browser event<br />
-                                    event.originalEvent: Browser event.<br />
                                     event.dragIndex: Index of the dragged row<br />
+                                    event.dropIndex: Index of the dropped row<br />
                                     value: Reordered value</td>
                                 <td>Callback to invoke when a row is reordered.</td>
                             </tr>
@@ -2247,6 +2358,9 @@ export default {
                                 <td>cell-edit-complete</td>
                                 <td>event.originalEvent: Browser event<br />
                                     event.data: Row data to edit. <br />
+                                    event.newData: New row data after editing. <br />
+                                    event.value: Field value of row data to edit. <br />
+                                    event.newValue: Field value of new row data after editing. <br />
                                     event.field: Field name of the row data. <br />
                                     event.index: Index of the row data to edit. <br />
                                     event.type: Type of completion such as "enter", "outside" or "tab". <br /></td>
@@ -2264,6 +2378,7 @@ export default {
                                 <td>row-edit-init</td>
                                 <td>event.originalEvent: Browser event<br />
                                     event.data: Row data to edit. <br />
+                                    event.newData: New row data after editing. <br />
                                     event.field: Field name of the row data. <br />
                                     event.index: Index of the row data to edit. <br /></td>
                                 <td>Callback to invoke when row edit is initiated.</td>
@@ -2272,6 +2387,7 @@ export default {
                                 <td>row-edit-save</td>
                                 <td>event.originalEvent: Browser event<br />
                                     event.data: Row data to edit. <br />
+                                    event.newData: New row data after editing. <br />
                                     event.field: Field name of the row data. <br />
                                     event.index: Index of the row data to edit. <br /></td>
                                 <td>Callback to invoke when row edit is saved.</td>
@@ -2280,15 +2396,10 @@ export default {
                                 <td>row-edit-cancel</td>
                                 <td>event.originalEvent: Browser event<br />
                                     event.data: Row data to edit. <br />
+                                    event.newData: New row data after editing. <br />
                                     event.field: Field name of the row data. <br />
                                     event.index: Index of the row data to edit. <br /></td>
                                 <td>Callback to invoke when row edit is cancelled.</td>
-                            </tr>
-                            <tr>
-                                <td>virtual-scroll</td>
-                                <td>event.first: Index of the first row. <br />
-                                    event.rows: Rows per page.</td>
-                                <td>Callback to invoke during virtual scrolling.</td>
                             </tr>
                             <tr>
                                 <td>state-save</td>
@@ -2350,7 +2461,7 @@ export default {
                     </table>
                 </div>
 
-                <h5>Column Slots</h5>
+                <h5>Slots</h5>
                 <div class="doc-tablewrapper">
                     <table class="doc-table">
                         <thead>
@@ -2363,41 +2474,6 @@ export default {
                             <tr>
                                 <td>header</td>
                                 <td>column: Column node</td>
-                            </tr>
-                            <tr>
-                                <td>body</td>
-                                <td>data: Row data <br />
-                                    column: Column node <br />
-                                    index: Row index <br />
-                                    frozenRow: Is row frozen</td>
-                            </tr>
-                            <tr>
-                                <td>footer</td>
-                                <td>column: Column node</td>
-                            </tr>
-                            <tr>
-                                <td>editor</td>
-                                <td>data: Row data <br />
-                                    column: Column node <br />
-                                    index: Row index</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <h5>DataTable Slots</h5>
-                <div class="doc-tablewrapper">
-                    <table class="doc-table">
-                        <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Parameters</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>header</td>
-                                <td>-</td>
                             </tr>
                             <tr>
                                 <td>paginatorstart</td>
@@ -2409,7 +2485,7 @@ export default {
                             </tr>
                             <tr>
                                 <td>footer</td>
-                                <td>-</td>
+                                <td>column: Column node</td>
                             </tr>
                             <tr>
                                 <td>groupheader</td>
@@ -2425,6 +2501,14 @@ export default {
                                 <td>expansion</td>
                                 <td>data: Row data <br />
                                 index: Row index</td>
+                            </tr>
+                            <tr>
+                                <td>empty</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>loading</td>
+                                <td>-</td>
                             </tr>
                         </tbody>
                     </table>
@@ -2447,12 +2531,36 @@ export default {
                                 <td>Container element.</td>
                             </tr>
                             <tr>
+                                <td>p-datatable-scrollable</td>
+                                <td>Container element when table is scrollable.</td>
+                            </tr>
+                            <tr>
                                 <td>p-datatable-header</td>
                                 <td>Header section.</td>
                             </tr>
                             <tr>
                                 <td>p-datatable-footer</td>
                                 <td>Footer section.</td>
+                            </tr>
+                            <tr>
+                                <td>p-datatable-wrapper</td>
+                                <td>Wrapper of table element.</td>
+                            </tr>
+                            <tr>
+                                <td>p-datatable-table</td>
+                                <td>Table element.</td>
+                            </tr>
+                            <tr>
+                                <td>p-datatable-thead</td>
+                                <td>Table thead element.</td>
+                            </tr>
+                            <tr>
+                                <td>p-datatable-tbody</td>
+                                <td>Table tbody element.</td>
+                            </tr>
+                            <tr>
+                                <td>p-datatable-tfoot</td>
+                                <td>Table tfoot element.</td>
                             </tr>
                             <tr>
                                 <td>p-column-title</td>
@@ -2463,28 +2571,8 @@ export default {
                                 <td>Sortable column header.</td>
                             </tr>
                             <tr>
-                                <td>p-column-filter</td>
-                                <td>Filter element in header.</td>
-                            </tr>
-                            <tr>
-                                <td>p-datatable-scrollable-header</td>
-                                <td>Container of header in a scrollable table.</td>
-                            </tr>
-                            <tr>
-                                <td>p-datatable-scrollable-body</td>
-                                <td>Container of body in a scrollable table.</td>
-                            </tr>
-                            <tr>
-                                <td>p-datatable-scrollable-footer</td>
-                                <td>Container of footer in a scrollable table.</td>
-                            </tr>
-                            <tr>
-                                <td>p-datatable-responsive</td>
-                                <td>Container element of a responsive datatable.</td>
-                            </tr>
-                            <tr>
-                                <td>p-datatable-emptymessage</td>
-                                <td>Cell containing the empty message.</td>
+                                <td>p-frozen-column</td>
+                                <td>Frozen column header.</td>
                             </tr>
                             <tr>
                                 <td>p-rowgroup-header</td>
@@ -2493,6 +2581,30 @@ export default {
                             <tr>
                                 <td>p-rowgroup-footer</td>
                                 <td>Footer of a rowgroup.</td>
+                            </tr>
+                            <tr>
+                                <td>p-datatable-row-expansion</td>
+                                <td>Expanded row content.</td>
+                            </tr>
+                            <tr>
+                                <td>p-row-toggler</td>
+                                <td>Toggle element for row expansion.</td>
+                            </tr>
+                            <tr>
+                                <td>p-datatable-emptymessage</td>
+                                <td>Cell containing the empty message.</td>
+                            </tr>
+                            <tr>
+                                <td>p-row-editor-init</td>
+                                <td>Pencil button of row editor.</td>
+                            </tr>
+                            <tr>
+                                <td>p-row-editor-init</td>
+                                <td>Save button of row editor.</td>
+                            </tr>
+                            <tr>
+                                <td>p-row-editor-init</td>
+                                <td>Cancel button of row editor.</td>
                             </tr>
                         </tbody>
                     </table>
@@ -2532,15 +2644,16 @@ export default {
 <CodeHighlight>
 <template v-pre>
 &lt;DataTable :value="customers" :paginator="true" class="p-datatable-customers" :rows="10"
-    dataKey="id" :rowHover="true" :selection.sync="selectedCustomers" :filters="filters" :loading="loading"
+    dataKey="id" :rowHover="true" :selection.sync="selectedCustomers" :filters.sync="filters" filterDisplay="menu" :loading="loading"
     paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" :rowsPerPageOptions="[10,25,50]"
-    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"&gt;
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+    :globalFilterFields="['name','country.name','representative.name','status']" responsiveLayout="scroll"&gt;
     &lt;template #header&gt;
-        &lt;div class="table-header"&gt;
-            List of Customers
+        &lt;div class="p-d-flex p-jc-between p-ai-center"&gt;
+            &lt;h5 class="p-m-0"&gt;Customers&lt;/h5&gt;
             &lt;span class="p-input-icon-left"&gt;
                 &lt;i class="pi pi-search" /&gt;
-                &lt;InputText v-model="filters['global']" placeholder="Global Search" /&gt;
+                &lt;InputText v-model="filters['global'].value" placeholder="Keyword Search" /&gt;
             &lt;/span&gt;
         &lt;/div&gt;
     &lt;/template&gt;
@@ -2550,34 +2663,32 @@ export default {
     &lt;template #loading&gt;
         Loading customers data. Please wait.
     &lt;/template&gt;
-    &lt;Column selectionMode="multiple" headerStyle="width: 3em"&gt;&lt;/Column&gt;
-    &lt;Column field="name" header="Name" :sortable="true"&gt;
-        &lt;template #body="slotProps"&gt;
-            &lt;span class="p-column-title"&gt;Name&lt;/span&gt;
-            {{slotProps.data.name}}
+    &lt;Column selectionMode="multiple" :styles="{'min-width': '3rem'}"&gt;&lt;/Column&gt;
+    &lt;Column field="name" header="Name" sortable :styles="{'min-width': '14rem'}"&gt;
+        &lt;template #body="{data}"&gt;
+            {{data.name}}
         &lt;/template&gt;
-        &lt;template #filter&gt;
-            &lt;InputText type="text" v-model="filters['name']" class="p-column-filter" placeholder="Search by name"/&gt;
-        &lt;/template&gt;
-    &lt;/Column&gt;
-    &lt;Column header="Country" :sortable="true" sortField="country.name" filterField="country.name" filterMatchMode="contains"&gt;
-        &lt;template #body="slotProps"&gt;
-            &lt;span class="p-column-title"&gt;Country&lt;/span&gt;
-            &lt;img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.data.country.code" width="30" /&gt;
-            &lt;span class="image-text"&gt;{{slotProps.data.country.name}}&lt;/span&gt;
-        &lt;/template&gt;
-        &lt;template #filter&gt;
-            &lt;InputText type="text" v-model="filters['country.name']" class="p-column-filter" placeholder="Search by country"/&gt;
+        &lt;template #filter="{filterModel}"&gt;
+            &lt;InputText type="text" v-model="filterModel.value" class="p-column-filter" placeholder="Search by name"/&gt;
         &lt;/template&gt;
     &lt;/Column&gt;
-    &lt;Column header="Representative" :sortable="true" sortField="representative.name" filterField="representative.name" filterMatchMode="in"&gt;
-        &lt;template #body="slotProps"&gt;
-            &lt;span class="p-column-title"&gt;Representative&lt;/span&gt;
-            &lt;img :alt="slotProps.data.representative.name" :src="'demo/images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" /&gt;
-            &lt;span class="image-text"&gt;{{slotProps.data.representative.name}}&lt;/span&gt;
+    &lt;Column field="country.name" header="Country" sortable filterMatchMode="contains" :styles="{'min-width': '14rem'}"&gt;
+        &lt;template #body="{data}"&gt;
+            &lt;img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + data.country.code" width="30" /&gt;
+            &lt;span class="image-text"&gt;{{data.country.name}}&lt;/span&gt;
         &lt;/template&gt;
-            &lt;template #filter&gt;
-            &lt;MultiSelect v-model="filters['representative.name']" :options="representatives" optionLabel="name" optionValue="name" placeholder="All" class="p-column-filter"&gt;
+        &lt;template #filter="{filterModel}"&gt;
+            &lt;InputText type="text" v-model="filterModel.value" class="p-column-filter" placeholder="Search by country"/&gt;
+        &lt;/template&gt;
+    &lt;/Column&gt;
+    &lt;Column header="Agent" sortable filterField="representative" sortField="representative.name" :showFilterMatchModes="false" :filterMenuStyle="{'width':'14rem'}" :styles="{'min-width': '14rem'}"&gt;
+        &lt;template #body="{data}"&gt;
+            &lt;img :alt="data.representative.name" :src="'demo/images/avatar/' + data.representative.image" width="32" style="vertical-align: middle" /&gt;
+            &lt;span class="image-text"&gt;{{data.representative.name}}&lt;/span&gt;
+        &lt;/template&gt;
+        &lt;template #filter="{filterModel}"&gt;
+            &lt;div class="p-mb-3 p-text-bold"&gt;Agent Picker&lt;/div&gt;
+            &lt;MultiSelect v-model="filterModel.value" :options="representatives" optionLabel="name" placeholder="Any" class="p-column-filter"&gt;
                 &lt;template #option="slotProps"&gt;
                     &lt;div class="p-multiselect-representative-option"&gt;
                         &lt;img :alt="slotProps.option.name" :src="'demo/images/avatar/' + slotProps.option.image" width="32" style="vertical-align: middle" /&gt;
@@ -2587,40 +2698,52 @@ export default {
             &lt;/MultiSelect&gt;
         &lt;/template&gt;
     &lt;/Column&gt;
-    &lt;Column field="date" header="Date" :sortable="true" filterMatchMode="custom" :filterFunction="filterDate"&gt;
-        &lt;template #body="slotProps"&gt;
-            &lt;span class="p-column-title"&gt;Date&lt;/span&gt;
-            &lt;span&gt;{{slotProps.data.date}}&lt;/span&gt;
+    &lt;Column field="date" header="Date" sortable dataType="date" :styles="{'min-width': '8rem'}"&gt;
+        &lt;template #body="{data}"&gt;
+            {{formatDate(data.date)}}
         &lt;/template&gt;
-        &lt;template #filter&gt;
-            &lt;Calendar v-model="filters['date']" dateFormat="yy-mm-dd" class="p-column-filter" placeholder="Registration Date"/&gt;
+        &lt;template #filter="{filterModel}"&gt;
+            &lt;Calendar v-model="filterModel.value" dateFormat="mm/dd/yy" placeholder="mm/dd/yyyy" /&gt;
         &lt;/template&gt;
     &lt;/Column&gt;
-    &lt;Column field="status" header="Status" :sortable="true" filterMatchMode="equals"&gt;
-        &lt;template #body="slotProps"&gt;
-            &lt;span class="p-column-title"&gt;Status&lt;/span&gt;
-            &lt;span :class="'customer-badge status-' + slotProps.data.status"&gt;{{slotProps.data.status}}&lt;/span&gt;
+    &lt;Column field="balance" header="Balance" sortable dataType="numeric" :styles="{'min-width': '8rem'}"&gt;
+        &lt;template #body="{data}"&gt;
+            {{formatCurrency(data.balance)}}
         &lt;/template&gt;
-        &lt;template #filter&gt;
-            &lt;Dropdown v-model="filters['status']" :options="statuses" placeholder="Select a Status" class="p-column-filter" :showClear="true"&gt;
+        &lt;template #filter="{filterModel}"&gt;
+            &lt;InputNumber v-model="filterModel.value" mode="currency" currency="USD" locale="en-US" /&gt;
+        &lt;/template&gt;
+    &lt;/Column&gt;
+    &lt;Column field="status" header="Status" sortable :filterMenuStyle="{'width':'14rem'}" :styles="{'min-width': '10rem'}"&gt;
+        &lt;template #body="{data}"&gt;
+            &lt;span :class="'customer-badge status-' + data.status"&gt;{{data.status}}&lt;/span&gt;
+        &lt;/template&gt;
+        &lt;template #filter="{filterModel}"&gt;
+            &lt;Dropdown v-model="filterModel.value" :options="statuses" placeholder="Any" class="p-column-filter" :showClear="true"&gt;
+                &lt;template #value="slotProps"&gt;
+                    &lt;span :class="'customer-badge status-' + slotProps.value"&gt;{{slotProps.value}}&lt;/span&gt;
+                &lt;/template&gt;
                 &lt;template #option="slotProps"&gt;
                     &lt;span :class="'customer-badge status-' + slotProps.option"&gt;{{slotProps.option}}&lt;/span&gt;
                 &lt;/template&gt;
             &lt;/Dropdown&gt;
         &lt;/template&gt;
     &lt;/Column&gt;
-    &lt;Column field="activity" header="Activity" :sortable="true" filterMatchMode="gte"&gt;
-        &lt;template #body="slotProps"&gt;
-            &lt;span class="p-column-title"&gt;Activity&lt;/span&gt;
-            &lt;ProgressBar :value="slotProps.data.activity" :showValue="false" /&gt;
+    &lt;Column field="activity" header="Activity" sortable :showFilterMatchModes="false" :styles="{'min-width': '10rem'}"&gt;
+        &lt;template #body="{data}"&gt;
+            &lt;ProgressBar :value="data.activity" :showValue="false" /&gt;
         &lt;/template&gt;
-        &lt;template #filter&gt;
-            &lt;InputText type="text" v-model="filters['activity']" class="p-column-filter" placeholder="Minimum"/&gt;
+        &lt;template #filter="{filterModel}"&gt;
+            &lt;Slider v-model="filterModel.value" range class="p-m-3"&gt;&lt;/Slider&gt;
+            &lt;div class="p-d-flex p-ai-center p-jc-between p-px-2"&gt;
+                &lt;span&gt;{{filterModel.value ? filterModel.value[0] : 0}}&lt;/span&gt;
+                &lt;span&gt;{{filterModel.value ? filterModel.value[1] : 100}}&lt;/span&gt;
+            &lt;/div&gt;
         &lt;/template&gt;
     &lt;/Column&gt;
-    &lt;Column headerStyle="width: 8rem; text-align: center" bodyStyle="text-align: center; overflow: visible"&gt;
+    &lt;Column :headerStyle="{'min-width': '4rem', 'text-align': 'center'}" :bodyStyle="{'text-align': 'center', overflow: 'visible'}"&gt;
         &lt;template #body&gt;
-            &lt;Button type="button" icon="pi pi-cog" class="p-button-secondary"&gt;&lt;/Button&gt;
+            &lt;Button type="button" icon="pi pi-cog"&gt;&lt;/Button&gt;
         &lt;/template&gt;
     &lt;/Column&gt;
 &lt;/DataTable&gt;
@@ -2628,14 +2751,27 @@ export default {
 </CodeHighlight>
 
 <CodeHighlight lang="javascript">
+import FilterMatchMode from '../../../src/components/api/FilterMatchMode';
+import FilterOperator from '../../../src/components/api/FilterOperator';
 import CustomerService from '../../service/CustomerService';
+import DataTableDoc from './DataTableDoc';
 
 export default {
     data() {
         return {
             customers: null,
             selectedCustomers: null,
-            filters: {},
+            filters: {
+                'global': {value: null, matchMode: FilterMatchMode.CONTAINS},
+                'name': {operator: FilterOperator.AND, constraints: [{value: null, matchMode: FilterMatchMode.STARTS_WITH}]},
+                'country.name': {operator: FilterOperator.AND, constraints: [{value: null, matchMode: FilterMatchMode.STARTS_WITH}]},
+                'representative': {value: null, matchMode: FilterMatchMode.IN},
+                'date': {operator: FilterOperator.AND, constraints: [{value: null, matchMode: FilterMatchMode.DATE_IS}]},
+                'balance': {operator: FilterOperator.AND, constraints: [{value: null, matchMode: FilterMatchMode.EQUALS}]},
+                'status': {operator: FilterOperator.OR, constraints: [{value: null, matchMode: FilterMatchMode.EQUALS}]},
+                'activity': {value: null, matchMode: FilterMatchMode.BETWEEN},
+                'verified': {value: null, matchMode: FilterMatchMode.EQUALS}
+            },
             loading: true,
             representatives: [
                 {name: "Amy Elsner", image: 'amyelsner.png'},
@@ -2660,35 +2796,24 @@ export default {
     mounted() {
         this.customerService.getCustomersLarge().then(data => {
             this.customers = data;
+            this.customers.forEach(customer => customer.date = new Date(customer.date));
             this.loading = false;
         });
     },
     methods: {
-        filterDate(value, filter) {
-            if (filter === undefined || filter === null || (typeof filter === 'string' &amp;&amp; filter.trim() === '')) {
-                return true;
-            }
-
-            if (value === undefined || value === null) {
-                return false;
-            }
-
-            return value === this.formatDate(filter);
+        formatDate(value) {
+            return value.toLocaleDateString('en-US', {
+                day: '2-digit',
+                month: '2-digit',
+                year: 'numeric',
+            });
         },
-        formatDate(date) {
-            let month = date.getMonth() + 1;
-            let day = date.getDate();
-
-            if (month &lt; 10) {
-                month = '0' + month;
-            }
-
-            if (day &lt; 10) {
-                day = '0' + day;
-            }
-
-            return date.getFullYear() + '-' + month + '-' + day;
+        formatCurrency(value) {
+            return value.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
         }
+    },
+    components: {
+        'DataTableDoc': DataTableDoc
     }
 }
 </CodeHighlight>
@@ -2705,13 +2830,8 @@ export default {
     background-color: #D8DADC;
 
     .p-progressbar-value {
-        background-color: #00ACAD;
+        background-color: #607D8B;
     }
-}
-
-.table-header {
-    display: flex;
-    justify-content: space-between;
 }
 
 /deep/ .p-datepicker {
@@ -2739,44 +2859,6 @@ export default {
 
     .p-datatable-tbody > tr > td {
         cursor: auto;
-    }
-
-    .p-dropdown-label:not(.p-placeholder) {
-        text-transform: uppercase;
-    }
-}
-
-/* Responsive */
-.p-datatable-customers .p-datatable-tbody > tr > td .p-column-title {
-    display: none;
-}
-
-@media screen and (max-width: 64em) {
-    /deep/ .p-datatable {
-        &.p-datatable-customers {
-            .p-datatable-thead > tr > th,
-            .p-datatable-tfoot > tr > td {
-                display: none !important;
-            }
-
-            .p-datatable-tbody > tr > td {
-                text-align: left;
-                display: block;
-                border: 0 none !important;
-                width: 100% !important;
-                float: left;
-                clear: left;
-                border: 0 none;
-
-                .p-column-title {
-                    padding: .4rem;
-                    min-width: 30%;
-                    display: inline-block;
-                    margin: -.4rem 1rem -.4rem -.4rem;
-                    font-weight: bold;
-                }
-            }
-        }
     }
 }
 </CodeHighlight>
