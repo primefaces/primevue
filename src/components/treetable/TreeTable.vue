@@ -22,31 +22,34 @@
             <table ref="table">
                 <thead class="p-treetable-thead">
                     <tr>
-                        <th v-for="(col,i) of columns" :key="col.columnKey||col.field||i" :style="col.headerStyle" :class="getColumnHeaderClass(col)" @click="onColumnHeaderClick($event, col)"
+                        <template v-for="(col,i) of columns">
+                            <TTHeaderCell v-if="!columnProp(col, 'hidden')" :key="columnProp(col, 'columnKey')||columnProp(col, 'field')||i" :column="col" :resizableColumns="resizableColumns"
+                            :sortField="d_sortField" :sortOrder="d_sortOrder" :multiSortMeta="d_multiSortMeta" :sortMode="sortMode"
+                            @column-click="onColumnHeaderClick" @column-resizestart="onColumnResizeStart"></TTHeaderCell>
+                        </template>
+                        <!-- <th v-for="(col,i) of columns" :key="col.columnKey||col.field||i" :style="col.headerStyle" :class="getColumnHeaderClass(col)" @click="onColumnHeaderClick($event, col)"
                             :tabindex="col.sortable ? '0' : null"  :aria-sort="getAriaSort(col)" @keydown="onColumnKeyDown($event, col)">
                             <span class="p-column-resizer" @mousedown="onColumnResizeStart" v-if="resizableColumns"></span>
                             <TTColumnSlot :column="col" type="header" v-if="col.$scopedSlots.header" />
                             <span class="p-column-title" v-if="col.header">{{col.header}}</span>
                             <span v-if="col.sortable" :class="getSortableColumnIcon(col)"></span>
                             <span v-if="isMultiSorted(col)" class="p-sortable-column-badge">{{getMultiSortMetaIndex(col) + 1}}</span>
-                        </th>
+                        </th> -->
                     </tr>
                     <tr v-if="hasColumnFilter()">
                         <template v-for="(col,i) of columns">
-                            <th :key="col.columnKey||col.field||i" :class="getFilterColumnHeaderClass(col)" :style="col.filterHeaderStyle">
+                            <th v-if="!columnProp(col, 'hidden')" :key="columnProp(col, 'columnKey')||columnProp(col, 'field')||i"
+                                :class="getFilterColumnHeaderClass(col)" :style="[columnProp(col, 'style'),columnProp(col, 'filterHeaderStyle')]">
                                 <TTColumnSlot :column="col" type="filter" v-if="col.$scopedSlots.filter" />
                             </th>
                         </template>
+                        <!-- <template v-for="(col,i) of columns">
+                            <th :key="col.columnKey||col.field||i" :class="getFilterColumnHeaderClass(col)" :style="col.filterHeaderStyle">
+                                <TTColumnSlot :column="col" type="filter" v-if="col.$scopedSlots.filter" />
+                            </th>
+                        </template> -->
                     </tr>
                 </thead>
-                <tfoot class="p-treetable-tfoot" v-if="hasFooter">
-                    <tr>
-                        <td v-for="(col,i) of columns" :key="col.columnKey||col.field||i" :style="col.footerStyle" :class="col.footerClass">
-                            <TTColumnSlot :column="col" type="footer" v-if="col.$scopedSlots.footer" />
-                            {{col.footer}}
-                        </td>
-                    </tr>
-                </tfoot>
                 <tbody class="p-treetable-tbody">
                     <template v-if="!empty">
                         <TTRow v-for="node of dataToRender" :key="node.key" :columns="columns" :node="node" :level="0"
@@ -59,6 +62,17 @@
                         </td>
                     </tr>
                 </tbody>
+                <tfoot class="p-treetable-tfoot" v-if="hasFooter">
+                    <tr>
+                        <template v-for="(col,i) of columns">
+                            <TTFooterCell v-if="!columnProp(col, 'hidden')" :key="columnProp(col, 'columnKey')||columnProp(col, 'field')||i" :column="col"></TTFooterCell>
+                        </template>
+                        <!-- <td v-for="(col,i) of columns" :key="col.columnKey||col.field||i" :style="col.footerStyle" :class="col.footerClass">
+                            <TTColumnSlot :column="col" type="footer" v-if="col.$scopedSlots.footer" />
+                            {{col.footer}}
+                        </td> -->
+                    </tr>
+                </tfoot>
             </table>
         </div>
         <TTPaginator v-if="paginatorBottom" :rows="d_rows" :first="d_first" :totalRecords="totalRecordsLength" :pageLinkSize="pageLinkSize" :template="paginatorTemplate" :rowsPerPageOptions="rowsPerPageOptions"
@@ -79,10 +93,12 @@
 
 <script>
 import ObjectUtils from '../utils/ObjectUtils';
-import FilterUtils from '../utils/FilterUtils';
 import DomHandler from '../utils/DomHandler';
+import FilterService from '../api/FilterService';
 import TreeTableColumnSlot from './TreeTableColumnSlot';
 import TreeTableRowLoader from './TreeTableRowLoader';
+import FooterCell from './FooterCell.vue';
+import HeaderCell from './HeaderCell.vue';
 import Paginator from '../paginator/Paginator';
 
 export default {
@@ -255,6 +271,9 @@ export default {
         this.allChildren = this.$children;
     },
     methods: {
+        columnProp(col, prop) {
+            return ObjectUtils.getVNodeProp(col, prop);
+        },
         onNodeToggle(node) {
             const key = node.key;
 
@@ -373,67 +392,18 @@ export default {
             this.d_first = 0;
             this.$emit('update:first', this.d_first);
         },
-        isMultiSorted(column) {
-            return column.sortable && this.getMultiSortMetaIndex(column) > -1
-        },
-        isColumnSorted(column) {
-            if (column.sortable) {
-                return this.sortMode === 'single' ? (this.d_sortField === (column.field || column.sortField)) : this.getMultiSortMetaIndex(column) > -1;
-            }
-
-            return false;
-        },
-        getColumnHeaderClass(column) {
-            return [column.headerClass,
-                    {'p-sortable-column': column.sortable},
-                    {'p-resizable-column': this.resizableColumns},
-                    {'p-highlight': this.isColumnSorted(column)}
-            ];
-        },
         getFilterColumnHeaderClass(column) {
-            return ['p-filter-column', column.filterHeaderClass];
+            return ['p-filter-column', this.columnProp(column, 'filterHeaderClass'), {
+                'p-frozen-column': this.columnProp(column, 'frozen')
+            }];
         },
-        getSortableColumnIcon(column) {
-            let sorted = false;
-            let sortOrder = null;
+        onColumnHeaderClick(e) {
+            let event = e.originalEvent;
+            let column = e.column;
 
-            if (this.sortMode === 'single') {
-                sorted =  this.d_sortField === (column.field || column.sortField);
-                sortOrder = sorted ? this.d_sortOrder: 0;
-            }
-            else if (this.sortMode === 'multiple') {
-                let metaIndex = this.getMultiSortMetaIndex(column);
-                if (metaIndex > -1) {
-                    sorted = true;
-                    sortOrder = this.d_multiSortMeta[metaIndex].order;
-                }
-            }
-
-            return [
-                'p-sortable-column-icon pi pi-fw', {
-                    'pi-sort-alt': !sorted,
-                    'pi-sort-amount-up-alt': sorted && sortOrder > 0,
-                    'pi-sort-amount-down': sorted && sortOrder < 0
-                }
-            ];
-        },
-        getMultiSortMetaIndex(column) {
-            let index = -1;
-
-            for (let i = 0; i < this.d_multiSortMeta.length; i++) {
-                let meta = this.d_multiSortMeta[i];
-                if (meta.field === (column.field || column.sortField)) {
-                    index = i;
-                    break;
-                }
-            }
-
-            return index;
-        },
-        onColumnHeaderClick(event, column) {
-            if (column.sortable) {
+            if (this.columnProp(column, 'sortable')) {
                 const targetNode = event.target;
-                const columnField = column.sortField || column.field;
+                const columnField = this.columnProp(column, 'sortField') || this.columnProp(column, 'field');
 
                 if (DomHandler.hasClass(targetNode, 'p-sortable-column') || DomHandler.hasClass(targetNode, 'p-column-title')
                     || DomHandler.hasClass(targetNode, 'p-sortable-column-icon') || DomHandler.hasClass(targetNode.parentElement, 'p-sortable-column-icon')) {
@@ -561,13 +531,13 @@ export default {
 
                 for (let j = 0; j < this.columns.length; j++) {
                     let col = this.columns[j];
-                    let filterField = col.field;
+                    let filterField = this.columnProp(col, 'field');
 
                     //local
-                    if (Object.prototype.hasOwnProperty.call(this.filters, col.field)) {
-                        let filterMatchMode = col.filterMatchMode;
-                        let filterValue = this.filters[col.field];
-                        let filterConstraint = FilterUtils[filterMatchMode];
+                    if (Object.prototype.hasOwnProperty.call(this.filters, this.columnProp(col, 'field'))) {
+                        let filterMatchMode = this.columnProp(col, 'filterMatchMode') || 'startsWith';
+                        let filterValue = this.filters[this.columnProp(col, 'field')];
+                        let filterConstraint = FilterService.filters[filterMatchMode];
                         let paramsWithoutNode = {filterField, filterValue, filterConstraint, strict};
 
                         if ((strict && !(this.findFilteredNodes(copyNode, paramsWithoutNode) || this.isFilterMatched(copyNode, paramsWithoutNode))) ||
@@ -584,7 +554,7 @@ export default {
                     if (this.hasGlobalFilter() && !globalMatch) {
                         let copyNodeForGlobal = {...copyNode};
                         let filterValue = this.filters['global'];
-                        let filterConstraint = FilterUtils['contains'];
+                        let filterConstraint = FilterService.filters['contains'];
                         let globalFilterParamsWithoutNode = {filterField, filterValue, filterConstraint, strict};
 
                         if ((strict && (this.findFilteredNodes(copyNodeForGlobal, globalFilterParamsWithoutNode) || this.isFilterMatched(copyNodeForGlobal, globalFilterParamsWithoutNode))) ||
@@ -655,8 +625,8 @@ export default {
             if (this.hasFilters()) {
                 filterMatchModes = {};
                 this.columns.forEach(col => {
-                    if (col.field) {
-                        filterMatchModes[col.field] = col.filterMatchMode;
+                    if (this.columnProp(col, 'field')) {
+                        filterMatchModes[col.field] = this.columnProp(col, 'filterMatchMode');
                     }
                 });
             }
@@ -695,21 +665,30 @@ export default {
             let newColumnWidth = columnWidth + delta;
             let minWidth = this.resizeColumnElement.style.minWidth||15;
 
-            if(columnWidth + delta > parseInt(minWidth, 10)) {
-                if(this.columnResizeMode === 'fit') {
+            if (columnWidth + delta > parseInt(minWidth, 10)) {
+                if (this.columnResizeMode === 'fit') {
                     let nextColumn = this.resizeColumnElement.nextElementSibling;
                     let nextColumnWidth = nextColumn.offsetWidth - delta;
 
-                    if(newColumnWidth > 15 && nextColumnWidth > 15) {
-                        this.resizeColumnElement.style.width = newColumnWidth + 'px';
-                        if(nextColumn) {
-                            nextColumn.style.width = nextColumnWidth + 'px';
+                    if (newColumnWidth > 15 && nextColumnWidth > 15) {
+                        if (!this.scrollable) {
+                            this.resizeColumnElement.style.width = newColumnWidth + 'px';
+                            if(nextColumn) {
+                                nextColumn.style.width = nextColumnWidth + 'px';
+                            }
+                        }
+                        else {
+                            this.resizeTableCells(newColumnWidth, nextColumnWidth);
                         }
                     }
                 }
-                else if(this.columnResizeMode === 'expand') {
+                else if (this.columnResizeMode === 'expand') {
                     this.$refs.table.style.width = this.$refs.table.offsetWidth + delta + 'px';
-                    this.resizeColumnElement.style.width = newColumnWidth + 'px';
+
+                    if (!this.scrollable)
+                        this.resizeColumnElement.style.width = newColumnWidth + 'px';
+                    else
+                        this.resizeTableCells(newColumnWidth);
                 }
 
                 this.$emit('column-resize-end', {
@@ -723,6 +702,23 @@ export default {
             DomHandler.removeClass(this.$el, 'p-unselectable-text');
 
             this.unbindColumnResizeEvents();
+        },
+        resizeTableCells(newColumnWidth, nextColumnWidth) {
+            let colIndex = DomHandler.index(this.resizeColumnElement);
+            let children = this.$refs.table.children;
+            for (let child of children) {
+                for (let row of child.children) {
+                    let resizeCell = row.children[colIndex];
+                    resizeCell.style.flex = '0 0 ' + newColumnWidth + 'px';
+
+                    if (this.columnResizeMode === 'fit') {
+                        let nextCell = resizeCell.nextElementSibling;
+                        if (nextCell) {
+                            nextCell.style.flex = '0 0 ' + nextColumnWidth + 'px';
+                        }
+                    }
+                }
+            }
         },
         bindColumnResizeEvents() {
             if (!this.documentColumnResizeListener) {
@@ -751,7 +747,7 @@ export default {
 
             if (this.documentColumnResizeEndListener) {
                 document.removeEventListener('document', this.documentColumnResizeEndListener);
-                 this.documentColumnResizeEndListener = null;
+                this.documentColumnResizeEndListener = null;
             }
         },
         onColumnKeyDown(event, col) {
@@ -759,24 +755,10 @@ export default {
                 this.onColumnHeaderClick(event, col);
             }
         },
-        getAriaSort(column) {
-            if (column.sortable) {
-                const sortIcon = this.getSortableColumnIcon(column);
-                if (sortIcon[1]['pi-sort-amount-down'])
-                    return 'descending';
-                else if (sortIcon[1]['pi-sort-amount-up-alt'])
-                    return 'ascending';
-                else
-                    return 'none';
-            }
-            else {
-                return null;
-            }
-        },
         hasColumnFilter() {
             if (this.columns) {
                 for (let col of this.columns) {
-                    if (col.$scopedSlots.filter) {
+                    if (col.children && col.children.filter) {
                         return true;
                     }
                 }
@@ -789,6 +771,9 @@ export default {
         },
         hasGlobalFilter() {
             return this.filters && Object.prototype.hasOwnProperty.call(this.filters, 'global');
+        },
+        updateScrollWidth() {
+            this.$refs.table.style.width = this.$refs.table.scrollWidth + 'px';
         }
     },
     computed: {
@@ -798,6 +783,13 @@ export default {
                 'p-treetable-auto-layout': this.autoLayout,
                 'p-treetable-resizable': this.resizableColumns,
                 'p-treetable-resizable-fit': this.resizableColumns && this.columnResizeMode === 'fit',
+                'p-treetable-gridlines': this.showGridlines,
+                'p-treetable-scrollable': this.scrollable,
+                'p-treetable-scrollable-vertical': this.scrollable && this.scrollDirection === 'vertical',
+                'p-treetable-scrollable-horizontal': this.scrollable && this.scrollDirection === 'horizontal',
+                'p-treetable-scrollable-both': this.scrollable && this.scrollDirection === 'both',
+                'p-treetable-flex-scrollable': (this.scrollable && this.scrollHeight === 'flex'),
+                'p-treetable-responsive-scroll': this.responsiveLayout === 'scroll',
             }];
         },
         columns() {
@@ -894,6 +886,8 @@ export default {
         'TTColumnSlot': TreeTableColumnSlot,
         'TTRow': TreeTableRowLoader,
         'TTPaginator': Paginator,
+        'TTHeaderCell': HeaderCell,
+        'TTFooterCell': FooterCell
     }
 }
 </script>

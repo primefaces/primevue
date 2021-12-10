@@ -3,16 +3,25 @@
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>TreeTable - Responsive</h1>
-                <p>TreeTable display can be optimized according for different screen sizes, this example demonstrates a demo where columns are stacked on small screens.</p>
+                <p>TreeTable display can be optimized according for different screen sizes.</p>
             </div>
         </div>
 
         <div class="content-section implementation">
             <div class="card">
-                <TreeTable :value="nodes" class="p-treetable-responsive">
-                    <template #header>
-                        Responsive
-                    </template>
+                <h5>Scroll</h5>
+                <p>Built-in responsiveness using the <b>responsiveLayout</b> property set to scroll.</p>
+                <TreeTable :value="nodes" responsiveLayout="scroll">
+                    <Column field="name" header="Name" :expander="true" style="min-width:200px"></Column>
+                    <Column field="size" header="Size" style="min-width:200px"></Column>
+                    <Column field="type" header="Type" style="min-width:200px"></Column>
+                </TreeTable>
+            </div>
+
+            <div class="card">
+                <h5>Custom</h5>
+                <p>Custom implementation using media queries.</p>
+                <TreeTable :value="nodes">
                     <Column field="name" header="Name" :expander="true">
                         <template #body="slotProps">
                             {{slotProps.node.data.name}}
