@@ -6,6 +6,27 @@ interface PrimeVueConfiguration {
 }
 
 interface PrimeVueLocaleOptions {
+    startsWith?: string;
+    contains?: string;
+    notContains?: string;
+    endWith?: string;
+    equals?: string;
+    notEquals?: string;
+    noFilter?: string;
+    lt?: string;
+    lte?: string;
+    gt?: string;
+    gte?: string;
+    dateIs?: string;
+    dateIsNot?: string;
+    dateBefore?: string;
+    dateAfter?: string;
+    clear?: string;
+    apply?: string;
+    matchAll?: string;
+    matchAny?: string;
+    addRule?: string;
+    removeRule?: string;
     accept?: string;
     reject?: string;
     choose?: string;
@@ -17,7 +38,6 @@ interface PrimeVueLocaleOptions {
     monthNames: string[];
     monthNamesShort: string[];
     today?: string;
-    clear?: string;
     weekHeader?: string;
     firstDayOfWeek?: number;
     dateFormat?: string;
@@ -25,6 +45,8 @@ interface PrimeVueLocaleOptions {
     medium?: string;
     strong?: string;
     passwordPrompt?: string;
+    emptyFilterMessage?: string;
+    emptyMessage?: string;
 }
 
 export const install: PluginFunction<{}>;
