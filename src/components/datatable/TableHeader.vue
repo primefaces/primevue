@@ -1,53 +1,58 @@
 <template>
-    <thead class="p-datatable-thead">
+    <thead class="p-datatable-thead" role="rowgroup">
         <template v-if="!columnGroup">
-            <tr>
+            <tr role="row">
                 <template v-for="(col,i) of columns">
-                    <th v-if="rowGroupMode !== 'subheader' || (groupRowsBy !== col.field)" :tabindex="col.sortable ? '0' : null" @keydown="onColumnKeyDown($event, col)"
-                        :key="col.columnKey||col.field||i" :style="col.headerStyle" :class="getColumnHeaderClass(col)"
-                        @click="onColumnHeaderClick($event, col)" @mousedown="onColumnHeaderMouseDown($event, col)"
-                        @dragstart="onColumnHeaderDragStart($event)" @dragover="onColumnHeaderDragOver($event)" @dragleave="onColumnHeaderDragLeave($event)" @drop="onColumnHeaderDrop($event)"
-                        :colspan="col.colspan" :rowspan="col.rowspan" :aria-sort="getAriaSort(col)">
-                        <span class="p-column-resizer" @mousedown="onColumnResizeStart($event)" v-if="resizableColumns"></span>
-                        <DTColumnSlot :column="col" type="header" v-if="col.$scopedSlots.header" />
-                        <span class="p-column-title" v-if="col.header">{{col.header}}</span>
-                        <span v-if="col.sortable" :class="getSortableColumnIcon(col)"></span>
-                        <span v-if="isMultiSorted(col)" class="p-sortable-column-badge">{{getMultiSortMetaIndex(col) + 1}}</span>
-                        <DTHeaderCheckbox :checked="allRowsSelected" @change="onHeaderCheckboxChange($event)" :disabled="empty" v-if="col.selectionMode ==='multiple' && !hasColumnFilter()" />
-                    </th>
+                    <DTHeaderCell v-if="!columnProp(col, 'hidden') && (rowGroupMode !== 'subheader' || (groupRowsBy !== columnProp(col, 'field')))" :column="col" :key="columnProp(col, 'columnKey')+i||columnProp(col, 'field')+i||i"
+                    @column-click="$emit('column-click', $event)" @column-mousedown="$emit('column-mousedown', $event)"
+                    @column-dragstart="$emit('column-dragstart', $event)" @column-dragover="$emit('column-dragover', $event)" @column-dragleave="$emit('column-dragleave', $event)" @column-drop="$emit('column-drop', $event)"
+                    :groupRowsBy="groupRowsBy" :groupRowSortField="groupRowSortField" :resizableColumns="resizableColumns" @column-resizestart="$emit('column-resizestart', $event)"
+                    :sortMode="sortMode" :sortField="sortField" :sortOrder="sortOrder" :multiSortMeta="multiSortMeta"
+                    :allRowsSelected="allRowsSelected" :empty="empty" @checkbox-change="$emit('checkbox-change', $event)"
+                    :filters="filters" :filterDisplay="filterDisplay" :filtersStore="filtersStore" @filter-change="$emit('filter-change', $event)" @filter-apply="$emit('filter-apply')"
+                    @operator-change="$emit('operator-change',$event)" @matchmode-change="$emit('matchmode-change', $event)" @constraint-add="$emit('constraint-add', $event)"
+                    @constraint-remove="$emit('constraint-remove', $event)" @apply-click="$emit('apply-click',$event)"/>
                 </template>
             </tr>
-            <tr v-if="hasColumnFilter()">
+            <tr v-if="filterDisplay === 'row'" role="row">
                 <template v-for="(col,i) of columns">
-                    <th v-if="rowGroupMode !== 'subheader' || (groupRowsBy !== col.field)" :key="col.columnKey||col.field||i"
-                        :class="getFilterColumnHeaderClass(col)" :style="col.filterHeaderStyle">
-                        <DTColumnSlot :column="col" type="filter" v-if="col.$scopedSlots.filter" />
-                        <DTHeaderCheckbox :checked="allRowsSelected" @change="onHeaderCheckboxChange($event)" :disabled="empty" v-if="col.selectionMode ==='multiple'" />
+                    <th :style="getFilterColumnHeaderStyle(col)" :class="getFilterColumnHeaderClass(col)" v-if="!columnProp(col, 'hidden') && (rowGroupMode !== 'subheader' || (groupRowsBy !== columnProp(col, 'field')))" :key="columnProp(col, 'columnKey')||columnProp(col, 'field')||i">
+                        <DTHeaderCheckbox :checked="allRowsSelected" @change="$emit('checkbox-change', $event)" :disabled="empty" v-if="columnProp(col, 'selectionMode') ==='multiple'" />
+                        <DTColumnFilter v-if="col.$scopedSlots && col.$scopedSlots.filter" :field="columnProp(col,'filterField')||columnProp(col,'field')" :type="columnProp(col,'dataType')" display="row"
+                        :showMenu="columnProp(col,'showFilterMenu')" :filterElement="col.$scopedSlots && col.$scopedSlots.filter" :templates="col.$scopedSlots"
+                        :filterHeaderTemplate="col.$scopedSlots && col.$scopedSlots.filterheader" :filterFooterTemplate="col.$scopedSlots && col.$scopedSlots.filterfooter"
+                        :filterClearTemplate="col.$scopedSlots && col.$scopedSlots.filterclear" :filterApplyTemplate="col.$scopedSlots && col.$scopedSlots.filterapply"
+                        :filters="filters" :filtersStore="filtersStore" @filter-change="$emit('filter-change', $event)" @filter-apply="$emit('filter-apply')" :filterMenuStyle="columnProp(col,'filterMenuStyle')" :filterMenuClass="columnProp(col,'filterMenuClass')"
+                        :showOperator="columnProp(col,'showFilterOperator')" :showClearButton="columnProp(col,'showClearButton')" :showApplyButton="columnProp(col,'showApplyButton')"
+                        :showMatchModes="columnProp(col,'showFilterMatchModes')" :showAddButton="columnProp(col,'showAddButton')" :matchModeOptions="columnProp(col,'filterMatchModeOptions')" :maxConstraints="columnProp(col,'maxConstraints')"
+                        @operator-change="$emit('operator-change',$event)" @matchmode-change="$emit('matchmode-change', $event)"
+                        @constraint-add="$emit('constraint-add', $event)" @constraint-remove="$emit('constraint-remove', $event)" @apply-click="$emit('apply-click',$event)"/>
                     </th>
                 </template>
             </tr>
         </template>
         <template v-else>
-            <tr v-for="(row,i) of columnGroup.rows" :key="i">
-                <th v-for="(col,i) of row.columns" :key="col.columnKey||col.field||i" :style="col.headerStyle" :class="getColumnHeaderClass(col)" :tabindex="col.sortable ? '0' : null"
-                    @click="onColumnHeaderClick($event, col)" @keydown="onColumnKeyDown($event, col)" @dragstart="onColumnHeaderDragStart($event)" @dragover="onColumnHeaderDragOver($event)" @dragleave="onColumnHeaderDragLeave($event)" @drop="onColumnHeaderDrop($event)"
-                    :colspan="col.colspan" :rowspan="col.rowspan" :aria-sort="getAriaSort(col)">
-                    <DTColumnSlot :column="col" type="header" v-if="col.$scopedSlots.header" />
-                    <span class="p-column-title" v-if="col.header">{{col.header}}</span>
-                    <span v-if="col.sortable" :class="getSortableColumnIcon(col)"></span>
-                    <span v-if="isMultiSorted(col)" class="p-sortable-column-badge">{{getMultiSortMetaIndex(col) + 1}}</span>
-                    <DTColumnSlot :column="col" type="filter" v-if="col.$scopedSlots.filter" />
-                    <DTHeaderCheckbox :checked="allRowsSelected" @change="onHeaderCheckboxChange($event)" :disabled="empty" v-if="col.selectionMode ==='multiple'" />
-                </th>
+            <tr v-for="(row,i) of columnGroup.$scopedSlots.default()" :key="ariaId + i" role="row">
+                <template v-for="(col,j) of getHeaderColumns(row)">
+                    <DTHeaderCell v-if="!columnProp(col, 'hidden') && (rowGroupMode !== 'subheader' || (groupRowsBy !== columnProp(col, 'field'))) && (typeof col.children !== 'string')" :column="col.child" :key="columnProp(col, 'columnKey')+j||columnProp(col, 'field')+j||j"
+                    @column-click="$emit('column-click', $event)" @column-mousedown="$emit('column-mousedown', $event)"
+                    :groupRowsBy="groupRowsBy" :groupRowSortField="groupRowSortField" :sortMode="sortMode" :sortField="sortField" :sortOrder="sortOrder" :multiSortMeta="multiSortMeta"
+                    :allRowsSelected="allRowsSelected" :empty="empty" @checkbox-change="$emit('checkbox-change', $event)"
+                    :filters="filters" :filterDisplay="filterDisplay" :filtersStore="filtersStore" @filter-change="$emit('filter-change', $event)" @filter-apply="$emit('filter-apply')"
+                    @operator-change="$emit('operator-change',$event)" @matchmode-change="$emit('matchmode-change', $event)" @constraint-add="$emit('constraint-add', $event)"
+                    @constraint-remove="$emit('constraint-remove', $event)" @apply-click="$emit('apply-click',$event)"/>
+                </template>
             </tr>
         </template>
     </thead>
 </template>
 
 <script>
-import DomHandler from '../utils/DomHandler';
-import ColumnSlot from './ColumnSlot.vue';
+import HeaderCell from './HeaderCell.vue';
 import HeaderCheckbox from './HeaderCheckbox.vue';
+import ColumnFilter from './ColumnFilter.vue';
+import ObjectUtils from '../utils/ObjectUtils';
+import UniqueComponentId from '../utils/UniqueComponentId';
 
 export default {
     props: {
@@ -83,6 +88,10 @@ export default {
             type: String,
             default: 'single'
         },
+        groupRowSortField: {
+            type: [String, Function],
+            default: null
+        },
         sortField: {
             type: [String, Function],
             default: null
@@ -94,120 +103,56 @@ export default {
         multiSortMeta: {
             type: Array,
             default: null
+        },
+        filterDisplay: {
+            type: String,
+            default: null
+        },
+        filters: {
+            type: Object,
+            default: null
+        },
+        filtersStore: {
+            type: Object,
+            default: null
         }
     },
     methods: {
-        isMultiSorted(column) {
-            return column.sortable && this.getMultiSortMetaIndex(column) > -1
-        },
-        isColumnSorted(column) {
-            return this.sortMode === 'single' ? (this.sortField && (this.sortField === column.field || this.sortField === column.sortField)) : this.isMultiSorted(column);
-        },
-        getColumnHeaderClass(column) {
-            return [column.headerClass,
-                    {'p-sortable-column': column.sortable},
-                    {'p-resizable-column': this.resizableColumns},
-                    {'p-highlight': this.isColumnSorted(column)}
-            ];
+        columnProp(col, prop) {
+            return ObjectUtils.getVNodeProp(col, prop);
         },
         getFilterColumnHeaderClass(column) {
-            return ['p-filter-column', column.filterHeaderClass];
+            return ['p-filter-column', this.columnProp(column, 'filterHeaderClass'), this.columnProp(column, 'className'), {
+                'p-frozen-column': this.columnProp(column, 'frozen')
+            }];
         },
-        getSortableColumnIcon(column) {
-            let sorted = false;
-            let sortOrder = null;
+        getFilterColumnHeaderStyle(column) {
+            return [this.columnProp(column, 'filterHeaderStyle'), this.columnProp(column, 'styles')];
+        },
+        getHeaderColumns(row){
+            let cols = [];
 
-            if (this.sortMode === 'single') {
-                sorted = this.sortField && (this.sortField === column.field || this.sortField === column.sortField);
-                sortOrder = sorted ? this.sortOrder: 0;
-            }
-            else if (this.sortMode === 'multiple') {
-                let metaIndex = this.getMultiSortMetaIndex(column);
-                if (metaIndex > -1) {
-                    sorted = true;
-                    sortOrder = this.multiSortMeta[metaIndex].order;
-                }
-            }
+            if (row.child && row.child.$scopedSlots.default) {
+                row.child.$scopedSlots.default().forEach(child => {
+                    if (child.child && child.child.children && child.child.children instanceof Array)
+                        cols = [...cols, ...child.child.children];
+                    else if (child.componentOptions.tag === 'Column')
+                        cols.push(child);
+                });
 
-            return [
-                'p-sortable-column-icon pi pi-fw', {
-                    'pi-sort-alt': !sorted,
-                    'pi-sort-amount-up-alt': sorted && sortOrder > 0,
-                    'pi-sort-amount-down': sorted && sortOrder < 0
-                }
-            ];
-        },
-        getMultiSortMetaIndex(column) {
-            let index = -1;
-
-            for (let i = 0; i < this.multiSortMeta.length; i++) {
-                let meta = this.multiSortMeta[i];
-                if (meta.field === column.field || meta.field === column.sortField) {
-                    index = i;
-                    break;
-                }
+                return cols;
             }
-
-            return index;
-        },
-        onColumnHeaderClick(event, col) {
-            this.$emit('column-click', {originalEvent: event, column: col});
-        },
-        onColumnHeaderMouseDown(event, col) {
-            this.$emit('column-mousedown', {originalEvent: event, column: col});
-        },
-        onColumnHeaderDragStart(event) {
-            this.$emit('column-dragstart', event);
-        },
-        onColumnHeaderDragOver(event) {
-            this.$emit('column-dragover', event);
-        },
-        onColumnHeaderDragLeave(event) {
-            this.$emit('column-dragleave', event);
-        },
-        onColumnHeaderDrop(event) {
-            this.$emit('column-drop', event);
-        },
-        onColumnResizeStart(event) {
-            this.$emit('column-resizestart', event);
-        },
-        onHeaderCheckboxChange(event) {
-            this.$emit('checkbox-change', event);
-        },
-        onColumnKeyDown(event, col) {
-            if (event.which === 13 && event.currentTarget.nodeName === 'TH' && DomHandler.hasClass(event.currentTarget, 'p-sortable-column')) {
-                this.$emit('column-click', {originalEvent: event, column: col});
-            }
-        },
-        getAriaSort(column) {
-            if (column.sortable) {
-                const sortIcon = this.getSortableColumnIcon(column);
-                if (sortIcon[1]['pi-sort-amount-down'])
-                    return 'descending';
-                else if (sortIcon[1]['pi-sort-amount-up-alt'])
-                    return 'ascending';
-                else
-                    return 'none';
-            }
-            else {
-                return null;
-            }
-        },
-        hasColumnFilter() {
-            if (this.columns) {
-                for (let col of this.columns) {
-                    if (col.$scopedSlots.filter) {
-                        return true;
-                    }
-                }
-            }
-
-            return false;
+        }
+    },
+    computed: {
+        ariaId() {
+            return UniqueComponentId();
         }
     },
     components: {
-        'DTColumnSlot': ColumnSlot,
-        'DTHeaderCheckbox': HeaderCheckbox
+        'DTHeaderCell': HeaderCell,
+        'DTHeaderCheckbox': HeaderCheckbox,
+        'DTColumnFilter': ColumnFilter
     }
 }
 </script>

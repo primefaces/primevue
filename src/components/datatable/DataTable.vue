@@ -1,5 +1,5 @@
 <template>
-    <div :class="containerClass">
+    <div :class="containerClass" data-scrollselectors=".p-datatable-wrapper">
         <slot></slot>
         <div class="p-datatable-loading-overlay p-component-overlay" v-if="loading">
             <i :class="loadingIconClass"></i>
@@ -16,100 +16,36 @@
                 <slot name="paginatorend"></slot>
             </template>
         </DTPaginator>
-        <div class="p-datatable-wrapper" v-if="!scrollable">
-            <table ref="table" role="grid">
+        <div class="p-datatable-wrapper" :style="{maxHeight: scrollHeight}">
+            <table ref="table" role="table" :class="[tableClass, 'p-datatable-table']" :style="tableStyle">
                 <DTTableHeader :columnGroup="headerColumnGroup" :columns="columns" :rowGroupMode="rowGroupMode"
-                        :groupRowsBy="groupRowsBy" :resizableColumns="resizableColumns" :allRowsSelected="allRowsSelected" :empty="empty"
-                        :sortMode="sortMode" :sortField="d_sortField" :sortOrder="d_sortOrder" :multiSortMeta="d_multiSortMeta"
-                        @column-click="onColumnHeaderClick($event)" @column-mousedown="onColumnHeaderMouseDown($event)"
+                        :groupRowsBy="groupRowsBy" :groupRowSortField="groupRowSortField" :resizableColumns="resizableColumns" :allRowsSelected="allRowsSelected" :empty="empty"
+                        :sortMode="sortMode" :sortField="d_sortField" :sortOrder="d_sortOrder" :multiSortMeta="d_multiSortMeta" :filters="d_filters" :filtersStore="filters" :filterDisplay="filterDisplay"
+                        @column-click="onColumnHeaderClick($event)" @column-mousedown="onColumnHeaderMouseDown($event)" @filter-change="onFilterChange" @filter-apply="onFilterApply"
                         @column-dragstart="onColumnHeaderDragStart($event)" @column-dragover="onColumnHeaderDragOver($event)" @column-dragleave="onColumnHeaderDragLeave($event)" @column-drop="onColumnHeaderDrop($event)"
                         @column-resizestart="onColumnResizeStart($event)" @checkbox-change="toggleRowsWithCheckbox($event)" />
-                <DTTableBody :value="dataToRender" :columns="columns" :empty="empty" :dataKey="dataKey" :selection="selection" :selectionKeys="d_selectionKeys" :selectionMode="selectionMode" :contextMenu="contextMenu" :contextMenuSelection="contextMenuSelection"
-                    :rowGroupMode="rowGroupMode" :groupRowsBy="groupRowsBy" :expandableRowGroups="expandableRowGroups" :rowClass="rowClass" :rowStyle="rowStyle" :editMode="editMode" :compareSelectionBy="compareSelectionBy"
+                <DTTableBody v-if="frozenValue" :value="frozenValue" :frozenRow="true" class="p-datatable-frozen-tbody" :columns="columns" :dataKey="dataKey" :selection="selection" :selectionKeys="d_selectionKeys" :selectionMode="selectionMode" :contextMenu="contextMenu" :contextMenuSelection="contextMenuSelection"
+                    :rowGroupMode="rowGroupMode" :groupRowsBy="groupRowsBy" :expandableRowGroups="expandableRowGroups" :rowClass="rowClass" :rowStyle="rowStyle" :editMode="editMode" :compareSelectionBy="compareSelectionBy" :scrollable="scrollable"
                     :expandedRowIcon="expandedRowIcon" :collapsedRowIcon="collapsedRowIcon" :expandedRows="expandedRows" :expandedRowKeys="d_expandedRowKeys" :expandedRowGroups="expandedRowGroups"
-                    :editingRows="editingRows" :editingRowKeys="d_editingRowKeys" :templates="$scopedSlots" :loading="loading"
+                    :editingRows="editingRows" :editingRowKeys="d_editingRowKeys" :templates="$scopedSlots" :loading="loading" :responsiveLayout="responsiveLayout"
                     @rowgroup-toggle="toggleRowGroup" @row-click="onRowClick($event)" @row-dblclick="onRowDblClick($event)" @row-rightclick="onRowRightClick($event)" @row-touchend="onRowTouchEnd" @row-keydown="onRowKeyDown"
                     @row-mousedown="onRowMouseDown" @row-dragstart="onRowDragStart($event)" @row-dragover="onRowDragOver($event)" @row-dragleave="onRowDragLeave($event)" @row-dragend="onRowDragEnd($event)" @row-drop="onRowDrop($event)"
                     @row-toggle="toggleRow($event)" @radio-change="toggleRowWithRadio($event)" @checkbox-change="toggleRowWithCheckbox($event)"
                     @cell-edit-init="onCellEditInit($event)" @cell-edit-complete="onCellEditComplete($event)" @cell-edit-cancel="onCellEditCancel($event)"
-                    @row-edit-init="onRowEditInit($event)" @row-edit-save="onRowEditSave($event)" @row-edit-cancel="onRowEditCancel($event)"/>
+                    @row-edit-init="onRowEditInit($event)" @row-edit-save="onRowEditSave($event)" @row-edit-cancel="onRowEditCancel($event)"
+                    :editingMeta="d_editingMeta" @editing-meta-change="onEditingMetaChange" />
+                <DTTableBody :value="dataToRender" :columns="columns" :empty="empty" :dataKey="dataKey" :selection="selection" :selectionKeys="d_selectionKeys" :selectionMode="selectionMode" :contextMenu="contextMenu" :contextMenuSelection="contextMenuSelection"
+                    :rowGroupMode="rowGroupMode" :groupRowsBy="groupRowsBy" :expandableRowGroups="expandableRowGroups" :rowClass="rowClass" :rowStyle="rowStyle" :editMode="editMode" :compareSelectionBy="compareSelectionBy" :scrollable="scrollable"
+                    :expandedRowIcon="expandedRowIcon" :collapsedRowIcon="collapsedRowIcon" :expandedRows="expandedRows" :expandedRowKeys="d_expandedRowKeys" :expandedRowGroups="expandedRowGroups"
+                    :editingRows="editingRows" :editingRowKeys="d_editingRowKeys" :templates="$scopedSlots" :loading="loading" :responsiveLayout="responsiveLayout"
+                    @rowgroup-toggle="toggleRowGroup" @row-click="onRowClick($event)" @row-dblclick="onRowDblClick($event)" @row-rightclick="onRowRightClick($event)" @row-touchend="onRowTouchEnd" @row-keydown="onRowKeyDown"
+                    @row-mousedown="onRowMouseDown" @row-dragstart="onRowDragStart($event)" @row-dragover="onRowDragOver($event)" @row-dragleave="onRowDragLeave($event)" @row-dragend="onRowDragEnd($event)" @row-drop="onRowDrop($event)"
+                    @row-toggle="toggleRow($event)" @radio-change="toggleRowWithRadio($event)" @checkbox-change="toggleRowWithCheckbox($event)"
+                    @cell-edit-init="onCellEditInit($event)" @cell-edit-complete="onCellEditComplete($event)" @cell-edit-cancel="onCellEditCancel($event)"
+                    @row-edit-init="onRowEditInit($event)" @row-edit-save="onRowEditSave($event)" @row-edit-cancel="onRowEditCancel($event)"
+                    :editingMeta="d_editingMeta" @editing-meta-change="onEditingMetaChange" />
                 <DTTableFooter :columnGroup="footerColumnGroup" :columns="columns" />
             </table>
-        </div>
-        <div class="p-datatable-scrollable-wrapper" v-else>
-            <DTScrollableView v-if="hasFrozenColumns" :scrollHeight="scrollHeight" :columns="frozenColumns" :frozenWidth="frozenWidth" :frozen="true"
-                :rowGroupMode="rowGroupMode" :groupRowsBy="groupRowsBy">
-                <template #header>
-                    <DTTableHeader :columnGroup="frozenHeaderColumnGroup" :columns="frozenColumns" :rowGroupMode="rowGroupMode"
-                        :groupRowsBy="groupRowsBy" :resizableColumns="resizableColumns" :allRowsSelected="allRowsSelected" :empty="empty"
-                        :sortMode="sortMode" :sortField="d_sortField" :sortOrder="d_sortOrder" :multiSortMeta="d_multiSortMeta"
-                        @column-click="onColumnHeaderClick($event)" @column-mousedown="onColumnHeaderMouseDown($event)"
-                        @column-dragstart="onColumnHeaderDragStart($event)" @column-dragover="onColumnHeaderDragOver($event)" @column-dragleave="onColumnHeaderDragLeave($event)" @column-drop="onColumnHeaderDrop($event)"
-                        @column-resizestart="onColumnResizeStart($event)" @checkbox-change="toggleRowsWithCheckbox($event)" />
-                </template>
-                <template #body>
-                    <DTTableBody :value="dataToRender" :columns="frozenColumns" :empty="empty" :dataKey="dataKey" :selection="selection" :selectionKeys="d_selectionKeys" :selectionMode="selectionMode" :contextMenu="contextMenu" :contextMenuSelection="contextMenuSelection"
-                        :rowGroupMode="rowGroupMode" :groupRowsBy="groupRowsBy" :expandableRowGroups="expandableRowGroups" :rowClass="rowClass" :rowStyle="rowStyle" :editMode="editMode" :compareSelectionBy="compareSelectionBy"
-                        :expandedRowIcon="expandedRowIcon" :collapsedRowIcon="collapsedRowIcon" :expandedRows="expandedRows" :expandedRowKeys="d_expandedRowKeys" :expandedRowGroups="expandedRowGroups"
-                        :editingRows="editingRows" :editingRowKeys="d_editingRowKeys" :templates="$scopedSlots" :loading="loading"
-                        @rowgroup-toggle="toggleRowGroup" @row-click="onRowClick($event)" @row-rightclick="onRowRightClick($event)" @row-touchend="onRowTouchEnd" @row-keydown="onRowKeyDown"
-                        @row-mousedown="onRowMouseDown" @row-dragstart="onRowDragStart($event)" @row-dragover="onRowDragOver($event)" @row-dragleave="onRowDragLeave($event)" @row-dragend="onRowDragEnd($event)" @row-drop="onRowDrop($event)"
-                        @row-toggle="toggleRow($event)" @radio-change="toggleRowWithRadio($event)" @checkbox-change="toggleRowWithCheckbox($event)"
-                        @cell-edit-init="onCellEditInit($event)" @cell-edit-complete="onCellEditComplete($event)" @cell-edit-cancel="onCellEditCancel($event)"
-                        @row-edit-init="onRowEditInit($event)" @row-edit-save="onRowEditSave($event)" @row-edit-cancel="onRowEditCancel($event)"/>
-                </template>
-                <template #frozenbody>
-                    <DTTableBody v-if="frozenValue" :value="frozenValue" :columns="frozenColumns" :dataKey="dataKey" :selection="selection" :selectionKeys="d_selectionKeys" :selectionMode="selectionMode" :contextMenu="contextMenu" :contextMenuSelection="contextMenuSelection"
-                        :rowGroupMode="rowGroupMode" :groupRowsBy="groupRowsBy" :expandableRowGroups="expandableRowGroups" :rowClass="rowClass" :rowStyle="rowStyle" :editMode="editMode" :compareSelectionBy="compareSelectionBy"
-                        :expandedRowIcon="expandedRowIcon" :collapsedRowIcon="collapsedRowIcon" :expandedRows="expandedRows" :expandedRowKeys="d_expandedRowKeys" :expandedRowGroups="expandedRowGroups"
-                        :editingRows="editingRows" :editingRowKeys="d_editingRowKeys" :templates="$scopedSlots" :loading="loading"
-                        @rowgroup-toggle="toggleRowGroup" @row-click="onRowClick($event)" @row-rightclick="onRowRightClick($event)" @row-touchend="onRowTouchEnd" @row-keydown="onRowKeyDown"
-                        @row-mousedown="onRowMouseDown" @row-dragstart="onRowDragStart($event)" @row-dragover="onRowDragOver($event)" @row-dragleave="onRowDragLeave($event)" @row-dragend="onRowDragEnd($event)" @row-drop="onRowDrop($event)"
-                        @row-toggle="toggleRow($event)" @radio-change="toggleRowWithRadio($event)" @checkbox-change="toggleRowWithCheckbox($event)"
-                        @cell-edit-init="onCellEditInit($event)" @cell-edit-complete="onCellEditComplete($event)" @cell-edit-cancel="onCellEditCancel($event)"
-                        @row-edit-init="onRowEditInit($event)" @row-edit-save="onRowEditSave($event)" @row-edit-cancel="onRowEditCancel($event)"/>
-                </template>
-                <template #footer>
-                    <DTTableFooter :columnGroup="frozenFooterColumnGroup" :columns="frozenColumns" />
-                </template>
-            </DTScrollableView>
-            <DTScrollableView :scrollHeight="scrollHeight" :columns="scrollableColumns" :frozenWidth="frozenWidth" :rows="rows"
-                :virtualScroll="virtualScroll" :virtualRowHeight="virtualRowHeight" :totalRecords="totalRecordsLength" @virtual-scroll="onVirtualScroll"
-                :rowGroupMode="rowGroupMode" :groupRowsBy="groupRowsBy">
-                <template #header>
-                    <DTTableHeader :columnGroup="headerColumnGroup" :columns="scrollableColumns" :rowGroupMode="rowGroupMode"
-                        :groupRowsBy="groupRowsBy" :resizableColumns="resizableColumns" :allRowsSelected="allRowsSelected" :empty="empty"
-                        :sortMode="sortMode" :sortField="d_sortField" :sortOrder="d_sortOrder" :multiSortMeta="d_multiSortMeta"
-                        @column-click="onColumnHeaderClick($event)" @column-mousedown="onColumnHeaderMouseDown($event)"
-                        @column-dragstart="onColumnHeaderDragStart($event)" @column-dragover="onColumnHeaderDragOver($event)" @column-dragleave="onColumnHeaderDragLeave($event)" @column-drop="onColumnHeaderDrop($event)"
-                        @column-resizestart="onColumnResizeStart($event)" @checkbox-change="toggleRowsWithCheckbox($event)" />
-                </template>
-                <template #body>
-                    <DTTableBody :value="dataToRender" :columns="scrollableColumns" :empty="empty" :dataKey="dataKey" :selection="selection" :selectionKeys="d_selectionKeys" :selectionMode="selectionMode" :contextMenu="contextMenu" :contextMenuSelection="contextMenuSelection"
-                        :rowGroupMode="rowGroupMode" :groupRowsBy="groupRowsBy" :expandableRowGroups="expandableRowGroups" :rowClass="rowClass" :rowStyle="rowStyle" :editMode="editMode" :compareSelectionBy="compareSelectionBy"
-                        :expandedRowIcon="expandedRowIcon" :collapsedRowIcon="collapsedRowIcon" :expandedRows="expandedRows" :expandedRowKeys="d_expandedRowKeys" :expandedRowGroups="expandedRowGroups"
-                        :editingRows="editingRows" :editingRowKeys="d_editingRowKeys" :templates="$scopedSlots" :loading="loading"
-                        @rowgroup-toggle="toggleRowGroup" @row-click="onRowClick($event)" @row-rightclick="onRowRightClick($event)" @row-touchend="onRowTouchEnd" @row-keydown="onRowKeyDown"
-                        @row-mousedown="onRowMouseDown" @row-dragstart="onRowDragStart($event)" @row-dragover="onRowDragOver($event)" @row-dragleave="onRowDragLeave($event)" @row-dragend="onRowDragEnd($event)" @row-drop="onRowDrop($event)"
-                        @row-toggle="toggleRow($event)" @radio-change="toggleRowWithRadio($event)" @checkbox-change="toggleRowWithCheckbox($event)"
-                        @cell-edit-init="onCellEditInit($event)" @cell-edit-complete="onCellEditComplete($event)" @cell-edit-cancel="onCellEditCancel($event)"
-                        @row-edit-init="onRowEditInit($event)" @row-edit-save="onRowEditSave($event)" @row-edit-cancel="onRowEditCancel($event)"/>
-                </template>
-                <template #frozenbody>
-                    <DTTableBody  v-if="frozenValue" :value="frozenValue" :columns="scrollableColumns" :dataKey="dataKey" :selection="selection" :selectionKeys="d_selectionKeys" :selectionMode="selectionMode" :contextMenu="contextMenu" :contextMenuSelection="contextMenuSelection"
-                        :rowGroupMode="rowGroupMode" :groupRowsBy="groupRowsBy" :expandableRowGroups="expandableRowGroups" :rowClass="rowClass" :rowStyle="rowStyle" :editMode="editMode" :compareSelectionBy="compareSelectionBy"
-                        :expandedRowIcon="expandedRowIcon" :collapsedRowIcon="collapsedRowIcon" :expandedRows="expandedRows" :expandedRowKeys="d_expandedRowKeys" :expandedRowGroups="expandedRowGroups"
-                        :editingRows="editingRows" :editingRowKeys="d_editingRowKeys" :templates="$scopedSlots" :loading="loading"
-                        @rowgroup-toggle="toggleRowGroup" @row-click="onRowClick($event)" @row-rightclick="onRowRightClick($event)" @row-touchend="onRowTouchEnd" @row-keydown="onRowKeyDown"
-                        @row-mousedown="onRowMouseDown" @row-dragstart="onRowDragStart($event)" @row-dragover="onRowDragOver($event)" @row-dragleave="onRowDragLeave($event)" @row-dragend="onRowDragEnd($event)" @row-drop="onRowDrop($event)"
-                        @row-toggle="toggleRow($event)" @radio-change="toggleRowWithRadio($event)" @checkbox-change="toggleRowWithCheckbox($event)"
-                        @cell-edit-init="onCellEditInit($event)" @cell-edit-complete="onCellEditComplete($event)" @cell-edit-cancel="onCellEditCancel($event)"
-                        @row-edit-init="onRowEditInit($event)" @row-edit-save="onRowEditSave($event)" @row-edit-cancel="onRowEditCancel($event)"/>
-                </template>
-                <template #footer>
-                    <DTTableFooter :columnGroup="footerColumnGroup" :columns="scrollableColumns" />
-                </template>
-            </DTScrollableView>
         </div>
         <DTPaginator v-if="paginatorBottom" :rows="d_rows" :first="lazy ? 0 : d_first" :totalRecords="totalRecordsLength" :pageLinkSize="pageLinkSize" :template="paginatorTemplate" :rowsPerPageOptions="rowsPerPageOptions"
                 :currentPageReportTemplate="currentPageReportTemplate" class="p-paginator-bottom" @page="onPage($event)" :alwaysShow="alwaysShowPaginator">
@@ -131,10 +67,12 @@
 
 <script>
 import ObjectUtils from '../utils/ObjectUtils';
-import FilterUtils from '../utils/FilterUtils';
 import DomHandler from '../utils/DomHandler';
-import Paginator from '../paginator/Paginator';
-import ScrollableView from './ScrollableView.vue';
+import UniqueComponentId from '../utils/UniqueComponentId';
+import FilterMatchMode from '../api/FilterMatchMode';
+import FilterOperator from '../api/FilterOperator';
+import FilterService from '../api/FilterService';
+import Paginator from '../paginator/Paginator.vue';
 import TableHeader from './TableHeader.vue';
 import TableBody from './TableBody.vue';
 import TableFooter from './TableFooter.vue';
@@ -229,6 +167,14 @@ export default {
             type: Object,
             default: null
         },
+        filterDisplay: {
+            type: String,
+            default: null
+        },
+        globalFilterFields: {
+            type: Array,
+            default: null
+        },
         filterLocale: {
             type: String,
             default: undefined
@@ -268,6 +214,10 @@ export default {
         exportFilename: {
             type: String,
             default: 'download'
+        },
+        exportFunction: {
+            type: Function,
+            default: null
         },
         autoLayout: {
             type: Boolean,
@@ -341,6 +291,10 @@ export default {
             type: Boolean,
             default: false
         },
+        scrollDirection: {
+            type: String,
+            default: "vertical"
+        },
         scrollHeight: {
             type: String,
             default: null
@@ -349,21 +303,29 @@ export default {
             type: Array,
             default: null
         },
-        frozenWidth: {
+        responsiveLayout: {
             type: String,
-            default: null
+            default: 'stack'
         },
-        virtualScroll: {
+        breakpoint: {
+            type: String,
+            default: '960px'
+        },
+        showGridlines: {
             type: Boolean,
             default: false
         },
-        virtualRowHeight: {
-            type: Number,
-            default: 28
+        stripedRows: {
+            type: Boolean,
+            default: false
         },
-        virtualScrollDelay: {
-            type: Number,
-            default: 150
+        tableStyle: {
+            type: null,
+            default: null
+        },
+        tableClass: {
+            type: String,
+            default: null
         }
     },
     data() {
@@ -374,10 +336,13 @@ export default {
             d_sortField: this.sortField,
             d_sortOrder: this.sortOrder,
             d_multiSortMeta: this.multiSortMeta ? [...this.multiSortMeta] : [],
+            d_groupRowsSortMeta: null,
             d_selectionKeys: null,
             d_expandedRowKeys: null,
             d_columnOrder: null,
-            d_editingRowKeys: null
+            d_editingRowKeys: null,
+            d_editingMeta: {},
+            d_filters: this.cloneFilters(this.filters)
         };
     },
     rowTouched: false,
@@ -397,7 +362,6 @@ export default {
     columnWidthsState: null,
     tableWidthState: null,
     columnWidthsRestored: false,
-    virtualScrollTimer: null,
     watch: {
         first(newValue) {
             this.d_first = newValue;
@@ -414,9 +378,12 @@ export default {
         multiSortMeta(newValue) {
             this.d_multiSortMeta = newValue;
         },
-        selection(newValue) {
-            if (this.dataKey) {
-                this.updateSelectionKeys(newValue);
+        selection: {
+            immediate: true,
+            handler(newValue) {
+                if (this.dataKey) {
+                    this.updateSelectionKeys(newValue);
+                }
             }
         },
         expandedRows(newValue) {
@@ -428,9 +395,15 @@ export default {
             if (this.dataKey) {
                 this.updateEditingRowKeys(newValue);
             }
+        },
+        filters: {
+            deep: true,
+            handler: function(newValue) {
+                this.d_filters = this.cloneFilters(newValue);
+            }
         }
     },
-    beforeMount() {
+    beforeDestroy() {
         if (this.isStateful()) {
             this.restoreState();
         }
@@ -448,25 +421,41 @@ export default {
             this.d_columnOrder = columnOrder;
         }
 
-        if (this.resizableColumns && !this.columnWidthsRestored) {
+        this.$el.setAttribute(this.attributeSelector, '');
+
+        if (this.responsiveLayout === 'stack' && !this.scrollable) {
+            this.createResponsiveStyle();
+        }
+
+        if (this.isStateful() && this.resizableColumns) {
             this.restoreColumnWidths();
         }
+
+        if (this.editMode === 'row' && this.dataKey && !this.d_editingRowKeys) {
+            this.updateEditingRowKeys(this.editingRows);
+        }
     },
-    beforeDestroy() {
+    beforeUnmount() {
         this.unbindColumnResizeEvents();
+        this.destroyStyleElement();
+        this.destroyResponsiveStyle();
     },
     updated() {
         if (this.isStateful()) {
             this.saveState();
+        }
 
-            if (this.resizableColumns && !this.columnWidthsRestored) {
-                this.restoreColumnWidths();
-                this.columnWidthsRestored = true;
-            }
+        if (this.editMode === 'row' && this.dataKey && !this.d_editingRowKeys) {
+            this.updateEditingRowKeys(this.editingRows);
         }
     },
     methods: {
+        columnProp(col, prop) {
+            return ObjectUtils.getVNodeProp(col, prop);
+        },
         onPage(event) {
+            this.clearEditingMetaData();
+
             this.d_first = event.first;
             this.d_rows = event.rows;
 
@@ -477,14 +466,15 @@ export default {
             this.$emit('update:first', this.d_first);
             this.$emit('update:rows', this.d_rows);
             this.$emit('page', pageEvent);
+            this.$emit('value-change', this.processedData);
         },
         onColumnHeaderClick(e) {
             const event = e.originalEvent;
             const column = e.column;
 
-            if (column.sortable) {
+            if (this.columnProp(column, 'sortable')) {
                 const targetNode = event.target;
-                const columnField = column.sortField || column.field;
+                const columnField = this.columnProp(column, 'sortField') || this.columnProp(column, 'field');
 
                 if (DomHandler.hasClass(targetNode, 'p-sortable-column') || DomHandler.hasClass(targetNode, 'p-column-title')
                     || DomHandler.hasClass(targetNode, 'p-sortable-column-icon') || DomHandler.hasClass(targetNode.parentElement, 'p-sortable-column-icon')) {
@@ -520,10 +510,22 @@ export default {
                     }
 
                     this.$emit('sort', this.createLazyLoadEvent(event));
+                    this.$emit('value-change', this.processedData);
                 }
             }
         },
         sortSingle(value) {
+            this.clearEditingMetaData();
+
+            if (this.groupRowsBy && this.groupRowsBy === this.sortField) {
+                this.d_multiSortMeta = [
+                    {field: this.sortField, order: this.sortOrder || this.defaultSortOrder},
+                    {field: this.d_sortField, order: this.d_sortOrder}
+                ];
+
+                return this.sortMultiple(value);
+            }
+
             let data = [...value];
 
             data.sort((data1, data2) => {
@@ -549,6 +551,17 @@ export default {
             return data;
         },
         sortMultiple(value) {
+            this.clearEditingMetaData();
+
+            if (this.groupRowsBy && (this.d_groupRowsSortMeta || (this.d_multiSortMeta.length && this.groupRowsBy === this.d_multiSortMeta[0].field))) {
+                const firstSortMeta = this.d_multiSortMeta[0];
+                !this.d_groupRowsSortMeta && (this.d_groupRowsSortMeta = firstSortMeta);
+
+                if (firstSortMeta.field !== this.d_groupRowsSortMeta.field) {
+                    this.d_multiSortMeta = [this.d_groupRowsSortMeta, ...this.d_multiSortMeta];
+                }
+            }
+
             let data = [...value];
 
             data.sort((data1, data2) => {
@@ -593,54 +606,91 @@ export default {
             this.d_multiSortMeta = [...this.d_multiSortMeta];
         },
         filter(data) {
+            if (!data) {
+                return;
+            }
+
+            this.clearEditingMetaData();
+
+            let globalFilterFieldsArray;
+            if (this.filters['global']) {
+                globalFilterFieldsArray = this.globalFilterFields|| this.columns.map(col => this.columnProp(col, 'filterField') || this.columnProp(col, 'field'));
+            }
+
             let filteredValue = [];
 
-            for(let i = 0; i < data.length; i++) {
+            for (let i = 0; i < data.length; i++) {
                 let localMatch = true;
                 let globalMatch = false;
+                let localFiltered = false;
 
-                for(let j = 0; j < this.columns.length; j++) {
-                    let col = this.columns[j];
-                    let columnField = col.filterField || col.field;
+                for (let prop in this.filters) {
+                    if (Object.prototype.hasOwnProperty.call(this.filters, prop) && prop !== 'global') {
+                        localFiltered = true;
+                        let filterField = prop;
+                        let filterMeta = this.filters[filterField];
 
-                    //local
-                    if (Object.prototype.hasOwnProperty.call(this.filters, columnField)) {
-                        let filterValue = this.filters[columnField];
-                        let dataFieldValue = ObjectUtils.resolveFieldData(data[i], columnField);
-                        let filterConstraint = col.filterMatchMode === 'custom' ? col.filterFunction : FilterUtils[col.filterMatchMode];
-                        if (!filterConstraint(dataFieldValue, filterValue, this.filterLocale)) {
-                            localMatch = false;
+                        if (filterMeta.operator) {
+                            for (let filterConstraint of filterMeta.constraints) {
+                                localMatch = this.executeLocalFilter(filterField, data[i], filterConstraint);
+
+                                if ((filterMeta.operator === FilterOperator.OR && localMatch) || (filterMeta.operator === FilterOperator.AND && !localMatch)) {
+                                    break;
+                                }
+                            }
+                        }
+                        else {
+                            localMatch = this.executeLocalFilter(filterField, data[i], filterMeta);
                         }
 
                         if (!localMatch) {
                             break;
                         }
                     }
+                }
 
-                    if (!col.excludeGlobalFilter && this.hasGlobalFilter() && !globalMatch) {
-                        globalMatch = FilterUtils.contains(ObjectUtils.resolveFieldData(data[i], columnField), this.filters['global'], this.filterLocale);
+                if (this.filters['global'] && !globalMatch && globalFilterFieldsArray) {
+                    for(let j = 0; j < globalFilterFieldsArray.length; j++) {
+                        let globalFilterField = globalFilterFieldsArray[j];
+                        globalMatch = FilterService.filters[this.filters['global'].matchMode || FilterMatchMode.CONTAINS](ObjectUtils.resolveFieldData(data[i], globalFilterField), this.filters['global'].value, this.filterLocale);
+
+                        if (globalMatch) {
+                            break;
+                        }
                     }
                 }
 
-                let matches = localMatch;
-                if(this.hasGlobalFilter()) {
-                    matches = localMatch && globalMatch;
+                let matches;
+                if (this.filters['global']) {
+                    matches = localFiltered ? (localFiltered && localMatch && globalMatch) : globalMatch;
+                }
+                else {
+                    matches = localFiltered && localMatch;
                 }
 
-                if(matches) {
+                if (matches) {
                     filteredValue.push(data[i]);
                 }
             }
 
-            if (filteredValue.length === data.length) {
+            if (filteredValue.length === this.value.length) {
                 filteredValue = data;
             }
 
             let filterEvent = this.createLazyLoadEvent();
             filterEvent.filteredValue = filteredValue;
             this.$emit('filter', filterEvent);
+            this.$emit('value-change', filteredValue);
 
             return filteredValue;
+        },
+        executeLocalFilter(field, rowData, filterMeta) {
+            let filterValue = filterMeta.value;
+            let filterMatchMode = filterMeta.matchMode || FilterMatchMode.STARTS_WITH;
+            let dataFieldValue = ObjectUtils.resolveFieldData(rowData, field);
+            let filterConstraint = FilterService.filters[filterMatchMode];
+
+            return filterConstraint(dataFieldValue, filterValue, this.filterLocale);
         },
         onRowClick(e) {
             const event = e.originalEvent;
@@ -652,7 +702,7 @@ export default {
 
             if (this.selectionMode) {
                 const rowData = e.data;
-                const rowIndex = e.index + this.d_first;
+                const rowIndex = this.d_first + e.index;
 
                 if (this.isMultipleSelectionMode() && event.shiftKey && this.anchorRowIndex != null) {
                     DomHandler.clearSelection();
@@ -728,6 +778,7 @@ export default {
             if (DomHandler.isClickable(event.target)) {
                 return;
             }
+
             this.$emit('row-dblclick', e);
         },
         onRowRightClick(event) {
@@ -835,7 +886,7 @@ export default {
         toggleRowsWithCheckbox(event) {
             const processedData = this.processedData;
             const checked = this.allRowsSelected;
-            const _selection = checked ? [] : (processedData ? [...processedData] : [...this.value]);
+            const _selection = checked ? [] : (this.frozenValue ? [...this.frozenValue, ...processedData]: processedData);
             this.$emit('update:selection', _selection);
 
             if (checked)
@@ -938,13 +989,11 @@ export default {
             }
 
             const value = this.processedData;
-            let _selection = [...this.selection];
+            let _selection = [];
             for(let i = rangeStart; i <= rangeEnd; i++) {
                 let rangeRowData = value[i];
-                if (!_selection.includes(rangeRowData)) {
-                    _selection.push(rangeRowData);
-                    this.$emit('row-select', {originalEvent: event, data: rangeRowData, type: 'row'});
-                }
+                _selection.push(rangeRowData);
+                this.$emit('row-select', {originalEvent: event, data: rangeRowData, type: 'row'});
             }
 
             this.$emit('update:selection', _selection);
@@ -953,19 +1002,23 @@ export default {
             let data = this.processedData;
             let csv = '\ufeff';
 
-            if (options && options.selectionOnly) {
+            if (options && options.selectionOnly)
                 data = this.selection || [];
-            }
+            else if (this.frozenValue)
+                data = data ? [...this.frozenValue, ...data] : this.frozenValue;
 
             //headers
+            let headerInitiated = false;
             for (let i = 0; i < this.columns.length; i++) {
                 let column = this.columns[i];
-                if (column.exportable !== false && column.field) {
-                    csv += '"' + (column.header || column.field) + '"';
 
-                    if (i < (this.columns.length - 1)) {
+                if (this.columnProp(column, 'exportable') !== false && this.columnProp(column, 'field')) {
+                    if (headerInitiated)
                         csv += this.csvSeparator;
-                    }
+                    else
+                        headerInitiated = true;
+
+                    csv += '"' + (this.columnProp(column, 'header') || this.columnProp(column, 'field')) + '"';
                 }
             }
 
@@ -973,16 +1026,22 @@ export default {
             if (data) {
                 data.forEach(record => {
                     csv += '\n';
+                    let rowInitiated = false;
                     for (let i = 0; i < this.columns.length; i++) {
                         let column = this.columns[i];
-                        if (column.exportable !== false && column.field) {
-                            let cellData = ObjectUtils.resolveFieldData(record, column.field);
+                        if (this.columnProp(column, 'exportable') !== false && this.columnProp(column, 'field')) {
+                            if (rowInitiated)
+                                csv += this.csvSeparator;
+                            else
+                                rowInitiated = true;
+
+                            let cellData = ObjectUtils.resolveFieldData(record, this.columnProp(column, 'field'));
 
                             if (cellData != null) {
                                 if (this.exportFunction) {
                                     cellData = this.exportFunction({
                                         data: cellData,
-                                        field: column.field
+                                        field: this.columnProp(column, 'field')
                                     });
                                 }
                                 else
@@ -991,12 +1050,7 @@ export default {
                             else
                                 cellData = '';
 
-
                             csv += '"' + cellData + '"';
-
-                            if (i < (this.columns.length - 1)) {
-                                csv += this.csvSeparator;
-                            }
                         }
                     }
                 });
@@ -1058,33 +1112,26 @@ export default {
                     let nextColumnWidth = nextColumn.offsetWidth - delta;
 
                     if (newColumnWidth > 15 && nextColumnWidth > 15) {
-                        if(this.scrollable) {
-                            const scrollableView = this.findParentScrollableView(this.resizeColumnElement);
-                            const scrollableBodyTable = DomHandler.findSingle(scrollableView, 'table.p-datatable-scrollable-body-table');
-                            const scrollableHeaderTable = DomHandler.findSingle(scrollableView, 'table.p-datatable-scrollable-header-table');
-                            const scrollableFooterTable = DomHandler.findSingle(scrollableView, 'table.p-datatable-scrollable-footer-table');
-                            const resizeColumnIndex = DomHandler.index(this.resizeColumnElement);
-
-                            this.resizeColGroup(scrollableHeaderTable, resizeColumnIndex, newColumnWidth, nextColumnWidth);
-                            this.resizeColGroup(scrollableBodyTable, resizeColumnIndex, newColumnWidth, nextColumnWidth);
-                            this.resizeColGroup(scrollableFooterTable, resizeColumnIndex, newColumnWidth, nextColumnWidth);
-                        }
-                        else {
+                        if (!this.scrollable) {
                             this.resizeColumnElement.style.width = newColumnWidth + 'px';
                             if(nextColumn) {
                                 nextColumn.style.width = nextColumnWidth + 'px';
                             }
                         }
+                        else {
+                            this.resizeTableCells(newColumnWidth, nextColumnWidth);
+                        }
                     }
                 }
                 else if (this.columnResizeMode === 'expand') {
-                    if (this.scrollable) {
-                        this.resizeScrollableTable(this.resizeColumnElement, newColumnWidth, delta);
-                    }
-                    else {
-                        this.$refs.table.style.width = this.$refs.table.offsetWidth + delta + 'px';
+                    const tableWidth = this.$refs.table.offsetWidth + delta + 'px';
+                    this.$refs.table.style.width = tableWidth;
+                    this.$refs.table.style.minWidth = tableWidth;
+
+                    if (!this.scrollable)
                         this.resizeColumnElement.style.width = newColumnWidth + 'px';
-                    }
+                    else
+                        this.resizeTableCells(newColumnWidth);
                 }
 
                 this.$emit('column-resize-end', {
@@ -1103,23 +1150,29 @@ export default {
                 this.saveState();
             }
         },
-        resizeColGroup(table, resizeColumnIndex, newColumnWidth, nextColumnWidth) {
-            if(table) {
-                let colGroup = table.children[0].nodeName === 'COLGROUP' ? table.children[0] : null;
+        resizeTableCells(newColumnWidth, nextColumnWidth) {
+            let colIndex = DomHandler.index(this.resizeColumnElement);
+            let widths = [];
+            let headers = DomHandler.find(this.$refs.table, '.p-datatable-thead > tr > th');
+            headers.forEach(header => widths.push(DomHandler.getOuterWidth(header)));
 
-                if(colGroup) {
-                    let col = colGroup.children[resizeColumnIndex];
-                    let nextCol = col.nextElementSibling;
-                    col.style.width = newColumnWidth + 'px';
+            this.destroyStyleElement();
+            this.createStyleElement();
 
-                    if (nextCol && nextColumnWidth) {
-                        nextCol.style.width = nextColumnWidth + 'px';
+            let innerHTML = '';
+            widths.forEach((width,index) => {
+                let colWidth = index === colIndex ? newColumnWidth : (nextColumnWidth && index === colIndex + 1) ? nextColumnWidth : width;
+                innerHTML += `
+                    .p-datatable[${this.attributeSelector}] .p-datatable-thead > tr > th:nth-child(${index+1}) {
+                        flex: 0 0 ${colWidth}px !important;
                     }
-                }
-                else {
-                    throw new Error("Scrollable tables require a colgroup to support resizable columns");
-                }
-            }
+
+                    .p-datatable[${this.attributeSelector}] .p-datatable-tbody > tr > td:nth-child(${index+1}) {
+                        flex: 0 0 ${colWidth}px !important;
+                    }
+                `
+            });
+            this.styleElement.innerHTML = innerHTML;
         },
         bindColumnResizeEvents() {
             if (!this.documentColumnResizeListener) {
@@ -1148,14 +1201,14 @@ export default {
 
             if (this.documentColumnResizeEndListener) {
                 document.removeEventListener('document', this.documentColumnResizeEndListener);
-                 this.documentColumnResizeEndListener = null;
+                this.documentColumnResizeEndListener = null;
             }
         },
         onColumnHeaderMouseDown(e) {
             const event = e.originalEvent;
             const column = e.column;
 
-            if (this.reorderableColumns && column.reorderableColumn) {
+            if (this.reorderableColumns && this.columnProp(column, 'reorderableColumn') !== false) {
                 if (event.target.nodeName === 'INPUT' || event.target.nodeName === 'TEXTAREA' || DomHandler.hasClass(event.target, 'p-column-resizer'))
                     event.currentTarget.draggable = false;
                 else
@@ -1222,7 +1275,8 @@ export default {
                 }
 
                 if (allowDrop) {
-                    ObjectUtils.reorderArray(this.d_columnOrder, dragIndex, dropIndex);
+                    ObjectUtils.reorderArray(this.columns, dragIndex, dropIndex);
+                    this.updateReorderableColumns();
 
                     this.$emit('column-reorder', {
                         originalEvent: event,
@@ -1251,62 +1305,17 @@ export default {
                 return parent;
             }
         },
-        findParentScrollableView(column) {
-            if (column) {
-                let parent = column.parentElement;
-                while (parent && !DomHandler.hasClass(parent, 'p-datatable-scrollable-view')) {
-                    parent = parent.parentElement;
-                }
-
-                return parent;
-            }
-            else {
-                return null;
-            }
-        },
         findColumnByKey(columns, key) {
-            if(columns && columns.length) {
-                for(let i = 0; i < columns.length; i++) {
-                    let child = columns[i];
-                    if(child.columnKey === key || child.field === key) {
-                        return child;
+            if (columns && columns.length) {
+                for (let i = 0; i < columns.length; i++) {
+                    let column = columns[i];
+                    if (this.columnProp(column, 'columnKey') === key || this.columnProp(column, 'field') === key) {
+                        return column;
                     }
                 }
             }
 
             return null;
-        },
-        resizeScrollableTable(column, newColumnWidth, delta) {
-            const scrollableView = column ? this.findParentScrollableView(column) : this.$el;
-            const scrollableBody = DomHandler.findSingle(scrollableView, '.p-datatable-scrollable-body');
-            const scrollableHeader = DomHandler.findSingle(scrollableView, '.p-datatable-scrollable-header');
-            const scrollableFooter = DomHandler.findSingle(scrollableView, '.p-datatable-scrollable-footer');
-            const scrollableBodyTable = DomHandler.findSingle(scrollableBody, 'table.p-datatable-scrollable-body-table');
-            const scrollableHeaderTable = DomHandler.findSingle(scrollableHeader, 'table.p-datatable-scrollable-header-table');
-            const scrollableFooterTable = DomHandler.findSingle(scrollableFooter, 'table.p-datatable-scrollable-footer-table');
-
-            const scrollableBodyTableWidth = column ? scrollableBodyTable.offsetWidth + delta : newColumnWidth;
-            const scrollableHeaderTableWidth = column ? scrollableHeaderTable.offsetWidth + delta : newColumnWidth;
-            const isContainerInViewport = this.$el.offsetWidth >= parseFloat(scrollableBodyTableWidth);
-
-            let setWidth = (container, table, width, isContainerInViewport) => {
-                if (container && table) {
-                    container.style.width = isContainerInViewport ? width + DomHandler.calculateScrollbarWidth(scrollableBody) + 'px' : 'auto'
-                    table.style.width = width + 'px';
-                }
-            };
-
-            setWidth(scrollableBody, scrollableBodyTable, scrollableBodyTableWidth, isContainerInViewport);
-            setWidth(scrollableHeader, scrollableHeaderTable, scrollableHeaderTableWidth, isContainerInViewport);
-            setWidth(scrollableFooter, scrollableFooterTable, scrollableHeaderTableWidth, isContainerInViewport);
-
-            if (column) {
-                let resizeColumnIndex = DomHandler.index(column);
-
-                this.resizeColGroup(scrollableHeaderTable, resizeColumnIndex, newColumnWidth, null);
-                this.resizeColGroup(scrollableBodyTable, resizeColumnIndex, newColumnWidth, null);
-                this.resizeColGroup(scrollableFooterTable, resizeColumnIndex, newColumnWidth, null);
-            }
         },
         onRowMouseDown(event) {
             if (DomHandler.hasClass(event.target, 'p-datatable-reorderablerow-handle'))
@@ -1474,7 +1483,7 @@ export default {
                 state.multiSortMeta = this.d_multiSortMeta;
             }
 
-            if (this.hasFilters()) {
+            if (this.hasFilters) {
                 state.filters = this.filters;
             }
 
@@ -1509,9 +1518,17 @@ export default {
         restoreState() {
             const storage = this.getStorage();
             const stateString = storage.getItem(this.stateKey);
+            const dateFormat = /\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{3}Z/;
+            const reviver = function(key, value) {
+                if (typeof value === "string" && dateFormat.test(value)) {
+                    return new Date(value);
+                }
+
+                return value;
+            }
 
             if (stateString) {
-                let restoredState = JSON.parse(stateString);
+                let restoredState = JSON.parse(stateString, reviver);
 
                 if (this.paginator) {
                     this.d_first = restoredState.first;
@@ -1564,8 +1581,7 @@ export default {
             state.columnWidths = widths.join(',');
 
             if (this.columnResizeMode === 'expand') {
-                state.tableWidth = this.scrollable ? DomHandler.findSingle(this.$el, '.p-datatable-scrollable-header-table').style.width :
-                                                    DomHandler.getOuterWidth(this.$refs.table) + 'px';
+                state.tableWidth = DomHandler.getOuterWidth(this.$refs.table) + 'px';
             }
         },
         restoreColumnWidths() {
@@ -1573,28 +1589,32 @@ export default {
                 let widths = this.columnWidthsState.split(',');
 
                 if (this.columnResizeMode === 'expand' && this.tableWidthState) {
-                    if (this.scrollable) {
-                        this.resizeScrollableTable(null, this.tableWidthState, 0);
-                    }
-                    else {
-                        this.$refs.table.style.width = this.tableWidthState;
-                        this.$el.style.width = this.tableWidthState;
-                    }
+                    this.$refs.table.style.width = this.tableWidthState;
+                    this.$refs.table.style.minWidth = this.tableWidthState;
+                    this.$el.style.width = this.tableWidthState;
                 }
 
-                if (this.scrollable) {
-                    let headerCols = DomHandler.find(this.$el, '.p-datatable-scrollable-header-table > colgroup > col');
-                    let bodyCols = DomHandler.find(this.$el, '.p-datatable-scrollable-body-table > colgroup > col');
+                this.createStyleElement();
 
-                    headerCols.forEach((col, index) => col.style.width = widths[index] + 'px');
-                    bodyCols.forEach((col, index) => col.style.width = widths[index] + 'px');
+                if (this.scrollable && widths && widths.length > 0) {
+                    let innerHTML = '';
+                    widths.forEach((width,index) => {
+                        innerHTML += `
+                            .p-datatable[${this.attributeSelector}] .p-datatable-thead > tr > th:nth-child(${index+1}) {
+                                flex: 0 0 ${width}px;
+                            }
+
+                            .p-datatable[${this.attributeSelector}] .p-datatable-tbody > tr > td:nth-child(${index+1}) {
+                                flex: 0 0 ${width}px;
+                            }
+                        `
+                    });
+
+                    this.styleElement.innerHTML = innerHTML;
                 }
                 else {
-                    let headers = DomHandler.find(this.$refs.table, '.p-datatable-thead > tr > th');
-                    headers.forEach((header, index) => header.style.width = widths[index] + 'px');
+                    DomHandler.find(this.$refs.table, '.p-datatable-thead > tr > th').forEach((header, index) => header.style.width = widths[index] + 'px');
                 }
-
-
             }
         },
         onCellEditInit(event) {
@@ -1624,29 +1644,25 @@ export default {
             this.$emit('update:editingRows', _editingRows);
             this.$emit('row-edit-cancel', event);
         },
-        onVirtualScroll(event) {
-            if(this.virtualScrollTimer) {
-                clearTimeout(this.virtualScrollTimer);
-            }
+        onEditingMetaChange(event) {
+            let { data, field, index, editing } = event;
+            let meta = this.d_editingMeta[index];
 
-            this.virtualScrollTimer = setTimeout(() => {
-                this.$emit('virtual-scroll', {
-                        first: (event.page - 1) * this.rows,
-                        rows: this.rows * 2
-                    });
-                }, this.virtualScrollDelay);
+            if (editing) {
+                !meta && (meta = this.d_editingMeta[index] = { data: { ...data }, fields: [] });
+                meta['fields'].push(field);
+            }
+            else if (meta) {
+                const fields = meta['fields'].filter(f => f !== field);
+                !fields.length ? (delete this.d_editingMeta[index]) : (meta['fields'] = fields);
+            }
+        },
+        clearEditingMetaData() {
+            if (this.editMode) {
+                this.d_editingMeta = {};
+            }
         },
         createLazyLoadEvent(event) {
-            let filterMatchModes;
-            if (this.hasFilters()) {
-                filterMatchModes = {};
-                this.columns.forEach(col => {
-                    if (col.field) {
-                        filterMatchModes[col.field] = col.filterMatchMode;
-                    }
-                });
-            }
-
             return {
                 originalEvent: event,
                 first: this.d_first,
@@ -1654,15 +1670,112 @@ export default {
                 sortField: this.d_sortField,
                 sortOrder: this.d_sortOrder,
                 multiSortMeta: this.d_multiSortMeta,
-                filters: this.filters,
-                filterMatchModes: filterMatchModes
+                filters: this.d_filters
             };
-        },
-        hasFilters() {
-            return this.filters && Object.keys(this.filters).length > 0 && this.filters.constructor === Object;
         },
         hasGlobalFilter() {
             return this.filters && Object.prototype.hasOwnProperty.call(this.filters, 'global');
+        },
+        getChildren() {
+            return this.$scopedSlots.default ? this.$scopedSlots.default() : null;
+        },
+        onFilterChange(filters) {
+            this.d_filters = filters;
+        },
+        onFilterApply() {
+            this.d_first = 0;
+            this.$emit('update:first', this.d_first);
+            this.$emit('update:filters', this.d_filters);
+
+            if (this.lazy) {
+                this.$emit('filter', this.createLazyLoadEvent());
+            }
+        },
+        cloneFilters() {
+            let cloned = {};
+            if (this.filters) {
+                Object.entries(this.filters).forEach(([prop,value]) => {
+                    cloned[prop] = value.operator ? {operator: value.operator, constraints: value.constraints.map(constraint => {return {...constraint}})} : {...value};
+                });
+            }
+
+            return cloned;
+        },
+        updateReorderableColumns() {
+            let columnOrder = [];
+            this.columns.forEach(col => columnOrder.push(this.columnProp(col, 'columnKey')||this.columnProp(col, 'field')));
+            this.d_columnOrder = columnOrder;
+        },
+        createStyleElement() {
+            this.styleElement = document.createElement('style');
+            this.styleElement.type = 'text/css';
+            document.head.appendChild(this.styleElement);
+        },
+        createResponsiveStyle() {
+			if (!this.responsiveStyleElement) {
+				this.responsiveStyleElement = document.createElement('style');
+				this.responsiveStyleElement.type = 'text/css';
+				document.head.appendChild(this.responsiveStyleElement);
+
+                let innerHTML = `
+@media screen and (max-width: ${this.breakpoint}) {
+    .p-datatable[${this.attributeSelector}] .p-datatable-thead > tr > th,
+    .p-datatable[${this.attributeSelector}] .p-datatable-tfoot > tr > td {
+        display: none !important;
+    }
+
+    .p-datatable[${this.attributeSelector}] .p-datatable-tbody > tr > td {
+        display: flex;
+        width: 100% !important;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .p-datatable[${this.attributeSelector}] .p-datatable-tbody > tr > td:not(:last-child) {
+        border: 0 none;
+    }
+
+    .p-datatable[${this.attributeSelector}].p-datatable-gridlines .p-datatable-tbody > tr > td:last-child {
+        border-top: 0;
+        border-right: 0;
+        border-left: 0;
+    }
+
+    .p-datatable[${this.attributeSelector}] .p-datatable-tbody > tr > td > .p-column-title {
+        display: block;
+    }
+}
+`;
+
+                this.responsiveStyleElement.innerHTML = innerHTML;
+			}
+		},
+        destroyResponsiveStyle() {
+            if (this.responsiveStyleElement) {
+                document.head.removeChild(this.responsiveStyleElement);
+                this.responsiveStyleElement = null;
+            }
+        },
+        destroyStyleElement() {
+            if (this.styleElement) {
+                document.head.removeChild(this.styleElement);
+                this.styleElement = null;
+            }
+        },
+        recursiveGetChildren(children, results) {
+            if (!results) {
+                results = [];
+            }
+            if (children && children.length) {
+                children.forEach((child) => {
+                    if (child.children instanceof Array) {
+                        results.concat(this.recursiveGetChildren(child.children, results));
+                    } else if (child.type.name == 'Column') {
+                        results.push(child);
+                    }
+                });
+            }
+            return results;
         },
     },
     computed: {
@@ -1674,8 +1787,16 @@ export default {
                     'p-datatable-resizable': this.resizableColumns,
                     'p-datatable-resizable-fit': this.resizableColumns && this.columnResizeMode === 'fit',
                     'p-datatable-scrollable': this.scrollable,
-                    'p-datatable-virtual-scrollable': this.virtualScroll,
-                    'p-datatable-flex-scrollable': (this.scrollable && this.scrollHeight === 'flex')
+                    'p-datatable-scrollable-vertical': this.scrollable && this.scrollDirection === 'vertical',
+                    'p-datatable-scrollable-horizontal': this.scrollable && this.scrollDirection === 'horizontal',
+                    'p-datatable-scrollable-both': this.scrollable && this.scrollDirection === 'both',
+                    'p-datatable-flex-scrollable': (this.scrollable && this.scrollHeight === 'flex'),
+                    'p-datatable-responsive-stack': this.responsiveLayout === 'stack',
+                    'p-datatable-responsive-scroll': this.responsiveLayout === 'scroll',
+                    'p-datatable-striped': this.stripedRows,
+                    'p-datatable-gridlines': this.showGridlines,
+                    'p-datatable-grouped-header': this.headerColumnGroup != null,
+                    'p-datatable-grouped-footer': this.footerColumnGroup != null
                 }
             ];
         },
@@ -1701,84 +1822,37 @@ export default {
             }
             return columns;
         },
-        frozenColumns() {
-            let frozenColumns = [];
-
-            for(let col of this.columns) {
-                if(col.frozen) {
-                    frozenColumns = frozenColumns||[];
-                    frozenColumns.push(col);
-                }
-            }
-
-            return frozenColumns;
-        },
-        scrollableColumns() {
-            let scrollableColumns = [];
-
-            for(let col of this.columns) {
-                if(!col.frozen) {
-                    scrollableColumns = scrollableColumns||[];
-                    scrollableColumns.push(col);
-                }
-            }
-
-            return scrollableColumns;
-        },
-        hasFrozenColumns() {
-            return this.frozenColumns.length > 0;
-        },
         headerColumnGroup() {
             if (this.allChildren) {
                 for (let child of this.allChildren) {
-                    if (child.$vnode.tag.indexOf('columngroup') !== -1 && child.type === 'header') {
+                    if (child.$vnode.tag.indexOf('columngroup') !== -1 && this.columnProp(child, 'type') === 'header') {
                         return child;
                     }
                 }
             }
-
-            return null;
-        },
-        frozenHeaderColumnGroup() {
-            if (this.allChildren) {
-                for (let child of this.allChildren) {
-                    if (child.$vnode.tag.indexOf('columngroup') !== -1 && child.type === 'frozenheader') {
-                        return child;
-                    }
-                }
-            }
-
             return null;
         },
         footerColumnGroup() {
             if (this.allChildren) {
                 for (let child of this.allChildren) {
-                    if (child.$vnode.tag.indexOf('columngroup') !== -1 && child.type === 'footer') {
+                    if (child.$vnode.tag.indexOf('columngroup') !== -1 && this.columnProp(child, 'type') === 'footer') {
                         return child;
                     }
                 }
             }
-
             return null;
         },
-        frozenFooterColumnGroup() {
-            if (this.allChildren) {
-                for (let child of this.allChildren) {
-                    if (child.$vnode.tag.indexOf('columngroup') !== -1 && child.type === 'frozenfooter') {
-                        return child;
-                    }
-                }
-            }
-
-            return null;
+        hasFilters() {
+            return this.filters && Object.keys(this.filters).length > 0 && this.filters.constructor === Object;
         },
         processedData() {
-            if (this.lazy) {
-                return this.value;
-            }
-            else {
-                if (this.value && this.value.length) {
-                    let data = this.value;
+            let data = this.value || [];
+
+            if (!this.lazy) {
+                if (data && data.length) {
+                    if (this.hasFilters) {
+                        data = this.filter(data);
+                    }
 
                     if (this.sorted) {
                         if(this.sortMode === 'single')
@@ -1786,17 +1860,10 @@ export default {
                         else if(this.sortMode === 'multiple')
                             data = this.sortMultiple(data);
                     }
-
-                    if (this.hasFilters()) {
-                        data = this.filter(data);
-                    }
-
-                    return data;
-                }
-                else {
-                    return null;
                 }
             }
+
+            return data;
         },
         dataToRender() {
             const data = this.processedData;
@@ -1835,13 +1902,19 @@ export default {
             return ['p-datatable-loading-icon pi-spin', this.loadingIcon];
         },
         allRowsSelected() {
-            const val = this.processedData;
-            return (val && val.length > 0 && this.selection && this.selection.length > 0 && this.selection.length === val.length);
+            const val = this.frozenValue ? [...this.frozenValue, ...this.processedData]: this.processedData;
+            const length = this.lazy ? this.totalRecords : (val ? val.length : 0);
+            return (val && length > 0 && this.selection && this.selection.length > 0 && this.selection.length === length);
+        },
+        attributeSelector() {
+            return UniqueComponentId();
+        },
+        groupRowSortField() {
+            return this.sortMode === 'single' ? this.sortField : (this.d_groupRowsSortMeta ? this.d_groupRowsSortMeta.field : null);
         }
     },
     components: {
         'DTPaginator': Paginator,
-        'DTScrollableView': ScrollableView,
         'DTTableHeader': TableHeader,
         'DTTableBody': TableBody,
         'DTTableFooter': TableFooter,
@@ -1856,7 +1929,7 @@ export default {
 
 .p-datatable table {
     border-collapse: collapse;
-    width: 100%;
+    min-width: 100%;
     table-layout: fixed;
 }
 
@@ -1877,10 +1950,11 @@ export default {
     justify-content: center;
 }
 
-.p-datatable-auto-layout > .p-datatable-wrapper {
+.p-datatable-responsive-scroll > .p-datatable-wrapper {
     overflow-x: auto;
 }
 
+.p-datatable-responsive-scroll > .p-datatable-wrapper > table,
 .p-datatable-auto-layout > .p-datatable-wrapper > table {
     table-layout: auto;
 }
@@ -1890,60 +1964,102 @@ export default {
 }
 
 /* Scrollable */
-.p-datatable-scrollable-wrapper {
+.p-datatable-scrollable .p-datatable-wrapper {
     position: relative;
-}
-
-.p-datatable-scrollable-header,
-.p-datatable-scrollable-footer {
-    overflow: hidden;
-}
-
-.p-datatable-scrollable-body {
     overflow: auto;
-    position: relative;
 }
 
-.p-datatable-scrollable-body > table > .p-datatable-tbody > tr:first-child > td {
-    border-top: 0 none;
+.p-datatable-scrollable .p-datatable-thead,
+.p-datatable-scrollable .p-datatable-tbody,
+.p-datatable-scrollable .p-datatable-tfoot {
+    display: block;
 }
 
-.p-datatable-virtual-table {
-    position: absolute;
+.p-datatable-scrollable .p-datatable-thead > tr,
+.p-datatable-scrollable .p-datatable-tbody > tr,
+.p-datatable-scrollable .p-datatable-tfoot > tr {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
 }
 
-/* Frozen Columns */
-.p-datatable-frozen-view .p-datatable-scrollable-body {
-    overflow: hidden;
+.p-datatable-scrollable .p-datatable-thead > tr > th,
+.p-datatable-scrollable .p-datatable-tbody > tr > td,
+.p-datatable-scrollable .p-datatable-tfoot > tr > td {
+    display: flex;
+    flex: 1 1 0;
+    align-items: center;
 }
 
-.p-datatable-frozen-view > .p-datatable-scrollable-body > table > .p-datatable-tbody > tr > td:last-child {
-    border-right: 0 none;
-}
-
-.p-datatable-unfrozen-view {
-    position: absolute;
+.p-datatable-scrollable .p-datatable-thead {
+    position: sticky;
     top: 0;
+    z-index: 1;
 }
 
-/* Flex Scrollable */
+.p-datatable-scrollable .p-datatable-frozen-tbody {
+    position: sticky;
+    z-index: 1;
+}
+
+.p-datatable-scrollable .p-datatable-tfoot {
+    position: sticky;
+    bottom: 0;
+    z-index: 1;
+}
+
+.p-datatable-scrollable .p-frozen-column {
+    position: sticky;
+    background: inherit;
+}
+
+.p-datatable-scrollable th.p-frozen-column {
+    z-index: 1;
+}
+
+.p-datatable-scrollable-both .p-datatable-thead > tr > th,
+.p-datatable-scrollable-both .p-datatable-tbody > tr > td,
+.p-datatable-scrollable-both .p-datatable-tfoot > tr > td,
+.p-datatable-scrollable-horizontal .p-datatable-thead > tr > th
+.p-datatable-scrollable-horizontal .p-datatable-tbody > tr > td,
+.p-datatable-scrollable-horizontal .p-datatable-tfoot > tr > td {
+    flex: 0 0 auto;
+}
+
 .p-datatable-flex-scrollable {
     display: flex;
     flex-direction: column;
-    flex: 1;
     height: 100%;
 }
 
-.p-datatable-flex-scrollable .p-datatable-scrollable-wrapper,
-.p-datatable-flex-scrollable .p-datatable-scrollable-view {
+.p-datatable-flex-scrollable .p-datatable-wrapper {
     display: flex;
     flex-direction: column;
     flex: 1;
     height: 100%;
 }
 
-.p-datatable-flex-scrollable .p-datatable-scrollable-body {
-    flex: 1;
+.p-datatable-scrollable .p-rowgroup-header {
+    position: sticky;
+    z-index: 1;
+}
+
+.p-datatable-scrollable.p-datatable-grouped-header .p-datatable-thead,
+.p-datatable-scrollable.p-datatable-grouped-footer .p-datatable-tfoot {
+    display: table;
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;
+}
+
+.p-datatable-scrollable.p-datatable-grouped-header .p-datatable-thead > tr,
+.p-datatable-scrollable.p-datatable-grouped-footer .p-datatable-tfoot > tr {
+    display: table-row;
+}
+
+.p-datatable-scrollable.p-datatable-grouped-header .p-datatable-thead > tr > th,
+.p-datatable-scrollable.p-datatable-grouped-footer .p-datatable-tfoot > tr > td {
+    display: table-cell;
 }
 
 /* Resizable */
@@ -1978,6 +2094,11 @@ export default {
     padding: 0px;
     cursor:col-resize;
     border: 1px solid transparent;
+}
+
+.p-datatable .p-column-header-content {
+    display: flex;
+    align-items: center;
 }
 
 .p-datatable .p-column-resizer-helper {
@@ -2020,5 +2141,74 @@ export default {
     align-items: center;
     justify-content: center;
     z-index: 2;
+}
+
+/* Filter */
+.p-column-filter-row {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.p-column-filter-menu {
+    display: inline-flex;
+    margin-left: auto;
+}
+
+.p-column-filter-row .p-column-filter-element {
+    flex: 1 1 auto;
+    width: 1%;
+}
+
+.p-column-filter-menu-button,
+.p-column-filter-clear-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+    overflow: hidden;
+    position: relative;
+}
+
+.p-column-filter-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.p-column-filter-row-items {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.p-column-filter-row-item {
+    cursor: pointer;
+}
+
+.p-column-filter-add-button,
+.p-column-filter-remove-button {
+    justify-content: center;
+}
+
+.p-column-filter-add-button .p-button-label,
+.p-column-filter-remove-button .p-button-label {
+    flex-grow: 0;
+}
+
+.p-column-filter-buttonbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.p-column-filter-buttonbar .p-button:not(.p-button-icon-only) {
+    width: auto;
+}
+
+/* Responsive */
+.p-datatable .p-datatable-tbody > tr > td > .p-column-title {
+    display: none;
 }
 </style>
