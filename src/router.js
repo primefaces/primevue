@@ -362,6 +362,11 @@ export default new Router({
 			component: () => import('./views/fileupload/FileUploadDemo.vue')
 		},
 		{
+			path: '/filterservice',
+			name: 'filterservice',
+			component: () => import('./views/filterservice/FilterServiceDemo.vue')
+		},
+		{
 			path: '/grid',
 			name: 'grid',
 			component: () => import('./views/grid/GridDemo.vue')

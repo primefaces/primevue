@@ -12,7 +12,7 @@
 
 		<div class="content-section implementation">
             <div class="card">
-                <DataTable :value="customers" :lazy="true" :paginator="true" :rows="10" ref="dt"
+                <DataTable :value="customers" :lazy="true" :paginator="true" :rows="10" ref="dt" responsiveLayout="scroll"
                     :totalRecords="totalRecords" :loading="loading" @page="onPage($event)" @sort="onSort($event)">
                     <Column field="name" header="Name" filterMatchMode="startsWith" ref="name" :sortable="true">
                         <template #filter>
@@ -43,7 +43,7 @@
                 <TabPanel header="Source">
 <CodeHighlight>
 <template v-pre>
-&lt;DataTable :value="customers" :lazy="true" :paginator="true" :rows="10" ref="dt"
+&lt;DataTable :value="customers" :lazy="true" :paginator="true" :rows="10" ref="dt" responsiveLayout="scroll"
     :totalRecords="totalRecords" :loading="loading" @page="onPage($event)" @sort="onSort($event)"&gt;
     &lt;Column field="name" header="Name" filterMatchMode="startsWith" ref="name" :sortable="true"&gt;
         &lt;template #filter&gt;

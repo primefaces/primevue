@@ -9,7 +9,7 @@
 
 		<div class="content-section implementation">
             <div class="card">
-                <DataTable :value="products">
+                <DataTable :value="products" responsiveLayout="scroll">
                     <template #header>
                         <div class="table-header">
                             Products
@@ -18,7 +18,7 @@
                     </template>
                     <Column field="name" header="Name"></Column>
                     <Column header="Image">
-                         <template #body="slotProps">
+                        <template #body="slotProps">
                             <img :src="'demo/images/product/' + slotProps.data.image" :alt="slotProps.data.image" class="product-image" />
                         </template>
                     </Column>
@@ -30,7 +30,7 @@
                     <Column field="category" header="Category"></Column>
                     <Column field="rating" header="Reviews">
                         <template #body="slotProps">
-                           <Rating :value="slotProps.data.rating" :readonly="true" :cancel="false" />
+                            <Rating :value="slotProps.data.rating" :readonly="true" :cancel="false" />
                         </template>
                     </Column>
                     <Column header="Status">
@@ -50,7 +50,7 @@
                 <TabPanel header="Source">
 <CodeHighlight>
 <template v-pre>
-&lt;DataTable :value="products"&gt;
+&lt;DataTable :value="products responsiveLayout="scroll""&gt;
     &lt;template #header&gt;
         &lt;div class="table-header"&gt;
             Products

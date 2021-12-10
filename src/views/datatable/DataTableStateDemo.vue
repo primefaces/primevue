@@ -12,19 +12,19 @@
                 <h5>Session Storage</h5>
                 <DataTable :value="customers" :paginator="true" :rows="10" :filters.sync="filters1"
                     :selection.sync="selectedCustomer1" selectionMode="single" dataKey="id"
-                    stateStorage="session" stateKey="dt-state-demo-session">
+                    stateStorage="session" stateKey="dt-state-demo-session" responsiveLayout="scroll">
                     <template #header>
-                       <span class="p-input-icon-left">
+                        <span class="p-input-icon-left">
                             <i class="pi pi-search" />
-                            <InputText v-model="filters1['global']" placeholder="Global Search" />
+                            <InputText v-model="filters1['global'].value" placeholder="Global Search" />
                         </span>
                     </template>
-                    <Column field="name" header="Name" :sortable="true">
+                    <Column field="name" header="Name" :sortable="true" :styles="{width:'25%'}">
                         <template #filter>
                             <InputText type="text" v-model="filters1['name']" class="p-column-filter" placeholder="Search by name"/>
                         </template>
                     </Column>
-                    <Column header="Country" :sortable="true" sortField="country.name" filterField="country.name" filterMatchMode="contains">
+                    <Column header="Country" :sortable="true" sortField="country.name" filterField="country.name" filterMatchMode="contains" :styles="{width:'25%'}">
                         <template #body="slotProps">
                             <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.data.country.code" width="30" />
                             <span class="image-text">{{slotProps.data.country.name}}</span>
@@ -33,7 +33,7 @@
                             <InputText type="text" v-model="filters1['country.name']" class="p-column-filter" placeholder="Search by country"/>
                         </template>
                     </Column>
-                    <Column header="Representative" :sortable="true" sortField="representative.name" filterField="representative.name" filterMatchMode="in">
+                    <Column header="Representative" :sortable="true" sortField="representative.name" filterField="representative.name" filterMatchMode="in" :styles="{width:'25%'}">
                         <template #body="slotProps">
                             <img :alt="slotProps.data.representative.name" :src="'demo/images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" />
                             <span class="image-text">{{slotProps.data.representative.name}}</span>
@@ -49,7 +49,7 @@
                             </MultiSelect>
                         </template>
                     </Column>
-                    <Column field="status" header="Status" :sortable="true" filterMatchMode="equals">
+                    <Column field="status" header="Status" :sortable="true" filterMatchMode="equals" :styles="{width:'25%'}">
                         <template #body="slotProps">
                             <span :class="'customer-badge status-' + slotProps.data.status">{{slotProps.data.status}}</span>
                         </template>
@@ -71,19 +71,19 @@
                 <h5>Local Storage</h5>
                 <DataTable :value="customers" :paginator="true" :rows="10" :filters.sync="filters2"
                     :selection.sync="selectedCustomer2" selectionMode="single" dataKey="id"
-                    stateStorage="local" stateKey="dt-state-demo-local">
+                    stateStorage="local" stateKey="dt-state-demo-local" responsiveLayout="scroll">
                     <template #header>
-                       <span class="p-input-icon-left">
+                        <span class="p-input-icon-left">
                             <i class="pi pi-search" />
-                            <InputText v-model="filters2['global']" placeholder="Global Search" />
+                            <InputText v-model="filters2['global'].value" placeholder="Global Search" />
                         </span>
                     </template>
-                    <Column field="name" header="Name" :sortable="true">
+                    <Column field="name" header="Name" :sortable="true" :styles="{width:'25%'}">
                         <template #filter>
                             <InputText type="text" v-model="filters2['name']" class="p-column-filter" placeholder="Search by name"/>
                         </template>
                     </Column>
-                    <Column header="Country" :sortable="true" sortField="country.name" filterField="country.name" filterMatchMode="contains">
+                    <Column header="Country" :sortable="true" sortField="country.name" filterField="country.name" filterMatchMode="contains" :styles="{width:'25%'}">
                         <template #body="slotProps">
                             <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.data.country.code" width="30" />
                             <span class="image-text">{{slotProps.data.country.name}}</span>
@@ -92,7 +92,7 @@
                             <InputText type="text" v-model="filters2['country.name']" class="p-column-filter" placeholder="Search by country"/>
                         </template>
                     </Column>
-                    <Column header="Representative" :sortable="true" sortField="representative.name" filterField="representative.name" filterMatchMode="in">
+                    <Column header="Representative" :sortable="true" sortField="representative.name" filterField="representative.name" filterMatchMode="in" :styles="{width:'25%'}">
                         <template #body="slotProps">
                             <img :alt="slotProps.data.representative.name" :src="'demo/images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" />
                             <span class="image-text">{{slotProps.data.representative.name}}</span>
@@ -108,7 +108,7 @@
                             </MultiSelect>
                         </template>
                     </Column>
-                    <Column field="status" header="Status" :sortable="true" filterMatchMode="equals">
+                    <Column field="status" header="Status" :sortable="true" filterMatchMode="equals" :styles="{width:'25%'}">
                         <template #body="slotProps">
                             <span :class="'customer-badge status-' + slotProps.data.status">{{slotProps.data.status}}</span>
                         </template>
@@ -136,19 +136,19 @@
     &lt;h5&gt;Session Storage&lt;/h5&gt;
     &lt;DataTable :value="customers" :paginator="true" :rows="10" :filters.sync="filters1"
         :selection.sync="selectedCustomer1" selectionMode="single" dataKey="id"
-        stateStorage="session" stateKey="dt-state-demo-session"&gt;
+        stateStorage="session" stateKey="dt-state-demo-session" responsiveLayout="scroll"&gt;
         &lt;template #header&gt;
             &lt;span class="p-input-icon-left"&gt;
                 &lt;i class="pi pi-search" /&gt;
-                &lt;InputText v-model="filters1['global']" placeholder="Global Search" /&gt;
+                &lt;InputText v-model="filters1['global'].value" placeholder="Global Search" /&gt;
             &lt;/span&gt;
         &lt;/template&gt;
-        &lt;Column field="name" header="Name" :sortable="true"&gt;
+        &lt;Column field="name" header="Name" :sortable="true" :styles="{width:'25%'}"&gt;
             &lt;template #filter&gt;
                 &lt;InputText type="text" v-model="filters1['name']" class="p-column-filter" placeholder="Search by name"/&gt;
             &lt;/template&gt;
         &lt;/Column&gt;
-        &lt;Column header="Country" :sortable="true" sortField="country.name" filterField="country.name" filterMatchMode="contains"&gt;
+        &lt;Column header="Country" :sortable="true" sortField="country.name" filterField="country.name" filterMatchMode="contains" :styles="{width:'25%'}"&gt;
             &lt;template #body="slotProps"&gt;
                 &lt;img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.data.country.code" width="30" /&gt;
                 &lt;span class="image-text"&gt;{{slotProps.data.country.name}}&lt;/span&gt;
@@ -157,7 +157,7 @@
                 &lt;InputText type="text" v-model="filters1['country.name']" class="p-column-filter" placeholder="Search by country"/&gt;
             &lt;/template&gt;
         &lt;/Column&gt;
-        &lt;Column header="Representative" :sortable="true" sortField="representative.name" filterField="representative.name" filterMatchMode="in"&gt;
+        &lt;Column header="Representative" :sortable="true" sortField="representative.name" filterField="representative.name" filterMatchMode="in" :styles="{width:'25%'}"&gt;
             &lt;template #body="slotProps"&gt;
                 &lt;img :alt="slotProps.data.representative.name" :src="'demo/images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" /&gt;
                 &lt;span class="image-text"&gt;{{slotProps.data.representative.name}}&lt;/span&gt;
@@ -173,7 +173,7 @@
                 &lt;/MultiSelect&gt;
             &lt;/template&gt;
         &lt;/Column&gt;
-        &lt;Column field="status" header="Status" :sortable="true" filterMatchMode="equals"&gt;
+        &lt;Column field="status" header="Status" :sortable="true" filterMatchMode="equals" :styles="{width:'25%'}"&gt;
             &lt;template #body="slotProps"&gt;
                 &lt;span :class="'customer-badge status-' + slotProps.data.status"&gt;{{slotProps.data.status}}&lt;/span&gt;
             &lt;/template&gt;
@@ -189,25 +189,25 @@
             No customers found.
         &lt;/template&gt;
     &lt;/DataTable&gt;
-    &lt;/div&gt;
+&lt;/div&gt;
 
-    &lt;div class="card"&gt;
+&lt;div class="card"&gt;
     &lt;h5&gt;Local Storage&lt;/h5&gt;
     &lt;DataTable :value="customers" :paginator="true" :rows="10" :filters.sync="filters2"
         :selection.sync="selectedCustomer2" selectionMode="single" dataKey="id"
-        stateStorage="session" stateKey="dt-state-demo-local"&gt;
+        stateStorage="local" stateKey="dt-state-demo-local" responsiveLayout="scroll"&gt;
         &lt;template #header&gt;
             &lt;span class="p-input-icon-left"&gt;
                 &lt;i class="pi pi-search" /&gt;
-                &lt;InputText v-model="filters2['global']" placeholder="Global Search" /&gt;
+                &lt;InputText v-model="filters2['global'].value" placeholder="Global Search" /&gt;
             &lt;/span&gt;
         &lt;/template&gt;
-        &lt;Column field="name" header="Name" :sortable="true"&gt;
+        &lt;Column field="name" header="Name" :sortable="true" :styles="{width:'25%'}"&gt;
             &lt;template #filter&gt;
                 &lt;InputText type="text" v-model="filters2['name']" class="p-column-filter" placeholder="Search by name"/&gt;
             &lt;/template&gt;
         &lt;/Column&gt;
-        &lt;Column header="Country" :sortable="true" sortField="country.name" filterField="country.name" filterMatchMode="contains"&gt;
+        &lt;Column header="Country" :sortable="true" sortField="country.name" filterField="country.name" filterMatchMode="contains" :styles="{width:'25%'}"&gt;
             &lt;template #body="slotProps"&gt;
                 &lt;img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.data.country.code" width="30" /&gt;
                 &lt;span class="image-text"&gt;{{slotProps.data.country.name}}&lt;/span&gt;
@@ -216,7 +216,7 @@
                 &lt;InputText type="text" v-model="filters2['country.name']" class="p-column-filter" placeholder="Search by country"/&gt;
             &lt;/template&gt;
         &lt;/Column&gt;
-        &lt;Column header="Representative" :sortable="true" sortField="representative.name" filterField="representative.name" filterMatchMode="in"&gt;
+        &lt;Column header="Representative" :sortable="true" sortField="representative.name" filterField="representative.name" filterMatchMode="in" :styles="{width:'25%'}"&gt;
             &lt;template #body="slotProps"&gt;
                 &lt;img :alt="slotProps.data.representative.name" :src="'demo/images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" /&gt;
                 &lt;span class="image-text"&gt;{{slotProps.data.representative.name}}&lt;/span&gt;
@@ -232,7 +232,7 @@
                 &lt;/MultiSelect&gt;
             &lt;/template&gt;
         &lt;/Column&gt;
-        &lt;Column field="status" header="Status" :sortable="true" filterMatchMode="equals"&gt;
+        &lt;Column field="status" header="Status" :sortable="true" filterMatchMode="equals" :styles="{width:'25%'}"&gt;
             &lt;template #body="slotProps"&gt;
                 &lt;span :class="'customer-badge status-' + slotProps.data.status"&gt;{{slotProps.data.status}}&lt;/span&gt;
             &lt;/template&gt;
@@ -248,13 +248,13 @@
             No customers found.
         &lt;/template&gt;
     &lt;/DataTable&gt;
-    &lt;/div&gt;
+&lt;/div&gt;
 </template>
 </CodeHighlight>
 
 <CodeHighlight lang="javascript">
+import FilterMatchMode from '../../../src/components/api/FilterMatchMode';
 import CustomerService from '../../service/CustomerService';
-import DataTableDoc from './DataTableDoc';
 
 export default {
     data() {
@@ -282,11 +282,26 @@ export default {
             ]
         }
     },
+    customerService: null,
     created() {
         this.customerService = new CustomerService();
+        this.initFilters1();
+        this.initFilters2();
     },
     mounted() {
         this.customerService.getCustomersMedium().then(data => this.customers = data);
+    },
+    methods: {
+        initFilters1() {
+            this.filters1 = {
+                'global': {value: null, matchMode: FilterMatchMode.CONTAINS}
+            }
+        },
+        initFilters2() {
+            this.filters2 = {
+                'global': {value: null, matchMode: FilterMatchMode.CONTAINS}
+            }
+        }
     }
 }
 </CodeHighlight>
@@ -297,6 +312,7 @@ export default {
 </template>
 
 <script>
+import FilterMatchMode from '../../../src/components/api/FilterMatchMode';
 import CustomerService from '../../service/CustomerService';
 
 export default {
@@ -325,11 +341,26 @@ export default {
             ]
         }
     },
+    customerService: null,
     created() {
         this.customerService = new CustomerService();
+        this.initFilters1();
+        this.initFilters2();
     },
     mounted() {
         this.customerService.getCustomersMedium().then(data => this.customers = data);
+    },
+    methods: {
+        initFilters1() {
+            this.filters1 = {
+                'global': {value: null, matchMode: FilterMatchMode.CONTAINS}
+            }
+        },
+        initFilters2() {
+            this.filters2 = {
+                'global': {value: null, matchMode: FilterMatchMode.CONTAINS}
+            }
+        }
     }
 }
 </script>

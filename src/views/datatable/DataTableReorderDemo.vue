@@ -9,8 +9,8 @@
 
 		<div class="content-section implementation">
             <div class="card">
-                <DataTable :value="products" :reorderableColumns="true" @column-reorder="onColReorder" @row-reorder="onRowReorder">
-                    <Column :rowReorder="true" headerStyle="width: 3rem" :reorderableColumn="false" />
+                <DataTable :value="products" :reorderableColumns="true" @column-reorder="onColReorder" @row-reorder="onRowReorder" responsiveLayout="scroll">
+                    <Column :rowReorder="true" :headerStyle="{'width': '3rem'}" :reorderableColumn="false" />
                     <Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field"></Column>
                 </DataTable>
             </div>
@@ -21,8 +21,8 @@
                 <TabPanel header="Source">
 <CodeHighlight>
 <template v-pre>
-&lt;DataTable :value="products" :reorderableColumns="true" @column-reorder="onColReorder" @row-reorder="onRowReorder"&gt;
-    &lt;Column :rowReorder="true" headerStyle="width: 3rem" :reorderableColumn="false" /&gt;
+&lt;DataTable :value="products" :reorderableColumns="true" @column-reorder="onColReorder" @row-reorder="onRowReorder" responsiveLayout="scroll"&gt;
+    &lt;Column :rowReorder="true" :headerStyle="{'width': '3rem'}" :reorderableColumn="false" /&gt;
     &lt;Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field"&gt;&lt;/Column&gt;
 &lt;/DataTable&gt;
 </template>

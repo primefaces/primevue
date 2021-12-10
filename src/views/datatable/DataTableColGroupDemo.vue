@@ -9,7 +9,7 @@
 
 		<div class="content-section implementation">
             <div class="card">
-                <DataTable :value="sales">
+                <DataTable :value="sales" responsiveLayout="scroll">
                     <ColumnGroup type="header">
                         <Row>
                             <Column header="Product" :rowspan="3" />
@@ -49,7 +49,7 @@
                     </Column>
                     <ColumnGroup type="footer">
                         <Row>
-                            <Column footer="Totals:" :colspan="3" footerStyle="text-align:right"/>
+                            <Column footer="Totals:" :colspan="3" :footerStyle="{'text-align':'right'}"/>
                             <Column :footer="lastYearTotal" />
                             <Column :footer="thisYearTotal" />
                         </Row>
@@ -63,7 +63,7 @@
                 <TabPanel header="Source">
 <CodeHighlight>
 <template v-pre>
-&lt;DataTable :value="sales"&gt;
+&lt;DataTable :value="sales responsiveLayout="scroll""&gt;
     &lt;ColumnGroup type="header"&gt;
         &lt;Row&gt;
             &lt;Column header="Product" :rowspan="3" /&gt;
@@ -103,7 +103,7 @@
     &lt;/Column&gt;
     &lt;ColumnGroup type="footer"&gt;
         &lt;Row&gt;
-            &lt;Column footer="Totals:" :colspan="3" footerStyle="text-align:right"/&gt;
+            &lt;Column footer="Totals:" :colspan="3" :footerStyle="{'text-align':'right'}"/&gt;
             &lt;Column :footer="lastYearTotal" /&gt;
             &lt;Column :footer="thisYearTotal" /&gt;
         &lt;/Row&gt;

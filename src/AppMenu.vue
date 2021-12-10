@@ -98,7 +98,7 @@
             <div class="menu-items">
                 <router-link to="/datatable" custom v-slot="{ href, route, navigate, isActive }">
                     <div>
-                        <a tabindex="0" @click="toggleSubmenu($event, 'datatable')">DataTable</a>
+                        <a tabindex="0" @click="toggleSubmenu($event, 'datatable')">DataTable <Tag value="Updated"></Tag></a>
                         <transition name="p-toggleable-content">
                             <div class="p-toggleable-content" v-show="isSubmenuActive('datatable', isActive)">
                                 <ul>
@@ -136,6 +136,7 @@
                 </router-link>
 
                 <router-link to="/dataview">DataView</router-link>
+                <router-link to="/filterservice">FilterService <Tag value="New"></Tag></router-link>
                 <router-link to="/fullcalendar">FullCalendar</router-link>
                 <router-link to="/orderlist">OrderList</router-link>
                 <router-link to="/organizationchart">OrganizationChart</router-link>
@@ -192,7 +193,7 @@
                 <router-link to="/panel">Panel</router-link>
                 <router-link to="/splitter">Splitter</router-link>
                 <router-link to="/scrollpanel">ScrollPanel</router-link>
-                <router-link to="/tabview">TabView <Tag value="New"></Tag></router-link>
+                <router-link to="/tabview">TabView</router-link>
                 <router-link to="/toolbar">Toolbar</router-link>
             </div>
 
@@ -268,7 +269,7 @@
                         </transition>
                     </div>
                 </router-link>
-                <router-link to="/imagepreview">Image Preview <Tag value="New"></Tag></router-link>
+                <router-link to="/imagepreview">Image Preview</router-link>
             </div>
 
             <div class="menu-category">Misc</div>

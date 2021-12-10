@@ -9,7 +9,7 @@
 
 		<div class="content-section implementation">
             <div class="card">
-                <DataTable :value="customers" :paginator="true" :rows="10"
+                <DataTable :value="customers" :paginator="true" :rows="10" responsiveLayout="scroll"
                     paginatorTemplate="CurrentPageReport FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown"
                     :rowsPerPageOptions="[10,20,50]"
                     currentPageReportTemplate="Showing {first} to {last} of {totalRecords}">
@@ -32,7 +32,7 @@
                 <TabPanel header="Source">
 <CodeHighlight>
 <template v-pre>
-&lt;DataTable :value="customers" :paginator="true" :rows="10"
+&lt;DataTable :value="customers" :paginator="true" :rows="10" responsiveLayout="scroll"
     paginatorTemplate="CurrentPageReport FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown"
     :rowsPerPageOptions="[10,20,50]"
     currentPageReportTemplate="Showing {first} to {last} of {totalRecords}"&gt;

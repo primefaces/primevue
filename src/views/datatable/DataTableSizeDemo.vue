@@ -9,7 +9,7 @@
 
 		<div class="content-section implementation">
             <div class="card">
-                <DataTable :value="products" class="p-datatable-sm">
+                <DataTable :value="products" class="p-datatable-sm" responsiveLayout="scroll">
                     <template #header>
                         Small Table
                     </template>
@@ -21,7 +21,7 @@
             </div>
 
             <div class="card">
-                <DataTable :value="products">
+                <DataTable :value="products" responsiveLayout="scroll">
                     <template #header>
                         Normal Table
                     </template>
@@ -33,7 +33,7 @@
             </div>
 
             <div class="card">
-                <DataTable :value="products" class="p-datatable-lg">
+                <DataTable :value="products" class="p-datatable-lg" responsiveLayout="scroll">
                     <template #header>
                         Large Table
                     </template>
@@ -50,7 +50,7 @@
                 <TabPanel header="Source">
 <CodeHighlight>
 <template v-pre>
-&lt;DataTable :value="products" class="p-datatable-sm"&gt;
+&lt;DataTable :value="products" class="p-datatable-sm" responsiveLayout="scroll"&gt;
     &lt;template #header&gt;
         Small Table
     &lt;/template&gt;
@@ -60,7 +60,7 @@
     &lt;Column field="quantity" header="Quantity"&gt;&lt;/Column&gt;
 &lt;/DataTable&gt;
 
-&lt;DataTable :value="products"&gt;
+&lt;DataTable :value="products" responsiveLayout="scroll"&gt;
     &lt;template #header&gt;
         Normal Table
     &lt;/template&gt;
@@ -70,7 +70,7 @@
     &lt;Column field="quantity" header="Quantity"&gt;&lt;/Column&gt;
 &lt;/DataTable&gt;
 
-&lt;DataTable :value="products" class="p-datatable-lg"&gt;
+&lt;DataTable :value="products" class="p-datatable-lg" responsiveLayout="scroll"&gt;
     &lt;template #header&gt;
         Large Table
     &lt;/template&gt;

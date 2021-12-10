@@ -9,7 +9,7 @@
 
 		<div class="content-section implementation">
             <div class="card">
-                <DataTable :value="products">
+                <DataTable :value="products" responsiveLayout="scroll">
                     <template #header>
                         <div style="text-align:left">
                             <MultiSelect :value="selectedColumns" :options="columns" optionLabel="header" @input="onToggle"
@@ -27,7 +27,7 @@
                 <TabPanel header="Source">
 <CodeHighlight>
 <template v-pre>
-&lt;DataTable :value="products"&gt;
+&lt;DataTable :value="products responsiveLayout="scroll""&gt;
     &lt;template #header&gt;
         &lt;div style="text-align:left"&gt;
             &lt;MultiSelect :value="selectedColumns" :options="columns" optionLabel="header" @input="onToggle"

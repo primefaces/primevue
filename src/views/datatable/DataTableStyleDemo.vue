@@ -9,7 +9,7 @@
 
 		<div class="content-section implementation">
             <div class="card">
-                <DataTable :value="products" :rowClass="rowClass">
+                <DataTable :value="products" :rowClass="rowClass" responsiveLayout="scroll">
                     <Column field="code" header="Code"></Column>
                     <Column field="name" header="Name"></Column>
                     <Column field="category" header="Category"></Column>
@@ -29,7 +29,7 @@
                 <TabPanel header="Source">
 <CodeHighlight>
 <template v-pre>
-&lt;DataTable :value="products" :rowClass="rowClass"&gt;
+&lt;DataTable :value="products" :rowClass="rowClass" responsiveLayout="scroll"&gt;
     &lt;Column field="code" header="Code"&gt;&lt;/Column&gt;
     &lt;Column field="name" header="Name"&gt;&lt;/Column&gt;
     &lt;Column field="category" header="Category"&gt;&lt;/Column&gt;
@@ -70,7 +70,7 @@ export default {
                     'outofstock': data.quantity === 0,
                     'lowstock': data.quantity > 0 &amp;&amp; data.quantity &lt; 10,
                     'instock': data.quantity > 10
-                 }
+                }
             ];
         }
     }
@@ -131,7 +131,7 @@ export default {
                     'outofstock': data.quantity === 0,
                     'lowstock': data.quantity > 0 && data.quantity<10,
                     'instock': data.quantity > 10
-                 }
+                }
             ];
         }
     }

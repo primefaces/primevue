@@ -9,7 +9,7 @@
 
 		<div class="content-section implementation">
             <div class="card">
-                <DataTable :value="products" :expandedRows.sync="expandedRows" dataKey="id"
+                <DataTable :value="products" :expandedRows.sync="expandedRows" dataKey="id" responsiveLayout="scroll"
                     @row-expand="onRowExpand" @row-collapse="onRowCollapse">
                     <template #header>
                         <div class="table-header-container">
@@ -17,10 +17,10 @@
                             <Button icon="pi pi-minus" label="Collapse All" @click="collapseAll" />
                         </div>
                     </template>
-                     <Column :expander="true" headerStyle="width: 3rem" />
+                    <Column :expander="true" :headerStyle="{'width': '3rem'}" />
                     <Column field="name" header="Name" sortable></Column>
                     <Column header="Image">
-                         <template #body="slotProps">
+                        <template #body="slotProps">
                             <img :src="'demo/images/product/' + slotProps.data.image" :alt="slotProps.data.image" class="product-image" />
                         </template>
                     </Column>
@@ -32,7 +32,7 @@
                     <Column field="category" header="Category" sortable></Column>
                     <Column field="rating" header="Reviews" sortable>
                         <template #body="slotProps">
-                           <Rating :value="slotProps.data.rating" :readonly="true" :cancel="false" />
+                            <Rating :value="slotProps.data.rating" :readonly="true" :cancel="false" />
                         </template>
                     </Column>
                     <Column field="inventoryStatus" header="Status" sortable>
@@ -57,7 +57,7 @@
                                         <span :class="'order-badge order-' + slotProps.data.status.toLowerCase()">{{slotProps.data.status}}</span>
                                     </template>
                                 </Column>
-                                <Column headerStyle="width:4rem">
+                                <Column :headerStyle="{'width':'4rem'}">
                                     <template #body>
                                         <Button icon="pi pi-search" />
                                     </template>
@@ -74,7 +74,7 @@
                 <TabPanel header="Source">
 <CodeHighlight>
 <template v-pre>
-&lt;DataTable :value="products" :expandedRows.sync="expandedRows" dataKey="id"
+&lt;DataTable :value="products" :expandedRows.sync="expandedRows" dataKey="id" responsiveLayout="scroll"
     @row-expand="onRowExpand" @row-collapse="onRowCollapse"&gt;
     &lt;template #header&gt;
         &lt;div class="table-header-container"&gt;
@@ -82,10 +82,10 @@
             &lt;Button icon="pi pi-minus" label="Collapse All" @click="collapseAll" /&gt;
         &lt;/div&gt;
     &lt;/template&gt;
-        &lt;Column :expander="true" headerStyle="width: 3rem" /&gt;
+    &lt;Column :expander="true" :headerStyle="{'width': '3rem'}" /&gt;
     &lt;Column field="name" header="Name" sortable&gt;&lt;/Column&gt;
     &lt;Column header="Image"&gt;
-            &lt;template #body="slotProps"&gt;
+        &lt;template #body="slotProps"&gt;
             &lt;img :src="'demo/images/product/' + slotProps.data.image" :alt="slotProps.data.image" class="product-image" /&gt;
         &lt;/template&gt;
     &lt;/Column&gt;
@@ -122,7 +122,7 @@
                         &lt;span :class="'order-badge order-' + slotProps.data.status.toLowerCase()"&gt;{{slotProps.data.status}}&lt;/span&gt;
                     &lt;/template&gt;
                 &lt;/Column&gt;
-                &lt;Column headerStyle="width:4rem"&gt;
+                &lt;Column :headerStyle="{'width':'4rem'}"&gt;
                     &lt;template #body&gt;
                         &lt;Button icon="pi pi-search" /&gt;
                     &lt;/template&gt;

@@ -10,7 +10,7 @@
 		<div class="content-section implementation">
             <div class="card">
                 <h5>Single Column</h5>
-                <DataTable :value="products">
+                <DataTable :value="products" responsiveLayout="scroll">
                     <Column field="code" header="Code" sortable></Column>
                     <Column field="name" header="Name" sortable></Column>
                     <Column field="category" header="Category" sortable></Column>
@@ -26,7 +26,7 @@
             <div class="card">
                 <h5>Multiple Columns</h5>
                 <p>Use metakey to add a column to the sort selection.</p>
-                <DataTable :value="products" sortMode="multiple">
+                <DataTable :value="products" sortMode="multiple" responsiveLayout="scroll">
                     <Column field="code" header="Code" sortable></Column>
                     <Column field="name" header="Name" sortable></Column>
                     <Column field="category" header="Category" sortable></Column>
@@ -41,7 +41,7 @@
 
             <div class="card">
                 <h5>Presort</h5>
-                <DataTable :value="products" sortField="category" :sortOrder="-1">
+                <DataTable :value="products" sortField="category" :sortOrder="-1" responsiveLayout="scroll">
                     <Column field="code" header="Code" sortable></Column>
                     <Column field="name" header="Name" sortable></Column>
                     <Column field="category" header="Category" sortable></Column>
@@ -56,7 +56,7 @@
 
             <div class="card">
                 <h5>Removable Sort</h5>
-                <DataTable :value="products" removableSort>
+                <DataTable :value="products" removableSort responsiveLayout="scroll">
                     <Column field="code" header="Code" sortable></Column>
                     <Column field="name" header="Name" sortable></Column>
                     <Column field="category" header="Category" sortable></Column>
@@ -77,7 +77,7 @@
 <template v-pre>
 &lt;div class="card"&gt;
     &lt;h5&gt;Single Column&lt;/h5&gt;
-    &lt;DataTable :value="products"&gt;
+    &lt;DataTable :value="products responsiveLayout="scroll""&gt;
         &lt;Column field="code" header="Code" sortable&gt;&lt;/Column&gt;
         &lt;Column field="name" header="Name" sortable&gt;&lt;/Column&gt;
         &lt;Column field="category" header="Category" sortable&gt;&lt;/Column&gt;
@@ -93,7 +93,7 @@
 &lt;div class="card"&gt;
     &lt;h5&gt;Multiple Columns&lt;/h5&gt;
     &lt;p&gt;Use metakey to add a column to the sort selection.&lt;/p&gt;
-    &lt;DataTable :value="products" sortMode="multiple"&gt;
+    &lt;DataTable :value="products" sortMode="multiple responsiveLayout="scroll""&gt;
         &lt;Column field="code" header="Code" sortable&gt;&lt;/Column&gt;
         &lt;Column field="name" header="Name" sortable&gt;&lt;/Column&gt;
         &lt;Column field="category" header="Category" sortable&gt;&lt;/Column&gt;
@@ -108,7 +108,7 @@
 
 &lt;div class="card"&gt;
     &lt;h5&gt;Presort&lt;/h5&gt;
-    &lt;DataTable :value="products" sortField="category" :sortOrder="-1"&gt;
+    &lt;DataTable :value="products" sortField="category" :sortOrder="-1" responsiveLayout="scroll"&gt;
         &lt;Column field="code" header="Code" sortable&gt;&lt;/Column&gt;
         &lt;Column field="name" header="Name" sortable&gt;&lt;/Column&gt;
         &lt;Column field="category" header="Category" sortable&gt;&lt;/Column&gt;
@@ -123,7 +123,7 @@
 
 &lt;div class="card"&gt;
     &lt;h5&gt;Removable Sort&lt;/h5&gt;
-    &lt;DataTable :value="products" removableSort&gt;
+    &lt;DataTable :value="products" removableSort responsiveLayout="scroll"&gt;
         &lt;Column field="code" header="Code" sortable&gt;&lt;/Column&gt;
         &lt;Column field="name" header="Name" sortable&gt;&lt;/Column&gt;
         &lt;Column field="category" header="Category" sortable&gt;&lt;/Column&gt;

@@ -9,7 +9,7 @@
 
 		<div class="content-section implementation">
             <div class="card">
-                <DataTable :value="products" ref="dt">
+                <DataTable :value="products" ref="dt" responsiveLayout="scroll">
                     <template #header>
                         <div style="text-align: left">
                             <Button icon="pi pi-external-link" label="Export" @click="exportCSV($event)" />
@@ -28,7 +28,7 @@
                 <TabPanel header="Source">
 <CodeHighlight>
 <template v-pre>
-&lt;DataTable :value="products" ref="dt"&gt;
+&lt;DataTable :value="products" ref="dt" responsiveLayout="scroll"&gt;
     &lt;template #header&gt;
         &lt;div style="text-align: left"&gt;
             &lt;Button icon="pi pi-external-link" label="Export" @click="exportCSV($event)" /&gt;
