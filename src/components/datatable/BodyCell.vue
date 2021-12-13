@@ -1,9 +1,9 @@
 <template>
     <td :style="containerStyle" :class="containerClass" @click="onClick" @keydown="onKeyDown" role="cell">
         <span v-if="responsiveLayout === 'stack'" class="p-column-title">{{columnProp('header')}}</span>
-        <ColumnSlot :data="rowData" :column="column" :index="rowIndex" type="body" :frozenRow="frozenRow" v-if="column.$scopedSlots.body && !d_editing" />
-        <ColumnSlot :data="editingRowData" :column="column" :index="rowIndex" type="editor" :frozenRow="frozenRow" v-else-if="column.$scopedSlots.editor && d_editing" />
-        <ColumnSlot :data="editingRowData" :column="column" :index="rowIndex" type="body" :frozenRow="frozenRow" v-else-if="!column.$scopedSlots.editor && column.$scopedSlots.body && d_editing" />
+        <ColumnSlot :data="rowData" :column="column" :field="field" :index="rowIndex" type="body" :frozenRow="frozenRow" v-if="column.$scopedSlots.body && !d_editing" />
+        <ColumnSlot :data="editingRowData" :column="column" :field="field" :index="rowIndex" type="editor" :frozenRow="frozenRow" v-else-if="column.$scopedSlots.editor && d_editing" />
+        <ColumnSlot :data="editingRowData" :column="column" :field="field" :index="rowIndex" type="body" :frozenRow="frozenRow" v-else-if="!column.$scopedSlots.editor && column.$scopedSlots.body && d_editing" />
         <template v-else-if="columnProp('selectionMode')">
             <DTRadioButton :value="rowData" :checked="selected" @change="toggleRowWithRadio" v-if="columnProp('selectionMode') === 'single'" />
             <DTCheckbox :value="rowData" :checked="selected" @change="toggleRowWithCheckbox" v-else-if="columnProp('selectionMode') ==='multiple'" />

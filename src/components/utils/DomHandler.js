@@ -475,6 +475,11 @@ export default class DomHandler {
         return visibleFocusableElements;
     }
 
+    static getFirstFocusableElement(element) {
+        const focusableElements = this.getFocusableElements(element);
+        return focusableElements.length > 0 ? focusableElements[0] : null;
+    }
+
     static isClickable(element) {
         const targetNode = element.nodeName;
         const parentNode = element.parentElement && element.parentElement.nodeName;
