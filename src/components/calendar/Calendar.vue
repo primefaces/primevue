@@ -431,10 +431,18 @@ export default {
             return false;
         },
         isMonthSelected(month) {
-            return this.isComparable() ? (this.value.getMonth() === month && this.value.getFullYear() === this.currentYear) : false;
+            if (this.isComparable()) {
+                let value = this.isRangeSelection() ? this.value[0] : this.value;
+                return !this.isMultipleSelection() ? (value.getMonth() === month && value.getFullYear() === this.currentYear) : false;
+            }
+            return false;
         },
         isYearSelected(year) {
-            return this.isComparable() ? (this.value.getFullYear() === year) : false;
+            if (this.isComparable()) {
+                let value = this.isRangeSelection() ? this.value[0] : this.value;
+                return !this.isMultipleSelection() && this.isComparable() ? (value.getFullYear() === year) : false;
+            }
+            return false;
         },
         isDateEquals(value, dateMeta) {
             if (value)
