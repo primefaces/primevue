@@ -92,7 +92,10 @@ export default {
     data() {
         return {
             d_editing: this.editing,
-            styleObject: {}
+            styleObject: {
+                left: '',
+                right: ''
+            }
         }
     },
     watch: {

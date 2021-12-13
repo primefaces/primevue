@@ -63,7 +63,10 @@ export default {
     },
     data() {
         return {
-            styleObject: {},
+            styleObject: {
+                left: '',
+                right: ''
+            },
             checkboxFocused: false
         }
     },

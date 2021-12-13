@@ -90,7 +90,10 @@ export default {
     },
     data() {
         return {
-            styleObject: {}
+            styleObject: {
+                left: '',
+                right: ''
+            }
         }
     },
     mounted() {
