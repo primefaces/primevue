@@ -4,7 +4,7 @@
 			<TabPanel header="Documentation">
                 <h5>Import</h5>
 <CodeHighlight lang="javascript">
-import FilterService from 'primevue/api';
+import {FilterService} from 'primevue/api';
 </CodeHighlight>
 
                 <h5>Getting Started</h5>
