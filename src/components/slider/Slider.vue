@@ -2,7 +2,7 @@
     <div :class="containerClass" @click="onBarClick" ref="container">
         <span class="p-slider-range" :style="rangeStyle"></span>
         <span v-if="!range" class="p-slider-handle" :style="handleStyle" @touchstart="onDragStart($event)" @touchmove="onDrag($event)" @touchend="onDragEnd($event)" @mousedown="onMouseDown($event)" @keydown="onKeyDown($event)" tabindex="0"
-             role="slider" :aria-valuemin="min" :aria-valuenow="value" :aria-valuemax="max" :aria-labelledby="ariaLabelledBy"></span>
+            role="slider" :aria-valuemin="min" :aria-valuenow="value" :aria-valuemax="max" :aria-labelledby="ariaLabelledBy"></span>
         <span v-if="range" class="p-slider-handle" :style="rangeStartHandleStyle" @touchstart="onDragStart($event, 0)" @touchmove="onDrag($event)" @touchend="onDragEnd($event)" @mousedown="onMouseDown($event, 0)" @keydown="onKeyDown($event)" tabindex="0"
             role="slider" :aria-valuemin="min" :aria-valuenow="value ? value[0] : null" :aria-valuemax="max" :aria-labelledby="ariaLabelledBy"></span>
         <span v-if="range" class="p-slider-handle" :style="rangeEndHandleStyle" @touchstart="onDragStart($event, 1)" @touchmove="onDrag($event)" @touchend="onDragEnd($event)" @mousedown="onMouseDown($event, 1)" @keydown="onKeyDown($event, 1)" tabindex="0"
@@ -97,22 +97,31 @@ export default {
             let modelValue;
 
             if (this.range) {
+                modelValue = this.value ? [...this.value] : [];
+
                 if (this.handleIndex == 0) {
+                    let maxValue = this.value ? this.value[1] : this.max;
+
                     if (newValue < this.min)
                         newValue = this.min;
-                    else if (newValue >= this.value[1])
-                        newValue = this.value[1];
+                    else if (newValue >= maxValue)
+                        newValue = maxValue;
+
+                    modelValue[0] = newValue;
+                    modelValue[1] = modelValue[1] || this.max;
                 }
                 else {
+                    let minValue = this.value ? this.value[0] : this.min;
                     if (newValue > this.max)
                         newValue = this.max;
-                    else if (newValue <= this.value[0])
-                        newValue = this.value[0];
-                }
+                    else if (newValue <= minValue)
+                        newValue = minValue;
 
-                modelValue = [...this.value];
-                modelValue[this.handleIndex] = newValue;
+                    modelValue[0] = modelValue[0] || this.min;
+                    modelValue[1] = newValue;
+                }
             }
+
             else {
                 if (newValue < this.min)
                     newValue = this.min;
@@ -301,7 +310,6 @@ export default {
                 return {'left': this.handlePosition + '%'};
             else
                 return {'bottom': this.handlePosition + '%'};
-
         },
         handlePosition() {
             if (this.value < this.min)
@@ -312,16 +320,16 @@ export default {
                 return (this.value - this.min) * 100 / (this.max - this.min);
         },
         rangeStartPosition() {
-            if (this.value)
+            if (this.value && this.value[0])
                 return (this.value[0] < this.min ? 0 : this.value[0] - this.min) * 100 / (this.max - this.min);
             else
                 return 0;
         },
         rangeEndPosition() {
-            if (this.value)
+            if (this.value && this.value[1])
                 return (this.value[1] > this.max ? 100 : this.value[1] - this.min) * 100 / (this.max - this.min);
             else
-                return 0;
+                return 100;
         },
         rangeStartHandleStyle() {
             if (this.horizontal)
