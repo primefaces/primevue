@@ -775,7 +775,7 @@ data() {
 <CodeHighlight lang="javascript">
 import Vue from 'vue';
 import PrimeVue from 'primevue/config';
-import FilterMatchMode from 'primevue/api',
+import {FilterMatchMode} from 'primevue/api',
 
 Vue.use(PrimeVue, {
     filterMatchModeOptions: {
