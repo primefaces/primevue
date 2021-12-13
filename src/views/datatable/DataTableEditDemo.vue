@@ -52,7 +52,7 @@
                             <InputText v-model="slotProps.data[slotProps.column.field]" />
                         </template>
                     </Column>
-                    <Column :rowEditor="true" :styles="{width:'10%', 'min-width':'8rem'}" bodyStyle="text-align:center"></Column>
+                    <Column :rowEditor="true" :styles="{width:'10%', 'min-width':'8rem'}" :bodyStyle="{'text-align':'center'}"></Column>
                 </DataTable>
             </div>
 		</div>
