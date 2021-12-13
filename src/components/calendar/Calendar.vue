@@ -14,10 +14,10 @@
                                     <span class="p-datepicker-prev-icon pi pi-chevron-left"></span>
                                 </button>
                                 <div class="p-datepicker-title">
-                                    <button type="button" @click="switchToMonthView" v-if="currentView === 'date'" class="p-datepicker-month p-link" :disabled="switchViewButtonDisabled">
+                                    <button type="button" @click="switchToMonthView" @keydown="onContainerButtonKeydown" v-if="currentView === 'date'" class="p-datepicker-month p-link" :disabled="switchViewButtonDisabled">
                                         {{getMonthName(month.month)}}
                                     </button>
-                                    <button type="button" @click="switchToYearView" v-if="currentView !== 'year'" class="p-datepicker-year p-link" :disabled="switchViewButtonDisabled">
+                                    <button type="button" @click="switchToYearView" @keydown="onContainerButtonKeydown" v-if="currentView !== 'year'" class="p-datepicker-year p-link" :disabled="switchViewButtonDisabled">
                                         {{currentYear}}
                                     </button>
                                     <span class="p-datepicker-decade" v-if="currentView === 'year'">
