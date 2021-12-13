@@ -12,7 +12,8 @@
         </div>
         <ul class="p-tree-container" role="tree">
             <TreeNode v-for="node of valueToRender" :key="node.key" :node="node" :templates="$scopedSlots"
-                :expandedKeys="d_expandedKeys" @node-toggle="onNodeToggle" @node-click="onNodeClick"
+                :expandedKeys="d_expandedKeys" @node-toggle="onNodeToggle"
+                @node-click="onNodeClick" @node-enter="onNodeEnter" @node-leave="onNodeLeave"
                 :selectionMode="selectionMode" :selectionKeys="selectionKeys" @checkbox-change="onCheckboxChange"></TreeNode>
         </ul>
     </div>
@@ -71,7 +72,15 @@ export default {
         filterLocale: {
             type: String,
             default: undefined
-        }
+        },
+        onNodeEnterCallback: {
+            type: null,
+            default: null
+        },
+        onNodeLeaveCallback: {
+            type: null,
+            default: null
+        },
     },
     data() {
         return {
@@ -106,6 +115,16 @@ export default {
                 const _selectionKeys = metaSelection ? this.handleSelectionWithMetaKey(event) : this.handleSelectionWithoutMetaKey(event);
 
                 this.$emit('update:selectionKeys', _selectionKeys);
+            }
+        },
+        onNodeEnter(originalEventWithNode) {
+            if (this.onNodeEnterCallback) {
+                this.onNodeEnterCallback(originalEventWithNode);
+            }
+        },
+        onNodeLeave(originalEventWithNode) {
+            if (this.onNodeLeaveCallback) {
+                this.onNodeLeaveCallback(originalEventWithNode);
             }
         },
         onCheckboxChange(event) {

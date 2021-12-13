@@ -1,7 +1,8 @@
 <template>
     <li :class="containerClass">
         <div :class="contentClass" tabindex="0" role="treeitem" :aria-expanded="expanded"
-            @click="onClick" @keydown="onKeyDown" @touchend="onTouchEnd" :style="node.style">
+            @click="onClick" @pointerenter="onEnter" @pointerleave="onLeave"
+            @keydown="onKeyDown" @touchend="onTouchEnd" :style="node.style">
             <button type="button" class="p-tree-toggler p-link" @click="toggle" tabindex="-1" v-ripple>
                 <span :class="toggleIcon"></span>
             </button>
@@ -18,6 +19,7 @@
         <ul class="p-treenode-children" role="group" v-if="hasChildren && expanded">
             <sub-treenode v-for="childNode of node.children" :key="childNode.key" :node="childNode" :templates="templates"
                 :expandedKeys="expandedKeys" @node-toggle="onChildNodeToggle" @node-click="onChildNodeClick"
+                @node-enter="onNodeEnter" @node-leave="onNodeLeave"
                 :selectionMode="selectionMode" :selectionKeys="selectionKeys"
                 @checkbox-change="propagateUp"></sub-treenode>
         </ul>
@@ -103,8 +105,32 @@ export default {
 
             this.nodeTouched = false;
         },
+        onEnter(event) {
+            this.$emit('node-enter', {
+                originalEvent: event,
+                node: this.node
+            });
+        },
+        onLeave(event) {
+            this.$emit('node-leave', {
+                originalEvent: event,
+                node: this.node
+            });
+        },
         onChildNodeClick(event) {
             this.$emit('node-click', event);
+        },
+        onNodeEnter(event) {
+            this.$emit('node-enter', {
+                originalEvent: event,
+                node: this.node
+            });
+        },
+        onNodeLeave(event) {
+            this.$emit('node-leave', {
+                originalEvent: event,
+                node: this.node
+            });
         },
         onTouchEnd() {
             this.nodeTouched = true;
