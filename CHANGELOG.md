@@ -836,6 +836,35 @@
 - Button not registered in FileUpload [\#478](https://github.com/primefaces/primevue/issues/478)
 - BlockUI documentation indicates "show" event whereas the actual event is "unblock" [\#485](https://github.com/primefaces/primevue/issues/485)
 
+## [2.8.0](https://github.com/primefaces/primevue/tree/2.8.0) (2021-12-14)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/2.7.0...2.8.0)
+
+**Implemented New Features and Enhancements:**
+
+- Provide chartjs object v2 [\#1887](https://github.com/primefaces/primevue/issues/1887)
+- Calendar v2 | Escape Support For Month and Year Picker [\#1879](https://github.com/primefaces/primevue/issues/1879)
+- Constants for Toast [\#1874](https://github.com/primefaces/primevue/issues/1874)
+- Constants for PrimeIcons [\#1873](https://github.com/primefaces/primevue/issues/1873)
+- Add inputStyle to PrimeVue Config v2 [\#1871](https://github.com/primefaces/primevue/issues/1871)
+- responsiveLayout for TreeTable v2 [\#1870](https://github.com/primefaces/primevue/issues/1870)
+- Reimplemented TreeTable with new FilterService [\#1869](https://github.com/primefaces/primevue/issues/1869)
+- New Utils module [\#1867](https://github.com/primefaces/primevue/issues/1867)
+- New OverlayEventBus [\#1866](https://github.com/primefaces/primevue/issues/1866)
+- New FilterService Utility [\#1865](https://github.com/primefaces/primevue/issues/1865)
+- Reimplemented DataTable v2 [\#1864](https://github.com/primefaces/primevue/issues/1864)
+
+**Fixed bugs:**
+
+- Slider range with min/max bug [\#1882](https://github.com/primefaces/primevue/issues/1882)
+- Calendar v2 | Year Picker and Month Picker empty when using Range and Multiple options [\#1880](https://github.com/primefaces/primevue/issues/1880)
+- Calendar v2 manual input doesn't work  [\#1878](https://github.com/primefaces/primevue/issues/1878)
+- Dropdown v2 positioning issue [\#1868](https://github.com/primefaces/primevue/issues/1868)
+
+**Deprecated:**
+
+- Disable VirtualScroll DataTable v2 [\#1863](https://github.com/primefaces/primevue/issues/1863)
+
 ## [2.7.0](https://github.com/primefaces/primevue/tree/2.7.0) (2021-11-25)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/2.6.0...2.7.0)
