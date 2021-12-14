@@ -1,5 +1,5 @@
 <template>
-    <td :style="containerStyle" :class="containerClass" @click="onClick" @keydown="onKeyDown" role="cell">
+    <td :style="containerStyle" :class="containerClass" @click="onClick" @keydown="onKeyDown" role="cell" :data-prime="editingRowData">
         <span v-if="responsiveLayout === 'stack'" class="p-column-title">{{columnProp('header')}}</span>
         <ColumnSlot :data="rowData" :column="column" :field="field" :index="rowIndex" type="body" :frozenRow="frozenRow" v-if="column.$scopedSlots.body && !d_editing" />
         <ColumnSlot :data="editingRowData" :column="column" :field="field" :index="rowIndex" type="editor" :frozenRow="frozenRow" v-else-if="column.$scopedSlots.editor && d_editing" />
