@@ -3,17 +3,17 @@
 		<TabView>
 			<TabPanel header="Documentation">
 				<h5>Import</h5>
-				<CodeHighlight lang="javascript">
+<CodeHighlight lang="javascript">
 import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
 import ColumnGroup from 'primevue/columngroup';     //optional for column grouping
-				</CodeHighlight>
+</CodeHighlight>
 
                 <h5>Getting Started</h5>
                 <p>DataTable requires a value as an array of objects and columns defined with Column component. Throughout the samples, a car interface having vin, brand, year and color properties is used to define an object to be displayed by the datatable.
                     Cars are loaded by a CarService that connects to a server to fetch. Note that this is only for demo purposes, DataTable does not have any restrictions on how the data is provided.</p>
 
-                <CodeHighlight lang="javascript">
+<CodeHighlight lang="javascript">
 export default class CarService {
 
 	getCarsSmall() {
@@ -28,10 +28,10 @@ export default class CarService {
         return fetch('demo/data/cars-large.json').then(res => res.json()).then(d => d.data);
 	}
 }
-				</CodeHighlight>
+</CodeHighlight>
 
                 <p>Example response;</p>
-                <CodeHighlight lang="javascript">
+<CodeHighlight lang="javascript">
 {
     "data": [
         {"brand": "Volkswagen", "year": 2012, "color": "Orange", "vin": "dsad231ff"},
@@ -46,7 +46,7 @@ export default class CarService {
         {"brand": "Fiat", "year": 2013, "color": "Red", "vin": "245t2s"}
     ]
 }
-                </CodeHighlight>
+</CodeHighlight>
 
                 <p>Following sample datatable has 4 columns and retrieves the data from a service on mount.</p>
 <CodeHighlight>
@@ -117,343 +117,343 @@ export default {
 </CodeHighlight>
 
                 <h5>Column Component Properties utilized by the DataTable</h5>
-            <div class="doc-tablewrapper">
-                <table class="doc-table">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th>Default</th>
-                            <th>Description</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>columnKey</td>
-                            <td>any</td>
-                            <td>null</td>
-                            <td>Identifier of a column if field property is not defined.</td>
-                        </tr>
-                        <tr>
-                            <td>field</td>
-                            <td>string</td>
-                            <td>null</td>
-                            <td>Property represented by the column.</td>
-                        </tr>
-                        <tr>
-                            <td>sortField</td>
-                            <td>string</td>
-                            <td>null</td>
-                            <td>Property name to use in sorting, defaults to field.</td>
-                        </tr>
-                        <tr>
-                            <td>filterField</td>
-                            <td>string</td>
-                            <td>null</td>
-                            <td>Property name to use in filtering, defaults to field.</td>
-                        </tr>
-                        <tr>
-                            <td>sortable</td>
-                            <td>any</td>
-                            <td>false</td>
-                            <td>Defines if a column is sortable.</td>
-                        </tr>
-                        <tr>
-                            <td>header</td>
-                            <td>any</td>
-                            <td>null</td>
-                            <td>Header content of the column.</td>
-                        </tr>
-                        <tr>
-                            <td>footer</td>
-                            <td>any</td>
-                            <td>null</td>
-                            <td>Footer content of the column.</td>
-                        </tr>
-                        <tr>
-                            <td>styles</td>
-                            <td>object</td>
-                            <td>null</td>
-                            <td>Inline style of header, body and footer cells.</td>
-                        </tr>
-                        <tr>
-                            <td>className</td>
-                            <td>string</td>
-                            <td>null</td>
-                            <td>Style class of header, body and footer cells.</td>
-                        </tr>
-                        <tr>
-                            <td>headerStyle</td>
-                            <td>object</td>
-                            <td>null</td>
-                            <td>Inline style of the column header.</td>
-                        </tr>
-                        <tr>
-                            <td>headerClass</td>
-                            <td>string</td>
-                            <td>null</td>
-                            <td>Style class of the column header.</td>
-                        </tr>
-                        <tr>
-                            <td>bodyStyle</td>
-                            <td>object</td>
-                            <td>null</td>
-                            <td>Inline style of the column body.</td>
-                        </tr>
-                        <tr>
-                            <td>bodyClass</td>
-                            <td>string</td>
-                            <td>null</td>
-                            <td>Style class of the column body.</td>
-                        </tr>
-                        <tr>
-                            <td>footerStyle</td>
-                            <td>object</td>
-                            <td>null</td>
-                            <td>Inline style of the column footer.</td>
-                        </tr>
-                        <tr>
-                            <td>footerClass</td>
-                            <td>string</td>
-                            <td>null</td>
-                            <td>Style class of the column footer.</td>
-                        </tr>
-                        <tr>
-                            <td>showFilterMenu</td>
-                            <td>boolean</td>
-                            <td>true</td>
-                            <td>Whether to display the filter overlay.</td>
-                        </tr>
-                        <tr>
-                            <td>showFilterOperator</td>
-                            <td>boolean</td>
-                            <td>true</td>
-                            <td>When enabled, match all and match any operator selector is displayed.</td>
-                        </tr>
-                        <tr>
-                            <td>showClearButton</td>
-                            <td>boolean</td>
-                            <td>true</td>
-                            <td>Displays a button to clear the column filtering.</td>
-                        </tr>
-                        <tr>
-                            <td>showApplyButton</td>
-                            <td>boolean</td>
-                            <td>true</td>
-                            <td>Displays a button to apply the column filtering.</td>
-                        </tr>
-                        <tr>
-                            <td>showFilterMatchModes</td>
-                            <td>boolean</td>
-                            <td>true</td>
-                            <td>Whether to show the match modes selector.</td>
-                        </tr>
-                        <tr>
-                            <td>showAddButton</td>
-                            <td>boolean</td>
-                            <td>true</td>
-                            <td>When enabled, a button is displayed to add more rules.</td>
-                        </tr>
-                        <tr>
-                            <td>filterMatchModeOptions</td>
-                            <td>array</td>
-                            <td>null</td>
-                            <td>An array of label-value pairs to override the global match mode options.</td>
-                        </tr>
-                        <tr>
-                            <td>maxConstraints</td>
-                            <td>number</td>
-                            <td>2</td>
-                            <td>Maximum number of constraints for a column filter.</td>
-                        </tr>
-                        <tr>
-                            <td>excludeGlobalFilter</td>
-                            <td>boolean</td>
-                            <td>false</td>
-                            <td>Whether to exclude from global filtering or not.</td>
-                        </tr>
-                        <tr>
-                            <td>filterHeaderStyle</td>
-                            <td>object</td>
-                            <td>null</td>
-                            <td>Inline style of the column filter header in row filter display.</td>
-                        </tr>
-                        <tr>
-                            <td>filterHeaderClass</td>
-                            <td>string</td>
-                            <td>null</td>
-                            <td>Style class of the column filter header in row filter display.</td>
-                        </tr>
-                        <tr>
-                            <td>filterMenuStyle</td>
-                            <td>object</td>
-                            <td>null</td>
-                            <td>Inline style of the column filter overlay.</td>
-                        </tr>
-                        <tr>
-                            <td>filterMenuClass</td>
-                            <td>string</td>
-                            <td>null</td>
-                            <td>Style class of the column filter overlay.</td>
-                        </tr>
-                        <tr>
-                            <td>selectionMode</td>
-                            <td>string</td>
-                            <td>null</td>
-                            <td>Defines column based selection mode, options are "single" and "multiple".</td>
-                        </tr>
-                        <tr>
-                            <td>expander</td>
-                            <td>boolean</td>
-                            <td>false</td>
-                            <td>Displays an icon to toggle row expansion.</td>
-                        </tr>
-                        <tr>
-                            <td>colspan</td>
-                            <td>number</td>
-                            <td>null</td>
-                            <td>Number of columns to span for grouping.</td>
-                        </tr>
-                        <tr>
-                            <td>rowspan</td>
-                            <td>number</td>
-                            <td>null</td>
-                            <td>Number of rows to span for grouping.</td>
-                        </tr>
-                        <tr>
-                            <td>rowReorder</td>
-                            <td>boolean</td>
-                            <td>false</td>
-                            <td>Whether this column displays an icon to reorder the rows.</td>
-                        </tr>
-                        <tr>
-                            <td>rowReorderIcon</td>
-                            <td>string</td>
-                            <td>pi pi-bars</td>
-                            <td>Icon of the drag handle to reorder rows.</td>
-                        </tr>
-                        <tr>
-                            <td>reorderableColumn</td>
-                            <td>boolean</td>
-                            <td>true</td>
-                            <td>Defines if the column itself can be reordered with dragging.</td>
-                        </tr>
-                        <tr>
-                            <td>rowEditor</td>
-                            <td>boolean</td>
-                            <td>false</td>
-                            <td>When enabled, column displays row editor controls.</td>
-                        </tr>
-                        <tr>
-                            <td>frozen</td>
-                            <td>boolean</td>
-                            <td>false</td>
-                            <td>Whether the column is fixed in horizontal scrolling.</td>
-                        </tr>
-                        <tr>
-                            <td>alignFrozen</td>
-                            <td>string</td>
-                            <td>left</td>
-                            <td>Position of a frozen column, valid values are left and right.</td>
-                        </tr>
-                        <tr>
-                            <td>exportable</td>
-                            <td>boolean</td>
-                            <td>true</td>
-                            <td>Whether the column is included in data export.</td>
-                        </tr>
-                        <tr>
-                            <td>filterMatchMode</td>
-                            <td>string</td>
-                            <td>null</td>
-                            <td>Defines the filtering algorithm to use when searching the options.</td>
-                        </tr>
-                        <tr>
-                            <td>hidden</td>
-                            <td>boolean</td>
-                            <td>false</td>
-                            <td>Whether the column is rendered.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+                <div class="doc-tablewrapper">
+                    <table class="doc-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>Default</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>columnKey</td>
+                                <td>any</td>
+                                <td>null</td>
+                                <td>Identifier of a column if field property is not defined.</td>
+                            </tr>
+                            <tr>
+                                <td>field</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Property represented by the column.</td>
+                            </tr>
+                            <tr>
+                                <td>sortField</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Property name to use in sorting, defaults to field.</td>
+                            </tr>
+                            <tr>
+                                <td>filterField</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Property name to use in filtering, defaults to field.</td>
+                            </tr>
+                            <tr>
+                                <td>sortable</td>
+                                <td>any</td>
+                                <td>false</td>
+                                <td>Defines if a column is sortable.</td>
+                            </tr>
+                            <tr>
+                                <td>header</td>
+                                <td>any</td>
+                                <td>null</td>
+                                <td>Header content of the column.</td>
+                            </tr>
+                            <tr>
+                                <td>footer</td>
+                                <td>any</td>
+                                <td>null</td>
+                                <td>Footer content of the column.</td>
+                            </tr>
+                            <tr>
+                                <td>styles</td>
+                                <td>object</td>
+                                <td>null</td>
+                                <td>Inline style of header, body and footer cells.</td>
+                            </tr>
+                            <tr>
+                                <td>className</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Style class of header, body and footer cells.</td>
+                            </tr>
+                            <tr>
+                                <td>headerStyle</td>
+                                <td>object</td>
+                                <td>null</td>
+                                <td>Inline style of the column header.</td>
+                            </tr>
+                            <tr>
+                                <td>headerClass</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Style class of the column header.</td>
+                            </tr>
+                            <tr>
+                                <td>bodyStyle</td>
+                                <td>object</td>
+                                <td>null</td>
+                                <td>Inline style of the column body.</td>
+                            </tr>
+                            <tr>
+                                <td>bodyClass</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Style class of the column body.</td>
+                            </tr>
+                            <tr>
+                                <td>footerStyle</td>
+                                <td>object</td>
+                                <td>null</td>
+                                <td>Inline style of the column footer.</td>
+                            </tr>
+                            <tr>
+                                <td>footerClass</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Style class of the column footer.</td>
+                            </tr>
+                            <tr>
+                                <td>showFilterMenu</td>
+                                <td>boolean</td>
+                                <td>true</td>
+                                <td>Whether to display the filter overlay.</td>
+                            </tr>
+                            <tr>
+                                <td>showFilterOperator</td>
+                                <td>boolean</td>
+                                <td>true</td>
+                                <td>When enabled, match all and match any operator selector is displayed.</td>
+                            </tr>
+                            <tr>
+                                <td>showClearButton</td>
+                                <td>boolean</td>
+                                <td>true</td>
+                                <td>Displays a button to clear the column filtering.</td>
+                            </tr>
+                            <tr>
+                                <td>showApplyButton</td>
+                                <td>boolean</td>
+                                <td>true</td>
+                                <td>Displays a button to apply the column filtering.</td>
+                            </tr>
+                            <tr>
+                                <td>showFilterMatchModes</td>
+                                <td>boolean</td>
+                                <td>true</td>
+                                <td>Whether to show the match modes selector.</td>
+                            </tr>
+                            <tr>
+                                <td>showAddButton</td>
+                                <td>boolean</td>
+                                <td>true</td>
+                                <td>When enabled, a button is displayed to add more rules.</td>
+                            </tr>
+                            <tr>
+                                <td>filterMatchModeOptions</td>
+                                <td>array</td>
+                                <td>null</td>
+                                <td>An array of label-value pairs to override the global match mode options.</td>
+                            </tr>
+                            <tr>
+                                <td>maxConstraints</td>
+                                <td>number</td>
+                                <td>2</td>
+                                <td>Maximum number of constraints for a column filter.</td>
+                            </tr>
+                            <tr>
+                                <td>excludeGlobalFilter</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>Whether to exclude from global filtering or not.</td>
+                            </tr>
+                            <tr>
+                                <td>filterHeaderStyle</td>
+                                <td>object</td>
+                                <td>null</td>
+                                <td>Inline style of the column filter header in row filter display.</td>
+                            </tr>
+                            <tr>
+                                <td>filterHeaderClass</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Style class of the column filter header in row filter display.</td>
+                            </tr>
+                            <tr>
+                                <td>filterMenuStyle</td>
+                                <td>object</td>
+                                <td>null</td>
+                                <td>Inline style of the column filter overlay.</td>
+                            </tr>
+                            <tr>
+                                <td>filterMenuClass</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Style class of the column filter overlay.</td>
+                            </tr>
+                            <tr>
+                                <td>selectionMode</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Defines column based selection mode, options are "single" and "multiple".</td>
+                            </tr>
+                            <tr>
+                                <td>expander</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>Displays an icon to toggle row expansion.</td>
+                            </tr>
+                            <tr>
+                                <td>colspan</td>
+                                <td>number</td>
+                                <td>null</td>
+                                <td>Number of columns to span for grouping.</td>
+                            </tr>
+                            <tr>
+                                <td>rowspan</td>
+                                <td>number</td>
+                                <td>null</td>
+                                <td>Number of rows to span for grouping.</td>
+                            </tr>
+                            <tr>
+                                <td>rowReorder</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>Whether this column displays an icon to reorder the rows.</td>
+                            </tr>
+                            <tr>
+                                <td>rowReorderIcon</td>
+                                <td>string</td>
+                                <td>pi pi-bars</td>
+                                <td>Icon of the drag handle to reorder rows.</td>
+                            </tr>
+                            <tr>
+                                <td>reorderableColumn</td>
+                                <td>boolean</td>
+                                <td>true</td>
+                                <td>Defines if the column itself can be reordered with dragging.</td>
+                            </tr>
+                            <tr>
+                                <td>rowEditor</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>When enabled, column displays row editor controls.</td>
+                            </tr>
+                            <tr>
+                                <td>frozen</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>Whether the column is fixed in horizontal scrolling.</td>
+                            </tr>
+                            <tr>
+                                <td>alignFrozen</td>
+                                <td>string</td>
+                                <td>left</td>
+                                <td>Position of a frozen column, valid values are left and right.</td>
+                            </tr>
+                            <tr>
+                                <td>exportable</td>
+                                <td>boolean</td>
+                                <td>true</td>
+                                <td>Whether the column is included in data export.</td>
+                            </tr>
+                            <tr>
+                                <td>filterMatchMode</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Defines the filtering algorithm to use when searching the options.</td>
+                            </tr>
+                            <tr>
+                                <td>hidden</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>Whether the column is rendered.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
 
-            <h5>Column Slots</h5>
-			<div class="doc-tablewrapper">
-                <table class="doc-table">
-					<thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Parameters</th>
-                        </tr>
-					</thead>
-					<tbody>
-                        <tr>
-                            <td>header</td>
-                            <td>column: Column node</td>
-                        </tr>
-                        <tr>
-                            <td>body</td>
-                            <td>data: Row data <br />
-                                column: Column node <br />
-                                field: Column field <br />
-                                index: Row index <br />
-                                frozenRow: Is row frozen</td>
-                        </tr>
-                        <tr>
-                            <td>footer</td>
-                            <td>column: Column node</td>
-                        </tr>
-                        <tr>
-                            <td>editor</td>
-                            <td>data: Row data <br />
-                                column: Column node <br />
-                                field: Column field <br />
-                                index: Row index <br />
-                                frozenRow: Is row frozen</td>
-                        </tr>
-                        <tr>
-                            <td>filter</td>
-                            <td>field: Column field <br />
-                                filterModel: {value,matchMode} Filter metadata <br />
-                                filterCallback: Callback function</td>
-                        </tr>
-                        <tr>
-                            <td>filterheader</td>
-                            <td>field: Column field <br />
-                                filterModel: {value,matchMode} Filter metadata <br />
-                                filterCallback: Callback function</td>
-                        </tr>
-                        <tr>
-                            <td>filterfooter</td>
-                            <td>field: Column field <br />
-                                filterModel: {value,matchMode} Filter metadata <br />
-                                filterCallback: Callback function</td>
-                        </tr>
-                        <tr>
-                            <td>filterclear</td>
-                            <td>field: Column field <br />
-                                filterModel: {value,matchMode} Filter metadata <br />
-                                filterCallback: Callback function</td>
-                        </tr>
-                        <tr>
-                            <td>filterapply</td>
-                            <td>field: Column field <br />
-                                filterModel: {value,matchMode} Filter metadata <br />
-                                filterCallback: Callback function</td>
-                        </tr>
-					</tbody>
-				</table>
-            </div>
+                <h5>Column Slots</h5>
+                <div class="doc-tablewrapper">
+                    <table class="doc-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Parameters</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>header</td>
+                                <td>column: Column node</td>
+                            </tr>
+                            <tr>
+                                <td>body</td>
+                                <td>data: Row data <br />
+                                    column: Column node <br />
+                                    field: Column field <br />
+                                    index: Row index <br />
+                                    frozenRow: Is row frozen</td>
+                            </tr>
+                            <tr>
+                                <td>footer</td>
+                                <td>column: Column node</td>
+                            </tr>
+                            <tr>
+                                <td>editor</td>
+                                <td>data: Row data <br />
+                                    column: Column node <br />
+                                    field: Column field <br />
+                                    index: Row index <br />
+                                    frozenRow: Is row frozen</td>
+                            </tr>
+                            <tr>
+                                <td>filter</td>
+                                <td>field: Column field <br />
+                                    filterModel: {value,matchMode} Filter metadata <br />
+                                    filterCallback: Callback function</td>
+                            </tr>
+                            <tr>
+                                <td>filterheader</td>
+                                <td>field: Column field <br />
+                                    filterModel: {value,matchMode} Filter metadata <br />
+                                    filterCallback: Callback function</td>
+                            </tr>
+                            <tr>
+                                <td>filterfooter</td>
+                                <td>field: Column field <br />
+                                    filterModel: {value,matchMode} Filter metadata <br />
+                                    filterCallback: Callback function</td>
+                            </tr>
+                            <tr>
+                                <td>filterclear</td>
+                                <td>field: Column field <br />
+                                    filterModel: {value,matchMode} Filter metadata <br />
+                                    filterCallback: Callback function</td>
+                            </tr>
+                            <tr>
+                                <td>filterapply</td>
+                                <td>field: Column field <br />
+                                    filterModel: {value,matchMode} Filter metadata <br />
+                                    filterCallback: Callback function</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
 
-            <h5>Auto Layout</h5>
-            <p>Default table-layout is fixed meaning the cell widths do not depend on their content. If you require cells to scale based on their contents set <i>autoLayout</i> property to true. Note that Scrollable and/or Resizable tables do not support auto layout due to technical limitations.</p>
+                <h5>Auto Layout</h5>
+                <p>Default table-layout is fixed meaning the cell widths do not depend on their content. If you require cells to scale based on their contents set <i>autoLayout</i> property to true. Note that Scrollable and/or Resizable tables do not support auto layout due to technical limitations.</p>
 
-            <h5>Templating</h5>
-            <p>Field data of a corresponding row is displayed as the cell content by default, this can be customized using a <i>body</i> template where current row data and column properties are passed via the slot props.
-                On the other hand, <i>header</i> and <i>footer</i> sections of a column can either be defined with the properties or the templates. Similarly DataTable itself also provides header and footer properties along with the templates for the main header and footer of the table.</p>
+                <h5>Templating</h5>
+                <p>Field data of a corresponding row is displayed as the cell content by default, this can be customized using a <i>body</i> template where current row data and column properties are passed via the slot props.
+                    On the other hand, <i>header</i> and <i>footer</i> sections of a column can either be defined with the properties or the templates. Similarly DataTable itself also provides header and footer properties along with the templates for the main header and footer of the table.</p>
 
-                <CodeHighlight>
+<CodeHighlight>
 <template v-pre>
 &lt;DataTable :value="cars"&gt;
     &lt;template #header&gt;
@@ -488,7 +488,7 @@ export default {
 
                 <h5>Sizes</h5>
                 <p>In addition to the regular table, a smal and a large version are available with different paddings. For a table
-                with smaller paddings use <i>p-datatable-sm</i> class and for a larger one use <i>p-datatable-lg</i>.</p>
+                with" smaller paddings use <i>p-datatable-sm</i> class and for a larger one use <i>p-datatable-lg</i>.</p>
 
 <CodeHighlight>
 <template v-pre>
