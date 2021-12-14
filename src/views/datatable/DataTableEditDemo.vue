@@ -298,7 +298,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-/deep/ .editable-cells-table td.p-cell-editing {
+::v-deep .editable-cells-table td.p-cell-editing {
     padding-top: 0;
     padding-bottom: 0;
 }

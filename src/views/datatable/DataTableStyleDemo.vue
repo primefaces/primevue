@@ -94,7 +94,7 @@ export default {
     color: #66BB6A;
 }
 
-/deep/ .row-accessories {
+::v-deep .row-accessories {
     background-color: rgba(0,0,0,.15) !important;
 
 }
@@ -155,7 +155,7 @@ export default {
     color: #66BB6A;
 }
 
-/deep/ .row-accessories {
+::v-deep .row-accessories {
     background-color: rgba(0,0,0,.15) !important;
 
 }

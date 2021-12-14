@@ -108,7 +108,7 @@ button {
     margin-right: .5rem;
 }
 
-/deep/ .p-tree {
+::v-deep .p-tree {
     a {
         color: #2196f3;
     }

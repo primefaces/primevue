@@ -567,13 +567,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-/deep/ .p-paginator {
+::v-deep .p-paginator {
     .p-paginator-current {
         margin-left: auto;
     }
 }
 
-/deep/ .p-progressbar {
+::v-deep .p-progressbar {
     height: .5rem;
     background-color: #D8DADC;
 
@@ -582,7 +582,7 @@ export default {
     }
 }
 
-/deep/ .p-datepicker {
+::v-deep .p-datepicker {
     min-width: 25rem;
 
     td {
@@ -590,7 +590,7 @@ export default {
     }
 }
 
-/deep/ .p-datatable.p-datatable-customers {
+::v-deep .p-datatable.p-datatable-customers {
     .p-datatable-header {
         padding: 1rem;
         text-align: left;

@@ -31,7 +31,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-/deep/ .card-container {
+::v-deep .card-container {
     .card {
         width: 75px;
         height: 75px;

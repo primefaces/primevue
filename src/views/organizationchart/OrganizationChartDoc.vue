@@ -648,7 +648,7 @@ export default {
 </CodeHighlight>
 
 <CodeHighlight lang="css">
-/deep/ .p-organizationchart {
+::v-deep .p-organizationchart {
     .p-person {
         padding: 0;
         border: 0 none;

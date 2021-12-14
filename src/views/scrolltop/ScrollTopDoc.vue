@@ -129,7 +129,7 @@ import ScrollTop from 'primevue/scrolltop';
 </CodeHighlight>
 
 <CodeHighlight>
-/deep/ .custom-scrolltop {
+::v-deep .custom-scrolltop {
     width: 2rem;
     height: 2rem;
     background-color: var(--primary-color);

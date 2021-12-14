@@ -58,7 +58,7 @@ html {
 
 <CodeHighlight>
 &lt;style lang="scss" scoped&gt;
-/deep/ .dark-panel.p-panel {
+::v-deep .dark-panel.p-panel {
     .p-panel-titlebar {
         background: #212121;
     }

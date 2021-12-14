@@ -144,7 +144,7 @@ export default {
 	vertical-align: middle;
 }
 
-/deep/ .product-list-item {
+::v-deep .product-list-item {
 	display: flex;
 	align-items: center;
 	padding: 1rem;
@@ -181,7 +181,7 @@ export default {
 	}
 }
 
-/deep/ .product-grid-item {
+::v-deep .product-grid-item {
 	margin: .5rem;
 	border: 1px solid #dee2e6;
 

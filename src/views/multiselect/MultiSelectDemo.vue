@@ -82,7 +82,7 @@ export default {
     width: 18rem;
 }
 
-/deep/ .multiselect-custom {
+::v-deep .multiselect-custom {
     .p-multiselect-label:not(.p-placeholder) {
         padding-top: .25rem;
         padding-bottom: .25rem;
