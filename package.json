@@ -1,6 +1,6 @@
 {
   "name": "primevue",
-  "version": "2.7.0",
+  "version": "2.8.0",
   "homepage": "https://www.primefaces.org/primevue",
   "repository": {
     "type": "git",
@@ -46,14 +46,14 @@
     "gulp-uglifycss": "^1.0.6",
     "primeflex": "2.0.0",
     "primeicons": "5.0.0",
-    "prismjs": "^1.15.0",
+    "prismjs": "1.9.0",
     "quill": "1.3.3",
     "@fullcalendar/core": "^5.7.2",
     "@fullcalendar/daygrid": "^5.7.2",
     "@fullcalendar/interaction": "^5.7.2",
     "@fullcalendar/timegrid": "^5.7.2",
     "@fullcalendar/vue": "^5.9.0",
-    "sass-loader": "^7.0.1",
-    "node-sass": "^4.9.0"
+    "sass": "1.43.4",
+    "sass-loader": "^8.0.2"
   }
 }
