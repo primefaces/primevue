@@ -284,8 +284,7 @@
 import ProductService from '../../service/ProductService';
 
 export default {
-import FilterMatchMode from '../../../src/components/api/FilterMatchMode';
-import ProductService from '../../service/ProductService';
+import {FilterMatchMode} from 'primevue/api';
 
 export default {
     data() {

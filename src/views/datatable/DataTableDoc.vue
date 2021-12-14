@@ -2744,10 +2744,8 @@ export default {
 </CodeHighlight>
 
 <CodeHighlight lang="javascript">
-import FilterMatchMode from '../../../src/components/api/FilterMatchMode';
-import FilterOperator from '../../../src/components/api/FilterOperator';
+import {FilterMatchMode,FilterOperator} from 'primevue/api';
 import CustomerService from '../../service/CustomerService';
-import DataTableDoc from './DataTableDoc';
 
 export default {
     data() {
@@ -2804,9 +2802,6 @@ export default {
         formatCurrency(value) {
             return value.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
         }
-    },
-    components: {
-        'DataTableDoc': DataTableDoc
     }
 }
 </CodeHighlight>

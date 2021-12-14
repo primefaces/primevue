@@ -101,7 +101,7 @@
                 &lt;InputText v-model="slotProps.data[slotProps.column.field]" /&gt;
             &lt;/template&gt;
         &lt;/Column&gt;
-        &lt;Column :rowEditor="true" :styles="{width:'10%', 'min-width':'8rem'}" bodyStyle="text-align:center"&gt;&lt;/Column&gt;
+        &lt;Column :rowEditor="true" :styles="{width:'10%', 'min-width':'8rem'}" :bodyStyle="{'text-align':'center'}"&gt;&lt;/Column&gt;
     &lt;/DataTable&gt;
 &lt;/div&gt;
 </template>
