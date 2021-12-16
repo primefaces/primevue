@@ -85,7 +85,7 @@ export default {
     methods: {
         itemClick(event) {
             const item = event.item;
-            if (item.disabled) {
+            if (this.disabled(item)) {
                 return;
             }
 
@@ -196,6 +196,9 @@ export default {
         },
         label(item) {
             return (typeof item.label === 'function' ? item.label() : item.label);
+        },
+        disabled(item) {
+            return (typeof item.disabled === 'function' ? item.disabled() : item.disabled);
         },
         containerRef(el) {
             this.container = el;
