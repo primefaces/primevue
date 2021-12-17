@@ -98,15 +98,6 @@
                 </div>
                 <div class="p-col-6 p-lg-3">
                     <div class="p-d-flex">
-                        <div class="dot color-2">&nbsp;</div>
-                        <div class="p-d-flex p-flex-column p-pl-3">
-                            <h6>Long Term Support</h6>
-                            <p>LTS Support ensures stability, premium quality and advanced security for any version.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="p-col-6 p-lg-3">
-                    <div class="p-d-flex">
                         <div class="dot color-8">&nbsp;</div>
                         <div class="p-d-flex p-flex-column p-pl-3">
                             <h6>Remote Desktop Connection</h6>
@@ -282,7 +273,6 @@
 }
 
 .section-newfeatures {
-    background-color: white;
     margin-top: 2rem;
 
     p {
