@@ -1,6 +1,6 @@
 <template>
     <span :class="containerClass" :style="style">
-        <img v-bind="$attrs" :style="imageStyle" :class="imageClass" />
+        <img v-bind="$attrs" :style="imageStyle" :class="imageClass" @error="onError"/>
         <div class="p-image-preview-indicator" v-if="preview" @click="onImageClick">
             <slot name="indicator">
                 <i class="p-image-preview-icon pi pi-eye"></i>
@@ -91,6 +91,9 @@ export default {
             }
 
             this.previewClick = false;
+        },
+        onError() {
+            this.$emit('onError');
         },
         rotateRight() {
             this.rotate += 90;
