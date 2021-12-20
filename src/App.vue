@@ -2,7 +2,7 @@
     <div class="layout-wrapper" :class="containerClass">
         <div class="layout-news" v-if="newsActive">
             <div class="layout-news-container" @click="redirect">
-                <img class="layout-news-mockup-image p-ml-2" src="./assets/images/topbar-newyear-logo.svg">
+                <img class="layout-news-logo p-ml-2" src="./assets/images/topbar-newyear-logo.svg">
                 <h3 class="layout-news-header p-px-2">DISCOUNT UP TO 50% ON EVERYTHING AT PRIMESTORE</h3>
                 <a href="https://www.primefaces.org/primeblocks-vue" target="_blank" tabindex="-1" class="layout-news-button">
                     Read More

@@ -1,17 +1,19 @@
+@media screen and (max-width: 1280px) {
+    .layout-wrapper {
+        .layout-news {
+            margin-left: 250px;
+            .layout-news-button,
+            .layout-news-logo {
+                display: none;
+            }
+        }
+    }
+}
 
 @media screen and (max-width: 960px) {
     .layout-wrapper {
         .layout-news {
             margin-left: 0;
-
-            .layout-news-button,
-            .layout-news-mockup-image {
-                display: none;
-            }
-
-            .layout-news-header {
-                font-size: 1rem;
-            }
         }
     }
 
@@ -28,7 +30,7 @@
 
         .logo {
             display: block;
-            
+
             img{
                 width: 150px;
             }
