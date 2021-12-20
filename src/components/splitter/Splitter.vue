@@ -79,6 +79,11 @@ export default {
         isSplitterPanel(child) {
             return child.type.name === 'SplitterPanel';
         },
+        isSymbolComment(child) {
+          if (typeof child.type === 'symbol'){
+            return child.type.toString() === 'Symbol(Comment)';
+          }
+        },
         onResizeStart(event, index) {
             this.gutterElement = event.currentTarget;
             this.size = this.horizontal ? DomHandler.getWidth(this.$el) : DomHandler.getHeight(this.$el);
@@ -228,6 +233,9 @@ export default {
             this.$slots.default().forEach(child => {
                     if (this.isSplitterPanel(child)) {
                         panels.push(child);
+                    }
+                    else if(this.isSymbolComment(child)) {
+                      return;
                     }
                     else if (child.children.length > 0) {
                         child.children.forEach(nestedChild => {
