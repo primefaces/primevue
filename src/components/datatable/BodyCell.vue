@@ -16,6 +16,7 @@
         </template>
         <template v-else-if="columnProp('expander')">
             <button class="p-row-toggler p-link" @click="toggleRow" type="button" v-ripple>
+                <slot><span class="p-sr-only">Expand row</span></slot>
                 <span :class="rowTogglerIcon"></span>
             </button>
         </template>
