@@ -5,8 +5,14 @@
         </div>
         <button ref="icon" v-if="showMenuButton" type="button" class="p-column-filter-menu-button p-link" aria-haspopup="true" :aria-expanded="overlayVisible"
             :class="{'p-column-filter-menu-button-open': overlayVisible, 'p-column-filter-menu-button-active': hasFilter()}"
-            @click="toggleMenu()" @keydown="onToggleButtonKeyDown($event)"><span class="pi pi-filter-icon pi-filter"></span></button>
-        <button v-if="showClearButton && display === 'row'" :class="{'p-hidden-space': !hasRowFilter()}" type="button" class="p-column-filter-clear-button p-link" @click="clearFilter()"><span class="pi pi-filter-slash"></span></button>
+            @click="toggleMenu()" @keydown="onToggleButtonKeyDown($event)">
+            <slot><span class="p-sr-only">Show filter</span></slot>
+            <span class="pi pi-filter-icon pi-filter"></span>
+        </button>
+        <button v-if="showClearButton && display === 'row'" :class="{'p-hidden-space': !hasRowFilter()}" type="button" class="p-column-filter-clear-button p-link" @click="clearFilter()">
+            <slot><span class="p-sr-only">Clear filter</span></slot>
+            <span class="pi pi-filter-slash"></span>
+        </button>
         <Teleport to="body">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
                 <div :ref="overlayRef" :class="overlayClass" v-if="overlayVisible" @keydown.escape="onEscape" @click="onContentClick" @mousedown="onContentMouseDown">
