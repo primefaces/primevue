@@ -1,5 +1,6 @@
 <template>
 	<button :class="containerClass" type="button" v-ripple>
+        <slot><span class="p-sr-only">Go to next page</span></slot>
 		<span class="p-paginator-icon pi pi-angle-right"></span>
 	</button>
 </template>
