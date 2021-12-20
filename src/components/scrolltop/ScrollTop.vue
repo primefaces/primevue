@@ -1,6 +1,7 @@
 <template>
     <transition name="p-scrolltop" appear @enter="onEnter" @after-leave="onAfterLeave">
         <button :ref="containerRef" :class="containerClass" v-if="visible" @click="onClick" type="button">
+            <slot><span class="p-sr-only">Back to top</span></slot>
             <span :class="iconClass"></span>
         </button>
     </transition>
