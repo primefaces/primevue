@@ -12,6 +12,7 @@
         <i v-if="showClear && modelValue != null" class="p-dropdown-clear-icon pi pi-times" @click="onClearClick($event)"></i>
         <div class="p-dropdown-trigger" role="button" aria-haspopup="listbox" :aria-expanded="overlayVisible">
             <slot name="indicator">
+                <span class="p-sr-only">Show dropdown</span>
                 <span :class="dropdownIconClass"></span>
             </slot>
         </div>
