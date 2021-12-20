@@ -22,7 +22,7 @@
                             <Tag v-if="child.badge" :value="child.badge"></Tag>
                         </router-link>
                         <template v-if="child.children">
-                           <router-link :to="child.children[0].to" v-slot="{isActive}" custom>
+                            <router-link :to="child.children[0].to" v-slot="{isActive}" custom>
                                 <div>
                                     <a tabindex="0" @click="toggleSubmenu($event, child.meta[0])">
                                         {{child.name}}

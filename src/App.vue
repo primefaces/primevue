@@ -1,13 +1,11 @@
 <template>
     <div class="layout-wrapper" :class="containerClass">
         <div class="layout-news" v-if="newsActive">
-            <div class="layout-news-container">
-                <a href="https://www.primefaces.org/primeblocks-vue" class="layouts-news-mockup" target="_blank">
-                    <img class="layouts-news-mockup-image" src="./assets/images/topbar-primeblocks-device.png">
-                </a>
-                <a href="https://www.primefaces.org/primeblocks-vue" target="_blank" tabindex="-1" style="text-decoration: none" class="layout-news-button">
-                    LEARN MORE
-                    <i class="pi pi-angle-right"></i>
+            <div class="layout-news-container" @click="redirect">
+                <img class="layout-news-mockup-image p-ml-2" src="./assets/images/topbar-newyear-logo.svg">
+                <h3 class="layout-news-header p-px-2">DISCOUNT UP TO 50% ON EVERYTHING AT PRIMESTORE</h3>
+                <a href="https://www.primefaces.org/primeblocks-vue" target="_blank" tabindex="-1" class="layout-news-button">
+                    Read More
                 </a>
                 <a tabindex="0" class="layout-news-close" @click="hideNews">
                     <i class="pi pi-times"></i>
@@ -152,6 +150,9 @@ export default {
         },
         isDarkTheme(theme) {
             return theme.indexOf('dark') !== -1 || theme.indexOf('vela') !== -1 || theme.indexOf('arya') !== -1 || theme.indexOf('luna') !== -1;
+        },
+        redirect() {
+            window.location.href = 'https://www.primefaces.org/primeblocks-vue';
         }
     },
     computed: {

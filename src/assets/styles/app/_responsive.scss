@@ -4,8 +4,13 @@
         .layout-news {
             margin-left: 0;
 
-            .layout-news-button {
+            .layout-news-button,
+            .layout-news-mockup-image {
                 display: none;
+            }
+
+            .layout-news-header {
+                font-size: 1rem;
             }
         }
     }
