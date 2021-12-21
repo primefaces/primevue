@@ -4,6 +4,10 @@ export interface ConfirmationOptions {
      */
     target?: HTMLElement | undefined;
     /**
+     * Header text of the dialog.
+     */
+    header?: string | undefined;
+    /**
      * Message of the confirmation.
      */
     message?: string | undefined;
