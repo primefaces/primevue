@@ -12,10 +12,6 @@ export interface ConfirmationOptions {
      */
     message?: string | undefined;
     /**
-     * Header text of the dialog.
-     */
-    header?: string | undefined;
-    /**
      * Optional key to match the key of the confirmation, useful to target a specific confirm dialog instance.
      */
     group?: string | undefined;
