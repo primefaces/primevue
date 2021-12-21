@@ -90,7 +90,7 @@ const DialogProps = [
         description: "Aria label of the close icon."
     },
     {
-        name: "maxiizable",
+        name: "maximizable",
         type: "boolean",
         default: "false",
         description: "Whether the dialog can be displayed full screen."
