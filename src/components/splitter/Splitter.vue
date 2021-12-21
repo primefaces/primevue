@@ -1,14 +1,14 @@
 <template>
     <div :class="containerClass">
         <template v-for="(panel,i) of panels" :key="i" class="p-splitter-panel">
-             <component :is="panel"></component>
-             <div class="p-splitter-gutter" v-if="i !== (panels.length -1)" :style="gutterStyle"
+            <component :is="panel"></component>
+            <div class="p-splitter-gutter" v-if="i !== (panels.length -1)" :style="gutterStyle"
                 @mousedown="onGutterMouseDown($event, i)"
                 @touchstart="onGutterTouchStart($event, i)"
                 @touchmove="onGutterTouchMove($event, i)"
                 @touchend="onGutterTouchEnd($event, i)">
-                 <div class="p-splitter-gutter-handle"></div>
-             </div>
+                <div class="p-splitter-gutter-handle"></div>
+            </div>
         </template>
     </div>
 </template>
@@ -229,7 +229,7 @@ export default {
                     if (this.isSplitterPanel(child)) {
                         panels.push(child);
                     }
-                    else if (child.children.length > 0) {
+                    else if (child.children.length instanceof Array) {
                         child.children.forEach(nestedChild => {
                             if (this.isSplitterPanel(nestedChild)) {
                                 panels.push(nestedChild)
