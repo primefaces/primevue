@@ -1,17 +1,17 @@
 <template>
     <div class="layout-wrapper" :class="containerClass">
-        <a class="layout-news" href="https://www.primefaces.org/store" target="_blank" tabindex="-1" v-if="newsActive">
-            <div class="layout-news-container">
-                <img class="layouts-news-mockup-image" alt="primeblocks" src="./assets/images/topbar-primeblocks-device.png">
-                <a href="https://www.primefaces.org/primeblocks-vue" target="_blank" tabindex="-1" style="text-decoration: none" class="layout-news-button">
-                    LEARN MORE
-                    <i class="pi pi-angle-right"></i>
+        <div class="layout-news" v-if="newsActive">
+            <div class="layout-news-container" @click="redirect">
+                <img class="layout-news-logo p-ml-2" src="./assets/images/topbar-newyear-logo.svg">
+                <h3 class="layout-news-header p-px-2">UP TO 50% DISCOUNT AT PRIMESTORE</h3>
+                <a href="https://www.primefaces.org/primeblocks-vue" target="_blank" tabindex="-1" class="layout-news-button">
+                    VISIT SITE
                 </a>
-                <a href="#" class="layout-news-close" @click="hideNews">
+                <a tabindex="0" class="layout-news-close" @click="hideNews">
                     <i class="pi pi-times"></i>
                 </a>
             </div>
-        </a>
+        </div>
 
         <app-topbar @menubutton-click="onMenuButtonClick" @change-theme="changeTheme" :theme="theme" />
         <app-menu :active="sidebarActive" />
@@ -81,8 +81,9 @@ export default {
             this.sidebarActive = false;
             DomHandler.removeClass(document.body, 'blocked-scroll');
         },
-        hideNews() {
+        hideNews(event) {
             this.newsActive = false;
+            event.stopPropagation();
         },
         changeTheme(event) {
             let themeElement = document.getElementById('theme-link');
@@ -125,6 +126,9 @@ export default {
             }
 
             return false;
+        },
+        redirect() {
+            window.location.href = 'https://www.primefaces.org/primeblocks-vue';
         }
     },
     computed: {
