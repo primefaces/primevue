@@ -138,7 +138,7 @@
         <div class="content-section section-newfeatures">
             <h5>Enhancement Credits</h5> 
             <div class="p-d-flex p-mb-4">
-                <p>New feature and enhancement requests are not available in core services and provided via an hour based model instead. When you have a feature request we provide an estimate, if you confirm we deliver your request within an estimated timeframe and deduct the amount of work from your hours. These requests can be;</p>
+                <p>New feature and enhancement requests are not available in core services and provided via a credit model instead. When you have a feature request we provide an estimate, if you confirm we deliver your request within an estimated timeframe and deduct the amount of work from your credits.</p>
             </div>
             <div class="p-grid">
                 <div class="p-col-6 p-lg-3">
@@ -197,7 +197,7 @@
                 </div>
             </div>
             <div class="p-d-flex p-mt-4">
-                <p>You can purchase additional hours along with the subscription and also anytime during your subscription period. If your subscription term ends with unused hours, they will be added to your new subscription term in case you extend.</p>
+                <p>You can purchase additional credits along with the subscription and also anytime during your subscription period. If your subscription term ends with unused credits, they will be added to your new subscription term in case you extend.</p>
             </div>
         </div>
     </div>
