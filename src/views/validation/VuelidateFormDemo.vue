@@ -3,7 +3,7 @@
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>Vuelidate</h1>
-                <p>PrimeVue components can be easily used/integrated with <a href="https://vuelidate.js.org/">Vuelidate</a>. In this example, a register panel is simulated using Vuelidate.</p>
+                <p>PrimeVue components can be easily used/integrated with <a href="https://vuelidate-next.netlify.app/">Vuelidate</a>. In this example, a register panel is simulated using Vuelidate.</p>
             </div>
             <AppDemoActions />
         </div>

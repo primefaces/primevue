@@ -5,7 +5,7 @@ declare const plugin: Plugin;
 export default plugin;
 
 interface ConfirmationServiceMethods {
-    require(options: ConfirmationOptions): any;
+    require(options: ConfirmationOptions): void;
     close(): void;
 }
 

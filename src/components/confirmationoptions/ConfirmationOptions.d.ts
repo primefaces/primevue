@@ -4,6 +4,10 @@ export interface ConfirmationOptions {
      */
     target?: HTMLElement | undefined;
     /**
+     * Header text of the dialog.
+     */
+    header?: string | undefined;
+    /**
      * Message of the confirmation.
      */
     message?: string | undefined;
@@ -15,6 +19,10 @@ export interface ConfirmationOptions {
      * Icon to display next to the message.
      */
     icon?: string | undefined;
+    /**
+     * Whether background scroll should be blocked when dialog is visible.
+     */
+    blockScroll?: boolean | undefined;
     /**
      * Callback to execute when action is confirmed.
      */
