@@ -1,6 +1,6 @@
 <template>
     <span ref="container" :class="containerClass" :style="style">
-        <input :ref="inputRef" v-if="!inline" type="text" :class="['p-inputtext p-component', inputClass]" :style="inputStyle" @input="onInput" v-bind="$attrs" 
+        <input :ref="inputRef" v-if="!inline" type="text" :class="['p-inputtext p-component', inputClass]" :style="inputStyle" @input="onInput" v-bind="$attrs"
             @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" :readonly="!manualInput" inputmode="none">
         <CalendarButton v-if="showIcon" :icon="icon" tabindex="-1" class="p-datepicker-trigger" :disabled="$attrs.disabled" @click="onButtonClick" type="button" :aria-label="inputFieldValue"/>
         <Teleport :to="appendTarget" :disabled="appendDisabled">
@@ -19,7 +19,7 @@
                                             {{getMonthName(month.month)}}
                                         </button>
                                         <button type="button" @click="switchToYearView" @keydown="onContainerButtonKeydown" v-if="currentView !== 'year'" class="p-datepicker-year p-link" :disabled="switchViewButtonDisabled">
-                                            {{currentYear}}
+                                            {{month.year}}
                                         </button>
                                         <span class="p-datepicker-decade" v-if="currentView === 'year'">
                                             <slot name="decade" :years="yearPickerValues">
