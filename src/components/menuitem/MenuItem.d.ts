@@ -1,3 +1,5 @@
+import { RouteLocationRaw } from "vue-router";
+
 type MenuItemLabelType = string | ((...args: any) => string) | undefined;
 
 type MenuItemDisabledType = boolean | ((...args: any) => boolean) | undefined;
@@ -31,7 +33,7 @@ export interface MenuItem {
     /**
      * Route configuration such as path, name and parameters.
      */
-    to?: string | undefined;
+    to?: RouteLocationRaw | undefined;
     /**
      * Callback to execute when item is clicked.
      * @param {@link MenuItemCommandEvent} event - Custom command event.
