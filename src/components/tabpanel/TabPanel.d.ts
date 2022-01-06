@@ -17,6 +17,10 @@ export interface TabPanelSlots {
      * Custom content template.
      */
     default: () => VNode[];
+    /**
+     * Custom header template.
+     */
+    header: () => VNode[];
 }
 
 export declare type TabPanelEmits = {
