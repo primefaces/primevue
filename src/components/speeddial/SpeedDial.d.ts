@@ -15,13 +15,13 @@ export interface SpeedDialTooltipOptions {
      * Event to show the tooltip, valid values are hover and focus.
      * @see SpeedDialTooltipEventType
      */
-    event: SpeedDialTooltipEventType;
+    event: string;
     /**
      * Position of element.
      * @see SpeedDialTooltipPositionType
      * Default value is 'bottom'.
      */
-    position: SpeedDialTooltipPositionType;
+    position: string;
     /**
      * Optional options.
      */

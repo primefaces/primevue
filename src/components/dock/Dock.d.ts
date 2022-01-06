@@ -11,13 +11,13 @@ export interface DockTooltipOptions {
      * Event to show the tooltip, valid values are hover and focus.
      * @see DockTooltipEventType
      */
-    event: DockTooltipEventType;
+    event: string;
     /**
      * Position of element.
      * @see DockPositionType
      * Default value is 'bottom'.
      */
-    position: DockPositionType;
+    position: string;
     /**
      * Optional options.
      */
