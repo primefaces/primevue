@@ -19,7 +19,7 @@ export interface ToastMessageOptions {
     /**
      * Detail content of the message.
      */
-    detail?: string | undefined;
+    detail?: any | undefined;
     /**
      * Whether the message can be closed manually using the close icon.
      * Default value is true.
@@ -87,8 +87,16 @@ export interface ToastProps {
 export interface ToastSlots {
     /**
      * Custom message template.
+     * @param {Object} scope - message slot's params.
      */
-    message: () => VNode[];
+    message: (
+        scope: {
+            /**
+             * Message of the component
+             */
+            message: any;
+        }
+    ) => VNode[];
 }
 
 export declare type ToastEmits = {
