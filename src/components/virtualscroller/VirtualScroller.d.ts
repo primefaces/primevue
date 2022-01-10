@@ -94,7 +94,7 @@ export interface VirtualScrollerProps {
     /**
      * Style class of the component.
      */
-    class?: string | undefined;
+    class?: any;
     /**
      * An array of objects to display.
      */

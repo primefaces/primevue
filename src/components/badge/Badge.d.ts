@@ -26,7 +26,7 @@ export interface BadgeSlots {
     /**
      * Content can easily be customized with the default slot instead of using the built-in display.
      */
-     default: () => VNode[];
+    default: () => VNode[];
 }
 
 export declare type BadgeEmits = {

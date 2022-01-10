@@ -154,7 +154,7 @@ export interface MultiSelectProps {
     /**
      * Style class of the overlay panel.
      */
-    panelClass?: string | undefined;
+    panelClass?: any;
     /**
      * Label to display after exceeding max selected labels.
      * Default value is '{0} items selected'.

@@ -42,7 +42,7 @@ export interface ChipsProps {
     /**
      * Style class of the component input field.
      */
-    class?: string | undefined;
+    class?: any;
     /**
      * Inline style of the component.
      */

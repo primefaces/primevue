@@ -8,10 +8,10 @@ export interface ButtonProps extends ButtonHTMLAttributes {
      * Inline style of the button.
      */
     style?: any;
-     /**
+    /**
       * Style class of the button.
       */
-    class?: string | undefined;
+    class?: any;
     /**
      * Text of the button.
      */

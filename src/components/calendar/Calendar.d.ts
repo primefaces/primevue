@@ -122,7 +122,7 @@ export interface CalendarProps {
     /**
      * Style class of the datetimepicker panel.
      */
-    panelClass?: string | undefined;
+    panelClass?: any;
     /**
      * The minimum selectable date.
      */
@@ -228,7 +228,7 @@ export interface CalendarProps {
     /**
      * Style class of the input field.
      */
-    inputClass?: string | undefined;
+    inputClass?: any;
     /**
      * Inline style of the component.
      */
@@ -236,7 +236,7 @@ export interface CalendarProps {
     /**
      * Style class of the component.
      */
-    class?: string | undefined;
+    class?: any;
     /**
      * Keep invalid value when input blur.
      */

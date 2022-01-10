@@ -37,11 +37,11 @@ export interface ToastMessageOptions {
     /**
      * Style class of the message.
      */
-    styleClass?: string | undefined;
+    styleClass?: any;
     /**
      * Style class of the content.
      */
-    contentStyleClass?: string | undefined;
+    contentStyleClass?: any;
 }
 
 export interface ToastBreakpointsType {

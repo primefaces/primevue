@@ -38,7 +38,7 @@ export interface DockProps {
     /**
      * Style class of the element.
      */
-    class?: string | undefined;
+    class?: any;
     /**
      * Inline style of the element.
      */

@@ -8,7 +8,7 @@ export interface InputSwitchProps {
     /**
      * Inline style of the component.
      */
-    class?: string | undefined;
+    class?: any;
     /**
      * Style class of the component input field.
      */

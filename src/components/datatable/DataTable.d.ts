@@ -772,7 +772,7 @@ export interface DataTableProps {
     /**
      * Style class of the table element.
      */
-    tableClass?: string | undefined;
+    tableClass?: any;
 }
 
 export interface DataTableSlots {

@@ -35,7 +35,7 @@ export interface SplitButtonProps {
     /**
      * Style class of the component.
      */
-    class?: string | undefined;
+    class?: any;
     /**
      * Inline style of the component.
      */

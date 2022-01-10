@@ -123,7 +123,7 @@ export interface GalleriaProps {
     /**
      * Style class of the component on fullscreen mode. Otherwise, the 'class' property can be used.
      */
-    containerClass?: string | undefined;
+    containerClass?: any;
 }
 
 export interface GalleriaSlots {

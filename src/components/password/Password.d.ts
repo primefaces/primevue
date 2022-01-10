@@ -66,7 +66,7 @@ export interface PasswordProps extends InputHTMLAttributes {
     /**
      * Style class of the input field.
      */
-    inputClass?: string | undefined;
+    inputClass?: any;
     /**
      * Inline style of the component.
      */
@@ -74,11 +74,11 @@ export interface PasswordProps extends InputHTMLAttributes {
     /**
      * Style class of the component input field.
      */
-    class?: string | undefined;
+    class?: any;
     /**
      * Style class of the overlay panel.
      */
-    panelClass?: string | undefined;
+    panelClass?: any;
 }
 
 export interface PasswordSlots {
