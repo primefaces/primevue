@@ -44,11 +44,11 @@ export interface DialogProps {
     /**
      * Style of the content section.
      */
-    contentStyle?: any | undefined;
+    contentStyle?: any;
     /**
      * Style class of the content section.
      */
-    contentClass?: string | undefined;
+    contentClass?: any;
     /**
      * When enabled dialog is displayed in RTL direction.
      */

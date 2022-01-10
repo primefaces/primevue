@@ -12,7 +12,7 @@ export interface RadioButtonProps {
     /**
      * Style class of the component input field.
      */
-    class?: string;
+    class?: any;
     /**
      * Inline style of the component.
      */

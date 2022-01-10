@@ -50,7 +50,7 @@ export interface TreeSelectProps {
     /**
      * Style class of the overlay panel.
      */
-    panelClass?: string | undefined;
+    panelClass?: any;
     /**
      * A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are 'body' for document body and 'self' for the element itself.
      * @see TreeSelectAppendToType

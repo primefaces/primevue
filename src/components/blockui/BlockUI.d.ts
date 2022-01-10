@@ -26,7 +26,7 @@ export interface BlockUISlots {
     /**
      * Custom content's slot.
      */
-     default: () => VNode[];
+    default: () => VNode[];
 }
 
 export declare type BlockUIEmits = {

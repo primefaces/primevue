@@ -185,7 +185,7 @@ export interface FileUploadProps {
     /**
      * Style class of the component.
      */
-    class?: string | undefined;
+    class?: any;
 }
 
 export interface FileUploadSlots {
