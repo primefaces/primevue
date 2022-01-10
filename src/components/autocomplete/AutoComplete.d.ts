@@ -134,7 +134,7 @@ export interface AutoCompleteProps {
     /**
      * Style class of the overlay panel.
      */
-    panelClass?: string;
+    panelClass?: any;
     /**
      * Whether to use the virtualScroller feature. The properties of VirtualScroller component can be used like an object in it.
      * @see VirtualScroller.VirtualScrollerProps

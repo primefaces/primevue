@@ -97,7 +97,7 @@ export interface ColumnProps {
     /**
      * Style class of header, body and footer cells.
      */
-    class?: string | undefined;
+    class?: any;
     /**
      * Inline style of the column header.
      */
@@ -105,7 +105,7 @@ export interface ColumnProps {
     /**
      * Style class of the column header.
      */
-    headerClass?: string | undefined;
+    headerClass?: any;
     /**
      * Inline style of the column body.
      */
@@ -113,7 +113,7 @@ export interface ColumnProps {
     /**
      * Style class of the column body.
      */
-    bodyClass?: string | undefined;
+    bodyClass?: any;
     /**
      * Inline style of the column footer.
      */
@@ -121,7 +121,7 @@ export interface ColumnProps {
     /**
      * Style class of the column footer.
      */
-    footerClass?: string | undefined;
+    footerClass?: any;
     /**
      * Whether to display the filter overlay.
      * Default value is true.
@@ -172,7 +172,7 @@ export interface ColumnProps {
     /**
      * Style class of the column filter header in row filter display.
      */
-    filterHeaderClass?: string | undefined;
+    filterHeaderClass?: any;
     /**
      * Inline style of the column filter overlay.
      */
@@ -180,7 +180,7 @@ export interface ColumnProps {
     /**
      * Style class of the column filter overlay.
      */
-    filterMenuClass?: string | undefined;
+    filterMenuClass?: any;
     /**
      * Defines column based selection mode, options are 'single' and 'multiple'.
      * @see ColumnSelectionModeType

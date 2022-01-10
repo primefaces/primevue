@@ -12,7 +12,7 @@ export interface TriStateCheckboxProps {
     /**
      * Style class of the component.
      */
-    class?: string;
+    class?: any;
 }
 
 export interface TriStateCheckboxSlots {

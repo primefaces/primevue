@@ -13,7 +13,7 @@ export interface ImageProps {
     /**
      * Style class of the image element.
      */
-    imageClass?: string | undefined;
+    imageClass?: any;
 }
 
 export interface ImageSlots {

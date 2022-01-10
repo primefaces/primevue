@@ -57,15 +57,15 @@ export interface CarouselProps {
     /**
      * Style class of the viewport container.
      */
-	containerClass?: string | undefined;
+	containerClass?: any;
     /**
      * Style class of main content.
      */
-	contentClass?: string | undefined;
+	contentClass?: any;
     /**
      * Style class of the indicator items.
      */
-	indicatorsContentClass?: string | undefined;
+	indicatorsContentClass?: any;
     /**
      * Defines if scrolling would be infinite.
      */

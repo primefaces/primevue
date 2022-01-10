@@ -60,7 +60,7 @@ export interface ColorPickerProps {
     /**
      * Style class of the overlay panel.
      */
-    panelClass?: string | undefined;
+    panelClass?: any;
     /**
      * A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are 'body' for document body and 'self' for the element itself.
      * Default value is 'body'.
@@ -77,7 +77,7 @@ export declare type ColorPickerEmits = {
      * @param {*} value - New value.
      */
     'update:modelValue': (value: any) => void;
-     /**
+    /**
       * Callback to invoke when a chip is added.
       * @param {ColorPickerChangeEvent} event - Custom add event.
       */

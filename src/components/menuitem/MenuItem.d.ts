@@ -68,7 +68,7 @@ export interface MenuItem {
     /**
      * Style class of the menuitem.
      */
-    class?: string | undefined;
+    class?: any;
     /**
      * Unique identifier of an item.
      */

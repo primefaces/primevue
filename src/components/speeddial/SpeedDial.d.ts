@@ -75,7 +75,7 @@ export interface SpeedDialProps {
     /**
      * Style class of the button element.
      */
-    buttonClass?: string | undefined;
+    buttonClass?: any;
     /**
      * Inline style of the mask element.
      */
@@ -101,7 +101,7 @@ export interface SpeedDialProps {
     /**
      * Style class of the element.
      */
-    class?: string | undefined;
+    class?: any;
     /**
      * Inline style of the element.
      */

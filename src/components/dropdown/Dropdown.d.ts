@@ -148,7 +148,7 @@ export interface DropdownProps {
     /**
      * Style class of the overlay panel.
      */
-    panelClass?: string | undefined;
+    panelClass?: any;
     /**
      * Whether the dropdown is in loading state.
      */
