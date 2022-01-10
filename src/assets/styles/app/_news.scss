@@ -4,8 +4,8 @@
     justify-content: center;
     align-items: center;
     margin-left: 250px;
-    background-image: url('./assets/images/topbar-newyear-bg.png'), linear-gradient(180deg, #D2000B 0%, #9B0008 100%);
-    background-blend-mode: multiply;
+    background-image: linear-gradient(197.37deg, rgba(0, 120, 227, 0.07) -0.38%, rgba(165, 72, 181, 0) 101.89%), linear-gradient(115.93deg, rgba(62, 136, 246, 0.15) 4.86%, rgba(62, 180, 246, 0.0495) 38.05%, rgba(62, 235, 246, 0) 74.14%), radial-gradient(56.47% 76.87% at 6.92% 7.55%, rgba(62, 136, 246, 0.05) 0%, rgba(62, 158, 246, 0.013) 52.16%, rgba(62, 246, 246, 0) 100%), linear-gradient(306.53deg, rgba(163, 171, 217, 0.1) 19.83%, rgba(163, 171, 217, 0) 97.33%);
+    background-color: white;
 
     .layout-news-container {
         width: 100%;
@@ -26,16 +26,14 @@
         }
 
         img.layout-news-logo {
-            position: absolute;
-            left: 250px;
+            height: 70px;
         }
 
         .layout-news-button {
-            background: linear-gradient(180deg, #D8000A 0%, rgba(251, 0, 1, 0.4) 89.06%, rgba(255, 0, 0, 0) 100%);
-            border-radius: 5px;
-            color: #ffffff;
-            font-size: 14px;
-            padding: 0.5em 0.75em;
+            border: 2px solid #283738;
+            color: #283738;
+            font-size: 15px;
+            padding: 0.3em 0.5em;
             font-weight: 700;
             border-radius: 3px;
             flex-shrink: 0;
@@ -45,7 +43,7 @@
             z-index: 1;
 
             &:hover {
-                background: linear-gradient(180deg, #EE000B 0%, rgba(255, 0, 0, 0.55) 100%);
+                background-color: rgba(0, 0, 0, 0.25);
             }
         }
     }
@@ -56,7 +54,7 @@
         position: absolute;
         z-index: 2;
         right: 28px;
-        background: linear-gradient(180deg, #D8000A 0%, rgba(255, 0, 0, 0) 100%);
+        background-color: rgba(0,0,0,.3);
         filter: drop-shadow(0px 12px 12px rgba(0, 0, 0, 0.17));
         border-radius: 50%;
         display: flex;
@@ -64,9 +62,5 @@
         align-items: center;
         width: 34px;
         height: 34px;
-
-        &:hover {
-            background: linear-gradient(180deg, #EE000B 0%, rgba(255, 0, 0, 0.55) 100%);
-        }
     }
 }
