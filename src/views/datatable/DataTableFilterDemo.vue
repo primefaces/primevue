@@ -16,7 +16,7 @@
                     dataKey="id" v-model:filters="filters1" filterDisplay="menu" :loading="loading1" responsiveLayout="scroll"
                     :globalFilterFields="['name','country.name','representative.name','balance','status']">
                     <template #header>
-                        <div class="p-d-flex p-jc-between">
+                        <div class="flex justify-content-center">
                             <Button type="button" icon="pi pi-filter-slash" label="Clear" class="p-button-outlined" @click="clearFilter1()"/>
                             <span class="p-input-icon-left">
                                 <i class="pi pi-search" />
@@ -53,7 +53,7 @@
                             <Button type="button" icon="pi pi-check" @click="filterCallback()" class="p-button-success"></Button>
                         </template>
                         <template #filterfooter>
-                            <div class="p-px-3 p-pt-0 p-pb-3 p-text-center p-text-bold">Customized Buttons</div>
+                            <div class="px-3 pt-0 pb-3 text-center font-bold">Customized Buttons</div>
                         </template>
                     </Column>
                     <Column header="Agent" filterField="representative" :showFilterMatchModes="false" :filterMenuStyle="{'width':'14rem'}" style="min-width:14rem">
@@ -62,7 +62,7 @@
                             <span class="image-text">{{data.representative.name}}</span>
                         </template>
                         <template #filter="{filterModel}">
-                            <div class="p-mb-3 p-text-bold">Agent Picker</div>
+                            <div class="mb-3 font-bold">Agent Picker</div>
                             <MultiSelect v-model="filterModel.value" :options="representatives" optionLabel="name" placeholder="Any" class="p-column-filter">
                                 <template #option="slotProps">
                                     <div class="p-multiselect-representative-option">
@@ -110,14 +110,14 @@
                             <ProgressBar :value="data.activity" :showValue="false"></ProgressBar>
                         </template>
                         <template #filter={filterModel}>
-                            <Slider v-model="filterModel.value" range class="p-m-3"></Slider>
-                            <div class="p-d-flex p-ai-center p-jc-between p-px-2">
+                            <Slider v-model="filterModel.value" range class="m-3"></Slider>
+                            <div class="flex align-items-center justify-content-center px-2">
                                 <span>{{filterModel.value ? filterModel.value[0] : 0}}</span>
                                 <span>{{filterModel.value ? filterModel.value[1] : 100}}</span>
                             </div>
                         </template>
                     </Column>
-                    <Column field="verified" header="Verified" dataType="boolean" bodyClass="p-text-center" style="min-width:8rem">
+                    <Column field="verified" header="Verified" dataType="boolean" bodyClass="text-center" style="min-width:8rem">
                         <template #body="{data}">
                             <i class="pi" :class="{'true-icon pi-check-circle': data.verified, 'false-icon pi-times-circle': !data.verified}"></i>
                         </template>
@@ -135,7 +135,7 @@
                     dataKey="id" v-model:filters="filters2" filterDisplay="row" :loading="loading2" responsiveLayout="scroll"
                     :globalFilterFields="['name','country.name','representative.name','status']">
                     <template #header>
-                        <div class="p-d-flex p-jc-end">
+                        <div class="flex justify-content-end">
                             <span class="p-input-icon-left ">
                                 <i class="pi pi-search" />
                                 <InputText v-model="filters2['global'].value" placeholder="Keyword Search" />
@@ -261,7 +261,7 @@ export default {
                 dataKey="id" v-model:filters="filters1" filterDisplay="menu" :loading="loading1" responsiveLayout="scroll"
                 :globalFilterFields="['name','country.name','representative.name','balance','status']">
                 <template #header>
-                    <div class="p-d-flex p-jc-between">
+                    <div class="flex justify-content-center">
                         <Button type="button" icon="pi pi-filter-slash" label="Clear" class="p-button-outlined" @click="clearFilter1()"/>
                         <span class="p-input-icon-left">
                             <i class="pi pi-search" />
@@ -298,7 +298,7 @@ export default {
                         <Button type="button" icon="pi pi-check" @click="filterCallback()" class="p-button-success"></Button>
                     </template>
                     <template #filterfooter>
-                        <div class="p-px-3 p-pt-0 p-pb-3 p-text-center p-text-bold">Customized Buttons</div>
+                        <div class="px-3 pt-0 pb-3 text-center font-bold">Customized Buttons</div>
                     </template>
                 </Column>
                 <Column header="Agent" filterField="representative" :showFilterMatchModes="false" :filterMenuStyle="{'width':'14rem'}" style="min-width:14rem">
@@ -307,7 +307,7 @@ export default {
                         <span class="image-text">{{data.representative.name}}</span>
                     </template>
                     <template #filter="{filterModel}">
-                        <div class="p-mb-3 p-text-bold">Agent Picker</div>
+                        <div class="mb-3 font-bold">Agent Picker</div>
                         <MultiSelect v-model="filterModel.value" :options="representatives" optionLabel="name" placeholder="Any" class="p-column-filter">
                             <template #option="slotProps">
                                 <div class="p-multiselect-representative-option">
@@ -355,14 +355,14 @@ export default {
                         <ProgressBar :value="data.activity" :showValue="false"></ProgressBar>
                     </template>
                     <template #filter={filterModel}>
-                        <Slider v-model="filterModel.value" range class="p-m-3"></Slider>
-                        <div class="p-d-flex p-ai-center p-jc-between p-px-2">
+                        <Slider v-model="filterModel.value" range class="m-3"></Slider>
+                        <div class="flex align-items-center justify-content-center px-2">
                             <span>{{filterModel.value ? filterModel.value[0] : 0}}</span>
                             <span>{{filterModel.value ? filterModel.value[1] : 100}}</span>
                         </div>
                     </template>
                 </Column>
-                <Column field="verified" header="Verified" dataType="boolean" bodyClass="p-text-center" style="min-width:8rem">
+                <Column field="verified" header="Verified" dataType="boolean" bodyClass="text-center" style="min-width:8rem">
                     <template #body="{data}">
                         <i class="pi" :class="{'true-icon pi-check-circle': data.verified, 'false-icon pi-times-circle': !data.verified}"></i>
                     </template>
@@ -380,7 +380,7 @@ export default {
                 dataKey="id" v-model:filters="filters2" filterDisplay="row" :loading="loading2" responsiveLayout="scroll"
                 :globalFilterFields="['name','country.name','representative.name','status']">
                 <template #header>
-                    <div class="p-d-flex p-jc-end">
+                    <div class="flex justify-content-end">
                         <span class="p-input-icon-left ">
                             <i class="pi pi-search" />
                             <InputText v-model="filters2['global'].value" placeholder="Keyword Search" />
@@ -602,7 +602,7 @@ export default {
                 dataKey="id" v-model:filters="filters1" filterDisplay="menu" :loading="loading1" responsiveLayout="scroll"
                 :globalFilterFields="['name','country.name','representative.name','balance','status']">
                 <template #header>
-                    <div class="p-d-flex p-jc-between">
+                    <div class="flex justify-content-center">
                         <Button type="button" icon="pi pi-filter-slash" label="Clear" class="p-button-outlined" @click="clearFilter1()"/>
                         <span class="p-input-icon-left">
                             <i class="pi pi-search" />
@@ -639,7 +639,7 @@ export default {
                         <Button type="button" icon="pi pi-check" @click="filterCallback()" class="p-button-success"></Button>
                     </template>
                     <template #filterfooter>
-                        <div class="p-px-3 p-pt-0 p-pb-3 p-text-center p-text-bold">Customized Buttons</div>
+                        <div class="px-3 pt-0 pb-3 text-center font-bold">Customized Buttons</div>
                     </template>
                 </Column>
                 <Column header="Agent" filterField="representative" :showFilterMatchModes="false" :filterMenuStyle="{'width':'14rem'}" style="min-width:14rem">
@@ -648,7 +648,7 @@ export default {
                         <span class="image-text">{{data.representative.name}}</span>
                     </template>
                     <template #filter="{filterModel}">
-                        <div class="p-mb-3 p-text-bold">Agent Picker</div>
+                        <div class="mb-3 font-bold">Agent Picker</div>
                         <MultiSelect v-model="filterModel.value" :options="representatives" optionLabel="name" placeholder="Any" class="p-column-filter">
                             <template #option="slotProps">
                                 <div class="p-multiselect-representative-option">
@@ -696,14 +696,14 @@ export default {
                         <ProgressBar :value="data.activity" :showValue="false"></ProgressBar>
                     </template>
                     <template #filter={filterModel}>
-                        <Slider v-model="filterModel.value" range class="p-m-3"></Slider>
-                        <div class="p-d-flex p-ai-center p-jc-between p-px-2">
+                        <Slider v-model="filterModel.value" range class="m-3"></Slider>
+                        <div class="flex align-items-center justify-content-center px-2">
                             <span>{{filterModel.value ? filterModel.value[0] : 0}}</span>
                             <span>{{filterModel.value ? filterModel.value[1] : 100}}</span>
                         </div>
                     </template>
                 </Column>
-                <Column field="verified" header="Verified" dataType="boolean" bodyClass="p-text-center" style="min-width:8rem">
+                <Column field="verified" header="Verified" dataType="boolean" bodyClass="text-center" style="min-width:8rem">
                     <template #body="{data}">
                         <i class="pi" :class="{'true-icon pi-check-circle': data.verified, 'false-icon pi-times-circle': !data.verified}"></i>
                     </template>
@@ -721,7 +721,7 @@ export default {
                 dataKey="id" v-model:filters="filters2" filterDisplay="row" :loading="loading2" responsiveLayout="scroll"
                 :globalFilterFields="['name','country.name','representative.name','status']">
                 <template #header>
-                    <div class="p-d-flex p-jc-end">
+                    <div class="flex justify-content-end">
                         <span class="p-input-icon-left ">
                             <i class="pi pi-search" />
                             <InputText v-model="filters2['global'].value" placeholder="Keyword Search" />
@@ -958,7 +958,7 @@ export default {
                     data-key="id" v-model:filters="filters1" filter-display="menu" :loading="loading1" responsive-layout="scroll"
                     :global-filter-fields="['name','country.name','representative.name','balance','status']">
                     <template #header>
-                        <div class="p-d-flex p-jc-between">
+                        <div class="flex justify-content-center">
                             <p-button type="button" icon="pi pi-filter-slash" label="Clear" class="p-button-outlined" @click="clearFilter1()"></p-button>
                             <span class="p-input-icon-left">
                                 <i class="pi pi-search"></i>
@@ -995,7 +995,7 @@ export default {
                             <p-button type="button" icon="pi pi-check" @click="filterCallback()" class="p-button-success"></p-button>
                         </template>
                         <template #filterfooter>
-                            <div class="p-px-3 p-pt-0 p-pb-3 p-text-center p-text-bold">Customized Buttons</div>
+                            <div class="px-3 pt-0 pb-3 text-center font-bold">Customized Buttons</div>
                         </template>
                     </p-column>
                     <p-column header="Agent" filter-field="representative" :show-filter-match-modes="false" :filter-menu-style="{'width':'14rem'}" style="min-width:14rem">
@@ -1004,7 +1004,7 @@ export default {
                             <span class="image-text">{{data.representative.name}}</span>
                         </template>
                         <template #filter="{filterModel}">
-                            <div class="p-mb-3 p-text-bold">Agent Picker</div>
+                            <div class="mb-3 font-bold">Agent Picker</div>
                             <p-multiselect v-model="filterModel.value" :options="representatives" option-label="name" placeholder="Any" class="p-column-filter">
                                 <template #option="slotProps">
                                     <div class="p-multiselect-representative-option">
@@ -1052,14 +1052,14 @@ export default {
                             <p-progressbar :value="data.activity" :show-value="false"></p-progressbar>
                         </template>
                         <template #filter={filterModel}>
-                            <p-slider v-model="filterModel.value" range class="p-m-3"></p-slider>
-                            <div class="p-d-flex p-ai-center p-jc-between p-px-2">
+                            <p-slider v-model="filterModel.value" range class="m-3"></p-slider>
+                            <div class="flex align-items-center justify-content-center px-2">
                                 <span>{{filterModel.value ? filterModel.value[0] : 0}}</span>
                                 <span>{{filterModel.value ? filterModel.value[1] : 100}}</span>
                             </div>
                         </template>
                     </p-column>
-                    <p-column field="verified" header="Verified" data-type="boolean" body-class="p-text-center" style="min-width:8rem">
+                    <p-column field="verified" header="Verified" data-type="boolean" body-class="text-center" style="min-width:8rem">
                         <template #body="{data}">
                             <i class="pi" :class="{'true-icon pi-check-circle': data.verified, 'false-icon pi-times-circle': !data.verified}"></i>
                         </template>
@@ -1077,7 +1077,7 @@ export default {
                     data-key="id" v-model:filters="filters2" filter-display="row" :loading="loading2" responsive-layout="scroll"
                     :global-filter-fields="['name','country.name','representative.name','status']">
                     <template #header>
-                        <div class="p-d-flex p-jc-end">
+                        <div class="flex justify-content-end">
                             <span class="p-input-icon-left ">
                                 <i class="pi pi-search"></i>
                                 <p-inputtext v-model="filters2['global'].value" placeholder="Keyword Search"></p-inputtext>

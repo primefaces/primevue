@@ -43,15 +43,15 @@ export default {
 		<p>Note that there is no restriction to use both layouts at the same time, you may configure only one layout using the layout property with the corresponding template.</p>
 <pre v-code><code><template v-pre>
 &lt;template #list="slotProps"&gt;
-	&lt;div class="p-col-12"&gt;
+	&lt;div class="col-12"&gt;
         &lt;div class="car-details"&gt;
             &lt;div&gt;
                 &lt;img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand"/&gt;
-                &lt;div class="p-grid"&gt;
-                    &lt;div class="p-col-12"&gt;Vin: &lt;b&gt;&#123;&#123;slotProps.data.vin&#125;&#125;&lt;/b&gt;&lt;/div&gt;
-                    &lt;div class="p-col-12"&gt;Year: &lt;b&gt;&#123;&#123;slotProps.data.year&#125;&#125;&lt;/b&gt;&lt;/div&gt;
-                    &lt;div class="p-col-12"&gt;Brand: &lt;b&gt;&#123;&#123;slotProps.data.brand&#125;&#125;&lt;/b&gt;&lt;/div&gt;
-                    &lt;div class="p-col-12"&gt;Color: &lt;b&gt;&#123;&#123;slotProps.data.color&#125;&#125;&lt;/b&gt;&lt;/div&gt;
+                &lt;div class="grid"&gt;
+                    &lt;div class="col-12"&gt;Vin: &lt;b&gt;&#123;&#123;slotProps.data.vin&#125;&#125;&lt;/b&gt;&lt;/div&gt;
+                    &lt;div class="col-12"&gt;Year: &lt;b&gt;&#123;&#123;slotProps.data.year&#125;&#125;&lt;/b&gt;&lt;/div&gt;
+                    &lt;div class="col-12"&gt;Brand: &lt;b&gt;&#123;&#123;slotProps.data.brand&#125;&#125;&lt;/b&gt;&lt;/div&gt;
+                    &lt;div class="col-12"&gt;Color: &lt;b&gt;&#123;&#123;slotProps.data.color&#125;&#125;&lt;/b&gt;&lt;/div&gt;
                 &lt;/div&gt;
             &lt;/div&gt;
             &lt;Button icon="pi pi-search"&gt;&lt;/Button&gt;
@@ -59,7 +59,7 @@ export default {
     &lt;/div&gt;
 &lt;/template&gt;
 &lt;template #grid="slotProps"&gt;
-	&lt;div style="padding: .5em" class="p-col-12 p-md-3"&gt;
+	&lt;div style="padding: .5em" class="col-12 md:col-3"&gt;
 		&lt;Panel :header="slotProps.data.vin" style="text-align: center"&gt;
 			&lt;img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand"/&gt;
 			&lt;div class="car-detail"&gt;{{slotProps.data.year}} - {{slotProps.data.color}}&lt;/div&gt;
@@ -133,11 +133,11 @@ export default {
 <pre v-code><code><template v-pre>
 &lt;DataView :value="cars" :layout="layout" :sortOrder="sortOrder" :sortField="sortField"&gt;
     &lt;template #header&gt;
-        &lt;div class="p-grid p-nogutter"&gt;
-            &lt;div class="p-col-6" style="text-align: left"&gt;
+        &lt;div class="grid grid-nogutter"&gt;
+            &lt;div class="col-6" style="text-align: left"&gt;
                 &lt;Dropdown v-model="sortKey" :options="sortOptions" optionLabel="label" placeholder="Sort By" @change="onSortChange($event)"/&gt;
             &lt;/div&gt;
-            &lt;div class="p-col-6" style="text-align: right"&gt;
+            &lt;div class="col-6" style="text-align: right"&gt;
                 &lt;DataViewLayoutOptions v-model="layout" /&gt;
             &lt;/div&gt;
         &lt;/div&gt;
@@ -451,7 +451,7 @@ export default {
         </div>
 
 		<h5>Dependencies</h5>
-        <p>PrimeFlex 2.0.0.</p>
+        <p>PrimeFlex</p>
     </AppDoc>
 </template>
 
@@ -467,18 +467,18 @@ export default {
     <div class="card">
         <DataView :value="products" :layout="layout" :paginator="true" :rows="9" :sortOrder="sortOrder" :sortField="sortField">
 			<template #header>
-                <div class="p-grid p-nogutter">
-                    <div class="p-col-6" style="text-align: left">
+                <div class="grid grid-nogutter">
+                    <div class="col-6" style="text-align: left">
                         <Dropdown v-model="sortKey" :options="sortOptions" optionLabel="label" placeholder="Sort By Price" @change="onSortChange($event)"/>
                     </div>
-                    <div class="p-col-6" style="text-align: right">
+                    <div class="col-6" style="text-align: right">
                         <DataViewLayoutOptions v-model="layout" />
                     </div>
                 </div>
 			</template>
 
 			<template #list="slotProps">
-				<div class="p-col-12">
+				<div class="col-12">
 					<div class="product-list-item">
 						<img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" :alt="slotProps.data.name"/>
 						<div class="product-list-detail">
@@ -497,7 +497,7 @@ export default {
 			</template>
 
 			<template #grid="slotProps">
-				<div class="p-col-12 p-md-4">
+				<div class="col-12 md:col-4">
 					<div class="product-grid-item card">
 						<div class="product-grid-item-top">
 							<div>
@@ -702,18 +702,18 @@ export default {
     <div class="card">
         <DataView :value="products" :layout="layout" :paginator="true" :rows="9" :sortOrder="sortOrder" :sortField="sortField">
 			<template #header>
-                <div class="p-grid p-nogutter">
-                    <div class="p-col-6" style="text-align: left">
+                <div class="grid grid-nogutter">
+                    <div class="col-6" style="text-align: left">
                         <Dropdown v-model="sortKey" :options="sortOptions" optionLabel="label" placeholder="Sort By Price" @change="onSortChange($event)"/>
                     </div>
-                    <div class="p-col-6" style="text-align: right">
+                    <div class="col-6" style="text-align: right">
                         <DataViewLayoutOptions v-model="layout" />
                     </div>
                 </div>
 			</template>
 
 			<template #list="slotProps">
-				<div class="p-col-12">
+				<div class="col-12">
 					<div class="product-list-item">
 						<img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" :alt="slotProps.data.name"/>
 						<div class="product-list-detail">
@@ -732,7 +732,7 @@ export default {
 			</template>
 
 			<template #grid="slotProps">
-				<div class="p-col-12 p-md-4">
+				<div class="col-12 md:col-4">
 					<div class="product-grid-item card">
 						<div class="product-grid-item-top">
 							<div>
@@ -939,18 +939,18 @@ export default {
             <div class="card">
                 <p-dataview :value="products" :layout="layout" :paginator="true" :rows="9" :sort-order="sortOrder" :sort-field="sortField">
                     <template #header>
-                        <div class="p-grid p-nogutter">
-                            <div class="p-col-6" style="text-align: left">
+                        <div class="grid grid-nogutter">
+                            <div class="col-6" style="text-align: left">
                                 <p-dropdown v-model="sortKey" :options="sortOptions" option-label="label" placeholder="Sort By Price" @change="onSortChange($event)"></p-dropdown>
                             </div>
-                            <div class="p-col-6" style="text-align: right">
+                            <div class="col-6" style="text-align: right">
                                 <p-dataviewlayoutoptions v-model="layout"></p-dataviewlayoutoptions>
                             </div>
                         </div>
                     </template>
 
                     <template #list="slotProps">
-                        <div class="p-col-12">
+                        <div class="col-12">
                             <div class="product-list-item">
                                 <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" :alt="slotProps.data.name"/>
                                 <div class="product-list-detail">
@@ -969,7 +969,7 @@ export default {
                     </template>
 
                     <template #grid="slotProps">
-                        <div class="p-col-12 p-md-4">
+                        <div class="col-12 md:col-4">
                             <div class="product-grid-item card">
                                 <div class="product-grid-item-top">
                                     <div>

@@ -102,9 +102,9 @@ export default {
 <pre v-code><code><template v-pre>
 &lt;ConfirmPopup group="demo">
     &lt;template #message="slotProps"&gt;
-        &lt;div class="p-d-flex p-p-4"&gt;
+        &lt;div class="flex p-4"&gt;
             &lt;i :class="slotProps.message.icon" style="font-size: 1.5rem"&gt;&lt;/i&gt;
-            &lt;p class="p-pl-2"&gt;{{slotProps.message.message}}&lt;/p&gt;
+            &lt;p class="pl-2"&gt;{{slotProps.message.message}}&lt;/p&gt;
         &lt;/div&gt;
     &lt;/template&gt;
 &lt;/ConfirmPopup&gt;
@@ -295,9 +295,9 @@ export default {
         <ConfirmPopup></ConfirmPopup>
         <ConfirmPopup group="demo">
             <template #message="slotProps">
-                <div class="p-d-flex p-p-4">
+                <div class="flex p-4">
                     <i :class="slotProps.message.icon" style="font-size: 1.5rem"></i>
-                    <p class="p-pl-2">{{slotProps.message.message}}</p>
+                    <p class="pl-2">{{slotProps.message.message}}</p>
                 </div>
             </template>
         </ConfirmPopup>
@@ -305,11 +305,11 @@ export default {
 
         <div class="card">
             <h5>Overlay</h5>
-            <Button @click="confirm1($event)" icon="pi pi-check" label="Confirm" class="p-mr-2"></Button>
+            <Button @click="confirm1($event)" icon="pi pi-check" label="Confirm" class="mr-2"></Button>
             <Button @click="confirm2($event)" icon="pi pi-times" label="Delete" class="p-button-danger p-button-outlined"></Button>
     
             <h5>Templating</h5>
-            <Button @click="showTemplate($event)" icon="pi pi-check" label="Terms and Conditions" class="p-mr-2"></Button>
+            <Button @click="showTemplate($event)" icon="pi pi-check" label="Terms and Conditions" class="mr-2"></Button>
         </div>
     </div>
 </template>
@@ -372,9 +372,9 @@ export default {
         <ConfirmPopup></ConfirmPopup>
         <ConfirmPopup group="demo">
             <template #message="slotProps">
-                <div class="p-d-flex p-p-4">
+                <div class="flex p-4">
                     <i :class="slotProps.message.icon" style="font-size: 1.5rem"></i>
-                    <p class="p-pl-2">{{slotProps.message.message}}</p>
+                    <p class="pl-2">{{slotProps.message.message}}</p>
                 </div>
             </template>
         </ConfirmPopup>
@@ -382,11 +382,11 @@ export default {
 
         <div class="card">
             <h5>Overlay</h5>
-            <Button @click="confirm1($event)" icon="pi pi-check" label="Confirm" class="p-mr-2"></Button>
+            <Button @click="confirm1($event)" icon="pi pi-check" label="Confirm" class="mr-2"></Button>
             <Button @click="confirm2($event)" icon="pi pi-times" label="Delete" class="p-button-danger p-button-outlined"></Button>
     
             <h5>Templating</h5>
-            <Button @click="showTemplate($event)" icon="pi pi-check" label="Terms and Conditions" class="p-mr-2"></Button>
+            <Button @click="showTemplate($event)" icon="pi pi-check" label="Terms and Conditions" class="mr-2"></Button>
         </div>
     </div>
 </template>
@@ -463,9 +463,9 @@ export default defineComponent({
             <p-confirmpopup></p-confirmpopup>
             <p-confirmpopup group="demo">
                 <template #message="slotProps">
-                    <div class="p-d-flex p-p-4">
+                    <div class="flex p-4">
                         <i :class="slotProps.message.icon" style="font-size: 1.5rem"></i>
-                        <p class="p-pl-2">{{slotProps.message.message}}</p>
+                        <p class="pl-2">{{slotProps.message.message}}</p>
                     </div>
                 </template>
             </p-confirmpopup>
@@ -473,11 +473,11 @@ export default defineComponent({
 
             <div class="card">
                 <h5>Overlay</h5>
-                <p-button @click="confirm1($event)" icon="pi pi-check" label="Confirm" class="p-mr-2"></p-button>
+                <p-button @click="confirm1($event)" icon="pi pi-check" label="Confirm" class="mr-2"></p-button>
                 <p-button @click="confirm2($event)" icon="pi pi-times" label="Delete" class="p-button-danger p-button-outlined"></p-button>
 
                 <h5>Templating</h5>
-                <p-button @click="showTemplate($event)" icon="pi pi-check" label="Terms and Conditions" class="p-mr-2"></p-button>
+                <p-button @click="showTemplate($event)" icon="pi pi-check" label="Terms and Conditions" class="mr-2"></p-button>
             </div>
         </div>
 

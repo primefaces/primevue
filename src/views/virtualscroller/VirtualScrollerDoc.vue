@@ -21,7 +21,7 @@ import VirtualScroller from 'primevue/virtualscroller';
 <pre v-code><code><template v-pre>
 &lt;VirtualScroller :items="basicItems" :itemSize="50"&gt;
     &lt;template v-slot:item="{ item, options }"&gt;
-        &lt;div :class="['scroll-item p-p-2', {'odd': options.odd}]" style="height: 50px"&gt;{{ item }}&lt;/div&gt;
+        &lt;div :class="['scroll-item p-2', {'odd': options.odd}]" style="height: 50px"&gt;{{ item }}&lt;/div&gt;
     &lt;/template&gt;
 &lt;/VirtualScroller&gt;
 </template>
@@ -48,10 +48,10 @@ export default {
 <pre v-code><code><template v-pre>
 &lt;VirtualScroller :items="basicItems" :itemSize="50" showLoader :delay="250"&gt;
     &lt;template v-slot:item="{ item, options }"&gt;
-        &lt;div :class="['scroll-item p-p-2', {'odd': options.odd}]" style="height: 50px"&gt;{{ item }}&lt;/div&gt;
+        &lt;div :class="['scroll-item p-2', {'odd': options.odd}]" style="height: 50px"&gt;{{ item }}&lt;/div&gt;
     &lt;/template&gt;
     &lt;template v-slot:loader="{ options }"&gt;
-        &lt;div :class="['scroll-item p-p-2', {'odd': options.odd}]" style="height: 50px" &gt;
+        &lt;div :class="['scroll-item p-2', {'odd': options.odd}]" style="height: 50px" &gt;
             &lt;Skeleton :width="options.even ? '60%' : '50%'" height="1.3rem" /&gt;
         &lt;/div&gt;
     &lt;/template&gt;
@@ -65,7 +65,7 @@ export default {
 <pre v-code><code><template v-pre>
 &lt;VirtualScroller :items="lazyItems" :itemSize="50" showLoader :delay="250" :loading="lazyLoading" :lazy=true @lazy-load="onLazyLoad"&gt;
     &lt;template v-slot:item="{ item, options }"&gt;
-        &lt;div :class="['scroll-item p-p-2', {'odd': options.odd}]" style="height: 50px"&gt;{{ item }}&lt;/div&gt;
+        &lt;div :class="['scroll-item p-2', {'odd': options.odd}]" style="height: 50px"&gt;{{ item }}&lt;/div&gt;
     &lt;/template&gt;
 &lt;/VirtualScroller&gt;
 </template>
@@ -389,31 +389,31 @@ export default {
 <template>
     <div class="virtualscroller-demo">
         <div class="card">
-            <h5 class="p-mb-0">Basic</h5>
-            <div class="p-d-flex p-ai-center p-flex-wrap">
-                <div class="p-d-flex p-dir-col p-mr-3 p-mt-3">
+            <h5 class="mb-0">Basic</h5>
+            <div class="flex align-items-center flex-wrap">
+                <div class="flex flex-column mr-3 mt-3">
                     <h6>Vertical</h6>
                     <VirtualScroller :items="basicItems" :itemSize="50">
                         <template v-slot:item="{ item, options }">
-                            <div :class="['scroll-item p-p-2', {'odd': options.odd}]" style="height: 50px">{{ item }}</div>
+                            <div :class="['scroll-item p-2', {'odd': options.odd}]" style="height: 50px">{{ item }}</div>
                         </template>
                     </VirtualScroller>
                 </div>
 
-                <div class="p-d-flex p-dir-col p-mr-3 p-mt-3">
+                <div class="flex flex-column mr-3 mt-3">
                     <h6>Horizontal</h6>
                     <VirtualScroller :items="basicItems" :itemSize="50" orientation="horizontal">
                         <template v-slot:item="{ item, options }">
-                            <div :class="['scroll-item p-p-2', {'odd': options.odd}]" style="width: 50px">{{ item }}</div>
+                            <div :class="['scroll-item p-2', {'odd': options.odd}]" style="width: 50px">{{ item }}</div>
                         </template>
                     </VirtualScroller>
                 </div>
 
-                <div class="p-d-flex p-dir-col p-mr-3 p-mt-3">
+                <div class="flex flex-column mr-3 mt-3">
                     <h6>Both</h6>
                     <VirtualScroller :items="multiItems" :itemSize="[50, 100]" orientation="both">
                         <template v-slot:item="{ item, options }">
-                            <div :class="['scroll-item p-p-2', {'odd': options.odd}]" style="height: 50px" >
+                            <div :class="['scroll-item p-2', {'odd': options.odd}]" style="height: 50px" >
                                 <template v-for="(el, index) of item" :key="index">
                                     <div style="width: 100px">{{ el }}</div>
                                 </template>
@@ -425,31 +425,31 @@ export default {
         </div>
 
         <div class="card">
-            <h5 class="p-mb-0">Scroll Delay</h5>
-            <div class="p-d-flex p-ai-center p-flex-wrap">
-                <div class="p-d-flex p-dir-col p-mr-3 p-mt-3">
+            <h5 class="mb-0">Scroll Delay</h5>
+            <div class="flex align-items-center flex-wrap">
+                <div class="flex flex-column mr-3 mt-3">
                     <h6>0ms Delay</h6>
                     <VirtualScroller :items="basicItems" :itemSize="50">
                         <template v-slot:item="{ item, options }">
-                            <div :class="['scroll-item p-p-2', {'odd': options.odd}]" style="height: 50px">{{ item }}</div>
+                            <div :class="['scroll-item p-2', {'odd': options.odd}]" style="height: 50px">{{ item }}</div>
                         </template>
                     </VirtualScroller>
                 </div>
 
-                <div class="p-d-flex p-dir-col p-mr-3 p-mt-3">
+                <div class="flex flex-column mr-3 mt-3">
                     <h6>150ms Delay</h6>
                     <VirtualScroller :items="basicItems" :itemSize="50" :delay="150">
                         <template v-slot:item="{ item, options }">
-                            <div :class="['scroll-item p-p-2', {'odd': options.odd}]" style="height: 50px">{{ item }}</div>
+                            <div :class="['scroll-item p-2', {'odd': options.odd}]" style="height: 50px">{{ item }}</div>
                         </template>
                     </VirtualScroller>
                 </div>
 
-                <div class="p-d-flex p-dir-col p-mr-3 p-mt-3">
+                <div class="flex flex-column mr-3 mt-3">
                     <h6>250ms Delay</h6>
                     <VirtualScroller :items="basicItems" :itemSize="50" :delay="250">
                         <template v-slot:item="{ item, options }">
-                            <div :class="['scroll-item p-p-2', {'odd': options.odd}]" style="height: 50px">{{ item }}</div>
+                            <div :class="['scroll-item p-2', {'odd': options.odd}]" style="height: 50px">{{ item }}</div>
                         </template>
                     </VirtualScroller>
                 </div>
@@ -457,25 +457,25 @@ export default {
         </div>
 
         <div class="card">
-            <h5 class="p-mb-0">Loading</h5>
-            <div class="p-d-flex p-ai-center p-flex-wrap">
-                <div class="p-d-flex p-dir-col p-mr-3 p-mt-3">
+            <h5 class="mb-0">Loading</h5>
+            <div class="flex align-items-center flex-wrap">
+                <div class="flex flex-column mr-3 mt-3">
                     <h6>Basic</h6>
                     <VirtualScroller :items="basicItems" :itemSize="50" showLoader :delay="250">
                         <template v-slot:item="{ item, options }">
-                            <div :class="['scroll-item p-p-2', {'odd': options.odd}]" style="height: 50px">{{ item }}</div>
+                            <div :class="['scroll-item p-2', {'odd': options.odd}]" style="height: 50px">{{ item }}</div>
                         </template>
                     </VirtualScroller>
                 </div>
 
-                <div class="p-d-flex p-dir-col p-mr-3 p-mt-3">
+                <div class="flex flex-column mr-3 mt-3">
                     <h6>Templating</h6>
                     <VirtualScroller class="custom-loading" :items="basicItems" :itemSize="50" showLoader :delay="250">
                         <template v-slot:item="{ item, options }">
-                            <div :class="['scroll-item p-p-2', {'odd': options.odd}]" style="height: 50px">{{ item }}</div>
+                            <div :class="['scroll-item p-2', {'odd': options.odd}]" style="height: 50px">{{ item }}</div>
                         </template>
                         <template v-slot:loader="{ options }">
-                            <div :class="['scroll-item p-p-2', {'odd': options.odd}]" style="height: 50px" >
+                            <div :class="['scroll-item p-2', {'odd': options.odd}]" style="height: 50px" >
                                 <Skeleton :width="options.even ? '60%' : '50%'" height="1.3rem" />
                             </div>
                         </template>
@@ -485,12 +485,12 @@ export default {
         </div>
 
         <div class="card">
-            <h5 class="p-mb-0">Lazy</h5>
-            <div class="p-d-flex p-ai-center p-flex-wrap">
-                <div class="p-d-flex p-dir-col p-mr-3 p-mt-3">
+            <h5 class="mb-0">Lazy</h5>
+            <div class="flex align-items-center flex-wrap">
+                <div class="flex flex-column mr-3 mt-3">
                     <VirtualScroller :items="lazyItems" :itemSize="50" showLoader :delay="250" :loading="lazyLoading" :lazy=true @lazy-load="onLazyLoad">
                         <template v-slot:item="{ item, options }">
-                            <div :class="['scroll-item p-p-2', {'odd': options.odd}]" style="height: 50px">{{ item }}</div>
+                            <div :class="['scroll-item p-2', {'odd': options.odd}]" style="height: 50px">{{ item }}</div>
                         </template>
                     </VirtualScroller>
                 </div>
@@ -498,30 +498,30 @@ export default {
         </div>
 
         <div class="card">
-            <h5 class="p-mb-0">Template</h5>
-            <div class="p-d-flex p-ai-center p-flex-wrap">
-                <div class="p-d-flex p-dir-col p-mr-3 p-mt-3">
+            <h5 class="mb-0">Template</h5>
+            <div class="flex align-items-center flex-wrap">
+                <div class="flex flex-column mr-3 mt-3">
                     <VirtualScroller class="custom-loading" :items="basicItems" :itemSize="25 * 7" showLoader :delay="250">
                         <template v-slot:item="{ item, options }">
                             <div :class="['custom-scroll-item scroll-item', {'odd': options.odd}]">
-                                <div class="p-d-flex p-ai-center p-px-2" style="height: 25px">{{\`Item: \${item}\`}}</div>
-                                <div class="p-d-flex p-ai-center p-px-2" style="height: 25px">{{\`Index: \${options.index}\`}}</div>
-                                <div class="p-d-flex p-ai-center p-px-2" style="height: 25px">{{\`Count: \${options.count}\`}}</div>
-                                <div class="p-d-flex p-ai-center p-px-2" style="height: 25px">{{\`First: \${options.first}\`}}</div>
-                                <div class="p-d-flex p-ai-center p-px-2" style="height: 25px">{{\`Last: \${options.last}\`}}</div>
-                                <div class="p-d-flex p-ai-center p-px-2" style="height: 25px">{{\`Even: \${options.even}\`}}</div>
-                                <div class="p-d-flex p-ai-center p-px-2" style="height: 25px">{{\`Odd: \${options.odd}\`}}</div>
+                                <div class="flex align-items-center px-2" style="height: 25px">{{\`Item: \${item}\`}}</div>
+                                <div class="flex align-items-center px-2" style="height: 25px">{{\`Index: \${options.index}\`}}</div>
+                                <div class="flex align-items-center px-2" style="height: 25px">{{\`Count: \${options.count}\`}}</div>
+                                <div class="flex align-items-center px-2" style="height: 25px">{{\`First: \${options.first}\`}}</div>
+                                <div class="flex align-items-center px-2" style="height: 25px">{{\`Last: \${options.last}\`}}</div>
+                                <div class="flex align-items-center px-2" style="height: 25px">{{\`Even: \${options.even}\`}}</div>
+                                <div class="flex align-items-center px-2" style="height: 25px">{{\`Odd: \${options.odd}\`}}</div>
                             </div>
                         </template>
                         <template v-slot:loader="{ options }">
                             <div :class="['custom-scroll-item scroll-item', {'odd': options.odd}]">
-                                <div class="p-d-flex p-ai-center p-px-2" style="height: 25px"><Skeleton width="60%" height="1.2rem" /></div>
-                                <div class="p-d-flex p-ai-center p-px-2" style="height: 25px"><Skeleton width="50%" height="1.2rem" /></div>
-                                <div class="p-d-flex p-ai-center p-px-2" style="height: 25px"><Skeleton width="60%" height="1.2rem" /></div>
-                                <div class="p-d-flex p-ai-center p-px-2" style="height: 25px"><Skeleton width="50%" height="1.2rem" /></div>
-                                <div class="p-d-flex p-ai-center p-px-2" style="height: 25px"><Skeleton width="60%" height="1.2rem" /></div>
-                                <div class="p-d-flex p-ai-center p-px-2" style="height: 25px"><Skeleton width="50%" height="1.2rem" /></div>
-                                <div class="p-d-flex p-ai-center p-px-2" style="height: 25px"><Skeleton width="60%" height="1.2rem" /></div>
+                                <div class="flex align-items-center px-2" style="height: 25px"><Skeleton width="60%" height="1.2rem" /></div>
+                                <div class="flex align-items-center px-2" style="height: 25px"><Skeleton width="50%" height="1.2rem" /></div>
+                                <div class="flex align-items-center px-2" style="height: 25px"><Skeleton width="60%" height="1.2rem" /></div>
+                                <div class="flex align-items-center px-2" style="height: 25px"><Skeleton width="50%" height="1.2rem" /></div>
+                                <div class="flex align-items-center px-2" style="height: 25px"><Skeleton width="60%" height="1.2rem" /></div>
+                                <div class="flex align-items-center px-2" style="height: 25px"><Skeleton width="50%" height="1.2rem" /></div>
+                                <div class="flex align-items-center px-2" style="height: 25px"><Skeleton width="60%" height="1.2rem" /></div>
                             </div>
                         </template>
                     </VirtualScroller>
@@ -621,31 +621,31 @@ export default {
 <template>
     <div class="virtualscroller-demo">
         <div class="card">
-            <h5 class="p-mb-0">Basic</h5>
-            <div class="p-d-flex p-ai-center p-flex-wrap">
-                <div class="p-d-flex p-dir-col p-mr-3 p-mt-3">
+            <h5 class="mb-0">Basic</h5>
+            <div class="flex align-items-center flex-wrap">
+                <div class="flex flex-column mr-3 mt-3">
                     <h6>Vertical</h6>
                     <VirtualScroller :items="basicItems" :itemSize="50">
                         <template v-slot:item="{ item, options }">
-                            <div :class="['scroll-item p-p-2', {'odd': options.odd}]" style="height: 50px">{{ item }}</div>
+                            <div :class="['scroll-item p-2', {'odd': options.odd}]" style="height: 50px">{{ item }}</div>
                         </template>
                     </VirtualScroller>
                 </div>
 
-                <div class="p-d-flex p-dir-col p-mr-3 p-mt-3">
+                <div class="flex flex-column mr-3 mt-3">
                     <h6>Horizontal</h6>
                     <VirtualScroller :items="basicItems" :itemSize="50" orientation="horizontal">
                         <template v-slot:item="{ item, options }">
-                            <div :class="['scroll-item p-p-2', {'odd': options.odd}]" style="width: 50px">{{ item }}</div>
+                            <div :class="['scroll-item p-2', {'odd': options.odd}]" style="width: 50px">{{ item }}</div>
                         </template>
                     </VirtualScroller>
                 </div>
 
-                <div class="p-d-flex p-dir-col p-mr-3 p-mt-3">
+                <div class="flex flex-column mr-3 mt-3">
                     <h6>Both</h6>
                     <VirtualScroller :items="multiItems" :itemSize="[50, 100]" orientation="both">
                         <template v-slot:item="{ item, options }">
-                            <div :class="['scroll-item p-p-2', {'odd': options.odd}]" style="height: 50px" >
+                            <div :class="['scroll-item p-2', {'odd': options.odd}]" style="height: 50px" >
                                 <template v-for="(el, index) of item" :key="index">
                                     <div style="width: 100px">{{ el }}</div>
                                 </template>
@@ -657,31 +657,31 @@ export default {
         </div>
 
         <div class="card">
-            <h5 class="p-mb-0">Scroll Delay</h5>
-            <div class="p-d-flex p-ai-center p-flex-wrap">
-                <div class="p-d-flex p-dir-col p-mr-3 p-mt-3">
+            <h5 class="mb-0">Scroll Delay</h5>
+            <div class="flex align-items-center flex-wrap">
+                <div class="flex flex-column mr-3 mt-3">
                     <h6>0ms Delay</h6>
                     <VirtualScroller :items="basicItems" :itemSize="50">
                         <template v-slot:item="{ item, options }">
-                            <div :class="['scroll-item p-p-2', {'odd': options.odd}]" style="height: 50px">{{ item }}</div>
+                            <div :class="['scroll-item p-2', {'odd': options.odd}]" style="height: 50px">{{ item }}</div>
                         </template>
                     </VirtualScroller>
                 </div>
 
-                <div class="p-d-flex p-dir-col p-mr-3 p-mt-3">
+                <div class="flex flex-column mr-3 mt-3">
                     <h6>150ms Delay</h6>
                     <VirtualScroller :items="basicItems" :itemSize="50" :delay="150">
                         <template v-slot:item="{ item, options }">
-                            <div :class="['scroll-item p-p-2', {'odd': options.odd}]" style="height: 50px">{{ item }}</div>
+                            <div :class="['scroll-item p-2', {'odd': options.odd}]" style="height: 50px">{{ item }}</div>
                         </template>
                     </VirtualScroller>
                 </div>
 
-                <div class="p-d-flex p-dir-col p-mr-3 p-mt-3">
+                <div class="flex flex-column mr-3 mt-3">
                     <h6>250ms Delay</h6>
                     <VirtualScroller :items="basicItems" :itemSize="50" :delay="250">
                         <template v-slot:item="{ item, options }">
-                            <div :class="['scroll-item p-p-2', {'odd': options.odd}]" style="height: 50px">{{ item }}</div>
+                            <div :class="['scroll-item p-2', {'odd': options.odd}]" style="height: 50px">{{ item }}</div>
                         </template>
                     </VirtualScroller>
                 </div>
@@ -689,25 +689,25 @@ export default {
         </div>
 
         <div class="card">
-            <h5 class="p-mb-0">Loading</h5>
-            <div class="p-d-flex p-ai-center p-flex-wrap">
-                <div class="p-d-flex p-dir-col p-mr-3 p-mt-3">
+            <h5 class="mb-0">Loading</h5>
+            <div class="flex align-items-center flex-wrap">
+                <div class="flex flex-column mr-3 mt-3">
                     <h6>Basic</h6>
                     <VirtualScroller :items="basicItems" :itemSize="50" showLoader :delay="250">
                         <template v-slot:item="{ item, options }">
-                            <div :class="['scroll-item p-p-2', {'odd': options.odd}]" style="height: 50px">{{ item }}</div>
+                            <div :class="['scroll-item p-2', {'odd': options.odd}]" style="height: 50px">{{ item }}</div>
                         </template>
                     </VirtualScroller>
                 </div>
 
-                <div class="p-d-flex p-dir-col p-mr-3 p-mt-3">
+                <div class="flex flex-column mr-3 mt-3">
                     <h6>Templating</h6>
                     <VirtualScroller class="custom-loading" :items="basicItems" :itemSize="50" showLoader :delay="250">
                         <template v-slot:item="{ item, options }">
-                            <div :class="['scroll-item p-p-2', {'odd': options.odd}]" style="height: 50px">{{ item }}</div>
+                            <div :class="['scroll-item p-2', {'odd': options.odd}]" style="height: 50px">{{ item }}</div>
                         </template>
                         <template v-slot:loader="{ options }">
-                            <div :class="['scroll-item p-p-2', {'odd': options.odd}]" style="height: 50px" >
+                            <div :class="['scroll-item p-2', {'odd': options.odd}]" style="height: 50px" >
                                 <Skeleton :width="options.even ? '60%' : '50%'" height="1.3rem" />
                             </div>
                         </template>
@@ -717,12 +717,12 @@ export default {
         </div>
 
         <div class="card">
-            <h5 class="p-mb-0">Lazy</h5>
-            <div class="p-d-flex p-ai-center p-flex-wrap">
-                <div class="p-d-flex p-dir-col p-mr-3 p-mt-3">
+            <h5 class="mb-0">Lazy</h5>
+            <div class="flex align-items-center flex-wrap">
+                <div class="flex flex-column mr-3 mt-3">
                     <VirtualScroller :items="lazyItems" :itemSize="50" showLoader :delay="250" :loading="lazyLoading" :lazy=true @lazy-load="onLazyLoad">
                         <template v-slot:item="{ item, options }">
-                            <div :class="['scroll-item p-p-2', {'odd': options.odd}]" style="height: 50px">{{ item }}</div>
+                            <div :class="['scroll-item p-2', {'odd': options.odd}]" style="height: 50px">{{ item }}</div>
                         </template>
                     </VirtualScroller>
                 </div>
@@ -730,30 +730,30 @@ export default {
         </div>
 
         <div class="card">
-            <h5 class="p-mb-0">Template</h5>
-            <div class="p-d-flex p-ai-center p-flex-wrap">
-                <div class="p-d-flex p-dir-col p-mr-3 p-mt-3">
+            <h5 class="mb-0">Template</h5>
+            <div class="flex align-items-center flex-wrap">
+                <div class="flex flex-column mr-3 mt-3">
                     <VirtualScroller class="custom-loading" :items="basicItems" :itemSize="25 * 7" showLoader :delay="250">
                         <template v-slot:item="{ item, options }">
                             <div :class="['custom-scroll-item scroll-item', {'odd': options.odd}]">
-                                <div class="p-d-flex p-ai-center p-px-2" style="height: 25px">{{\`Item: \${item}\`}}</div>
-                                <div class="p-d-flex p-ai-center p-px-2" style="height: 25px">{{\`Index: \${options.index}\`}}</div>
-                                <div class="p-d-flex p-ai-center p-px-2" style="height: 25px">{{\`Count: \${options.count}\`}}</div>
-                                <div class="p-d-flex p-ai-center p-px-2" style="height: 25px">{{\`First: \${options.first}\`}}</div>
-                                <div class="p-d-flex p-ai-center p-px-2" style="height: 25px">{{\`Last: \${options.last}\`}}</div>
-                                <div class="p-d-flex p-ai-center p-px-2" style="height: 25px">{{\`Even: \${options.even}\`}}</div>
-                                <div class="p-d-flex p-ai-center p-px-2" style="height: 25px">{{\`Odd: \${options.odd}\`}}</div>
+                                <div class="flex align-items-center px-2" style="height: 25px">{{\`Item: \${item}\`}}</div>
+                                <div class="flex align-items-center px-2" style="height: 25px">{{\`Index: \${options.index}\`}}</div>
+                                <div class="flex align-items-center px-2" style="height: 25px">{{\`Count: \${options.count}\`}}</div>
+                                <div class="flex align-items-center px-2" style="height: 25px">{{\`First: \${options.first}\`}}</div>
+                                <div class="flex align-items-center px-2" style="height: 25px">{{\`Last: \${options.last}\`}}</div>
+                                <div class="flex align-items-center px-2" style="height: 25px">{{\`Even: \${options.even}\`}}</div>
+                                <div class="flex align-items-center px-2" style="height: 25px">{{\`Odd: \${options.odd}\`}}</div>
                             </div>
                         </template>
                         <template v-slot:loader="{ options }">
                             <div :class="['custom-scroll-item scroll-item', {'odd': options.odd}]">
-                                <div class="p-d-flex p-ai-center p-px-2" style="height: 25px"><Skeleton width="60%" height="1.2rem" /></div>
-                                <div class="p-d-flex p-ai-center p-px-2" style="height: 25px"><Skeleton width="50%" height="1.2rem" /></div>
-                                <div class="p-d-flex p-ai-center p-px-2" style="height: 25px"><Skeleton width="60%" height="1.2rem" /></div>
-                                <div class="p-d-flex p-ai-center p-px-2" style="height: 25px"><Skeleton width="50%" height="1.2rem" /></div>
-                                <div class="p-d-flex p-ai-center p-px-2" style="height: 25px"><Skeleton width="60%" height="1.2rem" /></div>
-                                <div class="p-d-flex p-ai-center p-px-2" style="height: 25px"><Skeleton width="50%" height="1.2rem" /></div>
-                                <div class="p-d-flex p-ai-center p-px-2" style="height: 25px"><Skeleton width="60%" height="1.2rem" /></div>
+                                <div class="flex align-items-center px-2" style="height: 25px"><Skeleton width="60%" height="1.2rem" /></div>
+                                <div class="flex align-items-center px-2" style="height: 25px"><Skeleton width="50%" height="1.2rem" /></div>
+                                <div class="flex align-items-center px-2" style="height: 25px"><Skeleton width="60%" height="1.2rem" /></div>
+                                <div class="flex align-items-center px-2" style="height: 25px"><Skeleton width="50%" height="1.2rem" /></div>
+                                <div class="flex align-items-center px-2" style="height: 25px"><Skeleton width="60%" height="1.2rem" /></div>
+                                <div class="flex align-items-center px-2" style="height: 25px"><Skeleton width="50%" height="1.2rem" /></div>
+                                <div class="flex align-items-center px-2" style="height: 25px"><Skeleton width="60%" height="1.2rem" /></div>
                             </div>
                         </template>
                     </VirtualScroller>
@@ -851,31 +851,31 @@ export default {
                     content: `<div id="app">
             <div class="virtualscroller-demo">
                 <div class="card">
-                    <h5 class="p-mb-0">Basic</h5>
-                    <div class="p-d-flex p-ai-center p-flex-wrap">
-                        <div class="p-d-flex p-dir-col p-mr-3 p-mt-3">
+                    <h5 class="mb-0">Basic</h5>
+                    <div class="flex align-items-center flex-wrap">
+                        <div class="flex flex-column mr-3 mt-3">
                             <h6>Vertical</h6>
                             <p-virtualscroller :items="basicItems" :item-size="50">
                                 <template v-slot:item="{ item, options }">
-                                    <div :class="['scroll-item p-p-2', {'odd': options.odd}]" style="height: 50px">{{ item }}</div>
+                                    <div :class="['scroll-item p-2', {'odd': options.odd}]" style="height: 50px">{{ item }}</div>
                                 </template>
                             </p-virtualscroller>
                         </div>
 
-                        <div class="p-d-flex p-dir-col p-mr-3 p-mt-3">
+                        <div class="flex flex-column mr-3 mt-3">
                             <h6>Horizontal</h6>
                             <p-virtualscroller :items="basicItems" :item-size="50" orientation="horizontal">
                                 <template v-slot:item="{ item, options }">
-                                    <div :class="['scroll-item p-p-2', {'odd': options.odd}]" style="width: 50px">{{ item }}</div>
+                                    <div :class="['scroll-item p-2', {'odd': options.odd}]" style="width: 50px">{{ item }}</div>
                                 </template>
                             </p-virtualscroller>
                         </div>
 
-                        <div class="p-d-flex p-dir-col p-mr-3 p-mt-3">
+                        <div class="flex flex-column mr-3 mt-3">
                             <h6>Both</h6>
                             <p-virtualscroller :items="multiItems" :item-size="[50, 100]" orientation="both">
                                 <template v-slot:item="{ item, options }">
-                                    <div :class="['scroll-item p-p-2', {'odd': options.odd}]" style="height: 50px" >
+                                    <div :class="['scroll-item p-2', {'odd': options.odd}]" style="height: 50px" >
                                         <template v-for="(el, index) of item" :key="index">
                                             <div style="width: 100px">{{ el }}</div>
                                         </template>
@@ -887,31 +887,31 @@ export default {
                 </div>
 
                 <div class="card">
-                    <h5 class="p-mb-0">Scroll Delay</h5>
-                    <div class="p-d-flex p-ai-center p-flex-wrap">
-                        <div class="p-d-flex p-dir-col p-mr-3 p-mt-3">
+                    <h5 class="mb-0">Scroll Delay</h5>
+                    <div class="flex align-items-center flex-wrap">
+                        <div class="flex flex-column mr-3 mt-3">
                             <h6>0ms Delay</h6>
                             <p-virtualscroller :items="basicItems" :item-size="50">
                                 <template v-slot:item="{ item, options }">
-                                    <div :class="['scroll-item p-p-2', {'odd': options.odd}]" style="height: 50px">{{ item }}</div>
+                                    <div :class="['scroll-item p-2', {'odd': options.odd}]" style="height: 50px">{{ item }}</div>
                                 </template>
                             </p-virtualscroller>
                         </div>
 
-                        <div class="p-d-flex p-dir-col p-mr-3 p-mt-3">
+                        <div class="flex flex-column mr-3 mt-3">
                             <h6>150ms Delay</h6>
                             <p-virtualscroller :items="basicItems" :item-size="50" :delay="150">
                                 <template v-slot:item="{ item, options }">
-                                    <div :class="['scroll-item p-p-2', {'odd': options.odd}]" style="height: 50px">{{ item }}</div>
+                                    <div :class="['scroll-item p-2', {'odd': options.odd}]" style="height: 50px">{{ item }}</div>
                                 </template>
                             </p-virtualscroller>
                         </div>
 
-                        <div class="p-d-flex p-dir-col p-mr-3 p-mt-3">
+                        <div class="flex flex-column mr-3 mt-3">
                             <h6>250ms Delay</h6>
                             <p-virtualscroller :items="basicItems" :item-size="50" :delay="250">
                                 <template v-slot:item="{ item, options }">
-                                    <div :class="['scroll-item p-p-2', {'odd': options.odd}]" style="height: 50px">{{ item }}</div>
+                                    <div :class="['scroll-item p-2', {'odd': options.odd}]" style="height: 50px">{{ item }}</div>
                                 </template>
                             </p-virtualscroller>
                         </div>
@@ -919,25 +919,25 @@ export default {
                 </div>
 
                 <div class="card">
-                    <h5 class="p-mb-0">Loading</h5>
-                    <div class="p-d-flex p-ai-center p-flex-wrap">
-                        <div class="p-d-flex p-dir-col p-mr-3 p-mt-3">
+                    <h5 class="mb-0">Loading</h5>
+                    <div class="flex align-items-center flex-wrap">
+                        <div class="flex flex-column mr-3 mt-3">
                             <h6>Basic</h6>
                             <p-virtualscroller :items="basicItems" :item-size="50" show-loader :delay="250">
                                 <template v-slot:item="{ item, options }">
-                                    <div :class="['scroll-item p-p-2', {'odd': options.odd}]" style="height: 50px">{{ item }}</div>
+                                    <div :class="['scroll-item p-2', {'odd': options.odd}]" style="height: 50px">{{ item }}</div>
                                 </template>
                             </p-virtualscroller>
                         </div>
 
-                        <div class="p-d-flex p-dir-col p-mr-3 p-mt-3">
+                        <div class="flex flex-column mr-3 mt-3">
                             <h6>Templating</h6>
                             <p-virtualscroller class="custom-loading" :items="basicItems" :item-size="50" show-loader :delay="250">
                                 <template v-slot:item="{ item, options }">
-                                    <div :class="['scroll-item p-p-2', {'odd': options.odd}]" style="height: 50px">{{ item }}</div>
+                                    <div :class="['scroll-item p-2', {'odd': options.odd}]" style="height: 50px">{{ item }}</div>
                                 </template>
                                 <template v-slot:loader="{ options }">
-                                    <div :class="['scroll-item p-p-2', {'odd': options.odd}]" style="height: 50px" >
+                                    <div :class="['scroll-item p-2', {'odd': options.odd}]" style="height: 50px" >
                                         <p-skeleton :width="options.even ? '60%' : '50%'" height="1.3rem"></p-skeleton>
                                     </div>
                                 </template>
@@ -947,12 +947,12 @@ export default {
                 </div>
 
                 <div class="card">
-                    <h5 class="p-mb-0">Lazy</h5>
-                    <div class="p-d-flex p-ai-center p-flex-wrap">
-                        <div class="p-d-flex p-dir-col p-mr-3 p-mt-3">
+                    <h5 class="mb-0">Lazy</h5>
+                    <div class="flex align-items-center flex-wrap">
+                        <div class="flex flex-column mr-3 mt-3">
                             <p-virtualscroller :items="lazyItems" :item-size="50" show-loader :delay="250" :loading="lazyLoading" :lazy=true @lazy-load="onLazyLoad">
                                 <template v-slot:item="{ item, options }">
-                                    <div :class="['scroll-item p-p-2', {'odd': options.odd}]" style="height: 50px">{{ item }}</div>
+                                    <div :class="['scroll-item p-2', {'odd': options.odd}]" style="height: 50px">{{ item }}</div>
                                 </template>
                             </p-virtualscroller>
                         </div>
@@ -960,30 +960,30 @@ export default {
                 </div>
 
                 <div class="card">
-                    <h5 class="p-mb-0">Template</h5>
-                    <div class="p-d-flex p-ai-center p-flex-wrap">
-                        <div class="p-d-flex p-dir-col p-mr-3 p-mt-3">
+                    <h5 class="mb-0">Template</h5>
+                    <div class="flex align-items-center flex-wrap">
+                        <div class="flex flex-column mr-3 mt-3">
                             <p-virtualscroller class="custom-loading" :items="basicItems" :item-size="25 * 7" show-loader :delay="250">
                                 <template v-slot:item="{ item, options }">
                                     <div :class="['custom-scroll-item scroll-item', {'odd': options.odd}]">
-                                        <div class="p-d-flex p-ai-center p-px-2" style="height: 25px">{{\`Item: \${item}\`}}</div>
-                                        <div class="p-d-flex p-ai-center p-px-2" style="height: 25px">{{\`Index: \${options.index}\`}}</div>
-                                        <div class="p-d-flex p-ai-center p-px-2" style="height: 25px">{{\`Count: \${options.count}\`}}</div>
-                                        <div class="p-d-flex p-ai-center p-px-2" style="height: 25px">{{\`First: \${options.first}\`}}</div>
-                                        <div class="p-d-flex p-ai-center p-px-2" style="height: 25px">{{\`Last: \${options.last}\`}}</div>
-                                        <div class="p-d-flex p-ai-center p-px-2" style="height: 25px">{{\`Even: \${options.even}\`}}</div>
-                                        <div class="p-d-flex p-ai-center p-px-2" style="height: 25px">{{\`Odd: \${options.odd}\`}}</div>
+                                        <div class="flex align-items-center px-2" style="height: 25px">{{\`Item: \${item}\`}}</div>
+                                        <div class="flex align-items-center px-2" style="height: 25px">{{\`Index: \${options.index}\`}}</div>
+                                        <div class="flex align-items-center px-2" style="height: 25px">{{\`Count: \${options.count}\`}}</div>
+                                        <div class="flex align-items-center px-2" style="height: 25px">{{\`First: \${options.first}\`}}</div>
+                                        <div class="flex align-items-center px-2" style="height: 25px">{{\`Last: \${options.last}\`}}</div>
+                                        <div class="flex align-items-center px-2" style="height: 25px">{{\`Even: \${options.even}\`}}</div>
+                                        <div class="flex align-items-center px-2" style="height: 25px">{{\`Odd: \${options.odd}\`}}</div>
                                     </div>
                                 </template>
                                 <template v-slot:loader="{ options }">
                                     <div :class="['custom-scroll-item scroll-item', {'odd': options.odd}]">
-                                        <div class="p-d-flex p-ai-center p-px-2" style="height: 25px"><p-skeleton width="60%" height="1.2rem"></p-skeleton></div>
-                                        <div class="p-d-flex p-ai-center p-px-2" style="height: 25px"><p-skeleton width="50%" height="1.2rem"></p-skeleton></div>
-                                        <div class="p-d-flex p-ai-center p-px-2" style="height: 25px"><p-skeleton width="60%" height="1.2rem"></p-skeleton></div>
-                                        <div class="p-d-flex p-ai-center p-px-2" style="height: 25px"><p-skeleton width="50%" height="1.2rem"></p-skeleton></div>
-                                        <div class="p-d-flex p-ai-center p-px-2" style="height: 25px"><p-skeleton width="60%" height="1.2rem"></p-skeleton></div>
-                                        <div class="p-d-flex p-ai-center p-px-2" style="height: 25px"><p-skeleton width="50%" height="1.2rem"></p-skeleton></div>
-                                        <div class="p-d-flex p-ai-center p-px-2" style="height: 25px"><p-skeleton width="60%" height="1.2rem"></p-skeleton></div>
+                                        <div class="flex align-items-center px-2" style="height: 25px"><p-skeleton width="60%" height="1.2rem"></p-skeleton></div>
+                                        <div class="flex align-items-center px-2" style="height: 25px"><p-skeleton width="50%" height="1.2rem"></p-skeleton></div>
+                                        <div class="flex align-items-center px-2" style="height: 25px"><p-skeleton width="60%" height="1.2rem"></p-skeleton></div>
+                                        <div class="flex align-items-center px-2" style="height: 25px"><p-skeleton width="50%" height="1.2rem"></p-skeleton></div>
+                                        <div class="flex align-items-center px-2" style="height: 25px"><p-skeleton width="60%" height="1.2rem"></p-skeleton></div>
+                                        <div class="flex align-items-center px-2" style="height: 25px"><p-skeleton width="50%" height="1.2rem"></p-skeleton></div>
+                                        <div class="flex align-items-center px-2" style="height: 25px"><p-skeleton width="60%" height="1.2rem"></p-skeleton></div>
                                     </div>
                                 </template>
                             </p-virtualscroller>

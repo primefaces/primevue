@@ -18,15 +18,15 @@ import Toolbar from 'primevue/toolbar';
 <pre v-code><code>
 &lt;Toolbar&gt;
     &lt;template #start&gt;
-        &lt;Button label="New" icon="pi pi-plus" class="p-mr-2" /&gt;
+        &lt;Button label="New" icon="pi pi-plus" class="mr-2" /&gt;
         &lt;Button label="Upload" icon="pi pi-upload" class="p-button-success" /&gt;
-        &lt;i class="pi pi-bars p-toolbar-separator p-mr-2" /&gt;
+        &lt;i class="pi pi-bars p-toolbar-separator mr-2" /&gt;
         &lt;SplitButton label="Save" icon="pi pi-check" :model="items" class="p-button-warning"&gt;&lt;/SplitButton&gt;
     &lt;/template&gt;
 
     &lt;template #end&gt;
-        &lt;Button icon="pi pi-search" class="p-mr-2" /&gt;
-        &lt;Button icon="pi pi-calendar" class="p-button-success p-mr-2" /&gt;
+        &lt;Button icon="pi pi-search" class="mr-2" /&gt;
+        &lt;Button icon="pi pi-calendar" class="p-button-success mr-2" /&gt;
         &lt;Button icon="pi pi-times" class="p-button-danger" /&gt;
     &lt;/template&gt;
 &lt;/Toolbar&gt;
@@ -99,15 +99,15 @@ export default {
     <div>
         <Toolbar>
             <template #start>
-                <Button label="New" icon="pi pi-plus" class="p-mr-2" />
+                <Button label="New" icon="pi pi-plus" class="mr-2" />
                 <Button label="Upload" icon="pi pi-upload" class="p-button-success" />
-                <i class="pi pi-bars p-toolbar-separator p-mr-2" />
+                <i class="pi pi-bars p-toolbar-separator mr-2" />
                 <SplitButton label="Save" icon="pi pi-check" :model="items" class="p-button-warning"></SplitButton>
             </template>
 
             <template #end>
-                <Button icon="pi pi-search" class="p-mr-2" />
-                <Button icon="pi pi-calendar" class="p-button-success p-mr-2" />
+                <Button icon="pi pi-search" class="mr-2" />
+                <Button icon="pi pi-calendar" class="p-button-success mr-2" />
                 <Button icon="pi pi-times" class="p-button-danger" />
             </template>
         </Toolbar>
@@ -160,15 +160,15 @@ export default {
     <div>
         <Toolbar>
             <template #start>
-                <Button label="New" icon="pi pi-plus" class="p-mr-2" />
+                <Button label="New" icon="pi pi-plus" class="mr-2" />
                 <Button label="Upload" icon="pi pi-upload" class="p-button-success" />
-                <i class="pi pi-bars p-toolbar-separator p-mr-2" />
+                <i class="pi pi-bars p-toolbar-separator mr-2" />
                 <SplitButton label="Save" icon="pi pi-check" :model="items" class="p-button-warning"></SplitButton>
             </template>
 
             <template #end>
-                <Button icon="pi pi-search" class="p-mr-2" />
-                <Button icon="pi pi-calendar" class="p-button-success p-mr-2" />
+                <Button icon="pi pi-search" class="mr-2" />
+                <Button icon="pi pi-calendar" class="p-button-success mr-2" />
                 <Button icon="pi pi-times" class="p-button-danger" />
             </template>
         </Toolbar>
@@ -223,15 +223,15 @@ export default {
                     content: `<div id="app">
             <p-toolbar>
                 <template #start>
-                    <p-button label="New" icon="pi pi-plus" class="p-mr-2"></p-button>
+                    <p-button label="New" icon="pi pi-plus" class="mr-2"></p-button>
                     <p-button label="Upload" icon="pi pi-upload" class="p-button-success"></p-button>
-                    <i class="pi pi-bars p-toolbar-separator p-mr-2"></i>
+                    <i class="pi pi-bars p-toolbar-separator mr-2"></i>
                     <p-splitbutton label="Save" icon="pi pi-check" :model="items" class="p-button-warning"></p-splitbutton>
                 </template>
 
                 <template #end>
-                    <p-button icon="pi pi-search" class="p-mr-2"></p-button>
-                    <p-button icon="pi pi-calendar" class="p-button-success p-mr-2"></p-button>
+                    <p-button icon="pi pi-search" class="mr-2"></p-button>
+                    <p-button icon="pi pi-calendar" class="p-button-success mr-2"></p-button>
                     <p-button icon="pi pi-times" class="p-button-danger"></p-button>
                 </template>
             </p-toolbar>

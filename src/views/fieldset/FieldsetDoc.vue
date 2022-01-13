@@ -154,19 +154,19 @@ import Fieldset from 'primevue/fieldset';
 				</thead>
 				<tbody>
                     <tr>
-                        <td>p-fieldset</td>
+                        <td>fieldset</td>
                         <td>Fieldset element.</td>
                     </tr>
                     <tr>
-                        <td>p-fieldset-toggleable</td>
+                        <td>fieldset-toggleable</td>
                         <td>Toggleable fieldset element.</td>
                     </tr>
                     <tr>
-                        <td>p-fieldset-legend</td>
+                        <td>fieldset-legend</td>
                         <td>Legend element.</td>
                     </tr>
                     <tr>
-                        <td>p-fieldset-content</td>
+                        <td>fieldset-content</td>
                         <td>Content element.</td>
                     </tr>
 				</tbody>
@@ -212,7 +212,7 @@ export default {
 <\\/script>
 
 <style lang="scss" scoped>
-.p-fieldset p {
+.fieldset p {
     line-height: 1.5;
     margin: 0;
 }
@@ -247,7 +247,7 @@ export default {
 <\\/script>
 
 <style lang="scss" scoped>
-.p-fieldset p {
+.fieldset p {
     line-height: 1.5;
     margin: 0;
 }
@@ -258,20 +258,20 @@ export default {
                     imports: `<script src="https://unpkg.com/primevue@^3/fieldset/fieldset.min.js"><\\/script>`,
                     content: `<div id="app">
             <h5>Regular</h5>
-            <p-fieldset legend="Header">
+            <fieldset legend="Header">
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                     Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
                     cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </p-fieldset>
+            </fieldset>
 
             <h5>Toggleable</h5>
-            <p-fieldset legend="Header" :toggleable="true">
+            <fieldset legend="Header" :toggleable="true">
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                     Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
                     cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </p-fieldset>
+            </fieldset>
         </div>
 
         <script type="module">
@@ -279,7 +279,7 @@ export default {
 
         const App = {
             components: {
-                "p-fieldset": primevue.fieldset
+                "fieldset": primevue.fieldset
             }
         };
 
@@ -289,7 +289,7 @@ export default {
         <\\/script>
 
         <style>
-        .p-fieldset p {
+        .fieldset p {
             line-height: 1.5;
             margin: 0;
         }

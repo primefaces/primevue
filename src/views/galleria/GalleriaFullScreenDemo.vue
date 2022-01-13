@@ -50,8 +50,8 @@
                     </template>
                 </Galleria>
 
-                <div v-if="images" class="p-grid" style="max-width: 400px;">
-                    <div v-for="(image, index) of images" class="p-col-3" :key="index">
+                <div v-if="images" class="grid" style="max-width: 400px;">
+                    <div v-for="(image, index) of images" class="col-3" :key="index">
                         <img :src="image.thumbnailImageSrc" :alt="image.alt" style="cursor: pointer" @click="imageClick(index)"/>
                     </div>
                 </div>
@@ -99,8 +99,8 @@
     &lt;/template&gt;
 &lt;/Galleria&gt;
 
-&lt;div v-if="images" class="p-grid" style="max-width: 400px;"&gt;
-    &lt;div v-for="(image, index) of images" class="p-col-3" :key="index"&gt;
+&lt;div v-if="images" class="grid" style="max-width: 400px;"&gt;
+    &lt;div v-for="(image, index) of images" class="col-3" :key="index"&gt;
         &lt;img :src="image.thumbnailImageSrc" :alt="image.alt" style="cursor: pointer" @click="imageClick(index)"/&gt;
     &lt;/div&gt;
 &lt;/div&gt;

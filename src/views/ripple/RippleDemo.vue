@@ -9,7 +9,7 @@
         </div>
 
         <div class="content-section implementation">
-            <div class="card-container p-d-flex">
+            <div class="card-container flex">
                 <div class="card primary-box p-ripple" v-ripple>Default</div>
                 <div class="card styled-box-green p-ripple" v-ripple>Green</div>
                 <div class="card styled-box-orange p-ripple" v-ripple>Orange</div>

@@ -20,8 +20,8 @@
                     <template #option="slotProps">
                         <div class="country-item">
                             <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.option.code.toLowerCase()" v-if="slotProps.option.states" />
-                            <i class="pi pi-compass p-mr-2" v-if="slotProps.option.cities"></i>
-                            <i class="pi pi-map-marker p-mr-2" v-if="slotProps.option.cname"></i>
+                            <i class="pi pi-compass mr-2" v-if="slotProps.option.cities"></i>
+                            <i class="pi pi-map-marker mr-2" v-if="slotProps.option.cname"></i>
                             <span>{{slotProps.option.cname || slotProps.option.name}}</span>
                         </div>
                     </template>

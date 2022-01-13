@@ -16,7 +16,7 @@
                 <h5>Grouped</h5>
                 <AutoComplete v-model="selectedCity" :suggestions="filteredCities" @complete="searchCity($event)" field="label" optionGroupLabel="label" optionGroupChildren="items">
                     <template #optiongroup="slotProps">
-                        <div class="p-d-flex p-ai-center country-item">
+                        <div class="flex align-items-center country-item">
                             <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.item.code.toLowerCase()" width="18" />
                             <div>{{slotProps.item.label}}</div>
                         </div>

@@ -14,7 +14,7 @@
                         <img :src="item.itemImageSrc" :alt="item.alt" style="width: 100%; display: block;" />
                     </template>
                     <template #thumbnail="{item}">
-                        <div class="p-grid p-nogutter p-justify-center">
+                        <div class="grid grid-nogutter justify-content-center">
                             <img :src="item.thumbnailImageSrc" :alt="item.alt" style="display: block;" />
                         </div>
                     </template>
@@ -35,7 +35,7 @@
         &lt;img :src="item.itemImageSrc" :alt="item.alt" style="width: 100%; display: block;" /&gt;
     &lt;/template&gt;
     &lt;template #thumbnail="{item}"&gt;
-        &lt;div class="p-grid p-nogutter p-justify-center"&gt;
+        &lt;div class="grid grid-nogutter justify-content-center"&gt;
             &lt;img :src="item.thumbnailImageSrc" :alt="item.alt" style="display: block;" /&gt;
         &lt;/div&gt;
     &lt;/template&gt;

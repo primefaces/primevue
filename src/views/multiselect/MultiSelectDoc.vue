@@ -552,8 +552,8 @@ export default {
         <h5>Grouped</h5>
         <MultiSelect v-model="selectedGroupedCities" :options="groupedCities" optionLabel="label"  optionGroupLabel="label" optionGroupChildren="items" placeholder="Select Cities">
             <template #optiongroup="slotProps">
-                <div class="p-d-flex p-ai-center country-item">
-                    <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="p-mr-2" width="18" />
+                <div class="flex align-items-center country-item">
+                    <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="mr-2" width="18" />
                     <div>{{slotProps.option.label}}</div>
                 </div>
             </template>
@@ -563,7 +563,7 @@ export default {
         <MultiSelect v-model="selectedCountries" :options="countries" optionLabel="name" placeholder="Select Countries" :filter="true" class="multiselect-custom">
             <template #value="slotProps">
                 <div class="country-item country-item-value" v-for="option of slotProps.value" :key="option.code">
-                    <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="p-mr-2" width="18" />
+                    <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="mr-2" width="18" />
                     <div>{{option.name}}</div>
                 </div>
                 <template v-if="!slotProps.value || slotProps.value.length === 0">
@@ -572,7 +572,7 @@ export default {
             </template>
             <template #option="slotProps">
                 <div class="country-item">
-                    <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="p-mr-2" width="18" />
+                    <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="mr-2" width="18" />
                     <div>{{slotProps.option.name}}</div>
                 </div>
             </template>
@@ -703,8 +703,8 @@ export default {
         <h5>Grouped</h5>
         <MultiSelect v-model="selectedGroupedCities" :options="groupedCities" optionLabel="label"  optionGroupLabel="label" optionGroupChildren="items" placeholder="Select Cities">
             <template #optiongroup="slotProps">
-                <div class="p-d-flex p-ai-center country-item">
-                    <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="p-mr-2" width="18" />
+                <div class="flex align-items-center country-item">
+                    <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="mr-2" width="18" />
                     <div>{{slotProps.option.label}}</div>
                 </div>
             </template>
@@ -714,7 +714,7 @@ export default {
         <MultiSelect v-model="selectedCountries" :options="countries" optionLabel="name" placeholder="Select Countries" :filter="true" class="multiselect-custom">
             <template #value="slotProps">
                 <div class="country-item country-item-value" v-for="option of slotProps.value" :key="option.code">
-                    <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="p-mr-2" width="18" />
+                    <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="mr-2" width="18" />
                     <div>{{option.name}}</div>
                 </div>
                 <template v-if="!slotProps.value || slotProps.value.length === 0">
@@ -723,7 +723,7 @@ export default {
             </template>
             <template #option="slotProps">
                 <div class="country-item">
-                    <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="p-mr-2" width="18" />
+                    <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="mr-2" width="18" />
                     <div>{{slotProps.option.name}}</div>
                 </div>
             </template>
@@ -857,8 +857,8 @@ export default {
             <h5>Grouped</h5>
             <p-multiselect v-model="selectedGroupedCities" :options="groupedCities" option-label="label"  option-group-label="label" option-group-children="items" placeholder="Select Cities">
                 <template #optiongroup="slotProps">
-                    <div class="p-d-flex p-ai-center country-item">
-                        <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="p-mr-2" width="18" />
+                    <div class="flex align-items-center country-item">
+                        <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="mr-2" width="18" />
                         <div>{{slotProps.option.label}}</div>
                     </div>
                 </template>
@@ -868,7 +868,7 @@ export default {
             <p-multiselect  v-model="selectedCountries" :options="countries" option-label="name" placeholder="Select Countries" :filter="true" class="multiselect-custom">
                 <template #value="slotProps">
                     <div class="country-item country-item-value" v-for="option of slotProps.value" :key="option.code">
-                        <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="p-mr-2" width="18" />
+                        <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="mr-2" width="18" />
                         <div>{{option.name}}</div>
                     </div>
                     <template v-if="!slotProps.value || slotProps.value.length === 0">
@@ -877,7 +877,7 @@ export default {
                 </template>
                 <template #option="slotProps">
                     <div class="country-item">
-                        <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="p-mr-2" width="18" />
+                        <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="mr-2" width="18" />
                         <div>{{slotProps.option.name}}</div>
                     </div>
                 </template>

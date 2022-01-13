@@ -2,91 +2,91 @@
 	<AppDoc name="GridDemo" :sources="sources" github="grid/GridDemo.vue">
 		<h5>Getting Started</h5>
 		<p>FlexGrid is a CSS utility based on flexbox. For more information about Flex, visit <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">A Complete Guide to Flexbox</a>. A basic grid is defined by giving
-			a container <i>p-grid</i> class and children the <i>p-col</i> class. Children of the grid will have the same width and scale according to the width of the parent.</p>
+			a container <i>grid</i> class and children the <i>col</i> class. Children of the grid will have the same width and scale according to the width of the parent.</p>
 <pre v-code><code>
-&lt;div class="p-grid"&gt;
-	&lt;div class="p-col"&gt;1&lt;/div&gt;
-	&lt;div class="p-col"&gt;2&lt;/div&gt;
-	&lt;div class="p-col"&gt;3&lt;/div&gt;
+&lt;div class="grid"&gt;
+	&lt;div class="col"&gt;1&lt;/div&gt;
+	&lt;div class="col"&gt;2&lt;/div&gt;
+	&lt;div class="col"&gt;3&lt;/div&gt;
 &lt;/div&gt;
 
 </code></pre>
 
-<div class="p-grid">
-	<div class="p-col">
+<div class="grid">
+	<div class="col">
 		<div class="box">1</div>
 	</div>
-	<div class="p-col">
+	<div class="col">
 		<div class="box">2</div>
 	</div>
-	<div class="p-col">
+	<div class="col">
 		<div class="box">3</div>
 	</div>
 </div>
 
 		<h5>12 Column Grid</h5>
-		<p>FlexGrid includes a 12 column based layout utility where width of a column is defined with the <i>p-col-&#123;number&#125;</i> style class. Columns with prefined widths can be used with columns with auto width (p-col) as well.</p>
+		<p>FlexGrid includes a 12 column based layout utility where width of a column is defined with the <i>col-&#123;number&#125;</i> style class. Columns with prefined widths can be used with columns with auto width (col) as well.</p>
 
 		<p>In the first example below, first column covers the 4 units out of 12 and the rest of the columns share the remaining space whereas in the second example, all three columns have explicit units.</p>
 <pre v-code><code>
-&lt;div class="p-grid"&gt;
-	&lt;div class="p-col-4"&gt;4&lt;/div&gt;
-	&lt;div class="p-col"&gt;1&lt;/div&gt;
-	&lt;div class="p-col"&gt;1&lt;/div&gt;
-	&lt;div class="p-col"&gt;1&lt;/div&gt;
-	&lt;div class="p-col"&gt;1&lt;/div&gt;
-	&lt;div class="p-col"&gt;1&lt;/div&gt;
-	&lt;div class="p-col"&gt;1&lt;/div&gt;
-	&lt;div class="p-col"&gt;1&lt;/div&gt;
-	&lt;div class="p-col"&gt;1&lt;/div&gt;
+&lt;div class="grid"&gt;
+	&lt;div class="col-4"&gt;4&lt;/div&gt;
+	&lt;div class="col"&gt;1&lt;/div&gt;
+	&lt;div class="col"&gt;1&lt;/div&gt;
+	&lt;div class="col"&gt;1&lt;/div&gt;
+	&lt;div class="col"&gt;1&lt;/div&gt;
+	&lt;div class="col"&gt;1&lt;/div&gt;
+	&lt;div class="col"&gt;1&lt;/div&gt;
+	&lt;div class="col"&gt;1&lt;/div&gt;
+	&lt;div class="col"&gt;1&lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div class="p-grid"&gt;
-	&lt;div class="p-col-2"&gt;2&lt;/div&gt;
-	&lt;div class="p-col-6"&gt;6&lt;/div&gt;
-	&lt;div class="p-col-4"&gt;4&lt;/div&gt;
+&lt;div class="grid"&gt;
+	&lt;div class="col-2"&gt;2&lt;/div&gt;
+	&lt;div class="col-6"&gt;6&lt;/div&gt;
+	&lt;div class="col-4"&gt;4&lt;/div&gt;
 &lt;/div&gt;
 
 </code></pre>
 
-<div class="p-grid">
-	<div class="p-col-4">
+<div class="grid">
+	<div class="col-4">
 		<div class="box">4</div>
 	</div>
-	<div class="p-col">
+	<div class="col">
 		<div class="box">1</div>
 	</div>
-	<div class="p-col">
+	<div class="col">
 		<div class="box">1</div>
 	</div>
-	<div class="p-col">
+	<div class="col">
 		<div class="box">1</div>
 	</div>
-	<div class="p-col">
+	<div class="col">
 		<div class="box">1</div>
 	</div>
-	<div class="p-col">
+	<div class="col">
 		<div class="box">1</div>
 	</div>
-	<div class="p-col">
+	<div class="col">
 		<div class="box">1</div>
 	</div>
-	<div class="p-col">
+	<div class="col">
 		<div class="box">1</div>
 	</div>
-	<div class="p-col">
+	<div class="col">
 		<div class="box">1</div>
 	</div>
 </div>
 
-<div class="p-grid">
-	<div class="p-col-2">
+<div class="grid">
+	<div class="col-2">
 		<div class="box">2</div>
 	</div>
-	<div class="p-col-6">
+	<div class="col-6">
 		<div class="box">6</div>
 	</div>
-	<div class="p-col-4">
+	<div class="col-4">
 		<div class="box">4</div>
 	</div>
 </div>
@@ -94,50 +94,50 @@
 		<h5>MultiLine</h5>
 		<p>When the number of columns exceed 12, columns wrap to a new line.</p>
 <pre v-code><code>
-&lt;div class="p-grid"&gt;
-	&lt;div class="p-col-6"&gt;6&lt;/div&gt;
-	&lt;div class="p-col-6"&gt;6&lt;/div&gt;
-	&lt;div class="p-col-6"&gt;6&lt;/div&gt;
-	&lt;div class="p-col-6"&gt;6&lt;/div&gt;
+&lt;div class="grid"&gt;
+	&lt;div class="col-6"&gt;6&lt;/div&gt;
+	&lt;div class="col-6"&gt;6&lt;/div&gt;
+	&lt;div class="col-6"&gt;6&lt;/div&gt;
+	&lt;div class="col-6"&gt;6&lt;/div&gt;
 &lt;/div&gt;
 
 </code></pre>
 
-<div class="p-grid">
-	<div class="p-col-6">
+<div class="grid">
+	<div class="col-6">
 		<div class="box">6</div>
 	</div>
-	<div class="p-col-6">
+	<div class="col-6">
 		<div class="box">6</div>
 	</div>
-	<div class="p-col-6">
+	<div class="col-6">
 		<div class="box">6</div>
 	</div>
-	<div class="p-col-6">
+	<div class="col-6">
 		<div class="box">6</div>
 	</div>
 </div>
 
 		<h5>Fixed Width Column</h5>
-		<p>A column can have a fixed width while siblings having auto width. Apply <i>p-col-fixed</i> class to fix a column width.</p>
+		<p>A column can have a fixed width while siblings having auto width. Apply <i>col-fixed</i> class to fix a column width.</p>
 <pre v-code><code>
-&lt;div class="p-grid"&gt;
-	&lt;div class="p-col-fixed" style="width:100px"&gt;Fixed&lt;/div&gt;
-	&lt;div class="p-col"&gt;Auto&lt;/div&gt;
+&lt;div class="grid"&gt;
+	&lt;div class="col-fixed" style="width:100px"&gt;Fixed&lt;/div&gt;
+	&lt;div class="col"&gt;Auto&lt;/div&gt;
 &lt;/div&gt;
 
 </code></pre>
 
-<div class="p-grid">
-	<div class="p-col-fixed" style="width:100px">
+<div class="grid">
+	<div class="col-fixed" style="width:100px">
 		<div class="box">100px</div>
 	</div>
-	<div class="p-col">
+	<div class="col">
 		<div class="box">auto</div>
 	</div>
 </div>
 		<h5>Responsive</h5>
-		<p>Responsive layout is achieved by applying breakpoint specific classes to the columns whereas <i>p-col-*</i> define the default behavior for mobile devices with small screens. Four screen sizes are supported with different breakpoints.</p>
+		<p>Responsive layout is achieved by applying breakpoint specific classes to the columns whereas <i>col-*</i> define the default behavior for mobile devices with small screens. Four screen sizes are supported with different breakpoints.</p>
 		<div class="doc-tablewrapper">
 			<table class="doc-table">
 				<thead>
@@ -153,25 +153,25 @@
 					<td>p-sm-*</td>
 					<td>Small devices</td>
 					<td>min-width: 576px</td>
-					<td>p-sm-6, p-sm-4</td>
+					<td>sm:col-6, sm:col-4</td>
 				</tr>
 				<tr>
 					<td>p-md-*</td>
 					<td>Medium sized devices such as tablets</td>
 					<td>min-width: 768px</td>
-					<td>p-md-2, p-md-8</td>
+					<td>md:col-2, md:col-8</td>
 				</tr>
 				<tr>
 					<td>p-lg-*</td>
 					<td>Devices with large screen like desktops</td>
 					<td>min-width: 992px</td>
-					<td>p-lg-6, p-lg-12</td>
+					<td>lg:col-6, lg:col-12</td>
 				</tr>
 				<tr>
 					<td>p-xl-*</td>
 					<td>Big screen monitors</td>
 					<td>min-width: 1200px</td>
-					<td>p-xl-2, ui-xl-10</td>
+					<td>xl:col-2, ui-xl-10</td>
 				</tr>
 				</tbody>
 			</table>
@@ -179,54 +179,54 @@
 
 		<p>In example below, large screens display 4 columns, medium screens display 2 columns in 2 rows and finally on small devices, columns are stacked.</p>
 <pre v-code><code>
-&lt;div class="p-grid"&gt;
-	&lt;div class="p-col-12 p-md-6 p-lg-3"&gt;A&lt;/div&gt;
-	&lt;div class="p-col-12 p-md-6 p-lg-3"&gt;B&lt;/div&gt;
-	&lt;div class="p-col-12 p-md-6 p-lg-3"&gt;C&lt;/div&gt;
-	&lt;div class="p-col-12 p-md-6 p-lg-3"&gt;D&lt;/div&gt;
+&lt;div class="grid"&gt;
+	&lt;div class="col-12 md:col-6 lg:col-3"&gt;A&lt;/div&gt;
+	&lt;div class="col-12 md:col-6 lg:col-3"&gt;B&lt;/div&gt;
+	&lt;div class="col-12 md:col-6 lg:col-3"&gt;C&lt;/div&gt;
+	&lt;div class="col-12 md:col-6 lg:col-3"&gt;D&lt;/div&gt;
 &lt;/div&gt;
 
 </code></pre>
 
-<div class="p-grid">
-	<div class="p-col-12 p-md-6 p-lg-3">
+<div class="grid">
+	<div class="col-12 md:col-6 lg:col-3">
 		<div class="box">A</div>
 	</div>
-	<div class="p-col-12 p-md-6 p-lg-3">
+	<div class="col-12 md:col-6 lg:col-3">
 		<div class="box">B</div>
 	</div>
-	<div class="p-col-12 p-md-6 p-lg-3">
+	<div class="col-12 md:col-6 lg:col-3">
 		<div class="box">C</div>
 	</div>
-	<div class="p-col-12 p-md-6 p-lg-3">
+	<div class="col-12 md:col-6 lg:col-3">
 		<div class="box">D</div>
 	</div>
 </div>
 		<h5>Offset</h5>
 		<p>Offset classes allow defining a left margin on a column to avoid adding empty columns for spacing.</p>
 <pre v-code><code>
-&lt;div class="p-grid"&gt;
-	&lt;div class="p-col-6 p-offset-3"&gt;6&lt;/div&gt;
+&lt;div class="grid"&gt;
+	&lt;div class="col-6 col-offset-3"&gt;6&lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div class="p-grid"&gt;
-	&lt;div class="p-col-4"&gt;4&lt;/div&gt;
-	&lt;div class="p-col-4 p-offset-4"&gt;4&lt;/div&gt;
+&lt;div class="grid"&gt;
+	&lt;div class="col-4"&gt;4&lt;/div&gt;
+	&lt;div class="col-4 col-offset-4"&gt;4&lt;/div&gt;
 &lt;/div&gt;
 
 </code></pre>
 
-<div class="p-grid">
-	<div class="p-col-6 p-offset-3">
+<div class="grid">
+	<div class="col-6 col-offset-3">
 		<div class="box">6</div>
 	</div>
 </div>
 
-<div class="p-grid">
-	<div class="p-col-4">
+<div class="grid">
+	<div class="col-4">
 		<div class="box">4</div>
 	</div>
-	<div class="p-col-4 p-offset-4">
+	<div class="col-4 col-offset-4">
 		<div class="box">4</div>
 	</div>
 </div>
@@ -243,10 +243,10 @@
 				</thead>
 				<tbody>
 				<tr>
-					<td>p-col-offset-*</td>
+					<td>col-offset-*</td>
 					<td>All devices</td>
 					<td>All screens</td>
-					<td>p-col-offset-6, p-col-offset-4</td>
+					<td>col-offset-6, col-offset-4</td>
 				</tr>
 				<tr>
 					<td>p-sm-offset-*</td>
@@ -279,67 +279,67 @@
 		<h5>Nested</h5>
 		<p>Columns can be nested to create more complex layouts.</p>
 <pre v-code><code>
-&lt;div class="p-grid nested-grid"&gt;
-	&lt;div class="p-col-8"&gt;
-		&lt;div class="p-grid"&gt;
-			&lt;div class="p-col-6"&gt;
+&lt;div class="grid nested-grid"&gt;
+	&lt;div class="col-8"&gt;
+		&lt;div class="grid"&gt;
+			&lt;div class="col-6"&gt;
 				6
 			&lt;/div&gt;
-			&lt;div class="p-col-6"&gt;
+			&lt;div class="col-6"&gt;
 				6
 			&lt;/div&gt;
-			&lt;div class="p-col-12"&gt;
+			&lt;div class="col-12"&gt;
 				12
 			&lt;/div&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
-	&lt;div class="p-col-4"&gt;
+	&lt;div class="col-4"&gt;
 		4
 	&lt;/div&gt;
 &lt;/div&gt;
 
 </code></pre>
 
-<div class="p-grid nested-grid">
-	<div class="p-col-8">
-		<div class="p-grid">
-			<div class="p-col-6">
+<div class="grid nested-grid">
+	<div class="col-8">
+		<div class="grid">
+			<div class="col-6">
 				<div class="box">6</div>
 			</div>
-			<div class="p-col-6">
+			<div class="col-6">
 				<div class="box">6</div>
 			</div>
-			<div class="p-col-12">
+			<div class="col-12">
 				<div class="box">12</div>
 			</div>
 		</div>
 	</div>
-	<div class="p-col-4">
+	<div class="col-4">
 		<div class="box box-stretched">4</div>
 	</div>
 </div>
 
 		<h5>Gutter</h5>
 		<p>A .5rem padding is applied to each column along with negative margins on the container element, in case you'd like to remove these gutters, apply
-			<i>p-nogutter</i> class to the container. Gutters can also be removed on an ndividual columns with the same class name.
+			<i>grid-nogutter</i> class to the container. Gutters can also be removed on an ndividual columns with the same class name.
 		</p>
 <pre v-code><code>
-&lt;div class="p-grid p-nogutter"&gt;
-	&lt;div class="p-col"&gt;1&lt;/div&gt;
-	&lt;div class="p-col p-nogutter"&gt;2&lt;/div&gt;
-	&lt;div class="p-col"&gt;3&lt;/div&gt;
+&lt;div class="grid grid-nogutter"&gt;
+	&lt;div class="col"&gt;1&lt;/div&gt;
+	&lt;div class="col grid-nogutter"&gt;2&lt;/div&gt;
+	&lt;div class="col"&gt;3&lt;/div&gt;
 &lt;/div&gt;
 
 </code></pre>
 
-        <div class="p-grid p-nogutter">
-            <div class="p-col">
+        <div class="grid grid-nogutter">
+            <div class="col">
                 <div class="box">1</div>
             </div>
-            <div class="p-col p-nogutter">
+            <div class="col grid-nogutter">
                 <div class="box">2</div>
             </div>
-            <div class="p-col">
+            <div class="col">
                 <div class="box">3</div>
             </div>
         </div>
@@ -355,16 +355,16 @@ export default {
 					tabName: 'Options API Source',
 					content: `
 <template>
-    <div class="flexgrid-demo p-p-2">
+    <div class="flexgrid-demo p-2">
         <h5>Basic</h5>
-        <div class="p-grid">
-            <div class="p-col">
+        <div class="grid">
+            <div class="col">
                 <div class="box">1</div>
             </div>
-            <div class="p-col">
+            <div class="col">
                 <div class="box">2</div>
             </div>
-            <div class="p-col">
+            <div class="col">
                 <div class="box">3</div>
             </div>
         </div>
@@ -374,331 +374,331 @@ export default {
         <Button type="button" icon="pi pi-minus" title="Remove Column" @click="removeColumn" :disabled="columns.length === 1" />
 
         <div style="margin-top: .5em">
-            <transition-group name="dynamic-box" tag="div" class="p-grid">
-                <div v-for="col of columns" :key="col" class="p-col">
+            <transition-group name="dynamic-box" tag="div" class="grid">
+                <div v-for="col of columns" :key="col" class="col">
                     <div class="box">{{col}}</div>
                 </div>
             </transition-group>
         </div>
 
         <h5>Reverse Direction</h5>
-        <div class="p-grid p-flex-row-reverse">
-            <div class="p-col">
+        <div class="grid flex-row-reverse">
+            <div class="col">
                 <div class="box">1</div>
             </div>
-            <div class="p-col">
+            <div class="col">
                 <div class="box">2</div>
             </div>
-            <div class="p-col">
+            <div class="col">
                 <div class="box">3</div>
             </div>
         </div>
 
         <h5>Column Direction</h5>
-        <div class="p-grid p-flex-column">
-            <div class="p-col">
+        <div class="grid flex-column">
+            <div class="col">
                 <div class="box">1</div>
             </div>
-            <div class="p-col">
+            <div class="col">
                 <div class="box">2</div>
             </div>
-            <div class="p-col">
+            <div class="col">
                 <div class="box">3</div>
             </div>
         </div>
 
         <h5>Reverse Column Direction</h5>
-        <div class="p-grid p-flex-column-reverse">
-            <div class="p-col">
+        <div class="grid flex-column-reverse">
+            <div class="col">
                 <div class="box">1</div>
             </div>
-            <div class="p-col">
+            <div class="col">
                 <div class="box">2</div>
             </div>
-            <div class="p-col">
+            <div class="col">
                 <div class="box">3</div>
             </div>
         </div>
 
         <h5>12 Column Grid</h5>
-        <div class="p-grid">
-            <div class="p-col-4">
+        <div class="grid">
+            <div class="col-4">
                 <div class="box">4</div>
             </div>
-            <div class="p-col">
+            <div class="col">
                 <div class="box">1</div>
             </div>
-            <div class="p-col">
+            <div class="col">
                 <div class="box">1</div>
             </div>
-            <div class="p-col">
+            <div class="col">
                 <div class="box">1</div>
             </div>
-            <div class="p-col">
+            <div class="col">
                 <div class="box">1</div>
             </div>
-            <div class="p-col">
+            <div class="col">
                 <div class="box">1</div>
             </div>
-            <div class="p-col">
+            <div class="col">
                 <div class="box">1</div>
             </div>
-            <div class="p-col">
+            <div class="col">
                 <div class="box">1</div>
             </div>
-            <div class="p-col">
+            <div class="col">
                 <div class="box">1</div>
             </div>
         </div>
 
-        <div class="p-grid">
-            <div class="p-col-2">
+        <div class="grid">
+            <div class="col-2">
                 <div class="box">2</div>
             </div>
-            <div class="p-col-6">
+            <div class="col-6">
                 <div class="box">6</div>
             </div>
-            <div class="p-col-4">
+            <div class="col-4">
                 <div class="box">4</div>
             </div>
         </div>
 
-        <div class="p-grid">
-            <div class="p-col-8">
+        <div class="grid">
+            <div class="col-8">
                 <div class="box">8</div>
             </div>
-            <div class="p-col-2">
+            <div class="col-2">
                 <div class="box">2</div>
             </div>
-            <div class="p-col-2">
+            <div class="col-2">
                 <div class="box">2</div>
             </div>
         </div>
 
         <h5>MultiLine</h5>
-        <div class="p-grid">
-            <div class="p-col-6">
+        <div class="grid">
+            <div class="col-6">
                 <div class="box">6</div>
             </div>
-            <div class="p-col-6">
+            <div class="col-6">
                 <div class="box">6</div>
             </div>
-            <div class="p-col-6">
+            <div class="col-6">
                 <div class="box">6</div>
             </div>
-            <div class="p-col-6">
+            <div class="col-6">
                 <div class="box">6</div>
             </div>
         </div>
 
         <h5>Fixed Width Column</h5>
-        <div class="p-grid">
-            <div class="p-col-fixed" style="width:100px">
+        <div class="grid">
+            <div class="col-fixed" style="width:100px">
                 <div class="box">100px</div>
             </div>
-            <div class="p-col">
+            <div class="col">
                 <div class="box">auto</div>
             </div>
         </div>
 
         <h5>Responsive</h5>
-        <div class="p-grid">
-            <div class="p-col-12 p-md-6 p-lg-3">
-                <div class="box">p-col-12 p-md-6 p-lg-3</div>
+        <div class="grid">
+            <div class="col-12 md:col-6 lg:col-3">
+                <div class="box">col-12 md:col-6 lg:col-3</div>
             </div>
-            <div class="p-col-12 p-md-6 p-lg-3">
-                <div class="box">p-col-12 p-md-6 p-lg-3</div>
+            <div class="col-12 md:col-6 lg:col-3">
+                <div class="box">col-12 md:col-6 lg:col-3</div>
             </div>
-            <div class="p-col-12 p-md-6 p-lg-3">
-                <div class="box">p-col-12 p-md-6 p-lg-3</div>
+            <div class="col-12 md:col-6 lg:col-3">
+                <div class="box">col-12 md:col-6 lg:col-3</div>
             </div>
-            <div class="p-col-12 p-md-6 p-lg-3">
-                <div class="box">p-col-12 p-md-6 p-lg-3</div>
+            <div class="col-12 md:col-6 lg:col-3">
+                <div class="box">col-12 md:col-6 lg:col-3</div>
             </div>
         </div>
 
         <h5>Horizontal Alignment - Start</h5>
-        <div class="p-grid p-jc-start">
-            <div class="p-col-2">
+        <div class="grid justify-content-start">
+            <div class="col-2">
                 <div class="box">2</div>
             </div>
-            <div class="p-col-1">
+            <div class="col-1">
                 <div class="box">1</div>
             </div>
-            <div class="p-col-4">
+            <div class="col-4">
                 <div class="box">4</div>
             </div>
         </div>
 
         <h5>Horizontal Alignment - End</h5>
-        <div class="p-grid p-jc-end">
-            <div class="p-col-2">
+        <div class="grid justify-content-end">
+            <div class="col-2">
                 <div class="box">2</div>
             </div>
-            <div class="p-col-1">
+            <div class="col-1">
                 <div class="box">1</div>
             </div>
-            <div class="p-col-4">
+            <div class="col-4">
                 <div class="box">4</div>
             </div>
         </div>
 
         <h5>Horizontal Alignment - Center</h5>
-        <div class="p-grid p-jc-center">
-            <div class="p-col-2">
+        <div class="grid justify-content-center">
+            <div class="col-2">
                 <div class="box">2</div>
             </div>
-            <div class="p-col-1">
+            <div class="col-1">
                 <div class="box">1</div>
             </div>
-            <div class="p-col-4">
+            <div class="col-4">
                 <div class="box">4</div>
             </div>
         </div>
 
         <h5>Horizontal Alignment - Between</h5>
-        <div class="p-grid p-jc-between">
-            <div class="p-col-2">
+        <div class="grid justify-content-center">
+            <div class="col-2">
                 <div class="box">2</div>
             </div>
-            <div class="p-col-1">
+            <div class="col-1">
                 <div class="box">1</div>
             </div>
-            <div class="p-col-4">
+            <div class="col-4">
                 <div class="box">4</div>
             </div>
         </div>
 
         <h5>Horizontal Alignment - Around</h5>
-        <div class="p-grid p-jc-around">
-            <div class="p-col-2">
+        <div class="grid justify-content-around">
+            <div class="col-2">
                 <div class="box">2</div>
             </div>
-            <div class="p-col-1">
+            <div class="col-1">
                 <div class="box">1</div>
             </div>
-            <div class="p-col-4">
+            <div class="col-4">
                 <div class="box">4</div>
             </div>
         </div>
 
         <h5>Horizontal Alignment - Even</h5>
-        <div class="p-grid p-jc-evenly">
-            <div class="p-col-2">
+        <div class="grid justify-content-evenly">
+            <div class="col-2">
                 <div class="box">2</div>
             </div>
-            <div class="p-col-1">
+            <div class="col-1">
                 <div class="box">1</div>
             </div>
-            <div class="p-col-4">
+            <div class="col-4">
                 <div class="box">4</div>
             </div>
         </div>
 
         <h5>Vertical Alignment - Start</h5>
-        <div class="p-grid p-ai-start vertical-container">
-            <div class="p-col">
+        <div class="grid align-items-start vertical-container">
+            <div class="col">
                 <div class="box">4</div>
             </div>
-            <div class="p-col">
+            <div class="col">
                 <div class="box">4</div>
             </div>
-            <div class="p-col">
+            <div class="col">
                 <div class="box">4</div>
             </div>
         </div>
 
         <h5>Vertical Alignment - End</h5>
-        <div class="p-grid p-ai-end vertical-container">
-            <div class="p-col">
+        <div class="grid align-items-end vertical-container">
+            <div class="col">
                 <div class="box">4</div>
             </div>
-            <div class="p-col">
+            <div class="col">
                 <div class="box">4</div>
             </div>
-            <div class="p-col">
+            <div class="col">
                 <div class="box">4</div>
             </div>
         </div>
 
         <h5>Vertical Alignment - Center</h5>
-        <div class="p-grid p-ai-center vertical-container">
-            <div class="p-col">
+        <div class="grid align-items-center vertical-container">
+            <div class="col">
                 <div class="box">4</div>
             </div>
-            <div class="p-col">
+            <div class="col">
                 <div class="box">4</div>
             </div>
-            <div class="p-col">
+            <div class="col">
                 <div class="box">4</div>
             </div>
         </div>
 
         <h5>Vertical Alignment - Stretch</h5>
-        <div class="p-grid p-ai-stretch vertical-container">
-            <div class="p-col">
+        <div class="grid align-items-stretch vertical-container">
+            <div class="col">
                 <div class="box box-stretched">4</div>
             </div>
-            <div class="p-col">
+            <div class="col">
                 <div class="box box-stretched">4</div>
             </div>
-            <div class="p-col">
+            <div class="col">
                 <div class="box box-stretched">4</div>
             </div>
         </div>
 
         <h5>Vertical Alignment - Per Column</h5>
-        <div class="p-grid vertical-container">
-            <div class="p-col p-as-start">
+        <div class="grid vertical-container">
+            <div class="col align-self-start">
                 <div class="box">4</div>
             </div>
-            <div class="p-col p-as-center">
+            <div class="col align-self-center">
                 <div class="box">4</div>
             </div>
-            <div class="p-col p-as-end">
+            <div class="col align-self-end">
                 <div class="box">4</div>
             </div>
         </div>
 
         <h5>Offset</h5>
-        <div class="p-grid">
-            <div class="p-col-6 p-offset-3">
+        <div class="grid">
+            <div class="col-6 col-offset-3">
                 <div class="box">6</div>
             </div>
         </div>
 
-        <div class="p-grid">
-            <div class="p-col-4">
+        <div class="grid">
+            <div class="col-4">
                 <div class="box">4</div>
             </div>
-            <div class="p-col-4 p-offset-4">
+            <div class="col-4 col-offset-4">
                 <div class="box">4</div>
             </div>
         </div>
 
         <h5>Nested</h5>
-        <div class="p-grid nested-grid">
-            <div class="p-col-8">
-                <div class="p-grid">
-                    <div class="p-col-6">
+        <div class="grid nested-grid">
+            <div class="col-8">
+                <div class="grid">
+                    <div class="col-6">
                         <div class="box">6</div>
                     </div>
-                    <div class="p-col-6">
+                    <div class="col-6">
                         <div class="box">6</div>
                     </div>
-                    <div class="p-col-12">
+                    <div class="col-12">
                         <div class="box">12</div>
                     </div>
                 </div>
             </div>
-            <div class="p-col-4">
+            <div class="col-4">
                 <div class="box box-stretched">4</div>
             </div>
         </div>
 
         <h5>Panels</h5>
-        <div class="p-grid">
-            <div class="p-col">
+        <div class="grid">
+            <div class="col">
                 <Panel header="Header">
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                     Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -706,7 +706,7 @@ export default {
                     cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                 </Panel>
             </div>
-            <div class="p-col">
+            <div class="col">
                 <Panel header="Header">
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                     Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -714,7 +714,7 @@ export default {
                     cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                 </Panel>
             </div>
-            <div class="p-col">
+            <div class="col">
                 <Panel header="Header">
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                     Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -769,7 +769,7 @@ export default {
         border-radius: 4px;
     }
 
-    .nested-grid .p-col-4 {
+    .nested-grid .col-4 {
         padding-bottom: 1rem;
     }
 
@@ -797,16 +797,16 @@ export default {
 					tabName: 'Composition API Source',
 					content: `
 <template>
-    <div class="flexgrid-demo p-p-2">
+    <div class="flexgrid-demo p-2">
         <h5>Basic</h5>
-        <div class="p-grid">
-            <div class="p-col">
+        <div class="grid">
+            <div class="col">
                 <div class="box">1</div>
             </div>
-            <div class="p-col">
+            <div class="col">
                 <div class="box">2</div>
             </div>
-            <div class="p-col">
+            <div class="col">
                 <div class="box">3</div>
             </div>
         </div>
@@ -816,331 +816,331 @@ export default {
         <Button type="button" icon="pi pi-minus" title="Remove Column" @click="removeColumn" :disabled="columns.length === 1" />
 
         <div style="margin-top: .5em">
-            <transition-group name="dynamic-box" tag="div" class="p-grid">
-                <div v-for="col of columns" :key="col" class="p-col">
+            <transition-group name="dynamic-box" tag="div" class="grid">
+                <div v-for="col of columns" :key="col" class="col">
                     <div class="box">{{col}}</div>
                 </div>
             </transition-group>
         </div>
 
         <h5>Reverse Direction</h5>
-        <div class="p-grid p-flex-row-reverse">
-            <div class="p-col">
+        <div class="grid flex-row-reverse">
+            <div class="col">
                 <div class="box">1</div>
             </div>
-            <div class="p-col">
+            <div class="col">
                 <div class="box">2</div>
             </div>
-            <div class="p-col">
+            <div class="col">
                 <div class="box">3</div>
             </div>
         </div>
 
         <h5>Column Direction</h5>
-        <div class="p-grid p-flex-column">
-            <div class="p-col">
+        <div class="grid flex-column">
+            <div class="col">
                 <div class="box">1</div>
             </div>
-            <div class="p-col">
+            <div class="col">
                 <div class="box">2</div>
             </div>
-            <div class="p-col">
+            <div class="col">
                 <div class="box">3</div>
             </div>
         </div>
 
         <h5>Reverse Column Direction</h5>
-        <div class="p-grid p-flex-column-reverse">
-            <div class="p-col">
+        <div class="grid flex-column-reverse">
+            <div class="col">
                 <div class="box">1</div>
             </div>
-            <div class="p-col">
+            <div class="col">
                 <div class="box">2</div>
             </div>
-            <div class="p-col">
+            <div class="col">
                 <div class="box">3</div>
             </div>
         </div>
 
         <h5>12 Column Grid</h5>
-        <div class="p-grid">
-            <div class="p-col-4">
+        <div class="grid">
+            <div class="col-4">
                 <div class="box">4</div>
             </div>
-            <div class="p-col">
+            <div class="col">
                 <div class="box">1</div>
             </div>
-            <div class="p-col">
+            <div class="col">
                 <div class="box">1</div>
             </div>
-            <div class="p-col">
+            <div class="col">
                 <div class="box">1</div>
             </div>
-            <div class="p-col">
+            <div class="col">
                 <div class="box">1</div>
             </div>
-            <div class="p-col">
+            <div class="col">
                 <div class="box">1</div>
             </div>
-            <div class="p-col">
+            <div class="col">
                 <div class="box">1</div>
             </div>
-            <div class="p-col">
+            <div class="col">
                 <div class="box">1</div>
             </div>
-            <div class="p-col">
+            <div class="col">
                 <div class="box">1</div>
             </div>
         </div>
 
-        <div class="p-grid">
-            <div class="p-col-2">
+        <div class="grid">
+            <div class="col-2">
                 <div class="box">2</div>
             </div>
-            <div class="p-col-6">
+            <div class="col-6">
                 <div class="box">6</div>
             </div>
-            <div class="p-col-4">
+            <div class="col-4">
                 <div class="box">4</div>
             </div>
         </div>
 
-        <div class="p-grid">
-            <div class="p-col-8">
+        <div class="grid">
+            <div class="col-8">
                 <div class="box">8</div>
             </div>
-            <div class="p-col-2">
+            <div class="col-2">
                 <div class="box">2</div>
             </div>
-            <div class="p-col-2">
+            <div class="col-2">
                 <div class="box">2</div>
             </div>
         </div>
 
         <h5>MultiLine</h5>
-        <div class="p-grid">
-            <div class="p-col-6">
+        <div class="grid">
+            <div class="col-6">
                 <div class="box">6</div>
             </div>
-            <div class="p-col-6">
+            <div class="col-6">
                 <div class="box">6</div>
             </div>
-            <div class="p-col-6">
+            <div class="col-6">
                 <div class="box">6</div>
             </div>
-            <div class="p-col-6">
+            <div class="col-6">
                 <div class="box">6</div>
             </div>
         </div>
 
         <h5>Fixed Width Column</h5>
-        <div class="p-grid">
-            <div class="p-col-fixed" style="width:100px">
+        <div class="grid">
+            <div class="col-fixed" style="width:100px">
                 <div class="box">100px</div>
             </div>
-            <div class="p-col">
+            <div class="col">
                 <div class="box">auto</div>
             </div>
         </div>
 
         <h5>Responsive</h5>
-        <div class="p-grid">
-            <div class="p-col-12 p-md-6 p-lg-3">
-                <div class="box">p-col-12 p-md-6 p-lg-3</div>
+        <div class="grid">
+            <div class="col-12 md:col-6 lg:col-3">
+                <div class="box">col-12 md:col-6 lg:col-3</div>
             </div>
-            <div class="p-col-12 p-md-6 p-lg-3">
-                <div class="box">p-col-12 p-md-6 p-lg-3</div>
+            <div class="col-12 md:col-6 lg:col-3">
+                <div class="box">col-12 md:col-6 lg:col-3</div>
             </div>
-            <div class="p-col-12 p-md-6 p-lg-3">
-                <div class="box">p-col-12 p-md-6 p-lg-3</div>
+            <div class="col-12 md:col-6 lg:col-3">
+                <div class="box">col-12 md:col-6 lg:col-3</div>
             </div>
-            <div class="p-col-12 p-md-6 p-lg-3">
-                <div class="box">p-col-12 p-md-6 p-lg-3</div>
+            <div class="col-12 md:col-6 lg:col-3">
+                <div class="box">col-12 md:col-6 lg:col-3</div>
             </div>
         </div>
 
         <h5>Horizontal Alignment - Start</h5>
-        <div class="p-grid p-jc-start">
-            <div class="p-col-2">
+        <div class="grid justify-content-start">
+            <div class="col-2">
                 <div class="box">2</div>
             </div>
-            <div class="p-col-1">
+            <div class="col-1">
                 <div class="box">1</div>
             </div>
-            <div class="p-col-4">
+            <div class="col-4">
                 <div class="box">4</div>
             </div>
         </div>
 
         <h5>Horizontal Alignment - End</h5>
-        <div class="p-grid p-jc-end">
-            <div class="p-col-2">
+        <div class="grid justify-content-end">
+            <div class="col-2">
                 <div class="box">2</div>
             </div>
-            <div class="p-col-1">
+            <div class="col-1">
                 <div class="box">1</div>
             </div>
-            <div class="p-col-4">
+            <div class="col-4">
                 <div class="box">4</div>
             </div>
         </div>
 
         <h5>Horizontal Alignment - Center</h5>
-        <div class="p-grid p-jc-center">
-            <div class="p-col-2">
+        <div class="grid justify-content-center">
+            <div class="col-2">
                 <div class="box">2</div>
             </div>
-            <div class="p-col-1">
+            <div class="col-1">
                 <div class="box">1</div>
             </div>
-            <div class="p-col-4">
+            <div class="col-4">
                 <div class="box">4</div>
             </div>
         </div>
 
         <h5>Horizontal Alignment - Between</h5>
-        <div class="p-grid p-jc-between">
-            <div class="p-col-2">
+        <div class="grid justify-content-center">
+            <div class="col-2">
                 <div class="box">2</div>
             </div>
-            <div class="p-col-1">
+            <div class="col-1">
                 <div class="box">1</div>
             </div>
-            <div class="p-col-4">
+            <div class="col-4">
                 <div class="box">4</div>
             </div>
         </div>
 
         <h5>Horizontal Alignment - Around</h5>
-        <div class="p-grid p-jc-around">
-            <div class="p-col-2">
+        <div class="grid justify-content-around">
+            <div class="col-2">
                 <div class="box">2</div>
             </div>
-            <div class="p-col-1">
+            <div class="col-1">
                 <div class="box">1</div>
             </div>
-            <div class="p-col-4">
+            <div class="col-4">
                 <div class="box">4</div>
             </div>
         </div>
 
         <h5>Horizontal Alignment - Even</h5>
-        <div class="p-grid p-jc-evenly">
-            <div class="p-col-2">
+        <div class="grid justify-content-evenly">
+            <div class="col-2">
                 <div class="box">2</div>
             </div>
-            <div class="p-col-1">
+            <div class="col-1">
                 <div class="box">1</div>
             </div>
-            <div class="p-col-4">
+            <div class="col-4">
                 <div class="box">4</div>
             </div>
         </div>
 
         <h5>Vertical Alignment - Start</h5>
-        <div class="p-grid p-ai-start vertical-container">
-            <div class="p-col">
+        <div class="grid align-items-start vertical-container">
+            <div class="col">
                 <div class="box">4</div>
             </div>
-            <div class="p-col">
+            <div class="col">
                 <div class="box">4</div>
             </div>
-            <div class="p-col">
+            <div class="col">
                 <div class="box">4</div>
             </div>
         </div>
 
         <h5>Vertical Alignment - End</h5>
-        <div class="p-grid p-ai-end vertical-container">
-            <div class="p-col">
+        <div class="grid align-items-end vertical-container">
+            <div class="col">
                 <div class="box">4</div>
             </div>
-            <div class="p-col">
+            <div class="col">
                 <div class="box">4</div>
             </div>
-            <div class="p-col">
+            <div class="col">
                 <div class="box">4</div>
             </div>
         </div>
 
         <h5>Vertical Alignment - Center</h5>
-        <div class="p-grid p-ai-center vertical-container">
-            <div class="p-col">
+        <div class="grid align-items-center vertical-container">
+            <div class="col">
                 <div class="box">4</div>
             </div>
-            <div class="p-col">
+            <div class="col">
                 <div class="box">4</div>
             </div>
-            <div class="p-col">
+            <div class="col">
                 <div class="box">4</div>
             </div>
         </div>
 
         <h5>Vertical Alignment - Stretch</h5>
-        <div class="p-grid p-ai-stretch vertical-container">
-            <div class="p-col">
+        <div class="grid align-items-stretch vertical-container">
+            <div class="col">
                 <div class="box box-stretched">4</div>
             </div>
-            <div class="p-col">
+            <div class="col">
                 <div class="box box-stretched">4</div>
             </div>
-            <div class="p-col">
+            <div class="col">
                 <div class="box box-stretched">4</div>
             </div>
         </div>
 
         <h5>Vertical Alignment - Per Column</h5>
-        <div class="p-grid vertical-container">
-            <div class="p-col p-as-start">
+        <div class="grid vertical-container">
+            <div class="col align-self-start">
                 <div class="box">4</div>
             </div>
-            <div class="p-col p-as-center">
+            <div class="col align-self-center">
                 <div class="box">4</div>
             </div>
-            <div class="p-col p-as-end">
+            <div class="col align-self-end">
                 <div class="box">4</div>
             </div>
         </div>
 
         <h5>Offset</h5>
-        <div class="p-grid">
-            <div class="p-col-6 p-offset-3">
+        <div class="grid">
+            <div class="col-6 col-offset-3">
                 <div class="box">6</div>
             </div>
         </div>
 
-        <div class="p-grid">
-            <div class="p-col-4">
+        <div class="grid">
+            <div class="col-4">
                 <div class="box">4</div>
             </div>
-            <div class="p-col-4 p-offset-4">
+            <div class="col-4 col-offset-4">
                 <div class="box">4</div>
             </div>
         </div>
 
         <h5>Nested</h5>
-        <div class="p-grid nested-grid">
-            <div class="p-col-8">
-                <div class="p-grid">
-                    <div class="p-col-6">
+        <div class="grid nested-grid">
+            <div class="col-8">
+                <div class="grid">
+                    <div class="col-6">
                         <div class="box">6</div>
                     </div>
-                    <div class="p-col-6">
+                    <div class="col-6">
                         <div class="box">6</div>
                     </div>
-                    <div class="p-col-12">
+                    <div class="col-12">
                         <div class="box">12</div>
                     </div>
                 </div>
             </div>
-            <div class="p-col-4">
+            <div class="col-4">
                 <div class="box box-stretched">4</div>
             </div>
         </div>
 
         <h5>Panels</h5>
-        <div class="p-grid">
-            <div class="p-col">
+        <div class="grid">
+            <div class="col">
                 <Panel header="Header">
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                     Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -1148,7 +1148,7 @@ export default {
                     cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                 </Panel>
             </div>
-            <div class="p-col">
+            <div class="col">
                 <Panel header="Header">
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                     Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -1156,7 +1156,7 @@ export default {
                     cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                 </Panel>
             </div>
-            <div class="p-col">
+            <div class="col">
                 <Panel header="Header">
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                     Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -1211,7 +1211,7 @@ export default {
         border-radius: 4px;
     }
 
-    .nested-grid .p-col-4 {
+    .nested-grid .col-4 {
         padding-bottom: 1rem;
     }
 
@@ -1239,16 +1239,16 @@ export default {
 					tabName: 'Browser Source',
                     imports: `<script src="https://unpkg.com/primevue@^3/panel/panel.min.js"><\\/script>`,
 					content: `<div id="app">
-            <div class="flexgrid-demo p-p-2">
+            <div class="flexgrid-demo p-2">
                 <h5>Basic</h5>
-                <div class="p-grid">
-                    <div class="p-col">
+                <div class="grid">
+                    <div class="col">
                         <div class="box">1</div>
                     </div>
-                    <div class="p-col">
+                    <div class="col">
                         <div class="box">2</div>
                     </div>
-                    <div class="p-col">
+                    <div class="col">
                         <div class="box">3</div>
                     </div>
                 </div>
@@ -1258,331 +1258,331 @@ export default {
                 <p-button type="button" icon="pi pi-minus" title="Remove Column" @click="removeColumn" :disabled="columns.length === 1"></p-button>
 
                 <div style="margin-top: .5em">
-                    <transition-group name="dynamic-box" tag="div" class="p-grid">
-                        <div v-for="col of columns" :key="col" class="p-col">
+                    <transition-group name="dynamic-box" tag="div" class="grid">
+                        <div v-for="col of columns" :key="col" class="col">
                             <div class="box">{{col}}</div>
                         </div>
                     </transition-group>
                 </div>
 
                 <h5>Reverse Direction</h5>
-                <div class="p-grid p-flex-row-reverse">
-                    <div class="p-col">
+                <div class="grid flex-row-reverse">
+                    <div class="col">
                         <div class="box">1</div>
                     </div>
-                    <div class="p-col">
+                    <div class="col">
                         <div class="box">2</div>
                     </div>
-                    <div class="p-col">
+                    <div class="col">
                         <div class="box">3</div>
                     </div>
                 </div>
 
                 <h5>Column Direction</h5>
-                <div class="p-grid p-flex-column">
-                    <div class="p-col">
+                <div class="grid flex-column">
+                    <div class="col">
                         <div class="box">1</div>
                     </div>
-                    <div class="p-col">
+                    <div class="col">
                         <div class="box">2</div>
                     </div>
-                    <div class="p-col">
+                    <div class="col">
                         <div class="box">3</div>
                     </div>
                 </div>
 
                 <h5>Reverse Column Direction</h5>
-                <div class="p-grid p-flex-column-reverse">
-                    <div class="p-col">
+                <div class="grid flex-column-reverse">
+                    <div class="col">
                         <div class="box">1</div>
                     </div>
-                    <div class="p-col">
+                    <div class="col">
                         <div class="box">2</div>
                     </div>
-                    <div class="p-col">
+                    <div class="col">
                         <div class="box">3</div>
                     </div>
                 </div>
 
                 <h5>12 Column Grid</h5>
-                <div class="p-grid">
-                    <div class="p-col-4">
+                <div class="grid">
+                    <div class="col-4">
                         <div class="box">4</div>
                     </div>
-                    <div class="p-col">
+                    <div class="col">
                         <div class="box">1</div>
                     </div>
-                    <div class="p-col">
+                    <div class="col">
                         <div class="box">1</div>
                     </div>
-                    <div class="p-col">
+                    <div class="col">
                         <div class="box">1</div>
                     </div>
-                    <div class="p-col">
+                    <div class="col">
                         <div class="box">1</div>
                     </div>
-                    <div class="p-col">
+                    <div class="col">
                         <div class="box">1</div>
                     </div>
-                    <div class="p-col">
+                    <div class="col">
                         <div class="box">1</div>
                     </div>
-                    <div class="p-col">
+                    <div class="col">
                         <div class="box">1</div>
                     </div>
-                    <div class="p-col">
+                    <div class="col">
                         <div class="box">1</div>
                     </div>
                 </div>
 
-                <div class="p-grid">
-                    <div class="p-col-2">
+                <div class="grid">
+                    <div class="col-2">
                         <div class="box">2</div>
                     </div>
-                    <div class="p-col-6">
+                    <div class="col-6">
                         <div class="box">6</div>
                     </div>
-                    <div class="p-col-4">
+                    <div class="col-4">
                         <div class="box">4</div>
                     </div>
                 </div>
 
-                <div class="p-grid">
-                    <div class="p-col-8">
+                <div class="grid">
+                    <div class="col-8">
                         <div class="box">8</div>
                     </div>
-                    <div class="p-col-2">
+                    <div class="col-2">
                         <div class="box">2</div>
                     </div>
-                    <div class="p-col-2">
+                    <div class="col-2">
                         <div class="box">2</div>
                     </div>
                 </div>
 
                 <h5>MultiLine</h5>
-                <div class="p-grid">
-                    <div class="p-col-6">
+                <div class="grid">
+                    <div class="col-6">
                         <div class="box">6</div>
                     </div>
-                    <div class="p-col-6">
+                    <div class="col-6">
                         <div class="box">6</div>
                     </div>
-                    <div class="p-col-6">
+                    <div class="col-6">
                         <div class="box">6</div>
                     </div>
-                    <div class="p-col-6">
+                    <div class="col-6">
                         <div class="box">6</div>
                     </div>
                 </div>
 
                 <h5>Fixed Width Column</h5>
-                <div class="p-grid">
-                    <div class="p-col-fixed" style="width:100px">
+                <div class="grid">
+                    <div class="col-fixed" style="width:100px">
                         <div class="box">100px</div>
                     </div>
-                    <div class="p-col">
+                    <div class="col">
                         <div class="box">auto</div>
                     </div>
                 </div>
 
                 <h5>Responsive</h5>
-                <div class="p-grid">
-                    <div class="p-col-12 p-md-6 p-lg-3">
-                        <div class="box">p-col-12 p-md-6 p-lg-3</div>
+                <div class="grid">
+                    <div class="col-12 md:col-6 lg:col-3">
+                        <div class="box">col-12 md:col-6 lg:col-3</div>
                     </div>
-                    <div class="p-col-12 p-md-6 p-lg-3">
-                        <div class="box">p-col-12 p-md-6 p-lg-3</div>
+                    <div class="col-12 md:col-6 lg:col-3">
+                        <div class="box">col-12 md:col-6 lg:col-3</div>
                     </div>
-                    <div class="p-col-12 p-md-6 p-lg-3">
-                        <div class="box">p-col-12 p-md-6 p-lg-3</div>
+                    <div class="col-12 md:col-6 lg:col-3">
+                        <div class="box">col-12 md:col-6 lg:col-3</div>
                     </div>
-                    <div class="p-col-12 p-md-6 p-lg-3">
-                        <div class="box">p-col-12 p-md-6 p-lg-3</div>
+                    <div class="col-12 md:col-6 lg:col-3">
+                        <div class="box">col-12 md:col-6 lg:col-3</div>
                     </div>
                 </div>
 
                 <h5>Horizontal Alignment - Start</h5>
-                <div class="p-grid p-jc-start">
-                    <div class="p-col-2">
+                <div class="grid justify-content-start">
+                    <div class="col-2">
                         <div class="box">2</div>
                     </div>
-                    <div class="p-col-1">
+                    <div class="col-1">
                         <div class="box">1</div>
                     </div>
-                    <div class="p-col-4">
+                    <div class="col-4">
                         <div class="box">4</div>
                     </div>
                 </div>
 
                 <h5>Horizontal Alignment - End</h5>
-                <div class="p-grid p-jc-end">
-                    <div class="p-col-2">
+                <div class="grid justify-content-end">
+                    <div class="col-2">
                         <div class="box">2</div>
                     </div>
-                    <div class="p-col-1">
+                    <div class="col-1">
                         <div class="box">1</div>
                     </div>
-                    <div class="p-col-4">
+                    <div class="col-4">
                         <div class="box">4</div>
                     </div>
                 </div>
 
                 <h5>Horizontal Alignment - Center</h5>
-                <div class="p-grid p-jc-center">
-                    <div class="p-col-2">
+                <div class="grid justify-content-center">
+                    <div class="col-2">
                         <div class="box">2</div>
                     </div>
-                    <div class="p-col-1">
+                    <div class="col-1">
                         <div class="box">1</div>
                     </div>
-                    <div class="p-col-4">
+                    <div class="col-4">
                         <div class="box">4</div>
                     </div>
                 </div>
 
                 <h5>Horizontal Alignment - Between</h5>
-                <div class="p-grid p-jc-between">
-                    <div class="p-col-2">
+                <div class="grid justify-content-center">
+                    <div class="col-2">
                         <div class="box">2</div>
                     </div>
-                    <div class="p-col-1">
+                    <div class="col-1">
                         <div class="box">1</div>
                     </div>
-                    <div class="p-col-4">
+                    <div class="col-4">
                         <div class="box">4</div>
                     </div>
                 </div>
 
                 <h5>Horizontal Alignment - Around</h5>
-                <div class="p-grid p-jc-around">
-                    <div class="p-col-2">
+                <div class="grid justify-content-around">
+                    <div class="col-2">
                         <div class="box">2</div>
                     </div>
-                    <div class="p-col-1">
+                    <div class="col-1">
                         <div class="box">1</div>
                     </div>
-                    <div class="p-col-4">
+                    <div class="col-4">
                         <div class="box">4</div>
                     </div>
                 </div>
 
                 <h5>Horizontal Alignment - Even</h5>
-                <div class="p-grid p-jc-evenly">
-                    <div class="p-col-2">
+                <div class="grid justify-content-evenly">
+                    <div class="col-2">
                         <div class="box">2</div>
                     </div>
-                    <div class="p-col-1">
+                    <div class="col-1">
                         <div class="box">1</div>
                     </div>
-                    <div class="p-col-4">
+                    <div class="col-4">
                         <div class="box">4</div>
                     </div>
                 </div>
 
                 <h5>Vertical Alignment - Start</h5>
-                <div class="p-grid p-ai-start vertical-container">
-                    <div class="p-col">
+                <div class="grid align-items-start vertical-container">
+                    <div class="col">
                         <div class="box">4</div>
                     </div>
-                    <div class="p-col">
+                    <div class="col">
                         <div class="box">4</div>
                     </div>
-                    <div class="p-col">
+                    <div class="col">
                         <div class="box">4</div>
                     </div>
                 </div>
 
                 <h5>Vertical Alignment - End</h5>
-                <div class="p-grid p-ai-end vertical-container">
-                    <div class="p-col">
+                <div class="grid align-items-end vertical-container">
+                    <div class="col">
                         <div class="box">4</div>
                     </div>
-                    <div class="p-col">
+                    <div class="col">
                         <div class="box">4</div>
                     </div>
-                    <div class="p-col">
+                    <div class="col">
                         <div class="box">4</div>
                     </div>
                 </div>
 
                 <h5>Vertical Alignment - Center</h5>
-                <div class="p-grid p-ai-center vertical-container">
-                    <div class="p-col">
+                <div class="grid align-items-center vertical-container">
+                    <div class="col">
                         <div class="box">4</div>
                     </div>
-                    <div class="p-col">
+                    <div class="col">
                         <div class="box">4</div>
                     </div>
-                    <div class="p-col">
+                    <div class="col">
                         <div class="box">4</div>
                     </div>
                 </div>
 
                 <h5>Vertical Alignment - Stretch</h5>
-                <div class="p-grid p-ai-stretch vertical-container">
-                    <div class="p-col">
+                <div class="grid align-items-stretch vertical-container">
+                    <div class="col">
                         <div class="box box-stretched">4</div>
                     </div>
-                    <div class="p-col">
+                    <div class="col">
                         <div class="box box-stretched">4</div>
                     </div>
-                    <div class="p-col">
+                    <div class="col">
                         <div class="box box-stretched">4</div>
                     </div>
                 </div>
 
                 <h5>Vertical Alignment - Per Column</h5>
-                <div class="p-grid vertical-container">
-                    <div class="p-col p-as-start">
+                <div class="grid vertical-container">
+                    <div class="col align-self-start">
                         <div class="box">4</div>
                     </div>
-                    <div class="p-col p-as-center">
+                    <div class="col align-self-center">
                         <div class="box">4</div>
                     </div>
-                    <div class="p-col p-as-end">
+                    <div class="col align-self-end">
                         <div class="box">4</div>
                     </div>
                 </div>
 
                 <h5>Offset</h5>
-                <div class="p-grid">
-                    <div class="p-col-6 p-offset-3">
+                <div class="grid">
+                    <div class="col-6 col-offset-3">
                         <div class="box">6</div>
                     </div>
                 </div>
 
-                <div class="p-grid">
-                    <div class="p-col-4">
+                <div class="grid">
+                    <div class="col-4">
                         <div class="box">4</div>
                     </div>
-                    <div class="p-col-4 p-offset-4">
+                    <div class="col-4 col-offset-4">
                         <div class="box">4</div>
                     </div>
                 </div>
 
                 <h5>Nested</h5>
-                <div class="p-grid nested-grid">
-                    <div class="p-col-8">
-                        <div class="p-grid">
-                            <div class="p-col-6">
+                <div class="grid nested-grid">
+                    <div class="col-8">
+                        <div class="grid">
+                            <div class="col-6">
                                 <div class="box">6</div>
                             </div>
-                            <div class="p-col-6">
+                            <div class="col-6">
                                 <div class="box">6</div>
                             </div>
-                            <div class="p-col-12">
+                            <div class="col-12">
                                 <div class="box">12</div>
                             </div>
                         </div>
                     </div>
-                    <div class="p-col-4">
+                    <div class="col-4">
                         <div class="box box-stretched">4</div>
                     </div>
                 </div>
 
                 <h5>Panels</h5>
-                <div class="p-grid">
-                    <div class="p-col">
+                <div class="grid">
+                    <div class="col">
                         <p-panel header="Header">
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -1590,7 +1590,7 @@ export default {
                             cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                         </p-panel>
                     </div>
-                    <div class="p-col">
+                    <div class="col">
                         <p-panel header="Header">
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -1598,7 +1598,7 @@ export default {
                             cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                         </p-panel>
                     </div>
-                    <div class="p-col">
+                    <div class="col">
                         <p-panel header="Header">
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -1662,7 +1662,7 @@ export default {
             border-radius: 4px;
         }
 
-        .flexgrid-demo .nested-grid .p-col-4 {
+        .flexgrid-demo .nested-grid .col-4 {
             padding-bottom: 1rem;
         }
 

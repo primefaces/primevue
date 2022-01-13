@@ -16,7 +16,7 @@
                 <h5>Grouped</h5>
                 <Listbox v-model="selectedGroupedCity" :options="groupedCities" optionLabel="label" style="width:15rem" optionGroupLabel="label" optionGroupChildren="items" listStyle="max-height:250px">
                     <template #optiongroup="slotProps">
-                        <div class="p-d-flex p-ai-center country-item">
+                        <div class="flex align-items-center country-item">
                             <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.option.code.toLowerCase()" width="18" />
                             <div>{{slotProps.option.label}}</div>
                         </div>

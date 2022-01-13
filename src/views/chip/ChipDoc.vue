@@ -153,35 +153,35 @@ export default {
 <template>
     <div>
         <h5>Basic</h5>
-        <div class="p-d-flex p-ai-center p-flex-column p-flex-sm-row">
-            <Chip label="Action" class="p-mr-2 p-mb-2" />
-            <Chip label="Comedy" class="p-mr-2 p-mb-2" />
-            <Chip label="Mystery" class="p-mr-2 p-mb-2" />
-            <Chip label="Thriller" class="p-mb-2" removable />
+        <div class="flex align-items-center flex-column sm:flex-row">
+            <Chip label="Action" class="mr-2 mb-2" />
+            <Chip label="Comedy" class="mr-2 mb-2" />
+            <Chip label="Mystery" class="mr-2 mb-2" />
+            <Chip label="Thriller" class="mb-2" removable />
         </div>
 
         <h5>Icon</h5>
-        <div class="p-d-flex p-ai-center p-flex-column p-flex-sm-row">
-            <Chip label="Apple" icon="pi pi-apple" class="p-mr-2 p-mb-2" />
-            <Chip label="Facebook" icon="pi pi-facebook" class="p-mr-2 p-mb-2" />
-            <Chip label="Google" icon="pi pi-google" class="p-mr-2 p-mb-2" />
-            <Chip label="Microsoft" icon="pi pi-microsoft" class="p-mb-2" removable />
+        <div class="flex align-items-center flex-column sm:flex-row">
+            <Chip label="Apple" icon="pi pi-apple" class="mr-2 mb-2" />
+            <Chip label="Facebook" icon="pi pi-facebook" class="mr-2 mb-2" />
+            <Chip label="Google" icon="pi pi-google" class="mr-2 mb-2" />
+            <Chip label="Microsoft" icon="pi pi-microsoft" class="mb-2" removable />
         </div>
 
         <h5>Image</h5>
-        <div class="p-d-flex p-ai-center p-flex-column p-flex-sm-row">
-            <Chip label="Amy Elsner" image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="p-mr-2 p-mb-2" />
-            <Chip label="Asiya Javayant" image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="p-mr-2 p-mb-2" />
-            <Chip label="Onyama Limba" image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="p-mr-2 p-mb-2" />
-            <Chip label="Xuxue Feng" image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="p-mb-2" removable />
+        <div class="flex align-items-center flex-column sm:flex-row">
+            <Chip label="Amy Elsner" image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="mr-2 mb-2" />
+            <Chip label="Asiya Javayant" image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="mr-2 mb-2" />
+            <Chip label="Onyama Limba" image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="mr-2 mb-2" />
+            <Chip label="Xuxue Feng" image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="mb-2" removable />
         </div>
 
         <h5>Styling</h5>
-        <div class="p-d-flex p-ai-center p-flex-column p-flex-sm-row">
-            <Chip label="Action" class="p-mr-2 p-mb-2 custom-chip" />
-            <Chip label="Apple" icon="pi pi-apple" class="p-mr-2 p-mb-2 custom-chip" />
-            <Chip label="Onyama Limba" image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="p-mr-2 p-mb-2 custom-chip" />
-            <Chip label="Xuxue Feng" image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="custom-chip p-mb-2" removable />
+        <div class="flex align-items-center flex-column sm:flex-row">
+            <Chip label="Action" class="mr-2 mb-2 custom-chip" />
+            <Chip label="Apple" icon="pi pi-apple" class="mr-2 mb-2 custom-chip" />
+            <Chip label="Onyama Limba" image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="mr-2 mb-2 custom-chip" />
+            <Chip label="Xuxue Feng" image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="custom-chip mb-2" removable />
         </div>
     </div>
 </template>
@@ -204,35 +204,35 @@ export default {
 <template>
     <div>
         <h5>Basic</h5>
-        <div class="p-d-flex p-ai-center p-flex-column p-flex-sm-row">
-            <Chip label="Action" class="p-mr-2 p-mb-2" />
-            <Chip label="Comedy" class="p-mr-2 p-mb-2" />
-            <Chip label="Mystery" class="p-mr-2 p-mb-2" />
-            <Chip label="Thriller" class="p-mb-2" removable />
+        <div class="flex align-items-center flex-column sm:flex-row">
+            <Chip label="Action" class="mr-2 mb-2" />
+            <Chip label="Comedy" class="mr-2 mb-2" />
+            <Chip label="Mystery" class="mr-2 mb-2" />
+            <Chip label="Thriller" class="mb-2" removable />
         </div>
 
         <h5>Icon</h5>
-        <div class="p-d-flex p-ai-center p-flex-column p-flex-sm-row">
-            <Chip label="Apple" icon="pi pi-apple" class="p-mr-2 p-mb-2" />
-            <Chip label="Facebook" icon="pi pi-facebook" class="p-mr-2 p-mb-2" />
-            <Chip label="Google" icon="pi pi-google" class="p-mr-2 p-mb-2" />
-            <Chip label="Microsoft" icon="pi pi-microsoft" class="p-mb-2" removable />
+        <div class="flex align-items-center flex-column sm:flex-row">
+            <Chip label="Apple" icon="pi pi-apple" class="mr-2 mb-2" />
+            <Chip label="Facebook" icon="pi pi-facebook" class="mr-2 mb-2" />
+            <Chip label="Google" icon="pi pi-google" class="mr-2 mb-2" />
+            <Chip label="Microsoft" icon="pi pi-microsoft" class="mb-2" removable />
         </div>
 
         <h5>Image</h5>
-        <div class="p-d-flex p-ai-center p-flex-column p-flex-sm-row">
-            <Chip label="Amy Elsner" image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="p-mr-2 p-mb-2" />
-            <Chip label="Asiya Javayant" image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="p-mr-2 p-mb-2" />
-            <Chip label="Onyama Limba" image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="p-mr-2 p-mb-2" />
-            <Chip label="Xuxue Feng" image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="p-mb-2" removable />
+        <div class="flex align-items-center flex-column sm:flex-row">
+            <Chip label="Amy Elsner" image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="mr-2 mb-2" />
+            <Chip label="Asiya Javayant" image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="mr-2 mb-2" />
+            <Chip label="Onyama Limba" image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="mr-2 mb-2" />
+            <Chip label="Xuxue Feng" image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="mb-2" removable />
         </div>
 
         <h5>Styling</h5>
-        <div class="p-d-flex p-ai-center p-flex-column p-flex-sm-row">
-            <Chip label="Action" class="p-mr-2 p-mb-2 custom-chip" />
-            <Chip label="Apple" icon="pi pi-apple" class="p-mr-2 p-mb-2 custom-chip" />
-            <Chip label="Onyama Limba" image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="p-mr-2 p-mb-2 custom-chip" />
-            <Chip label="Xuxue Feng" image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="custom-chip p-mb-2" removable />
+        <div class="flex align-items-center flex-column sm:flex-row">
+            <Chip label="Action" class="mr-2 mb-2 custom-chip" />
+            <Chip label="Apple" icon="pi pi-apple" class="mr-2 mb-2 custom-chip" />
+            <Chip label="Onyama Limba" image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="mr-2 mb-2 custom-chip" />
+            <Chip label="Xuxue Feng" image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="custom-chip mb-2" removable />
         </div>
     </div>
 </template>
@@ -254,35 +254,35 @@ export default {
 					imports: `<script src="https://unpkg.com/primevue@^3/chip/chip.min.js"><\\/script>`,
 					content: `<div id="app">
 		<h5>Basic</h5>
-        <div class="p-d-flex p-ai-center p-flex-column p-flex-sm-row">
-            <p-chip label="Action" class="p-mr-2 p-mb-2"></p-chip>
-            <p-chip label="Comedy" class="p-mr-2 p-mb-2"></p-chip>
-            <p-chip label="Mystery" class="p-mr-2 p-mb-2"></p-chip>
-            <p-chip label="Thriller" class="p-mb-2" removable></p-chip>
+        <div class="flex align-items-center flex-column sm:flex-row">
+            <p-chip label="Action" class="mr-2 mb-2"></p-chip>
+            <p-chip label="Comedy" class="mr-2 mb-2"></p-chip>
+            <p-chip label="Mystery" class="mr-2 mb-2"></p-chip>
+            <p-chip label="Thriller" class="mb-2" removable></p-chip>
         </div>
 
         <h5>Icon</h5>
-        <div class="p-d-flex p-ai-center p-flex-column p-flex-sm-row">
-            <p-chip label="Apple" icon="pi pi-apple" class="p-mr-2 p-mb-2"></p-chip>
-            <p-chip label="Facebook" icon="pi pi-facebook" class="p-mr-2 p-mb-2"></p-chip>
-            <p-chip label="Google" icon="pi pi-google" class="p-mr-2 p-mb-2"></p-chip>
-            <p-chip label="Microsoft" icon="pi pi-microsoft" class="p-mb-2" removable></p-chip>
+        <div class="flex align-items-center flex-column sm:flex-row">
+            <p-chip label="Apple" icon="pi pi-apple" class="mr-2 mb-2"></p-chip>
+            <p-chip label="Facebook" icon="pi pi-facebook" class="mr-2 mb-2"></p-chip>
+            <p-chip label="Google" icon="pi pi-google" class="mr-2 mb-2"></p-chip>
+            <p-chip label="Microsoft" icon="pi pi-microsoft" class="mb-2" removable></p-chip>
         </div>
 
         <h5>Image</h5>
-        <div class="p-d-flex p-ai-center p-flex-column p-flex-sm-row">
-            <p-chip label="Amy Elsner" image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="p-mr-2 p-mb-2"></p-chip>
-            <p-chip label="Asiya Javayant" image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="p-mr-2 p-mb-2"></p-chip>
-            <p-chip label="Onyama Limba" image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="p-mr-2 p-mb-2"></p-chip>
-            <p-chip label="Xuxue Feng" image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="p-mb-2" removable></p-chip>
+        <div class="flex align-items-center flex-column sm:flex-row">
+            <p-chip label="Amy Elsner" image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="mr-2 mb-2"></p-chip>
+            <p-chip label="Asiya Javayant" image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="mr-2 mb-2"></p-chip>
+            <p-chip label="Onyama Limba" image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="mr-2 mb-2"></p-chip>
+            <p-chip label="Xuxue Feng" image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="mb-2" removable></p-chip>
         </div>
 
         <h5>Styling</h5>
-        <div class="p-d-flex p-ai-center p-flex-column p-flex-sm-row">
-            <p-chip label="Action" class="p-mr-2 p-mb-2 custom-chip"></p-chip>
-            <p-chip label="Apple" icon="pi pi-apple" class="p-mr-2 p-mb-2 custom-chip"></p-chip>
-            <p-chip label="Onyama Limba" image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="p-mr-2 p-mb-2 custom-chip"></p-chip>
-            <p-chip label="Xuxue Feng" image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="custom-chip p-mb-2" removable></p-chip>
+        <div class="flex align-items-center flex-column sm:flex-row">
+            <p-chip label="Action" class="mr-2 mb-2 custom-chip"></p-chip>
+            <p-chip label="Apple" icon="pi pi-apple" class="mr-2 mb-2 custom-chip"></p-chip>
+            <p-chip label="Onyama Limba" image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="mr-2 mb-2 custom-chip"></p-chip>
+            <p-chip label="Xuxue Feng" image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="custom-chip mb-2" removable></p-chip>
         </div>
 	</div>
 

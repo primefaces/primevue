@@ -13,7 +13,7 @@ app.use(PrimeVue, {ripple: true});
 
 </code></pre>
 
-        <p><span class="p-text-bold">Note</span>: That would be it to enable ripple on PrimeVue components, next section describes how to use it with your own components and standard elements.</p>
+        <p><span class="font-bold">Note</span>: That would be it to enable ripple on PrimeVue components, next section describes how to use it with your own components and standard elements.</p>
 
         <h5>Directive</h5>
 		<p>Ripple is a directive that needs to be imported and configured with a name of your choice. Global configuration is done with the <i>app.directive</i> function.</p>
@@ -94,7 +94,7 @@ export default {
                     content: `
 <template>
     <div>
-        <div class="card-container p-d-flex">
+        <div class="card-container flex">
             <div class="card primary-box p-ripple" v-ripple>Default</div>
             <div class="card styled-box-green p-ripple" v-ripple>Green</div>
             <div class="card styled-box-orange p-ripple" v-ripple>Orange</div>
@@ -161,7 +161,7 @@ export default {
                     content: `
 <template>
     <div>
-        <div class="card-container p-d-flex">
+        <div class="card-container flex">
             <div class="card primary-box p-ripple" v-ripple>Default</div>
             <div class="card styled-box-green p-ripple" v-ripple>Green</div>
             <div class="card styled-box-orange p-ripple" v-ripple>Orange</div>
@@ -225,7 +225,7 @@ export default {
                 },
                 'browser-source': {
                     tabName: 'Browser Source',
-                    content: `<div id="app" class="p-d-flex">
+                    content: `<div id="app" class="flex">
         <div class="card primary-box p-ripple" v-ripple>Default</div>
         <div class="card styled-box-green p-ripple" v-ripple>Green</div>
         <div class="card styled-box-orange p-ripple" v-ripple>Orange</div>

@@ -9,24 +9,24 @@
             </template>
             <template v-slot:content>
                 <div class="p-fluid">
-                    <div class="p-field">
+                    <div class="field">
                         <label for="firstname">Firstname</label>
                         <InputText id="firstname" v-model="firstname" :class="{'p-invalid': validationErrors.firstname && submitted}" />
                         <small v-show="validationErrors.firstname && submitted" class="p-error">Firstname is required.</small>
                     </div>
-                    <div class="p-field">
+                    <div class="field">
                         <label for="lastname">Lastname</label>
                         <InputText id="lastname" v-model="lastname" :class="{'p-invalid': validationErrors.lastname && submitted}" />
                         <small v-show="validationErrors.lastname && submitted" class="p-error">Lastname is required.</small>
                     </div>
-                    <div class="p-field">
+                    <div class="field">
                         <label for="age">Age</label>
                         <InputNumber id="age" v-model="age" />
                     </div>
                 </div>
             </template>
             <template v-slot:footer>
-                <div class="p-grid p-nogutter p-justify-between">
+                <div class="grid grid-nogutter justify-content-between">
                     <i></i>
                     <Button label="Next" @click="nextPage()" icon="pi pi-angle-right" iconPos="right" />
                 </div>

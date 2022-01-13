@@ -10,42 +10,42 @@
 
         <div class="content-section implementation">
             <div class="card">
-                <div class="p-fluid p-grid">
-                    <div class="p-field p-col-12 p-md-4">
+                <div class="p-fluid grid">
+                    <div class="field col-12 md:col-4">
                         <InputText id="inputtext" type="text" v-model="value1" placeholder="InputText" class="p-invalid" />
                     </div>
-                    <div class="p-field p-col-12 p-md-4">
+                    <div class="field col-12 md:col-4">
                         <AutoComplete v-model="value2" :suggestions="filteredCountries" @complete="searchCountry($event)" field="name" placeholder="AutoComplete" class="p-invalid" />
                     </div>
-                    <div class="p-field p-col-12 p-md-4">
+                    <div class="field col-12 md:col-4">
                         <Calendar id="calendar" v-model="value3" placeholder="Calendar" class="p-invalid" :showIcon="true" />
                     </div>
-                    <div class="p-field p-col-12 p-md-4">
+                    <div class="field col-12 md:col-4">
                         <Chips id="chips" v-model="value4" placeholder="Chips" class="p-invalid" />
                     </div>
-                    <div class="p-field p-col-12 p-md-4">
+                    <div class="field col-12 md:col-4">
                         <InputMask id="inputmask" v-model="value5" mask="99/99/9999" slotChar="mm/dd/yyyy" placeholder="InputMask" class="p-invalid" />
                     </div>
-                    <div class="p-field p-col-12 p-md-4">
+                    <div class="field col-12 md:col-4">
                         <InputNumber id="inputnumber" v-model="value6" placeholder="InputNumber" class="p-invalid" />
                     </div>
-                    <div class="p-field p-col-12 p-md-4">
+                    <div class="field col-12 md:col-4">
                         <CascadeSelect v-model="selectedCity" :options="cascadeCountries" optionLabel="cname" optionGroupLabel="name"
                             :optionGroupChildren="['states', 'cities']" placeholder="CascadeSelect" class="p-invalid" />
                     </div>
-                    <div class="p-field p-col-12 p-md-4">
+                    <div class="field col-12 md:col-4">
                         <Dropdown id="dropdown" v-model="value7" :options="cities" optionLabel="name" placeholder="Dropdown" class="p-invalid" />
                     </div>
-                    <div class="p-field p-col-12 p-md-4">
+                    <div class="field col-12 md:col-4">
                         <MultiSelect id="multiselect" v-model="value8" :options="cities" optionLabel="name" placeholder="MultiSelect" class="p-invalid" />
                     </div>
-                    <div class="p-field p-col-12 p-md-4">
+                    <div class="field col-12 md:col-4">
                         <TreeSelect id="treeselect" v-model="selectedNode" :options="nodes" placeholder="TreeSelect" class="p-invalid"></TreeSelect>
                     </div>
-                    <div class="p-field p-col-12 p-md-4">
+                    <div class="field col-12 md:col-4">
                         <Password id="password" v-model="value10" placeholder="Password" class="p-invalid" />
                     </div>
-                    <div class="p-field p-col-12 p-md-4">
+                    <div class="field col-12 md:col-4">
                         <Textarea id="textarea" v-model="value9" rows="3" placeholder="Textarea" class="p-invalid" />
                     </div>
                 </div>
@@ -167,42 +167,42 @@ export default {
                     content: `
 <template>
     <div>
-        <div class="p-fluid p-grid">
-            <div class="p-field p-col-12 p-md-4">
+        <div class="p-fluid grid">
+            <div class="field col-12 md:col-4">
                 <InputText id="inputtext" type="text" v-model="value1" placeholder="InputText" class="p-invalid" />
             </div>
-            <div class="p-field p-col-12 p-md-4">
+            <div class="field col-12 md:col-4">
                 <AutoComplete v-model="value2" :suggestions="filteredCountries" @complete="searchCountry($event)" field="name" placeholder="AutoComplete" class="p-invalid" />
             </div>
-            <div class="p-field p-col-12 p-md-4">
+            <div class="field col-12 md:col-4">
                 <Calendar id="calendar" v-model="value3" placeholder="Calendar" class="p-invalid" :showIcon="true" />
             </div>
-            <div class="p-field p-col-12 p-md-4">
+            <div class="field col-12 md:col-4">
                 <Chips id="chips" v-model="value4" placeholder="Chips" class="p-invalid" />
             </div>
-            <div class="p-field p-col-12 p-md-4">
+            <div class="field col-12 md:col-4">
                 <InputMask id="inputmask" v-model="value5" mask="99/99/9999" slotChar="mm/dd/yyyy" placeholder="InputMask" class="p-invalid" />
             </div>
-            <div class="p-field p-col-12 p-md-4">
+            <div class="field col-12 md:col-4">
                 <InputNumber id="inputnumber" v-model="value6" placeholder="InputNumber" class="p-invalid" />
             </div>
-            <div class="p-field p-col-12 p-md-4">
+            <div class="field col-12 md:col-4">
                 <CascadeSelect v-model="selectedCity" :options="cascadeCountries" optionLabel="cname" optionGroupLabel="name"
                     :optionGroupChildren="['states', 'cities']" placeholder="CascadeSelect" class="p-invalid" />
             </div>
-            <div class="p-field p-col-12 p-md-4">
+            <div class="field col-12 md:col-4">
                 <Dropdown id="dropdown" v-model="value7" :options="cities" optionLabel="name" placeholder="Dropdown" class="p-invalid" />
             </div>
-            <div class="p-field p-col-12 p-md-4">
+            <div class="field col-12 md:col-4">
                 <MultiSelect id="multiselect" v-model="value8" :options="cities" optionLabel="name" placeholder="MultiSelect" class="p-invalid" />
             </div>
-            <div class="p-field p-col-12 p-md-4">
+            <div class="field col-12 md:col-4">
                 <TreeSelect id="treeselect" v-model="selectedNode" :options="nodes" placeholder="TreeSelect" class="p-invalid"></TreeSelect>
             </div>
-            <div class="p-field p-col-12 p-md-4">
+            <div class="field col-12 md:col-4">
                 <Password id="password" v-model="value10" placeholder="Password" class="p-invalid" />
             </div>
-            <div class="p-field p-col-12 p-md-4">
+            <div class="field col-12 md:col-4">
                 <Textarea id="textarea" v-model="value9" rows="3" placeholder="Textarea" class="p-invalid" />
             </div>
         </div>
@@ -349,42 +349,42 @@ export default {
                     content: `
 <template>
     <div>
-        <div class="p-fluid p-grid">
-            <div class="p-field p-col-12 p-md-4">
+        <div class="p-fluid grid">
+            <div class="field col-12 md:col-4">
                 <InputText id="inputtext" type="text" v-model="value1" placeholder="InputText" class="p-invalid" />
             </div>
-            <div class="p-field p-col-12 p-md-4">
+            <div class="field col-12 md:col-4">
                 <AutoComplete v-model="value2" :suggestions="filteredCountries" @complete="searchCountry($event)" field="name" placeholder="AutoComplete" class="p-invalid" />
             </div>
-            <div class="p-field p-col-12 p-md-4">
+            <div class="field col-12 md:col-4">
                 <Calendar id="calendar" v-model="value3" placeholder="Calendar" class="p-invalid" :showIcon="true" />
             </div>
-            <div class="p-field p-col-12 p-md-4">
+            <div class="field col-12 md:col-4">
                 <Chips id="chips" v-model="value4" placeholder="Chips" class="p-invalid" />
             </div>
-            <div class="p-field p-col-12 p-md-4">
+            <div class="field col-12 md:col-4">
                 <InputMask id="inputmask" v-model="value5" mask="99/99/9999" slotChar="mm/dd/yyyy" placeholder="InputMask" class="p-invalid" />
             </div>
-            <div class="p-field p-col-12 p-md-4">
+            <div class="field col-12 md:col-4">
                 <InputNumber id="inputnumber" v-model="value6" placeholder="InputNumber" class="p-invalid" />
             </div>
-            <div class="p-field p-col-12 p-md-4">
+            <div class="field col-12 md:col-4">
                 <CascadeSelect v-model="selectedCity" :options="cascadeCountries" optionLabel="cname" optionGroupLabel="name"
                     :optionGroupChildren="['states', 'cities']" placeholder="CascadeSelect" class="p-invalid" />
             </div>
-            <div class="p-field p-col-12 p-md-4">
+            <div class="field col-12 md:col-4">
                 <Dropdown id="dropdown" v-model="value7" :options="cities" optionLabel="name" placeholder="Dropdown" class="p-invalid" />
             </div>
-            <div class="p-field p-col-12 p-md-4">
+            <div class="field col-12 md:col-4">
                 <MultiSelect id="multiselect" v-model="value8" :options="cities" optionLabel="name" placeholder="MultiSelect" class="p-invalid" />
             </div>
-            <div class="p-field p-col-12 p-md-4">
+            <div class="field col-12 md:col-4">
                 <TreeSelect id="treeselect" v-model="selectedNode" :options="nodes" placeholder="TreeSelect" class="p-invalid"></TreeSelect>
             </div>
-            <div class="p-field p-col-12 p-md-4">
+            <div class="field col-12 md:col-4">
                 <Password id="password" v-model="value10" placeholder="Password" class="p-invalid" />
             </div>
-            <div class="p-field p-col-12 p-md-4">
+            <div class="field col-12 md:col-4">
                 <Textarea id="textarea" v-model="value9" rows="3" placeholder="Textarea" class="p-invalid" />
             </div>
         </div>
@@ -538,42 +538,42 @@ export default {
         <script src="./CountryService.js"><\\/script>
         <script src="./NodeService.js"><\\/script>`,
                     content: `<div id="app">
-            <div class="p-fluid p-grid">
-                <div class="p-field p-col-12 p-md-4">
+            <div class="p-fluid grid">
+                <div class="field col-12 md:col-4">
                     <p-inputtext id="inputtext" type="text" v-model="value1" placeholder="InputText" class="p-invalid"></p-inputtext>
                 </div>
-                <div class="p-field p-col-12 p-md-4">
+                <div class="field col-12 md:col-4">
                     <p-autocomplete v-model="value2" :suggestions="filteredCountries" @complete="searchCountry($event)" field="name" placeholder="AutoComplete" class="p-invalid"></p-autocomplete>
                 </div>
-                <div class="p-field p-col-12 p-md-4">
+                <div class="field col-12 md:col-4">
                     <p-calendar id="calendar" v-model="value3" placeholder="Calendar" class="p-invalid" :show-icon="true"></p-calendar>
                 </div>
-                <div class="p-field p-col-12 p-md-4">
+                <div class="field col-12 md:col-4">
                     <p-chips id="chips" v-model="value4" placeholder="Chips" class="p-invalid"></p-chips>
                 </div>
-                <div class="p-field p-col-12 p-md-4">
+                <div class="field col-12 md:col-4">
                     <p-inputmask id="inputmask" v-model="value5" mask="99/99/9999" slot-char="mm/dd/yyyy" placeholder="InputMask" class="p-invalid"></p-inputmask>
                 </div>
-                <div class="p-field p-col-12 p-md-4">
+                <div class="field col-12 md:col-4">
                     <p-inputnumber id="inputnumber" v-model="value6" placeholder="InputNumber" class="p-invalid"></p-inputnumber>
                 </div>
-                <div class="p-field p-col-12 p-md-4">
+                <div class="field col-12 md:col-4">
                     <p-cascadeselect v-model="selectedCity" :options="cascadeCountries" option-label="cname" option-group-label="name"
                         :option-group-children="['states', 'cities']" placeholder="CascadeSelect" class="p-invalid"></p-cascadeselect>
                 </div>
-                <div class="p-field p-col-12 p-md-4">
+                <div class="field col-12 md:col-4">
                     <p-dropdown id="dropdown" v-model="value7" :options="cities" option-label="name" placeholder="Dropdown" class="p-invalid"></p-dropdown>
                 </div>
-                <div class="p-field p-col-12 p-md-4">
+                <div class="field col-12 md:col-4">
                     <p-multiselect id="multiselect" v-model="value8" :options="cities" option-label="name" placeholder="MultiSelect" class="p-invalid"></p-multiselect>
                 </div>
-                <div class="p-field p-col-12 p-md-4">
+                <div class="field col-12 md:col-4">
                     <p-treeselect id="treeselect" v-model="selectedNode" :options="nodes" placeholder="TreeSelect" class="p-invalid"></p-treeselect>
                 </div>
-                <div class="p-field p-col-12 p-md-4">
+                <div class="field col-12 md:col-4">
                     <p-password id="password" v-model="value10" placeholder="Password" class="p-invalid"></p-password>
                 </div>
-                <div class="p-field p-col-12 p-md-4">
+                <div class="field col-12 md:col-4">
                     <p-textarea id="textarea" v-model="value9" rows="3" placeholder="Textarea" class="p-invalid"></p-textarea>
                 </div>
             </div>

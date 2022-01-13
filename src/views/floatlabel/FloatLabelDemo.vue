@@ -10,58 +10,58 @@
 
         <div class="content-section implementation">
             <div class="card">
-                <div class="p-fluid p-grid">
-                    <div class="p-field p-col-12 p-md-4">
+                <div class="p-fluid grid">
+                    <div class="field col-12 md:col-4">
                         <span class="p-float-label">
                             <InputText id="inputtext" type="text" v-model="value1" />
                             <label for="inputtext">InputText</label>
                         </span>
                     </div>
-                    <div class="p-field p-col-12 p-md-4">
+                    <div class="field col-12 md:col-4">
                         <span class="p-float-label p-input-icon-left">
                             <i class="pi pi-search" />
                             <InputText id="inputtext-left" type="text" v-model="valueIconLeft" />
                             <label for="inputtext-left">Left Icon</label>
                         </span>
                     </div>
-                    <div class="p-field p-col-12 p-md-4">
-                       <span class="p-float-label p-input-icon-right">
+                    <div class="field col-12 md:col-4">
+                        <span class="p-float-label p-input-icon-right">
                             <i class="pi pi-search" />
                             <InputText id="inputtext-right" type="text" v-model="valueIconRight" />
                             <label for="inputtext-right">Right Icon</label>
                         </span>
                     </div>
-                    <div class="p-field p-col-12 p-md-4">
+                    <div class="field col-12 md:col-4">
                         <span class="p-float-label">
                             <AutoComplete v-model="value2" :suggestions="filteredCountries" @complete="searchCountry($event)" field="name" />
                             <label for="autocomplete">AutoComplete</label>
                         </span>
                     </div>
-                    <div class="p-field p-col-12 p-md-4">
+                    <div class="field col-12 md:col-4">
                         <span class="p-float-label">
                             <Calendar id="calendar" v-model="value3" />
                             <label for="calendar">Calendar</label>
                         </span>
                     </div>
-                    <div class="p-field p-col-12 p-md-4">
+                    <div class="field col-12 md:col-4">
                         <span class="p-float-label">
                             <Chips id="chips" v-model="value4" />
                             <label for="chips">Chips</label>
                         </span>
                     </div>
-                    <div class="p-field p-col-12 p-md-4">
+                    <div class="field col-12 md:col-4">
                         <span class="p-float-label">
                             <InputMask id="inputmask" v-model="value5" mask="99/99/9999" slotChar="mm/dd/yyyy" />
                             <label for="inputmask">InputMask</label>
                         </span>
                     </div>
-                    <div class="p-field p-col-12 p-md-4">
+                    <div class="field col-12 md:col-4">
                         <span class="p-float-label">
                             <InputNumber id="inputnumber" v-model="value6" />
                             <label for="inputnumber">InputNumber</label>
                         </span>
                     </div>
-                    <div class="p-field p-col-12 p-md-4">
+                    <div class="field col-12 md:col-4">
                         <div class="p-inputgroup">
                             <span class="p-inputgroup-addon">
                                 <i class="pi pi-user"></i>
@@ -72,38 +72,38 @@
                             </span>
                         </div>
                     </div>
-                     <div class="p-field p-col-12 p-md-4">
+                    <div class="field col-12 md:col-4">
                         <span class="p-float-label">
                             <CascadeSelect id="cascadeSelect" v-model="selectedCity" :options="cascadeCountries" optionLabel="cname" optionGroupLabel="name"
                                 :optionGroupChildren="['states', 'cities']" />
                             <label for="multiselect">CascadeSelect</label>
                         </span>
                     </div>
-                    <div class="p-field p-col-12 p-md-4">
+                    <div class="field col-12 md:col-4">
                         <span class="p-float-label">
                             <Dropdown id="dropdown" v-model="value8" :options="cities" optionLabel="name" />
                             <label for="dropdown">Dropdown</label>
                         </span>
                     </div>
-                    <div class="p-field p-col-12 p-md-4">
+                    <div class="field col-12 md:col-4">
                         <span class="p-float-label">
                             <MultiSelect id="multiselect" v-model="value9" :options="cities" optionLabel="name" />
                             <label for="multiselect">MultiSelect</label>
                         </span>
                     </div>
-                    <div class="p-field p-col-12 p-md-4">
+                    <div class="field col-12 md:col-4">
                         <span class="p-float-label">
                             <TreeSelect v-model="selectedNode" :options="nodes"></TreeSelect>
                             <label for="treeselect">TreeSelect</label>
                         </span>
                     </div>
-                    <div class="p-field p-col-12 p-md-4">
+                    <div class="field col-12 md:col-4">
                         <span class="p-float-label">
                             <Password id="password" v-model="value11" />
                             <label for="password">Password</label>
                         </span>
                     </div>
-                    <div class="p-field p-col-12 p-md-4">
+                    <div class="field col-12 md:col-4">
                         <span class="p-float-label">
                             <Textarea id="textarea" v-model="value10" rows="3" />
                             <label for="textarea">Textarea</label>
@@ -232,58 +232,58 @@ export default {
 <template>
     <div>
         <div class="card">
-            <div class="p-fluid p-grid">
-                <div class="p-field p-col-12 p-md-4">
+            <div class="p-fluid grid">
+                <div class="field col-12 md:col-4">
                     <span class="p-float-label">
                         <InputText id="inputtext" type="text" v-model="value1" />
                         <label for="inputtext">InputText</label>
                     </span>
                 </div>
-                <div class="p-field p-col-12 p-md-4">
+                <div class="field col-12 md:col-4">
                     <span class="p-float-label p-input-icon-left">
                         <i class="pi pi-search" />
                         <InputText id="inputtext-left" type="text" v-model="valueIconLeft" />
                         <label for="inputtext-left">Left Icon</label>
                     </span>
                 </div>
-                <div class="p-field p-col-12 p-md-4">
-                   <span class="p-float-label p-input-icon-right">
+                <div class="field col-12 md:col-4">
+                    <span class="p-float-label p-input-icon-right">
                         <i class="pi pi-search" />
                         <InputText id="inputtext-right" type="text" v-model="valueIconRight" />
                         <label for="inputtext-right">Right Icon</label>
                     </span>
                 </div>
-                <div class="p-field p-col-12 p-md-4">
+                <div class="field col-12 md:col-4">
                     <span class="p-float-label">
                         <AutoComplete v-model="value2" :suggestions="filteredCountries" @complete="searchCountry($event)" field="name" />
                         <label for="autocomplete">AutoComplete</label>
                     </span>
                 </div>
-                <div class="p-field p-col-12 p-md-4">
+                <div class="field col-12 md:col-4">
                     <span class="p-float-label">
                         <Calendar id="calendar" v-model="value3" />
                         <label for="calendar">Calendar</label>
                     </span>
                 </div>
-                <div class="p-field p-col-12 p-md-4">
+                <div class="field col-12 md:col-4">
                     <span class="p-float-label">
                         <Chips id="chips" v-model="value4" />
                         <label for="chips">Chips</label>
                     </span>
                 </div>
-                <div class="p-field p-col-12 p-md-4">
+                <div class="field col-12 md:col-4">
                     <span class="p-float-label">
                         <InputMask id="inputmask" v-model="value5" mask="99/99/9999" slotChar="mm/dd/yyyy" />
                         <label for="inputmask">InputMask</label>
                     </span>
                 </div>
-                <div class="p-field p-col-12 p-md-4">
+                <div class="field col-12 md:col-4">
                     <span class="p-float-label">
                         <InputNumber id="inputnumber" v-model="value6" />
                         <label for="inputnumber">InputNumber</label>
                     </span>
                 </div>
-                <div class="p-field p-col-12 p-md-4">
+                <div class="field col-12 md:col-4">
                     <div class="p-inputgroup">
                         <span class="p-inputgroup-addon">
                             <i class="pi pi-user"></i>
@@ -294,38 +294,38 @@ export default {
                         </span>
                     </div>
                 </div>
-                 <div class="p-field p-col-12 p-md-4">
+                <div class="field col-12 md:col-4">
                     <span class="p-float-label">
                         <CascadeSelect id="cascadeSelect" v-model="selectedCity" :options="cascadeCountries" optionLabel="cname" optionGroupLabel="name"
                             :optionGroupChildren="['states', 'cities']" />
                         <label for="multiselect">CascadeSelect</label>
                     </span>
                 </div>
-                <div class="p-field p-col-12 p-md-4">
+                <div class="field col-12 md:col-4">
                     <span class="p-float-label">
                         <Dropdown id="dropdown" v-model="value8" :options="cities" optionLabel="name" />
                         <label for="dropdown">Dropdown</label>
                     </span>
                 </div>
-                <div class="p-field p-col-12 p-md-4">
+                <div class="field col-12 md:col-4">
                     <span class="p-float-label">
                         <MultiSelect id="multiselect" v-model="value9" :options="cities" optionLabel="name" />
                         <label for="multiselect">MultiSelect</label>
                     </span>
                 </div>
-                <div class="p-field p-col-12 p-md-4">
+                <div class="field col-12 md:col-4">
                     <span class="p-float-label">
                         <TreeSelect v-model="selectedNode" :options="nodes"></TreeSelect>
                         <label for="treeselect">TreeSelect</label>
                     </span>
                 </div>
-                <div class="p-field p-col-12 p-md-4">
+                <div class="field col-12 md:col-4">
                     <span class="p-float-label">
                         <Password id="password" v-model="value11" />
                         <label for="password">Password</label>
                     </span>
                 </div>
-                <div class="p-field p-col-12 p-md-4">
+                <div class="field col-12 md:col-4">
                     <span class="p-float-label">
                         <Textarea id="textarea" v-model="value10" rows="3" />
                         <label for="textarea">Textarea</label>
@@ -480,58 +480,58 @@ export default {
 <template>
     <div>
         <div class="card">
-            <div class="p-fluid p-grid">
-                <div class="p-field p-col-12 p-md-4">
+            <div class="p-fluid grid">
+                <div class="field col-12 md:col-4">
                     <span class="p-float-label">
                         <InputText id="inputtext" type="text" v-model="value1" />
                         <label for="inputtext">InputText</label>
                     </span>
                 </div>
-                <div class="p-field p-col-12 p-md-4">
+                <div class="field col-12 md:col-4">
                     <span class="p-float-label p-input-icon-left">
                         <i class="pi pi-search" />
                         <InputText id="inputtext-left" type="text" v-model="valueIconLeft" />
                         <label for="inputtext-left">Left Icon</label>
                     </span>
                 </div>
-                <div class="p-field p-col-12 p-md-4">
-                   <span class="p-float-label p-input-icon-right">
+                <div class="field col-12 md:col-4">
+                    <span class="p-float-label p-input-icon-right">
                         <i class="pi pi-search" />
                         <InputText id="inputtext-right" type="text" v-model="valueIconRight" />
                         <label for="inputtext-right">Right Icon</label>
                     </span>
                 </div>
-                <div class="p-field p-col-12 p-md-4">
+                <div class="field col-12 md:col-4">
                     <span class="p-float-label">
                         <AutoComplete v-model="value2" :suggestions="filteredCountries" @complete="searchCountry($event)" field="name" />
                         <label for="autocomplete">AutoComplete</label>
                     </span>
                 </div>
-                <div class="p-field p-col-12 p-md-4">
+                <div class="field col-12 md:col-4">
                     <span class="p-float-label">
                         <Calendar id="calendar" v-model="value3" />
                         <label for="calendar">Calendar</label>
                     </span>
                 </div>
-                <div class="p-field p-col-12 p-md-4">
+                <div class="field col-12 md:col-4">
                     <span class="p-float-label">
                         <Chips id="chips" v-model="value4" />
                         <label for="chips">Chips</label>
                     </span>
                 </div>
-                <div class="p-field p-col-12 p-md-4">
+                <div class="field col-12 md:col-4">
                     <span class="p-float-label">
                         <InputMask id="inputmask" v-model="value5" mask="99/99/9999" slotChar="mm/dd/yyyy" />
                         <label for="inputmask">InputMask</label>
                     </span>
                 </div>
-                <div class="p-field p-col-12 p-md-4">
+                <div class="field col-12 md:col-4">
                     <span class="p-float-label">
                         <InputNumber id="inputnumber" v-model="value6" />
                         <label for="inputnumber">InputNumber</label>
                     </span>
                 </div>
-                <div class="p-field p-col-12 p-md-4">
+                <div class="field col-12 md:col-4">
                     <div class="p-inputgroup">
                         <span class="p-inputgroup-addon">
                             <i class="pi pi-user"></i>
@@ -542,38 +542,38 @@ export default {
                         </span>
                     </div>
                 </div>
-                 <div class="p-field p-col-12 p-md-4">
+                <div class="field col-12 md:col-4">
                     <span class="p-float-label">
                         <CascadeSelect id="cascadeSelect" v-model="selectedCity" :options="cascadeCountries" optionLabel="cname" optionGroupLabel="name"
                             :optionGroupChildren="['states', 'cities']" />
                         <label for="multiselect">CascadeSelect</label>
                     </span>
                 </div>
-                <div class="p-field p-col-12 p-md-4">
+                <div class="field col-12 md:col-4">
                     <span class="p-float-label">
                         <Dropdown id="dropdown" v-model="value8" :options="cities" optionLabel="name" />
                         <label for="dropdown">Dropdown</label>
                     </span>
                 </div>
-                <div class="p-field p-col-12 p-md-4">
+                <div class="field col-12 md:col-4">
                     <span class="p-float-label">
                         <MultiSelect id="multiselect" v-model="value9" :options="cities" optionLabel="name" />
                         <label for="multiselect">MultiSelect</label>
                     </span>
                 </div>
-                <div class="p-field p-col-12 p-md-4">
+                <div class="field col-12 md:col-4">
                     <span class="p-float-label">
                         <TreeSelect v-model="selectedNode" :options="nodes"></TreeSelect>
                         <label for="treeselect">TreeSelect</label>
                     </span>
                 </div>
-                <div class="p-field p-col-12 p-md-4">
+                <div class="field col-12 md:col-4">
                     <span class="p-float-label">
                         <Password id="password" v-model="value11" />
                         <label for="password">Password</label>
                     </span>
                 </div>
-                <div class="p-field p-col-12 p-md-4">
+                <div class="field col-12 md:col-4">
                     <span class="p-float-label">
                         <Textarea id="textarea" v-model="value10" rows="3" />
                         <label for="textarea">Textarea</label>
@@ -735,58 +735,58 @@ export default {
         <script src="./NodeService.js"><\\/script>`,
                     content: `<div id="app">
             <div class="card">
-                <div class="p-fluid p-grid">
-                    <div class="p-field p-col-12 p-md-4">
+                <div class="p-fluid grid">
+                    <div class="field col-12 md:col-4">
                         <span class="p-float-label">
                             <p-inputtext id="inputtext" type="text" v-model="value1"></p-inputtext>
                             <label for="inputtext">InputText</label>
                         </span>
                     </div>
-                    <div class="p-field p-col-12 p-md-4">
+                    <div class="field col-12 md:col-4">
                         <span class="p-float-label p-input-icon-left">
                             <i class="pi pi-search"></i>
                             <p-inputtext id="inputtext-left" type="text" v-model="valueIconLeft"></p-inputtext>
                             <label for="inputtext-left">Left Icon</label>
                         </span>
                     </div>
-                    <div class="p-field p-col-12 p-md-4">
+                    <div class="field col-12 md:col-4">
                     <span class="p-float-label p-input-icon-right">
                             <i class="pi pi-search"></i>
                             <p-inputtext id="inputtext-right" type="text" v-model="valueIconRight"></p-inputtext>
                             <label for="inputtext-right">Right Icon</label>
                         </span>
                     </div>
-                    <div class="p-field p-col-12 p-md-4">
+                    <div class="field col-12 md:col-4">
                         <span class="p-float-label">
                             <p-autocomplete v-model="value2" :suggestions="filteredCountries" @complete="searchCountry($event)" field="name"></p-autocomplete>
                             <label for="autocomplete">AutoComplete</label>
                         </span>
                     </div>
-                    <div class="p-field p-col-12 p-md-4">
+                    <div class="field col-12 md:col-4">
                         <span class="p-float-label">
                             <p-calendar id="calendar" v-model="value3"></p-calendar>
                             <label for="calendar">Calendar</label>
                         </span>
                     </div>
-                    <div class="p-field p-col-12 p-md-4">
+                    <div class="field col-12 md:col-4">
                         <span class="p-float-label">
                             <p-chips id="chips" v-model="value4"></p-chips>
                             <label for="chips">Chips</label>
                         </span>
                     </div>
-                    <div class="p-field p-col-12 p-md-4">
+                    <div class="field col-12 md:col-4">
                         <span class="p-float-label">
                             <p-inputmask id="inputmask" v-model="value5" mask="99/99/9999" slot-char="mm/dd/yyyy"></p-inputmask>
                             <label for="inputmask">InputMask</label>
                         </span>
                     </div>
-                    <div class="p-field p-col-12 p-md-4">
+                    <div class="field col-12 md:col-4">
                         <span class="p-float-label">
                             <p-inputnumber id="inputnumber" v-model="value6"></p-inputnumber>
                             <label for="inputnumber">InputNumber</label>
                         </span>
                     </div>
-                    <div class="p-field p-col-12 p-md-4">
+                    <div class="field col-12 md:col-4">
                         <div class="p-inputgroup">
                             <span class="p-inputgroup-addon">
                                 <i class="pi pi-user"></i>
@@ -797,38 +797,38 @@ export default {
                             </span>
                         </div>
                     </div>
-                    <div class="p-field p-col-12 p-md-4">
+                    <div class="field col-12 md:col-4">
                         <span class="p-float-label">
                             <p-cascadeselect id="cascadeSelect" v-model="selectedCity" :options="cascadeCountries" option-label="cname" option-group-label="name"
                                 :option-group-children="['states', 'cities']"></p-cascadeselect>
                             <label for="multiselect">CascadeSelect</label>
                         </span>
                     </div>
-                    <div class="p-field p-col-12 p-md-4">
+                    <div class="field col-12 md:col-4">
                         <span class="p-float-label">
                             <p-dropdown id="dropdown" v-model="value8" :options="cities" option-label="name"></p-dropdown>
                             <label for="dropdown">Dropdown</label>
                         </span>
                     </div>
-                    <div class="p-field p-col-12 p-md-4">
+                    <div class="field col-12 md:col-4">
                         <span class="p-float-label">
                             <p-multiselect id="multiselect" v-model="value9" :options="cities" option-label="name">
                             <label for="multiselect">MultiSelect</label>
                         </span>
                     </div>
-                    <div class="p-field p-col-12 p-md-4">
+                    <div class="field col-12 md:col-4">
                         <span class="p-float-label">
                             <p-treeselect v-model="selectedNode" :options="nodes"></p-treeselect>
                             <label for="treeselect">TreeSelect</label>
                         </span>
                     </div>
-                    <div class="p-field p-col-12 p-md-4">
+                    <div class="field col-12 md:col-4">
                         <span class="p-float-label">
                             <p-password id="password" v-model="value11"></p-password>
                             <label for="password">Password</label>
                         </span>
                     </div>
-                    <div class="p-field p-col-12 p-md-4">
+                    <div class="field col-12 md:col-4">
                         <span class="p-float-label">
                             <p-textarea id="textarea" v-model="value10" rows="3"></p-textarea>
                             <label for="textarea">Textarea</label>

@@ -24,35 +24,35 @@
                 <DataTable :value="virtualCars" scrollable scrollHeight="400px" :virtualScrollerOptions="{ lazy: true, onLazyLoad: loadCarsLazy, itemSize: 46, delay: 200, showLoader: true, loading: lazyLoading, numToleratedItems: 10 }">
                     <Column field="id" header="Id" style="min-width: '200px'">
                         <template #loading>
-                            <div class="p-d-flex p-ai-center" :style="{height: '17px', 'flex-grow': '1', overflow: 'hidden'}">
+                            <div class="flex align-items-center" :style="{height: '17px', 'flex-grow': '1', overflow: 'hidden'}">
                                 <Skeleton width="60%" height="1rem" />
                             </div>
                         </template>
                     </Column>
                     <Column field="vin" header="Vin" style="min-width: '200px'">
                         <template #loading>
-                            <div class="p-d-flex p-ai-center" :style="{height: '17px', 'flex-grow': '1', overflow: 'hidden'}">
+                            <div class="flex align-items-center" :style="{height: '17px', 'flex-grow': '1', overflow: 'hidden'}">
                                 <Skeleton width="40%" height="1rem" />
                             </div>
                         </template>
                     </Column>
                     <Column field="year" header="Year" style="min-width: '200px'">
                         <template #loading>
-                            <div class="p-d-flex p-ai-center" :style="{height: '17px', 'flex-grow': '1', overflow: 'hidden'}">
+                            <div class="flex align-items-center" :style="{height: '17px', 'flex-grow': '1', overflow: 'hidden'}">
                                 <Skeleton width="30%" height="1rem" />
                             </div>
                         </template>
                     </Column>
                     <Column field="brand" header="Brand" style="min-width: '200px'">
                         <template #loading>
-                            <div class="p-d-flex p-ai-center" :style="{height: '17px', 'flex-grow': '1', overflow: 'hidden'}">
+                            <div class="flex align-items-center" :style="{height: '17px', 'flex-grow': '1', overflow: 'hidden'}">
                                 <Skeleton width="40%" height="1rem" />
                             </div>
                         </template>
                     </Column>
                     <Column field="color" header="Color" style="min-width: '200px'">
                         <template #loading>
-                            <div class="p-d-flex p-ai-center" :style="{height: '17px', 'flex-grow': '1', overflow: 'hidden'}">
+                            <div class="flex align-items-center" :style="{height: '17px', 'flex-grow': '1', overflow: 'hidden'}">
                                 <Skeleton width="60%" height="1rem" />
                             </div>
                         </template>
@@ -95,35 +95,35 @@ export default {
             <DataTable :value="virtualCars" scrollable scrollHeight="400px" :virtualScrollerOptions="{ lazy: true, onLazyLoad: loadCarsLazy, itemSize: 46, delay: 200, showLoader: true, loading: lazyLoading, numToleratedItems: 10 }">
                 <Column field="id" header="Id" style="min-width: '200px'">
                     <template #loading>
-                        <div class="p-d-flex p-ai-center" :style="{height: '17px', 'flex-grow': '1', overflow: 'hidden'}">
+                        <div class="flex align-items-center" :style="{height: '17px', 'flex-grow': '1', overflow: 'hidden'}">
                             <Skeleton width="60%" height="1rem" />
                         </div>
                     </template>
                 </Column>
                 <Column field="vin" header="Vin" style="min-width: '200px'">
                     <template #loading>
-                        <div class="p-d-flex p-ai-center" :style="{height: '17px', 'flex-grow': '1', overflow: 'hidden'}">
+                        <div class="flex align-items-center" :style="{height: '17px', 'flex-grow': '1', overflow: 'hidden'}">
                             <Skeleton width="40%" height="1rem" />
                         </div>
                     </template>
                 </Column>
                 <Column field="year" header="Year" style="min-width: '200px'">
                     <template #loading>
-                        <div class="p-d-flex p-ai-center" :style="{height: '17px', 'flex-grow': '1', overflow: 'hidden'}">
+                        <div class="flex align-items-center" :style="{height: '17px', 'flex-grow': '1', overflow: 'hidden'}">
                             <Skeleton width="30%" height="1rem" />
                         </div>
                     </template>
                 </Column>
                 <Column field="brand" header="Brand" style="min-width: '200px'">
                     <template #loading>
-                        <div class="p-d-flex p-ai-center" :style="{height: '17px', 'flex-grow': '1', overflow: 'hidden'}">
+                        <div class="flex align-items-center" :style="{height: '17px', 'flex-grow': '1', overflow: 'hidden'}">
                             <Skeleton width="40%" height="1rem" />
                         </div>
                     </template>
                 </Column>
                 <Column field="color" header="Color" style="min-width: '200px'">
                     <template #loading>
-                        <div class="p-d-flex p-ai-center" :style="{height: '17px', 'flex-grow': '1', overflow: 'hidden'}">
+                        <div class="flex align-items-center" :style="{height: '17px', 'flex-grow': '1', overflow: 'hidden'}">
                             <Skeleton width="60%" height="1rem" />
                         </div>
                     </template>
@@ -200,35 +200,35 @@ export default {
             <DataTable :value="virtualCars" scrollable scrollHeight="400px" :virtualScrollerOptions="{ lazy: true, onLazyLoad: loadCarsLazy, itemSize: 46, delay: 200, showLoader: true, loading: lazyLoading, numToleratedItems: 10 }">
                 <Column field="id" header="Id" style="min-width: '200px'">
                     <template #loading>
-                        <div class="p-d-flex p-ai-center" :style="{height: '17px', 'flex-grow': '1', overflow: 'hidden'}">
+                        <div class="flex align-items-center" :style="{height: '17px', 'flex-grow': '1', overflow: 'hidden'}">
                             <Skeleton width="60%" height="1rem" />
                         </div>
                     </template>
                 </Column>
                 <Column field="vin" header="Vin" style="min-width: '200px'">
                     <template #loading>
-                        <div class="p-d-flex p-ai-center" :style="{height: '17px', 'flex-grow': '1', overflow: 'hidden'}">
+                        <div class="flex align-items-center" :style="{height: '17px', 'flex-grow': '1', overflow: 'hidden'}">
                             <Skeleton width="40%" height="1rem" />
                         </div>
                     </template>
                 </Column>
                 <Column field="year" header="Year" style="min-width: '200px'">
                     <template #loading>
-                        <div class="p-d-flex p-ai-center" :style="{height: '17px', 'flex-grow': '1', overflow: 'hidden'}">
+                        <div class="flex align-items-center" :style="{height: '17px', 'flex-grow': '1', overflow: 'hidden'}">
                             <Skeleton width="30%" height="1rem" />
                         </div>
                     </template>
                 </Column>
                 <Column field="brand" header="Brand" style="min-width: '200px'">
                     <template #loading>
-                        <div class="p-d-flex p-ai-center" :style="{height: '17px', 'flex-grow': '1', overflow: 'hidden'}">
+                        <div class="flex align-items-center" :style="{height: '17px', 'flex-grow': '1', overflow: 'hidden'}">
                             <Skeleton width="40%" height="1rem" />
                         </div>
                     </template>
                 </Column>
                 <Column field="color" header="Color" style="min-width: '200px'">
                     <template #loading>
-                        <div class="p-d-flex p-ai-center" :style="{height: '17px', 'flex-grow': '1', overflow: 'hidden'}">
+                        <div class="flex align-items-center" :style="{height: '17px', 'flex-grow': '1', overflow: 'hidden'}">
                             <Skeleton width="60%" height="1rem" />
                         </div>
                     </template>
@@ -306,35 +306,35 @@ export default {
                 <p-datatable :value="virtualCars" scrollable scrollHeight="400px" :virtualScrollerOptions="{ lazy: true, onLazyLoad: loadCarsLazy, itemSize: 46, delay: 200, showLoader: true, loading: lazyLoading, numToleratedItems: 10 }">
                     <p-column field="id" header="Id" style="min-width: '200px'">
                         <template #loading>
-                            <div class="p-d-flex p-ai-center" :style="{height: '17px', 'flex-grow': '1', overflow: 'hidden'}">
+                            <div class="flex align-items-center" :style="{height: '17px', 'flex-grow': '1', overflow: 'hidden'}">
                                 <p-skeleton width="60%" height="1rem" />
                             </div>
                         </template>
                     </p-column>
                     <p-column field="vin" header="Vin" style="min-width: '200px'">
                         <template #loading>
-                            <div class="p-d-flex p-ai-center" :style="{height: '17px', 'flex-grow': '1', overflow: 'hidden'}">
+                            <div class="flex align-items-center" :style="{height: '17px', 'flex-grow': '1', overflow: 'hidden'}">
                                 <p-skeleton width="40%" height="1rem" />
                             </div>
                         </template>
                     </p-column>
                     <p-column field="year" header="Year" style="min-width: '200px'">
                         <template #loading>
-                            <div class="p-d-flex p-ai-center" :style="{height: '17px', 'flex-grow': '1', overflow: 'hidden'}">
+                            <div class="flex align-items-center" :style="{height: '17px', 'flex-grow': '1', overflow: 'hidden'}">
                                 <p-skeleton width="30%" height="1rem" />
                             </div>
                         </template>
                     </p-column>
                     <p-column field="brand" header="Brand" style="min-width: '200px'">
                         <template #loading>
-                            <div class="p-d-flex p-ai-center" :style="{height: '17px', 'flex-grow': '1', overflow: 'hidden'}">
+                            <div class="flex align-items-center" :style="{height: '17px', 'flex-grow': '1', overflow: 'hidden'}">
                                 <p-skeleton width="40%" height="1rem" />
                             </div>
                         </template>
                     </p-column>
                     <p-column field="color" header="Color" style="min-width: '200px'">
                         <template #loading>
-                            <div class="p-d-flex p-ai-center" :style="{height: '17px', 'flex-grow': '1', overflow: 'hidden'}">
+                            <div class="flex align-items-center" :style="{height: '17px', 'flex-grow': '1', overflow: 'hidden'}">
                                 <p-skeleton width="60%" height="1rem" />
                             </div>
                         </template>

@@ -190,26 +190,26 @@ export default {
 					tabName: 'Options API Source',
 					content: `
 <template>
-    <div class="p-grid">
-        <div class="p-col-12 p-md-4">
+    <div class="grid">
+        <div class="col-12 md:col-4">
             <div class="card">
                 <h5>Label</h5>
-                <Avatar label="P" class="p-mr-2" size="xlarge" />
-                <Avatar label="V" class="p-mr-2" size="large" style="background-color:#2196F3; color: #ffffff"/>
-                <Avatar label="U" class="p-mr-2" style="background-color:#9c27b0; color: #ffffff" />
+                <Avatar label="P" class="mr-2" size="xlarge" />
+                <Avatar label="V" class="mr-2" size="large" style="background-color:#2196F3; color: #ffffff"/>
+                <Avatar label="U" class="mr-2" style="background-color:#9c27b0; color: #ffffff" />
             </div>
         </div>
 
-        <div class="p-col-12 p-md-4">
+        <div class="col-12 md:col-4">
             <div class="card">
                 <h5>Label - Circle</h5>
-                <Avatar label="P" class="p-mr-2" size="xlarge" shape="circle" />
-                <Avatar label="V" class="p-mr-2" size="large" style="background-color:#2196F3; color: #ffffff" shape="circle"  />
-                <Avatar label="U" class="p-mr-2" style="background-color:#9c27b0; color: #ffffff" shape="circle"  />
+                <Avatar label="P" class="mr-2" size="xlarge" shape="circle" />
+                <Avatar label="V" class="mr-2" size="large" style="background-color:#2196F3; color: #ffffff" shape="circle"  />
+                <Avatar label="U" class="mr-2" style="background-color:#9c27b0; color: #ffffff" shape="circle"  />
             </div>
         </div>
 
-        <div class="p-col-12 p-md-4">
+        <div class="col-12 md:col-4">
             <div class="card">
                 <h5>Label - Badge</h5>
                 <Avatar label="U" size="xlarge" style="background-color:#4caf4f; color: #ffffff" v-badge="4" />
@@ -217,26 +217,26 @@ export default {
         </div>
     </div>
            
-    <div class="p-grid">
-        <div class="p-col-12 p-md-4">
+    <div class="grid">
+        <div class="col-12 md:col-4">
             <div class="card">
                 <h5>Icon</h5>
-                <Avatar icon="pi pi-user" class="p-mr-2" size="xlarge" />
-                <Avatar icon="pi pi-user" class="p-mr-2" size="large" style="background-color:#2196F3; color: #ffffff"/>
-                <Avatar icon="pi pi-user" class="p-mr-2" style="background-color:#9c27b0; color: #ffffff" />
+                <Avatar icon="pi pi-user" class="mr-2" size="xlarge" />
+                <Avatar icon="pi pi-user" class="mr-2" size="large" style="background-color:#2196F3; color: #ffffff"/>
+                <Avatar icon="pi pi-user" class="mr-2" style="background-color:#9c27b0; color: #ffffff" />
             </div>
         </div>
 
-        <div class="p-col-12 p-md-4">
+        <div class="col-12 md:col-4">
             <div class="card">
                 <h5>Icon - Circle</h5>
-                <Avatar icon="pi pi-user" class="p-mr-2" size="xlarge" shape="circle" />
-                <Avatar icon="pi pi-user" class="p-mr-2" size="large" style="background-color:#2196F3; color: #ffffff" shape="circle" />
-                <Avatar icon="pi pi-user" class="p-mr-2" style="background-color:#9c27b0; color: #ffffff" shape="circle" />
+                <Avatar icon="pi pi-user" class="mr-2" size="xlarge" shape="circle" />
+                <Avatar icon="pi pi-user" class="mr-2" size="large" style="background-color:#2196F3; color: #ffffff" shape="circle" />
+                <Avatar icon="pi pi-user" class="mr-2" style="background-color:#9c27b0; color: #ffffff" shape="circle" />
             </div>
         </div>
 
-         <div class="p-col-12 p-md-4">
+         <div class="col-12 md:col-4">
             <div class="card">
                 <h5>Icon - Badge</h5>
                 <Avatar icon="pi pi-user" size="xlarge" v-badge="4"/>
@@ -244,20 +244,20 @@ export default {
         </div>
     </div>
 
-    <div class="p-grid">
-        <div class="p-col-12 p-md-4">
+    <div class="grid">
+        <div class="col-12 md:col-4">
             <div class="card">
                 <h5>Image</h5>
-                <Avatar image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png"  class="p-mr-2" size="xlarge" shape="circle" />
-                <Avatar image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="p-mr-2" size="large" shape="circle" />
-                <Avatar image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="p-mr-2" shape="circle" />
+                <Avatar image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png"  class="mr-2" size="xlarge" shape="circle" />
+                <Avatar image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="mr-2" size="large" shape="circle" />
+                <Avatar image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="mr-2" shape="circle" />
             </div>
         </div>
 
-        <div class="p-col-12 p-md-4">
+        <div class="col-12 md:col-4">
             <div class="card">
                 <h5>Avatar Group</h5>
-                <AvatarGroup class="p-mb-3">
+                <AvatarGroup class="mb-3">
                     <Avatar image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" size="large" shape="circle"/>
                     <Avatar image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" size="large" shape="circle"/>
                     <Avatar image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" size="large" shape="circle"/>
@@ -268,7 +268,7 @@ export default {
             </div>
         </div>
 
-    	 <div class="p-col-12 p-md-4">
+    	 <div class="col-12 md:col-4">
     	    <div class="card">
     	        <h5>Image - Badge</h5>
     	        <Avatar image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" size="xlarge" v-badge.danger="4" />
@@ -287,26 +287,26 @@ export default {
 					tabName: 'Composition API Source',
 					content: `
 <template>
-    <div class="p-grid">
-        <div class="p-col-12 p-md-4">
+    <div class="grid">
+        <div class="col-12 md:col-4">
             <div class="card">
                 <h5>Label</h5>
-                <Avatar label="P" class="p-mr-2" size="xlarge" />
-                <Avatar label="V" class="p-mr-2" size="large" style="background-color:#2196F3; color: #ffffff"/>
-                <Avatar label="U" class="p-mr-2" style="background-color:#9c27b0; color: #ffffff" />
+                <Avatar label="P" class="mr-2" size="xlarge" />
+                <Avatar label="V" class="mr-2" size="large" style="background-color:#2196F3; color: #ffffff"/>
+                <Avatar label="U" class="mr-2" style="background-color:#9c27b0; color: #ffffff" />
             </div>
         </div>
 
-        <div class="p-col-12 p-md-4">
+        <div class="col-12 md:col-4">
             <div class="card">
                 <h5>Label - Circle</h5>
-                <Avatar label="P" class="p-mr-2" size="xlarge" shape="circle" />
-                <Avatar label="V" class="p-mr-2" size="large" style="background-color:#2196F3; color: #ffffff" shape="circle"  />
-                <Avatar label="U" class="p-mr-2" style="background-color:#9c27b0; color: #ffffff" shape="circle"  />
+                <Avatar label="P" class="mr-2" size="xlarge" shape="circle" />
+                <Avatar label="V" class="mr-2" size="large" style="background-color:#2196F3; color: #ffffff" shape="circle"  />
+                <Avatar label="U" class="mr-2" style="background-color:#9c27b0; color: #ffffff" shape="circle"  />
             </div>
         </div>
 
-        <div class="p-col-12 p-md-4">
+        <div class="col-12 md:col-4">
             <div class="card">
                 <h5>Label - Badge</h5>
                 <Avatar label="U" size="xlarge" style="background-color:#4caf4f; color: #ffffff" v-badge="4" />
@@ -314,26 +314,26 @@ export default {
         </div>
     </div>
            
-    <div class="p-grid">
-        <div class="p-col-12 p-md-4">
+    <div class="grid">
+        <div class="col-12 md:col-4">
             <div class="card">
                 <h5>Icon</h5>
-                <Avatar icon="pi pi-user" class="p-mr-2" size="xlarge" />
-                <Avatar icon="pi pi-user" class="p-mr-2" size="large" style="background-color:#2196F3; color: #ffffff"/>
-                <Avatar icon="pi pi-user" class="p-mr-2" style="background-color:#9c27b0; color: #ffffff" />
+                <Avatar icon="pi pi-user" class="mr-2" size="xlarge" />
+                <Avatar icon="pi pi-user" class="mr-2" size="large" style="background-color:#2196F3; color: #ffffff"/>
+                <Avatar icon="pi pi-user" class="mr-2" style="background-color:#9c27b0; color: #ffffff" />
             </div>
         </div>
 
-        <div class="p-col-12 p-md-4">
+        <div class="col-12 md:col-4">
             <div class="card">
                 <h5>Icon - Circle</h5>
-                <Avatar icon="pi pi-user" class="p-mr-2" size="xlarge" shape="circle" />
-                <Avatar icon="pi pi-user" class="p-mr-2" size="large" style="background-color:#2196F3; color: #ffffff" shape="circle" />
-                <Avatar icon="pi pi-user" class="p-mr-2" style="background-color:#9c27b0; color: #ffffff" shape="circle" />
+                <Avatar icon="pi pi-user" class="mr-2" size="xlarge" shape="circle" />
+                <Avatar icon="pi pi-user" class="mr-2" size="large" style="background-color:#2196F3; color: #ffffff" shape="circle" />
+                <Avatar icon="pi pi-user" class="mr-2" style="background-color:#9c27b0; color: #ffffff" shape="circle" />
             </div>
         </div>
 
-         <div class="p-col-12 p-md-4">
+         <div class="col-12 md:col-4">
             <div class="card">
                 <h5>Icon - Badge</h5>
                 <Avatar icon="pi pi-user" size="xlarge" v-badge="4"/>
@@ -341,20 +341,20 @@ export default {
         </div>
     </div>
 
-    <div class="p-grid">
-        <div class="p-col-12 p-md-4">
+    <div class="grid">
+        <div class="col-12 md:col-4">
             <div class="card">
                 <h5>Image</h5>
-                <Avatar image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png"  class="p-mr-2" size="xlarge" shape="circle" />
-                <Avatar image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="p-mr-2" size="large" shape="circle" />
-                <Avatar image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="p-mr-2" shape="circle" />
+                <Avatar image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png"  class="mr-2" size="xlarge" shape="circle" />
+                <Avatar image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="mr-2" size="large" shape="circle" />
+                <Avatar image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="mr-2" shape="circle" />
             </div>
         </div>
 
-        <div class="p-col-12 p-md-4">
+        <div class="col-12 md:col-4">
             <div class="card">
                 <h5>Avatar Group</h5>
-                <AvatarGroup class="p-mb-3">
+                <AvatarGroup class="mb-3">
                     <Avatar image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" size="large" shape="circle"/>
                     <Avatar image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" size="large" shape="circle"/>
                     <Avatar image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" size="large" shape="circle"/>
@@ -365,7 +365,7 @@ export default {
             </div>
         </div>
 
-        <div class="p-col-12 p-md-4">
+        <div class="col-12 md:col-4">
             <div class="card">
                 <h5>Image - Badge</h5>
                 <Avatar image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" size="xlarge" v-badge.danger="4" />
@@ -385,26 +385,26 @@ export default {
         <script src="https://unpkg.com/primevue@^3/avatargroup/avatargroup.min.js"><\\/script>
         <script src="https://unpkg.com/primevue@^3/badgedirective/badgedirective.min.js"><\\/script>`,
 					content: `<div id="app">
-            <div class="p-grid">
-                <div class="p-col-12 p-md-4">
+            <div class="grid">
+                <div class="col-12 md:col-4">
                     <div class="card">
                         <h5>Label</h5>
-                        <p-avatar label="P" class="p-mr-2" size="xlarge"></p-avatar>
-                        <p-avatar label="V" class="p-mr-2" size="large" style="background-color:#2196F3; color: #ffffff"></p-avatar>
-                        <p-avatar label="U" class="p-mr-2" style="background-color:#9c27b0; color: #ffffff"></p-avatar>
+                        <p-avatar label="P" class="mr-2" size="xlarge"></p-avatar>
+                        <p-avatar label="V" class="mr-2" size="large" style="background-color:#2196F3; color: #ffffff"></p-avatar>
+                        <p-avatar label="U" class="mr-2" style="background-color:#9c27b0; color: #ffffff"></p-avatar>
                     </div>
                 </div>
 
-                <div class="p-col-12 p-md-4">
+                <div class="col-12 md:col-4">
                     <div class="card">
                         <h5>Label - Circle</h5>
-                        <p-avatar label="P" class="p-mr-2" size="xlarge" shape="circle"></p-avatar>
-                        <p-avatar label="V" class="p-mr-2" size="large" style="background-color:#2196F3; color: #ffffff" shape="circle"></p-avatar>
-                        <p-avatar label="U" class="p-mr-2" style="background-color:#9c27b0; color: #ffffff" shape="circle"></p-avatar>
+                        <p-avatar label="P" class="mr-2" size="xlarge" shape="circle"></p-avatar>
+                        <p-avatar label="V" class="mr-2" size="large" style="background-color:#2196F3; color: #ffffff" shape="circle"></p-avatar>
+                        <p-avatar label="U" class="mr-2" style="background-color:#9c27b0; color: #ffffff" shape="circle"></p-avatar>
                     </div>
                 </div>
 
-                <div class="p-col-12 p-md-4">
+                <div class="col-12 md:col-4">
                     <div class="card">
                         <h5>Label - Badge</h5>
                         <p-avatar label="U" size="xlarge" style="background-color:#4caf4f; color: #ffffff" v-badge="4"></p-avatar>
@@ -412,26 +412,26 @@ export default {
                 </div>
             </div>
            
-            <div class="p-grid">
-                <div class="p-col-12 p-md-4">
+            <div class="grid">
+                <div class="col-12 md:col-4">
                     <div class="card">
                         <h5>Icon</h5>
-                        <p-avatar icon="pi pi-user" class="p-mr-2" size="xlarge"></p-avatar>
-                        <p-avatar icon="pi pi-user" class="p-mr-2" size="large" style="background-color:#2196F3; color: #ffffff"></p-avatar>
-                        <p-avatar icon="pi pi-user" class="p-mr-2" style="background-color:#9c27b0; color: #ffffff"></p-avatar>
+                        <p-avatar icon="pi pi-user" class="mr-2" size="xlarge"></p-avatar>
+                        <p-avatar icon="pi pi-user" class="mr-2" size="large" style="background-color:#2196F3; color: #ffffff"></p-avatar>
+                        <p-avatar icon="pi pi-user" class="mr-2" style="background-color:#9c27b0; color: #ffffff"></p-avatar>
                     </div>
                 </div>
 
-                <div class="p-col-12 p-md-4">
+                <div class="col-12 md:col-4">
                     <div class="card">
                         <h5>Icon - Circle</h5>
-                        <p-avatar icon="pi pi-user" class="p-mr-2" size="xlarge" shape="circle"></p-avatar>
-                        <p-avatar icon="pi pi-user" class="p-mr-2" size="large" style="background-color:#2196F3; color: #ffffff" shape="circle"></p-avatar>
-                        <p-avatar icon="pi pi-user" class="p-mr-2" style="background-color:#9c27b0; color: #ffffff" shape="circle"></p-avatar>
+                        <p-avatar icon="pi pi-user" class="mr-2" size="xlarge" shape="circle"></p-avatar>
+                        <p-avatar icon="pi pi-user" class="mr-2" size="large" style="background-color:#2196F3; color: #ffffff" shape="circle"></p-avatar>
+                        <p-avatar icon="pi pi-user" class="mr-2" style="background-color:#9c27b0; color: #ffffff" shape="circle"></p-avatar>
                     </div>
                 </div>
 
-                <div class="p-col-12 p-md-4">
+                <div class="col-12 md:col-4">
                     <div class="card">
                         <h5>Icon - Badge</h5>
                         <p-avatar icon="pi pi-user" size="xlarge" v-badge="4"></p-avatar>
@@ -439,20 +439,20 @@ export default {
                 </div>
             </div>
 
-            <div class="p-grid">
-                <div class="p-col-12 p-md-4">
+            <div class="grid">
+                <div class="col-12 md:col-4">
                     <div class="card">
                         <h5>Image</h5>
-                        <p-avatar image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="p-mr-2" size="xlarge" shape="circle"></p-avatar>
-                        <p-avatar image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="p-mr-2" size="large" shape="circle"></p-avatar>
-                        <p-avatar image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="p-mr-2" shape="circle"></p-avatar>
+                        <p-avatar image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="mr-2" size="xlarge" shape="circle"></p-avatar>
+                        <p-avatar image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="mr-2" size="large" shape="circle"></p-avatar>
+                        <p-avatar image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="mr-2" shape="circle"></p-avatar>
                     </div>
                 </div>
 
-                <div class="p-col-12 p-md-4">
+                <div class="col-12 md:col-4">
                     <div class="card">
                         <h5>p-avatar Group</h5>
-                        <p-avatargroup class="p-mb-3">
+                        <p-avatargroup class="mb-3">
                             <p-avatar image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" size="large" shape="circle"></p-avatar>
                             <p-avatar image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" size="large" shape="circle"></p-avatar>
                             <p-avatar image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" size="large" shape="circle"></p-avatar>
@@ -463,7 +463,7 @@ export default {
                     </div>
                 </div>
 
-                <div class="p-col-12 p-md-4">
+                <div class="col-12 md:col-4">
                     <div class="card">
                         <h5>Image - Badge</h5>
                         <p-avatar image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" size="xlarge" v-badge.danger="4"></p-avatar>

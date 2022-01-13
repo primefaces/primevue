@@ -74,7 +74,7 @@ import Panel from 'primevue/panel';
 &lt;h5&gt;Advanced&lt;/h5&gt;
 &lt;Panel header="Header"&gt;
     &lt;template #icons&gt;
-        &lt;button class="p-panel-header-icon p-link p-mr-2" @click="toggle"&gt;
+        &lt;button class="p-panel-header-icon p-link mr-2" @click="toggle"&gt;
             &lt;span class="pi pi-cog"&gt;&lt;/span&gt;
         &lt;/button&gt;
         &lt;Menu id="config_menu" ref="menu" :model="items" :popup="true" /&gt;
@@ -229,7 +229,7 @@ export default {
         <h5>Advanced</h5>
         <Panel header="Header" :toggleable="true">
             <template #icons>
-                <button class="p-panel-header-icon p-link p-mr-2" @click="toggle">
+                <button class="p-panel-header-icon p-link mr-2" @click="toggle">
                     <span class="pi pi-cog"></span>
                 </button>
                 <Menu id="config_menu" ref="menu" :model="items" :popup="true" />
@@ -319,7 +319,7 @@ export default {
         <h5>Advanced</h5>
         <Panel header="Header" :toggleable="true">
             <template #icons>
-                <button class="p-panel-header-icon p-link p-mr-2" @click="toggle">
+                <button class="p-panel-header-icon p-link mr-2" @click="toggle">
                     <span class="pi pi-cog"></span>
                 </button>
                 <Menu id="config_menu" ref="menu" :model="items" :popup="true" />
@@ -416,7 +416,7 @@ export default {
             <h5>Advanced</h5>
             <p-panel header="Header" :toggleable="true">
                 <template #icons>
-                    <p-button class="p-panel-header-icon p-link p-mr-2" @click="toggle">
+                    <p-button class="p-panel-header-icon p-link mr-2" @click="toggle">
                         <span class="pi pi-cog"></span>
                     </p-button>
                     <p-menu id="config_menu" ref="menu" :model="items" :popup="true"></p-menu>

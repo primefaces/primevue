@@ -11,25 +11,25 @@
         <div class="content-section implementation">
             <div class="card">
                 <h5>Alignment</h5>
-                <div class="p-mb-3 p-text-left">Left</div>
-                <div class="p-mb-3 p-text-center">Center</div>
-                <div class="p-text-right">Right</div>
+                <div class="mb-3 text-left">Left</div>
+                <div class="mb-3 text-center">Center</div>
+                <div class="text-right">Right</div>
 
                 <h5>Wrap</h5>
-                <div class="p-mb-3 demo-container" style="width: 10rem">Long text wraps and does not overlow.</div>
-                <div class="p-mb-3 demo-container p-text-nowrap" style="width: 10rem">Long text does not wrap and overflows the parent.</div>
-                <div class="p-mb-3 demo-container p-text-nowrap p-text-truncate" style="width: 10rem">Long text does not wrap and overflows the parent.</div>
+                <div class="mb-3 demo-container" style="width: 10rem">Long text wraps and does not overlow.</div>
+                <div class="mb-3 demo-container white-space-nowrap" style="width: 10rem">Long text does not wrap and overflows the parent.</div>
+                <div class="mb-3 demo-container white-space-nowrap text-overflow-ellipsis" style="width: 10rem">Long text does not wrap and overflows the parent.</div>
 
                 <h5>Transform</h5>
-                <div class="p-mb-3 p-text-lowercase">LOWERCASE</div>
-                <div class="p-mb-3 p-text-uppercase">uppercase</div>
-                <div class="p-text-capitalize">capitalize</div>
+                <div class="mb-3 text-lowercase">LOWERCASE</div>
+                <div class="mb-3 text-uppercase">uppercase</div>
+                <div class="text-capitalize">capitalize</div>
 
                 <h5>Style</h5>
-                <div class="p-mb-3 p-text-bold">Bold</div>
-                <div class="p-mb-3 p-text-normal">Normal</div>
-                <div class="p-mb-3 p-text-light">Light</div>
-                <div class="p-mb-3 p-text-italic">Italic</div>
+                <div class="mb-3 font-bold">Bold</div>
+                <div class="mb-3 font-norrmal">Normal</div>
+                <div class="mb-3 font-light">Light</div>
+                <div class="mb-3 font-italic">Italic</div>
             </div>
         </div>
 

@@ -17,7 +17,7 @@
                     <Column field="name" header="Name" :expander="true"></Column>
                     <Column field="size" header="Size"></Column>
                     <Column field="type" header="Type"></Column>
-                    <Column headerStyle="width: 10rem" headerClass="p-text-center" bodyClass="p-text-center">
+                    <Column headerStyle="width: 10rem" headerClass="text-center" bodyClass="text-center">
                         <template #header>
                             <Button type="button" icon="pi pi-cog"></Button>
                         </template>
@@ -60,7 +60,7 @@ export default {
             <Column field="name" header="Name" :expander="true"></Column>
             <Column field="size" header="Size"></Column>
             <Column field="type" header="Type"></Column>
-            <Column headerStyle="width: 10rem" headerClass="p-text-center" bodyClass="p-text-center">
+            <Column headerStyle="width: 10rem" headerClass="text-center" bodyClass="text-center">
                 <template #header>
                     <Button type="button" icon="pi pi-cog"></Button>
                 </template>
@@ -110,7 +110,7 @@ export default {
             <Column field="name" header="Name" :expander="true"></Column>
             <Column field="size" header="Size"></Column>
             <Column field="type" header="Type"></Column>
-            <Column headerStyle="width: 10rem" headerClass="p-text-center" bodyClass="p-text-center">
+            <Column headerStyle="width: 10rem" headerClass="text-center" bodyClass="text-center">
                 <template #header>
                     <Button type="button" icon="pi pi-cog"></Button>
                 </template>
@@ -160,7 +160,7 @@ export default {
                 <p-column field="name" header="Name" :expander="true"></p-column>
                 <p-column field="size" header="Size"></p-column>
                 <p-column field="type" header="Type"></p-column>
-                <p-column header-style="width: 10rem" header-class="p-text-center" body-class="p-text-center">
+                <p-column header-style="width: 10rem" header-class="text-center" body-class="text-center">
                     <template #header>
                         <p-button type="button" icon="pi pi-cog"></p-button>
                     </template>

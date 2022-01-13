@@ -415,24 +415,24 @@ export default {
                     </template>
                     <template v-slot:content>
                         <div class="p-fluid">
-                            <div class="p-field">
+                            <div class="field">
                                 <label for="firstname">Firstname</label>
                                 <p-inputtext id="firstname" v-model="firstname" :class="{'p-invalid': validationErrors.firstname && submitted}"></p-inputtext>
                                 <small v-show="validationErrors.firstname && submitted" class="p-error">Firstname is required.</small>
                             </div>
-                            <div class="p-field">
+                            <div class="field">
                                 <label for="lastname">Lastname</label>
                                 <p-inputtext id="lastname" v-model="lastname" :class="{'p-invalid': validationErrors.lastname && submitted}"></p-inputtext>
                                 <small v-show="validationErrors.lastname && submitted" class="p-error">Lastname is required.</small>
                             </div>
-                            <div class="p-field">
+                            <div class="field">
                                 <label for="age">Age</label>
                                 <p-inputnumber id="age" v-model="age"></p-inputnumber>
                             </div>
                         </div>
                     </template>
                     <template v-slot:footer>
-                        <div class="p-grid p-nogutter p-justify-between">
+                        <div class="grid grid-nogutter justify-content-between">
                             <i></i>
                             <p-button label="Next" @click="nextPage()" icon="pi pi-angle-right" icon-pos="right"></p-button>
                         </div>
@@ -487,23 +487,23 @@ export default {
                         Choose your seat
                     </template>
                     <template v-slot:content>
-                        <div class="p-fluid p-formgrid p-grid">
-                            <div class="p-field p-col-12 p-md-6">
+                        <div class="p-fluid formgrid grid">
+                            <div class="field col-12 md:col-6">
                                 <label for="class">Class</label>
                                 <p-dropdown input-id="class" v-model="selectedClass" :options="classes" @change="setWagons($event)" option-label="name" placeholder="Select a Class"></p-dropdown>
                             </div>
-                            <div class="p-field p-col-12 p-md-6">
+                            <div class="field col-12 md:col-6">
                                 <label for="lastname">Wagon</label>
                                 <p-dropdown input-id="wagon" v-model="selectedWagon" :options="wagons" @change="setSeats($event)" option-label="wagon" placeholder="Select a Wagon"></p-dropdown>
                             </div>
-                            <div class="p-field p-col-12">
+                            <div class="field col-12">
                                 <label for="seat">Seat</label>
                                 <p-dropdown input-id="seat" v-model="selectedSeat" :options="seats" option-label="seat" placeholder="Select a Seat"></p-dropdown>
                             </div>
                         </div>
                     </template>
                     <template v-slot:footer>
-                        <div class="p-grid p-nogutter p-justify-between">
+                        <div class="grid grid-nogutter justify-content-between">
                             <p-button label="Back" @click="prevPage()" icon="pi pi-angle-left"></p-button>
                             <p-button label="Next" @click="nextPage()" icon="pi pi-angle-right" icon-pos="right"></p-button>
                         </div>
@@ -566,31 +566,31 @@ export default {
                         Enter your card details
                     </template>
                     <template v-slot:content>
-                        <div class="p-fluid p-formgrid p-grid">
-                            <div class="p-field p-col-12">
+                        <div class="p-fluid formgrid grid">
+                            <div class="field col-12">
                                 <label for="class">Card Holder Name</label>
                                 <p-inputtext type="text" v-model="cardholderName"></p-inputext>
                             </div>
-                            <div class="p-field p-col-8">
+                            <div class="field col-8">
                                 <label id="number" for="lastname">Number</label>
                                 <p-inputmask id="number" mask="9999-9999-9999-9999" v-model="cardholderNumber"></p-inputmask>
                             </div>
-                            <div class="p-field p-col-2">
+                            <div class="field col-2">
                                 <label id="date" for="date">Date</label>
                                 <p-inputmask id="date" mask="99/99" v-model="date"></p-inputmask>
                             </div>
-                            <div class="p-field p-col-2">
+                            <div class="field col-2">
                                 <label for="cvv">CVV</label>
                                 <p-inputmask id="cvv" mask="999" v-model="cvv"></p-inputmask>
                             </div>
-                            <div class="p-field-checkbox p-col-12">
+                            <div class="field-checkbox col-12">
                                 <p-checkbox id="remember" v-model="remember" :binary="true"></p-checkbox>
                                 <label for="remember" class="p-checkbox-label">Save credit card information for future</label>
                             </div>
                         </div>
                     </template>
                     <template v-slot:footer>
-                        <div class="p-grid p-nogutter p-justify-between">
+                        <div class="grid grid-nogutter justify-content-between">
                             <p-button label="Back" @click="prevPage()" icon="pi pi-angle-left"></p-button>
                             <p-button label="Next" @click="nextPage()" icon="pi pi-angle-right" icon-pos="right"></p-button>
                         </div>
@@ -630,45 +630,45 @@ export default {
                         Confirmation
                     </template>
                     <template v-slot:content>
-                        <div class="p-field p-col-12">
+                        <div class="field col-12">
                             <label for="class">Name</label>
                             <b>{{formData.firstname ? formData.firstname : '-'}} {{formData.lastname ? formData.lastname : '-'}}</b>
                         </div>
-                        <div class="p-field p-col-12">
+                        <div class="field col-12">
                             <label for="Age">Age</label>
                             <b>{{formData.age ? formData.age : '-'}}</b>
                         </div>
-                        <div class="p-field p-col-12">
+                        <div class="field col-12">
                             <label for="Age">Seat Class</label>
                             <b>{{formData.class ? formData.class : '-'}}</b>
                         </div>
-                        <div class="p-field p-col-12">
+                        <div class="field col-12">
                             <label for="Age">Wagon Number</label>
                             <b>{{formData.vagon ? formData.vagon : '-'}}</b>
                         </div>
-                        <div class="p-field p-col-12">
+                        <div class="field col-12">
                             <label for="Age">Seat</label>
                             <b>{{formData.seat ? formData.seat : '-'}}</b>
                         </div>
-                        <div class="p-field p-col-12">
+                        <div class="field col-12">
                             <label for="Age">Cardholder Name</label>
                             <b>{{formData.cardholderName ? formData.cardholderName : '-'}}</b>
                         </div>
-                        <div class="p-field p-col-12">
+                        <div class="field col-12">
                             <label for="Age">Card Number</label>
                             <b>{{formData.cardholderNumber ? formData.cardholderNumber : '-'}}</b>
                         </div>
-                        <div class="p-field p-col-12">
+                        <div class="field col-12">
                             <label for="Age">Date</label>
                             <b>{{formData.date ? formData.date : '-'}}</b>
                         </div>
-                        <div class="p-field p-col-12">
+                        <div class="field col-12">
                             <label for="Age">CVV</label>
                             <b>{{formData.cvv && formData.cvv.length === 3  ? '**' + formData.cvv[2] : '-'}}</b>
                         </div>
                     </template>
                     <template v-slot:footer>
-                        <div class="p-grid p-nogutter p-justify-between">
+                        <div class="grid grid-nogutter justify-content-between">
                             <p-button label="Back" @click="prevPage()" icon="pi pi-angle-left"></p-button>
                             <p-button label="Complete" @click="complete()" icon="pi pi-check" icon-pos="right" class="p-button-success"></p-button>
                         </div>
@@ -738,24 +738,24 @@ export default {
             </template>
             <template v-slot:content>
                 <div class="p-fluid">
-                    <div class="p-field">
+                    <div class="field">
                         <label for="firstname">Firstname</label>
                         <InputText id="firstname" v-model="firstname" :class="{'p-invalid': validationErrors.firstname && submitted}" />
                         <small v-show="validationErrors.firstname && submitted" class="p-error">Firstname is required.</small>
                     </div>
-                    <div class="p-field">
+                    <div class="field">
                         <label for="lastname">Lastname</label>
                         <InputText id="lastname" v-model="lastname" :class="{'p-invalid': validationErrors.lastname && submitted}" />
                         <small v-show="validationErrors.lastname && submitted" class="p-error">Lastname is required.</small>
                     </div>
-                    <div class="p-field">
+                    <div class="field">
                         <label for="age">Age</label>
                         <InputNumber id="age" v-model="age" />
                     </div>
                 </div>
             </template>
             <template v-slot:footer>
-                <div class="p-grid p-nogutter p-justify-between">
+                <div class="grid grid-nogutter justify-content-between">
                     <i></i>
                     <Button label="Next" @click="nextPage()" icon="pi pi-angle-right" iconPos="right" />
                 </div>
@@ -813,23 +813,23 @@ export default {
                 Choose your seat
             </template>
             <template v-slot:content>
-                <div class="p-fluid p-formgrid p-grid">
-                    <div class="p-field p-col-12 p-md-6">
+                <div class="p-fluid formgrid grid">
+                    <div class="field col-12 md:col-6">
                         <label for="class">Class</label>
                         <Dropdown inputId="class" v-model="selectedClass" :options="classes" @change="setVagons($event)" optionLabel="name" placeholder="Select a Class" />
                     </div>
-                    <div class="p-field p-col-12 p-md-6">
+                    <div class="field col-12 md:col-6">
                         <label for="lastname">Wagon</label>
                         <Dropdown inputId="wagon" v-model="selectedVagon" :options="vagons" @change="setSeats($event)" optionLabel="vagon" placeholder="Select a Vagon" />
                     </div>
-                    <div class="p-field p-col-12">
+                    <div class="field col-12">
                         <label for="seat">Seat</label>
                         <Dropdown inputId="seat" v-model="selectedSeat" :options="seats" optionLabel="seat" placeholder="Select a Seat" />
                     </div>
                 </div>
             </template>
             <template v-slot:footer>
-                <div class="p-grid p-nogutter p-justify-between">
+                <div class="grid grid-nogutter justify-content-between">
                     <Button label="Back" @click="prevPage()" icon="pi pi-angle-left" />
                     <Button label="Next" @click="nextPage()" icon="pi pi-angle-right" iconPos="right" />
                 </div>
@@ -896,31 +896,31 @@ export default {
                 Enter your card details
             </template>
             <template v-slot:content>
-                <div class="p-fluid p-formgrid p-grid">
-                    <div class="p-field p-col-12">
+                <div class="p-fluid formgrid grid">
+                    <div class="field col-12">
                         <label for="class">Card Holder Name</label>
                         <InputText type="text" v-model="cardholderName" />
                     </div>
-                    <div class="p-field p-col-8">
+                    <div class="field col-8">
                         <label id="number" for="lastname">Number</label>
                         <InputMask id="number" mask="9999-9999-9999-9999" v-model="cardholderNumber" />
                     </div>
-                    <div class="p-field p-col-2">
+                    <div class="field col-2">
                         <label id="date" for="date">Date</label>
                         <InputMask id="date" mask="99/99" v-model="date" />
                     </div>
-                    <div class="p-field p-col-2">
+                    <div class="field col-2">
                         <label for="cvv">CVV</label>
                         <InputMask id="cvv" mask="999" v-model="cvv" />
                     </div>
-                    <div class="p-field-checkbox p-col-12">
+                    <div class="field-checkbox col-12">
                         <Checkbox id="remember" v-model="remember" :binary="true" />
                         <label for="remember" class="p-checkbox-label">Save credit card information for future</label>
                     </div>
                 </div>
             </template>
             <template v-slot:footer>
-                <div class="p-grid p-nogutter p-justify-between">
+                <div class="grid grid-nogutter justify-content-between">
                     <Button label="Back" @click="prevPage()" icon="pi pi-angle-left" />
                     <Button label="Next" @click="nextPage()" icon="pi pi-angle-right" iconPos="right" />
                 </div>
@@ -962,45 +962,45 @@ export default {
                 Confirmation
             </template>
             <template v-slot:content>
-                <div class="p-field p-col-12">
+                <div class="field col-12">
                     <label for="class">Name</label>
                     <b>{{formData.firstname ? formData.firstname : '-'}} {{formData.lastname ? formData.lastname : '-'}}</b>
                 </div>
-                <div class="p-field p-col-12">
+                <div class="field col-12">
                     <label for="Age">Age</label>
                     <b>{{formData.age ? formData.age : '-'}}</b>
                 </div>
-                <div class="p-field p-col-12">
+                <div class="field col-12">
                     <label for="Age">Seat Class</label>
                     <b>{{formData.class ? formData.class : '-'}}</b>
                 </div>
-                <div class="p-field p-col-12">
+                <div class="field col-12">
                     <label for="Age">Wagon Number</label>
                     <b>{{formData.vagon ? formData.vagon : '-'}}</b>
                 </div>
-                <div class="p-field p-col-12">
+                <div class="field col-12">
                     <label for="Age">Seat</label>
                     <b>{{formData.seat ? formData.seat : '-'}}</b>
                 </div>
-                <div class="p-field p-col-12">
+                <div class="field col-12">
                     <label for="Age">Cardholder Name</label>
                     <b>{{formData.cardholderName ? formData.cardholderName : '-'}}</b>
                 </div>
-                <div class="p-field p-col-12">
+                <div class="field col-12">
                     <label for="Age">Card Number</label>
                     <b>{{formData.cardholderNumber ? formData.cardholderNumber : '-'}}</b>
                 </div>
-                <div class="p-field p-col-12">
+                <div class="field col-12">
                     <label for="Age">Date</label>
                     <b>{{formData.date ? formData.date : '-'}}</b>
                 </div>
-                <div class="p-field p-col-12">
+                <div class="field col-12">
                     <label for="Age">CVV</label>
                     <b>{{formData.cvv && formData.cvv.length === 3  ? '**' + formData.cvv[2] : '-'}}</b>
                 </div>
             </template>
             <template v-slot:footer>
-                <div class="p-grid p-nogutter p-justify-between">
+                <div class="grid grid-nogutter justify-content-between">
                     <Button label="Back" @click="prevPage()" icon="pi pi-angle-left" />
                     <Button label="Complete" @click="complete()" icon="pi pi-check" iconPos="right" class="p-button-success"/>
                 </div>

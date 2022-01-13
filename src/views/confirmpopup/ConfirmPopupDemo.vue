@@ -12,20 +12,20 @@
             <ConfirmPopup></ConfirmPopup>
             <ConfirmPopup group="demo">
                 <template #message="slotProps">
-                    <div class="p-d-flex p-p-4">
+                    <div class="flex p-4">
                         <i :class="slotProps.message.icon" style="font-size: 1.5rem"></i>
-                        <p class="p-pl-2">{{slotProps.message.message}}</p>
+                        <p class="pl-2">{{slotProps.message.message}}</p>
                     </div>
                 </template>
             </ConfirmPopup>
 
             <div class="card">
                 <h5>Overlay</h5>
-                <Button @click="confirm1($event)" icon="pi pi-check" label="Confirm" class="p-mr-2"></Button>
+                <Button @click="confirm1($event)" icon="pi pi-check" label="Confirm" class="mr-2"></Button>
                 <Button @click="confirm2($event)" icon="pi pi-times" label="Delete" class="p-button-danger p-button-outlined"></Button>
         
                 <h5>Templating</h5>
-                <Button @click="showTemplate($event)" icon="pi pi-check" label="Terms and Conditions" class="p-mr-2"></Button>
+                <Button @click="showTemplate($event)" icon="pi pi-check" label="Terms and Conditions" class="mr-2"></Button>
             </div>
         </div>
 

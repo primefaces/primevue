@@ -17,13 +17,13 @@
                 <SplitButton label="Save" icon="pi pi-plus" @click="save" :model="nestedItems"></SplitButton>
 
                 <h5>Severities</h5>
-                <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-mb-2"></SplitButton>
-                <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-secondary p-mb-2"></SplitButton>
-                <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-success p-mb-2"></SplitButton>
-                <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-info p-mb-2"></SplitButton>
-                <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-warning p-mb-2"></SplitButton>
-                <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-help p-mb-2"></SplitButton>
-                <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-danger p-mb-2"></SplitButton>
+                <SplitButton label="Save" icon="pi pi-plus" :model="items" class="mb-2"></SplitButton>
+                <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-secondary mb-2"></SplitButton>
+                <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-success mb-2"></SplitButton>
+                <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-info mb-2"></SplitButton>
+                <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-warning mb-2"></SplitButton>
+                <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-help mb-2"></SplitButton>
+                <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-danger mb-2"></SplitButton>
             </div>
         </div>
 
@@ -73,14 +73,14 @@ export default {
                             label:'New',
                             icon:'pi pi-fw pi-plus',
                             items:[
-                               {
-                                  label:'Bookmark',
-                                  icon:'pi pi-fw pi-bookmark'
-                               },
-                               {
-                                  label:'Video',
-                                  icon:'pi pi-fw pi-video'
-                               },
+                                {
+                                    label:'Bookmark',
+                                    icon:'pi pi-fw pi-bookmark'
+                                },
+                                {
+                                    label:'Video',
+                                    icon:'pi pi-fw pi-video'
+                                },
                             ]
                         },
                         {
@@ -94,7 +94,7 @@ export default {
                             label:'Export',
                             icon:'pi pi-fw pi-external-link'
                         }
-                   ]
+                    ]
                 },
                 {
                     label:'Edit',
@@ -139,18 +139,18 @@ export default {
                                     icon:'pi pi-fw pi-filter',
                                     items:[
                                         {
-                                           label:'Print',
-                                           icon:'pi pi-fw pi-print'
+                                            label:'Print',
+                                            icon:'pi pi-fw pi-print'
                                         }
-                                   ]
+                                    ]
                                 },
                                 {
                                     icon:'pi pi-fw pi-bars',
                                     label:'List'
                                 }
-                           ]
+                            ]
                         }
-                   ]
+                    ]
                 },
                 {
                     label:'Events',
@@ -161,12 +161,12 @@ export default {
                             icon:'pi pi-fw pi-pencil',
                             items:[
                                 {
-                                   label:'Save',
-                                   icon:'pi pi-fw pi-calendar-plus'
+                                    label:'Save',
+                                    icon:'pi pi-fw pi-calendar-plus'
                                 },
                                 {
-                                   label:'Delete',
-                                   icon:'pi pi-fw pi-calendar-minus'
+                                    label:'Delete',
+                                    icon:'pi pi-fw pi-calendar-minus'
                                 }
                             ]
                         },
@@ -183,11 +183,11 @@ export default {
                     ]
                 },
                 {
-                   separator:true
+                    separator:true
                 },
                 {
-                   label:'Quit',
-                   icon:'pi pi-fw pi-power-off'
+                    label:'Quit',
+                    icon:'pi pi-fw pi-power-off'
                 }
             ]
         }

@@ -271,23 +271,23 @@ export default {
 
         <div class="card">
             <h5>Basic</h5>
-            <Button @click="confirm1()" icon="pi pi-check" label="Confirm" class="p-mr-2"></Button>
+            <Button @click="confirm1()" icon="pi pi-check" label="Confirm" class="mr-2"></Button>
             <Button @click="confirm2()" icon="pi pi-times" label="Delete"></Button>
 
             <h5>Position</h5>
-            <div class="p-grid p-dir-col">
+            <div class="grid flex-column">
                 <div class="p-col">
-                    <Button @click="confirmPosition('left')" icon="pi pi-arrow-right" label="Left" class="p-button-help p-mr-2"></Button>
+                    <Button @click="confirmPosition('left')" icon="pi pi-arrow-right" label="Left" class="p-button-help mr-2"></Button>
                     <Button @click="confirmPosition('right')" icon="pi pi-arrow-left" label="Right" class="p-button-help"></Button>
                 </div>
                 <div class="p-col">
-                    <Button @click="confirmPosition('topleft')" icon="pi pi-arrow-down-right" label="TopLeft" class="p-button-warning p-mr-2"></Button>
-                    <Button @click="confirmPosition('top')" icon="pi pi-arrow-down" label="Top" class="p-button-warning p-mr-2"></Button>
+                    <Button @click="confirmPosition('topleft')" icon="pi pi-arrow-down-right" label="TopLeft" class="p-button-warning mr-2"></Button>
+                    <Button @click="confirmPosition('top')" icon="pi pi-arrow-down" label="Top" class="p-button-warning mr-2"></Button>
                     <Button @click="confirmPosition('topright')" icon="pi pi-arrow-down-left" label="TopRight" class="p-button-warning"></Button>
                 </div>
                 <div class="p-col">
-                    <Button @click="confirmPosition('bottomleft')" icon="pi pi-arrow-up-right" label="BottomLeft" class="p-button-success p-mr-2"></Button>
-                    <Button @click="confirmPosition('bottom')" icon="pi pi-arrow-up" label="Bottom" class="p-button-success p-mr-2"></Button>
+                    <Button @click="confirmPosition('bottomleft')" icon="pi pi-arrow-up-right" label="BottomLeft" class="p-button-success mr-2"></Button>
+                    <Button @click="confirmPosition('bottom')" icon="pi pi-arrow-up" label="Bottom" class="p-button-success mr-2"></Button>
                     <Button @click="confirmPosition('bottomright')" icon="pi pi-arrow-up-left" label="BottomRight" class="p-button-success"></Button>
                 </div>
             </div>
@@ -356,23 +356,23 @@ export default {
 
         <div class="card">
             <h5>Basic</h5>
-            <Button @click="confirm1()" icon="pi pi-check" label="Confirm" class="p-mr-2"></Button>
+            <Button @click="confirm1()" icon="pi pi-check" label="Confirm" class="mr-2"></Button>
             <Button @click="confirm2()" icon="pi pi-times" label="Delete"></Button>
 
             <h5>Position</h5>
-            <div class="p-grid p-dir-col">
+            <div class="grid flex-column">
                 <div class="p-col">
-                    <Button @click="confirmPosition('left')" icon="pi pi-arrow-right" label="Left" class="p-button-help p-mr-2"></Button>
+                    <Button @click="confirmPosition('left')" icon="pi pi-arrow-right" label="Left" class="p-button-help mr-2"></Button>
                     <Button @click="confirmPosition('right')" icon="pi pi-arrow-left" label="Right" class="p-button-help"></Button>
                 </div>
                 <div class="p-col">
-                    <Button @click="confirmPosition('topleft')" icon="pi pi-arrow-down-right" label="TopLeft" class="p-button-warning p-mr-2"></Button>
-                    <Button @click="confirmPosition('top')" icon="pi pi-arrow-down" label="Top" class="p-button-warning p-mr-2"></Button>
+                    <Button @click="confirmPosition('topleft')" icon="pi pi-arrow-down-right" label="TopLeft" class="p-button-warning mr-2"></Button>
+                    <Button @click="confirmPosition('top')" icon="pi pi-arrow-down" label="Top" class="p-button-warning mr-2"></Button>
                     <Button @click="confirmPosition('topright')" icon="pi pi-arrow-down-left" label="TopRight" class="p-button-warning"></Button>
                 </div>
                 <div class="p-col">
-                    <Button @click="confirmPosition('bottomleft')" icon="pi pi-arrow-up-right" label="BottomLeft" class="p-button-success p-mr-2"></Button>
-                    <Button @click="confirmPosition('bottom')" icon="pi pi-arrow-up" label="Bottom" class="p-button-success p-mr-2"></Button>
+                    <Button @click="confirmPosition('bottomleft')" icon="pi pi-arrow-up-right" label="BottomLeft" class="p-button-success mr-2"></Button>
+                    <Button @click="confirmPosition('bottom')" icon="pi pi-arrow-up" label="Bottom" class="p-button-success mr-2"></Button>
                     <Button @click="confirmPosition('bottomright')" icon="pi pi-arrow-up-left" label="BottomRight" class="p-button-success"></Button>
                 </div>
             </div>
@@ -454,23 +454,23 @@ export default defineComponent({
 
             <div class="card">
                 <h5>Basic</h5>
-                <p-button @click="confirm1()" icon="pi pi-check" label="Confirm" class="p-mr-2"></p-button>
+                <p-button @click="confirm1()" icon="pi pi-check" label="Confirm" class="mr-2"></p-button>
                 <p-button @click="confirm2()" icon="pi pi-times" label="Delete"></p-button>
 
                 <h5>Position</h5>
-                <div class="p-grid p-dir-col">
+                <div class="grid flex-column">
                     <div class="p-col">
-                        <p-button @click="confirmPosition('left')" icon="pi pi-arrow-right" label="Left" class="p-button-help p-mr-2"></p-button>
+                        <p-button @click="confirmPosition('left')" icon="pi pi-arrow-right" label="Left" class="p-button-help mr-2"></p-button>
                         <p-button @click="confirmPosition('right')" icon="pi pi-arrow-left" label="Right" class="p-button-help"></p-button>
                     </div>
                     <div class="p-col">
-                        <p-button @click="confirmPosition('topleft')" icon="pi pi-arrow-down-right" label="TopLeft" class="p-button-warning p-mr-2"></p-button>
-                        <p-button @click="confirmPosition('top')" icon="pi pi-arrow-down" label="Top" class="p-button-warning p-mr-2"></p-button>
+                        <p-button @click="confirmPosition('topleft')" icon="pi pi-arrow-down-right" label="TopLeft" class="p-button-warning mr-2"></p-button>
+                        <p-button @click="confirmPosition('top')" icon="pi pi-arrow-down" label="Top" class="p-button-warning mr-2"></p-button>
                         <p-button @click="confirmPosition('topright')" icon="pi pi-arrow-down-left" label="TopRight" class="p-button-warning"></p-button>
                     </div>
                     <div class="p-col">
-                        <p-button @click="confirmPosition('bottomleft')" icon="pi pi-arrow-up-right" label="BottomLeft" class="p-button-success p-mr-2"></p-button>
-                        <p-button @click="confirmPosition('bottom')" icon="pi pi-arrow-up" label="Bottom" class="p-button-success p-mr-2"></p-button>
+                        <p-button @click="confirmPosition('bottomleft')" icon="pi pi-arrow-up-right" label="BottomLeft" class="p-button-success mr-2"></p-button>
+                        <p-button @click="confirmPosition('bottom')" icon="pi pi-arrow-up" label="Bottom" class="p-button-success mr-2"></p-button>
                         <p-button @click="confirmPosition('bottomright')" icon="pi pi-arrow-up-left" label="BottomRight" class="p-button-success"></p-button>
                     </div>
                 </div>

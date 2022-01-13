@@ -731,7 +731,6 @@ export default {
         &lt;/template&gt;
     &lt;/Column&gt;
 &lt;/DataTable&gt;
-
 </template>
 </code></pre>
 
@@ -747,7 +746,6 @@ export default {
         &lt;/template&gt;
     &lt;/Column&gt;
 &lt;/DataTable&gt;
-
 </template>
 </code></pre>
 
@@ -826,7 +824,6 @@ app.use(PrimeVue, {
         &lt;InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" :placeholder="`Search by name - ${filterModel.matchMode}`"/&gt;
     &lt;/template&gt;
 &lt;/Column&gt;
-
 </template>
 </code></pre>
 
@@ -868,10 +865,9 @@ matchModes: [
         &lt;Button type="button" icon="pi pi-check" @click="filterCallback()" class="p-button-success"&gt;&lt;/Button&gt;
     &lt;/template&gt;
     &lt;template #filterfooter&gt;
-        &lt;div class="p-px-3 p-pt-0 p-pb-3 p-text-center p-text-bold"&gt;Customized Buttons&lt;/div&gt;
+        &lt;div class="px-3 pt-0 pb-3 text-center font-bold"&gt;Customized Buttons&lt;/div&gt;
     &lt;/template&gt;
 &lt;/Column&gt;
-
 </template>
 </code></pre>
 
@@ -879,7 +875,7 @@ matchModes: [
             <h5>Selection</h5>
             <p>DataTable provides single and multiple selection modes on click of a row. Selected rows are bound to the <i>selection</i> property and updated using the v-model directive.
                 Alternatively column based selection can be done using radio buttons or checkboxes using <i>selectionMode</i> of a particular column. In addition row-select and row-unselect
-                 events are provided as optional callbacks.</p>
+                events are provided as optional callbacks.</p>
 
             <p>The <i>dataKey</i> property identifies a unique value of a row in the dataset, it is not mandatory however being able to define it increases the performance of the table signifantly.</p>
 
@@ -1078,11 +1074,11 @@ matchModes: [
         &lt;div class="car-details"&gt;
             &lt;div&gt;
                 &lt;img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand"/&gt;
-                &lt;div class="p-grid"&gt;
-                    &lt;div class="p-col-12"&gt;Vin: &lt;b&gt;&#123;&#123;slotProps.data.vin&#125;&#125;&lt;/b&gt;&lt;/div&gt;
-                    &lt;div class="p-col-12"&gt;Year: &lt;b&gt;&#123;&#123;slotProps.data.year&#125;&#125;&lt;/b&gt;&lt;/div&gt;
-                    &lt;div class="p-col-12"&gt;Brand: &lt;b&gt;&#123;&#123;slotProps.data.brand&#125;&#125;&lt;/b&gt;&lt;/div&gt;
-                    &lt;div class="p-col-12"&gt;Color: &lt;b&gt;&#123;&#123;slotProps.data.color&#125;&#125;&lt;/b&gt;&lt;/div&gt;
+                &lt;div class="grid"&gt;
+                    &lt;div class="col-12"&gt;Vin: &lt;b&gt;&#123;&#123;slotProps.data.vin&#125;&#125;&lt;/b&gt;&lt;/div&gt;
+                    &lt;div class="col-12"&gt;Year: &lt;b&gt;&#123;&#123;slotProps.data.year&#125;&#125;&lt;/b&gt;&lt;/div&gt;
+                    &lt;div class="col-12"&gt;Brand: &lt;b&gt;&#123;&#123;slotProps.data.brand&#125;&#125;&lt;/b&gt;&lt;/div&gt;
+                    &lt;div class="col-12"&gt;Color: &lt;b&gt;&#123;&#123;slotProps.data.color&#125;&#125;&lt;/b&gt;&lt;/div&gt;
                 &lt;/div&gt;
             &lt;/div&gt;
             &lt;Button icon="pi pi-search"&gt;&lt;/Button&gt;
@@ -2630,8 +2626,8 @@ export default {
             currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
             :globalFilterFields="['name','country.name','representative.name','status']" responsiveLayout="scroll">
             <template #header>
-                 <div class="p-d-flex p-jc-between p-ai-center">
-                    <h5 class="p-m-0">Customers</h5>
+                 <div class="flex justify-content-center align-items-center">
+                    <h5 class="m-0">Customers</h5>
                     <span class="p-input-icon-left">
                         <i class="pi pi-search" />
                         <InputText v-model="filters['global'].value" placeholder="Keyword Search" />
@@ -2668,7 +2664,7 @@ export default {
                     <span class="image-text">{{data.representative.name}}</span>
                 </template>
                 <template #filter="{filterModel}">
-                    <div class="p-mb-3 p-text-bold">Agent Picker</div>
+                    <div class="mb-3 font-bold">Agent Picker</div>
                     <MultiSelect v-model="filterModel.value" :options="representatives" optionLabel="name" placeholder="Any" class="p-column-filter">
                         <template #option="slotProps">
                             <div class="p-multiselect-representative-option">
@@ -2715,8 +2711,8 @@ export default {
                     <ProgressBar :value="data.activity" :showValue="false" />
                 </template>
                 <template #filter="{filterModel}">
-                    <Slider v-model="filterModel.value" range class="p-m-3"></Slider>
-                    <div class="p-d-flex p-ai-center p-jc-between p-px-2">
+                    <Slider v-model="filterModel.value" range class="m-3"></Slider>
+                    <div class="flex align-items-center justify-content-center px-2">
                         <span>{{filterModel.value ? filterModel.value[0] : 0}}</span>
                         <span>{{filterModel.value ? filterModel.value[1] : 100}}</span>
                     </div>
@@ -2854,8 +2850,8 @@ export default {
             currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
             :globalFilterFields="['name','country.name','representative.name','status']" responsiveLayout="scroll">
             <template #header>
-                 <div class="p-d-flex p-jc-between p-ai-center">
-                    <h5 class="p-m-0">Customers</h5>
+                 <div class="flex justify-content-center align-items-center">
+                    <h5 class="m-0">Customers</h5>
                     <span class="p-input-icon-left">
                         <i class="pi pi-search" />
                         <InputText v-model="filters['global'].value" placeholder="Keyword Search" />
@@ -2892,7 +2888,7 @@ export default {
                     <span class="image-text">{{data.representative.name}}</span>
                 </template>
                 <template #filter="{filterModel}">
-                    <div class="p-mb-3 p-text-bold">Agent Picker</div>
+                    <div class="mb-3 font-bold">Agent Picker</div>
                     <MultiSelect v-model="filterModel.value" :options="representatives" optionLabel="name" placeholder="Any" class="p-column-filter">
                         <template #option="slotProps">
                             <div class="p-multiselect-representative-option">
@@ -2939,8 +2935,8 @@ export default {
                     <ProgressBar :value="data.activity" :showValue="false" />
                 </template>
                 <template #filter="{filterModel}">
-                    <Slider v-model="filterModel.value" range class="p-m-3"></Slider>
-                    <div class="p-d-flex p-ai-center p-jc-between p-px-2">
+                    <Slider v-model="filterModel.value" range class="m-3"></Slider>
+                    <div class="flex align-items-center justify-content-center px-2">
                         <span>{{filterModel.value ? filterModel.value[0] : 0}}</span>
                         <span>{{filterModel.value ? filterModel.value[1] : 100}}</span>
                     </div>
@@ -3117,8 +3113,8 @@ img {
                 current-page-report-template="Showing {first} to {last} of {totalRecords} entries"
                 :global-filter-fields="['name','country.name','representative.name','status']" responsive-layout="scroll">
                 <template #header>
-                    <div class="p-d-flex p-jc-between p-ai-center">
-                        <h5 class="p-m-0">Customers</h5>
+                    <div class="flex justify-content-center align-items-center">
+                        <h5 class="m-0">Customers</h5>
                         <span class="p-input-icon-left">
                             <i class="pi pi-search"></i>
                             <p-inputtext v-model="filters['global'].value" placeholder="Keyword Search"></p-inputtext>
@@ -3155,7 +3151,7 @@ img {
                         <span class="image-text">{{data.representative.name}}</span>
                     </template>
                     <template #filter="{filterModel}">
-                        <div class="p-mb-3 p-text-bold">Agent Picker</div>
+                        <div class="mb-3 font-bold">Agent Picker</div>
                         <p-multiselect v-model="filterModel.value" :options="representatives" option-label="name" placeholder="Any" class="p-column-filter">
                             <template #option="slotProps">
                                 <div class="p-multiselect-representative-option">
@@ -3202,8 +3198,8 @@ img {
                         <p-progressbar :value="data.activity" :show-value="false"></p-progressbar>
                     </template>
                     <template #filter="{filterModel}">
-                        <p-slider v-model="filterModel.value" range class="p-m-3"></p-slider>
-                        <div class="p-d-flex p-ai-center p-jc-between p-px-2">
+                        <p-slider v-model="filterModel.value" range class="m-3"></p-slider>
+                        <div class="flex align-items-center justify-content-center px-2">
                             <span>{{filterModel.value ? filterModel.value[0] : 0}}</span>
                             <span>{{filterModel.value ? filterModel.value[1] : 100}}</span>
                         </div>

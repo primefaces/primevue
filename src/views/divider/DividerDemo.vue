@@ -72,8 +72,8 @@
                         Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
                 <Divider align="left">
-                    <div class="p-d-inline-flex p-ai-center">
-                        <i class="pi pi-user p-mr-2"></i>
+                    <div class="inline-flex align-items-center">
+                        <i class="pi pi-user mr-2"></i>
                         <b>Icon</b>
                     </div>
                 </Divider>
@@ -101,7 +101,7 @@
 
             <div class="card">
                 <h5>Vertical</h5>
-                <div class="p-d-flex">
+                <div class="flex">
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
                             ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                             Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
@@ -122,26 +122,26 @@
 
             <div class="card">
                 <h5>Vertical with Content</h5>
-                <div class="p-grid">
-                    <div class="p-col-5 p-d-flex p-ai-center p-jc-center">
+                <div class="grid">
+                    <div class="col-5 flex align-items-center justify-content-center">
                         <div class="p-fluid">
-                            <div class="p-field">
+                            <div class="field">
                                 <label for="username">Username</label>
                                 <InputText id="username" type="text" />
                             </div>
-                            <div class="p-field">
+                            <div class="field">
                                 <label for="password">Password</label>
                                 <InputText id="password" type="password" />
                             </div>
                             <Button label="Login"></Button>
-                         </div>
+                        </div>
                     </div>
-                    <div class="p-col-2">
+                    <div class="col-2">
                         <Divider layout="vertical">
                             <b>OR</b>
                         </Divider>
                     </div>
-                    <div class="p-col-5 p-d-flex p-ai-center p-jc-center">
+                    <div class="col-5 flex align-items-center justify-content-center">
                         <Button label="Sign Up" icon="pi pi-user-plus" class="p-button-success"></Button>
                     </div>
                 </div>

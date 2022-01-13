@@ -51,8 +51,8 @@ import Password from 'primevue/password';
     &lt;/template&gt;
     &lt;template #footer&gt;
         &lt;Divider /&gt;
-        &lt;p class="p-mt-2"&gt;Suggestions&lt;/p&gt;
-        &lt;ul class="p-pl-2 p-ml-2 p-mt-0" style="line-height: 1.5"&gt;
+        &lt;p class="mt-2"&gt;Suggestions&lt;/p&gt;
+        &lt;ul class="pl-2 ml-2 mt-0" style="line-height: 1.5"&gt;
             &lt;li&gt;At least one lowercase&lt;/li&gt;
             &lt;li&gt;At least one uppercase&lt;/li&gt;
             &lt;li&gt;At least one numeric&lt;/li&gt;
@@ -271,8 +271,8 @@ export default {
             <template #footer="sp">
                 {{sp.level}}
                 <Divider />
-                <p class="p-mt-2">Suggestions</p>
-                <ul class="p-pl-2 p-ml-2 p-mt-0" style="line-height: 1.5">
+                <p class="mt-2">Suggestions</p>
+                <ul class="pl-2 ml-2 mt-0" style="line-height: 1.5">
                     <li>At least one lowercase</li>
                     <li>At least one uppercase</li>
                     <li>At least one numeric</li>
@@ -325,8 +325,8 @@ export default {
             <template #footer="sp">
                 {{sp.level}}
                 <Divider />
-                <p class="p-mt-2">Suggestions</p>
-                <ul class="p-pl-2 p-ml-2 p-mt-0" style="line-height: 1.5">
+                <p class="mt-2">Suggestions</p>
+                <ul class="pl-2 ml-2 mt-0" style="line-height: 1.5">
                     <li>At least one lowercase</li>
                     <li>At least one uppercase</li>
                     <li>At least one numeric</li>
@@ -381,8 +381,8 @@ export default {
                 <template #footer="sp">
                     {{sp.level}}
                     <p-divider></p-divider>
-                    <p class="p-mt-2">Suggestions</p>
-                    <ul class="p-pl-2 p-ml-2 p-mt-0" style="line-height: 1.5">
+                    <p class="mt-2">Suggestions</p>
+                    <ul class="pl-2 ml-2 mt-0" style="line-height: 1.5">
                         <li>At least one lowercase</li>
                         <li>At least one uppercase</li>
                         <li>At least one numeric</li>

@@ -14,7 +14,7 @@
                     @row-expand="onRowExpand" @row-collapse="onRowCollapse" responsiveLayout="scroll">
                     <template #header>
                         <div class="table-header-container">
-                            <Button icon="pi pi-plus" label="Expand All" @click="expandAll" class="p-mr-2" />
+                            <Button icon="pi pi-plus" label="Expand All" @click="expandAll" class="mr-2" />
                             <Button icon="pi pi-minus" label="Collapse All" @click="collapseAll" />
                         </div>
                     </template>
@@ -95,7 +95,7 @@ export default {
             @rowExpand="onRowExpand" @rowCollapse="onRowCollapse" responsiveLayout="scroll">
             <template #header>
                 <div class="table-header-container">
-                    <Button icon="pi pi-plus" label="Expand All" @click="expandAll" class="p-mr-2" />
+                    <Button icon="pi pi-plus" label="Expand All" @click="expandAll" class="mr-2" />
                     <Button icon="pi pi-minus" label="Collapse All" @click="collapseAll" />
                 </div>
             </template>
@@ -213,7 +213,7 @@ export default {
             @rowExpand="onRowExpand" @rowCollapse="onRowCollapse" responsiveLayout="scroll">
             <template #header>
                 <div class="table-header-container">
-                    <Button icon="pi pi-plus" label="Expand All" @click="expandAll" class="p-mr-2" />
+                    <Button icon="pi pi-plus" label="Expand All" @click="expandAll" class="mr-2" />
                     <Button icon="pi pi-minus" label="Collapse All" @click="collapseAll" />
                 </div>
             </template>
@@ -335,7 +335,7 @@ export default {
                 @row-expand="onRowExpand" @row-collapse="onRowCollapse" responsive-layout="scroll">
                 <template #header>
                     <div class="table-header-container">
-                        <p-button icon="pi pi-plus" label="Expand All" @click="expandAll" class="p-mr-2"></p-button>
+                        <p-button icon="pi pi-plus" label="Expand All" @click="expandAll" class="mr-2"></p-button>
                         <p-button icon="pi pi-minus" label="Collapse All" @click="collapseAll"></p-button>
                     </div>
                 </template>

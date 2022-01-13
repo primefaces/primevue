@@ -1,8 +1,8 @@
 <template>
 	<AppDoc name="SpacingDemo" :sources="sources" github="spacing/SpacingDemo.vue" >
         <h5>Getting Started</h5>
-        <p>The spacing classes use the <i>p-{property}{position}-{value}</i> syntax whereas for responsive
-        values <i>p-{property}{position}-{breakpoint}-{value}</i> format is used.</p>
+        <p>The spacing classes use the <i>{property}{position}-{value}</i> syntax whereas for responsive
+        values <i>{property}{position}-{breakpoint}-{value}</i> format is used.</p>
 
         <h5>Property</h5>
         <p>Property can either be a margin or a padding.</p>
@@ -48,13 +48,13 @@
 
         <h5>Examples</h5>
 <pre v-code><code>
-&lt;div class="p-mb-2"&gt;Margin bottom with level 2&lt;/div&gt;
-&lt;div class="p-mt-4"&gt;Margin top with level 2&lt;/div&gt;
-&lt;div class="p-m-2"&gt;Margin for all sides with level 2&lt;/div&gt;
-&lt;div class="p-mx-auto"&gt;Auto margins for left and right side&lt;/div&gt;
-&lt;div class="p-pb-4"&gt;Padding bottom with level 4&lt;/div&gt;
-&lt;div class="p-p-1"&gt;Padding for all sides with level 1&lt;/div&gt;
-&lt;div class="p-m-1 p-p-1 p-m-lg-3 p-b-lg-3"&gt;Level 3 spacing for lg screens and level 1 for smaller screens (xs).&lt;/div&gt;
+&lt;div class="mb-2"&gt;Margin bottom with level 2&lt;/div&gt;
+&lt;div class="mt-4"&gt;Margin top with level 2&lt;/div&gt;
+&lt;div class="m-2"&gt;Margin for all sides with level 2&lt;/div&gt;
+&lt;div class="mx-auto"&gt;Auto margins for left and right side&lt;/div&gt;
+&lt;div class="pb-4"&gt;Padding bottom with level 4&lt;/div&gt;
+&lt;div class="p-1"&gt;Padding for all sides with level 1&lt;/div&gt;
+&lt;div class="m-1 p-1 lg:m-3"&gt;Level 3 spacing for lg screens and level 1 for smaller screens (xs).&lt;/div&gt;
 
 </code></pre>
 
@@ -62,7 +62,7 @@
         <p>A custom build with different values can be obtained from <a href="https://github.com/primefaces/primeflex">PrimeFlex</a> using the _variables.scss file.</p>
 
         <h5>Dependencies</h5>
-        <p>PrimeFlex 2.0.0.</p>
+        <p>PrimeFlex 3.1.2.</p>
     </AppDoc>
 </template>
 
@@ -83,39 +83,39 @@ export default {
             <Button type="button" label="Button 2" style="width:20rem" />
 
             <h6>With Spacing</h6>
-            <Button type="button" label="Button 1" style="width:20rem" class="p-mr-2 p-mb-2" />
-            <Button type="button" label="Button 2" style="width:20rem" class="p-mb-2"/>
+            <Button type="button" label="Button 1" style="width:20rem" class="mr-2 mb-2" />
+            <Button type="button" label="Button 2" style="width:20rem" class="mb-2"/>
 
             <h5>Responsive Margin</h5>
             <h6>Without Spacing</h6>
-            <div class="p-grid p-formgrid p-fluid">
-                <div class="p-col-12 p-lg-4">
+            <div class="grid formgrid p-fluid">
+                <div class="col-12 lg:col-4">
                     <InputText />
                 </div>
-                <div class="p-col-12 p-lg-4">
+                <div class="col-12 lg:col-4">
                     <InputText />
                 </div>
-                <div class="p-col-12 p-lg-4">
+                <div class="col-12 lg:col-4">
                     <InputText />
                 </div>
             </div>
 
             <h6>With Spacing</h6>
-            <div class="p-grid p-formgrid p-fluid">
-                <div class="p-col-12 p-mb-2 p-lg-4 p-mb-lg-0">
+            <div class="grid formgrid p-fluid">
+                <div class="col-12 mb-2 lg:col-4 lg:mb-0">
                     <InputText />
                 </div>
-                <div class="p-col-12 p-mb-2 p-lg-4 p-mb-lg-0">
+                <div class="col-12 mb-2 lg:col-4 lg:mb-0">
                     <InputText />
                 </div>
-                <div class="p-col-12 p-mb-2 p-lg-4 p-mb-lg-0">
+                <div class="col-12 mb-2 lg:col-4 lg:mb-0">
                     <InputText />
                 </div>
             </div>
 
             <h6>Center</h6>
-            <div class="demo-container p-p-4">
-                <Button type="button" label="Button" class="p-d-block p-mx-auto" />
+            <div class="demo-container p-4">
+                <Button type="button" label="Button" class="block mx-auto" />
             </div>
         </div>
 
@@ -127,12 +127,12 @@ export default {
             </div>
 
             <h6>With Spacing</h6>
-            <div class="demo-container p-p-3">
+            <div class="demo-container p-3">
                 <Button type="button" label="Button" />
             </div>
 
             <h6>Responsive Spacing</h6>
-            <div class="demo-container p-p-0 p-p-sm-1 p-p-md-2 p-p-lg-3">
+            <div class="demo-container p-0 sm:col-1 md:col-2 lg:col-3">
                 <Button type="button" label="Button" />
             </div>
         </div>
@@ -164,39 +164,39 @@ export default {
             <Button type="button" label="Button 2" style="width:20rem" />
 
             <h6>With Spacing</h6>
-            <Button type="button" label="Button 1" style="width:20rem" class="p-mr-2 p-mb-2" />
-            <Button type="button" label="Button 2" style="width:20rem" class="p-mb-2"/>
+            <Button type="button" label="Button 1" style="width:20rem" class="mr-2 mb-2" />
+            <Button type="button" label="Button 2" style="width:20rem" class="mb-2"/>
 
             <h5>Responsive Margin</h5>
             <h6>Without Spacing</h6>
-            <div class="p-grid p-formgrid p-fluid">
-                <div class="p-col-12 p-lg-4">
+            <div class="grid formgrid p-fluid">
+                <div class="col-12 lg:col-4">
                     <InputText />
                 </div>
-                <div class="p-col-12 p-lg-4">
+                <div class="col-12 lg:col-4">
                     <InputText />
                 </div>
-                <div class="p-col-12 p-lg-4">
+                <div class="col-12 lg:col-4">
                     <InputText />
                 </div>
             </div>
 
             <h6>With Spacing</h6>
-            <div class="p-grid p-formgrid p-fluid">
-                <div class="p-col-12 p-mb-2 p-lg-4 p-mb-lg-0">
+            <div class="grid formgrid p-fluid">
+                <div class="col-12 mb-2 lg:col-4 lg:mb-0">
                     <InputText />
                 </div>
-                <div class="p-col-12 p-mb-2 p-lg-4 p-mb-lg-0">
+                <div class="col-12 mb-2 lg:col-4 lg:mb-0">
                     <InputText />
                 </div>
-                <div class="p-col-12 p-mb-2 p-lg-4 p-mb-lg-0">
+                <div class="col-12 mb-2 lg:col-4 lg:mb-0">
                     <InputText />
                 </div>
             </div>
 
             <h6>Center</h6>
-            <div class="demo-container p-p-4">
-                <Button type="button" label="Button" class="p-d-block p-mx-auto" />
+            <div class="demo-container p-4">
+                <Button type="button" label="Button" class="block mx-auto" />
             </div>
         </div>
 
@@ -208,12 +208,12 @@ export default {
             </div>
 
             <h6>With Spacing</h6>
-            <div class="demo-container p-p-3">
+            <div class="demo-container p-3">
                 <Button type="button" label="Button" />
             </div>
 
             <h6>Responsive Spacing</h6>
-            <div class="demo-container p-p-0 p-p-sm-1 p-p-md-2 p-p-lg-3">
+            <div class="demo-container p-0 sm:col-1 md:col-2 lg:col-3">
                 <Button type="button" label="Button" />
             </div>
         </div>
@@ -243,39 +243,39 @@ export default {
                 <p-button type="button" label="Button 2" style="width:20rem"></p-button>
 
                 <h6>With Spacing</h6>
-                <p-button type="button" label="Button 1" style="width:20rem" class="p-mr-2 p-mb-2"></p-button>
-                <p-button type="button" label="Button 2" style="width:20rem" class="p-mb-2"></p-button>
+                <p-button type="button" label="Button 1" style="width:20rem" class="mr-2 mb-2"></p-button>
+                <p-button type="button" label="Button 2" style="width:20rem" class="mb-2"></p-button>
 
                 <h5>Responsive Margin</h5>
                 <h6>Without Spacing</h6>
-                <div class="p-grid p-formgrid p-fluid">
-                    <div class="p-col-12 p-lg-4">
+                <div class="grid formgrid p-fluid">
+                    <div class="col-12 lg:col-4">
                         <p-inputtext></p-inputtext>
                     </div>
-                    <div class="p-col-12 p-lg-4">
+                    <div class="col-12 lg:col-4">
                         <p-inputtext></p-inputtext>
                     </div>
-                    <div class="p-col-12 p-lg-4">
+                    <div class="col-12 lg:col-4">
                         <p-inputtext></p-inputtext>
                     </div>
                 </div>
 
                 <h6>With Spacing</h6>
-                <div class="p-grid p-formgrid p-fluid">
-                    <div class="p-col-12 p-mb-2 p-lg-4 p-mb-lg-0">
+                <div class="grid formgrid p-fluid">
+                    <div class="col-12 mb-2 lg:col-4 lg:mb-0">
                         <p-inputtext></p-inputtext>
                     </div>
-                    <div class="p-col-12 p-mb-2 p-lg-4 p-mb-lg-0">
+                    <div class="col-12 mb-2 lg:col-4 lg:mb-0">
                         <p-inputtext></p-inputtext>
                     </div>
-                    <div class="p-col-12 p-mb-2 p-lg-4 p-mb-lg-0">
+                    <div class="col-12 mb-2 lg:col-4 lg:mb-0">
                         <p-inputtext></p-inputtext>
                     </div>
                 </div>
 
                 <h6>Center</h6>
-                <div class="demo-container p-p-4">
-                    <p-button type="button" label="Button" class="p-d-block p-mx-auto"></p-button>
+                <div class="demo-container p-4">
+                    <p-button type="button" label="Button" class="block mx-auto"></p-button>
                 </div>
             </div>
 
@@ -287,12 +287,12 @@ export default {
                 </div>
 
                 <h6>With Spacing</h6>
-                <div class="demo-container p-p-3">
+                <div class="demo-container p-3">
                     <p-button type="button" label="Button"></p-button>
                 </div>
 
                 <h6>Responsive Spacing</h6>
-                <div class="demo-container p-p-0 p-p-sm-1 p-p-md-2 p-p-lg-3">
+                <div class="demo-container p-0 sm:col-1 md:col-2 lg:col-3">
                     <p-button type="button" label="Button"></p-button>
                 </div>
             </div>

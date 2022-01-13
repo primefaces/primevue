@@ -532,7 +532,7 @@ export default {
         <h5>Grouped</h5>
         <Dropdown v-model="selectedGroupedCity" :options="groupedCities" optionLabel="label" optionGroupLabel="label" optionGroupChildren="items">
             <template #optiongroup="slotProps">
-                <div class="p-d-flex p-ai-center country-item">
+                <div class="flex align-items-center country-item">
                     <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="18" />
                     <div>{{slotProps.option.label}}</div>
                 </div>
@@ -567,7 +567,7 @@ export default {
         <h5>Virtual Scroll (1000 Items) and Lazy</h5>
         <Dropdown v-model="selectedItem2" :options="lazyItems" optionLabel="label" optionValue="value" :virtualScrollerOptions="{ lazy: true, onLazyLoad: onLazyLoad, itemSize: 31, showLoader: true, loading: loading, delay: 250 }" placeholder="Select Item">
             <template v-slot:loader="{ options }">
-                <div class="p-d-flex p-ai-center p-p-2" style="height: 31px" >
+                <div class="flex align-items-center p-2" style="height: 31px" >
                     <Skeleton :width="options.even ? '60%' : '50%'" height="1rem" />
                 </div>
             </template>
@@ -689,7 +689,7 @@ export default {
         <h5>Grouped</h5>
         <Dropdown v-model="selectedGroupedCity" :options="groupedCities" optionLabel="label" optionGroupLabel="label" optionGroupChildren="items">
             <template #optiongroup="slotProps">
-                <div class="p-d-flex p-ai-center country-item">
+                <div class="flex align-items-center country-item">
                     <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="18" />
                     <div>{{slotProps.option.label}}</div>
                 </div>
@@ -724,7 +724,7 @@ export default {
         <h5>Virtual Scroll (1000 Items) and Lazy</h5>
         <Dropdown v-model="selectedItem2" :options="lazyItems" optionLabel="label" optionValue="value" :virtualScrollerOptions="{ lazy: true, onLazyLoad: onLazyLoad, itemSize: 31, showLoader: true, loading: loading, delay: 250 }" placeholder="Select Item">
             <template v-slot:loader="{ options }">
-                <div class="p-d-flex p-ai-center p-p-2" style="height: 31px" >
+                <div class="flex align-items-center p-2" style="height: 31px" >
                     <Skeleton :width="options.even ? '60%' : '50%'" height="1rem" />
                 </div>
             </template>
@@ -850,7 +850,7 @@ export default {
             <h5>Grouped</h5>
             <p-dropdown v-model="selectedGroupedCity" :options="groupedCities" option-label="label" option-group-label="label" option-group-children="items">
                 <template #optiongroup="slotProps">
-                    <div class="p-d-flex p-ai-center country-item">
+                    <div class="flex align-items-center country-item">
                         <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="18" />
                         <div>{{slotProps.option.label}}</div>
                     </div>
@@ -885,7 +885,7 @@ export default {
             <h5>Virtual Scroll (1000 Items) and Lazy</h5>
             <p-dropdown v-model="selectedItem2" :options="lazyItems" option-label="label" option-value="value" :virtual-scroller-options="{ lazy: true, onLazyLoad: onLazyLoad, itemSize: 31, showLoader: true, loading: loading, delay: 250 }" placeholder="Select Item">
                 <template v-slot:loader="{ options }">
-                    <div class="p-d-flex p-ai-center p-p-2" style="height: 31px" >
+                    <div class="flex align-items-center p-2" style="height: 31px" >
                         <p-skeleton :width="options.even ? '60%' : '50%'" height="1rem"></p-skeleton>
                     </div>
                 </template>

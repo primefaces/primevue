@@ -370,10 +370,10 @@ export default {
         </Accordion>
 
         <h5>Programmatic</h5>
-        <div class="p-pb-3">
+        <div class="pb-3">
             <Button @click="active = 0" class="p-button-text" label="Activate 1st" />
-            <Button @click="active = 1" class="p-button-text  p-mr-2" label="Activate 2nd" />
-            <Button @click="active = 2" class="p-button-text  p-mr-2" label="Activate 3rd" />
+            <Button @click="active = 1" class="p-button-text  mr-2" label="Activate 2nd" />
+            <Button @click="active = 2" class="p-button-text  mr-2" label="Activate 3rd" />
         </div>
 
         <Accordion v-model:activeIndex="active">
@@ -499,10 +499,10 @@ export default {
         </Accordion>
 
         <h5>Programmatic</h5>
-        <div class="p-pb-3">
+        <div class="pb-3">
             <Button @click="active = 0" class="p-button-text" label="Activate 1st" />
-            <Button @click="active = 1" class="p-button-text  p-mr-2" label="Activate 2nd" />
-            <Button @click="active = 2" class="p-button-text  p-mr-2" label="Activate 3rd" />
+            <Button @click="active = 1" class="p-button-text  mr-2" label="Activate 2nd" />
+            <Button @click="active = 2" class="p-button-text  mr-2" label="Activate 3rd" />
         </div>
 
         <Accordion v-model:activeIndex="active">
@@ -630,10 +630,10 @@ export default {
             </p-accordion>
 
             <h5>Programmatic</h5>
-            <div class="p-pb-3">
+            <div class="pb-3">
                 <p-button @click="active = 0" class="p-button-text" label="Activate 1st"></p-button>
-                <p-button @click="active = 1" class="p-button-text  p-mr-2" label="Activate 2nd"></p-button>
-                <p-button @click="active = 2" class="p-button-text  p-mr-2" label="Activate 3rd"></p-button>
+                <p-button @click="active = 1" class="p-button-text  mr-2" label="Activate 2nd"></p-button>
+                <p-button @click="active = 2" class="p-button-text  mr-2" label="Activate 3rd"></p-button>
             </div>
 
             <p-accordion v-model:active-index="active">

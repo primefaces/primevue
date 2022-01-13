@@ -441,9 +441,9 @@ export default {
             <h5>Grouped</h5>
             <AutoComplete v-model="selectedCity" :suggestions="filteredCities" @complete="searchCity($event)" field="label" optionGroupLabel="label" optionGroupChildren="items">
                 <template #optiongroup="slotProps">
-                    <div class="p-d-flex p-ai-center country-item">
+                    <div class="flex align-items-center country-item">
                         <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="18" />
-                        <div class="p-ml-2">{{slotProps.item.label}}</div>
+                        <div class="ml-2">{{slotProps.item.label}}</div>
                     </div>
                 </template>
             </AutoComplete>
@@ -453,7 +453,7 @@ export default {
                 <template #item="slotProps">
                     <div class="country-item">
                         <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="18" />
-                        <div class="p-ml-2">{{slotProps.item.name}}</div>
+                        <div class="ml-2">{{slotProps.item.name}}</div>
                     </div>
                 </template>
             </AutoComplete>
@@ -578,9 +578,9 @@ export default {
             <h5>Grouped</h5>
             <AutoComplete v-model="selectedCity" :suggestions="filteredCities" @complete="searchCity($event)" field="label" optionGroupLabel="label" optionGroupChildren="items">
                 <template #optiongroup="slotProps">
-                    <div class="p-d-flex p-ai-center country-item">
+                    <div class="flex align-items-center country-item">
                         <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="18" />
-                        <div class="p-ml-2">{{slotProps.item.label}}</div>
+                        <div class="ml-2">{{slotProps.item.label}}</div>
                     </div>
                 </template>
             </AutoComplete>
@@ -590,7 +590,7 @@ export default {
                 <template #item="slotProps">
                     <div class="country-item">
                         <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="18" />
-                        <div class="p-ml-2">{{slotProps.item.name}}</div>
+                        <div class="ml-2">{{slotProps.item.name}}</div>
                     </div>
                 </template>
             </AutoComplete>
@@ -712,9 +712,9 @@ export default {
             <h5>Grouped</h5>
             <p-autocomplete v-model="selectedCity" :suggestions="filteredCities" @complete="searchCity($event)" field="label" option-group-label="label" option-group-children="items">
                 <template #optiongroup="slotProps">
-                    <div class="p-d-flex p-ai-center country-item">
+                    <div class="flex align-items-center country-item">
                         <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="18" />
-                        <div class="p-ml-2">{{slotProps.item.label}}</div>
+                        <div class="ml-2">{{slotProps.item.label}}</div>
                     </div>
                 </template>
             </p-autocomplete>
@@ -724,7 +724,7 @@ export default {
                 <template #item="slotProps">
                     <div class="country-item">
                         <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="18" />
-                        <div class="p-ml-2">{{slotProps.item.name}}</div>
+                        <div class="ml-2">{{slotProps.item.name}}</div>
                     </div>
                 </template>
             </p-autocomplete>

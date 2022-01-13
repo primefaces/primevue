@@ -105,8 +105,8 @@ export default {
                     content: `
 <template>
     <div>
-        <div class="p-grid">
-            <div class="p-col-12 p-md-4 p-p-5">
+        <div class="grid">
+            <div class="col-12 md:col-4 p-5">
                 <ScrollPanel style="width: 100%; height: 200px">
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -123,7 +123,7 @@ export default {
                     </p>
                 </ScrollPanel>
             </div>
-            <div class="p-col-12 p-md-4 p-p-5">
+            <div class="col-12 md:col-4 p-5">
                 <ScrollPanel style="width: 100%; height: 200px" class="custombar1">
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -140,7 +140,7 @@ export default {
                     </p>
                 </ScrollPanel>
             </div>
-            <div class="p-col-12 p-md-4 p-p-5">
+            <div class="col-12 md:col-4 p-5">
                 <ScrollPanel style="width: 100%; height: 200px" class="custombar2">
                     <p style="width: 600px">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -211,8 +211,8 @@ export default {
                     content: `
 <template>
     <div>
-        <div class="p-grid">
-            <div class="p-col-12 p-md-4 p-p-5">
+        <div class="grid">
+            <div class="col-12 md:col-4 p-5">
                 <ScrollPanel style="width: 100%; height: 200px">
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -229,7 +229,7 @@ export default {
                     </p>
                 </ScrollPanel>
             </div>
-            <div class="p-col-12 p-md-4 p-p-5">
+            <div class="col-12 md:col-4 p-5">
                 <ScrollPanel style="width: 100%; height: 200px" class="custombar1">
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -246,7 +246,7 @@ export default {
                     </p>
                 </ScrollPanel>
             </div>
-            <div class="p-col-12 p-md-4 p-p-5">
+            <div class="col-12 md:col-4 p-5">
                 <ScrollPanel style="width: 100%; height: 200px" class="custombar2">
                     <p style="width: 600px">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -316,8 +316,8 @@ export default {
                     tabName: 'Browser Source',
                     imports: `<script src="https://unpkg.com/primevue@^3/scrollpanel/scrollpanel.min.js"><\\/script>`,
                     content: `<div id="app">
-            <div class="p-grid">
-                <div class="p-col-12 p-md-4 p-p-5">
+            <div class="grid">
+                <div class="col-12 md:col-4 p-5">
                     <p-scrollpanel style="width: 100%; height: 200px">
                         <p>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -334,7 +334,7 @@ export default {
                         </p>
                     </p-scrollpanel>
                 </div>
-                <div class="p-col-12 p-md-4 p-p-5">
+                <div class="col-12 md:col-4 p-5">
                     <p-scrollpanel style="width: 100%; height: 200px" class="custombar1">
                         <p>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -351,7 +351,7 @@ export default {
                         </p>
                     </p-scrollpanel>
                 </div>
-                <div class="p-col-12 p-md-4 p-p-5">
+                <div class="col-12 md:col-4 p-5">
                     <p-scrollpanel style="width: 100%; height: 200px" class="custombar2">
                         <p style="width: 600px">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.

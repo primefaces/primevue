@@ -94,8 +94,8 @@ export default {
 
             <InputText v-model="filter" class="icon-filter" placeholder="Search an icon" />
 
-            <div class="p-grid icons-list">
-                <div class="p-col-12 p-md-2" v-for="icon of filteredIcons" :key="icon.properties.name">
+            <div class="grid icons-list">
+                <div class="col-12 md:col-2 icon" v-for="icon of filteredIcons" :key="icon.properties.name">
                     <i :class="'pi pi-' + icon.properties.name"></i>
                     <div>pi-{{icon.properties.name}}</div>
                 </div>
@@ -158,7 +158,7 @@ export default {
         margin-bottom: .5rem;
     }
 
-    .p-md-2 {
+    .icon {
         padding-bottom: 2rem;
     }
 }

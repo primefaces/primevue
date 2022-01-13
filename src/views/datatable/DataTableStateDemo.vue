@@ -15,7 +15,7 @@
                     v-model:selection="selectedCustomer1" selectionMode="single" dataKey="id"
                     stateStorage="session" stateKey="dt-state-demo-session" responsiveLayout="scroll">
                     <template #header>
-                       <span class="p-input-icon-left">
+                        <span class="p-input-icon-left">
                             <i class="pi pi-search" />
                             <InputText v-model="filters1['global'].value" placeholder="Global Search" />
                         </span>
@@ -74,7 +74,7 @@
                     v-model:selection="selectedCustomer2" selectionMode="single" dataKey="id"
                     stateStorage="local" stateKey="dt-state-demo-local" responsiveLayout="scroll">
                     <template #header>
-                       <span class="p-input-icon-left">
+                        <span class="p-input-icon-left">
                             <i class="pi pi-search" />
                             <InputText v-model="filters2['global'].value" placeholder="Global Search" />
                         </span>
@@ -173,7 +173,7 @@ export default {
                 v-model:selection="selectedCustomer1" selectionMode="single" dataKey="id"
                 stateStorage="session" stateKey="dt-state-demo-session" responsiveLayout="scroll">
                 <template #header>
-                   <span class="p-input-icon-left">
+                    <span class="p-input-icon-left">
                         <i class="pi pi-search" />
                         <InputText v-model="filters1['global'].value" placeholder="Global Search" />
                     </span>
@@ -232,7 +232,7 @@ export default {
                 v-model:selection="selectedCustomer2" selectionMode="single" dataKey="id"
                 stateStorage="local" stateKey="dt-state-demo-local" responsiveLayout="scroll">
                 <template #header>
-                   <span class="p-input-icon-left">
+                    <span class="p-input-icon-left">
                         <i class="pi pi-search" />
                         <InputText v-model="filters2['global'].value" placeholder="Global Search" />
                     </span>
@@ -353,7 +353,7 @@ export default {
                 v-model:selection="selectedCustomer1" selectionMode="single" dataKey="id"
                 stateStorage="session" stateKey="dt-state-demo-session" responsiveLayout="scroll">
                 <template #header>
-                   <span class="p-input-icon-left">
+                    <span class="p-input-icon-left">
                         <i class="pi pi-search" />
                         <InputText v-model="filters1['global'].value" placeholder="Global Search" />
                     </span>
@@ -412,7 +412,7 @@ export default {
                 v-model:selection="selectedCustomer2" selectionMode="single" dataKey="id"
                 stateStorage="local" stateKey="dt-state-demo-local" responsiveLayout="scroll">
                 <template #header>
-                   <span class="p-input-icon-left">
+                    <span class="p-input-icon-left">
                         <i class="pi pi-search" />
                         <InputText v-model="filters2['global'].value" placeholder="Global Search" />
                     </span>

@@ -139,17 +139,17 @@ export default {
 <template>
     <div>
         <h5>Positions</h5>
-        <div class="p-grid p-fluid">
-            <div class="p-col-12 p-md-3">
+        <div class="grid p-fluid">
+            <div class="col-12 md:col-3">
                 <InputText type="text" placeholder="Right" v-tooltip.right="'Enter your username'" />
             </div>
-            <div class="p-col-12 p-md-3">
+            <div class="col-12 md:col-3">
                 <InputText type="text" placeholder="Top" v-tooltip.top="'Enter your username'" />
             </div>
-            <div class="p-col-12 p-md-3">
+            <div class="col-12 md:col-3">
                 <InputText type="text" placeholder="Bottom" v-tooltip.bottom="'Enter your username'" />
             </div>
-            <div class="p-col-12 p-md-3">
+            <div class="col-12 md:col-3">
                 <InputText type="text" placeholder="Left" v-tooltip.left="'Enter your username'" />
             </div>
         </div>
@@ -186,17 +186,17 @@ export default {
 <template>
     <div>
         <h5>Positions</h5>
-        <div class="p-grid p-fluid">
-            <div class="p-col-12 p-md-3">
+        <div class="grid p-fluid">
+            <div class="col-12 md:col-3">
                 <InputText type="text" placeholder="Right" v-tooltip.right="'Enter your username'" />
             </div>
-            <div class="p-col-12 p-md-3">
+            <div class="col-12 md:col-3">
                 <InputText type="text" placeholder="Top" v-tooltip.top="'Enter your username'" />
             </div>
-            <div class="p-col-12 p-md-3">
+            <div class="col-12 md:col-3">
                 <InputText type="text" placeholder="Bottom" v-tooltip.bottom="'Enter your username'" />
             </div>
-            <div class="p-col-12 p-md-3">
+            <div class="col-12 md:col-3">
                 <InputText type="text" placeholder="Left" v-tooltip.left="'Enter your username'" />
             </div>
         </div>
@@ -232,17 +232,17 @@ export default {
                     imports: `<script src="https://unpkg.com/primevue@^3/tooltip/tooltip.min.js"><\\/script>`,
                     content: `<div id="app">
             <h5>Positions</h5>
-            <div class="p-grid p-fluid">
-                <div class="p-col-12 p-md-3">
+            <div class="grid p-fluid">
+                <div class="col-12 md:col-3">
                     <p-inputtext type="text" placeholder="Right" v-tooltip.right="'Enter your username'"></p-inputtext>
                 </div>
-                <div class="p-col-12 p-md-3">
+                <div class="col-12 md:col-3">
                     <p-inputtext type="text" placeholder="Top" v-tooltip.top="'Enter your username'"></p-inputtext>
                 </div>
-                <div class="p-col-12 p-md-3">
+                <div class="col-12 md:col-3">
                     <p-inputtext type="text" placeholder="Bottom" v-tooltip.bottom="'Enter your username'"></p-inputtext>
                 </div>
-                <div class="p-col-12 p-md-3">
+                <div class="col-12 md:col-3">
                     <p-inputtext type="text" placeholder="Left" v-tooltip.left="'Enter your username'"></p-inputtext>
                 </div>
             </div>

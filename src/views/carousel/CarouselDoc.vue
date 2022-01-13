@@ -316,16 +316,16 @@ export default {
                 <template #item="slotProps">
                     <div class="product-item">
                         <div class="product-item-content">
-                            <div class="p-mb-3">
+                            <div class="mb-3">
                                 <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" :alt="slotProps.data.name" class="product-image" />
                             </div>
                             <div>
-                                <h4 class="p-mb-1">{{slotProps.data.name}}</h4>
-                                <h6 class="p-mt-0 p-mb-3">\${{slotProps.data.price}}</h6>
+                                <h4 class="mb-1">{{slotProps.data.name}}</h4>
+                                <h6 class="mt-0 mb-3">\${{slotProps.data.price}}</h6>
                                 <span :class="'product-badge status-'+slotProps.data.inventoryStatus.toLowerCase()">{{slotProps.data.inventoryStatus}}</span>
-                                <div class="car-buttons p-mt-5">
-                                    <Button icon="pi pi-search" class="p-button p-button-rounded p-mr-2" />
-                                    <Button icon="pi pi-star-fill" class="p-button-success p-button-rounded p-mr-2" />
+                                <div class="car-buttons mt-5">
+                                    <Button icon="pi pi-search" class="p-button p-button-rounded mr-2" />
+                                    <Button icon="pi pi-star-fill" class="p-button-success p-button-rounded mr-2" />
                                     <Button icon="pi pi-cog" class="p-button-help p-button-rounded" />
                                 </div>
                             </div>
@@ -343,16 +343,16 @@ export default {
                 <template #item="slotProps">
                     <div class="product-item">
                         <div class="product-item-content">
-                            <div class="p-mb-3">
+                            <div class="mb-3">
                                 <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" :alt="slotProps.data.name" class="product-image" />
                             </div>
                             <div>
-                                <h4 class="p-mb-1">{{slotProps.data.name}}</h4>
-                                <h6 class="p-mt-0 p-mb-3">\${{slotProps.data.price}}</h6>
+                                <h4 class="mb-1">{{slotProps.data.name}}</h4>
+                                <h6 class="mt-0 mb-3">\${{slotProps.data.price}}</h6>
                                 <span :class="'product-badge status-'+slotProps.data.inventoryStatus.toLowerCase()">{{slotProps.data.inventoryStatus}}</span>
-                                <div class="car-buttons p-mt-5">
-                                    <Button icon="pi pi-search" class="p-button p-button-rounded p-mr-2" />
-                                    <Button icon="pi pi-star-fill" class="p-button-success p-button-rounded p-mr-2" />
+                                <div class="car-buttons mt-5">
+                                    <Button icon="pi pi-search" class="p-button p-button-rounded mr-2" />
+                                    <Button icon="pi pi-star-fill" class="p-button-success p-button-rounded mr-2" />
                                     <Button icon="pi pi-cog" class="p-button-help p-button-rounded" />
                                 </div>
                             </div>
@@ -371,16 +371,16 @@ export default {
                 <template #item="slotProps">
                     <div class="product-item">
                         <div class="product-item-content">
-                            <div class="p-mb-3">
+                            <div class="mb-3">
                                 <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" :alt="slotProps.data.name" class="product-image" />
                             </div>
                             <div>
-                                <h4 class="p-mb-1">{{slotProps.data.name}}</h4>
-                                <h6 class="p-mt-0 p-mb-3">\${{slotProps.data.price}}</h6>
+                                <h4 class="mb-1">{{slotProps.data.name}}</h4>
+                                <h6 class="mt-0 mb-3">\${{slotProps.data.price}}</h6>
                                 <span :class="'product-badge status-'+slotProps.data.inventoryStatus.toLowerCase()">{{slotProps.data.inventoryStatus}}</span>
-                                <div class="car-buttons p-mt-5">
-                                    <Button icon="pi pi-search" class="p-button p-button-rounded p-mr-2" />
-                                    <Button icon="pi pi-star-fill" class="p-button-success p-button-rounded p-mr-2" />
+                                <div class="car-buttons mt-5">
+                                    <Button icon="pi pi-search" class="p-button p-button-rounded mr-2" />
+                                    <Button icon="pi pi-star-fill" class="p-button-success p-button-rounded mr-2" />
                                     <Button icon="pi pi-cog" class="p-button-help p-button-rounded" />
                                 </div>
                             </div>
@@ -458,16 +458,16 @@ export default {
                 <template #item="slotProps">
                     <div class="product-item">
                         <div class="product-item-content">
-                            <div class="p-mb-3">
+                            <div class="mb-3">
                                 <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" :alt="slotProps.data.name" class="product-image" />
                             </div>
                             <div>
-                                <h4 class="p-mb-1">{{slotProps.data.name}}</h4>
-                                <h6 class="p-mt-0 p-mb-3">\${{slotProps.data.price}}</h6>
+                                <h4 class="mb-1">{{slotProps.data.name}}</h4>
+                                <h6 class="mt-0 mb-3">\${{slotProps.data.price}}</h6>
                                 <span :class="'product-badge status-'+slotProps.data.inventoryStatus.toLowerCase()">{{slotProps.data.inventoryStatus}}</span>
-                                <div class="car-buttons p-mt-5">
-                                    <Button icon="pi pi-search" class="p-button p-button-rounded p-mr-2" />
-                                    <Button icon="pi pi-star-fill" class="p-button-success p-button-rounded p-mr-2" />
+                                <div class="car-buttons mt-5">
+                                    <Button icon="pi pi-search" class="p-button p-button-rounded mr-2" />
+                                    <Button icon="pi pi-star-fill" class="p-button-success p-button-rounded mr-2" />
                                     <Button icon="pi pi-cog" class="p-button-help p-button-rounded" />
                                 </div>
                             </div>
@@ -485,16 +485,16 @@ export default {
                 <template #item="slotProps">
                     <div class="product-item">
                         <div class="product-item-content">
-                            <div class="p-mb-3">
+                            <div class="mb-3">
                                 <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" :alt="slotProps.data.name" class="product-image" />
                             </div>
                             <div>
-                                <h4 class="p-mb-1">{{slotProps.data.name}}</h4>
-                                <h6 class="p-mt-0 p-mb-3">\${{slotProps.data.price}}</h6>
+                                <h4 class="mb-1">{{slotProps.data.name}}</h4>
+                                <h6 class="mt-0 mb-3">\${{slotProps.data.price}}</h6>
                                 <span :class="'product-badge status-'+slotProps.data.inventoryStatus.toLowerCase()">{{slotProps.data.inventoryStatus}}</span>
-                                <div class="car-buttons p-mt-5">
-                                    <Button icon="pi pi-search" class="p-button p-button-rounded p-mr-2" />
-                                    <Button icon="pi pi-star-fill" class="p-button-success p-button-rounded p-mr-2" />
+                                <div class="car-buttons mt-5">
+                                    <Button icon="pi pi-search" class="p-button p-button-rounded mr-2" />
+                                    <Button icon="pi pi-star-fill" class="p-button-success p-button-rounded mr-2" />
                                     <Button icon="pi pi-cog" class="p-button-help p-button-rounded" />
                                 </div>
                             </div>
@@ -513,16 +513,16 @@ export default {
                 <template #item="slotProps">
                     <div class="product-item">
                         <div class="product-item-content">
-                            <div class="p-mb-3">
+                            <div class="mb-3">
                                 <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" :alt="slotProps.data.name" class="product-image" />
                             </div>
                             <div>
-                                <h4 class="p-mb-1">{{slotProps.data.name}}</h4>
-                                <h6 class="p-mt-0 p-mb-3">\${{slotProps.data.price}}</h6>
+                                <h4 class="mb-1">{{slotProps.data.name}}</h4>
+                                <h6 class="mt-0 mb-3">\${{slotProps.data.price}}</h6>
                                 <span :class="'product-badge status-'+slotProps.data.inventoryStatus.toLowerCase()">{{slotProps.data.inventoryStatus}}</span>
-                                <div class="car-buttons p-mt-5">
-                                    <Button icon="pi pi-search" class="p-button p-button-rounded p-mr-2" />
-                                    <Button icon="pi pi-star-fill" class="p-button-success p-button-rounded p-mr-2" />
+                                <div class="car-buttons mt-5">
+                                    <Button icon="pi pi-search" class="p-button p-button-rounded mr-2" />
+                                    <Button icon="pi pi-star-fill" class="p-button-success p-button-rounded mr-2" />
                                     <Button icon="pi pi-cog" class="p-button-help p-button-rounded" />
                                 </div>
                             </div>
@@ -598,16 +598,16 @@ export default {
                     <template #item="slotProps">
                         <div class="product-item">
                             <div class="product-item-content">
-                                <div class="p-mb-3">
+                                <div class="mb-3">
                                     <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" :alt="slotProps.data.name" class="product-image" />
                                 </div>
                                 <div>
-                                    <h4 class="p-mb-1">{{slotProps.data.name}}</h4>
-                                    <h6 class="p-mt-0 p-mb-3">\${{slotProps.data.price}}</h6>
+                                    <h4 class="mb-1">{{slotProps.data.name}}</h4>
+                                    <h6 class="mt-0 mb-3">\${{slotProps.data.price}}</h6>
                                     <span :class="'product-badge status-'+slotProps.data.inventoryStatus.toLowerCase()">{{slotProps.data.inventoryStatus}}</span>
-                                    <div class="car-buttons p-mt-5">
-                                        <p-button icon="pi pi-search" class="p-button p-button-rounded p-mr-2"></p-button>
-                                        <p-button icon="pi pi-star-fill" class="p-button-success p-button-rounded p-mr-2"></p-button>
+                                    <div class="car-buttons mt-5">
+                                        <p-button icon="pi pi-search" class="p-button p-button-rounded mr-2"></p-button>
+                                        <p-button icon="pi pi-star-fill" class="p-button-success p-button-rounded mr-2"></p-button>
                                         <p-button icon="pi pi-cog" class="p-button-help p-button-rounded"></p-button>
                                     </div>
                                 </div>
@@ -625,16 +625,16 @@ export default {
                     <template #item="slotProps">
                         <div class="product-item">
                             <div class="product-item-content">
-                                <div class="p-mb-3">
+                                <div class="mb-3">
                                     <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" :alt="slotProps.data.name" class="product-image" />
                                 </div>
                                 <div>
-                                    <h4 class="p-mb-1">{{slotProps.data.name}}</h4>
-                                    <h6 class="p-mt-0 p-mb-3">\${{slotProps.data.price}}</h6>
+                                    <h4 class="mb-1">{{slotProps.data.name}}</h4>
+                                    <h6 class="mt-0 mb-3">\${{slotProps.data.price}}</h6>
                                     <span :class="'product-badge status-'+slotProps.data.inventoryStatus.toLowerCase()">{{slotProps.data.inventoryStatus}}</span>
-                                    <div class="car-buttons p-mt-5">
-                                        <p-button icon="pi pi-search" class="p-button p-button-rounded p-mr-2"></p-button>
-                                        <p-button icon="pi pi-star-fill" class="p-button-success p-button-rounded p-mr-2"></p-button>
+                                    <div class="car-buttons mt-5">
+                                        <p-button icon="pi pi-search" class="p-button p-button-rounded mr-2"></p-button>
+                                        <p-button icon="pi pi-star-fill" class="p-button-success p-button-rounded mr-2"></p-button>
                                         <p-button icon="pi pi-cog" class="p-button-help p-button-rounded"></p-button>
                                     </div>
                                 </div>
@@ -653,16 +653,16 @@ export default {
                     <template #item="slotProps">
                         <div class="product-item">
                             <div class="product-item-content">
-                                <div class="p-mb-3">
+                                <div class="mb-3">
                                     <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" :alt="slotProps.data.name" class="product-image" />
                                 </div>
                                 <div>
-                                    <h4 class="p-mb-1">{{slotProps.data.name}}</h4>
-                                    <h6 class="p-mt-0 p-mb-3">\${{slotProps.data.price}}</h6>
+                                    <h4 class="mb-1">{{slotProps.data.name}}</h4>
+                                    <h6 class="mt-0 mb-3">\${{slotProps.data.price}}</h6>
                                     <span :class="'product-badge status-'+slotProps.data.inventoryStatus.toLowerCase()">{{slotProps.data.inventoryStatus}}</span>
-                                    <div class="car-buttons p-mt-5">
-                                        <p-button icon="pi pi-search" class="p-button p-button-rounded p-mr-2"></p-button>
-                                        <p-button icon="pi pi-star-fill" class="p-button-success p-button-rounded p-mr-2"></p-button>
+                                    <div class="car-buttons mt-5">
+                                        <p-button icon="pi pi-search" class="p-button p-button-rounded mr-2"></p-button>
+                                        <p-button icon="pi pi-star-fill" class="p-button-success p-button-rounded mr-2"></p-button>
                                         <p-button icon="pi pi-cog" class="p-button-help p-button-rounded"></p-button>
                                     </div>
                                 </div>

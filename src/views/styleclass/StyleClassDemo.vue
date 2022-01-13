@@ -13,12 +13,12 @@
         <div class="card">
             <h5>Toggle Class</h5>
             <Button label="Toggle p-disabled" v-styleclass="{ selector: '@next', toggleClass: 'p-disabled' }" />
-            <InputText class="p-d-block p-mt-3" />
+            <InputText class="block mt-3" />
 
             <h5>Animations</h5>
-            <Button label="Show" class="p-mr-2" v-styleclass="{ selector: '.box', enterClass: 'p-d-none', enterActiveClass: 'my-fadein' }" />
-            <Button label="Hide" v-styleclass="{ selector: '.box', leaveActiveClass: 'my-fadeout', leaveToClass: 'p-d-none' }" />
-            <div class="box p-d-none">Content</div>
+            <Button label="Show" class="mr-2" v-styleclass="{ selector: '.box', enterClass: 'hidden', enterActiveClass: 'my-fadein' }" />
+            <Button label="Hide" v-styleclass="{ selector: '.box', leaveActiveClass: 'my-fadeout', leaveToClass: 'hidden' }" />
+            <div class="box hidden">Content</div>
         </div>
     </div>
 

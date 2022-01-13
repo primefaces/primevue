@@ -78,7 +78,7 @@
                 <h5>Frozen Columns</h5>
                 <ToggleButton v-model="balanceFrozen" onIcon="pi pi-lock" offIcon="pi pi-lock-open" onLabel="Unfreeze Balance" offLabel="Freeze Balance" style="flex-grow:1; flex-basis: 12rem" />
 
-                <DataTable :value="customers2" :scrollable="true" scrollHeight="400px" :loading="loading" scrollDirection="both" class="p-mt-3">
+                <DataTable :value="customers2" :scrollable="true" scrollHeight="400px" :loading="loading" scrollDirection="both" class="mt-3">
                     <Column field="name" header="Name" style="flex-grow:1; flex-basis:160px" frozen></Column>
                     <Column field="id" header="Id" style="flex-grow:1;flex-basis:100px"></Column>
                     <Column field="name" header="Name" style="flex-grow:1; flex-basis:200px"></Column>
@@ -90,7 +90,7 @@
                     <Column field="representative.name" header="Representative" style="flex-grow:1; flex-basis:200px"></Column>
                     <Column field="balance" header="Balance" style="flex-grow:1; flex-basis:120px" alignFrozen="right" :frozen="balanceFrozen">
                         <template #body="{data}">
-                             <span class="p-text-bold">{{formatCurrency(data.balance)}}</span>
+                             <span class="font-bold">{{formatCurrency(data.balance)}}</span>
                         </template>
                     </Column>
                 </DataTable>
@@ -120,7 +120,7 @@
                         <span class="image-text">{{slotProps.data.representative.name}}</span>
                     </template>
                     <template #groupfooter="slotProps">
-                        <td style="text-align: right" class="p-text-bold p-pr-6">Total Customers: {{calculateCustomerTotal(slotProps.data.representative.name)}}</td>
+                        <td style="text-align: right" class="font-bold p-pr-6">Total Customers: {{calculateCustomerTotal(slotProps.data.representative.name)}}</td>
                     </template>
                 </DataTable>
             </div>
@@ -216,7 +216,7 @@ export default {
             <h5>Frozen Columns</h5>
             <ToggleButton v-model="balanceFrozen" onIcon="pi pi-lock" offIcon="pi pi-lock-open" onLabel="Unfreeze Balance" offLabel="Freeze Balance" style="flex-grow:1; flex-basis: 12rem" />
 
-            <DataTable :value="customers2" :scrollable="true" scrollHeight="400px" :loading="loading" scrollDirection="both" class="p-mt-3">
+            <DataTable :value="customers2" :scrollable="true" scrollHeight="400px" :loading="loading" scrollDirection="both" class="mt-3">
                 <Column field="name" header="Name" style="flex-grow:1; flex-basis:160px" frozen></Column>
                 <Column field="id" header="Id" style="flex-grow:1; flex-basis:100px"></Column>
                 <Column field="name" header="Name" style="flex-grow:1; flex-basis:200px"></Column>
@@ -228,7 +228,7 @@ export default {
                 <Column field="representative.name" header="Representative" style="flex-grow:1; flex-basis:200px"></Column>
                 <Column field="balance" header="Balance" style="flex-grow:1; flex-basis:120px" alignFrozen="right" :frozen="balanceFrozen">
                     <template #body="{data}">
-                         <span class="p-text-bold">{{formatCurrency(data.balance)}}</span>
+                         <span class="font-bold">{{formatCurrency(data.balance)}}</span>
                     </template>
                 </Column>
             </DataTable>
@@ -258,7 +258,7 @@ export default {
                     <span class="image-text">{{slotProps.data.representative.name}}</span>
                 </template>
                 <template #groupfooter="slotProps">
-                    <td style="text-align: right" class="p-text-bold p-pr-6">Total Customers: {{calculateCustomerTotal(slotProps.data.representative.name)}}</td>
+                    <td style="text-align: right" class="font-bold p-pr-6">Total Customers: {{calculateCustomerTotal(slotProps.data.representative.name)}}</td>
                 </template>
             </DataTable>
         </div>
@@ -438,7 +438,7 @@ export default {
             <h5>Frozen Columns</h5>
             <ToggleButton v-model="balanceFrozen" onIcon="pi pi-lock" offIcon="pi pi-lock-open" onLabel="Unfreeze Balance" offLabel="Freeze Balance" style="flex-grow:1; flex-basis: 12rem" />
 
-            <DataTable :value="customers2" :scrollable="true" scrollHeight="400px" :loading="loading" scrollDirection="both" class="p-mt-3">
+            <DataTable :value="customers2" :scrollable="true" scrollHeight="400px" :loading="loading" scrollDirection="both" class="mt-3">
                 <Column field="name" header="Name" style="flex-grow:1; flex-basis:160px" frozen></Column>
                 <Column field="id" header="Id" style="flex-grow:1; flex-basis:100px"></Column>
                 <Column field="name" header="Name" style="flex-grow:1; flex-basis:200px"></Column>
@@ -450,7 +450,7 @@ export default {
                 <Column field="representative.name" header="Representative" style="flex-grow:1; flex-basis:200px"></Column>
                 <Column field="balance" header="Balance" style="flex-grow:1; flex-basis:120px" alignFrozen="right" :frozen="balanceFrozen">
                     <template #body="{data}">
-                         <span class="p-text-bold">{{formatCurrency(data.balance)}}</span>
+                         <span class="font-bold">{{formatCurrency(data.balance)}}</span>
                     </template>
                 </Column>
             </DataTable>
@@ -480,7 +480,7 @@ export default {
                     <span class="image-text">{{slotProps.data.representative.name}}</span>
                 </template>
                 <template #groupfooter="slotProps">
-                    <td style="text-align: right" class="p-text-bold p-pr-6">Total Customers: {{calculateCustomerTotal(slotProps.data.representative.name)}}</td>
+                    <td style="text-align: right" class="font-bold p-pr-6">Total Customers: {{calculateCustomerTotal(slotProps.data.representative.name)}}</td>
                 </template>
             </DataTable>
         </div>
@@ -664,7 +664,7 @@ export default {
                 <h5>Frozen Columns</h5>
                 <p-togglebutton v-model="balanceFrozen" on-icon="pi pi-lock" off-icon="pi pi-lock-open" on-label="Unfreeze Balance" off-label="Freeze Balance" style="flex-grow:1; flex-basis: 12rem"></p-togglebutton>
 
-                <p-datatable :value="customers2" :scrollable="true" scroll-height="400px" :loading="loading" scroll-direction="both" class="p-mt-3">
+                <p-datatable :value="customers2" :scrollable="true" scroll-height="400px" :loading="loading" scroll-direction="both" class="mt-3">
                     <p-column field="name" header="Name" style="flex-grow:1; flex-basis:160px" frozen></p-column>
                     <p-column field="id" header="Id" style="flex-grow:1; flex-basis:100px"></p-column>
                     <p-column field="name" header="Name" style="flex-grow:1; flex-basis:200px"></p-column>
@@ -676,7 +676,7 @@ export default {
                     <p-column field="representative.name" header="Representative" style="flex-grow:1; flex-basis:200px"></p-column>
                     <p-column field="balance" header="Balance" style="flex-grow:1; flex-basis:120px" alignFrozen="right" :frozen="balanceFrozen">
                         <template #body="{data}">
-                            <span class="p-text-bold">{{formatCurrency(data.balance)}}</span>
+                            <span class="font-bold">{{formatCurrency(data.balance)}}</span>
                         </template>
                     </p-column>
                 </p-datatable>
@@ -706,7 +706,7 @@ export default {
                         <span class="image-text">{{slotProps.data.representative.name}}</span>
                     </template>
                     <template #groupfooter="slotProps">
-                        <td style="text-align: right" class="p-text-bold p-pr-6">Total Customers: {{calculateCustomerTotal(slotProps.data.representative.name)}}</td>
+                        <td style="text-align: right" class="font-bold p-pr-6">Total Customers: {{calculateCustomerTotal(slotProps.data.representative.name)}}</td>
                     </template>
                 </p-datatable>
             </div>

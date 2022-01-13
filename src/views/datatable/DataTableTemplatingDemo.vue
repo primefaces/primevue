@@ -19,7 +19,7 @@
                     </template>
                     <Column field="name" header="Name"></Column>
                     <Column header="Image">
-                         <template #body="slotProps">
+                        <template #body="slotProps">
                             <img :src="'demo/images/product/' + slotProps.data.image" :alt="slotProps.data.image" class="product-image" />
                         </template>
                     </Column>
@@ -30,7 +30,7 @@
                     </Column>
                     <Column field="rating" header="Reviews">
                         <template #body="slotProps">
-                           <Rating :modelValue="slotProps.data.rating" :readonly="true" :cancel="false" />
+                            <Rating :modelValue="slotProps.data.rating" :readonly="true" :cancel="false" />
                         </template>
                     </Column>
                     <Column header="Status">
@@ -72,7 +72,7 @@ export default {
             </template>
             <Column field="name" header="Name"></Column>
             <Column header="Image">
-                 <template #body="slotProps">
+                <template #body="slotProps">
                     <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" :alt="slotProps.data.image" class="product-image" />
                 </template>
             </Column>
@@ -83,7 +83,7 @@ export default {
             </Column>
             <Column field="rating" header="Reviews">
                 <template #body="slotProps">
-                   <Rating :modelValue="slotProps.data.rating" :readonly="true" :cancel="false" />
+                    <Rating :modelValue="slotProps.data.rating" :readonly="true" :cancel="false" />
                 </template>
             </Column>
             <Column header="Status">
@@ -150,7 +150,7 @@ export default {
             </template>
             <Column field="name" header="Name"></Column>
             <Column header="Image">
-                 <template #body="slotProps">
+                <template #body="slotProps">
                     <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" :alt="slotProps.data.image" class="product-image" />
                 </template>
             </Column>
@@ -161,7 +161,7 @@ export default {
             </Column>
             <Column field="rating" header="Reviews">
                 <template #body="slotProps">
-                   <Rating :modelValue="slotProps.data.rating" :readonly="true" :cancel="false" />
+                    <Rating :modelValue="slotProps.data.rating" :readonly="true" :cancel="false" />
                 </template>
             </Column>
             <Column header="Status">
