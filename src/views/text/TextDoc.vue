@@ -19,20 +19,6 @@
 </template>
 </code></pre>
 
-        <h5>Wrap</h5>
-        <p>Text wrapping defines how the text would be displayed when it exceeds the size of its container.</p>
-        <ul>
-            <li>nowrap</li>
-            <li>wrap</li>
-            <li>truncate</li>
-        </ul>
-<pre v-code><code><template v-pre>
-&lt;div style="width: 10rem"&gt;Long text wraps and does not overlow.&lt;/div&gt;
-&lt;div class="white-space-nowrap" style="width: 10rem"&gt;Long text does not wrap and overflows the parent.&lt;/div&gt;
-&lt;div class="white-space-nowrap text-overflow-ellipsis" style="width: 10rem"&gt;Long text does not wrap and overflows the parent.&lt;/div&gt;
-</template>
-</code></pre>
-
         <h5>Transform</h5>
         <p>Transform property changes the case of the text.</p>
         <ul>
@@ -47,10 +33,21 @@
 </template>
 </code></pre>
 
+        <h5>Wrap</h5>
+        <p>Text wrapping defines how the text would be displayed when it exceeds the size of its container.</p>
+<pre v-code><code><template v-pre>
+&lt;div style="width: 10rem"&gt;Long text wraps and does not overlow.&lt;/div&gt;
+&lt;div class="white-space-nowrap" style="width: 10rem"&gt;Long text does not wrap and overflows the parent.&lt;/div&gt;
+&lt;div class="white-space-nowrap overflow-hidden text-overflow-ellipsis" style="width: 10rem"&gt;Long text does not wrap and overflows the parent.&lt;/div&gt;
+</template>
+</code></pre>
+
         <h5>Style</h5>
-        <p>Text styling applies to font weight and style.</p>
+        <p>Text styling applies to font weight and style and also uses <i>font-{value}</i> syntax.</p>
         <ul>
             <li>bold</li>
+            <li>semi-bold</li>
+            <li>medium</li>
             <li>normal</li>
             <li>light</li>
             <li>italic</li>
@@ -89,7 +86,7 @@ export default {
         <h5>Wrap</h5>
         <div class="mb-3 demo-container" style="width: 10rem">Long text wraps and does not overlow.</div>
         <div class="mb-3 demo-container white-space-nowrap" style="width: 10rem">Long text does not wrap and overflows the parent.</div>
-        <div class="mb-3 demo-container white-space-nowrap text-overflow-ellipsis" style="width: 10rem">Long text does not wrap and overflows the parent.</div>
+        <div class="mb-3 demo-container white-space-nowrap overflow-hidden text-overflow-ellipsis" style="width: 10rem">Long text does not wrap and overflows the parent.</div>
 
         <h5>Transform</h5>
         <div class="mb-3 text-lowercase">LOWERCASE</div>
@@ -129,7 +126,7 @@ export default {
         <h5>Wrap</h5>
         <div class="mb-3 demo-container" style="width: 10rem">Long text wraps and does not overlow.</div>
         <div class="mb-3 demo-container white-space-nowrap" style="width: 10rem">Long text does not wrap and overflows the parent.</div>
-        <div class="mb-3 demo-container white-space-nowrap text-overflow-ellipsis" style="width: 10rem">Long text does not wrap and overflows the parent.</div>
+        <div class="mb-3 demo-container white-space-nowrap overflow-hidden text-overflow-ellipsis" style="width: 10rem">Long text does not wrap and overflows the parent.</div>
 
         <h5>Transform</h5>
         <div class="mb-3 text-lowercase">LOWERCASE</div>
@@ -167,7 +164,7 @@ export default {
             <h5>Wrap</h5>
             <div class="mb-3 demo-container" style="width: 10rem">Long text wraps and does not overlow.</div>
             <div class="mb-3 demo-container white-space-nowrap" style="width: 10rem">Long text does not wrap and overflows the parent.</div>
-            <div class="mb-3 demo-container white-space-nowrap text-overflow-ellipsis" style="width: 10rem">Long text does not wrap and overflows the parent.</div>
+            <div class="mb-3 demo-container white-space-nowrap overflow-hidden text-overflow-ellipsis" style="width: 10rem">Long text does not wrap and overflows the parent.</div>
 
             <h5>Transform</h5>
             <div class="mb-3 text-lowercase">LOWERCASE</div>

@@ -10,9 +10,12 @@
 
         <div class="content-section implementation">
             <div class="grid">
+                <div class="p-col">
+                    <div class="shadow-box shadow-none">shadow-none</div>
+                </div>
                 <div class="p-col" v-for="index in 8" :key="index">
                     <div :class="['shadow-box', 'shadow-' + index]">
-                        p-shadow-{{index}}
+                        shadow-{{index}}
                     </div>
                 </div>
             </div>

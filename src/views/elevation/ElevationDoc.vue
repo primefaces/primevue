@@ -31,6 +31,9 @@ export default {
 <template>
     <div>
         <div class="grid">
+            <div class="p-col">
+                    <div class="shadow-box shadow-none">shadow-none</div>
+                </div>
             <div class="p-col" v-for="index in 8" :key="index">
                 <div :class="['shadow-box', 'shadow-' + index]">
                     shadow-{{index}}
@@ -66,6 +69,9 @@ export default {
 <template>
     <div>
         <div class="grid">
+            <div class="p-col">
+                    <div class="shadow-box shadow-none">shadow-none</div>
+                </div>
             <div class="p-col" v-for="index in 8" :key="index">
                 <div :class="['shadow-box', 'shadow-' + index]">
                     shadow-{{index}}
@@ -99,6 +105,9 @@ export default {
                     tabName: 'Browser Source',
                     content: `<div id="app">
             <div class="grid">
+                <div class="p-col">
+                    <div class="shadow-box shadow-none">shadow-none</div>
+                </div>
                 <div class="p-col" v-for="index in 8" :key="index">
                     <div :class="['shadow-box', 'shadow-' + index]">
                         shadow-{{index}}
