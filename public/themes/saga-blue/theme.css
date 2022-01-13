@@ -811,6 +811,9 @@
 .p-input-filled .p-dropdown:not(.p-disabled).p-focus {
   background-color: #ffffff;
 }
+.p-input-filled .p-dropdown:not(.p-disabled).p-focus .p-inputtext {
+  background-color: transparent;
+}
 
 .p-editor-container .p-editor-toolbar {
   background: #f8f9fa;
