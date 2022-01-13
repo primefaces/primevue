@@ -182,14 +182,14 @@ export default {
         </span>
 
         <h5>Help Text</h5>
-        <div class="p-field">
+        <div class="field">
             <label for="username1">Username</label>
             <InputText id="username1" type="username" aria-describedby="username1-help" />
             <small id="username1-help">Enter your username to reset your password.</small>
         </div>
 
         <h5>Invalid</h5>
-        <div class="p-field">
+        <div class="field">
             <label for="username2">Username</label>
             <InputText id="username2" type="username" aria-describedby="username2-help" class="p-invalid" />
             <small id="username2-help" class="p-error">Username is not available.</small>
@@ -233,7 +233,7 @@ export default {
     }
 }
 
-.p-field * {
+.field * {
     display: block;
 }
 </style>`
@@ -266,14 +266,14 @@ export default {
         </span>
 
         <h5>Help Text</h5>
-        <div class="p-field">
+        <div class="field">
             <label for="username1">Username</label>
             <InputText id="username1" type="username" aria-describedby="username1-help" />
             <small id="username1-help">Enter your username to reset your password.</small>
         </div>
 
         <h5>Invalid</h5>
-        <div class="p-field">
+        <div class="field">
             <label for="username2">Username</label>
             <InputText id="username2" type="username" aria-describedby="username2-help" class="p-invalid" />
             <small id="username2-help" class="p-error">Username is not available.</small>
@@ -319,7 +319,7 @@ export default {
     }
 }
 
-.p-field * {
+.field * {
     display: block;
 }
 </style>`
@@ -351,14 +351,14 @@ export default {
                 </span>
 
                 <h5>Help Text</h5>
-                <div class="p-field">
+                <div class="field">
                     <label for="username1">Username</label>
                     <p-inputtext id="username1" type="username" aria-describedby="username1-help"></p-inputtext>
                     <small id="username1-help">Enter your username to reset your password.</small>
                 </div>
 
                 <h5>Invalid</h5>
-                <div class="p-field">
+                <div class="field">
                     <label for="username2">Username</label>
                     <p-inputtext id="username2" type="username" aria-describedby="username2-help" class="p-invalid"></p-inputtext>
                     <small id="username2-help" class="p-error">Username is not available.</small>
@@ -409,7 +409,7 @@ export default {
                 margin-bottom: 0;
             }
 
-            .p-field * {
+            .field * {
                 display: block;
             }
         </style>`

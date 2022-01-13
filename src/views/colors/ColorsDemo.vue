@@ -1,5 +1,5 @@
 <template>
-     <div>
+    <div>
         <div class="content-section documentation">
             <h1>Colors</h1>
             <p>Each PrimeVue theme exports its own color palette.</p>
@@ -57,8 +57,8 @@
 </code></pre>
 
             <div class="card"> 
-                <div class="p-d-flex p-flex-wrap">
-                    <div v-for="color of colors" :key="color" class="color-stack p-mr-6 p-mb-6">
+                <div class="flex flex-wrap">
+                    <div v-for="color of colors" :key="color" class="color-stack mr-6 mb-6">
                         <template v-for="shade of shades" :key="shade">
                             <div v-if="shade !== 0" class="color-box"
                                 :style="{backgroundColor:`var(--${color}-${shade})`, color: (shade > 500 ? '#fff': '#000')}">

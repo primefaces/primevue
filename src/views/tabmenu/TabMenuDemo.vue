@@ -17,10 +17,10 @@
             
             <div class="card">
                 <h5>Programmatic</h5>
-                <div class="p-py-2">
+                <div class="py-2">
                     <Button @click="active = 0" class="p-button-text" label="Activate 1st" />
-                    <Button @click="active = 1" class="p-button-text p-mr-2" label="Activate 2nd" />
-                    <Button @click="active = 2" class="p-button-text p-mr-2" label="Activate 3rd" />
+                    <Button @click="active = 1" class="p-button-text mr-2" label="Activate 2nd" />
+                    <Button @click="active = 2" class="p-button-text mr-2" label="Activate 3rd" />
                 </div>
 
                 <TabMenu :model="items2" v-model:activeIndex="active" />

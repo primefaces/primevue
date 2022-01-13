@@ -221,13 +221,13 @@ export default {
         <SplitButton label="Save" icon="pi pi-plus" @click="save" :model="nestedItems"></SplitButton>
 
         <h5>Severities</h5>
-        <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-mb-2"></SplitButton>
-        <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-secondary p-mb-2"></SplitButton>
-        <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-success p-mb-2"></SplitButton>
-        <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-info p-mb-2"></SplitButton>
-        <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-warning p-mb-2"></SplitButton>
-        <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-help p-mb-2"></SplitButton>
-        <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-danger p-mb-2"></SplitButton>
+        <SplitButton label="Save" icon="pi pi-plus" :model="items" class="mb-2"></SplitButton>
+        <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-secondary mb-2"></SplitButton>
+        <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-success mb-2"></SplitButton>
+        <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-info mb-2"></SplitButton>
+        <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-warning mb-2"></SplitButton>
+        <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-help mb-2"></SplitButton>
+        <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-danger mb-2"></SplitButton>
     </div>
 </template>
 
@@ -425,13 +425,13 @@ export default {
         <SplitButton label="Save" icon="pi pi-plus" @click="save" :model="nestedItems"></SplitButton>
 
         <h5>Severities</h5>
-        <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-mb-2"></SplitButton>
-        <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-secondary p-mb-2"></SplitButton>
-        <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-success p-mb-2"></SplitButton>
-        <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-info p-mb-2"></SplitButton>
-        <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-warning p-mb-2"></SplitButton>
-        <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-help p-mb-2"></SplitButton>
-        <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-danger p-mb-2"></SplitButton>
+        <SplitButton label="Save" icon="pi pi-plus" :model="items" class="mb-2"></SplitButton>
+        <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-secondary mb-2"></SplitButton>
+        <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-success mb-2"></SplitButton>
+        <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-info mb-2"></SplitButton>
+        <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-warning mb-2"></SplitButton>
+        <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-help mb-2"></SplitButton>
+        <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-danger mb-2"></SplitButton>
     </div>
 </template>
 
@@ -626,13 +626,13 @@ export default {
          <p-splitbutton label="Save" icon="pi pi-plus" @click="save" :model="nestedItems"></p-splitbutton>
 
          <h5>Severities</h5>
-         <p-splitbutton label="Save" icon="pi pi-plus" :model="items" class="p-mb-2"></p-splitbutton>
-         <p-splitbutton label="Save" icon="pi pi-plus" :model="items" class="p-button-secondary p-mb-2"></p-splitbutton>
-         <p-splitbutton label="Save" icon="pi pi-plus" :model="items" class="p-button-success p-mb-2"></p-splitbutton>
-         <p-splitbutton label="Save" icon="pi pi-plus" :model="items" class="p-button-info p-mb-2"></p-splitbutton>
-         <p-splitbutton label="Save" icon="pi pi-plus" :model="items" class="p-button-warning p-mb-2"></p-splitbutton>
-         <p-splitbutton label="Save" icon="pi pi-plus" :model="items" class="p-button-help p-mb-2"></p-splitbutton>
-         <p-splitbutton label="Save" icon="pi pi-plus" :model="items" class="p-button-danger p-mb-2"></p-splitbutton>
+         <p-splitbutton label="Save" icon="pi pi-plus" :model="items" class="mb-2"></p-splitbutton>
+         <p-splitbutton label="Save" icon="pi pi-plus" :model="items" class="p-button-secondary mb-2"></p-splitbutton>
+         <p-splitbutton label="Save" icon="pi pi-plus" :model="items" class="p-button-success mb-2"></p-splitbutton>
+         <p-splitbutton label="Save" icon="pi pi-plus" :model="items" class="p-button-info mb-2"></p-splitbutton>
+         <p-splitbutton label="Save" icon="pi pi-plus" :model="items" class="p-button-warning mb-2"></p-splitbutton>
+         <p-splitbutton label="Save" icon="pi pi-plus" :model="items" class="p-button-help mb-2"></p-splitbutton>
+         <p-splitbutton label="Save" icon="pi pi-plus" :model="items" class="p-button-danger mb-2"></p-splitbutton>
       </div>
 
       <script>

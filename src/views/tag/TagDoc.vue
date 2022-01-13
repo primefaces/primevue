@@ -134,24 +134,24 @@ export default {
 <template>
     <div>
         <h5>Tags</h5>
-        <Tag class="p-mr-2" value="Primary"></Tag>
-        <Tag class="p-mr-2" severity="success" value="Success"></Tag>
-        <Tag class="p-mr-2" severity="info" value="Info"></Tag>
-        <Tag class="p-mr-2" severity="warning" value="Warning"></Tag>
+        <Tag class="mr-2" value="Primary"></Tag>
+        <Tag class="mr-2" severity="success" value="Success"></Tag>
+        <Tag class="mr-2" severity="info" value="Info"></Tag>
+        <Tag class="mr-2" severity="warning" value="Warning"></Tag>
         <Tag severity="danger" value="Danger"></Tag>
 
         <h5>Pills</h5>
-        <Tag class="p-mr-2" value="Primary" rounded></Tag>
-        <Tag class="p-mr-2" severity="success" value="Success" rounded></Tag>
-        <Tag class="p-mr-2" severity="info" value="Info" rounded></Tag>
-        <Tag class="p-mr-2" severity="warning" value="Warning" rounded></Tag>
+        <Tag class="mr-2" value="Primary" rounded></Tag>
+        <Tag class="mr-2" severity="success" value="Success" rounded></Tag>
+        <Tag class="mr-2" severity="info" value="Info" rounded></Tag>
+        <Tag class="mr-2" severity="warning" value="Warning" rounded></Tag>
         <Tag severity="danger" value="Danger" rounded></Tag>
 
         <h5>Icons</h5>
-        <Tag class="p-mr-2" icon="pi pi-user" value="Primary"></Tag>
-        <Tag class="p-mr-2" icon="pi pi-check" severity="success" value="Success"></Tag>
-        <Tag class="p-mr-2" icon="pi pi-info-circle" severity="info" value="Info"></Tag>
-        <Tag class="p-mr-2" icon="pi pi-exclamation-triangle" severity="warning" value="Warning"></Tag>
+        <Tag class="mr-2" icon="pi pi-user" value="Primary"></Tag>
+        <Tag class="mr-2" icon="pi pi-check" severity="success" value="Success"></Tag>
+        <Tag class="mr-2" icon="pi pi-info-circle" severity="info" value="Info"></Tag>
+        <Tag class="mr-2" icon="pi pi-exclamation-triangle" severity="warning" value="Warning"></Tag>
         <Tag icon="pi pi-times" severity="danger" value="Danger"></Tag>
     </div>
 </template>
@@ -168,24 +168,24 @@ export default {
 <template>
     <div>
         <h5>Tags</h5>
-        <Tag class="p-mr-2" value="Primary"></Tag>
-        <Tag class="p-mr-2" severity="success" value="Success"></Tag>
-        <Tag class="p-mr-2" severity="info" value="Info"></Tag>
-        <Tag class="p-mr-2" severity="warning" value="Warning"></Tag>
+        <Tag class="mr-2" value="Primary"></Tag>
+        <Tag class="mr-2" severity="success" value="Success"></Tag>
+        <Tag class="mr-2" severity="info" value="Info"></Tag>
+        <Tag class="mr-2" severity="warning" value="Warning"></Tag>
         <Tag severity="danger" value="Danger"></Tag>
 
         <h5>Pills</h5>
-        <Tag class="p-mr-2" value="Primary" rounded></Tag>
-        <Tag class="p-mr-2" severity="success" value="Success" rounded></Tag>
-        <Tag class="p-mr-2" severity="info" value="Info" rounded></Tag>
-        <Tag class="p-mr-2" severity="warning" value="Warning" rounded></Tag>
+        <Tag class="mr-2" value="Primary" rounded></Tag>
+        <Tag class="mr-2" severity="success" value="Success" rounded></Tag>
+        <Tag class="mr-2" severity="info" value="Info" rounded></Tag>
+        <Tag class="mr-2" severity="warning" value="Warning" rounded></Tag>
         <Tag severity="danger" value="Danger" rounded></Tag>
 
         <h5>Icons</h5>
-        <Tag class="p-mr-2" icon="pi pi-user" value="Primary"></Tag>
-        <Tag class="p-mr-2" icon="pi pi-check" severity="success" value="Success"></Tag>
-        <Tag class="p-mr-2" icon="pi pi-info-circle" severity="info" value="Info"></Tag>
-        <Tag class="p-mr-2" icon="pi pi-exclamation-triangle" severity="warning" value="Warning"></Tag>
+        <Tag class="mr-2" icon="pi pi-user" value="Primary"></Tag>
+        <Tag class="mr-2" icon="pi pi-check" severity="success" value="Success"></Tag>
+        <Tag class="mr-2" icon="pi pi-info-circle" severity="info" value="Info"></Tag>
+        <Tag class="mr-2" icon="pi pi-exclamation-triangle" severity="warning" value="Warning"></Tag>
         <Tag icon="pi pi-times" severity="danger" value="Danger"></Tag>
     </div>
 </template>
@@ -201,24 +201,24 @@ export default {
                     imports: `<script src="https://unpkg.com/primevue@^3/tag/tag.min.js"><\\/script>`,
 					content: `<div id="app">
             <h5>Tags</h5>
-            <p-tag class="p-mr-2" value="Primary"></p-tag>
-            <p-tag class="p-mr-2" severity="success" value="Success"></p-tag>
-            <p-tag class="p-mr-2" severity="info" value="Info"></p-tag>
-            <p-tag class="p-mr-2" severity="warning" value="Warning"></p-tag>
+            <p-tag class="mr-2" value="Primary"></p-tag>
+            <p-tag class="mr-2" severity="success" value="Success"></p-tag>
+            <p-tag class="mr-2" severity="info" value="Info"></p-tag>
+            <p-tag class="mr-2" severity="warning" value="Warning"></p-tag>
             <p-tag severity="danger" value="Danger"></p-tag>
 
             <h5>Pills</h5>
-            <p-tag class="p-mr-2" value="Primary" rounded></p-tag>
-            <p-tag class="p-mr-2" severity="success" value="Success" rounded></p-tag>
-            <p-tag class="p-mr-2" severity="info" value="Info" rounded></p-tag>
-            <p-tag class="p-mr-2" severity="warning" value="Warning" rounded></p-tag>
+            <p-tag class="mr-2" value="Primary" rounded></p-tag>
+            <p-tag class="mr-2" severity="success" value="Success" rounded></p-tag>
+            <p-tag class="mr-2" severity="info" value="Info" rounded></p-tag>
+            <p-tag class="mr-2" severity="warning" value="Warning" rounded></p-tag>
             <p-tag severity="danger" value="Danger" rounded></p-tag>
 
             <h5>Icons</h5>
-            <p-tag class="p-mr-2" icon="pi pi-user" value="Primary"></p-tag>
-            <p-tag class="p-mr-2" icon="pi pi-check" severity="success" value="Success"></p-tag>
-            <p-tag class="p-mr-2" icon="pi pi-info-circle" severity="info" value="Info"></p-tag>
-            <p-tag class="p-mr-2" icon="pi pi-exclamation-triangle" severity="warning" value="Warning"></p-tag>
+            <p-tag class="mr-2" icon="pi pi-user" value="Primary"></p-tag>
+            <p-tag class="mr-2" icon="pi pi-check" severity="success" value="Success"></p-tag>
+            <p-tag class="mr-2" icon="pi pi-info-circle" severity="info" value="Info"></p-tag>
+            <p-tag class="mr-2" icon="pi pi-exclamation-triangle" severity="warning" value="Warning"></p-tag>
             <p-tag icon="pi pi-times" severity="danger" value="Danger"></p-tag>
         </div>
 

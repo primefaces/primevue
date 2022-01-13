@@ -13,7 +13,7 @@
                 <h5>Lenient Filter</h5>
                 <TreeTable :value="nodes" :filters="filters1" filterMode="lenient">
                     <template #header>
-                        <div class="p-text-right">
+                        <div class="text-right">
                             <div class="p-input-icon-left">
                                 <i class="pi pi-search"></i>
                                 <InputText v-model="filters1['global']" placeholder="Global Search" size="50" />
@@ -42,7 +42,7 @@
                 <h5>Strict Filter</h5>
                 <TreeTable :value="nodes" :filters="filters2" filterMode="strict">
                     <template #header>
-                        <div class="p-text-right">
+                        <div class="text-right">
                             <div class="p-input-icon-left">
                                 <i class="pi pi-search"></i>
                                 <InputText v-model="filters2['global']" placeholder="Global Search" size="50" />
@@ -91,7 +91,7 @@ export default {
             <h5>Lenient Filter</h5>
             <TreeTable :value="nodes" :filters="filters1" filterMode="lenient">
                 <template #header>
-                    <div class="p-text-right">
+                    <div class="text-right">
                         <div class="p-input-icon-left">
                             <i class="pi pi-search"></i>
                             <InputText v-model="filters1['global']" placeholder="Global Search" size="50" />
@@ -120,7 +120,7 @@ export default {
             <h5>Strict Filter</h5>
             <TreeTable :value="nodes" :filters="filters2" filterMode="strict">
                 <template #header>
-                    <div class="p-text-right">
+                    <div class="text-right">
                         <div class="p-input-icon-left">
                             <i class="pi pi-search"></i>
                             <InputText v-model="filters2['global']" placeholder="Global Search" size="50" />
@@ -185,7 +185,7 @@ export default {
             <h5>Lenient Filter</h5>
             <TreeTable :value="nodes" :filters="filters1" filterMode="lenient">
                 <template #header>
-                    <div class="p-text-right">
+                    <div class="text-right">
                         <div class="p-input-icon-left">
                             <i class="pi pi-search"></i>
                             <InputText v-model="filters1['global']" placeholder="Global Search" size="50" />
@@ -214,7 +214,7 @@ export default {
             <h5>Strict Filter</h5>
             <TreeTable :value="nodes" :filters="filters2" filterMode="strict">
                 <template #header>
-                    <div class="p-text-right">
+                    <div class="text-right">
                         <div class="p-input-icon-left">
                             <i class="pi pi-search"></i>
                             <InputText v-model="filters2['global']" placeholder="Global Search" size="50" />
@@ -279,7 +279,7 @@ export default {
                 <h5>Lenient Filter</h5>
                 <p-treetable :value="nodes" :filters="filters1" filter-mode="lenient">
                     <template #header>
-                        <div class="p-text-right">
+                        <div class="text-right">
                             <div class="p-input-icon-left">
                                 <i class="pi pi-search"></i>
                                 <p-inputtext v-model="filters1['global']" placeholder="Global Search" size="50"></p-inputtext>
@@ -308,7 +308,7 @@ export default {
                 <h5>Strict Filter</h5>
                 <p-treetable :value="nodes" :filters="filters2" filter-mode="strict">
                     <template #header>
-                        <div class="p-text-right">
+                        <div class="text-right">
                             <div class="p-input-icon-left">
                                 <i class="pi pi-search"></i>
                                 <p-inputtext v-model="filters2['global']" placeholder="Global Search" size="50"></p-inputtext>

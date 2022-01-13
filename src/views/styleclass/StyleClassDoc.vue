@@ -21,15 +21,15 @@ app.directive('styleclass', StyleClass);
         <p><b>ToggleClass</b></p>
 <pre v-code><code>
 &lt;Button label="Toggle p-disabled" v-styleclass="{ selector: '@next', toggleClass: 'p-disabled' }" /&gt;
-&lt;InputText class="p-d-block p-mt-3" /&gt;
+&lt;InputText class="block mt-3" /&gt;
 
 </code></pre>
 
         <p><b>Enter/Leave Animation</b></p>
 <pre v-code><code>
-&lt;Button label="Show" class="p-mr-2" v-styleclass="{ selector: '.box', enterClass: 'p-d-none', enterActiveClass: 'my-fadein' }" /&gt;
-&lt;Button label="Hide" v-styleclass="{ selector: '.box', leaveActiveClass: 'my-fadeout', leaveToClass: 'p-d-none' }" /&gt;
-&lt;div class="box p-d-none"&gt;Content&lt;/div&gt;
+&lt;Button label="Show" class="mr-2" v-styleclass="{ selector: '.box', enterClass: 'hidden', enterActiveClass: 'my-fadein' }" /&gt;
+&lt;Button label="Hide" v-styleclass="{ selector: '.box', leaveActiveClass: 'my-fadeout', leaveToClass: 'hidden' }" /&gt;
+&lt;div class="box hidden"&gt;Content&lt;/div&gt;
 
 </code></pre>
 
@@ -154,12 +154,12 @@ export default {
     <div>
         <h5>Toggle Class</h5>
         <Button label="Toggle p-disabled" v-styleclass="{ selector: '@next', toggleClass: 'p-disabled' }" />
-        <InputText class="p-d-block p-mt-3" />
+        <InputText class="block mt-3" />
 
         <h5>Animations</h5>
-        <Button label="Show" class="p-mr-2" v-styleclass="{ selector: '.box', enterClass: 'p-d-none', enterActiveClass: 'my-fadein' }" />
-        <Button label="Hide" v-styleclass="{ selector: '.box', leaveActiveClass: 'my-fadeout', leaveToClass: 'p-d-none' }" />
-        <div class="box p-d-none">Content</div>
+        <Button label="Show" class="mr-2" v-styleclass="{ selector: '.box', enterClass: 'hidden', enterActiveClass: 'my-fadein' }" />
+        <Button label="Hide" v-styleclass="{ selector: '.box', leaveActiveClass: 'my-fadeout', leaveToClass: 'hidden' }" />
+        <div class="box hidden">Content</div>
     </div>    
 </template>
 
@@ -208,12 +208,12 @@ export default {
     <div>
         <h5>Toggle Class</h5>
         <Button label="Toggle p-disabled" v-styleclass="{ selector: '@next', toggleClass: 'p-disabled' }" />
-        <InputText class="p-d-block p-mt-3" />
+        <InputText class="block mt-3" />
 
         <h5>Animations</h5>
-        <Button label="Show" class="p-mr-2" v-styleclass="{ selector: '.box', enterClass: 'p-d-none', enterActiveClass: 'my-fadein' }" />
-        <Button label="Hide" v-styleclass="{ selector: '.box', leaveActiveClass: 'my-fadeout', leaveToClass: 'p-d-none' }" />
-        <div class="box p-d-none">Content</div>
+        <Button label="Show" class="mr-2" v-styleclass="{ selector: '.box', enterClass: 'hidden', enterActiveClass: 'my-fadein' }" />
+        <Button label="Hide" v-styleclass="{ selector: '.box', leaveActiveClass: 'my-fadeout', leaveToClass: 'hidden' }" />
+        <div class="box hidden">Content</div>
     </div>
 </template>
 
@@ -261,12 +261,12 @@ export default {
                     content: `<div id="app">
             <h5>Toggle Class</h5>
             <p-button label="Toggle p-disabled" v-styleclass="{ selector: '@next', toggleClass: 'p-disabled' }"></p-button>
-            <p-inputtext class="p-d-block p-mt-3"></p-inputtext>
+            <p-inputtext class="block mt-3"></p-inputtext>
 
             <h5>Animations</h5>
-            <p-button label="Show" class="p-mr-2" v-styleclass="{ selector: '.box', enterClass: 'p-d-none', enterActiveClass: 'my-fadein' }"></p-button>
-            <p-button label="Hide" v-styleclass="{ selector: '.box', leaveActiveClass: 'my-fadeout', leaveToClass: 'p-d-none' }"></p-button>
-            <div class="box p-d-none">Content</div>
+            <p-button label="Show" class="mr-2" v-styleclass="{ selector: '.box', enterClass: 'hidden', enterActiveClass: 'my-fadein' }"></p-button>
+            <p-button label="Hide" v-styleclass="{ selector: '.box', leaveActiveClass: 'my-fadeout', leaveToClass: 'hidden' }"></p-button>
+            <div class="box hidden">Content</div>
         </div>
 
         <script>

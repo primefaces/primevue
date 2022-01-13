@@ -21,13 +21,13 @@
             <div class="card">
                 <h5>Flexible Scroll</h5>
                 <p>Flex scroll feature makes the scrollable viewport section dynamic insteaf of a fixed value so that it can grow or shrink relative to the parent size of the table.
-                   Click the button below to display a maximizable Dialog where data viewport adjusts itself according to the size changes.</p>
+                    Click the button below to display a maximizable Dialog where data viewport adjusts itself according to the size changes.</p>
 
                 <Button label="Show" icon="pi pi-external-link" @click="openDialog" />
             </div>
 
             <Dialog header="Flex Scroll" v-model:visible="dialogVisible" :style="{width: '75vw'}" :maximizable="true" :modal="true" :contentStyle="{height: '300px'}">
-                 <TreeTable :value="nodes" :scrollable="true" scrollHeight="flex">
+                <TreeTable :value="nodes" :scrollable="true" scrollHeight="flex">
                     <Column field="name" header="Name" :expander="true" style="min-width:200px"></Column>
                     <Column field="size" header="Size" style="min-width:200px"></Column>
                     <Column field="type" header="Type" style="min-width:200px"></Column>
@@ -55,7 +55,7 @@
                     </Column>
                     <Column header="Options" footer="Options" style="width:300px">
                         <template #body>
-                            <Button type="Button" icon="pi pi-check" label="Edit" class="p-mr-2"></Button>
+                            <Button type="Button" icon="pi pi-check" label="Edit" class="mr-2"></Button>
                             <Button type="Button" icon="pi pi-check" label="Delete" class="p-button-warning"></Button>
                         </template>
                     </Column>
@@ -66,7 +66,7 @@
                 <h5>Frozen Columns</h5>
                 <ToggleButton v-model="optionsFrozen" onIcon="pi pi-lock" offIcon="pi pi-lock-open" onLabel="Unfreeze Options" offLabel="Freeze Options" style="width: 12rem" />
 
-                <TreeTable :value="nodes" :scrollable="true" scrollHeight="400px" scrollDirection="both" class="p-mt-3">
+                <TreeTable :value="nodes" :scrollable="true" scrollHeight="400px" scrollDirection="both" class="mt-3">
                     <Column field="name" header="Name" :expander="true" style="width:300px" frozen></Column>
                     <Column header="Key" style="width:300px">
                         <template #body="{node}">
@@ -82,7 +82,7 @@
                     </Column>
                     <Column header="Options" style="width:200px" alignFrozen="right" :frozen="optionsFrozen">
                         <template #body>
-                            <Button type="Button" icon="pi pi-check" label="Edit Item" class="p-mr-2" style="width:100%"></Button>
+                            <Button type="Button" icon="pi pi-check" label="Edit Item" class="mr-2" style="width:100%"></Button>
                         </template>
                     </Column>
                 </TreeTable>
@@ -154,7 +154,7 @@ export default {
                 </Column>
                 <Column header="Options" footer="Options" style="width:300px">
                     <template #body>
-                        <Button type="Button" icon="pi pi-check" label="Edit" class="p-mr-2"></Button>
+                        <Button type="Button" icon="pi pi-check" label="Edit" class="mr-2"></Button>
                         <Button type="Button" icon="pi pi-check" label="Delete" class="p-button-warning"></Button>
                     </template>
                 </Column>
@@ -165,7 +165,7 @@ export default {
             <h5>Frozen Columns</h5>
             <ToggleButton v-model="optionsFrozen" onIcon="pi pi-lock" offIcon="pi pi-lock-open" onLabel="Unfreeze Options" offLabel="Freeze Options" style="width: 12rem" />
 
-            <TreeTable :value="nodes" :scrollable="true" scrollHeight="400px" scrollDirection="both" class="p-mt-3">
+            <TreeTable :value="nodes" :scrollable="true" scrollHeight="400px" scrollDirection="both" class="mt-3">
                 <Column field="name" header="Name" :expander="true" style="width:300px" frozen></Column>
                 <Column header="Key" style="width:300px">
                     <template #body="{node}">
@@ -181,7 +181,7 @@ export default {
                 </Column>
                 <Column header="Options" style="width:200px" alignFrozen="right" :frozen="optionsFrozen">
                     <template #body>
-                        <Button type="Button" icon="pi pi-check" label="Edit Item" class="p-mr-2" style="width:100%"></Button>
+                        <Button type="Button" icon="pi pi-check" label="Edit Item" class="mr-2" style="width:100%"></Button>
                     </template>
                 </Column>
             </TreeTable>
@@ -270,7 +270,7 @@ export default {
                 </Column>
                 <Column header="Options" footer="Options" style="width:300px">
                     <template #body>
-                        <Button type="Button" icon="pi pi-check" label="Edit" class="p-mr-2"></Button>
+                        <Button type="Button" icon="pi pi-check" label="Edit" class="mr-2"></Button>
                         <Button type="Button" icon="pi pi-check" label="Delete" class="p-button-warning"></Button>
                     </template>
                 </Column>
@@ -281,7 +281,7 @@ export default {
             <h5>Frozen Columns</h5>
             <ToggleButton v-model="optionsFrozen" onIcon="pi pi-lock" offIcon="pi pi-lock-open" onLabel="Unfreeze Options" offLabel="Freeze Options" style="width: 12rem" />
 
-            <TreeTable :value="nodes" :scrollable="true" scrollHeight="400px" scrollDirection="both" class="p-mt-3">
+            <TreeTable :value="nodes" :scrollable="true" scrollHeight="400px" scrollDirection="both" class="mt-3">
                 <Column field="name" header="Name" :expander="true" style="width:300px" frozen></Column>
                 <Column header="Key" style="width:300px">
                     <template #body="{node}">
@@ -297,7 +297,7 @@ export default {
                 </Column>
                 <Column header="Options" style="width:200px" alignFrozen="right" :frozen="optionsFrozen">
                     <template #body>
-                        <Button type="Button" icon="pi pi-check" label="Edit Item" class="p-mr-2" style="width:100%"></Button>
+                        <Button type="Button" icon="pi pi-check" label="Edit Item" class="mr-2" style="width:100%"></Button>
                     </template>
                 </Column>
             </TreeTable>
@@ -386,7 +386,7 @@ export default {
                     </p-column>
                     <p-column header="Options" footer="Options" style="width:300px">
                         <template #body>
-                            <p-button type="Button" icon="pi pi-check" label="Edit" class="p-mr-2"></p-button>
+                            <p-button type="Button" icon="pi pi-check" label="Edit" class="mr-2"></p-button>
                             <p-button type="Button" icon="pi pi-check" label="Delete" class="p-button-warning"></p-button>
                         </template>
                     </p-column>
@@ -397,7 +397,7 @@ export default {
                 <h5>Frozen Columns</h5>
                 <p-togglebutton v-model="optionsFrozen" on-icon="pi pi-lock" off-icon="pi pi-lock-open" on-label="Unfreeze Options" off-label="Freeze Options" style="width: 12rem"></p-togglebutton>
 
-                <p-treetable :value="nodes" :scrollable="true" scroll-height="400px" scroll-direction="both" class="p-mt-3">
+                <p-treetable :value="nodes" :scrollable="true" scroll-height="400px" scroll-direction="both" class="mt-3">
                     <p-column field="name" header="Name" :expander="true" style="width:300px" frozen></p-column>
                     <p-column header="Key" style="width:300px">
                         <template #body="{node}">
@@ -413,7 +413,7 @@ export default {
                     </p-column>
                     <p-column header="Options" style="width:200px" alignFrozen="right" :frozen="optionsFrozen">
                         <template #body>
-                            <p-button type="Button" icon="pi pi-check" label="Edit Item" class="p-mr-2" style="width:100%"></p-button>
+                            <p-button type="Button" icon="pi pi-check" label="Edit Item" class="mr-2" style="width:100%"></p-button>
                         </template>
                     </p-column>
                 </p-treetable>

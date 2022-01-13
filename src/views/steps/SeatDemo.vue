@@ -1,30 +1,30 @@
 <template>
     <div class="stepsdemo-content">
         <Card>
-           <template v-slot:title>
+            <template v-slot:title>
                 Seat Information
             </template>
             <template v-slot:subtitle>
                 Choose your seat
             </template>
             <template v-slot:content>
-                <div class="p-fluid p-formgrid p-grid">
-                    <div class="p-field p-col-12 p-md-6">
+                <div class="p-fluid formgrid grid">
+                    <div class="field col-12 md:col-6">
                         <label for="class">Class</label>
                         <Dropdown inputId="class" v-model="selectedClass" :options="classes" @change="setWagons($event)" optionLabel="name" placeholder="Select a Class" />
                     </div>
-                    <div class="p-field p-col-12 p-md-6">
+                    <div class="field col-12 md:col-6">
                         <label for="lastname">Wagon</label>
                         <Dropdown inputId="wagon" v-model="selectedWagon" :options="wagons" @change="setSeats($event)" optionLabel="wagon" placeholder="Select a Wagon" />
                     </div>
-                    <div class="p-field p-col-12">
+                    <div class="field col-12">
                         <label for="seat">Seat</label>
                         <Dropdown inputId="seat" v-model="selectedSeat" :options="seats" optionLabel="seat" placeholder="Select a Seat" />
                     </div>
                 </div>
             </template>
             <template v-slot:footer>
-                <div class="p-grid p-nogutter p-justify-between">
+                <div class="grid grid-nogutter justify-content-between">
                     <Button label="Back" @click="prevPage()" icon="pi pi-angle-left" />
                     <Button label="Next" @click="nextPage()" icon="pi pi-angle-right" iconPos="right" />
                 </div>

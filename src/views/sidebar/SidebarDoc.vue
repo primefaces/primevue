@@ -219,10 +219,10 @@ export default {
 					content: `
 <template>
     <div>
-        <Button icon="pi pi-arrow-right" @click="visibleLeft = true" class="p-mr-2" />
-        <Button icon="pi pi-arrow-left" @click="visibleRight = true" class="p-mr-2"  />
-        <Button icon="pi pi-arrow-down" @click="visibleTop = true" class="p-mr-2"  />
-        <Button icon="pi pi-arrow-up" @click="visibleBottom = true" class="p-mr-2"  />
+        <Button icon="pi pi-arrow-right" @click="visibleLeft = true" class="mr-2" />
+        <Button icon="pi pi-arrow-left" @click="visibleRight = true" class="mr-2"  />
+        <Button icon="pi pi-arrow-down" @click="visibleTop = true" class="mr-2"  />
+        <Button icon="pi pi-arrow-up" @click="visibleBottom = true" class="mr-2"  />
         <Button icon="pi pi-th-large" @click="visibleFull = true"  />
 
         <Sidebar v-model:visible="visibleLeft" :baseZIndex="1000">
@@ -267,10 +267,10 @@ export default {
 					content: `
 <template>
     <div>
-        <Button icon="pi pi-arrow-right" @click="visibleLeft = true" class="p-mr-2" />
-        <Button icon="pi pi-arrow-left" @click="visibleRight = true" class="p-mr-2"  />
-        <Button icon="pi pi-arrow-down" @click="visibleTop = true" class="p-mr-2"  />
-        <Button icon="pi pi-arrow-up" @click="visibleBottom = true" class="p-mr-2"  />
+        <Button icon="pi pi-arrow-right" @click="visibleLeft = true" class="mr-2" />
+        <Button icon="pi pi-arrow-left" @click="visibleRight = true" class="mr-2"  />
+        <Button icon="pi pi-arrow-down" @click="visibleTop = true" class="mr-2"  />
+        <Button icon="pi pi-arrow-up" @click="visibleBottom = true" class="mr-2"  />
         <Button icon="pi pi-th-large" @click="visibleFull = true"  />
 
         <Sidebar v-model:visible="visibleLeft" :baseZIndex="1000">
@@ -316,10 +316,10 @@ export default {
 					tabName: 'Browser Source',
 					imports: `<script src="https://unpkg.com/primevue@^3/sidebar/sidebar.min.js"><\\/script>`,
 					content: `<div id="app">
-			<p-button icon="pi pi-arrow-right" @click="visibleLeft = true" class="p-mr-2"></p-button>
-			<p-button icon="pi pi-arrow-left" @click="visibleRight = true" class="p-mr-2"></p-button>
-			<p-button icon="pi pi-arrow-down" @click="visibleTop = true" class="p-mr-2"></p-button>
-			<p-button icon="pi pi-arrow-up" @click="visibleBottom = true" class="p-mr-2"></p-button>
+			<p-button icon="pi pi-arrow-right" @click="visibleLeft = true" class="mr-2"></p-button>
+			<p-button icon="pi pi-arrow-left" @click="visibleRight = true" class="mr-2"></p-button>
+			<p-button icon="pi pi-arrow-down" @click="visibleTop = true" class="mr-2"></p-button>
+			<p-button icon="pi pi-arrow-up" @click="visibleBottom = true" class="mr-2"></p-button>
 			<p-button icon="pi pi-th-large" @click="visibleFull = true"></p-button>
 
 			<p-sidebar v-model:visible="visibleLeft" :base-z-index="1000">

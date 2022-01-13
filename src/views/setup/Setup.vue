@@ -313,32 +313,32 @@ app.use(PrimeVue, {
                     <thead>
                         <tr>
                             <th>
-                                <div class="p-d-flex p-ai-center">
-                                    <img src="../../assets/images//browsers/edge.svg" alt="edge" style="width: 1.5rem;" class="p-mr-2">
+                                <div class="flex align-items-center">
+                                    <img src="../../assets/images//browsers/edge.svg" alt="edge" style="width: 1.5rem;" class="mr-2">
                                     Edge
                                 </div>
                             </th>
                             <th>
-                                <div class="p-d-flex p-ai-center">
-                                    <img src="../../assets/images/browsers/firefox.svg" alt="firefox" style="width: 1.5rem;" class="p-mr-2">
+                                <div class="flex align-items-center">
+                                    <img src="../../assets/images/browsers/firefox.svg" alt="firefox" style="width: 1.5rem;" class="mr-2">
                                     Firefox
                                 </div>
                             </th>
                             <th>
-                                <div class="p-d-flex p-ai-center">
-                                    <img src="../../assets/images/browsers/chrome.svg" alt="chrome" style="width: 1.5rem;" class="p-mr-2">
+                                <div class="flex align-items-center">
+                                    <img src="../../assets/images/browsers/chrome.svg" alt="chrome" style="width: 1.5rem;" class="mr-2">
                                     Chrome
                                 </div>
                             </th>
                             <th>
-                                <div class="p-d-flex p-ai-center">
-                                    <img src="../../assets/images/browsers/safari.svg" alt="safari" style="width: 1.5rem;" class="p-mr-2">
+                                <div class="flex align-items-center">
+                                    <img src="../../assets/images/browsers/safari.svg" alt="safari" style="width: 1.5rem;" class="mr-2">
                                     Safari
                                 </div>
                             </th>
                             <th>
-                                <div class="p-d-flex p-ai-center">
-                                    <img src="../../assets/images/browsers/opera.svg" alt="opera" style="width: 1.5rem;" class="p-mr-2">
+                                <div class="flex align-items-center">
+                                    <img src="../../assets/images/browsers/opera.svg" alt="opera" style="width: 1.5rem;" class="mr-2">
                                     Opera
                                 </div>
                             </th>

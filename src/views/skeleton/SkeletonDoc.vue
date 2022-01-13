@@ -145,38 +145,38 @@ export default {
 <template>
     <div>
         <div class="card">
-             <div class="p-grid p-formgrid">
-                <div class="p-field p-col-12 p-md-6">
+             <div class="grid formgrid">
+                <div class="field col-12 md:col-6">
                     <h5>Rectangle</h5>
-                    <Skeleton class="p-mb-2"></Skeleton>
-                    <Skeleton width="10rem" class="p-mb-2"></Skeleton>
-                    <Skeleton width="5rem" class="p-mb-2"></Skeleton>
-                    <Skeleton height="2rem" class="p-mb-2"></Skeleton>
+                    <Skeleton class="mb-2"></Skeleton>
+                    <Skeleton width="10rem" class="mb-2"></Skeleton>
+                    <Skeleton width="5rem" class="mb-2"></Skeleton>
+                    <Skeleton height="2rem" class="mb-2"></Skeleton>
                     <Skeleton width="10rem" height="4rem"></Skeleton>
                 </div>
-                <div class="p-field p-col-12 p-md-6">
+                <div class="field col-12 md:col-6">
                     <h5>Rounded</h5>
-                    <Skeleton class="p-mb-2" borderRadius="16px"></Skeleton>
-                    <Skeleton width="10rem" class="p-mb-2" borderRadius="16px"></Skeleton>
-                    <Skeleton width="5rem" borderRadius="16px" class="p-mb-2"></Skeleton>
-                    <Skeleton height="2rem" class="p-mb-2" borderRadius="16px"></Skeleton>
+                    <Skeleton class="mb-2" borderRadius="16px"></Skeleton>
+                    <Skeleton width="10rem" class="mb-2" borderRadius="16px"></Skeleton>
+                    <Skeleton width="5rem" borderRadius="16px" class="mb-2"></Skeleton>
+                    <Skeleton height="2rem" class="mb-2" borderRadius="16px"></Skeleton>
                     <Skeleton width="10rem" height="4rem" borderRadius="16px"></Skeleton>
                 </div>
-                <div class="p-field p-col-12 p-md-6">
-                    <h5 class="p-mt-3">Square</h5>
-                    <div class="p-d-flex p-ai-end">
-                        <Skeleton size="2rem" class="p-mr-2"></Skeleton>
-                        <Skeleton size="3rem" class="p-mr-2"></Skeleton>
-                        <Skeleton size="4rem" class="p-mr-2"></Skeleton>
+                <div class="field col-12 md:col-6">
+                    <h5 class="mt-3">Square</h5>
+                    <div class="flex align-items-end">
+                        <Skeleton size="2rem" class="mr-2"></Skeleton>
+                        <Skeleton size="3rem" class="mr-2"></Skeleton>
+                        <Skeleton size="4rem" class="mr-2"></Skeleton>
                         <Skeleton size="5rem"></Skeleton>
                     </div>
                 </div>
-                <div class="p-field p-col-12 p-md-6">
-                    <h5 class="p-mt-3">Circle</h5>
-                    <div class="p-d-flex p-ai-end">
-                        <Skeleton shape="circle" size="2rem" class="p-mr-2"></Skeleton>
-                        <Skeleton shape="circle" size="3rem" class="p-mr-2"></Skeleton>
-                        <Skeleton shape="circle" size="4rem" class="p-mr-2"></Skeleton>
+                <div class="field col-12 md:col-6">
+                    <h5 class="mt-3">Circle</h5>
+                    <div class="flex align-items-end">
+                        <Skeleton shape="circle" size="2rem" class="mr-2"></Skeleton>
+                        <Skeleton shape="circle" size="3rem" class="mr-2"></Skeleton>
+                        <Skeleton shape="circle" size="4rem" class="mr-2"></Skeleton>
                         <Skeleton shape="circle" size="5rem"></Skeleton>
                     </div>
                 </div>
@@ -184,62 +184,62 @@ export default {
         </div>
 
         <div class="card">
-             <div class="p-grid p-formgrid">
-                <div class="p-field p-col-12 p-md-6 p-pr-md-6 p-pr-0">
+             <div class="grid formgrid">
+                <div class="field col-12 md:col-6 md:pr-6 pr-0">
                     <h5>Card</h5>
-                    <div class="custom-skeleton p-p-4">
-                        <div class="p-d-flex p-mb-3">
-                            <Skeleton shape="circle" size="4rem" class="p-mr-2"></Skeleton>
+                    <div class="custom-skeleton p-4">
+                        <div class="flex mb-3">
+                            <Skeleton shape="circle" size="4rem" class="mr-2"></Skeleton>
                             <div>
-                                <Skeleton width="10rem" class="p-mb-2"></Skeleton>
-                                <Skeleton width="5rem" class="p-mb-2"></Skeleton>
+                                <Skeleton width="10rem" class="mb-2"></Skeleton>
+                                <Skeleton width="5rem" class="mb-2"></Skeleton>
                                 <Skeleton height=".5rem"></Skeleton>
                             </div>
                         </div>
                         <Skeleton width="100%" height="150px"></Skeleton>
-                        <div class="p-d-flex p-jc-between p-mt-3">
+                        <div class="flex justify-content-center mt-3">
                             <Skeleton width="4rem" height="2rem"></Skeleton>
                             <Skeleton width="4rem" height="2rem"></Skeleton>
                         </div>
                     </div>
                 </div>
 
-                <div class="p-field p-col-12 p-md-6">
+                <div class="field col-12 md:col-6">
                     <h5>List</h5>
-                    <div class="custom-skeleton p-p-4">
-                        <ul class="p-m-0 p-p-0">
-                            <li class="p-mb-3">
-                                <div class="p-d-flex">
-                                    <Skeleton shape="circle" size="4rem" class="p-mr-2"></Skeleton>
+                    <div class="custom-skeleton p-4">
+                        <ul class="m-0 p-0">
+                            <li class="mb-3">
+                                <div class="flex">
+                                    <Skeleton shape="circle" size="4rem" class="mr-2"></Skeleton>
                                     <div style="flex: 1">
-                                        <Skeleton width="100%" class="p-mb-2"></Skeleton>
+                                        <Skeleton width="100%" class="mb-2"></Skeleton>
                                         <Skeleton width="75%"></Skeleton>
                                     </div>
                                 </div>
                             </li>
-                            <li class="p-mb-3">
-                                <div class="p-d-flex">
-                                    <Skeleton shape="circle" size="4rem" class="p-mr-2"></Skeleton>
+                            <li class="mb-3">
+                                <div class="flex">
+                                    <Skeleton shape="circle" size="4rem" class="mr-2"></Skeleton>
                                     <div style="flex: 1">
-                                        <Skeleton width="100%" class="p-mb-2"></Skeleton>
+                                        <Skeleton width="100%" class="mb-2"></Skeleton>
                                         <Skeleton width="75%"></Skeleton>
                                     </div>
                                 </div>
                             </li>
-                            <li class="p-mb-3">
-                                <div class="p-d-flex">
-                                    <Skeleton shape="circle" size="4rem" class="p-mr-2"></Skeleton>
+                            <li class="mb-3">
+                                <div class="flex">
+                                    <Skeleton shape="circle" size="4rem" class="mr-2"></Skeleton>
                                     <div style="flex: 1">
-                                        <Skeleton width="100%" class="p-mb-2"></Skeleton>
+                                        <Skeleton width="100%" class="mb-2"></Skeleton>
                                         <Skeleton width="75%"></Skeleton>
                                     </div>
                                 </div>
                             </li>
                             <li>
-                                <div class="p-d-flex">
-                                    <Skeleton shape="circle" size="4rem" class="p-mr-2"></Skeleton>
+                                <div class="flex">
+                                    <Skeleton shape="circle" size="4rem" class="mr-2"></Skeleton>
                                     <div style="flex: 1">
-                                        <Skeleton width="100%" class="p-mb-2"></Skeleton>
+                                        <Skeleton width="100%" class="mb-2"></Skeleton>
                                         <Skeleton width="75%"></Skeleton>
                                     </div>
                                 </div>
@@ -303,38 +303,38 @@ export default {
 <template>
     <div>
         <div class="card">
-             <div class="p-grid p-formgrid">
-                <div class="p-field p-col-12 p-md-6">
+             <div class="grid formgrid">
+                <div class="field col-12 md:col-6">
                     <h5>Rectangle</h5>
-                    <Skeleton class="p-mb-2"></Skeleton>
-                    <Skeleton width="10rem" class="p-mb-2"></Skeleton>
-                    <Skeleton width="5rem" class="p-mb-2"></Skeleton>
-                    <Skeleton height="2rem" class="p-mb-2"></Skeleton>
+                    <Skeleton class="mb-2"></Skeleton>
+                    <Skeleton width="10rem" class="mb-2"></Skeleton>
+                    <Skeleton width="5rem" class="mb-2"></Skeleton>
+                    <Skeleton height="2rem" class="mb-2"></Skeleton>
                     <Skeleton width="10rem" height="4rem"></Skeleton>
                 </div>
-                <div class="p-field p-col-12 p-md-6">
+                <div class="field col-12 md:col-6">
                     <h5>Rounded</h5>
-                    <Skeleton class="p-mb-2" borderRadius="16px"></Skeleton>
-                    <Skeleton width="10rem" class="p-mb-2" borderRadius="16px"></Skeleton>
-                    <Skeleton width="5rem" borderRadius="16px" class="p-mb-2"></Skeleton>
-                    <Skeleton height="2rem" class="p-mb-2" borderRadius="16px"></Skeleton>
+                    <Skeleton class="mb-2" borderRadius="16px"></Skeleton>
+                    <Skeleton width="10rem" class="mb-2" borderRadius="16px"></Skeleton>
+                    <Skeleton width="5rem" borderRadius="16px" class="mb-2"></Skeleton>
+                    <Skeleton height="2rem" class="mb-2" borderRadius="16px"></Skeleton>
                     <Skeleton width="10rem" height="4rem" borderRadius="16px"></Skeleton>
                 </div>
-                <div class="p-field p-col-12 p-md-6">
-                    <h5 class="p-mt-3">Square</h5>
-                    <div class="p-d-flex p-ai-end">
-                        <Skeleton size="2rem" class="p-mr-2"></Skeleton>
-                        <Skeleton size="3rem" class="p-mr-2"></Skeleton>
-                        <Skeleton size="4rem" class="p-mr-2"></Skeleton>
+                <div class="field col-12 md:col-6">
+                    <h5 class="mt-3">Square</h5>
+                    <div class="flex align-items-end">
+                        <Skeleton size="2rem" class="mr-2"></Skeleton>
+                        <Skeleton size="3rem" class="mr-2"></Skeleton>
+                        <Skeleton size="4rem" class="mr-2"></Skeleton>
                         <Skeleton size="5rem"></Skeleton>
                     </div>
                 </div>
-                <div class="p-field p-col-12 p-md-6">
-                    <h5 class="p-mt-3">Circle</h5>
-                    <div class="p-d-flex p-ai-end">
-                        <Skeleton shape="circle" size="2rem" class="p-mr-2"></Skeleton>
-                        <Skeleton shape="circle" size="3rem" class="p-mr-2"></Skeleton>
-                        <Skeleton shape="circle" size="4rem" class="p-mr-2"></Skeleton>
+                <div class="field col-12 md:col-6">
+                    <h5 class="mt-3">Circle</h5>
+                    <div class="flex align-items-end">
+                        <Skeleton shape="circle" size="2rem" class="mr-2"></Skeleton>
+                        <Skeleton shape="circle" size="3rem" class="mr-2"></Skeleton>
+                        <Skeleton shape="circle" size="4rem" class="mr-2"></Skeleton>
                         <Skeleton shape="circle" size="5rem"></Skeleton>
                     </div>
                 </div>
@@ -342,62 +342,62 @@ export default {
         </div>
 
         <div class="card">
-             <div class="p-grid p-formgrid">
-                <div class="p-field p-col-12 p-md-6 p-pr-md-6 p-pr-0">
+             <div class="grid formgrid">
+                <div class="field col-12 md:col-6 md:pr-6 pr-0">
                     <h5>Card</h5>
-                    <div class="custom-skeleton p-p-4">
-                        <div class="p-d-flex p-mb-3">
-                            <Skeleton shape="circle" size="4rem" class="p-mr-2"></Skeleton>
+                    <div class="custom-skeleton p-4">
+                        <div class="flex mb-3">
+                            <Skeleton shape="circle" size="4rem" class="mr-2"></Skeleton>
                             <div>
-                                <Skeleton width="10rem" class="p-mb-2"></Skeleton>
-                                <Skeleton width="5rem" class="p-mb-2"></Skeleton>
+                                <Skeleton width="10rem" class="mb-2"></Skeleton>
+                                <Skeleton width="5rem" class="mb-2"></Skeleton>
                                 <Skeleton height=".5rem"></Skeleton>
                             </div>
                         </div>
                         <Skeleton width="100%" height="150px"></Skeleton>
-                        <div class="p-d-flex p-jc-between p-mt-3">
+                        <div class="flex justify-content-center mt-3">
                             <Skeleton width="4rem" height="2rem"></Skeleton>
                             <Skeleton width="4rem" height="2rem"></Skeleton>
                         </div>
                     </div>
                 </div>
 
-                <div class="p-field p-col-12 p-md-6">
+                <div class="field col-12 md:col-6">
                     <h5>List</h5>
-                    <div class="custom-skeleton p-p-4">
-                        <ul class="p-m-0 p-p-0">
-                            <li class="p-mb-3">
-                                <div class="p-d-flex">
-                                    <Skeleton shape="circle" size="4rem" class="p-mr-2"></Skeleton>
+                    <div class="custom-skeleton p-4">
+                        <ul class="m-0 p-0">
+                            <li class="mb-3">
+                                <div class="flex">
+                                    <Skeleton shape="circle" size="4rem" class="mr-2"></Skeleton>
                                     <div style="flex: 1">
-                                        <Skeleton width="100%" class="p-mb-2"></Skeleton>
+                                        <Skeleton width="100%" class="mb-2"></Skeleton>
                                         <Skeleton width="75%"></Skeleton>
                                     </div>
                                 </div>
                             </li>
-                            <li class="p-mb-3">
-                                <div class="p-d-flex">
-                                    <Skeleton shape="circle" size="4rem" class="p-mr-2"></Skeleton>
+                            <li class="mb-3">
+                                <div class="flex">
+                                    <Skeleton shape="circle" size="4rem" class="mr-2"></Skeleton>
                                     <div style="flex: 1">
-                                        <Skeleton width="100%" class="p-mb-2"></Skeleton>
+                                        <Skeleton width="100%" class="mb-2"></Skeleton>
                                         <Skeleton width="75%"></Skeleton>
                                     </div>
                                 </div>
                             </li>
-                            <li class="p-mb-3">
-                                <div class="p-d-flex">
-                                    <Skeleton shape="circle" size="4rem" class="p-mr-2"></Skeleton>
+                            <li class="mb-3">
+                                <div class="flex">
+                                    <Skeleton shape="circle" size="4rem" class="mr-2"></Skeleton>
                                     <div style="flex: 1">
-                                        <Skeleton width="100%" class="p-mb-2"></Skeleton>
+                                        <Skeleton width="100%" class="mb-2"></Skeleton>
                                         <Skeleton width="75%"></Skeleton>
                                     </div>
                                 </div>
                             </li>
                             <li>
-                                <div class="p-d-flex">
-                                    <Skeleton shape="circle" size="4rem" class="p-mr-2"></Skeleton>
+                                <div class="flex">
+                                    <Skeleton shape="circle" size="4rem" class="mr-2"></Skeleton>
                                     <div style="flex: 1">
-                                        <Skeleton width="100%" class="p-mb-2"></Skeleton>
+                                        <Skeleton width="100%" class="mb-2"></Skeleton>
                                         <Skeleton width="75%"></Skeleton>
                                     </div>
                                 </div>
@@ -464,38 +464,38 @@ export default {
         <script src="https://unpkg.com/primevue@^3/column/column.min.js"><\\/script>`,
 					content: `<div id="app">
             <div class="card">
-                <div class="p-grid p-formgrid">
-                    <div class="p-field p-col-12 p-md-6">
+                <div class="grid formgrid">
+                    <div class="field col-12 md:col-6">
                         <h5>Rectangle</h5>
-                        <p-skeleton class="p-mb-2"></p-skeleton>
-                        <p-skeleton width="10rem" class="p-mb-2"></p-skeleton>
-                        <p-skeleton width="5rem" class="p-mb-2"></p-skeleton>
-                        <p-skeleton height="2rem" class="p-mb-2"></p-skeleton>
+                        <p-skeleton class="mb-2"></p-skeleton>
+                        <p-skeleton width="10rem" class="mb-2"></p-skeleton>
+                        <p-skeleton width="5rem" class="mb-2"></p-skeleton>
+                        <p-skeleton height="2rem" class="mb-2"></p-skeleton>
                         <p-skeleton width="10rem" height="4rem"></p-skeleton>
                     </div>
-                    <div class="p-field p-col-12 p-md-6">
+                    <div class="field col-12 md:col-6">
                         <h5>Rounded</h5>
-                        <p-skeleton class="p-mb-2" border-radius="16px"></p-skeleton>
-                        <p-skeleton width="10rem" class="p-mb-2" border-radius="16px"></p-skeleton>
-                        <p-skeleton width="5rem" border-radius="16px" class="p-mb-2"></p-skeleton>
-                        <p-skeleton height="2rem" class="p-mb-2" border-radius="16px"></p-skeleton>
+                        <p-skeleton class="mb-2" border-radius="16px"></p-skeleton>
+                        <p-skeleton width="10rem" class="mb-2" border-radius="16px"></p-skeleton>
+                        <p-skeleton width="5rem" border-radius="16px" class="mb-2"></p-skeleton>
+                        <p-skeleton height="2rem" class="mb-2" border-radius="16px"></p-skeleton>
                         <p-skeleton width="10rem" height="4rem" border-radius="16px"></p-skeleton>
                     </div>
-                    <div class="p-field p-col-12 p-md-6">
-                        <h5 class="p-mt-3">Square</h5>
-                        <div class="p-d-flex p-ai-end">
-                            <p-skeleton size="2rem" class="p-mr-2"></p-skeleton>
-                            <p-skeleton size="3rem" class="p-mr-2"></p-skeleton>
-                            <p-skeleton size="4rem" class="p-mr-2"></p-skeleton>
+                    <div class="field col-12 md:col-6">
+                        <h5 class="mt-3">Square</h5>
+                        <div class="flex align-items-end">
+                            <p-skeleton size="2rem" class="mr-2"></p-skeleton>
+                            <p-skeleton size="3rem" class="mr-2"></p-skeleton>
+                            <p-skeleton size="4rem" class="mr-2"></p-skeleton>
                             <p-skeleton size="5rem"></p-skeleton>
                         </div>
                     </div>
-                    <div class="p-field p-col-12 p-md-6">
-                        <h5 class="p-mt-3">Circle</h5>
-                        <div class="p-d-flex p-ai-end">
-                            <p-skeleton shape="circle" size="2rem" class="p-mr-2"></p-skeleton>
-                            <p-skeleton shape="circle" size="3rem" class="p-mr-2"></p-skeleton>
-                            <p-skeleton shape="circle" size="4rem" class="p-mr-2"></p-skeleton>
+                    <div class="field col-12 md:col-6">
+                        <h5 class="mt-3">Circle</h5>
+                        <div class="flex align-items-end">
+                            <p-skeleton shape="circle" size="2rem" class="mr-2"></p-skeleton>
+                            <p-skeleton shape="circle" size="3rem" class="mr-2"></p-skeleton>
+                            <p-skeleton shape="circle" size="4rem" class="mr-2"></p-skeleton>
                             <p-skeleton shape="circle" size="5rem"></p-skeleton>
                         </div>
                     </div>
@@ -503,62 +503,62 @@ export default {
             </div>
 
             <div class="card">
-                <div class="p-grid p-formgrid">
-                    <div class="p-field p-col-12 p-md-6 p-pr-md-6 p-pr-0">
+                <div class="grid formgrid">
+                    <div class="field col-12 md:col-6 md:pr-6 pr-0">
                         <h5>Card</h5>
-                        <div class="custom-skeleton p-p-4">
-                            <div class="p-d-flex p-mb-3">
-                                <p-skeleton shape="circle" size="4rem" class="p-mr-2"></p-skeleton>
+                        <div class="custom-skeleton p-4">
+                            <div class="flex mb-3">
+                                <p-skeleton shape="circle" size="4rem" class="mr-2"></p-skeleton>
                                 <div>
-                                    <p-skeleton width="10rem" class="p-mb-2"></p-skeleton>
-                                    <p-skeleton width="5rem" class="p-mb-2"></p-skeleton>
+                                    <p-skeleton width="10rem" class="mb-2"></p-skeleton>
+                                    <p-skeleton width="5rem" class="mb-2"></p-skeleton>
                                     <p-skeleton height=".5rem"></p-skeleton>
                                 </div>
                             </div>
                             <p-skeleton width="100%" height="150px"></p-skeleton>
-                            <div class="p-d-flex p-jc-between p-mt-3">
+                            <div class="flex justify-content-center mt-3">
                                 <p-skeleton width="4rem" height="2rem"></p-skeleton>
                                 <p-skeleton width="4rem" height="2rem"></p-skeleton>
                             </div>
                         </div>
                     </div>
 
-                    <div class="p-field p-col-12 p-md-6">
+                    <div class="field col-12 md:col-6">
                         <h5>List</h5>
-                        <div class="custom-skeleton p-p-4">
-                            <ul class="p-m-0 p-p-0">
-                                <li class="p-mb-3">
-                                    <div class="p-d-flex">
-                                        <p-skeleton shape="circle" size="4rem" class="p-mr-2"></p-skeleton>
+                        <div class="custom-skeleton p-4">
+                            <ul class="m-0 p-0">
+                                <li class="mb-3">
+                                    <div class="flex">
+                                        <p-skeleton shape="circle" size="4rem" class="mr-2"></p-skeleton>
                                         <div style="flex: 1">
-                                            <p-skeleton width="100%" class="p-mb-2"></p-skeleton>
+                                            <p-skeleton width="100%" class="mb-2"></p-skeleton>
                                             <p-skeleton width="75%"></p-skeleton>
                                         </div>
                                     </div>
                                 </li>
-                                <li class="p-mb-3">
-                                    <div class="p-d-flex">
-                                        <p-skeleton shape="circle" size="4rem" class="p-mr-2"></p-skeleton>
+                                <li class="mb-3">
+                                    <div class="flex">
+                                        <p-skeleton shape="circle" size="4rem" class="mr-2"></p-skeleton>
                                         <div style="flex: 1">
-                                            <p-skeleton width="100%" class="p-mb-2"></p-skeleton>
+                                            <p-skeleton width="100%" class="mb-2"></p-skeleton>
                                             <p-skeleton width="75%"></p-skeleton>
                                         </div>
                                     </div>
                                 </li>
-                                <li class="p-mb-3">
-                                    <div class="p-d-flex">
-                                        <p-skeleton shape="circle" size="4rem" class="p-mr-2"></p-skeleton>
+                                <li class="mb-3">
+                                    <div class="flex">
+                                        <p-skeleton shape="circle" size="4rem" class="mr-2"></p-skeleton>
                                         <div style="flex: 1">
-                                            <p-skeleton width="100%" class="p-mb-2"></p-skeleton>
+                                            <p-skeleton width="100%" class="mb-2"></p-skeleton>
                                             <p-skeleton width="75%"></p-skeleton>
                                         </div>
                                     </div>
                                 </li>
                                 <li>
-                                    <div class="p-d-flex">
-                                        <p-skeleton shape="circle" size="4rem" class="p-mr-2"></p-skeleton>
+                                    <div class="flex">
+                                        <p-skeleton shape="circle" size="4rem" class="mr-2"></p-skeleton>
                                         <div style="flex: 1">
-                                            <p-skeleton width="100%" class="p-mb-2"></p-skeleton>
+                                            <p-skeleton width="100%" class="mb-2"></p-skeleton>
                                             <p-skeleton width="75%"></p-skeleton>
                                         </div>
                                     </div>

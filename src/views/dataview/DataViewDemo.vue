@@ -12,18 +12,18 @@
             <div class="card">
                 <DataView :value="products" :layout="layout" :paginator="true" :rows="9" :sortOrder="sortOrder" :sortField="sortField">
 					<template #header>
-                        <div class="p-grid p-nogutter">
-                            <div class="p-col-6" style="text-align: left">
+                        <div class="grid grid-nogutter">
+                            <div class="col-6" style="text-align: left">
                                 <Dropdown v-model="sortKey" :options="sortOptions" optionLabel="label" placeholder="Sort By Price" @change="onSortChange($event)"/>
                             </div>
-                            <div class="p-col-6" style="text-align: right">
+                            <div class="col-6" style="text-align: right">
                                 <DataViewLayoutOptions v-model="layout" />
                             </div>
                         </div>
 					</template>
 
 					<template #list="slotProps">
-						<div class="p-col-12">
+						<div class="col-12">
 							<div class="product-list-item">
 								<img :src="'demo/images/product/' + slotProps.data.image" :alt="slotProps.data.name"/>
 								<div class="product-list-detail">
@@ -42,7 +42,7 @@
 					</template>
 
 					<template #grid="slotProps">
-						<div class="p-col-12 p-md-4">
+						<div class="col-12 md:col-4">
 							<div class="product-grid-item card">
 								<div class="product-grid-item-top">
 									<div>

@@ -121,7 +121,7 @@ export default {
 export default class NodeService {
 
     getTreeNodes() {
-       return fetch('demo/data/treenodes.json').then(res => res.json())
+        return fetch('demo/data/treenodes.json').then(res => res.json())
                 .then(d => d.root);
     }
 
@@ -522,7 +522,7 @@ export default {
         is used to compare against the value in the text field, in order to customize which field(s) should be used during search, define the <i>filterBy</i> property as a comma separated list.</p>
 
         <p>In addition <i>filterMode</i> specifies the filtering strategy. In <b>lenient</b> mode when the query matches a node, children of the node are not searched further as all descendants of the node are included. On the other hand,
-         in <b>strict</b> mode when the query matches a node, filtering continues on all descendants.</p>
+        in <b>strict</b> mode when the query matches a node, filtering continues on all descendants.</p>
 
 <pre v-code><code><template v-pre>
 &lt;h3&gt;Lenient Filter&lt;/h3&gt;

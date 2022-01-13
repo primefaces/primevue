@@ -389,8 +389,8 @@ export default {
         <h5>Grouped</h5>
         <Listbox v-model="selectedGroupedCity" :options="groupedCities" optionLabel="label" style="width:15rem" optionGroupLabel="label" optionGroupChildren="items" listStyle="max-height:250px">
             <template #optiongroup="slotProps">
-                <div class="p-d-flex p-ai-center country-item">
-                    <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="18" class="p-mr-2" />
+                <div class="flex align-items-center country-item">
+                    <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="18" class="mr-2" />
                     <div>{{slotProps.option.label}}</div>
                 </div>
             </template>
@@ -400,7 +400,7 @@ export default {
         <Listbox v-model="selectedCountries" :options="countries" :multiple="true" :filter="true" optionLabel="name" listStyle="max-height:250px" style="width:15rem" filterPlaceholder="Search">
             <template #option="slotProps">
                 <div class="country-item">
-                    <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="18" class="p-mr-2" />
+                    <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="18" class="mr-2" />
                     <div>{{slotProps.option.name}}</div>
                 </div>
             </template>
@@ -483,8 +483,8 @@ export default {
         <h5>Grouped</h5>
         <Listbox v-model="selectedGroupedCity" :options="groupedCities" optionLabel="label" style="width:15rem" optionGroupLabel="label" optionGroupChildren="items" listStyle="max-height:250px">
             <template #optiongroup="slotProps">
-                <div class="p-d-flex p-ai-center country-item">
-                    <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="18" class="p-mr-2" />
+                <div class="flex align-items-center country-item">
+                    <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="18" class="mr-2" />
                     <div>{{slotProps.option.label}}</div>
                 </div>
             </template>
@@ -494,7 +494,7 @@ export default {
        <Listbox v-model="selectedCountries" :options="countries" :multiple="true" :filter="true" optionLabel="name" listStyle="max-height:250px" style="width:15rem" filterPlaceholder="Search">
            <template #option="slotProps">
                <div class="country-item">
-                   <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="18" class="p-mr-2" />
+                   <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="18" class="mr-2" />
                    <div>{{slotProps.option.name}}</div>
                </div>
            </template>
@@ -581,8 +581,8 @@ export default {
             <h5>Grouped</h5>
             <p-listbox v-model="selectedGroupedCity" :options="groupedCities" option-label="label" style="width:15rem" option-group-label="label" option-group-children="items" list-style="max-height:250px">
                 <template #optiongroup="slotProps">
-                    <div class="p-d-flex p-ai-center country-item">
-                        <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="18" class="p-mr-2" />
+                    <div class="flex align-items-center country-item">
+                        <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="18" class="mr-2" />
                         <div>{{slotProps.option.label}}</div>
                     </div>
                 </template>
@@ -592,7 +592,7 @@ export default {
         <p-listbox v-model="selectedCountries" :options="countries" :multiple="true" :filter="true" option-label="name" list-style="max-height:250px" style="width:15rem" filter-placeholder="Search">
             <template #option="slotProps">
                 <div class="country-item">
-                    <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="18" class="p-mr-2" />
+                    <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="18" class="mr-2" />
                     <div>{{slotProps.option.name}}</div>
                 </div>
             </template>

@@ -10,15 +10,15 @@
 
         <div class="content-section implementation">
             <div class="card">
-               <h5>Default</h5>
-               <PanelMenu :model="items" />
+                <h5>Default</h5>
+                <PanelMenu :model="items" />
 
-               <h5>Programmatic</h5>
-               <div class="p-mb-3">
-                    <Button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll" class="p-mr-2" />
+                <h5>Programmatic</h5>
+                <div class="mb-3">
+                    <Button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll" class="mr-2" />
                     <Button type="button" icon="pi pi-minus" label="Collapse All" @click="collapseAll" />
                 </div>
-               <PanelMenu :model="items" v-model:expandedKeys="expandedKeys" />
+                <PanelMenu :model="items" v-model:expandedKeys="expandedKeys" />
             </div>
         </div>
 

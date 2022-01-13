@@ -28,7 +28,7 @@
 
             <p>Visit <a href="https://www.primefaces.org/designer/primevue">Designer API HomePage</a> for more information and live demos.</p>
 
-            <div class="video-container p-text-center">
+            <div class="video-container text-center">
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/7SqoSutntcE" frameborder="0" allowfullscreen></iframe>
             </div>
 
@@ -108,7 +108,7 @@ html {
                                 <td>p-link</td>
                                 <td>Renders a button as a link.</td>
                             </tr>
-                             <tr>
+                            <tr>
                                 <td>p-error</td>
                                 <td>Indicates an error text.</td>
                             </tr>

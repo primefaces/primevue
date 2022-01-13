@@ -43,7 +43,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.p-fieldset p {
+.fieldset p {
     line-height: 1.5;
     margin: 0;
 }

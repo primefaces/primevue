@@ -120,8 +120,8 @@ data() {
     &lt;template #option="slotProps"&gt;
         &lt;div class="country-item"&gt;
             &lt;img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.option.code.toLowerCase()" v-if="slotProps.option.states" /&gt;
-            &lt;i class="pi pi-compass p-mr-2" v-if="slotProps.option.cities"&gt;&lt;/i&gt;
-            &lt;i class="pi pi-map-marker p-mr-2" v-if="slotProps.option.cname"&gt;&lt;/i&gt;
+            &lt;i class="pi pi-compass mr-2" v-if="slotProps.option.cities"&gt;&lt;/i&gt;
+            &lt;i class="pi pi-map-marker mr-2" v-if="slotProps.option.cname"&gt;&lt;/i&gt;
             &lt;span&gt;{{slotProps.option.cname || slotProps.option.name}}&lt;/span&gt;
         &lt;/div&gt;
     &lt;/template&gt;
@@ -385,8 +385,8 @@ export default {
             <template #option="slotProps">
                 <div class="country-item">
                     <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" v-if="slotProps.option.states" />
-                    <i class="pi pi-compass p-mr-2" v-if="slotProps.option.cities"></i>
-                    <i class="pi pi-map-marker p-mr-2" v-if="slotProps.option.cname"></i>
+                    <i class="pi pi-compass mr-2" v-if="slotProps.option.cities"></i>
+                    <i class="pi pi-map-marker mr-2" v-if="slotProps.option.cname"></i>
                     <span>{{slotProps.option.cname || slotProps.option.name}}</span>
                 </div>
             </template>
@@ -507,8 +507,8 @@ img {
             <template #option="slotProps">
                 <div class="country-item">
                     <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" v-if="slotProps.option.states" />
-                    <i class="pi pi-compass p-mr-2" v-if="slotProps.option.cities"></i>
-                    <i class="pi pi-map-marker p-mr-2" v-if="slotProps.option.cname"></i>
+                    <i class="pi pi-compass mr-2" v-if="slotProps.option.cities"></i>
+                    <i class="pi pi-map-marker mr-2" v-if="slotProps.option.cname"></i>
                     <span>{{slotProps.option.cname || slotProps.option.name}}</span>
                 </div>
             </template>
@@ -631,8 +631,8 @@ img {
                 <template #option="slotProps">
                     <div class="country-item">
                         <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" v-if="slotProps.option.states" />
-                        <i class="pi pi-compass p-mr-2" v-if="slotProps.option.cities"></i>
-                        <i class="pi pi-map-marker p-mr-2" v-if="slotProps.option.cname"></i>
+                        <i class="pi pi-compass mr-2" v-if="slotProps.option.cities"></i>
+                        <i class="pi pi-map-marker mr-2" v-if="slotProps.option.cname"></i>
                         <span>{{slotProps.option.cname || slotProps.option.name}}</span>
                     </div>
                 </template>

@@ -11,17 +11,17 @@
         <div class="content-section implementation">
             <Toast position="bottom-center" group="bc">
                 <template #message="slotProps">
-                    <div class="p-d-flex p-flex-column">
-                        <div class="p-text-center">
+                    <div class="flex flex-column">
+                        <div class="text-center">
                             <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
                             <h4>{{slotProps.message.summary}}</h4>
                             <p>{{slotProps.message.detail}}</p>
                         </div>
-                        <div class="p-grid p-fluid">
-                            <div class="p-col-6">
+                        <div class="grid p-fluid">
+                            <div class="col-6">
                                 <Button class="p-button-success" label="Yes" @click="onConfirm"></Button>
                             </div>
-                            <div class="p-col-6">
+                            <div class="col-6">
                                 <Button class="p-button-secondary" label="No" @click="onReject"></Button>
                             </div>
                         </div>
@@ -37,7 +37,7 @@
                 <Button label="Error" class="p-button-danger" @click="showError" />
 
                 <h5>Positions</h5>
-                <Button label="Top Left" class="p-mr-2" @click="showTopLeft" />
+                <Button label="Top Left" class="mr-2" @click="showTopLeft" />
                 <Button label="Bottom Left" class="p-button-warning" @click="showBottomLeft" />
                 <Button label="Bottom Right" class="p-button-success" @click="showBottomRight" />
 

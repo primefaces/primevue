@@ -135,13 +135,13 @@ import Button from 'primevue/button';
         <h5>Templating</h5>
         <p>Custom content such as icons, images and text can be placed inside the button via the default slot. Note that when slot is used, label, icon and badge properties are not included.</p>
 <pre v-code><code>
-&lt;Button type="button" class="p-px-3"&gt;
+&lt;Button type="button" class="px-3"&gt;
     &lt;img alt="logo" src="../../assets/images/logo.svg" style="width: 1.5rem"/&gt;
 &lt;/Button&gt;
 
 &lt;Button type="button" class="p-button-outlined p-button-success"&gt;
     &lt;img alt="logo" src="../../assets/images/logo.svg" style="width: 1.5rem" /&gt;
-    &lt;span class="p-ml-2 p-text-bold"&gt;PrimeVue&lt;/span&gt;
+    &lt;span class="ml-2 font-bold"&gt;PrimeVue&lt;/span&gt;
 &lt;/Button&gt;
 
 </code></pre>
@@ -360,12 +360,12 @@ export default {
         <Button type="button" label="Search" :loading="loading[3]" @click="load(3)" />
 
         <h5>Templating</h5>
-        <Button type="button" class="p-px-3">
+        <Button type="button" class="px-3">
             <img alt="logo" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" style="width: 1.5rem"/>
         </Button>
         <Button type="button" class="p-button-outlined p-button-success">
             <img alt="logo" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" style="width: 1.5rem" />
-            <span class="p-ml-2 p-text-bold">PrimeVue</span>
+            <span class="ml-2 font-bold">PrimeVue</span>
         </Button>
 
         <h5>Button Set</h5>
@@ -550,12 +550,12 @@ export default {
         <Button type="button" label="Search" :loading="loading[3]" @click="load(3)" />
 
         <h5>Templating</h5>
-        <Button type="button" class="p-px-3">
+        <Button type="button" class="px-3">
             <img alt="logo" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" style="width: 1.5rem"/>
         </Button>
         <Button type="button" class="p-button-outlined p-button-success">
             <img alt="logo" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" style="width: 1.5rem" />
-            <span class="p-ml-2 p-text-bold">PrimeVue</span>
+            <span class="ml-2 font-bold">PrimeVue</span>
         </Button>
 
         <h5>Button Set</h5>
@@ -739,12 +739,12 @@ export default({
             <p-button type="button" label="Search" :loading="loading[3]" @click="load(3)"></p-button>
 
             <h5>Templating</h5>
-            <p-button type="button" class="p-px-3">
+            <p-button type="button" class="px-3">
                 <img alt="logo" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" style="width: 1.5rem" />
             </p-button>
             <p-button type="button" class="p-button-outlined p-button-success">
                 <img alt="logo" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" style="width: 1.5rem" />
-                <span class="p-ml-2 p-text-bold">PrimeVue</span>
+                <span class="ml-2 font-bold">PrimeVue</span>
             </p-button>
 
             <h5>Button Set</h5>

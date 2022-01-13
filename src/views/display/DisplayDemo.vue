@@ -11,26 +11,20 @@
         <div class="content-section implementation">
             <div class="card">
                 <h5>Inline</h5>
-                <InputText class="p-mr-2 p-d-inline" />
-                <InputText class="p-d-inline" />
+                <InputText class="mr-2 inline" />
+                <InputText class="inline" />
 
                 <h5>Block</h5>
-                <InputText class="p-mb-2 p-d-block" />
-                <InputText class="p-d-block" />
+                <InputText class="mb-2 block" />
+                <InputText class="block" />
 
                 <h5>Visible on a Small Screen</h5>
                 <p>Resize to view.</p>
-                <Button type="button" icon="pi pi-bars" class="p-button-rounded p-d-md-none" />
+                <Button type="button" icon="pi pi-bars" class="p-button-rounded md:hidden" />
 
                 <h5>Hidden on a Small Screen</h5>
                 <p>Resize to hide.</p>
-                <Button type="button" icon="pi pi-search" class="p-button-rounded p-button-success p-d-none p-d-md-inline-flex" />
-
-                <h5>Visible to Print, Invisible for Screen</h5>
-                <p class="p-d-none p-d-print-block">Only visible when printed.</p>
-
-                <h5>Visible to Screen, Invisible for Print</h5>
-                <p class="p-d-block p-d-print-none">Not available for printing.</p>
+                <Button type="button" icon="pi pi-search" class="p-button-rounded p-button-success hidden md:inline-flex" />
             </div>
         </div>
 

@@ -104,7 +104,7 @@ export default {
 					content: `
 <template>
     <div>
-        <div class="p-field-checkbox p-m-0">
+        <div class="field-checkbox m-0">
             <TriStateCheckbox v-model="value" />
             <label>{{value == null ? 'null' : value}}</label>
         </div>
@@ -127,7 +127,7 @@ export default {
 					content: `
 <template>
     <div>
-        <div class="p-field-checkbox p-m-0">
+        <div class="field-checkbox m-0">
             <TriStateCheckbox v-model="value" />
             <label>{{value == null ? 'null' : value}}</label>
         </div>
@@ -151,7 +151,7 @@ export default {
                     tabName: 'Browser Source',
                     imports: `<script src="https://unpkg.com/primevue@^3/tristatecheckbox/tristatecheckbox.min.js"><\\/script>`,
 					content: `<div id="app">
-            <div class="p-field-checkbox p-m-0">
+            <div class="field-checkbox m-0">
                 <p-tristatecheckbox v-model="value"></p-tristatecheckbox>
                 <label>{{value == null ? 'null' : value}}</label>
             </div>

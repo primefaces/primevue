@@ -325,12 +325,12 @@ export default {
                         <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" />
                     </div>
                     <div class="product-list-detail">
-                        <h6 class="p-mb-2">{{slotProps.item.name}}</h6>
+                        <h6 class="mb-2">{{slotProps.item.name}}</h6>
                         <i class="pi pi-tag product-category-icon"></i>
                         <span class="product-category">{{slotProps.item.category}}</span>
                     </div>
                     <div class="product-list-action">
-                        <h6 class="p-mb-2">\${{slotProps.item.price}}</h6>
+                        <h6 class="mb-2">\${{slotProps.item.price}}</h6>
                         <span :class="'product-badge status-'+slotProps.item.inventoryStatus.toLowerCase()">{{slotProps.item.inventoryStatus}}</span>
                     </div>
                 </div>
@@ -429,12 +429,12 @@ export default {
                         <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" />
                     </div>
                     <div class="product-list-detail">
-                        <h6 class="p-mb-2">{{slotProps.item.name}}</h6>
+                        <h6 class="mb-2">{{slotProps.item.name}}</h6>
                         <i class="pi pi-tag product-category-icon"></i>
                         <span class="product-category">{{slotProps.item.category}}</span>
                     </div>
                     <div class="product-list-action">
-                        <h6 class="p-mb-2">\${{slotProps.item.price}}</h6>
+                        <h6 class="mb-2">\${{slotProps.item.price}}</h6>
                         <span :class="'product-badge status-'+slotProps.item.inventoryStatus.toLowerCase()">{{slotProps.item.inventoryStatus}}</span>
                     </div>
                 </div>
@@ -532,12 +532,12 @@ export default {
                             <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" />
                         </div>
                         <div class="product-list-detail">
-                            <h6 class="p-mb-2">{{slotProps.item.name}}</h6>
+                            <h6 class="mb-2">{{slotProps.item.name}}</h6>
                             <i class="pi pi-tag product-category-icon"></i>
                             <span class="product-category">{{slotProps.item.category}}</span>
                         </div>
                         <div class="product-list-action">
-                            <h6 class="p-mb-2">\${{slotProps.item.price}}</h6>
+                            <h6 class="mb-2">\${{slotProps.item.price}}</h6>
                             <span :class="'product-badge status-'+slotProps.item.inventoryStatus.toLowerCase()">{{slotProps.item.inventoryStatus}}</span>
                         </div>
                     </div>

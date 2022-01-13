@@ -286,17 +286,17 @@ export default {
 
         <h5>Inline Messages</h5>
         <p>Message component is used to display inline messages mostly within forms.</p>
-        <div class="p-grid">
-            <div class="p-col-12 p-md-3">
+        <div class="grid">
+            <div class="col-12 md:col-3">
                 <InlineMessage severity="info">Message Content</InlineMessage>
             </div>
-            <div class="p-col-12 p-md-3">
+            <div class="col-12 md:col-3">
                 <InlineMessage severity="success">Message Content</InlineMessage>
             </div>
-            <div class="p-col-12 p-md-3">
+            <div class="col-12 md:col-3">
                 <InlineMessage severity="warn">Message Content</InlineMessage>
             </div>
-            <div class="p-col-12 p-md-3">
+            <div class="col-12 md:col-3">
                 <InlineMessage severity="error">Message Content</InlineMessage>
             </div>
         </div>
@@ -305,12 +305,12 @@ export default {
         <Message severity="warn" :life="3000" :sticky="false">This message will hide in 3 seconds.</Message>
 
         <h5>Validation Message</h5>
-        <div class="p-formgroup-inline" style="margin-bottom:.5rem">
+        <div class="formgroup-inline" style="margin-bottom:.5rem">
             <label for="username" class="p-sr-only">Username</label>
             <InputText id="username" placeholder="Username" class="p-invalid" />
             <InlineMessage>Username is required</InlineMessage>
         </div>
-        <div class="p-formgroup-inline">
+        <div class="formgroup-inline">
             <label for="email" class="p-sr-only">email</label>
             <InputText id="email" placeholder="Email" class="p-invalid" />
             <InlineMessage />
@@ -367,17 +367,17 @@ button.p-button {
 
         <h5>Inline Messages</h5>
         <p>Message component is used to display inline messages mostly within forms.</p>
-        <div class="p-grid">
-            <div class="p-col-12 p-md-3">
+        <div class="grid">
+            <div class="col-12 md:col-3">
                 <InlineMessage severity="info">Message Content</InlineMessage>
             </div>
-            <div class="p-col-12 p-md-3">
+            <div class="col-12 md:col-3">
                 <InlineMessage severity="success">Message Content</InlineMessage>
             </div>
-            <div class="p-col-12 p-md-3">
+            <div class="col-12 md:col-3">
                 <InlineMessage severity="warn">Message Content</InlineMessage>
             </div>
-            <div class="p-col-12 p-md-3">
+            <div class="col-12 md:col-3">
                 <InlineMessage severity="error">Message Content</InlineMessage>
             </div>
         </div>
@@ -386,12 +386,12 @@ button.p-button {
         <Message severity="warn" :life="3000" :sticky="false">This message will hide in 3 seconds.</Message>
 
         <h5>Validation Message</h5>
-        <div class="p-formgroup-inline" style="margin-bottom:.5rem">
+        <div class="formgroup-inline" style="margin-bottom:.5rem">
             <label for="username" class="p-sr-only">Username</label>
             <InputText id="username" placeholder="Username" class="p-invalid" />
             <InlineMessage>Username is required</InlineMessage>
         </div>
-        <div class="p-formgroup-inline">
+        <div class="formgroup-inline">
             <label for="email" class="p-sr-only">email</label>
             <InputText id="email" placeholder="Email" class="p-invalid" />
             <InlineMessage />
@@ -447,17 +447,17 @@ button.p-button {
 
             <h5>Inline Messages</h5>
             <p>Message component is used to display inline messages mostly within forms.</p>
-            <div class="p-grid">
-                <div class="p-col-12 p-md-3">
+            <div class="grid">
+                <div class="col-12 md:col-3">
                     <p-inlinemessage severity="info">Message Content</p-inlinemessage>
                 </div>
-                <div class="p-col-12 p-md-3">
+                <div class="col-12 md:col-3">
                     <p-inlinemessage severity="success">Message Content</p-inlinemessage>
                 </div>
-                <div class="p-col-12 p-md-3">
+                <div class="col-12 md:col-3">
                     <p-inlinemessage severity="warn">Message Content</p-inlinemessage>
                 </div>
-                <div class="p-col-12 p-md-3">
+                <div class="col-12 md:col-3">
                     <p-inlinemessage severity="error">Message Content</p-inlinemessage>
                 </div>
             </div>
@@ -466,12 +466,12 @@ button.p-button {
             <p-message severity="warn" :life="3000" :sticky="false">This message will hide in 3 seconds.</p-message>
 
             <h5>Validation Message</h5>
-            <div class="p-formgroup-inline" style="margin-bottom:.5rem">
+            <div class="formgroup-inline" style="margin-bottom:.5rem">
                 <label for="username" class="p-sr-only">Username</label>
                 <p-inputtext id="username" placeholder="Username" class="p-invalid"></p-inputtext>
                 <p-inlinemessage>Username is required</p-inlinemessage>
             </div>
-            <div class="p-formgroup-inline">
+            <div class="formgroup-inline">
                 <label for="email" class="p-sr-only">email</label>
                 <p-inputtext id="email" placeholder="Email" class="p-invalid"></p-inputtext>
                 <p-inlinemessage></p-inlinemessage>

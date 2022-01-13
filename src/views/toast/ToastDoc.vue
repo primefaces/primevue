@@ -200,17 +200,17 @@ this.$toast.add({severity:'success', summary: 'Specific Message', group: 'mykey'
 <pre v-code><code><template v-pre>
 &lt;Toast position="bottom-center" group="bc"&gt;
     &lt;template #message="slotProps"&gt;
-        &lt;div class="p-d-flex p-flex-column"&gt;
-            &lt;div class="p-text-center"&gt;
+        &lt;div class="flex flex-column"&gt;
+            &lt;div class="text-center"&gt;
                 &lt;i class="pi pi-exclamation-triangle" style="font-size: 3rem"&gt;&lt;/i&gt;
                 &lt;h4&gt;{{slotProps.message.summary}}&lt;/h4&gt;
                 &lt;p&gt;{{slotProps.message.detail}}&lt;/p&gt;
             &lt;/div&gt;
-            &lt;div class="p-grid p-fluid"&gt;
-                &lt;div class="p-col-6"&gt;
+            &lt;div class="grid p-fluid"&gt;
+                &lt;div class="col-6"&gt;
                     &lt;Button class="p-button-success" label="Yes" @click="onConfirm" /&gt;
                 &lt;/div&gt;
-                &lt;div class="p-col-6"&gt;
+                &lt;div class="col-6"&gt;
                     &lt;Button class="p-button-secondary" label="No" @click="onReject" /&gt;
                 &lt;/div&gt;
             &lt;/div&gt;
@@ -372,17 +372,17 @@ export default {
 
         <Toast position="bottom-center" group="bc">
             <template #message="slotProps">
-                <div class="p-d-flex p-flex-column">
-                    <div class="p-text-center">
+                <div class="flex flex-column">
+                    <div class="text-center">
                         <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
                         <h4>{{slotProps.message.summary}}</h4>
                         <p>{{slotProps.message.detail}}</p>
                     </div>
-                    <div class="p-grid p-fluid">
-                        <div class="p-col-6">
+                    <div class="grid p-fluid">
+                        <div class="col-6">
                             <Button class="p-button-success" label="Yes" @click="onConfirm"></Button>
                         </div>
-                        <div class="p-col-6">
+                        <div class="col-6">
                             <Button class="p-button-secondary" label="No" @click="onReject"></Button>
                         </div>
                     </div>
@@ -398,7 +398,7 @@ export default {
             <Button label="Error" class="p-button-danger" @click="showError" />
 
             <h5>Positions</h5>
-            <Button label="Top Left" class="p-mr-2" @click="showTopLeft" />
+            <Button label="Top Left" class="mr-2" @click="showTopLeft" />
             <Button label="Bottom Left" class="p-button-warning" @click="showBottomLeft" />
             <Button label="Bottom Right" class="p-button-success" @click="showBottomRight" />
 
@@ -494,17 +494,17 @@ button {
 
         <Toast position="bottom-center" group="bc">
             <template #message="slotProps">
-                <div class="p-d-flex p-flex-column">
-                    <div class="p-text-center">
+                <div class="flex flex-column">
+                    <div class="text-center">
                         <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
                         <h4>{{slotProps.message.summary}}</h4>
                         <p>{{slotProps.message.detail}}</p>
                     </div>
-                    <div class="p-grid p-fluid">
-                        <div class="p-col-6">
+                    <div class="grid p-fluid">
+                        <div class="col-6">
                             <Button class="p-button-success" label="Yes" @click="onConfirm"></Button>
                         </div>
-                        <div class="p-col-6">
+                        <div class="col-6">
                             <Button class="p-button-secondary" label="No" @click="onReject"></Button>
                         </div>
                     </div>
@@ -520,7 +520,7 @@ button {
             <Button label="Error" class="p-button-danger" @click="showError" />
 
             <h5>Positions</h5>
-            <Button label="Top Left" class="p-mr-2" @click="showTopLeft" />
+            <Button label="Top Left" class="mr-2" @click="showTopLeft" />
             <Button label="Bottom Left" class="p-button-warning" @click="showBottomLeft" />
             <Button label="Bottom Right" class="p-button-success" @click="showBottomRight" />
 
@@ -619,17 +619,17 @@ button {
 
             <p-toast position="bottom-center" group="bc">
                 <template #message="slotProps">
-                    <div class="p-d-flex p-flex-column">
-                        <div class="p-text-center">
+                    <div class="flex flex-column">
+                        <div class="text-center">
                             <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
                             <h4>{{slotProps.message.summary}}</h4>
                             <p>{{slotProps.message.detail}}</p>
                         </div>
-                        <div class="p-grid p-fluid">
-                            <div class="p-col-6">
+                        <div class="grid p-fluid">
+                            <div class="col-6">
                                 <p-button class="p-button-success" label="Yes" @click="onConfirm"></p-button>
                             </div>
-                            <div class="p-col-6">
+                            <div class="col-6">
                                 <p-button class="p-button-secondary" label="No" @click="onReject"></p-button>
                             </div>
                         </div>
@@ -645,7 +645,7 @@ button {
                 <p-button label="Error" class="p-button-danger" @click="showError"></p-button>
 
                 <h5>Positions</h5>
-                <p-button label="Top Left" class="p-mr-2" @click="showTopLeft"></p-button>
+                <p-button label="Top Left" class="mr-2" @click="showTopLeft"></p-button>
                 <p-button label="Bottom Left" class="p-button-warning" @click="showBottomLeft"></p-button>
                 <p-button label="Bottom Right" class="p-button-success" @click="showBottomRight"></p-button>
 
