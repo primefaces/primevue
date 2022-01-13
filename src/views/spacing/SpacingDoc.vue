@@ -2,7 +2,7 @@
 	<AppDoc name="SpacingDemo" :sources="sources" github="spacing/SpacingDemo.vue" >
         <h5>Getting Started</h5>
         <p>The spacing classes use the <i>{property}{position}-{value}</i> syntax whereas for responsive
-        values <i>{property}{position}-{breakpoint}-{value}</i> format is used.</p>
+        values <i>{breakpoint}:{property}{position}-{value}</i> format is used.</p>
 
         <h5>Property</h5>
         <p>Property can either be a margin or a padding.</p>
@@ -33,6 +33,8 @@
             <li><b>4</b>: $spacer * 1.5</li>
             <li><b>5</b>: $spacer * 2</li>
             <li><b>6</b>: $spacer * 3</li>
+            <li><b>7</b>: $spacer * 4</li>
+            <li><b>8</b>: $spacer * 5</li>
             <li><b>auto</b>: auto margin</li>
         </ul>
 

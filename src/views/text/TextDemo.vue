@@ -18,7 +18,7 @@
                 <h5>Wrap</h5>
                 <div class="mb-3 demo-container" style="width: 10rem">Long text wraps and does not overlow.</div>
                 <div class="mb-3 demo-container white-space-nowrap" style="width: 10rem">Long text does not wrap and overflows the parent.</div>
-                <div class="mb-3 demo-container white-space-nowrap text-overflow-ellipsis" style="width: 10rem">Long text does not wrap and overflows the parent.</div>
+                <div class="mb-3 demo-container white-space-nowrap overflow-hidden text-overflow-ellipsis" style="width: 10rem">Long text does not wrap and overflows the parent.</div>
 
                 <h5>Transform</h5>
                 <div class="mb-3 text-lowercase">LOWERCASE</div>
