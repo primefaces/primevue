@@ -11,7 +11,7 @@
                             <button class="p-dialog-header-icon p-dialog-header-maximize p-link" @click="maximize" v-if="maximizable" type="button" tabindex="-1" v-ripple>
                                 <span :class="maximizeIconClass"></span>
                             </button>
-                            <button class="p-dialog-header-icon p-dialog-header-close p-link" @click="close" v-if="closable" :aria-label="ariaCloseLabel" type="button" tabindex="-1" v-ripple>
+                            <button class="p-dialog-header-icon p-dialog-header-close p-link" @click="close" v-if="closable" :aria-label="ariaCloseLabel" type="button" v-ripple>
                                 <span class="p-dialog-header-close-icon pi pi-times"></span>
                             </button>
                         </div>
