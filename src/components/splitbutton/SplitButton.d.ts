@@ -1,3 +1,4 @@
+import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 import { MenuItem } from '../menuitem';
 
@@ -43,6 +44,10 @@ export interface SplitButtonProps {
 }
 
 export interface SplitButtonSlots {
+    /**
+     * Button part of the content can easily be customized with the default slot instead of using the built-in modes.
+     */
+    default: () => VNode[];
 }
 
 export declare type SplitButtonEmits = {

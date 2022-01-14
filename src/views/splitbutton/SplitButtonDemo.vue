@@ -24,6 +24,14 @@
                 <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-warning mb-2"></SplitButton>
                 <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-help mb-2"></SplitButton>
                 <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-danger mb-2"></SplitButton>
+
+                <h5>Templating</h5>
+                <SplitButton :model="items" class="bg-primary border-round">
+                    <Button @click="save">
+                        <img alt="logo" src="../../assets/images/logo.svg" style="width: 1rem" />
+                        <span class="ml-2 flex align-items-center font-bold">PrimeVue</span>
+                    </Button>
+                </SplitButton>
             </div>
         </div>
 
