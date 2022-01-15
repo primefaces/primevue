@@ -184,7 +184,8 @@ export default {
             return this.virtualScrollerDisabled ? index : (fn && fn(index)['index']);
         },
         getOptionLabel(option) {
-            return this.optionLabel ? ObjectUtils.resolveFieldData(option, this.optionLabel) : option;
+            const label = this.optionLabel ? ObjectUtils.resolveFieldData(option, this.optionLabel) : option;
+            return label != null && !label.trim() ? "\u200b" : label;
         },
         getOptionValue(option) {
             return this.optionValue ? ObjectUtils.resolveFieldData(option, this.optionValue) : option;
@@ -691,7 +692,7 @@ export default {
         },
         label() {
             let selectedOption = this.getSelectedOption();
-            if (selectedOption)
+            if (selectedOption != null)
                 return this.getOptionLabel(selectedOption);
             else
                 return this.placeholder||'p-emptylabel';
