@@ -1,8 +1,13 @@
 <template>
     <AppDoc name="SpeedDialDemo" :sources="sources" github="speeddial/SpeedDialDemo.vue">
         <h5>Import via Module</h5>
+        <p>SpeedDial uses the tooltip directive to display its floating actions. Refer to <router-link to="/tooltip">Tooltip</router-link> for more setup options.</p>        
 <pre v-code.script><code>
 import SpeedDial from 'primevue/speeddial';
+import Tooltip from 'primevue/tooltip'; // Requires v-tooltip directive
+
+app.directive('tooltip', Tooltip); // Global
+
 
 </code></pre>
 
@@ -10,6 +15,8 @@ import SpeedDial from 'primevue/speeddial';
 <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/speeddial/speeddial.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue@^3/tooltip/tooltip.min.js"&gt;&lt;/script&gt;
+
 
 </code></pre>
 
