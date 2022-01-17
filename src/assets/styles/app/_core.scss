@@ -87,6 +87,8 @@ input[type="number"] {
 }
 
 pre[class*="language-"] {
+    background: none !important;
+
     &:before, &:after {
         display: none !important;
     } 
