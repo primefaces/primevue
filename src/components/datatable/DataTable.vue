@@ -1106,15 +1106,7 @@ export default {
                     let nextColumnWidth = nextColumn.offsetWidth - delta;
 
                     if (newColumnWidth > 15 && nextColumnWidth > 15) {
-                        if (!this.scrollable) {
-                            this.resizeColumnElement.style.width = newColumnWidth + 'px';
-                            if(nextColumn) {
-                                nextColumn.style.width = nextColumnWidth + 'px';
-                            }
-                        }
-                        else {
-                            this.resizeTableCells(newColumnWidth, nextColumnWidth);
-                        }
+                        this.resizeTableCells(newColumnWidth, nextColumnWidth);
                     }
                 }
                 else if (this.columnResizeMode === 'expand') {
@@ -1122,10 +1114,7 @@ export default {
                     this.$refs.table.style.width = tableWidth;
                     this.$refs.table.style.minWidth = tableWidth;
 
-                    if (!this.scrollable)
-                        this.resizeColumnElement.style.width = newColumnWidth + 'px';
-                    else
-                        this.resizeTableCells(newColumnWidth);
+                    this.resizeTableCells(newColumnWidth);
                 }
 
                 this.$emit('column-resize-end', {
@@ -1154,18 +1143,18 @@ export default {
             this.createStyleElement();
 
             let innerHTML = '';
-            widths.forEach((width,index) => {
+            widths.forEach((width, index) => {
                 let colWidth = index === colIndex ? newColumnWidth : (nextColumnWidth && index === colIndex + 1) ? nextColumnWidth : width;
+                let style = this.scrollable ? `flex: 1 1 ${colWidth}px !important` : `width: ${colWidth}px !important`;
                 innerHTML += `
-                    .p-datatable[${this.attributeSelector}] .p-datatable-thead > tr > th:nth-child(${index+1}) {
-                        flex: 0 0 ${colWidth}px !important;
-                    }
-
-                    .p-datatable[${this.attributeSelector}] .p-datatable-tbody > tr > td:nth-child(${index+1}) {
-                        flex: 0 0 ${colWidth}px !important;
+                    .p-datatable[${this.attributeSelector}] .p-datatable-thead > tr > th:nth-child(${index + 1}),
+                    .p-datatable[${this.attributeSelector}] .p-datatable-tbody > tr > td:nth-child(${index + 1}),
+                    .p-datatable[${this.attributeSelector}] .p-datatable-tfoot > tr > td:nth-child(${index + 1}) {
+                        ${style}
                     }
                 `
             });
+        
             this.styleElement.innerHTML = innerHTML;
         },
         bindColumnResizeEvents() {
@@ -1195,7 +1184,7 @@ export default {
 
             if (this.documentColumnResizeEndListener) {
                 document.removeEventListener('document', this.documentColumnResizeEndListener);
-                 this.documentColumnResizeEndListener = null;
+                this.documentColumnResizeEndListener = null;
             }
         },
         onColumnHeaderMouseDown(e) {
@@ -1588,26 +1577,22 @@ export default {
                     this.$el.style.width = this.tableWidthState;
                 }
 
-                this.createStyleElement();
+                if (ObjectUtils.isNotEmpty(widths)) {
+                    this.createStyleElement();
 
-                if (this.scrollable && widths && widths.length > 0) {
                     let innerHTML = '';
-                    widths.forEach((width,index) => {
+                    widths.forEach((width, index) => {
+                        let style = this.scrollable ? `flex: 1 1 ${width}px !important` : `width: ${width}px !important`;
                         innerHTML += `
-                            .p-datatable[${this.attributeSelector}] .p-datatable-thead > tr > th:nth-child(${index+1}) {
-                                flex: 0 0 ${width}px;
-                            }
-
-                            .p-datatable[${this.attributeSelector}] .p-datatable-tbody > tr > td:nth-child(${index+1}) {
-                                flex: 0 0 ${width}px;
+                            .p-datatable[${this.attributeSelector}] .p-datatable-thead > tr > th:nth-child(${index + 1}),
+                            .p-datatable[${this.attributeSelector}] .p-datatable-tbody > tr > td:nth-child(${index + 1}),
+                            .p-datatable[${this.attributeSelector}] .p-datatable-tfoot > tr > td:nth-child(${index + 1}) {
+                                ${style}
                             }
                         `
                     });
 
                     this.styleElement.innerHTML = innerHTML;
-                }
-                else {
-                    DomHandler.find(this.$refs.table, '.p-datatable-thead > tr > th').forEach((header, index) => header.style.width = widths[index] + 'px');
                 }
             }
         },
