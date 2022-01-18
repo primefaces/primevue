@@ -23,6 +23,7 @@
 <script>
 import Button from 'primevue/button';
 import Ripple from 'primevue/ripple';
+import Tooltip from 'primevue/tooltip';
 import {DomHandler} from 'primevue/utils';
 
 export default {
@@ -262,7 +263,8 @@ export default {
         'SDButton': Button
     },
     directives: {
-        'ripple': Ripple
+        'ripple': Ripple,
+        'tooltip': Tooltip
     }
 }
 </script>

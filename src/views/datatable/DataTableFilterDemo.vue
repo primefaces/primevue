@@ -948,7 +948,6 @@ export default {
         <script src="https://unpkg.com/primevue@^3/progressbar/progressbar.min.js"><\\/script>
         <script src="https://unpkg.com/primevue@^3/tristatecheckbox/tristatecheckbox.min.js"><\\/script>
         <script src="https://unpkg.com/primevue@^3/slider/slider.min.js"><\\/script>
-        <script src="https://unpkg.com/primevue@^3/tooltip/tooltip.min.js"><\\/script>
         <script src="./CustomerService.js"><\\/script>`,
                     content: `<div id="app">
             <div class="card">

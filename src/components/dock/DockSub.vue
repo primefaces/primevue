@@ -28,6 +28,7 @@
 
 <script>
 import Ripple from 'primevue/ripple';
+import Tooltip from 'primevue/tooltip';
 
 export default {
     name: 'DockSub',
@@ -96,7 +97,8 @@ export default {
         }
     },
     directives: {
-        'ripple': Ripple
+        'ripple': Ripple,
+        'tooltip': Tooltip
     }
 }
 </script>
