@@ -3347,8 +3347,8 @@
   color: rgba(0, 0, 0, 0.87);
 }
 .p-treetable .p-treetable-tbody > tr:focus {
-  outline: 1px solid transparent;
-  outline-offset: -1px;
+  outline: 0.15rem solid transparent;
+  outline-offset: -0.15rem;
 }
 .p-treetable .p-treetable-tbody > tr.p-highlight {
   background: rgba(103, 58, 183, 0.12);
