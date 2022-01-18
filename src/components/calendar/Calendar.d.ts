@@ -237,10 +237,6 @@ export interface CalendarProps {
      * Style class of the component.
      */
     class?: any;
-    /**
-     * Keep invalid value when input blur.
-     */
-    keepInvalid?: boolean | undefined;
 }
 
 export interface CalendarSlots {
