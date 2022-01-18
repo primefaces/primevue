@@ -244,8 +244,7 @@ export default {
                     tabName: 'Browser Source',
                     imports: `<script src="https://unpkg.com/quill/dist/quill.min.js"><\\/script>
                     
-        <script src="https://unpkg.com/primevue@^3/editor/editor.min.js"><\\/script>
-        <script src="https://unpkg.com/primevue@^3/tooltip/tooltip.min.js"><\\/script>`,
+        <script src="https://unpkg.com/primevue@^3/editor/editor.min.js"><\\/script>`,
                     content: `<div id="app">
             <h5>Default</h5>
             <p-editor v-model="value1" editor-style="height: 320px"></p-editor>

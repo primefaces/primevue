@@ -1012,7 +1012,6 @@ export default {
         <script src="https://unpkg.com/primevue@^3/menubar/menubar.min.js"><\\/script>
         <script src="https://unpkg.com/primevue@^3/terminal/terminal.min.js"><\\/script>
         <script src="https://unpkg.com/primevue@^3/galleria/galleria.min.js"><\\/script>
-        <script src="https://unpkg.com/primevue@^3/tooltip/tooltip.min.js"><\\/script>
         <script src="./NodeService.js"><\\/script>
         <script src="./PhotoService.js"><\\/script>`,
                     content: `<div id="app" class="dock-demo">

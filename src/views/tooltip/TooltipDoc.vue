@@ -12,7 +12,6 @@ app.directive('tooltip', Tooltip);
         <h5>Import via CDN</h5>
 <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
-&lt;script src="https://unpkg.com/primevue@^3/tooltip/tooltip.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
@@ -229,7 +228,6 @@ export default {
                 },
                 'browser-source': {
                     tabName: 'Browser Source',
-                    imports: `<script src="https://unpkg.com/primevue@^3/tooltip/tooltip.min.js"><\\/script>`,
                     content: `<div id="app">
             <h5>Positions</h5>
             <div class="grid p-fluid">
