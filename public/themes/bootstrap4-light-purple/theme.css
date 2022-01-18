@@ -3188,7 +3188,7 @@
 .p-tree .p-tree-container .p-treenode .p-treenode-content:focus {
   outline: 0 none;
   outline-offset: 0;
-  box-shadow: 0 0 0 0.2rem rgba(136, 60, 174, 0.5);
+  box-shadow: inset 0 0 0 0.15rem rgba(136, 60, 174, 0.5);
 }
 .p-tree .p-tree-container .p-treenode .p-treenode-content.p-highlight {
   background: #883cae;
@@ -3335,8 +3335,8 @@
   color: #212529;
 }
 .p-treetable .p-treetable-tbody > tr:focus {
-  outline: 1px solid rgba(136, 60, 174, 0.5);
-  outline-offset: -1px;
+  outline: 0.15rem solid rgba(136, 60, 174, 0.5);
+  outline-offset: -0.15rem;
 }
 .p-treetable .p-treetable-tbody > tr.p-highlight {
   background: #883cae;

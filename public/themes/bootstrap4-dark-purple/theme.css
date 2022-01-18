@@ -3188,7 +3188,7 @@
 .p-tree .p-tree-container .p-treenode .p-treenode-content:focus {
   outline: 0 none;
   outline-offset: 0;
-  box-shadow: 0 0 0 1px #f0e6f5;
+  box-shadow: inset 0 0 0 0.15rem #f0e6f5;
 }
 .p-tree .p-tree-container .p-treenode .p-treenode-content.p-highlight {
   background: #c298d8;
@@ -3335,8 +3335,8 @@
   color: rgba(255, 255, 255, 0.87);
 }
 .p-treetable .p-treetable-tbody > tr:focus {
-  outline: 1px solid #f0e6f5;
-  outline-offset: -1px;
+  outline: 0.15rem solid #f0e6f5;
+  outline-offset: -0.15rem;
 }
 .p-treetable .p-treetable-tbody > tr.p-highlight {
   background: #c298d8;
