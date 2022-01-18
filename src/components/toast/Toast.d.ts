@@ -8,10 +8,10 @@ type ToastMessageSeverityType = 'success' | 'info' | 'warn' | 'error' | undefine
 export interface ToastMessageOptions {
     /**
      * Severity level of the message.
-     * @see MessageSeverityType
+     * @see ToastMessageSeverityType
      * Default value is 'info'.
      */
-    severity?: ToastMessageSeverityType;
+    severity?: any | undefined;
     /**
      * Summary content of the message.
      */
