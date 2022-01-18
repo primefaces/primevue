@@ -318,6 +318,7 @@ export default {
     justify-content: center;
     overflow: hidden;
     position: relative;
+    flex-shrink: 0;
 }
 
 .p-treenode-leaf > .p-treenode-content .p-tree-toggler {
