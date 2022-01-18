@@ -691,7 +691,7 @@ export default {
         },
         label() {
             let selectedOption = this.getSelectedOption();
-            if (selectedOption)
+            if (selectedOption !== null)
                 return this.getOptionLabel(selectedOption);
             else
                 return this.placeholder||'p-emptylabel';
