@@ -298,10 +298,6 @@ export default {
             type: String,
             default: 'body'
         },
-        keepInvalid: {
-            type: Boolean,
-            default: false
-        },
         inputClass: null,
         inputStyle: null,
         class: null,

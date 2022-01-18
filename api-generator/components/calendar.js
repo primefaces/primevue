@@ -245,12 +245,6 @@ const CalendarProps = [
         type: "any",
         default: "null",
         description: "Inline style of the component."
-    },
-    {
-        name: "keepInvalid",
-        type: "boolean",
-        default: "false",
-        description: "Keep invalid value when input blur."
     }
 ];
 
