@@ -1,5 +1,45 @@
 # Changelog
 
+## [3.11.0](https://github.com/primefaces/primevue/tree/3.11.0) (2022-01-18)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.10.0...3.11.0)
+
+**Implemented New Features and Enhancements:**
+
+- Move PrimeFlex v2 Docs to Github [\#2017](https://github.com/primefaces/primevue/issues/2017)
+- Update themes for list shadow style [\#2008](https://github.com/primefaces/primevue/issues/2008)
+- Improve resizable structure on DataTable [\#2001](https://github.com/primefaces/primevue/issues/2001)
+- PrimeFlex 3 update for PrimeVue showcase [\#1977](https://github.com/primefaces/primevue/issues/1977)
+- Dialog: close button cannot receive focus [\#1975](https://github.com/primefaces/primevue/issues/1975)
+- New Color Scheme for Lara Dark [\#1919](https://github.com/primefaces/primevue/issues/1919)
+- Templating for SplitButton [\#1795](https://github.com/primefaces/primevue/issues/1795)
+
+**Fixed bugs:**
+
+- Tooltip import defect [\#2013](https://github.com/primefaces/primevue/issues/2013)
+- Tree node toggler button is shrunk until not visible if label starts to not fit the node [\#2011](https://github.com/primefaces/primevue/issues/2011)
+- DataTable | Footer is not align when resize mode is enable [\#2003](https://github.com/primefaces/primevue/issues/2003)
+- Dropdown doesn't display empty string [\#1995](https://github.com/primefaces/primevue/issues/1995)
+- Tag doesn't show icon when slot is used instead of "value" attribute [\#1993](https://github.com/primefaces/primevue/issues/1993)
+- Dropdown | filled background problem [\#1980](https://github.com/primefaces/primevue/issues/1980)
+- DataTable | ColResize Expand Mode not Compatible with Table Scroll [\#1970](https://github.com/primefaces/primevue/issues/1970)
+- DataTable, TreeTable | Checkbox and RadioButton Focus Missing on Material [\#1967](https://github.com/primefaces/primevue/issues/1967)
+- Datatable: Inline filterMenuStyle doesn't add css properties [\#1966](https://github.com/primefaces/primevue/issues/1966)
+- Update type checking for class properties [\#1959](https://github.com/primefaces/primevue/issues/1959)
+- Cannot dynamically set Toast severity [\#1955](https://github.com/primefaces/primevue/issues/1955)
+- tooltip type error in SpeedDial.d.ts and Dock.d.ts [\#1945](https://github.com/primefaces/primevue/issues/1945)
+- Type definition for 'header' slot missing in TabPanel component [\#1943](https://github.com/primefaces/primevue/issues/1943)
+- Calendar: the Year is incorrect for Multiple Months mode [\#1942](https://github.com/primefaces/primevue/issues/1942)
+- DataTable: sticky column header doesn't stay fixed  [\#1938](https://github.com/primefaces/primevue/issues/1938)
+- MenuItem: type of `to` should be `RouteLocationRaw`  [\#1933](https://github.com/primefaces/primevue/issues/1933)
+- Calendar: the Year is incorrect for Multiple Months mode [\#1924](https://github.com/primefaces/primevue/issues/1924)
+- Error while dynamic remove SplitterPanel component. [\#1914](https://github.com/primefaces/primevue/issues/1914)
+- DataTable - Paginator doesn't reset on Lazy sort [\#1905](https://github.com/primefaces/primevue/issues/1905)
+- header option is missing from confirmoption [\#1902](https://github.com/primefaces/primevue/issues/1902)
+- ConfirmationService: require is not defined [\#1897](https://github.com/primefaces/primevue/issues/1897)
+- Toast: Production Typescript Build Error: Type detail [\#1856](https://github.com/primefaces/primevue/issues/1856)
+- Missing props in ConfirmationOptions.d.ts [\#1852](https://github.com/primefaces/primevue/issues/1852)
+
 ## [3.10.0](https://github.com/primefaces/primevue/tree/3.10.0) (2021-12-07)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/2.7.0...3.10.0)
