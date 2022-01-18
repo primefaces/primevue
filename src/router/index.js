@@ -328,11 +328,6 @@ const routes = [
         component: () => import('../views/dialog/DialogDemo.vue')
     },
     {
-        path: '/display',
-        name: 'display',
-        component: () => import('../views/display/DisplayDemo.vue')
-    },
-    {
         path: '/divider',
         name: 'divider',
         component: () => import('../views/divider/DividerDemo.vue')
@@ -353,11 +348,6 @@ const routes = [
         component: () => import('../views/editor/EditorDemo.vue')
     },
     {
-        path: '/elevation',
-        name: 'elevation',
-        component: () => import('../views/elevation/ElevationDemo.vue')
-    },
-    {
         path: '/fieldset',
         name: 'fieldset',
         component: () => import('../views/fieldset/FieldsetDemo.vue')
@@ -371,16 +361,6 @@ const routes = [
         path: '/fileupload',
         name: 'fileupload',
         component: () => import('../views/fileupload/FileUploadDemo.vue')
-    },
-    {
-        path: '/grid',
-        name: 'grid',
-        component: () => import('../views/grid/GridDemo.vue')
-    },
-    {
-        path: '/formlayout',
-        name: 'formlayout',
-        component: () => import('../views/formlayout/FormLayoutDemo.vue')
     },
     {
         path: '/fullcalendar',
@@ -451,11 +431,6 @@ const routes = [
         path: '/listbox',
         name: 'listbox',
         component: () => import('../views/listbox/ListboxDemo.vue')
-    },
-    {
-        path: '/flexbox',
-        name: 'flexbox',
-        component: () => import('../views/flexbox/FlexBoxDemo.vue')
     },
     {
         path: '/floatlabel',
@@ -543,11 +518,6 @@ const routes = [
         component: () => import('../views/progressspinner/ProgressSpinnerDemo.vue')
     },
     {
-        path: '/primeflex',
-        name: 'primeflex',
-        component: () => import('../views/primeflex/PrimeFlexSetup.vue')
-    },
-    {
         path: '/radiobutton',
         name: 'radiobutton',
         component: () => import('../views/radiobutton/RadioButtonDemo.vue')
@@ -586,11 +556,6 @@ const routes = [
         path: '/slider',
         name: 'slider',
         component: () => import('../views/slider/SliderDemo.vue')
-    },
-    {
-        path: '/spacing',
-        name: 'spacing',
-        component: () => import('../views/spacing/SpacingDemo.vue')
     },
     {
         path: '/speeddial',
@@ -660,11 +625,6 @@ const routes = [
         path: '/tag',
         name: 'tag',
         component: () => import('../views/tag/TagDemo.vue')
-    },
-    {
-        path: '/text',
-        name: 'text',
-        component: () => import('../views/text/TextDemo.vue')
     },
     {
         path: '/textarea',

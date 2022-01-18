@@ -112,46 +112,12 @@
             "meta": ["primeflex"],
             "children": [
                 {
-                    "name": "Setup",
-                    "to": "/primeflex"
+                    "name": "PrimeFlex v3",
+                    "href": "https://www.primefaces.org/primeflex"
                 },
                 {
-                    "name": "Display",
-                    "to": "/display"
-                },
-                {
-                    "name": "Elevation",
-                    "to": "/elevation"
-                },
-                {
-                    "name": "Flexbox",
-                    "to": "/flexbox"
-                },
-                {
-                    "name": "Form Layout",
-                    "to": "/formlayout"
-                },
-                {
-                    "name": "Grid System",
-                    "to": "/grid"
-                },
-                {
-                    "name": "Spacing",
-                    "to": "/spacing"
-                },
-                {
-                    "name": "Text",
-                    "to": "/text"
-                }
-            ]
-        },
-        {
-            "name": "PrimeIcons",
-            "meta": ["primeicons"],
-            "children": [
-                {
-                    "name": "Icons v5",
-                    "to": "/icons"
+                    "name": "PrimeFlex v2",
+                    "href": "https://github.com/primefaces/primeflex/wiki/PrimeFlex-v2"
                 }
             ]
         },
