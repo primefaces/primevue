@@ -2349,8 +2349,8 @@
   font-weight: 600;
 }
 .p-datatable .p-datatable-tbody > tr:focus {
-  outline: 1px solid #f0e6f5;
-  outline-offset: -1px;
+  outline: 0.15rem solid #f0e6f5;
+  outline-offset: -0.15rem;
 }
 .p-datatable .p-datatable-tbody > tr.p-highlight {
   background: #c298d8;
