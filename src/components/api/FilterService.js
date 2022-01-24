@@ -187,50 +187,70 @@ const FilterService = {
             else
                 return value >= filter;
         },
-        dateIs(value, filter) {
-            if (filter === undefined || filter === null) {
-                return true;
-            }
-    
-            if (value === undefined || value === null) {
-                return false;
-            }
+        dateIs: function dateIs(value, filter) {
+          if (value === undefined || value === null) {
+            return false;
+          }
+          if (filter === undefined || filter === null) {
+            return true;
+          }
 
-            return value.toDateString() === filter.toDateString();
+          if(!value instanceof Date) {
+            value = new Date(value);
+            if(!isNaN(value)) {
+              return false;
+            }
+          }
+          return value.toDateString() === filter.toDateString();
         },
-        dateIsNot(value, filter) {
-            if (filter === undefined || filter === null) {
-                return true;
+        dateIsNot: function dateIsNot(value, filter) {
+          if (value === undefined || value === null) {
+            return false;
+          }
+          if (filter === undefined || filter === null) {
+            return true;
+          }
+          if(!value instanceof Date) {
+            value = new Date(value);
+            if(!isNaN(value)) {
+              return false;
             }
-    
-            if (value === undefined || value === null) {
-                return false;
-            }
-
-            return value.toDateString() !== filter.toDateString();
+          }
+          return value.toDateString() !== filter.toDateString();
         },
-        dateBefore(value, filter) {
-            if (filter === undefined || filter === null) {
-                return true;
+        dateBefore: function dateBefore(value, filter) {
+          if(value === null) {
+            return false;
+          }
+          if (value === undefined || value === null) {
+            return false;
+          }
+          if (filter === undefined || filter === null) {
+            return true;
+          }
+          if(!value instanceof Date) {
+            value = new Date(value);
+            if(!isNaN(value)) {
+              return false;
             }
-    
-            if (value === undefined || value === null) {
-                return false;
-            }
-
-            return value.getTime() < filter.getTime();
+          }
+          return value.getTime() < filter.getTime();
         },
-        dateAfter(value, filter) {
-            if (filter === undefined || filter === null) {
-                return true;
+        dateAfter: function dateAfter(value, filter) {
+          if (value === undefined || value === null) {
+            return false;
+          }
+          if (filter === undefined || filter === null) {
+            return true;
+          }
+          if(!value instanceof Date) {
+            value = new Date(value);
+            if(!isNaN(value)) {
+              return false;
             }
-    
-            if (value === undefined || value === null) {
-                return false;
-            }
-
-            return value.getTime() > filter.getTime();
-        }
+          }
+          return value.getTime() > filter.getTime();
+        },
     },
     register(rule, fn) {
         this.filters[rule] = fn;
