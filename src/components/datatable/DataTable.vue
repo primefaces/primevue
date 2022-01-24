@@ -1765,7 +1765,39 @@ export default {
             }
 
             return _data;
-        }
+        },
+        checkSlotChildrens(child, columnGroupType) {
+            let columnGroupChild = null;
+            for (let slotChild of child.children) {
+                if (slotChild.type.name === "ColumnGroup" && this.columnProp(slotChild, "type") === columnGroupType) {
+                    columnGroupChild = slotChild;
+                }
+            }
+
+            return columnGroupChild;
+        },
+        getColumnGroup(columnGroupType) {
+            const children = this.getChildren();
+            if (!children) {
+                return null;
+            }
+
+            let colGroup = null;
+            for (let child of children) {
+                if (child.key && child.key.startsWith("_")) {
+                    colGroup = this.checkSlotChildrens(child, columnGroupType);
+                }
+
+                if (
+                    child.type.name === "ColumnGroup" &&
+                    this.columnProp(child, "type") === columnGroupType
+                ) {
+                    colGroup = child;
+                }
+            }
+
+            return colGroup;
+        },
     },
     computed: {
         containerClass() {
@@ -1813,28 +1845,10 @@ export default {
             return cols;
         },
         headerColumnGroup() {
-            const children = this.getChildren();
-            if (children) {
-                for (let child of children) {
-                    if (child.type.name === 'ColumnGroup' && this.columnProp(child, 'type') === 'header') {
-                        return child;
-                    }
-                }
-            }
-
-            return null;
+            return this.getColumnGroup("header");
         },
         footerColumnGroup() {
-            const children = this.getChildren();
-            if (children) {
-                for (let child of children) {
-                    if (child.type.name === 'ColumnGroup' && this.columnProp(child, 'type') === 'footer') {
-                        return child;
-                    }
-                }
-            }
-
-            return null;
+            return this.getColumnGroup("footer");
         },
         hasFilters() {
             return this.filters && Object.keys(this.filters).length > 0 && this.filters.constructor === Object;
