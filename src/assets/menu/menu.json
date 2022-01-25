@@ -122,6 +122,16 @@
             ]
         },
         {
+            "name": "PrimeIcons",
+            "meta": ["primeicons"],
+            "children": [
+                {
+                    "name": "Icons v5",
+                    "to": "/icons"
+                }
+            ]
+        },
+        {
             "name": "Form",
             "meta": ["form"],
             "children": [
