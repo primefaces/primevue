@@ -32,7 +32,7 @@
             </tr>
         </template>
         <template v-else>
-            <tr v-for="(row,i) of columnGroup.children.default()" :key="i" role="row">
+            <tr v-for="(row,i) of getHeaderRows()" :key="i" role="row">
                 <template v-for="(col,j) of getHeaderColumns(row)" :key="columnProp(col, 'columnKey')||columnProp(col, 'field')||j">
                     <DTHeaderCell v-if="!columnProp(col, 'hidden') && (rowGroupMode !== 'subheader' || (groupRowsBy !== columnProp(col, 'field'))) && (typeof col.children !== 'string')" :column="col"
                     @column-click="$emit('column-click', $event)" @column-mousedown="$emit('column-mousedown', $event)"
@@ -131,6 +131,23 @@ export default {
         },
         getFilterColumnHeaderStyle(column) {
             return [this.columnProp(column, 'filterHeaderStyle'), this.columnProp(column, 'style')];
+        },
+        getHeaderRows() {
+            let rows = [];
+
+            let columnGroup = this.columnGroup;
+            if (columnGroup.children && columnGroup.children.default) {
+                for (let child of columnGroup.children.default()) {
+                    if (child.type.name === 'Row') {
+                        rows.push(child);
+                    }
+                    else if (child.children && child.children instanceof Array) {
+                        rows = child.children;
+                    }
+                }
+
+                return rows;
+            }
         },
         getHeaderColumns(row){
             let cols = [];
