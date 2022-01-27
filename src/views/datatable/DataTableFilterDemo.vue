@@ -16,7 +16,7 @@
                     dataKey="id" v-model:filters="filters1" filterDisplay="menu" :loading="loading1" responsiveLayout="scroll"
                     :globalFilterFields="['name','country.name','representative.name','balance','status']">
                     <template #header>
-                        <div class="flex justify-content-center">
+                        <div class="flex justify-content-between">
                             <Button type="button" icon="pi pi-filter-slash" label="Clear" class="p-button-outlined" @click="clearFilter1()"/>
                             <span class="p-input-icon-left">
                                 <i class="pi pi-search" />
@@ -261,7 +261,7 @@ export default {
                 dataKey="id" v-model:filters="filters1" filterDisplay="menu" :loading="loading1" responsiveLayout="scroll"
                 :globalFilterFields="['name','country.name','representative.name','balance','status']">
                 <template #header>
-                    <div class="flex justify-content-center">
+                    <div class="flex justify-content-between">
                         <Button type="button" icon="pi pi-filter-slash" label="Clear" class="p-button-outlined" @click="clearFilter1()"/>
                         <span class="p-input-icon-left">
                             <i class="pi pi-search" />
@@ -602,7 +602,7 @@ export default {
                 dataKey="id" v-model:filters="filters1" filterDisplay="menu" :loading="loading1" responsiveLayout="scroll"
                 :globalFilterFields="['name','country.name','representative.name','balance','status']">
                 <template #header>
-                    <div class="flex justify-content-center">
+                    <div class="flex justify-content-between">
                         <Button type="button" icon="pi pi-filter-slash" label="Clear" class="p-button-outlined" @click="clearFilter1()"/>
                         <span class="p-input-icon-left">
                             <i class="pi pi-search" />
@@ -957,7 +957,7 @@ export default {
                     data-key="id" v-model:filters="filters1" filter-display="menu" :loading="loading1" responsive-layout="scroll"
                     :global-filter-fields="['name','country.name','representative.name','balance','status']">
                     <template #header>
-                        <div class="flex justify-content-center">
+                        <div class="flex justify-content-between">
                             <p-button type="button" icon="pi pi-filter-slash" label="Clear" class="p-button-outlined" @click="clearFilter1()"></p-button>
                             <span class="p-input-icon-left">
                                 <i class="pi pi-search"></i>
