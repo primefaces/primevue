@@ -22,6 +22,7 @@ With PRO Support: 1 hour
 Please demonstrate your case at CodeSandbox by using the issue template below. Issues without a test case have much less possibility to be reviewed in detail and assisted.
 
 https://codesandbox.io/s/primevue-issue-template-v3-5tlbl
+https://codesandbox.io/s/github/cagataycivici/primevue-issue-template-v2
 
 **Current behavior**
 <!-- Describe how the bug manifests. -->
