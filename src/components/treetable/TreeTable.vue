@@ -965,7 +965,7 @@ export default {
     overflow: hidden;
 }
 
-.p-treetable-resizable .p-resizable-column {
+.p-treetable-resizable .p-resizable-column:not(.p-frozen-column) {
     background-clip: padding-box;
     position: relative;
 }
@@ -1049,6 +1049,10 @@ export default {
 .p-treetable-scrollable .p-frozen-column {
     position: sticky;
     background: inherit;
+}
+
+.p-treetable-scrollable th.p-frozen-column {
+    z-index: 1;
 }
 
 .p-treetable-scrollable-both .p-treetable-thead > tr > th,
