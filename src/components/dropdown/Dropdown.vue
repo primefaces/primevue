@@ -27,8 +27,8 @@
                     </div>
                     <div :ref="itemsWrapperRef" class="p-dropdown-items-wrapper" :style="{'max-height': virtualScrollerDisabled ? scrollHeight : ''}">
                         <VirtualScroller :ref="virtualScrollerRef" v-bind="virtualScrollerOptions" :items="visibleOptions" :style="{'height': scrollHeight}" :disabled="virtualScrollerDisabled">
-                            <template v-slot:content="{ styleClass, contentRef, items, getItemOptions }">
-                                <ul :ref="contentRef" :class="['p-dropdown-items', styleClass]" role="listbox">
+                            <template v-slot:content="{ styleClass, contentRef, items, getItemOptions, contentStyle }">
+                                <ul :ref="contentRef" :class="['p-dropdown-items', styleClass]" :style="contentStyle" role="listbox">
                                     <template v-if="!optionGroupLabel">
                                         <li v-for="(option, i) of items" :class="['p-dropdown-item', {'p-highlight': isSelected(option), 'p-disabled': isOptionDisabled(option)}]" v-ripple
                                             :key="getOptionRenderKey(option)" @click="onOptionSelect($event, option)" role="option" :aria-label="getOptionLabel(option)" :aria-selected="isSelected(option)">

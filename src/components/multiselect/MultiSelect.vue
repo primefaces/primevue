@@ -12,9 +12,9 @@
                     </template>
                     <template v-else-if="display === 'chip'">
                         <div v-for="item of modelValue" class="p-multiselect-token" :key="getLabelByValue(item)">
-                             <slot name="chip" :value="item">
+                            <slot name="chip" :value="item">
                                 <span class="p-multiselect-token-label">{{getLabelByValue(item)}}</span>
-                             </slot>
+                            </slot>
                             <span v-if="!disabled" class="p-multiselect-token-icon pi pi-times-circle" @click="removeChip(item)"></span>
                         </div>
                         <template v-if="!modelValue || modelValue.length === 0">{{placeholder || 'empty'}}</template>
@@ -50,8 +50,8 @@
                     </div>
                     <div class="p-multiselect-items-wrapper" :style="{'max-height': virtualScrollerDisabled ? scrollHeight : ''}">
                         <VirtualScroller :ref="virtualScrollerRef" v-bind="virtualScrollerOptions" :items="visibleOptions" :style="{'height': scrollHeight}" :disabled="virtualScrollerDisabled">
-                            <template v-slot:content="{ styleClass, contentRef, items, getItemOptions }">
-                                <ul :ref="contentRef" :class="['p-multiselect-items p-component', styleClass]" role="listbox" aria-multiselectable="true">
+                            <template v-slot:content="{ styleClass, contentRef, items, getItemOptions, contentStyle}">
+                                <ul :ref="contentRef" :class="['p-multiselect-items p-component', styleClass]" :style="contentStyle" role="listbox" aria-multiselectable="true">
                                     <template v-if="!optionGroupLabel">
                                         <li v-for="(option, i) of items" :class="['p-multiselect-item', {'p-highlight': isSelected(option), 'p-disabled': isOptionDisabled(option)}]" role="option" :aria-selected="isSelected(option)"
                                             :key="getOptionRenderKey(option)" @click="onOptionSelect($event, option)" @keydown="onOptionKeyDown($event, option)" :tabindex="tabindex||'0'" :aria-label="getOptionLabel(option)"  v-ripple>

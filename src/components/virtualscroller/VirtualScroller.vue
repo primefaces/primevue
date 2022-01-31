@@ -284,7 +284,7 @@ export default {
             }
         },
         getLast(last = 0, isCols) {
-             if (this.items) {
+            if (this.items) {
                 return Math.min((isCols ? (this.columns || this.items[0]).length : this.items.length), last);
             }
 
