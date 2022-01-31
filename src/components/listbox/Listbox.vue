@@ -9,8 +9,8 @@
         </div>
         <div class="p-listbox-list-wrapper" :style="listStyle">
             <VirtualScroller :ref="virtualScrollerRef" v-bind="virtualScrollerOptions" :style="listStyle" :items="visibleOptions" :disabled="virtualScrollerDisabled">
-                <template v-slot:content="{ styleClass, contentRef, items, getItemOptions }">
-                    <ul :ref="contentRef" :class="['p-listbox-list', styleClass]" role="listbox" aria-multiselectable="multiple">
+                <template v-slot:content="{ styleClass, contentRef, items, getItemOptions, contentStyle }">
+                    <ul :ref="contentRef" :class="['p-listbox-list', styleClass]" :style="contentStyle" role="listbox" aria-multiselectable="multiple">
                         <template v-if="!optionGroupLabel">
                             <li v-for="(option, i) of items" :tabindex="isOptionDisabled(option) ? null : '0'" :class="['p-listbox-item', {'p-highlight': isSelected(option), 'p-disabled': isOptionDisabled(option)}]" v-ripple
                                 :key="getOptionRenderKey(option)" @click="onOptionSelect($event, option)" @touchend="onOptionTouchEnd()" @keydown="onOptionKeyDown($event, option)" role="option" :aria-label="getOptionLabel(option)" :aria-selected="isSelected(option)" >

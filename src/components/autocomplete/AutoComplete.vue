@@ -21,8 +21,8 @@
                 <div :ref="overlayRef" :class="panelStyleClass" :style="{'max-height': virtualScrollerDisabled ? scrollHeight : ''}" v-if="overlayVisible" @click="onOverlayClick">
                     <slot name="header" :value="modelValue" :suggestions="suggestions"></slot>
                     <VirtualScroller :ref="virtualScrollerRef" v-bind="virtualScrollerOptions" :style="{'height': scrollHeight}" :items="suggestions" :disabled="virtualScrollerDisabled">
-                        <template v-slot:content="{ styleClass, contentRef, items, getItemOptions }">
-                            <ul :id="listId" :ref="(el) => listRef(el, contentRef)" :class="['p-autocomplete-items', styleClass]" role="listbox">
+                        <template v-slot:content="{ styleClass, contentRef, items, getItemOptions, contentStyle }">
+                            <ul :id="listId" :ref="(el) => listRef(el, contentRef)" :class="['p-autocomplete-items', styleClass]" :style="contentStyle" role="listbox">
                                 <template v-if="!optionGroupLabel">
                                     <li v-for="(item, i) of items" class="p-autocomplete-item" :key="getOptionRenderKey(item)" @click="selectItem($event, item)" role="option" v-ripple :data-index="getOptionIndex(i, getItemOptions)">
                                         <slot name="item" :item="item" :index="getOptionIndex(i, getItemOptions)">{{getItemContent(item)}}</slot>

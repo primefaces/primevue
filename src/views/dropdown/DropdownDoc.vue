@@ -632,8 +632,8 @@ export default {
                     {label: 'Yokohama', value: 'Yokohama'}
                 ]
             }],
-            items: Array.from({ length: 1000 }, (_, i) => ({ label: \`Item #\${i}\`, value: i })),
-            lazyItems: Array.from({ length: 1000 })
+            items: Array.from({ length: 100000 }, (_, i) => ({ label: \`Item #\${i}\`, value: i })),
+            lazyItems: Array.from({ length: 100000 })
         }
     },
     loadLazyTimeout: null,
@@ -793,8 +793,8 @@ export default {
             }
         ]);
 
-        const items = ref(Array.from({ length: 1000 }, (_, i) => ({ label: \`Item #\${i}\`, value: i })));
-        const lazyItems = ref(Array.from({ length: 1000 }));
+        const items = ref(Array.from({ length: 100000 }, (_, i) => ({ label: \`Item #\${i}\`, value: i })));
+        const lazyItems = ref(Array.from({ length: 100000 }));
 
         return { selectedCity1, selectedCity2, selectedCountry, selectedGroupedCity, cities, countries, groupedCities, selectedItem1, selectedItem2, loading, items, lazyItems}
     },
@@ -953,8 +953,8 @@ export default {
                     }
                 ]);
 
-                const items = ref(Array.from({ length: 1000 }, (_, i) => ({ label: \`Item #\${i}\`, value: i })));
-                const lazyItems = ref(Array.from({ length: 1000 }));
+                const items = ref(Array.from({ length: 100000 }, (_, i) => ({ label: \`Item #\${i}\`, value: i })));
+                const lazyItems = ref(Array.from({ length: 100000 }));
 
                 return { selectedCity1, selectedCity2, selectedCountry, selectedGroupedCity, cities, countries, groupedCities, selectedItem1, selectedItem2, loading, items, lazyItems}
             },
