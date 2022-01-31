@@ -1,5 +1,22 @@
 # Changelog
 
+## [3.11.1](https://github.com/primefaces/primevue/tree/3.11.1) (2022-01-31)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.11.0...3.11.1)
+
+**Implemented New Features and Enhancements:**
+
+- Update themes for datatable list shadow style [\#2025](https://github.com/primefaces/primevue/issues/2025)
+
+**Fixed bugs:**
+
+- contentStyle defect on VirtualScroller [\#2064](https://github.com/primefaces/primevue/issues/2064)
+- Sidebar: ripple appears in the wrong place [\#2039](https://github.com/primefaces/primevue/issues/2039)
+- tailwind theme - wrong styles [\#2023](https://github.com/primefaces/primevue/issues/2023)
+- TreeTable | More than 2 Frozen Columns not Compatible with Table Scroll  [\#2019](https://github.com/primefaces/primevue/issues/2019)
+- TreeTable | ColResize Expand Mode not Compatible with Table Scroll and Frozen [\#1989](https://github.com/primefaces/primevue/issues/1989)
+- DataTable Dynamic Row defect [\#1932](https://github.com/primefaces/primevue/issues/1932)
+
 ## [3.11.0](https://github.com/primefaces/primevue/tree/3.11.0) (2022-01-18)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.10.0...3.11.0)
