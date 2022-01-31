@@ -26,7 +26,7 @@ const InputSwitchProps = [
     {
         name: "falseValue",
         type: "any",
-        default: "true",
+        default: "false",
         description: "Value in unchecked state."
     }
 ];
