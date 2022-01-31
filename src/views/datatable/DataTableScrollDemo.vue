@@ -21,7 +21,7 @@
 
            <div class="card">
                 <h5>Flexible Scroll</h5>
-                <p>Flex scroll feature makes the scrollable viewport section dynamic insteaf of a fixed value so that it can grow or shrink relative to the parent size of the table.
+                <p>Flex scroll feature makes the scrollable viewport section dynamic instead of a fixed value so that it can grow or shrink relative to the parent size of the table.
                    Click the button below to display a maximizable Dialog where data viewport adjusts itself according to the size changes.</p>
 
                 <Button label="Show" icon="pi pi-external-link" @click="openDialog" />
