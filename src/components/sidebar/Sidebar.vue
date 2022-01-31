@@ -188,6 +188,8 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    overflow: hidden;
 }
 
 .p-sidebar-left {
