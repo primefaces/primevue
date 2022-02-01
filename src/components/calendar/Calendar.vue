@@ -18,7 +18,7 @@
                                         {{getMonthName(month.month)}}
                                     </button>
                                     <button type="button" @click="switchToYearView" @keydown="onContainerButtonKeydown" v-if="currentView !== 'year'" class="p-datepicker-year p-link" :disabled="switchViewButtonDisabled">
-                                        {{currentYear}}
+                                        {{getYear(month)}}
                                     </button>
                                     <span class="p-datepicker-decade" v-if="currentView === 'year'">
                                         <slot name="decade" :years="yearPickerValues">
@@ -2145,6 +2145,9 @@ export default {
         },
         getMonthName(index) {
             return this.$primevue.config.locale.monthNames[index];
+        },
+        getYear(month) {
+            return this.currentView === 'month' ? this.currentYear : month.year;
         },
         createResponsiveStyle() {
             if (this.numberOfMonths > 1 && this.responsiveOptions) {
