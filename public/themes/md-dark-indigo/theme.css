@@ -835,6 +835,9 @@
 .p-input-filled .p-dropdown:not(.p-disabled).p-focus {
   background-color: rgba(255, 255, 255, 0.1);
 }
+.p-input-filled .p-dropdown:not(.p-disabled).p-focus .p-inputtext {
+  background-color: transparent;
+}
 
 .p-editor-container .p-editor-toolbar {
   background: #1e1e1e;
@@ -2358,8 +2361,8 @@
   font-weight: 500;
 }
 .p-datatable .p-datatable-tbody > tr:focus {
-  outline: 1px solid transparent;
-  outline-offset: -1px;
+  outline: 0.15rem solid transparent;
+  outline-offset: -0.15rem;
 }
 .p-datatable .p-datatable-tbody > tr.p-highlight {
   background: rgba(159, 168, 218, 0.16);
@@ -3344,8 +3347,8 @@
   color: rgba(255, 255, 255, 0.87);
 }
 .p-treetable .p-treetable-tbody > tr:focus {
-  outline: 1px solid transparent;
-  outline-offset: -1px;
+  outline: 0.15rem solid transparent;
+  outline-offset: -0.15rem;
 }
 .p-treetable .p-treetable-tbody > tr.p-highlight {
   background: rgba(159, 168, 218, 0.16);
