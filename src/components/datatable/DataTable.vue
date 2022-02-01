@@ -2074,7 +2074,7 @@ export default {
     white-space: nowrap;
 }
 
-.p-datatable-resizable .p-resizable-column {
+.p-datatable-resizable .p-resizable-column:not(.p-frozen-column) {
     background-clip: padding-box;
     position: relative;
 }
