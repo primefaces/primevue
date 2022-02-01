@@ -58,7 +58,7 @@ export interface OrganizationChartProps {
     /**
      * Value of the component.
      */
-    value?: OrganizationChartNode[];
+    value?: OrganizationChartNode;
     /**
      * A map instance of key-value pairs to represented the selected nodes.
      */
