@@ -493,10 +493,10 @@ export default class DomHandler {
 
     static applyStyle(element, style) {
         if (typeof style === 'string') {
-            element.style.cssText = this.style;
+            element.style.cssText = style;
         }
         else {
-            for (let prop in this.style) {
+            for (let prop in style) {
                 element.style[prop] = style[prop];
             }
         }
