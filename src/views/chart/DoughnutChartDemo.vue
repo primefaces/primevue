@@ -8,7 +8,7 @@
         </div>
 
         <div class="content-section implementation">
-            <div class="card p-d-flex p-jc-center">
+            <div class="card flex justify-content-center">
                 <Chart type="doughnut" :data="chartData" :options="chartOptions" style="width: 40%" />
             </div>
         </div>

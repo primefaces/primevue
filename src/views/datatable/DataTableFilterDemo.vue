@@ -15,7 +15,7 @@
                     dataKey="id" :filters.sync="filters1" filterDisplay="menu" :loading="loading1" responsiveLayout="scroll"
                     :globalFilterFields="['name','country.name','representative.name','balance','status']">
                     <template #header>
-                        <div class="p-d-flex p-jc-between">
+                        <div class="flex justify-content-between">
                             <Button type="button" icon="pi pi-filter-slash" label="Clear" class="p-button-outlined" @click="clearFilter1()"/>
                             <span class="p-input-icon-left">
                                 <i class="pi pi-search" />
@@ -52,7 +52,7 @@
                             <Button type="button" icon="pi pi-check" @click="filterCallback()" class="p-button-success"></Button>
                         </template>
                         <template #filterfooter>
-                            <div class="p-px-3 p-pt-0 p-pb-3 p-text-center p-text-bold">Customized Buttons</div>
+                            <div class="px-3 pt-0 pb-3 text-center font-bold">Customized Buttons</div>
                         </template>
                     </Column>
                     <Column header="Agent" filterField="representative" :showFilterMatchModes="false" :filterMenuStyle="{'width':'14rem'}" :styles="{'min-width':'14rem'}">
@@ -61,7 +61,7 @@
                             <span class="image-text">{{data.representative.name}}</span>
                         </template>
                         <template #filter="{filterModel}">
-                            <div class="p-mb-3 p-text-bold">Agent Picker</div>
+                            <div class="mb-3 font-bold">Agent Picker</div>
                             <MultiSelect v-model="filterModel.value" :options="representatives" optionLabel="name" placeholder="Any" class="p-column-filter">
                                 <template #option="slotProps">
                                     <div class="p-multiselect-representative-option">
@@ -109,14 +109,14 @@
                             <ProgressBar :value="data.activity" :showValue="false"></ProgressBar>
                         </template>
                         <template #filter="{filterModel}">
-                            <Slider v-model="filterModel.value" :range="true" class="p-m-3"></Slider>
-                            <div class="p-d-flex p-ai-center p-jc-between p-px-2">
+                            <Slider v-model="filterModel.value" :range="true" class="m-3"></Slider>
+                            <div class="flex align-items-center justify-content-between px-2">
                                 <span>{{filterModel.value ? filterModel.value[0] : 0}}</span>
                                 <span>{{filterModel.value ? filterModel.value[1] : 100}}</span>
                             </div>
                         </template>
                     </Column>
-                    <Column field="verified" header="Verified" dataType="boolean" bodyClass="p-text-center" :styles="{'min-width':'8rem'}">
+                    <Column field="verified" header="Verified" dataType="boolean" bodyClass="text-center" :styles="{'min-width':'8rem'}">
                         <template #body="{data}">
                             <i class="pi" :class="{'true-icon pi-check-circle': data.verified, 'false-icon pi-times-circle': !data.verified}"></i>
                         </template>
@@ -134,7 +134,7 @@
                     dataKey="id" :filters.sync="filters2" filterDisplay="row" :loading="loading2" responsiveLayout="scroll"
                     :globalFilterFields="['name','country.name','representative.name','status']">
                     <template #header>
-                        <div class="p-d-flex p-jc-end">
+                        <div class="flex justify-content-end">
                             <span class="p-input-icon-left ">
                                 <i class="pi pi-search" />
                                 <InputText v-model="filters2['global'].value" placeholder="Keyword Search" />
@@ -213,12 +213,12 @@
                 <TabPanel header="Source">
 <CodeHighlight>
 <template v-pre>
-&lt;div class="card";
+&lt;div class="card"&gt;
     &lt;DataTable :value="customers1" :paginator="true" class="p-datatable-customers" showGridlines :rows="10"
         dataKey="id" :filters.sync="filters1" filterDisplay="menu" :loading="loading1" responsiveLayout="scroll"
         :globalFilterFields="['name','country.name','representative.name','balance','status']"&gt;
         &lt;template #header&gt;
-            &lt;div class="p-d-flex p-jc-between"&gt;
+            &lt;div class="flex justify-content-between"&gt;
                 &lt;Button type="button" icon="pi pi-filter-slash" label="Clear" class="p-button-outlined" @click="clearFilter1()"/&gt;
                 &lt;span class="p-input-icon-left"&gt;
                     &lt;i class="pi pi-search" /&gt;
@@ -255,7 +255,7 @@
                 &lt;Button type="button" icon="pi pi-check" @click="filterCallback()" class="p-button-success"&gt;&lt;/Button&gt;
             &lt;/template&gt;
             &lt;template #filterfooter&gt;
-                &lt;div class="p-px-3 p-pt-0 p-pb-3 p-text-center p-text-bold"&gt;Customized Buttons&lt;/div&gt;
+                &lt;div class="px-3 pt-0 pb-3 text-center font-bold"&gt;Customized Buttons&lt;/div&gt;
             &lt;/template&gt;
         &lt;/Column&gt;
         &lt;Column header="Agent" filterField="representative" :showFilterMatchModes="false" :filterMenuStyle="{'width':'14rem'}" :styles="{'min-width':'14rem'}"&gt;
@@ -264,7 +264,7 @@
                 &lt;span class="image-text"&gt;{{data.representative.name}}&lt;/span&gt;
             &lt;/template&gt;
             &lt;template #filter="{filterModel}"&gt;
-                &lt;div class="p-mb-3 p-text-bold"&gt;Agent Picker&lt;/div&gt;
+                &lt;div class="mb-3 font-bold"&gt;Agent Picker&lt;/div&gt;
                 &lt;MultiSelect v-model="filterModel.value" :options="representatives" optionLabel="name" placeholder="Any" class="p-column-filter"&gt;
                     &lt;template #option="slotProps"&gt;
                         &lt;div class="p-multiselect-representative-option"&gt;
@@ -313,14 +313,14 @@
             &lt;/template&gt;
             &lt;template #filter="{filterModel}"&gt;
                 &lt;!-- &lt;InputText type="text" v-model="filterModel.value" placeholder="Minimum"/&gt; --&gt;
-                &lt;Slider v-model="filterModel.value" range class="p-m-3"&gt;&lt;/Slider&gt;
-                &lt;div class="p-d-flex p-ai-center p-jc-between p-px-2"&gt;
+                &lt;Slider v-model="filterModel.value" range class="m-3"&gt;&lt;/Slider&gt;
+                &lt;div class="flex align-items-center justify-content-between px-2"&gt;
                     &lt;span&gt;{{filterModel.value ? filterModel.value[0] : 0}}&lt;/span&gt;
                     &lt;span&gt;{{filterModel.value ? filterModel.value[1] : 100}}&lt;/span&gt;
                 &lt;/div&gt;
             &lt;/template&gt;
         &lt;/Column&gt;
-        &lt;Column field="verified" header="Verified" dataType="boolean" bodyClass="p-text-center" :styles="{'min-width':'8rem'}"&gt;
+        &lt;Column field="verified" header="Verified" dataType="boolean" bodyClass="text-center" :styles="{'min-width':'8rem'}"&gt;
             &lt;template #body="{data}"&gt;
                 &lt;i class="pi" :class="{'true-icon pi-check-circle': data.verified, 'false-icon pi-times-circle': !data.verified}"&gt;&lt;/i&gt;
             &lt;/template&gt;
@@ -336,7 +336,7 @@
         dataKey="id" :filters.sync="filters2" filterDisplay="row" :loading="loading2" responsiveLayout="scroll"
         :globalFilterFields="['name','country.name','representative.name','status']"&gt;
         &lt;template #header&gt;
-            &lt;div class="p-d-flex p-jc-end"&gt;
+            &lt;div class="flex justify-content-end"&gt;
                 &lt;span class="p-input-icon-left "&gt;
                     &lt;i class="pi pi-search" /&gt;
                     &lt;InputText v-model="filters2['global'].value" placeholder="Keyword Search" /&gt;

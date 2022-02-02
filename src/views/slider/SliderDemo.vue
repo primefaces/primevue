@@ -61,6 +61,6 @@ export default {
 }
 
 .p-slider-vertical {
-     height: 14rem;
+    height: 14rem;
 }
 </style>

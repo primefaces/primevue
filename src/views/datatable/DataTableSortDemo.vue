@@ -77,7 +77,7 @@
 <template v-pre>
 &lt;div class="card"&gt;
     &lt;h5&gt;Single Column&lt;/h5&gt;
-    &lt;DataTable :value="products responsiveLayout="scroll""&gt;
+    &lt;DataTable :value="products" responsiveLayout="scroll"&gt;
         &lt;Column field="code" header="Code" sortable&gt;&lt;/Column&gt;
         &lt;Column field="name" header="Name" sortable&gt;&lt;/Column&gt;
         &lt;Column field="category" header="Category" sortable&gt;&lt;/Column&gt;

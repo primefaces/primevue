@@ -46,7 +46,7 @@
                         <li class="topbar-submenu-header">FLUENT UI</li>
                         <li><a @click="changeTheme($event, 'fluent-light')"><img src="demo/images/themes/fluent-light.png" alt="Fluent Light" /><span>Fluent Light</span></a></li>
 
-                        <li class="topbar-submenu-header p-d-flex p-ai-center">PRIMEONE 2022 <Tag class="p-ml-3" value="NEW" rounded severity="success"></Tag></li>
+                        <li class="topbar-submenu-header flex align-items-center">PRIMEONE 2022 <Tag class="ml-3" value="NEW" rounded severity="success"></Tag></li>
                         <li><a @click="changeTheme($event, 'lara-light-indigo')"><img src="demo/images/themes/lara-light-indigo.png" alt="Lara Light Indigo" /><span>Lara Light Indigo</span></a></li>
                         <li><a @click="changeTheme($event, 'lara-light-blue')"><img src="demo/images/themes/lara-light-blue.png" alt="Lara Light Blue" /><span>Lara Light Blue</span></a></li>
                         <li><a @click="changeTheme($event, 'lara-light-purple')"><img src="demo/images/themes/lara-light-purple.png" alt="Lara Light Purple" /><span>Lara Light Purple</span></a></li>

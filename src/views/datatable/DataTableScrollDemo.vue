@@ -77,7 +77,7 @@
                 <h5>Frozen Columns</h5>
                 <ToggleButton v-model="balanceFrozen" onIcon="pi pi-lock" offIcon="pi pi-lock-open" onLabel="Unfreeze Balance" offLabel="Freeze Balance" style="flex-grow:1; flex-basis: 12rem" />
 
-                <DataTable :value="customers2" :scrollable="true" scrollHeight="400px" :loading="loading" scrollDirection="both" class="p-mt-3">
+                <DataTable :value="customers2" :scrollable="true" scrollHeight="400px" :loading="loading" scrollDirection="both" class="mt-3">
                     <Column field="name" header="Name" :styles="{'flex-grow':'1', 'flex-basis':'160px'}" frozen></Column>
                     <Column field="id" header="Id" :styles="{'flex-grow':'1', 'flex-basis':'100px'}"></Column>
                     <Column field="name" header="Name" :styles="{'flex-grow':'1', 'flex-basis':'160px'}"></Column>
@@ -89,7 +89,7 @@
                     <Column field="representative.name" header="Representative" :styles="{'flex-grow':'1', 'flex-basis':'200px'}"></Column>
                     <Column field="balance" header="Balance" :styles="{'flex-grow':'1', 'flex-basis':'200px'}" alignFrozen="right" :frozen="balanceFrozen">
                         <template #body="{data}">
-                            <span class="p-text-bold">{{formatCurrency(data.balance)}}</span>
+                            <span class="font-bold">{{formatCurrency(data.balance)}}</span>
                         </template>
                     </Column>
                 </DataTable>
@@ -119,7 +119,7 @@
                         <span class="image-text">{{slotProps.data.representative.name}}</span>
                     </template>
                     <template #groupfooter="slotProps">
-                        <td style="text-align: right" class="p-text-bold p-pr-6">Total Customers: {{calculateCustomerTotal(slotProps.data.representative.name)}}</td>
+                        <td style="text-align: right" class="font-bold pr-6">Total Customers: {{calculateCustomerTotal(slotProps.data.representative.name)}}</td>
                     </template>
                 </DataTable>
             </div>
@@ -199,7 +199,7 @@
     &lt;h5&gt;Frozen Columns&lt;/h5&gt;
     &lt;ToggleButton v-model="balanceFrozen" onIcon="pi pi-lock" offIcon="pi pi-lock-open" onLabel="Unfreeze Balance" offLabel="Freeze Balance" style="flex-grow:1; flex-basis: 12rem" /&gt;
 
-    &lt;DataTable :value="customers2" :scrollable="true" scrollHeight="400px" :loading="loading" scrollDirection="both" class="p-mt-3"&gt;
+    &lt;DataTable :value="customers2" :scrollable="true" scrollHeight="400px" :loading="loading" scrollDirection="both" class="mt-3"&gt;
         &lt;Column field="name" header="Name" :styles="{'flex-grow':'1', 'flex-basis':'160px'}" frozen&gt;&lt;/Column&gt;
         &lt;Column field="id" header="Id" :styles="{'flex-grow':'1', 'flex-basis':'100px'}"&gt;&lt;/Column&gt;
         &lt;Column field="name" header="Name" :styles="{'flex-grow':'1', 'flex-basis':'160px'}"&gt;&lt;/Column&gt;
@@ -211,7 +211,7 @@
         &lt;Column field="representative.name" header="Representative" :styles="{'flex-grow':'1', 'flex-basis':'200px'}"&gt;&lt;/Column&gt;
         &lt;Column field="balance" header="Balance" :styles="{'flex-grow':'1', 'flex-basis':'200px'}" alignFrozen="right" :frozen="balanceFrozen"&gt;
             &lt;template #body="{data}"&gt;
-                &lt;span class="p-text-bold"&gt;{{formatCurrency(data.balance)}}&lt;/span&gt;
+                &lt;span class="font-bold"&gt;{{formatCurrency(data.balance)}}&lt;/span&gt;
             &lt;/template&gt;
         &lt;/Column&gt;
     &lt;/DataTable&gt;
@@ -241,7 +241,7 @@
             &lt;span class="image-text"&gt;{{slotProps.data.representative.name}}&lt;/span&gt;
         &lt;/template&gt;
         &lt;template #groupfooter="slotProps"&gt;
-            &lt;td style="text-align: right" class="p-text-bold p-pr-6"&gt;Total Customers: {{calculateCustomerTotal(slotProps.data.representative.name)}}&lt;/td&gt;
+            &lt;td style="text-align: right" class="font-bold pr-6"&gt;Total Customers: {{calculateCustomerTotal(slotProps.data.representative.name)}}&lt;/td&gt;
         &lt;/template&gt;
     &lt;/DataTable&gt;
 &lt;/div&gt;

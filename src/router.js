@@ -321,11 +321,6 @@ export default new Router({
 			name: 'dialog',
 			component: () => import('./views/dialog/DialogDemo.vue')
         },
-        {
-			path: '/display',
-			name: 'display',
-			component: () => import('./views/display/DisplayDemo.vue')
-		},
 		{
 			path: '/divider',
 			name: 'divider',
@@ -346,11 +341,6 @@ export default new Router({
 			name: 'editor',
 			component: () => import('./views/editor/EditorDemo.vue')
         },
-        {
-			path: '/elevation',
-			name: 'elevation',
-			component: () => import('./views/elevation/ElevationDemo.vue')
-		},
 		{
 			path: '/fieldset',
 			name: 'fieldset',
@@ -365,16 +355,6 @@ export default new Router({
 			path: '/filterservice',
 			name: 'filterservice',
 			component: () => import('./views/filterservice/FilterServiceDemo.vue')
-		},
-		{
-			path: '/grid',
-			name: 'grid',
-			component: () => import('./views/grid/GridDemo.vue')
-        },
-        {
-			path: '/formlayout',
-			name: 'formlayout',
-			component: () => import('./views/formlayout/FormLayoutDemo.vue')
 		},
 		{
 			path: '/fullcalendar',
@@ -445,11 +425,6 @@ export default new Router({
 			path: '/listbox',
 			name: 'listbox',
 			component: () => import('./views/listbox/ListboxDemo.vue')
-        },
-        {
-			path: '/flexbox',
-			name: 'flexbox',
-			component: () => import('./views/flexbox/FlexBoxDemo.vue')
         },
         {
 			path: '/floatlabel',
@@ -536,11 +511,6 @@ export default new Router({
 			name: 'progressspinner',
 			component: () => import('./views/progressspinner/ProgressSpinnerDemo.vue')
         },
-        {
-			path: '/primeflex',
-			name: 'primeflex',
-			component: () => import('./views/primeflex/PrimeFlexSetup.vue')
-        },
 		{
 			path: '/radiobutton',
 			name: 'radiobutton',
@@ -575,11 +545,6 @@ export default new Router({
 			path: '/slider',
 			name: 'slider',
 			component: () => import('./views/slider/SliderDemo.vue')
-        },
-        {
-			path: '/spacing',
-			name: 'spacing',
-			component: () => import('./views/spacing/SpacingDemo.vue')
         },
 		{
 			path: '/speeddial',
@@ -650,11 +615,6 @@ export default new Router({
 			name: 'tag',
 			component: () => import('./views/tag/TagDemo.vue')
 		},
-        {
-			path: '/text',
-			name: 'text',
-			component: () => import('./views/text/TextDemo.vue')
-        },
         {
 			path: '/textarea',
 			name: 'textarea',

@@ -9,8 +9,8 @@
 
         <div class="content-section implementation">
             <div class="card">
-                <div class="p-grid">
-                    <div class="p-col-12 p-md-4">
+                <div class="grid">
+                    <div class="col-12 md:col-4">
                         <ScrollPanel style="width: 100%; height: 200px">
                             <p>
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -27,7 +27,7 @@
                             </p>
                         </ScrollPanel>
                     </div>
-                    <div class="p-col-12 p-md-4">
+                    <div class="col-12 md:col-4">
                         <ScrollPanel style="width: 100%; height: 200px" class="custombar1">
                             <p>
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -44,7 +44,7 @@
                             </p>
                         </ScrollPanel>
                     </div>
-                    <div class="p-col-12 p-md-4">
+                    <div class="col-12 md:col-4">
                         <ScrollPanel style="width: 100%; height: 200px" class="custombar2">
                             <p style="width: 600px">
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -119,7 +119,7 @@ export default {
 </style>
 
 <style scoped>
-.p-col-12 {
+.col-12 {
     padding: 2rem;
 }
 </style>

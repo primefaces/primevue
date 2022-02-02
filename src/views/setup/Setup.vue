@@ -49,14 +49,14 @@ Vue.component('Dialog', Dialog);
 &lt;script src="https://unpkg.com/primevue@2.5.2/calendar/calendar.umd.min.js"&gt;&lt;/script&gt;
 
 &lt;div id="app"&gt;
-  &lt;p-calendar&gt;&lt;/p-calendar&gt;
+    &lt;p-calendar&gt;&lt;/p-calendar&gt;
 &lt;/div&gt;
 
 &lt;script&gt;
 new Vue({
-  components: {
-    'p-calendar': calendar
-  }
+    components: {
+        'p-calendar': calendar
+    }
 }).$mount('#app')
 &lt;/script&gt;
 </CodeHighlight>

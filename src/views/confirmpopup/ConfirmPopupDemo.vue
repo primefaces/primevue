@@ -11,7 +11,7 @@
             <ConfirmPopup></ConfirmPopup>
 
             <div class="card">
-                <Button @click="confirm1($event)" icon="pi pi-check" label="Confirm" class="p-mr-2"></Button>
+                <Button @click="confirm1($event)" icon="pi pi-check" label="Confirm" class="mr-2"></Button>
                 <Button @click="confirm2($event)" icon="pi pi-times" label="Delete" class="p-button-danger p-button-outlined"></Button>
             </div>
         </div>

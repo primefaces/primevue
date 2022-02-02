@@ -119,24 +119,24 @@ import Tag from 'primevue/tag';
 				</a>
 <CodeHighlight>
 &lt;h5&gt;Tags&lt;/h5&gt;
-&lt;Tag class="p-mr-2" value="Primary"&gt;&lt;/Tag&gt;
-&lt;Tag class="p-mr-2" severity="success" value="Success"&gt;&lt;/Tag&gt;
-&lt;Tag class="p-mr-2" severity="info" value="Info"&gt;&lt;/Tag&gt;
-&lt;Tag class="p-mr-2" severity="warning" value="Warning"&gt;&lt;/Tag&gt;
+&lt;Tag class="mr-2" value="Primary"&gt;&lt;/Tag&gt;
+&lt;Tag class="mr-2" severity="success" value="Success"&gt;&lt;/Tag&gt;
+&lt;Tag class="mr-2" severity="info" value="Info"&gt;&lt;/Tag&gt;
+&lt;Tag class="mr-2" severity="warning" value="Warning"&gt;&lt;/Tag&gt;
 &lt;Tag severity="danger" value="Danger"&gt;&lt;/Tag&gt;
 
 &lt;h5&gt;Pills&lt;/h5&gt;
-&lt;Tag class="p-mr-2" value="Primary" rounded&gt;&lt;/Tag&gt;
-&lt;Tag class="p-mr-2" severity="success" value="Success" rounded&gt;&lt;/Tag&gt;
-&lt;Tag class="p-mr-2" severity="info" value="Info" rounded&gt;&lt;/Tag&gt;
-&lt;Tag class="p-mr-2" severity="warning" value="Warning" rounded&gt;&lt;/Tag&gt;
+&lt;Tag class="mr-2" value="Primary" rounded&gt;&lt;/Tag&gt;
+&lt;Tag class="mr-2" severity="success" value="Success" rounded&gt;&lt;/Tag&gt;
+&lt;Tag class="mr-2" severity="info" value="Info" rounded&gt;&lt;/Tag&gt;
+&lt;Tag class="mr-2" severity="warning" value="Warning" rounded&gt;&lt;/Tag&gt;
 &lt;Tag severity="danger" value="Danger" rounded&gt;&lt;/Tag&gt;
 
 &lt;h5&gt;Icons&lt;/h5&gt;
-&lt;Tag class="p-mr-2" icon="pi pi-user" value="Primary"&gt;&lt;/Tag&gt;
-&lt;Tag class="p-mr-2" icon="pi pi-check" severity="success" value="Success"&gt;&lt;/Tag&gt;
-&lt;Tag class="p-mr-2" icon="pi pi-info-circle" severity="info" value="Info"&gt;&lt;/Tag&gt;
-&lt;Tag class="p-mr-2" icon="pi pi-exclamation-triangle" severity="warning" value="Warning"&gt;&lt;/Tag&gt;
+&lt;Tag class="mr-2" icon="pi pi-user" value="Primary"&gt;&lt;/Tag&gt;
+&lt;Tag class="mr-2" icon="pi pi-check" severity="success" value="Success"&gt;&lt;/Tag&gt;
+&lt;Tag class="mr-2" icon="pi pi-info-circle" severity="info" value="Info"&gt;&lt;/Tag&gt;
+&lt;Tag class="mr-2" icon="pi pi-exclamation-triangle" severity="warning" value="Warning"&gt;&lt;/Tag&gt;
 &lt;Tag icon="pi pi-times" severity="danger" value="Danger"&gt;&lt;/Tag&gt;
 </CodeHighlight>
 			</TabPanel>

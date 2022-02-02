@@ -8,7 +8,7 @@ import DataView from 'primevue/dataview';
 				</CodeHighlight>
 
                 <h5>PrimeFlex</h5>
-                <p>DataView utilizes PrimeFlex library so it needs to be installed before getting started. Refer to <router-link to="/flexgrid">FlexGrid</router-link> documentation for details.</p>
+                <p>DataView utilizes PrimeFlex library so it needs to be installed before getting started. Refer to <a href="https://www.primefaces.org/primeflex/gridsystem">PrimeFlex</a> documentation for details.</p>
 
 				<h5>Getting Started</h5>
 				<p>DataView requires a collection of items as its value and one or more templates depending on the layout mode e.g. list and grid. Throughout the samples, a car interface having vin, brand, year and color properties are used to define an object to be displayed by the dataview. Cars are loaded by a CarService that connects to a server to fetch the cars.</p>
@@ -38,15 +38,15 @@ export default {
 <CodeHighlight>
 <template v-pre>
 &lt;template #list="slotProps"&gt;
-	&lt;div class="p-col-12"&gt;
+	&lt;div class="col-12"&gt;
         &lt;div class="car-details"&gt;
             &lt;div&gt;
                 &lt;img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand"/&gt;
-                &lt;div class="p-grid"&gt;
-                    &lt;div class="p-col-12"&gt;Vin: &lt;b&gt;&#123;&#123;slotProps.data.vin&#125;&#125;&lt;/b&gt;&lt;/div&gt;
-                    &lt;div class="p-col-12"&gt;Year: &lt;b&gt;&#123;&#123;slotProps.data.year&#125;&#125;&lt;/b&gt;&lt;/div&gt;
-                    &lt;div class="p-col-12"&gt;Brand: &lt;b&gt;&#123;&#123;slotProps.data.brand&#125;&#125;&lt;/b&gt;&lt;/div&gt;
-                    &lt;div class="p-col-12"&gt;Color: &lt;b&gt;&#123;&#123;slotProps.data.color&#125;&#125;&lt;/b&gt;&lt;/div&gt;
+                &lt;div class="grid"&gt;
+                    &lt;div class="col-12"&gt;Vin: &lt;b&gt;&#123;&#123;slotProps.data.vin&#125;&#125;&lt;/b&gt;&lt;/div&gt;
+                    &lt;div class="col-12"&gt;Year: &lt;b&gt;&#123;&#123;slotProps.data.year&#125;&#125;&lt;/b&gt;&lt;/div&gt;
+                    &lt;div class="col-12"&gt;Brand: &lt;b&gt;&#123;&#123;slotProps.data.brand&#125;&#125;&lt;/b&gt;&lt;/div&gt;
+                    &lt;div class="col-12"&gt;Color: &lt;b&gt;&#123;&#123;slotProps.data.color&#125;&#125;&lt;/b&gt;&lt;/div&gt;
                 &lt;/div&gt;
             &lt;/div&gt;
             &lt;Button icon="pi pi-search"&gt;&lt;/Button&gt;
@@ -54,7 +54,7 @@ export default {
     &lt;/div&gt;
 &lt;/template&gt;
 &lt;template #grid="slotProps"&gt;
-	&lt;div style="padding: .5em" class="p-col-12 p-md-3"&gt;
+	&lt;div style="padding: .5em" class="col-12 md:col-3"&gt;
 		&lt;Panel :header="slotProps.data.vin" style="text-align: center"&gt;
 			&lt;img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand"/&gt;
 			&lt;div class="car-detail"&gt;{{slotProps.data.year}} - {{slotProps.data.color}}&lt;/div&gt;
@@ -129,11 +129,11 @@ export default {
 <template v-pre>
 &lt;DataView :value="cars" :layout="layout" :sortOrder="sortOrder" :sortField="sortField"&gt;
     &lt;template #header&gt;
-        &lt;div class="p-grid p-nogutter"&gt;
-            &lt;div class="p-col-6" style="text-align: left"&gt;
+        &lt;div class="grid grid-nogutter"&gt;
+            &lt;div class="col-6" style="text-align: left"&gt;
                 &lt;Dropdown v-model="sortKey" :options="sortOptions" optionLabel="label" placeholder="Sort By" @change="onSortChange($event)"/&gt;
             &lt;/div&gt;
-            &lt;div class="p-col-6" style="text-align: right"&gt;
+            &lt;div class="col-6" style="text-align: right"&gt;
                 &lt;DataViewLayoutOptions v-model="layout" /&gt;
             &lt;/div&gt;
         &lt;/div&gt;
@@ -461,18 +461,18 @@ export default {
 <template v-pre>
 &lt;DataView :value="products" :layout="layout" :paginator="true" :rows="9" :sortOrder="sortOrder" :sortField="sortField"&gt;
     &lt;template #header&gt;
-        &lt;div class="p-grid p-nogutter"&gt;
-            &lt;div class="p-col-6" style="text-align: left"&gt;
+        &lt;div class="grid grid-nogutter"&gt;
+            &lt;div class="col-6" style="text-align: left"&gt;
                 &lt;Dropdown v-model="sortKey" :options="sortOptions" optionLabel="label" placeholder="Sort By Price" @change="onSortChange($event)"/&gt;
             &lt;/div&gt;
-            &lt;div class="p-col-6" style="text-align: right"&gt;
+            &lt;div class="col-6" style="text-align: right"&gt;
                 &lt;DataViewLayoutOptions v-model="layout" /&gt;
             &lt;/div&gt;
         &lt;/div&gt;
     &lt;/template&gt;
 
     &lt;template #list="slotProps"&gt;
-        &lt;div class="p-col-12"&gt;
+        &lt;div class="col-12"&gt;
             &lt;div class="product-list-item"&gt;
                 &lt;img :src="'demo/images/product/' + slotProps.data.image" :alt="slotProps.data.name"/&gt;
                 &lt;div class="product-list-detail"&gt;
@@ -491,7 +491,7 @@ export default {
     &lt;/template&gt;
 
     &lt;template #grid="slotProps"&gt;
-        &lt;div class="p-col-12 p-md-4"&gt;
+        &lt;div class="col-12 md:col-4"&gt;
             &lt;div class="product-grid-item card"&gt;
                 &lt;div class="product-grid-item-top"&gt;
                     &lt;div&gt;

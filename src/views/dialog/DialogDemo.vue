@@ -47,7 +47,7 @@
                 <h5>Modal</h5>
                 <Button label="Show" icon="pi pi-external-link" @click="openModal" />
                 <Dialog header="Header" :visible.sync="displayModal" :style="{width: '50vw'}" :modal="true">
-                    <p class="p-m-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                    <p class="m-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
                         laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                         Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     <template #footer>
@@ -60,7 +60,7 @@
                 <Button label="Confirm" icon="pi pi-external-link" @click="openConfirmation" />
                 <Dialog header="Confirmation" :visible.sync="displayConfirmation" :style="{width: '350px'}" :modal="true">
                     <div class="confirmation-content">
-                        <i class="pi pi-exclamation-triangle p-mr-3" style="font-size: 2rem" />
+                        <i class="pi pi-exclamation-triangle mr-3" style="font-size: 2rem" />
                         <span>Are you sure you want to proceed?</span>
                     </div>
                     <template #footer>
@@ -72,7 +72,7 @@
                 <h5>Maximizable</h5>
                 <Button label="Show" icon="pi pi-external-link" @click="openMaximizable" />
                 <Dialog header="Header" :visible.sync="displayMaximizable" :style="{width: '50vw'}" :maximizable="true" :modal="true">
-                    <p class="p-m-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                    <p class="m-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
                         laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                         Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     <template #footer>
@@ -82,17 +82,17 @@
                 </Dialog>
 
                 <h5>Position</h5>
-                <div class="p-grid p-dir-col">
-                    <div class="p-col">
+                <div class="grid flex-column">
+                    <div class="col">
                         <Button label="Left" icon="pi pi-arrow-right" @click="openPosition('left')" class="p-button-warning" />
                         <Button label="Right" icon="pi pi-arrow-left" @click="openPosition('right')" class="p-button-warning" />
                     </div>
-                    <div class="p-col">
+                    <div class="col">
                         <Button label="Top" icon="pi pi-arrow-down" @click="openPosition('top')" class="p-button-warning" />
                         <Button label="TopLeft" icon="pi pi-arrow-down" @click="openPosition('topleft')" class="p-button-warning" />
                         <Button label="TopRight" icon="pi pi-arrow-down" @click="openPosition('topright')" class="p-button-warning" />
                     </div>
-                    <div class="p-col">
+                    <div class="col">
                         <Button label="Bottom" icon="pi pi-arrow-up" @click="openPosition('bottom')" class="p-button-warning" />
                         <Button label="BottomLeft" icon="pi pi-arrow-up" @click="openPosition('bottomleft')" class="p-button-warning" />
                         <Button label="BottomRight" icon="pi pi-arrow-up" @click="openPosition('bottomright')" class="p-button-warning" />
@@ -100,7 +100,7 @@
                 </div>
 
                 <Dialog header="Header" :visible.sync="displayPosition" :style="{width: '50vw'}" :position="position" :modal="true">
-                   <p class="p-m-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                    <p class="m-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
                         laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                         Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     <template #footer>

@@ -113,8 +113,8 @@ exports default {
     &lt;template #option="slotProps"&gt;
         &lt;div class="country-item"&gt;
             &lt;img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.option.code.toLowerCase()" v-if="slotProps.option.states" /&gt;
-            &lt;i class="pi pi-compass p-mr-2" v-if="slotProps.option.cities"&gt;&lt;/i&gt;
-            &lt;i class="pi pi-map-marker p-mr-2" v-if="slotProps.option.cname"&gt;&lt;/i&gt;
+            &lt;i class="pi pi-compass mr-2" v-if="slotProps.option.cities"&gt;&lt;/i&gt;
+            &lt;i class="pi pi-map-marker mr-2" v-if="slotProps.option.cname"&gt;&lt;/i&gt;
             &lt;span&gt;{{slotProps.option.cname || slotProps.option.name}}&lt;/span&gt;
         &lt;/div&gt;
     &lt;/template&gt;
@@ -354,8 +354,8 @@ exports default {
     &lt;template #option="slotProps"&gt;
         &lt;div class="country-item"&gt;
             &lt;img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.option.code.toLowerCase()" v-if="slotProps.option.states" /&gt;
-            &lt;i class="pi pi-compass p-mr-2" v-if="slotProps.option.cities"&gt;&lt;/i&gt;
-            &lt;i class="pi pi-map-marker p-mr-2" v-if="slotProps.option.cname"&gt;&lt;/i&gt;
+            &lt;i class="pi pi-compass mr-2" v-if="slotProps.option.cities"&gt;&lt;/i&gt;
+            &lt;i class="pi pi-map-marker mr-2" v-if="slotProps.option.cname"&gt;&lt;/i&gt;
             &lt;span&gt;{{slotProps.option.cname || slotProps.option.name}}&lt;/span&gt;
         &lt;/div&gt;
     &lt;/template&gt;

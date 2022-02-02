@@ -22,7 +22,7 @@ import ComboChartDoc from './ComboChartDoc';
 import EventBus from '@/EventBus';
 
 export default {
-     mounted() {
+    mounted() {
         EventBus.$on('change-theme', event => {
             if (event.dark)
                 this.applyDarkTheme();

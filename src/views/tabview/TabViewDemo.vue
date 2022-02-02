@@ -31,10 +31,10 @@
 
             <div class="card">
                 <h5>Programmatic</h5>
-                <div class="p-py-2">
+                <div class="py-2">
                     <Button @click="active1 = 0" class="p-button-text" label="Activate 1st" />
-                    <Button @click="active1 = 1" class="p-button-text p-mr-2" label="Activate 2nd" />
-                    <Button @click="active1 = 2" class="p-button-text p-mr-2" label="Activate 3rd" />
+                    <Button @click="active1 = 1" class="p-button-text mr-2" label="Activate 2nd" />
+                    <Button @click="active1 = 2" class="p-button-text mr-2" label="Activate 3rd" />
                 </div>
 
                 <TabView ref="tabview2" :activeIndex="active1">
@@ -105,7 +105,7 @@
                             <span>Header III</span>
                             <i class="pi pi-cog"></i>
                         </template>
-                       <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati
+                        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati
                             cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.
                             Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.</p>
                     </TabPanel>
@@ -123,10 +123,10 @@
 
             <div class="card">
                 <h5>Scrollable</h5>
-                <div class="p-py-2">
+                <div class="py-2">
                     <Button @click="active2 = 0" class="p-button-text" label="Activate 1st" />
-                    <Button @click="active2 = 29" class="p-button-text p-mr-2" label="Activate 30th" />
-                    <Button @click="active2 = 49" class="p-button-text p-mr-2" label="Activate 50th" />
+                    <Button @click="active2 = 29" class="p-button-text mr-2" label="Activate 30th" />
+                    <Button @click="active2 = 49" class="p-button-text mr-2" label="Activate 50th" />
                 </div>
 
                 <TabView :activeIndex.sync="active2" :scrollable="true">

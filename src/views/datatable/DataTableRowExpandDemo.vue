@@ -13,7 +13,7 @@
                     @row-expand="onRowExpand" @row-collapse="onRowCollapse">
                     <template #header>
                         <div class="table-header-container">
-                            <Button icon="pi pi-plus" label="Expand All" @click="expandAll" class="p-mr-2" />
+                            <Button icon="pi pi-plus" label="Expand All" @click="expandAll" class="mr-2" />
                             <Button icon="pi pi-minus" label="Collapse All" @click="collapseAll" />
                         </div>
                     </template>
@@ -78,7 +78,7 @@
     @row-expand="onRowExpand" @row-collapse="onRowCollapse"&gt;
     &lt;template #header&gt;
         &lt;div class="table-header-container"&gt;
-            &lt;Button icon="pi pi-plus" label="Expand All" @click="expandAll" class="p-mr-2" /&gt;
+            &lt;Button icon="pi pi-plus" label="Expand All" @click="expandAll" class="mr-2" /&gt;
             &lt;Button icon="pi pi-minus" label="Collapse All" @click="collapseAll" /&gt;
         &lt;/div&gt;
     &lt;/template&gt;

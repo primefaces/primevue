@@ -92,8 +92,8 @@ import ScrollPanel from 'primevue/scrollpanel';
 
 <CodeHighlight>
 <template v-pre>
-&lt;div class="p-grid"&gt;
-    &lt;div class="p-col-12 p-md-4"&gt;
+&lt;div class="grid"&gt;
+    &lt;div class="col-12 md:col-4"&gt;
         &lt;ScrollPanel style="width: 100%; height: 200px"&gt;
             &lt;p&gt;
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -110,7 +110,7 @@ import ScrollPanel from 'primevue/scrollpanel';
             &lt;/p&gt;
         &lt;/ScrollPanel&gt;
     &lt;/div&gt;
-    &lt;div class="p-col-12 p-md-4"&gt;
+    &lt;div class="col-12 md:col-4"&gt;
         &lt;ScrollPanel style="width: 100%; height: 200px" class="custombar1"&gt;
             &lt;p&gt;
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -127,7 +127,7 @@ import ScrollPanel from 'primevue/scrollpanel';
             &lt;/p&gt;
         &lt;/ScrollPanel&gt;
     &lt;/div&gt;
-    &lt;div class="p-col-12 p-md-4"&gt;
+    &lt;div class="col-12 md:col-4"&gt;
         &lt;ScrollPanel style="width: 100%; height: 200px" class="custombar2"&gt;
             &lt;p style="width: 600px"&gt;
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.

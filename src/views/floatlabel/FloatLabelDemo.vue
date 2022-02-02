@@ -10,58 +10,58 @@
 
         <div class="content-section implementation">
             <div class="card">
-                <div class="p-fluid p-grid">
-                    <div class="p-field p-col-12 p-md-4">
+                <div class="p-fluid grid">
+                    <div class="field col-12 md:col-4">
                         <span class="p-float-label">
                             <InputText id="inputtext" type="text" v-model="value1" />
                             <label for="inputtext">InputText</label>
                         </span>
                     </div>
-                    <div class="p-field p-col-12 p-md-4">
+                    <div class="field col-12 md:col-4">
                         <span class="p-float-label p-input-icon-left">
                             <i class="pi pi-search" />
                             <InputText id="inputtext-left" type="text" v-model="valueIconLeft" />
                             <label for="inputtext-left">Left Icon</label>
                         </span>
                     </div>
-                    <div class="p-field p-col-12 p-md-4">
-                       <span class="p-float-label p-input-icon-right">
+                    <div class="field col-12 md:col-4">
+                        <span class="p-float-label p-input-icon-right">
                             <i class="pi pi-search" />
                             <InputText id="inputtext-right" type="text" v-model="valueIconRight" />
                             <label for="inputtext-right">Right Icon</label>
                         </span>
                     </div>
-                    <div class="p-field p-col-12 p-md-4">
+                    <div class="field col-12 md:col-4">
                         <span class="p-float-label">
                             <AutoComplete v-model="value2" :suggestions="filteredCountries" @complete="searchCountry($event)" field="name" />
                             <label for="autocomplete">AutoComplete</label>
                         </span>
                     </div>
-                    <div class="p-field p-col-12 p-md-4">
+                    <div class="field col-12 md:col-4">
                         <span class="p-float-label">
                             <Calendar id="calendar" v-model="value3" />
                             <label for="calendar">Calendar</label>
                         </span>
                     </div>
-                    <div class="p-field p-col-12 p-md-4">
+                    <div class="field col-12 md:col-4">
                         <span class="p-float-label">
                             <chips id="chips" v-model="value4" />
                             <label for="chips">Chips</label>
                         </span>
                     </div>
-                    <div class="p-field p-col-12 p-md-4">
+                    <div class="field col-12 md:col-4">
                         <span class="p-float-label">
                             <InputMask id="inputmask" v-model="value5" mask="99/99/9999" slotChar="mm/dd/yyyy" />
                             <label for="inputmask">InputMask</label>
                         </span>
                     </div>
-                    <div class="p-field p-col-12 p-md-4">
+                    <div class="field col-12 md:col-4">
                         <span class="p-float-label">
                             <InputNumber id="inputnumber" v-model="value6" />
                             <label for="inputnumber">InputNumber</label>
                         </span>
                     </div>
-                    <div class="p-field p-col-12 p-md-4">
+                    <div class="field col-12 md:col-4">
                         <div class="p-inputgroup">
                             <span class="p-inputgroup-addon">
                                 <i class="pi pi-user"></i>
@@ -72,32 +72,32 @@
                             </span>
                         </div>
                     </div>
-                    <div class="p-field p-col-12 p-md-4">
+                    <div class="field col-12 md:col-4">
                         <span class="p-float-label">
                             <CascadeSelect id="cascadeSelect" v-model="selectedCity" :options="cascadeCountries" optionLabel="cname" optionGroupLabel="name"
                                 :optionGroupChildren="['states', 'cities']" />
                             <label for="multiselect">CascadeSelect</label>
                         </span>
                     </div>
-                    <div class="p-field p-col-12 p-md-4">
+                    <div class="field col-12 md:col-4">
                         <span class="p-float-label">
                             <Dropdown id="dropdown" v-model="value8" :options="cities" optionLabel="name" />
                             <label for="dropdown">Dropdown</label>
                         </span>
                     </div>
-                    <div class="p-field p-col-12 p-md-4">
+                    <div class="field col-12 md:col-4">
                         <span class="p-float-label">
                             <MultiSelect id="multiselect" v-model="value9" :options="cities" optionLabel="name" />
                             <label for="multiselect">MultiSelect</label>
                         </span>
                     </div>
-                    <div class="p-field p-col-12 p-md-4">
+                    <div class="field col-12 md:col-4">
                         <span class="p-float-label">
                             <Textarea id="textarea" v-model="value10" rows="3" />
                             <label for="textarea">Textarea</label>
                         </span>
                     </div>
-                    <div class="p-field p-col-12 p-md-4">
+                    <div class="field col-12 md:col-4">
                         <span class="p-float-label">
                             <Password id="password" v-model="value11" />
                             <label for="password">Password</label>
@@ -107,63 +107,63 @@
             </div>
         </div>
 
-         <div class="content-section documentation">
+        <div class="content-section documentation">
             <TabView>
                 <TabPanel header="Source">
 <CodeHighlight>
 <template v-pre>
-&lt;div class="p-fluid p-grid"&gt;
-    &lt;div class="p-field p-col-12 p-md-4"&gt;
+&lt;div class="p-fluid grid"&gt;
+    &lt;div class="field col-12 md:col-4"&gt;
         &lt;span class="p-float-label"&gt;
             &lt;InputText id="inputtext" type="text" v-model="value1" /&gt;
             &lt;label for="inputtext"&gt;InputText&lt;/label&gt;
         &lt;/span&gt;
     &lt;/div&gt;
-    &lt;div class="p-field p-col-12 p-md-4"&gt;
+    &lt;div class="field col-12 md:col-4"&gt;
         &lt;span class="p-float-label p-input-icon-left"&gt;
             &lt;i class="pi pi-search" /&gt;
             &lt;InputText id="inputtext-left" type="text" v-model="valueIconLeft" /&gt;
             &lt;label for="inputtext-left"&gt;Left Icon&lt;/label&gt;
         &lt;/span&gt;
     &lt;/div&gt;
-    &lt;div class="p-field p-col-12 p-md-4"&gt;
-       &lt;span class="p-float-label p-input-icon-right"&gt;
+    &lt;div class="field col-12 md:col-4"&gt;
+        &lt;span class="p-float-label p-input-icon-right"&gt;
             &lt;i class="pi pi-search" /&gt;
             &lt;InputText id="inputtext-right" type="text" v-model="valueIconRight" /&gt;
             &lt;label for="inputtext-right"&gt;Right Icon&lt;/label&gt;
         &lt;/span&gt;
     &lt;/div&gt;
-    &lt;div class="p-field p-col-12 p-md-4"&gt;
+    &lt;div class="field col-12 md:col-4"&gt;
         &lt;span class="p-float-label"&gt;
             &lt;AutoComplete v-model="value2" :suggestions="filteredCountries" @complete="searchCountry($event)" field="name" /&gt;
             &lt;label for="autocomplete"&gt;AutoComplete&lt;/label&gt;
         &lt;/span&gt;
     &lt;/div&gt;
-    &lt;div class="p-field p-col-12 p-md-4"&gt;
+    &lt;div class="field col-12 md:col-4"&gt;
         &lt;span class="p-float-label"&gt;
             &lt;Calendar id="calendar" v-model="value3" /&gt;
             &lt;label for="calendar"&gt;Calendar&lt;/label&gt;
         &lt;/span&gt;
     &lt;/div&gt;
-    &lt;div class="p-field p-col-12 p-md-4"&gt;
+    &lt;div class="field col-12 md:col-4"&gt;
         &lt;span class="p-float-label"&gt;
             &lt;chips id="chips" v-model="value4" /&gt;
             &lt;label for="chips"&gt;Chips&lt;/label&gt;
         &lt;/span&gt;
     &lt;/div&gt;
-    &lt;div class="p-field p-col-12 p-md-4"&gt;
+    &lt;div class="field col-12 md:col-4"&gt;
         &lt;span class="p-float-label"&gt;
             &lt;InputMask id="inputmask" v-model="value5" mask="99/99/9999" slotChar="mm/dd/yyyy" /&gt;
             &lt;label for="inputmask"&gt;InputMask&lt;/label&gt;
         &lt;/span&gt;
     &lt;/div&gt;
-    &lt;div class="p-field p-col-12 p-md-4"&gt;
+    &lt;div class="field col-12 md:col-4"&gt;
         &lt;span class="p-float-label"&gt;
             &lt;InputNumber id="inputnumber" v-model="value6" /&gt;
             &lt;label for="inputnumber"&gt;InputNumber&lt;/label&gt;
         &lt;/span&gt;
     &lt;/div&gt;
-    &lt;div class="p-field p-col-12 p-md-4"&gt;
+    &lt;div class="field col-12 md:col-4"&gt;
         &lt;div class="p-inputgroup"&gt;
             &lt;span class="p-inputgroup-addon"&gt;
                 &lt;i class="pi pi-user"&gt;&lt;/i&gt;
@@ -174,32 +174,32 @@
             &lt;/span&gt;
         &lt;/div&gt;
     &lt;/div&gt;
-    &lt;div class="p-field p-col-12 p-md-4"&gt;
+    &lt;div class="field col-12 md:col-4"&gt;
         &lt;span class="p-float-label"&gt;
             &lt;CascadeSelect id="cascadeSelect" v-model="selectedCity" :options="cascadeCountries" optionLabel="cname" optionGroupLabel="name"
                 :optionGroupChildren="['states', 'cities']" /&gt;
             &lt;label for="multiselect"&gt;CascadeSelect&lt;/label&gt;
         &lt;/span&gt;
     &lt;/div>
-    &lt;div class="p-field p-col-12 p-md-4"&gt;
+    &lt;div class="field col-12 md:col-4"&gt;
         &lt;span class="p-float-label"&gt;
             &lt;Dropdown id="dropdown" v-model="value8" :options="cities" optionLabel="name" /&gt;
             &lt;label for="dropdown"&gt;Dropdown&lt;/label&gt;
         &lt;/span&gt;
     &lt;/div&gt;
-    &lt;div class="p-field p-col-12 p-md-4"&gt;
+    &lt;div class="field col-12 md:col-4"&gt;
         &lt;span class="p-float-label"&gt;
             &lt;MultiSelect id="multiselect" v-model="value9" :options="cities" optionLabel="name" /&gt;
             &lt;label for="multiselect"&gt;MultiSelect&lt;/label&gt;
         &lt;/span&gt;
     &lt;/div&gt;
-    &lt;div class="p-field p-col-12 p-md-4"&gt;
+    &lt;div class="field col-12 md:col-4"&gt;
         &lt;span class="p-float-label"&gt;
             &lt;Textarea id="textarea" v-model="value10" rows="3" /&gt;
             &lt;label for="textarea"&gt;Textarea&lt;/label&gt;
         &lt;/span&gt;
     &lt;/div&gt;
-    &lt;div class="p-field p-col-12 p-md-4"&gt;
+    &lt;div class="field col-12 md:col-4"&gt;
         &lt;span class="p-float-label"&gt;
             &lt;Password id="password" v-model="value11" /&gt;
             &lt;label for="password"&gt;Password&lt;/label&gt;
@@ -339,7 +339,7 @@ export default {
 </CodeHighlight>
                 </TabPanel>
             </TabView>
-         </div>
+        </div>
     </div>
 </template>
 

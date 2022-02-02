@@ -9,14 +9,14 @@
 
 		<div class="content-section implementation">
             <div class="card">
-                <Toolbar class="p-mb-4">
+                <Toolbar class="mb-4">
                     <template #start>
-                        <Button label="New" icon="pi pi-plus" class="p-button-success p-mr-2" @click="openNew" />
+                        <Button label="New" icon="pi pi-plus" class="p-button-success mr-2" @click="openNew" />
                         <Button label="Delete" icon="pi pi-trash" class="p-button-danger" @click="confirmDeleteSelected" :disabled="!selectedProducts || !selectedProducts.length" />
                     </template>
 
                     <template #end>
-                        <FileUpload mode="basic" accept="image/*" :maxFileSize="1000000" label="Import" chooseLabel="Import" class="p-mr-2 p-d-inline-block" />
+                        <FileUpload mode="basic" accept="image/*" :maxFileSize="1000000" label="Import" chooseLabel="Import" class="mr-2 inline-block" />
                         <Button label="Export" icon="pi pi-upload" class="p-button-help" @click="exportCSV($event)"  />
                     </template>
                 </Toolbar>
@@ -26,8 +26,8 @@
                     paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" :rowsPerPageOptions="[5,10,25]"
                     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} products" responsiveLayout="scroll">
                     <template #header>
-                        <div class="table-header p-d-flex p-flex-column p-flex-md-row p-jc-md-between">
-							<h5 class="p-mb-2 p-m-md-0 p-as-md-center">Manage Products</h5>
+                        <div class="table-header flex flex-column md:flex-row md:justify-content-between">
+							<h5 class="mb-2 md:m-0 md:align-self-center">Manage Products</h5>
 							<span class="p-input-icon-left">
                                 <i class="pi pi-search" />
                                 <InputText v-model="filters['global'].value" placeholder="Search..." />
@@ -61,7 +61,7 @@
                     </Column>
                     <Column :exportable="false" :styles="{'min-width':'8rem'}">
                         <template #body="slotProps">
-                            <Button icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2" @click="editProduct(slotProps.data)" />
+                            <Button icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" @click="editProduct(slotProps.data)" />
                             <Button icon="pi pi-trash" class="p-button-rounded p-button-warning" @click="confirmDeleteProduct(slotProps.data)" />
                         </template>
                     </Column>
@@ -70,44 +70,44 @@
 
             <Dialog :visible.sync="productDialog" :style="{width: '450px'}" header="Product Details" :modal="true" class="p-fluid">
                 <img :src="'demo/images/product/' + product.image" :alt="product.image" class="product-image" v-if="product.image" />
-                <div class="p-field">
+                <div class="field">
                     <label for="name">Name</label>
                     <InputText id="name" v-model.trim="product.name" required="true" autofocus :class="{'p-invalid': submitted && !product.name}" />
                     <small class="p-invalid" v-if="submitted && !product.name">Name is required.</small>
                 </div>
-                <div class="p-field">
+                <div class="field">
                     <label for="description">Description</label>
                     <Textarea id="description" v-model="product.description" required="true" rows="3" cols="20" />
                 </div>
 
-                <div class="p-field">
-                    <label class="p-mb-3">Category</label>
-                    <div class="p-formgrid p-grid">
-                        <div class="p-field-radiobutton p-col-6">
+                <div class="field">
+                    <label class="mb-3">Category</label>
+                    <div class="formgrid grid">
+                        <div class="field-radiobutton col-6">
                             <RadioButton id="category1" name="category" value="Accessories" v-model="product.category" />
                             <label for="category1">Accessories</label>
                         </div>
-                        <div class="p-field-radiobutton p-col-6">
+                        <div class="field-radiobutton col-6">
                             <RadioButton id="category2" name="category" value="Clothing" v-model="product.category" />
                             <label for="category2">Clothing</label>
                         </div>
-                        <div class="p-field-radiobutton p-col-6">
+                        <div class="field-radiobutton col-6">
                             <RadioButton id="category3" name="category" value="Electronics" v-model="product.category" />
                             <label for="category3">Electronics</label>
                         </div>
-                        <div class="p-field-radiobutton p-col-6">
+                        <div class="field-radiobutton col-6">
                             <RadioButton id="category4" name="category" value="Fitness" v-model="product.category" />
                             <label for="category4">Fitness</label>
                         </div>
                     </div>
                 </div>
 
-                <div class="p-formgrid p-grid">
-                    <div class="p-field p-col">
+                <div class="formgrid grid">
+                    <div class="field col">
                         <label for="price">Price</label>
                         <InputNumber id="price" v-model="product.price" mode="currency" currency="USD" locale="en-US" />
                     </div>
-                    <div class="p-field p-col">
+                    <div class="field col">
                         <label for="quantity">Quantity</label>
                         <InputNumber id="quantity" v-model="product.quantity" integeronly />
                     </div>
@@ -120,7 +120,7 @@
 
             <Dialog :visible.sync="deleteProductDialog" :styles="{width: '450px'}" header="Confirm" :modal="true">
                 <div class="confirmation-content">
-                    <i class="pi pi-exclamation-triangle p-mr-3" style="font-size: 2rem" />
+                    <i class="pi pi-exclamation-triangle mr-3" style="font-size: 2rem" />
                     <span v-if="product">Are you sure you want to delete <b>{{product.name}}</b>?</span>
                 </div>
                 <template #footer>
@@ -131,7 +131,7 @@
 
             <Dialog :visible.sync="deleteProductsDialog" :styles="{width: '450px'}" header="Confirm" :modal="true">
                 <div class="confirmation-content">
-                    <i class="pi pi-exclamation-triangle p-mr-3" style="font-size: 2rem" />
+                    <i class="pi pi-exclamation-triangle mr-3" style="font-size: 2rem" />
                     <span v-if="product">Are you sure you want to delete the selected products?</span>
                 </div>
                 <template #footer>
@@ -147,14 +147,14 @@
 <CodeHighlight>
 <template v-pre>
 &lt;div class="card"&gt;
-    &lt;Toolbar class="p-mb-4"&gt;
+    &lt;Toolbar class="mb-4"&gt;
         &lt;template #start&gt;
-            &lt;Button label="New" icon="pi pi-plus" class="p-button-success p-mr-2" @click="openNew" /&gt;
+            &lt;Button label="New" icon="pi pi-plus" class="p-button-success mr-2" @click="openNew" /&gt;
             &lt;Button label="Delete" icon="pi pi-trash" class="p-button-danger" @click="confirmDeleteSelected" :disabled="!selectedProducts || !selectedProducts.length" /&gt;
         &lt;/template&gt;
 
         &lt;template #end&gt;
-            &lt;FileUpload mode="basic" accept="image/*" :maxFileSize="1000000" label="Import" chooseLabel="Import" class="p-mr-2 p-d-inline-block" /&gt;
+            &lt;FileUpload mode="basic" accept="image/*" :maxFileSize="1000000" label="Import" chooseLabel="Import" class="mr-2 inline-block" /&gt;
             &lt;Button label="Export" icon="pi pi-upload" class="p-button-help" @click="exportCSV($event)"  /&gt;
         &lt;/template&gt;
     &lt;/Toolbar&gt;
@@ -164,8 +164,8 @@
         paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" :rowsPerPageOptions="[5,10,25]"
         currentPageReportTemplate="Showing {first} to {last} of {totalRecords} products" responsiveLayout="scroll"&gt;
         &lt;template #header&gt;
-            &lt;div class="table-header p-d-flex p-flex-column p-flex-md-row p-jc-md-between"&gt;
-                &lt;h5 class="p-mb-2 p-m-md-0 p-as-md-center"&gt;Manage Products&lt;/h5&gt;
+            &lt;div class="table-header flex flex-column md:flex-row md:justify-content-between"&gt;
+                &lt;h5 class="mb-2 md:m-0 md:align-self-center"&gt;Manage Products&lt;/h5&gt;
                 &lt;span class="p-input-icon-left"&gt;
                     &lt;i class="pi pi-search" /&gt;
                     &lt;InputText v-model="filters['global'].value" placeholder="Search..." /&gt;
@@ -199,7 +199,7 @@
         &lt;/Column&gt;
         &lt;Column :exportable="false" :styles="{'min-width':'8rem'}"&gt;
             &lt;template #body="slotProps"&gt;
-                &lt;Button icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2" @click="editProduct(slotProps.data)" /&gt;
+                &lt;Button icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" @click="editProduct(slotProps.data)" /&gt;
                 &lt;Button icon="pi pi-trash" class="p-button-rounded p-button-warning" @click="confirmDeleteProduct(slotProps.data)" /&gt;
             &lt;/template&gt;
         &lt;/Column&gt;
@@ -208,44 +208,44 @@
 
 &lt;Dialog :visible.sync="productDialog" :style="{width: '450px'}" header="Product Details" :modal="true" class="p-fluid"&gt;
     &lt;img :src="'demo/images/product/' + product.image" :alt="product.image" class="product-image" v-if="product.image" /&gt;
-    &lt;div class="p-field"&gt;
+    &lt;div class="field"&gt;
         &lt;label for="name"&gt;Name&lt;/label&gt;
         &lt;InputText id="name" v-model.trim="product.name" required="true" autofocus :class="{'p-invalid': submitted && !product.name}" /&gt;
         &lt;small class="p-invalid" v-if="submitted && !product.name"&gt;Name is required.&lt;/small&gt;
     &lt;/div&gt;
-    &lt;div class="p-field"&gt;
+    &lt;div class="field"&gt;
         &lt;label for="description"&gt;Description&lt;/label&gt;
         &lt;Textarea id="description" v-model="product.description" required="true" rows="3" cols="20" /&gt;
     &lt;/div&gt;
 
-    &lt;div class="p-field"&gt;
-        &lt;label class="p-mb-3"&gt;Category&lt;/label&gt;
-        &lt;div class="p-formgrid p-grid"&gt;
-            &lt;div class="p-field-radiobutton p-col-6"&gt;
+    &lt;div class="field"&gt;
+        &lt;label class="mb-3"&gt;Category&lt;/label&gt;
+        &lt;div class="formgrid grid"&gt;
+            &lt;div class="field-radiobutton col-6"&gt;
                 &lt;RadioButton id="category1" name="category" value="Accessories" v-model="product.category" /&gt;
                 &lt;label for="category1"&gt;Accessories&lt;/label&gt;
             &lt;/div&gt;
-            &lt;div class="p-field-radiobutton p-col-6"&gt;
+            &lt;div class="field-radiobutton col-6"&gt;
                 &lt;RadioButton id="category2" name="category" value="Clothing" v-model="product.category" /&gt;
                 &lt;label for="category2"&gt;Clothing&lt;/label&gt;
             &lt;/div&gt;
-            &lt;div class="p-field-radiobutton p-col-6"&gt;
+            &lt;div class="field-radiobutton col-6"&gt;
                 &lt;RadioButton id="category3" name="category" value="Electronics" v-model="product.category" /&gt;
                 &lt;label for="category3"&gt;Electronics&lt;/label&gt;
             &lt;/div&gt;
-            &lt;div class="p-field-radiobutton p-col-6"&gt;
+            &lt;div class="field-radiobutton col-6"&gt;
                 &lt;RadioButton id="category4" name="category" value="Fitness" v-model="product.category" /&gt;
                 &lt;label for="category4"&gt;Fitness&lt;/label&gt;
             &lt;/div&gt;
         &lt;/div&gt;
     &lt;/div&gt;
 
-    &lt;div class="p-formgrid p-grid"&gt;
-        &lt;div class="p-field p-col"&gt;
+    &lt;div class="formgrid grid"&gt;
+        &lt;div class="field col"&gt;
             &lt;label for="price"&gt;Price&lt;/label&gt;
             &lt;InputNumber id="price" v-model="product.price" mode="currency" currency="USD" locale="en-US" /&gt;
         &lt;/div&gt;
-        &lt;div class="p-field p-col"&gt;
+        &lt;div class="field col"&gt;
             &lt;label for="quantity"&gt;Quantity&lt;/label&gt;
             &lt;InputNumber id="quantity" v-model="product.quantity" integeronly /&gt;
         &lt;/div&gt;
@@ -258,7 +258,7 @@
 
 &lt;Dialog :visible.sync="deleteProductDialog" :styles="{width: '450px'}" header="Confirm" :modal="true"&gt;
     &lt;div class="confirmation-content"&gt;
-        &lt;i class="pi pi-exclamation-triangle p-mr-3" style="font-size: 2rem" /&gt;
+        &lt;i class="pi pi-exclamation-triangle mr-3" style="font-size: 2rem" /&gt;
         &lt;span v-if="product"&gt;Are you sure you want to delete &lt;b&gt;{{product.name}}&lt;/b&gt;?&lt;/span&gt;
     &lt;/div&gt;
     &lt;template #footer&gt;
@@ -269,7 +269,7 @@
 
 &lt;Dialog :visible.sync="deleteProductsDialog" :styles="{width: '450px'}" header="Confirm" :modal="true"&gt;
     &lt;div class="confirmation-content"&gt;
-        &lt;i class="pi pi-exclamation-triangle p-mr-3" style="font-size: 2rem" /&gt;
+        &lt;i class="pi pi-exclamation-triangle mr-3" style="font-size: 2rem" /&gt;
         &lt;span v-if="product"&gt;Are you sure you want to delete the selected products?&lt;/span&gt;
     &lt;/div&gt;
     &lt;template #footer&gt;

@@ -94,7 +94,7 @@ export default {
 <template v-pre>
 &lt;Timeline :value="events" align="alternate" class="customized-timeline"&gt;
 	&lt;template #marker="slotProps"&gt;
-		&lt;span class="custom-marker p-shadow-2" :style="&#123;backgroundColor: slotProps.item.color&#125;"&gt;
+		&lt;span class="custom-marker shadow-2" :style="&#123;backgroundColor: slotProps.item.color&#125;"&gt;
 			&lt;i :class="slotProps.item.icon"&gt;&lt;/i&gt;
 		&lt;/span&gt;
 	&lt;/template&gt;
@@ -107,7 +107,7 @@ export default {
 				&#123;&#123;slotProps.item.date&#125;&#125;
 			&lt;/template&gt;
 			&lt;template #content&gt;
-				&lt;img v-if="slotProps.item.image" :src="'demo/images/product/' + slotProps.item.image" :alt="slotProps.item.name" width="200" class="p-shadow-2" /&gt;
+				&lt;img v-if="slotProps.item.image" :src="'demo/images/product/' + slotProps.item.image" :alt="slotProps.item.name" width="200" class="shadow-2" /&gt;
 				&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
 					quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!&lt;/p&gt;
 				&lt;Button label="Read more" class="p-button-text"&gt;&lt;/Button&gt;
@@ -311,7 +311,7 @@ export default {
 	&lt;h5&gt;Customized&lt;/h5&gt;
 	&lt;Timeline :value="events1" align="alternate" class="customized-timeline"&gt;
 		&lt;template #marker="slotProps"&gt;
-			&lt;span class="custom-marker p-shadow-2" :style="&#123;backgroundColor: slotProps.item.color&#125;"&gt;
+			&lt;span class="custom-marker shadow-2" :style="&#123;backgroundColor: slotProps.item.color&#125;"&gt;
 				&lt;i :class="slotProps.item.icon"&gt;&lt;/i&gt;
 			&lt;/span&gt;
 		&lt;/template&gt;
@@ -324,7 +324,7 @@ export default {
 					&#123;&#123;slotProps.item.date&#125;&#125;
 				&lt;/template&gt;
 				&lt;template #content&gt;
-					&lt;img v-if="slotProps.item.image" :src="'demo/images/product/' + slotProps.item.image" :alt="slotProps.item.name" width="200" class="p-shadow-2" /&gt;
+					&lt;img v-if="slotProps.item.image" :src="'demo/images/product/' + slotProps.item.image" :alt="slotProps.item.name" width="200" class="shadow-2" /&gt;
 					&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
 						quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!&lt;/p&gt;
 					&lt;Button label="Read more" class="p-button-text"&gt;&lt;/Button&gt;

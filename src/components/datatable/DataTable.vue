@@ -1515,7 +1515,7 @@ export default {
 
             this.$emit('state-save', state);
         },
-        restoreState() {debugger;
+        restoreState() {
             const storage = this.getStorage();
             const stateString = storage.getItem(this.stateKey);
             const dateFormat = /\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{3}Z/;

@@ -121,8 +121,8 @@ import AccordionTab from 'primevue/accordiontab';
 <CodeHighlight>
 &lt;div&gt;
 	&lt;Button @click="active = 0" class="p-button-text" label="Activate 1st" /&gt;
-	&lt;Button @click="active = 1" class="p-button-text  p-mr-2" label="Activate 2nd" /&gt;
-	&lt;Button @click="active = 2" class="p-button-text  p-mr-2" label="Activate 3nd" /&gt;
+	&lt;Button @click="active = 1" class="p-button-text  mr-2" label="Activate 2nd" /&gt;
+	&lt;Button @click="active = 2" class="p-button-text  mr-2" label="Activate 3nd" /&gt;
 &lt;/div&gt;
 
 &lt;Accordion :activeIndex="active"&gt;
@@ -332,8 +332,8 @@ export default {
 &lt;h5&gt;Programmatic&lt;/h5&gt;
 &lt;div style="padding: .5em 0 1em 0"&gt;
     &lt;Button @click="active = 0" class="p-button-text" label="Activate 1st" /&gt;
-    &lt;Button @click="active = 1" class="p-button-text p-mr-2" label="Activate 2nd" /&gt;
-    &lt;Button @click="active = 2" class="p-button-text p-mr-2" label="Activate 3rd" /&gt;
+    &lt;Button @click="active = 1" class="p-button-text mr-2" label="Activate 2nd" /&gt;
+    &lt;Button @click="active = 2" class="p-button-text mr-2" label="Activate 3rd" /&gt;
 &lt;/div&gt;
 
 &lt;Accordion :activeIndex="active"&gt;

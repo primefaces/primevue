@@ -138,25 +138,25 @@ export default {
 <CodeHighlight>
 <template v-pre>
 &lt;h3&gt;Basic&lt;/h3&gt;
-    &lt;div class="p-field-radiobutton"&gt;
+    &lt;div class="field-radiobutton"&gt;
     &lt;RadioButton id="city1" name="city" value="Chicago" v-model="city" /&gt;
     &lt;label for="city1"&gt;Chicago&lt;/label&gt;
 &lt;/div&gt;
-&lt;div class="p-field-radiobutton"&gt;
+&lt;div class="field-radiobutton"&gt;
     &lt;RadioButton id="city2" name="city" value="Los Angeles" v-model="city" /&gt;
     &lt;label for="city2"&gt;Los Angeles&lt;/label&gt;
 &lt;/div&gt;
-&lt;div class="p-field-radiobutton"&gt;
+&lt;div class="field-radiobutton"&gt;
     &lt;RadioButton id="city3" name="city" value="New York" v-model="city" /&gt;
     &lt;label for="city3"&gt;New York&lt;/label&gt;
 &lt;/div&gt;
-&lt;div class="p-field-radiobutton"&gt;
+&lt;div class="field-radiobutton"&gt;
     &lt;RadioButton id="city4" name="city" value="San Francisco" v-model="city" /&gt;
     &lt;label for="city4"&gt;San Francisco&lt;/label&gt;
 &lt;/div&gt;
 
 &lt;h5&gt;Dynamic Values, Preselection, Value Binding and Disabled Option&lt;/h5&gt;
-&lt;div v-for="category of categories" :key="category.key" class="p-field-radiobutton"&gt;
+&lt;div v-for="category of categories" :key="category.key" class="field-radiobutton"&gt;
     &lt;RadioButton :id="category.key" name="category" :value="category" v-model="selectedCategory" :disabled="category.key === 'R'" /&gt;
     &lt;label :for="category.key"&gt;{{category.name}}&lt;/label&gt;
 &lt;/div&gt;

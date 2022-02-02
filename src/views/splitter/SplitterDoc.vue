@@ -76,20 +76,20 @@ import SplitterPanel from 'primevue/splitterpanel';
 				<p>Splitters can be combined to create advanced layouts.</p>
 <CodeHighlight>
 &lt;Splitter style="height: 300px"&gt;
-	&lt;SplitterPanel class="p-d-flex p-ai-center p-jc-center" :size="20" :minSize="10"&gt;
+	&lt;SplitterPanel class="flex align-items-center justify-content-center" :size="20" :minSize="10"&gt;
 		Panel 1
 	&lt;/SplitterPanel&gt;
 	&lt;SplitterPanel :size="80"&gt;
 		&lt;Splitter layout="vertical"&gt;
-			&lt;SplitterPanel class="p-d-flex p-ai-center p-jc-center" :size="15"&gt;
+			&lt;SplitterPanel class="flex align-items-center justify-content-center" :size="15"&gt;
 				Panel 2
 			&lt;/SplitterPanel&gt;
 			&lt;SplitterPanel :size="85"&gt;
 				&lt;Splitter&gt;
-					&lt;SplitterPanel class="p-d-flex p-ai-center p-jc-center" :size="20"&gt;
+					&lt;SplitterPanel class="flex align-items-center justify-content-center" :size="20"&gt;
 						Panel 3
 					&lt;/SplitterPanel&gt;
-					&lt;SplitterPanel class="p-d-flex p-ai-center p-jc-center" :size="80"&gt;
+					&lt;SplitterPanel class="flex align-items-center justify-content-center" :size="80"&gt;
 						Panel 4
 					&lt;/SplitterPanel&gt;
 				&lt;/Splitter&gt;
@@ -261,10 +261,10 @@ import SplitterPanel from 'primevue/splitterpanel';
 &lt;div class="card"&gt;
 	&lt;h5&gt;Horizontal&lt;/h5&gt;
 	&lt;Splitter style="height: 300px"&gt;
-		&lt;SplitterPanel class="p-d-flex p-ai-center p-jc-center"&gt;
+		&lt;SplitterPanel class="flex align-items-center justify-content-center"&gt;
 			Panel 1
 		&lt;/SplitterPanel&gt;
-		&lt;SplitterPanel class="p-d-flex p-ai-center p-jc-center"&gt;
+		&lt;SplitterPanel class="flex align-items-center justify-content-center"&gt;
 			Panel 2
 		&lt;/SplitterPanel&gt;
 	&lt;/Splitter&gt;
@@ -273,10 +273,10 @@ import SplitterPanel from 'primevue/splitterpanel';
 &lt;div class="card"&gt;
 	&lt;h5&gt;Vertical&lt;/h5&gt;
 	&lt;Splitter style="height: 300px" layout="vertical"&gt;
-		&lt;SplitterPanel class="p-d-flex p-ai-center p-jc-center"&gt;
+		&lt;SplitterPanel class="flex align-items-center justify-content-center"&gt;
 			Panel 1
 		&lt;/SplitterPanel&gt;
-		&lt;SplitterPanel class="p-d-flex p-ai-center p-jc-center"&gt;
+		&lt;SplitterPanel class="flex align-items-center justify-content-center"&gt;
 			Panel 2
 		&lt;/SplitterPanel&gt;
 	&lt;/Splitter&gt;
@@ -285,20 +285,20 @@ import SplitterPanel from 'primevue/splitterpanel';
 &lt;div class="card"&gt;
 	&lt;h5&gt;Nested&lt;/h5&gt;
 	&lt;Splitter style="height: 300px"&gt;
-		&lt;SplitterPanel class="p-d-flex p-ai-center p-jc-center" :size="20" :minSize="10"&gt;
+		&lt;SplitterPanel class="flex align-items-center justify-content-center" :size="20" :minSize="10"&gt;
 			Panel 1
 		&lt;/SplitterPanel&gt;
 		&lt;SplitterPanel :size="80"&gt;
 			&lt;Splitter layout="vertical"&gt;
-				&lt;SplitterPanel class="p-d-flex p-ai-center p-jc-center" :size="15"&gt;
+				&lt;SplitterPanel class="flex align-items-center justify-content-center" :size="15"&gt;
 					Panel 2
 				&lt;/SplitterPanel&gt;
 				&lt;SplitterPanel :size="85"&gt;
 					&lt;Splitter&gt;
-						&lt;SplitterPanel class="p-d-flex p-ai-center p-jc-center" :size="20"&gt;
+						&lt;SplitterPanel class="flex align-items-center justify-content-center" :size="20"&gt;
 							Panel 3
 						&lt;/SplitterPanel&gt;
-						&lt;SplitterPanel class="p-d-flex p-ai-center p-jc-center" :size="80"&gt;
+						&lt;SplitterPanel class="flex align-items-center justify-content-center" :size="80"&gt;
 							Panel 4
 						&lt;/SplitterPanel&gt;
 					&lt;/Splitter&gt;

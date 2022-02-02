@@ -27,7 +27,7 @@
                 <TabPanel header="Source">
 <CodeHighlight>
 <template v-pre>
-&lt;DataTable :value="products responsiveLayout="scroll""&gt;
+&lt;DataTable :value="products" responsiveLayout="scroll"&gt;
     &lt;template #header&gt;
         &lt;div style="text-align:left"&gt;
             &lt;MultiSelect :value="selectedColumns" :options="columns" optionLabel="header" @input="onToggle"

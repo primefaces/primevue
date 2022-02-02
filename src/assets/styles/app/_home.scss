@@ -77,7 +77,7 @@
         text-align: center;
         padding: 2rem;
 
-        .p-col-12 {
+        .col-12 {
             padding: 1rem;
         }
 
@@ -118,7 +118,7 @@
             width: 100%;
         }
 
-        .p-grid > div {
+        .grid > div {
             padding: 2rem .5rem;
         }
     }
@@ -139,7 +139,7 @@
         background-color: var(--surface-a);
         color: var(--text-color);
         padding: 2rem;
-      
+
         img {
             width: 100%;
             margin-bottom: 30px;
@@ -171,7 +171,7 @@
             margin-top: 10px;
         }
 
-        .p-md-6:last-child {
+        .col-12:last-child {
             text-align: center;
         }
 

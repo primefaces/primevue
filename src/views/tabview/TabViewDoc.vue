@@ -96,8 +96,8 @@ import TabPanel from 'primevue/tabpanel';
 				<p>Tabs can be controlled programmatically using active property that defines the active tab.</p>
 <CodeHighlight>
 &lt;Button @click="active = 0" class="p-button-text" label="Activate 1st" /&gt;
-&lt;Button @click="active = 1" class="p-button-text p-mr-2" label="Activate 2nd" /&gt;
-&lt;Button @click="active = 2" class="p-button-text p-mr-2" label="Activate 3rd" /&gt;
+&lt;Button @click="active = 1" class="p-button-text mr-2" label="Activate 2nd" /&gt;
+&lt;Button @click="active = 2" class="p-button-text mr-2" label="Activate 3rd" /&gt;
 
 &lt;TabView :activeIndex="active"&gt;
     &lt;TabPanel header="Header I"&gt;
@@ -318,10 +318,10 @@ export default {
 
 &lt;div class="card"&gt;
     &lt;h5&gt;Programmatic&lt;/h5&gt;
-    &lt;div class="p-py-2">
+    &lt;div class="py-2">
         &lt;Button @click="active1 = 0" class="p-button-text" label="Activate 1st" />
-        &lt;Button @click="active1 = 1" class="p-button-text p-mr-2" label="Activate 2nd" />
-        &lt;Button @click="active1 = 2" class="p-button-text p-mr-2" label="Activate 3rd" />
+        &lt;Button @click="active1 = 1" class="p-button-text mr-2" label="Activate 2nd" />
+        &lt;Button @click="active1 = 2" class="p-button-text mr-2" label="Activate 3rd" />
     &lt;/div>
 
     &lt;TabView ref="tabview2" :activeIndex="active1"&gt;
@@ -401,10 +401,10 @@ export default {
 
 &lt;div class="card"&gt;
     &lt;h5&gt;Scrollable&lt;/h5&gt;
-    &lt;div class="p-py-2"&gt;
+    &lt;div class="py-2"&gt;
         &lt;Button @click="active2 = 0" class="p-button-text" label="Activate 1st" /&gt;
-        &lt;Button @click="active2 = 29" class="p-button-text p-mr-2" label="Activate 30th" /&gt;
-        &lt;Button @click="active2 = 49" class="p-button-text p-mr-2" label="Activate 50th" /&gt;
+        &lt;Button @click="active2 = 29" class="p-button-text mr-2" label="Activate 30th" /&gt;
+        &lt;Button @click="active2 = 49" class="p-button-text mr-2" label="Activate 50th" /&gt;
     &lt;/div&gt;
 
     &lt;TabView :activeIndex.sync="active2" :scrollable="true"&gt;

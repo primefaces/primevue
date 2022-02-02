@@ -158,31 +158,31 @@ export default {
 <CodeHighlight>
 <template v-pre>
 &lt;h3&gt;Basic&lt;/h3&gt;
-&lt;div class="p-field-checkbox"&gt;
+&lt;div class="field-checkbox"&gt;
     &lt;Checkbox id="binary" v-model="checked" :binary="true" /&gt;
     &lt;label for="binary"&gt;{{checked}}&lt;/label&gt;
 &lt;/div&gt;
 
 &lt;h3&gt;Multiple&lt;/h3&gt;
-&lt;div class="p-field-checkbox"&gt;
+&lt;div class="field-checkbox"&gt;
     &lt;Checkbox id="city1" name="city" value="Chicago" v-model="cities" /&gt;
     &lt;label for="city1"&gt;Chicago&lt;/label&gt;
 &lt;/div&gt;
-&lt;div class="p-field-checkbox"&gt;
+&lt;div class="field-checkbox"&gt;
     &lt;Checkbox id="city2" name="city" value="Los Angeles" v-model="cities" /&gt;
     &lt;label for="city2"&gt;Los Angeles&lt;/label&gt;
 &lt;/div&gt;
-&lt;div class="p-field-checkbox"&gt;
+&lt;div class="field-checkbox"&gt;
     &lt;Checkbox id="city3" name="city" value="New York" v-model="cities" /&gt;
     &lt;label for="city3"&gt;New York&lt;/label&gt;
 &lt;/div&gt;
-&lt;div class="p-field-checkbox"&gt;
+&lt;div class="field-checkbox"&gt;
     &lt;Checkbox id="city4" name="city" value="San Francisco" v-model="cities" /&gt;
     &lt;label for="city4"&gt;San Francisco&lt;/label&gt;
 &lt;/div&gt;
 
 &lt;h3&gt;Dynamic Values, Preselection, Value Binding and Disabled Option&lt;/h3&gt;
-&lt;div v-for="category of categories" :key="category.key" class="p-field-checkbox"&gt;
+&lt;div v-for="category of categories" :key="category.key" class="field-checkbox"&gt;
     &lt;Checkbox :id="category.key" name="category" :value="category" v-model="selectedCategories" :disabled="category.key === 'R'"/&gt;
     &lt;label :for="category.key"&gt;{{category.name}}&lt;/label&gt;
 &lt;/div&gt;
