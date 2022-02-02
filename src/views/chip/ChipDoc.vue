@@ -139,34 +139,34 @@ import Chip from 'primevue/chip';
 <CodeHighlight>
 <template v-pre>
 &lt;h5&gt;Basic&lt;/h5&gt;
-&lt;div class="p-d-flex p-ai-center"&gt;
-	&lt;Chip label="Action" class="p-mr-2" /&gt;
-	&lt;Chip label="Comedy" class="p-mr-2" /&gt;
-	&lt;Chip label="Mystery" class="p-mr-2" /&gt;
+&lt;div class="flex align-items-center"&gt;
+	&lt;Chip label="Action" class="mr-2" /&gt;
+	&lt;Chip label="Comedy" class="mr-2" /&gt;
+	&lt;Chip label="Mystery" class="mr-2" /&gt;
 	&lt;Chip label="Thriller" removable /&gt;
 &lt;/div&gt;
 
 &lt;h5&gt;Icon&lt;/h5&gt;
-&lt;div class="p-d-flex p-ai-center"&gt;
-	&lt;Chip label="Apple" icon="pi pi-apple" class="p-mr-2" /&gt;
-	&lt;Chip label="Facebook" icon="pi pi-facebook" class="p-mr-2" /&gt;
-	&lt;Chip label="Google" icon="pi pi-google" class="p-mr-2" /&gt;
+&lt;div class="flex align-items-center"&gt;
+	&lt;Chip label="Apple" icon="pi pi-apple" class="mr-2" /&gt;
+	&lt;Chip label="Facebook" icon="pi pi-facebook" class="mr-2" /&gt;
+	&lt;Chip label="Google" icon="pi pi-google" class="mr-2" /&gt;
 	&lt;Chip label="Microsoft" icon="pi pi-microsoft" removable /&gt;
 &lt;/div&gt;
 
 &lt;h5&gt;Image&lt;/h5&gt;
-&lt;div class="p-d-flex p-ai-center"&gt;
-	&lt;Chip label="Amy Elsner" image="demo/images/avatar/amyelsner.png" class="p-mr-2" /&gt;
-	&lt;Chip label="Asiya Javayant" image="demo/images/avatar/asiyajavayant.png" class="p-mr-2" /&gt;
-	&lt;Chip label="Onyama Limba" image="demo/images/avatar/onyamalimba.png" class="p-mr-2" /&gt;
+&lt;div class="flex align-items-center"&gt;
+	&lt;Chip label="Amy Elsner" image="demo/images/avatar/amyelsner.png" class="mr-2" /&gt;
+	&lt;Chip label="Asiya Javayant" image="demo/images/avatar/asiyajavayant.png" class="mr-2" /&gt;
+	&lt;Chip label="Onyama Limba" image="demo/images/avatar/onyamalimba.png" class="mr-2" /&gt;
 	&lt;Chip label="Xuxue Feng" image="demo/images/avatar/xuxuefeng.png" removable /&gt;
 &lt;/div&gt;
 
 &lt;h5&gt;Styling&lt;/h5&gt;
-&lt;div class="p-d-flex p-ai-center"&gt;
-	&lt;Chip label="Action" class="p-mr-2 custom-chip" /&gt;
-	&lt;Chip label="Apple" icon="pi pi-apple" class="p-mr-2 custom-chip" /&gt;
-	&lt;Chip label="Onyama Limba" image="demo/images/avatar/onyamalimba.png" class="p-mr-2 custom-chip" /&gt;
+&lt;div class="flex align-items-center"&gt;
+	&lt;Chip label="Action" class="mr-2 custom-chip" /&gt;
+	&lt;Chip label="Apple" icon="pi pi-apple" class="mr-2 custom-chip" /&gt;
+	&lt;Chip label="Onyama Limba" image="demo/images/avatar/onyamalimba.png" class="mr-2 custom-chip" /&gt;
 	&lt;Chip label="Xuxue Feng" image="demo/images/avatar/xuxuefeng.png" class="custom-chip" removable /&gt;
 &lt;/div&gt;
 </template>

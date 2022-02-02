@@ -16,7 +16,7 @@ import Badge from 'primevue/badge';
 &lt;Badge value="2"&gt;&lt;/Badge&gt;
 </CodeHighlight>
 
-                 <h6>Directive</h6>
+                <h6>Directive</h6>
 <CodeHighlight lang="javascript">
 import BadgeDirective from 'primevue/badgedirective';
 </CodeHighlight>
@@ -27,7 +27,7 @@ import BadgeDirective from 'primevue/badgedirective';
 &lt;i class="pi pi-bell" v-badge="2"&gt;&lt;/i&gt;
 </CodeHighlight>
 
-                 <h5>Severities</h5>
+                <h5>Severities</h5>
                 <p>Different color options are available as severity levels. When used as a component use the <i>severity</i> property
                 to apply a severity and use a <i>modifier</i> as the severity value in directive mode.</p>
 
@@ -167,24 +167,24 @@ import BadgeDirective from 'primevue/badgedirective';
 <CodeHighlight>
 <template v-pre>
 &lt;h5&gt;Numbers&lt;/h5&gt;
-&lt;Badge value="2" class="p-mr-2"&gt;&lt;/Badge&gt;
-&lt;Badge value="8" severity="success" class="p-mr-2"&gt;&lt;/Badge&gt;
-&lt;Badge value="4" severity="info" class="p-mr-2"&gt;&lt;/Badge&gt;
-&lt;Badge value="12" severity="warning" class="p-mr-2"&gt;&lt;/Badge&gt;
+&lt;Badge value="2" class="mr-2"&gt;&lt;/Badge&gt;
+&lt;Badge value="8" severity="success" class="mr-2"&gt;&lt;/Badge&gt;
+&lt;Badge value="4" severity="info" class="mr-2"&gt;&lt;/Badge&gt;
+&lt;Badge value="12" severity="warning" class="mr-2"&gt;&lt;/Badge&gt;
 &lt;Badge value="3" severity="danger"&gt;&lt;/Badge&gt;
 
-&lt;h5 class="p-mb-4"&gt;Positioned Badge&lt;/h5&gt;
-&lt;i class="pi pi-bell p-mr-4 p-text-secondary" style="font-size: 2rem" v-badge="2"&gt;&lt;/i&gt;
-&lt;i class="pi pi-calendar p-mr-4 p-text-secondary" style="font-size: 2rem" v-badge.danger="'10+'"&gt;&lt;/i&gt;
+&lt;h5 class="mb-4"&gt;Positioned Badge&lt;/h5&gt;
+&lt;i class="pi pi-bell mr-4 p-text-secondary" style="font-size: 2rem" v-badge="2"&gt;&lt;/i&gt;
+&lt;i class="pi pi-calendar mr-4 p-text-secondary" style="font-size: 2rem" v-badge.danger="'10+'"&gt;&lt;/i&gt;
 &lt;i class="pi pi-envelope p-text-secondary" style="font-size: 2rem" v-badge.danger&gt;&lt;/i&gt;
 
 &lt;h5&gt;Button Badge&lt;/h5&gt;
-&lt;Button type="button" label="Emails" badge="8" class="p-mr-2" /&gt;
+&lt;Button type="button" label="Emails" badge="8" class="mr-2" /&gt;
 &lt;Button type="button" label="Messages" icon="pi pi-users" class="p-button-warning" badge="8" badgeClass="p-badge-danger" /&gt;
 
 &lt;h5&gt;Sizes&lt;/h5&gt;
-&lt;Badge value="2" class="p-mr-2"&gt;&lt;/Badge&gt;
-&lt;Badge value="4" class="p-mr-2" size="large" severity="warning"&gt;&lt;/Badge&gt;
+&lt;Badge value="2" class="mr-2"&gt;&lt;/Badge&gt;
+&lt;Badge value="4" class="mr-2" size="large" severity="warning"&gt;&lt;/Badge&gt;
 &lt;Badge value="6" size="xlarge" severity="success"&gt;&lt;/Badge&gt;
 </template>
 </CodeHighlight>

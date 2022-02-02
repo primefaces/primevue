@@ -27,7 +27,7 @@
                         <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
                     </template>
                     <template #thumbnail="slotProps">
-                        <div class="p-grid p-nogutter p-justify-center">
+                        <div class="grid grid-nogutter justify-content-center">
                             <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" tyle="width: 100%; display: block;" />
                         </div>
                     </template>
@@ -41,7 +41,7 @@
                         <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
                     </template>
                     <template #thumbnail="slotProps">
-                        <div class="p-grid p-nogutter p-justify-center">
+                        <div class="grid grid-nogutter justify-content-center">
                             <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" tyle="width: 100%; display: block;" />
                         </div>
                     </template>
@@ -82,7 +82,7 @@
         &lt;img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" /&gt;
     &lt;/template&gt;
     &lt;template #thumbnail="slotProps"&gt;
-        &lt;div class="p-grid p-nogutter p-justify-center"&gt;
+        &lt;div class="grid grid-nogutter justify-content-center"&gt;
             &lt;img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" tyle="width: 100%; display: block;" /&gt;
         &lt;/div&gt;
     &lt;/template&gt;
@@ -94,7 +94,7 @@
         &lt;img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" /&gt;
     &lt;/template&gt;
     &lt;template #thumbnail="slotProps"&gt;
-        &lt;div class="p-grid p-nogutter p-justify-center"&gt;
+        &lt;div class="grid grid-nogutter justify-content-center"&gt;
             &lt;img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" tyle="width: 100%; display: block;" /&gt;
         &lt;/div&gt;
     &lt;/template&gt;

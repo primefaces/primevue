@@ -174,26 +174,26 @@ import AvatarGroup from 'primevue/avatargroup';
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;div class="p-grid"&gt;
-	&lt;div class="p-col-12 p-md-4"&gt;
+&lt;div class="grid"&gt;
+	&lt;div class="col-12 md:col-4"&gt;
 		&lt;div class="card"&gt;
 			&lt;h5&gt;Label&lt;/h5&gt;
-			&lt;Avatar label="P" class="p-mr-2" size="xlarge" /&gt;
-			&lt;Avatar label="V" class="p-mr-2" size="large" style="background-color:#2196F3; color: #ffffff"/&gt;
-			&lt;Avatar label="U" class="p-mr-2" style="background-color:#9c27b0; color: #ffffff" /&gt;
+			&lt;Avatar label="P" class="mr-2" size="xlarge" /&gt;
+			&lt;Avatar label="V" class="mr-2" size="large" style="background-color:#2196F3; color: #ffffff"/&gt;
+			&lt;Avatar label="U" class="mr-2" style="background-color:#9c27b0; color: #ffffff" /&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
 
-	&lt;div class="p-col-12 p-md-4"&gt;
+	&lt;div class="col-12 md:col-4"&gt;
 		&lt;div class="card"&gt;
 			&lt;h5&gt;Label - Circle&lt;/h5&gt;
-			&lt;Avatar label="P" class="p-mr-2" size="xlarge" shape="circle" /&gt;
-			&lt;Avatar label="V" class="p-mr-2" size="large" style="background-color:#2196F3; color: #ffffff" shape="circle"  /&gt;
-			&lt;Avatar label="U" class="p-mr-2" style="background-color:#9c27b0; color: #ffffff" shape="circle"  /&gt;
+			&lt;Avatar label="P" class="mr-2" size="xlarge" shape="circle" /&gt;
+			&lt;Avatar label="V" class="mr-2" size="large" style="background-color:#2196F3; color: #ffffff" shape="circle"  /&gt;
+			&lt;Avatar label="U" class="mr-2" style="background-color:#9c27b0; color: #ffffff" shape="circle"  /&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
 
-	&lt;div class="p-col-12 p-md-4"&gt;
+	&lt;div class="col-12 md:col-4"&gt;
 		&lt;div class="card"&gt;
 			&lt;h5&gt;Label - Badge&lt;/h5&gt;
 			&lt;Avatar label="U" size="xlarge" style="background-color:#4caf4f; color: #ffffff" v-badge="4" /&gt;
@@ -201,26 +201,26 @@ import AvatarGroup from 'primevue/avatargroup';
 	&lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div class="p-grid"&gt;
-	&lt;div class="p-col-12 p-md-4"&gt;
+&lt;div class="grid"&gt;
+	&lt;div class="col-12 md:col-4"&gt;
 		&lt;div class="card"&gt;
 			&lt;h5&gt;Icon&lt;/h5&gt;
-			&lt;Avatar icon="pi pi-user" class="p-mr-2" size="xlarge" /&gt;
-			&lt;Avatar icon="pi pi-user" class="p-mr-2" size="large" style="background-color:#2196F3; color: #ffffff"/&gt;
-			&lt;Avatar icon="pi pi-user" class="p-mr-2" style="background-color:#9c27b0; color: #ffffff" /&gt;
+			&lt;Avatar icon="pi pi-user" class="mr-2" size="xlarge" /&gt;
+			&lt;Avatar icon="pi pi-user" class="mr-2" size="large" style="background-color:#2196F3; color: #ffffff"/&gt;
+			&lt;Avatar icon="pi pi-user" class="mr-2" style="background-color:#9c27b0; color: #ffffff" /&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
 
-	&lt;div class="p-col-12 p-md-4"&gt;
+	&lt;div class="col-12 md:col-4"&gt;
 		&lt;div class="card"&gt;
 			&lt;h5&gt;Icon - Circle&lt;/h5&gt;
-			&lt;Avatar icon="pi pi-user" class="p-mr-2" size="xlarge" shape="circle" /&gt;
-			&lt;Avatar icon="pi pi-user" class="p-mr-2" size="large" style="background-color:#2196F3; color: #ffffff" shape="circle" /&gt;
-			&lt;Avatar icon="pi pi-user" class="p-mr-2" style="background-color:#9c27b0; color: #ffffff" shape="circle" /&gt;
+			&lt;Avatar icon="pi pi-user" class="mr-2" size="xlarge" shape="circle" /&gt;
+			&lt;Avatar icon="pi pi-user" class="mr-2" size="large" style="background-color:#2196F3; color: #ffffff" shape="circle" /&gt;
+			&lt;Avatar icon="pi pi-user" class="mr-2" style="background-color:#9c27b0; color: #ffffff" shape="circle" /&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
 
-		&lt;div class="p-col-12 p-md-4"&gt;
+		&lt;div class="col-12 md:col-4"&gt;
 		&lt;div class="card"&gt;
 			&lt;h5&gt;Icon - Badge&lt;/h5&gt;
 			&lt;Avatar icon="pi pi-user" size="xlarge" v-badge="4"/&gt;
@@ -228,20 +228,20 @@ import AvatarGroup from 'primevue/avatargroup';
 	&lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div class="p-grid"&gt;
-	&lt;div class="p-col-12 p-md-4"&gt;
+&lt;div class="grid"&gt;
+	&lt;div class="col-12 md:col-4"&gt;
 		&lt;div class="card"&gt;
 			&lt;h5&gt;Image&lt;/h5&gt;
-			&lt;Avatar image="demo/images/avatar/amyelsner.png" class="p-mr-2" size="xlarge" shape="circle" /&gt;
-			&lt;Avatar image="demo/images/avatar/asiyajavayant.png" class="p-mr-2" size="large" shape="circle" /&gt;
-			&lt;Avatar image="demo/images/avatar/onyamalimba.png" class="p-mr-2" shape="circle" /&gt;
+			&lt;Avatar image="demo/images/avatar/amyelsner.png" class="mr-2" size="xlarge" shape="circle" /&gt;
+			&lt;Avatar image="demo/images/avatar/asiyajavayant.png" class="mr-2" size="large" shape="circle" /&gt;
+			&lt;Avatar image="demo/images/avatar/onyamalimba.png" class="mr-2" shape="circle" /&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
 
-	&lt;div class="p-col-12 p-md-4"&gt;
+	&lt;div class="col-12 md:col-4"&gt;
 		&lt;div class="card"&gt;
 			&lt;h5&gt;Avatar Group&lt;/h5&gt;
-			&lt;AvatarGroup class="p-mb-3"&gt;
+			&lt;AvatarGroup class="mb-3"&gt;
 				&lt;Avatar image="demo/images/avatar/amyelsner.png" size="large" shape="circle"/&gt;
 				&lt;Avatar image="demo/images/avatar/asiyajavayant.png" size="large" shape="circle"/&gt;
 				&lt;Avatar image="demo/images/avatar/onyamalimba.png" size="large" shape="circle"/&gt;
@@ -252,7 +252,7 @@ import AvatarGroup from 'primevue/avatargroup';
 		&lt;/div&gt;
 	&lt;/div&gt;
 
-		&lt;div class="p-col-12 p-md-4"&gt;
+		&lt;div class="col-12 md:col-4"&gt;
 		&lt;div class="card"&gt;
 			&lt;h5&gt;Image - Badge&lt;/h5&gt;
 			&lt;Avatar image="demo/images/organization/walter.jpg" size="xlarge" v-badge.danger="4" /&gt;

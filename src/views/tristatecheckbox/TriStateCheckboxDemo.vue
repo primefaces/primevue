@@ -10,7 +10,7 @@
 
         <div class="content-section implementation">
             <div class="card">
-                <div class="p-field-checkbox p-m-0">
+                <div class="field-checkbox m-0">
                     <TriStateCheckbox v-model="value" />
                     <label>{{value == null ? 'null' : value}}</label>
                 </div>

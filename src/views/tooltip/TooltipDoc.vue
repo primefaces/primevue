@@ -98,17 +98,17 @@ directives: {
 <CodeHighlight>
 <template v-pre>
 &lt;h3&gt;Positions&lt;/h3&gt;
-&lt;div class="p-grid p-fluid"&gt;
-    &lt;div class="p-col-12 p-md-3"&gt;
+&lt;div class="grid p-fluid"&gt;
+    &lt;div class="col-12 md:col-3"&gt;
         &lt;InputText type="text" placeholder="Right" v-tooltip.right="'Enter your username'" /&gt;
     &lt;/div&gt;
-    &lt;div class="p-col-12 p-md-3"&gt;
+    &lt;div class="col-12 md:col-3"&gt;
         &lt;InputText type="text" placeholder="Top" v-tooltip.top="'Enter your username'" /&gt;
     &lt;/div&gt;
-    &lt;div class="p-col-12 p-md-3"&gt;
+    &lt;div class="col-12 md:col-3"&gt;
         &lt;InputText type="text" placeholder="Bottom" v-tooltip.bottom="'Enter your username'" /&gt;
     &lt;/div&gt;
-    &lt;div class="p-col-12 p-md-3"&gt;
+    &lt;div class="col-12 md:col-3"&gt;
         &lt;InputText type="text" placeholder="Left" v-tooltip.left="'Enter your username'" /&gt;
     &lt;/div&gt;
 &lt;/div&gt;

@@ -26,7 +26,7 @@ import Divider from 'primevue/divider';
                 <h5>Vertical Divider</h5>
                 <p>Vertical divider is enabled by setting the <i>layout</i> property as "vertical".</p>
 <CodeHighlight>
-&lt;div class="p-d-flex"&gt;
+&lt;div class="flex"&gt;
     &lt;div&gt;Content 1&lt;/div&gt;
     &lt;Divider layout="vertical" /&gt;
     &lt;div&gt;Content 2&lt;/div&gt;
@@ -44,8 +44,8 @@ import Divider from 'primevue/divider';
 &lt;div&gt;Content 1&lt;/div&gt;
 
 &lt;Divider align="left"&gt;
-    &lt;div class="p-d-inline-flex p-ai-center"&gt;
-        &lt;i class="pi pi-user p-mr-2"&gt;&lt;/i&gt;
+    &lt;div class="inline-flex align-items-center"&gt;
+        &lt;i class="pi pi-user mr-2"&gt;&lt;/i&gt;
         &lt;b&gt;Icon&lt;/b&gt;
     &lt;/div&gt;
 &lt;/Divider&gt;
@@ -233,8 +233,8 @@ import Divider from 'primevue/divider';
             Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
 
     &lt;Divider align="left"&gt;
-        &lt;div class="p-d-inline-flex p-ai-center"&gt;
-            &lt;i class="pi pi-user p-mr-2"&gt;&lt;/i&gt;
+        &lt;div class="inline-flex align-items-center"&gt;
+            &lt;i class="pi pi-user mr-2"&gt;&lt;/i&gt;
             &lt;b&gt;Icon&lt;/b&gt;
         &lt;/div&gt;
     &lt;/Divider&gt;
@@ -262,7 +262,7 @@ import Divider from 'primevue/divider';
 
 &lt;div class="card"&gt;
     &lt;h5&gt;Vertical&lt;/h5&gt;
-    &lt;div class="p-d-flex"&gt;
+    &lt;div class="flex"&gt;
         &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
                 ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                 Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
@@ -283,26 +283,26 @@ import Divider from 'primevue/divider';
 
 &lt;div class="card"&gt;
     &lt;h5&gt;Vertical with Content&lt;/h5&gt;
-    &lt;div class="p-grid"&gt;
-        &lt;div class="p-col-5 p-d-flex p-ai-center p-jc-center"&gt;
+    &lt;div class="grid"&gt;
+        &lt;div class="col-5 flex align-items-center justify-content-center"&gt;
             &lt;div class="p-fluid"&gt;
-                &lt;div class="p-field"&gt;
+                &lt;div class="field"&gt;
                     &lt;label for="username"&gt;Username&lt;/label&gt;
                     &lt;InputText id="username" type="text" /&gt;
                 &lt;/div&gt;
-                &lt;div class="p-field"&gt;
+                &lt;div class="field"&gt;
                     &lt;label for="password"&gt;Password&lt;/label&gt;
                     &lt;InputText id="password" type="password" /&gt;
                 &lt;/div&gt;
                 &lt;Button label="Login"&gt;&lt;/Button&gt;
                 &lt;/div&gt;
         &lt;/div&gt;
-        &lt;div class="p-col-2"&gt;
+        &lt;div class="col-2"&gt;
             &lt;Divider layout="vertical"&gt;
                 &lt;b&gt;OR&lt;/b&gt;
             &lt;/Divider&gt;
         &lt;/div&gt;
-        &lt;div class="p-col-5 p-d-flex p-ai-center p-jc-center"&gt;
+        &lt;div class="col-5 flex align-items-center justify-content-center"&gt;
             &lt;Button label="Sign Up" icon="pi pi-user-plus" class="p-button-success"&gt;&lt;/Button&gt;
         &lt;/div&gt;
     &lt;/div&gt;

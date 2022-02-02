@@ -12,7 +12,7 @@
                 <h5>Lenient Filter</h5>
                 <TreeTable :value="nodes" :filters="filters1" filterMode="lenient">
                     <template #header>
-                        <div class="p-text-right">
+                        <div class="text-right">
                             <div class="p-input-icon-left">
                                 <i class="pi pi-search"></i>
                                 <InputText v-model="filters1['global']" placeholder="Global Search" size="50" />
@@ -41,7 +41,7 @@
                 <h5>Strict Filter</h5>
                 <TreeTable :value="nodes" :filters="filters2" filterMode="strict">
                     <template #header>
-                        <div class="p-text-right">
+                        <div class="text-right">
                             <div class="p-input-icon-left">
                                 <i class="pi pi-search"></i>
                                 <InputText v-model="filters2['global']" placeholder="Global Search" size="50" />
@@ -76,7 +76,7 @@
     &lt;h5&gt;Lenient Filter&lt;/h5&gt;
     &lt;TreeTable :value="nodes" :filters="filters1" filterMode="lenient"&gt;
         &lt;template #header&gt;
-            &lt;div class="p-text-right"&gt;
+            &lt;div class="text-right"&gt;
                 &lt;div class="p-input-icon-left"&gt;
                     &lt;i class="pi pi-search"&gt;&lt;/i&gt;
                     &lt;InputText v-model="filters1['global']" placeholder="Global Search" size="50" /&gt;
@@ -105,7 +105,7 @@
     &lt;h5&gt;Strict Filter&lt;/h5&gt;
     &lt;TreeTable :value="nodes" :filters="filters2" filterMode="strict"&gt;
         &lt;template #header&gt;
-            &lt;div class="p-text-right"&gt;
+            &lt;div class="text-right"&gt;
                 &lt;div class="p-input-icon-left"&gt;
                     &lt;i class="pi pi-search"&gt;&lt;/i&gt;
                     &lt;InputText v-model="filters2['global']" placeholder="Global Search" size="50" /&gt;

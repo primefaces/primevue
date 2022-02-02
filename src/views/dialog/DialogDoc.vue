@@ -287,7 +287,7 @@ export default {
 &lt;h5&gt;Basic&lt;/h5&gt;
 &lt;Button label="Show" icon="pi pi-external-link" @click="openBasic" /&gt;
 &lt;Dialog header="Header " :visible.sync="displayBasic" :style="{width: '50vw'}"&gt;
-    &lt;p class="p-m-0"&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+    &lt;p class="m-0"&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
         laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
         Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
     &lt;template #footer&gt;
@@ -321,7 +321,7 @@ export default {
 &lt;h5&gt;Modal&lt;/h5&gt;
 &lt;Button label="Show" icon="pi pi-external-link" @click="openModal" /&gt;
 &lt;Dialog header="Header" :visible.sync="displayModal" :style="{width: '50vw'}" :modal="true"&gt;
-    &lt;p class="p-m-0"&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+    &lt;p class="m-0"&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
         laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
         Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
     &lt;template #footer&gt;
@@ -334,7 +334,7 @@ export default {
 &lt;Button label="Confirm" icon="pi pi-external-link" @click="openConfirmation" /&gt;
 &lt;Dialog header="Confirmation" :visible.sync="displayConfirmation" :style="{width: '350px'}" :modal="true"&gt;
     &lt;div class="confirmation-content"&gt;
-        &lt;i class="pi pi-exclamation-triangle p-mr-3" style="font-size: 2rem" /&gt;
+        &lt;i class="pi pi-exclamation-triangle mr-3" style="font-size: 2rem" /&gt;
         &lt;span&gt;Are you sure you want to proceed?&lt;/span&gt;
     &lt;/div&gt;
     &lt;template #footer&gt;
@@ -346,7 +346,7 @@ export default {
 &lt;h5&gt;Maximizable&lt;/h5&gt;
 &lt;Button label="Show" icon="pi pi-external-link" @click="openMaximizable" /&gt;
 &lt;Dialog header="Header" :visible.sync="displayMaximizable" :style="{width: '50vw'}" :maximizable="true" :modal="true"&gt;
-    &lt;p class="p-m-0"&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+    &lt;p class="m-0"&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
         laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
         Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
     &lt;template #footer&gt;
@@ -356,7 +356,7 @@ export default {
 &lt;/Dialog&gt;
 
 &lt;h5&gt;Position&lt;/h5&gt;
-&lt;div class="p-grid p-dir-col"&gt;
+&lt;div class="grid flex-column"&gt;
     &lt;div class="p-col"&gt;
         &lt;Button label="Left" icon="pi pi-arrow-right" @click="openPosition('left')" class="p-button-warning" /&gt;
         &lt;Button label="Right" icon="pi pi-arrow-left" @click="openPosition('right')" class="p-button-warning" /&gt;
@@ -374,7 +374,7 @@ export default {
 &lt;/div&gt;
 
 &lt;Dialog header="Header" :visible.sync="displayPosition" :style="{width: '50vw'}" :position="position" :modal="true"&gt;
-    &lt;p class="p-m-0"&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+    &lt;p class="m-0"&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
         laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
         Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
     &lt;template #footer&gt;

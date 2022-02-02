@@ -13,14 +13,14 @@ import StyleClass from 'primevue/StyleClass';
                 <p><b>ToggleClass</b></p>
 <CodeHighlight>
 &lt;Button label="Toggle p-disabled" v-styleclass="{ selector: '@next', toggleClass: 'p-disabled' }" /&gt;
-&lt;InputText class="p-d-block p-mt-3" /&gt;
+&lt;InputText class="block mt-3" /&gt;
 </CodeHighlight>
 
                 <p><b>Enter/Leave Animation</b></p>
 <CodeHighlight>
-&lt;Button label="Show" class="p-mr-2" v-styleclass="{ selector: '.box', enterClass: 'p-d-none', enterActiveClass: 'my-fadein' }" /&gt;
-&lt;Button label="Hide" v-styleclass="{ selector: '.box', leaveActiveClass: 'my-fadeout', leaveToClass: 'p-d-none' }" /&gt;
-&lt;div class="box p-d-none"&gt;Content&lt;/div&gt;
+&lt;Button label="Show" class="mr-2" v-styleclass="{ selector: '.box', enterClass: 'hidden', enterActiveClass: 'my-fadein' }" /&gt;
+&lt;Button label="Hide" v-styleclass="{ selector: '.box', leaveActiveClass: 'my-fadeout', leaveToClass: 'hidden' }" /&gt;
+&lt;div class="box hidden"&gt;Content&lt;/div&gt;
 </CodeHighlight>
 
                 <h5>Target</h5>
@@ -141,12 +141,12 @@ import StyleClass from 'primevue/StyleClass';
 &lt;div class="card"&gt;
     &lt;h5&gt;Toggle Class&lt;/h5&gt;
     &lt;Button label="Toggle p-disabled" v-styleclass="{ selector: '@next', toggleClass: 'p-disabled' }" /&gt;
-    &lt;InputText class="p-d-block p-mt-3" /&gt;
+    &lt;InputText class="block mt-3" /&gt;
 
     &lt;h5&gt;Animations&lt;/h5&gt;
-    &lt;Button label="Show" class="p-mr-2" v-styleclass="{ selector: '.box', enterClass: 'p-d-none', enterActiveClass: 'my-fadein' }" /&gt;
-    &lt;Button label="Hide" v-styleclass="{ selector: '.box', leaveActiveClass: 'my-fadeout', leaveToClass: 'p-d-none' }" /&gt;
-    &lt;div class="box p-d-none"&gt;Content&lt;/div&gt;
+    &lt;Button label="Show" class="mr-2" v-styleclass="{ selector: '.box', enterClass: 'hidden', enterActiveClass: 'my-fadein' }" /&gt;
+    &lt;Button label="Hide" v-styleclass="{ selector: '.box', leaveActiveClass: 'my-fadeout', leaveToClass: 'hidden' }" /&gt;
+    &lt;div class="box hidden"&gt;Content&lt;/div&gt;
 &lt;/div&gt;
 </template>
 </CodeHighlight>

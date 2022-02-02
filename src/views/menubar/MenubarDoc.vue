@@ -274,7 +274,7 @@ export default {
 <template v-pre>
 &lt;Menubar :model="items"&gt;
     &lt;template #start&gt;
-        &lt;img alt="logo" src="../../assets/images/logo.svg" height="40" class="p-mr-2"&gt;
+        &lt;img alt="logo" src="../../assets/images/logo.svg" height="40" class="mr-2"&gt;
     &lt;/template&gt;
     &lt;template #end&gt;
         &lt;InputText placeholder="Search" type="text" /&gt;

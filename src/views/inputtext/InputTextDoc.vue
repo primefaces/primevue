@@ -146,14 +146,14 @@ import InputText from 'primevue/inputtext';
     &lt;/span&gt;
 
     &lt;h5&gt;Help Text&lt;/h5&gt;
-    &lt;div class="p-field"&gt;
+    &lt;div class="field"&gt;
         &lt;label for="username1"&gt;Username&lt;/label&gt;
         &lt;InputText id="username1" type="username" aria-describedby="username1-help" /&gt;
         &lt;small id="username1-help"&gt;Enter your username to reset your password.&lt;/small&gt;
     &lt;/div&gt;
 
     &lt;h5&gt;Invalid&lt;/h5&gt;
-    &lt;div class="p-field"&gt;
+    &lt;div class="field"&gt;
         &lt;label for="username2"&gt;Username&lt;/label&gt;
         &lt;InputText id="username2" type="username" aria-describedby="username2-help" class="p-invalid" /&gt;
         &lt;small id="username2-help" class="p-invalid"&gt;Username is not available.&lt;/small&gt;

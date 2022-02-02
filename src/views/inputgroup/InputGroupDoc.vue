@@ -8,8 +8,8 @@
 <CodeHighlight>
 <template v-pre>
 &lt;h3&gt;Addons&lt;/h3&gt;
-&lt;div class="p-grid p-fluid"&gt;
-    &lt;div class="p-col-12 p-md-4"&gt;
+&lt;div class="grid p-fluid"&gt;
+    &lt;div class="col-12 md:col-4"&gt;
         &lt;div class="p-inputgroup"&gt;
         &lt;span class="p-inputgroup-addon"&gt;
             &lt;i class="pi pi-user"&gt;&lt;/i&gt;
@@ -18,7 +18,7 @@
         &lt;/div&gt;
     &lt;/div&gt;
 
-    &lt;div class="p-col-12 p-md-4"&gt;
+    &lt;div class="col-12 md:col-4"&gt;
         &lt;div class="p-inputgroup"&gt;
             &lt;span class="p-inputgroup-addon"&gt;$&lt;/span&gt;
             &lt;InputText placeholder="Price" /&gt;
@@ -26,7 +26,7 @@
         &lt;/div&gt;
     &lt;/div&gt;
 
-    &lt;div class="p-col-12 p-md-4"&gt;
+    &lt;div class="col-12 md:col-4"&gt;
         &lt;div class="p-inputgroup"&gt;
             &lt;span class="p-inputgroup-addon"&gt;W&lt;/span&gt;
             &lt;InputText placeholder="Website" /&gt;
@@ -35,8 +35,8 @@
 &lt;/div&gt;
 
 &lt;h3&gt;Multiple Addons&lt;/h3&gt;
-&lt;div class="p-grid"&gt;
-    &lt;div class="p-col-12"&gt;
+&lt;div class="grid"&gt;
+    &lt;div class="col-12"&gt;
         &lt;div class="p-inputgroup"&gt;
         &lt;span class="p-inputgroup-addon"&gt;
             &lt;i class="pi pi-clock"&gt;&lt;/i&gt;
@@ -52,22 +52,22 @@
 &lt;/div&gt;
 
 &lt;h3&gt;Button Addons&lt;/h3&gt;
-&lt;div class="p-grid p-fluid"&gt;
-    &lt;div class="p-col-12 p-md-4"&gt;
+&lt;div class="grid p-fluid"&gt;
+    &lt;div class="col-12 md:col-4"&gt;
         &lt;div class="p-inputgroup"&gt;
             &lt;Button label="Search"/&gt;
             &lt;InputText placeholder="Keyword"/&gt;
         &lt;/div&gt;
     &lt;/div&gt;
 
-    &lt;div class="p-col-12 p-md-4"&gt;
+    &lt;div class="col-12 md:col-4"&gt;
         &lt;div class="p-inputgroup"&gt;
             &lt;InputText placeholder="Keyword"/&gt;
             &lt;Button icon="pi pi-search" class="p-button-warning"/&gt;
         &lt;/div&gt;
     &lt;/div&gt;
 
-    &lt;div class="p-col-12 p-md-4"&gt;
+    &lt;div class="col-12 md:col-4"&gt;
         &lt;div class="p-inputgroup"&gt;
             &lt;Button icon="pi pi-check" class="p-button-success"/&gt;
             &lt;InputText placeholder="Vote"/&gt;
@@ -77,8 +77,8 @@
 &lt;/div&gt;
 
 &lt;h3&gt;Checkbox and RadioButton&lt;/h3&gt;
-&lt;div class="p-grid p-fluid"&gt;
-    &lt;div class="p-col-12 p-md-4"&gt;
+&lt;div class="grid p-fluid"&gt;
+    &lt;div class="col-12 md:col-4"&gt;
         &lt;div class="p-inputgroup"&gt;
         &lt;span class="p-inputgroup-addon"&gt;
             &lt;Checkbox v-model="checked1" :binary="true" /&gt;
@@ -87,7 +87,7 @@
         &lt;/div&gt;
     &lt;/div&gt;
 
-    &lt;div class="p-col-12 p-md-4"&gt;
+    &lt;div class="col-12 md:col-4"&gt;
         &lt;div class="p-inputgroup"&gt;
             &lt;InputText placeholder="Price"/&gt;
             &lt;span class="p-inputgroup-addon"&gt;
@@ -96,7 +96,7 @@
         &lt;/div&gt;
     &lt;/div&gt;
 
-    &lt;div class="p-col-12 p-md-4"&gt;
+    &lt;div class="col-12 md:col-4"&gt;
         &lt;div class="p-inputgroup"&gt;
         &lt;span class="p-inputgroup-addon"&gt;
             &lt;Checkbox v-model="checked2" :binary="true" /&gt;

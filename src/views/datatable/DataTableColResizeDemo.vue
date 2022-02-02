@@ -36,7 +36,7 @@
 <CodeHighlight>
 <template v-pre>
 &lt;h3&gt;Fit Mode&lt;/h3&gt;
-&lt;DataTable :value="products" :resizableColumns="true" columnResizeMode="fit showGridlines responsiveLayout="scroll""&gt;
+&lt;DataTable :value="products" :resizableColumns="true" columnResizeMode="fit" showGridlines responsiveLayout="scroll"&gt;
     &lt;Column field="code" header="Code"&gt;&lt;/Column&gt;
     &lt;Column field="name" header="Name"&gt;&lt;/Column&gt;
     &lt;Column field="category" header="Category"&gt;&lt;/Column&gt;
@@ -44,7 +44,7 @@
 &lt;/DataTable&gt;
 
 &lt;h3&gt;Expand Mode&lt;/h3&gt;
-&lt;DataTable :value="products" :resizableColumns="true" columnResizeMode="expand showGridlines responsiveLayout="scroll""&gt;
+&lt;DataTable :value="products" :resizableColumns="true" columnResizeMode="expand" showGridlines responsiveLayout="scroll"&gt;
     &lt;Column field="code" header="Code"&gt;&lt;/Column&gt;
     &lt;Column field="name" header="Name"&gt;&lt;/Column&gt;
     &lt;Column field="category" header="Category"&gt;&lt;/Column&gt;

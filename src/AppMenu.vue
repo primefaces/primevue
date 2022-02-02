@@ -33,23 +33,10 @@
                 </a>
             </div>
 
-            <div class="menu-category">PRIMEFLEX 3.0</div>
-            <div class="menu-image">
-                <a href="https://www.primefaces.org/primeflex">
-                    <img src="demo/images/banner-primeflex.svg" />
-                </a>
-            </div>
-
-            <div class="menu-category">PRIMEFLEX 2.0</div>
+            <div class="menu-category">PRIMEFLEX</div>
             <div class="menu-items">
-                <router-link to="/primeflex">Setup</router-link>
-                <router-link to="/display">Display</router-link>
-                <router-link to="/elevation">Elevation</router-link>
-                <router-link to="/flexbox">FlexBox</router-link>
-                <router-link to="/formlayout">Form Layout</router-link>
-                <router-link to="/grid">Grid System</router-link>
-                <router-link to="/spacing">Spacing</router-link>
-                <router-link to="/text">Text</router-link>
+                <a href="https://www.primefaces.org/primeflex" target="_blank">PrimeFlex v3</a>
+                <a href="https://github.com/primefaces/primeflex/wiki/PrimeFlex-v2" target="_blank">PrimeFlex v2</a>
             </div>
 
             <div class="menu-category">PrimeIcons</div>

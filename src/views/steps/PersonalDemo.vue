@@ -9,17 +9,17 @@
             </template>
             <template #content>
                 <div class="p-fluid">
-                    <div class="p-field">
+                    <div class="field">
                         <label for="firstname">Firstname</label>
                         <InputText id="firstname" v-model="$v.firstname.$model" :class="{'p-invalid':$v.firstname.$invalid && submitted}" />
                         <small v-show="$v.firstname.$invalid && submitted" class="p-error">Firstname is required.</small>
                     </div>
-                    <div class="p-field">
+                    <div class="field">
                         <label for="lastname">Lastname</label>
                         <InputText v-model="$v.lastname.$model" :class="{'p-invalid':$v.lastname.$invalid && submitted}" />
                         <small v-show="$v.lastname.$invalid && submitted" class="p-error">Lastname is required.</small>
                     </div>
-                    <div class="p-field">
+                    <div class="field">
                         <label for="age">Age</label>
                         <InputText id="age" v-model="$v.age.$model" :class="{'p-invalid':$v.age.$error && submitted}" />
                         <small v-show="$v.age.$invalid && submitted" class="p-error">Age should be a number.</small>
@@ -27,7 +27,7 @@
                 </div>
             </template>
             <template #footer>
-                <div class="p-grid p-nogutter p-justify-between">
+                <div class="grid grid-nogutter justify-content-between">
                     <i></i>
                     <Button label="Next" @click="nextPage(!$v.$invalid)" icon="pi pi-angle-right" iconPos="right" />
                 </div>

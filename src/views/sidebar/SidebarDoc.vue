@@ -204,10 +204,10 @@ import Sidebar from 'primevue/sidebar';
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;Button icon="pi pi-arrow-right" @click="visibleLeft = true" class="p-mr-2" /&gt;
-&lt;Button icon="pi pi-arrow-left" @click="visibleRight = true" class="p-mr-2"  /&gt;
-&lt;Button icon="pi pi-arrow-down" @click="visibleTop = true" class="p-mr-2"  /&gt;
-&lt;Button icon="pi pi-arrow-up" @click="visibleBottom = true" class="p-mr-2"  /&gt;
+&lt;Button icon="pi pi-arrow-right" @click="visibleLeft = true" class="mr-2" /&gt;
+&lt;Button icon="pi pi-arrow-left" @click="visibleRight = true" class="mr-2"  /&gt;
+&lt;Button icon="pi pi-arrow-down" @click="visibleTop = true" class="mr-2"  /&gt;
+&lt;Button icon="pi pi-arrow-up" @click="visibleBottom = true" class="mr-2"  /&gt;
 &lt;Button icon="pi pi-th-large" @click="visibleFull = true"  /&gt;
 
 &lt;Sidebar :visible.sync="visibleLeft" :baseZIndex="1000"&gt;

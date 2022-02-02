@@ -10,11 +10,11 @@
         <div class="content-section implementation">
             <div class="card">
                 <h5>Horizontal</h5>
-                <Splitter style="height: 300px" classs="p-mb-5">
-                    <SplitterPanel class="p-d-flex p-ai-center p-jc-center">
+                <Splitter style="height: 300px" classs="mb-5">
+                    <SplitterPanel class="flex align-items-center justify-content-center">
                         Panel 1
                     </SplitterPanel>
-                    <SplitterPanel class="p-d-flex p-ai-center p-jc-center">
+                    <SplitterPanel class="flex align-items-center justify-content-center">
                         Panel 2
                     </SplitterPanel>
                 </Splitter>
@@ -23,10 +23,10 @@
             <div class="card">
                 <h5>Vertical</h5>
                 <Splitter style="height: 300px" layout="vertical">
-                    <SplitterPanel class="p-d-flex p-ai-center p-jc-center">
+                    <SplitterPanel class="flex align-items-center justify-content-center">
                         Panel 1
                     </SplitterPanel>
-                    <SplitterPanel class="p-d-flex p-ai-center p-jc-center">
+                    <SplitterPanel class="flex align-items-center justify-content-center">
                         Panel 2
                     </SplitterPanel>
                 </Splitter>
@@ -35,20 +35,20 @@
             <div class="card">
                 <h5>Nested</h5>
                 <Splitter style="height: 300px">
-                    <SplitterPanel class="p-d-flex p-ai-center p-jc-center" :size="20" :minSize="10">
+                    <SplitterPanel class="flex align-items-center justify-content-center" :size="20" :minSize="10">
                         Panel 1
                     </SplitterPanel>
                     <SplitterPanel :size="80">
                         <Splitter layout="vertical">
-                            <SplitterPanel class="p-d-flex p-ai-center p-jc-center" :size="15">
+                            <SplitterPanel class="flex align-items-center justify-content-center" :size="15">
                                 Panel 2
                             </SplitterPanel>
                             <SplitterPanel :size="85">
                                 <Splitter>
-                                    <SplitterPanel class="p-d-flex p-ai-center p-jc-center" :size="20">
+                                    <SplitterPanel class="flex align-items-center justify-content-center" :size="20">
                                         Panel 3
                                     </SplitterPanel>
-                                    <SplitterPanel class="p-d-flex p-ai-center p-jc-center" :size="80">
+                                    <SplitterPanel class="flex align-items-center justify-content-center" :size="80">
                                         Panel 4
                                     </SplitterPanel>
                                 </Splitter>

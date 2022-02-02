@@ -177,17 +177,17 @@ this.$toast.removeAllGroups();
 <template v-pre>
 &lt;Toast position="bottom-center" group="bc"&gt;
     &lt;template #message="slotProps"&gt;
-        &lt;div class="p-d-flex p-flex-column"&gt;
-            &lt;div class="p-text-center"&gt;
+        &lt;div class="flex flex-column"&gt;
+            &lt;div class="text-center"&gt;
                 &lt;i class="pi pi-exclamation-triangle" style="font-size: 3rem"&gt;&lt;/i&gt;
                 &lt;h4&gt;{{slotProps.message.summary}}&lt;/h4&gt;
                 &lt;p&gt;{{slotProps.message.detail}}&lt;/p&gt;
             &lt;/div&gt;
-            &lt;div class="p-grid p-fluid"&gt;
-                &lt;div class="p-col-6"&gt;
+            &lt;div class="grid p-fluid"&gt;
+                &lt;div class="col-6"&gt;
                     &lt;Button class="p-button-success" label="Yes" @click="onConfirm" /&gt;
                 &lt;/div&gt;
-                &lt;div class="p-col-6"&gt;
+                &lt;div class="col-6"&gt;
                     &lt;Button class="p-button-secondary" label="No" @click="onReject" /&gt;
                 &lt;/div&gt;
             &lt;/div&gt;
@@ -341,7 +341,7 @@ export default {
 &lt;Button label="Error" class="p-button-danger" @click="showError" /&gt;
 
 &lt;h5&gt;Positions&lt;/h5&gt;
-&lt;Button label="Top Left" class="p-mr-2" @click="showTopLeft" /&gt;
+&lt;Button label="Top Left" class="mr-2" @click="showTopLeft" /&gt;
 &lt;Button label="Bottom Left" class="p-button-warning" @click="showBottomLeft" /&gt;
 &lt;Button label="Bottom Right" class="p-button-success" @click="showBottomRight" /&gt;
 

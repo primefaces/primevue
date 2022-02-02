@@ -63,7 +63,7 @@
                 <TabPanel header="Source">
 <CodeHighlight>
 <template v-pre>
-&lt;DataTable :value="sales responsiveLayout="scroll""&gt;
+&lt;DataTable :value="sales" responsiveLayout="scroll"&gt;
     &lt;ColumnGroup type="header"&gt;
         &lt;Row&gt;
             &lt;Column header="Product" :rowspan="3" /&gt;

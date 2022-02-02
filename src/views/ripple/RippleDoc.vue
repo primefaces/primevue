@@ -12,7 +12,7 @@ import PrimeVue from 'primevue/config';
 Vue.use(PrimeVue, {ripple: true});
 </CodeHighlight>
 
-                <p><span class="p-text-bold">Note</span>: That would be it to enable ripple on PrimeVue components, next section describes how to use it with your own components and standard elements.</p>
+                <p><span class="font-bold">Note</span>: That would be it to enable ripple on PrimeVue components, next section describes how to use it with your own components and standard elements.</p>
 
                 <h5>Directive</h5>
 				<p>Ripple is a directive that needs to be imported and configured with a name of your choice. Global configuration is done with the <i>Vue.directive</i> function.</p>
@@ -87,7 +87,7 @@ directives: {
 				</a>
 <CodeHighlight>
 <template v-pre>
-&lt;div class="card-container p-d-flex"&gt;
+&lt;div class="card-container flex"&gt;
     &lt;div class="card primary-box p-ripple" v-ripple&gt;Default&lt;/div&gt;
     &lt;div class="card styled-box-green p-ripple" v-ripple&gt;Green&lt;/div&gt;
     &lt;div class="card styled-box-orange p-ripple" v-ripple&gt;Orange&lt;/div&gt;

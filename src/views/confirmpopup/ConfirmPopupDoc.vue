@@ -232,7 +232,7 @@ export default {
 &lt;ConfirmPopup&gt;&lt;/ConfirmPopup&gt;
 
 &lt;div class="card"&gt;
-    &lt;Button @click="confirm1($event)" icon="pi pi-check" label="Confirm" class="p-mr-2"&gt;&lt;/Button&gt;
+    &lt;Button @click="confirm1($event)" icon="pi pi-check" label="Confirm" class="mr-2"&gt;&lt;/Button&gt;
     &lt;Button @click="confirm2($event)" icon="pi pi-times" label="Delete" class="p-button-danger p-button-outlined"&gt;&lt;/Button&gt;
 &lt;/div&gt;
 </template>

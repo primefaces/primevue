@@ -855,7 +855,7 @@ matchModes: [
         &lt;Button type="button" icon="pi pi-check" @click="filterCallback()" class="p-button-success"&gt;&lt;/Button&gt;
     &lt;/template&gt;
     &lt;template #filterfooter&gt;
-        &lt;div class="p-px-3 p-pt-0 p-pb-3 p-text-center p-text-bold"&gt;Customized Buttons&lt;/div&gt;
+        &lt;div class="px-3 pt-0 pb-3 text-center font-bold"&gt;Customized Buttons&lt;/div&gt;
     &lt;/template&gt;
 &lt;/Column&gt;
 </template>
@@ -1076,11 +1076,11 @@ matchModes: [
         &lt;div class="car-details"&gt;
             &lt;div&gt;
                 &lt;img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand"/&gt;
-                &lt;div class="p-grid"&gt;
-                    &lt;div class="p-col-12"&gt;Vin: &lt;b&gt;&#123;&#123;slotProps.data.vin&#125;&#125;&lt;/b&gt;&lt;/div&gt;
-                    &lt;div class="p-col-12"&gt;Year: &lt;b&gt;&#123;&#123;slotProps.data.year&#125;&#125;&lt;/b&gt;&lt;/div&gt;
-                    &lt;div class="p-col-12"&gt;Brand: &lt;b&gt;&#123;&#123;slotProps.data.brand&#125;&#125;&lt;/b&gt;&lt;/div&gt;
-                    &lt;div class="p-col-12"&gt;Color: &lt;b&gt;&#123;&#123;slotProps.data.color&#125;&#125;&lt;/b&gt;&lt;/div&gt;
+                &lt;div class="grid"&gt;
+                    &lt;div class="col-12"&gt;Vin: &lt;b&gt;&#123;&#123;slotProps.data.vin&#125;&#125;&lt;/b&gt;&lt;/div&gt;
+                    &lt;div class="col-12"&gt;Year: &lt;b&gt;&#123;&#123;slotProps.data.year&#125;&#125;&lt;/b&gt;&lt;/div&gt;
+                    &lt;div class="col-12"&gt;Brand: &lt;b&gt;&#123;&#123;slotProps.data.brand&#125;&#125;&lt;/b&gt;&lt;/div&gt;
+                    &lt;div class="col-12"&gt;Color: &lt;b&gt;&#123;&#123;slotProps.data.color&#125;&#125;&lt;/b&gt;&lt;/div&gt;
                 &lt;/div&gt;
             &lt;/div&gt;
             &lt;Button icon="pi pi-search"&gt;&lt;/Button&gt;
@@ -2642,8 +2642,8 @@ export default {
     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
     :globalFilterFields="['name','country.name','representative.name','status']" responsiveLayout="scroll"&gt;
     &lt;template #header&gt;
-        &lt;div class="p-d-flex p-jc-between p-ai-center"&gt;
-            &lt;h5 class="p-m-0"&gt;Customers&lt;/h5&gt;
+        &lt;div class="flex justify-content-between align-items-center"&gt;
+            &lt;h5 class="m-0"&gt;Customers&lt;/h5&gt;
             &lt;span class="p-input-icon-left"&gt;
                 &lt;i class="pi pi-search" /&gt;
                 &lt;InputText v-model="filters['global'].value" placeholder="Keyword Search" /&gt;
@@ -2680,7 +2680,7 @@ export default {
             &lt;span class="image-text"&gt;{{data.representative.name}}&lt;/span&gt;
         &lt;/template&gt;
         &lt;template #filter="{filterModel}"&gt;
-            &lt;div class="p-mb-3 p-text-bold"&gt;Agent Picker&lt;/div&gt;
+            &lt;div class="mb-3 font-bold"&gt;Agent Picker&lt;/div&gt;
             &lt;MultiSelect v-model="filterModel.value" :options="representatives" optionLabel="name" placeholder="Any" class="p-column-filter"&gt;
                 &lt;template #option="slotProps"&gt;
                     &lt;div class="p-multiselect-representative-option"&gt;
@@ -2727,8 +2727,8 @@ export default {
             &lt;ProgressBar :value="data.activity" :showValue="false" /&gt;
         &lt;/template&gt;
         &lt;template #filter="{filterModel}"&gt;
-            &lt;Slider v-model="filterModel.value" range class="p-m-3"&gt;&lt;/Slider&gt;
-            &lt;div class="p-d-flex p-ai-center p-jc-between p-px-2"&gt;
+            &lt;Slider v-model="filterModel.value" range class="m-3"&gt;&lt;/Slider&gt;
+            &lt;div class="flex align-items-center justify-content-between px-2"&gt;
                 &lt;span&gt;{{filterModel.value ? filterModel.value[0] : 0}}&lt;/span&gt;
                 &lt;span&gt;{{filterModel.value ? filterModel.value[1] : 100}}&lt;/span&gt;
             &lt;/div&gt;

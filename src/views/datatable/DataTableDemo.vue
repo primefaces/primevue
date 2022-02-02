@@ -15,8 +15,8 @@
                     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
                     :globalFilterFields="['name','country.name','representative.name','status']" responsiveLayout="scroll">
                     <template #header>
-                        <div class="p-d-flex p-jc-between p-ai-center">
-                            <h5 class="p-m-0">Customers</h5>
+                        <div class="flex justify-content-between align-items-center">
+                            <h5 class="m-0">Customers</h5>
                             <span class="p-input-icon-left">
                                 <i class="pi pi-search" />
                                 <InputText v-model="filters['global'].value" placeholder="Keyword Search" />
@@ -53,7 +53,7 @@
                             <span class="image-text">{{data.representative.name}}</span>
                         </template>
                         <template #filter="{filterModel}">
-                            <div class="p-mb-3 p-text-bold">Agent Picker</div>
+                            <div class="mb-3 font-bold">Agent Picker</div>
                             <MultiSelect v-model="filterModel.value" :options="representatives" optionLabel="name" placeholder="Any" class="p-column-filter">
                                 <template #option="slotProps">
                                     <div class="p-multiselect-representative-option">
@@ -100,8 +100,8 @@
                             <ProgressBar :value="data.activity" :showValue="false" />
                         </template>
                         <template #filter="{filterModel}">
-                            <Slider v-model="filterModel.value" range class="p-m-3"></Slider>
-                            <div class="p-d-flex p-ai-center p-jc-between p-px-2">
+                            <Slider v-model="filterModel.value" range class="m-3"></Slider>
+                            <div class="flex align-items-center justify-content-between px-2">
                                 <span>{{filterModel.value ? filterModel.value[0] : 0}}</span>
                                 <span>{{filterModel.value ? filterModel.value[1] : 100}}</span>
                             </div>

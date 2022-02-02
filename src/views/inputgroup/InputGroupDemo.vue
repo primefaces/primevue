@@ -12,8 +12,8 @@
             <div class="card">
 
                 <h5>Addons</h5>
-                <div class="p-grid p-fluid">
-                    <div class="p-col-12 p-md-4">
+                <div class="grid p-fluid">
+                    <div class="col-12 md:col-4">
                         <div class="p-inputgroup">
                             <span class="p-inputgroup-addon">
                                 <i class="pi pi-user"></i>
@@ -22,7 +22,7 @@
                         </div>
                     </div>
 
-                    <div class="p-col-12 p-md-4">
+                    <div class="col-12 md:col-4">
                         <div class="p-inputgroup">
                             <span class="p-inputgroup-addon">$</span>
                             <InputText placeholder="Price" />
@@ -30,7 +30,7 @@
                         </div>
                     </div>
 
-                    <div class="p-col-12 p-md-4">
+                    <div class="col-12 md:col-4">
                         <div class="p-inputgroup">
                             <span class="p-inputgroup-addon">W</span>
                             <InputText placeholder="Website" />
@@ -39,8 +39,8 @@
                 </div>
 
                 <h5>Multiple Addons</h5>
-                <div class="p-grid">
-                    <div class="p-col-12">
+                <div class="grid">
+                    <div class="col-12">
                         <div class="p-inputgroup">
                             <span class="p-inputgroup-addon">
                                 <i class="pi pi-clock"></i>
@@ -56,22 +56,22 @@
                 </div>
 
                 <h5>Button Addons</h5>
-                <div class="p-grid p-fluid">
-                    <div class="p-col-12 p-md-4">
+                <div class="grid p-fluid">
+                    <div class="col-12 md:col-4">
                         <div class="p-inputgroup">
                             <Button label="Search"/>
                             <InputText placeholder="Keyword"/>
                         </div>
                     </div>
 
-                    <div class="p-col-12 p-md-4">
+                    <div class="col-12 md:col-4">
                         <div class="p-inputgroup">
                             <InputText placeholder="Keyword"/>
                             <Button icon="pi pi-search" class="p-button-warning"/>
                         </div>
                     </div>
 
-                    <div class="p-col-12 p-md-4">
+                    <div class="col-12 md:col-4">
                         <div class="p-inputgroup">
                             <Button icon="pi pi-check" class="p-button-success"/>
                             <InputText placeholder="Vote"/>
@@ -81,8 +81,8 @@
                 </div>
 
                 <h5>Checkbox and RadioButton</h5>
-                <div class="p-grid p-fluid">
-                    <div class="p-col-12 p-md-12">
+                <div class="grid p-fluid">
+                    <div class="col-12 md:col-12">
                         <div class="p-inputgroup">
                             <span class="p-inputgroup-addon">
                                 <Checkbox v-model="checked1" :binary="true" />
@@ -91,7 +91,7 @@
                         </div>
                     </div>
 
-                    <div class="p-col-12 p-md-12">
+                    <div class="col-12 md:col-12">
                         <div class="p-inputgroup">
                             <InputText placeholder="Price"/>
                             <span class="p-inputgroup-addon">
@@ -100,7 +100,7 @@
                         </div>
                     </div>
 
-                    <div class="p-col-12 p-md-12">
+                    <div class="col-12 md:col-12">
                         <div class="p-inputgroup">
                             <span class="p-inputgroup-addon">
                                 <Checkbox v-model="checked2" :binary="true" />
