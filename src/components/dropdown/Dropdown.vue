@@ -523,7 +523,7 @@ export default {
         },
         editableInputValue() {
             let selectedOption = this.getSelectedOption();
-            if (selectedOption)
+            if (selectedOption != null)
                 return this.getOptionLabel(selectedOption);
             else
                 return this.value;
