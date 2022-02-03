@@ -1,5 +1,5 @@
 <template>
-    <div :class="containerClass">
+    <div :class="containerClass"  data-scrollselectors=".p-treetable-scrollable-body">
         <slot></slot>
         <div class="p-treetable-loading" v-if="loading">
             <div class="p-treetable-loading-overlay p-component-overlay">
@@ -18,7 +18,7 @@
                 <slot name="paginatorend"></slot>
             </template>
         </TTPaginator>
-        <div class="p-treetable-wrapper">
+        <div class="p-treetable-wrapper" :style="{maxHeight: scrollHeight}">
             <table ref="table">
                 <thead class="p-treetable-thead">
                     <tr>
@@ -31,7 +31,7 @@
                     <tr v-if="hasColumnFilter()">
                         <template v-for="(col,i) of columns">
                             <th v-if="!columnProp(col, 'hidden')" :key="columnProp(col, 'columnKey')||columnProp(col, 'field')||i"
-                                :class="getFilterColumnHeaderClass(col)" :style="[columnProp(col, 'style'),columnProp(col, 'filterHeaderStyle')]">
+                                :class="getFilterColumnHeaderClass(col)" :style="[columnProp(col, 'styles'),columnProp(col, 'filterHeaderStyle')]">
                                 <TTColumnSlot :column="col" type="filter" v-if="col.$scopedSlots.filter" />
                             </th>
                         </template>
@@ -213,6 +213,22 @@ export default {
         indentation: {
             type: Number,
             default: 1
+        },
+        scrollable: {
+            type: Boolean,
+            default: false
+        },
+        scrollDirection: {
+            type: String,
+            default: "vertical"
+        },
+        scrollHeight: {
+            type: String,
+            default: null
+        },
+        responsiveLayout: {
+            type: String,
+            default: null
         }
     },
     documentColumnResizeListener: null,
@@ -252,6 +268,15 @@ export default {
     },
     mounted() {
         this.allChildren = this.$children;
+
+        if (this.scrollable && this.scrollDirection !== 'vertical') {
+            this.updateScrollWidth();
+        }
+    },
+    updated() {
+        if (this.scrollable && this.scrollDirection !== 'vertical') {
+            this.updateScrollWidth();
+        }
     },
     methods: {
         columnProp(col, prop) {
@@ -891,10 +916,11 @@ export default {
     user-select: none;
 }
 
-.p-treetable-auto-layout > .p-treetable-wrapper {
+.p-treetable-responsive-scroll > .p-treetable-wrapper {
     overflow-x: auto;
 }
 
+.p-treetable-responsive-scroll > .p-treetable-wrapper > table,
 .p-treetable-auto-layout > .p-treetable-wrapper > table {
     table-layout: auto;
 }
@@ -968,5 +994,76 @@ export default {
     align-items: center;
     justify-content: center;
     z-index: 2;
+}
+
+/* Scrollable */
+.p-treetable-scrollable .p-treetable-wrapper {
+    position: relative;
+    overflow: auto;
+}
+
+.p-treetable-scrollable .p-treetable-table {
+    display: block;
+}
+
+.p-treetable-scrollable .p-treetable-thead,
+.p-treetable-scrollable .p-treetable-tbody,
+.p-treetable-scrollable .p-treetable-tfoot {
+    display: block;
+}
+
+.p-treetable-scrollable .p-treetable-thead > tr,
+.p-treetable-scrollable .p-treetable-tbody > tr,
+.p-treetable-scrollable .p-treetable-tfoot > tr {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+}
+
+.p-treetable-scrollable .p-treetable-thead > tr > th,
+.p-treetable-scrollable .p-treetable-tbody > tr > td,
+.p-treetable-scrollable .p-treetable-tfoot > tr > td {
+    display: flex;
+    flex: 1 1 0;
+    align-items: center;
+}
+
+.p-treetable-scrollable .p-treetable-thead {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.p-treetable-scrollable .p-treetable-tfoot {
+    position: sticky;
+    bottom: 0;
+    z-index: 1;
+}
+
+.p-treetable-scrollable .p-frozen-column {
+    position: sticky;
+    background: inherit;
+}
+
+.p-treetable-scrollable-both .p-treetable-thead > tr > th,
+.p-treetable-scrollable-both .p-treetable-tbody > tr > td,
+.p-treetable-scrollable-both .p-treetable-tfoot > tr > td,
+.p-treetable-scrollable-horizontal .p-treetable-thead > tr > th
+.p-treetable-scrollable-horizontal .p-treetable-tbody > tr > td,
+.p-treetable-scrollable-horizontal .p-treetable-tfoot > tr > td {
+    flex: 0 0 auto;
+}
+
+.p-treetable-flex-scrollable {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.p-treetable-flex-scrollable .p-treetable-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    height: 100%;
 }
 </style>
