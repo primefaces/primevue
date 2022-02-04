@@ -63,6 +63,7 @@ declare class DataTable extends Vue {
     stripedRows?: boolean;
     tableStyle?: object;
     tableClass?: string;
+    selectAll?: boolean;
     
     $emit(eventName: 'update:first', value: number): this;
     $emit(eventName: 'update:rows', value: number): this;
@@ -102,6 +103,7 @@ declare class DataTable extends Vue {
     $emit(eventName: 'row-edit-cancel', event: Event): this;
     $emit(eventName: 'state-restore', value: any[]): this;
     $emit(eventName: 'state-save', value: any[]): this;
+    $emit(eventName: 'select-all-change', event: Event): this;
 
     exportCSV(options?: any): void;
 
