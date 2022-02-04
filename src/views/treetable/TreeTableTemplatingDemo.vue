@@ -17,9 +17,6 @@
                     <Column field="size" header="Size"></Column>
                     <Column field="type" header="Type"></Column>
                     <Column :headerStyle="{'width': '10rem'}" headerClass="text-center" bodyClass="text-center">
-                        <template #header>
-                            <Button type="button" icon="pi pi-cog"></Button>
-                        </template>
                         <template #body>
                             <Button type="button" icon="pi pi-search" class="p-button-success" style="margin-right: .5em"></Button>
                             <Button type="button" icon="pi pi-pencil" class="p-button-warning"></Button>
@@ -47,9 +44,6 @@
     &lt;Column field="size" header="Size"&gt;&lt;/Column&gt;
     &lt;Column field="type" header="Type"&gt;&lt;/Column&gt;
     &lt;Column headerStyle="width: 8em" bodyStyle="text-align: center"&gt;
-        &lt;template #header&gt;
-            &lt;Button type="button" icon="pi pi-cog"&gt;&lt;/Button&gt;
-        &lt;/template&gt;
         &lt;template #body="slotProps"&gt;
             &lt;Button type="button" icon="pi pi-search" class="p-button-success" style="margin-right: .5em"&gt;&lt;/Button&gt;
             &lt;Button type="button" icon="pi pi-pencil" class="p-button-warning"&gt;&lt;/Button&gt;
