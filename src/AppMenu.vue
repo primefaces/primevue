@@ -162,7 +162,6 @@
                                     <li><router-link to="/treetable/lazy">Lazy</router-link></li>
                                     <li><router-link to="/treetable/coltoggle">ColToggle</router-link></li>
                                     <li><router-link to="/treetable/colresize">Resize</router-link></li>
-                                    <li><router-link to="/treetable/scroll">Scroll</router-link></li>
                                     <li><router-link to="/treetable/responsive">Responsive</router-link></li>
                                 </ul>
                             </div>
