@@ -40,20 +40,29 @@
                 <TabPanel header="Source">
 <CodeHighlight>
 <template v-pre>
-&lt;TreeTable :value="nodes" class="p-treetable-responsive"&gt;
-    &lt;template #header&gt;
-        Responsive
-    &lt;/template&gt;
-    &lt;Column field="name" header="Name" :expander="true"&gt;
+&lt;div class="card"&gt;
+    &lt;h5&gt;Scroll&lt;/h5&gt;
+    &lt;TreeTable :value="nodes" responsiveLayout="scroll"&gt;
+        &lt;Column field="name" header="Name" :expander="true" style="min-width:200px"&gt;&lt;/Column&gt;
+        &lt;Column field="size" header="Size" style="min-width:200px"&gt;&lt;/Column&gt;
+        &lt;Column field="type" header="Type" style="min-width:200px"&gt;&lt;/Column&gt;
+    &lt;/TreeTable&gt;
+&lt;/div&gt;
+
+&lt;div class="card"&gt;
+    &lt;h5>Custom&gt;&lt;/h5&gt;
+    &lt;TreeTable :value="nodes"&gt;
+        &lt;Column field="name" header="Name" :expander="true"&gt;
             &lt;template #body="slotProps"&gt;
-            &#123;&#123;slotProps.node.data.name&#125;&#125;
-            &lt;span class="sm-visible"&gt;&#123;&#123;slotProps.node.data.size&#125;&#125;&lt;/span&gt;
-            &lt;span class="sm-visible"&gt;&#123;&#123;slotProps.node.data.type&#125;&#125;&lt;/span&gt;
-        &lt;/template&gt;
-    &lt;/Column&gt;
-    &lt;Column field="size" header="Size" headerClass="sm-invisible" bodyClass="sm-invisible"&gt;&lt;/Column&gt;
-    &lt;Column field="type" header="Type" headerClass="sm-invisible" bodyClass="sm-invisible"&gt;&lt;/Column&gt;
-&lt;/TreeTable&gt;
+                {{slotProps.node.data.name}}
+                &lt;span class="sm-visible"&gt;{{slotProps.node.data.size}}&lt;/span&gt;
+                &lt;span class="sm-visible"&gt;{{slotProps.node.data.type}}&lt;/span&gt;
+            &lt;/template&gt;
+        &lt;/Column&gt;
+        &lt;Column field="size" header="Size" headerClass="sm-invisible" bodyClass="sm-invisible"&gt;&lt;/Column&gt;
+        &lt;Column field="type" header="Type" headerClass="sm-invisible" bodyClass="sm-invisible"&gt;&lt;/Column&gt;
+    &lt;/TreeTable&gt;
+&lt;/div&gt;
 </template>
 </CodeHighlight>
 
