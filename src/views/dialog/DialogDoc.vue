@@ -363,13 +363,13 @@ export default {
     &lt;/div&gt;
     &lt;div class="p-col"&gt;
         &lt;Button label="Top" icon="pi pi-arrow-down" @click="openPosition('top')" class="p-button-warning" /&gt;
-        &lt;Button label="TopLeft" icon="pi pi-arrow-down" @click="openPosition('topleft')" class="p-button-warning" /&gt;
-        &lt;Button label="TopRight" icon="pi pi-arrow-down" @click="openPosition('topright')" class="p-button-warning" /&gt;
+        &lt;Button label="TopLeft" icon="pi pi-arrow-down-right" @click="openPosition('topleft')" class="p-button-warning" /&gt;
+        &lt;Button label="TopRight" icon="pi pi-arrow-down-left" @click="openPosition('topright')" class="p-button-warning" /&gt;
     &lt;/div&gt;
     &lt;div class="p-col"&gt;
         &lt;Button label="Bottom" icon="pi pi-arrow-up" @click="openPosition('bottom')" class="p-button-warning" /&gt;
-        &lt;Button label="BottomLeft" icon="pi pi-arrow-up" @click="openPosition('bottomleft')" class="p-button-warning" /&gt;
-        &lt;Button label="BottomRight" icon="pi pi-arrow-up" @click="openPosition('bottomright')" class="p-button-warning" /&gt;
+        &lt;Button label="BottomLeft" icon="pi pi-arrow-up-right" @click="openPosition('bottomleft')" class="p-button-warning" /&gt;
+        &lt;Button label="BottomRight" icon="pi pi-arrow-up-left" @click="openPosition('bottomright')" class="p-button-warning" /&gt;
     &lt;/div&gt;
 &lt;/div&gt;
 
