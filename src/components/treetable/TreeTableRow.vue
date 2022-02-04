@@ -1,6 +1,6 @@
 <template>
     <tr :class="containerClass" @click="onClick" @keydown="onKeyDown" @touchend="onTouchEnd" :style="node.style" tabindex="0">
-        <td v-for="(col,i) of columns" :key="columnProp(col, 'columnKey')||columnProp(col, 'field')||i" :style="columnStyle(col)" :class="columnClass(col)">
+        <td v-for="(col,i) of columns" :key="columnProp(col, 'columnKey')||columnProp(col, 'field')||i" :style="columnProp(col, 'bodyStyle')" :class="columnProp(col, 'bodyClass')">
             <button type="button" class="p-treetable-toggler p-link" @click="toggle" v-if="columnProp(col,'expander')" :style="togglerStyle" tabindex="-1" v-ripple>
                 <i :class="togglerIcon"></i>
             </button>
@@ -62,10 +62,6 @@ export default {
     },
     data() {
         return {
-            styleObject: {
-                left: '',
-                right: ''
-            },
             checkboxFocused: false
         }
     },
@@ -73,39 +69,6 @@ export default {
     methods: {
         columnProp(column, prop) {
             return ObjectUtils.getVNodeProp(column, prop);
-        },
-        columnClass(column) {
-            return [this.columnProp(column, 'bodyClass'), this.columnProp(column, 'className'), {
-                'p-frozen-column': this.columnProp(column, 'frozen')
-            }];
-        },
-        columnStyle(column) {
-            const isFrozen = this.columnProp(column, 'frozen');
-
-            if (isFrozen) {
-                let align = this.columnProp(column, 'alignFrozen');
-                if (align === 'right') {
-                    let right = 0;
-                    let next = column.nextElementSibling;
-                    if (next) {
-                        right = DomHandler.getOuterWidth(next) + parseFloat(next.style.right);
-                    }
-                    this.styleObject.right = right + 'px';
-                }
-                else {
-                    let left = 0;
-                    let prev = column.previousElementSibling;
-                    if (prev) {
-                        left = DomHandler.getOuterWidth(prev) + parseFloat(prev.style.left);
-                    }
-                    this.styleObject.left = left + 'px';
-                }
-            }
-
-            let bodyStyle = this.columnProp(column, 'bodyStyle');
-            let columnStyle = this.columnProp(column, 'styles');
-
-            return isFrozen ? [columnStyle, bodyStyle, this.styleObject]: [columnStyle, bodyStyle];
         },
         resolveFieldData(rowData, field) {
             return ObjectUtils.resolveFieldData(rowData, field);

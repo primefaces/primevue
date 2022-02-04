@@ -1,5 +1,5 @@
 <template>
-    <div :class="containerClass"  data-scrollselectors=".p-treetable-scrollable-body">
+    <div :class="containerClass">
         <slot></slot>
         <div class="p-treetable-loading" v-if="loading">
             <div class="p-treetable-loading-overlay p-component-overlay">
@@ -18,7 +18,7 @@
                 <slot name="paginatorend"></slot>
             </template>
         </TTPaginator>
-        <div class="p-treetable-wrapper" :style="{maxHeight: scrollHeight}">
+        <div class="p-treetable-wrapper">
             <table ref="table">
                 <thead class="p-treetable-thead">
                     <tr>
@@ -213,22 +213,6 @@ export default {
         indentation: {
             type: Number,
             default: 1
-        },
-        scrollable: {
-            type: Boolean,
-            default: false
-        },
-        scrollDirection: {
-            type: String,
-            default: "vertical"
-        },
-        scrollHeight: {
-            type: String,
-            default: null
-        },
-        responsiveLayout: {
-            type: String,
-            default: null
         }
     },
     documentColumnResizeListener: null,
@@ -268,15 +252,6 @@ export default {
     },
     mounted() {
         this.allChildren = this.$children;
-
-        if (this.scrollable && this.scrollDirection !== 'vertical') {
-            this.updateScrollWidth();
-        }
-    },
-    updated() {
-        if (this.scrollable && this.scrollDirection !== 'vertical') {
-            this.updateScrollWidth();
-        }
     },
     methods: {
         columnProp(col, prop) {
@@ -674,29 +649,20 @@ export default {
             let minWidth = this.resizeColumnElement.style.minWidth||15;
 
             if (columnWidth + delta > parseInt(minWidth, 10)) {
-                if (this.columnResizeMode === 'fit') {
+                if(this.columnResizeMode === 'fit') {
                     let nextColumn = this.resizeColumnElement.nextElementSibling;
                     let nextColumnWidth = nextColumn.offsetWidth - delta;
 
-                    if (newColumnWidth > 15 && nextColumnWidth > 15) {
-                        if (!this.scrollable) {
-                            this.resizeColumnElement.style.width = newColumnWidth + 'px';
-                            if(nextColumn) {
-                                nextColumn.style.width = nextColumnWidth + 'px';
-                            }
-                        }
-                        else {
-                            this.resizeTableCells(newColumnWidth, nextColumnWidth);
+                    if(newColumnWidth > 15 && nextColumnWidth > 15) {
+                        this.resizeColumnElement.style.width = newColumnWidth + 'px';
+                        if(nextColumn) {
+                            nextColumn.style.width = nextColumnWidth + 'px';
                         }
                     }
                 }
-                else if (this.columnResizeMode === 'expand') {
+                else if(this.columnResizeMode === 'expand') {
                     this.$refs.table.style.width = this.$refs.table.offsetWidth + delta + 'px';
-
-                    if (!this.scrollable)
-                        this.resizeColumnElement.style.width = newColumnWidth + 'px';
-                    else
-                        this.resizeTableCells(newColumnWidth);
+                    this.resizeColumnElement.style.width = newColumnWidth + 'px';
                 }
 
                 this.$emit('column-resize-end', {
@@ -779,9 +745,6 @@ export default {
         },
         hasGlobalFilter() {
             return this.filters && Object.prototype.hasOwnProperty.call(this.filters, 'global');
-        },
-        updateScrollWidth() {
-            this.$refs.table.style.width = this.$refs.table.scrollWidth + 'px';
         }
     },
     computed: {
@@ -790,14 +753,7 @@ export default {
                 'p-treetable-hoverable-rows': (this.rowHover || this.rowSelectionMode),
                 'p-treetable-auto-layout': this.autoLayout,
                 'p-treetable-resizable': this.resizableColumns,
-                'p-treetable-resizable-fit': this.resizableColumns && this.columnResizeMode === 'fit',
-                'p-treetable-gridlines': this.showGridlines,
-                'p-treetable-scrollable': this.scrollable,
-                'p-treetable-scrollable-vertical': this.scrollable && this.scrollDirection === 'vertical',
-                'p-treetable-scrollable-horizontal': this.scrollable && this.scrollDirection === 'horizontal',
-                'p-treetable-scrollable-both': this.scrollable && this.scrollDirection === 'both',
-                'p-treetable-flex-scrollable': (this.scrollable && this.scrollHeight === 'flex'),
-                'p-treetable-responsive-scroll': this.responsiveLayout === 'scroll',
+                'p-treetable-resizable-fit': this.resizableColumns && this.columnResizeMode === 'fit'
             }];
         },
         columns() {
@@ -916,11 +872,6 @@ export default {
     user-select: none;
 }
 
-.p-treetable-responsive-scroll > .p-treetable-wrapper {
-    overflow-x: auto;
-}
-
-.p-treetable-responsive-scroll > .p-treetable-wrapper > table,
 .p-treetable-auto-layout > .p-treetable-wrapper > table {
     table-layout: auto;
 }
@@ -994,80 +945,5 @@ export default {
     align-items: center;
     justify-content: center;
     z-index: 2;
-}
-
-/* Scrollable */
-.p-treetable-scrollable .p-treetable-wrapper {
-    position: relative;
-    overflow: auto;
-}
-
-.p-treetable-scrollable .p-treetable-table {
-    display: block;
-}
-
-.p-treetable-scrollable .p-treetable-thead,
-.p-treetable-scrollable .p-treetable-tbody,
-.p-treetable-scrollable .p-treetable-tfoot {
-    display: block;
-}
-
-.p-treetable-scrollable .p-treetable-thead > tr,
-.p-treetable-scrollable .p-treetable-tbody > tr,
-.p-treetable-scrollable .p-treetable-tfoot > tr {
-    display: flex;
-    flex-wrap: nowrap;
-    width: 100%;
-}
-
-.p-treetable-scrollable .p-treetable-thead > tr > th,
-.p-treetable-scrollable .p-treetable-tbody > tr > td,
-.p-treetable-scrollable .p-treetable-tfoot > tr > td {
-    display: flex;
-    flex: 1 1 0;
-    align-items: center;
-}
-
-.p-treetable-scrollable .p-treetable-thead {
-    position: sticky;
-    top: 0;
-    z-index: 1;
-}
-
-.p-treetable-scrollable .p-treetable-tfoot {
-    position: sticky;
-    bottom: 0;
-    z-index: 1;
-}
-
-.p-treetable-scrollable .p-frozen-column {
-    position: sticky;
-    background: inherit;
-}
-
-.p-treetable-scrollable th.p-frozen-column {
-    z-index: 1;
-}
-
-.p-treetable-scrollable-both .p-treetable-thead > tr > th,
-.p-treetable-scrollable-both .p-treetable-tbody > tr > td,
-.p-treetable-scrollable-both .p-treetable-tfoot > tr > td,
-.p-treetable-scrollable-horizontal .p-treetable-thead > tr > th
-.p-treetable-scrollable-horizontal .p-treetable-tbody > tr > td,
-.p-treetable-scrollable-horizontal .p-treetable-tfoot > tr > td {
-    flex: 0 0 auto;
-}
-
-.p-treetable-flex-scrollable {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-}
-
-.p-treetable-flex-scrollable .p-treetable-wrapper {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    height: 100%;
 }
 </style>
