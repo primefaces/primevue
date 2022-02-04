@@ -66,7 +66,7 @@
                 <h5>Frozen Columns</h5>
                 <ToggleButton v-model="optionsFrozen" onIcon="pi pi-lock" offIcon="pi pi-lock-open" onLabel="Unfreeze Options" offLabel="Freeze Options" style="width: 12rem" />
 
-                <TreeTable :value="nodes" :scrollable="true" resizable scrollHeight="400px" scrollDirection="both" class="mt-3">
+                <TreeTable :value="nodes" :scrollable="true" scrollHeight="400px" scrollDirection="both" class="mt-3">
                     <Column field="name" header="Name" :expander="true" :styles="{'min-width':'300px'}" frozen></Column>
                     <Column header="Key" :styles="{'min-width':'300px'}">
                         <template #body="{node}">
@@ -151,7 +151,7 @@
     &lt;h5&gt;Frozen Columns&lt;/h5&gt;
     &lt;ToggleButton v-model="optionsFrozen" onIcon="pi pi-lock" offIcon="pi pi-lock-open" onLabel="Unfreeze Options" offLabel="Freeze Options" style="width: 12rem" /&gt;
 
-    &lt;TreeTable :value="nodes" :scrollable="true" resizable scrollHeight="400px" scrollDirection="both" class="mt-3"&gt;
+    &lt;TreeTable :value="nodes" :scrollable="true" scrollHeight="400px" scrollDirection="both" class="mt-3"&gt;
         &lt;Column field="name" header="Name" :expander="true" :styles="{'min-width':'300px'}" frozen&gt;&lt;/Column&gt;
         &lt;Column header="Key" :styles="{'min-width':'300px'}"&gt;
             &lt;template #body="{node}"&gt;

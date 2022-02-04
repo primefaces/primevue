@@ -23,7 +23,7 @@
                 <TabPanel header="Source">
 <CodeHighlight>
 <template v-pre>
-&lt;DataTable :value="products responsiveLayout="scroll""&gt;
+&lt;DataTable :value="products" responsiveLayout="scroll"&gt;
     &lt;Column field="code" header="Code"&gt;&lt;/Column&gt;
     &lt;Column field="name" header="Name"&gt;&lt;/Column&gt;
     &lt;Column field="category" header="Category"&gt;&lt;/Column&gt;

@@ -230,14 +230,14 @@ export default {
             &lt;Button @click="confirmPosition('right')" icon="pi pi-arrow-left" label="Right" class="p-button-help"&gt;&lt;/Button&gt;
         &lt;/div&gt;
         &lt;div class="p-col"&gt;
-            &lt;Button @click="confirmPosition('topleft')" icon="pi pi-arrow-down" label="TopLeft" class="p-button-warning mr-2"&gt;&lt;/Button&gt;
+            &lt;Button @click="confirmPosition('topleft')" icon="pi pi-arrow-down-right" label="TopLeft" class="p-button-warning mr-2"&gt;&lt;/Button&gt;
             &lt;Button @click="confirmPosition('top')" icon="pi pi-arrow-down" label="Top" class="p-button-warning mr-2"&gt;&lt;/Button&gt;
-            &lt;Button @click="confirmPosition('topright')" icon="pi pi-arrow-down" label="TopRight" class="p-button-warning"&gt;&lt;/Button&gt;
+            &lt;Button @click="confirmPosition('topright')" icon="pi pi-arrow-down-left" label="TopRight" class="p-button-warning"&gt;&lt;/Button&gt;
         &lt;/div&gt;
         &lt;div class="p-col"&gt;
-            &lt;Button @click="confirmPosition('bottomleft')" icon="pi pi-arrow-up" label="BottomLeft" class="p-button-success mr-2"&gt;&lt;/Button&gt;
+            &lt;Button @click="confirmPosition('bottomleft')" icon="pi pi-arrow-up-right" label="BottomLeft" class="p-button-success mr-2"&gt;&lt;/Button&gt;
             &lt;Button @click="confirmPosition('bottom')" icon="pi pi-arrow-up" label="Bottom" class="p-button-success mr-2"&gt;&lt;/Button&gt;
-            &lt;Button @click="confirmPosition('bottomright')" icon="pi pi-arrow-up" label="BottomRight" class="p-button-success"&gt;&lt;/Button&gt;
+            &lt;Button @click="confirmPosition('bottomright')" icon="pi pi-arrow-up-left" label="BottomRight" class="p-button-success"&gt;&lt;/Button&gt;
         &lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;

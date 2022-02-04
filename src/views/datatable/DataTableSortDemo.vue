@@ -92,8 +92,7 @@
 
 &lt;div class="card"&gt;
     &lt;h5&gt;Multiple Columns&lt;/h5&gt;
-    &lt;p&gt;Use metakey to add a column to the sort selection.&lt;/p&gt;
-    &lt;DataTable :value="products" sortMode="multiple responsiveLayout="scroll""&gt;
+    &lt;DataTable :value="products" sortMode="multiple" responsiveLayout="scroll"&gt;
         &lt;Column field="code" header="Code" sortable&gt;&lt;/Column&gt;
         &lt;Column field="name" header="Name" sortable&gt;&lt;/Column&gt;
         &lt;Column field="category" header="Category" sortable&gt;&lt;/Column&gt;
