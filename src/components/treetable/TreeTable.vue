@@ -648,30 +648,21 @@ export default {
             let newColumnWidth = columnWidth + delta;
             let minWidth = this.resizeColumnElement.style.minWidth||15;
 
-            if (columnWidth + delta > parseInt(minWidth, 10)) {
-                if (this.columnResizeMode === 'fit') {
+            if(columnWidth + delta > parseInt(minWidth, 10)) {
+                if(this.columnResizeMode === 'fit') {
                     let nextColumn = this.resizeColumnElement.nextElementSibling;
                     let nextColumnWidth = nextColumn.offsetWidth - delta;
 
-                    if (newColumnWidth > 15 && nextColumnWidth > 15) {
-                        if (!this.scrollable) {
-                            this.resizeColumnElement.style.width = newColumnWidth + 'px';
-                            if(nextColumn) {
-                                nextColumn.style.width = nextColumnWidth + 'px';
-                            }
-                        }
-                        else {
-                            this.resizeTableCells(newColumnWidth, nextColumnWidth);
+                    if(newColumnWidth > 15 && nextColumnWidth > 15) {
+                        this.resizeColumnElement.style.width = newColumnWidth + 'px';
+                        if(nextColumn) {
+                            nextColumn.style.width = nextColumnWidth + 'px';
                         }
                     }
                 }
-                else if (this.columnResizeMode === 'expand') {
+                else if(this.columnResizeMode === 'expand') {
                     this.$refs.table.style.width = this.$refs.table.offsetWidth + delta + 'px';
-
-                    if (!this.scrollable)
-                        this.resizeColumnElement.style.width = newColumnWidth + 'px';
-                    else
-                        this.resizeTableCells(newColumnWidth);
+                    this.resizeColumnElement.style.width = newColumnWidth + 'px';
                 }
 
                 this.$emit('column-resize-end', {
@@ -754,9 +745,6 @@ export default {
         },
         hasGlobalFilter() {
             return this.filters && Object.prototype.hasOwnProperty.call(this.filters, 'global');
-        },
-        updateScrollWidth() {
-            this.$refs.table.style.width = this.$refs.table.scrollWidth + 'px';
         }
     },
     computed: {
@@ -765,14 +753,7 @@ export default {
                 'p-treetable-hoverable-rows': (this.rowHover || this.rowSelectionMode),
                 'p-treetable-auto-layout': this.autoLayout,
                 'p-treetable-resizable': this.resizableColumns,
-                'p-treetable-resizable-fit': this.resizableColumns && this.columnResizeMode === 'fit',
-                'p-treetable-gridlines': this.showGridlines,
-                'p-treetable-scrollable': this.scrollable,
-                'p-treetable-scrollable-vertical': this.scrollable && this.scrollDirection === 'vertical',
-                'p-treetable-scrollable-horizontal': this.scrollable && this.scrollDirection === 'horizontal',
-                'p-treetable-scrollable-both': this.scrollable && this.scrollDirection === 'both',
-                'p-treetable-flex-scrollable': (this.scrollable && this.scrollHeight === 'flex'),
-                'p-treetable-responsive-scroll': this.responsiveLayout === 'scroll',
+                'p-treetable-resizable-fit': this.resizableColumns && this.columnResizeMode === 'fit'
             }];
         },
         columns() {
@@ -969,82 +950,4 @@ export default {
     justify-content: center;
     z-index: 2;
 }
-<<<<<<< HEAD
-
-/* Scrollable */
-.p-treetable-scrollable .p-treetable-wrapper {
-    position: relative;
-    overflow: auto;
-}
-
-.p-treetable-scrollable .p-treetable-table {
-    display: block;
-}
-
-.p-treetable-scrollable .p-treetable-thead,
-.p-treetable-scrollable .p-treetable-tbody,
-.p-treetable-scrollable .p-treetable-tfoot {
-    display: block;
-}
-
-.p-treetable-scrollable .p-treetable-thead > tr,
-.p-treetable-scrollable .p-treetable-tbody > tr,
-.p-treetable-scrollable .p-treetable-tfoot > tr {
-    display: flex;
-    flex-wrap: nowrap;
-    width: 100%;
-}
-
-.p-treetable-scrollable .p-treetable-thead > tr > th,
-.p-treetable-scrollable .p-treetable-tbody > tr > td,
-.p-treetable-scrollable .p-treetable-tfoot > tr > td {
-    display: flex;
-    flex: 1 1 0;
-    align-items: center;
-}
-
-.p-treetable-scrollable .p-treetable-thead {
-    position: sticky;
-    top: 0;
-    z-index: 1;
-}
-
-.p-treetable-scrollable .p-treetable-tfoot {
-    position: sticky;
-    bottom: 0;
-    z-index: 1;
-}
-
-.p-treetable-scrollable .p-frozen-column {
-    position: sticky;
-    background: inherit;
-}
-
-.p-treetable-scrollable th.p-frozen-column {
-    z-index: 1;
-}
-
-.p-treetable-scrollable-both .p-treetable-thead > tr > th,
-.p-treetable-scrollable-both .p-treetable-tbody > tr > td,
-.p-treetable-scrollable-both .p-treetable-tfoot > tr > td,
-.p-treetable-scrollable-horizontal .p-treetable-thead > tr > th
-.p-treetable-scrollable-horizontal .p-treetable-tbody > tr > td,
-.p-treetable-scrollable-horizontal .p-treetable-tfoot > tr > td {
-    flex: 0 0 auto;
-}
-
-.p-treetable-flex-scrollable {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-}
-
-.p-treetable-flex-scrollable .p-treetable-wrapper {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    height: 100%;
-}
-=======
->>>>>>> parent of b7c096d8 (Fixed #2099 - New v2 Scrollable TreeTable)
 </style>
