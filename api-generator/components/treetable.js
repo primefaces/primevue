@@ -190,6 +190,12 @@ const TreeTableProps = [
         type: "number",
         default: "1",
         description: "Indentation factor as rem value for children nodes. Defaults to 1rem."
+    },
+    {
+        name: "showGridlines",
+        type: "boolean",
+        default: "false",
+        description: "Whether to show grid lines between cells."
     }
 ];
 

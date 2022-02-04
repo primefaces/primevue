@@ -35,6 +35,7 @@ declare class TreeTable extends Vue {
     resizableColumns?: boolean;
     columnResizeMode?: string;
     indentation?: number;
+    showGridlines?: boolean;
     $emit(eventName: 'page', event: Event): this;
     $emit(eventName: 'sort', event: Event): this;
     $emit(eventName: 'filter', event: Event): this;

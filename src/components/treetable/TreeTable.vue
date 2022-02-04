@@ -213,6 +213,10 @@ export default {
         indentation: {
             type: Number,
             default: 1
+        },
+        showGridlines: {
+            type: Boolean,
+            default: false
         }
     },
     documentColumnResizeListener: null,
@@ -753,7 +757,8 @@ export default {
                 'p-treetable-hoverable-rows': (this.rowHover || this.rowSelectionMode),
                 'p-treetable-auto-layout': this.autoLayout,
                 'p-treetable-resizable': this.resizableColumns,
-                'p-treetable-resizable-fit': this.resizableColumns && this.columnResizeMode === 'fit'
+                'p-treetable-resizable-fit': this.resizableColumns && this.columnResizeMode === 'fit',
+                'p-treetable-gridlines': this.showGridlines
             }];
         },
         columns() {

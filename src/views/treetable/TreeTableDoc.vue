@@ -1456,6 +1456,12 @@ export default {
                                 <td>1</td>
                                 <td>Indentation factor as rem value for children nodes. Defaults to 1rem.</td>
                             </tr>
+                            <tr>
+                                <td>showGridlines</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>Whether to show grid lines between cells.</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
