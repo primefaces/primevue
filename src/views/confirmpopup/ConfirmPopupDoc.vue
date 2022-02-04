@@ -11,8 +11,8 @@ Vue.use(ConfirmationService);
 
 //example application instance
 new Vue({
-  router,
-  render: h => h(App)
+    router,
+    render: h => h(App)
 }).$mount('#app');
 </CodeHighlight>
 
@@ -22,7 +22,7 @@ import ConfirmPopup from 'primevue/confirmpopup';
 </CodeHighlight>
 
 				<h5>Getting Started</h5>
-				<p>ConfirmPopup is displayed by calling the <i>require</i> method of the <i>$confirm</i> instance by passing the options to customize the Popup.</p>
+				<p>ConfirmPopup is displayed by calling the <i>require</i> method of the <i>$confirm</i> instance by passing the options to customize the Popup.<i>target</i> attribute is mandatory to align the popup to its caller.</p>
 <CodeHighlight>
 &lt;ConfirmPopup&gt;&lt;/ConfirmPopup&gt;
 
@@ -32,8 +32,9 @@ import ConfirmPopup from 'primevue/confirmpopup';
 <CodeHighlight lang="javascript">
 export default {
 	methods: {
-        delete() {
+        delete(event) {
             this.$confirm.require({
+                target: event.currentTarget,
                 message: 'Are you sure you want to proceed?',
                 icon: 'pi pi-exclamation-triangle',
                 accept: () => {
@@ -73,6 +74,12 @@ export default {
                             </tr>
                         </thead>
                         <tbody>
+                            <tr>
+                                <td>target</td>
+                                <td>DomElement</td>
+                                <td>null</td>
+                                <td>Element to align the overlay.</td>
+                            </tr>
                             <tr>
                                 <td>message</td>
                                 <td>string</td>
@@ -241,8 +248,9 @@ export default {
 <CodeHighlight lang="javascript">
 export default {
     methods: {
-        confirm1() {
+        confirm1(event) {
             this.$confirm.require({
+                target: event.currentTarget,
                 message: 'Are you sure you want to proceed?',
                 icon: 'pi pi-exclamation-triangle',
                 accept: () => {
@@ -253,8 +261,9 @@ export default {
                 }
             });
         },
-        confirm2() {
+        confirm2(event) {
             this.$confirm.require({
+                target: event.currentTarget,
                 message: 'Do you want to delete this record?',
                 icon: 'pi pi-info-circle',
                 acceptClass: 'p-button-danger',
