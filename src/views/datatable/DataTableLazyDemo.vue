@@ -6,15 +6,19 @@
 				<p>Lazy mode is handy to deal with large datasets, instead of loading the entire data, small chunks of data is loaded by invoking corresponding callbacks everytime paging, sorting and filtering happens.
                     Sample belows imitates lazy paging by using an in memory list. It is also important to assign the logical number of rows to totalRecords by doing a projection query for paginator configuration
                     so that paginator displays the UI assuming there are actually records of totalRecords size although in reality they aren't as in lazy mode, only the records that are displayed on the current page exist.
+                    Also, the implementation of <b>checkbox selection</b> in lazy tables is left entirely to the user. Since the DataTable does not know what will happen to the data on the next page or whether there are
+                    instant data changes, the selection array can be implemented in several ways. One of them is as in the example below.
                 </p>
 			</div>
 		</div>
 
 		<div class="content-section implementation">
             <div class="card">
-                <DataTable :value="customers" :lazy="true" :paginator="true" :rows="10" :filters.sync="filters" ref="dt"
+                <DataTable :value="customers" :lazy="true" :paginator="true" :rows="10" :filters.sync="filters" ref="dt" dataKey="id"
                     :totalRecords="totalRecords" :loading="loading" @page="onPage($event)" @sort="onSort($event)" @filter="onFilter($event)" filterDisplay="row"
-                    :globalFilterFields="['name','country.name', 'company', 'representative.name']" responsiveLayout="scroll" >
+                    :globalFilterFields="['name','country.name', 'company', 'representative.name']" responsiveLayout="scroll"
+                    :selection.sync="selectedCustomers" :selectAll="selectAll" @select-all-change="onSelectAllChange" @row-select="onRowSelect" @row-unselect="onRowUnselect">
+                    <Column selectionMode="multiple" headerStyle="width: 3em"></Column>
                     <Column field="name" header="Name" filterMatchMode="startsWith" ref="name" :sortable="true">
                         <template #filter="{filterModel,filterCallback}">
                             <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" placeholder="Search by name"/>
@@ -44,9 +48,11 @@
                 <TabPanel header="Source">
 <CodeHighlight>
 <template v-pre>
-&lt;DataTable :value="customers" :lazy="true" :paginator="true" :rows="10" :filters.sync="filters" ref="dt"
+&lt;DataTable :value="customers" :lazy="true" :paginator="true" :rows="10" :filters.sync="filters" ref="dt" dataKey="id"
     :totalRecords="totalRecords" :loading="loading" @page="onPage($event)" @sort="onSort($event)" @filter="onFilter($event)" filterDisplay="row"
-    :globalFilterFields="['name','country.name', 'company', 'representative.name']" responsiveLayout="scroll" &gt;
+    :globalFilterFields="['name','country.name', 'company', 'representative.name']" responsiveLayout="scroll"
+    :selection.sync="selectedCustomers" :selectAll="selectAll" @select-all-change="onSelectAllChange" @row-select="onRowSelect" @row-unselect="onRowUnselect" &gt;
+    &lt;Column selectionMode="multiple" headerStyle="width: 3em"&gt;&lt;/Column&gt;
     &lt;Column field="name" header="Name" filterMatchMode="startsWith" ref="name" :sortable="true"&gt;
         &lt;template #filter="{filterModel,filterCallback}"&gt;
             &lt;InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" placeholder="Search by name"/&gt;
@@ -80,6 +86,8 @@ export default {
             loading: false,
             totalRecords: 0,
             customers: null,
+            selectedCustomers: null,
+            selectAll: false,
             filters: {
                 'name': {value: '', matchMode: 'contains'},
                 'country.name': {value: '', matchMode: 'contains'},
@@ -117,11 +125,14 @@ export default {
             this.loading = true;
 
             setTimeout(() => {
-                this.customerService.getCustomers({lazyEvent: JSON.stringify( this.lazyParams )}).then(data => {
-                    this.customers = data.customers;
-                    this.totalRecords = data.totalRecords;
-                    this.loading = false;
-                });
+                this.customerService.getCustomers(
+                    {lazyEvent: JSON.stringify( this.lazyParams )})
+                        .then(data => {
+                            this.customers = data.customers;
+                            this.totalRecords = data.totalRecords;
+                            this.loading = false;
+                    }
+                );
             }, Math.random() * 1000 + 250);
         },
         onPage(event) {
@@ -135,6 +146,26 @@ export default {
         onFilter() {
             this.lazyParams.filters = this.filters;
             this.loadLazyData();
+        },
+        onSelectAllChange(event) {
+            const selectAll = event.checked;
+
+            if (selectAll) {
+                this.customerService.getCustomers().then(data => {
+                    this.selectAll = true;
+                    this.selectedCustomers = data.customers;
+                });
+            }
+            else {
+                this.selectAll = false;
+                this.selectedCustomers = [];
+            }
+        },
+        onRowSelect() {
+            this.selectAll = this.selectedCustomers.length === this.totalRecords
+        },
+        onRowUnselect() {
+            this.selectAll = false;
         }
     }
 }
@@ -154,6 +185,8 @@ export default {
             loading: false,
             totalRecords: 0,
             customers: null,
+            selectedCustomers: null,
+            selectAll: false,
             filters: {
                 'name': {value: '', matchMode: 'contains'},
                 'country.name': {value: '', matchMode: 'contains'},
@@ -191,11 +224,14 @@ export default {
             this.loading = true;
 
             setTimeout(() => {
-                this.customerService.getCustomers({lazyEvent: JSON.stringify( this.lazyParams )}).then(data => {
-                    this.customers = data.customers;
-                    this.totalRecords = data.totalRecords;
-                    this.loading = false;
-                });
+                this.customerService.getCustomers(
+                    {lazyEvent: JSON.stringify( this.lazyParams )})
+                        .then(data => {
+                            this.customers = data.customers;
+                            this.totalRecords = data.totalRecords;
+                            this.loading = false;
+                    }
+                );
             }, Math.random() * 1000 + 250);
         },
         onPage(event) {
@@ -209,6 +245,26 @@ export default {
         onFilter() {
             this.lazyParams.filters = this.filters;
             this.loadLazyData();
+        },
+        onSelectAllChange(event) {
+            const selectAll = event.checked;
+
+            if (selectAll) {
+                this.customerService.getCustomers().then(data => {
+                    this.selectAll = true;
+                    this.selectedCustomers = data.customers;
+                });
+            }
+            else {
+                this.selectAll = false;
+                this.selectedCustomers = [];
+            }
+        },
+        onRowSelect() {
+            this.selectAll = this.selectedCustomers.length === this.totalRecords
+        },
+        onRowUnselect() {
+            this.selectAll = false;
         }
     }
 }
