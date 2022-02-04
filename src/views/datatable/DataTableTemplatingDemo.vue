@@ -50,7 +50,7 @@
                 <TabPanel header="Source">
 <CodeHighlight>
 <template v-pre>
-&lt;DataTable :value="products responsiveLayout="scroll""&gt;
+&lt;DataTable :value="products" responsiveLayout="scroll"&gt;
     &lt;template #header&gt;
         &lt;div class="table-header"&gt;
             Products

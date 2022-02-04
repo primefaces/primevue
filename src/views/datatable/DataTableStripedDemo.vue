@@ -3,13 +3,13 @@
 		<div class="content-section introduction">
 			<div class="feature-intro">
 				<h1>DataTable <span>Striped Rows</span></h1>
-				<p>Adding <i>p-datatable-striped</i> displays striped rows.</p>
+				<p>Adding <i>stripedRows</i> displays striped rows.</p>
 			</div>
 		</div>
 
 		<div class="content-section implementation">
             <div class="card">
-                <DataTable :value="products" class="p-datatable-striped" responsiveLayout="scroll">
+                <DataTable :value="products" stripedRows responsiveLayout="scroll">
                     <Column field="code" header="Code"></Column>
                     <Column field="name" header="Name"></Column>
                     <Column field="category" header="Category"></Column>
@@ -23,7 +23,7 @@
                 <TabPanel header="Source">
 <CodeHighlight>
 <template v-pre>
-&lt;DataTable :value="products" class="p-datatable-striped" responsiveLayout="scroll"&gt;
+&lt;DataTable :value="products" stripedRows responsiveLayout="scroll"&gt;
     &lt;Column field="code" header="Code"&gt;&lt;/Column&gt;
     &lt;Column field="name" header="Name"&gt;&lt;/Column&gt;
     &lt;Column field="category" header="Category"&gt;&lt;/Column&gt;

@@ -88,7 +88,6 @@
 <template v-pre>
 &lt;div class="card"&gt;
     &lt;h5&gt;Single&lt;/h5&gt;
-    &lt;p&gt;In single mode, a row is selected on click event of a row. If the row is already selected then the row gets unselected.&lt;/p&gt;
     &lt;DataTable :value="products" :selection.sync="selectedProduct1" selectionMode="single" responsiveLayout="scroll" dataKey="id"&gt;
         &lt;Column field="code" header="Code"&gt;&lt;/Column&gt;
         &lt;Column field="name" header="Name"&gt;&lt;/Column&gt;
@@ -99,8 +98,6 @@
 
 &lt;div class="card"&gt;
     &lt;h5&gt;Multiple&lt;/h5&gt;
-    &lt;p&gt;In multiple mode, selection binding should be an array. For touch enabled devices, selection is managed by tapping and for other devices metakey or shiftkey are required.
-            Setting metaKeySelection property as false enables multiple selection without meta key.&lt;/p&gt;
     &lt;DataTable :value="products" :selection.sync="selectedProducts1" selectionMode="multiple" responsiveLayout="scroll" dataKey="id"&gt;
         &lt;template #header&gt;
             Multiple Selection with MetaKey
@@ -124,7 +121,6 @@
 
 &lt;div class="card"&gt;
     &lt;h5&gt;Events&lt;/h5&gt;
-    &lt;p&gt;row-select and row-unselects are available as selection events.&lt;/p&gt;
     &lt;DataTable :value="products" :selection.sync="selectedProduct2" selectionMode="single" responsiveLayout="scroll" dataKey="id"
         @row-select="onRowSelect" @row-unselect="onRowUnselect"&gt;
         &lt;Column field="code" header="Code"&gt;&lt;/Column&gt;
@@ -136,7 +132,6 @@
 
 &lt;div class="card"&gt;
     &lt;h5&gt;RadioButton&lt;/h5&gt;
-    &lt;p&gt;Single selection can also be handled using radio buttons by enabling the selectionMode property of column as "single".&lt;/p&gt;
     &lt;DataTable :value="products" :selection.sync="selectedProduct3" responsiveLayout="scroll" dataKey="id"&gt;
         &lt;Column selectionMode="single" :headerStyle="{'width': '3em'}"&gt;&lt;/Column&gt;
         &lt;Column field="code" header="Code"&gt;&lt;/Column&gt;
@@ -148,7 +143,6 @@
 
 &lt;div class="card"&gt;
     &lt;h5&gt;Checkbox&lt;/h5&gt;
-    &lt;p&gt;Multiple selection can also be handled using checkboxes by enabling the selectionMode property of column as "multiple".&lt;/p&gt;
     &lt;DataTable :value="products" :selection.sync="selectedProducts3" responsiveLayout="scroll" dataKey="id"&gt;
         &lt;Column selectionMode="multiple" :headerStyle="{'width': '3em'}"&gt;&lt;/Column&gt;
         &lt;Column field="code" header="Code"&gt;&lt;/Column&gt;

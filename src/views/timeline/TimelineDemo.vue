@@ -141,13 +141,13 @@ export default {
     z-index: 1;
 }
 
-::v-deep(.p-timeline-event-content)
-::v-deep(.p-timeline-event-opposite) {
+::v-deep .p-timeline-event-content,
+::v-deep .p-timeline-event-opposite {
     line-height: 1;
 }
 
 @media screen and (max-width: 960px) {
-    ::v-deep(.customized-timeline) {
+    ::v-deep .customized-timeline {
             .p-timeline-event:nth-child(even) {
                 flex-direction: row !important;
 
