@@ -1,5 +1,5 @@
 <template>
-    <div :class="containerClass"  data-scrollselectors=".p-treetable-scrollable-body">
+    <div :class="containerClass">
         <slot></slot>
         <div class="p-treetable-loading" v-if="loading">
             <div class="p-treetable-loading-overlay p-component-overlay">
@@ -18,7 +18,7 @@
                 <slot name="paginatorend"></slot>
             </template>
         </TTPaginator>
-        <div class="p-treetable-wrapper" :style="{maxHeight: scrollHeight}">
+        <div class="p-treetable-wrapper">
             <table ref="table">
                 <thead class="p-treetable-thead">
                     <tr>
@@ -31,7 +31,7 @@
                     <tr v-if="hasColumnFilter()">
                         <template v-for="(col,i) of columns">
                             <th v-if="!columnProp(col, 'hidden')" :key="columnProp(col, 'columnKey')||columnProp(col, 'field')||i"
-                                :class="getFilterColumnHeaderClass(col)" :style="[columnProp(col, 'styles'),columnProp(col, 'filterHeaderStyle')]">
+                                :class="getFilterColumnHeaderClass(col)" :style="[columnProp(col, 'style'),columnProp(col, 'filterHeaderStyle')]">
                                 <TTColumnSlot :column="col" type="filter" v-if="col.$scopedSlots.filter" />
                             </th>
                         </template>
@@ -213,22 +213,6 @@ export default {
         indentation: {
             type: Number,
             default: 1
-        },
-        scrollable: {
-            type: Boolean,
-            default: false
-        },
-        scrollDirection: {
-            type: String,
-            default: "vertical"
-        },
-        scrollHeight: {
-            type: String,
-            default: null
-        },
-        responsiveLayout: {
-            type: String,
-            default: null
         }
     },
     documentColumnResizeListener: null,
@@ -268,15 +252,6 @@ export default {
     },
     mounted() {
         this.allChildren = this.$children;
-
-        if (this.scrollable && this.scrollDirection !== 'vertical') {
-            this.updateScrollWidth();
-        }
-    },
-    updated() {
-        if (this.scrollable && this.scrollDirection !== 'vertical') {
-            this.updateScrollWidth();
-        }
     },
     methods: {
         columnProp(col, prop) {
@@ -916,11 +891,10 @@ export default {
     user-select: none;
 }
 
-.p-treetable-responsive-scroll > .p-treetable-wrapper {
+.p-treetable-auto-layout > .p-treetable-wrapper {
     overflow-x: auto;
 }
 
-.p-treetable-responsive-scroll > .p-treetable-wrapper > table,
 .p-treetable-auto-layout > .p-treetable-wrapper > table {
     table-layout: auto;
 }
@@ -995,6 +969,7 @@ export default {
     justify-content: center;
     z-index: 2;
 }
+<<<<<<< HEAD
 
 /* Scrollable */
 .p-treetable-scrollable .p-treetable-wrapper {
@@ -1070,4 +1045,6 @@ export default {
     flex: 1;
     height: 100%;
 }
+=======
+>>>>>>> parent of b7c096d8 (Fixed #2099 - New v2 Scrollable TreeTable)
 </style>

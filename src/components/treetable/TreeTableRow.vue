@@ -1,10 +1,10 @@
 <template>
     <tr :class="containerClass" @click="onClick" @keydown="onKeyDown" @touchend="onTouchEnd" :style="node.style" tabindex="0">
-        <td v-for="(col,i) of columns" :key="columnProp(col, 'columnKey')||columnProp(col, 'field')||i" :style="columnStyle(col)" :class="columnClass(col)">
-            <button type="button" class="p-treetable-toggler p-link" @click="toggle" v-if="columnProp(col,'expander')" :style="togglerStyle" tabindex="-1" v-ripple>
+        <td v-for="(col,i) of columns" :key="col.columnKey||col.field||i" :style="col.bodyStyle" :class="col.bodyClass">
+            <button type="button" class="p-treetable-toggler p-link" @click="toggle" v-if="col.expander" :style="togglerStyle" tabindex="-1" v-ripple>
                 <i :class="togglerIcon"></i>
             </button>
-            <div :class="['p-checkbox p-treetable-checkbox p-component', {'p-checkbox-focused': checkboxFocused}]" @click="toggleCheckbox" v-if="checkboxSelectionMode && columnProp(col,'expander')" role="checkbox" :aria-checked="checked">
+            <div :class="['p-checkbox p-treetable-checkbox p-component', {'p-checkbox-focused': checkboxFocused}]" @click="toggleCheckbox" v-if="checkboxSelectionMode && col.expander" role="checkbox" :aria-checked="checked">
                 <div class="p-hidden-accessible">
                     <input type="checkbox" @focus="onCheckboxFocus" @blur="onCheckboxBlur" />
                 </div>
@@ -62,51 +62,11 @@ export default {
     },
     data() {
         return {
-            styleObject: {
-                left: '',
-                right: ''
-            },
             checkboxFocused: false
         }
     },
     nodeTouched: false,
     methods: {
-        columnProp(column, prop) {
-            return ObjectUtils.getVNodeProp(column, prop);
-        },
-        columnClass(column) {
-            return [this.columnProp(column, 'bodyClass'), this.columnProp(column, 'className'), {
-                'p-frozen-column': this.columnProp(column, 'frozen')
-            }];
-        },
-        columnStyle(column) {
-            const isFrozen = this.columnProp(column, 'frozen');
-
-            if (isFrozen) {
-                let align = this.columnProp(column, 'alignFrozen');
-                if (align === 'right') {
-                    let right = 0;
-                    let next = column.nextElementSibling;
-                    if (next) {
-                        right = DomHandler.getOuterWidth(next) + parseFloat(next.style.right);
-                    }
-                    this.styleObject.right = right + 'px';
-                }
-                else {
-                    let left = 0;
-                    let prev = column.previousElementSibling;
-                    if (prev) {
-                        left = DomHandler.getOuterWidth(prev) + parseFloat(prev.style.left);
-                    }
-                    this.styleObject.left = left + 'px';
-                }
-            }
-
-            let bodyStyle = this.columnProp(column, 'bodyStyle');
-            let columnStyle = this.columnProp(column, 'styles');
-
-            return isFrozen ? [columnStyle, bodyStyle, this.styleObject]: [columnStyle, bodyStyle];
-        },
         resolveFieldData(rowData, field) {
             return ObjectUtils.resolveFieldData(rowData, field);
         },
@@ -238,7 +198,7 @@ export default {
             });
         },
         onCheckboxFocus() {
-            this.checkboxFocused = true;
+           this.checkboxFocused = true;
         },
         onCheckboxBlur() {
             this.checkboxFocused = false;
