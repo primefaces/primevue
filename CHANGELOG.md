@@ -893,6 +893,35 @@
 - Button not registered in FileUpload [\#478](https://github.com/primefaces/primevue/issues/478)
 - BlockUI documentation indicates "show" event whereas the actual event is "unblock" [\#485](https://github.com/primefaces/primevue/issues/485)
 
+## [2.9.0](https://github.com/primefaces/primevue/tree/2.9.0) (2022-02-07)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/2.8.0...2.9.0)
+
+**Implemented New Features and Enhancements:**
+
+- New v2 TreeTable showGridlines property [\#2115](https://github.com/primefaces/primevue/issues/2115)
+- v2 DataTable component does not work correctly "Checkbox selection" together with "lazy" [\#2109](https://github.com/primefaces/primevue/issues/2109)
+- New v2 Scrollable TreeTable [\#2099](https://github.com/primefaces/primevue/issues/2099)
+- Dialog v2: close button cannot receive focus [\#2087](https://github.com/primefaces/primevue/issues/2087)
+- PrimeFlex 3 update for PrimeVue 2 showcase  [\#2085](https://github.com/primefaces/primevue/issues/2085)
+- v2 Update themes for datatable list shadow style [\#2072](https://github.com/primefaces/primevue/issues/2072)
+- v2 New Color Scheme for Lara Dark [\#2070](https://github.com/primefaces/primevue/issues/2070)
+- New Dialog v2 containerStyle prop and modal leave defect [\#1957](https://github.com/primefaces/primevue/issues/1957)
+
+**Fixed bugs:**
+
+- Sidebar v2: ripple appears in the wrong place [\#2105](https://github.com/primefaces/primevue/issues/2105)
+- TreeTable v2 | ColResize Expand Mode not Compatible with Table Scroll and Frozen [\#2101](https://github.com/primefaces/primevue/issues/2101)
+- v2 Dropdown doesn't display empty string [\#2095](https://github.com/primefaces/primevue/issues/2095)
+- v2 Tree node toggler button is shrunk until not visible if label starts to not fit the node [\#2093](https://github.com/primefaces/primevue/issues/2093)
+- Tag v2 doesn't show icon when slot is used instead of "value" attribute [\#2091](https://github.com/primefaces/primevue/issues/2091)
+- DataTable v2: Inline filterMenuStyle doesn't add css properties [\#2089](https://github.com/primefaces/primevue/issues/2089)
+- DataTable v2 | ColResize Expand Mode not Compatible with Table Scroll  [\#2080](https://github.com/primefaces/primevue/issues/2080)
+- v2 DataTable, TreeTable | Checkbox and RadioButton Focus Missing on Material [\#2078](https://github.com/primefaces/primevue/issues/2078)
+- Calendar v2: the Year is incorrect for Multiple Months mode [\#2076](https://github.com/primefaces/primevue/issues/2076)
+- v2 Tailwind theme - wrong styles [\#2071](https://github.com/primefaces/primevue/issues/2071)
+- bugfix panelMenuSub isActive bug in 2.8.0 [\#1986](https://github.com/primefaces/primevue/issues/1986)
+
 ## [2.8.0](https://github.com/primefaces/primevue/tree/2.8.0) (2021-12-14)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/2.7.0...2.8.0)
