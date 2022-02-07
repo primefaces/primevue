@@ -37,6 +37,7 @@ export default {
         footer: null,
         visible: Boolean,
         modal: Boolean,
+        containerStyle: null,
         contentStyle: null,
         rtl: Boolean,
         maximizable: Boolean,
@@ -111,7 +112,9 @@ export default {
             this.enableDocumentSettings();
         },
         onBeforeLeave() {
-            DomHandler.addClass(this.$refs.mask, 'p-component-overlay-leave');
+            if (this.modal) {
+                DomHandler.addClass(this.$refs.mask, 'p-component-overlay-leave');
+            }
         },
         onLeave() {
             this.$emit('hide');
@@ -212,7 +215,7 @@ export default {
         },
         removeStylesFromMask() {
             if (this.$refs.mask) {
-                this.dialogStyles = this.$vnode.data.style;
+                this.dialogStyles = this.$vnode.data.style || this.containerStyle;
                 if (this.dialogStyles) {
                     Object.keys(this.dialogStyles).forEach((key) => {
                         this.$refs.mask.style[key] = '';
@@ -270,7 +273,7 @@ export default {
             }];
         },
         dialogStyle() {
-            return this.dialogStyles;
+            return this.dialogStyles || this.containerStyle;
         },
         ariaId() {
             return UniqueComponentId();

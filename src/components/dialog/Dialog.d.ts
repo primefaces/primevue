@@ -5,6 +5,7 @@ declare class Dialog extends Vue {
     footer?: any;
     visible?: boolean;
     modal?: boolean;
+    containerStyle?: string;
     contentStyle?: string;
     rtl?: boolean;
     closable?: boolean;

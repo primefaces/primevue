@@ -68,7 +68,7 @@
                 </DataTable>
             </div>
 
-            <Dialog :visible.sync="productDialog" :style="{width: '450px'}" header="Product Details" :modal="true" class="p-fluid">
+            <Dialog :visible.sync="productDialog" :containerStyle="{width: '450px'}" header="Product Details" :modal="true" class="p-fluid">
                 <img :src="'demo/images/product/' + product.image" :alt="product.image" class="product-image" v-if="product.image" />
                 <div class="field">
                     <label for="name">Name</label>
@@ -118,7 +118,7 @@
                 </template>
             </Dialog>
 
-            <Dialog :visible.sync="deleteProductDialog" :styles="{width: '450px'}" header="Confirm" :modal="true">
+            <Dialog :visible.sync="deleteProductDialog" :containerStyle="{width: '450px'}" header="Confirm" :modal="true">
                 <div class="confirmation-content">
                     <i class="pi pi-exclamation-triangle mr-3" style="font-size: 2rem" />
                     <span v-if="product">Are you sure you want to delete <b>{{product.name}}</b>?</span>
@@ -129,7 +129,7 @@
                 </template>
             </Dialog>
 
-            <Dialog :visible.sync="deleteProductsDialog" :styles="{width: '450px'}" header="Confirm" :modal="true">
+            <Dialog :visible.sync="deleteProductsDialog" :containerStyle="{width: '450px'}" header="Confirm" :modal="true">
                 <div class="confirmation-content">
                     <i class="pi pi-exclamation-triangle mr-3" style="font-size: 2rem" />
                     <span v-if="product">Are you sure you want to delete the selected products?</span>
