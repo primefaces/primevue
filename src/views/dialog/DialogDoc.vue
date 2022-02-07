@@ -49,7 +49,7 @@ export default {
 </CodeHighlight>
 
                 <h5>Positioning</h5>
-                <p>Dialog location is controlled with the <i>position</i> property whose default value is center. Other valid values are top", "bottom", "left", "right", "topleft", "topright", "bottomleft" and "bottomright"<div class=""></div>
+                <p>Dialog location is controlled with the <i>position</i> property whose default value is center. Other valid values are top", "bottom", "left", "right", "topleft", "topright", "bottomleft" and "bottomright"</p>
 <CodeHighlight>
 &lt;Dialog position="top" :visible.sync="display"&gt;
 	Content
@@ -129,6 +129,12 @@ export default {
                                 <td>string</td>
                                 <td>center</td>
                                 <td>Position of the dialog, options are "center", "top", "bottom", "left", "right", "topleft", "topright", "bottomleft" or "bottomright".</td>
+                            </tr>
+                            <tr>
+                                <td>containerStyle</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Inline style of the component.</td>
                             </tr>
                             <tr>
                                 <td>contentStyle</td>
@@ -286,7 +292,7 @@ export default {
 <template v-pre>
 &lt;h5&gt;Basic&lt;/h5&gt;
 &lt;Button label="Show" icon="pi pi-external-link" @click="openBasic" /&gt;
-&lt;Dialog header="Header " :visible.sync="displayBasic" :style="{width: '50vw'}"&gt;
+&lt;Dialog header="Header " :visible.sync="displayBasic" :containerStyle="{width: '50vw'}"&gt;
     &lt;p class="m-0"&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
         laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
         Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
@@ -297,7 +303,7 @@ export default {
 &lt;/Dialog&gt;
 
 &lt;Button label="Long Content" icon="pi pi-external-link" @click="openBasic2" /&gt;
-&lt;Dialog header="Header" :visible.sync="displayBasic2" :style="{width: '50vw'}"&gt;
+&lt;Dialog header="Header" :visible.sync="displayBasic2" :containerStyle="{width: '50vw'}"&gt;
     &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
         ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
         culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
@@ -320,7 +326,7 @@ export default {
 
 &lt;h5&gt;Modal&lt;/h5&gt;
 &lt;Button label="Show" icon="pi pi-external-link" @click="openModal" /&gt;
-&lt;Dialog header="Header" :visible.sync="displayModal" :style="{width: '50vw'}" :modal="true"&gt;
+&lt;Dialog header="Header" :visible.sync="displayModal" :containerStyle="{width: '50vw'}" :modal="true"&gt;
     &lt;p class="m-0"&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
         laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
         Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
@@ -332,7 +338,7 @@ export default {
 
 &lt;h5&gt;Confirmation&lt;/h5&gt;
 &lt;Button label="Confirm" icon="pi pi-external-link" @click="openConfirmation" /&gt;
-&lt;Dialog header="Confirmation" :visible.sync="displayConfirmation" :style="{width: '350px'}" :modal="true"&gt;
+&lt;Dialog header="Confirmation" :visible.sync="displayConfirmation" :containerStyle="{width: '350px'}" :modal="true"&gt;
     &lt;div class="confirmation-content"&gt;
         &lt;i class="pi pi-exclamation-triangle mr-3" style="font-size: 2rem" /&gt;
         &lt;span&gt;Are you sure you want to proceed?&lt;/span&gt;
@@ -345,7 +351,7 @@ export default {
 
 &lt;h5&gt;Maximizable&lt;/h5&gt;
 &lt;Button label="Show" icon="pi pi-external-link" @click="openMaximizable" /&gt;
-&lt;Dialog header="Header" :visible.sync="displayMaximizable" :style="{width: '50vw'}" :maximizable="true" :modal="true"&gt;
+&lt;Dialog header="Header" :visible.sync="displayMaximizable" :containerStyle="{width: '50vw'}" :maximizable="true" :modal="true"&gt;
     &lt;p class="m-0"&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
         laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
         Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
@@ -373,7 +379,7 @@ export default {
     &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;Dialog header="Header" :visible.sync="displayPosition" :style="{width: '50vw'}" :position="position" :modal="true"&gt;
+&lt;Dialog header="Header" :visible.sync="displayPosition" :containerStyle="{width: '50vw'}" :position="position" :modal="true"&gt;
     &lt;p class="m-0"&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
         laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
         Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;

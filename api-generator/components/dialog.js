@@ -42,6 +42,12 @@ const DialogProps = [
         description: 'Position of the dialog, options are "center", "top", "bottom", "left", "right", "topleft", "topright", "bottomleft" or "bottomright".'
     },
     {
+        name: "containerStyle",
+        type: "string",
+        default: "null",
+        description: "Inline style of the component."
+    },
+    {
         name: "contentStyle",
         type: "object",
         default: "null",
