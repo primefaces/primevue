@@ -38,6 +38,8 @@
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-plugin-router": "~4.5.0",
+    "@vue/cli-plugin-unit-jest": "~4.5.0",
+    "@vue/test-utils": "^2.0.0-0",
     "@vue/cli-service": "~4.5.0",
     "@vue/compiler-sfc": "3.1.5",
     "@vuelidate/core": "^2.0.0-alpha.14",
@@ -65,6 +67,7 @@
     "sass-loader": "^8.0.2",
     "vue": "3.1.5",
     "vue-router": "^4.0.0-0",
+    "vue-jest": "^5.0.0-0",
     "webpack-cli": "^4.3.0"
   }
 }
