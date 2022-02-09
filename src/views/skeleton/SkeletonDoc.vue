@@ -288,7 +288,7 @@ export default {
 
 <style lang="scss" scoped>
 .custom-skeleton {
-    border: 1px solid var(--surface-d);
+    border: 1px solid var(--surface-border);
     border-radius: 4px;
 
     ul {
@@ -303,7 +303,7 @@ export default {
 <template>
     <div>
         <div class="card">
-             <div class="grid formgrid">
+            <div class="grid formgrid">
                 <div class="field col-12 md:col-6">
                     <h5>Rectangle</h5>
                     <Skeleton class="mb-2"></Skeleton>
@@ -448,7 +448,7 @@ export default {
 
 <style lang="scss" scoped>
 .custom-skeleton {
-    border: 1px solid var(--surface-d);
+    border: 1px solid var(--surface-border);
     border-radius: 4px;
 
     ul {
@@ -617,7 +617,7 @@ export default {
 
         <style>
         .custom-skeleton {
-            border: 1px solid var(--surface-d);
+            border: 1px solid var(--surface-border);
             border-radius: 4px;
         }
 

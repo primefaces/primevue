@@ -3,7 +3,7 @@
     left: 0;
     top: 0;
     height: 100%;
-    background-color: var(--surface-a);
+    background-color: var(--surface-overlay);
     width: 250px;
     user-select: none;
     transition: transform .4s cubic-bezier(.05,.74,.2,.99);
@@ -15,9 +15,9 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        border-bottom: 1px solid var(--surface-d);
+        border-bottom: 1px solid var(--surface-border);
+        border-right: 1px solid var(--surface-border);
         z-index: 1;
-        border-right: 1px solid var(--surface-d);
 
         img {
             width: 180px;
@@ -34,7 +34,7 @@
         padding: 0 1rem;
         overflow-y: auto;
         flex-grow: 1;
-        border-right: 1px solid var(--surface-d);
+        border-right: 1px solid var(--surface-border);
 
         .menu-category {
             display: block;
@@ -44,7 +44,7 @@
             padding: 1.5rem 0 1rem 0;
             font-size: 0.857rem;
             text-transform: uppercase;
-            border-top: 1px solid var(--surface-d);
+            border-top: 1px solid var(--surface-border);
 
             &:first-child {
                 border-top: 0 none;
@@ -66,7 +66,7 @@
                 cursor: pointer;
 
                 &:hover {
-                    background-color: var(--surface-c);
+                    background-color: var(--surface-hover);
                 }
 
                 &:focus {
@@ -84,24 +84,6 @@
                     padding-top:.125rem;
                     padding-bottom: .125rem;
                     margin-left: .5rem;
-                }
-            }
-
-            &.menu-banner {
-                a {
-                    padding: 0;
-
-                    &:hover {
-                        background-color: transparent;
-
-                        img {
-                            background-color: var(--surface-c);
-                        }
-                    }
-
-                    &:focus {
-                        box-shadow: none;
-                    }
                 }
             }
 
@@ -140,8 +122,8 @@
 
     .layout-sidebar-filter {
         padding: 1.25rem 1rem;
-        border-bottom: 1px solid var(--surface-d);
-        background-color: var(--surface-a);
-        border-right: 1px solid var(--surface-d);
+        border-bottom: 1px solid var(--surface-border);
+        border-right: 1px solid var(--surface-border);
+        background-color: var(--surface-card);
     }
 }

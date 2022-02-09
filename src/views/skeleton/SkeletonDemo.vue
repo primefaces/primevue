@@ -112,7 +112,7 @@
                             </ul>
                         </div>
                     </div>
-                 </div>
+                </div>
 
                 <h5>DataTable</h5>
                 <DataTable :value="products" responsiveLayout="scroll">
@@ -162,7 +162,7 @@ export default {
 
 <style lang="scss" scoped>
 .custom-skeleton {
-    border: 1px solid var(--surface-d);
+    border: 1px solid var(--surface-border);
     border-radius: 4px;
 
     ul {

@@ -176,7 +176,7 @@ export default {
 
     &.custombar1 {
         .p-scrollpanel-wrapper {
-            border-right: 9px solid var(--surface-b);
+            border-right: 9px solid var(--surface-ground);
         }
 
         .p-scrollpanel-bar {
@@ -192,12 +192,12 @@ export default {
 
     &.custombar2 {
         .p-scrollpanel-wrapper {
-            border-right: 9px solid var(--surface-b);
-            border-bottom: 9px solid var(--surface-b);
+            border-right: 9px solid var(--surface-border);
+            border-bottom: 9px solid var(--surface-border);
         }
 
         .p-scrollpanel-bar {
-            background-color: var(--surface-d);
+            background-color: var(--surface-ground);
             border-radius: 0;
             opacity: 1;
             transition: background-color .2s;
@@ -282,7 +282,7 @@ export default {
 
     &.custombar1 {
         .p-scrollpanel-wrapper {
-            border-right: 9px solid var(--surface-b);
+            border-right: 9px solid var(--surface-ground);
         }
 
         .p-scrollpanel-bar {
@@ -298,12 +298,12 @@ export default {
 
     &.custombar2 {
         .p-scrollpanel-wrapper {
-            border-right: 9px solid var(--surface-b);
-            border-bottom: 9px solid var(--surface-b);
+            border-right: 9px solid var(--surface-border);
+            border-bottom: 9px solid var(--surface-border);
         }
 
         .p-scrollpanel-bar {
-            background-color: var(--surface-d);
+            background-color: var(--surface-ground);
             border-radius: 0;
             opacity: 1;
             transition: background-color .2s;
@@ -393,7 +393,7 @@ export default {
         }
 
         .p-scrollpanel.custombar1 .p-scrollpanel-wrapper {
-            border-right: 9px solid var(--surface-b);
+            border-right: 9px solid var(--surface-border);
         }
 
         .p-scrollpanel.custombar1 .p-scrollpanel-bar {
@@ -407,12 +407,12 @@ export default {
         }
 
         .p-scrollpanel.custombar2 .p-scrollpanel-wrapper {
-            border-right: 9px solid var(--surface-b);
-            border-bottom: 9px solid var(--surface-b);
+            border-right: 9px solid var(--surface-border);
+            border-bottom: 9px solid var(--surface-border);
         }
 
         .p-scrollpanel.custombar2 .p-scrollpanel-bar {
-            background-color: var(--surface-d);
+            background-color: var(--surface-ground);
             border-radius: 0;
             opacity: 1;
             transition: background-color .2s;

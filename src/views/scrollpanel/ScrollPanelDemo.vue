@@ -89,7 +89,7 @@ export default {
 
     &.custombar1 {
         .p-scrollpanel-wrapper {
-            border-right: 9px solid var(--surface-b);
+            border-right: 9px solid var(--surface-ground);
         }
 
         .p-scrollpanel-bar {
@@ -105,12 +105,12 @@ export default {
 
     &.custombar2 {
         .p-scrollpanel-wrapper {
-            border-right: 9px solid var(--surface-b);
-            border-bottom: 9px solid var(--surface-b);
+            border-right: 9px solid var(--surface-ground);
+            border-bottom: 9px solid var(--surface-ground);
         }
 
         .p-scrollpanel-bar {
-            background-color: var(--surface-d);
+            background-color: var(--surface-border);
             border-radius: 0;
             opacity: 1;
             transition: background-color .2s;

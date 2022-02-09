@@ -10,7 +10,7 @@ body {
     height: 100%;
     overflow-x: hidden;
     overflow-y: auto;
-    background-color: var(--surface-a);
+    background-color: var(--surface-ground);
     font-family: var(--font-family);
     font-weight: normal;
     color: var(--text-color);
@@ -94,9 +94,9 @@ pre[class*="language-"] {
     } 
 
     code {
-        border-left: 10px solid var(--surface-d) !important;
+        border-left: 10px solid var(--surface-border) !important;
         box-shadow: none !important;
-        background: var(--surface-e) !important;
+        background: var(--surface-card) !important;
         color: var(--text-color);
         font-size: 14px;
     
