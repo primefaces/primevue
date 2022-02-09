@@ -211,7 +211,7 @@
             <div class="grid">
                 <div class="col-12 md:col-6">
                     <h4 class="pro-title">Vue UI Blocks Powered by PrimeVue</h4>
-                    <p>150+ ready to use UI blocks to build spectacular applications in no time.</p>
+                    <p>280+ ready to use UI blocks to build spectacular applications in no time.</p>
                     <a class="action-button" href="https://www.primefaces.org/primeblocks-vue">LEARN MORE</a>
                 </div>
                 <div class="col-12 md:col-6 text-center">

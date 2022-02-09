@@ -578,10 +578,10 @@ export default {
 	::v-deep(.p-virtualscroller) {
 		height: 200px;
 		width: 200px;
-		border: 1px solid var(--surface-d);
+		border: 1px solid var(--surface-border);
 
         .scroll-item {
-            background-color: var(--surface-a);
+            background-color: var(--surface-card);
             display: flex;
             align-items: center;
         }
@@ -592,7 +592,7 @@ export default {
         }
 
         .odd {
-            background-color: var(--surface-b);
+            background-color: var(--surface-ground);
         }
 	}
 
@@ -809,10 +809,10 @@ export default {
 	::v-deep(.p-virtualscroller) {
 		height: 200px;
 		width: 200px;
-		border: 1px solid var(--surface-d);
+		border: 1px solid var(--surface-border);
 
         .scroll-item {
-            background-color: var(--surface-a);
+            background-color: var(--surface-card);
             display: flex;
             align-items: center;
         }
@@ -823,7 +823,7 @@ export default {
         }
 
         .odd {
-            background-color: var(--surface-b);
+            background-color: var(--surface-ground);
         }
 	}
 
@@ -1043,11 +1043,11 @@ export default {
             .virtualscroller-demo .p-virtualscroller {
                 height: 200px;
                 width: 200px;
-                border: 1px solid var(--surface-d);
+                border: 1px solid var(--surface-border);
             }
 
             .virtualscroller-demo .p-virtualscroller .scroll-item {
-                background-color: var(--surface-a);
+                background-color: var(--surface-card);
                 display: flex;
                 align-items: center;
             }
@@ -1058,7 +1058,7 @@ export default {
             }
 
             .virtualscroller-demo .p-virtualscroller .odd {
-                background-color: var(--surface-b);
+                background-color: var(--surface-ground);
             }
 
             .virtualscroller-demo .p-horizontal-scroll .p-virtualscroller-content {

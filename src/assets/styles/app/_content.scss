@@ -5,7 +5,7 @@
         padding: 2rem;
 
         &.introduction {
-            background-color: var(--surface-b);
+            background-color: var(--surface-ground);
             color: var(--text-color);
             padding-bottom: 0;
             display: flex;
@@ -43,7 +43,7 @@
         }
 
         &.implementation {
-            background-color: var(--surface-b);
+            background-color: var(--surface-ground);
             color: var(--text-color);
 
             +.documentation {
@@ -52,7 +52,7 @@
         }
 
         &.documentation {
-            background-color: var(--surface-b);
+            background-color: var(--surface-ground);
             color: var(--text-color);
 
             li {
@@ -75,7 +75,7 @@
             }
 
             i:not([class~="pi"]) {
-                background-color: var(--surface-a);
+                background-color: var(--surface-section);
                 color: #2196f3;
                 font-family: Monaco, courier, monospace;
                 font-style: normal;
@@ -95,7 +95,7 @@
                 .p-tabview-nav {
                     border-radius: 0;
                     padding: 0;
-                    border-bottom: 1px solid var(--surface-d);
+                    border-bottom: 1px solid var(--surface-border);
                     background-color: transparent;
 
                     li {
@@ -180,10 +180,10 @@
         .doc-table {
             border-collapse: collapse;
             width: 100%;
-            background-color: var(--surface-a);
+            background-color: var(--surface-card);
 
             th {
-                border-bottom: 1px solid var(--surface-d);
+                border-bottom: 1px solid var(--surface-border);
                 padding: 1rem;
                 text-align: left;
                 white-space: nowrap;
@@ -192,7 +192,7 @@
             tbody {
                 td {
                     padding: 1rem;
-                    border-bottom: 1px solid var(--surface-d);
+                    border-bottom: 1px solid var(--surface-border);
 
                     &:first-child {
                         font-family: Courier New,monospace;
@@ -215,7 +215,7 @@
     }
 
     .card {
-        background: var(--surface-e);
+        background: var(--surface-card);
         padding: 2rem;
         box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
         border-radius: 4px;
@@ -226,18 +226,5 @@
             align-items: center;
             justify-content: space-between;
         }
-    }
-
-    .box {
-        background-color: var(--surface-e);
-        text-align: center;
-        padding-top: 1rem;
-        padding-bottom: 1rem;
-        border-radius: 4px;
-        box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
-    }
-
-    .box-stretched {
-        height: 100%;
     }
 }

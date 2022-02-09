@@ -15,7 +15,7 @@
     }
 
     .introduction {
-        background-color: var(--surface-a);
+        background-color: var(--surface-card);
         background-image: url('./assets/images/home/intro-bg.jpg');
         background-repeat: no-repeat;
         background-size: cover;
@@ -67,7 +67,7 @@
     }
 
     .features {
-        background-color: var(--surface-b);
+        background-color: var(--surface-ground);
         text-align: center;
         padding: 2rem;
 
@@ -76,7 +76,7 @@
         }
 
         .feature-card {
-            background-color: var(--surface-e);
+            background-color: var(--surface-card);
             box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
             height: 100%;
             border-radius: 3px;
@@ -102,7 +102,7 @@
     }
 
     .video {
-        background-color: var(--surface-a);
+        background-color: var(--surface-card);
         text-align: center;
         padding: 2rem;
     }
@@ -124,10 +124,10 @@
     }
 
     .templates {
-        background-color: var(--surface-b);
+        background-color: var(--surface-ground);
         text-align: center;
         padding: 2rem;
-        border-bottom: 1px solid var(--surface-d);
+        border-bottom: 1px solid var(--surface-border);
 
         img {
             width: 100%;
@@ -136,10 +136,10 @@
     }
 
     .primevue-designer {
-        background-color: var(--surface-a);
+        background-color: var(--surface-card);
         color: var(--text-color);
         padding: 2rem;
-      
+
         img {
             width: 100%;
             margin-bottom: 30px;
@@ -156,14 +156,13 @@
     }
 
     .primeflex {
-        background-color: var(--surface-d);
+        background-color: var(--surface-card);
         color: var(--text-color);
         padding: 2rem;
     }
 
     .prosupport {
-        border-bottom: 1px solid var(--surface-d);
-        background-color: var(--surface-b);
+        border-bottom: 1px solid var(--surface-border);
         padding: 2rem;
         color: var(--text-color);
 
