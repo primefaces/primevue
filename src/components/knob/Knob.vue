@@ -57,7 +57,7 @@ export default {
         },
         rangeColor: {
             type: String,
-            default: 'var(--surface-d, LightGray)'
+            default: 'var(--surface-border, LightGray)'
         },
         textColor: {
             type: String,
