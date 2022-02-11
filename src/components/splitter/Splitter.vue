@@ -229,7 +229,7 @@ export default {
                     if (this.isSplitterPanel(child)) {
                         panels.push(child);
                     }
-                    else if (child.children.length instanceof Array) {
+                    else if (child.children instanceof Array) {
                         child.children.forEach(nestedChild => {
                             if (this.isSplitterPanel(nestedChild)) {
                                 panels.push(nestedChild)
