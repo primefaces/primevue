@@ -374,6 +374,12 @@ export default {
                             <td>Whether the column is included in data export.</td>
                         </tr>
                         <tr>
+                            <td>exportHeader</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Custom export header of the column to be exported as CSV.</td>
+                        </tr>
+                        <tr>
                             <td>filterMatchMode</td>
                             <td>string</td>
                             <td>null</td>

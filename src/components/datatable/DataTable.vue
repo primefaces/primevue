@@ -1033,7 +1033,7 @@ export default {
                     else
                         headerInitiated = true;
 
-                    csv += '"' + (this.columnProp(column, 'header') || this.columnProp(column, 'field')) + '"';
+                    csv += '"' + (this.columnProp(column, 'exportHeader') || this.columnProp(column, 'header') || this.columnProp(column, 'field')) + '"';
                 }
             }
 
