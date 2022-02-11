@@ -5396,4 +5396,8 @@
   content: "/";
 }
 
+.fc.fc-theme-standard .fc-highlight {
+  background: #614c6c;
+}
+
 /* Customizations to the designer theme should be defined here */
