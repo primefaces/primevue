@@ -162,6 +162,10 @@ export default {
             type: Boolean,
             default: true
         },
+        exportHeader: {
+            type: String,
+            default: null
+        },
         filterMatchMode: {
             type: String,
             default: null

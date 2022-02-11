@@ -234,6 +234,12 @@ const ColumnProps = [
         description: "Whether the column is included in data export."
     },
     {
+        name: "exportHeader",
+        type: "string",
+        default: "null",
+        description: "Custom export header of the column to be exported as CSV."
+    },
+    {
         name: "hidden",
         type: "boolean",
         default: "false",

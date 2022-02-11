@@ -16,7 +16,7 @@
                             <Button icon="pi pi-external-link" label="Export" @click="exportCSV($event)" />
                         </div>
                     </template>
-                    <Column field="code" header="Code"></Column>
+                    <Column field="code" header="Code" exportHeader="Product Code"></Column>
                     <Column field="name" header="Name"></Column>
                     <Column field="category" header="Category"></Column>
                     <Column field="quantity" header="Quantity"></Column>
@@ -47,7 +47,7 @@ export default {
                     <Button icon="pi pi-external-link" label="Export" @click="exportCSV($event)" />
                 </div>
             </template>
-            <Column field="code" header="Code"></Column>
+            <Column field="code" header="Code" exportHeader="Product Code"></Column>
             <Column field="name" header="Name"></Column>
             <Column field="category" header="Category"></Column>
             <Column field="quantity" header="Quantity"></Column>
@@ -91,7 +91,7 @@ export default {
                     <Button icon="pi pi-external-link" label="Export" @click="exportCSV($event)" />
                 </div>
             </template>
-            <Column field="code" header="Code"></Column>
+            <Column field="code" header="Code" exportHeader="Product Code"></Column>
             <Column field="name" header="Name"></Column>
             <Column field="category" header="Category"></Column>
             <Column field="quantity" header="Quantity"></Column>
@@ -134,7 +134,7 @@ export default {
                         <p-button icon="pi pi-external-link" label="Export" @click="exportCSV($event)"></p-button>
                     </div>
                 </template>
-                <p-column field="code" header="Code"></p-column>
+                <p-column field="code" header="Code" exportHeader="Product Code"></p-column>
                 <p-column field="name" header="Name"></p-column>
                 <p-column field="category" header="Category"></p-column>
                 <p-column field="quantity" header="Quantity"></p-column>
