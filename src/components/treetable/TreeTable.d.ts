@@ -14,7 +14,7 @@ type TreeTableSortModeType = 'single' | 'multiple' | undefined;
 
 type TreeTableFilterMatchModeType = 'startsWith' | 'contains' | 'notContains' | 'endsWith' | 'equals' | 'notEquals' | 'in' | 'lt' | 'lte' | 'gt' | 'gte' | 'between' | 'dateIs' | 'dateIsNot' | 'dateBefore' | 'dateAfter' | undefined;
 
-type TreeTableSelectionModeType = 'single' | 'multiple' | undefined;
+type TreeTableSelectionModeType = 'single' | 'multiple' | 'checkbox' | undefined;
 
 type TreeTableFilterModeType = 'lenient' | 'strict' | undefined;
 
