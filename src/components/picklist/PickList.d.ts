@@ -52,7 +52,7 @@ export interface PickListMoveAllToTargetEvent extends PickListMoveToTargetEvent 
  */
 export interface PickListMoveToSourceEvent extends PickListMoveToTargetEvent { }
 
- /**
+/**
  * @extends PickListMoveToTargetEvent
  */
 export interface PickListMoveAllToSourceEvent extends PickListMoveToTargetEvent { }
@@ -91,6 +91,10 @@ export interface PickListProps {
      * Default value is '960px'.
      */
     breakpoint?: string | undefined;
+    /**
+     * Whether to displays rows with alternating colors.
+     */
+    stripedRows?: boolean | undefined;
 }
 
 export interface PickListSlots {

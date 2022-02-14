@@ -137,6 +137,12 @@ import PickList from 'primevue/picklist';
                         <td>960px</td>
                         <td>The breakpoint to define the maximum width boundary when responsiveness is enabled.</td>
                     </tr>
+                    <tr>
+                        <td>stripedRows</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>Whether to displays rows with alternating colors.</td>
+                    </tr>
 				</tbody>
 			</table>
 		</div>
