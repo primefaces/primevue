@@ -582,7 +582,7 @@ export default {
         <MultiSelect placeholder="Loading..." loading></MultiSelect>
 
         <h5>Virtual Scroll (1000 Items)</h5>
-        <MultiSelect v-model="selectedItems" :options="items" :maxSelectedLabels="3" :selectAll="selectAll" @selectall-change="onSelectAllChange($event)" @change="onChange($event)" optionLabel="label" optionValue="value" :virtualScrollerOptions="{ itemSize: 34 }" placeholder="Select Item" />
+        <MultiSelect v-model="selectedItems" :options="items" :maxSelectedLabels="3" :selectAll="selectAll" @selectall-change="onSelectAllChange($event)" @change="onChange($event)" optionLabel="label" optionValue="value" :virtualScrollerOptions="{ itemSize: 44 }" placeholder="Select Item" />
     </div>
 </template>
 
@@ -733,7 +733,7 @@ export default {
         <MultiSelect placeholder="Loading..." loading></MultiSelect>
 
         <h5>Virtual Scroll (1000 Items)</h5>
-        <MultiSelect v-model="selectedItems" :options="items" :maxSelectedLabels="3" :selectAll="selectAll" @selectall-change="onSelectAllChange($event)" @change="onChange($event)" optionLabel="label" optionValue="value" :virtualScrollerOptions="{ itemSize: 34 }" placeholder="Select Item" />
+        <MultiSelect v-model="selectedItems" :options="items" :maxSelectedLabels="3" :selectAll="selectAll" @selectall-change="onSelectAllChange($event)" @change="onChange($event)" optionLabel="label" optionValue="value" :virtualScrollerOptions="{ itemSize: 44 }" placeholder="Select Item" />
     </div>
 </template>
 
@@ -887,7 +887,7 @@ export default {
             <p-multiselect  placeholder="Loading..." loading></p-multiselect >
 
             <h5>Virtual Scroll (1000 Items)</h5>
-            <p-multiselect  v-model="selectedItems" :options="items" :max-selected-labels="3" :select-all="selectAll" @selectall-change="onSelectAllChange($event)" @change="onChange($event)" option-label="label" option-value="value" :virtual-scroller-options="{ itemSize: 34 }" placeholder="Select Item"></p-multiselect>
+            <p-multiselect  v-model="selectedItems" :options="items" :max-selected-labels="3" :select-all="selectAll" @selectall-change="onSelectAllChange($event)" @change="onChange($event)" option-label="label" option-value="value" :virtual-scroller-options="{ itemSize: 44 }" placeholder="Select Item"></p-multiselect>
         </div>
 
         <script type="module">
