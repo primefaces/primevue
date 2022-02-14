@@ -150,7 +150,7 @@ import Ripple from 'primevue/ripple';
 export default {
     name: 'Calendar',
     inheritAttrs: false,
-    emits: ['show', 'hide', 'month-change', 'year-change', 'date-select', 'update:modelValue', 'today-click', 'clear-click'],
+    emits: ['show', 'hide', 'input', 'month-change', 'year-change', 'date-select', 'update:modelValue', 'today-click', 'clear-click', 'focus', 'blur'],
     props: {
         modelValue: null,
         selectionMode: {
@@ -355,7 +355,7 @@ export default {
         }
 
         if (this.mask) {
-           this.destroyMask();
+            this.destroyMask();
         }
         this.destroyResponsiveStyleElement();
 
@@ -1237,9 +1237,9 @@ export default {
                         return false;
                     }
                     if (this.maxDate.getMinutes() === minute) {
-                      if (this.maxDate.getSeconds() < second) {
-                          return false;
-                      }
+                        if (this.maxDate.getSeconds() < second) {
+                            return false;
+                        }
                     }
                 }
             }
@@ -2140,7 +2140,7 @@ export default {
             }
         },
         onContainerButtonKeydown(event) {
-             switch (event.which) {
+            switch (event.which) {
                 //tab
                 case 9:
                     this.trapFocus(event);
@@ -2155,7 +2155,7 @@ export default {
                 default:
                     //Noop
                 break;
-             }
+            }
         },
         onInput(event) {
             try {
@@ -2174,15 +2174,18 @@ export default {
 
             this.$emit('input', event);
         },
-        onFocus() {
+        onFocus(event) {
             if (this.showOnFocus && this.isEnabled()) {
                 this.overlayVisible = true;
             }
             this.focused = true;
+            this.$emit('focus', event);
         },
-        onBlur() {
+        onBlur(event) {
             this.focused = false;
             this.input.value = this.formatValue(this.modelValue);
+
+            this.$emit('blur', event);
         },
         onKeyDown() {
             if (event.keyCode === 40 && this.overlay) {
