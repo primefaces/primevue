@@ -28,7 +28,7 @@
             </slot>
         </div>
         <Teleport :to="appendTarget" :disabled="appendDisabled">
-            <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
+            <transition name="p-connected-overlay" @enter="onOverlayEnter" @after-enter="onOverlayAfterEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
                 <div :ref="overlayRef" :class="panelStyleClass" v-if="overlayVisible" @click="onOverlayClick">
                     <slot name="header" :value="modelValue" :options="visibleOptions"></slot>
                     <div class="p-multiselect-header" v-if="(showToggleAll && selectionLimit == null) || filter">
@@ -420,19 +420,23 @@ export default {
         onOverlayEnter(el) {
             ZIndexUtils.set('overlay', el, this.$primevue.config.zIndex.overlay);
             this.alignOverlay();
+
+            if (!this.virtualScrollerDisabled) {
+                const selectedIndex = this.getSelectedOptionIndex();
+                if (selectedIndex !== -1) {
+                    setTimeout(() => {
+                        this.virtualScroller && this.virtualScroller.scrollToIndex(selectedIndex)
+                    }, 0);
+                }
+            }
+        },
+        onOverlayAfterEnter() {
             this.bindOutsideClickListener();
             this.bindScrollListener();
             this.bindResizeListener();
 
             if (this.filter) {
                 this.$refs.filterInput.focus();
-            }
-
-            if (!this.virtualScrollerDisabled) {
-                const selectedIndex = this.getSelectedOptionIndex();
-                if (selectedIndex !== -1) {
-                    this.virtualScroller.scrollToIndex(selectedIndex);
-                }
             }
 
             this.$emit('show');
