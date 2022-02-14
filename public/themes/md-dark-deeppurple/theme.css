@@ -2959,6 +2959,12 @@
   color: #CE93D8;
   background: rgba(206, 147, 216, 0.16);
 }
+.p-orderlist.p-orderlist-striped .p-orderlist-list .p-orderlist-item:nth-child(even) {
+  background: rgba(255, 255, 255, 0.02);
+}
+.p-orderlist.p-orderlist-striped .p-orderlist-list .p-orderlist-item:nth-child(even):hover {
+  background: rgba(255, 255, 255, 0.04);
+}
 
 .p-organizationchart .p-organizationchart-node-content.p-organizationchart-selectable-node:not(.p-highlight):hover {
   background: rgba(255, 255, 255, 0.04);
@@ -3125,6 +3131,12 @@
 .p-picklist .p-picklist-list .p-picklist-item.p-highlight {
   color: #CE93D8;
   background: rgba(206, 147, 216, 0.16);
+}
+.p-picklist.p-picklist-striped .p-picklist-list .p-picklist-item:nth-child(even) {
+  background: rgba(255, 255, 255, 0.02);
+}
+.p-picklist.p-picklist-striped .p-picklist-list .p-picklist-item:nth-child(even):hover {
+  background: rgba(255, 255, 255, 0.04);
 }
 
 .p-timeline .p-timeline-event-marker {
