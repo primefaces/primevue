@@ -2935,6 +2935,12 @@
   color: #323130;
   background: #edebe9;
 }
+.p-orderlist.p-orderlist-striped .p-orderlist-list .p-orderlist-item:nth-child(even) {
+  background: #faf9f8;
+}
+.p-orderlist.p-orderlist-striped .p-orderlist-list .p-orderlist-item:nth-child(even):hover {
+  background: #f3f2f1;
+}
 
 .p-organizationchart .p-organizationchart-node-content.p-organizationchart-selectable-node:not(.p-highlight):hover {
   background: #f3f2f1;
@@ -3101,6 +3107,12 @@
 .p-picklist .p-picklist-list .p-picklist-item.p-highlight {
   color: #323130;
   background: #edebe9;
+}
+.p-picklist.p-picklist-striped .p-picklist-list .p-picklist-item:nth-child(even) {
+  background: #faf9f8;
+}
+.p-picklist.p-picklist-striped .p-picklist-list .p-picklist-item:nth-child(even):hover {
+  background: #f3f2f1;
 }
 
 .p-timeline .p-timeline-event-marker {

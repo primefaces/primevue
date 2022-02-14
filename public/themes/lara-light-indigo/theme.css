@@ -2970,6 +2970,12 @@
   color: #4338CA;
   background: #EEF2FF;
 }
+.p-orderlist.p-orderlist-striped .p-orderlist-list .p-orderlist-item:nth-child(even) {
+  background: #fcfcfc;
+}
+.p-orderlist.p-orderlist-striped .p-orderlist-list .p-orderlist-item:nth-child(even):hover {
+  background: #e9ecef;
+}
 
 .p-organizationchart .p-organizationchart-node-content.p-organizationchart-selectable-node:not(.p-highlight):hover {
   background: #e9ecef;
@@ -3136,6 +3142,12 @@
 .p-picklist .p-picklist-list .p-picklist-item.p-highlight {
   color: #4338CA;
   background: #EEF2FF;
+}
+.p-picklist.p-picklist-striped .p-picklist-list .p-picklist-item:nth-child(even) {
+  background: #fcfcfc;
+}
+.p-picklist.p-picklist-striped .p-picklist-list .p-picklist-item:nth-child(even):hover {
+  background: #e9ecef;
 }
 
 .p-timeline .p-timeline-event-marker {
