@@ -2171,6 +2171,8 @@ export default {
             catch(err) {
                 /* NoOp */
             }
+
+            this.$emit('input', event);
         },
         onFocus() {
             if (this.showOnFocus && this.isEnabled()) {

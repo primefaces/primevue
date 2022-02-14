@@ -250,6 +250,17 @@ const CalendarProps = [
 
 const CalendarEvents = [
     {
+        name: "input",
+        description: "Callback to invoke when input field is being typed.",
+        arguments: [
+            {
+                name: "event",
+                type: "object",
+                description: "New date"
+            }
+        ]
+    },
+    {
         name: "date-select",
         description: "Callback to invoke when a date is selected.",
         arguments: [
