@@ -40,6 +40,12 @@ const PickListProps = [
         type: "string",
         default: "960px",
         description: "The breakpoint to define the maximum width boundary when responsiveness is enabled."
+    },
+    {
+        name: "stripedRows",
+        type: "boolean",
+        default: "false",
+        description: "Whether to displays rows with alternating colors."
     }
 ];
 

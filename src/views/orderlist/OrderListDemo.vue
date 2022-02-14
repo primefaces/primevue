@@ -10,7 +10,7 @@
 
         <div class="content-section implementation">
             <div class="card">
-                <OrderList v-model="products" listStyle="height:auto" dataKey="id" stripedRows>
+                <OrderList v-model="products" listStyle="height:auto" dataKey="id">
                     <template #header>
                         List of Products
                     </template>
