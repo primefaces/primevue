@@ -458,6 +458,11 @@ export default {
                 </thead>
                 <tbody>
                     <tr>
+                        <td>input</td>
+                        <td>event</td>
+                        <td>Callback to invoke when input field is being typed.</td>
+                    </tr>
+                    <tr>
                         <td>date-select</td>
                         <td>value: Selected value</td>
                         <td>Callback to invoke when a date is selected.</td>
