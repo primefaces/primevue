@@ -16,7 +16,7 @@
             </slot>
         </div>
         <Teleport :to="appendTarget" :disabled="appendDisabled">
-            <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
+            <transition name="p-connected-overlay" @enter="onOverlayEnter" @after-enter="onOverlayAfterEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
                 <div :ref="overlayRef" :class="panelStyleClass" v-if="overlayVisible" @click="onOverlayClick">
                     <slot name="header" :value="modelValue" :options="visibleOptions"></slot>
                     <div class="p-dropdown-header" v-if="filter">
@@ -437,21 +437,25 @@ export default {
         onOverlayEnter(el) {
             ZIndexUtils.set('overlay', el, this.$primevue.config.zIndex.overlay);
             this.alignOverlay();
-            this.bindOutsideClickListener();
-            this.bindScrollListener();
-            this.bindResizeListener();
             this.scrollValueInView();
-
-            if (this.filter) {
-                this.$refs.filterInput.focus();
-            }
 
             if (!this.virtualScrollerDisabled) {
                 const selectedIndex = this.getSelectedOptionIndex();
                 if (selectedIndex !== -1) {
-                    this.virtualScroller.scrollToIndex(selectedIndex);
+                    setTimeout(() => {
+                        this.virtualScroller && this.virtualScroller.scrollToIndex(selectedIndex)
+                    }, 0);
                 }
             }
+        },
+        onOverlayAfterEnter() {
+            if (this.filter) {
+                this.$refs.filterInput.focus();
+            }
+
+            this.bindOutsideClickListener();
+            this.bindScrollListener();
+            this.bindResizeListener();
 
             this.$emit('show');
         },
