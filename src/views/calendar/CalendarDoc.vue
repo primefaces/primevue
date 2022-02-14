@@ -459,7 +459,7 @@ export default {
                 <tbody>
                     <tr>
                         <td>input</td>
-                        <td>event</td>
+                        <td>event: Input Event</td>
                         <td>Callback to invoke when input field is being typed.</td>
                     </tr>
                     <tr>
@@ -500,6 +500,16 @@ export default {
                             event.year: New year
                         </td>
                         <td>Callback to invoke when a year is changed using the navigators.</td>
+                    </tr>
+                    <tr>
+                        <td>focus</td>
+                        <td>event: Focus event</td>
+                        <td>Callback to invoke on focus of input field.</td>
+                    </tr>
+                    <tr>
+                        <td>blur</td>
+                        <td>event: Blur event</td>
+                        <td>Callback to invoke on blur of input field.</td>
                     </tr>
                 </tbody>
             </table>
