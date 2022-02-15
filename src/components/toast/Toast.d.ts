@@ -1,7 +1,7 @@
 import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-type ToastPositionType = 'top-left' | 'top-center' | 'bottom-left' | 'bottom-center' | 'bottom-right' | 'center' | undefined;
+type ToastPositionType = 'top-left' | 'top-center' | 'top-right' | 'bottom-left' | 'bottom-center' | 'bottom-right' | 'center' | undefined;
 
 type ToastMessageSeverityType = 'success' | 'info' | 'warn' | 'error' | undefined;
 
