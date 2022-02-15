@@ -5385,15 +5385,6 @@
 .p-tabview .p-tabview-nav li .p-tabview-nav-link {
   transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
-.p-tabview .p-tabview-nav .p-tabview-ink-bar {
-  z-index: 1;
-  display: block;
-  position: absolute;
-  bottom: 0;
-  height: 2px;
-  background-color: #A5B4FC;
-  transition: 500ms cubic-bezier(0.35, 0, 0.25, 1);
-}
 
 .p-carousel .p-carousel-indicators .p-carousel-indicator.p-highlight button {
   background-color: #A5B4FC;
