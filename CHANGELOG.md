@@ -1,5 +1,34 @@
 # Changelog
 
+## [3.12.0](https://github.com/primefaces/primevue/tree/3.12.0) (2022-02-15)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.11.0...3.12.0)
+
+**Implemented New Features and Enhancements:**
+
+- New Calendar focus and blur events [\#2160](https://github.com/primefaces/primevue/issues/2160)
+- Calendar | hide timepicker on month/year select [\#2156](https://github.com/primefaces/primevue/issues/2156)
+- New stripedRows property for OrderList and PickList [\#2154](https://github.com/primefaces/primevue/issues/2154)
+- New input event for Calendar [\#2152](https://github.com/primefaces/primevue/issues/2152)
+- MultiSelect | Filter autocomplete attribute support  [\#2145](https://github.com/primefaces/primevue/issues/2145)
+- Custom Table CSV Export Headers [\#2141](https://github.com/primefaces/primevue/issues/2141)
+- Knob | replace surface letters with new surface variables [\#2132](https://github.com/primefaces/primevue/issues/2132)
+- Replace surface letters with new surface variables [\#2129](https://github.com/primefaces/primevue/issues/2129)
+
+**Fixed bugs:**
+
+- Scrollable TabView forwardIsDisabled defect [\#2169](https://github.com/primefaces/primevue/issues/2169)
+- Lara scrollable Tabview highlight defect [\#2165](https://github.com/primefaces/primevue/issues/2165)
+- MultiSelect virtual scroll with selected item [\#2158](https://github.com/primefaces/primevue/issues/2158)
+- TreeTable Typescript - 'checkbox' missing in TreeTableSelectionModeType [\#2148](https://github.com/primefaces/primevue/issues/2148)
+- FullCalendar | Bootstrap background highlight is wrong [\#2143](https://github.com/primefaces/primevue/issues/2143)
+- Wrong property name "col" in Treetable/FooterCell [\#2134](https://github.com/primefaces/primevue/issues/2134)
+- Multiple SplitterPanels created using v-for directive [\#2120](https://github.com/primefaces/primevue/issues/2120)
+- Dropdown virtual scroll and lazy load dropdown with selected item [\#2114](https://github.com/primefaces/primevue/issues/2114)
+- Incomplete prop types specified in Column [\#2097](https://github.com/primefaces/primevue/issues/2097)
+- OrganizationChart: "value" property improperly defined as "OrganizationChartNode\[\]" in OrganizationChartProps [\#2069](https://github.com/primefaces/primevue/issues/2069)
+- ConfirmDialog: 'defaultFocus' property missing from ConfirmationOptions.d.ts, causing TypeScript errors [\#2058](https://github.com/primefaces/primevue/issues/2058)
+
 ## [3.11.1](https://github.com/primefaces/primevue/tree/3.11.1) (2022-01-31)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.11.0...3.11.1)
@@ -901,7 +930,6 @@
 
 - New v2 TreeTable showGridlines property [\#2115](https://github.com/primefaces/primevue/issues/2115)
 - v2 DataTable component does not work correctly "Checkbox selection" together with "lazy" [\#2109](https://github.com/primefaces/primevue/issues/2109)
-- New v2 Scrollable TreeTable [\#2099](https://github.com/primefaces/primevue/issues/2099)
 - Dialog v2: close button cannot receive focus [\#2087](https://github.com/primefaces/primevue/issues/2087)
 - PrimeFlex 3 update for PrimeVue 2 showcase  [\#2085](https://github.com/primefaces/primevue/issues/2085)
 - v2 Update themes for datatable list shadow style [\#2072](https://github.com/primefaces/primevue/issues/2072)
