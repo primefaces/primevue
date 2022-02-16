@@ -241,7 +241,7 @@
                     <p>PrimeVUE PRO is an exceptional support service where you'll contact the PrimeTek via a private channel and receive assistance just in a couple of hours. Optionally PrimeVue PRO offers the ability to request changes and new features for the component library.</p>
                     <router-link to="/support" class="action-button">LEARN MORE</router-link>
                 </div>
-                <div class="col-12 md:col-6">
+                <div class="col-12 md:col-6 text-center">
                     <img alt="PRO" src="../assets/images/home/asset-pro.png" />
                 </div>
             </div>
