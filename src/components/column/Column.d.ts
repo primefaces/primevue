@@ -230,6 +230,10 @@ export interface ColumnProps {
      */
     exportable?: boolean | undefined;
     /**
+     * Custom export header of the column to be exported as CSV.
+     */
+    exportHeader?: string | undefined;
+    /**
      * Defines the filtering algorithm to use when searching the options.
      */
     filterMatchMode?: string | undefined;

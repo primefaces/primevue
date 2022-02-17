@@ -148,23 +148,26 @@ export default {
         scrollToIndex(index, behavior = 'auto') {
             const both = this.isBoth();
             const horizontal = this.isHorizontal();
+            const first = this.first;
+            const { numToleratedItems } = this.calculateNumItems();
+            const itemSize = this.itemSize;
             const contentPos = this.getContentPosition();
             const calculateFirst = (_index = 0, _numT) => (_index <= _numT ? 0 : _index);
             const calculateCoord = (_first, _size, _cpos) => (_first * _size) + _cpos;
             const scrollTo = (left = 0, top = 0) => this.scrollTo({ left, top, behavior });
 
             if (both) {
-                const newFirst = { rows: calculateFirst(index[0], this.d_numToleratedItems[0]), cols: calculateFirst(index[1], this.d_numToleratedItems[1]) };
-                if (newFirst.rows !== this.first.rows || newFirst.cols !== this.first.cols) {
-                    scrollTo(calculateCoord(newFirst.cols, this.itemSize[1], contentPos.left), calculateCoord(newFirst.rows, this.itemSize[0], contentPos.top))
+                const newFirst = { rows: calculateFirst(index[0], numToleratedItems[0]), cols: calculateFirst(index[1], numToleratedItems[1]) };
+                if (newFirst.rows !== first.rows || newFirst.cols !== first.cols) {
+                    scrollTo(calculateCoord(newFirst.cols, itemSize[1], contentPos.left), calculateCoord(newFirst.rows, itemSize[0], contentPos.top))
                     this.first = newFirst;
                 }
             }
             else {
-                const newFirst = calculateFirst(index, this.d_numToleratedItems);
+                const newFirst = calculateFirst(index, numToleratedItems);
 
-                if (newFirst !== this.first) {
-                    horizontal ? scrollTo(calculateCoord(newFirst, this.itemSize, contentPos.left), 0) : scrollTo(0, calculateCoord(newFirst, this.itemSize, contentPos.top));
+                if (newFirst !== first) {
+                    horizontal ? scrollTo(calculateCoord(newFirst, itemSize, contentPos.left), 0) : scrollTo(0, calculateCoord(newFirst, itemSize, contentPos.top));
                     this.first = newFirst;
                 }
             }
@@ -247,26 +250,33 @@ export default {
                 }
             };
         },
-        calculateOptions() {
+        calculateNumItems() {
             const both = this.isBoth();
             const horizontal = this.isHorizontal();
+            const itemSize = this.itemSize;
             const contentPos = this.getContentPosition();
             const contentWidth = this.element ? this.element.offsetWidth - contentPos.left : 0;
             const contentHeight = this.element ? this.element.offsetHeight - contentPos.top : 0;
             const calculateNumItemsInViewport = (_contentSize, _itemSize) => Math.ceil(_contentSize / (_itemSize || _contentSize));
             const calculateNumToleratedItems = (_numItems) => Math.ceil(_numItems / 2);
             const numItemsInViewport = both ?
-                { rows: calculateNumItemsInViewport(contentHeight, this.itemSize[0]), cols: calculateNumItemsInViewport(contentWidth, this.itemSize[1]) } :
-                calculateNumItemsInViewport((horizontal ? contentWidth : contentHeight), this.itemSize);
+                { rows: calculateNumItemsInViewport(contentHeight, itemSize[0]), cols: calculateNumItemsInViewport(contentWidth, itemSize[1]) } :
+                calculateNumItemsInViewport((horizontal ? contentWidth : contentHeight), itemSize);
 
-            let numToleratedItems = this.d_numToleratedItems || (both ?
+            const numToleratedItems = this.d_numToleratedItems || (both ?
                 [calculateNumToleratedItems(numItemsInViewport.rows), calculateNumToleratedItems(numItemsInViewport.cols)] :
                 calculateNumToleratedItems(numItemsInViewport));
 
+            return { numItemsInViewport, numToleratedItems };
+        },
+        calculateOptions() {
+            const both = this.isBoth();
+            const first = this.first;
+            const { numItemsInViewport, numToleratedItems } = this.calculateNumItems();
             const calculateLast = (_first, _num, _numT, _isCols) => this.getLast(_first + _num + ((_first < _numT ? 2 : 3) * _numT), _isCols);
             const last = both ?
-                { rows: calculateLast(this.first.rows, numItemsInViewport.rows, numToleratedItems[0]), cols: calculateLast(this.first.cols, numItemsInViewport.cols, numToleratedItems[1], true) } :
-                calculateLast(this.first, numItemsInViewport, numToleratedItems);
+                { rows: calculateLast(first.rows, numItemsInViewport.rows, numToleratedItems[0]), cols: calculateLast(first.cols, numItemsInViewport.cols, numToleratedItems[1], true) } :
+                calculateLast(first, numItemsInViewport, numToleratedItems);
 
             this.last = last;
             this.numItemsInViewport = numItemsInViewport;
@@ -280,7 +290,7 @@ export default {
             }
 
             if (this.lazy) {
-                this.$emit('lazy-load', { first: this.first, last });
+                this.$emit('lazy-load', { first, last });
             }
         },
         getLast(last = 0, isCols) {

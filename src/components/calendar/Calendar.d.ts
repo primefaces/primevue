@@ -277,6 +277,11 @@ export declare type CalendarEmits = {
      */
     'update:modelValue': (value: CalendarValueType) => void;
     /**
+     * Callback to invoke when input field is being typed.
+     * @param {Event} event - Browser event
+     */
+    'input': (event: Event) => void;
+    /**
      * Callback to invoke when a date is selected.
      * @param {Date} value - Selected value.
      */
@@ -309,6 +314,16 @@ export declare type CalendarEmits = {
      * @param {CalendarYearChangeEvent} event - Custom year change event.
      */
     'year-change': (event: CalendarYearChangeEvent) => void;
+    /**
+     * Callback to invoke on focus of input field.
+     * @param {Event} event - Focus event
+     */
+    'focus': (event: Event) => void;
+    /**
+     * Callback to invoke on blur of input field.
+     * @param {Event} event - Blur event
+     */
+    'blur': (event: Event) => void;
 }
 
 declare class Calendar extends ClassComponent<CalendarProps, CalendarSlots, CalendarEmits> { }

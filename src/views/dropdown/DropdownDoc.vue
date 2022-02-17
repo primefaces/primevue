@@ -562,12 +562,12 @@ export default {
         <Dropdown placeholder="Loading..." loading></Dropdown>
 
         <h5>Virtual Scroll (1000 Items)</h5>
-        <Dropdown v-model="selectedItem1" :options="items" optionLabel="label" optionValue="value" :virtualScrollerOptions="{ itemSize: 31 }" placeholder="Select Item"></Dropdown>
+        <Dropdown v-model="selectedItem1" :options="items" optionLabel="label" optionValue="value" :virtualScrollerOptions="{ itemSize: 38 }" placeholder="Select Item"></Dropdown>
 
         <h5>Virtual Scroll (1000 Items) and Lazy</h5>
-        <Dropdown v-model="selectedItem2" :options="lazyItems" optionLabel="label" optionValue="value" :virtualScrollerOptions="{ lazy: true, onLazyLoad: onLazyLoad, itemSize: 31, showLoader: true, loading: loading, delay: 250 }" placeholder="Select Item">
+        <Dropdown v-model="selectedItem2" :options="lazyItems" optionLabel="label" optionValue="value" :virtualScrollerOptions="{ lazy: true, onLazyLoad: onLazyLoad, itemSize: 38, showLoader: true, loading: loading, delay: 250 }" placeholder="Select Item">
             <template v-slot:loader="{ options }">
-                <div class="flex align-items-center p-2" style="height: 31px" >
+                <div class="flex align-items-center p-2" style="height: 38px" >
                     <Skeleton :width="options.even ? '60%' : '50%'" height="1rem" />
                 </div>
             </template>
@@ -719,12 +719,12 @@ export default {
         <Dropdown placeholder="Loading..." loading></Dropdown>
 
         <h5>Virtual Scroll (1000 Items)</h5>
-        <Dropdown v-model="selectedItem1" :options="items" optionLabel="label" optionValue="value" :virtualScrollerOptions="{ itemSize: 31 }" placeholder="Select Item"></Dropdown>
+        <Dropdown v-model="selectedItem1" :options="items" optionLabel="label" optionValue="value" :virtualScrollerOptions="{ itemSize: 38 }" placeholder="Select Item"></Dropdown>
 
         <h5>Virtual Scroll (1000 Items) and Lazy</h5>
-        <Dropdown v-model="selectedItem2" :options="lazyItems" optionLabel="label" optionValue="value" :virtualScrollerOptions="{ lazy: true, onLazyLoad: onLazyLoad, itemSize: 31, showLoader: true, loading: loading, delay: 250 }" placeholder="Select Item">
+        <Dropdown v-model="selectedItem2" :options="lazyItems" optionLabel="label" optionValue="value" :virtualScrollerOptions="{ lazy: true, onLazyLoad: onLazyLoad, itemSize: 38, showLoader: true, loading: loading, delay: 250 }" placeholder="Select Item">
             <template v-slot:loader="{ options }">
-                <div class="flex align-items-center p-2" style="height: 31px" >
+                <div class="flex align-items-center p-2" style="height: 38px" >
                     <Skeleton :width="options.even ? '60%' : '50%'" height="1rem" />
                 </div>
             </template>
@@ -880,12 +880,12 @@ export default {
             <p-dropdown placeholder="Loading..." loading></p-dropdown>
 
             <h5>Virtual Scroll (1000 Items)</h5>
-            <p-dropdown v-model="selectedItem1" :options="items" option-label="label" option-value="value" :virtual-scroller-options="{ itemSize: 31 }" placeholder="Select Item"></p-dropdown>
+            <p-dropdown v-model="selectedItem1" :options="items" option-label="label" option-value="value" :virtual-scroller-options="{ itemSize: 38 }" placeholder="Select Item"></p-dropdown>
 
             <h5>Virtual Scroll (1000 Items) and Lazy</h5>
-            <p-dropdown v-model="selectedItem2" :options="lazyItems" option-label="label" option-value="value" :virtual-scroller-options="{ lazy: true, onLazyLoad: onLazyLoad, itemSize: 31, showLoader: true, loading: loading, delay: 250 }" placeholder="Select Item">
+            <p-dropdown v-model="selectedItem2" :options="lazyItems" option-label="label" option-value="value" :virtual-scroller-options="{ lazy: true, onLazyLoad: onLazyLoad, itemSize: 38, showLoader: true, loading: loading, delay: 250 }" placeholder="Select Item">
                 <template v-slot:loader="{ options }">
-                    <div class="flex align-items-center p-2" style="height: 31px" >
+                    <div class="flex align-items-center p-2" style="height: 38px" >
                         <p-skeleton :width="options.even ? '60%' : '50%'" height="1rem"></p-skeleton>
                     </div>
                 </template>

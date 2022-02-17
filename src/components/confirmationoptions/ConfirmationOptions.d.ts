@@ -55,4 +55,8 @@ export interface ConfirmationOptions {
      * Style class of the reject button.
      */
     rejectClass?: string | undefined;
+    /**
+     * Element to receive the focus when the dialog gets visible, valid values are "accept" and "reject".
+     */
+    defaultFocus?: string | undefined;
 }

@@ -2947,6 +2947,12 @@
   color: #ffffff;
   background: #007ad9;
 }
+.p-orderlist.p-orderlist-striped .p-orderlist-list .p-orderlist-item:nth-child(even) {
+  background: #f9f9f9;
+}
+.p-orderlist.p-orderlist-striped .p-orderlist-list .p-orderlist-item:nth-child(even):hover {
+  background: #eaeaea;
+}
 
 .p-organizationchart .p-organizationchart-node-content.p-organizationchart-selectable-node:not(.p-highlight):hover {
   background: #eaeaea;
@@ -3113,6 +3119,12 @@
 .p-picklist .p-picklist-list .p-picklist-item.p-highlight {
   color: #ffffff;
   background: #007ad9;
+}
+.p-picklist.p-picklist-striped .p-picklist-list .p-picklist-item:nth-child(even) {
+  background: #f9f9f9;
+}
+.p-picklist.p-picklist-striped .p-picklist-list .p-picklist-item:nth-child(even):hover {
+  background: #eaeaea;
 }
 
 .p-timeline .p-timeline-event-marker {

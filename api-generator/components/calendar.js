@@ -250,6 +250,17 @@ const CalendarProps = [
 
 const CalendarEvents = [
     {
+        name: "input",
+        description: "Callback to invoke when input field is being typed.",
+        arguments: [
+            {
+                name: "event",
+                type: "object",
+                description: "New date"
+            }
+        ]
+    },
+    {
         name: "date-select",
         description: "Callback to invoke when a date is selected.",
         arguments: [
@@ -321,7 +332,29 @@ const CalendarEvents = [
                 description: "New year"
             }
         ]
-    }
+    },
+    {
+        name: "focus",
+        description: "Callback to invoke on focus of input field.",
+        arguments: [
+            {
+                name: "event",
+                type: "object",
+                description: "Focus event"
+            }
+        ]
+    },
+    {
+        name: "blur",
+        description: "Callback to invoke on blur of input field.",
+        arguments: [
+            {
+                name: "event",
+                type: "object",
+                description: "Blur event"
+            }
+        ]
+    },
 ];
 
 const CalendarSlots = [

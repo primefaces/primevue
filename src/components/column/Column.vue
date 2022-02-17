@@ -7,7 +7,7 @@ export default {
             default: null
         },
         field: {
-            type: String,
+            type: [String, Function],
             default: null
         },
         sortField: {
@@ -15,7 +15,7 @@ export default {
             default: null
         },
         filterField: {
-            type: String,
+            type: [String, Function],
             default: null
         },
         dataType: {
@@ -161,6 +161,10 @@ export default {
         exportable: {
             type: Boolean,
             default: true
+        },
+        exportHeader: {
+            type: String,
+            default: null
         },
         filterMatchMode: {
             type: String,

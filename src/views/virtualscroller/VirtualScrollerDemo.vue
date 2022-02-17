@@ -207,10 +207,10 @@ export default {
 	::v-deep(.p-virtualscroller) {
 		height: 200px;
 		width: 200px;
-		border: 1px solid var(--surface-d);
+		border: 1px solid var(--surface-border);
 
         .scroll-item {
-            background-color: var(--surface-a);
+            background-color: var(--surface-card);
             display: flex;
             align-items: center;
         }
@@ -221,7 +221,7 @@ export default {
         }
 
         .odd {
-            background-color: var(--surface-b);
+            background-color: var(--surface-ground);
         }
 	}
 

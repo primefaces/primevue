@@ -61,6 +61,10 @@ export interface OrderListProps {
      * Default value is '960px'.
      */
     breakpoint?: string | undefined;
+    /**
+     * Whether to displays rows with alternating colors.
+     */
+    stripedRows?: boolean | undefined;
 }
 
 export interface OrderListSlots {

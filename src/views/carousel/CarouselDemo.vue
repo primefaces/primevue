@@ -139,7 +139,7 @@ export default {
 <style lang="scss" scoped>
 .product-item {
     .product-item-content {
-        border: 1px solid var(--surface-d);
+        border: 1px solid var(--surface-border);
         border-radius: 3px;
         margin: .3rem;
         text-align: center;

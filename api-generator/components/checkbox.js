@@ -32,13 +32,13 @@ const CheckboxProps = [
     {
         name: "trueValue",
         type: "any",
-        default: "true",
+        default: "null",
         description: "Value in checked state."
     },
     {
         name: "falseValue",
         type: "any",
-        default: "true",
+        default: "null",
         description: "Value in unchecked state."
     }
 ];

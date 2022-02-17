@@ -1,5 +1,5 @@
 <template>
-    <div class="p-orderlist p-component">
+    <div :class="containerClass">
         <div class="p-orderlist-controls">
             <slot name="controlsstart"></slot>
             <OLButton type="button" icon="pi pi-angle-up" @click="moveUp"></OLButton>
@@ -61,6 +61,10 @@ export default {
         breakpoint: {
             type: String,
             default: '960px'
+        },
+        stripedRows: {
+            type: Boolean,
+            default: false
         }
     },
     itemTouched: false,
@@ -352,6 +356,11 @@ export default {
         }
     },
     computed: {
+        containerClass() {
+            return ['p-orderlist p-component', {
+                'p-orderlist-striped': this.stripedRows
+            }];
+        },
         attributeSelector() {
             return UniqueComponentId();
         }
