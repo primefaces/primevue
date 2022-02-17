@@ -10,7 +10,7 @@
                                 <span class="p-menuitem-text">{{label(item)}}</span>
                             </a>
                         </router-link>
-                        <a v-else :href="item.url" :class="getHeaderLinkClass(item)" @click="onItemClick($event, item)" :tabindex="disabled(item) ? null : '0'"
+                        <a v-else :href="item.url" :class="getHeaderLinkClass(item)" @click="onItemClick($event, item)" @keydown="onItemKeydown($event, item)" :tabindex="disabled(item) ? null : '0'"
                             :aria-expanded="isActive(item)" :id="ariaId +'_header_' + index" :aria-controls="ariaId +'_content_' + index">
                             <span v-if="item.items" :class="getPanelToggleIcon(item)"></span>
                             <span v-if="item.icon" :class="getPanelIcon(item)"></span>
@@ -23,7 +23,7 @@
                     <div class="p-toggleable-content" v-show="isActive(item)"
                         role="region" :id="ariaId +'_content_' + index" :aria-labelledby="ariaId +'_header_' + index">
                         <div class="p-panelmenu-content" v-if="item.items">
-                            <PanelMenuSub :model="item.items" class="p-panelmenu-root-submenu" :template="$slots.item" 
+                            <PanelMenuSub :model="item.items" class="p-panelmenu-root-submenu" :template="$slots.item"
                                 :expandedKeys="expandedKeys" @item-toggle="updateExpandedKeys" :exact="exact" />
                         </div>
                     </div>
@@ -64,7 +64,7 @@ export default {
             if (this.isActive(item) && this.activeItem === null) {
                 this.activeItem = item;
             }
-            
+
             if (this.disabled(item)) {
                 event.preventDefault();
                 return;
@@ -83,9 +83,14 @@ export default {
                 this.activeItem = item;
 
             this.updateExpandedKeys({item: item, expanded: this.activeItem != null});
-        
+
             if (item.to && navigate) {
                 navigate(event);
+            }
+        },
+        onItemKeydown(event, item) {
+            if (event.which === 13) {
+                this.onItemClick(event, item);
             }
         },
         updateExpandedKeys(event) {
