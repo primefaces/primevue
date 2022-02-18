@@ -22,6 +22,7 @@
                     <div class="p-dropdown-header" v-if="filter">
                         <div  class="p-dropdown-filter-container">
                             <input type="text" ref="filterInput" :value="filterValue" @vnode-updated="onFilterUpdated" autoComplete="off" class="p-dropdown-filter p-inputtext p-component" :placeholder="filterPlaceholder" @keydown="filterValue = $event.target.value" @input="filterValue = $event.target.value"/>
+                            
                             <span class="p-dropdown-filter-icon pi pi-search"></span>
                         </div>
                     </div>
