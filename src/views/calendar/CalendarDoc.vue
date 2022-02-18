@@ -508,7 +508,9 @@ export default {
                     </tr>
                     <tr>
                         <td>blur</td>
-                        <td>event: Blur event</td>
+                        <td>event.originalEvent: Blur event <br />
+                            event.value: Input value
+                        </td>
                         <td>Callback to invoke on blur of input field.</td>
                     </tr>
                 </tbody>
