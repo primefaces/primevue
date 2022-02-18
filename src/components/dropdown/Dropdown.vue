@@ -21,7 +21,7 @@
                     <slot name="header" :value="modelValue" :options="visibleOptions"></slot>
                     <div class="p-dropdown-header" v-if="filter">
                         <div  class="p-dropdown-filter-container">
-                            <input type="text" ref="filterInput" v-model="filterValue" @vnode-updated="onFilterUpdated" autoComplete="off" class="p-dropdown-filter p-inputtext p-component" :placeholder="filterPlaceholder" @keydown="onFilterKeyDown"  @input="onFilterChange"/>
+                            <input type="text" ref="filterInput" :value="filterValue" @vnode-updated="onFilterUpdated" autoComplete="off" class="p-dropdown-filter p-inputtext p-component" :placeholder="filterPlaceholder" @keydown="filterValue = $event.target.value" @input="filterValue = $event.target.value"/>
                             <span class="p-dropdown-filter-icon pi pi-search"></span>
                         </div>
                     </div>
