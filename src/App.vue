@@ -40,7 +40,7 @@ export default {
         return {
             sidebarActive: false,
             newsActive: true,
-            theme: 'lara-dark-indigo'
+            theme: 'lara-light-indigo'
         }
     },
     mounted() {
