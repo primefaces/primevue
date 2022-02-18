@@ -2182,10 +2182,10 @@ export default {
             this.$emit('focus', event);
         },
         onBlur(event) {
+            this.$emit('blur', {originalEvent: event, value: this.input.value});
+
             this.focused = false;
             this.input.value = this.formatValue(this.modelValue);
-
-            this.$emit('blur', event);
         },
         onKeyDown() {
             if (event.keyCode === 40 && this.overlay) {
