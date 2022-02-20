@@ -505,7 +505,18 @@ export default {
     },
     computed: {
         columnsLength() {
-            return this.columns ? this.columns.length : 0;
+
+            let lengthHidden = 0;
+            //For Colspan
+            this.columns.forEach(column => {
+                if(column.props.hidden !== undefined){
+                    if(column.props.hidden){
+                        lengthHidden = lengthHidden+1;
+                    }
+                }    
+            });
+                 
+            return this.columns ? this.columns.length - lengthHidden : 0;
         },
         rowGroupHeaderStyle() {
             if (this.scrollable) {
