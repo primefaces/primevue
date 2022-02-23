@@ -49,6 +49,8 @@ export default {
             expire.setTime(today.getTime() + 3600000*24*7);
             document.cookie = 'primeaffiliateid=' + afId + ';expires=' + expire.toUTCString() + ';path=/; domain:primefaces.org';
         }
+
+        this.replaceTableTheme(this.$appState.darkTheme ? 'lara-dark-indigo': 'lara-light-indigo');        
     },
     methods: {
         onThemeToggle() {
@@ -64,18 +66,23 @@ export default {
         replaceTableTheme(newTheme) {
             const elementId = 'home-table-link';
             const linkElement = document.getElementById(elementId);
-            const cloneLinkElement = linkElement.cloneNode(true);
-            const newThemeUrl = linkElement.getAttribute('href').replace(this.tableTheme, newTheme);
+            const tableThemeTokens = linkElement.getAttribute('href').split('/');
+            const currentTableTheme = tableThemeTokens[tableThemeTokens.length - 2];
+            
+            if (currentTableTheme !== newTheme) {
+                const newThemeUrl = linkElement.getAttribute('href').replace(currentTableTheme, newTheme);
 
-            cloneLinkElement.setAttribute('id', elementId + '-clone');
-            cloneLinkElement.setAttribute('href', newThemeUrl);
-            cloneLinkElement.addEventListener('load', () => {
-                linkElement.remove();
-                cloneLinkElement.setAttribute('id', elementId);
-            });
-            linkElement.parentNode.insertBefore(cloneLinkElement, linkElement.nextSibling);
+                const cloneLinkElement = linkElement.cloneNode(true);
+                cloneLinkElement.setAttribute('id', elementId + '-clone');
+                cloneLinkElement.setAttribute('href', newThemeUrl);
+                cloneLinkElement.addEventListener('load', () => {
+                    linkElement.remove();
+                    cloneLinkElement.setAttribute('id', elementId);
+                });
+                linkElement.parentNode.insertBefore(cloneLinkElement, linkElement.nextSibling);
 
-            this.tableTheme = newTheme;
+                this.tableTheme = newTheme;
+            }
         }
     },
     computed: {
