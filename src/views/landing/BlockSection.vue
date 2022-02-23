@@ -3,12 +3,12 @@
         <div class="section-header">PrimeBlocks</div>
         <p class="section-detail">280+ ready to copy-paste UI blocks to build spectacular applications in no time.</p>
         <div class="flex justify-content-center mt-4">
-            <a href="https://www.primefaces.org/primeblocks-vue" class="font-semibold p-3 border-round flex align-items-center linkbox active">
+            <a href="https://www.primefaces.org/primeblocks-vue" class="font-semibold p-3 border-round flex align-items-center linkbox active z-2">
                 <span>Learn More</span>
                 <i class="pi pi-arrow-right ml-2"></i>
             </a>
         </div>
-        <section :class="['prime-blocks flex justify-content-center align-items-center flex-column', {'blocks-animation': setAnimation}]">
+        <section :class="['prime-blocks flex justify-content-center align-items-center flex-column z-1', {'blocks-animation': setAnimation}]">
             <div class="flex">
                 <div class="prime-block flex align-self-stretch p-1">
                     <div class="block-sidebar w-1 p-3">
