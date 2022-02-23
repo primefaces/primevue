@@ -1,7 +1,7 @@
 <template>
     <section :ref="containerRef" :class="['landing-header pad-section', {'landing-header-active': menuActive}]">
         <span>
-            <img :src="'demo/images/landing/primevue-logo-' + `${$appState.darkTheme ? 'light' : 'dark'}` + '.svg'" alt="primevue logo" class="landing-header-logo"/>
+            <img :src="'demo/images/primevue-logo-' + `${$appState.darkTheme ? 'light' : 'dark'}` + '.svg'" alt="primevue logo" class="landing-header-logo"/>
         </span>
 
         <div class="flex align-items-center">
