@@ -1,10 +1,11 @@
 import {createRouter, createWebHashHistory} from 'vue-router'
-import Home from '../views/Home.vue';
+import Home from '../Home.vue';
 
 const routes = [
     {
         path: '/',
         name: 'home',
+        exact: true,
         component: Home
     },
     {
@@ -830,7 +831,10 @@ const routes = [
 
 const router = createRouter({
     history: createWebHashHistory(),
-    routes
+    routes,
+    scrollBehavior () {
+        return { left: 0, top: 0 };
+    }
 });
 
 export default router;
