@@ -81,10 +81,10 @@
         </div>
 
         <section class="landing-getstarted flex flex-column md:flex-row align-items-center justify-content-center mt-8 z-1">
-            <a class="linkbox active font-semibold py-3 px-4 ml-6 fadeinleft animation-duration-2000 animation-ease-out" href="/setup">
+            <router-link to="/setup" class="linkbox active font-semibold py-3 px-4 ml-6 fadeinleft animation-duration-2000 animation-ease-out">
                 Get Started 
                 <i class="pi pi-arrow-right ml-3"></i>
-            </a>
+            </router-link>
             <div class="box download-box font-medium p-3 px-4 mt-3 md:mt-0 md:ml-3 bg-transparent inline-flex align-items-center fadeinright animation-duration-2000 animation-ease-out">
                 <i class="download-icon pi pi-download mr-3"></i>
                 <span class="font-bold" :style="{fontFamily:'monaco'}">npm i primevue</span>
