@@ -5,7 +5,7 @@
                 <ul class="list-none p-0 m-0">
                     <li class="font-bold mb-5">General</li>
                     <li class="mb-4">
-                        <a href="/setup" class="text-secondary font-medium hover:text-primary transition-colors transition-duration-150">Get Started</a>
+                        <router-link to="/setup" class="text-secondary font-medium hover:text-primary transition-colors transition-duration-150">Get Started</router-link>
                     </li>
                     <li class="mb-4">
                         <a href="https://github.com/primefaces/primevue-examples" class="text-secondary font-medium hover:text-primary transition-colors transition-duration-150">Examples</a>
@@ -22,7 +22,7 @@
                         <a href="https://discord.gg/gzKFYnpmCY" class="text-secondary font-medium hover:text-primary transition-colors transition-duration-150">Discord</a>
                     </li>
                     <li class="mb-4">
-                        <a href="/support" class="text-secondary font-medium hover:text-primary transition-colors transition-duration-150">PRO Support</a>
+                        <router-link to="/support" class="text-secondary font-medium hover:text-primary transition-colors transition-duration-150">PRO Support</router-link>
                     </li>
                 </ul>
             </div>
@@ -56,13 +56,13 @@
                 <ul class="list-none p-0 m-0">
                     <li class="font-bold mt-5 lg:mt-0 mb-5">Theming</li>
                     <li class="mb-4">
-                        <a href="/theming" class="text-secondary font-medium hover:text-primary transition-colors transition-duration-150">Guide</a>
+                        <router-link to="/theming" class="text-secondary font-medium hover:text-primary transition-colors transition-duration-150">Guide</router-link>
                     </li>
                     <li class="mb-4">
                         <a href="https://www.primefaces.org/designer/primevue" class="text-secondary font-medium hover:text-primary transition-colors transition-duration-150">Designer</a>
                     </li>
                     <li class="mb-4">
-                        <a href="/colors" class="text-secondary font-medium hover:text-primary transition-colors transition-duration-150">Colors</a>
+                        <router-link to="/colors" class="text-secondary font-medium hover:text-primary transition-colors transition-duration-150">Colors</router-link>
                     </li>
                 </ul>
             </div>
