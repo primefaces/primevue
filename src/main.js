@@ -115,7 +115,7 @@ import './assets/styles/flags.css';
 
 router.beforeEach(function (to, from, next) {
     if (to.name === 'home' && from.name) {
-        const newTheme = app.config.globalProperties.$appState.darkTheme ? 'lara-dark-indigo' : 'lara-light-indigo';
+        const newTheme = app.config.globalProperties.$appState.darkTheme ? 'lara-dark-blue' : 'lara-light-blue';
         EventBus.emit('theme-change', { theme: newTheme, dark: app.config.globalProperties.$appState.darkTheme });
     }
     next();
