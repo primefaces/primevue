@@ -13,7 +13,7 @@
                 <div class="prime-block flex align-self-stretch p-1">
                     <div class="block-sidebar w-1 p-3">
                         <div class="logo">
-                            <img src="demo/images/landing-new/blocks/logo-1.svg" alt="block logo" />
+                            <img src="demo/images/landing/blocks/logo-1.svg" alt="block logo" />
                         </div>
                         <div class="sidebar-menu mt-5">
                             <div class="bar w-8 my-3"></div>
@@ -106,7 +106,7 @@
                 <div class="prime-block p-1 flex align-self-stretch flex-column">
                     <div class="block-header py-3 px-4 flex justify-content-between align-items-center">
                         <div class="logo pr-5">
-                            <img src="demo/images/landing-new/blocks/logo-1.svg" alt="block logo" />
+                            <img src="demo/images/landing/blocks/logo-1.svg" alt="block logo" />
                         </div>
                         <div class="flex-auto sidebar-menu flex">
                             <div class="bar w-2rem mx-2"></div>
@@ -148,7 +148,7 @@
                 <div class="prime-block flex align-self-stretch p-1">
                     <div class="block-sidebar p-3">
                         <div class="logo">
-                            <img src="demo/images/landing-new/blocks/logo-2.svg" alt="block logo" />
+                            <img src="demo/images/landing/blocks/logo-2.svg" alt="block logo" />
                         </div>
                         <div class="sidebar-menu mt-5">
                             <div class="circle my-3"></div>
@@ -214,7 +214,7 @@
                 <div class="prime-block flex align-self-stretch p-1">
                     <div class="block-sidebar w-1 p-3">
                         <div class="logo">
-                            <img src="demo/images/landing-new/blocks/logo-1.svg" alt="block logo" />
+                            <img src="demo/images/landing/blocks/logo-1.svg" alt="block logo" />
                         </div>
                         <div class="sidebar-menu mt-5">
                             <div class="bar w-8 my-3"></div>
@@ -278,7 +278,7 @@
                 <div class="prime-block  flex align-self-stretch p-1">
                     <div class="block-sidebar p-3">
                         <div class="logo">
-                            <img src="demo/images/landing-new/blocks/logo-2.svg" alt="block logo" />
+                            <img src="demo/images/landing/blocks/logo-2.svg" alt="block logo" />
                         </div>
                         <div class="sidebar-menu mt-5">
                             <div class="circle my-3"></div>
@@ -341,7 +341,7 @@
                 <div class="prime-block p-1 flex align-self-stretch flex-column">
                     <div class="block-header py-3 px-4 flex justify-content-between align-items-center">
                         <div class="logo pr-5">
-                            <img src="demo/images/landing-new/blocks/logo-1.svg" alt="block logo" />
+                            <img src="demo/images/landing/blocks/logo-1.svg" alt="block logo" />
                         </div>
                         <div class="flex-auto sidebar-menu flex">
                             <div class="bar w-2rem mx-2"></div>
@@ -356,7 +356,7 @@
                         <div class="block-main h-full flex justify-content-center align-items-center flex-column">
                             <div class="block-item block-item-active animation-2 mx-3 w-8rem text-center flex flex-column align-items-center overflow-visible">
                                 <div class="-mt-4">
-                                    <img src="demo/images/landing-new/blocks/question.svg" alt="question mark" />
+                                    <img src="demo/images/landing/blocks/question.svg" alt="question mark" />
                                 </div>
                                 <div class="bar w-2rem mt-2"></div>
                                 <div class="bar w-6rem mt-2"></div>

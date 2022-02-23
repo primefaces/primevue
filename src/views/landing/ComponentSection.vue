@@ -43,31 +43,31 @@
                 <div class="box p-4">
                     <ul class="list-none p-0 m-0">
                         <li class="flex align-items-center mb-3">
-                            <img src="demo/images/landing-new/avatar-1.svg" alt="avatar 1" class="w-2rem h-2rem mr-3" />
+                            <img src="demo/images/landing/avatar-1.svg" alt="avatar 1" class="w-2rem h-2rem mr-3" />
                             <span class="font-medium">Darrel Steward</span>
                             <ProgressBar :value="pbValue1" :showValue="false" class="w-10rem ml-auto mr-3" style="height: .5rem" />
                             <span class="text-secondary font-medium">15%</span>
                         </li>
                         <li class="flex align-items-center mb-3">
-                            <img src="demo/images/landing-new/avatar-2.svg" alt="avatar 2" class="w-2rem h-2rem mr-3" />
+                            <img src="demo/images/landing/avatar-2.svg" alt="avatar 2" class="w-2rem h-2rem mr-3" />
                             <span class="font-medium">Albert Flores</span>
                             <ProgressBar :value="pbValue3" :showValue="false" class="w-10rem ml-auto mr-3" style="height: .5rem" />
                             <span class="text-secondary font-medium">85%</span>
                         </li>
                         <li class="flex align-items-center mb-3">
-                            <img src="demo/images/landing-new/avatar-3.svg" alt="avatar 3" class="w-2rem h-2rem mr-3" />
+                            <img src="demo/images/landing/avatar-3.svg" alt="avatar 3" class="w-2rem h-2rem mr-3" />
                             <span class="font-medium">Kathryn Murphy</span>
                             <ProgressBar :value="pbValue3" :showValue="false" class="w-10rem ml-auto mr-3" style="height: .5rem" />
                             <span class="text-secondary font-medium">50%</span>
                         </li>
                         <li class="flex align-items-center mb-3">
-                            <img src="demo/images/landing-new/avatar-4.svg" alt="avatar 4" class="w-2rem h-2rem mr-3" />
+                            <img src="demo/images/landing/avatar-4.svg" alt="avatar 4" class="w-2rem h-2rem mr-3" />
                             <span class="font-medium">Cody Fisher</span>
                             <ProgressBar :value="pbValue4" :showValue="false" class="w-10rem ml-auto mr-3" style="height: .5rem" />
                             <span class="text-secondary font-medium">75%</span>
                         </li>
                         <li class="flex align-items-center mb-3">
-                            <img src="demo/images/landing-new/avatar-5.svg" alt="avatar 5" class="w-2rem h-2rem mr-3" />
+                            <img src="demo/images/landing/avatar-5.svg" alt="avatar 5" class="w-2rem h-2rem mr-3" />
                             <span class="font-medium">Brandon Atkinson</span>
                             <ProgressBar :value="pbValue5" :showValue="false" class="w-10rem ml-auto mr-3" style="height: .5rem" />
                             <span class="text-secondary font-medium">60%</span>
@@ -78,7 +78,7 @@
             <div class="flex flex-column justify-content-start px-3 z-1">
                 <div class="box p-4 mb-5">
                     <div class="surface-card mb-4 w-20rem text-center p-5" style="border-radius:'10px'">
-                        <img src="demo/images/landing-new/watch.png" alt="Watch"/>
+                        <img src="demo/images/landing/watch.png" alt="Watch"/>
                     </div>
                     <div class="flex align-items-center mb-4">
                         <div class="flex flex-column">
@@ -113,7 +113,7 @@
                     <ul class="list-none p-0 m-0">
                         <li class="flex mb-3">
                             <span class="mr-3">
-                                <img src="demo/images/landing-new/avatar.png" alt="Avatar" class="w-3rem h-3rem" />
+                                <img src="demo/images/landing/avatar.png" alt="Avatar" class="w-3rem h-3rem" />
                             </span>
                             <div class="flex flex-column">
                                 <span class="font-bold mb-2">Amanda Williams</span>

@@ -3,11 +3,11 @@
         <div class="section-header">Theme Designer</div>
         <p class="section-detail">Designer is the ultimate tool to create your own PrimeVue experience powered by a SASS based theme engine with 500+ variables and a Visual Designer.</p>
         <div class="designer-main mt-7 justify-content-center pad-section"
-            :style="{backgroundImage:`url('demo/images/landing-new/wave-${$appState.darkTheme ? 'dark' : 'light'}.svg')`, backgroundSize:'cover'}">
+            :style="{backgroundImage:`url('demo/images/landing/wave-${$appState.darkTheme ? 'dark' : 'light'}.svg')`, backgroundSize:'cover'}">
             <div class="box p-4 flex flex-column md:flex-row z-1 designer-editor">
                 <div class="mr-0 md:mr-4 p-4 designer-controls box border-bottom-1 border-left-none border-right-none border-top-none md:border-bottom-none md:border-right-1" style="border-radius: '10px'">
                     <div class="text-center mb-4">
-                        <img :src="'demo/images/landing-new/' + `${$appState.darkTheme ? 'designer-light.svg' : 'designer-dark.svg'}`" />
+                        <img :src="'demo/images/landing/' + `${$appState.darkTheme ? 'designer-light.svg' : 'designer-dark.svg'}`" />
                     </div>
                     <div class="p-fluid">
                         <span class="font-semibold block mb-3">Primary</span>

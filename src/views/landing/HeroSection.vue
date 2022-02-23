@@ -5,7 +5,7 @@
                 <div class="p-2 flex flex-row md:flex-column">
                     <div class="hero-box w-10rem h-10rem md:w-12rem md:h-12rem animation flex align-items-center justify-content-center" @click="() => window.location.href = 'https://www.primefaces.org/store'">
                         <div class="flex flex-column align-items-center">
-                            <img src="demo/images/landing-new/templates-icon.svg" alt="primevue templates" />
+                            <img src="demo/images/landing/templates-icon.svg" alt="primevue templates" />
                             <div class="name">
                                 <b>Templates</b>
                                 <span>Spectacular Designs</span>
@@ -14,7 +14,7 @@
                     </div>
                     <div class="hero-box w-10rem h-10rem md:w-12rem md:h-12rem animation ml-4 md:ml-0 md:mt-4 flex align-items-center justify-content-center"  @click="() => window.location.href = 'https://www.primefaces.org/designer-vue'">
                         <div class="flex flex-column align-items-center">
-                            <img src="demo/images/landing-new/designer-icon.svg" alt="primevue templates" />
+                            <img src="demo/images/landing/designer-icon.svg" alt="primevue templates" />
                             <div class="name">
                                 <b>Theme Designer</b>
                                 <span>Create Your Own</span>
@@ -25,7 +25,7 @@
                 <div class="p-2 flex flex-row md:flex-column">
                     <div class="hero-box w-10rem h-10rem md:w-12rem md:h-12rem animation flex align-items-center justify-content-center" @click="() => window.location.href = 'https://github.com/primefaces/primevue'">
                         <div class="flex flex-column align-items-center">
-                            <img src="demo/images/landing-new/core-icon.svg" alt="primevue core" />
+                            <img src="demo/images/landing/core-icon.svg" alt="primevue core" />
                             <div class="name">
                                 <b>Open Source</b>
                                 <span>90+ UI Components</span>
@@ -35,7 +35,7 @@
                     <router-link to="/setup">
                         <div class="hero-box w-10rem h-10rem md:w-12rem md:h-12rem animation logo hidden md:flex my-4 align-items-center justify-content-center">
                             <div class="hero-box-inner text-center">
-                                <img src="demo/images/landing-new/overview-icon.svg" alt="primevue main" />
+                                <img src="demo/images/landing/overview-icon.svg" alt="primevue main" />
                                 <div class="name">
                                     <b class="font-bold">NEXT-GEN VUE UI</b>
                                 </div>
@@ -44,7 +44,7 @@
                     </router-link>
                     <div class="hero-box w-10rem h-10rem md:w-12rem md:h-12rem animation flex ml-4 md:ml-0 align-items-center justify-content-center" @click="() => window.location.href = 'https://www.primefaces.org/primeflex'">
                         <div class="flex flex-column align-items-center">
-                            <img src="demo/images/landing-new/css-icon.svg" alt="primevue icons" />
+                            <img src="demo/images/landing/css-icon.svg" alt="primevue icons" />
                             <div class="name">
                                 <b>CSS Utilities</b>
                                 <span>PrimeFlex CSS</span>
@@ -55,7 +55,7 @@
                 <div class="p-2 flex flex-row md:flex-column">
                     <div class="hero-box w-10rem h-10rem md:w-12rem md:h-12rem animation flex align-items-center justify-content-center" @click="() => window.location.href = 'https://www.primefaces.org/primeblocks-vue'">
                         <div class="flex flex-column align-items-center">
-                            <img src="demo/images/landing-new/blocks-icon.svg" alt="primevue templates" />
+                            <img src="demo/images/landing/blocks-icon.svg" alt="primevue templates" />
                             <div class="name">
                                 <b>Prime Blocks</b>
                                 <span>280+ UI Blocks</span>
@@ -65,7 +65,7 @@
                     <router-link to="/icons">
                         <div class="hero-box w-10rem h-10rem md:w-12rem md:h-12rem animation flex ml-4 md:ml-0 md:mt-4 align-items-center justify-content-center">
                             <div class="flex flex-column align-items-center">
-                                <img src="demo/images/landing-new/icons-icon.svg" alt="primevue templates" />
+                                <img src="demo/images/landing/icons-icon.svg" alt="primevue templates" />
                                 <div class="name">
                                     <b>Icon Library</b>
                                     <span>200+ Icons</span>
