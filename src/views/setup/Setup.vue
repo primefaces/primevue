@@ -1,11 +1,14 @@
 <template>
     <div>
+        <div class="content-section introduction">
+            <div class="feature-intro">
+                <Message severity="warn">This guide is for Vue 3 and PrimeVue 3, visit <a href="https://www.primefaces.org/primevue/showcase-v2">PrimeVue 2.x website</a> if you are using Vue 2.</Message>
+
+                <h1>Setup</h1>
+                <p>PrimeVue is a rich set of open source native components for Vue.</p>
+            </div>
+        </div>
         <div class="content-section documentation">
-            <Message severity="warn">This guide is for Vue 3 and PrimeVue 3, visit <a href="https://www.primefaces.org/primevue/showcase-v2">PrimeVue 2.x website</a> if you are using Vue 2.</Message>
-
-            <h1>Setup</h1>
-            <p>PrimeVue is a rich set of open source native components for Vue.</p>
-
             <h3>Module Loader</h3>
             <p>This is the recommended way if your application uses <a href="https://cli.vuejs.org">Vue CLI</a>, <a href="https://vitejs.dev">Vite</a> or has a webpack based build with <a href="https://github.com/vuejs/vue-loader">vue-loader</a> configured.</p>
 

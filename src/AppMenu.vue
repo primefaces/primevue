@@ -1,9 +1,9 @@
 <template>
     <div :class="['layout-sidebar', {'active': active}]">
         <router-link to="/" class="logo">
-            <img alt="logo" src="./assets/images/primevue-logo.png">
+            <img :src="'demo/images/landing-new/primevue-logo-' + `${$appState.darkTheme ? 'light' : 'dark'}` + '.svg'" alt="primevue logo"/>
         </router-link>
-        <div class="layout-sidebar-filter p-fluid p-input-filled">
+        <div class="layout-sidebar-filter p-fluid">
             <AutoComplete v-model="selectedRoute" :suggestions="filteredRoutes" @complete="searchRoute($event)" @item-select="onItemSelect($event)" scrollHeight="300px" placeholder="Search" 
                 field="name" optionGroupLabel="name" optionGroupChildren="children" appendTo="self">
             </AutoComplete>

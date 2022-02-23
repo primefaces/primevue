@@ -1,7 +1,7 @@
 import {createApp} from 'vue';
 import {reactive} from 'vue';
 import router from './router';
-import App from './App.vue';
+import AppWrapper from './AppWrapper.vue';
 import PrimeVue from './components/config/PrimeVue';
 import AutoComplete from './components/autocomplete/AutoComplete';
 import Accordion from './components/accordion/Accordion';
@@ -116,7 +116,7 @@ router.beforeEach(function (to, from, next) {
     next();
 });
 
-const app = createApp(App);
+const app = createApp(AppWrapper);
 
 app.config.globalProperties.$appState = reactive({darkTheme: false, codeSandbox: false, sourceType: 'options-api'});
 

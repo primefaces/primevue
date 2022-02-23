@@ -1,0 +1,25 @@
+.landing-components {
+    .components-main {
+        .components-strip-top {
+            background: var(--home-components-strip-bg);
+            transform: matrix(-1, 0, 0, 1, 0, 0);
+        }
+
+        .components-strip-bottom {
+            background: var(--home-components-strip-bg);
+        }
+    }
+
+    .p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link {
+        background: transparent;
+    }
+
+    .box {
+        box-shadow: var(--home-card-shadow);
+    }
+
+    .p-datepicker, .p-datepicker-header {
+        background: transparent;
+        border-color: transparent;
+    }
+}

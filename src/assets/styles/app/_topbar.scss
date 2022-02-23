@@ -1,13 +1,13 @@
 .layout-topbar {
-    background-color: var(--surface-card);
-    padding: 0;
+    padding: 0 4rem;
     height: 70px;
-    box-shadow: 0 0 4px rgba(0,0,0,0.25);
-    border-bottom: 1px solid var(--surface-border);
+    position: fixed;
+    top: 0;
+    left: 250px;
+    width: calc(100% - 250px);
+    z-index: 1100;
     display: flex;
     align-items: center;
-    padding: 0 35px;
-    margin-left: 250px;
 
     .logo {
         display: none;

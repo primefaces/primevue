@@ -101,11 +101,16 @@
         {
             "name": "PrimeBlocks",
             "meta": ["primeblocks"],
-            "banner": true,
-            "imageLight": "demo/images/banner-primeblocks.png",
-            "imageDark": "demo/images/banner-primeblocks-dark.png",
-            "url": "https://www.primefaces.org/primeblocks-vue",
-            "children": []
+            "children": [
+                {
+                    "name": "Free Blocks",
+                    "href": "https://www.primefaces.org/primeblocks-vue/#/free"
+                },
+                {
+                    "name": "All Blocks",
+                    "href": "https://www.primefaces.org/primeblocks-vue/"
+                }
+            ]
         },
         {
             "name": "PrimeFlex",
@@ -141,8 +146,7 @@
                 },
                 {
                     "name": "Calendar",
-                    "to": "/calendar",
-                    "badge": "Updated"
+                    "to": "/calendar"
                 },
                 {
                     "name": "CascadeSelect",
