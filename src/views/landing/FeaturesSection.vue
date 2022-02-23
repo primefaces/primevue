@@ -7,7 +7,7 @@
                 <div class="box p-4 w-full">
                     <img src="demo/images/landing-new/features/icon-components.svg" alt="components icon" class="block mb-3"/>
                     <div class="font-semibold mb-3 text-lg">90+ UI Components</div>
-                    <p class="m-0 text-secondary font-medium">The ultimate set of UI Components to assist you with 80+ impressive Vue Components.</p>
+                    <p class="m-0 text-secondary font-medium">The ultimate set of UI Components to assist you with 90+ impressive Vue Components.</p>
                 </div>
             </div>
             <div class="col-12 md:col-6 xl:col-3 flex justify-content-center p-3">
@@ -28,7 +28,7 @@
                 <div class="box p-4 w-full">
                     <img src="demo/images/landing-new/features/icon-accessibility.svg" alt="components icon" class="block mb-3"/>
                     <div class="font-semibold mb-3 text-lg">Accessibility</div>
-                    <p class="m-0 text-secondary font-medium">The ultimate set of UI Components to assist you with 80+ impressive Vue Components.</p>
+                    <p class="m-0 text-secondary font-medium">Compliant with the Web Content Accessibility Guidelines (WCAG 2.0).</p>
                 </div>
             </div>
             <div class="col-12 md:col-6 xl:col-3 flex justify-content-center p-3">

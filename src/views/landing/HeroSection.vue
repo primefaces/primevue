@@ -28,7 +28,7 @@
                             <img src="demo/images/landing-new/core-icon.svg" alt="primevue core" />
                             <div class="name">
                                 <b>Open Source</b>
-                                <span>80+ UI Components</span>
+                                <span>90+ UI Components</span>
                             </div>
                         </div>
                     </div>
