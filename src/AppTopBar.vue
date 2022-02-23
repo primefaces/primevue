@@ -5,7 +5,7 @@
         </a>
         <router-link to="/" class="logo">
             <img alt="logo" src="./assets/images/primevue-logo.png">
-        </router-link>{{theme}}
+        </router-link>
         <div class="app-theme" v-tooltip.bottom="theme">
             <img :src="'demo/images/themes/' + logoMap[theme]" />
         </div>
