@@ -196,7 +196,7 @@ export default {
     },
     scrollListener: null,
     container: null,
-    mounted() {console.log(this.theme)
+    mounted() {
         this.bindScrollListener();
     },
     beforeUnmount() {
