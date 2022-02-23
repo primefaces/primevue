@@ -54,7 +54,7 @@ export default {
     },
     methods: {
         onThemeToggle() {
-            const newTheme = this.$appState.darkTheme ? 'lara-light-indigo' : 'lara-dark-indigo';
+            const newTheme = this.$appState.darkTheme ? 'lara-light-blue' : 'lara-dark-blue';
             const newTableTheme =  this.$appState.darkTheme ? this.tableTheme.replace('dark', 'light') : this.tableTheme.replace('light', 'dark');
 
             EventBus.emit('theme-change', { theme: newTheme, dark: !this.$appState.darkTheme });
