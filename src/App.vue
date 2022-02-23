@@ -49,6 +49,8 @@ export default {
         if (this.isOutdatedIE()) {
             this.$toast.add({severity: 'warn', summary: 'Limited Functionality', detail: 'Although PrimeVue supports IE11, ThemeSwitcher in this application cannot be not fully supported by your browser. Please use a modern browser for the best experience of the showcase.'});
         }
+
+        this.changeTheme({ theme: this.theme, dark: this.$appState.darkTheme });
     },
     watch: {
         $route: {
