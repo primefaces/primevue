@@ -1,11 +1,10 @@
 <template>
-    <Home v-if="$route.path === '/'" :theme="theme" @change-theme="changeTheme" />
-    <App v-else :theme="theme" @change-theme="changeTheme" />
+    <div>
+        <router-view></router-view>
+    </div>
 </template>
 
 <script>
-import Home from './Home.vue';
-import App from './App.vue';
 import EventBus from '@/AppEventBus';
 
 export default {
@@ -45,11 +44,11 @@ export default {
                 cloneLinkElement.setAttribute('id', id);
             });
         },
-    },
+    }/*,
     components: {
         'App': App,
         'Home': Home
-    }
+    }*/
 }
 </script>
 
