@@ -52,13 +52,13 @@
 <script>
 export default {
     emits: ['change-theme'],
-    scrollListener: null,
-    container: null,
     data() {
         return {
             menuActive: false
         }
     },
+    scrollListener: null,
+    container: null,
     mounted() {
         this.bindScrollListener();
     },

@@ -11,7 +11,8 @@ const routes = [
     },
     {
         path: '/',
-        component: () => App,
+        name: 'App',
+        component: App,
         children: [
         {
             path: '/setup',

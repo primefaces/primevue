@@ -1,11 +1,11 @@
 <template>
-    <div class="layout-topbar">
+    <div :ref="containerRef" class="layout-topbar">
         <a class="menu-button" @click="$emit('menubutton-click')">
             <i class="pi pi-bars"></i>
         </a>
         <router-link to="/" class="logo">
             <img alt="logo" src="./assets/images/primevue-logo.png">
-        </router-link>
+        </router-link>{{theme}}
         <div class="app-theme" v-tooltip.bottom="theme">
             <img :src="'demo/images/themes/' + logoMap[theme]" />
         </div>
@@ -185,13 +185,23 @@ export default {
                 'tailwind-light': 'tailwind-light.png',
                 'lara-dark-indigo': 'lara-dark-indigo.png',
                 'lara-dark-purple': 'lara-dark-purple.png',
+                'lara-dark-teal': 'lara-dark-teal.png',
+                'lara-dark-blue': 'lara-dark-blue.png',
                 'lara-light-indigo': 'lara-light-indigo.png',
                 'lara-light-purple': 'lara-light-purple.png',
-                'lara-dark-teal': 'lara-dark-indigo.png',
-                'lara-dark-blue': 'lara-dark-blue.png',
                 'lara-light-teal': 'lara-light-teal.png',
                 'lara-light-blue': 'lara-light-blue.png'
             }
+        }
+    },
+    scrollListener: null,
+    container: null,
+    mounted() {console.log(this.theme)
+        this.bindScrollListener();
+    },
+    beforeUnmount() {
+        if (this.scrollListener) {
+            this.unbindScrollListener();
         }
     },
     methods: {
@@ -206,6 +216,25 @@ export default {
         },
         onMenuEnter() {
             this.bindOutsideClickListener();
+        },
+        bindScrollListener() {
+            if (!this.scrollListener) {
+                if (this.container) {
+                    this.scrollListener = () => {
+                        if (window.scrollY > 0)
+                            this.container.classList.add('layout-topbar-sticky');
+                        else
+                            this.container.classList.remove('layout-topbar-sticky');
+                    }
+                }
+            }
+            window.addEventListener('scroll', this.scrollListener);
+        },
+        unbindScrollListener() {
+            if (this.scrollListener) {
+                window.removeEventListener('scroll', this.scrollListener);
+                this.scrollListener = null;
+            }
         },
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
@@ -226,7 +255,10 @@ export default {
         },
         isOutsideTopbarMenuClicked(event) {
             return !(this.$refs.topbarMenu.isSameNode(event.target) || this.$refs.topbarMenu.contains(event.target));
-        }
+        },
+        containerRef(el) {
+            this.container = el;
+        },
     }
 }
 </script>

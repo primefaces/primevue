@@ -30,6 +30,7 @@
 </template>
 
 <script>
+import EventBus from '@/AppEventBus';
 import DomHandler from '@/components/utils/DomHandler';
 import AppTopBar from '@/AppTopBar.vue';
 import AppMenu from '@/AppMenu.vue';
@@ -37,14 +38,9 @@ import AppFooter from '@/AppFooter.vue';
 import AppConfigurator from '@/AppConfigurator.vue';
 
 export default {
-    props: {
-        theme: {
-            type: String,
-            default: "lara-light-indigo"
-        }
-    },
     data() {
         return {
+            theme: this.$appState.darkTheme ? 'lara-dark-indigo' : 'lara-light-indigo',
             sidebarActive: false,
             newsActive: false
         }
@@ -53,8 +49,6 @@ export default {
         if (this.isOutdatedIE()) {
             this.$toast.add({severity: 'warn', summary: 'Limited Functionality', detail: 'Although PrimeVue supports IE11, ThemeSwitcher in this application cannot be not fully supported by your browser. Please use a modern browser for the best experience of the showcase.'});
         }
-
-        this.newsActive = this.newsActive && sessionStorage.getItem('primevue-news-hidden') == null;
     },
     watch: {
         $route: {
@@ -94,9 +88,30 @@ export default {
             event.stopPropagation();
         },
         changeTheme(event) {
-            this.$emit('change-theme', event);
+            let themeLink = document.getElementById('theme-link');
+            let hrefThemeLink = 'themes/' + event.theme + '/theme.css';
 
             this.activeMenuIndex = null;
+
+            EventBus.emit('change-theme', { theme: event.theme, dark: event.dark });
+            
+            this.theme = event.theme;
+            this.$appState.darkTheme = event.dark;
+            this.replaceLink(themeLink, hrefThemeLink);
+        },
+        replaceLink(linkElement, href) {
+            const id = linkElement.getAttribute('id');
+            const cloneLinkElement = linkElement.cloneNode(true);
+
+            cloneLinkElement.setAttribute('href', href);
+            cloneLinkElement.setAttribute('id', id + '-clone');
+
+            linkElement.parentNode.insertBefore(cloneLinkElement, linkElement.nextSibling);
+
+            cloneLinkElement.addEventListener('load', () => {
+                linkElement.remove();
+                cloneLinkElement.setAttribute('id', id);
+            });
         },
         addClass(element, className) {
             if (!this.hasClass(element, className)) {

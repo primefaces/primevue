@@ -16,6 +16,7 @@
 </template>
 
 <script>
+import EventBus from '@/AppEventBus';
 import HeaderSection from './views/landing/HeaderSection';
 import HeroSection from './views/landing/HeroSection';
 import ComponentSection from './views/landing/ComponentSection';
@@ -55,16 +56,21 @@ export default {
             this.tableTheme =  this.$appState.darkTheme ? this.tableTheme.replace('dark', 'light') : this.tableTheme.replace('light', 'dark');
             this.changeTheme(theme);
 
-            this.$emit('change-theme', { theme, dark: !this.$appState.darkTheme });
+            EventBus.emit('change-theme', { theme, dark: !this.$appState.darkTheme });
+            this.$appState.darkTheme = !this.$appState.darkTheme;
         },
         onThemeChange(theme) {
             this.changeTheme(theme);
         },
         changeTheme(theme) {
-            let themeLink = document.getElementById('home-link');
-            let href = 'styles/landing/themes/' + theme + '/theme.css';
+            let themeLink = document.getElementById('theme-link');
+            let hrefThemeLink = 'themes/' + theme + '/theme.css';
 
-            this.replaceLink(themeLink, href);
+            let homeLink = document.getElementById('home-link');
+            let hrefHomeLink = 'styles/landing/themes/' + theme + '/theme.css';
+
+            this.replaceLink(themeLink, hrefThemeLink);
+            this.replaceLink(homeLink, hrefHomeLink);
         },
         replaceLink(linkElement, href) {
             const id = linkElement.getAttribute('id');

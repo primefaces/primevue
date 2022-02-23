@@ -8,6 +8,10 @@
     z-index: 1100;
     display: flex;
     align-items: center;
+    
+    &.layout-topbar-sticky {
+        backdrop-filter: blur(12px);
+    }
 
     .logo {
         display: none;
@@ -174,6 +178,22 @@
 
         .theme-badge.darkmode {
             background: linear-gradient(to bottom, #141d26, #5a6067);
+        }
+    }
+}
+
+.layout-wrapper-dark {
+    .layout-topbar {
+        &.layout-topbar-sticky {
+            background-color: rgba(0, 0, 0 , 0.3);
+        }
+    }
+}
+
+.layout-wrapper-light {
+    .layout-topbar {
+        &.layout-topbar-sticky {
+            background-color: rgba(255, 255, 255, 0.85);
         }
     }
 }
