@@ -12,76 +12,37 @@
             <div class="flex">
                 <div class="template-block block-1 mr-2 flex justify-content-center align-items-center"
                     :style="{backgroundImage: imageBg('diamond')}">
-                <a
-                    class="templates-btn"
-                    target="_blank"
-                    href="https://www.primefaces.org/diamond-vue/"
-                    >
-                Diamond Preview
-                </a>
-            </div>
+                    <a class="templates-btn" target="_blank" href="https://www.primefaces.org/diamond-vue/" >Diamond Preview</a>
+                </div>
             <div
             class="template-block block-2 ml-2 flex justify-content-center align-items-center"
                 :style="{backgroundImage: imageBg('freya')}">
-            <a
-                class="templates-btn"
-                target="_blank"
-                href="https://www.primefaces.org/freya-vue/"
-                >
-            Freya Preview
-            </a>
-            </div>
+                <a class="templates-btn" target="_blank" href="https://www.primefaces.org/freya-vue/" >Freya Preview</a>
+                </div>
             </div>
             <div class="flex my-4">
-                <div
-                class="template-block block-3 mr-2 flex justify-content-center align-items-center"
+                <div class="template-block block-3 mr-2 flex justify-content-center align-items-center"
                     :style="{backgroundImage: imageBg('atlantis')}">
-                <a
-                    class="templates-btn"
-                    target="_blank"
-                    href="https://www.primefaces.org/atlantis-vue/"
-                    >
-                Atlantis Preview
-                </a>
-            </div>
-            <div class="template-block block-middle border-none box-shadow-none mr-2 flex justify-content-center align-items-center flex-column">
-                <img class="img-1"
-                :src="templateImg()" height="110">
-            </div>
-            <div class="template-block block-4 ml-2 flex justify-content-center align-items-center"
-                :style="{backgroundImage: imageBg('apollo')}">
-            <a
-                class="templates-btn"
-                target="_blank"
-                href="https://www.primefaces.org/apollo-vue/"
-                >
-            Apollo Preview
-            </a>
-            </div>
+                    <a class="templates-btn" target="_blank" href="https://www.primefaces.org/atlantis-vue/" >Atlantis Preview</a>
+                </div>
+                <div class="template-block block-middle border-none box-shadow-none mr-2 flex justify-content-center align-items-center flex-column">
+                    <img class="img-1"
+                    :src="templateImg()" height="110">
+                </div>
+                <div class="template-block block-4 ml-2 flex justify-content-center align-items-center"
+                    :style="{backgroundImage: imageBg('apollo')}">
+                    <a class="templates-btn" target="_blank" href="https://www.primefaces.org/apollo-vue/" >Apollo Preview</a>
+                </div>
             </div>
             <div class="flex">
-                <div
-                class="template-block block-5 mr-2 flex justify-content-center align-items-center"
+                <div class="template-block block-5 mr-2 flex justify-content-center align-items-center"
                     :style="{backgroundImage: imageBg('serenity')}">
-                <a
-                    class="templates-btn"
-                    target="_blank"
-                    href="https://www.primefaces.org/serenity-vue/"
-                    >
-                Serenity Preview
-                </a>
-            </div>
-            <div
-            class="template-block block-6 ml-2 flex justify-content-center align-items-center"
-                :style="{backgroundImage: imageBg('ultima')}">
-            <a
-                class="templates-btn"
-                target="_blank"
-                href="https://www.primefaces.org/ultima-vue/"
-                >
-            Ultima Preview
-            </a>
-            </div>
+                    <a class="templates-btn" target="_blank" href="https://www.primefaces.org/serenity-vue/" >Serenity Preview</a>
+                </div>
+                <div class="template-block block-6 ml-2 flex justify-content-center align-items-center"
+                    :style="{backgroundImage: imageBg('ultima')}">
+                    <a class="templates-btn" target="_blank" href="https://www.primefaces.org/ultima-vue/" >Ultima Preview</a>
+                </div>
             </div>
             <div class="lines">
                 <div class="top">
