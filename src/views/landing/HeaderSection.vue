@@ -67,6 +67,9 @@ export default {
             this.unbindScrollListener();
         }
     },
+    updated() {
+        this.checkSticky();
+    },
     methods: {
         isDarkTheme() {
             return this.$appState.darkTheme === true;
@@ -78,14 +81,9 @@ export default {
             this.menuActive = !this.menuActive;
         },
         bindScrollListener() {
-            if (!this.scrollListener) {
-                if (this.container) {
-                    this.scrollListener = () => {
-                        if (window.scrollY > 0)
-                            this.container.classList.add('landing-header-sticky');
-                        else
-                            this.container.classList.remove('landing-header-sticky');
-                    }
+            if (!this.scrollListener && this.container) {
+                this.scrollListener = () => {
+                    this.checkSticky();
                 }
             }
             window.addEventListener('scroll', this.scrollListener);
@@ -99,6 +97,12 @@ export default {
         containerRef(el) {
             this.container = el;
         },
+        checkSticky() {
+            if (window.scrollY > 0)
+                this.container.classList.add('landing-header-sticky');
+            else
+                this.container.classList.remove('landing-header-sticky');
+        }
     }
 }
 </script>
