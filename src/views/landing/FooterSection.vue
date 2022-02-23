@@ -7,9 +7,6 @@
                     <li class="mb-4">
                         <router-link to="/setup" class="text-secondary font-medium hover:text-primary transition-colors transition-duration-150">Get Started</router-link>
                     </li>
-                    <li class="mb-4">
-                        <a href="https://github.com/primefaces/primevue-examples" class="text-secondary font-medium hover:text-primary transition-colors transition-duration-150">Examples</a>
-                    </li>
                 </ul>
             </div>
             <div class="w-6 lg:w-3 flex">
