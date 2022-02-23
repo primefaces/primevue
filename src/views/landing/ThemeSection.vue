@@ -30,19 +30,19 @@
                     <template #loading>
                         Loading customers data. Please wait.
                     </template>
-                    <Column selectionMode="multiple" style="min-width: 3rem"></Column>
-                    <Column field="name" header="Name" sortable style="min-width: 12rem">
+                    <Column selectionMode="multiple" style="width: 3rem"></Column>
+                    <Column field="name" header="Name" sortable style="min-width: 14rem">
                         <template #body="{data}">
                             {{data.name}}
                         </template>
                     </Column>
-                    <Column field="country.name" header="Country" sortable style="min-width: 12rem">
+                    <Column field="country.name" header="Country" sortable style="min-width: 14rem">
                         <template #body="{data}">
                             <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + data.country.code" width="30" />
                             <span class="image-text">{{data.country.name}}</span>
                         </template>
                     </Column>
-                    <Column header="Agent" sortable sortField="representative.name" style="min-width: 12rem">
+                    <Column header="Agent" sortable sortField="representative.name" style="min-width: 14rem">
                         <template #body="{data}">
                             <img :alt="data.representative.name" :src="'demo/images/avatar/' + data.representative.image" width="32" style="vertical-align: middle" />
                             <span class="image-text">{{data.representative.name}}</span>
@@ -63,7 +63,7 @@
                             <span :class="'customer-badge status-' + data.status">{{data.status}}</span>
                         </template>
                     </Column>
-                    <Column field="activity" header="Activity" sortable style="min-width: 10rem">
+                    <Column field="activity" header="Activity" sortable style="min-width: 6rem">
                         <template #body="{data}">
                             <ProgressBar :value="data.activity" :showValue="false" style="height: 7px" />
                         </template>
