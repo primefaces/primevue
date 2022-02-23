@@ -39,7 +39,7 @@
             <a href="https://discord.gg/gzKFYnpmCY" rel="noopener noreferrer" class="linkbox p-0 header-button mr-2 flex align-items-center justify-content-center flex-shrink-0">
                 <i class="pi pi-discord"></i>
             </a>
-            <button type="button" class="linkbox header-button inline-flex align-items-center justify-content-center" @click="changeTheme">
+            <button type="button" class="linkbox header-button inline-flex align-items-center justify-content-center" @click="toggleTheme">
                 <i :class="['pi', {'pi-sun': isDarkTheme(), 'pi-moon': !isDarkTheme()}]"></i>
             </button>
             <button type="button" class="linkbox header-button inline-flex align-items-center justify-content-center lg:hidden ml-2 menu-button" @click="toggleMenuActive" >
@@ -51,7 +51,7 @@
 
 <script>
 export default {
-    emits: ['change-theme'],
+    emits: ['theme-toggle'],
     data() {
         return {
             menuActive: false
@@ -71,8 +71,8 @@ export default {
         isDarkTheme() {
             return this.$appState.darkTheme === true;
         },
-        changeTheme() {
-            this.$emit('change-theme');
+        toggleTheme() {
+            this.$emit('theme-toggle');
         },
         toggleMenuActive() {
             this.menuActive = !this.menuActive;

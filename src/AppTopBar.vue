@@ -6,8 +6,8 @@
         <router-link to="/" class="logo">
             <img alt="logo" src="./assets/images/primevue-logo.png">
         </router-link>
-        <div class="app-theme" v-tooltip.bottom="theme">
-            <img :src="'demo/images/themes/' + logoMap[theme]" />
+        <div class="app-theme" v-tooltip.bottom="$appState.theme">
+            <img :src="'demo/images/themes/' + logoMap[$appState.theme]" />
         </div>
         <ul ref="topbarMenu" class="topbar-menu">
             <li><router-link to="/setup">Get Started</router-link></li>
@@ -127,6 +127,8 @@
 </template>
 
 <script>
+import EventBus from '@/AppEventBus';
+
 export default {
     outsideClickListener: null,
     darkDemoStyle: null,
@@ -134,9 +136,6 @@ export default {
         $route() {
             this.activeMenuIndex = null;
         }
-    },
-    props: {
-        theme: null
     },
     data() {
         return {
@@ -206,7 +205,7 @@ export default {
     },
     methods: {
         changeTheme(event, theme, dark) {
-            this.$emit('change-theme', {theme: theme, dark: dark});
+            EventBus.emit('theme-change', { theme: theme, dark: dark });
             this.activeMenuIndex = null;
             event.preventDefault();
         },

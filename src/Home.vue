@@ -1,11 +1,11 @@
 <template>
     <div :class="landingClass">
         <div class="landing-intro">
-            <HeaderSection @change-theme="onToggleTheme" />
+            <HeaderSection @theme-toggle="onThemeToggle" />
             <HeroSection />
         </div>
         <ComponentSection />
-        <ThemeSection :theme="theme" @theme-change="onThemeChange" />
+        <ThemeSection :theme="tableTheme" @table-theme-change="onTableThemeChange" />
         <BlockSection />
         <DesignerSection />
         <TemplateSection />
@@ -51,41 +51,32 @@ export default {
         }
     },
     methods: {
-        onToggleTheme() {
-            const theme = this.$appState.darkTheme ? 'lara-light-indigo' : 'lara-dark-indigo';
-            this.tableTheme =  this.$appState.darkTheme ? this.tableTheme.replace('dark', 'light') : this.tableTheme.replace('light', 'dark');
-            this.changeTheme(theme);
+        onThemeToggle() {
+            const newTheme = this.$appState.darkTheme ? 'lara-light-indigo' : 'lara-dark-indigo';
+            const newTableTheme =  this.$appState.darkTheme ? this.tableTheme.replace('dark', 'light') : this.tableTheme.replace('light', 'dark');
 
-            EventBus.emit('change-theme', { theme, dark: !this.$appState.darkTheme });
-            this.$appState.darkTheme = !this.$appState.darkTheme;
+            EventBus.emit('theme-change', { theme: newTheme, dark: !this.$appState.darkTheme });
+            this.replaceTableTheme(newTableTheme);
         },
-        onThemeChange(theme) {
-            this.changeTheme(theme);
+        onTableThemeChange(value) {
+            this.replaceTableTheme(value);
         },
-        changeTheme(theme) {
-            let themeLink = document.getElementById('theme-link');
-            let hrefThemeLink = 'themes/' + theme + '/theme.css';
-
-            let homeLink = document.getElementById('home-link');
-            let hrefHomeLink = 'styles/landing/themes/' + theme + '/theme.css';
-
-            this.replaceLink(themeLink, hrefThemeLink);
-            this.replaceLink(homeLink, hrefHomeLink);
-        },
-        replaceLink(linkElement, href) {
-            const id = linkElement.getAttribute('id');
+        replaceTableTheme(newTheme) {
+            const elementId = 'home-table-link';
+            const linkElement = document.getElementById(elementId);
             const cloneLinkElement = linkElement.cloneNode(true);
+            const newThemeUrl = linkElement.getAttribute('href').replace(this.tableTheme, newTheme);
 
-            cloneLinkElement.setAttribute('href', href);
-            cloneLinkElement.setAttribute('id', id + '-clone');
-
-            linkElement.parentNode.insertBefore(cloneLinkElement, linkElement.nextSibling);
-
+            cloneLinkElement.setAttribute('id', elementId + '-clone');
+            cloneLinkElement.setAttribute('href', newThemeUrl);
             cloneLinkElement.addEventListener('load', () => {
                 linkElement.remove();
-                cloneLinkElement.setAttribute('id', id);
+                cloneLinkElement.setAttribute('id', elementId);
             });
-        },
+            linkElement.parentNode.insertBefore(cloneLinkElement, linkElement.nextSibling);
+
+            this.tableTheme = newTheme;
+        }
     },
     computed: {
         landingClass() {

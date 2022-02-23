@@ -3,9 +3,9 @@
         <div class="section-header">Themes</div>
         <p class="section-detail">Crafted on a design-agnostic infrastructure, choose from a vast amount of themes such as material, bootstrap, tailwind, primeone or develop your own.</p>
         <div class="flex flex-wrap justify-content-center">
-            <button type="button" :class="['font-medium linkbox mr-3 mt-4', {'active': this.theme && this.theme.startsWith('lara')}]" @click="changeTheme('lara', 'indigo')">PrimeOne</button>
-            <button type="button" :class="['font-medium linkbox mr-3 mt-4', {'active': this.theme && this.theme.startsWith('md')}]" @click="changeTheme('md', 'indigo')">Material</button>
-            <button type="button" :class="['font-medium linkbox mr-3 mt-4', {'active': this.theme && this.theme.startsWith('bootstrap4')}]" @click="changeTheme('bootstrap4', 'blue')">Bootstrap</button>
+            <button type="button" :class="['font-medium linkbox mr-3 mt-4', {'active': theme && theme.startsWith('lara')}]" @click="changeTheme('lara', 'indigo')">PrimeOne</button>
+            <button type="button" :class="['font-medium linkbox mr-3 mt-4', {'active': theme && theme.startsWith('md')}]" @click="changeTheme('md', 'indigo')">Material</button>
+            <button type="button" :class="['font-medium linkbox mr-3 mt-4', {'active': theme && theme.startsWith('bootstrap4')}]" @click="changeTheme('bootstrap4', 'blue')">Bootstrap</button>
             <a type="button" class="font-medium p-link linkbox mt-4" href="https://www.primefaces.org/designer-vue">more...</a>
         </div>
         <div class="themes-main flex mt-7 justify-content-center pad-section" :style="{backgroundImage:`url('demo/images/landing/wave-${$appState.darkTheme ? 'dark-alt' : 'light-alt'}.svg')`, backgroundSize:'cover'}">
@@ -77,6 +77,7 @@
             </div>
         </div>
     </section>
+    
 </template>
 
 <script>
@@ -84,7 +85,7 @@ import CustomerService from '../../service/CustomerService';
 import {FilterMatchMode,FilterOperator} from 'primevue/api';
 
 export default {
-    emits: ['theme-change'],
+    emits: ['table-theme-change'],
     props: {
         theme: null
     },
@@ -120,7 +121,7 @@ export default {
     methods: {
         changeTheme(name, color) {
             let newTheme = name + '-' + (this.$appState.darkTheme ? 'dark' : 'light') + '-' + color;
-            this.$emit('theme-change', newTheme);
+            this.$emit('table-theme-change', newTheme);
         },
         formatDate(value) {
             return value.toLocaleDateString('en-US', {

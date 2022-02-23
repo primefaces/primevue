@@ -12,9 +12,9 @@
             </div>
         </div>
 
-        <app-topbar @menubutton-click="onMenuButtonClick" @change-theme="changeTheme" :theme="theme" />
+        <app-topbar @menubutton-click="onMenuButtonClick" />
         <app-menu :active="sidebarActive" />
-        <app-configurator @change-theme="changeTheme" :theme="theme" />
+        <app-configurator  />
         <div :class="['layout-mask', {'layout-mask-active': sidebarActive}]" @click="onMaskClick"></div>
         <div class="layout-content">
             <div class="layout-content-inner">
@@ -30,7 +30,6 @@
 </template>
 
 <script>
-import EventBus from '@/AppEventBus';
 import DomHandler from '@/components/utils/DomHandler';
 import AppTopBar from '@/AppTopBar.vue';
 import AppMenu from '@/AppMenu.vue';
@@ -40,7 +39,6 @@ import AppConfigurator from '@/AppConfigurator.vue';
 export default {
     data() {
         return {
-            theme: this.$appState.darkTheme ? 'lara-dark-indigo' : 'lara-light-indigo',
             sidebarActive: false,
             newsActive: false
         }
@@ -49,8 +47,6 @@ export default {
         if (this.isOutdatedIE()) {
             this.$toast.add({severity: 'warn', summary: 'Limited Functionality', detail: 'Although PrimeVue supports IE11, ThemeSwitcher in this application cannot be not fully supported by your browser. Please use a modern browser for the best experience of the showcase.'});
         }
-
-        this.changeTheme({ theme: this.theme, dark: this.$appState.darkTheme });
     },
     watch: {
         $route: {
@@ -88,32 +84,6 @@ export default {
             this.newsActive = false;
             sessionStorage.setItem('primevue-news-hidden', 'true');
             event.stopPropagation();
-        },
-        changeTheme(event) {
-            let themeLink = document.getElementById('theme-link');
-            let hrefThemeLink = 'themes/' + event.theme + '/theme.css';
-
-            this.activeMenuIndex = null;
-
-            EventBus.emit('change-theme', { theme: event.theme, dark: event.dark });
-            
-            this.theme = event.theme;
-            this.$appState.darkTheme = event.dark;
-            this.replaceLink(themeLink, hrefThemeLink);
-        },
-        replaceLink(linkElement, href) {
-            const id = linkElement.getAttribute('id');
-            const cloneLinkElement = linkElement.cloneNode(true);
-
-            cloneLinkElement.setAttribute('href', href);
-            cloneLinkElement.setAttribute('id', id + '-clone');
-
-            linkElement.parentNode.insertBefore(cloneLinkElement, linkElement.nextSibling);
-
-            cloneLinkElement.addEventListener('load', () => {
-                linkElement.remove();
-                cloneLinkElement.setAttribute('id', id);
-            });
         },
         addClass(element, className) {
             if (!this.hasClass(element, className)) {
