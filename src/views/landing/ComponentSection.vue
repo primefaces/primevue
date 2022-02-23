@@ -1,15 +1,7 @@
 <template>
     <section class="landing-components py-8">
         <div class="section-header">Components</div>
-        <p class="section-detail"><span class="font-bold text-900">Over 80</span> Vue UI Components with top-notch quality to help you implement all your UI requirements in style.</p>
-        <div class="flex justify-content-center mt-4">
-            <router-link to="/setup">
-                <a class="font-semibold p-3 border-round flex align-items-center linkbox active">
-                    <span>Get Started</span>
-                    <i class="pi pi-arrow-right ml-2"></i>
-                </a>
-            </router-link>
-        </div>
+        <p class="section-detail"><span class="font-bold text-900">Over 90</span> Vue UI Components with top-notch quality to help you implement all your UI requirements in style.</p>
         <div class="components-main flex mt-7 relative md:justify-content-center overflow-auto">
             <div class="flex flex-column px-3 py-8 z-1">
                 <div class="box p-4 mb-5">
