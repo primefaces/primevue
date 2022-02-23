@@ -16,11 +16,11 @@
                     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
                     :globalFilterFields="['name','country.name','representative.name','status']" responsiveLayout="scroll">
                     <template #header>
-                        <div class="flex flex-column md:flex-row md:justify-content-between md:align-items-center">
+                        <div class="flex flex-column sm:flex-row sm:justify-content-between sm:align-items-center">
                             <h5 class="m-0">Customers</h5>
-                            <span class="p-input-icon-left">
+                            <span class="p-input-icon-left mt-3 sm:mt-0 w-full sm:w-auto">
                                 <i class="pi pi-search" />
-                                <InputText v-model="filters['global'].value" placeholder="Search" />
+                                <InputText v-model="filters['global'].value" placeholder="Search" class="w-full" />
                             </span>
                         </div>
                     </template>
