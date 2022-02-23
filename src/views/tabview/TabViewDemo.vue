@@ -185,7 +185,7 @@ export default {
                 this.$refs.tabview4.updateInkBar();
             }, 50);
         };
-        EventBus.on('change-theme', this.themeChangeListener);
+        EventBus.on('theme-change', this.themeChangeListener);
     },
     beforeUnmount() {
         clearTimeout(this.timeout);
