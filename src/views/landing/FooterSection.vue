@@ -69,7 +69,7 @@
 
         <div class="flex justify-content-between py-6">
             <span>
-                <img :src="'demo/images/primevue-logo-' + `${$appState.darkTheme ? 'light' : 'dark'}` + '.svg'" alt="primevue logo" style="height: 2.5rem;" />
+                <img :src="'demo/images/primevue-logo-' + `${$appState.darkTheme ? 'light' : 'dark'}` + '.svg'" alt="primevue logo" />
             </span>
             <div class="flex align-items-center">
                 <a href="https://twitter.com/primevue" class="linkbox block w-3rem h-3rem flex align-items-center justify-content-center mr-3">

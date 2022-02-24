@@ -81,7 +81,7 @@
         </div>
 
         <section class="landing-getstarted flex flex-column md:flex-row align-items-center justify-content-center mt-8 z-1">
-            <router-link to="/setup" class="linkbox active font-semibold py-3 px-4 ml-6 fadeinleft animation-duration-2000 animation-ease-out">
+            <router-link to="/setup" class="linkbox active font-semibold py-3 px-4 ml-0 md:ml-6 fadeinleft animation-duration-2000 animation-ease-out">
                 Get Started 
                 <i class="pi pi-arrow-right ml-3"></i>
             </router-link>
