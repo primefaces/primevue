@@ -12,7 +12,7 @@
                     <div class="p-fluid">
                         <span class="font-semibold block mb-3">Primary</span>
                         <div>
-                            <button type="button" class="border-circle w-2rem h-2rem p-link mr-3" style="background-color:#03C4E8" @click="changeTheme('#03C4E8', '#029dba')"></button>
+                            <button type="button" class="border-circle w-2rem h-2rem p-link mr-3" style="background-color:#4f8ff7" @click="changeTheme('#4f8ff7', '#3575dd')"></button>
                             <button type="button" class="border-circle w-2rem h-2rem p-link mr-3" style="background-color:#03E8BF" @click="changeTheme('#03E8BF', '#02ba99')"></button>
                             <button type="button" class="border-circle w-2rem h-2rem p-link mr-3" style="background-color:#916AFF" @click="changeTheme('#916AFF', '#7455cc')"></button>
                             <button type="button" class="border-circle w-2rem h-2rem p-link" style="background-color:#FFBD80" @click="changeTheme('#FFBD80','#cc9766')"></button>
