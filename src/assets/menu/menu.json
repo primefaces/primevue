@@ -1,16 +1,6 @@
 {
     "data": [
         {
-            "name": "Vue 2",
-            "meta": ["general"],
-            "children": [
-                {
-                    "name": "PrimeVue 2",
-                    "href": "https://www.primefaces.org/primevue/showcase-v2"
-                }
-            ]
-        },
-        {
             "name": "General",
             "meta": ["general"],
             "children": [
