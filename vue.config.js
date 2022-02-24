@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-    publicPath: process.env.NODE_ENV === 'production' ? '/primevue/showcase/' : '/',
+    publicPath: process.env.NODE_ENV === 'production' ? '/primevue/' : '/',
     productionSourceMap: false,
     configureWebpack: {
         resolve: {
