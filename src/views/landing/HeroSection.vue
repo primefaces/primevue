@@ -3,7 +3,7 @@
         <div class="hero-inner z-2 relative">
             <div class="flex flex-column md:align-items-center md:flex-row">
                 <div class="p-2 flex flex-row md:flex-column">
-                    <div class="hero-box w-10rem h-10rem md:w-12rem md:h-12rem animation flex align-items-center justify-content-center" @click="() => window.location.href = 'https://www.primefaces.org/store'">
+                    <div class="hero-box w-10rem h-10rem md:w-12rem md:h-12rem animation flex align-items-center justify-content-center" @click="navigateTo('https://www.primefaces.org/store')">
                         <div class="flex flex-column align-items-center">
                             <img src="demo/images/landing/templates-icon.svg" alt="primevue templates" />
                             <div class="name">
@@ -12,7 +12,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="hero-box w-10rem h-10rem md:w-12rem md:h-12rem animation ml-4 md:ml-0 md:mt-4 flex align-items-center justify-content-center"  @click="() => window.location.href = 'https://www.primefaces.org/designer-vue'">
+                    <div class="hero-box w-10rem h-10rem md:w-12rem md:h-12rem animation ml-4 md:ml-0 md:mt-4 flex align-items-center justify-content-center"  @click="navigateTo('https://www.primefaces.org/designer-vue')">
                         <div class="flex flex-column align-items-center">
                             <img src="demo/images/landing/designer-icon.svg" alt="primevue templates" />
                             <div class="name">
@@ -23,7 +23,7 @@
                     </div>
                 </div>
                 <div class="p-2 flex flex-row md:flex-column">
-                    <div class="hero-box w-10rem h-10rem md:w-12rem md:h-12rem animation flex align-items-center justify-content-center" @click="() => window.location.href = 'https://github.com/primefaces/primevue'">
+                    <div class="hero-box w-10rem h-10rem md:w-12rem md:h-12rem animation flex align-items-center justify-content-center" @click="navigateTo('https://github.com/primefaces/primevue')">
                         <div class="flex flex-column align-items-center">
                             <img src="demo/images/landing/core-icon.svg" alt="primevue core" />
                             <div class="name">
@@ -42,7 +42,7 @@
                             </div>
                         </div>
                     </router-link>
-                    <div class="hero-box w-10rem h-10rem md:w-12rem md:h-12rem animation flex ml-4 md:ml-0 align-items-center justify-content-center" @click="() => window.location.href = 'https://www.primefaces.org/primeflex'">
+                    <div class="hero-box w-10rem h-10rem md:w-12rem md:h-12rem animation flex ml-4 md:ml-0 align-items-center justify-content-center" @click="navigateTo('https://www.primefaces.org/primeflex')">
                         <div class="flex flex-column align-items-center">
                             <img src="demo/images/landing/css-icon.svg" alt="primevue icons" />
                             <div class="name">
@@ -53,7 +53,7 @@
                     </div>
                 </div>
                 <div class="p-2 flex flex-row md:flex-column">
-                    <div class="hero-box w-10rem h-10rem md:w-12rem md:h-12rem animation flex align-items-center justify-content-center" @click="() => window.location.href = 'https://www.primefaces.org/primeblocks-vue'">
+                    <div class="hero-box w-10rem h-10rem md:w-12rem md:h-12rem animation flex align-items-center justify-content-center" @click="navigateTo('https://www.primefaces.org/primeblocks-vue')">
                         <div class="flex flex-column align-items-center">
                             <img src="demo/images/landing/blocks-icon.svg" alt="primevue templates" />
                             <div class="name">
@@ -107,6 +107,11 @@ export default {
     },
     mounted() {
         this.setAnimation = true
+    },
+    methods: {
+        navigateTo(url) {
+            window.location.href = url;
+        }
     }
 }
 </script>
