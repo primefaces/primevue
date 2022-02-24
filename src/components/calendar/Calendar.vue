@@ -325,6 +325,7 @@ export default {
             this.overlay && this.overlay.setAttribute(this.attributeSelector, '');
 
             if (!this.$attrs.disabled) {
+                this.preventFocus = true;
                 this.initFocusableCell();
 
                 if (this.numberOfMonths === 1) {
