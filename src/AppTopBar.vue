@@ -9,7 +9,7 @@
         <ul ref="topbarMenu" class="topbar-menu">
             <li class="topbar-submenu">
                 <a tabindex="0" @click="toggleMenu($event, 0)">
-                    <span v-badge.danger>Themes</span>
+                    <span>Themes</span>
                 </a>
                 <transition name="p-connected-overlay" @enter="onMenuEnter">
                     <ul v-show="activeMenuIndex === 0">
@@ -246,7 +246,7 @@ export default {
         },
         containerRef(el) {
             this.container = el;
-        },
+        }
     }
 }
 </script>
