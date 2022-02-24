@@ -3,7 +3,7 @@
         <div class="layout-menu">
             <div class="menu-category">Vue 3</div>
             <div class="menu-items">
-                <a href="https://www.primefaces.org/primevue/showcase/" target="_blank">PrimeVue v3</a>
+                <a href="https://www.primefaces.org/primevue" target="_blank">PrimeVue v3</a>
             </div>
 
             <div class="menu-category">General</div>
