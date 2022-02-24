@@ -325,6 +325,8 @@ export default {
             this.overlay && this.overlay.setAttribute(this.attributeSelector, '');
 
             if (!this.$attrs.disabled) {
+                this.initFocusableCell();
+
                 if (this.numberOfMonths === 1) {
                     this.overlay.style.width = DomHandler.getOuterWidth(this.$el) + 'px';
                 }
