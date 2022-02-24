@@ -3,7 +3,7 @@
         <div class="section-header">Themes</div>
         <p class="section-detail">Crafted on a design-agnostic infrastructure, choose from a vast amount of themes such as material, bootstrap, tailwind, primeone or develop your own.</p>
         <div class="flex flex-wrap justify-content-center">
-            <button type="button" :class="['font-medium linkbox mr-3 mt-4', {'active': theme && theme.startsWith('lara')}]" @click="changeTheme('lara', 'indigo')">PrimeOne</button>
+            <button type="button" :class="['font-medium linkbox mr-3 mt-4', {'active': theme && theme.startsWith('lara')}]" @click="changeTheme('lara', 'blue')">PrimeOne</button>
             <button type="button" :class="['font-medium linkbox mr-3 mt-4', {'active': theme && theme.startsWith('md')}]" @click="changeTheme('md', 'indigo')">Material</button>
             <button type="button" :class="['font-medium linkbox mr-3 mt-4', {'active': theme && theme.startsWith('bootstrap4')}]" @click="changeTheme('bootstrap4', 'blue')">Bootstrap</button>
             <a type="button" class="font-medium p-link linkbox mt-4" href="https://www.primefaces.org/designer-vue">more...</a>
