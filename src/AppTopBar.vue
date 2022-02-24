@@ -4,13 +4,12 @@
             <i class="pi pi-bars"></i>
         </a>
         <router-link to="/" class="logo">
-            <img alt="logo" src="./assets/images/primevue-logo.png">
+            <img :src="'demo/images/primevue-logo-' + `${$appState.darkTheme ? 'light' : 'dark'}` + '.svg'" alt="primevue logo"/>
         </router-link>
         <div class="app-theme" v-tooltip.bottom="$appState.theme">
             <img :src="'demo/images/themes/' + logoMap[$appState.theme]" />
         </div>
         <ul ref="topbarMenu" class="topbar-menu">
-            <li><router-link to="/setup">Get Started</router-link></li>
             <li class="topbar-submenu">
                 <a tabindex="0" @click="toggleMenu($event, 0)">
                     <span v-badge.danger>Themes</span>
@@ -119,6 +118,15 @@
                         <li><a href="https://www.primefaces.org/newsletter" target="_blank"><span>Newsletter</span></a></li>
                         <li><a href="https://gear.primefaces.org" target="_blank"><span>Gear Store</span></a></li>
                         <li><a href="https://www.primetek.com.tr" target="_blank"><span>About PrimeTek</span></a></li>
+                    </ul>
+                </transition>
+            </li>
+            <li class="topbar-submenu">
+                <a tabindex="0" @click="toggleMenu($event, 3)">v3.12.0</a>
+                <transition name="p-connected-overlay" @enter="onMenuEnter">
+                    <ul v-show="activeMenuIndex === 3" style="width: 100%">
+                        <li><router-link to="/"><span class="m-0">v3.12.0</span></router-link></li>
+                        <li><a href="https://www.primefaces.org/primevue/showcase-v2/#/"><span class="m-0">v2.9.0</span></a></li>
                     </ul>
                 </transition>
             </li>
