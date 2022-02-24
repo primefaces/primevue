@@ -24,11 +24,12 @@
     }
 
     .layout-topbar {
-        margin-left: 0;
         height: 110px;
         flex-wrap: wrap;
         justify-content: space-between;
         padding: 0;
+        left: 0;
+        width: 100%;
 
         .menu-button {
             display: block;
@@ -51,20 +52,18 @@
             width: 100%;
             height: 40px;
             margin: 0;
-            border-top: 1px solid var(--surface-border);
 
             > li {
-                height: 40px;
-                line-height: 40px;
                 width: 25%;
+                margin-right: 0;
 
                 > a {
-                    padding-bottom: 0;
-                    height: 40px;
-                    line-height: 38px;
+                    display: flex;
+                    height: 100%;
                     width: 100%;
-                    font-size: 14px;
-                    min-width: auto;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 0;
                 }
 
                 &.topbar-submenu > ul {
@@ -75,8 +74,10 @@
     }
 
     .layout-sidebar {
+        top: 0;
+        z-index: 1102;
+        height: 100%;
         transform: translateX(-100%);
-        z-index: 999;
 
         &.active {
             transform: translateX(0);
@@ -85,6 +86,7 @@
 
     .layout-content {
         margin-left: 0;
+        padding-top: 110px;
 
         .content-section {
             &.introduction {
