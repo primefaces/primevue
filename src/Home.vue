@@ -37,7 +37,7 @@ export default {
     },
     data() {
         return {
-            tableTheme: 'lara-light-indigo'
+            tableTheme: 'lara-light-blue'
         }
     },
     themeChangeListener: null,
@@ -50,7 +50,7 @@ export default {
             document.cookie = 'primeaffiliateid=' + afId + ';expires=' + expire.toUTCString() + ';path=/; domain:primefaces.org';
         }
 
-        this.replaceTableTheme(this.$appState.darkTheme ? 'lara-dark-indigo': 'lara-light-indigo');        
+        this.replaceTableTheme(this.$appState.darkTheme ? 'lara-dark-blue': 'lara-light-blue');        
     },
     methods: {
         onThemeToggle() {
