@@ -360,6 +360,17 @@ const CalendarEvents = [
             }
         ]
     },
+    {
+        name: "keydown",
+        description: "Callback to invoke when a key is pressed.",
+        arguments: [
+            {
+                name: "event",
+                type: "object",
+                description: "Keydown event"
+            }
+        ]
+    }
 ];
 
 const CalendarSlots = [

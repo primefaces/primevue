@@ -150,7 +150,7 @@ import Ripple from 'primevue/ripple';
 export default {
     name: 'Calendar',
     inheritAttrs: false,
-    emits: ['show', 'hide', 'input', 'month-change', 'year-change', 'date-select', 'update:modelValue', 'today-click', 'clear-click', 'focus', 'blur'],
+    emits: ['show', 'hide', 'input', 'month-change', 'year-change', 'date-select', 'update:modelValue', 'today-click', 'clear-click', 'focus', 'blur', 'keydown'],
     props: {
         modelValue: null,
         selectionMode: {
@@ -2157,6 +2157,8 @@ export default {
                     //Noop
                 break;
             }
+
+            this.$emit('keydown', event);
         },
         onInput(event) {
             try {
