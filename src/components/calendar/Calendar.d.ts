@@ -335,6 +335,10 @@ export declare type CalendarEmits = {
      * @param {CalendarBlurEvent} event - Blur event
      */
     'blur': (event: CalendarBlurEvent) => void;
+    /**
+     * Callback to invoke when a key is pressed.
+     */
+    'keydown': (event: Event) => void;
 }
 
 declare class Calendar extends ClassComponent<CalendarProps, CalendarSlots, CalendarEmits> { }
