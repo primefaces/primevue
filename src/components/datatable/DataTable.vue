@@ -1263,6 +1263,16 @@ export default {
                 }
                 allowDrop = dragIndex !== dropIndex;
 
+                if (allowDrop) {
+                    ObjectUtils.reorderArray(this.columns, dragIndex, dropIndex);
+                    this.updateReorderableColumns();
+                    this.$emit('column-reorder', {
+                        originalEvent: event,
+                        dragIndex: dragIndex,
+                        dropIndex: dropIndex
+                    });
+                }
+
                 this.$refs.reorderIndicatorUp.style.display = 'none';
                 this.$refs.reorderIndicatorDown.style.display = 'none';
                 this.draggedColumn.draggable = false;
