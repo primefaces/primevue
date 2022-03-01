@@ -55,7 +55,7 @@ export interface DataTableFilterMetaData {
      * Filter match mode
      * @see DataTableFilterMatchModeType
      */
-    matchMode: DataTableFilterMatchModeType;
+    matchMode: string;
 }
 
 export interface DataTableOperatorFilterMetaData {
