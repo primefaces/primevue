@@ -175,10 +175,6 @@ export declare type InputNumberEmits = {
        * @param {InputNumberBlurEvent} event - Blur event
        */
     'blur': (event: InputNumberBlurEvent) => void;
-    /**
-       * Callback to invoke when a key is pressed.
-       */
-    'keydown': (event: Event) => void;
 }
 
 declare class InputNumber extends ClassComponent<InputNumberProps, InputNumberSlots, InputNumberEmits> {
