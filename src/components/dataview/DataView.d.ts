@@ -36,7 +36,7 @@ export interface DataViewProps {
      * @see DataViewLayoutType
      * Default value is 'list'.
      */
-    layout?: DataViewLayoutType;
+    layout?: any;
     /**
      * Number of rows to display per page.
      * Default value is 0.
