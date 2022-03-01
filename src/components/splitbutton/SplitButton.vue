@@ -75,14 +75,18 @@ export default {
     position: relative;
 }
 
-.p-splitbutton .p-splitbutton-defaultbutton {
+.p-splitbutton .p-splitbutton-defaultbutton,
+.p-splitbutton.p-button-rounded > .p-splitbutton-defaultbutton.p-button,
+.p-splitbutton.p-button-outlined > .p-splitbutton-defaultbutton.p-button {
     flex: 1 1 auto;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     border-right: 0 none;
 }
 
-.p-splitbutton-menubutton {
+.p-splitbutton-menubutton,
+.p-splitbutton.p-button-rounded > .p-splitbutton-menubutton.p-button,
+.p-splitbutton.p-button-outlined > .p-splitbutton-menubutton.p-button {
     display: flex;
     align-items: center;
     justify-content: center;
