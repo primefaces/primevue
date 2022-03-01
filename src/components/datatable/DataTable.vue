@@ -1252,21 +1252,16 @@ export default {
             if (this.draggedColumn) {
                 let dragIndex = DomHandler.index(this.draggedColumn);
                 let dropIndex = DomHandler.index(this.findParentHeader(event.target));
-                let allowDrop = (dragIndex !== dropIndex);
-                if (allowDrop && ((dropIndex - dragIndex === 1 && this.dropPosition === -1) || (dragIndex - dropIndex === 1 && this.dropPosition === 1))) {
-                    allowDrop = false;
-                }
+                let allowDrop = dragIndex !== dropIndex;
 
                 if (allowDrop) {
-                    ObjectUtils.reorderArray(this.columns, dragIndex, dropIndex);
-                    this.updateReorderableColumns();
-
-                    this.$emit('column-reorder', {
-                        originalEvent: event,
-                        dragIndex: dragIndex,
-                        dropIndex: dropIndex
-                    });
+                    if (this.dropPosition === 1 && dragIndex > dropIndex) {
+                        dropIndex++;
+                    } else if (this.dropPosition === -1 && dragIndex < dropIndex) {
+                        dropIndex--;
+                    }
                 }
+                allowDrop = dragIndex !== dropIndex;
 
                 this.$refs.reorderIndicatorUp.style.display = 'none';
                 this.$refs.reorderIndicatorDown.style.display = 'none';
