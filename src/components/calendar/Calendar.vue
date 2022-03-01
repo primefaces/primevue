@@ -2311,6 +2311,7 @@ export default {
                 {
                     'p-calendar-w-btn': this.showIcon,
                     'p-calendar-timeonly': this.timeOnly,
+                    'p-calendar-disabled': this.$attrs.disabled,
                     'p-inputwrapper-filled': this.modelValue,
                     'p-inputwrapper-focus': this.focused
                 }
