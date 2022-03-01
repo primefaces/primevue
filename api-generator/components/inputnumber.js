@@ -173,6 +173,33 @@ const InputNumberEvents = [
                 description: "New value"
             }
         ]
+    },
+    {
+        name: "focus",
+        description: "Callback to invoke on focus of input field.",
+        arguments: [
+            {
+                name: "event",
+                type: "object",
+                description: "Focus event"
+            }
+        ]
+    },
+    {
+        name: "blur",
+        description: "Callback to invoke on blur of input field.",
+        arguments: [
+            {
+                name: "event.originalEvent",
+                type: "object",
+                description: "Browser event"
+            },
+            {
+                name: "event.value",
+                type: "string",
+                description: "Input value"
+            }
+        ]
     }
 ];
 
