@@ -133,13 +133,13 @@ const GalleriaProps = [
     },
     {
         name: "containerStyle",
-        type: "string",
+        type: "any",
         default: "null",
         description: "Inline style of the component on fullscreen mode. Otherwise, the 'style' property can be used."
     },
     {
-        name: "galleriaClass",
-        type: "string",
+        name: "containerClass",
+        type: "any",
         default: "null",
         description: "Style class of the component on fullscreen mode. Otherwise, the 'class' property can be used."
     }
