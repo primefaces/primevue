@@ -33,11 +33,13 @@
                                                 <router-link v-if="item.to && !disabled(item)" :to="item.to" custom v-slot="{navigate, href, isActive, isExactActive}">
                                                     <a :href="href" :class="linkClass(item, {isActive, isExactActive})" @click="onLeafClick($event, item, navigate)" role="menuitem" v-ripple>
                                                         <span v-if="item.icon" :class="['p-menuitem-icon', item.icon]"></span>
+                                                        <span v-if="item.svgIcon" class="p-menuitem-icon" v-html="item.svgIcon" />
                                                         <span class="p-menuitem-text">{{label(item)}}</span>
                                                     </a>
                                                 </router-link>
                                                 <a v-else :href="item.url" :class="linkClass(item)" :target="item.target" @click="onLeafClick($event, item)" role="menuitem" :tabindex="disabled(item) ? null : '0'" v-ripple>
                                                     <span v-if="item.icon" :class="['p-menuitem-icon', item.icon]"></span>
+                                                    <span v-if="item.svgIcon" class="p-menuitem-icon" v-html="item.svgIcon" />
                                                     <span class="p-menuitem-text">{{label(item)}}</span>
                                                     <span :class="getSubmenuIcon()" v-if="item.items"></span>
                                                 </a>

@@ -31,6 +31,10 @@ export interface MenuItem {
      */
     icon?: string | undefined;
     /**
+     * Svg icon of the item
+     */
+    svgIcon?: string | undefined;
+    /**
      * Route configuration such as path, name and parameters.
      */
     to?: RouteLocationRaw | undefined;

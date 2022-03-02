@@ -92,6 +92,23 @@ toggle(event) {
 
 </code></pre>
 
+<h5>With SVG Icons</h5>
+<p>SVG icons can be used as html. Menu uses v-html to render the html. As of Vue version 3.2.31, there are no XSS vulnerabilities with v-html, but this feature should still be used with caution.</p>
+
+<pre v-code.script><code>
+const items: [
+    {
+        label: 'Home',
+        svgIcon: '<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="32" height="32" viewBox="0 0 32 32"><path d="M16.6123,2.2138a1.01,1.01,0,0,0-1.2427,0L1,13.4194l1.2427,1.5717L4,13.6209V26a2.0041,2.0041,0,0,0,2,2H26a2.0037,2.0037,0,0,0,2-2V13.63L29.7573,15,31,13.4282ZM18,26H14V18h4Zm2,0V18a2.0023,2.0023,0,0,0-2-2H14a2.002,2.002,0,0,0-2,2v8H6V12.0615l10-7.79,10,7.8005V26Z"></path></svg>'
+    },
+    {
+        label: 'Product List',
+        svgIcon: '<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="32" height="32" viewBox="0 0 32 32"><path d="M4 6H22V8H4zM4 12H22V14H4zM4 18H22V20H4zM4 24H22V26H4zM26 6H28V8H26zM26 12H28V14H26zM26 18H28V20H26zM26 24H28V26H26z"></path></svg>'
+    }
+];
+
+</code></pre>
+
         <h5>Templating</h5>
         <p>Menu offers content customization with the <i>item</i> template that receives the menuitem instance from the model as a parameter.</p>
 <pre v-code><code><template v-pre>
