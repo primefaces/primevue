@@ -1,6 +1,6 @@
 {
     "name": "primevue",
-    "version": "3.12.1-SNAPSHOT",
+    "version": "3.12.1",
     "homepage": "https://www.primefaces.org/primevue",
     "repository": {
       "type": "git",
