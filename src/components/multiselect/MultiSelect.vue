@@ -333,8 +333,7 @@ export default {
                     }
                 break;
 
-                //enter and escape
-                case 13:
+                //escape
                 case 27:
                     if (this.overlayVisible) {
                         this.hide();
