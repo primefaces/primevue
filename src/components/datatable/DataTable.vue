@@ -880,8 +880,8 @@ export default {
                 this.$emit('row-unselect', { originalEvent: event.originalEvent, data: rowData, index: event.index, type: 'checkbox' });
             }
             else {
-                let _selection = this.selection ? [...this.selection] : [];
-                _selection = [..._selection, rowData];
+                let _selection = this.selection ? [...this.selection, rowData] : [rowData];
+
                 this.$emit('update:selection', _selection);
                 this.$emit('row-select', { originalEvent: event.originalEvent, data: rowData, index: event.index, type: 'checkbox' });
             }
@@ -903,7 +903,6 @@ export default {
                 }
 
                 this.$emit('update:selection', _selection);
-
             }
         },
         isSingleSelectionMode() {
@@ -1890,7 +1889,16 @@ export default {
             }
             else {
                 const val = this.frozenValue ? [...this.frozenValue, ...this.processedData] : this.processedData;
-                return val && this.selection && Array.isArray(this.selection) && val.every(v => this.selection.some(s => this.equals(s, v)));
+
+                const partialResult = val && this.selection && Array.isArray(this.selection) ;
+                if (!partialResult) { return false }
+
+                if (this.compareSelectionBy === 'equals') {
+                    const s = new Set(this.selection);
+                    return val.every(v => s.has(v));
+                } else {
+                    return val.every(v => this.selection.some(s => this.equals(s, v)));
+                }
             }
         },
         attributeSelector() {
