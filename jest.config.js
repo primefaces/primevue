@@ -26,5 +26,8 @@ module.exports = {
         "^primevue/overlayeventbus(.*)$": "<rootDir>/src/components/overlayeventbus/OverlayEventBus.js",
         "^primevue/terminalservice(.*)$": "<rootDir>/src/components/terminalservice/TerminalService.js",
         "^primevue/virtualscroller(.*)$": "<rootDir>/src/components/virtualscroller/VirtualScroller.vue"
-    }
+    },
+    testMatch: [
+        "**/src/components/**/*.spec.{j,t}s?(x)"
+    ]
 }
