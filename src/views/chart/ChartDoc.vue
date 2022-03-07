@@ -198,6 +198,11 @@ options: {
                         </td>
                         <td>Callback to invoke when a tab gets expanded.</td>
                     </tr>
+                    <tr>
+                        <td>loaded</td>
+                        <td>chart instance</td>
+                        <td>Callback to invoke when chart is loaded.</td>
+                    </tr>
                 </tbody>
             </table>
         </div>

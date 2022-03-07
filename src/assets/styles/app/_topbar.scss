@@ -1,13 +1,18 @@
 .layout-topbar {
-    background-color: var(--surface-card);
     padding: 0;
     height: 70px;
-    box-shadow: 0 0 4px rgba(0,0,0,0.25);
-    border-bottom: 1px solid var(--surface-border);
+    position: fixed;
+    top: 0;
+    left: 250px;
+    width: calc(100% - 250px);
+    z-index: 1100;
     display: flex;
     align-items: center;
-    padding: 0 35px;
-    margin-left: 250px;
+    padding: 0 4rem;
+    
+    &.layout-topbar-sticky {
+        backdrop-filter: blur(12px);
+    }
 
     .logo {
         display: none;
@@ -33,6 +38,14 @@
         }
     }
 
+    .logo {
+        &:focus {
+            outline: 0 none;
+            transition: box-shadow .2s;
+            box-shadow: var(--focus-ring);
+        }
+    }
+
     .app-theme {
         background-color: var(--primary-color);
         color: var(--primary-color-text);
@@ -51,36 +64,33 @@
         list-style-type: none;
         margin: 0;
         padding: 0;
-        height: 100%;
         margin-left: auto;
         display: flex;
 
         > li {
-            height: 70px;
-            line-height: 70px;
+            margin-right: .5rem;
 
             > a {
+                font-weight: 500;
                 text-decoration: none;
                 color: var(--text-color);
-                min-width: 120px;
-                font-size: 16px;
+                padding: .5rem 1.5rem;
                 display: block;
                 text-align: center;
                 user-select: none;
-                line-height: 68px;
-                border-bottom: 2px solid transparent;
-                transition: border-bottom-color .2s;
+                border-radius: 10px;
                 cursor: pointer;
-
-                &:hover, &:focus {
-                    border-bottom-color: var(--primary-color);
-                }
+                transition: background-color .3s;
 
                 &:focus {
                     z-index: 1;
                     outline: 0 none;
                     transition: box-shadow .2s;
-                    box-shadow: inset 0 0 0 0.2em $focusBorderColor;
+                    box-shadow: var(--focus-ring);
+                }
+
+                &:hover {
+                    background-color: var(--surface-hover);
                 }
             }
 
@@ -90,9 +100,8 @@
                 > ul {
                     position: absolute;
                     transform-origin: top;
-                    top: 70px;
+                    top: 40px;
                     right: 0;
-                    z-index: 2;
                     width: 275px;
                     max-height: 400px;
                     background-color: var(--surface-overlay);
@@ -101,7 +110,7 @@
                     list-style-type: none;
                     padding: 1rem;
                     margin: 0;
-                    border-radius: 3px;
+                    border-radius: 10px;
 
                     > li {
                         line-height: 1;
@@ -128,8 +137,9 @@
                         display: flex;
                         align-items: center;
                         user-select: none;
-                        border-radius: 3px;
+                        border-radius: 10px;
                         cursor: pointer;
+                        width: 100%;
 
                         &:hover {
                             background-color: var(--surface-hover);
@@ -174,6 +184,22 @@
 
         .theme-badge.darkmode {
             background: linear-gradient(to bottom, #141d26, #5a6067);
+        }
+    }
+}
+
+.layout-wrapper-dark {
+    .layout-topbar {
+        &.layout-topbar-sticky {
+            background-color: rgba(0, 0, 0 , 0.3);
+        }
+    }
+}
+
+.layout-wrapper-light {
+    .layout-topbar {
+        &.layout-topbar-sticky {
+            background-color: rgba(255, 255, 255, 0.85);
         }
     }
 }

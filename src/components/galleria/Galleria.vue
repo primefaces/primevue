@@ -106,14 +106,8 @@ export default {
             type: String,
             default: null
         },
-        containerStyle: {
-            type: String,
-            default: null
-        },
-        containerClass: {
-            type: String,
-            default: null
-        }
+        containerStyle: null,
+        containerClass: null
     },
     container: null,
     mask: null,

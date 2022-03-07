@@ -31,7 +31,7 @@ export default {
             else
                 this.chartOptions = this.getLightTheme();
         }
-        EventBus.on('change-theme', this.themeChangeListener );
+        EventBus.on('theme-change', this.themeChangeListener );
     },
     beforeUnmount() {
         EventBus.off('change-theme', this.themeChangeListener);

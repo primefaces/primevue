@@ -44,6 +44,17 @@ export interface CalendarYearChangeEvent {
     year: number;
 }
 
+export interface CalendarBlurEvent {
+    /**
+     * Browser event
+     */
+    originalEvent: Event;
+    /**
+     * Input value
+     */
+    value: string;
+}
+
 export interface CalendarProps {
     /**
      * Value of the component.
@@ -321,9 +332,13 @@ export declare type CalendarEmits = {
     'focus': (event: Event) => void;
     /**
      * Callback to invoke on blur of input field.
-     * @param {Event} event - Blur event
+     * @param {CalendarBlurEvent} event - Blur event
      */
-    'blur': (event: Event) => void;
+    'blur': (event: CalendarBlurEvent) => void;
+    /**
+     * Callback to invoke when a key is pressed.
+     */
+    'keydown': (event: Event) => void;
 }
 
 declare class Calendar extends ClassComponent<CalendarProps, CalendarSlots, CalendarEmits> { }

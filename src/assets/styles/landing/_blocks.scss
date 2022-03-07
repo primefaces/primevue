@@ -1,0 +1,222 @@
+.landing-blocks {
+    * {
+        box-sizing: content-box;
+    }
+
+    background: var(--home-blocks-bg);
+
+    .prime-blocks {
+        transform: rotateX(55deg) rotateY(0deg) rotateZ(-45deg);
+        margin: -12rem 0;
+
+        &.blocks-animation {
+            .prime-block {
+                .block-sidebar, 
+                .block-header, 
+                .block-sidebar-list,
+                .block-content {
+                    opacity: 1;
+                    visibility: visible;
+                    transform: scale(1);
+                }
+            }
+        }
+
+        .prime-block {
+            background: var(--home-blocks-block-bg);
+            box-shadow:var(--home-blocks-block-shadow);
+            border-left: var(--home-blocks-border-left);
+            border-bottom: var(--home-blocks-border-bottom);
+            border-radius: 10px;
+            height: 300px;
+            width: 600px;
+            position: relative;
+            z-index: 1;
+            margin: 15px;
+            transition: opacity 1.3s, transform 1.3s;
+
+            .block-sidebar, 
+            .block-header, 
+            .block-sidebar-list, 
+            .block-content {
+                transition: opacity 1.3s, transform 1.3s;
+                opacity: 0;
+                visibility: hidden;
+                transform: scale(0.9);
+            }
+
+            &:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left:0;
+                right:0;
+                bottom: 0;
+                border-radius: 6px;
+                border: var(--home-blocks-border)
+            }
+            
+            .block-sidebar,
+            .block-header {
+                background: var(--home-blocks-sidebar-bg);
+                border-radius: 6px;
+            }
+
+            .block-sidebar-list {
+                background: var(--home-blocks-list-bg);
+            }
+            
+            .block-content {
+                .block-main {
+                    border: var(--home-blocks-main-border);
+                    border-radius: 13px;
+                    background: var(--home-blocks-main-bg);
+                }
+            }
+        }
+
+        .block-item {
+            background: var(--home-blocks-item-bg);
+            border-radius: 6px;
+            padding: 1rem;
+            transition: transform 1s, box-shadow 1s;
+            overflow: hidden;
+            transform: translateY(0);
+
+            .box {
+                border-radius: 4px;
+                width: 14px;
+                height: 14px;
+                
+                &.box-orange{
+                    background-color: #F57C00;
+                }
+
+                &.box-pink{
+                    background-color: #E91E63;
+                }
+
+                &.box-green {
+                    background-color: #4CAF50;
+                }
+
+                &.box-blue{
+                    background-color: #2196F3;
+                }
+            }
+            
+            .block-image {
+                background-color: var(--home-blocks-image-bg);
+                height: 44px;
+            }
+
+            .text {
+                display: block;
+                font-size: 24px;
+                font-weight: 700;
+                color: var(--home-blocks-text-color);
+            }
+
+            &.block-item-active {
+                box-shadow: var(--home-blocks-active-shadow);
+                border-radius: 6px;
+                border-top: var(--home-blocks-active-border-top);
+                border-right: var(--home-blocks-active-border-right);
+                border-bottom: var(--home-blocks-active-border-bottom);
+                border-left: var(--home-blocks-active-border-left);
+                position: relative;
+                z-index: 5;
+                animation: block-animation 1500ms ease-in-out alternate infinite;
+
+                &.animation-2{
+                    animation-delay: 1s;
+                }
+                
+                &.animation-3{
+                    animation-delay: 1.5s;
+                }
+            }
+
+            &.block-item-col {
+                background: none !important;
+                border: none;
+                padding: 12px 0;
+            }
+
+            &.block-item-table {
+                border-radius: 100px;
+                padding: 10px;
+                
+                .bar{
+                    background: var(--home-blocks-tablebar-bg);
+                }
+            }
+        }
+
+        .bar {
+            background: var(--home-blocks-bar-bg);
+            height: 6px;
+            border-radius: 10px;
+
+            &.bar-highlight {
+                background: var(--home-highlight-color);
+
+                &:before {
+                    background: var(--home-highlight-fore-color) !important ;
+                }
+            }
+
+            &.bar-button {
+                height: 16px;
+                position: relative;
+                
+                &:before {
+                    content: '';
+                    position: absolute;
+                    top: 6px;
+                    left: 10px;
+                    right: 10px;
+                    bottom: 6px;
+                    height: 3px;
+                    border-radius: 6px;
+                    background: var(--home-blocks-bar-button-bg);
+                }
+            }
+        }
+
+        .circle {
+            width: 18px;
+            height: 18px;
+            border-radius: 100%;
+            background: var(--home-blocks-circle-bg);
+
+            &.circle-small {
+                width: 8px;
+                height: 8px;
+            }
+
+            &.circle-medium {
+                width: 14px;
+                height: 14px;
+            }
+
+            &.circle-highlight {
+                background: var(--home-highlight-color);
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $landingBreakpointLG) {
+    .landing-blocks .prime-blocks {
+        margin: -24rem 0;
+        transform: rotateX(55deg) rotateY(0deg) rotateZ(-45deg) scale(0.6);
+    }
+}
+
+@keyframes block-animation {
+    to {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: var(--home-blocks-animation-shadow);
+    }
+}

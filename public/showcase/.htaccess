@@ -1,0 +1,2 @@
+RewriteEngine On
+RewriteRule ^(.*)$ /primevue$1 [R=301,L]

@@ -212,6 +212,16 @@
   --purple-700:#6d1b7b;
   --purple-800:#561561;
   --purple-900:#3e1046;
+  --red-50:#fff5f5;
+  --red-100:#ffd1ce;
+  --red-200:#ffada7;
+  --red-300:#ff8980;
+  --red-400:#ff6459;
+  --red-500:#ff4032;
+  --red-600:#d9362b;
+  --red-700:#b32d23;
+  --red-800:#8c231c;
+  --red-900:#661a14;
 }
 
 .p-autocomplete .p-autocomplete-loader {
@@ -2163,6 +2173,258 @@
 
 .p-speeddial-mask {
   background-color: rgba(0, 0, 0, 0.4);
+}
+
+.p-splitbutton {
+  border-radius: 3px;
+}
+.p-splitbutton.p-button-outlined > .p-button {
+  background-color: transparent;
+  color: #FFC107;
+  border: 1px solid;
+}
+.p-splitbutton.p-button-outlined > .p-button:enabled:hover, .p-splitbutton.p-button-outlined > .p-button:not(button):not(a):not(.p-disabled):hover {
+  background: rgba(255, 193, 7, 0.04);
+  color: #FFC107;
+}
+.p-splitbutton.p-button-outlined > .p-button:enabled:active, .p-splitbutton.p-button-outlined > .p-button:not(button):not(a):not(.p-disabled):active {
+  background: rgba(255, 193, 7, 0.16);
+  color: #FFC107;
+}
+.p-splitbutton.p-button-outlined.p-button-plain > .p-button {
+  color: #6c757d;
+  border-color: #6c757d;
+}
+.p-splitbutton.p-button-outlined.p-button-plain > .p-button:enabled:hover, .p-splitbutton.p-button-outlined.p-button-plain > .p-button:not(button):not(a):not(.p-disabled):hover {
+  background: #e9ecef;
+  color: #6c757d;
+}
+.p-splitbutton.p-button-outlined.p-button-plain > .p-button:enabled:active, .p-splitbutton.p-button-outlined.p-button-plain > .p-button:not(button):not(a):not(.p-disabled):active {
+  background: #dee2e6;
+  color: #6c757d;
+}
+.p-splitbutton.p-button-text > .p-button {
+  background-color: transparent;
+  color: #FFC107;
+  border-color: transparent;
+}
+.p-splitbutton.p-button-text > .p-button:enabled:hover, .p-splitbutton.p-button-text > .p-button:not(button):not(a):not(.p-disabled):hover {
+  background: rgba(255, 193, 7, 0.04);
+  color: #FFC107;
+  border-color: transparent;
+}
+.p-splitbutton.p-button-text > .p-button:enabled:active, .p-splitbutton.p-button-text > .p-button:not(button):not(a):not(.p-disabled):active {
+  background: rgba(255, 193, 7, 0.16);
+  color: #FFC107;
+  border-color: transparent;
+}
+.p-splitbutton.p-button-text.p-button-plain > .p-button {
+  color: #6c757d;
+}
+.p-splitbutton.p-button-text.p-button-plain > .p-button:enabled:hover, .p-splitbutton.p-button-text.p-button-plain > .p-button:not(button):not(a):not(.p-disabled):hover {
+  background: #e9ecef;
+  color: #6c757d;
+}
+.p-splitbutton.p-button-text.p-button-plain > .p-button:enabled:active, .p-splitbutton.p-button-text.p-button-plain > .p-button:not(button):not(a):not(.p-disabled):active {
+  background: #dee2e6;
+  color: #6c757d;
+}
+.p-splitbutton.p-button-raised {
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+.p-splitbutton.p-button-rounded {
+  border-radius: 2rem;
+}
+.p-splitbutton.p-button-rounded > .p-button {
+  border-radius: 2rem;
+}
+.p-splitbutton.p-button-sm > .p-button {
+  font-size: 0.875rem;
+  padding: 0.4375rem 0.875rem;
+}
+.p-splitbutton.p-button-sm > .p-button .p-button-icon {
+  font-size: 0.875rem;
+}
+.p-splitbutton.p-button-lg > .p-button {
+  font-size: 1.25rem;
+  padding: 0.625rem 1.25rem;
+}
+.p-splitbutton.p-button-lg > .p-button .p-button-icon {
+  font-size: 1.25rem;
+}
+
+.p-splitbutton.p-button-secondary.p-button-outlined > .p-button {
+  background-color: transparent;
+  color: #607D8B;
+  border: 1px solid;
+}
+.p-splitbutton.p-button-secondary.p-button-outlined > .p-button:enabled:hover, .p-splitbutton.p-button-secondary.p-button-outlined > .p-button:not(button):not(a):not(.p-disabled):hover {
+  background: rgba(96, 125, 139, 0.04);
+  color: #607D8B;
+}
+.p-splitbutton.p-button-secondary.p-button-outlined > .p-button:enabled:active, .p-splitbutton.p-button-secondary.p-button-outlined > .p-button:not(button):not(a):not(.p-disabled):active {
+  background: rgba(96, 125, 139, 0.16);
+  color: #607D8B;
+}
+.p-splitbutton.p-button-secondary.p-button-text > .p-button {
+  background-color: transparent;
+  color: #607D8B;
+  border-color: transparent;
+}
+.p-splitbutton.p-button-secondary.p-button-text > .p-button:enabled:hover, .p-splitbutton.p-button-secondary.p-button-text > .p-button:not(button):not(a):not(.p-disabled):hover {
+  background: rgba(96, 125, 139, 0.04);
+  border-color: transparent;
+  color: #607D8B;
+}
+.p-splitbutton.p-button-secondary.p-button-text > .p-button:enabled:active, .p-splitbutton.p-button-secondary.p-button-text > .p-button:not(button):not(a):not(.p-disabled):active {
+  background: rgba(96, 125, 139, 0.16);
+  border-color: transparent;
+  color: #607D8B;
+}
+
+.p-splitbutton.p-button-info.p-button-outlined > .p-button {
+  background-color: transparent;
+  color: #0288D1;
+  border: 1px solid;
+}
+.p-splitbutton.p-button-info.p-button-outlined > .p-button:enabled:hover, .p-splitbutton.p-button-info.p-button-outlined > .p-button:not(button):not(a):not(.p-disabled):hover {
+  background: rgba(2, 136, 209, 0.04);
+  color: #0288D1;
+}
+.p-splitbutton.p-button-info.p-button-outlined > .p-button:enabled:active, .p-splitbutton.p-button-info.p-button-outlined > .p-button:not(button):not(a):not(.p-disabled):active {
+  background: rgba(2, 136, 209, 0.16);
+  color: #0288D1;
+}
+.p-splitbutton.p-button-info.p-button-text > .p-button {
+  background-color: transparent;
+  color: #0288D1;
+  border-color: transparent;
+}
+.p-splitbutton.p-button-info.p-button-text > .p-button:enabled:hover, .p-splitbutton.p-button-info.p-button-text > .p-button:not(button):not(a):not(.p-disabled):hover {
+  background: rgba(2, 136, 209, 0.04);
+  border-color: transparent;
+  color: #0288D1;
+}
+.p-splitbutton.p-button-info.p-button-text > .p-button:enabled:active, .p-splitbutton.p-button-info.p-button-text > .p-button:not(button):not(a):not(.p-disabled):active {
+  background: rgba(2, 136, 209, 0.16);
+  border-color: transparent;
+  color: #0288D1;
+}
+
+.p-splitbutton.p-button-success.p-button-outlined > .p-button {
+  background-color: transparent;
+  color: #689F38;
+  border: 1px solid;
+}
+.p-splitbutton.p-button-success.p-button-outlined > .p-button:enabled:hover, .p-splitbutton.p-button-success.p-button-outlined > .p-button:not(button):not(a):not(.p-disabled):hover {
+  background: rgba(104, 159, 56, 0.04);
+  color: #689F38;
+}
+.p-splitbutton.p-button-success.p-button-outlined > .p-button:enabled:active, .p-splitbutton.p-button-success.p-button-outlined > .p-button:not(button):not(a):not(.p-disabled):active {
+  background: rgba(104, 159, 56, 0.16);
+  color: #689F38;
+}
+.p-splitbutton.p-button-success.p-button-text > .p-button {
+  background-color: transparent;
+  color: #689F38;
+  border-color: transparent;
+}
+.p-splitbutton.p-button-success.p-button-text > .p-button:enabled:hover, .p-splitbutton.p-button-success.p-button-text > .p-button:not(button):not(a):not(.p-disabled):hover {
+  background: rgba(104, 159, 56, 0.04);
+  border-color: transparent;
+  color: #689F38;
+}
+.p-splitbutton.p-button-success.p-button-text > .p-button:enabled:active, .p-splitbutton.p-button-success.p-button-text > .p-button:not(button):not(a):not(.p-disabled):active {
+  background: rgba(104, 159, 56, 0.16);
+  border-color: transparent;
+  color: #689F38;
+}
+
+.p-splitbutton.p-button-warning.p-button-outlined > .p-button {
+  background-color: transparent;
+  color: #FBC02D;
+  border: 1px solid;
+}
+.p-splitbutton.p-button-warning.p-button-outlined > .p-button:enabled:hover, .p-splitbutton.p-button-warning.p-button-outlined > .p-button:not(button):not(a):not(.p-disabled):hover {
+  background: rgba(251, 192, 45, 0.04);
+  color: #FBC02D;
+}
+.p-splitbutton.p-button-warning.p-button-outlined > .p-button:enabled:active, .p-splitbutton.p-button-warning.p-button-outlined > .p-button:not(button):not(a):not(.p-disabled):active {
+  background: rgba(251, 192, 45, 0.16);
+  color: #FBC02D;
+}
+.p-splitbutton.p-button-warning.p-button-text > .p-button {
+  background-color: transparent;
+  color: #FBC02D;
+  border-color: transparent;
+}
+.p-splitbutton.p-button-warning.p-button-text > .p-button:enabled:hover, .p-splitbutton.p-button-warning.p-button-text > .p-button:not(button):not(a):not(.p-disabled):hover {
+  background: rgba(251, 192, 45, 0.04);
+  border-color: transparent;
+  color: #FBC02D;
+}
+.p-splitbutton.p-button-warning.p-button-text > .p-button:enabled:active, .p-splitbutton.p-button-warning.p-button-text > .p-button:not(button):not(a):not(.p-disabled):active {
+  background: rgba(251, 192, 45, 0.16);
+  border-color: transparent;
+  color: #FBC02D;
+}
+
+.p-splitbutton.p-button-help.p-button-outlined > .p-button {
+  background-color: transparent;
+  color: #9C27B0;
+  border: 1px solid;
+}
+.p-splitbutton.p-button-help.p-button-outlined > .p-button:enabled:hover, .p-splitbutton.p-button-help.p-button-outlined > .p-button:not(button):not(a):not(.p-disabled):hover {
+  background: rgba(156, 39, 176, 0.04);
+  color: #9C27B0;
+}
+.p-splitbutton.p-button-help.p-button-outlined > .p-button:enabled:active, .p-splitbutton.p-button-help.p-button-outlined > .p-button:not(button):not(a):not(.p-disabled):active {
+  background: rgba(156, 39, 176, 0.16);
+  color: #9C27B0;
+}
+.p-splitbutton.p-button-help.p-button-text > .p-button {
+  background-color: transparent;
+  color: #9C27B0;
+  border-color: transparent;
+}
+.p-splitbutton.p-button-help.p-button-text > .p-button:enabled:hover, .p-splitbutton.p-button-help.p-button-text > .p-button:not(button):not(a):not(.p-disabled):hover {
+  background: rgba(156, 39, 176, 0.04);
+  border-color: transparent;
+  color: #9C27B0;
+}
+.p-splitbutton.p-button-help.p-button-text > .p-button:enabled:active, .p-splitbutton.p-button-help.p-button-text > .p-button:not(button):not(a):not(.p-disabled):active {
+  background: rgba(156, 39, 176, 0.16);
+  border-color: transparent;
+  color: #9C27B0;
+}
+
+.p-splitbutton.p-button-danger.p-button-outlined > .p-button {
+  background-color: transparent;
+  color: #D32F2F;
+  border: 1px solid;
+}
+.p-splitbutton.p-button-danger.p-button-outlined > .p-button:enabled:hover, .p-splitbutton.p-button-danger.p-button-outlined > .p-button:not(button):not(a):not(.p-disabled):hover {
+  background: rgba(211, 47, 47, 0.04);
+  color: #D32F2F;
+}
+.p-splitbutton.p-button-danger.p-button-outlined > .p-button:enabled:active, .p-splitbutton.p-button-danger.p-button-outlined > .p-button:not(button):not(a):not(.p-disabled):active {
+  background: rgba(211, 47, 47, 0.16);
+  color: #D32F2F;
+}
+.p-splitbutton.p-button-danger.p-button-text > .p-button {
+  background-color: transparent;
+  color: #D32F2F;
+  border-color: transparent;
+}
+.p-splitbutton.p-button-danger.p-button-text > .p-button:enabled:hover, .p-splitbutton.p-button-danger.p-button-text > .p-button:not(button):not(a):not(.p-disabled):hover {
+  background: rgba(211, 47, 47, 0.04);
+  border-color: transparent;
+  color: #D32F2F;
+}
+.p-splitbutton.p-button-danger.p-button-text > .p-button:enabled:active, .p-splitbutton.p-button-danger.p-button-text > .p-button:not(button):not(a):not(.p-disabled):active {
+  background: rgba(211, 47, 47, 0.16);
+  border-color: transparent;
+  color: #D32F2F;
 }
 
 .p-carousel .p-carousel-content .p-carousel-prev,

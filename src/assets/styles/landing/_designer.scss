@@ -1,0 +1,148 @@
+.landing-designer {
+
+    .designer-demo {
+        --dd-primary:#4f8ff7;
+        --dd-primary-darker:#3575dd;
+        --dd-font: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+
+        .p-component {
+            font-family: var(--dd-font);
+        }
+
+        .p-slider {
+            .p-slider-range {
+                background-color: var(--dd-primary);
+            }
+    
+            .p-slider-handle {
+                border-color: var(--dd-primary);
+    
+                &:hover {
+                    background-color: var(--dd-primary);
+                    border-color: var(--dd-primary);
+                }
+            }
+        }
+    
+        .p-inputtext {
+            &:enabled:hover {
+                border-color: var(--dd-primary);
+            }
+    
+            &:focus {
+                box-shadow: none;
+                border-color: var(--dd-primary);
+            }
+        }
+    
+        .p-checkbox {
+            &:not(.p-checkbox-disabled) .p-checkbox-box {
+                &:hover, &.p-focus {
+                    border-color: var(--dd-primary);
+                }
+    
+                &.p-focus {
+                    box-shadow: 0 0 0 2px var(--surface-ground), 0 0 0 4px var(--dd-primary), 0 1px 2px 0 rgba(0, 0, 0, 1.0);
+                }
+            }
+    
+            .p-checkbox-box {
+                &.p-highlight {
+                    background-color: var(--dd-primary);
+                    border-color: var(--dd-primary);
+    
+                    &:hover {
+                        background-color: var(--dd-primary);
+                        border-color: var(--dd-primary);
+                    }
+                }
+            }
+        }
+    
+        .p-button {
+            background-color: var(--dd-primary);
+            border-color: var(--dd-primary);
+    
+            &.p-button-outlined {
+                background-color: transparent;
+    
+                .p-button-icon, .p-button-label {
+                    color: var(--dd-primary);
+                }
+
+                &:enabled:hover,
+                &:enabled:active {
+                    background-color: transparent;
+                }
+            }
+    
+            &:enabled:hover,
+            &:enabled:active {
+                background-color: var(--dd-primary-darker);
+                border-color: var(--dd-primary-darker);
+            }
+    
+            &:focus {
+                box-shadow: 0 0 0 2px var(--surface-ground), 0 0 0 4px var(--dd-primary), 0 1px 2px 0 rgba(0, 0, 0, 1.0);
+            }
+        }
+    
+        .p-listbox {
+            .p-listbox-list .p-listbox-item.p-highlight {
+                background-color: transparent;
+                box-shadow: inset 0 0 0 0.15rem var(--dd-primary);
+            }
+        }
+
+        .p-inputtext, .p-button, .p-listbox-item, .p-slider {
+            transition: all .5s;
+        }
+
+        .p-slider, .p-checkbox {
+            transition: transform .5s;
+        }
+
+        &.demo-size-small {
+            .p-inputtext, .p-button {
+                padding: .5rem;
+            }
+
+            .p-listbox-item {
+                padding: .5rem 1rem;
+            }
+
+            .p-slider, .p-checkbox {
+                transform: scale(0.9);
+            }
+        }
+
+        &.demo-size-large {
+            .p-inputtext, .p-button {
+                padding: 1rem;
+            }
+
+            .p-listbox-item {
+                padding: 1rem 1.5rem;
+            }
+
+            .p-slider, .p-checkbox {
+                transform: scale(1.1);
+            }
+        }
+    }
+
+    .formgrid > .field {
+        padding: 2rem;
+    }
+
+    .designer-editor {
+        backdrop-filter: blur(1rem);
+        box-shadow: var(--home-card-shadow);
+    }
+
+    .designer-controls {
+        border-radius: 0 !important;
+        background: transparent;
+    }
+    
+}

@@ -9,7 +9,7 @@
                             <span class="p-menuitem-text">{{label(item)}}</span>
                         </a>
                     </router-link>
-                    <a v-else :href="item.url" :class="linkClass(item)" :target="item.target" @click="onItemClick($event, item)"
+                    <a v-else :href="item.url" :class="linkClass(item)" :target="item.target" @click="onItemClick($event, item)" @keydown="onItemKeydown($event, item)"
                         role="treeitem" :aria-expanded="isActive(item)" :tabindex="disabled(item) ? null : '0'">
                         <span :class="getSubmenuIcon(item)" v-if="item.items"></span>
                         <span :class="['p-menuitem-icon', item.icon]"></span>
@@ -83,6 +83,11 @@ export default {
 
             if (item.to && navigate) {
                 navigate(event);
+            }
+        },
+        onItemKeydown(event, item) {
+            if (event.which === 13) {
+                this.onItemClick(event, item);
             }
         },
         getItemClass(item) {

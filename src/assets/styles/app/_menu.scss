@@ -15,13 +15,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        border-bottom: 1px solid var(--surface-border);
-        border-right: 1px solid var(--surface-border);
         z-index: 1;
-
-        img {
-            width: 180px;
-        }
 
         &:focus {
             outline: 0 none;
@@ -31,24 +25,24 @@
     }
 
     .layout-menu {
-        padding: 0 1rem;
+        padding: 0 2rem;
         overflow-y: auto;
         flex-grow: 1;
-        border-right: 1px solid var(--surface-border);
 
         .menu-category {
-            display: block;
-            color: var(--text-color);
+            display: flex;
+            align-items: center;
+            color: var(--surface-900);
             font-weight: 700;
             user-select: none;
-            padding: 1.5rem 0 1rem 0;
+            padding: .5rem .25rem;
             font-size: 0.857rem;
             text-transform: uppercase;
-            border-top: 1px solid var(--surface-border);
 
-            &:first-child {
-                border-top: 0 none;
-                padding-top: 1rem;
+            .layout-menu-badge {
+                padding: .14rem .5rem;
+                font-size: .7rem;
+                line-height: 1.4;
             }
         }
 
@@ -61,9 +55,15 @@
                 color: var(--text-color);
                 display: flex;
                 align-items: center;
-                padding: .5rem;
-                border-radius: 3px;
+                padding: .5rem .75rem;
+                border-radius: 10px;
                 cursor: pointer;
+                
+                .layout-menu-badge {
+                    padding: .14rem .5rem;
+                    font-size: .7rem;
+                    line-height: 1.4;
+                }
 
                 &:hover {
                     background-color: var(--surface-hover);
@@ -73,11 +73,12 @@
                     z-index: 1;
                     outline: 0 none;
                     transition: box-shadow .2s;
-                    box-shadow: 0 0 0 0.2em $focusBorderColor;
+                    box-shadow: var(--focus-ring);
                 }
 
                 &.router-link-exact-active {
                     font-weight: 700;
+                    color: var(--primary-color);
                 }
 
                 .p-tag {
@@ -121,9 +122,6 @@
     }
 
     .layout-sidebar-filter {
-        padding: 1.25rem 1rem;
-        border-bottom: 1px solid var(--surface-border);
-        border-right: 1px solid var(--surface-border);
-        background-color: var(--surface-card);
+        padding: 1rem 2rem 2rem;
     }
 }

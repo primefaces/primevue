@@ -1,11 +1,11 @@
 .layout-content {
     margin-left: 250px;
+    padding-top: 70px;
 
     .content-section {
-        padding: 2rem;
+        padding: 2rem 4rem;
 
         &.introduction {
-            background-color: var(--surface-ground);
             color: var(--text-color);
             padding-bottom: 0;
             display: flex;
@@ -14,14 +14,12 @@
 
             .feature-intro {
                 h1 {
-                    span {
-                        font-weight: 400;
-                        color: var(--text-color-secondary);
-                    }
+                    color: var(--surface-900);
                 }
 
                 p {
                     margin: 0;
+                    font-size: 1.25rem;
                 }
 
                 a {
@@ -43,7 +41,6 @@
         }
 
         &.implementation {
-            background-color: var(--surface-ground);
             color: var(--text-color);
 
             +.documentation {
@@ -52,7 +49,6 @@
         }
 
         &.documentation {
-            background-color: var(--surface-ground);
             color: var(--text-color);
 
             li {
@@ -72,10 +68,11 @@
             .doc-tablewrapper {
                 margin: 1rem 0;
                 overflow: auto;
+                border-radius: 10px;
             }
 
             i:not([class~="pi"]) {
-                background-color: var(--surface-section);
+                background-color: var(--surface-card);
                 color: #2196f3;
                 font-family: Monaco, courier, monospace;
                 font-style: normal;
@@ -190,12 +187,16 @@
             }
 
             tbody {
+                tr:hover {
+                    background: var(--surface-hover);
+                }
+
                 td {
                     padding: 1rem;
                     border-bottom: 1px solid var(--surface-border);
 
                     &:first-child {
-                        font-family: Courier New,monospace;
+                        font-family: ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,Liberation Mono,monospace;
                         font-weight: 700;
                         color: var(--text-color-secondary);
                     }
@@ -217,8 +218,7 @@
     .card {
         background: var(--surface-card);
         padding: 2rem;
-        box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
-        border-radius: 4px;
+        border-radius: 10px;
         margin-bottom: 2rem;
 
         .card-header {
