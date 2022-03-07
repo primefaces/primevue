@@ -508,8 +508,15 @@ export default {
                     </tr>
                     <tr>
                         <td>blur</td>
-                        <td>event: Blur event</td>
+                        <td>event.originalEvent: Blur event <br />
+                            event.value: Input value
+                        </td>
                         <td>Callback to invoke on blur of input field.</td>
+                    </tr>
+                    <tr>
+                        <td>keydown</td>
+                        <td>event: Keyboard event</td>
+                        <td>Callback to invoke when a key is pressed.</td>
                     </tr>
                 </tbody>
             </table>

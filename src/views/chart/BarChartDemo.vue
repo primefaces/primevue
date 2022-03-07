@@ -47,7 +47,7 @@ export default {
             else
                 this.applyLightTheme();
         };
-        EventBus.on('change-theme', this.themeChangeListener);
+        EventBus.on('theme-change', this.themeChangeListener);
 
         if (this.isDarkTheme()) {
             this.applyDarkTheme();

@@ -338,6 +338,18 @@ Vertical
                             event.value: New value</td>
                         <td>Callback to invoke when the value is entered.</td>
                     </tr>
+                    <tr>
+                        <td>focus</td>
+                        <td>event: Focus event</td>
+                        <td>Callback to invoke on focus of input field.</td>
+                    </tr>
+                    <tr>
+                        <td>blur</td>
+                        <td>event.originalEvent: Blur event <br />
+                            event.value: Input value
+                        </td>
+                        <td>Callback to invoke on blur of input field.</td>
+                    </tr>
                 </tbody>
             </table>
         </div>

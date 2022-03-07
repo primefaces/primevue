@@ -349,12 +349,28 @@ const CalendarEvents = [
         description: "Callback to invoke on blur of input field.",
         arguments: [
             {
-                name: "event",
+                name: "event.originalEvent",
                 type: "object",
-                description: "Blur event"
+                description: "Browser event"
+            },
+            {
+                name: "event.value",
+                type: "string",
+                description: "Input value"
             }
         ]
     },
+    {
+        name: "keydown",
+        description: "Callback to invoke when a key is pressed.",
+        arguments: [
+            {
+                name: "event",
+                type: "object",
+                description: "Keydown event"
+            }
+        ]
+    }
 ];
 
 const CalendarSlots = [

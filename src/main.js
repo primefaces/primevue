@@ -1,7 +1,7 @@
 import {createApp} from 'vue';
 import {reactive} from 'vue';
 import router from './router';
-import App from './App.vue';
+import AppWrapper from './AppWrapper.vue';
 import PrimeVue from './components/config/PrimeVue';
 import AutoComplete from './components/autocomplete/AutoComplete';
 import Accordion from './components/accordion/Accordion';
@@ -105,6 +105,8 @@ import AppDemoActions from './AppDemoActions';
 import AppDocumentation from './AppDocumentation';
 import CodeHighlight from './AppCodeHighlight';
 
+import EventBus from '@/AppEventBus';
+
 import './assets/styles/primevue.css';
 import 'primeflex/primeflex.css';
 import 'primeicons/primeicons.css';
@@ -112,13 +114,16 @@ import 'prismjs/themes/prism-coy.css';
 import './assets/styles/flags.css';
 
 router.beforeEach(function (to, from, next) {
-    window.scrollTo(0, 0);
+    if (to.name === 'home' && from.name) {
+        const newTheme = app.config.globalProperties.$appState.darkTheme ? 'lara-dark-blue' : 'lara-light-blue';
+        EventBus.emit('theme-change', { theme: newTheme, dark: app.config.globalProperties.$appState.darkTheme });
+    }
     next();
 });
 
-const app = createApp(App);
+const app = createApp(AppWrapper);
 
-app.config.globalProperties.$appState = reactive({darkTheme: true, codeSandbox: false, sourceType: 'options-api'});
+app.config.globalProperties.$appState = reactive({theme: 'lara-light-blue', darkTheme: false, codeSandbox: false, sourceType: 'options-api'});
 
 app.use(PrimeVue, {ripple: true});
 app.use(ToastService);

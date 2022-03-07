@@ -150,7 +150,7 @@ import Ripple from 'primevue/ripple';
 export default {
     name: 'Calendar',
     inheritAttrs: false,
-    emits: ['show', 'hide', 'input', 'month-change', 'year-change', 'date-select', 'update:modelValue', 'today-click', 'clear-click', 'focus', 'blur'],
+    emits: ['show', 'hide', 'input', 'month-change', 'year-change', 'date-select', 'update:modelValue', 'today-click', 'clear-click', 'focus', 'blur', 'keydown'],
     props: {
         modelValue: null,
         selectionMode: {
@@ -325,6 +325,7 @@ export default {
             this.overlay && this.overlay.setAttribute(this.attributeSelector, '');
 
             if (!this.$attrs.disabled) {
+                this.preventFocus = true;
                 this.initFocusableCell();
 
                 if (this.numberOfMonths === 1) {
@@ -2156,6 +2157,8 @@ export default {
                     //Noop
                 break;
             }
+
+            this.$emit('keydown', event);
         },
         onInput(event) {
             try {
@@ -2182,10 +2185,10 @@ export default {
             this.$emit('focus', event);
         },
         onBlur(event) {
+            this.$emit('blur', {originalEvent: event, value: this.input.value});
+
             this.focused = false;
             this.input.value = this.formatValue(this.modelValue);
-
-            this.$emit('blur', event);
         },
         onKeyDown() {
             if (event.keyCode === 40 && this.overlay) {
@@ -2308,6 +2311,7 @@ export default {
                 {
                     'p-calendar-w-btn': this.showIcon,
                     'p-calendar-timeonly': this.timeOnly,
+                    'p-calendar-disabled': this.$attrs.disabled,
                     'p-inputwrapper-filled': this.modelValue,
                     'p-inputwrapper-focus': this.focused
                 }

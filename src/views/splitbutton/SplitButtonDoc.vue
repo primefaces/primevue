@@ -74,13 +74,20 @@ export default {
 		</ul>
 
 <pre v-code><code>
-&lt;SplitButton label="Save" icon="pi pi-plus" :model="items"&gt;&lt;/SplitButton&gt;
-&lt;SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-secondary"&gt;&lt;/SplitButton&gt;
-&lt;SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-success"&gt;&lt;/SplitButton&gt;
-&lt;SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-info"&gt;&lt;/SplitButton&gt;
-&lt;SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-warning"&gt;&lt;/SplitButton&gt;
-&lt;SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-help"&gt;&lt;/SplitButton&gt;
-&lt;SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-danger"&gt;&lt;/SplitButton&gt;
+&lt;SplitButton label="Primary" :model="items"&gt;&lt;/SplitButton&gt;
+&lt;SplitButton label="Secondary" :model="items" class="p-button-secondary"&gt;&lt;/SplitButton&gt;
+&lt;SplitButton label="Success" :model="items" class="p-button-success"&gt;&lt;/SplitButton&gt;
+&lt;SplitButton label="Info" :model="items" class="p-button-info"&gt;&lt;/SplitButton&gt;
+&lt;SplitButton label="Warning" :model="items" class="p-button-warning"&gt;&lt;/SplitButton&gt;
+&lt;SplitButton label="Help" :model="items" class="p-button-help"&gt;&lt;/SplitButton&gt;
+&lt;SplitButton label="Danger" :model="items" class="p-button-danger"&gt;&lt;/SplitButton&gt;
+
+</code></pre>
+
+        <h5>Raised and Rounded Buttons</h5>
+        <p>SplitButton can be raised by having "p-button-raised" style class and similarly borders can be made rounded using "p-button-rounded" class.</p>
+<pre v-code><code>
+&lt;SplitButton label="Proceed" :model="items" class="p-button-raised p-button-rounded"&gt;&lt;/SplitButton&gt;
 
 </code></pre>
 
@@ -100,64 +107,64 @@ export default {
 		<p>Any property such as tabindex are passed to the underlying input element. Following are the additional properties to configure the component.</p>
 		<div class="doc-tablewrapper">
 			<table class="doc-table">
-				<thead>
-                  <tr>
-                     <th>Name</th>
-                     <th>Type</th>
-                     <th>Default</th>
-                     <th>Description</th>
-                  </tr>
-				</thead>
-				<tbody>
-                  <tr>
-                     <td>label</td>
-                     <td>string</td>
-                     <td>null</td>
-                     <td>Text of the button.</td>
-                  </tr>
-                  <tr>
-                     <td>icon</td>
-                     <td>string</td>
-                     <td>null</td>
-                     <td>Name of the icon.</td>
-                  </tr>
-                  <tr>
-                     <td>model</td>
-                     <td>object</td>
-                     <td>null</td>
-                     <td>MenuModel instance to define the overlay items.</td>
-                  </tr>
-                  <tr>
-                     <td>autoZIndex</td>
-                     <td>boolean</td>
-                     <td>true</td>
-                     <td>Whether to automatically manage layering.</td>
-                  </tr>
-                  <tr>
-                     <td>baseZIndex</td>
-                     <td>number</td>
-                     <td>0</td>
-                     <td>Base zIndex value to use in layering.</td>
-                  </tr>
-                  <tr>
-                     <td>appendTo</td>
-                     <td>string</td>
-                     <td>body</td>
-                     <td>A valid query selector or an HTMLElement to specify where the overlay gets attached.</td>
-                  </tr>
-                  <tr>
-                     <td>style</td>
-                     <td>any</td>
-                     <td>null</td>
-                     <td>Style class of the component.</td>
-                  </tr>
-                  <tr>
-                     <td>class</td>
-                     <td>string</td>
-                     <td>null</td>
-                     <td>Inline style of the component.</td>
-                  </tr>
-				</tbody>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Default</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>label</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Text of the button.</td>
+                    </tr>
+                    <tr>
+                        <td>icon</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Name of the icon.</td>
+                    </tr>
+                    <tr>
+                        <td>model</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td>MenuModel instance to define the overlay items.</td>
+                    </tr>
+                    <tr>
+                        <td>autoZIndex</td>
+                        <td>boolean</td>
+                        <td>true</td>
+                        <td>Whether to automatically manage layering.</td>
+                    </tr>
+                    <tr>
+                        <td>baseZIndex</td>
+                        <td>number</td>
+                        <td>0</td>
+                        <td>Base zIndex value to use in layering.</td>
+                    </tr>
+                    <tr>
+                        <td>appendTo</td>
+                        <td>string</td>
+                        <td>body</td>
+                        <td>A valid query selector or an HTMLElement to specify where the overlay gets attached.</td>
+                    </tr>
+                    <tr>
+                        <td>style</td>
+                        <td>any</td>
+                        <td>null</td>
+                        <td>Style class of the component.</td>
+                    </tr>
+                    <tr>
+                        <td>class</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Inline style of the component.</td>
+                    </tr>
+                </tbody>
 			</table>
 		</div>
 
@@ -233,13 +240,63 @@ export default {
         <SplitButton label="Save" icon="pi pi-plus" @click="save" :model="nestedItems"></SplitButton>
 
         <h5>Severities</h5>
-        <SplitButton label="Save" icon="pi pi-plus" :model="items" class="mb-2"></SplitButton>
-        <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-secondary mb-2"></SplitButton>
-        <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-success mb-2"></SplitButton>
-        <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-info mb-2"></SplitButton>
-        <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-warning mb-2"></SplitButton>
-        <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-help mb-2"></SplitButton>
-        <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-danger mb-2"></SplitButton>
+        <SplitButton label="Primary" :model="items" class="mb-2"></SplitButton>
+        <SplitButton label="Secondary" :model="items" class="p-button-secondary mb-2"></SplitButton>
+        <SplitButton label="Success" :model="items" class="p-button-success mb-2"></SplitButton>
+        <SplitButton label="Info" :model="items" class="p-button-info mb-2"></SplitButton>
+        <SplitButton label="Warning" :model="items" class="p-button-warning mb-2"></SplitButton>
+        <SplitButton label="Help" :model="items" class="p-button-help mb-2"></SplitButton>
+        <SplitButton label="Danger" :model="items" class="p-button-danger mb-2"></SplitButton>
+
+        <h5>Raised Buttons</h5>
+        <SplitButton label="Primary" :model="items" class="p-button-raised mb-2"></SplitButton>
+        <SplitButton label="Secondary" :model="items" class="p-button-raised p-button-secondary mb-2"></SplitButton>
+        <SplitButton label="Success" :model="items" class="p-button-raised p-button-success mb-2"></SplitButton>
+        <SplitButton label="Info" :model="items" class="p-button-raised p-button-info mb-2"></SplitButton>
+        <SplitButton label="Warning" :model="items" class="p-button-raised p-button-warning mb-2"></SplitButton>
+        <SplitButton label="Help" :model="items" class="p-button-raised p-button-help mb-2"></SplitButton>
+        <SplitButton label="Danger" :model="items" class="p-button-raised p-button-danger mb-2"></SplitButton>
+
+        <h5>Rounded Buttons</h5>
+        <SplitButton label="Primary" :model="items" class="p-button-rounded mb-2"></SplitButton>
+        <SplitButton label="Secondary" :model="items" class="p-button-rounded p-button-secondary mb-2"></SplitButton>
+        <SplitButton label="Success" :model="items" class="p-button-rounded p-button-success mb-2"></SplitButton>
+        <SplitButton label="Info" :model="items" class="p-button-rounded p-button-info mb-2"></SplitButton>
+        <SplitButton label="Warning" :model="items" class="p-button-rounded p-button-warning mb-2"></SplitButton>
+        <SplitButton label="Help" :model="items" class="p-button-rounded p-button-help mb-2"></SplitButton>
+        <SplitButton label="Danger" :model="items" class="p-button-rounded p-button-danger mb-2"></SplitButton>
+
+        <h5>Text Buttons</h5>
+        <SplitButton label="Primary" :model="items" class="p-button-text mb-2"></SplitButton>
+        <SplitButton label="Secondary" :model="items" class="p-button-text p-button-secondary mb-2"></SplitButton>
+        <SplitButton label="Success" :model="items" class="p-button-text p-button-success mb-2"></SplitButton>
+        <SplitButton label="Info" :model="items" class="p-button-text p-button-info mb-2"></SplitButton>
+        <SplitButton label="Warning" :model="items" class="p-button-text p-button-warning mb-2"></SplitButton>
+        <SplitButton label="Help" :model="items" class="p-button-text p-button-help mb-2"></SplitButton>
+        <SplitButton label="Danger" :model="items" class="p-button-text p-button-danger mb-2"></SplitButton>
+
+        <h5>Raised Text Buttons</h5>
+        <SplitButton label="Primary" :model="items" class="p-button-raised p-button-text mb-2"></SplitButton>
+        <SplitButton label="Secondary" :model="items" class="p-button-raised p-button-text p-button-secondary mb-2"></SplitButton>
+        <SplitButton label="Success" :model="items" class="p-button-raised p-button-text p-button-success mb-2"></SplitButton>
+        <SplitButton label="Info" :model="items" class="p-button-raised p-button-text p-button-info mb-2"></SplitButton>
+        <SplitButton label="Warning" :model="items" class="p-button-raised p-button-text p-button-warning mb-2"></SplitButton>
+        <SplitButton label="Help" :model="items" class="p-button-raised p-button-text p-button-help mb-2"></SplitButton>
+        <SplitButton label="Danger" :model="items" class="p-button-raised p-button-text p-button-danger mb-2"></SplitButton>
+
+        <h5>Outlined Buttons</h5>
+        <SplitButton label="Primary" :model="items" class="p-button-outlined mb-2"></SplitButton>
+        <SplitButton label="Secondary" :model="items" class="p-button-outlined p-button-secondary mb-2"></SplitButton>
+        <SplitButton label="Success" :model="items" class="p-button-outlined p-button-success mb-2"></SplitButton>
+        <SplitButton label="Info" :model="items" class="p-button-outlined p-button-info mb-2"></SplitButton>
+        <SplitButton label="Warning" :model="items" class="p-button-outlined p-button-warning mb-2"></SplitButton>
+        <SplitButton label="Help" :model="items" class="p-button-outlined p-button-help mb-2"></SplitButton>
+        <SplitButton label="Danger" :model="items" class="p-button-outlined p-button-danger mb-2"></SplitButton>
+
+        <h5>Sizes</h5>
+        <SplitButton label="Small" :model="items" class="p-button-sm mb-2"></SplitButton>
+        <SplitButton label="Normal" :model="items" class="mb-2"></SplitButton>
+        <SplitButton label="Large" :model="items" class="p-button-lg mb-2"></SplitButton>
 
         <h5>Templating</h5>
         <SplitButton :model="items" class="bg-primary border-round">
@@ -443,13 +500,63 @@ export default {
         <SplitButton label="Save" icon="pi pi-plus" @click="save" :model="nestedItems"></SplitButton>
 
         <h5>Severities</h5>
-        <SplitButton label="Save" icon="pi pi-plus" :model="items" class="mb-2"></SplitButton>
-        <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-secondary mb-2"></SplitButton>
-        <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-success mb-2"></SplitButton>
-        <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-info mb-2"></SplitButton>
-        <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-warning mb-2"></SplitButton>
-        <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-help mb-2"></SplitButton>
-        <SplitButton label="Save" icon="pi pi-plus" :model="items" class="p-button-danger mb-2"></SplitButton>
+        <SplitButton label="Primary" :model="items" class="mb-2"></SplitButton>
+        <SplitButton label="Secondary" :model="items" class="p-button-secondary mb-2"></SplitButton>
+        <SplitButton label="Success" :model="items" class="p-button-success mb-2"></SplitButton>
+        <SplitButton label="Info" :model="items" class="p-button-info mb-2"></SplitButton>
+        <SplitButton label="Warning" :model="items" class="p-button-warning mb-2"></SplitButton>
+        <SplitButton label="Help" :model="items" class="p-button-help mb-2"></SplitButton>
+        <SplitButton label="Danger" :model="items" class="p-button-danger mb-2"></SplitButton>
+
+        <h5>Raised Buttons</h5>
+        <SplitButton label="Primary" :model="items" class="p-button-raised mb-2"></SplitButton>
+        <SplitButton label="Secondary" :model="items" class="p-button-raised p-button-secondary mb-2"></SplitButton>
+        <SplitButton label="Success" :model="items" class="p-button-raised p-button-success mb-2"></SplitButton>
+        <SplitButton label="Info" :model="items" class="p-button-raised p-button-info mb-2"></SplitButton>
+        <SplitButton label="Warning" :model="items" class="p-button-raised p-button-warning mb-2"></SplitButton>
+        <SplitButton label="Help" :model="items" class="p-button-raised p-button-help mb-2"></SplitButton>
+        <SplitButton label="Danger" :model="items" class="p-button-raised p-button-danger mb-2"></SplitButton>
+
+        <h5>Rounded Buttons</h5>
+        <SplitButton label="Primary" :model="items" class="p-button-rounded mb-2"></SplitButton>
+        <SplitButton label="Secondary" :model="items" class="p-button-rounded p-button-secondary mb-2"></SplitButton>
+        <SplitButton label="Success" :model="items" class="p-button-rounded p-button-success mb-2"></SplitButton>
+        <SplitButton label="Info" :model="items" class="p-button-rounded p-button-info mb-2"></SplitButton>
+        <SplitButton label="Warning" :model="items" class="p-button-rounded p-button-warning mb-2"></SplitButton>
+        <SplitButton label="Help" :model="items" class="p-button-rounded p-button-help mb-2"></SplitButton>
+        <SplitButton label="Danger" :model="items" class="p-button-rounded p-button-danger mb-2"></SplitButton>
+
+        <h5>Text Buttons</h5>
+        <SplitButton label="Primary" :model="items" class="p-button-text mb-2"></SplitButton>
+        <SplitButton label="Secondary" :model="items" class="p-button-text p-button-secondary mb-2"></SplitButton>
+        <SplitButton label="Success" :model="items" class="p-button-text p-button-success mb-2"></SplitButton>
+        <SplitButton label="Info" :model="items" class="p-button-text p-button-info mb-2"></SplitButton>
+        <SplitButton label="Warning" :model="items" class="p-button-text p-button-warning mb-2"></SplitButton>
+        <SplitButton label="Help" :model="items" class="p-button-text p-button-help mb-2"></SplitButton>
+        <SplitButton label="Danger" :model="items" class="p-button-text p-button-danger mb-2"></SplitButton>
+
+        <h5>Raised Text Buttons</h5>
+        <SplitButton label="Primary" :model="items" class="p-button-raised p-button-text mb-2"></SplitButton>
+        <SplitButton label="Secondary" :model="items" class="p-button-raised p-button-text p-button-secondary mb-2"></SplitButton>
+        <SplitButton label="Success" :model="items" class="p-button-raised p-button-text p-button-success mb-2"></SplitButton>
+        <SplitButton label="Info" :model="items" class="p-button-raised p-button-text p-button-info mb-2"></SplitButton>
+        <SplitButton label="Warning" :model="items" class="p-button-raised p-button-text p-button-warning mb-2"></SplitButton>
+        <SplitButton label="Help" :model="items" class="p-button-raised p-button-text p-button-help mb-2"></SplitButton>
+        <SplitButton label="Danger" :model="items" class="p-button-raised p-button-text p-button-danger mb-2"></SplitButton>
+
+        <h5>Outlined Buttons</h5>
+        <SplitButton label="Primary" :model="items" class="p-button-outlined mb-2"></SplitButton>
+        <SplitButton label="Secondary" :model="items" class="p-button-outlined p-button-secondary mb-2"></SplitButton>
+        <SplitButton label="Success" :model="items" class="p-button-outlined p-button-success mb-2"></SplitButton>
+        <SplitButton label="Info" :model="items" class="p-button-outlined p-button-info mb-2"></SplitButton>
+        <SplitButton label="Warning" :model="items" class="p-button-outlined p-button-warning mb-2"></SplitButton>
+        <SplitButton label="Help" :model="items" class="p-button-outlined p-button-help mb-2"></SplitButton>
+        <SplitButton label="Danger" :model="items" class="p-button-outlined p-button-danger mb-2"></SplitButton>
+
+        <h5>Sizes</h5>
+        <SplitButton label="Small" :model="items" class="p-button-sm mb-2"></SplitButton>
+        <SplitButton label="Normal" :model="items" class="mb-2"></SplitButton>
+        <SplitButton label="Large" :model="items" class="p-button-lg mb-2"></SplitButton>
 
         <h5>Templating</h5>
         <SplitButton :model="items" class="bg-primary border-round">
@@ -652,13 +759,63 @@ export default {
             <p-splitbutton label="Save" icon="pi pi-plus" @click="save" :model="nestedItems"></p-splitbutton>
 
             <h5>Severities</h5>
-            <p-splitbutton label="Save" icon="pi pi-plus" :model="items" class="mb-2"></p-splitbutton>
-            <p-splitbutton label="Save" icon="pi pi-plus" :model="items" class="p-button-secondary mb-2"></p-splitbutton>
-            <p-splitbutton label="Save" icon="pi pi-plus" :model="items" class="p-button-success mb-2"></p-splitbutton>
-            <p-splitbutton label="Save" icon="pi pi-plus" :model="items" class="p-button-info mb-2"></p-splitbutton>
-            <p-splitbutton label="Save" icon="pi pi-plus" :model="items" class="p-button-warning mb-2"></p-splitbutton>
-            <p-splitbutton label="Save" icon="pi pi-plus" :model="items" class="p-button-help mb-2"></p-splitbutton>
-            <p-splitbutton label="Save" icon="pi pi-plus" :model="items" class="p-button-danger mb-2"></p-splitbutton>
+            <p-splitbutton label="Primary" :model="items" class="mb-2"></p-splitbutton>
+            <p-splitbutton label="Secondary" :model="items" class="p-button-secondary mb-2"></p-splitbutton>
+            <p-splitbutton label="Success" :model="items" class="p-button-success mb-2"></p-splitbutton>
+            <p-splitbutton label="Info" :model="items" class="p-button-info mb-2"></p-splitbutton>
+            <p-splitbutton label="Warning" :model="items" class="p-button-warning mb-2"></p-splitbutton>
+            <p-splitbutton label="Help" :model="items" class="p-button-help mb-2"></p-splitbutton>
+            <p-splitbutton label="Danger" :model="items" class="p-button-danger mb-2"></p-splitbutton>
+
+            <h5>Raised Buttons</h5>
+            <p-splitbutton label="Primary" :model="items" class="p-button-raised mb-2"></p-splitbutton>
+            <p-splitbutton label="Secondary" :model="items" class="p-button-raised p-button-secondary mb-2"></p-splitbutton>
+            <p-splitbutton label="Success" :model="items" class="p-button-raised p-button-success mb-2"></p-splitbutton>
+            <p-splitbutton label="Info" :model="items" class="p-button-raised p-button-info mb-2"></p-splitbutton>
+            <p-splitbutton label="Warning" :model="items" class="p-button-raised p-button-warning mb-2"></p-splitbutton>
+            <p-splitbutton label="Help" :model="items" class="p-button-raised p-button-help mb-2"></p-splitbutton>
+            <p-splitbutton label="Danger" :model="items" class="p-button-raised p-button-danger mb-2"></p-splitbutton>
+
+            <h5>Rounded Buttons</h5>
+            <p-splitbutton label="Primary" :model="items" class="p-button-rounded mb-2"></p-splitbutton>
+            <p-splitbutton label="Secondary" :model="items" class="p-button-rounded p-button-secondary mb-2"></p-splitbutton>
+            <p-splitbutton label="Success" :model="items" class="p-button-rounded p-button-success mb-2"></p-splitbutton>
+            <p-splitbutton label="Info" :model="items" class="p-button-rounded p-button-info mb-2"></p-splitbutton>
+            <p-splitbutton label="Warning" :model="items" class="p-button-rounded p-button-warning mb-2"></p-splitbutton>
+            <p-splitbutton label="Help" :model="items" class="p-button-rounded p-button-help mb-2"></p-splitbutton>
+            <p-splitbutton label="Danger" :model="items" class="p-button-rounded p-button-danger mb-2"></p-splitbutton>
+
+            <h5>Text Buttons</h5>
+            <p-splitbutton label="Primary" :model="items" class="p-button-text mb-2"></p-splitbutton>
+            <p-splitbutton label="Secondary" :model="items" class="p-button-text p-button-secondary mb-2"></p-splitbutton>
+            <p-splitbutton label="Success" :model="items" class="p-button-text p-button-success mb-2"></p-splitbutton>
+            <p-splitbutton label="Info" :model="items" class="p-button-text p-button-info mb-2"></p-splitbutton>
+            <p-splitbutton label="Warning" :model="items" class="p-button-text p-button-warning mb-2"></p-splitbutton>
+            <p-splitbutton label="Help" :model="items" class="p-button-text p-button-help mb-2"></p-splitbutton>
+            <p-splitbutton label="Danger" :model="items" class="p-button-text p-button-danger mb-2"></p-splitbutton>
+
+            <h5>Raised Text Buttons</h5>
+            <p-splitbutton label="Primary" :model="items" class="p-button-raised p-button-text mb-2"></p-splitbutton>
+            <p-splitbutton label="Secondary" :model="items" class="p-button-raised p-button-text p-button-secondary mb-2"></p-splitbutton>
+            <p-splitbutton label="Success" :model="items" class="p-button-raised p-button-text p-button-success mb-2"></p-splitbutton>
+            <p-splitbutton label="Info" :model="items" class="p-button-raised p-button-text p-button-info mb-2"></p-splitbutton>
+            <p-splitbutton label="Warning" :model="items" class="p-button-raised p-button-text p-button-warning mb-2"></p-splitbutton>
+            <p-splitbutton label="Help" :model="items" class="p-button-raised p-button-text p-button-help mb-2"></p-splitbutton>
+            <p-splitbutton label="Danger" :model="items" class="p-button-raised p-button-text p-button-danger mb-2"></p-splitbutton>
+
+            <h5>Outlined Buttons</h5>
+            <p-splitbutton label="Primary" :model="items" class="p-button-outlined mb-2"></p-splitbutton>
+            <p-splitbutton label="Secondary" :model="items" class="p-button-outlined p-button-secondary mb-2"></p-splitbutton>
+            <p-splitbutton label="Success" :model="items" class="p-button-outlined p-button-success mb-2"></p-splitbutton>
+            <p-splitbutton label="Info" :model="items" class="p-button-outlined p-button-info mb-2"></p-splitbutton>
+            <p-splitbutton label="Warning" :model="items" class="p-button-outlined p-button-warning mb-2"></p-splitbutton>
+            <p-splitbutton label="Help" :model="items" class="p-button-outlined p-button-help mb-2"></p-splitbutton>
+            <p-splitbutton label="Danger" :model="items" class="p-button-outlined p-button-danger mb-2"></p-splitbutton>
+
+            <h5>Sizes</h5>
+            <p-splitbutton label="Small" :model="items" class="p-button-sm mb-2"></p-splitbutton>
+            <p-splitbutton label="Normal" :model="items" class="mb-2"></p-splitbutton>
+            <p-splitbutton label="Large" :model="items" class="p-button-lg mb-2"></p-splitbutton>
 
             <h5>Templating</h5>
             <p-splitbutton :model="items" class="bg-primary border-round">

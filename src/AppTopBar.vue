@@ -1,19 +1,15 @@
 <template>
-    <div class="layout-topbar">
+    <div :ref="containerRef" class="layout-topbar">
         <a class="menu-button" @click="$emit('menubutton-click')">
             <i class="pi pi-bars"></i>
         </a>
-        <router-link to="/" class="logo">
-            <img alt="logo" src="./assets/images/primevue-logo.png">
-        </router-link>
-        <div class="app-theme" v-tooltip.bottom="theme">
-            <img :src="'demo/images/themes/' + logoMap[theme]" />
+        <div class="app-theme" v-tooltip.bottom="$appState.theme">
+            <img :src="'demo/images/themes/' + logoMap[$appState.theme]" />
         </div>
         <ul ref="topbarMenu" class="topbar-menu">
-            <li><router-link to="/setup">Get Started</router-link></li>
             <li class="topbar-submenu">
                 <a tabindex="0" @click="toggleMenu($event, 0)">
-                    <span v-badge.danger>Themes</span>
+                    <span>Themes</span>
                 </a>
                 <transition name="p-connected-overlay" @enter="onMenuEnter">
                     <ul v-show="activeMenuIndex === 0">
@@ -104,21 +100,14 @@
                 </transition>
             </li>
             <li class="topbar-submenu topbar-resources-submenu">
-                <a tabindex="0" @click="toggleMenu($event, 2)">Resources</a>
+                <a href="https://www.primefaces.org/primeblocks-vue/#/" target="_blank"><span>Blocks</span></a>
+            </li>
+            <li class="topbar-submenu">
+                <a tabindex="0" @click="toggleMenu($event, 3)">v3.12.1</a>
                 <transition name="p-connected-overlay" @enter="onMenuEnter">
-                    <ul v-show="activeMenuIndex === 2">
-                        <li><router-link to="/support"><span>Support</span></router-link></li>
-                        <li><a href="https://forum.primefaces.org/viewforum.php?f=110"><span>Forum</span></a></li>
-                        <li><a href="https://discord.gg/gzKFYnpmCY" target="_blank"><span>Discord Chat</span></a></li>
-                        <li><a href="https://github.com/primefaces/primevue" target="_blank"><span>Source Code</span></a></li>
-                        <li><a href="https://www.primefaces.org/store" target="_blank"><span>PrimeStore</span></a></li>
-                        <li><a href="https://www.primefaces.org/category/primevue/" target="_blank"><span>Blog</span></a></li>
-                        <li><a href="https://www.youtube.com/channel/UCTgmp69aBOlLnPEqlUyetWw/featured" target="_blank"><span>PrimeTV</span></a></li>
-                        <li><a href="https://twitter.com/primevue?lang=en" target="_blank"><span>Twitter</span></a></li>
-                        <li><a href="https://www.primefaces.org/whouses" target="_blank"><span>Who Uses</span></a></li>
-                        <li><a href="https://www.primefaces.org/newsletter" target="_blank"><span>Newsletter</span></a></li>
-                        <li><a href="https://gear.primefaces.org" target="_blank"><span>Gear Store</span></a></li>
-                        <li><a href="https://www.primetek.com.tr" target="_blank"><span>About PrimeTek</span></a></li>
+                    <ul v-show="activeMenuIndex === 3" style="width: 100%">
+                        <li><router-link to="/"><span class="m-0">v3.12.1</span></router-link></li>
+                        <li><a href="https://www.primefaces.org/primevue-v2"><span class="m-0">v2.9.0</span></a></li>
                     </ul>
                 </transition>
             </li>
@@ -127,6 +116,8 @@
 </template>
 
 <script>
+import EventBus from '@/AppEventBus';
+
 export default {
     outsideClickListener: null,
     darkDemoStyle: null,
@@ -134,9 +125,6 @@ export default {
         $route() {
             this.activeMenuIndex = null;
         }
-    },
-    props: {
-        theme: null
     },
     data() {
         return {
@@ -185,18 +173,28 @@ export default {
                 'tailwind-light': 'tailwind-light.png',
                 'lara-dark-indigo': 'lara-dark-indigo.png',
                 'lara-dark-purple': 'lara-dark-purple.png',
+                'lara-dark-teal': 'lara-dark-teal.png',
+                'lara-dark-blue': 'lara-dark-blue.png',
                 'lara-light-indigo': 'lara-light-indigo.png',
                 'lara-light-purple': 'lara-light-purple.png',
-                'lara-dark-teal': 'lara-dark-indigo.png',
-                'lara-dark-blue': 'lara-dark-blue.png',
                 'lara-light-teal': 'lara-light-teal.png',
                 'lara-light-blue': 'lara-light-blue.png'
             }
         }
     },
+    scrollListener: null,
+    container: null,
+    mounted() {
+        this.bindScrollListener();
+    },
+    beforeUnmount() {
+        if (this.scrollListener) {
+            this.unbindScrollListener();
+        }
+    },
     methods: {
         changeTheme(event, theme, dark) {
-            this.$emit('change-theme', {theme: theme, dark: dark});
+            EventBus.emit('theme-change', { theme: theme, dark: dark });
             this.activeMenuIndex = null;
             event.preventDefault();
         },
@@ -206,6 +204,25 @@ export default {
         },
         onMenuEnter() {
             this.bindOutsideClickListener();
+        },
+        bindScrollListener() {
+            if (!this.scrollListener) {
+                if (this.container) {
+                    this.scrollListener = () => {
+                        if (window.scrollY > 0)
+                            this.container.classList.add('layout-topbar-sticky');
+                        else
+                            this.container.classList.remove('layout-topbar-sticky');
+                    }
+                }
+            }
+            window.addEventListener('scroll', this.scrollListener);
+        },
+        unbindScrollListener() {
+            if (this.scrollListener) {
+                window.removeEventListener('scroll', this.scrollListener);
+                this.scrollListener = null;
+            }
         },
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
@@ -226,6 +243,9 @@ export default {
         },
         isOutsideTopbarMenuClicked(event) {
             return !(this.$refs.topbarMenu.isSameNode(event.target) || this.$refs.topbarMenu.contains(event.target));
+        },
+        containerRef(el) {
+            this.container = el;
         }
     }
 }

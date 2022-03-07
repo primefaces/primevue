@@ -373,7 +373,6 @@ import EventBus from '@/AppEventBus';
 
 export default {
     props: {
-        theme: String,
         inputStyle: String
     },
     data() {
@@ -394,7 +393,7 @@ export default {
         }
     },
     beforeUnmount() {
-        EventBus.off('change-theme', this.themeChangeListener);
+        EventBus.off('theme-change', this.themeChangeListener);
     },
     mounted() {
         this.themeChangeListener = (event) => {
@@ -406,7 +405,7 @@ export default {
             this.applyScale();
         };
 
-        EventBus.on('change-theme', this.themeChangeListener);
+        EventBus.on('theme-change', this.themeChangeListener);
     },
     methods: {
         toggleConfigurator(event) {
@@ -424,7 +423,7 @@ export default {
             event.preventDefault();
         },
         changeTheme(event, theme, dark) {
-            this.$emit('change-theme', {theme: theme, dark: dark});
+            EventBus.emit('theme-change', { theme: theme, dark: dark });
             event.preventDefault();
         },
         bindOutsideClickListener() {

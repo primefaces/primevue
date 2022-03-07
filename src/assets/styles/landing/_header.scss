@@ -1,0 +1,100 @@
+.landing-header {
+    background-color: transparent;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .landing-header-logo {
+        height: 2.5rem;
+    }
+
+    &.landing-header-sticky {
+        background-color: var(--home-header-bg);
+        backdrop-filter: blur(12px);
+    }
+    
+    ol {
+        a {
+            display: block;
+            padding: .5rem 1.5rem;
+            text-align: center;
+            transition: background-color .3s;
+            border-radius: 10px;
+            color: var(--home-menu-link-text-color);
+            white-space: nowrap;
+
+            img {
+                display: none;
+            }
+
+            &:hover {
+                background: var(--home-menu-link-hover-bg);
+            }
+        }
+    }
+
+    .header-button {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+}
+
+@media screen and (max-width: $landingBreakpointLG) {
+    .landing-header {
+        align-items: flex-start;
+
+        nav {
+            display: none;
+        }
+
+        &.landing-header-active {
+            background-color: var(--home-header-bg);
+            backdrop-filter: blur(12px);
+            height: 100vh;
+
+            nav {
+                display: block;
+                position: fixed;
+                left: 100px;
+                top: 100px;
+                width: 100%;
+                padding: 4rem 2rem;
+                top: 5rem;
+                left: 0;
+            }
+
+            .menu-button {
+                i:before {
+                    content: "\e90b";
+                }
+            }
+        }
+
+        ol {
+            a {
+                border: 1px solid var(--home-border-color);
+                background-color: var(--home-herobox-bg);
+                margin-bottom: 1rem;
+                color: var(--home-linkbox-text-color);
+                cursor: pointer;
+                font-size: 1.5rem;
+                text-align: left;
+                display: flex;
+                align-items: center;
+                padding: 1.5rem;
+
+                img {
+                    display: block;
+                    margin-right: 1.5rem;
+                }
+            }
+        }
+    }
+}
