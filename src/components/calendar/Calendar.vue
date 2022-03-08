@@ -1,5 +1,5 @@
 <template>
-    <span ref="container" :class="containerClass" :style="style">
+    <span ref="container" :class="containerClass" :style="style" @focusout="hideOverlay">
         <input :ref="inputRef" v-if="!inline" type="text" :class="['p-inputtext p-component', inputClass]" :style="inputStyle" @input="onInput" v-bind="$attrs"
             @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" :readonly="!manualInput" inputmode="none">
         <CalendarButton v-if="showIcon" :icon="icon" tabindex="-1" class="p-datepicker-trigger" :disabled="$attrs.disabled" @click="onButtonClick" type="button" :aria-label="inputFieldValue"/>
@@ -414,6 +414,10 @@ export default {
         }
     },
     methods: {
+        hideOverlay() {
+            this.overlayVisible = false;
+            this.updateFocus();
+        },
         isComparable() {
             return this.modelValue != null && typeof this.modelValue !== 'string';
         },
