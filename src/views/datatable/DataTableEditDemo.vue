@@ -56,6 +56,20 @@
                     <Column :rowEditor="true" style="width:10%; min-width:8rem" bodyStyle="text-align:center"></Column>
                 </DataTable>
             </div>
+
+            <div class="card">
+                <h5>Cell Editing with Sorting and Filter</h5>
+                <DataTable :value="products3" editMode="cell" @cell-edit-complete="onCellEditComplete" class="editable-cells-table" filterDisplay="row" v-model:filters="filters" responsiveLayout="scroll">
+                    <Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field" style="width:25%" sortable filter>
+                        <template #filter="{filterModel,filterCallback}">
+                            <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" v-tooltip.top.focus="'Hit enter key to filter'"/>
+                        </template>
+                        <template #editor="{ data, field }">
+                            <InputText v-model="data[field]" autofocus />
+                        </template>
+                    </Column>
+                </DataTable>
+            </div>
 		</div>
 
         <AppDoc name="DataTableEditDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="datatable/DataTableEditDemo.vue" />
@@ -64,6 +78,7 @@
 
 <script>
 import ProductService from '../../service/ProductService';
+import {FilterMatchMode} from 'primevue/api';
 
 export default {
     data() {
@@ -72,11 +87,18 @@ export default {
             columns: null,
             products1: null,
             products2: null,
+            products3: null,
             statuses: [
                 {label: 'In Stock', value: 'INSTOCK'},
                 {label: 'Low Stock', value: 'LOWSTOCK'},
                 {label: 'Out of Stock', value: 'OUTOFSTOCK'}
             ],
+            filters: {
+                'code': {value: null, matchMode: FilterMatchMode.STARTS_WITH},
+                'name': {value: null, matchMode: FilterMatchMode.STARTS_WITH},
+                'quantity': {value: null, matchMode: FilterMatchMode.STARTS_WITH},
+                'price': {value: null, matchMode: FilterMatchMode.STARTS_WITH}
+            },
             sources: {
                 'options-api': {
                     tabName: 'Options API Source',
@@ -128,11 +150,26 @@ export default {
                 <Column :rowEditor="true" style="width:10%; min-width:8rem" bodyStyle="text-align:center"></Column>
             </DataTable>
         </div>
+
+        <div class="card">
+            <h5>Cell Editing with Sorting and Filter</h5>
+            <DataTable :value="products3" editMode="cell" @cell-edit-complete="onCellEditComplete" class="editable-cells-table" filterDisplay="row" v-model:filters="filters" responsiveLayout="scroll">
+                <Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field" style="width:25%" sortable filter>
+                    <template #filter="{filterModel,filterCallback}">
+                        <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" v-tooltip.top.focus="'Hit enter key to filter'"/>
+                    </template>
+                    <template #editor="{ data, field }">
+                        <InputText v-model="data[field]" autofocus />
+                    </template>
+                </Column>
+            </DataTable>
+        </div>
     </div>
 </template>
 
 <script>
 import ProductService from './service/ProductService';
+import {FilterMatchMode} from 'primevue/api';
 
 export default {
     data() {
@@ -141,11 +178,18 @@ export default {
             columns: null,
             products1: null,
             products2: null,
+            products3: null,
             statuses: [
                 {label: 'In Stock', value: 'INSTOCK'},
                 {label: 'Low Stock', value: 'LOWSTOCK'},
                 {label: 'Out of Stock', value: 'OUTOFSTOCK'}
-            ]
+            ],
+            filters: {
+                'code': {value: null, matchMode: FilterMatchMode.STARTS_WITH},
+                'name': {value: null, matchMode: FilterMatchMode.STARTS_WITH},
+                'quantity': {value: null, matchMode: FilterMatchMode.STARTS_WITH},
+                'price': {value: null, matchMode: FilterMatchMode.STARTS_WITH}
+            }
         }
     },
     productService: null,
@@ -214,6 +258,7 @@ export default {
     mounted() {
         this.productService.getProductsSmall().then(data => this.products1 = data);
         this.productService.getProductsSmall().then(data => this.products2 = data);
+        this.productService.getProductsSmall().then(data => this.products3 = data);
     }
 }
 <\\/script>
@@ -275,18 +320,34 @@ export default {
                 <Column :rowEditor="true" style="width:10%; min-width:8rem" bodyStyle="text-align:center"></Column>
             </DataTable>
         </div>
+
+        <div class="card">
+            <h5>Cell Editing with Sorting and Filter</h5>
+            <DataTable :value="products3" editMode="cell" @cell-edit-complete="onCellEditComplete" class="editable-cells-table" filterDisplay="row" v-model:filters="filters" responsiveLayout="scroll">
+                <Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field" style="width:25%" sortable filter>
+                    <template #filter="{filterModel,filterCallback}">
+                        <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" v-tooltip.top.focus="'Hit enter key to filter'"/>
+                    </template>
+                    <template #editor="{ data, field }">
+                        <InputText v-model="data[field]" autofocus />
+                    </template>
+                </Column>
+            </DataTable>
+        </div>
     </div>
 </template>
 
 <script>
 import { ref, onMounted } from 'vue';
 import ProductService from './service/ProductService';
+import {FilterMatchMode} from 'primevue/api';
 
 export default {
     setup() {
         onMounted(() => {
             productService.value.getProductsSmall().then(data => products1.value = data);
             productService.value.getProductsSmall().then(data => products2.value = data);
+            productService.value.getProductsSmall().then(data => products3.value = data);
         });
 
         const productService = ref(new ProductService());
@@ -299,11 +360,18 @@ export default {
         ]);
         const products1 = ref(null);
         const products2 = ref(null);
+        const products3 = ref(null);
         const statuses = ref([
             {label: 'In Stock', value: 'INSTOCK'},
             {label: 'Low Stock', value: 'LOWSTOCK'},
             {label: 'Out of Stock', value: 'OUTOFSTOCK'}
         ]);
+        const filters = ref({
+            'code': {value: null, matchMode: FilterMatchMode.STARTS_WITH},
+            'name': {value: null, matchMode: FilterMatchMode.STARTS_WITH},
+            'quantity': {value: null, matchMode: FilterMatchMode.STARTS_WITH},
+            'price': {value: null, matchMode: FilterMatchMode.STARTS_WITH}
+        });
 
         const onCellEditComplete = (event) => {
             let { data, newValue, field } = event;
@@ -356,7 +424,7 @@ export default {
             }
         };
 
-        return { productService, editingRows, columns, products1, products2, statuses, onCellEditComplete,
+        return { productService, editingRows, columns, products1, products2, products3, statuses, filters, onCellEditComplete,
             isPositiveInteger, onRowEditSave, getStatusLabel }
     }
 }
@@ -421,16 +489,32 @@ export default {
                     <p-column :row-editor="true" style="width:10%; min-width:8rem" bodyStyle="text-align:center"></p-column>
                 </p-datatable>
             </div>
+
+            <div class="card">
+                <h5>Cell Editing with Sorting and Filter</h5>
+                <p-datatable :value="products3" editMode="cell" @cell-edit-complete="onCellEditComplete" class="editable-cells-table" filterDisplay="row" v-model:filters="filters" responsiveLayout="scroll">
+                    <p-column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field" style="width:25%" sortable filter>
+                        <template #filter="{filterModel,filterCallback}">
+                            <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" v-tooltip.top.focus="'Hit enter key to filter'"/>
+                        </template>
+                        <template #editor="{ data, field }">
+                            <InputText v-model="data[field]" autofocus />
+                        </template>
+                    </Column>
+                </p-datatable>
+            </div>
         </div>
 
         <script type="module">
         const { createApp, ref, onMounted } = Vue;
+        const { FilterMatchMode } = primevue.api;
 
         const App = {
             setup() {
                 onMounted(() => {
                     productService.value.getProductsSmall().then(data => products1.value = data);
                     productService.value.getProductsSmall().then(data => products2.value = data);
+                    productService.value.getProductsSmall().then(data => products3.value = data);
                 });
 
                 const productService = ref(new ProductService());
@@ -443,11 +527,18 @@ export default {
                 ]);
                 const products1 = ref(null);
                 const products2 = ref(null);
+                const products3 = ref(null);
                 const statuses = ref([
                     {label: 'In Stock', value: 'INSTOCK'},
                     {label: 'Low Stock', value: 'LOWSTOCK'},
                     {label: 'Out of Stock', value: 'OUTOFSTOCK'}
                 ]);
+                const filters = ref({
+                    'code': {value: null, matchMode: FilterMatchMode.STARTS_WITH},
+                    'name': {value: null, matchMode: FilterMatchMode.STARTS_WITH},
+                    'quantity': {value: null, matchMode: FilterMatchMode.STARTS_WITH},
+                    'price': {value: null, matchMode: FilterMatchMode.STARTS_WITH}
+                });
 
                 const onCellEditComplete = (event) => {
                     let { data, newValue, field } = event;
@@ -500,7 +591,7 @@ export default {
                     }
                 };
 
-                return { productService, editingRows, columns, products1, products2, statuses, onCellEditComplete,
+                return { productService, editingRows, columns, products1, products2, products3, statuses, filters, onCellEditComplete,
                     isPositiveInteger, onRowEditSave, getStatusLabel }
             },
             components: {
@@ -592,6 +683,7 @@ export default {
     mounted() {
         this.productService.getProductsSmall().then(data => this.products1 = data);
         this.productService.getProductsSmall().then(data => this.products2 = data);
+        this.productService.getProductsSmall().then(data => this.products3 = data);
     }
 }
 </script>
