@@ -1,5 +1,5 @@
 <template>
-    <div class="p-picklist p-component">
+    <div :class="containerClass">
         <div class="p-picklist-buttons p-picklist-source-controls">
             <slot name="sourcecontrolsstart"></slot>
             <PLButton type="button" icon="pi pi-angle-up" @click="moveUp($event, 0)"></PLButton>
@@ -80,6 +80,10 @@ export default {
         metaKeySelection: {
             type: Boolean,
             default: true
+        },
+        stripedRows: {
+            type: Boolean,
+            default: false
         }
     },
     itemTouched: false,
@@ -469,6 +473,11 @@ export default {
         }
     },
     computed: {
+        containerClass() {
+            return ['p-picklist p-component', {
+                'p-picklist-striped': this.stripedRows
+            }];
+        },
         sourceList() {
             return this.value && this.value[0] ? this.value[0] : null;
         },

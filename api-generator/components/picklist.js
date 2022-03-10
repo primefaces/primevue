@@ -28,6 +28,12 @@ const PickListProps = [
         type: "object",
         default: "null",
         description: "Inline style of the the list element."
+    },
+    {
+        name: "stripedRows",
+        type: "boolean",
+        default: "false",
+        description: "Whether to displays rows with alternating colors."
     }
 ];
 

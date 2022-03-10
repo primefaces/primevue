@@ -6,6 +6,7 @@ declare class PickList extends Vue {
     dataKey?: string;
     metaKeySelection?: boolean;
     listStyle?: any;
+    stripedRows?: boolean;
     $emit(eventName: 'reorder', e: { originalEvent: Event, value: any[]; direction: string}): this;
     $emit(eventName: 'move-to-target', e: { originalEvent: Event, items: [] }): this;
     $emit(eventName: 'move-all-to-target', e: { originalEvent: Event, items: [] }): this;
