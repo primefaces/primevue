@@ -158,9 +158,9 @@ export default {
             type: String,
             default: 'left'
         },
-        exportable: {
-            type: Boolean,
-            default: true
+        exportHeader: {
+            type: String,
+            default: null
         },
         filterMatchMode: {
             type: String,

@@ -15,7 +15,7 @@
                             <Button icon="pi pi-external-link" label="Export" @click="exportCSV($event)" />
                         </div>
                     </template>
-                    <Column field="code" header="Code"></Column>
+                    <Column field="code" header="Code" exportHeader="Product Code"></Column>
                     <Column field="name" header="Name"></Column>
                     <Column field="category" header="Category"></Column>
                     <Column field="quantity" header="Quantity"></Column>
@@ -34,7 +34,7 @@
             &lt;Button icon="pi pi-external-link" label="Export" @click="exportCSV($event)" /&gt;
         &lt;/div&gt;
     &lt;/template&gt;
-    &lt;Column field="code" header="Code"&gt;&lt;/Column&gt;
+    &lt;Column field="code" header="Code" exportHeader="Product Code"&gt;&lt;/Column&gt;
     &lt;Column field="name" header="Name"&gt;&lt;/Column&gt;
     &lt;Column field="category" header="Category"&gt;&lt;/Column&gt;
     &lt;Column field="quantity" header="Quantity"&gt;&lt;/Column&gt;

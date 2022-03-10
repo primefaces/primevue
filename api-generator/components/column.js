@@ -166,6 +166,18 @@ const ColumnProps = [
         type: "string",
         default: "left",
         description: "Position of a frozen column, valid values are left and right."
+    },
+    {
+        name: "exportable",
+        type: "boolean",
+        default: "true",
+        description: "Whether the column is included in data export."
+    },
+    {
+        name: "exportHeader",
+        type: "string",
+        default: "null",
+        description: "Custom export header of the column to be exported as CSV."
     }
 ];
 
