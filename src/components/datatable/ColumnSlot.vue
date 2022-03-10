@@ -33,6 +33,18 @@ export default {
         filterCallback: {
             type: null,
             default: null
+        },
+        editorInitCallback: {
+            type: null,
+            default: null
+        },
+        editorSaveCallback: {
+            type: null,
+            default: null
+        },
+        editorCancelCallback: {
+            type: null,
+            default: null
         }
     },
     render(createElement, context) {
@@ -43,7 +55,10 @@ export default {
             'frozenRow': context.props.frozenRow,
             'field': context.props.field,
             'filterModel': context.props.filterModel,
-            'filterCallback': context.props.filterCallback
+            'filterCallback': context.props.filterCallback,
+            'editorInitCallback': context.props.editorInitCallback,
+            'editorSaveCallback': context.props.editorSaveCallback,
+            'editorCancelCallback': context.props.editorCancelCallback
         });
         return [content];
     }
