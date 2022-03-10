@@ -5,8 +5,8 @@
         <ColumnSlot :data="editingRowData" :column="column" :field="field" :index="rowIndex" type="editor" :frozenRow="frozenRow" :editorSaveCallback="editorSaveCallback" :editorCancelCallback="editorCancelCallback" v-else-if="column.$scopedSlots.editor && d_editing" />
         <ColumnSlot :data="editingRowData" :column="column" :field="field" :index="rowIndex" type="body" :frozenRow="frozenRow" :editorSaveCallback="editorSaveCallback" :editorCancelCallback="editorCancelCallback" v-else-if="!column.$scopedSlots.editor && column.$scopedSlots.body && d_editing" />
         <template v-else-if="columnProp('selectionMode')">
-            <DTRadioButton :value="rowData" :checked="selected" @change="toggleRowWithRadio" v-if="columnProp('selectionMode') === 'single'" />
-            <DTCheckbox :value="rowData" :checked="selected" @change="toggleRowWithCheckbox" v-else-if="columnProp('selectionMode') ==='multiple'" />
+            <DTRadioButton :value="rowData" :checked="selected" @change="toggleRowWithRadio($event, rowIndex)" v-if="columnProp('selectionMode') === 'single'" />
+            <DTCheckbox :value="rowData" :checked="selected" @change="toggleRowWithCheckbox($event, rowIndex)" v-else-if="columnProp('selectionMode') ==='multiple'" />
         </template>
         <template v-else-if="columnProp('rowReorder')">
             <i :class="['p-datatable-reorderablerow-handle', (columnProp('rowReorderIcon') || 'pi pi-bars')]"></i>
@@ -140,11 +140,11 @@ export default {
                 data: this.rowData
             });
         },
-        toggleRowWithRadio(event) {
-            this.$emit('radio-change', event);
+        toggleRowWithRadio(event, index) {
+            this.$emit('radio-change', { originalEvent: event.originalEvent, index: index, data: event.data});
         },
-        toggleRowWithCheckbox(event) {
-            this.$emit('checkbox-change', event);
+        toggleRowWithCheckbox(event, index) {
+            this.$emit('checkbox-change', { originalEvent: event.originalEvent, index: index, data: event.data });
         },
         isEditable() {
             return this.column.$scopedSlots.editor != null;
