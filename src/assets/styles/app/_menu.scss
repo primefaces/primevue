@@ -3,10 +3,10 @@
     left: 0;
     top: 70px;
     height: calc(100% - 70px);
-    background-color: var(--surface-a);
+    background-color: var(--surface-overlay);
     overflow: auto;
     width: 250px;
-    border-right: 1px solid var(--surface-d);
+    border-right: 1px solid var(--surface-border);
     user-select: none;
     padding: 1rem;
     transition: transform .4s cubic-bezier(.05,.74,.2,.99);
@@ -20,7 +20,7 @@
             padding: 1.5rem 0 1rem 0;
             font-size: 0.857rem;
             text-transform: uppercase;
-            border-top: 1px solid var(--surface-d);
+            border-top: 1px solid var(--surface-border);
 
             &:first-child {
                 border-top: 0 none;
@@ -41,7 +41,7 @@
                 cursor: pointer;
 
                 &:hover {
-                    background-color: var(--surface-c);
+                    background-color: var(--surface-hover);
                 }
 
                 &:focus {

@@ -213,7 +213,7 @@
 }
 
 .options {
-    background-color: var(--surface-b);
+    background-color: var(--surface-ground);
 }
 
 .support-box {
