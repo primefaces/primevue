@@ -122,6 +122,12 @@ import PickList from 'primevue/picklist';
                                 <td>null</td>
                                 <td>Inline style of the the list element.</td>
                             </tr>
+                            <tr>
+                        <td>stripedRows</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>Whether to displays rows with alternating colors.</td>
+                    </tr>
 						</tbody>
 					</table>
 				</div>
