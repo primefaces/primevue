@@ -732,7 +732,7 @@ export default {
                                 this.$emit('update:selection', _selection);
                             }
 
-                            this.$emit('row-unselect', {originalEvent: event, data: rowData, index: event.index, type: 'row'});
+                            this.$emit('row-unselect', {originalEvent: event, data: rowData, index: rowIndex, type: 'row'});
                         }
                         else {
                             if(this.isSingleSelectionMode()) {
@@ -744,18 +744,18 @@ export default {
                                 this.$emit('update:selection', _selection);
                             }
 
-                            this.$emit('row-select', {originalEvent: event, data: rowData, index: event.index, type: 'row'});
+                            this.$emit('row-select', {originalEvent: event, data: rowData, index: rowIndex, type: 'row'});
                         }
                     }
                     else {
                         if (this.selectionMode === 'single') {
                             if (selected) {
                                 this.$emit('update:selection', null);
-                                this.$emit('row-unselect', {originalEvent: event, data: rowData, index: event.index, type: 'row'});
+                                this.$emit('row-unselect', {originalEvent: event, data: rowData, index: rowIndex, type: 'row'});
                             }
                             else {
                                 this.$emit('update:selection', rowData);
-                                this.$emit('row-select', {originalEvent: event, data: rowData, index: event.index, type: 'row'});
+                                this.$emit('row-select', {originalEvent: event, data: rowData, index: rowIndex, type: 'row'});
                             }
                         }
                         else if (this.selectionMode === 'multiple') {
@@ -763,12 +763,12 @@ export default {
                                 const selectionIndex = this.findIndexInSelection(rowData);
                                 const _selection = this.selection.filter((val, i) => i != selectionIndex);
                                 this.$emit('update:selection', _selection);
-                                this.$emit('row-unselect', {originalEvent: event, data: rowData, index: event.index, type: 'row'});
+                                this.$emit('row-unselect', {originalEvent: event, data: rowData, index: rowIndex, type: 'row'});
                             }
                             else {
                                 const _selection = this.selection ? [...this.selection, rowData] : [rowData];
                                 this.$emit('update:selection', _selection);
-                                this.$emit('row-select', {originalEvent: event, data: rowData, index: event.index, type: 'row'});
+                                this.$emit('row-select', {originalEvent: event, data: rowData, index: rowIndex, type: 'row'});
                             }
                         }
                     }
@@ -864,11 +864,11 @@ export default {
 
             if (this.isSelected(rowData)) {
                 this.$emit('update:selection', null);
-                this.$emit('row-unselect', {originalEvent: event, data: rowData, type: 'radiobutton'});
+                this.$emit('row-unselect', { originalEvent: event.originalEvent, data: rowData, index: event.index, type: 'radiobutton' });
             }
             else {
                 this.$emit('update:selection', rowData);
-                this.$emit('row-select', {originalEvent: event, data: rowData, type: 'radiobutton'});
+                this.$emit('row-select', { originalEvent: event.originalEvent, data: rowData, index: event.index, type: 'radiobutton' });
             }
         },
         toggleRowWithCheckbox(event) {
@@ -878,13 +878,13 @@ export default {
                 const selectionIndex = this.findIndexInSelection(rowData);
                 const _selection = this.selection.filter((val, i) => i != selectionIndex);
                 this.$emit('update:selection', _selection);
-                this.$emit('row-unselect', {originalEvent: event, data: rowData, type: 'checkbox'});
+                this.$emit('row-unselect', { originalEvent: event.originalEvent, data: rowData, index: event.index, type: 'checkbox' });
             }
             else {
                 let _selection = this.selection ? [...this.selection] : [];
                 _selection = [..._selection, rowData];
                 this.$emit('update:selection', _selection);
-                this.$emit('row-select', {originalEvent: event, data: rowData, type: 'checkbox'});
+                this.$emit('row-select', { originalEvent: event.originalEvent, data: rowData, index: event.index, type: 'checkbox' });
             }
         },
         toggleRowsWithCheckbox(event) {
