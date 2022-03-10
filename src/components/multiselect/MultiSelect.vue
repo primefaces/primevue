@@ -22,7 +22,7 @@
         </div>
         <div class="p-multiselect-trigger">
             <slot name="indicator">
-                 <span class="p-multiselect-trigger-icon pi pi-chevron-down"></span>
+                <span class="p-multiselect-trigger-icon pi pi-chevron-down"></span>
             </slot>
         </div>
         <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
@@ -37,7 +37,7 @@
                         </div>
                     </div>
                     <div v-if="filter" class="p-multiselect-filter-container">
-                        <input type="text" ref="filterInput" v-model="filterValue" class="p-multiselect-filter p-inputtext p-component" :placeholder="filterPlaceholder" @input="onFilterChange">
+                        <input type="text" ref="filterInput" v-model="filterValue" class="p-multiselect-filter p-inputtext p-component" autoComplete="on" :placeholder="filterPlaceholder" @input="onFilterChange">
                         <span class="p-multiselect-filter-icon pi pi-search"></span>
                     </div>
                     <button class="p-multiselect-close p-link" @click="onCloseClick" type="button" v-ripple>
