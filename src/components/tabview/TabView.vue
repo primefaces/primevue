@@ -116,7 +116,7 @@ export default {
             const { scrollLeft, scrollWidth } = content;
             const width = DomHandler.getWidth(content);
             this.backwardIsDisabled = scrollLeft === 0;
-            this.forwardIsDisabled = scrollLeft === scrollWidth - width;
+            this.forwardIsDisabled = parseInt(scrollLeft) === scrollWidth - width;
         },
         getKey(tab, index) {
             return tab.header ? ObjectUtils.resolveFieldData(tab, tab.header) : index;
