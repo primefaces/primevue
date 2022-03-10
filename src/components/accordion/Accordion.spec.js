@@ -33,9 +33,18 @@ describe('Accordion.vue', () => {
         });
     });
 
-    it('should Accordion and AccordionTab component exist', () => {console.log(wrapper.html())
+    it('should Accordion and AccordionTab component exist', () => {
         expect(wrapper.find('.p-accordion.p-component').exists()).toBe(true);
         expect(wrapper.find('.p-accordion-tab').exists()).toBe(true);
         expect(wrapper.findAll('.p-accordion-tab').length).toBe(3);
+    });
+
+    it('should activeIndex change', async() => {
+        await wrapper.setProps({ activeIndex: 1 });
+
+        const allTabs = wrapper.findAll('.p-accordion-tab');
+
+        expect(allTabs[0].classes()).not.toContain('p-accordion-tab-active');
+        expect(allTabs[1].classes()).toContain('p-accordion-tab-active');
     });
 });
