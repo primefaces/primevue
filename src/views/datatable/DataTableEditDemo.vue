@@ -55,6 +55,20 @@
                     <Column :rowEditor="true" :styles="{width:'10%', 'min-width':'8rem'}" :bodyStyle="{'text-align':'center'}"></Column>
                 </DataTable>
             </div>
+
+            <div class="card">
+                <h5>Cell Editing with Sorting and Filter</h5>
+                <DataTable :value="products3" editMode="cell" @cell-edit-complete="onCellEditComplete" class="editable-cells-table" filterDisplay="row" :filters.sync="filters" responsiveLayout="scroll">
+                    <Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field" style="width:25%" sortable filter>
+                        <template #filter="{filterModel,filterCallback}">
+                            <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" v-tooltip.top.focus="'Hit enter key to filter'"/>
+                        </template>
+                        <template #editor="{ data, field }">
+                            <InputText v-model="data[field]" autofocus />
+                        </template>
+                    </Column>
+                </DataTable>
+            </div>
 		</div>
 
         <div class="content-section documentation">
@@ -104,10 +118,24 @@
         &lt;Column :rowEditor="true" :styles="{width:'10%', 'min-width':'8rem'}" :bodyStyle="{'text-align':'center'}"&gt;&lt;/Column&gt;
     &lt;/DataTable&gt;
 &lt;/div&gt;
+
+&lt;div class="card"&gt;
+    &lt;DataTable :value="products3" editMode="cell" @cell-edit-complete="onCellEditComplete" class="editable-cells-table" filterDisplay="row" :filters.sync="filters" responsiveLayout="scroll"&gt;
+        &lt;Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field" style="width:25%" sortable filter&gt;
+            &lt;template #filter="{filterModel,filterCallback}"&gt;
+                &lt;InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" v-tooltip.top.focus="'Hit enter key to filter'"/&gt;
+            &lt;/template&gt;
+            &lt;template #editor="{ data, field }"&gt;
+                &lt;InputText v-model="data[field]" autofocus /&gt;
+            &lt;/template&gt;
+        &lt;/Column&gt;
+    &lt;/DataTable&gt;
+&lt;/div&gt;
 </template>
 </CodeHighlight>
 
 <CodeHighlight lang="javascript">
+import FilterMatchMode from '../../../src/components/api/FilterMatchMode';
 import ProductService from '../../service/ProductService';
 
 export default {
@@ -117,11 +145,18 @@ export default {
             columns: null,
             products1: null,
             products2: null,
+            products3: null,
             statuses: [
                 {label: 'In Stock', value: 'INSTOCK'},
                 {label: 'Low Stock', value: 'LOWSTOCK'},
                 {label: 'Out of Stock', value: 'OUTOFSTOCK'}
-            ]
+            ],
+            filters: {
+                'code': {value: null, matchMode: FilterMatchMode.STARTS_WITH},
+                'name': {value: null, matchMode: FilterMatchMode.STARTS_WITH},
+                'quantity': {value: null, matchMode: FilterMatchMode.STARTS_WITH},
+                'price': {value: null, matchMode: FilterMatchMode.STARTS_WITH}
+            }
         }
     },
     productService: null,
@@ -192,6 +227,7 @@ export default {
     mounted() {
         this.productService.getProductsSmall().then(data => this.products1 = data);
         this.productService.getProductsSmall().then(data => this.products2 = data);
+        this.productService.getProductsSmall().then(data => this.products3 = data);
     }
 }
 </CodeHighlight>
@@ -201,14 +237,8 @@ export default {
 	</div>
 </template>
 
-<CodeHighlight lang="css">
-.editable-cells-table td.p-cell-editing {
-    padding-top: 0;
-    padding-bottom: 0;
-}
-</CodeHighlight>
-
 <script>
+import FilterMatchMode from '../../../src/components/api/FilterMatchMode';
 import ProductService from '../../service/ProductService';
 
 export default {
@@ -218,11 +248,18 @@ export default {
             columns: null,
             products1: null,
             products2: null,
+            products3: null,
             statuses: [
                 {label: 'In Stock', value: 'INSTOCK'},
                 {label: 'Low Stock', value: 'LOWSTOCK'},
                 {label: 'Out of Stock', value: 'OUTOFSTOCK'}
-            ]
+            ],
+            filters: {
+                'code': {value: null, matchMode: FilterMatchMode.STARTS_WITH},
+                'name': {value: null, matchMode: FilterMatchMode.STARTS_WITH},
+                'quantity': {value: null, matchMode: FilterMatchMode.STARTS_WITH},
+                'price': {value: null, matchMode: FilterMatchMode.STARTS_WITH}
+            }
         }
     },
     productService: null,
@@ -293,6 +330,7 @@ export default {
     mounted() {
         this.productService.getProductsSmall().then(data => this.products1 = data);
         this.productService.getProductsSmall().then(data => this.products2 = data);
+        this.productService.getProductsSmall().then(data => this.products3 = data);
     }
 }
 </script>
