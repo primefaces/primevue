@@ -560,14 +560,11 @@ export default {
                 else if (this.visibleOptions) {
                     if (this.optionGroupLabel) {
                         value = [];
-                        if (this.optionGroupLabel) {
-                            value = [];
-                            this.visibleOptions.forEach(optionGroup => {
-                                for (let option of this.getOptionGroupChildren(optionGroup)) {
-                                    value.push(this.getOptionValue(option));
-                                }
-                            });
-                        }
+                        this.visibleOptions.forEach(optionGroup => {
+                            for (let option of this.getOptionGroupChildren(optionGroup)) {
+                                value.push(this.getOptionValue(option));
+                            }
+                        });
                     }
                     else  {
                         value = this.visibleOptions.map(option => this.getOptionValue(option));
