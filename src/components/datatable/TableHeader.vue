@@ -133,10 +133,10 @@ export default {
             let cols = [];
 
             if (row.child && row.child.$scopedSlots.default) {
-                row.child.$scopedSlots.default().forEach(child => {
+                row.child.$scopedSlots.default().forEach(child => {console.log(child)
                     if (child.child && child.child.children && child.child.children instanceof Array)
                         cols = [...cols, ...child.child.children];
-                    else if (child.componentOptions.tag === 'Column')
+                    else if (child.componentOptions && child.componentOptions.tag === 'Column')
                         cols.push(child);
                 });
 
