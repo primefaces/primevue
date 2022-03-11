@@ -41,7 +41,7 @@ export default {
                 row.child.$scopedSlots.default().forEach(child => {
                     if (child.child && child.child.children && child.child.children instanceof Array)
                         cols = [...cols, ...child.child.children];
-                    else if (child.componentOptions.tag === 'Column')
+                    else if (child.componentOptions && child.componentOptions.tag === 'Column')
                         cols.push(child);
                 });
 
