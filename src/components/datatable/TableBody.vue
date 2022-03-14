@@ -505,7 +505,13 @@ export default {
     },
     computed: {
         columnsLength() {
-            return this.columns ? this.columns.length : 0;
+            let hiddenColLength = 0;
+
+            this.columns.forEach(column => {
+                if(this.columnProp(column, 'hidden')) hiddenColLength++;
+            });
+
+            return this.columns ? this.columns.length - hiddenColLength : 0;
         },
         rowGroupHeaderStyle() {
             if (this.scrollable) {
