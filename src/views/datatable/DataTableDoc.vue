@@ -404,7 +404,8 @@ export default {
                                     column: Column node <br />
                                     field: Column field <br />
                                     index: Row index <br />
-                                    frozenRow: Is row frozen</td>
+                                    frozenRow: Is row frozen <br />
+                                    editorInitCallback: Callback function</td>
                             </tr>
                             <tr>
                                 <td>footer</td>
@@ -416,7 +417,9 @@ export default {
                                     column: Column node <br />
                                     field: Column field <br />
                                     index: Row index <br />
-                                    frozenRow: Is row frozen</td>
+                                    frozenRow: Is row frozen <br />
+                                    editorSaveCallback: Callback function <br />
+                                    editorCancelCallback: Callback function</td>
                             </tr>
                             <tr>
                                 <td>filter</td>
