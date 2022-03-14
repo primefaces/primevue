@@ -4,8 +4,8 @@
     </td>
     <td v-else :style="containerStyle" :class="containerClass" @click="onClick" @keydown="onKeyDown" role="cell">
         <span v-if="responsiveLayout === 'stack'" class="p-column-title">{{columnProp('header')}}</span>
-        <component :is="column.children.body" :data="rowData" :column="column" :field="field" :index="rowIndex" :frozenRow="frozenRow" v-if="column.children && column.children.body && !d_editing" />
-        <component :is="column.children.editor" :data="editingRowData" :column="column" :field="field" :index="rowIndex" :frozenRow="frozenRow" v-else-if="column.children && column.children.editor && d_editing" />
+        <component :is="column.children.body" :data="rowData" :column="column" :field="field" :index="rowIndex" :frozenRow="frozenRow" :editorInitCallback="editorInitCallback" v-if="column.children && column.children.body && !d_editing" />
+        <component :is="column.children.editor" :data="editingRowData" :column="column" :field="field" :index="rowIndex" :frozenRow="frozenRow" :editorSaveCallback="editorSaveCallback" :editorCancelCallback="editorCancelCallback" v-else-if="column.children && column.children.editor && d_editing" />
         <component :is="column.children.body" :data="editingRowData" :column="column" :field="field" :index="rowIndex" :frozenRow="frozenRow" v-else-if="column.children && column.children.body && !column.children.editor && d_editing" />
         <template v-else-if="columnProp('selectionMode')">
             <DTRadioButton :value="rowData" :checked="selected" @change="toggleRowWithRadio($event, rowIndex)" v-if="columnProp('selectionMode') === 'single'" />
@@ -324,6 +324,15 @@ export default {
             this.$emit('row-edit-save', {originalEvent: event, data: this.rowData, newData: this.editingRowData, field: this.field, index: this.rowIndex});
         },
         onRowEditCancel(event) {
+            this.$emit('row-edit-cancel', {originalEvent: event, data: this.rowData, newData: this.editingRowData, field: this.field, index: this.rowIndex});
+        },
+        editorInitCallback(event) {
+            this.$emit('row-edit-init', {originalEvent: event, data: this.rowData, newData: this.editingRowData, field: this.field, index: this.rowIndex});
+        },
+        editorSaveCallback(event) {
+            this.$emit('row-edit-save', {originalEvent: event, data: this.rowData, newData: this.editingRowData, field: this.field, index: this.rowIndex});
+        },
+        editorCancelCallback(event) {
             this.$emit('row-edit-cancel', {originalEvent: event, data: this.rowData, newData: this.editingRowData, field: this.field, index: this.rowIndex});
         },
         updateStickyPosition() {
