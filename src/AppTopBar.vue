@@ -10,10 +10,9 @@
             <img :src="'demo/images/themes/' + logoMap[theme]" />
         </div>
         <ul ref="topbarMenu" class="topbar-menu">
-            <li><router-link to="/setup">Get Started</router-link></li>
             <li class="topbar-submenu">
                 <a tabindex="0" @click="toggleMenu($event, 0)">
-                    <span v-badge.danger>Themes</span>
+                    <span>Themes</span>
                 </a>
                 <transition name="p-connected-overlay" @enter="onMenuEnter">
                     <ul v-show="activeMenuIndex === 0">
@@ -111,19 +110,14 @@
                 </transition>
             </li>
             <li class="topbar-submenu topbar-resources-submenu">
-                <a tabindex="0" @click="toggleMenu($event, 2)">Resources</a>
+                <a href="https://www.primefaces.org/primeblocks-vue/#/" target="_blank"><span>Blocks</span></a>
+            </li>
+            <li class="topbar-submenu">
+                <a tabindex="0" @click="toggleMenu($event, 3)">v2.9.0</a>
                 <transition name="p-connected-overlay" @enter="onMenuEnter">
-                    <ul v-show="activeMenuIndex === 2">
-                        <li><router-link to="/support"><span>Support</span></router-link></li>
-                        <li><a href="https://forum.primefaces.org/viewforum.php?f=110"><span>Forum</span></a></li>
-                        <li><a href="https://discord.gg/gzKFYnpmCY" target="_blank"><span>Discord Chat</span></a></li>
-                        <li><a href="https://github.com/primefaces/primevue/tree/2.x" target="_blank"><span>Source Code</span></a></li>
-                        <li><a href="https://www.primefaces.org/store" target="_blank"><span>PrimeStore</span></a></li>
-                        <li><a href="https://www.primefaces.org/category/primevue/" target="_blank"><span>Blog</span></a></li>
-                        <li><a href="https://twitter.com/primevue?lang=en" target="_blank"><span>Twitter</span></a></li>
-                        <li><a href="https://www.primefaces.org/whouses" target="_blank"><span>Who Uses</span></a></li>
-                        <li><a href="https://www.primefaces.org/newsletter" target="_blank"><span>Newsletter</span></a></li>
-                        <li><a href="https://www.primetek.com.tr" target="_blank"><span>About PrimeTek</span></a></li>
+                    <ul v-show="activeMenuIndex === 3" style="width: 100%">
+                        <li><router-link to="/"><span class="m-0">v2.9.0</span></router-link></li>
+                        <li><a href="https://www.primefaces.org/primevue"><span class="m-0">v3.12.1</span></a></li>
                     </ul>
                 </transition>
             </li>

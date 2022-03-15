@@ -1,0 +1,440 @@
+code[class*="language-"],
+pre[class*="language-"] {
+    color: black;
+    background: none;
+    font-family: ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,Liberation Mono,monospace;
+    font-size: 1em;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+    position: relative;
+    margin: .5em 0;
+    overflow: visible;
+    padding: 1px;
+}
+
+pre[class*="language-"] > code {
+    position: relative;
+    z-index: 1;
+    border-left: 10px solid #358ccb;
+    box-shadow: -1px 0px 0px 0px #358ccb, 0px 0px 0px 1px #dfdfdf;
+    background-color: #fdfdfd;
+    background-image: linear-gradient(transparent 50%, rgba(69, 142, 209, 0.04) 50%);
+    background-size: 3em 3em;
+    background-origin: content-box;
+    background-attachment: local;
+}
+
+code[class*="language-"] {
+    max-height: inherit;
+    height: inherit;
+    padding: 0 1em;
+    display: block;
+    overflow: auto;
+}
+
+/* Margin bottom to accommodate shadow */
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+    background-color: #fdfdfd;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-bottom: 1em;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+    position: relative;
+    padding: .2em;
+    border-radius: 0.3em;
+    color: #c92c2c;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    display: inline;
+    white-space: normal;
+}
+
+pre[class*="language-"]:before,
+pre[class*="language-"]:after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0.75em;
+    left: 0.18em;
+    width: 40%;
+    height: 20%;
+    max-height: 13em;
+    box-shadow: 0px 13px 8px #979797;
+    -webkit-transform: rotate(-2deg);
+    -moz-transform: rotate(-2deg);
+    -ms-transform: rotate(-2deg);
+    -o-transform: rotate(-2deg);
+    transform: rotate(-2deg);
+}
+
+pre[class*="language-"]:after {
+    right: 0.75em;
+    left: auto;
+    -webkit-transform: rotate(2deg);
+    -moz-transform: rotate(2deg);
+    -ms-transform: rotate(2deg);
+    -o-transform: rotate(2deg);
+    transform: rotate(2deg);
+}
+
+.token.comment,
+.token.block-comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: #7D8B99;
+}
+
+.token.punctuation {
+    color: #5F6364;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.function-name,
+.token.constant,
+.token.symbol,
+.token.deleted {
+    color: #c92c2c;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.function,
+.token.builtin,
+.token.inserted {
+    color: #2f9c0a;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.token.variable {
+    color: #a67f59;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword,
+.token.class-name {
+    color: #1990b8;
+}
+
+.token.regex,
+.token.important {
+    color: #e90;
+}
+
+.language-css .token.string,
+.style .token.string {
+    color: #a67f59;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.token.important {
+    font-weight: normal;
+}
+
+.token.bold {
+    font-weight: bold;
+}
+.token.italic {
+    font-style: italic;
+}
+
+.token.entity {
+    cursor: help;
+}
+
+.token.namespace {
+    opacity: .7;
+}
+
+@media screen and (max-width: 767px) {
+    pre[class*="language-"]:before,
+    pre[class*="language-"]:after {
+        bottom: 14px;
+        box-shadow: none;
+    }
+
+}
+
+/* Plugin styles: Line Numbers */
+pre[class*="language-"].line-numbers.line-numbers {
+    padding-left: 0;
+}
+
+pre[class*="language-"].line-numbers.line-numbers code {
+    padding-left: 3.8em;
+}
+
+pre[class*="language-"].line-numbers.line-numbers .line-numbers-rows {
+    left: 0;
+}
+
+/* Plugin styles: Line Highlight */
+pre[class*="language-"][data-line] {
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+}
+pre[data-line] code {
+    position: relative;
+    padding-left: 4em;
+}
+pre .line-highlight {
+    margin-top: 0;
+}
+
+div.code-toolbar {
+    position: relative;
+}
+
+div.code-toolbar > .toolbar {
+    position: absolute;
+    z-index: 10;
+    top: .3em;
+    right: .2em;
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0;
+}
+
+div.code-toolbar:hover > .toolbar {
+    opacity: 1;
+}
+
+/* Separate line b/c rules are thrown out if selector is invalid.
+   IE11 and old Edge versions don't support :focus-within. */
+div.code-toolbar:focus-within > .toolbar {
+    opacity: 1;
+}
+
+div.code-toolbar > .toolbar > .toolbar-item {
+    display: inline-block;
+}
+
+div.code-toolbar > .toolbar > .toolbar-item > a {
+    cursor: pointer;
+}
+
+div.code-toolbar > .toolbar > .toolbar-item > button {
+    background: none;
+    border: 0;
+    color: inherit;
+    font: inherit;
+    line-height: normal;
+    overflow: visible;
+    padding: 0;
+    -webkit-user-select: none; /* for button */
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+div.code-toolbar > .toolbar > .toolbar-item > a,
+div.code-toolbar > .toolbar > .toolbar-item > button,
+div.code-toolbar > .toolbar > .toolbar-item > span {
+    color: #bbb;
+    font-size: .8em;
+    padding: 0 .5em;
+    background: #f5f2f0;
+    background: rgba(224, 224, 224, 0.2);
+    box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+    border-radius: .5em;
+}
+
+div.code-toolbar > .toolbar > .toolbar-item > a:hover,
+div.code-toolbar > .toolbar > .toolbar-item > a:focus,
+div.code-toolbar > .toolbar > .toolbar-item > button:hover,
+div.code-toolbar > .toolbar > .toolbar-item > button:focus,
+div.code-toolbar > .toolbar > .toolbar-item > span:hover,
+div.code-toolbar > .toolbar > .toolbar-item > span:focus {
+    color: inherit;
+    text-decoration: none;
+}
+
+.layout-wrapper-dark {
+    pre[class*="language-"] {
+        code {
+            .token {
+                &.tag {
+                    color: var(--text-color) !important;
+                }
+                &.keyword {
+                    color: rgb(244,112,103) !important;
+                }
+    
+                &.property {
+                    color: rgb(150,208,255) !important;
+                }
+    
+                &.attr-name,
+                &.attr-string {
+                    color: rgb(108,182,255) !important;
+                }
+    
+                &.string {
+                    color: var(--text-color) !important;
+                }
+    
+                &.attr-value {
+                    color: var(--text-color) !important;
+    
+                    .punctuation {
+                        color: rgb(108,182,255) !important;
+                    }
+                }
+    
+                &.punctuation {
+                    color: var(--text-color) !important;
+                }
+    
+                &.operator,
+                &.string {
+                    background: transparent;
+                }
+    
+                &.function {
+                    color: rgb(220,189,251) !important;
+                }
+    
+                &.class-name {
+                    color: rgb(141,219,140) !important;
+                }
+    
+                &.operator {
+                    color: rgb(150,208,255) !important;
+                }
+            }
+        }
+    }
+}
+
+.layout-wrapper-light {
+    pre[class*="language-"] {
+        code {
+            .token {
+                &.tag {
+                    color: rgb(10,48,105) !important;
+                }
+                &.keyword {
+                    color: rgb(207,34,46) !important;
+                }
+    
+                &.property {
+                    color: rgb(5,80,174) !important;
+                }
+    
+                &.attr-name,
+                &.attr-string {
+                    color: rgb(5,80,174) !important;
+                }
+    
+                &.string {
+                    color: rgb(10,48,105) !important;
+                }
+    
+                &.attr-value {
+                    color: rgb(10,48,105) !important;
+    
+                    .punctuation {
+                        color: rgb(10,48,105) !important;
+                    }
+                }
+    
+                &.punctuation {
+                    color: rgb(5,80,174) !important;
+                }
+    
+                &.operator,
+                &.string {
+                    background: transparent;
+                }
+    
+                &.function {
+                    color: rgb(130,80,223) !important;
+                }
+    
+                &.class-name {
+                    color: rgb(17,99,41) !important;
+                }
+    
+                &.operator {
+                    color: rgb(5,80,174) !important;
+                }
+            }
+        }
+    }
+}
+
+pre[class*="language-"] {
+    position: relative;
+    background: transparent !important;
+
+    &:before, &:after {
+        display: none !important;
+    }
+
+    code {
+        border-left: 1rem solid transparent !important;
+        box-shadow: none !important;
+        background: var(--surface-card) !important;
+        margin: 0;
+        color: var(--surface-900);
+        font-size: 14px;
+        border-radius: 10px;
+    }
+}
+
+.code-toolbar {
+    div.toolbar {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+
+        .toolbar-item {
+            > button.copy-to-clipboard-button {
+                appearance: none;
+                border: 0 none !important;
+                padding: 0.3rem 1rem;
+                background: var(--surface-50) !important;
+                border-radius: 6px;
+                color: var(--surface-500) !important;
+                font-weight: 600;
+                transition: all .15s;
+                cursor: pointer;
+                box-shadow: none !important;
+    
+                &:hover {
+                    background-color: var(--surface-100) !important;
+                    color: var(--surface-600) !important;
+                }
+            }
+        }
+    }
+}
