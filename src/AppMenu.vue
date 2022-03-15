@@ -27,10 +27,9 @@
             </div>
 
             <div class="menu-category">PRIMEBLOCKS</div>
-            <div class="menu-image">
-                <a href="https://www.primefaces.org/primeblocks-vue">
-                    <img src="demo/images/banner-primeblocks.png" />
-                </a>
+            <div class="menu-items">
+                <a href="https://www.primefaces.org/primeblocks-vue/#/free">Free Blocks</a>
+                <a href="https://www.primefaces.org/primeblocks-vue">All Blocks</a>
             </div>
 
             <div class="menu-category">PRIMEFLEX</div>
@@ -85,7 +84,7 @@
             <div class="menu-items">
                 <router-link to="/datatable" custom v-slot="{ href, route, navigate, isActive }">
                     <div>
-                        <a tabindex="0" @click="toggleSubmenu($event, 'datatable')">DataTable <Tag value="Updated"></Tag></a>
+                        <a tabindex="0" @click="toggleSubmenu($event, 'datatable')">DataTable</a>
                         <transition name="p-toggleable-content">
                             <div class="p-toggleable-content" v-show="isSubmenuActive('datatable', isActive)">
                                 <ul>
@@ -123,7 +122,7 @@
                 </router-link>
 
                 <router-link to="/dataview">DataView</router-link>
-                <router-link to="/filterservice">FilterService <Tag value="New"></Tag></router-link>
+                <router-link to="/filterservice">FilterService</router-link>
                 <router-link to="/fullcalendar">FullCalendar</router-link>
                 <router-link to="/orderlist">OrderList</router-link>
                 <router-link to="/organizationchart">OrganizationChart</router-link>

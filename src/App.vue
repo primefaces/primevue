@@ -17,8 +17,10 @@
         <app-configurator @change-theme="changeTheme" :theme="theme" />
         <div :class="['layout-mask', {'layout-mask-active': sidebarActive}]" @click="onMaskClick"></div>
         <div class="layout-content">
-            <router-view/>
-            <app-footer />
+            <div class="layout-content-inner">
+                <router-view/>
+                <app-footer />
+            </div>
         </div>
         <Toast />
         <Toast position="top-left" group="tl" />
@@ -39,8 +41,8 @@ export default {
     data() {
         return {
             sidebarActive: false,
-            newsActive: true,
-            theme: 'lara-light-indigo'
+            newsActive: false,
+            theme: 'lara-light-blue'
         }
     },
     mounted() {
@@ -133,6 +135,8 @@ export default {
     computed: {
         containerClass() {
             return [{
+                'layout-wrapper-dark': this.$appState.darkTheme,
+                'layout-wrapper-light': !this.$appState.darkTheme,
                 'layout-news-active': this.newsActive,
                 'p-input-filled': this.$primevue.config.inputStyle === 'filled',
                 'p-ripple-disabled': this.$primevue.config.ripple === false
