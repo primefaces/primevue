@@ -896,8 +896,9 @@ export default {
             this.d_value = value;
             this.$emit('input', value);
         },
-        onInputFocus() {
+        onInputFocus(event) {
             this.focused = true;
+            this.$emit('focus', event);
         },
         onInputBlur(event) {
             this.focused = false;
@@ -907,6 +908,7 @@ export default {
             input.value = this.formatValue(newValue);
             input.setAttribute('aria-valuenow', newValue);
             this.updateModel(event, newValue);
+            this.$emit('blur', event);
         },
         clearTimer() {
             if (this.timer) {
