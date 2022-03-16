@@ -333,8 +333,7 @@ export default {
                     }
                 break;
 
-                //enter and escape
-                case 13:
+                //escape
                 case 27:
                     if (this.overlayVisible) {
                         this.hide();
@@ -561,7 +560,11 @@ export default {
                 else if (this.visibleOptions) {
                     if (this.optionGroupLabel) {
                         value = [];
-                        this.visibleOptions.forEach(optionGroup => value = [...value, ...this.getOptionGroupChildren(optionGroup)]);
+                        this.visibleOptions.forEach(optionGroup => {
+                            for (let option of this.getOptionGroupChildren(optionGroup)) {
+                                value.push(this.getOptionValue(option));
+                            }
+                        });
                     }
                     else  {
                         value = this.visibleOptions.map(option => this.getOptionValue(option));
@@ -598,7 +601,7 @@ export default {
         }
     },
     computed: {
-         visibleOptions() {
+        visibleOptions() {
             if (this.filterValue) {
                 if (this.optionGroupLabel) {
                     let filteredGroups = [];
@@ -611,7 +614,7 @@ export default {
                     return filteredGroups
                 }
                 else {
-                    return FilterService.filter(this.options, this.searchFields, this.filterValue, 'contains', this.filterLocale);
+                    return FilterService.filter(this.options, this.searchFields, this.filterValue, this.filterMatchMode, this.filterLocale);
                 }
             }
             else {

@@ -381,13 +381,13 @@ responsiveOptions: [
                             </tr>
                             <tr>
                                 <td>containerStyle</td>
-                                <td>string</td>
+                                <td>any</td>
                                 <td>null</td>
                                 <td>Inline style of the component on fullscreen mode. Otherwise, the 'style' property can be used.</td>
                             </tr>
                             <tr>
-                                <td>galleriaClass</td>
-                                <td>string</td>
+                                <td>containerClass</td>
+                                <td>any</td>
                                 <td>null</td>
                                 <td>Style class of the component on fullscreen mode. Otherwise, the 'class' property can be used.</td>
                             </tr>

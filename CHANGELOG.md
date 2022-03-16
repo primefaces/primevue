@@ -1,5 +1,34 @@
 # Changelog
 
+## [3.12.1](https://github.com/primefaces/primevue/tree/3.12.1) (2022-03-02)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.12.0...3.12.1)
+
+**Implemented New Features and Enhancements:**
+
+- Added InputNumber focus and blur events [\#2235](https://github.com/primefaces/primevue/issues/2235)
+- Add p-button-\* class support to SplitButton [\#2230](https://github.com/primefaces/primevue/issues/2230)
+- Calendar keydown event [\#2219](https://github.com/primefaces/primevue/issues/2219)
+- Calendar input value added blur event [\#2186](https://github.com/primefaces/primevue/issues/2186)
+- PanelMenu keyboard navigation [\#2181](https://github.com/primefaces/primevue/issues/2181)
+- Change lara to use system font [\#2180](https://github.com/primefaces/primevue/issues/2180)
+- Red Color Palette [\#1944](https://github.com/primefaces/primevue/issues/1944)
+
+**Fixed bugs:**
+
+- Galleria containerStyle and containerClass TypeScript error [\#2245](https://github.com/primefaces/primevue/issues/2245)
+- Material Calendar | Disabled Calendar getting opacity twice [\#2239](https://github.com/primefaces/primevue/issues/2239)
+- DataView DataViewLayoutType TypeScript error [\#2228](https://github.com/primefaces/primevue/issues/2228)
+- Material DataTable extension border typo fix [\#2227](https://github.com/primefaces/primevue/issues/2227)
+- Inline calendar adds autofocus [\#2212](https://github.com/primefaces/primevue/issues/2212)
+- Bug on Dark Themes related with fixed columns [\#2210](https://github.com/primefaces/primevue/issues/2210)
+- Lara Light Blue | Primary Button Hover is not Changing [\#2209](https://github.com/primefaces/primevue/issues/2209)
+- DataTableFilterMeta TypeScript error [\#2196](https://github.com/primefaces/primevue/issues/2196)
+- Toast: add missing 'top-right' ToastPositionType causing Typescript compilation errors [\#2176](https://github.com/primefaces/primevue/issues/2176)
+- \[BUG\] Advanced FileUploader in Dialog in IOS [\#2167](https://github.com/primefaces/primevue/issues/2167)
+- DataTable row-select and row-unselect index is always undefined [\#2068](https://github.com/primefaces/primevue/issues/2068)
+- Dropdown search don't work with Gboard [\#1389](https://github.com/primefaces/primevue/issues/1389)
+
 ## [3.12.0](https://github.com/primefaces/primevue/tree/3.12.0) (2022-02-15)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.11.0...3.12.0)
@@ -921,6 +950,30 @@
 - Scrollable Table alignment improvement [\#482](https://github.com/primefaces/primevue/issues/482)
 - Button not registered in FileUpload [\#478](https://github.com/primefaces/primevue/issues/478)
 - BlockUI documentation indicates "show" event whereas the actual event is "unblock" [\#485](https://github.com/primefaces/primevue/issues/485)
+
+## [2.9.1](https://github.com/primefaces/primevue/tree/2.9.1) (2022-03-16)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/2.9.0...2.9.1)
+
+**Implemented New Features and Enhancements:**
+
+- v2 Add p-button-\* class support to SplitButton [\#2300](https://github.com/primefaces/primevue/issues/2300)
+- Calendar v2 | hide timepicker on month/year select [\#2290](https://github.com/primefaces/primevue/issues/2290)
+- v2 New stripedRows property for OrderList and PickList [\#2288](https://github.com/primefaces/primevue/issues/2288)
+- MultiSelect v2 | Filter autocomplete attribute support [\#2286](https://github.com/primefaces/primevue/issues/2286)
+- v2 Custom Table CSV Export Headers [\#2284](https://github.com/primefaces/primevue/issues/2284)
+- Knob v2 | replace surface letters with new surface variables [\#2282](https://github.com/primefaces/primevue/issues/2282)
+- v2 Replace surface letters with new surface variables [\#2280](https://github.com/primefaces/primevue/issues/2280)
+- DataTable v2 editor templating [\#2277](https://github.com/primefaces/primevue/issues/2277)
+- InputNumber v2 | Emit focus and blur events added [\#1795](https://github.com/primefaces/primevue/issues/1935)
+
+**Fixed bugs:**
+
+- v2 Dropdown search don't work with Gboard [\#2297](https://github.com/primefaces/primevue/issues/2297)
+- v2 DataTable row-select and row-unselect index is always undefined [\#2295](https://github.com/primefaces/primevue/issues/2295)
+- v2 Scrollable TabView forwardIsDisabled defect [\#2292](https://github.com/primefaces/primevue/issues/2292)
+- Row editing does not work as expected in DataTable [\#2270](https://github.com/primefaces/primevue/issues/2270)
+- v2 DataTable ColGroup in footer/header: Cannot read properties of undefined \(reading 'tag'\) [\#2163](https://github.com/primefaces/primevue/issues/2163)
 
 ## [2.9.0](https://github.com/primefaces/primevue/tree/2.9.0) (2022-02-07)
 

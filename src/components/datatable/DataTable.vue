@@ -1154,7 +1154,7 @@ export default {
                     }
                 `
             });
-        
+
             this.styleElement.innerHTML = innerHTML;
         },
         bindColumnResizeEvents() {
@@ -1630,16 +1630,19 @@ export default {
         },
         onEditingMetaChange(event) {
             let { data, field, index, editing } = event;
-            let meta = this.d_editingMeta[index];
+            let editingMeta = { ...this.d_editingMeta };
+            let meta = editingMeta[index];
 
             if (editing) {
-                !meta && (meta = this.d_editingMeta[index] = { data: { ...data }, fields: [] });
+                !meta && (meta = editingMeta[index] = { data: { ...data }, fields: [] });
                 meta['fields'].push(field);
             }
             else if (meta) {
                 const fields = meta['fields'].filter(f => f !== field);
-                !fields.length ? (delete this.d_editingMeta[index]) : (meta['fields'] = fields);
+                !fields.length ? (delete editingMeta[index]) : (meta['fields'] = fields);
             }
+
+            this.d_editingMeta = editingMeta;
         },
         clearEditingMetaData() {
             if (this.editMode) {

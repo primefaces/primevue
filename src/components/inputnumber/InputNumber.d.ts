@@ -17,6 +17,17 @@ export interface InputNumberInputEvent {
     value: string | number | undefined;
 }
 
+export interface InputNumberBlurEvent {
+    /**
+     * Browser event
+     */
+    originalEvent: Event;
+    /**
+     * Input value
+     */
+    value: string;
+}
+
 export interface InputNumberProps {
     /**
      * Value of the component.
@@ -149,11 +160,21 @@ export declare type InputNumberEmits = {
      * @param {number} value - New value.
      */
     'update:modelValue': (value: number) => void;
-     /**
+    /**
       * Callback to invoke when the value is entered.
       * @param {InputNumberInputEvent} event - Custom input event.
       */
     'input': (event: InputNumberInputEvent) => void;
+    /**
+     * Callback to invoke on focus of input field.
+     * @param {Event} event - Focus event
+     */
+    'focus': (event: Event) => void;
+    /**
+       * Callback to invoke on blur of input field.
+       * @param {InputNumberBlurEvent} event - Blur event
+       */
+    'blur': (event: InputNumberBlurEvent) => void;
 }
 
 declare class InputNumber extends ClassComponent<InputNumberProps, InputNumberSlots, InputNumberEmits> {

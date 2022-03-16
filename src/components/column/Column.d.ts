@@ -269,6 +269,10 @@ export interface ColumnSlots {
          * Whether the row is frozen.
          */
         frozenRow: boolean;
+        /**
+         * Callback function
+         */
+        editorInitCallback: () => void;
     }) => VNode[];
     /**
      * Custom header template.
@@ -280,7 +284,7 @@ export interface ColumnSlots {
          */
         column: Column;
     }) => VNode[];
-     /**
+    /**
      * Custom footer template.
      * @param {Object} scope - footer slot's params.
      */
@@ -315,8 +319,16 @@ export interface ColumnSlots {
          * Whether the row is frozen.
          */
         frozenRow: boolean;
+        /**
+         * Callback function
+         */
+        editorSaveCallback: () => void;
+        /**
+         * Callback function
+         */
+        editorCancelCallback: () => void;
     }) => VNode[];
-     /**
+    /**
      * Custom filter template.
      * @param {Object} scope - filter slot's params.
      */
@@ -354,7 +366,7 @@ export interface ColumnSlots {
          */
         filterCallback: () => void;
     }) => VNode[];
-     /**
+    /**
      * Custom filter footer template.
      * @param {Object} scope - filter footer slot's params.
      */

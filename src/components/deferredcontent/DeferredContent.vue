@@ -10,7 +10,7 @@ export default {
     emits: ['load'],
     data() {
         return {
-           loaded: false
+            loaded: false
         }
     },
     mounted() {
@@ -53,7 +53,7 @@ export default {
                 return (winHeight >= rect.top);
             }
         },
-        load() {
+        load(event) {
             this.loaded = true;
             this.$emit('load', event);
         }
