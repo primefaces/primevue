@@ -1,5 +1,28 @@
 # Changelog
 
+## [3.12.2](https://github.com/primefaces/primevue/tree/3.12.2) (2022-03-16)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.12.1...3.12.2)
+
+**Implemented New Features and Enhancements:**
+
+- New DataTable editor callbacks [\#2312](https://github.com/primefaces/primevue/issues/2312)
+
+**Fixed bugs:**
+
+- Type declaration and export bug on ConfirmationService [\#2266](https://github.com/primefaces/primevue/issues/2266)
+- The type declaration for global property $primevue is not woking in Vue3 [\#2315](https://github.com/primefaces/primevue/issues/2315)
+- Colspan defect with hidden Columns [\#2310](https://github.com/primefaces/primevue/issues/2310)
+- DataTable with edit, sort and filter options does not work as expected [\#2271](https://github.com/primefaces/primevue/issues/2271)
+- InputSwitch TypeScript modelValue error [\#2262](https://github.com/primefaces/primevue/issues/2262)
+- Data Table row checkboxes propagate click events leading to double-handling of row select/unselect [\#2259](https://github.com/primefaces/primevue/issues/2259)
+- Pressing Enter/Return key submits form when there is a single MultiSelect and it has focus [\#2241](https://github.com/primefaces/primevue/issues/2241)
+- Multiselect with Grouped Data, select all options [\#2168](https://github.com/primefaces/primevue/issues/2168)
+- filterMatchMode option is ignored in MultiSelect [\#2162](https://github.com/primefaces/primevue/issues/2162)
+- Range slider get stuck when both handle on max value [\#2074](https://github.com/primefaces/primevue/issues/2074)
+- Bug: Tooltip shown at wrong place [\#1976](https://github.com/primefaces/primevue/issues/1976)
+- FileUpload: Custom upload bug on clear list [\#1723](https://github.com/primefaces/primevue/issues/1723)
+
 ## [3.12.1](https://github.com/primefaces/primevue/tree/3.12.1) (2022-03-02)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.12.0...3.12.1)
