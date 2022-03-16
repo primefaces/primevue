@@ -32,6 +32,7 @@ import ConfirmPopup from 'primevue/confirmpopup';
 &lt;ConfirmPopup&gt;&lt;/ConfirmPopup&gt;
 
 &lt;Button @click="delete($event)" icon="pi pi-check" label="Confirm"&gt;&lt;/Button&gt;
+
 </code></pre>
 
 <pre v-code.script><code>
@@ -161,7 +162,7 @@ export default {
                         <td>null</td>
                         <td>Callback to execute when action is rejected.</td>
                     </tr>
-                     <tr>
+                    <tr>
                         <td>acceptLabel</td>
                         <td>string</td>
                         <td>null</td>
@@ -196,6 +197,31 @@ export default {
                         <td>string</td>
                         <td>null</td>
                         <td>Style class of the reject button.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <h5>ConfirmationService</h5>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Parameters</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>require</td>
+                        <td>confirm: Confirmation Object</td>
+                        <td>Displays the dialog using the confirmation object options.</td>
+                    </tr>
+                    <tr>
+                        <td>close</td>
+                        <td>-</td>
+                        <td>Hides the dialog without invoking accept or reject callbacks.</td>
                     </tr>
                 </tbody>
             </table>
