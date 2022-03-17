@@ -13,18 +13,22 @@ describe('InputText.vue', () => {
 
         const input = wrapper.find('input');
         expect(input.element.value).toEqual('PrimeVue');
-    })
-});
+    });
 
-describe('InputText.vue', () => {
     it('input event', async () => {
         const wrapper = mount(InputText);
-        const input = wrapper.find('input');
+        const event = { target: { value: 'a' } };
 
-        // await input.trigger('input', { keyCode: 65 });
-        input.element.value = 'a';
-        input.trigger('input');
+        await wrapper.vm.onInput(event);
 
-        expect(input.element.value).toEqual('a');
-    })
+        expect(wrapper.emitted()['update:modelValue'][0]).toEqual(['a']);
+    });
+
+    it('should filled work', async () => {
+        const wrapper = mount(InputText);
+
+        await wrapper.setProps({ modelValue: 'a' });
+
+        expect(wrapper.vm.filled).toBe(true);
+    });
 });
