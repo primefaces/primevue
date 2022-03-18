@@ -96,7 +96,7 @@ export default {
         isSelected(item) {
             return ObjectUtils.findIndexInList(item, this.d_selection) != -1;
         },
-        moveUp() {
+        moveUp(event) {
             if (this.d_selection) {
                 let value = [...this.modelValue];
 
@@ -124,7 +124,7 @@ export default {
                 });
             }
         },
-        moveTop() {
+        moveTop(event) {
             if(this.d_selection) {
                 let value = [...this.modelValue];
 
@@ -150,7 +150,7 @@ export default {
                 });
             }
         },
-        moveDown() {
+        moveDown(event) {
             if(this.d_selection) {
                 let value = [...this.modelValue];
 
@@ -178,7 +178,7 @@ export default {
                 });
             }
         },
-        moveBottom() {
+        moveBottom(event) {
             if (this.d_selection) {
                 let value = [...this.modelValue];
 
