@@ -44,7 +44,6 @@ describe('Paginator.vue', () => {
 
         await wrapper.setProps({ rows: 20 });
 
-        console.log(wrapper.html())
         expect(wrapper.find('.p-dropdown-label').text()).toBe('20');
     });
 });
