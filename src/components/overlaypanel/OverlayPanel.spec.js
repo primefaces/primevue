@@ -31,7 +31,6 @@ describe('OverlayPanel.vue', () => {
         expect(wrapper.find('.p-overlaypanel-content').text()).toBe('PrimeVue');
         expect(wrapper.find('.p-overlaypanel-close').exists()).toBe(true);
         expect(wrapper.find('.p-overlaypanel-close').attributes()['aria-label']).toBe('exit');
-        console.log(wrapper.html())
     });
 
     it('should toggle itself', async () => {
