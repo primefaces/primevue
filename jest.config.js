@@ -29,5 +29,6 @@ module.exports = {
     },
     testMatch: [
         "**/src/components/**/*.spec.{j,t}s?(x)"
-    ]
+    ],
+    timers: "fake"
 }
