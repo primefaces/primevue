@@ -305,7 +305,7 @@ export default {
             }
         );
 
-        const multiAxisData = ref(
+        const multiAxisOptions = ref(
             {
                 stacked: false,
                 plugins: {
