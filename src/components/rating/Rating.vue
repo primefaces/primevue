@@ -38,7 +38,7 @@ export default {
                 this.updateModel(event, value);
             }
         },
-        onCancelClick() {
+        onCancelClick(event) {
             if (!this.readonly && !this.disabled) {
                 this.updateModel(event, null);
             }
