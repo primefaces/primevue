@@ -22,7 +22,6 @@ describe('PanelMenu', () => {
                                 key: '2_0',
                                 label: 'New',
                                 icon: 'pi pi-fw pi-user-plus',
-
                             },
                             {
                                 key: '2_1',
