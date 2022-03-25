@@ -198,3 +198,14 @@
         }
     }
 }
+
+@media screen and (max-width: 640px) {
+    .layout-wrapper {
+        .layout-content {
+            .content-section {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+        }
+    }
+}
