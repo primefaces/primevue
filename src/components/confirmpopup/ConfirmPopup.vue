@@ -97,7 +97,6 @@ export default {
             this.visible = false;
         },
         onEnter(el) {
-            this.alignOverlay();
             this.bindOutsideClickListener();
             this.bindScrollListener();
             this.bindResizeListener();
@@ -133,6 +132,8 @@ export default {
                 this.outsideClickListener = (event) => {
                     if (this.visible && this.container && !this.container.contains(event.target) && !this.isTargetClicked(event)) {
                         this.visible = false;
+                    } else {
+                        this.alignOverlay();
                     }
                 };
                 document.addEventListener('click', this.outsideClickListener);
