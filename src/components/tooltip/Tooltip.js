@@ -1,4 +1,4 @@
-import {UniqueComponentId,DomHandler,ConnectedOverlayScrollHandler,ZIndexUtils} from 'primevue/utils';
+import {UniqueComponentId,DomHandler,ConnectedOverlayScrollHandler,ZIndexUtils,ObjectUtils} from 'primevue/utils';
 
 function bindEvents(el) {
     const modifiers = el.$_ptooltipModifiers;
@@ -105,7 +105,9 @@ function create(el) {
 
     let tooltipText = document.createElement('div');
     tooltipText.className = 'p-tooltip-text';
-    tooltipText.innerHTML = el.$_ptooltipValue;
+
+    let tooltipLabel = ObjectUtils.htmlEncode(el.$_ptooltipValue);
+    tooltipText.innerHTML = tooltipLabel;
 
     container.appendChild(tooltipText);
     document.body.appendChild(container);

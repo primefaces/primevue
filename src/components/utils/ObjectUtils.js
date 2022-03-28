@@ -204,6 +204,16 @@ export default {
         return null;
     },
 
+    htmlEncode(str){
+        if (str) {
+            return str.replace(/[^\w. ]/gi, function(c){
+                return '&#'+c.charCodeAt(0)+';';
+            });
+        }
+
+        return null;
+    },
+
     isEmpty(value) {
         return (
             value === null || value === undefined || value === '' ||
