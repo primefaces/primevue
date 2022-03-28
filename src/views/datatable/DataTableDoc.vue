@@ -6,6 +6,7 @@
 import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
 import ColumnGroup from 'primevue/columngroup';     //optional for column grouping
+import Row from 'primevue/row';                     //optional for row
 
 </code></pre>
 
@@ -15,6 +16,7 @@ import ColumnGroup from 'primevue/columngroup';     //optional for column groupi
 &lt;script src="https://unpkg.com/primevue@^3/datatable/datatable.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/column/column.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/columngroup/columngroup.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue@^3/row/row.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
