@@ -335,6 +335,12 @@ export default {
                         <td>false</td>
                         <td>Defines if data is loaded and interacted with in lazy manner.</td>
                     </tr>
+                    <tr>
+                        <td>dataKey</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Name of the data that uniquely identifies the a record in the data.</td>
+                    </tr>
 				</tbody>
 			</table>
 		</div>

@@ -113,6 +113,10 @@ export interface DataViewProps {
      * Defines if data is loaded and interacted with in lazy manner.
      */
     lazy?: boolean | undefined;
+    /**
+     * Name of the data that uniquely identifies the a record in the data.
+     */
+    dataKey: string | undefined;
 }
 
 export interface DataViewSlots {
