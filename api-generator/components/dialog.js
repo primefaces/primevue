@@ -105,7 +105,7 @@ const DialogProps = [
         name: "draggable",
         type: "boolean",
         default: "true",
-        description: "Whether the dialog can be displayed full screen."
+        description: "Whether the dialog can be relocated by dragging."
     },
     {
         name: "minX",
