@@ -86,7 +86,7 @@ export default {
 
                 default:
                     if (this.separator) {
-                        if (this.separator === ',' && event.which === 188) {
+                        if (this.separator === ',' && (event.which === 188 || event.which === 110)) {
                             this.addItem(event, inputValue, true);
                         }
                     }
