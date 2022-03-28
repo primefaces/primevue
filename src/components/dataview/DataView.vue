@@ -14,7 +14,7 @@
 		</DVPaginator>
 		<div class="p-dataview-content">
 			<div class="p-grid p-nogutter grid grid-nogutter">
-				<template v-for="(item,index) of items">
+                <template v-for="(item,index) of items" :key="getKey(item, index)">
 					<slot v-if="$slots.list && layout === 'list'" name="list" :data="item" :index="index"></slot>
 					<slot v-if="$slots.grid && layout === 'grid'" name="grid" :data="item" :index="index"></slot>
 				</template>
@@ -106,7 +106,8 @@ export default {
         lazy: {
             type: Boolean,
             default: false
-        }
+        },
+        dataKey: null
     },
     data() {
         return {
@@ -129,6 +130,9 @@ export default {
         }
     },
     methods: {
+        getKey(item, index) {
+            return this.dataKey ? ObjectUtils.resolveFieldData(item, this.dataKey) : index;
+        },
         onPage(event) {
             this.d_first = event.first;
             this.d_rows = event.rows;
