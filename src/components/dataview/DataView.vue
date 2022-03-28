@@ -107,7 +107,10 @@ export default {
             type: Boolean,
             default: false
         },
-        dataKey: null
+        dataKey: {
+            type: String,
+            default: null
+        }
     },
     data() {
         return {
