@@ -265,6 +265,18 @@ export default {
                         <td>false</td>
                         <td>When enabled, hidden tabs are not rendered at all. Defaults to false that hides tabs with css.</td>
                     </tr>
+                    <tr>
+                        <td>expandIcon</td>
+                        <td>string</td>
+                        <td>pi-chevron-right</td>
+                        <td>Icon of a collapsed tab.</td>
+                    </tr>
+                    <tr>
+                        <td>collapseIcon</td>
+                        <td>string</td>
+                        <td>pi-chevron-down</td>
+                        <td>Icon of an expanded tab.</td>
+                    </tr>
 				</tbody>
 			</table>
 		</div>

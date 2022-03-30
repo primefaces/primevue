@@ -16,6 +16,18 @@ const AccordionProps = [
         type: "boolean",
         default: "false",
         description: "When enabled, hidden tabs are not rendered at all. Defaults to false that hides tabs with css."
+    },
+    {
+        name: "expandIcon",
+        type: "string",
+        default: "pi-chevron-right",
+        description: "Icon of a collapsed tab."
+    },
+    {
+        name: "collapseIcon",
+        type: "string",
+        default: "pi-chevron-down",
+        description: "Icon of a expanded tab."
     }
 ];
 
