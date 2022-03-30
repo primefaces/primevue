@@ -1,5 +1,23 @@
 # Changelog
 
+## [3.12.3](https://github.com/primefaces/primevue/tree/3.12.3) (2022-03-30)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.12.2...3.12.3)
+
+**Implemented New Features and Enhancements:**
+
+- Accordion | New expandIcon and collapseIcon properties [\#2373](https://github.com/primefaces/primevue/issues/2373)
+- Tooltip | Escape Support [\#2363](https://github.com/primefaces/primevue/issues/2363)
+- DataView new dataKey property [\#2361](https://github.com/primefaces/primevue/issues/2361)
+- Numpad comma separator support for Chips [\#2349](https://github.com/primefaces/primevue/issues/2349)
+
+**Fixed bugs:**
+
+- StyleClass may fail to enter the element  [\#2371](https://github.com/primefaces/primevue/issues/2371)
+- Calendar  | Loses alignment when positioned at the top of the input and the user clicks in the year/month [\#2369](https://github.com/primefaces/primevue/issues/2369)
+- The v-ripple directive breaks the behavior of list components in Firefox [\#2333](https://github.com/primefaces/primevue/issues/2333)
+- Align overlay not working correctly in ConfirmPopup [\#2038](https://github.com/primefaces/primevue/issues/2038)
+
 ## [3.12.2](https://github.com/primefaces/primevue/tree/3.12.2) (2022-03-16)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.12.1...3.12.2)
