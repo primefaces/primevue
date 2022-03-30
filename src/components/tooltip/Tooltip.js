@@ -1,4 +1,4 @@
-import {UniqueComponentId,DomHandler,ConnectedOverlayScrollHandler,ZIndexUtils,ObjectUtils} from 'primevue/utils';
+import {UniqueComponentId,DomHandler,ConnectedOverlayScrollHandler,ZIndexUtils} from 'primevue/utils';
 
 function bindEvents(el) {
     const modifiers = el.$_ptooltipModifiers;
@@ -106,8 +106,14 @@ function create(el) {
     let tooltipText = document.createElement('div');
     tooltipText.className = 'p-tooltip-text';
 
-    let tooltipLabel = ObjectUtils.htmlEncode(el.$_ptooltipValue);
-    tooltipText.innerHTML = tooltipLabel;
+
+    if (el.$_ptooltipEscape) {
+        tooltipText.innerHTML = el.$_ptooltipValue;
+    }
+    else {
+        tooltipText.innerHTML = '';
+        tooltipText.appendChild(document.createTextNode(el.$_ptooltipValue));
+    }
 
     container.appendChild(tooltipText);
     document.body.appendChild(container);
@@ -285,11 +291,13 @@ const Tooltip = {
         else if (typeof options.value === 'string') {
             target.$_ptooltipValue = options.value;
             target.$_ptooltipDisabled = false;
+            target.$_ptooltipEscape = false;
             target.$_ptooltipClass = null;
         }
         else {
             target.$_ptooltipValue = options.value.value;
             target.$_ptooltipDisabled = options.value.disabled || false;
+            target.$_ptooltipEscape = options.value.escape || false;
             target.$_ptooltipClass = options.value.class;
         }
 
@@ -316,11 +324,13 @@ const Tooltip = {
         if (typeof options.value === 'string') {
             target.$_ptooltipValue = options.value;
             target.$_ptooltipDisabled = false;
+            target.$_ptooltipEscape = false;
             target.$_ptooltipClass = null;
         }
         else {
             target.$_ptooltipValue = options.value.value;
             target.$_ptooltipDisabled = options.value.disabled || false;
+            target.$_ptooltipEscape = options.value.escape || false;
             target.$_ptooltipClass = options.value.class;
         }
     }
