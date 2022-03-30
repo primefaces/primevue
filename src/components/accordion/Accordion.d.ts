@@ -31,6 +31,14 @@ export interface AccordionProps {
      * When enabled, hidden tabs are not rendered at all. Defaults to false that hides tabs with css.
      */
     lazy?: boolean | undefined;
+    /**
+     * Icon of a collapsed tab.
+     */
+    expandIcon?: string | undefined;
+    /**
+     * Icon of an expanded tab.
+     */
+    collapseIcon?: string | undefined;
 }
 
 export interface AccordionSlots {

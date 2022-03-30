@@ -4,7 +4,7 @@
             <div :class="getTabHeaderClass(tab, i)">
                 <a role="tab" class="p-accordion-header-link" @click="onTabClick($event, tab, i)" @keydown="onTabKeydown($event, tab, i)" :tabindex="isTabDisabled(tab) ? null : '0'"
                     :aria-expanded="isTabActive(i)" :id="getTabAriaId(i) + '_header'" :aria-controls="getTabAriaId(i) + '_content'">
-                    <span :class="getHeaderIcon(i)"></span>
+                    <span :class="isTabActive(i) ? getHeaderCollapseIcon() : getHeaderExpandIcon()"></span>
                     <span class="p-accordion-header-text" v-if="tab.props && tab.props.header">{{tab.props.header}}</span>
                     <component :is="tab.children.header" v-if="tab.children && tab.children.header"></component>
                 </a>
@@ -39,6 +39,14 @@ export default {
         lazy: {
             type: Boolean,
             default: false
+        },
+        expandIcon: {
+            type: String,
+            default: 'pi-chevron-right'
+        },
+        collapseIcon: {
+            type: String,
+            default: 'pi-chevron-down'
         }
     },
     data() {
@@ -106,12 +114,14 @@ export default {
         getTabAriaId(i) {
             return this.ariaId + '_' + i;
         },
-        getHeaderIcon(i) {
-            const active = this.isTabActive(i);
-            return ['p-accordion-toggle-icon pi', {'pi-chevron-right': !active, 'pi-chevron-down': active}];
+        getHeaderCollapseIcon() {
+            return ['p-accordion-toggle-icon pi', this.collapseIcon];
+        },
+        getHeaderExpandIcon() {
+            return ['p-accordion-toggle-icon pi', this.expandIcon];
         },
         isAccordionTab(child) {
-            return child.type.name === 'AccordionTab'
+            return child.type.name === 'AccordionTab';
         }
     },
     computed: {
