@@ -9,7 +9,7 @@ const TimelineProps = [
         name: "align",
         type: "string",
         default: "left",
-        description: 'Position of the timeline bar relative to the content. Valid values are "left", "right" for vertical layout and "top", "bottom" for horizontal layout.'
+        description: 'Position of the timeline bar relative to the content. Valid values are "left", "right" and "alternate" for vertical layout and "top", "bottom" for horizontal layout.'
     },
     {
         name: "layout",
