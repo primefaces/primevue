@@ -91,6 +91,12 @@ directives: {
                         <td>null</td>
                         <td>When present, it adds a custom class to the tooltip.</td>
                     </tr>
+                    <tr>
+                        <td>escape</td>
+                        <td>boolean</td>
+                        <td>true</td>
+                        <td>By default the tooltip contents are rendered as text. Set to true to support html tags in the content.</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
