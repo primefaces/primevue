@@ -137,7 +137,7 @@ function resolveTarget(el, binding) {
 function bindDocumentListener(target, el, binding) {
     if (!target.$p_styleclass_documentlistener) {
         target.$p_styleclass_documentlistener = (event) => {
-            if (isVisible(target) || getComputedStyle(target).getPropertyValue('position') === 'static') {
+            if (!isVisible(target) || getComputedStyle(target).getPropertyValue('position') === 'static') {
                 unbindDocumentListener(target);
             }
 
