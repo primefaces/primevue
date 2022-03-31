@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.12.4](https://github.com/primefaces/primevue/tree/3.12.4) (2022-03-31)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.12.3...3.12.4)
+
+**Fixed bugs:**
+
+- StyleClass may fail to enter the element defect [\#2382](https://github.com/primefaces/primevue/issues/2382)
+
 ## [3.12.3](https://github.com/primefaces/primevue/tree/3.12.3) (2022-03-30)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.12.2...3.12.3)
