@@ -156,7 +156,7 @@ export default {
 						<td>align</td>
 						<td>string</td>
 						<td>left</td>
-						<td>Position of the timeline bar relative to the content. Valid values are "left", "right" for vertical layout and "top", "bottom" for horizontal layout.</td>
+						<td>Position of the timeline bar relative to the content. Valid values are "left", "right" and "alternate" for vertical layout and "top", "bottom" for horizontal layout.</td>
 					</tr>
 					<tr>
 						<td>layout</td>
