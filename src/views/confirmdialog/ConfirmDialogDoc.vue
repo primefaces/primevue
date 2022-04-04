@@ -140,6 +140,12 @@ export default {
                         <td>Header text of the dialog.</td>
                     </tr>
                     <tr>
+                        <td>position</td>
+                        <td>string</td>
+                        <td>center</td>
+                        <td>Position of the dialog, options are "center", "top", "bottom", "left", "right", "topleft", "topright", "bottomleft" or "bottomright".</td>
+                    </tr>
+                    <tr>
                         <td>accept</td>
                         <td>Function</td>
                         <td>null</td>

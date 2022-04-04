@@ -1,3 +1,5 @@
+type ConfirmationPositionType = 'center' | 'top' | 'bottom' | 'left' | 'right' | 'topleft' | 'topright' | 'bottomleft' | 'bottomright' | undefined;
+
 export interface ConfirmationOptions {
     /**
      * Element to align the overlay.
@@ -15,6 +17,12 @@ export interface ConfirmationOptions {
      * Optional key to match the key of the confirmation, useful to target a specific confirm dialog instance.
      */
     group?: string | undefined;
+    /**
+     * Position of the dialog, options are 'center', 'top', 'bottom', 'left', 'right', 'topleft', 'topright', 'bottomleft' or 'bottomright'.
+     * @see ConfirmationPositionType
+     * Default value is 'center'.
+     */
+    position?: ConfirmationPositionType;
     /**
      * Icon to display next to the message.
      */
