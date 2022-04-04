@@ -19,10 +19,10 @@
                 </DataTable>
             </div>
 
-           <div class="card">
+            <div class="card">
                 <h5>Flexible Scroll</h5>
                 <p>Flex scroll feature makes the scrollable viewport section dynamic instead of a fixed value so that it can grow or shrink relative to the parent size of the table.
-                   Click the button below to display a maximizable Dialog where data viewport adjusts itself according to the size changes.</p>
+                    Click the button below to display a maximizable Dialog where data viewport adjusts itself according to the size changes.</p>
 
                 <Button label="Show" icon="pi pi-external-link" @click="openDialog" />
             </div>
@@ -42,19 +42,19 @@
             <div class="card">
                 <h5>Horizontal and Vertical with Footer</h5>
                 <DataTable :value="customers2" :scrollable="true" scrollHeight="400px" :loading="loading" scrollDirection="both">
-                    <Column field="id" header="Id" footer="Id" style="flex-grow:1; flex-basis:100px"></Column>
-                    <Column field="name" header="Name" footer="Name" style="flex-grow:1; flex-basis:200px"></Column>
-                    <Column field="country.name" header="Country" footer="Country" style="flex-grow:1; flex-basis:200px"></Column>
-                    <Column field="date" header="Date" footer="Date" style="flex-grow:1; flex-basis:200px"></Column>
-                    <Column field="balance" header="Balance" footer="Balance" style="flex-grow:1; flex-basis:200px">
+                    <Column field="id" header="Id" footer="Id" style="width:100px"></Column>
+                    <Column field="name" header="Name" footer="Name" style="width:200px"></Column>
+                    <Column field="country.name" header="Country" footer="Country" style="width:200px"></Column>
+                    <Column field="date" header="Date" footer="Date" style="width:200px"></Column>
+                    <Column field="balance" header="Balance" footer="Balance" style="width:200px">
                         <template #body="{data}">
                             {{formatCurrency(data.balance)}}
                         </template>
                     </Column>
-                    <Column field="company" header="Company" footer="Company" style="flex-grow:1; flex-basis:200px"></Column>
-                    <Column field="status" header="Status" footer="Status" style="flex-grow:1; flex-basis:200px"></Column>
-                    <Column field="activity" header="Activity" footer="Activity" style="flex-grow:1; flex-basis:200px"></Column>
-                    <Column field="representative.name" header="Representative" footer="Representative" style="flex-grow:1; flex-basis:200px"></Column>
+                    <Column field="company" header="Company" footer="Company" style="width:200px"></Column>
+                    <Column field="status" header="Status" footer="Status" style="width:200px"></Column>
+                    <Column field="activity" header="Activity" footer="Activity" style="width:200px"></Column>
+                    <Column field="representative.name" header="Representative" footer="Representative" style="width:200px"></Column>
                 </DataTable>
             </div>
 
@@ -180,19 +180,19 @@ export default {
         <div class="card">
             <h5>Horizontal and Vertical with Footer</h5>
             <DataTable :value="customers2" :scrollable="true" scrollHeight="400px" :loading="loading" scrollDirection="both">
-                <Column field="id" header="Id" footer="Id" style="flex-grow:1; flex-basis:100px"></Column>
-                <Column field="name" header="Name" footer="Name" style="flex-grow:1; flex-basis:200px"></Column>
-                <Column field="country.name" header="Country" footer="Country" style="flex-grow:1; flex-basis:200px"></Column>
-                <Column field="date" header="Date" footer="Date" style="flex-grow:1; flex-basis:200px"></Column>
-                <Column field="balance" header="Balance" footer="Balance" style="flex-grow:1; flex-basis:200px">
+                <Column field="id" header="Id" footer="Id" style="width:100px"></Column>
+                <Column field="name" header="Name" footer="Name" style="width:200px"></Column>
+                <Column field="country.name" header="Country" footer="Country" style="width:200px"></Column>
+                <Column field="date" header="Date" footer="Date" style="width:200px"></Column>
+                <Column field="balance" header="Balance" footer="Balance" style="width:200px">
                     <template #body="{data}">
                         {{formatCurrency(data.balance)}}
                     </template>
                 </Column>
-                <Column field="company" header="Company" footer="Company" style="flex-grow:1; flex-basis:200px"></Column>
-                <Column field="status" header="Status" footer="Status" style="flex-grow:1; flex-basis:200px"></Column>
-                <Column field="activity" header="Activity" footer="Activity" style="flex-grow:1; flex-basis:200px"></Column>
-                <Column field="representative.name" header="Representative" footer="Representative" style="flex-grow:1; flex-basis:200px"></Column>
+                <Column field="company" header="Company" footer="Company" style="width:200px"></Column>
+                <Column field="status" header="Status" footer="Status" style="width:200px"></Column>
+                <Column field="activity" header="Activity" footer="Activity" style="width:200px"></Column>
+                <Column field="representative.name" header="Representative" footer="Representative" style="width:200px"></Column>
             </DataTable>
         </div>
 
@@ -302,7 +302,7 @@ export default {
                 name: "Geraldine Bisset",
                 country: {
                     name: "France",
-                   code: "fr"
+                    code: "fr"
                 },
                 company: "Bisset Group",
                 status: "proposal",
@@ -402,19 +402,19 @@ export default {
         <div class="card">
             <h5>Horizontal and Vertical with Footer</h5>
             <DataTable :value="customers2" :scrollable="true" scrollHeight="400px" :loading="loading" scrollDirection="both">
-                <Column field="id" header="Id" footer="Id" style="flex-grow:1; flex-basis:100px"></Column>
-                <Column field="name" header="Name" footer="Name" style="flex-grow:1; flex-basis:200px"></Column>
-                <Column field="country.name" header="Country" footer="Country" style="flex-grow:1; flex-basis:200px"></Column>
-                <Column field="date" header="Date" footer="Date" style="flex-grow:1; flex-basis:200px"></Column>
-                <Column field="balance" header="Balance" footer="Balance" style="flex-grow:1; flex-basis:200px">
+                <Column field="id" header="Id" footer="Id" style="width:100px"></Column>
+                <Column field="name" header="Name" footer="Name" style="width:200px"></Column>
+                <Column field="country.name" header="Country" footer="Country" style="width:200px"></Column>
+                <Column field="date" header="Date" footer="Date" style="width:200px"></Column>
+                <Column field="balance" header="Balance" footer="Balance" style="width:200px">
                     <template #body="{data}">
                         {{formatCurrency(data.balance)}}
                     </template>
                 </Column>
-                <Column field="company" header="Company" footer="Company" style="flex-grow:1; flex-basis:200px"></Column>
-                <Column field="status" header="Status" footer="Status" style="flex-grow:1; flex-basis:200px"></Column>
-                <Column field="activity" header="Activity" footer="Activity" style="flex-grow:1; flex-basis:200px"></Column>
-                <Column field="representative.name" header="Representative" footer="Representative" style="flex-grow:1; flex-basis:200px"></Column>
+                <Column field="company" header="Company" footer="Company" style="width:200px"></Column>
+                <Column field="status" header="Status" footer="Status" style="width:200px"></Column>
+                <Column field="activity" header="Activity" footer="Activity" style="width:200px"></Column>
+                <Column field="representative.name" header="Representative" footer="Representative" style="width:200px"></Column>
             </DataTable>
         </div>
 
@@ -510,7 +510,7 @@ export default {
                     name: "Geraldine Bisset",
                     country: {
                         name: "France",
-                       code: "fr"
+                        code: "fr"
                     },
                     company: "Bisset Group",
                     status: "proposal",
@@ -628,19 +628,19 @@ export default {
             <div class="card">
                 <h5>Horizontal and Vertical with Footer</h5>
                 <p-datatable :value="customers2" :scrollable="true" scroll-height="400px" :loading="loading" scroll-direction="both">
-                    <p-column field="id" header="Id" footer="Id" style="flex-grow:1; flex-basis:100px"></p-column>
-                    <p-column field="name" header="Name" footer="Name" style="flex-grow:1; flex-basis:200px"></p-column>
-                    <p-column field="country.name" header="Country" footer="Country" style="flex-grow:1; flex-basis:200px"></p-column>
-                    <p-column field="date" header="Date" footer="Date" style="flex-grow:1; flex-basis:200px"></p-column>
-                    <p-column field="balance" header="Balance" footer="Balance" style="flex-grow:1; flex-basis:200px">
+                    <p-column field="id" header="Id" footer="Id" style="width:100px"></p-column>
+                    <p-column field="name" header="Name" footer="Name" style="width:200px"></p-column>
+                    <p-column field="country.name" header="Country" footer="Country" style="width:200px"></p-column>
+                    <p-column field="date" header="Date" footer="Date" style="width:200px"></p-column>
+                    <p-column field="balance" header="Balance" footer="Balance" style="width:200px">
                         <template #body="{data}">
                             {{formatCurrency(data.balance)}}
                         </template>
                     </p-column>
-                    <p-column field="company" header="Company" footer="Company" style="flex-grow:1; flex-basis:200px"></p-column>
-                    <p-column field="status" header="Status" footer="Status" style="flex-grow:1; flex-basis:200px"></p-column>
-                    <p-column field="activity" header="Activity" footer="Activity" style="flex-grow:1; flex-basis:200px"></p-column>
-                    <p-column field="representative.name" header="Representative" footer="Representative" style="flex-grow:1; flex-basis:200px"></p-column>
+                    <p-column field="company" header="Company" footer="Company" style="width:200px"></p-column>
+                    <p-column field="status" header="Status" footer="Status" style="width:200px"></p-column>
+                    <p-column field="activity" header="Activity" footer="Activity" style="width:200px"></p-column>
+                    <p-column field="representative.name" header="Representative" footer="Representative" style="width:200px"></p-column>
                 </p-datatable>
             </div>
 
@@ -849,7 +849,7 @@ export default {
                 name: "Geraldine Bisset",
                 country: {
                     name: "France",
-                   code: "fr"
+                    code: "fr"
                 },
                 company: "Bisset Group",
                 status: "proposal",
