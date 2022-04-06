@@ -46,3 +46,29 @@ describe('TabPanel.vue', () => {
         expect(wrapper.findAll('.p-tabview-panel')[0].attributes().style).toBe('display: none;');
     });
 });
+
+describe('dynamic tabs', () => {
+    it('should exist', () => {
+        const wrapper = mount(TabView, {
+            global: {
+                components: {
+                    TabPanel
+                }    
+            },
+            slots: {
+                default: `
+                    <TabPanel v-for="tab in Array.from({ length: 5 }, (_, i) => ({ title: \`Tab \${i + 1}\`, content: \`Tab \${i + 1} Content\` }))" :key="tab.title" :header="tab.title">
+                        <p>{{tab.content}}</p>
+                    </TabPanel>
+                `
+            }
+        });
+
+        expect(wrapper.find('.p-tabview.p-component').exists()).toBe(true);
+        expect(wrapper.find('.p-tabview-ink-bar').exists()).toBe(true);
+        expect(wrapper.findAll('a.p-tabview-nav-link').length).toBe(5);
+        expect(wrapper.findAll('.p-tabview-panel').length).toBe(5);
+        expect(wrapper.findAll('li[role="presentation"]')[0].classes()).toContain('p-highlight');
+        expect(wrapper.findAll('.p-tabview-panel')[1].attributes().style).toBe('display: none;');
+    });
+});
