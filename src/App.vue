@@ -1,17 +1,6 @@
 <template>
     <div class="layout-wrapper" :class="containerClass">
-        <div class="layout-news" v-if="newsActive">
-            <div class="layout-news-container" @click="redirect">
-                <img class="layout-news-logo ml-2" src="./assets/images/topbar-primeblocks-device.png">
-                <a href="https://www.primefaces.org/primeblocks-vue" target="_blank" tabindex="-1" class="layout-news-button">
-                    Read More
-                </a>
-                <a tabindex="0" class="layout-news-close" @click="hideNews">
-                    <i class="pi pi-times"></i>
-                </a>
-            </div>
-        </div>
-
+        <app-news v-if="$appState.newsActive" />
         <app-topbar @menubutton-click="onMenuButtonClick" />
         <app-menu :active="sidebarActive" />
         <app-configurator  />
@@ -35,12 +24,12 @@ import AppTopBar from '@/AppTopBar.vue';
 import AppMenu from '@/AppMenu.vue';
 import AppFooter from '@/AppFooter.vue';
 import AppConfigurator from '@/AppConfigurator.vue';
+import AppNews from '@/AppNews.vue';
 
 export default {
     data() {
         return {
-            sidebarActive: false,
-            newsActive: false
+            sidebarActive: false
         }
     },
     mounted() {
@@ -81,7 +70,7 @@ export default {
             DomHandler.removeClass(document.body, 'blocked-scroll');
         },
         hideNews(event) {
-            this.newsActive = false;
+            this.$appState.newsActive = false;
             sessionStorage.setItem('primevue-news-hidden', 'true');
             event.stopPropagation();
         },
@@ -120,7 +109,7 @@ export default {
     computed: {
         containerClass() {
             return [{
-                'layout-news-active': this.newsActive,
+                'layout-news-active': this.$appState.newsActive,
                 'p-input-filled': this.$primevue.config.inputStyle === 'filled',
                 'p-ripple-disabled': this.$primevue.config.ripple === false,
                 'layout-wrapper-dark': this.$appState.darkTheme,
@@ -132,7 +121,8 @@ export default {
         'app-topbar': AppTopBar,
         'app-menu': AppMenu,
         'app-footer': AppFooter,
-        'app-configurator': AppConfigurator
+        'app-configurator': AppConfigurator,
+        'app-news': AppNews
     }
 }
 </script>
