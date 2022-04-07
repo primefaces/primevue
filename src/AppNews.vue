@@ -6,7 +6,7 @@
             <a class="layout-news-link" :style="[$appState.announcement.linkStyle, hovered ? $appState.announcement.linkHoverStyle : '']" :href="$appState.announcement.linkHref"
                 @mouseenter="hovered=true" @mouseleave="hovered=false">{{$appState.announcement.linkText}}</a>
         </div>
-        <a class="layout-news-close" :style="newsTextStyleObject" @click="onClose">
+        <a class="layout-news-close" :style="$appState.announcement.textStyle" @click="onClose">
             <span class="pi pi-times"></span>
         </a>
     </div>
@@ -25,26 +25,6 @@ export default {
     mounted() {
         EventBus.emit('news-activate');
     },
-    computed: {
-        newsTextStyleObject() {
-            if (this.$appState.announcement.textStyle) {
-                const textStyle = this.$appState.announcement.textStyle.split(';');
-                return [textStyle[0], textStyle[1]];
-            }
-            return [];
-        },
-        newsStyleObject() {
-            return [this.$appState.announcement.linkStyle];
-        },
-        newsLinkHover() {
-            return this.$appState.announcement.linkHoverStyle;
-        }
-    },
-    watch: {
-        '$appState.announcement'(newValue) {
-            this.$appState.announcement = newValue;
-        }
-    },
     methods: {
         onClose() {
             this.$appState.newsActive = false;
@@ -57,9 +37,3 @@ export default {
     }
 }
 </script>
-
-<style>
-.layout-news-link:hover {
-    text-decoration: newsLinkHover;
-}
-</style>
