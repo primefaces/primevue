@@ -55,7 +55,7 @@ export default {
             this.$appState.darkTheme = event.dark;
         };
 
-        EventBus.on('theme-change', this.themeChangeListeneappnewr);
+        EventBus.on('theme-change', this.themeChangeListener);
         EventBus.on('news-activate', this.newsActivate);
     },
     beforeUnmount() {
