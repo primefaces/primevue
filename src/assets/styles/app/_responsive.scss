@@ -5,197 +5,122 @@
     }
 }
 
-@media screen and (max-width: 1280px) {
-    .layout-wrapper {
-        .layout-news {
-            margin-left: 250px;
-            .layout-news-button {
-                display: none;
-            }
-        }
-    }
-}
-
 @media screen and (max-width: 960px) {
     .layout-wrapper {
-        .layout-news {
-            margin-left: 0;
-        }
-    }
-
-    .layout-topbar {
-        height: 110px;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        padding: 0;
-        left: 0;
-        width: 100%;
-
-        .menu-button {
-            display: block;
-        }
-
-        .logo {
-            display: block;
-
-            img{
-                width: 150px;
+        &.layout-news-active {
+            .layout-content {
+                padding-top: 10rem;
             }
         }
-
-        .app-theme {
-            margin-left: 0;
-            margin-right: 23px;
-        }
-
-        .topbar-menu {
+    
+        .layout-topbar {
+            height: 8rem;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 0;
+            left: 0;
             width: 100%;
-            height: 40px;
-            margin: 0;
-
-            > li {
-                width: 25%;
-                margin-right: 0;
-
-                > a {
-                    display: flex;
-                    height: 100%;
+    
+            .menu-button {
+                display: block;
+            }
+    
+            .app-theme {
+                margin-left: 0;
+                margin-right: 23px;
+            }
+    
+            .topbar-menu {
+                width: 100%;
+                height: 3rem;
+                margin: 0;
+    
+                > li {
+                    width: 25%;
+                    margin-right: 0;
+                    position: static;
+    
+                    > a,
+                    > .p-link {
+                        display: flex;
+                        height: 100%;
+                        width: 100%;
+                        justify-content: center;
+                        align-items: center;
+                        border-radius: 0;
+                    }
+    
+                    &.topbar-submenu > ul {
+                        right: auto;
+                        width: 100vw;
+                        left: 0;
+                        top: 8rem;
+                    }
+                }
+            }
+        }
+    
+        .layout-sidebar {
+            top: 0;
+            z-index: 1102;
+            height: 100%;
+            transform: translateX(-100%);
+    
+            &.active {
+                transform: translateX(0);
+            }
+        }
+    
+        .layout-content {
+            margin-left: 0;
+            padding-top: 8rem;
+    
+            .content-section {
+                &.introduction {
+                    flex-direction: column;
+                }
+            }
+    
+            .video-container {
+                position: relative;
+                width: 100%;
+                height: 0;
+                padding-bottom: 56.25%;
+    
+                iframe {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
                     width: 100%;
-                    justify-content: center;
-                    align-items: center;
-                    border-radius: 0;
-                }
-
-                &.topbar-submenu > ul {
-                    top: 40px;
+                    height: 100%;
                 }
             }
         }
-    }
-
-    .layout-sidebar {
-        top: 0;
-        z-index: 1102;
-        height: 100%;
-        transform: translateX(-100%);
-
-        &.active {
-            transform: translateX(0);
-        }
-    }
-
-    .layout-content {
-        margin-left: 0;
-        padding-top: 110px;
-
-        .content-section {
-            &.introduction {
-                flex-direction: column;
-
-                .app-inputstyleswitch {
-                    margin-top: 1.5rem;
-                }
-            }
-        }
-
-        .video-container {
-            position: relative;
-            width: 100%;
-            height: 0;
-            padding-bottom: 56.25%;
-
-            iframe {
-                position: absolute;
-                top: 0;
-                left: 0;
+    
+        .layout-mask {
+            background-color: rgba(0, 0, 0, 0.1);
+    
+            &.layout-mask-active {
+                z-index: 1101;
                 width: 100%;
                 height: 100%;
+                position: fixed;
+                top: 0;
+                left: 0;
+                background-color: rgba(0, 0, 0, 0.4);
+                transition: background-color .5s;
             }
         }
-    }
-
-    .layout-mask {
-        background-color: rgba(0, 0, 0, 0.1);
-
-        &.layout-mask-active {
-            z-index: 998;
-            width: 100%;
-            height: 100%;
-            position: fixed;
-            top: 0;
-            left: 0;
-            background-color: rgba(0, 0, 0, 0.4);
-            transition: background-color .5s;
-        }
-    }
-
-    .home {
-        .introduction > div {
-            width: 100%;
-        }
-
-        .features > div {
-            width: 100%;
-        }
-
-        .whouses > div {
-            width: 100%;
-        }
-
-        .prosupport > div {
-            width: 100%;
-        }
-
-        .video iframe {
-            width: 100% !important;
-        }
-    }
-
-    .layout-config {
-        .layout-config-button {
-            left: auto;
-            right: -52px;
-        }
-
-        &.layout-config-active {
-            width: 100%;
+    
+        .layout-config {
+            &.layout-config-active {
+                width: 100%;
+            }
         }
     }
 
     .blocked-scroll {
         overflow: hidden;
-    }
-}
-
-@media screen and (max-width: 960px) {
-    .layout-wrapper.layout-news-active {
-        .topbar-menu {
-            > li {
-                &.topbar-submenu {
-                    > ul  {
-                        top: 180px;
-                    }
-                }
-            }
-        }
-    }
-
-    .layout-topbar {
-        .topbar-menu {
-            > li {
-                &.topbar-submenu {
-                    position: static;
-
-                    > ul {
-                        top: 110px;
-                        position: fixed;
-                        right: auto;
-                        left: 0;
-                        width: 100vw;
-                    }
-                }
-            }
-        }
     }
 }
 
@@ -206,6 +131,16 @@
                 padding-left: 1rem;
                 padding-right: 1rem;
             }
+        }
+    }
+
+    .layout-news {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        font-size: 12px;
+
+        > i {
+            display: none;
         }
     }
 }
