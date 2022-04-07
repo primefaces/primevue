@@ -3,8 +3,7 @@
         <i></i>
         <div class="layout-news-content">
             <span class="layout-news-text" :style="$appState.announcement.textStyle">{{$appState.announcement.content}}</span>
-            <a class="layout-news-link" :style="[$appState.announcement.linkStyle, hovered ? $appState.announcement.linkHoverStyle : '']" :href="$appState.announcement.linkHref"
-                @mouseenter="hovered=true" @mouseleave="hovered=false">{{$appState.announcement.linkText}}</a>
+            <a class="layout-news-link" :style="$appState.announcement.linkStyle" :href="$appState.announcement.linkHref">{{$appState.announcement.linkText}}</a>
         </div>
         <a class="layout-news-close" :style="$appState.announcement.textStyle" @click="onClose">
             <span class="pi pi-times"></span>
