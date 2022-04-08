@@ -143,7 +143,14 @@ export default {
 
             this.dragging = true;
             this.updateDomData();
-            this.handleIndex = index;
+
+            if (this.range && this.modelValue[0] === this.max) {
+                this.handleIndex = 0;
+            }
+            else {
+                this.handleIndex = index;
+            }
+
             event.preventDefault();
         },
         onDrag(event) {
