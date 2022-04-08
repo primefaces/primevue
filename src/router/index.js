@@ -1,4 +1,4 @@
-import {createRouter, createWebHashHistory} from 'vue-router'
+import {createRouter, createWebHistory} from 'vue-router';
 import Home from '../Home.vue';
 import App from '../App.vue';
 
@@ -838,7 +838,7 @@ const routes = [
 ];
 
 const router = createRouter({
-    history: createWebHashHistory(),
+    history: createWebHistory(process.env.BASE_URL),
     routes,
     scrollBehavior (to, from, savedPosition) {
         if (savedPosition)
