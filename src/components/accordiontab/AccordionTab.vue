@@ -3,7 +3,7 @@
         <div :class="getTabHeaderClass()">
             <a role="tab" class="p-accordion-header-link" @click="onTabClick" @keydown="onTabKeydown" :tabindex="disabled ? null : '0'"
                 :aria-expanded="isTabActive()" :id="ariaId + '_header'" :aria-controls="ariaId + '_content'">
-                <span :class="getHeaderIcon()"></span>
+                <span :class="isTabActive() ? getHeaderCollapseIcon() : getHeaderExpandIcon()"></span>
                 <span class="p-accordion-header-text" v-if="header">{{header}}</span>
                 <slot name="header"></slot>
             </a>
@@ -58,10 +58,12 @@ export default {
         getTabHeaderClass() {
             return ['p-accordion-header', {'p-highlight': this.isTabActive(), 'p-disabled': this.disabled}]
         },
-        getHeaderIcon() {
-            const active = this.isTabActive();
-            return ['p-accordion-toggle-icon pi', {'pi-chevron-right': !active, 'pi-chevron-down': active}];
-        }
+        getHeaderCollapseIcon() {
+            return ['p-accordion-toggle-icon pi', this.$parent.collapseIcon];
+        },
+        getHeaderExpandIcon() {
+            return ['p-accordion-toggle-icon pi', this.$parent.expandIcon];
+        },
     },
     computed: {
         ariaId() {

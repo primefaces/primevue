@@ -170,26 +170,38 @@ export default {
 				<div class="doc-tablewrapper">
 					<table class="doc-table">
 						<thead>
-						<tr>
-							<th>Name</th>
-							<th>Type</th>
-							<th>Default</th>
-							<th>Description</th>
-						</tr>
+							<tr>
+								<th>Name</th>
+								<th>Type</th>
+								<th>Default</th>
+								<th>Description</th>
+							</tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>header</td>
-							<td>string</td>
-							<td>null</td>
-							<td>Orientation of tab headers.</td>
-						</tr>
-						<tr>
-							<td>disabled</td>
-							<td>boolean</td>
-							<td>false</td>
-							<td>Whether the tab is disabled.</td>
-						</tr>
+							<tr>
+								<td>header</td>
+								<td>string</td>
+								<td>null</td>
+								<td>Orientation of tab headers.</td>
+							</tr>
+							<tr>
+								<td>disabled</td>
+								<td>boolean</td>
+								<td>false</td>
+								<td>Whether the tab is disabled.</td>
+							</tr>
+							<tr>
+								<td>expandIcon</td>
+								<td>string</td>
+								<td>pi-chevron-right</td>
+								<td>Icon of a collapsed tab.</td>
+							</tr>
+							<tr>
+								<td>collapseIcon</td>
+								<td>string</td>
+								<td>pi-chevron-down</td>
+								<td>Icon of an expanded tab.</td>
+							</tr>
 						</tbody>
 					</table>
 				</div>
