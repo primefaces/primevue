@@ -179,10 +179,12 @@ export default {
     mounted() {
         this.themeChangeListener = () => {
             this.timeout = setTimeout(() => {
-                this.$refs.tabview1.updateInkBar();
-                this.$refs.tabview2.updateInkBar();
-                this.$refs.tabview3.updateInkBar();
-                this.$refs.tabview4.updateInkBar();
+                if (this.$refs.tabview1) {
+                    this.$refs.tabview1.updateInkBar();
+                    this.$refs.tabview2.updateInkBar();
+                    this.$refs.tabview3.updateInkBar();
+                    this.$refs.tabview4.updateInkBar();
+                }
             }, 50);
         };
         EventBus.on('theme-change', this.themeChangeListener);
