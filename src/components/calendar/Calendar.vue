@@ -393,6 +393,9 @@ export default {
             this.destroyResponsiveStyleElement();
             this.createResponsiveStyle();
         },
+        currentView() {
+            Promise.resolve(null).then(() => this.alignOverlay());
+        }
     },
     methods: {
         isComparable() {
