@@ -189,6 +189,7 @@ export default {
                 }
 
                 this.$emit('uploader', {files: this.files});
+                this.clear();
             }
             else {
                 let xhr = new XMLHttpRequest();
