@@ -8,7 +8,15 @@
 export default {
     props: {
         multiple: Boolean,
-        activeIndex: [Number,Array]
+        activeIndex: [Number,Array],
+        expandIcon: {
+            type: String,
+            default: 'pi-chevron-right'
+        },
+        collapseIcon: {
+            type: String,
+            default: 'pi-chevron-down'
+        }
     },
     data() {
         return {
