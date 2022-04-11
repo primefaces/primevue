@@ -55,7 +55,7 @@ export interface TreeTableFilterMeta {
      * Filter keys
      * @see TreeTableFilterMetaData
      */
-    [key: string]: TreeTableFilterMetaData | TreeTableOperatorFilterMetaData;
+    [key: string]: string | TreeTableFilterMetaData | TreeTableOperatorFilterMetaData;
 }
 
 export interface TreeTableSortEvent {

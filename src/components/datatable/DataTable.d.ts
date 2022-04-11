@@ -75,7 +75,7 @@ export interface DataTableFilterMeta {
      * Filter keys
      * @see DataTableFilterMetaData
      */
-    [key: string]: DataTableFilterMetaData | DataTableOperatorFilterMetaData;
+    [key: string]: string | DataTableFilterMetaData | DataTableOperatorFilterMetaData;
 }
 
 export interface DataTableSortMeta {
