@@ -106,7 +106,14 @@ function create(el) {
 
     let tooltipText = document.createElement('div');
     tooltipText.className = 'p-tooltip-text';
-    tooltipText.innerHTML = el.$_ptooltipValue;
+    
+    if (el.$_ptooltipEscape) {
+        tooltipText.innerHTML = el.$_ptooltipValue;
+    }
+    else {
+        tooltipText.innerHTML = '';
+        tooltipText.appendChild(document.createTextNode(el.$_ptooltipValue));
+    }
 
     container.appendChild(tooltipText);
     document.body.appendChild(container);
@@ -277,10 +284,12 @@ const Tooltip = {
         if (typeof options.value === 'string') {
             el.$_ptooltipValue = options.value;
             el.$_ptooltipDisabled = false;
+            el.$_ptooltipEscape = false;
         }
         else {
             el.$_ptooltipValue = options.value.value;
             el.$_ptooltipDisabled = options.value.disabled || false;
+            el.$_ptooltipEscape = options.value.escape || false;
         }
         bindEvents(el);
     },
@@ -299,10 +308,12 @@ const Tooltip = {
         if (typeof options.value === 'string') {
             el.$_ptooltipValue = options.value;
             el.$_ptooltipDisabled = false;
+            el.$_ptooltipEscape = false;
         }
         else {
             el.$_ptooltipValue = options.value.value;
             el.$_ptooltipDisabled = options.value.disabled;
+            el.$_ptooltipEscape = false;
         }
     }
 };
