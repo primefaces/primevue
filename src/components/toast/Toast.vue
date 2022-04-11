@@ -11,7 +11,7 @@
 <script>
 import ToastEventBus from 'primevue/toasteventbus';
 import ToastMessage from './ToastMessage.vue';
-import {ZIndexUtils,UniqueComponentId} from 'primevue/utils';
+import {ZIndexUtils,UniqueComponentId,ObjectUtils} from 'primevue/utils';
 
 var messageIdx = 0;
 
@@ -106,7 +106,7 @@ export default {
             }
         },
         onLeave() {
-            if (this.$refs.container && this.autoZIndex) {
+            if (this.$refs.container && this.autoZIndex && ObjectUtils.isEmpty(this.messages)) {
                 ZIndexUtils.clear(this.$refs.container);
             }
         },
