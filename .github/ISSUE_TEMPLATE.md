@@ -47,7 +47,7 @@ codesandbox or similar (you can use this template as a starting point: https://c
 * **Vue version:** 3.X
 <!-- Check whether this is still an issue in the most recent Vue version -->
 
-* **PrimeVue version:** 3.4.X
+* **PrimeVue version:** 3.12.X
 <!-- Check whether this is still an issue in the most recent PrimeVue version -->
 
 * **Browser:** [all | Chrome XX | Firefox XX | IE XX | Safari XX | Mobile Chrome XX | Android X.X Web Browser | iOS XX Safari | iOS XX UIWebView | iOS XX WKWebView ]
