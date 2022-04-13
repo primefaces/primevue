@@ -1,5 +1,17 @@
 # Changelog
 
+## [3.12.5](https://github.com/primefaces/primevue/tree/3.12.5) (2022-04-13)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.12.4...3.12.5)
+
+**Fixed bugs:**
+
+- Toast | z-index shouldn't removed when other toasts are shown [\#2434](https://github.com/primefaces/primevue/issues/2434)
+- ConfirmDialog: 'position' TypeScript errors [\#2381](https://github.com/primefaces/primevue/issues/2381)
+- TreeTable and DataTable | Typescript Definition Bug for global Filters [\#2378](https://github.com/primefaces/primevue/issues/2378)
+- Timeline component: type TimelineVerticalAlignType lack of enum value of 'alternate' [\#2367](https://github.com/primefaces/primevue/issues/2367)
+- Menu | disabled property as a function is not working with command prop [\#2365](https://github.com/primefaces/primevue/issues/2365)
+
 ## [3.12.4](https://github.com/primefaces/primevue/tree/3.12.4) (2022-03-31)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.12.3...3.12.4)
