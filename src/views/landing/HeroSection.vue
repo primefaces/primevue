@@ -58,7 +58,7 @@
                             <img src="demo/images/landing/blocks-icon.svg" alt="primevue templates" />
                             <div class="name">
                                 <b>Prime Blocks</b>
-                                <span>280+ UI Blocks</span>
+                                <span>350+ UI Blocks</span>
                             </div>
                         </div>
                     </div>
