@@ -1000,6 +1000,25 @@
 - Button not registered in FileUpload [\#478](https://github.com/primefaces/primevue/issues/478)
 - BlockUI documentation indicates "show" event whereas the actual event is "unblock" [\#485](https://github.com/primefaces/primevue/issues/485)
 
+## [2.9.2](https://github.com/primefaces/primevue/tree/2.9.2) (2022-04-13)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/2.9.1...2.9.2)
+
+**Implemented New Features and Enhancements:**
+
+- Tooltip v2 | Escape Support [\#2432](https://github.com/primefaces/primevue/issues/2432)
+- Accordion v2 | New expandIcon and collapseIcon properties [\#2418](https://github.com/primefaces/primevue/issues/2418)
+
+**Fixed bugs:**
+
+- Ripple v2 directive breaks the behavior of list components in Firefox [\#2430](https://github.com/primefaces/primevue/issues/2430)
+- Calendar | Loses alignment when positioned at the top of the input and the user clicks in the year/month [\#2422](https://github.com/primefaces/primevue/issues/2422)
+- StyleClass v2 may fail to enter the element [\#2420](https://github.com/primefaces/primevue/issues/2420)
+- Tooltip v2 shown at wrong place [\#2416](https://github.com/primefaces/primevue/issues/2416)
+- Slider v2 | Range slider get stuck when both handle on max value [\#2414](https://github.com/primefaces/primevue/issues/2414)
+- FileUpload v2: Custom upload bug on clear list  [\#2412](https://github.com/primefaces/primevue/issues/2412)
+- DataTable v2 | Colspan defect with hidden Columns [\#2410](https://github.com/primefaces/primevue/issues/2410)
+
 ## [2.9.1](https://github.com/primefaces/primevue/tree/2.9.1) (2022-03-16)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/2.9.0...2.9.1)
