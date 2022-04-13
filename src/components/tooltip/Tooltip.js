@@ -106,7 +106,7 @@ function create(el) {
 
     let tooltipText = document.createElement('div');
     tooltipText.className = 'p-tooltip-text';
-    
+
     if (el.$_ptooltipEscape) {
         tooltipText.innerHTML = el.$_ptooltipValue;
     }
