@@ -198,38 +198,17 @@ describe('DataTable.vue', () => {
                             <Column header="Profits" :colspan="2" />
                         </Row>
                         <Row>
-                            <Column header="Last Year" :sortable="true" field="lastYearSale"/>
-                            <Column header="This Year" :sortable="true" field="thisYearSale"/>
-                            <Column header="Last Year" :sortable="true" field="lastYearProfit"/>
-                            <Column header="This Year" :sortable="true" field="thisYearProfit"/>
+                            <Column header="Last Year"/>
+                            <Column header="This Year"/>
+                            <Column header="Last Year"/>
+                            <Column header="This Year"/>
                         </Row>
                     </ColumnGroup>
-                    <Column field="product" />
-                    <Column field="lastYearSale">
-                        <template #body="slotProps">
-                            {{slotProps.data.lastYearSale}}%
-                        </template>
-                    </Column>
-                    <Column field="thisYearSale">
-                        <template #body="slotProps">
-                            {{slotProps.data.thisYearSale}}%
-                        </template>
-                    </Column>
-                    <Column field="lastYearProfit">
-                        <template #body="slotProps">
-                            {{formatCurrency(slotProps.data.lastYearProfit)}}
-                        </template>
-                    </Column>
-                    <Column field="thisYearProfit">
-                        <template #body="slotProps">
-                            {{formatCurrency(slotProps.data.thisYearProfit)}}
-                        </template>
-                    </Column>
                     <ColumnGroup type="footer">
                         <Row>
-                            <Column footer="Totals:" :colspan="3" footerStyle="text-align:right"/>
-                            <Column :footer="lastYearTotal" />
-                            <Column :footer="thisYearTotal" />
+                            <Column footer="Totals:" :colspan="3"/>
+                            <Column footer="Last Year Total" />
+                            <Column footer="This Year Total" />
                         </Row>
                     </ColumnGroup>
                 </DataTable>
@@ -270,102 +249,10 @@ describe('DataTable.vue', () => {
                 }
             }
         });
+
         expect(wrapper.find('.p-datatable').classes()).toContain('p-datatable-grouped-header');
         expect(wrapper.find('.p-datatable').classes()).toContain('p-datatable-grouped-footer');
-    });
 
-    it('should column group and row templating', () => {
-        wrapper = mount({
-            components: {
-                DataTable,
-                ColumnGroup,
-                Row,
-                Column
-            },
-            template: `
-                <DataTable :value="sales" responsiveLayout="scroll">
-                    <ColumnGroup type="header">
-                        <Row>
-                            <Column header="Product" :rowspan="3" />
-                            <Column header="Sale Rate" :colspan="4" />
-                        </Row>
-                        <Row>
-                            <Column header="Sales" :colspan="2" />
-                            <Column header="Profits" :colspan="2" />
-                        </Row>
-                        <Row>
-                            <Column header="Last Year" :sortable="true" field="lastYearSale"/>
-                            <Column header="This Year" :sortable="true" field="thisYearSale"/>
-                            <Column header="Last Year" :sortable="true" field="lastYearProfit"/>
-                            <Column header="This Year" :sortable="true" field="thisYearProfit"/>
-                        </Row>
-                    </ColumnGroup>
-                    <Column field="product" />
-                    <Column field="lastYearSale">
-                        <template #body="slotProps">
-                            {{slotProps.data.lastYearSale}}%
-                        </template>
-                    </Column>
-                    <Column field="thisYearSale">
-                        <template #body="slotProps">
-                            {{slotProps.data.thisYearSale}}%
-                        </template>
-                    </Column>
-                    <Column field="lastYearProfit">
-                        <template #body="slotProps">
-                            {{formatCurrency(slotProps.data.lastYearProfit)}}
-                        </template>
-                    </Column>
-                    <Column field="thisYearProfit">
-                        <template #body="slotProps">
-                            {{formatCurrency(slotProps.data.thisYearProfit)}}
-                        </template>
-                    </Column>
-                    <ColumnGroup type="footer">
-                        <Row>
-                            <Column footer="Totals:" :colspan="3" footerStyle="text-align:right"/>
-                            <Column :footer="lastYearTotal" />
-                            <Column :footer="thisYearTotal" />
-                        </Row>
-                    </ColumnGroup>
-                </DataTable>
-            `,
-            data() {
-                return {
-                    sales: null
-                }
-            },
-            created() {
-                this.sales = [
-                    {product: 'Bamboo Watch', lastYearSale: 51, thisYearSale: 40, lastYearProfit: 54406, thisYearProfit: 43342},
-                    {product: 'Black Watch', lastYearSale: 83, thisYearSale: 9, lastYearProfit: 423132, thisYearProfit: 312122},
-                    {product: 'Blue Band', lastYearSale: 38, thisYearSale: 5, lastYearProfit: 12321, thisYearProfit: 8500}
-                ];
-            },
-            methods: {
-                formatCurrency(value) {
-                    return value.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
-                }
-            },
-            computed: {
-                lastYearTotal() {
-                    let total = 0;
-                    for(let sale of this.sales) {
-                        total += sale.lastYearProfit;
-                    }
-        
-                    return this.formatCurrency(total);
-                },
-                thisYearTotal() {
-                    let total = 0;
-                    for(let sale of this.sales) {
-                        total += sale.thisYearProfit;
-                    }
-        
-                    return this.formatCurrency(total);
-                }
-            }
-        });
         const headerRows = wrapper.findAll('.p-datatable-thead > tr');
 
         expect(headerRows.length).toEqual(3);
@@ -384,150 +271,78 @@ describe('DataTable.vue', () => {
         expect(headerRows[2].findAll('th')[1].text()).toEqual('This Year');
         expect(headerRows[2].findAll('th')[2].text()).toEqual('Last Year');
         expect(headerRows[2].findAll('th')[3].text()).toEqual('This Year');
-    });
 
-    it('should column group templating', () => {
-        wrapper = mount({
-            components: {
-                DataTable,
-                ColumnGroup,
-                Row,
-                Column
-            },
-            template: `
-                <DataTable :value="sales" responsiveLayout="scroll">
-                    <ColumnGroup type="header">
-                        <Row>
-                            <Column header="Product" :rowspan="3" />
-                            <Column header="Sale Rate" :colspan="4" />
-                        </Row>
-                        <Row>
-                            <Column header="Sales" :colspan="2" />
-                            <Column header="Profits" :colspan="2" />
-                        </Row>
-                        <Row>
-                            <Column header="Last Year" :sortable="true" field="lastYearSale"/>
-                            <Column header="This Year" :sortable="true" field="thisYearSale"/>
-                            <Column header="Last Year" :sortable="true" field="lastYearProfit"/>
-                            <Column header="This Year" :sortable="true" field="thisYearProfit"/>
-                        </Row>
-                    </ColumnGroup>
-                    <Column field="product" />
-                    <Column field="lastYearSale">
-                        <template #body="slotProps">
-                            {{slotProps.data.lastYearSale}}%
-                        </template>
-                    </Column>
-                    <Column field="thisYearSale">
-                        <template #body="slotProps">
-                            {{slotProps.data.thisYearSale}}%
-                        </template>
-                    </Column>
-                    <Column field="lastYearProfit">
-                        <template #body="slotProps">
-                            {{formatCurrency(slotProps.data.lastYearProfit)}}
-                        </template>
-                    </Column>
-                    <Column field="thisYearProfit">
-                        <template #body="slotProps">
-                            {{formatCurrency(slotProps.data.thisYearProfit)}}
-                        </template>
-                    </Column>
-                    <ColumnGroup type="footer">
-                        <Row>
-                            <Column footer="Totals:" :colspan="3" footerStyle="text-align:right"/>
-                            <Column :footer="lastYearTotal" />
-                            <Column :footer="thisYearTotal" />
-                        </Row>
-                    </ColumnGroup>
-                </DataTable>
-            `,
-            data() {
-                return {
-                    sales: null
-                }
-            },
-            created() {
-                this.sales = [
-                    {product: 'Bamboo Watch', lastYearSale: 51, thisYearSale: 40, lastYearProfit: 54406, thisYearProfit: 43342},
-                    {product: 'Black Watch', lastYearSale: 83, thisYearSale: 9, lastYearProfit: 423132, thisYearProfit: 312122},
-                    {product: 'Blue Band', lastYearSale: 38, thisYearSale: 5, lastYearProfit: 12321, thisYearProfit: 8500}
-                ];
-            },
-            methods: {
-                formatCurrency(value) {
-                    return value.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
-                }
-            },
-            computed: {
-                lastYearTotal() {
-                    let total = 0;
-                    for(let sale of this.sales) {
-                        total += sale.lastYearProfit;
-                    }
-        
-                    return this.formatCurrency(total);
-                },
-                thisYearTotal() {
-                    let total = 0;
-                    for(let sale of this.sales) {
-                        total += sale.thisYearProfit;
-                    }
-        
-                    return this.formatCurrency(total);
-                }
-            }
-        });
         const footerRows = wrapper.findAll('.p-datatable-tfoot > tr');
 
         expect(footerRows.length).toEqual(1);
 
         expect(footerRows[0].findAll('td')[0].attributes().colspan).toEqual('3');
-        expect(footerRows[0].findAll('td')[0].text()).not.toEqual('');
-        expect(footerRows[0].findAll('td')[0].text()).not.toEqual('');
-    });
-
-
-    // pagination
-    it('should have a paginator', async () => {
-        await wrapper.setProps({ value: data, paginator: true, rows: 5 });
-
-        expect(wrapper.find('.p-paginator').exists()).toBe(true);
-        expect(wrapper.findAll('.p-paginator-page').length).toEqual(2);
-        expect(wrapper.find('.p-paginator-next').exists()).toBe(true);
-        expect(wrapper.find('.p-paginator-first').classes()).toContain('p-disabled');
-        expect(wrapper.findAll('.p-paginator-page')[0].classes()).toContain('p-highlight');
-        expect(wrapper.find('.p-paginator-current').text()).toBe('Showing 1 to 5 of 10');
-
-        await wrapper.vm.onPage({page: 1, first: 5, rows: 5, pageCount: 2});
-        
-        expect(wrapper.findAll('.p-paginator-page')[0].classes()).not.toContain('p-highlight');
-        expect(wrapper.findAll('.p-paginator-page')[1].classes()).toContain('p-highlight');
+        expect(footerRows[0].findAll('td')[1].text()).toEqual('Last Year Total');
+        expect(footerRows[0].findAll('td')[2].text()).toEqual('This Year Total');
     });
 
 
     // sorting
     it('should single sort', async () => {
+        wrapper = mount(DataTable, {
+            global: {
+                components: {
+                    Column
+                }
+            },
+            props: {
+                value: smallData
+            },
+            slots: {
+                default: `
+                    <Column field="code" header="Code" sortable></Column>
+                    <Column field="name" header="Name" sortable></Column>
+                `
+            }
+        });
+
         const sortableTH = wrapper.findAll('.p-sortable-column')[0];
+        const firstCellText = wrapper.findAll('.p-datatable-tbody > tr')[0].findAll('td')[1].text();
         const headerClick = jest.spyOn(wrapper.vm, 'onColumnHeaderClick');
 
         await sortableTH.trigger('click');
 
         expect(headerClick).toHaveBeenCalled();
         expect(sortableTH.classes()).toContain('p-highlight');
+        expect(wrapper.findAll('.p-datatable-tbody > tr')[0].findAll('td')[1].text()).not.toEqual(firstCellText);
         expect(wrapper.emitted()['update:sortField'][0]).toEqual(['code']);
         expect(wrapper.emitted()['value-change'][0]).not.toBeNull();
     });
 
     it('should multiple sort', async () => {
-        const sortableTHs = wrapper.findAll('.p-sortable-column');
-        const headerClick = jest.spyOn(wrapper.vm, 'onColumnHeaderClick');
+        wrapper = mount(DataTable, {
+            global: {
+                components: {
+                    Column
+                }
+            },
+            props: {
+                value: smallData,
+                sortMode: 'multiple'
+            },
+            slots: {
+                default: `
+                    <Column field="code" header="Code" sortable></Column>
+                    <Column field="name" header="Name" sortable></Column>
+                `
+            }
+        });
 
-        await wrapper.setProps({ sortMode: 'multiple' });
+        const sortableTHs = wrapper.findAll('.p-sortable-column');
+        const firstCellText = wrapper.findAll('.p-datatable-tbody > tr')[0].findAll('td')[1].text();
+        const headerClick = jest.spyOn(wrapper.vm, 'onColumnHeaderClick');
 
         await sortableTHs[0].trigger('click');
 
         expect(headerClick).toHaveBeenCalled();
+        expect(wrapper.findAll('.p-datatable-tbody > tr')[0].findAll('td')[1].text()).not.toEqual(firstCellText);
+
+        const seconCellText = wrapper.findAll('.p-datatable-tbody > tr')[1].findAll('td')[1].text();
 
         await sortableTHs[1].trigger('click');
 
@@ -536,31 +351,74 @@ describe('DataTable.vue', () => {
         expect(wrapper.emitted()['update:multiSortMeta'][0]).toEqual([[{ field: 'code', order: 1 }]]);
         expect(wrapper.emitted()['update:multiSortMeta'][1]).toEqual([[{ field: 'name', order: 1 }]]);
         expect(wrapper.emitted()['value-change'][0]).not.toEqual(wrapper.emitted()['value-change'][1]);
+        expect(wrapper.findAll('.p-datatable-tbody > tr')[1].findAll('td')[1].text()).not.toEqual(seconCellText);
     });
 
     it('should have presort', async () => {
+        wrapper = mount(DataTable, {
+            global: {
+                components: {
+                    Column
+                }
+            },
+            props: {
+                value: smallData,
+                sortOrder: -1,
+                sortField: 'code'
+            },
+            slots: {
+                default: `
+                    <Column field="code" header="Code" sortable></Column>
+                    <Column field="name" header="Name" sortable></Column>
+                `
+            }
+        });
+
         const presortedTH = wrapper.findAll('.p-sortable-column')[0];
 
-        await wrapper.setProps({ sortOrder: -1, sortField: 'code' });
-
+        expect(wrapper.findAll('.p-datatable-tbody > tr')[0].findAll('td')[1].text()).not.toEqual('Game Controller');
         expect(presortedTH.classes()).toContain('p-highlight');
     });
 
     it('should remove sort', async () => {
-        const sortableTH = wrapper.findAll('.p-sortable-column')[0];
+        wrapper = mount(DataTable, {
+            global: {
+                components: {
+                    Column
+                }
+            },
+            props: {
+                value: smallData,
+                removableSort: true
+            },
+            slots: {
+                default: `
+                    <Column field="code" header="Code" sortable></Column>
+                    <Column field="name" header="Name" sortable></Column>
+                `
+            }
+        });
 
-        await wrapper.setProps({ removableSort: true });
+        const sortableTH = wrapper.findAll('.p-sortable-column')[0];
+        const firstCellText = wrapper.findAll('.p-datatable-tbody > tr')[0].findAll('td')[1].text();
 
         await sortableTH.trigger('click');
-
+        
+        expect(wrapper.findAll('.p-datatable-tbody > tr')[0].findAll('td')[1].text()).not.toEqual(firstCellText);
         expect(sortableTH.attributes()['aria-sort']).toBe('ascending');
 
+        const updatedFirstCellText = wrapper.findAll('.p-datatable-tbody > tr')[0].findAll('td')[1].text();
+
         await sortableTH.trigger('click');
 
+        expect(wrapper.findAll('.p-datatable-tbody > tr')[0].findAll('td')[1].text()).not.toEqual(updatedFirstCellText);
         expect(sortableTH.attributes()['aria-sort']).toBe('descending');
 
+        const latestUpdatedFirstCellText = wrapper.findAll('.p-datatable-tbody > tr')[0].findAll('td')[1].text();
+
         await sortableTH.trigger('click');
 
+        expect(wrapper.findAll('.p-datatable-tbody > tr')[0].findAll('td')[1].text()).not.toEqual(latestUpdatedFirstCellText);
         expect(sortableTH.attributes()['aria-sort']).toBe('none');
     });
 
@@ -1301,8 +1159,7 @@ describe('DataTable.vue', () => {
         expect(wrapper.find('.p-rowgroup-footer').text()).toBe('GroupFooter Templating');
     });
 
-    // expandable row groups
-    it('should expand', () => {
+    it('should have expandable row groups and expand rows', async () => {
         wrapper = mount(DataTable, {
             global: {
                 components: {
@@ -1310,31 +1167,124 @@ describe('DataTable.vue', () => {
                 }
             },
             props: {
-                value: smallData,
+                value: [
+                    {
+                        "id":1000,
+                        "name":"James Butt",
+                        "country":{
+                            "name":"Algeria",
+                            "code":"dz"
+                        },
+                        "company":"Benton, John B Jr",
+                        "representative":{
+                            "name":"Ioni Bowcher",
+                            "image":"ionibowcher.png"
+                        }
+                    },
+                    {
+                        "id":1001,
+                        "name":"Josephine Darakjy",
+                        "country":{
+                            "name":"Egypt",
+                            "code":"eg"
+                        },
+                        "company":"Chanay, Jeffrey A Esq",
+                        "representative":{
+                            "name":"Amy Elsner",
+                            "image":"amyelsner.png"
+                        }
+                    },
+                    {
+                        "id":1013,
+                        "name":"Graciela Ruta",
+                        "country":{
+                            "name":"Chile",
+                            "code":"cl"
+                        },
+                        "company":"Buckley Miller & Wright",
+                        "representative":{
+                            "name":"Amy Elsner",
+                            "image":"amyelsner.png"
+                        }
+                    },
+                    {
+                        "id":1021,
+                        "name":"Veronika Inouye",
+                        "country":{
+                            "name":"Ecuador",
+                            "code":"ec"
+                        },
+                        "company":"C 4 Network Inc",
+                        "representative":{
+                            "name":"Ioni Bowcher",
+                            "image":"ionibowcher.png"
+                        }
+                    },
+                    {
+                        "id":1026,
+                        "name":"Chanel Caudy",
+                        "country":{
+                            "name":"Argentina",
+                            "code":"ar"
+                        },
+                        "company":"Professional Image Inc",
+                        "representative":{
+                            "name":"Ioni Bowcher",
+                            "image":"ionibowcher.png"
+                        }
+                    },
+                    {
+                        "id":1027,
+                        "name":"Ezekiel Chui",
+                        "country":{
+                            "name":"Ireland",
+                            "code":"ie"
+                        },
+                        "company":"Sider, Donald C Esq",
+                        "representative":{
+                            "name":"Amy Elsner",
+                            "image":"amyelsner.png"
+                        }
+                    }
+                ],
                 rowGroupMode: 'subheader',
-                groupRowsBy: 'name',
+                groupRowsBy: 'representative.name',
                 sortMode: 'single',
-                sortField: 'name',
+                sortField: 'representative.name',
                 sortOrder: 1,
                 scrollable: true,
                 expandableRowGroups: true,
-                expandedRowGroups: ['Blue Band']
+                expandedRowGroups: null,
+                responsiveLayout: 'scroll'
             },
             slots: {
                 default: `
-                    <Column field="code" header="Code"></Column>
+                    <Column field="representative.name" header="Representative"></Column>
                     <Column field="name" header="Name"></Column>
+                    <Column field="country" header="Country"></Column>
+                    <Column field="company" header="Company"></Column>
                 `,
-                groupheader: `GroupHeader Templating`,
-                groupfooter: `GroupFooter Templating`
+                groupheader: `
+                    <template #groupheader="slotProps">
+                        <span class="image-text">{{slotProps.data.representative.name}}</span>
+                    </template>
+                `
             }
         });
 
-        expect(wrapper.find('.p-column-title').text()).toBe('Code');
+        expect(wrapper.findAll('.p-datatable-thead > tr > th').length).toBe(3);
+        expect(wrapper.findAll('.p-datatable-tbody > tr.p-rowgroup-header').length).toBe(2);
+        expect(wrapper.findAll('.p-datatable-tbody > tr.p-rowgroup-header')[0].text()).toBe('Amy Elsner');
+
+        const firstToggler = wrapper.findAll('.p-row-toggler')[0];
+
+        await firstToggler.trigger('click');
+
+        expect(wrapper.emitted()['update:expandedRowGroups'][0]).toEqual([['Amy Elsner']]);
+        expect(wrapper.emitted()['rowgroup-expand'][0][0].data).toBe('Amy Elsner');
     });
 
-    // rowspan grouping
-    it('should rowspan', async () => {
+    it('should have rowspan grouping', async () => {
         wrapper = mount(DataTable, {
             global: {
                 components: {
@@ -1342,25 +1292,65 @@ describe('DataTable.vue', () => {
                 }
             },
             props: {
-                value: smallData,
+                value: [
+                    {
+                        "id": "1000",
+                        "code": "vbb124btr",
+                        "name": "Game Controller"
+                    },
+                    {
+                        "id": "1001",
+                        "code": "nvklal433",
+                        "name": "Black Watch"
+                    },
+                    {
+                        "id": "1002",
+                        "code": "zz21cz3c1",
+                        "name": "Blue Band"
+                    },
+                    {
+                        "id": "1003",
+                        "code": "vbb124btrvbb124btr",
+                        "name": "Game Controller"
+                    },
+                    {
+                        "id": "1004",
+                        "code": "nvklal433nvklal433",
+                        "name": "Black Watch"
+                    },
+                    {
+                        "id": "1006",
+                        "code": "zz21cz3c1zz21cz3c1",
+                        "name": "Blue Band"
+                    }
+                ],
                 rowGroupMode: 'rowspan',
                 groupRowsBy: 'name',
                 sortMode: 'single',
                 sortField: 'name',
                 sortOrder: 1,
-                scrollable: true
+                scrollable: true,
+                responsiveLayout: 'scroll'
             },
             slots: {
                 default: `
-                    <Column field="code" header="Code"></Column>
+                    <Column header="#">
+                        <template #body="slotProps">
+                            {{slotProps.index}}
+                        </template>
+                    </Column>
                     <Column field="name" header="Name"></Column>
-                `,
-                groupheader: `GroupHeader Templating`,
-                groupfooter: `GroupFooter Templating`
+                    <Column field="code" header="Code"></Column>
+                `
             }
         });
 
-        expect(wrapper.find('td > span').text()).toBe('Code');
+        expect(wrapper.find('.p-datatable-thead > tr').findAll('th')[0].text()).toBe('#');
+        expect(wrapper.findAll('.p-datatable-tbody > tr')[0].findAll('td')[0].text()).toBe('0');
+        expect(wrapper.findAll('.p-datatable-tbody > tr')[0].findAll('td')[1].text()).toBe('Black Watch');
+        expect(wrapper.findAll('.p-datatable-tbody > tr')[0].findAll('td')[1].attributes().rowspan).toBe('2');
+        expect(wrapper.findAll('.p-datatable-tbody > tr')[2].findAll('td')[1].attributes().rowspan).toBe('2');
+        expect(wrapper.findAll('.p-datatable-tbody > tr')[4].findAll('td')[1].attributes().rowspan).toBe('2');
     });
 
 
