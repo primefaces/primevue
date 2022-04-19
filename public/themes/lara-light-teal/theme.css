@@ -222,6 +222,16 @@
   --red-700:#b32b23;
   --red-800:#8c221c;
   --red-900:#661814;
+  --primary-50:#f3fbfb;
+  --primary-100:#c7eeea;
+  --primary-200:#9ae0d9;
+  --primary-300:#6dd3c8;
+  --primary-400:#41c5b7;
+  --primary-500:#14b8a6;
+  --primary-600:#119c8d;
+  --primary-700:#0e8174;
+  --primary-800:#0b655b;
+  --primary-900:#084a42;
 }
 
 .p-autocomplete .p-autocomplete-loader {
