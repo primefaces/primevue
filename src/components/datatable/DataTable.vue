@@ -1628,9 +1628,8 @@ export default {
             return results;
         },
         getColumnCellKey(column, index) {
-            return ((this.columnProp(column, "columnKey") || this.columnProp(column, "field")) + "_" + index
-        );
-    },
+            return ((this.columnProp(column, "columnKey") || this.columnProp(column, "field")) + "_" + index);
+        },
     },
     computed: {
         containerClass() {
