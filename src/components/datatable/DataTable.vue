@@ -43,8 +43,8 @@
                     @row-toggle="toggleRow($event)" @radio-change="toggleRowWithRadio($event)" @checkbox-change="toggleRowWithCheckbox($event)"
                     @cell-edit-init="onCellEditInit($event)" @cell-edit-complete="onCellEditComplete($event)" @cell-edit-cancel="onCellEditCancel($event)"
                     @row-edit-init="onRowEditInit($event)" @row-edit-save="onRowEditSave($event)" @row-edit-cancel="onRowEditCancel($event)"
-                    :editingMeta="d_editingMeta" @editing-meta-change="onEditingMetaChange" />
-                <DTTableFooter :columnGroup="footerColumnGroup" :columns="columns" :getColumnCellKey="getColumnCellKey" />
+                    :editingMeta="d_editingMeta" @editing-meta-change="onEditingMetaChange" :getColumnCellKey="getColumnCellKey" />
+                <DTTableFooter :columnGroup="footerColumnGroup" :columns="columns" />
             </table>
         </div>
         <DTPaginator v-if="paginatorBottom" :rows="d_rows" :first="lazy ? 0 : d_first" :totalRecords="totalRecordsLength" :pageLinkSize="pageLinkSize" :template="paginatorTemplate" :rowsPerPageOptions="rowsPerPageOptions"
