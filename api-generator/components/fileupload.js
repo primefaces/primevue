@@ -114,6 +114,24 @@ const FileUploadProps = [
         description: "Whether to cancel the upload button."
     },
     {
+        name: "chooseIcon",
+        type: "string",
+        default: "pi pi-plus",
+        description: "Icon of the choose button."
+    },
+    {
+        name: "uploadIcon",
+        type: "string",
+        default: "pi pi-upload",
+        description: "Icon of the upload button."
+    },
+    {
+        name: "cancelIcon",
+        type: "string",
+        default: "pi pi-times",
+        description: "Icon of the cancel button."
+    },
+    {
         name: "style",
         type: "any",
         default: "null",
