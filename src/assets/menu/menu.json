@@ -13,10 +13,6 @@
                     "to": "/locale"
                 },
                 {
-                    "name": "Accessibility",
-                    "to": "/accessibility"
-                },
-                {
                     "name": "Responsive Design",
                     "to": "/responsive"
                 }
@@ -85,6 +81,16 @@
                 {
                     "name": "SASS API",
                     "href": "https://www.primefaces.org/designer/api/primevue/3.5.0"
+                }
+            ]
+        },
+        {
+            "name": "Accessibility",
+            "meta": ["accessibility"],
+            "children": [
+                {
+                    "name": "Overview",
+                    "to": "/accessibility"
                 }
             ]
         },
