@@ -3,6 +3,9 @@
         <transition name="p-sidebar" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave" appear>
             <div :class="containerClass" v-if="visible" :ref="containerRef" role="complementary" :aria-modal="modal" v-bind="$attrs">
                 <div class="p-sidebar-header">
+                    <div class="p-sidebar-header-content" v-if="$slots.header">
+                        <slot name="header"></slot>
+                    </div>
                     <button class="p-sidebar-close p-sidebar-icon p-link" @click="hide" :aria-label="ariaCloseLabel" v-if="showCloseIcon" type="button" v-ripple>
                         <span class="p-sidebar-close-icon pi pi-times" />
                     </button>
