@@ -225,23 +225,23 @@ export default {
         <Button icon="pi pi-arrow-up" @click="visibleBottom = true" class="mr-2"  />
         <Button icon="pi pi-th-large" @click="visibleFull = true"  />
 
-        <Sidebar v-model:visible="visibleLeft" :baseZIndex="1000">
+        <Sidebar v-model:visible="visibleLeft" :baseZIndex="10000">
             <h3>Left Sidebar</h3>
         </Sidebar>
 
-        <Sidebar v-model:visible="visibleRight" :baseZIndex="1000" position="right">
+        <Sidebar v-model:visible="visibleRight" :baseZIndex="10000" position="right">
             <h3>Right Sidebar</h3>
         </Sidebar>
 
-        <Sidebar v-model:visible="visibleTop" :baseZIndex="1000" position="top">
+        <Sidebar v-model:visible="visibleTop" :baseZIndex="10000" position="top">
             <h3>Top Sidebar</h3>
         </Sidebar>
 
-        <Sidebar v-model:visible="visibleBottom" :baseZIndex="1000" position="bottom">
+        <Sidebar v-model:visible="visibleBottom" :baseZIndex="10000" position="bottom">
             <h3>Bottom Sidebar</h3>
         </Sidebar>
 
-        <Sidebar v-model:visible="visibleFull" :baseZIndex="1000" position="full">
+        <Sidebar v-model:visible="visibleFull" :baseZIndex="10000" position="full">
             <h3>Full Screen</h3>
         </Sidebar>
     </div>
@@ -273,23 +273,23 @@ export default {
         <Button icon="pi pi-arrow-up" @click="visibleBottom = true" class="mr-2"  />
         <Button icon="pi pi-th-large" @click="visibleFull = true"  />
 
-        <Sidebar v-model:visible="visibleLeft" :baseZIndex="1000">
+        <Sidebar v-model:visible="visibleLeft" :baseZIndex="10000">
             <h3>Left Sidebar</h3>
         </Sidebar>
 
-        <Sidebar v-model:visible="visibleRight" :baseZIndex="1000" position="right">
+        <Sidebar v-model:visible="visibleRight" :baseZIndex="10000" position="right">
             <h3>Right Sidebar</h3>
         </Sidebar>
 
-        <Sidebar v-model:visible="visibleTop" :baseZIndex="1000" position="top">
+        <Sidebar v-model:visible="visibleTop" :baseZIndex="10000" position="top">
             <h3>Top Sidebar</h3>
         </Sidebar>
 
-        <Sidebar v-model:visible="visibleBottom" :baseZIndex="1000" position="bottom">
+        <Sidebar v-model:visible="visibleBottom" :baseZIndex="10000" position="bottom">
             <h3>Bottom Sidebar</h3>
         </Sidebar>
 
-        <Sidebar v-model:visible="visibleFull" :baseZIndex="1000" position="full">
+        <Sidebar v-model:visible="visibleFull" :baseZIndex="10000" position="full">
             <h3>Full Screen</h3>
         </Sidebar>
     </div>
@@ -322,23 +322,23 @@ export default {
 			<p-button icon="pi pi-arrow-up" @click="visibleBottom = true" class="mr-2"></p-button>
 			<p-button icon="pi pi-th-large" @click="visibleFull = true"></p-button>
 
-			<p-sidebar v-model:visible="visibleLeft" :base-z-index="1000">
+			<p-sidebar v-model:visible="visibleLeft" :base-z-index="10000">
 				<h3>Left Sidebar</h3>
 			</p-sidebar>
 
-			<p-sidebar v-model:visible="visibleRight" :base-z-index="1000" position="right">
+			<p-sidebar v-model:visible="visibleRight" :base-z-index="10000" position="right">
 				<h3>Right Sidebar</h3>
 			</p-sidebar>
 
-			<p-sidebar v-model:visible="visibleTop" :base-z-index="1000" position="top">
+			<p-sidebar v-model:visible="visibleTop" :base-z-index="10000" position="top">
 				<h3>Top Sidebar</h3>
 			</p-sidebar>
 
-			<p-sidebar v-model:visible="visibleBottom" :base-z-index="1000" position="bottom">
+			<p-sidebar v-model:visible="visibleBottom" :base-z-index="10000" position="bottom">
 				<h3>Bottom Sidebar</h3>
 			</p-sidebar>
 
-			<p-sidebar v-model:visible="visibleFull" :base-z-index="1000" position="full">
+			<p-sidebar v-model:visible="visibleFull" :base-z-index="10000" position="full">
 				<h3>Full Screen</h3>
 			</p-sidebar>
 		</div>
