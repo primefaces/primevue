@@ -134,6 +134,10 @@ export interface InputNumberProps {
      */
     allowEmpty?: boolean | undefined;
     /**
+     * When present, it specifies that an input field is read-only.
+     */
+    readonly?: boolean | undefined;
+    /**
      * Inline style of the input field.
      */
     inputStyle?: any;

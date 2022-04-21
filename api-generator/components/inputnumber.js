@@ -132,6 +132,12 @@ const InputNumberProps = [
         description: "Determines whether the input field is empty."
     },
     {
+        name: "readonly",
+        type: "boolean",
+        default: "false",
+        description: "When present, it specifies that an input field is read-only."
+    },
+    {
         name: "inputStyle",
         type: "any",
         default: "null",
