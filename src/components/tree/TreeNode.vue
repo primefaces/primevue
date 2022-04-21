@@ -273,10 +273,7 @@ export default {
             return ['p-treenode-icon', this.node.icon];
         },
         toggleIcon() {
-            return ['p-tree-toggler-icon pi pi-fw', {
-                'pi-chevron-down': this.expanded,
-                'pi-chevron-right': !this.expanded
-            }];
+            return ['p-tree-toggler-icon pi pi-fw', this.expanded ? this.node.expandedIcon || 'pi-chevron-down' : this.node.collapsedIcon || 'pi-chevron-right'];
         },
         checkboxClass() {
             return ['p-checkbox-box', {'p-highlight': this.checked, 'p-indeterminate': this.partialChecked}];
