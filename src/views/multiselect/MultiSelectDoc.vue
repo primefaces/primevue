@@ -435,7 +435,7 @@ export default {
                         <td>option: OptionGroup instance <br />
                             index: Index of the option group</td>
                     </tr>
-                     <tr>
+                    <tr>
                         <td>value</td>
                         <td>value: Value of the component <br />
                             placeholder: Placeholder prop value</td>
