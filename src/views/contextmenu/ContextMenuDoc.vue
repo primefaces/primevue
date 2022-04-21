@@ -25,135 +25,134 @@ export default {
         return {
             items: [
                 {
-                   label:'File',
-                   icon:'pi pi-fw pi-file',
-                   items:[
-                      {
-                         label:'New',
-                         icon:'pi pi-fw pi-plus',
-                         items:[
-                            {
-                               label:'Bookmark',
-                               icon:'pi pi-fw pi-bookmark'
-                            },
-                            {
-                               label:'Video',
-                               icon:'pi pi-fw pi-video'
-                            },
+					label:'File',
+					icon:'pi pi-fw pi-file',
+					items:[
+						{
+							label:'New',
+							icon:'pi pi-fw pi-plus',
+							items:[
+								{
+									label:'Bookmark',
+									icon:'pi pi-fw pi-bookmark'
+								},
+								{
+									label:'Video',
+									icon:'pi pi-fw pi-video'
+								}
+							]
+						},
+						{
+							label:'Delete',
+							icon:'pi pi-fw pi-trash'
+						},
+						{
+							separator:true
+						},
+						{
+							label:'Export',
+							icon:'pi pi-fw pi-external-link'
+						}
+					]
+				},
+                {
+					label:'Edit',
+					icon:'pi pi-fw pi-pencil',
+					items:[
+						{
+							label:'Left',
+							icon:'pi pi-fw pi-align-left'
+						},
+						{
+							label:'Right',
+							icon:'pi pi-fw pi-align-right'
+						},
+						{
+							label:'Center',
+							icon:'pi pi-fw pi-align-center'
+						},
+						{
+							label:'Justify',
+							icon:'pi pi-fw pi-align-justify'
+						},
 
-                         ]
-                      },
-                      {
-                         label:'Delete',
-                         icon:'pi pi-fw pi-trash'
-                      },
-                      {
-                         separator:true
-                      },
-                      {
-                         label:'Export',
-                         icon:'pi pi-fw pi-external-link'
-                      }
-                   ]
+					]
                 },
                 {
-                   label:'Edit',
-                   icon:'pi pi-fw pi-pencil',
-                   items:[
-                      {
-                         label:'Left',
-                         icon:'pi pi-fw pi-align-left'
-                      },
-                      {
-                         label:'Right',
-                         icon:'pi pi-fw pi-align-right'
-                      },
-                      {
-                         label:'Center',
-                         icon:'pi pi-fw pi-align-center'
-                      },
-                      {
-                         label:'Justify',
-                         icon:'pi pi-fw pi-align-justify'
-                      },
+					label:'Users',
+					icon:'pi pi-fw pi-user',
+					items:[
+						{
+							label:'New',
+							icon:'pi pi-fw pi-user-plus',
 
-                   ]
+						},
+						{
+							label:'Delete',
+							icon:'pi pi-fw pi-user-minus',
+
+						},
+						{
+							label:'Search',
+							icon:'pi pi-fw pi-users',
+							items:[
+								{
+									label:'Filter',
+									icon:'pi pi-fw pi-filter',
+									items:[
+										{
+											label:'Print',
+											icon:'pi pi-fw pi-print'
+										}
+									]
+								},
+								{
+									icon:'pi pi-fw pi-bars',
+									label:'List'
+								}
+							]
+						}
+					]
                 },
                 {
-                   label:'Users',
-                   icon:'pi pi-fw pi-user',
-                   items:[
-                      {
-                         label:'New',
-                         icon:'pi pi-fw pi-user-plus',
+					label:'Events',
+					icon:'pi pi-fw pi-calendar',
+					items:[
+						{
+							label:'Edit',
+							icon:'pi pi-fw pi-pencil',
+							items:[
+								{
+									label:'Save',
+									icon:'pi pi-fw pi-calendar-plus'
+								},
+								{
+									label:'Delete',
+									icon:'pi pi-fw pi-calendar-minus'
+								},
 
-                      },
-                      {
-                         label:'Delete',
-                         icon:'pi pi-fw pi-user-minus',
-
-                      },
-                      {
-                         label:'Search',
-                         icon:'pi pi-fw pi-users',
-                         items:[
-                            {
-                               label:'Filter',
-                               icon:'pi pi-fw pi-filter',
-                               items:[
-                                  {
-                                     label:'Print',
-                                     icon:'pi pi-fw pi-print'
-                                  }
-                               ]
-                            },
-                            {
-                               icon:'pi pi-fw pi-bars',
-                               label:'List'
-                            }
-                         ]
-                      }
-                   ]
+							]
+						},
+						{
+							label:'Archieve',
+							icon:'pi pi-fw pi-calendar-times',
+							items:[
+								{
+									label:'Remove',
+									icon:'pi pi-fw pi-calendar-minus'
+								}
+							]
+						}
+					]
                 },
                 {
-                   label:'Events',
-                   icon:'pi pi-fw pi-calendar',
-                   items:[
-                      {
-                         label:'Edit',
-                         icon:'pi pi-fw pi-pencil',
-                         items:[
-                            {
-                               label:'Save',
-                               icon:'pi pi-fw pi-calendar-plus'
-                            },
-                            {
-                               label:'Delete',
-                               icon:'pi pi-fw pi-calendar-minus'
-                            },
-
-                         ]
-                      },
-                      {
-                         label:'Archieve',
-                         icon:'pi pi-fw pi-calendar-times',
-                         items:[
-                            {
-                               label:'Remove',
-                               icon:'pi pi-fw pi-calendar-minus'
-                            }
-                         ]
-                      }
-                   ]
+					separator:true
                 },
                 {
-                   separator:true
-                },
-                {
-                   label:'Quit',
-                   icon:'pi pi-fw pi-power-off'
+					label:'Quit',
+					icon:'pi pi-fw pi-power-off'
                 }
-             ]
+            ]
         }
     }
 }
@@ -192,8 +191,8 @@ export default {
 
 </code></pre>
 
-         <h5>Templating</h5>
-         <p>ContextMenu offers content customization with the <i>item</i> template that receives the menuitem instance from the model as a parameter.</p>
+		<h5>Templating</h5>
+		<p>ContextMenu offers content customization with the <i>item</i> template that receives the menuitem instance from the model as a parameter.</p>
 <pre v-code><code><template v-pre>
 &lt;ContextMenu :model="items"&gt;
     &lt;template #item="{item}"&gt;
@@ -298,23 +297,23 @@ export default {
 			</table>
 		</div>
 
-      <h5>Slots</h5>
-		<div class="doc-tablewrapper">
-            <table class="doc-table">
-				<thead>
-               <tr>
-                  <th>Name</th>
-                  <th>Parameters</th>
-               </tr>
-				</thead>
-				<tbody>
-               <tr>
-                  <td>item</td>
-                  <td>item: Menuitem instance</td>
-               </tr>
-				</tbody>
-			</table>
-      </div>
+		<h5>Slots</h5>
+			<div class="doc-tablewrapper">
+				<table class="doc-table">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Parameters</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>item</td>
+							<td>item: Menuitem instance</td>
+						</tr>
+					</tbody>
+				</table>
+		</div>
 
 		<h5>Styling</h5>
 		<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
