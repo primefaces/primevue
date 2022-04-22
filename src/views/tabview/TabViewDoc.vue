@@ -119,7 +119,7 @@ import TabPanel from 'primevue/tabpanel';
         Content II
     &lt;/TabPanel&gt;
     &lt;TabPanel header="Header III"&gt;
-       Content III
+        Content III
     &lt;/TabPanel&gt;
 &lt;/TabView&gt;
 

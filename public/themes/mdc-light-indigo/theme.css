@@ -246,6 +246,16 @@
   --red-700:#ab2f26;
   --red-800:#86251e;
   --red-900:#621b16;
+  --primary-50:#f5f6fb;
+  --primary-100:#d1d5ed;
+  --primary-200:#acb4df;
+  --primary-300:#8893d1;
+  --primary-400:#6372c3;
+  --primary-500:#3f51b5;
+  --primary-600:#36459a;
+  --primary-700:#2c397f;
+  --primary-800:#232d64;
+  --primary-900:#192048;
 }
 
 .p-autocomplete .p-autocomplete-loader {
@@ -6085,9 +6095,7 @@
   box-shadow: none;
   background-image: linear-gradient(to bottom, #B00020, #B00020), linear-gradient(to bottom, #B00020, #B00020);
 }
-.p-input-filled .p-calendar.p-invalid.p-calendar-w-btn .p-inputtext,
-.p-input-filled .p-calendar.p-invalid.p-calendar-w-btn .p-inputtext:enabled:hover,
-.p-input-filled .p-calendar.p-invalid.p-calendar-w-btn .p-inputtext:enabled:focus {
+.p-input-filled .p-calendar.p-invalid.p-calendar-w-btn .p-inputtext {
   border: 0 none;
   background-image: none;
 }

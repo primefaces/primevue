@@ -1,5 +1,5 @@
 import { mount } from  '@vue/test-utils';
-import InputText from '@/components/inputText/InputText.vue';
+import InputText from './InputText.vue';
 
 describe('InputText.vue', () => {
     it('is InputText component exists', async () => {
