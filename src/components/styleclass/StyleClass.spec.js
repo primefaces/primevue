@@ -7,8 +7,6 @@ config.global.directives = {
     'styleclass': StyleClass
 }
 
-config.attachTo = document.body;
-
 describe('StyleClass', () => {
     it('should work with next selector', async () => {
         const wrapper = mount({
