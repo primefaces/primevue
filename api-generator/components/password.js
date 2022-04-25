@@ -79,7 +79,7 @@ const PasswordProps = [
     },
     {
         name: "inputClass",
-        type: "string",
+        type: "any",
         default: "null",
         description: "Style class of the input field."
     },
