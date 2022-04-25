@@ -157,7 +157,7 @@ import Password from 'primevue/password';
                     </tr>
                     <tr>
                         <td>inputClass</td>
-                        <td>string</td>
+                        <td>any</td>
                         <td>null</td>
                         <td>Style class of the input field.</td>
                     </tr>
