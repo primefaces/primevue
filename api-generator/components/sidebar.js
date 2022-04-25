@@ -60,11 +60,19 @@ const SidebarEvents = [
     }
 ];
 
+const SidebarSlots = [
+    {
+        name: "header",
+        description: "Custom content for the component header."
+    }
+];
+
 module.exports = {
     sidebar: {
         name: "Sidebar",
         description: "Sidebar is a panel component displayed as an overlay at the edges of the screen.",
         props: SidebarProps,
-        events: SidebarEvents
+        events: SidebarEvents,
+        slots: SidebarSlots
     }
 };
