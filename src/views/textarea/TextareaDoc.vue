@@ -52,6 +52,12 @@ import Textarea from 'primevue/textarea';
                         <td>false</td>
                         <td>When present, height of textarea changes as being typed.</td>
                     </tr>
+                    <tr>
+                        <td>placeholder</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>placeholder text.</td>
+                    </tr>
 				</tbody>
 			</table>
 		</div>
