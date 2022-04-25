@@ -1,6 +1,6 @@
 <template>
     <span :class="containerClass" :style="style">
-        <INInputText ref="input" :class="['p-inputnumber-input', inputClass]" :style="inputStyle" :value="formattedValue" v-bind="$attrs" :aria-valumin="min" :aria-valuemax="max"
+        <INInputText ref="input" :class="['p-inputnumber-input', inputClass]" :style="inputStyle" :value="formattedValue" v-bind="$attrs" :aria-valumin="min" :aria-valuemax="max" :readonly="readonly"
             @input="onUserInput" @keydown="onInputKeyDown" @keypress="onInputKeyPress" @paste="onPaste" @click="onInputClick" @focus="onInputFocus" @blur="onInputBlur"/>
         <span class="p-inputnumber-button-group" v-if="showButtons && buttonLayout === 'stacked'">
             <INButton :class="upButtonClass" :icon="incrementButtonIcon" v-on="upButtonListeners" :disabled="$attrs.disabled" />
@@ -107,6 +107,10 @@ export default {
         allowEmpty: {
             type: Boolean,
             default: true
+        },
+        readonly: {
+            type: Boolean,
+            default: false
         },
         style: null,
         class: null,
@@ -297,6 +301,10 @@ export default {
             return null;
         },
         repeat(event, interval, dir) {
+            if (this.readonly) {
+                return;
+            }
+
             let i = interval || 500;
 
             this.clearTimer();
@@ -379,6 +387,10 @@ export default {
             this.isSpecialChar = false;
         },
         onInputKeyDown(event) {
+            if (this.readonly) {
+                return;
+            }
+
             this.lastValue = event.target.value;
             if (event.shiftKey || event.altKey) {
                 this.isSpecialChar = true;
@@ -528,6 +540,10 @@ export default {
             }
         },
         onInputKeyPress(event) {
+            if (this.readonly) {
+                return;
+            }
+
             event.preventDefault();
             let code = event.which || event.keyCode;
             let char = String.fromCharCode(code);
@@ -734,7 +750,9 @@ export default {
             return index || 0;
         },
         onInputClick() {
-            this.initCursor();
+            if (!this.readonly) {
+                this.initCursor();
+            }
         },
         isNumeralChar(char) {
             if (char.length === 1 && (this._numeral.test(char) || this._decimal.test(char) || this._group.test(char) || this._minusSign.test(char))) {
