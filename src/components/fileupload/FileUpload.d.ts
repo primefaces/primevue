@@ -179,6 +179,18 @@ export interface FileUploadProps {
      */
     showCancelButton?: boolean | undefined;
     /**
+     * Icon of the choose button.
+     */
+    chooseIcon?: string | undefined;
+    /**
+     * Icon of the upload button.
+     */
+    uploadIcon?: string | undefined;
+    /**
+     * Icon of the cancel button.
+     */
+    cancelIcon?: string | undefined;
+    /**
      * Inline style of the component.
      */
     style?: any;

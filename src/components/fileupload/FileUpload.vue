@@ -3,11 +3,11 @@
         <div class="p-fileupload-buttonbar">
             <span :class="advancedChooseButtonClass" :style="style" @click="choose" @keydown.enter="choose" @focus="onFocus" @blur="onBlur" v-ripple tabindex="0">
                 <input ref="fileInput" type="file" @change="onFileSelect" :multiple="multiple" :accept="accept" :disabled="chooseDisabled" />
-                <span class="p-button-icon p-button-icon-left pi pi-fw pi-plus"></span>
+                <span :class="advancedChooseIconClass"></span>
                 <span class="p-button-label">{{chooseButtonLabel}}</span>
             </span>
-            <FileUploadButton :label="uploadButtonLabel" icon="pi pi-upload" @click="upload" :disabled="uploadDisabled" v-if="showUploadButton" />
-            <FileUploadButton :label="cancelButtonLabel" icon="pi pi-times" @click="clear" :disabled="cancelDisabled" v-if="showCancelButton" />
+            <FileUploadButton :label="uploadButtonLabel" :icon="uploadIcon" @click="upload" :disabled="uploadDisabled" v-if="showUploadButton" />
+            <FileUploadButton :label="cancelButtonLabel" :icon="cancelIcon" @click="clear" :disabled="cancelDisabled" v-if="showCancelButton" />
         </div>
         <div ref="content" class="p-fileupload-content" @dragenter="onDragEnter" @dragover="onDragOver" @dragleave="onDragLeave" @drop="onDrop">
             <FileUploadProgressBar :value="progress" v-if="hasFiles" />
@@ -129,6 +129,18 @@ export default {
         showCancelButton: {
             type: Boolean,
             default: true
+        },
+        chooseIcon: {
+            type: String,
+            default: 'pi pi-plus'
+        },
+        uploadIcon: {
+            type: String,
+            default: 'pi pi-upload'
+        },
+        cancelIcon: {
+            type: String,
+            default: 'pi pi-times'
         },
         style: null,
         class: null
@@ -424,11 +436,13 @@ export default {
                 'p-focus': this.focused
             }];
         },
+        advancedChooseIconClass() {
+            return ['p-button-icon p-button-icon-left pi-fw', this.chooseIcon];
+        },
         basicChooseButtonIconClass() {
-            return ['p-button-icon p-button-icon-left pi', {
-                'pi-plus': !this.hasFiles || this.auto,
-                'pi-upload': this.hasFiles && !this.auto
-            }];
+            return ['p-button-icon p-button-icon-left',
+                !this.hasFiles || this.auto ? this.uploadIcon : this.chooseIcon
+            ];
         },
         basicChooseButtonLabel() {
             return this.auto ? this.chooseButtonLabel : (this.hasFiles ? this.files.map(f => f.name).join(', ') : this.chooseButtonLabel);

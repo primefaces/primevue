@@ -223,6 +223,24 @@ myUploader(event) {
 						<td>Whether to show the cancel button.</td>
 					</tr>
 					<tr>
+						<td>chooseIcon</td>
+						<td>string</td>
+						<td>pi pi-plus</td>
+						<td>Icon of the choose button.</td>
+					</tr>
+					<tr>
+						<td>uploadIcon</td>
+						<td>string</td>
+						<td>pi pi-upload</td>
+						<td>Icon of the upload button.</td>
+					</tr>
+					<tr>
+						<td>cancelIcon</td>
+						<td>string</td>
+						<td>pi pi-times</td>
+						<td>Icon of the cancel button.</td>
+					</tr>
+					<tr>
 						<td>style</td>
 						<td>any</td>
 						<td>null</td>
