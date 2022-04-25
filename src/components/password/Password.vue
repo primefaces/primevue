@@ -74,7 +74,7 @@ export default {
             type: String,
             default: 'pi pi-eye'
         },
-        inputClass: String,
+        inputClass: null,
         inputStyle: null,
         style: null,
         class: String,
