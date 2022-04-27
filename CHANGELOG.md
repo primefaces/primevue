@@ -1,5 +1,21 @@
 # Changelog
 
+## [3.12.6](https://github.com/primefaces/primevue/tree/3.12.5) (2022-04-27)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.12.5...3.12.6)
+
+**Implemented New Features and Enhancements:**
+
+- InputNumber new readonly attribute [\#2469](https://github.com/primefaces/primevue/issues/2469)
+- New Primary Color [\#2462](https://github.com/primefaces/primevue/issues/2462)
+- FileUpload | Customizable Icons [\#2401](https://github.com/primefaces/primevue/issues/2401)
+- Extend TreeNode API with expandedIcon & collapsedIcon [\#2108](https://github.com/primefaces/primevue/issues/2108)
+- Sidebar new header templating [\#1939](https://github.com/primefaces/primevue/issues/1939)
+
+**Fixed bugs:**
+
+- Error in console when Password component get prop "inputClass" with Object type [\#2487](https://github.com/primefaces/primevue/issues/2487)
+
 ## [3.12.5](https://github.com/primefaces/primevue/tree/3.12.5) (2022-04-13)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.12.4...3.12.5)
