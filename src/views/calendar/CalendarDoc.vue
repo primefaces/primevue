@@ -212,6 +212,12 @@ export default {
                         <td>When enabled, displays the calendar as inline instead of an overlay.</td>
                     </tr>
                     <tr>
+                        <td>disabled</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>When enabled, disallows user to interact with calendar.</td>
+                    </tr>
+                    <tr>
                         <td>showOtherMonths</td>
                         <td>boolean</td>
                         <td>true</td>
