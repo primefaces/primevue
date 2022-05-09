@@ -93,10 +93,10 @@ export default {
     }
 
     body {
-        background-color: #ffffff;
-        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+        background-color: var(--surface-ground);
+        font-family: var(--font-family);
         font-weight: normal;
-        color: #495057;
+        color: var(--text-color);
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         padding: .5em;
@@ -123,6 +123,9 @@ export default {
     }
 
     .card {
+        background: var(--surface-card);
+        padding: 2rem;
+        border-radius: 10px;
         margin-bottom: 2rem;
     }
 
@@ -496,7 +499,7 @@ export const router = createRouter({
 
                 _files['src/main.js'] = {
                     content: `import "primeflex/primeflex.css";
-import "primevue/resources/themes/saga-blue/theme.css";
+import "primevue/resources/themes/lara-light-blue/theme.css";
 import "primevue/resources/primevue.min.css";
 import "primeicons/primeicons.css";
 import "./index.css";
