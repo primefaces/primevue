@@ -4,7 +4,7 @@
             <li role="none" :class="getItemClass(item)" :style="item.style" v-if="visible(item) && !item.separator">
                 <template v-if="!template">
                     <router-link v-if="item.to && !disabled(item)" :to="item.to" custom v-slot="{navigate, href, isActive:isRouterActive, isExactActive}">
-                        <a :href="href" :class="linkClass(item, {isRouterActive, isExactActive})" @click="onItemClick($event, item, navigate)" role="treeitem" :aria-expanded="isActive(item)">
+                        <a :href="href" :class="linkClass(item, {isActive:isRouterActive, isExactActive})" @click="onItemClick($event, item, navigate)" role="treeitem" :aria-expanded="isActive(item)">
                             <span :class="['p-menuitem-icon', item.icon]"></span>
                             <span class="p-menuitem-text">{{label(item)}}</span>
                         </a>
