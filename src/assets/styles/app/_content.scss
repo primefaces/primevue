@@ -43,6 +43,10 @@
         &.implementation {
             color: var(--text-color);
 
+            h1, h2, h3, h4, h5, h6 {
+                color: var(--surface-900);
+            }
+
             +.documentation {
                 padding-top: 0;
             }
@@ -83,6 +87,10 @@
                 border-radius: 3px;
                 font-weight: 600;
                 margin: 0 2px;
+            }
+
+            h1, h2, h3, h4, h5, h6 {
+                color: var(--surface-900);
             }
 
             .p-tabview {
