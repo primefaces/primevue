@@ -2056,6 +2056,10 @@ export default {
     display: table-cell;
 }
 
+.p-datatable-scrollable .p-virtualscroller > .p-datatable-table {
+    display: inline-block; /* For Safari */
+}
+
 /* Resizable */
 .p-datatable-resizable > .p-datatable-wrapper {
     overflow-x: auto;
