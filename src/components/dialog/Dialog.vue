@@ -45,6 +45,7 @@ export default {
         contentClass: String,
         rtl: Boolean,
         maximizable: Boolean,
+        fullscreen: Boolean,
         dismissableMask: Boolean,
         closable: {
             type: Boolean,
@@ -102,7 +103,7 @@ export default {
     data() {
         return {
             containerVisible: this.visible,
-            maximized: false
+            maximized: this.fullscreen
         }
     },
     documentKeydownListener: null,
