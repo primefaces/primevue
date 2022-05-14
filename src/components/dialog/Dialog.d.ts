@@ -98,6 +98,10 @@ export interface DialogProps {
      */
     maximizable?: boolean | undefined;
     /**
+     * Show Dialog in fullscreen mode  when open.
+     */
+    fullscreen?: boolean | undefined;
+    /**
      * Object literal to define widths per screen size.
      * @see DialogBreakpoints
      */
