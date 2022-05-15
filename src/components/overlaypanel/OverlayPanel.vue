@@ -57,6 +57,15 @@ export default {
             visible: false
         }
     },
+    watch: {
+        dismissable(newValue) {
+            if (newValue) {
+                this.bindOutsideClickListener();
+            } else {
+                this.unbindOutsideClickListener();
+            }
+        }
+    },
     selfClick: false,
     target: null,
     eventTarget: null,
