@@ -333,6 +333,12 @@ export default {
                         <td>null</td>
                         <td>Whether to use the virtualScroller feature. The properties of <router-link to="/virtualscroller">VirtualScroller</router-link> component can be used like an object in it.</td>
                     </tr>
+                    <tr>
+                        <td>clearFilterOnHide</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>Whether to clear filterInput when the overlay is hidden.</td>
+                    </tr>
 				</tbody>
 			</table>
 		</div>
@@ -410,6 +416,11 @@ export default {
                         <td>hide</td>
                         <td>-</td>
                         <td>Hides the overlay.</td>
+                    </tr>
+                    <tr>
+                        <td>clearFilter</td>
+                        <td>-</td>
+                        <td>Clears filter input.</td>
                     </tr>
 				</tbody>
 			</table>
