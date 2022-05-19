@@ -27,7 +27,7 @@
                 </MultiSelect>
 
                 <h5>Advanced with Templating and Filtering</h5>
-                <MultiSelect v-model="selectedCountries" :options="countries" optionLabel="name" placeholder="Select Countries" :filter="true" class="multiselect-custom">
+                <MultiSelect ref="advancedMultiselect" v-model="selectedCountries" :options="countries" optionLabel="name" placeholder="Select Countries" :filter="true" :clearFilterOnHide="false" class="multiselect-custom">
                     <template #value="slotProps">
                         <div class="country-item country-item-value" v-for="option of slotProps.value" :key="option.code">
                             <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + option.code.toLowerCase()" />
@@ -41,6 +41,11 @@
                         <div class="country-item">
                             <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.option.code.toLowerCase()" />
                             <div>{{slotProps.option.name}}</div>
+                            </div>
+                    </template>
+                    <template #footer="">
+                        <div class="py-2">
+                            <Button label="Clear filter" @click="clearAdvancedTemplatingFilterInput" />
                         </div>
                     </template>
                 </MultiSelect>
@@ -69,6 +74,7 @@ export default {
             selectedGroupedCities: null,
             selectedItems: null,
             selectAll: false,
+            // clearFilterOnHide: false,
             cities: [
                 {name: 'New York', code: 'NY'},
                 {name: 'Rome', code: 'RM'},
@@ -125,6 +131,9 @@ export default {
         },
         onChange(event) {
             this.selectAll = event.value.length === this.items.length
+        },
+        clearAdvancedTemplatingFilterInput() {
+            this.$refs.advancedMultiselect.clearFilter()
         }
     },
     components: {
