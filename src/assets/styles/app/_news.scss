@@ -15,16 +15,22 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        min-width: 0%;
     }
 
     .layout-news-text {
         line-height: 1.5;
         display: block;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        min-width: 0%;
     }
 
     .layout-news-link {
         margin-left: .5rem;
         line-height: 1.5;
+        white-space: nowrap;
     }
 
     .layout-news-link,
