@@ -270,13 +270,13 @@ Vertical
                         <td>allowEmpty</td>
                         <td>boolean</td>
                         <td>true</td>
-                        <td>When present, it specifies that an input field is read-only.</td>
+                        <td>Determines whether the input field is empty.</td>
                     </tr>
                     <tr>
                         <td>readonly</td>
                         <td>boolean</td>
                         <td>false</td>
-                        <td>Determines whether the input field is empty.</td>
+                        <td>When present, it specifies that an input field is read-only.</td>
                     </tr>
                     <tr>
                         <td>inputStyle</td>
