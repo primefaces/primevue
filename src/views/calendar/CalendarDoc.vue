@@ -215,7 +215,7 @@ export default {
                         <td>disabled</td>
                         <td>boolean</td>
                         <td>false</td>
-                        <td>When enabled, disallows user to interact with calendar.</td>
+                        <td>When specified, disables the component.</td>
                     </tr>
                     <tr>
                         <td>showOtherMonths</td>
