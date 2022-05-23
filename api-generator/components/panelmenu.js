@@ -7,7 +7,7 @@ const PanelMenuProps = [
     },
     {
         name: "expandedKeys",
-        type: "array",
+        type: "object",
         default: "null",
         description: "A map of keys to represent the expansion state in controlled mode."
     },
