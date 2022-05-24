@@ -5,6 +5,7 @@
 <script>
 export default {
     name: 'Textarea',
+    inheritAttrs: false,
     emits: ['update:modelValue'],
     props: {
         modelValue: null,
@@ -35,7 +36,7 @@ export default {
             }
         },
         onInput(event) {
-             if (this.autoResize) {
+            if (this.autoResize) {
                 this.resize();
             }
 
