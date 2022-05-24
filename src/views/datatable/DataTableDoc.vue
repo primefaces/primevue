@@ -2723,7 +2723,7 @@ export default {
                 </template>
                 <template #filter="{filterModel}">
                     <Slider v-model="filterModel.value" range class="m-3"></Slider>
-                    <div class="flex align-items-center justify-content-center px-2">
+                    <div class="flex align-items-center justify-content-between px-2">
                         <span>{{filterModel.value ? filterModel.value[0] : 0}}</span>
                         <span>{{filterModel.value ? filterModel.value[1] : 100}}</span>
                     </div>
@@ -2947,7 +2947,7 @@ export default {
                 </template>
                 <template #filter="{filterModel}">
                     <Slider v-model="filterModel.value" range class="m-3"></Slider>
-                    <div class="flex align-items-center justify-content-center px-2">
+                    <div class="flex align-items-center justify-content-between px-2">
                         <span>{{filterModel.value ? filterModel.value[0] : 0}}</span>
                         <span>{{filterModel.value ? filterModel.value[1] : 100}}</span>
                     </div>
@@ -3210,7 +3210,7 @@ img {
                     </template>
                     <template #filter="{filterModel}">
                         <p-slider v-model="filterModel.value" range class="m-3"></p-slider>
-                        <div class="flex align-items-center justify-content-center px-2">
+                        <div class="flex align-items-center justify-content-between px-2">
                             <span>{{filterModel.value ? filterModel.value[0] : 0}}</span>
                             <span>{{filterModel.value ? filterModel.value[1] : 100}}</span>
                         </div>
