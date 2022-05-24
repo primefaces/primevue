@@ -2,7 +2,7 @@ const InlineMessageProps = [
     {
         name: "severity",
         type: "string",
-        default: "info",
+        default: "error",
         description: 'Severity level of the message. Valid severities are "success", "info", "warn" and "error".'
     }
 ];
