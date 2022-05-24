@@ -139,7 +139,7 @@ import InlineMessage from 'primevue/inlinemessage';
                     <tr>
                         <td>severity</td>
                         <td>string</td>
-                        <td>info</td>
+                        <td>error</td>
                         <td>Severity level of the message.</td>
                     </tr>
 				</tbody>
