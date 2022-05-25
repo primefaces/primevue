@@ -19,8 +19,8 @@
                             <span :class="getItemIcon(item)" v-if="item.icon"></span>
                             <span class="p-menuitem-text">{{label(item)}}</span>
                         </a>
-                     </template>
-                     <component v-else :is="$slots.item" :item="item"></component>
+                    </template>
+                    <component v-else :is="$slots.item" :item="item"></component>
                 </li>
             </template>
             <li ref="inkbar" class="p-tabmenu-ink-bar"></li>
@@ -108,7 +108,7 @@ export default {
         },
         getRouteItemClass(item, isActive, isExactActive) {
             return ['p-tabmenuitem', item.class, {
-                 'p-highlight': this.exact ? isExactActive : isActive,
+                'p-highlight': this.exact ? isExactActive : isActive,
                 'p-disabled': this.disabled(item)
             }];
         },
