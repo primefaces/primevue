@@ -1,5 +1,5 @@
 <template>
-   <td :style="containerStyle" :class="containerClass">
+    <td :style="containerStyle" :class="containerClass">
         <component :is="column.children.footer" :column="column" v-if="column.children && column.children.footer" />
         {{columnProp('footer')}}
     </td>

@@ -1,7 +1,7 @@
 <template>
-   <div :class="containerClass" @click="onClick($event)" :style="style">
-       <div class="p-hidden-accessible">
-           <input ref="input" type="checkbox" :checked="modelValue === true" v-bind="$attrs" @focus="onFocus()" @blur="onBlur()">
+    <div :class="containerClass" @click="onClick($event)" :style="style">
+        <div class="p-hidden-accessible">
+            <input ref="input" type="checkbox" :checked="modelValue === true" v-bind="$attrs" @focus="onFocus()" @blur="onBlur()">
         </div>
         <div ref="box" :class="['p-checkbox-box', {'p-highlight': (modelValue != null), 'p-disabled': $attrs.disabled, 'p-focus': focused}]" role="checkbox" :aria-checked="modelValue === true">
             <span :class="['p-checkbox-icon', icon]"></span>

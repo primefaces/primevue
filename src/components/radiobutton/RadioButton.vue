@@ -1,7 +1,7 @@
 <template>
-   <div :class="containerClass" @click="onClick($event)" :style="style">
-       <div class="p-hidden-accessible">
-           <input ref="input" type="radio" :checked="checked" :value="value" v-bind="$attrs" @focus="onFocus" @blur="onBlur">
+    <div :class="containerClass" @click="onClick($event)" :style="style">
+        <div class="p-hidden-accessible">
+            <input ref="input" type="radio" :checked="checked" :value="value" v-bind="$attrs" @focus="onFocus" @blur="onBlur">
         </div>
         <div ref="box" :class="['p-radiobutton-box', {'p-highlight': checked, 'p-disabled': $attrs.disabled, 'p-focus': focused}]" role="radio" :aria-checked="checked">
             <div class="p-radiobutton-icon"></div>
