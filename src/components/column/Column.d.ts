@@ -254,6 +254,10 @@ export interface ColumnSlots {
          */
         data: any;
         /**
+         * Row node data.
+         */
+        node: any;
+        /**
          * Column node.
          */
         column: Column;
