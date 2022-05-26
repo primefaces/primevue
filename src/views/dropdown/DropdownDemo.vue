@@ -31,7 +31,7 @@
                     <template #value="slotProps">
                         <div class="country-item country-item-value" v-if="slotProps.value">
                             <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.value.code.toLowerCase()" />
-                            <div>{{slotProps.value.name}}</div>
+                            <div>{{slotProps.value.name}} ({{slotProps.value.currency}})</div>
                         </div>
                         <span v-else>
                             {{slotProps.placeholder}}
