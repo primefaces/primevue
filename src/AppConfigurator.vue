@@ -327,6 +327,16 @@
                             </a>
                         </div>
                         <div class="col-12 md:col-6">
+                            <a href="https://www.primefaces.org/layouts/verona-vue">
+                                <img alt="Verona" src="./assets/images/layouts/verona-vue.jpg">
+                            </a>
+                        </div>
+                        <div class="col-12 md:col-6">
+                            <a href="https://www.primefaces.org/layouts/poseidon-vue">
+                                <img alt="Poseidon" src="./assets/images/layouts/poseidon-vue.jpg">
+                            </a>
+                        </div>
+                        <div class="col-12 md:col-6">
                             <a href="https://www.primefaces.org/layouts/sapphire-vue">
                                 <img alt="Sapphire" src="./assets/images/layouts/sapphire-vue.jpg">
                             </a>
