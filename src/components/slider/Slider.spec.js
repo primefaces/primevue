@@ -32,7 +32,7 @@ describe('Slider.vue', () => {
 
         await wrapper.vm.updateDomData();
 
-        await wrapper.vm.setValue({ pageX: 60 }); // TODO: 
+        await wrapper.vm.setValue({ pageX: 60 }); // TODO:
 
         expect(wrapper.emitted()['update:modelValue'][0][0]).toBeGreaterThan(0);
     });
@@ -45,5 +45,12 @@ describe('Slider.vue', () => {
         await wrapper.vm.setValue({ pageY: 111 }); // TODO:
 
         expect(wrapper.emitted()['update:modelValue'][0][0]).toBeGreaterThan(0);
+    });
+
+    it('should allow both values to be the same in range mode', async () => {
+        await wrapper.setProps({ modelValue: [0, 0] });
+
+        expect(wrapper.vm.rangeEndHandleStyle).toEqual({'left': 0 + '%'});
+        expect(wrapper.vm.rangeStartHandleStyle).toEqual({'left': 0 + '%'});
     });
 });
