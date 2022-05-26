@@ -37,8 +37,7 @@
         </template>
         <tr v-else class="p-datatable-emptymessage" role="row">
             <td :colspan="columnsLength">
-                <component :is="templates.empty" v-if="templates.empty && !loading" />
-                <component :is="templates.loading" v-if="templates.loading && loading" />
+                <component :is="templates.empty" v-if="templates.empty" />
             </td>
         </tr>
     </tbody>
@@ -154,10 +153,6 @@ export default {
         editingMeta: {
             type: Object,
             default: null
-        },
-        loading: {
-            type: Boolean,
-            default: false
         },
         templates: {
             type: null,
