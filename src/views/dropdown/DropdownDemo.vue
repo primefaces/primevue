@@ -40,7 +40,7 @@
                     <template #option="slotProps">
                         <div class="country-item">
                             <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.option.code.toLowerCase()" />
-                            <div>{{slotProps.option.name}}</div>
+                            <div>{{slotProps.option.name}} ({{slotProps.option.currency}})</div>
                         </div>
                     </template>
                 </Dropdown>
@@ -87,16 +87,18 @@ export default {
                 {name: 'Paris', code: 'PRS'}
             ],
             countries: [
-                {name: 'Australia', code: 'AU'},
-                {name: 'Brazil', code: 'BR'},
-                {name: 'China', code: 'CN'},
-                {name: 'Egypt', code: 'EG'},
-                {name: 'France', code: 'FR'},
-                {name: 'Germany', code: 'DE'},
-                {name: 'India', code: 'IN'},
-                {name: 'Japan', code: 'JP'},
-                {name: 'Spain', code: 'ES'},
-                {name: 'United States', code: 'US'}
+                {name: 'Australia', code: 'AU', currency: 'AUD'},
+                {name: 'Brazil', code: 'BR', currency: 'BRL'},
+                {name: 'China', code: 'CN', currency: 'CNY'},
+                {name: 'Egypt', code: 'EG', currency: 'EGP'},
+                {name: 'France', code: 'FR', currency: 'EUR'},
+                {name: 'Germany', code: 'DE', currency: 'EUR'},
+                {name: 'Mexico', code: 'MX', currency: 'MXN'},
+                {name: 'Mexico', code: 'MX', currency: 'MXV'},
+                {name: 'India', code: 'IN', currency: 'INR' },
+                {name: 'Japan', code: 'JP', currency: 'JPY'},
+                {name: 'Spain', code: 'ES', currency: 'EUR'},
+                {name: 'United States', code: 'US', currency: 'USD'}
             ],
             groupedCities: [{
                 label: 'Germany', code: 'DE',
