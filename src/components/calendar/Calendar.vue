@@ -2246,7 +2246,11 @@ export default {
             }
 
             if (propValue && Array.isArray(propValue)) {
-                propValue = propValue[0];
+                if (this.isRangeSelection()) {
+                    propValue = propValue[1] || propValue[0];
+                } else if (this.isMultipleSelection()) {
+                    propValue = propValue[propValue.length - 1];
+                }
             }
 
             return propValue || new Date();
