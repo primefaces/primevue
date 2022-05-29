@@ -414,6 +414,9 @@ export default {
         },
         currentView() {
             Promise.resolve(null).then(() => this.alignOverlay());
+        },
+        minDate() {
+            this.updateCurrentMetaData();
         }
     },
     methods: {
