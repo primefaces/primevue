@@ -23,7 +23,7 @@ describe('Calendar.vue', () => {
         expect(wrapper.find('.p-inputtext').exists()).toBe(true);
 
         let input = wrapper.find('.p-inputtext');
-        
+
         await input.trigger('focus');
 
         expect(wrapper.find('.p-datepicker.p-component').exists()).toBe(true);
@@ -41,5 +41,14 @@ describe('Calendar.vue', () => {
 
         await wrapper.vm.onDateSelect({currentTarget: {focus: () => {}}}, event);
         expect(onDateSelect).toHaveBeenCalled()
+    });
+
+    it('should update the meta data when minDate changes', async () => {
+        const minDate = new Date();
+        await wrapper.setProps({ minDate, modelValue: null  });
+        expect(wrapper.vm.$data.currentMonth).toEqual(minDate.getMonth())
+        const newDate = new Date(minDate.setMonth(minDate.getMonth()+1));
+        await wrapper.setProps({ minDate: newDate  });
+        expect(wrapper.vm.$data.currentMonth).toEqual(newDate.getMonth());
     });
 });
