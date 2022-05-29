@@ -1293,7 +1293,7 @@ export default {
             if (columns && columns.length) {
                 for (let i = 0; i < columns.length; i++) {
                     let column = columns[i];
-                    if (this.columnProp(column, 'columnKey') === key || this.columnProp(column, 'field') === key) {
+                    if (this.columnProp(column, 'columnKey') === key || this.columnProp(column, 'field') === key || this.columnProp(column, 'header') === key) {
                         return column;
                     }
                 }
@@ -1686,7 +1686,7 @@ export default {
         },
         updateReorderableColumns() {
             let columnOrder = [];
-            this.columns.forEach(col => columnOrder.push(this.columnProp(col, 'columnKey')||this.columnProp(col, 'field')));
+            this.columns.forEach(col => columnOrder.push(this.columnProp(col, 'columnKey')||this.columnProp(col, 'field')||this.columnProp(col, 'header')));
             this.d_columnOrder = columnOrder;
         },
         createStyleElement() {

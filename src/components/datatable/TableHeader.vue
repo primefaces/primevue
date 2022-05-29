@@ -2,8 +2,8 @@
     <thead class="p-datatable-thead" role="rowgroup">
         <template v-if="!columnGroup">
             <tr role="row">
-                <template v-for="(col,i) of columns" :key="columnProp(col, 'columnKey')||columnProp(col, 'field')||i">
-                    <DTHeaderCell v-if="!columnProp(col, 'hidden') && (rowGroupMode !== 'subheader' || (groupRowsBy !== columnProp(col, 'field')))" :column="col"
+                <template v-for="(col,i) of columns" :key="getCellKey(col, i)">
+                    <DTHeaderCell v-if="(rowGroupMode !== 'subheader' || (groupRowsBy !== columnProp(col, 'field')))" :column="col"
                     @column-click="$emit('column-click', $event)" @column-mousedown="$emit('column-mousedown', $event)"
                     @column-dragstart="$emit('column-dragstart', $event)" @column-dragover="$emit('column-dragover', $event)" @column-dragleave="$emit('column-dragleave', $event)" @column-drop="$emit('column-drop', $event)"
                     :groupRowsBy="groupRowsBy" :groupRowSortField="groupRowSortField" :resizableColumns="resizableColumns" @column-resizestart="$emit('column-resizestart', $event)"
@@ -11,11 +11,11 @@
                     :allRowsSelected="allRowsSelected" :empty="empty" @checkbox-change="$emit('checkbox-change', $event)"
                     :filters="filters" :filterDisplay="filterDisplay" :filtersStore="filtersStore" @filter-change="$emit('filter-change', $event)" @filter-apply="$emit('filter-apply')"
                     @operator-change="$emit('operator-change',$event)" @matchmode-change="$emit('matchmode-change', $event)" @constraint-add="$emit('constraint-add', $event)"
-                    @constraint-remove="$emit('constraint-remove', $event)" @apply-click="$emit('apply-click',$event)"/>
+                    @constraint-remove="$emit('constraint-remove', $event)" @apply-click="$emit('apply-click',$event)" :class="getHeaderClass(col)" />
                 </template>
             </tr>
             <tr v-if="filterDisplay === 'row'" role="row">
-                <template v-for="(col,i) of columns" :key="columnProp(col, 'columnKey')||columnProp(col, 'field')||i">
+                <template v-for="(col,i) of columns" :key="getCellKey(col, i)">
                     <th :style="getFilterColumnHeaderStyle(col)" :class="getFilterColumnHeaderClass(col)" v-if="!columnProp(col, 'hidden') && (rowGroupMode !== 'subheader' || (groupRowsBy !== columnProp(col, 'field')))">
                         <DTHeaderCheckbox :checked="allRowsSelected" @change="$emit('checkbox-change', $event)" :disabled="empty" v-if="columnProp(col, 'selectionMode') ==='multiple'" />
                         <DTColumnFilter v-if="col.children && col.children.filter" :field="columnProp(col,'filterField')||columnProp(col,'field')" :type="columnProp(col,'dataType')" display="row"
@@ -33,14 +33,14 @@
         </template>
         <template v-else>
             <tr v-for="(row,i) of getHeaderRows()" :key="i" role="row">
-                <template v-for="(col,j) of getHeaderColumns(row)" :key="columnProp(col, 'columnKey')||columnProp(col, 'field')||j">
-                    <DTHeaderCell v-if="!columnProp(col, 'hidden') && (rowGroupMode !== 'subheader' || (groupRowsBy !== columnProp(col, 'field'))) && (typeof col.children !== 'string')" :column="col"
+                <template v-for="(col,j) of getHeaderColumns(row)" :key="getCellKey(col, j)">
+                    <DTHeaderCell v-if="(rowGroupMode !== 'subheader' || (groupRowsBy !== columnProp(col, 'field'))) && (typeof col.children !== 'string')" :column="col"
                     @column-click="$emit('column-click', $event)" @column-mousedown="$emit('column-mousedown', $event)"
                     :groupRowsBy="groupRowsBy" :groupRowSortField="groupRowSortField" :sortMode="sortMode" :sortField="sortField" :sortOrder="sortOrder" :multiSortMeta="multiSortMeta"
                     :allRowsSelected="allRowsSelected" :empty="empty" @checkbox-change="$emit('checkbox-change', $event)"
                     :filters="filters" :filterDisplay="filterDisplay" :filtersStore="filtersStore" @filter-change="$emit('filter-change', $event)" @filter-apply="$emit('filter-apply')"
                     @operator-change="$emit('operator-change',$event)" @matchmode-change="$emit('matchmode-change', $event)" @constraint-add="$emit('constraint-add', $event)"
-                    @constraint-remove="$emit('constraint-remove', $event)" @apply-click="$emit('apply-click',$event)"/>
+                    @constraint-remove="$emit('constraint-remove', $event)" @apply-click="$emit('apply-click',$event)" :class="getHeaderClass(col)" />
                 </template>
             </tr>
         </template>
@@ -121,12 +121,30 @@ export default {
         }
     },
     methods: {
+        getCellKey(col, index) {
+            const columnKey = this.columnProp(col,'columnKey');
+            if (columnKey !== undefined) {
+                return columnKey;
+            }
+            const field = this.columnProp(col,'field');
+            if (field !== undefined) {
+                return field + '_' + index.toString();
+            }
+            return index.toString();
+        },
+        getHeaderClass(column) {
+            const cellClasses = [];
+            if (this.columnProp(column, 'hidden')) {
+                cellClasses.push('p-header-hidden')
+            }
+            return cellClasses;
+        },
         columnProp(col, prop) {
             return ObjectUtils.getVNodeProp(col, prop);
         },
         getFilterColumnHeaderClass(column) {
             return ['p-filter-column', this.columnProp(column, 'filterHeaderClass'), this.columnProp(column, 'class'), {
-                'p-frozen-column': this.columnProp(column, 'frozen')
+                'p-frozen-column': this.columnProp(column, 'frozen'), 'p-header-hidden': this.columnProp(column, 'hidden')
             }];
         },
         getFilterColumnHeaderStyle(column) {
@@ -171,3 +189,10 @@ export default {
     }
 }
 </script>
+
+<style>
+.p-header-hidden {
+    /* Not the most performant solution, maybe better alternatives (e.g. https://css-tricks.com/places-its-tempting-to-use-display-none-but-dont/ - however border doesn't look right) */
+    display: none;
+}
+</style>

@@ -14,7 +14,7 @@
                     v-if="expandableRowGroups ? isRowGroupExpanded(rowData): true"
                     @click="onRowClick($event, rowData, getRowIndex(index))" @dblclick="onRowDblClick($event, rowData, getRowIndex(index))" @contextmenu="onRowRightClick($event, rowData, getRowIndex(index))" @touchend="onRowTouchEnd($event)" @keydown="onRowKeyDown($event, rowData, getRowIndex(index))" :tabindex="selectionMode || contextMenu ? '0' : null"
                     @mousedown="onRowMouseDown($event)" @dragstart="onRowDragStart($event, getRowIndex(index))" @dragover="onRowDragOver($event, getRowIndex(index))" @dragleave="onRowDragLeave($event)" @dragend="onRowDragEnd($event)" @drop="onRowDrop($event)" role="row">
-                    <template v-for="(col,i) of columns" :key="columnProp(col,'columnKey')||columnProp(col,'field')||i">
+                    <template v-for="(col,i) of columns" :key="getCellKey(col, i)">
                         <DTBodyCell v-if="shouldRenderBodyCell(value, col, getRowIndex(index))" :rowData="rowData" :column="col" :rowIndex="getRowIndex(index)" :index="i" :selected="isSelected(rowData)"
                             :rowTogglerIcon="columnProp(col,'expander') ? rowTogglerIcon(rowData): null" :frozenRow="frozenRow"
                             :rowspan="rowGroupMode === 'rowspan' ? calculateRowGroupSize(value, col, getRowIndex(index)) : null"
@@ -22,7 +22,7 @@
                             @radio-change="onRadioChange($event)" @checkbox-change="onCheckboxChange($event)" @row-toggle="onRowToggle($event)"
                             @cell-edit-init="onCellEditInit($event)" @cell-edit-complete="onCellEditComplete($event)" @cell-edit-cancel="onCellEditCancel($event)"
                             @row-edit-init="onRowEditInit($event)" @row-edit-save="onRowEditSave($event)" @row-edit-cancel="onRowEditCancel($event)"
-                            :editingMeta="editingMeta" @editing-meta-change="onEditingMetaChange" :virtualScrollerContentProps="virtualScrollerContentProps"/>
+                            :editingMeta="editingMeta" @editing-meta-change="onEditingMetaChange" :virtualScrollerContentProps="virtualScrollerContentProps" :class="getCellClass(col)" />
                     </template>
                 </tr>
                 <tr class="p-datatable-row-expansion" v-if="templates['expansion'] && expandedRows && isRowExpanded(rowData)" :key="getRowKey(rowData, getRowIndex(index)) + '_expansion'" role="row">
@@ -210,6 +210,24 @@ export default {
         }
     },
     methods: {
+        getCellKey(col, index) {
+            const columnKey = this.columnProp(col,'columnKey');
+            if (columnKey !== undefined) {
+                return columnKey;
+            }
+            const field = this.columnProp(col,'field');
+            if (field !== undefined) {
+                return field + '_' + index.toString();
+            }
+            return index.toString();
+        },
+        getCellClass(column) {
+            const cellClasses = [];
+            if (this.columnProp(column, 'hidden')) {
+                cellClasses.push('p-cell-hidden');
+            }
+            return cellClasses;
+        },
         columnProp(col, prop) {
             return ObjectUtils.getVNodeProp(col, prop);
         },
@@ -279,8 +297,7 @@ export default {
             if (this.rowGroupMode) {
                 if (this.rowGroupMode === 'subheader') {
                     return this.groupRowsBy !== this.columnProp(column, 'field');
-                }
-                else if (this.rowGroupMode === 'rowspan') {
+                } else if (this.rowGroupMode === 'rowspan') {
                     if (this.isGrouped(column)) {
                         let prevRowData = value[i - 1];
                         if (prevRowData) {
@@ -288,18 +305,10 @@ export default {
                             let previousRowFieldData = ObjectUtils.resolveFieldData(prevRowData, this.columnProp(column, 'field'));
                             return currentRowFieldData !== previousRowFieldData;
                         }
-                        else {
-                            return true;
-                        }
-                    }
-                    else {
-                        return true;
                     }
                 }
             }
-            else {
-                return !this.columnProp(column, 'hidden');
-            }
+            return true;
         },
         calculateRowGroupSize(value, column, index) {
             if (this.isGrouped(column)) {
@@ -524,3 +533,10 @@ export default {
     }
 }
 </script>
+
+<style>
+.p-cell-hidden {
+    /* Not the most performant solution, maybe better alternatives (https://css-tricks.com/places-its-tempting-to-use-display-none-but-dont/ - however border doesn't look right) */
+    display: none;
+}
+</style>
