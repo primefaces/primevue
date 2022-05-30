@@ -1,11 +1,11 @@
 import { InputHTMLAttributes } from 'vue';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, Nullable } from '../ts-helpers';
 
 export interface InputTextProps extends InputHTMLAttributes {
     /**
      * Value of the component.
      */
-    modelValue?: string | undefined;
+    modelValue?: Nullable<string>;
 }
 
 export interface InputTextSlots {
