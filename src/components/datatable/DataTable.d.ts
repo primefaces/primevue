@@ -7,6 +7,8 @@ type DataTablePaginatorPositionType = 'top' | 'bottom' | 'both' | undefined;
 
 type DataTableSortFieldType = string | ((item: any) => string) | undefined;
 
+type DataTableDataKeyType = string | (() => string) | undefined;
+
 type DataTableMultiSortMetaType = DataTableSortMeta[] | undefined | null;
 
 type DataTableSortOrderType = 1 | 0 | -1 | undefined | null;
@@ -465,8 +467,9 @@ export interface DataTableProps {
     value?: any[] | undefined;
     /**
      * Name of the field that uniquely identifies the a record in the data.
+     * @see DataTableDataKeyType
      */
-    dataKey?: string | undefined;
+    dataKey?: DataTableDataKeyType;
     /**
      * Number of rows to display per page.
      */
