@@ -312,7 +312,7 @@ export default {
                 return 0;
         },
         rangeEndPosition() {
-            if (this.modelValue && this.modelValue[1])
+            if (this.modelValue && this.modelValue.length === 2)
                 return (this.modelValue[1] > this.max ? 100 : this.modelValue[1] - this.min) * 100 / (this.max - this.min);
             else
                 return 100;
