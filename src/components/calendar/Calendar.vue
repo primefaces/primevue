@@ -443,7 +443,7 @@ export default {
 
                     return selected;
                 }
-                else if( this.isRangeSelection()) {
+                else if (this.isRangeSelection()) {
                     if (this.modelValue[1])
                         return this.isDateEquals(this.modelValue[0], dateMeta) || this.isDateEquals(this.modelValue[1], dateMeta) || this.isDateBetween(this.modelValue[0], this.modelValue[1], dateMeta);
                     else {
@@ -1709,9 +1709,10 @@ export default {
             }
 
             date = this.daylightSavingAdjust(new Date(year, month - 1, day));
-                    if (date.getFullYear() !== year || date.getMonth() + 1 !== month || date.getDate() !== day) {
-                        throw "Invalid date"; // E.g. 31/02/00
-                    }
+            
+            if (date.getFullYear() !== year || date.getMonth() + 1 !== month || date.getDate() !== day) {
+                throw "Invalid date"; // E.g. 31/02/00
+            }
 
             return date;
         },
@@ -2196,7 +2197,7 @@ export default {
             this.focused = false;
             this.input.value = this.formatValue(this.modelValue);
         },
-        onKeyDown() {
+        onKeyDown(event) {
             if (event.keyCode === 40 && this.overlay) {
                 this.trapFocus(event);
             }
@@ -2291,7 +2292,12 @@ export default {
         viewDate() {
             let propValue = this.modelValue;
             if (propValue && Array.isArray(propValue)) {
-                propValue = propValue[0];
+                if (this.isRangeSelection()) {
+                    propValue = propValue[1] || propValue[0];
+                }
+                else if (this.isMultipleSelection()) {
+                    propValue = propValue[propValue.length - 1];
+                }
             }
 
             if (propValue && typeof propValue !== 'string') {
@@ -2299,12 +2305,15 @@ export default {
             }
             else {
                 let today = new Date();
+
                 if (this.maxDate && this.maxDate < today) {
                     return this.maxDate;
                 }
+
                 if (this.minDate && this.minDate > today) {
                     return this.minDate;
                 }
+
                 return today;
             }
         },

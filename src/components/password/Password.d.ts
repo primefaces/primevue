@@ -1,5 +1,5 @@
 import { VNode, InputHTMLAttributes } from 'vue';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, Nullable } from '../ts-helpers';
 
 type PasswordAppendToType = 'body' | 'self' | string | undefined;
 
@@ -7,7 +7,7 @@ export interface PasswordProps extends InputHTMLAttributes {
     /**
      * Value of the component.
      */
-    modelValue?: string | undefined;
+    modelValue?: Nullable<string>;
     /**
      * Text to prompt password entry. Defaults to PrimeVue Locale configuration.
      */

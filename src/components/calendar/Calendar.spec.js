@@ -51,4 +51,12 @@ describe('Calendar.vue', () => {
         await wrapper.setProps({ minDate: newDate  });
         expect(wrapper.vm.$data.currentMonth).toEqual(newDate.getMonth());
     });
+    it('should calculate the correct view date when in range mode', async () => {
+        const dateOne = new Date();
+        const dateTwo = new Date();
+        dateTwo.setFullYear(dateOne.getFullYear(), dateOne.getMonth(), dateOne.getDate() + 1)
+        await wrapper.setProps({ selectionMode: 'range',  showTime: true, modelValue: [dateOne, dateTwo]  });
+
+        expect(wrapper.vm.viewDate).toEqual(dateTwo)
+    });
 });

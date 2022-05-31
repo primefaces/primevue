@@ -7,7 +7,7 @@ const DataTableProps = [
     },
     {
         name: "dataKey",
-        type: "string",
+        type: "string|function",
         default: "null",
         description: "Name of the field that uniquely identifies the a record in the data."
     },

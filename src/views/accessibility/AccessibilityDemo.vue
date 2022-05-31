@@ -8,7 +8,7 @@
         </div>
 
         <div class="content-section documentation">
-            <p class="line-height-3 bg-indigo-600 text-white p-3 text-lg" style="border-radius:10px">Accessibility is a majorn concern of the Prime UI libraries and PrimeVue is no exception. <a href="https://www.primetek.com.tr" class="text-white">PrimeTek</a> teams have initiated a significant process to review and enhance the accessibility features of the components. This guide
+            <p class="line-height-3 bg-indigo-600 text-white p-3 text-lg" style="border-radius:10px">Accessibility is a major concern of the Prime UI libraries and PrimeVue is no exception. <a href="https://www.primetek.com.tr" class="text-white">PrimeTek</a> teams have initiated a significant process to review and enhance the accessibility features of the components. This guide
                 documents the foundation of the general guidelines that PrimeVue will follow and each component documentation will have a separate <b>Accessibility</b> section that states the keyboard support, screen reader compatibility, the implementation details along
                     with tips to achieve WCAG compliancy. This work has been initiated in Q2 2022 and planned to be completed by early Q3. PrimeReact will be the reference implementation which then will be ported to PrimeFaces, PrimeNG and PrimeVue. 
             </p>
