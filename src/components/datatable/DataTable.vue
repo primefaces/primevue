@@ -1806,7 +1806,7 @@ export default {
                 let orderedColumns = [];
                 for (let columnKey of this.d_columnOrder) {
                     let column = this.findColumnByKey(cols, columnKey);
-                    if (column) {
+                    if (column && !this.columnProp(column, 'hidden')) {
                         orderedColumns.push(column);
                     }
                 }
