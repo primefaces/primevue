@@ -2,7 +2,7 @@
     <div ref="container" :class="containerClass">
         <input ref="input" type="text" :class="inputClass" readonly="readonly" :tabindex="tabindex" :disabled="disabled"
             @click="onInputClick" @keydown="onInputKeydown" v-if="!inline" :aria-labelledby="ariaLabelledBy"/>
-        <Teleport :to="appendTarget" :disabled="appendDisabled">
+        <Teleport :to="appendTarget" :disabled="appendDisabled" v-if="hydrated">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
                 <div :ref="pickerRef" :class="pickerClass" v-if="inline ? true : overlayVisible" @click="onOverlayClick">
                     <div class="p-colorpicker-content">
@@ -75,7 +75,8 @@ export default {
     },
     data() {
         return {
-            overlayVisible: false
+            overlayVisible: false,
+            hydrated: null
         };
     },
     hsbValue: null,
@@ -92,6 +93,9 @@ export default {
     colorHandle: null,
     hueView: null,
     hueHandle: null,
+    created() {
+        this.hydrated = DomHandler.isHydrated();
+    },
     beforeUnmount() {
         this.unbindOutsideClickListener();
         this.unbindDragListeners();

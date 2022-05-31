@@ -1,5 +1,5 @@
 <template>
-    <Teleport :to="appendTo" :disabled="!popup">
+    <Teleport :to="appendTo" :disabled="!popup" v-if="hydrated">
         <transition name="p-connected-overlay" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave">
             <div :ref="containerRef" :class="containerClass" v-if="popup ? overlayVisible : true" v-bind="$attrs" @click="onOverlayClick">
                 <ul class="p-menu-list p-reset" role="menu">
@@ -59,7 +59,8 @@ export default {
     },
     data() {
         return {
-            overlayVisible: false
+            overlayVisible: false,
+            hydrated: null
         };
     },
     target: null,
@@ -67,6 +68,9 @@ export default {
     scrollHandler: null,
     resizeListener: null,
     container: null,
+    created() {
+        this.hydrated = DomHandler.isHydrated();
+    },
     beforeUnmount() {
         this.unbindResizeListener();
         this.unbindOutsideClickListener();

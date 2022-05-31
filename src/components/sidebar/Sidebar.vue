@@ -1,5 +1,5 @@
 <template>
-    <Teleport to="body">
+    <Teleport to="body" v-if="hydrated">
         <transition name="p-sidebar" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave" appear>
             <div :class="containerClass" v-if="visible" :ref="containerRef" role="complementary" :aria-modal="modal" v-bind="$attrs">
                 <div class="p-sidebar-header">
@@ -63,6 +63,14 @@ export default {
     mask: null,
     maskClickListener: null,
     container: null,
+    data() {
+        return {
+            hydrated: null
+        }
+    },
+    mounted() {
+        this.hydrated = DomHandler.isHydrated();
+    },
     beforeUnmount() {
         this.destroyModal();
 

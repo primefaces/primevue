@@ -2,7 +2,7 @@
     <div :class="containerClass" :style="style">
         <PInputText ref="input" :class="inputFieldClass" :style="inputStyle" :type="inputType" :value="modelValue" @input="onInput" @focus="onFocus" @blur="onBlur" @keyup="onKeyUp" v-bind="$attrs" />
         <i v-if="toggleMask" :class="toggleIconClass" @click="onMaskToggle" />
-        <Teleport :to="appendTarget" :disabled="appendDisabled">
+        <Teleport :to="appendTarget" :disabled="appendDisabled" v-if="hydrated">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
                 <div :ref="overlayRef" :class="panelStyleClass" v-if="overlayVisible" @click="onOverlayClick">
                     <slot name="header"></slot>
@@ -86,7 +86,8 @@ export default {
             meter: null,
             infoText: null,
             focused: false,
-            unmasked: false
+            unmasked: false,
+            hydrated: null
         };
     },
     mediumCheckRegExp: null,
@@ -94,6 +95,9 @@ export default {
     resizeListener: null,
     scrollHandler: null,
     overlay: null,
+    created() {
+        this.hydrated = DomHandler.isHydrated();
+    },
     mounted() {
         this.infoText = this.promptText;
         this.mediumCheckRegExp = new RegExp(this.mediumRegex);

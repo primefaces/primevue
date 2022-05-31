@@ -1,5 +1,5 @@
 <template>
-    <Teleport :to="appendTo">
+    <Teleport :to="appendTo" v-if="hydrated">
         <transition name="p-overlaypanel" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave">
             <div :class="containerClass" v-if="visible" :ref="containerRef" v-bind="$attrs" @click="onOverlayClick">
                 <div class="p-overlaypanel-content" @click="onContentClick" @mousedown="onContentClick">
@@ -54,7 +54,8 @@ export default {
     emits: ['show', 'hide'],
     data() {
         return {
-            visible: false
+            visible: false,
+            hydrated: null
         }
     },
     selfClick: false,
@@ -89,6 +90,9 @@ export default {
         }
 
         this.container = null;
+    },
+    created() {
+        this.hydrated = DomHandler.isHydrated();
     },
     mounted() {
         if (this.breakpoints) {

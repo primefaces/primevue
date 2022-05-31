@@ -3,7 +3,7 @@
         <input :ref="inputRef" v-if="!inline" type="text" :class="['p-inputtext p-component', inputClass]" :style="inputStyle" @input="onInput" v-bind="$attrs"
             @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" :readonly="!manualInput" inputmode="none">
         <CalendarButton v-if="showIcon" :icon="icon" tabindex="-1" class="p-datepicker-trigger" :disabled="$attrs.disabled" @click="onButtonClick" type="button" :aria-label="inputFieldValue"/>
-        <Teleport :to="appendTarget" :disabled="appendDisabled">
+        <Teleport :to="appendTarget" :disabled="appendDisabled" v-if="hydrated">
             <transition name="p-connected-overlay" @enter="onOverlayEnter($event)" @after-enter="onOverlayEnterComplete" @after-leave="onOverlayAfterLeave" @leave="onOverlayLeave">
                 <div :ref="overlayRef" :class="panelStyleClass" v-if="inline ? true : overlayVisible" :role="inline ? null : 'dialog'" @click="onOverlayClick" @mouseup="onOverlayMouseUp">
                     <template v-if="!timeOnly">
@@ -316,6 +316,8 @@ export default {
     preventFocus: false,
     typeUpdate: false,
     created() {
+        this.hydrated = DomHandler.isHydrated();
+        
         this.updateCurrentMetaData();
     },
     mounted() {
@@ -383,7 +385,8 @@ export default {
             pm: null,
 			focused: false,
             overlayVisible: false,
-            currentView: this.view
+            currentView: this.view,
+            hydrated: null
         }
     },
     watch: {

@@ -1,5 +1,5 @@
 <template>
-    <Teleport :to="appendTo" :disabled="!popup">
+    <Teleport :to="appendTo" :disabled="!popup" v-if="hydrated">
         <transition name="p-connected-overlay" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave">
             <div :ref="containerRef" :class="containerClass" v-if="popup ? visible : true" v-bind="$attrs" @click="onOverlayClick">
                 <TieredMenuSub :model="model" :root="true" :popup="popup" @leaf-click="onLeafClick" :template="$slots.item" :exact="exact" />
@@ -49,8 +49,12 @@ export default {
     resizeListener: null,
     data() {
         return {
-            visible: false
+            visible: false,
+            hydrated: null
         };
+    },
+    created() {
+        this.hydrated = DomHandler.isHydrated();
     },
     beforeUnmount() {
         this.unbindResizeListener();

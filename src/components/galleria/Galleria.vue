@@ -1,5 +1,5 @@
 <template>
-    <Teleport to="body" v-if="fullScreen">
+    <Teleport to="body" v-if="fullScreen && hydrated">
         <div v-if="containerVisible" :ref="maskRef" :class="maskContentClass">
             <transition name="p-galleria" @before-enter="onBeforeEnter" @enter="onEnter" @before-leave="onBeforeLeave" @after-leave="onAfterLeave" appear>
                 <GalleriaContent :ref="containerRef" v-if="visible" v-bind="$props" @mask-hide="maskHide" :templates="$slots" @activeitem-change="onActiveItemChange" />
@@ -113,8 +113,12 @@ export default {
     mask: null,
     data() {
         return {
-            containerVisible: this.visible
+            containerVisible: this.visible,
+            hydrated: null
         }
+    },
+    created() {
+        this.hydrated = DomHandler.isHydrated();
     },
     updated() {
         if (this.fullScreen && this.visible) {

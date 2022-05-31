@@ -6,7 +6,7 @@
                 <i class="p-image-preview-icon pi pi-eye"></i>
             </slot>
         </div>
-        <Teleport to="body">
+        <Teleport to="body" v-if="hydrated">
             <div :ref="maskRef" :class="maskClass" v-if="maskVisible" @click="onMaskClick">
                 <div class="p-image-toolbar">
                     <button class="p-image-action p-link" @click="rotateRight" type="button">
@@ -57,8 +57,12 @@ export default {
             maskVisible: false,
             previewVisible: false,
             rotate: 0,
-            scale: 1
+            scale: 1,
+            hydrated: null
         }
+    },
+    created() {
+        this.hydrated = DomHandler.isHydrated();
     },
     beforeUnmount() {
         if (this.mask) {

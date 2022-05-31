@@ -14,7 +14,7 @@
                 <span :class="dropdownIconClass"></span>
             </slot>
         </div>
-        <Teleport :to="appendTarget" :disabled="appendDisabled">
+        <Teleport :to="appendTarget" :disabled="appendDisabled" v-if="hydrated">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
                 <div :ref="overlayRef" :class="panelStyleClass" v-if="overlayVisible" @click="onOverlayClick">
                     <div class="p-cascadeselect-items-wrapper">
@@ -42,7 +42,8 @@ export default {
             selectionPath: null,
             focused: false,
             overlayVisible: false,
-            dirty: false
+            dirty: false,
+            hydrated: null
         };
     },
     props: {
@@ -76,6 +77,9 @@ export default {
     scrollHandler: null,
     resizeListener: null,
     overlay: null,
+    created() {
+        this.hydrated = DomHandler.isHydrated();
+    },
     beforeUnmount() {
         this.unbindOutsideClickListener();
         this.unbindResizeListener();

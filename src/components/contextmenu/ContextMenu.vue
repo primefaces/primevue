@@ -1,5 +1,5 @@
 <template>
-    <Teleport :to="appendTo">
+    <Teleport :to="appendTo" v-if="hydrated">
         <transition name="p-contextmenu" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave">
             <div :ref="containerRef" :class="containerClass" v-if="visible" v-bind="$attrs">
                 <ContextMenuSub :model="model" :root="true" @leaf-click="onLeafClick" :template="$slots.item" :exact="exact" />
@@ -50,8 +50,12 @@ export default {
     container: null,
     data() {
         return {
-            visible: false
+            visible: false,
+            hydrated: null
         };
+    },
+    created() {
+        this.hydrated = DomHandler.isHydrated();
     },
     beforeUnmount() {
         this.unbindResizeListener();

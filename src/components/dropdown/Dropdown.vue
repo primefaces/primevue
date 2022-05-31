@@ -15,7 +15,7 @@
                 <span :class="dropdownIconClass"></span>
             </slot>
         </div>
-        <Teleport :to="appendTarget" :disabled="appendDisabled">
+        <Teleport :to="appendTarget" :disabled="appendDisabled" v-if="hydrated">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @after-enter="onOverlayAfterEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
                 <div :ref="overlayRef" :class="panelStyleClass" v-if="overlayVisible" @click="onOverlayClick">
                     <slot name="header" :value="modelValue" :options="visibleOptions"></slot>
@@ -137,7 +137,8 @@ export default {
         return {
             focused: false,
             filterValue: null,
-            overlayVisible: false
+            overlayVisible: false,
+            hydrated: null
         };
     },
     watch: {
@@ -156,6 +157,9 @@ export default {
     itemsWrapper: null,
     virtualScroller: null,
     isModelValueChanged: false,
+    created() {
+        this.hydrated = DomHandler.isHydrated();
+    },
     updated() {
         if (this.overlayVisible && this.isModelValueChanged) {
             this.scrollValueInView();

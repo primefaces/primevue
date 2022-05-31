@@ -1,5 +1,5 @@
 <template>
-    <Teleport to="body">
+    <Teleport to="body" v-if="hydrated">
         <div ref="container" :class="containerClass" v-bind="$attrs">
             <transition-group name="p-toast-message" tag="div" @enter="onEnter" @leave="onLeave">
                 <ToastMessage v-for="msg of messages" :key="msg.id" :message="msg" @close="remove($event)" :template="$slots.message"/>
@@ -11,7 +11,7 @@
 <script>
 import ToastEventBus from 'primevue/toasteventbus';
 import ToastMessage from './ToastMessage.vue';
-import {ZIndexUtils,UniqueComponentId,ObjectUtils} from 'primevue/utils';
+import {ZIndexUtils,UniqueComponentId,ObjectUtils,DomHandler} from 'primevue/utils';
 
 var messageIdx = 0;
 
@@ -42,10 +42,14 @@ export default {
     },
     data() {
         return {
-            messages: []
+            messages: [],
+            hydrated: null
         }
     },
     styleElement: null,
+    created() {
+        this.hydrated = DomHandler.isHydrated();
+    },
     mounted() {
         ToastEventBus.on('add', this.onAdd);
         ToastEventBus.on('remove-group', this.onRemoveGroup);

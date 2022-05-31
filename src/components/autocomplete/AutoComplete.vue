@@ -16,7 +16,7 @@
         </ul>
         <i class="p-autocomplete-loader pi pi-spinner pi-spin" v-if="searching"></i>
         <Button ref="dropdownButton" type="button" icon="pi pi-chevron-down" class="p-autocomplete-dropdown" :disabled="$attrs.disabled" @click="onDropdownClick" v-if="dropdown"/>
-        <Teleport :to="appendTarget" :disabled="appendDisabled">
+        <Teleport :to="appendTarget" :disabled="appendDisabled" v-if="hydrated">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
                 <div :ref="overlayRef" :class="panelStyleClass" :style="{'max-height': virtualScrollerDisabled ? scrollHeight : ''}" v-if="overlayVisible" @click="onOverlayClick">
                     <slot name="header" :value="modelValue" :suggestions="suggestions"></slot>
@@ -136,7 +136,8 @@ export default {
             focused: false,
             overlayVisible: false,
             inputTextValue: null,
-            highlightItem: null
+            highlightItem: null,
+            hydrated: null
         };
     },
     watch: {
@@ -150,6 +151,9 @@ export default {
                 this.searching = false;
             }
         }
+    },
+    created() {
+        this.hydrated = DomHandler.isHydrated();
     },
     beforeUnmount() {
         this.unbindOutsideClickListener();

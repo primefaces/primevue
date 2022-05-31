@@ -1,5 +1,5 @@
 <template>
-    <Teleport to="body">
+    <Teleport to="body" v-if="hydrated">
         <transition name="p-confirm-popup" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave">
             <div :class="containerClass" v-if="visible" :ref="containerRef" v-bind="$attrs" @click="onOverlayClick">
                 <template v-if="!$slots.message">
@@ -33,7 +33,8 @@ export default {
     data() {
         return {
             visible: false,
-            confirmation: null
+            confirmation: null,
+            hydrated: null
         }
     },
     target: null,
@@ -43,6 +44,9 @@ export default {
     container: null,
     confirmListener: null,
     closeListener: null,
+    created() {
+        this.hydrated = DomHandler.isHydrated();
+    },
     mounted() {
         this.confirmListener = (options) => {
             if (!options) {

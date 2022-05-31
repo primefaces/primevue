@@ -1,5 +1,5 @@
 <template>
-    <Teleport :to="appendTarget" :disabled="appendDisabled">
+    <Teleport :to="appendTarget" :disabled="appendDisabled" v-if="hydrated">
         <div :ref="maskRef" :class="maskClass" v-if="containerVisible" @click="onMaskClick">
             <transition name="p-dialog" @before-enter="onBeforeEnter" @enter="onEnter" @before-leave="onBeforeLeave" @leave="onLeave" @after-leave="onAfterLeave" appear>
                 <div :ref="containerRef" :class="dialogClass" v-if="visible" v-bind="$attrs" role="dialog" :aria-labelledby="ariaLabelledById" :aria-modal="modal">
@@ -102,7 +102,8 @@ export default {
     data() {
         return {
             containerVisible: this.visible,
-            maximized: false
+            maximized: false,
+            hydrated: null
         }
     },
     documentKeydownListener: null,
@@ -114,6 +115,9 @@ export default {
     documentDragEndListener: null,
     lastPageX: null,
     lastPageY: null,
+    created() {
+        this.hydrated = DomHandler.isHydrated();
+    },
     updated() {
         if (this.visible) {
             this.containerVisible = this.visible;
@@ -161,7 +165,6 @@ export default {
             }
         },
         onLeave() {
-
             this.$emit('hide');
         },
         onAfterLeave(el) {

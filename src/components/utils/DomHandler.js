@@ -532,5 +532,9 @@ export default  {
                 window.open(encodeURI(csv));
             }
         }
+    },
+
+    isHydrated() {
+        return typeof window === 'object';
     }
 }

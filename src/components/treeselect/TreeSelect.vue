@@ -24,7 +24,7 @@
                 <span class="p-treeselect-trigger-icon pi pi-chevron-down"></span>
             </slot>
         </div>
-        <Teleport :to="appendTarget" :disabled="appendDisabled">
+        <Teleport :to="appendTarget" :disabled="appendDisabled" v-if="hydrated">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
                 <div :ref="overlayRef" v-if="overlayVisible" @click="onOverlayClick" :class="panelStyleClass">
                     <slot name="header" :value="modelValue" :options="options"></slot>
@@ -108,7 +108,8 @@ export default {
         return {
             focused: false,
             overlayVisible: false,
-            expandedKeys: {}
+            expandedKeys: {},
+            hydrated: null
         };
     },
     outsideClickListener: null,
@@ -129,6 +130,9 @@ export default {
             ZIndexUtils.clear(this.overlay);
             this.overlay = null;
         }
+    },
+    created() {
+        this.hydrated = DomHandler.isHydrated();
     },
     mounted() {
         this.updateTreeState();
