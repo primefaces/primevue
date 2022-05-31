@@ -120,6 +120,10 @@ function create(el) {
 
     container.style.display = 'inline-block';
 
+    if (el.$_ptooltipFitContent) {
+        container.style.width = 'fit-content';
+    }
+
     return container;
 }
 
@@ -293,12 +297,14 @@ const Tooltip = {
             target.$_ptooltipDisabled = false;
             target.$_ptooltipEscape = false;
             target.$_ptooltipClass = null;
+            target.$_ptooltipFitContent = true;
         }
         else {
             target.$_ptooltipValue = options.value.value;
             target.$_ptooltipDisabled = options.value.disabled || false;
             target.$_ptooltipEscape = options.value.escape || false;
             target.$_ptooltipClass = options.value.class;
+            target.$_ptooltipFitContent = options.value.fitContent || true;
         }
 
         target.$_ptooltipZIndex = options.instance.$primevue && options.instance.$primevue.config && options.instance.$primevue.config.zIndex.tooltip;
