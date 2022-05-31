@@ -12,7 +12,7 @@
             <div class="card">
                 <h5>Filter Menu</h5>
                 <p>Filters are displayed in an overlay.</p>
-                <DataTable :value="customers1" :paginator="true" class="p-datatable-customers" showGridlines :rows="10"
+                <DataTable :value="customers1" :paginator="true" class="p-datatable-customers" showGridlines :rows="10" :reorderableColumns="true" @column-reorder="onColReorder"
                     dataKey="id" v-model:filters="filters1" filterDisplay="menu" :loading="loading1" responsiveLayout="scroll"
                     :globalFilterFields="['name','country.name','representative.name','balance','status']">
                     <template #header>
@@ -73,7 +73,7 @@
                             </MultiSelect>
                         </template>
                     </Column>
-                    <Column header="Date" filterField="date" dataType="date" style="min-width:10rem">
+                    <Column header="Date" filterField="date" dataType="date" :hidden="true">
                         <template #body="{data}">
                             {{formatDate(data.date)}}
                         </template>
@@ -132,7 +132,7 @@
                 <h5>Filter Row</h5>
                 <p>Filters are displayed inline within a separate row.</p>
                 <DataTable :value="customers2" :paginator="true" class="p-datatable-customers" :rows="10"
-                    dataKey="id" v-model:filters="filters2" filterDisplay="row" :loading="loading2" responsiveLayout="scroll"
+                    dataKey="id" v-model:filters="filters2" filterDisplay="row" :loading="loading2" responsiveLayout="scroll" :reorderableColumns="true" @column-reorder="onColReorder"
                     :globalFilterFields="['name','country.name','representative.name','status']">
                     <template #header>
                         <div class="flex justify-content-end">
@@ -257,7 +257,7 @@ export default {
         <div class="card">
             <h5>Filter Menu</h5>
             <p>Filters are displayed in an overlay.</p>
-            <DataTable :value="customers1" :paginator="true" class="p-datatable-customers" showGridlines :rows="10"
+            <DataTable :value="customers1" :paginator="true" class="p-datatable-customers" showGridlines :rows="10" :reorderableColumns="true" @column-reorder="onColReorder"
                 dataKey="id" v-model:filters="filters1" filterDisplay="menu" :loading="loading1" responsiveLayout="scroll"
                 :globalFilterFields="['name','country.name','representative.name','balance','status']">
                 <template #header>
@@ -498,18 +498,21 @@ export default {
     },
     mounted() {
         this.customerService.getCustomersLarge().then(data => {
-            this.customers1 = data; 
+            this.customers1 = data;
             this.loading1 = false;
             this.customers1.forEach(customer => customer.date = new Date(customer.date));
         });
-        
+
         this.customerService.getCustomersLarge().then(data => {
-            this.customers2 = data; 
+            this.customers2 = data;
             this.loading2 = false;
             this.customers2.forEach(customer => customer.date = new Date(customer.date));
         });
     },
     methods: {
+        onColReorder() {
+            this.$toast.add({severity:'success', summary: 'Column Reordered', life: 3000});
+        },
         formatDate(value) {
             return value.toLocaleDateString('en-US', {
                 day: '2-digit',
@@ -598,7 +601,7 @@ export default {
         <div class="card">
             <h5>Filter Menu</h5>
             <p>Filters are displayed in an overlay.</p>
-            <DataTable :value="customers1" :paginator="true" class="p-datatable-customers" showGridlines :rows="10"
+            <DataTable :value="customers1" :paginator="true" class="p-datatable-customers" showGridlines :rows="10" :reorderableColumns="true" @column-reorder="onColReorder"
                 dataKey="id" v-model:filters="filters1" filterDisplay="menu" :loading="loading1" responsiveLayout="scroll"
                 :globalFilterFields="['name','country.name','representative.name','balance','status']">
                 <template #header>
@@ -800,22 +803,24 @@ export default {
 import { ref ,onMounted } from 'vue';
 import CustomerService from './service/CustomerService';
 import {FilterMatchMode,FilterOperator} from 'primevue/api';
+import { useToast } from "primevue/usetoast";
 
 export default {
     setup() {
         onMounted(() => {
             customerService.value.getCustomersLarge().then(data => {
-                customers1.value = data; 
+                customers1.value = data;
                 loading1.value = false;
                 customers1.value.forEach(customer => customer.date = new Date(customer.date));
             });
-        
+
             customerService.value.getCustomersLarge().then(data => {
-                customers2.value = data; 
+                customers2.value = data;
                 loading2.value = false;
                 customers2.value.forEach(customer => customer.date = new Date(customer.date));
             });
         })
+        const toast = useToast();
 
         const customers1 = ref(null);
         const customers2 = ref(null);
@@ -884,7 +889,10 @@ export default {
             }
         };
 
-        return { customers1, customers2, filters1, filters2, representatives, statuses, loading1, loading2, formatDate, formatCurrency, clearFilter1, initFilters1}
+        const onColReorder = () => {
+            toast.add({severity:'success', summary: 'Column Reordered', life: 3000});
+        };
+        return { customers1, customers2, filters1, filters2, representatives, statuses, loading1, loading2, formatDate, formatCurrency, clearFilter1, initFilters1, onColReorder}
     }
 }
 <\\/script>
@@ -1159,13 +1167,13 @@ export default {
             setup() {
                 onMounted(() => {
                     customerService.value.getCustomersLarge().then(data => {
-                        customers1.value = data; 
+                        customers1.value = data;
                         loading1.value = false;
                         customers1.value.forEach(customer => customer.date = new Date(customer.date));
                     });
-                
+
                     customerService.value.getCustomersLarge().then(data => {
-                        customers2.value = data; 
+                        customers2.value = data;
                         loading2.value = false;
                         customers2.value.forEach(customer => customer.date = new Date(customer.date));
                     });
@@ -1315,18 +1323,21 @@ export default {
     },
     mounted() {
         this.customerService.getCustomersLarge().then(data => {
-            this.customers1 = data; 
+            this.customers1 = data;
             this.loading1 = false;
             this.customers1.forEach(customer => customer.date = new Date(customer.date));
         });
-        
+
         this.customerService.getCustomersLarge().then(data => {
-            this.customers2 = data; 
+            this.customers2 = data;
             this.loading2 = false;
             this.customers2.forEach(customer => customer.date = new Date(customer.date));
         });
     },
     methods: {
+        onColReorder() {
+            this.$toast.add({severity:'success', summary: 'Column Reordered', life: 3000});
+        },
         formatDate(value) {
             return value.toLocaleDateString('en-US', {
                 day: '2-digit',

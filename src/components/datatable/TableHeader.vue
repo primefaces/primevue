@@ -2,7 +2,7 @@
     <thead class="p-datatable-thead" role="rowgroup">
         <template v-if="!columnGroup">
             <tr role="row">
-                <template v-for="(col,i) of columns" :key="columnProp(col, 'columnKey')||columnProp(col, 'field')||i">
+                <template v-for="(col,i) of columns" :key="getCellKey(col, i)">
                     <DTHeaderCell v-if="!columnProp(col, 'hidden') && (rowGroupMode !== 'subheader' || (groupRowsBy !== columnProp(col, 'field')))" :column="col"
                     @column-click="$emit('column-click', $event)" @column-mousedown="$emit('column-mousedown', $event)"
                     @column-dragstart="$emit('column-dragstart', $event)" @column-dragover="$emit('column-dragover', $event)" @column-dragleave="$emit('column-dragleave', $event)" @column-drop="$emit('column-drop', $event)"
@@ -15,7 +15,7 @@
                 </template>
             </tr>
             <tr v-if="filterDisplay === 'row'" role="row">
-                <template v-for="(col,i) of columns" :key="columnProp(col, 'columnKey')||columnProp(col, 'field')||i">
+                <template v-for="(col,i) of columns" :key="getCellKey(col, i)">
                     <th :style="getFilterColumnHeaderStyle(col)" :class="getFilterColumnHeaderClass(col)" v-if="!columnProp(col, 'hidden') && (rowGroupMode !== 'subheader' || (groupRowsBy !== columnProp(col, 'field')))">
                         <DTHeaderCheckbox :checked="allRowsSelected" @change="$emit('checkbox-change', $event)" :disabled="empty" v-if="columnProp(col, 'selectionMode') ==='multiple'" />
                         <DTColumnFilter v-if="col.children && col.children.filter" :field="columnProp(col,'filterField')||columnProp(col,'field')" :type="columnProp(col,'dataType')" display="row"
@@ -33,7 +33,7 @@
         </template>
         <template v-else>
             <tr v-for="(row,i) of getHeaderRows()" :key="i" role="row">
-                <template v-for="(col,j) of getHeaderColumns(row)" :key="columnProp(col, 'columnKey')||columnProp(col, 'field')||j">
+                <template v-for="(col,j) of getHeaderColumns(row)" :key="getCellKey(col, j)">
                     <DTHeaderCell v-if="!columnProp(col, 'hidden') && (rowGroupMode !== 'subheader' || (groupRowsBy !== columnProp(col, 'field'))) && (typeof col.children !== 'string')" :column="col"
                     @column-click="$emit('column-click', $event)" @column-mousedown="$emit('column-mousedown', $event)"
                     :groupRowsBy="groupRowsBy" :groupRowSortField="groupRowSortField" :sortMode="sortMode" :sortField="sortField" :sortOrder="sortOrder" :multiSortMeta="multiSortMeta"
@@ -121,6 +121,17 @@ export default {
         }
     },
     methods: {
+        getCellKey(col, index) {
+            const columnKey = this.columnProp(col,'columnKey');
+            if (columnKey !== undefined) {
+                return columnKey;
+            }
+            const field = this.columnProp(col,'field');
+            if (field !== undefined) {
+                return field + '_' + index.toString();
+            }
+            return index.toString();
+        },
         columnProp(col, prop) {
             return ObjectUtils.getVNodeProp(col, prop);
         },
