@@ -2288,13 +2288,16 @@ export default {
         viewDate() {
             let propValue = this.modelValue;
             if (propValue && Array.isArray(propValue)) {
-                propValue = propValue[0];
+                if (this.isRangeSelection()) {
+                    propValue = propValue[1] || propValue[0];
+                } else if (this.isMultipleSelection()) {
+                    propValue = propValue[propValue.length - 1];
+                }
             }
 
             if (propValue && typeof propValue !== 'string') {
                 return propValue;
-            }
-            else {
+            } else {
                 let today = new Date();
                 if (this.maxDate && this.maxDate < today) {
                     return this.maxDate;

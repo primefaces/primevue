@@ -23,7 +23,7 @@ describe('Calendar.vue', () => {
         expect(wrapper.find('.p-inputtext').exists()).toBe(true);
 
         let input = wrapper.find('.p-inputtext');
-        
+
         await input.trigger('focus');
 
         expect(wrapper.find('.p-datepicker.p-component').exists()).toBe(true);
@@ -41,5 +41,13 @@ describe('Calendar.vue', () => {
 
         await wrapper.vm.onDateSelect({currentTarget: {focus: () => {}}}, event);
         expect(onDateSelect).toHaveBeenCalled()
+    });
+    it('should calculate the correct view date when in range mode', async () => {
+        const dateOne = new Date();
+        const dateTwo = new Date();
+        dateTwo.setFullYear(dateOne.getFullYear(), dateOne.getMonth(), dateOne.getDate() + 1)
+        await wrapper.setProps({ selectionMode: 'range',  showTime: true, modelValue: [dateOne, dateTwo]  });
+
+        expect(wrapper.vm.viewDate).toEqual(dateTwo)
     });
 });
