@@ -7,7 +7,7 @@ type DataTablePaginatorPositionType = 'top' | 'bottom' | 'both' | undefined;
 
 type DataTableSortFieldType = string | ((item: any) => string) | undefined;
 
-type DataTableDataKeyType = string | (() => string) | undefined;
+type DataTableDataKeyType = string | ((item: any) => string) | undefined;
 
 type DataTableMultiSortMetaType = DataTableSortMeta[] | undefined | null;
 
