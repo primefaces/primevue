@@ -1,0 +1,98 @@
+name: Bug report
+description: Create a report to help us improve
+title: "Component: Title"
+labels: "bug"
+body:
+  - type: markdown
+    attributes:
+      # yamllint disable rule:line-length
+      value: >
+        ### There is no guarantee in receiving an immediate response in GitHub Issue Tracker, If you'd like to secure our response, you may consider *PrimeVue PRO Support* where support is provided within 4 business hours
+      # yamllint enable rule:line-length
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the bug
+      description: A clear and concise description of what the bug is.
+    validations:
+      required: true
+  - type: input
+    id: reproducer
+    attributes:
+      label: Reproducer
+      placeholder: https://codesandbox.io/s/primevue-3-issue-template-ip3vm
+      description: |
+        Please fork one of the issue template 
+        [PrimeVue 3 Issue Template](https://codesandbox.io/s/primevue-3-issue-template-ip3vm)
+        [PrimeVue TypeScript Issue Template](https://codesandbox.io/s/primevue-3-typescript-issue-template-z1f6e2)
+        [PrimeVue 2 Issue Template](https://codesandbox.io/s/primevue-2-issue-template-dw7jd7)
+        and create a case demonstrating your bug report. Issues **without** a CodeSandbox have much less possibility to be reviewed.
+    validations:
+      required: false
+  - type: input
+    id: pr-version
+    attributes:
+      label: PrimeVue version
+      placeholder: x.x.x
+    validations:
+      required: true
+  - type: dropdown
+    id: vue-version
+    attributes:
+      label: Vue version
+      multiple: false
+      options:
+        - 3.x
+        - 2.x
+    validations:
+      required: true
+  - type: dropdown
+    id: language
+    attributes:
+      label: Language
+      multiple: false
+      options:
+        - TypeScript
+        - ES5
+        - ES6
+        - ALL
+    validations:
+      required: true
+  - type: dropdown
+    id: engine
+    attributes:
+      label: Build / Runtime
+      multiple: false
+      options:
+        - Vue CLI App
+        - TypeScript
+        - Nuxt
+        - Vite
+    validations:
+      required: true
+  - type: input
+    id: browsers
+    attributes:
+      label: Browser(s)
+      description: List specific browser(s) the problem occurs on or leave blank if ALL browsers
+      placeholder: >
+        e.g. Safari 15, iOS 15.4, Chrome 90
+  - type: textarea
+    id: reproduce-steps
+    attributes:
+      label: Steps to reproduce the behavior
+      description: A clear and concise description of how to make the issue happen.
+      placeholder: >
+        1. Go to '...'
+        2. Click on '....'
+        3. Scroll down to '....'
+        4. See error
+    validations:
+      required: false
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Expected behavior
+      description: A clear and concise description of what you expected to happen.
+    validations:
+      required: false
