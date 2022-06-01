@@ -274,6 +274,12 @@ export default {
                         <td>null</td>
                         <td>Whether to use the virtualScroller feature. The properties of <router-link to="/virtualscroller">VirtualScroller</router-link> component can be used like an object in it.</td>
                     </tr>
+                    <tr>
+                        <td>loadingIconClass</td>
+                        <td>string</td>
+                        <td>pi-spinner</td>
+                        <td>Icon class used when loading</td>
+                    </tr>
 				</tbody>
 			</table>
 		</div>
