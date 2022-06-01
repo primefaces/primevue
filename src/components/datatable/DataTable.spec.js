@@ -103,6 +103,7 @@ describe('DataTable.vue', () => {
                     <Column :expander="true" />
                     <Column field="code" header="Code" sortable></Column>
                     <Column field="name" header="Name" sortable></Column>
+                    <Column header="Id" sortable></Column>
                 `,
                 header: `Header Templating`,
                 footer: `Footer Templating`,
@@ -123,14 +124,14 @@ describe('DataTable.vue', () => {
     });
 
     it('should have basic demo', () => {
-        expect(wrapper.findAll('.p-column-header-content').length).toEqual(3);
+        expect(wrapper.findAll('.p-column-header-content').length).toEqual(4);
         const tbody = wrapper.find('.p-datatable-tbody');
 
         expect(tbody.findAll('tr').length).toEqual(3);
 
         const rows = tbody.findAll('tr');
 
-        expect(rows[0].findAll('td').length).toEqual(3);
+        expect(rows[0].findAll('td').length).toEqual(4);
     });
 
 
@@ -236,7 +237,7 @@ describe('DataTable.vue', () => {
                     for(let sale of this.sales) {
                         total += sale.lastYearProfit;
                     }
-        
+
                     return this.formatCurrency(total);
                 },
                 thisYearTotal() {
@@ -244,7 +245,7 @@ describe('DataTable.vue', () => {
                     for(let sale of this.sales) {
                         total += sale.thisYearProfit;
                     }
-        
+
                     return this.formatCurrency(total);
                 }
             }
@@ -403,7 +404,7 @@ describe('DataTable.vue', () => {
         const firstCellText = wrapper.findAll('.p-datatable-tbody > tr')[0].findAll('td')[1].text();
 
         await sortableTH.trigger('click');
-        
+
         expect(wrapper.findAll('.p-datatable-tbody > tr')[0].findAll('td')[1].text()).not.toEqual(firstCellText);
         expect(sortableTH.attributes()['aria-sort']).toBe('ascending');
 
@@ -534,7 +535,7 @@ describe('DataTable.vue', () => {
                 `
             }
         });
-        
+
         expect(wrapper.findAll('td.p-selection-column').length).toBe(3);
         expect(wrapper.findAll('.p-radiobutton').length).toBe(3);
 
@@ -834,7 +835,7 @@ describe('DataTable.vue', () => {
                 `
             }
         });
-        
+
         await wrapper.vm.onRowEditCancel({ data: smallData[0] });
 
         expect(wrapper.emitted()['update:editingRows'][0][0]).toEqual([]);
@@ -1061,7 +1062,7 @@ describe('DataTable.vue', () => {
                 `
             }
         });
-        
+
         expect(wrapper.findAll('.p-datatable-reorderablerow-handle').length).toBe(3);
     });
 
@@ -1410,4 +1411,9 @@ describe('DataTable.vue', () => {
 
 
     // row styling
+
+    // Finding columns without key / field properties
+    it('able to find a column which only uses header property', () => {
+        expect(wrapper.vm.findColumnByKey(wrapper.vm.columns, 'Id')).not.toBeNull();
+    })
 });
