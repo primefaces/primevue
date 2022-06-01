@@ -1,0 +1,9 @@
+{
+  "main": "./steps.cjs.js",
+  "module": "./steps.esm.js",
+  "unpkg": "./steps.min.js",
+  "types": "./Steps.d.ts",
+  "browser": {
+    "./sfc": "./Steps.vue"
+  }
+}

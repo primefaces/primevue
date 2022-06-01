@@ -1,0 +1,1 @@
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var e=require("vue");const r=Symbol();exports.PrimeVueToastSymbol=r,exports.useToast=function(){const o=e.inject(r);if(!o)throw new Error("No PrimeVue Toast provided!");return o};

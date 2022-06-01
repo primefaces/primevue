@@ -1,0 +1,9 @@
+{
+  "main": "./column.cjs.js",
+  "module": "./column.esm.js",
+  "unpkg": "./column.min.js",
+  "types": "./Column.d.ts",
+  "browser": {
+    "./sfc": "./Column.vue"
+  }
+}

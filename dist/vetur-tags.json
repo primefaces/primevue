@@ -1,0 +1,1199 @@
+{
+  "Accordion": {
+    "description": "Accordion groups a collection of contents in tabs.",
+    "attributes": [
+      "multiple",
+      "activeIndex",
+      "lazy",
+      "expandIcon",
+      "collapseIcon"
+    ]
+  },
+  "AccordionTab": {
+    "description": "Accordion element consists of one or more AccordionTab elements.",
+    "attributes": [
+      "header",
+      "disabled"
+    ]
+  },
+  "AutoComplete": {
+    "description": "AutoComplete is an input component that provides real-time suggestions when being typed.",
+    "attributes": [
+      "modelValue",
+      "suggestions",
+      "field",
+      "optionGroupLabel",
+      "optionGroupChildren",
+      "scrollHeight",
+      "dropdown",
+      "dropdownMode",
+      "autoHighlight",
+      "multiple",
+      "minLength",
+      "completeOnFocus",
+      "delay",
+      "appendTo",
+      "inputStyle",
+      "inputClass",
+      "forceSelection",
+      "class",
+      "style",
+      "panelClass",
+      "virtualScrollerOptions"
+    ]
+  },
+  "Avatar": {
+    "description": "Avatar represents people using icons, labels and images.",
+    "attributes": [
+      "label",
+      "icon",
+      "image",
+      "size",
+      "shape"
+    ]
+  },
+  "Badge": {
+    "description": "Badge is a small status indicator for another element.",
+    "attributes": [
+      "value",
+      "severity",
+      "size"
+    ]
+  },
+  "BlockUI": {
+    "description": "BlockUI can either block other components or the whole page.",
+    "attributes": [
+      "blocked",
+      "fullscreen",
+      "baseZIndex",
+      "autoZIndex"
+    ]
+  },
+  "Breadcrumb": {
+    "description": "Breadcrumb provides contextual information about page hierarchy.",
+    "attributes": [
+      "model",
+      "home",
+      "exact"
+    ]
+  },
+  "Button": {
+    "description": "Button is an extension to standard button element with icons and theming.",
+    "attributes": [
+      "label",
+      "icon",
+      "iconPos",
+      "badge",
+      "badgeClass",
+      "loading",
+      "loadingIcon"
+    ]
+  },
+  "Calendar": {
+    "description": "Calendar is an input component to select a date.",
+    "attributes": [
+      "modelValue",
+      "selectionMode",
+      "dateFormat",
+      "inline",
+      "showOtherMonths",
+      "selectOtherMonths",
+      "showIcon",
+      "icon",
+      "numberOfMonths",
+      "view",
+      "touchUI",
+      "monthNavigator",
+      "yearNavigator",
+      "yearRange",
+      "panelClass",
+      "minDate",
+      "maxDate",
+      "disabledDates",
+      "disabledDays",
+      "maxDateCount",
+      "showOnFocus",
+      "autoZIndex",
+      "baseZIndex",
+      "showButtonBar",
+      "shortYearCutoff",
+      "showTime",
+      "timeOnly",
+      "hourFormat",
+      "stepHour",
+      "stepMinute",
+      "stepSeconds",
+      "showSeconds",
+      "hideOnDateTimeSelect",
+      "timeSeparator",
+      "showWeek",
+      "manualInput",
+      "appendTo",
+      "inputStyle",
+      "inputClass",
+      "class",
+      "style"
+    ]
+  },
+  "Carousel": {
+    "description": "Carousel is a content slider featuring various customization options.",
+    "attributes": [
+      "value",
+      "page",
+      "circular",
+      "autoplayInterval",
+      "numVisible",
+      "numScroll",
+      "responsiveOptions",
+      "orientation",
+      "verticalViewPortHeight",
+      "contentClass",
+      "containerClass",
+      "indicatorsContentClass"
+    ]
+  },
+  "CascadeSelect": {
+    "description": "CascadeSelect displays a nested structure of options.",
+    "attributes": [
+      "modelValue",
+      "options",
+      "optionLabel",
+      "optionValue",
+      "optionGroupLabel",
+      "optionGroupChildren",
+      "placeholder",
+      "disabled",
+      "dataKey",
+      "tabindex",
+      "inputId",
+      "ariaLabelledBy",
+      "appendTo",
+      "panelClass",
+      "loading",
+      "loadingIcon"
+    ]
+  },
+  "Chart": {
+    "description": "Chart components are based on Charts.js, an open source HTML5 based charting library.",
+    "attributes": [
+      "type",
+      "data",
+      "options",
+      "plugins",
+      "width",
+      "height"
+    ]
+  },
+  "Checkbox": {
+    "description": "Checkbox is an extension to standard checkbox element with theming.",
+    "attributes": [
+      "value",
+      "modelValue",
+      "binary",
+      "class",
+      "style",
+      "trueValue",
+      "falseValue"
+    ]
+  },
+  "Chip": {
+    "description": "Chip represents entities using icons, labels and images",
+    "attributes": [
+      "label",
+      "icon",
+      "image",
+      "removable",
+      "removeIconClass"
+    ]
+  },
+  "chips": {
+    "description": "Chips is used to enter multiple values on an input field.",
+    "attributes": [
+      "modelValue",
+      "max",
+      "separator",
+      "addOnBlur",
+      "allowDuplicate",
+      "class",
+      "style"
+    ]
+  },
+  "ColorPicker": {
+    "description": "ColorPicker is an input component to select a color.",
+    "attributes": [
+      "modelValue",
+      "defaultColor",
+      "inline",
+      "format",
+      "disabled",
+      "tabIndex",
+      "baseZIndex",
+      "autoZIndex",
+      "ariaLabelledBy",
+      "panelClass",
+      "appendTo"
+    ]
+  },
+  "Column": {
+    "description": "DataTable requires a value as an array of objects and columns defined with Column component.",
+    "attributes": [
+      "columnKey",
+      "field",
+      "sortField",
+      "filterField",
+      "sortable",
+      "header",
+      "footer",
+      "style",
+      "class",
+      "headerStyle",
+      "headerClass",
+      "bodyStyle",
+      "bodyClass",
+      "footerStyle",
+      "footerClass",
+      "showFilterMenu",
+      "showFilterOperator",
+      "showClearButton",
+      "showApplyButton",
+      "showFilterMatchModes",
+      "showAddButton",
+      "filterMatchModeOptions",
+      "maxConstraints",
+      "excludeGlobalFilter",
+      "filterHeaderStyle",
+      "filterHeaderClass",
+      "filterMenuStyle",
+      "filterMenuClass",
+      "selectionMode",
+      "expander",
+      "colspan",
+      "rowspan",
+      "rowReorder",
+      "rowReorderIcon",
+      "reorderableColumn",
+      "rowEditor",
+      "frozen",
+      "alignFrozen",
+      "exportable",
+      "exportHeader",
+      "hidden"
+    ]
+  },
+  "ConfirmDialog": {
+    "description": "ConfirmDialog uses a Dialog UI that is integrated with the Confirmation API.",
+    "attributes": [
+      "group",
+      "breakpoints"
+    ]
+  },
+  "ConfirmPopup": {
+    "description": "ConfirmPopup displays a confirmation overlay displayed relatively to its target.",
+    "attributes": [
+      "group"
+    ]
+  },
+  "ContextMenu": {
+    "description": "ContextMenu displays an overlay menu on right click of its target.",
+    "attributes": [
+      "model",
+      "appendTo",
+      "baseZIndex",
+      "autoZIndex",
+      "global",
+      "exact"
+    ]
+  },
+  "DataTable": {
+    "description": "DataTable displays data in tabular format.",
+    "attributes": [
+      "value",
+      "dataKey",
+      "rows",
+      "first",
+      "totalRecords",
+      "paginator",
+      "paginatorPosition",
+      "alwaysShowPaginator",
+      "paginatorTemplate",
+      "pageLinkSize",
+      "rowsPerPageOptions",
+      "currentPageReportTemplate",
+      "lazy",
+      "loading",
+      "loadingIcon",
+      "sortField",
+      "sortOrder",
+      "defaultSortOrder",
+      "multiSortMeta",
+      "sortMode",
+      "removableSort",
+      "filters",
+      "filterDisplay",
+      "filterLocale",
+      "selection",
+      "selectionMode",
+      "compareSelectionBy",
+      "metaKeySelection",
+      "contextMenu",
+      "contextMenuSelection",
+      "rowHover",
+      "selectAll",
+      "csvSeparator",
+      "exportFilename",
+      "exportFunction",
+      "autoLayout",
+      "resizableColumns",
+      "columnResizeMode",
+      "reorderableColumns",
+      "expandedRows",
+      "expandedRowIcon",
+      "collapsedRowIcon",
+      "rowGroupMode",
+      "groupRowsBy",
+      "expandableRowGroups",
+      "expandedRowGroups",
+      "stateStorage",
+      "stateKey",
+      "editMode",
+      "editingRows",
+      "rowClass",
+      "rowStyle",
+      "scrollable",
+      "scrollDirection",
+      "scrollHeight",
+      "virtualScrollerOptions",
+      "frozenValue",
+      "responsiveLayout",
+      "breakpoint",
+      "showGridlines",
+      "stripedRows",
+      "tableStyle",
+      "tableClass"
+    ]
+  },
+  "DataView": {
+    "description": "DataView displays data in grid or list layout with pagination and sorting features.",
+    "attributes": [
+      "value",
+      "layout",
+      "rows",
+      "first",
+      "totalRecords",
+      "paginator",
+      "paginatorPosition",
+      "alwaysShowPaginator",
+      "paginatorTemplate",
+      "pageLinkSize",
+      "rowsPerPageOptions",
+      "currentPageReportTemplate",
+      "sortField",
+      "sortOrder",
+      "lazy",
+      "dataKey"
+    ]
+  },
+  "Dialog": {
+    "description": "Dialog is a container to display content in an overlay window.",
+    "attributes": [
+      "header",
+      "footer",
+      "visible",
+      "modal",
+      "closeOnEscape",
+      "dismissableMask",
+      "position",
+      "contentStyle",
+      "contentClass",
+      "rtl",
+      "closable",
+      "showHeader",
+      "baseZIndex",
+      "autoZIndex",
+      "ariaCloseLabel",
+      "maximizable",
+      "breakpoints",
+      "draggable",
+      "minX",
+      "minY",
+      "keepInViewport",
+      "appendTo"
+    ]
+  },
+  "Divider": {
+    "description": "Divider is used to separate contents.",
+    "attributes": [
+      "align",
+      "layout",
+      "type"
+    ]
+  },
+  "Dock": {
+    "description": "Dock is a navigation component consisting of menuitems.",
+    "attributes": [
+      "model",
+      "position",
+      "class",
+      "style",
+      "exact",
+      "tooltipOptions"
+    ]
+  },
+  "Dropdown": {
+    "description": "Dropdown is used to select an item from a list of options.",
+    "attributes": [
+      "modelValue",
+      "options",
+      "optionLabel",
+      "optionValue",
+      "optionDisabled",
+      "optionGroupLabel",
+      "optionGroupChildren",
+      "scrollHeight",
+      "filter",
+      "filterPlaceholder",
+      "filterLocale",
+      "filterMatchMode",
+      "filterFields",
+      "editable",
+      "placeholder",
+      "disabled",
+      "dataKey",
+      "showClear",
+      "tabindex",
+      "inputId",
+      "ariaLabelledBy",
+      "emptyFilterMessage",
+      "emptyMessage",
+      "panelClass",
+      "loading",
+      "loadingIcon",
+      "virtualScrollerOptions"
+    ]
+  },
+  "Editor": {
+    "description": "Editor is rich text editor component based on Quill.",
+    "attributes": [
+      "modelValue",
+      "placeholder",
+      "readonly",
+      "formats",
+      "editorStyle"
+    ]
+  },
+  "Fieldset": {
+    "description": "Fieldset is a grouping component with the optional content toggle feature.",
+    "attributes": [
+      "legend",
+      "toggleable",
+      "collapsed"
+    ]
+  },
+  "FileUpload": {
+    "description": "FileUpload is an advanced uploader with dragdrop support, multi file uploads, auto uploading, progress tracking and validations.",
+    "attributes": [
+      "name",
+      "url",
+      "mode",
+      "multiple",
+      "accept",
+      "disabled",
+      "auto",
+      "maxFileSize",
+      "invalidFileSizeMessage",
+      "invalidFileLimitMessage",
+      "fileLimit",
+      "withCredentials",
+      "previewWidth",
+      "chooseLabel",
+      "uploadLabel",
+      "cancelLabel",
+      "customUpload",
+      "showUploadButton",
+      "showCancelButton",
+      "chooseIcon",
+      "uploadIcon",
+      "cancelIcon",
+      "style",
+      "class"
+    ]
+  },
+  "FullCalendar": {
+    "description": "An event calendar based on the FullCalendar library.",
+    "attributes": [
+      "events",
+      "options"
+    ]
+  },
+  "Galleria": {
+    "description": "Galleria is an advanced content gallery component.",
+    "attributes": [
+      "id",
+      "value",
+      "activeIndex",
+      "fullscreen",
+      "visible",
+      "numVisible",
+      "responsiveOptions",
+      "showItemNavigators",
+      "showThumbnailNavigators",
+      "showItemNavigatorsOnHover",
+      "changeItemOnIndicatorHover",
+      "circular",
+      "autoPlay",
+      "transitionInterval",
+      "showThumbnails",
+      "thumbnailsPosition",
+      "verticalThumbnailViewPortHeight",
+      "showIndicators",
+      "showIndicatorsOnItem",
+      "indicatorsPosition",
+      "baseZIndex",
+      "maskClass",
+      "containerStyle",
+      "containerClass"
+    ]
+  },
+  "Image": {
+    "description": "Displays an image with preview and tranformation options.",
+    "attributes": [
+      "preview"
+    ]
+  },
+  "InlineMessage": {
+    "description": "InlineMessage component is useful in cases where a single message needs to be displayed related to an element such as forms",
+    "attributes": [
+      "severity"
+    ]
+  },
+  "Inplace": {
+    "description": "Inplace provides an easy to do editing and display at the same time where clicking the output displays the actual content.",
+    "attributes": [
+      "active",
+      "closable",
+      "diabled"
+    ]
+  },
+  "InputMask": {
+    "description": "InputMask component is used to enter input in a certain format such as numeric, date, currency, email and phone.",
+    "attributes": [
+      "modelValue",
+      "mask",
+      "slotChar",
+      "autoClear",
+      "unmask"
+    ]
+  },
+  "InputNumber": {
+    "description": "InputNumber is an input component to provide numerical input.",
+    "attributes": [
+      "modelValue",
+      "format",
+      "showButtons",
+      "buttonLayout",
+      "incrementButtonClass",
+      "decrementButtonClass",
+      "incrementButtonIcon",
+      "decrementButtonIcon",
+      "locale",
+      "localeMatcher",
+      "mode",
+      "prefix",
+      "suffix",
+      "currency",
+      "currencyDisplay",
+      "useGrouping",
+      "minFractionDigits",
+      "maxFractionDigits",
+      "min",
+      "max",
+      "step",
+      "allowEmpty",
+      "readonly",
+      "inputStyle",
+      "inputClass",
+      "class",
+      "style"
+    ]
+  },
+  "InputSwitch": {
+    "description": "InputSwitch is used to select a boolean value.",
+    "attributes": [
+      "modelValue",
+      "class",
+      "style",
+      "trueValue",
+      "falseValue"
+    ]
+  },
+  "InputText": {
+    "description": "InputText renders a text field to enter data.",
+    "attributes": [
+      "modelValue"
+    ]
+  },
+  "Knob": {
+    "description": "Knob is a form component to define number inputs with a dial.",
+    "attributes": [
+      "modelValue",
+      "size",
+      "disabled",
+      "readonly",
+      "step",
+      "min",
+      "max",
+      "valueColor",
+      "rangeColor",
+      "textColor",
+      "strokeWidth",
+      "showValue",
+      "valueTemplate"
+    ]
+  },
+  "Listbox": {
+    "description": "Listbox is used to select one or more values from a list of items.",
+    "attributes": [
+      "modelValue",
+      "options",
+      "optionLabel",
+      "optionValue",
+      "optionDisabled",
+      "optionGroupLabel",
+      "optionGroupChildren",
+      "listStyle",
+      "disabled",
+      "dataKey",
+      "multiple",
+      "metaKeySelection",
+      "filter",
+      "filterPlaceholder",
+      "filterLocale",
+      "filterMatchMode",
+      "filterFields",
+      "emptyFilterMessage",
+      "emptyMessage"
+    ]
+  },
+  "MegaMenu": {
+    "description": "MegaMenu is navigation component that displays submenus together.",
+    "attributes": [
+      "modelValue",
+      "orientation",
+      "exact"
+    ]
+  },
+  "Menu": {
+    "description": "Menu is a navigation / command component that supports dynamic and static positioning.",
+    "attributes": [
+      "modelValue",
+      "popup",
+      "appendTo",
+      "baseZIndex",
+      "autoZIndex",
+      "exact"
+    ]
+  },
+  "Menubar": {
+    "description": "Menubar is a horizontal menu component.",
+    "attributes": [
+      "modelValue",
+      "exact"
+    ]
+  },
+  "Message": {
+    "description": "Messages is used to display inline messages with various severities.",
+    "attributes": [
+      "severity",
+      "closable",
+      "sticky",
+      "life",
+      "icon"
+    ]
+  },
+  "MultiSelect": {
+    "description": "MultiSelect is used to multiple values from a list of options.",
+    "attributes": [
+      "modelValue",
+      "options",
+      "optionLabel",
+      "optionValue",
+      "optionDisabled",
+      "optionGroupLabel",
+      "optionGroupChildren",
+      "scrollHeight",
+      "filter",
+      "filterPlaceholder",
+      "filterLocale",
+      "filterMatchMode",
+      "filterFields",
+      "placeholder",
+      "disabled",
+      "tabindex",
+      "inputId",
+      "dataKey",
+      "ariaLabelledBy",
+      "emptyFilterMessage",
+      "emptyMessage",
+      "display",
+      "panelClass",
+      "selectionLimit",
+      "showToggleAll",
+      "loading",
+      "loadingIcon",
+      "maxSelectedLabels",
+      "selectedItemsLabel",
+      "selectAll",
+      "virtualScrollerOptions"
+    ]
+  },
+  "OrderList": {
+    "description": "OrderList is used to managed the order of a collection.",
+    "attributes": [
+      "modelValue",
+      "selection",
+      "metaKeySelection",
+      "dataKey",
+      "listStyle",
+      "responsive",
+      "breakpoint",
+      "stripedRows"
+    ]
+  },
+  "OrganizationChart": {
+    "description": "OrganizationChart visualizes hierarchical organization data.",
+    "attributes": [
+      "value",
+      "selectionKeys",
+      "selectionMode",
+      "collapsible",
+      "collapsedKeys"
+    ]
+  },
+  "OverlayPanel": {
+    "description": "OverlayPanel is a container component positioned as connected to its target.",
+    "attributes": [
+      "dismissable",
+      "showCloseIcon",
+      "appendTo",
+      "baseZIndex",
+      "autoZIndex",
+      "ariaCloseLabel",
+      "breakpoints"
+    ]
+  },
+  "Paginator": {
+    "description": "Paginator is a generic component to display content in paged format.",
+    "attributes": [
+      "totalRecords",
+      "rows",
+      "first",
+      "pageLinkSize",
+      "rowsPerPageOptions",
+      "template",
+      "currentPageReportTemplate",
+      "alwaysShow"
+    ]
+  },
+  "Panel": {
+    "description": "Panel is a container with the optional content toggle feature.",
+    "attributes": [
+      "header",
+      "toggleable",
+      "collapsed"
+    ]
+  },
+  "PanelMenu": {
+    "description": "PanelMenu is a hybrid of Accordion and Tree components",
+    "attributes": [
+      "model",
+      "expandedKeys",
+      "exact"
+    ]
+  },
+  "Password": {
+    "description": "Password displays strength indicator for password fields.",
+    "attributes": [
+      "modelValue",
+      "promptLabel",
+      "mediumRegex",
+      "strongRegex",
+      "weakLabel",
+      "mediumLabel",
+      "strongLabel",
+      "feedback",
+      "toogleMask",
+      "appendTo",
+      "hideIcon",
+      "showIcon",
+      "inputStyle",
+      "inputClass",
+      "class",
+      "style",
+      "panelClass"
+    ]
+  },
+  "PickList": {
+    "description": "PickList is used to reorder items between different lists.",
+    "attributes": [
+      "modelValue",
+      "selection",
+      "metaKeySelection",
+      "dataKey",
+      "listStyle",
+      "responsive",
+      "breakpoint",
+      "stripedRows"
+    ]
+  },
+  "ProgressBar": {
+    "description": "ProgressBar is a process status indicator.",
+    "attributes": [
+      "value",
+      "mode",
+      "showValue"
+    ]
+  },
+  "ProgressSpinner": {
+    "description": "ProgressSpinner is a process status indicator",
+    "attributes": [
+      "strokeWidth",
+      "fill",
+      "animationDuration"
+    ]
+  },
+  "RadioButton": {
+    "description": "RadioButton is an extension to standard radio button element with theming.",
+    "attributes": [
+      "value",
+      "modelValue",
+      "class",
+      "style"
+    ]
+  },
+  "rating": {
+    "description": "Rating component is a star based selection input.",
+    "attributes": [
+      "modelValue",
+      "disabled",
+      "readonly",
+      "stars",
+      "cancel"
+    ]
+  },
+  "ScrollTop": {
+    "description": "ScrollTop gets displayed after a certain scroll position and used to navigates to the top of the page quickly.",
+    "attributes": [
+      "target",
+      "threshold",
+      "icon",
+      "behavior"
+    ]
+  },
+  "SelectButton": {
+    "description": "SelectButton is a form component to choose a value from a list of options using button elements.",
+    "attributes": [
+      "modelValue",
+      "options",
+      "optionLabel",
+      "optionValue",
+      "optionDisabled",
+      "multiple",
+      "disabled",
+      "dataKey",
+      "ariaLabelledBy"
+    ]
+  },
+  "Sidebar": {
+    "description": "Sidebar is a panel component displayed as an overlay at the edges of the screen.",
+    "attributes": [
+      "visible",
+      "position",
+      "baseZIndex",
+      "autoZIndex",
+      "dismissable",
+      "showCloseIcon",
+      "modal",
+      "ariaCloseLabel"
+    ]
+  },
+  "Skeleton": {
+    "description": "Skeleton is a placeholder to display instead of the actual content.",
+    "attributes": [
+      "shape",
+      "size",
+      "width",
+      "height",
+      "borderRadius",
+      "animation"
+    ]
+  },
+  "Slider": {
+    "description": "Slider is an input component to provide a numerical input",
+    "attributes": [
+      "modelValue",
+      "min",
+      "max",
+      "orientation",
+      "step",
+      "range",
+      "disabled",
+      "ariaLabelledBy"
+    ]
+  },
+  "SpeedDial": {
+    "description": "When pressed, a floating action button can display multiple primary actions that can be performed on a page.",
+    "attributes": [
+      "model",
+      "visible",
+      "direction",
+      "transitionDelay",
+      "type",
+      "radius",
+      "mask",
+      "disabled",
+      "hideOnClickOutside",
+      "buttonClass",
+      "maskClass",
+      "maskStyle",
+      "showIcon",
+      "hideIcon",
+      "rotateAnimation",
+      "class",
+      "style",
+      "tooltipOptions"
+    ]
+  },
+  "SplitButton": {
+    "description": "SplitButton groups a set of commands in an overlay with a default command.",
+    "attributes": [
+      "label",
+      "icon",
+      "model",
+      "autoZIndex",
+      "baseZIndex",
+      "appendTo",
+      "class",
+      "style"
+    ]
+  },
+  "Splitter": {
+    "description": "Splitter is utilized to separate and resize panels",
+    "attributes": [
+      "layout",
+      "gutterSize",
+      "stateKey",
+      "stateStorage"
+    ]
+  },
+  "SplitterPanel": {
+    "description": "Splitter requires two SplitterPanel components to wrap.",
+    "attributes": [
+      "size",
+      "minSize"
+    ]
+  },
+  "steps": {
+    "description": "Steps components is an indicator for the steps in a wizard workflow.",
+    "attributes": [
+      "id",
+      "model",
+      "readonly",
+      "exact"
+    ]
+  },
+  "TabMenu": {
+    "description": "TabMenu is a navigation component that displays items as tab headers.",
+    "attributes": [
+      "model",
+      "exact",
+      "activeIndex"
+    ]
+  },
+  "TabPanel": {
+    "description": "TabView element consists of one or more TabPanel elements.",
+    "attributes": [
+      "header",
+      "disabled"
+    ]
+  },
+  "TabView": {
+    "description": "TabView is a container component to group content with tabs.",
+    "attributes": [
+      "activeIndex",
+      "lazy",
+      "scrollable"
+    ]
+  },
+  "Tag": {
+    "description": "Tag component is used to categorize content.",
+    "attributes": [
+      "value",
+      "severity",
+      "rounded",
+      "icon"
+    ]
+  },
+  "Terminal": {
+    "description": "Terminal is a text based user interface.",
+    "attributes": [
+      "welcomeMessage",
+      "prompt"
+    ]
+  },
+  "Textarea": {
+    "description": "Textarea is a multi-line text input element.",
+    "attributes": [
+      "modelValue",
+      "autoResize"
+    ]
+  },
+  "TieredMenu": {
+    "description": "TieredMenu displays submenus in nested overlays.",
+    "attributes": [
+      "model",
+      "popup",
+      "appendTo",
+      "baseZIndex",
+      "autoZIndex",
+      "exact"
+    ]
+  },
+  "Timeline": {
+    "description": "Timeline visualizes a series of chained events.",
+    "attributes": [
+      "value",
+      "align",
+      "layout",
+      "dataKey"
+    ]
+  },
+  "Toast": {
+    "description": "Toast is used to display messages in an overlay.",
+    "attributes": [
+      "group",
+      "position",
+      "autoZIndex",
+      "baseZIndex",
+      "breakpoints"
+    ]
+  },
+  "ToggleButton": {
+    "description": "ToggleButton is used to select a boolean value using a button.",
+    "attributes": [
+      "modelValue",
+      "onIcon",
+      "offIcon",
+      "onLabel",
+      "offLabel",
+      "iconPos"
+    ]
+  },
+  "Tree": {
+    "description": "Tree is used to display hierarchical data.",
+    "attributes": [
+      "value",
+      "expandedKeys",
+      "selectionMode",
+      "selectionKeys",
+      "metaKeySelection",
+      "loading",
+      "loadingIcon",
+      "filter",
+      "filterBy",
+      "filterMode",
+      "filterPlaceholder",
+      "filterLocale",
+      "scrollHeight"
+    ]
+  },
+  "TreeSelect": {
+    "description": "TreeSelect is a form component to choose from hierarchical data.",
+    "attributes": [
+      "modelValue",
+      "options",
+      "scrollHeight",
+      "placeholder",
+      "disabled",
+      "tabindex",
+      "inputId",
+      "ariaLabelledBy",
+      "selectionMode",
+      "panelClass",
+      "appendTo",
+      "emptyMessage",
+      "display",
+      "metaKeySelection"
+    ]
+  },
+  "TreeTable": {
+    "description": "TreeTable is used to display hierarchical data in tabular format.",
+    "attributes": [
+      "value",
+      "expandedKeys",
+      "selectionKeys",
+      "selectionMode",
+      "metaKeySelection",
+      "rows",
+      "first",
+      "totalRecords",
+      "paginator",
+      "paginatorPosition",
+      "alwaysShowPaginator",
+      "paginatorTemplate",
+      "pageLinkSize",
+      "rowsPerPageOptions",
+      "currentPageReportTemplate",
+      "lazy",
+      "loading",
+      "loadingIcon",
+      "rowHover",
+      "autoLayout",
+      "sortField",
+      "sortOrder",
+      "defaultSortOrder",
+      "multiSortMeta",
+      "sortMode",
+      "removableSort",
+      "filters",
+      "filterMode",
+      "filterLocale",
+      "resizableColumns",
+      "columnResizeMode",
+      "indentation",
+      "showGridlines",
+      "scrollable",
+      "scrollDirection",
+      "scrollHeight",
+      "responsiveLayout"
+    ]
+  },
+  "TriStateCheckbox": {
+    "description": "TriStateCheckbox is used to select either \"true\", \"false\" or \"null\" as the value.",
+    "attributes": [
+      "modelValue",
+      "class",
+      "style"
+    ]
+  },
+  "VirtualScroller": {
+    "description": "VirtualScroller is a performant approach to handle huge data efficiently.",
+    "attributes": [
+      "id",
+      "style",
+      "class",
+      "items",
+      "itemSize",
+      "scrollHeight",
+      "scrollWidth",
+      "orientation",
+      "numToleratedItems",
+      "delay",
+      "lazy",
+      "disabled",
+      "loaderDisabled",
+      "loading",
+      "showSpacer",
+      "showLoader"
+    ]
+  }
+}

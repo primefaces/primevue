@@ -1,0 +1,3150 @@
+{
+  "accordion/multiple": {
+    "description": "When enabled, multiple tabs can be activated at the same time.",
+    "type": "boolean"
+  },
+  "accordion/activeIndex": {
+    "description": "Index of the active tab or an array of indexes in multiple mode.",
+    "type": "number|array"
+  },
+  "accordion/lazy": {
+    "description": "When enabled, hidden tabs are not rendered at all. Defaults to false that hides tabs with css.",
+    "type": "boolean"
+  },
+  "accordion/expandIcon": {
+    "description": "Icon of a collapsed tab.",
+    "type": "string"
+  },
+  "accordion/collapseIcon": {
+    "description": "Icon of a expanded tab.",
+    "type": "string"
+  },
+  "accordiontab/header": {
+    "description": "Orientation of tab headers.",
+    "type": "string"
+  },
+  "accordiontab/disabled": {
+    "description": "Whether the tab is disabled.",
+    "type": "boolean"
+  },
+  "autocomplete/modelValue": {
+    "description": "Value of the component.",
+    "type": "any"
+  },
+  "autocomplete/suggestions": {
+    "description": "An array of suggestions to display.",
+    "type": "array"
+  },
+  "autocomplete/field": {
+    "description": "Property name or getter function of a suggested object to resolve and display.",
+    "type": "any"
+  },
+  "autocomplete/optionGroupLabel": {
+    "description": "Property name or getter function to use as the label of an option group.",
+    "type": "string"
+  },
+  "autocomplete/optionGroupChildren": {
+    "description": "Property name or getter function that refers to the children options of option group.",
+    "type": "string"
+  },
+  "autocomplete/scrollHeight": {
+    "description": "Maximum height of the suggestions panel.",
+    "type": "string"
+  },
+  "autocomplete/dropdown": {
+    "description": "Displays a button next to the input field when enabled.",
+    "type": "boolean"
+  },
+  "autocomplete/dropdownMode": {
+    "description": "Specifies the behavior dropdown button. Default \"blank\" mode sends an empty string and \"current\" mode sends the input value.",
+    "type": "string"
+  },
+  "autocomplete/autoHighlight": {
+    "description": "Highlights automatically the first item of the dropdown to be selected.",
+    "type": "boolean"
+  },
+  "autocomplete/multiple": {
+    "description": "Specifies if multiple values can be selected.",
+    "type": "boolean"
+  },
+  "autocomplete/minLength": {
+    "description": "Minimum number of characters to initiate a search.",
+    "type": "number"
+  },
+  "autocomplete/completeOnFocus": {
+    "description": "Whether to run a query when input receives focus.",
+    "type": "boolean"
+  },
+  "autocomplete/delay": {
+    "description": "Delay between keystrokes to wait before sending a query.",
+    "type": "number"
+  },
+  "autocomplete/appendTo": {
+    "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are \"body\" for document body and \"self\" for the element itself.",
+    "type": "string"
+  },
+  "autocomplete/inputStyle": {
+    "description": "Inline style of the input field.",
+    "type": "any"
+  },
+  "autocomplete/inputClass": {
+    "description": "Style class of the input field.",
+    "type": "string"
+  },
+  "autocomplete/forceSelection": {
+    "description": "When present, autocomplete clears the manual input if it does not match of the suggestions to force only accepting values from the suggestions.",
+    "type": "boolean"
+  },
+  "autocomplete/class": {
+    "description": "Style class of the component.",
+    "type": "string"
+  },
+  "autocomplete/style": {
+    "description": "Inline of the component.",
+    "type": "any"
+  },
+  "autocomplete/panelClass": {
+    "description": "Style class of the overlay panel.",
+    "type": "string"
+  },
+  "autocomplete/virtualScrollerOptions": {
+    "description": "Whether to use the virtualScroller feature. The properties of VirtualScroller component can be used like an object in it.",
+    "type": "object"
+  },
+  "avatar/label": {
+    "description": "Defines the text to display.",
+    "type": "string"
+  },
+  "avatar/icon": {
+    "description": "Defines the icon to display.",
+    "type": "string"
+  },
+  "avatar/image": {
+    "description": "Defines the image to display.",
+    "type": "string"
+  },
+  "avatar/size": {
+    "description": "Size of the element, valid options are \"large\" and \"xlarge\".",
+    "type": "string"
+  },
+  "avatar/shape": {
+    "description": "Shape of the element, valid options are \"square\" and \"circle\".",
+    "type": "string"
+  },
+  "badge/value": {
+    "description": "Value to display inside the badge.",
+    "type": "any"
+  },
+  "badge/severity": {
+    "description": "Severity type of the badge.",
+    "type": "string"
+  },
+  "badge/size": {
+    "description": "Size of the badge, valid options are \"large\" and \"xlarge\".",
+    "type": "string"
+  },
+  "blockui/blocked": {
+    "description": "Controls the blocked state.",
+    "type": "array"
+  },
+  "blockui/fullscreen": {
+    "description": "When enabled, the whole document gets blocked.",
+    "type": "menuitem"
+  },
+  "blockui/baseZIndex": {
+    "description": "Base zIndex value to use in layering.",
+    "type": "number"
+  },
+  "blockui/autoZIndex": {
+    "description": "Whether to automatically manage layering.",
+    "type": "boolean"
+  },
+  "breadcrumb/model": {
+    "description": "An array of menuitems.",
+    "type": "array"
+  },
+  "breadcrumb/home": {
+    "description": "Configuration for the home icon.",
+    "type": "menuitem"
+  },
+  "breadcrumb/exact": {
+    "description": "Whether to apply 'router-link-active-exact' class if route exactly matches the item path.",
+    "type": "boolean"
+  },
+  "button/label": {
+    "description": "Text of the button.",
+    "type": "string"
+  },
+  "button/icon": {
+    "description": "Name of the icon.",
+    "type": "string"
+  },
+  "button/iconPos": {
+    "description": "Position of the icon, valid values are \"left\", \"right\", \"bottom\" and \"top\".",
+    "type": "string"
+  },
+  "button/badge": {
+    "description": "Value of the badge.",
+    "type": "string"
+  },
+  "button/badgeClass": {
+    "description": "Style class of the badge.",
+    "type": "string"
+  },
+  "button/loading": {
+    "description": "Whether the button is in loading state.",
+    "type": "boolean"
+  },
+  "button/loadingIcon": {
+    "description": "Icon to display in loading state.",
+    "type": "string"
+  },
+  "calendar/modelValue": {
+    "description": "Value of the component.",
+    "type": "any"
+  },
+  "calendar/selectionMode": {
+    "description": "Defines the quantity of the selection, valid values are \"single\", \"multiple\" and \"range\".",
+    "type": "string"
+  },
+  "calendar/dateFormat": {
+    "description": "Format of the date. Defaults to PrimeVue Locale configuration.",
+    "type": "string"
+  },
+  "calendar/inline": {
+    "description": "When enabled, displays the calendar as inline instead of an overlay.",
+    "type": "boolean"
+  },
+  "calendar/showOtherMonths": {
+    "description": "Whether to display dates in other months (non-selectable) at the start or end of the current month. To make these days selectable use the selectOtherMonths option.",
+    "type": "boolean"
+  },
+  "calendar/selectOtherMonths": {
+    "description": "Whether days in other months shown before or after the current month are selectable. This only applies if the showOtherMonths option is set to true.",
+    "type": "boolean"
+  },
+  "calendar/showIcon": {
+    "description": "When enabled, displays a button with icon next to input.",
+    "type": "boolean"
+  },
+  "calendar/icon": {
+    "description": "Icon of the calendar button.",
+    "type": "string"
+  },
+  "calendar/numberOfMonths": {
+    "description": "Number of months to display.",
+    "type": "number"
+  },
+  "calendar/view": {
+    "description": "Type of view to display, valid valids are \"date\" for datepicker and \"month\" for month picker.",
+    "type": "string"
+  },
+  "calendar/touchUI": {
+    "description": "When enabled, calendar overlay is displayed as optimized for touch devices.",
+    "type": "boolean"
+  },
+  "calendar/monthNavigator": {
+    "description": "Whether the month should be rendered as a dropdown instead of text.",
+    "type": "boolean"
+  },
+  "calendar/yearNavigator": {
+    "description": "Whether the year should be rendered as a dropdown instead of text.",
+    "type": "boolean"
+  },
+  "calendar/yearRange": {
+    "description": "The range of years displayed in the year drop-down in (nnnn:nnnn) format such as (2000:2020).",
+    "type": "string"
+  },
+  "calendar/panelClass": {
+    "description": "Style class of the datetimepicker panel.",
+    "type": "string"
+  },
+  "calendar/minDate": {
+    "description": "The minimum selectable date.",
+    "type": "Date"
+  },
+  "calendar/maxDate": {
+    "description": "The maximum selectable date.",
+    "type": "Date"
+  },
+  "calendar/disabledDates": {
+    "description": "Array with dates to disable.",
+    "type": "array"
+  },
+  "calendar/disabledDays": {
+    "description": "Array with disabled weekday numbers.",
+    "type": "array"
+  },
+  "calendar/maxDateCount": {
+    "description": "Maximum number of selectable dates in multiple mode.",
+    "type": "number"
+  },
+  "calendar/showOnFocus": {
+    "description": "When disabled, datepicker will not be visible with input focus.",
+    "type": "boolean"
+  },
+  "calendar/autoZIndex": {
+    "description": "Whether to automatically manage layering.",
+    "type": "boolean"
+  },
+  "calendar/baseZIndex": {
+    "description": "Base zIndex value to use in layering.",
+    "type": "number"
+  },
+  "calendar/showButtonBar": {
+    "description": "Whether to display today and clear buttons at the footer",
+    "type": "boolean"
+  },
+  "calendar/shortYearCutoff": {
+    "description": "The cutoff year for determining the century for a date.",
+    "type": "string"
+  },
+  "calendar/showTime": {
+    "description": "Whether to display timepicker.",
+    "type": "boolean"
+  },
+  "calendar/timeOnly": {
+    "description": "Whether to display timepicker only.",
+    "type": "boolean"
+  },
+  "calendar/hourFormat": {
+    "description": "Specifies 12 or 24 hour format.",
+    "type": "string"
+  },
+  "calendar/stepHour": {
+    "description": "Hours to change per step.",
+    "type": "number"
+  },
+  "calendar/stepMinute": {
+    "description": "Minutes to change per step.",
+    "type": "number"
+  },
+  "calendar/stepSeconds": {
+    "description": "Seconds to change per step.",
+    "type": "number"
+  },
+  "calendar/showSeconds": {
+    "description": "Whether to show the seconds in time picker.",
+    "type": "boolean"
+  },
+  "calendar/hideOnDateTimeSelect": {
+    "description": "Whether to hide the overlay on date selection when showTime is enabled.",
+    "type": "boolean"
+  },
+  "calendar/timeSeparator": {
+    "description": "Separator of time selector.",
+    "type": "string"
+  },
+  "calendar/showWeek": {
+    "description": "When enabled, calendar will show week numbers.",
+    "type": "boolean"
+  },
+  "calendar/manualInput": {
+    "description": "Wheter to allow prevents entering the date manually via typing.",
+    "type": "boolean"
+  },
+  "calendar/appendTo": {
+    "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are \"body\" for document body and \"self\" for the element itself.",
+    "type": "string"
+  },
+  "calendar/inputStyle": {
+    "description": "Inline style of the input field.",
+    "type": "any"
+  },
+  "calendar/inputClass": {
+    "description": "Style class of the input field.",
+    "type": "string"
+  },
+  "calendar/class": {
+    "description": "Style class of the component.",
+    "type": "string"
+  },
+  "calendar/style": {
+    "description": "Inline style of the component.",
+    "type": "any"
+  },
+  "carousel/value": {
+    "description": "An array of objects to display.",
+    "type": "array"
+  },
+  "carousel/page": {
+    "description": "Index of the first item.",
+    "type": "number"
+  },
+  "carousel/circular": {
+    "description": "Defines if scrolling would be infinite.",
+    "type": "boolean"
+  },
+  "carousel/autoplayInterval": {
+    "description": "Time in milliseconds to scroll items automatically.",
+    "type": "number"
+  },
+  "carousel/numVisible": {
+    "description": "Number of items per page.",
+    "type": "number"
+  },
+  "carousel/numScroll": {
+    "description": "Number of items to scroll.",
+    "type": "number"
+  },
+  "carousel/responsiveOptions": {
+    "description": "An array of options for responsive design.",
+    "type": "any"
+  },
+  "carousel/orientation": {
+    "description": "Specifies the layout of the component, valid values are \"horizontal\" and \"vertical\".",
+    "type": "string"
+  },
+  "carousel/verticalViewPortHeight": {
+    "description": "Height of the viewport in vertical layout.",
+    "type": "string"
+  },
+  "carousel/contentClass": {
+    "description": "Style class of main content.",
+    "type": "string"
+  },
+  "carousel/containerClass": {
+    "description": "Style class of the viewport container.",
+    "type": "string"
+  },
+  "carousel/indicatorsContentClass": {
+    "description": "Style class of the indicator items.",
+    "type": "string"
+  },
+  "cascadeselect/modelValue": {
+    "description": "Value of the component.",
+    "type": "any"
+  },
+  "cascadeselect/options": {
+    "description": "An array of selectitems to display as the available options.",
+    "type": "array"
+  },
+  "cascadeselect/optionLabel": {
+    "description": "Property name or getter function to use as the label of an option.",
+    "type": "string | function"
+  },
+  "cascadeselect/optionValue": {
+    "description": "Property name or getter function to use as the value of an option, defaults to the option itself when not defined.",
+    "type": "string | function"
+  },
+  "cascadeselect/optionGroupLabel": {
+    "description": "Property name or getter function to use as the label of an option group.",
+    "type": "string | function"
+  },
+  "cascadeselect/optionGroupChildren": {
+    "description": "Property name or getter function to retrieve the items of a group.",
+    "type": "array | function"
+  },
+  "cascadeselect/placeholder": {
+    "description": "Default text to display when no option is selected.",
+    "type": "string"
+  },
+  "cascadeselect/disabled": {
+    "description": "When present, it specifies that the component should be disabled.",
+    "type": "boolean"
+  },
+  "cascadeselect/dataKey": {
+    "description": "A property to uniquely identify an option.",
+    "type": "string"
+  },
+  "cascadeselect/tabindex": {
+    "description": "Index of the element in tabbing order.",
+    "type": "number"
+  },
+  "cascadeselect/inputId": {
+    "description": "Identifier of the underlying input element.",
+    "type": "string"
+  },
+  "cascadeselect/ariaLabelledBy": {
+    "description": "Establishes relationships between the component and label(s) where its value should be one or more element IDs.",
+    "type": "string"
+  },
+  "cascadeselect/appendTo": {
+    "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are \"body\" for document body and \"self\" for the element itself.",
+    "type": "string"
+  },
+  "cascadeselect/panelClass": {
+    "description": "Style class of the overlay panel.",
+    "type": "string"
+  },
+  "cascadeselect/loading": {
+    "description": "Whether the multiselect is in loading state.",
+    "type": "boolean"
+  },
+  "cascadeselect/loadingIcon": {
+    "description": "Icon to display in loading state.",
+    "type": "string"
+  },
+  "chart/type": {
+    "description": "Type of the chart.",
+    "type": "string"
+  },
+  "chart/data": {
+    "description": "Data to display.",
+    "type": "any"
+  },
+  "chart/options": {
+    "description": "Options to customize the chart.",
+    "type": "any"
+  },
+  "chart/plugins": {
+    "description": "Used to custom plugins of the chart.",
+    "type": "any"
+  },
+  "chart/width": {
+    "description": "Width of the chart in non-responsive mode.",
+    "type": "number"
+  },
+  "chart/height": {
+    "description": "Height of the chart in non-responsive mode.",
+    "type": "number"
+  },
+  "checkbox/value": {
+    "description": "Value of the checkbox.",
+    "type": "any"
+  },
+  "checkbox/modelValue": {
+    "description": "Value binding of the checkbox.",
+    "type": "any"
+  },
+  "checkbox/binary": {
+    "description": "Allows to select a boolean value instead of multiple values.",
+    "type": "boolean"
+  },
+  "checkbox/class": {
+    "description": "Style class of the component.",
+    "type": "string"
+  },
+  "checkbox/style": {
+    "description": "Inline of the component.",
+    "type": "any"
+  },
+  "checkbox/trueValue": {
+    "description": "Value in checked state.",
+    "type": "any"
+  },
+  "checkbox/falseValue": {
+    "description": "Value in unchecked state.",
+    "type": "any"
+  },
+  "chip/label": {
+    "description": "Defines the text to display.",
+    "type": "string"
+  },
+  "chip/icon": {
+    "description": "Defines the icon to display.",
+    "type": "string"
+  },
+  "chip/image": {
+    "description": "Defines the image to display.",
+    "type": "string"
+  },
+  "chip/removable": {
+    "description": "Whether to display a remove icon.",
+    "type": "boolean"
+  },
+  "chip/removeIconClass": {
+    "description": "Icon of the remove element.",
+    "type": "string"
+  },
+  "chips/modelValue": {
+    "description": "Value of the component.",
+    "type": "array"
+  },
+  "chips/max": {
+    "description": "Maximum number of entries allowed.",
+    "type": "number"
+  },
+  "chips/separator": {
+    "description": "Separator char to add an item when pressed in addition to the enter key. Currently only possible value is \",\"",
+    "type": "string"
+  },
+  "chips/addOnBlur": {
+    "description": "Whether to add an item when the input loses focus.",
+    "type": "boolean"
+  },
+  "chips/allowDuplicate": {
+    "description": "Whether to allow duplicate values or not.",
+    "type": "boolean"
+  },
+  "chips/class": {
+    "description": "Style class of the component.",
+    "type": "string"
+  },
+  "chips/style": {
+    "description": "Inline of the component.",
+    "type": "any"
+  },
+  "colorpicker/modelValue": {
+    "description": "Value of the component.",
+    "type": "string"
+  },
+  "colorpicker/defaultColor": {
+    "description": "Initial color to display when value is not defined.",
+    "type": "string"
+  },
+  "colorpicker/inline": {
+    "description": "Whether to display as an overlay or not.",
+    "type": "boolean"
+  },
+  "colorpicker/format": {
+    "description": "Format to use in value binding, supported formats are \"hex\", \"rgb\" and \"hsb\".",
+    "type": "string"
+  },
+  "colorpicker/disabled": {
+    "description": "When present, it specifies that the component should be disabled.",
+    "type": "boolean"
+  },
+  "colorpicker/tabIndex": {
+    "description": "Index of the element in tabbing order.",
+    "type": "string"
+  },
+  "colorpicker/baseZIndex": {
+    "description": "Base zIndex value to use in layering.",
+    "type": "number"
+  },
+  "colorpicker/autoZIndex": {
+    "description": "Whether to automatically manage layering.",
+    "type": "boolean"
+  },
+  "colorpicker/ariaLabelledBy": {
+    "description": "Establishes relationships between the component and label(s) where its value should be one or more element IDs.",
+    "type": "string"
+  },
+  "colorpicker/panelClass": {
+    "description": "Style class of the overlay panel.",
+    "type": "string"
+  },
+  "colorpicker/appendTo": {
+    "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are \"body\" for document body and \"self\" for the element itself.",
+    "type": "string"
+  },
+  "column/columnKey": {
+    "description": "Identifier of a column if field property is not defined.",
+    "type": "any"
+  },
+  "column/field": {
+    "description": "Property represented by the column.",
+    "type": "string"
+  },
+  "column/sortField": {
+    "description": "Property name to use in sorting, defaults to field.",
+    "type": "string"
+  },
+  "column/filterField": {
+    "description": "Property name to use in filtering, defaults to field.",
+    "type": "string"
+  },
+  "column/sortable": {
+    "description": "Defines if a column is sortable.",
+    "type": "any"
+  },
+  "column/header": {
+    "description": "Header content of the column.",
+    "type": "any"
+  },
+  "column/footer": {
+    "description": "Footer content of the column.",
+    "type": "any"
+  },
+  "column/style": {
+    "description": "Inline style of header, body and footer cells.",
+    "type": "object"
+  },
+  "column/class": {
+    "description": "Style class of header, body and footer cells.",
+    "type": "string"
+  },
+  "column/headerStyle": {
+    "description": "Inline style of the column header.",
+    "type": "object"
+  },
+  "column/headerClass": {
+    "description": "Style class of the column header.",
+    "type": "string"
+  },
+  "column/bodyStyle": {
+    "description": "Inline style of the column body.",
+    "type": "object"
+  },
+  "column/bodyClass": {
+    "description": "Style class of the column body.",
+    "type": "string"
+  },
+  "column/footerStyle": {
+    "description": "Inline style of the column footer.",
+    "type": "object"
+  },
+  "column/footerClass": {
+    "description": "Style class of the footer body.",
+    "type": "string"
+  },
+  "column/showFilterMenu": {
+    "description": "Whether to display the filter overlay.",
+    "type": "boolean"
+  },
+  "column/showFilterOperator": {
+    "description": "When enabled, match all and match any operator selector is displayed.",
+    "type": "boolean"
+  },
+  "column/showClearButton": {
+    "description": "Displays a button to clear the column filtering.",
+    "type": "boolean"
+  },
+  "column/showApplyButton": {
+    "description": "Displays a button to apply the column filtering.",
+    "type": "boolean"
+  },
+  "column/showFilterMatchModes": {
+    "description": "Whether to show the match modes selector.",
+    "type": "boolean"
+  },
+  "column/showAddButton": {
+    "description": "When enabled, a button is displayed to add more rules.",
+    "type": "boolean"
+  },
+  "column/filterMatchModeOptions": {
+    "description": "An array of label-value pairs to override the global match mode options.",
+    "type": "array"
+  },
+  "column/maxConstraints": {
+    "description": "Maximum number of constraints for a column filter.",
+    "type": "number"
+  },
+  "column/excludeGlobalFilter": {
+    "description": "Whether to exclude from global filtering or not.",
+    "type": "boolean"
+  },
+  "column/filterHeaderStyle": {
+    "description": "Inline style of the column filter header in row filter display.",
+    "type": "object"
+  },
+  "column/filterHeaderClass": {
+    "description": "Style class of the column filter header in row filter display.",
+    "type": "string"
+  },
+  "column/filterMenuStyle": {
+    "description": "Inline style of the column filter overlay.",
+    "type": "object"
+  },
+  "column/filterMenuClass": {
+    "description": "Style class of the column filter overlay.",
+    "type": "string"
+  },
+  "column/selectionMode": {
+    "description": "Defines column based selection mode, options are \"single\" and \"multiple\".",
+    "type": "string"
+  },
+  "column/expander": {
+    "description": "Displays an icon to toggle row expansion.",
+    "type": "boolean"
+  },
+  "column/colspan": {
+    "description": "Number of columns to span for grouping.",
+    "type": "number"
+  },
+  "column/rowspan": {
+    "description": "Number of rows to span for grouping.",
+    "type": "number"
+  },
+  "column/rowReorder": {
+    "description": "Whether this column displays an icon to reorder the rows.",
+    "type": "boolean"
+  },
+  "column/rowReorderIcon": {
+    "description": "Icon of the drag handle to reorder rows.",
+    "type": "string"
+  },
+  "column/reorderableColumn": {
+    "description": "Defines if the column itself can be reordered with dragging.",
+    "type": "boolean"
+  },
+  "column/rowEditor": {
+    "description": "When enabled, column displays row editor controls.",
+    "type": "boolean"
+  },
+  "column/frozen": {
+    "description": "Whether the column is fixed in horizontal scrolling.",
+    "type": "boolean"
+  },
+  "column/alignFrozen": {
+    "description": "Position of a frozen column, valid values are left and right.",
+    "type": "string"
+  },
+  "column/exportable": {
+    "description": "Whether the column is included in data export.",
+    "type": "boolean"
+  },
+  "column/exportHeader": {
+    "description": "Custom export header of the column to be exported as CSV.",
+    "type": "string"
+  },
+  "column/hidden": {
+    "description": "Whether the column is rendered.",
+    "type": "boolean"
+  },
+  "confirmdialog/group": {
+    "description": "Optional key to match the key of the confirmation, useful to target a specific confirm dialog instance.",
+    "type": "string"
+  },
+  "confirmdialog/breakpoints": {
+    "description": "Object literal to define widths per screen size.",
+    "type": "object"
+  },
+  "confirmpopup/group": {
+    "description": "Optional key to match the key of the confirmation, useful to target a specific confirm dialog instance.",
+    "type": "string"
+  },
+  "contextmenu/model": {
+    "description": "An array of menuitems.",
+    "type": "array"
+  },
+  "contextmenu/appendTo": {
+    "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached.",
+    "type": "string"
+  },
+  "contextmenu/baseZIndex": {
+    "description": "Base zIndex value to use in layering.",
+    "type": "number"
+  },
+  "contextmenu/autoZIndex": {
+    "description": "Whether to automatically manage layering.",
+    "type": "boolean"
+  },
+  "contextmenu/global": {
+    "description": "Attaches the menu to document instead of a particular item.",
+    "type": "boolean"
+  },
+  "contextmenu/exact": {
+    "description": "Whether to apply 'router-link-active-exact' class if route exactly matches the item path.",
+    "type": "boolean"
+  },
+  "datatable/value": {
+    "description": "An array of objects to display.",
+    "type": "array"
+  },
+  "datatable/dataKey": {
+    "description": "Name of the field that uniquely identifies the a record in the data.",
+    "type": "string"
+  },
+  "datatable/rows": {
+    "description": "Number of rows to display per page.",
+    "type": "number"
+  },
+  "datatable/first": {
+    "description": "Index of the first row to be displayed.",
+    "type": "number"
+  },
+  "datatable/totalRecords": {
+    "description": "Number of total records, defaults to length of value when not defined.",
+    "type": "number"
+  },
+  "datatable/paginator": {
+    "description": "When specified as true, enables the pagination.",
+    "type": "boolean"
+  },
+  "datatable/paginatorPosition": {
+    "description": "Position of the paginator, options are \"top\",\"bottom\" or \"both\".",
+    "type": "string"
+  },
+  "datatable/alwaysShowPaginator": {
+    "description": "Whether to show it even there is only one page.",
+    "type": "boolean"
+  },
+  "datatable/paginatorTemplate": {
+    "description": "emplate of the paginator.",
+    "type": "string"
+  },
+  "datatable/pageLinkSize": {
+    "description": "Number of page links to display.",
+    "type": "number"
+  },
+  "datatable/rowsPerPageOptions": {
+    "description": "Array of integer values to display inside rows per page dropdown.",
+    "type": "array"
+  },
+  "datatable/currentPageReportTemplate": {
+    "description": "Template of the current page report element.",
+    "type": "string"
+  },
+  "datatable/lazy": {
+    "description": "Defines if data is loaded and interacted with in lazy manner.",
+    "type": "boolean"
+  },
+  "datatable/loading": {
+    "description": "Displays a loader to indicate data load is in progress.",
+    "type": "boolean"
+  },
+  "datatable/loadingIcon": {
+    "description": "The icon to show while indicating data load is in progress.",
+    "type": "string"
+  },
+  "datatable/sortField": {
+    "description": "Property name or a getter function of a row data used for sorting by default",
+    "type": "string"
+  },
+  "datatable/sortOrder": {
+    "description": "Order to sort the data by default.",
+    "type": "number"
+  },
+  "datatable/defaultSortOrder": {
+    "description": "Default sort order of an unsorted column.",
+    "type": "number"
+  },
+  "datatable/multiSortMeta": {
+    "description": "An array of SortMeta objects to sort the data by default in multiple sort mode.",
+    "type": "array"
+  },
+  "datatable/sortMode": {
+    "description": "Defines whether sorting works on single column or on multiple columns.",
+    "type": "string"
+  },
+  "datatable/removableSort": {
+    "description": "When enabled, columns can have an un-sorted state.",
+    "type": "boolean"
+  },
+  "datatable/filters": {
+    "description": "Filters object with key-value pairs to define the filters.",
+    "type": "object"
+  },
+  "datatable/filterDisplay": {
+    "description": "Layout of the filter elements, valid values are \"row\" and \"menu\".",
+    "type": "string"
+  },
+  "datatable/filterLocale": {
+    "description": "Locale to use in filtering. The default locale is the host environment's current locale.",
+    "type": "string"
+  },
+  "datatable/selection": {
+    "description": "Selected row in single mode or an array of values in multiple mode.",
+    "type": "any"
+  },
+  "datatable/selectionMode": {
+    "description": "Specifies the selection mode, valid values are \"single\" and \"multiple\".",
+    "type": "string"
+  },
+  "datatable/compareSelectionBy": {
+    "description": "Algorithm to define if a row is selected, valid values are \"equals\" that compares by reference and \"deepEquals\" that compares all fields.",
+    "type": "string"
+  },
+  "datatable/metaKeySelection": {
+    "description": "Defines whether metaKey is requred or not for the selection. When true metaKey needs to be pressed to select or unselect an item and when set to false selection of each item can be toggled individually. On touch enabled devices, metaKeySelection is turned off automatically.",
+    "type": "boolean"
+  },
+  "datatable/contextMenu": {
+    "description": "Enables context menu integration.",
+    "type": "boolean"
+  },
+  "datatable/contextMenuSelection": {
+    "description": "Selected row instance with the ContextMenu.",
+    "type": "object"
+  },
+  "datatable/rowHover": {
+    "description": "When enabled, background of the rows change on hover.",
+    "type": "boolean"
+  },
+  "datatable/selectAll": {
+    "description": "Whether all data is selected.",
+    "type": "boolean"
+  },
+  "datatable/csvSeparator": {
+    "description": "Character to use as the csv separator.",
+    "type": "string"
+  },
+  "datatable/exportFilename": {
+    "description": "Name of the exported file.",
+    "type": "string"
+  },
+  "datatable/exportFunction": {
+    "description": "Custom function to export data.",
+    "type": "function"
+  },
+  "datatable/autoLayout": {
+    "description": "Whether the cell widths scale according to their content or not. Does not apply to scrollable tables.",
+    "type": "boolean"
+  },
+  "datatable/resizableColumns": {
+    "description": "When enabled, columns can be resized using drag and drop.",
+    "type": "boolean"
+  },
+  "datatable/columnResizeMode": {
+    "description": "Defines whether the overall table width should change on column resize, valid values are \"fit\" and \"expand\".",
+    "type": "string"
+  },
+  "datatable/reorderableColumns": {
+    "description": "When enabled, columns can be reordered using drag and drop.",
+    "type": "boolean"
+  },
+  "datatable/expandedRows": {
+    "description": "A collection of row data display as expanded.",
+    "type": "array"
+  },
+  "datatable/expandedRowIcon": {
+    "description": "Icon of the row toggler to display the row as expanded.",
+    "type": "string"
+  },
+  "datatable/collapsedRowIcon": {
+    "description": "Icon of the row toggler to display the row as collapsed.",
+    "type": "string"
+  },
+  "datatable/rowGroupMode": {
+    "description": "Defines the row group mode, valid options are \"subheader\" and \"rowspan\".",
+    "type": "string"
+  },
+  "datatable/groupRowsBy": {
+    "description": "One or more field names to use in row grouping.",
+    "type": "string|array"
+  },
+  "datatable/expandableRowGroups": {
+    "description": "Whether the row groups can be expandable.",
+    "type": "boolean"
+  },
+  "datatable/expandedRowGroups": {
+    "description": "An array of group field values whose groups would be rendered as expanded.",
+    "type": "array"
+  },
+  "datatable/stateStorage": {
+    "description": "Defines where a stateful table keeps its state, valid values are \"session\" for sessionStorage and \"local\" for localStorage.",
+    "type": "string"
+  },
+  "datatable/stateKey": {
+    "description": "Unique identifier of a stateful table to use in state storage.",
+    "type": "string"
+  },
+  "datatable/editMode": {
+    "description": "Defines the incell editing mode, valid options are \"cell\" and \"row\".",
+    "type": "string"
+  },
+  "datatable/editingRows": {
+    "description": "A collection of rows to represent the current editing data in row edit mode.",
+    "type": "array"
+  },
+  "datatable/rowClass": {
+    "description": "A function that takes the row data and returns a string to apply a particular class for the row.",
+    "type": "function"
+  },
+  "datatable/rowStyle": {
+    "description": "A function that takes the row data as a parameter and returns the inline style for the corresponding row.",
+    "type": "object"
+  },
+  "datatable/scrollable": {
+    "description": "When specified, enables horizontal and/or vertical scrolling.",
+    "type": "boolean"
+  },
+  "datatable/scrollDirection": {
+    "description": "Orientation of the scrolling, options are \"vertical\", \"horizontal\" and \"both\".",
+    "type": "string"
+  },
+  "datatable/scrollHeight": {
+    "description": "Height of the scroll viewport in fixed units or the \"flex\" keyword for a dynamic size.",
+    "type": "string"
+  },
+  "datatable/virtualScrollerOptions": {
+    "description": "Whether to use the virtualScroller feature. The properties of VirtualScroller component can be used like an object in it. Note: Currently only vertical orientation mode is supported.",
+    "type": "object"
+  },
+  "datatable/frozenValue": {
+    "description": "Items of the frozen part in scrollable DataTable.",
+    "type": "array"
+  },
+  "datatable/responsiveLayout": {
+    "description": "Defines the responsive mode, valid options are \"stack\" and \"scroll\".",
+    "type": "string"
+  },
+  "datatable/breakpoint": {
+    "description": "The breakpoint to define the maximum width boundary when using stack responsive layout.",
+    "type": "string"
+  },
+  "datatable/showGridlines": {
+    "description": "Whether to show grid lines between cells.",
+    "type": "boolean"
+  },
+  "datatable/stripedRows": {
+    "description": "Whether to displays rows with alternating colors.",
+    "type": "boolean"
+  },
+  "datatable/tableStyle": {
+    "description": "Inline style of the table element.",
+    "type": "object"
+  },
+  "datatable/tableClass": {
+    "description": "Style class of the table element.",
+    "type": "string"
+  },
+  "dataview/value": {
+    "description": "An array of objects to display.",
+    "type": "array"
+  },
+  "dataview/layout": {
+    "description": "Layout of the items, valid values are \"list\" and \"grid\".",
+    "type": "string"
+  },
+  "dataview/rows": {
+    "description": "Number of rows to display per page.",
+    "type": "number"
+  },
+  "dataview/first": {
+    "description": "ndex of the first record to render.",
+    "type": "number"
+  },
+  "dataview/totalRecords": {
+    "description": "Number of total records, defaults to length of value when not defined.",
+    "type": "number"
+  },
+  "dataview/paginator": {
+    "description": "When specified as true, enables the pagination.",
+    "type": "boolean"
+  },
+  "dataview/paginatorPosition": {
+    "description": "Position of the paginator, options are \"top\",\"bottom\" or \"both\".",
+    "type": "string"
+  },
+  "dataview/alwaysShowPaginator": {
+    "description": "Whether to show it even there is only one page.",
+    "type": "boolean"
+  },
+  "dataview/paginatorTemplate": {
+    "description": "Template of the paginator.",
+    "type": "string"
+  },
+  "dataview/pageLinkSize": {
+    "description": "Number of page links to display.",
+    "type": "number"
+  },
+  "dataview/rowsPerPageOptions": {
+    "description": "Array of integer values to display inside rows per page dropdown.",
+    "type": "array"
+  },
+  "dataview/currentPageReportTemplate": {
+    "description": "Template of the current page report element.",
+    "type": "string"
+  },
+  "dataview/sortField": {
+    "description": "Property name or a getter function of data to use in sorting by default.",
+    "type": "string"
+  },
+  "dataview/sortOrder": {
+    "description": "Order to sort the data by default.",
+    "type": "number"
+  },
+  "dataview/lazy": {
+    "description": "Defines if data is loaded and interacted with in lazy manner.",
+    "type": "boolean"
+  },
+  "dataview/dataKey": {
+    "description": "Name of the data that uniquely identifies the a record in the data.",
+    "type": "string"
+  },
+  "dialog/header": {
+    "description": "Title content of the dialog.",
+    "type": "any"
+  },
+  "dialog/footer": {
+    "description": "Footer content of the dialog.",
+    "type": "any"
+  },
+  "dialog/visible": {
+    "description": "Specifies the visibility of the dialog.",
+    "type": "boolean"
+  },
+  "dialog/modal": {
+    "description": "Defines if background should be blocked when dialog is displayed.",
+    "type": "boolean"
+  },
+  "dialog/closeOnEscape": {
+    "description": "Specifies if pressing escape key should hide the dialog.",
+    "type": "boolean"
+  },
+  "dialog/dismissableMask": {
+    "description": "Specifies if clicking the modal background should hide the dialog.",
+    "type": "boolean"
+  },
+  "dialog/position": {
+    "description": "Position of the dialog, options are \"center\", \"top\", \"bottom\", \"left\", \"right\", \"topleft\", \"topright\", \"bottomleft\" or \"bottomright\".",
+    "type": "string"
+  },
+  "dialog/contentStyle": {
+    "description": "Style of the content section.",
+    "type": "object"
+  },
+  "dialog/contentClass": {
+    "description": "Style class of the content section.",
+    "type": "string"
+  },
+  "dialog/rtl": {
+    "description": "When enabled dialog is displayed in RTL direction.",
+    "type": "boolean"
+  },
+  "dialog/closable": {
+    "description": "Adds a close icon to the header to hide the dialog.",
+    "type": "boolean"
+  },
+  "dialog/showHeader": {
+    "description": "Whether to show the header or not.",
+    "type": "boolean"
+  },
+  "dialog/baseZIndex": {
+    "description": "Base zIndex value to use in layering.",
+    "type": "number"
+  },
+  "dialog/autoZIndex": {
+    "description": "Whether to automatically manage layering.",
+    "type": "boolean"
+  },
+  "dialog/ariaCloseLabel": {
+    "description": "Aria label of the close icon.",
+    "type": "string"
+  },
+  "dialog/maximizable": {
+    "description": "Whether the dialog can be displayed full screen.",
+    "type": "boolean"
+  },
+  "dialog/breakpoints": {
+    "description": "Object literal to define widths per screen size.",
+    "type": "object"
+  },
+  "dialog/draggable": {
+    "description": "Whether the dialog can be relocated by dragging.",
+    "type": "boolean"
+  },
+  "dialog/minX": {
+    "description": "Minimum value for the left coordinate of dialog in dragging.",
+    "type": "number"
+  },
+  "dialog/minY": {
+    "description": "Minimum value for the top coordinate of dialog in dragging.",
+    "type": "number"
+  },
+  "dialog/keepInViewport": {
+    "description": "Keeps dialog in the viewport when dragging.",
+    "type": "boolean"
+  },
+  "dialog/appendTo": {
+    "description": "A valid query selector or an HTMLElement to specify where the dialog gets attached. Special keywords are \"body\" for document body and \"self\" for the element itself.",
+    "type": "string"
+  },
+  "divider/align": {
+    "description": "Alignment of the content, options are \"left\", \"center\", \"right\" for horizontal layout and \"top\", \"center\", \"bottom\" for vertical.",
+    "type": "string"
+  },
+  "divider/layout": {
+    "description": "Specifies the orientation, valid values are \"horizontal\" and \"vertical\".",
+    "type": "string"
+  },
+  "divider/type": {
+    "description": "Border style type, default is \"solid\" and other options are \"dashed\" and \"dotted\".",
+    "type": "string"
+  },
+  "dock/model": {
+    "description": "MenuModel instance to define the action items.",
+    "type": "object"
+  },
+  "dock/position": {
+    "description": "Position of element. Valid values are 'bottom', 'top', 'left' and 'right'.",
+    "type": "string"
+  },
+  "dock/class": {
+    "description": "Style class of the element.",
+    "type": "string"
+  },
+  "dock/style": {
+    "description": "Inline style of the element.",
+    "type": "object"
+  },
+  "dock/exact": {
+    "description": "Whether to apply 'router-link-active-exact' class if route exactly matches the item path.",
+    "type": "boolean"
+  },
+  "dock/tooltipOptions": {
+    "description": "Whether to display the tooltip on items. The modifiers of tooltip can be used like an object in it. Valid keys are 'event' and 'position'.",
+    "type": "object"
+  },
+  "dropdown/modelValue": {
+    "description": "Value of the component.",
+    "type": "any"
+  },
+  "dropdown/options": {
+    "description": "An array of selectitems to display as the available options.",
+    "type": "array"
+  },
+  "dropdown/optionLabel": {
+    "description": "Property name or getter function to use as the label of an option.",
+    "type": "string | function"
+  },
+  "dropdown/optionValue": {
+    "description": "Property name or getter function to use as the value of an option, defaults to the option itself when not defined.",
+    "type": "string | function"
+  },
+  "dropdown/optionDisabled": {
+    "description": "Property name or getter function to use as the disabled flag of an option, defaults to false when not defined.",
+    "type": "boolean"
+  },
+  "dropdown/optionGroupLabel": {
+    "description": "Property name or getter function to use as the label of an option group.",
+    "type": "string | function"
+  },
+  "dropdown/optionGroupChildren": {
+    "description": "Property name or getter function that refers to the children options of option group.",
+    "type": "string | function"
+  },
+  "dropdown/scrollHeight": {
+    "description": "Height of the viewport, a scrollbar is defined if height of list exceeds this value.",
+    "type": "string"
+  },
+  "dropdown/filter": {
+    "description": "When specified, displays a filter input at header.",
+    "type": "boolean"
+  },
+  "dropdown/filterPlaceholder": {
+    "description": "Placeholder text to show when filter input is empty.",
+    "type": "string"
+  },
+  "dropdown/filterLocale": {
+    "description": "Locale to use in filtering. The default locale is the host environment's current locale.",
+    "type": "string"
+  },
+  "dropdown/filterMatchMode": {
+    "description": "Defines the filtering algorithm to use when searching the options. Valid values are \"contains\" (default), \"startsWith\" and \"endsWith\"",
+    "type": "string"
+  },
+  "dropdown/filterFields": {
+    "description": "Fields used when filtering the options, defaults to optionLabel.",
+    "type": "array"
+  },
+  "dropdown/editable": {
+    "description": "When present, custom value instead of predefined options can be entered using the editable input field.",
+    "type": "boolean"
+  },
+  "dropdown/placeholder": {
+    "description": "Default text to display when no option is selected.",
+    "type": "string"
+  },
+  "dropdown/disabled": {
+    "description": "When present, it specifies that the component should be disabled.",
+    "type": "boolean"
+  },
+  "dropdown/dataKey": {
+    "description": "A property to uniquely identify an option.",
+    "type": "string"
+  },
+  "dropdown/showClear": {
+    "description": "When enabled, a clear icon is displayed to clear the value.",
+    "type": "boolean"
+  },
+  "dropdown/tabindex": {
+    "description": "Index of the element in tabbing order.",
+    "type": "number"
+  },
+  "dropdown/inputId": {
+    "description": "Identifier of the underlying input element.",
+    "type": "string"
+  },
+  "dropdown/ariaLabelledBy": {
+    "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are \"body\" for document body and \"self\" for the element itself.",
+    "type": "string"
+  },
+  "dropdown/emptyFilterMessage": {
+    "description": "Text to display when filtering does not return any results. Defaults to value from PrimeVue locale configuration.",
+    "type": "string"
+  },
+  "dropdown/emptyMessage": {
+    "description": "Text to display when there are no options available. Defaults to value from PrimeVue locale configuration.",
+    "type": "string"
+  },
+  "dropdown/panelClass": {
+    "description": "Style class of the overlay panel.",
+    "type": "string"
+  },
+  "dropdown/loading": {
+    "description": "Whether the multiselect is in loading state.",
+    "type": "boolean"
+  },
+  "dropdown/loadingIcon": {
+    "description": "Icon to display in loading state.",
+    "type": "string"
+  },
+  "dropdown/virtualScrollerOptions": {
+    "description": "Whether to use the virtualScroller feature. The properties of VirtualScroller component can be used like an object in it.",
+    "type": "object"
+  },
+  "editor/modelValue": {
+    "description": "Value of the content.",
+    "type": "string"
+  },
+  "editor/placeholder": {
+    "description": "Placeholder text to show when editor is empty.",
+    "type": "string"
+  },
+  "editor/readonly": {
+    "description": "Whether to instantiate the editor to readonly mode.",
+    "type": "boolean"
+  },
+  "editor/formats": {
+    "description": "Whitelist of formats to display.",
+    "type": "string[]"
+  },
+  "editor/editorStyle": {
+    "description": "Inline style of the container.",
+    "type": "any"
+  },
+  "fieldset/legend": {
+    "description": "Header text of the fieldset.",
+    "type": "string"
+  },
+  "fieldset/toggleable": {
+    "description": "When specified, content can toggled by clicking the legend.",
+    "type": "boolean"
+  },
+  "fieldset/collapsed": {
+    "description": "Defines the default visibility state of the content.",
+    "type": "boolean"
+  },
+  "fileupload/name": {
+    "description": "Name of the request parameter to identify the files at backend.",
+    "type": "string"
+  },
+  "fileupload/url": {
+    "description": "Remote url to upload the files.",
+    "type": "string"
+  },
+  "fileupload/mode": {
+    "description": "Defines the UI of the component, possible values are \"advanced\" and \"basic\".",
+    "type": "string"
+  },
+  "fileupload/multiple": {
+    "description": "Used to select multiple files at once from file dialog.",
+    "type": "boolean"
+  },
+  "fileupload/accept": {
+    "description": "Pattern to restrict the allowed file types such as \"image/*\".",
+    "type": "string"
+  },
+  "fileupload/disabled": {
+    "description": "Disables the upload functionality.",
+    "type": "boolean"
+  },
+  "fileupload/auto": {
+    "description": "When enabled, upload begins automatically after selection is completed.",
+    "type": "boolean"
+  },
+  "fileupload/maxFileSize": {
+    "description": "Maximum file size allowed in bytes.",
+    "type": "number"
+  },
+  "fileupload/invalidFileSizeMessage": {
+    "description": "Message of the invalid fize size.",
+    "type": "string"
+  },
+  "fileupload/invalidFileLimitMessage": {
+    "description": "Message to display when number of files to be uploaded exceeeds the limit.",
+    "type": "string"
+  },
+  "fileupload/fileLimit": {
+    "description": "Maximum number of files that can be uploaded.",
+    "type": "number"
+  },
+  "fileupload/withCredentials": {
+    "description": "Cross-site Access-Control requests should be made using credentials such as cookies, authorization headers or TLS client certificates.",
+    "type": "boolean"
+  },
+  "fileupload/previewWidth": {
+    "description": "Width of the image thumbnail in pixels.",
+    "type": "number"
+  },
+  "fileupload/chooseLabel": {
+    "description": "Label of the choose button. Defaults to PrimeVue Locale configuration.",
+    "type": "string"
+  },
+  "fileupload/uploadLabel": {
+    "description": "Label of the upload button. Defaults to PrimeVue Locale configuration.",
+    "type": "string"
+  },
+  "fileupload/cancelLabel": {
+    "description": "Label of the cancel button. Defaults to PrimeVue Locale configuration.",
+    "type": "string"
+  },
+  "fileupload/customUpload": {
+    "description": "Whether to use the default upload or a manual implementation defined in uploadHandler callback. Defaults to PrimeVue Locale configuration.",
+    "type": "boolean"
+  },
+  "fileupload/showUploadButton": {
+    "description": "Whether to show the upload button.",
+    "type": "boolean"
+  },
+  "fileupload/showCancelButton": {
+    "description": "Whether to cancel the upload button.",
+    "type": "boolean"
+  },
+  "fileupload/chooseIcon": {
+    "description": "Icon of the choose button.",
+    "type": "string"
+  },
+  "fileupload/uploadIcon": {
+    "description": "Icon of the upload button.",
+    "type": "string"
+  },
+  "fileupload/cancelIcon": {
+    "description": "Icon of the cancel button.",
+    "type": "string"
+  },
+  "fileupload/style": {
+    "description": "Inline style of the component.",
+    "type": "any"
+  },
+  "fileupload/class": {
+    "description": "Style class of the component.",
+    "type": "string"
+  },
+  "fullcalendar/events": {
+    "description": "An array of events to display.",
+    "type": "array"
+  },
+  "fullcalendar/options": {
+    "description": "A configuration object to define properties of FullCalendar.",
+    "type": "object"
+  },
+  "galleria/id": {
+    "description": "Unique identifier of the element.",
+    "type": "string"
+  },
+  "galleria/value": {
+    "description": "An array of objects to display.",
+    "type": "array"
+  },
+  "galleria/activeIndex": {
+    "description": "Index of the first item.",
+    "type": "number"
+  },
+  "galleria/fullscreen": {
+    "description": "Whether to display the component on fullscreen.",
+    "type": "boolean"
+  },
+  "galleria/visible": {
+    "description": "Specifies the visibility of the mask on fullscreen mode.",
+    "type": "boolean"
+  },
+  "galleria/numVisible": {
+    "description": "Number of items per page.",
+    "type": "number"
+  },
+  "galleria/responsiveOptions": {
+    "description": "An array of options for responsive design.",
+    "type": "any"
+  },
+  "galleria/showItemNavigators": {
+    "description": "Whether to display navigation buttons in item section.",
+    "type": "boolean"
+  },
+  "galleria/showThumbnailNavigators": {
+    "description": "Whether to display navigation buttons in thumbnail container.",
+    "type": "boolean"
+  },
+  "galleria/showItemNavigatorsOnHover": {
+    "description": "Whether to display navigation buttons on item hover.",
+    "type": "boolean"
+  },
+  "galleria/changeItemOnIndicatorHover": {
+    "description": "When enabled, item is changed on indicator hover.",
+    "type": "boolean"
+  },
+  "galleria/circular": {
+    "description": "Defines if scrolling would be infinite.",
+    "type": "boolean"
+  },
+  "galleria/autoPlay": {
+    "description": "Items are displayed with a slideshow in autoPlay mode.",
+    "type": "boolean"
+  },
+  "galleria/transitionInterval": {
+    "description": "Time in milliseconds to scroll items.",
+    "type": "number"
+  },
+  "galleria/showThumbnails": {
+    "description": "Whether to display thumbnail container.",
+    "type": "boolean"
+  },
+  "galleria/thumbnailsPosition": {
+    "description": "Position of thumbnails. Valid values are \"bottom\", \"top\", \"left\" and \"right\".",
+    "type": "string"
+  },
+  "galleria/verticalThumbnailViewPortHeight": {
+    "description": "Height of the viewport in vertical thumbnail.",
+    "type": "string"
+  },
+  "galleria/showIndicators": {
+    "description": "Whether to display indicator container.",
+    "type": "boolean"
+  },
+  "galleria/showIndicatorsOnItem": {
+    "description": "When enabled, indicator container is displayed on item container.",
+    "type": "boolean"
+  },
+  "galleria/indicatorsPosition": {
+    "description": "Position of indicators. Valid values are \"bottom\", \"top\", \"left\" and \"right\".",
+    "type": "string"
+  },
+  "galleria/baseZIndex": {
+    "description": "ase zIndex value to use in layering.",
+    "type": "number"
+  },
+  "galleria/maskClass": {
+    "description": "Style class of the mask on fullscreen mode.",
+    "type": "string"
+  },
+  "galleria/containerStyle": {
+    "description": "Inline style of the component on fullscreen mode. Otherwise, the 'style' property can be used.",
+    "type": "any"
+  },
+  "galleria/containerClass": {
+    "description": "Style class of the component on fullscreen mode. Otherwise, the 'class' property can be used.",
+    "type": "any"
+  },
+  "image/preview": {
+    "description": "Controls the preview functionality.",
+    "type": "boolean"
+  },
+  "inlinemessage/severity": {
+    "description": "Severity level of the message. Valid severities are \"success\", \"info\", \"warn\" and \"error\".",
+    "type": "string"
+  },
+  "inplace/active": {
+    "description": "Whether the content is displayed or not.",
+    "type": "boolean"
+  },
+  "inplace/closable": {
+    "description": "Displays a button to switch back to display mode.",
+    "type": "boolean"
+  },
+  "inplace/diabled": {
+    "description": "When present, it specifies that the element should be disabled.",
+    "type": "boolean"
+  },
+  "inputmask/modelValue": {
+    "description": "Value of the component.",
+    "type": "any"
+  },
+  "inputmask/mask": {
+    "description": "Mask pattern.",
+    "type": "string"
+  },
+  "inputmask/slotChar": {
+    "description": "Placeholder character in mask, default is underscore.",
+    "type": "string"
+  },
+  "inputmask/autoClear": {
+    "description": "Clears the incomplete value on blur.",
+    "type": "boolean"
+  },
+  "inputmask/unmask": {
+    "description": "Defines if model sets the raw unmasked value to bound value or the formatted mask value.",
+    "type": "boolean"
+  },
+  "inputnumber/modelValue": {
+    "description": "Value of the component.",
+    "type": "number"
+  },
+  "inputnumber/format": {
+    "description": "Whether to format the value.",
+    "type": "boolean"
+  },
+  "inputnumber/showButtons": {
+    "description": "Displays spinner buttons.",
+    "type": "boolean"
+  },
+  "inputnumber/buttonLayout": {
+    "description": "Layout of the buttons, valid values are \"stacked\" (default), \"horizontal\" and \"vertical\".",
+    "type": "string"
+  },
+  "inputnumber/incrementButtonClass": {
+    "description": "Style class of the increment button.",
+    "type": "string"
+  },
+  "inputnumber/decrementButtonClass": {
+    "description": "Style class of the decrement button.",
+    "type": "string"
+  },
+  "inputnumber/incrementButtonIcon": {
+    "description": "Style class of the increment button.",
+    "type": "string"
+  },
+  "inputnumber/decrementButtonIcon": {
+    "description": "Style class of the decrement button.",
+    "type": "string"
+  },
+  "inputnumber/locale": {
+    "description": "Locale to be used in formatting.",
+    "type": "string"
+  },
+  "inputnumber/localeMatcher": {
+    "description": "The locale matching algorithm to use. Possible values are \"lookup\" and \"best fit\".",
+    "type": "string"
+  },
+  "inputnumber/mode": {
+    "description": "Defines the behavior of the component, valid values are \"decimal\" and \"currency\".",
+    "type": "string"
+  },
+  "inputnumber/prefix": {
+    "description": "Text to display before the value.",
+    "type": "string"
+  },
+  "inputnumber/suffix": {
+    "description": "Text to display after the value.",
+    "type": "string"
+  },
+  "inputnumber/currency": {
+    "description": "The currency to use in currency formatting. Possible values are the ISO 4217 currency codes, such as \"USD\" for the US dollar, \"EUR\" for the euro, or \"CNY\" for the Chinese RMB. There is no default value; if the style is \"currency\", the currency property must be provided.",
+    "type": "string"
+  },
+  "inputnumber/currencyDisplay": {
+    "description": "How to display the currency in currency formatting. Possible values are \"symbol\" to use a localized currency symbol such as €, \"code\" to use the ISO currency code, \"name\" to use a localized currency name such as \"dollar\"; the default is \"symbol\".",
+    "type": "string"
+  },
+  "inputnumber/useGrouping": {
+    "description": "Whether to use grouping separators, such as thousands separators or thousand/lakh/crore separators.",
+    "type": "boolean"
+  },
+  "inputnumber/minFractionDigits": {
+    "description": "The minimum number of fraction digits to use. Possible values are from 0 to 20; the default for plain number and percent formatting is 0; the default for currency formatting is the number of minor unit digits provided by the ISO 4217 currency code list (2 if the list doesn't provide that information).",
+    "type": "number"
+  },
+  "inputnumber/maxFractionDigits": {
+    "description": "The maximum number of fraction digits to use. Possible values are from 0 to 20; the default for plain number formatting is the larger of minimumFractionDigits and 3; the default for currency formatting is the larger of minimumFractionDigits and the number of minor unit digits provided by the ISO 4217 currency code list (2 if the list doesn't provide that information).",
+    "type": "number"
+  },
+  "inputnumber/min": {
+    "description": "Mininum boundary value.",
+    "type": "number"
+  },
+  "inputnumber/max": {
+    "description": "Maximum boundary value.",
+    "type": "number"
+  },
+  "inputnumber/step": {
+    "description": "Step factor to increment/decrement the value.",
+    "type": "number"
+  },
+  "inputnumber/allowEmpty": {
+    "description": "Determines whether the input field is empty.",
+    "type": "boolean"
+  },
+  "inputnumber/readonly": {
+    "description": "When present, it specifies that an input field is read-only.",
+    "type": "boolean"
+  },
+  "inputnumber/inputStyle": {
+    "description": "Inline style of the input field.",
+    "type": "any"
+  },
+  "inputnumber/inputClass": {
+    "description": "Style class of the input field.",
+    "type": "string"
+  },
+  "inputnumber/class": {
+    "description": "Style class of the component.",
+    "type": "string"
+  },
+  "inputnumber/style": {
+    "description": "Inline of the component.",
+    "type": "any"
+  },
+  "inputswitch/modelValue": {
+    "description": "Specifies whether a inputswitch should be checked or not.",
+    "type": "boolean"
+  },
+  "inputswitch/class": {
+    "description": "Style class of the component.",
+    "type": "string"
+  },
+  "inputswitch/style": {
+    "description": "Inline of the component.",
+    "type": "any"
+  },
+  "inputswitch/trueValue": {
+    "description": "Value in checked state.",
+    "type": "any"
+  },
+  "inputswitch/falseValue": {
+    "description": "Value in unchecked state.",
+    "type": "any"
+  },
+  "inputtext/modelValue": {
+    "description": "Value of the component.",
+    "type": "any"
+  },
+  "knob/modelValue": {
+    "description": "Value of the component.",
+    "type": "number"
+  },
+  "knob/size": {
+    "description": "Size of the component in pixels.",
+    "type": "number"
+  },
+  "knob/disabled": {
+    "description": "When present, it specifies that the component should be disabled.",
+    "type": "boolean"
+  },
+  "knob/readonly": {
+    "description": "When present, it specifies that the component value cannot be edited.",
+    "type": "boolean"
+  },
+  "knob/step": {
+    "description": "Step factor to increment/decrement the value.",
+    "type": "number"
+  },
+  "knob/min": {
+    "description": "Mininum boundary value.",
+    "type": "number"
+  },
+  "knob/max": {
+    "description": "Maximum boundary value.",
+    "type": "number"
+  },
+  "knob/valueColor": {
+    "description": "Background of the value.",
+    "type": "string"
+  },
+  "knob/rangeColor": {
+    "description": "Background color of the range.",
+    "type": "string"
+  },
+  "knob/textColor": {
+    "description": "Color of the value text.",
+    "type": "string"
+  },
+  "knob/strokeWidth": {
+    "description": "Width of the knob stroke.",
+    "type": "number"
+  },
+  "knob/showValue": {
+    "description": "Whether the show the value inside the knob.",
+    "type": "boolean"
+  },
+  "knob/valueTemplate": {
+    "description": "Template string of the value.",
+    "type": "string"
+  },
+  "listbox/modelValue": {
+    "description": "Value of the component.",
+    "type": "any"
+  },
+  "listbox/options": {
+    "description": "An array of selectitems to display as the available options.",
+    "type": "array"
+  },
+  "listbox/optionLabel": {
+    "description": "Property name or getter function to use as the label of an option.",
+    "type": "string | function"
+  },
+  "listbox/optionValue": {
+    "description": "Property name or getter function to use as the value of an option, defaults to the option itself when not defined.",
+    "type": "string | function"
+  },
+  "listbox/optionDisabled": {
+    "description": "Property name or getter function to use as the disabled flag of an option, defaults to false when not defined.",
+    "type": "boolean | function"
+  },
+  "listbox/optionGroupLabel": {
+    "description": "Property name or getter function to use as the label of an option group.",
+    "type": "string | function"
+  },
+  "listbox/optionGroupChildren": {
+    "description": "Property name or getter function that refers to the children options of option group.",
+    "type": "string | function"
+  },
+  "listbox/listStyle": {
+    "description": "Inline style of inner list element.",
+    "type": "string"
+  },
+  "listbox/disabled": {
+    "description": "When specified, disables the component.",
+    "type": "boolean"
+  },
+  "listbox/dataKey": {
+    "description": "A property to uniquely identify an option.",
+    "type": "string"
+  },
+  "listbox/multiple": {
+    "description": "When specified, allows selecting multiple values.",
+    "type": "boolean"
+  },
+  "listbox/metaKeySelection": {
+    "description": "Defines how multiple items can be selected, when true metaKey needs to be pressed to select or unselect an item and when set to false selection of each item can be toggled individually. On touch enabled devices, metaKeySelection is turned off automatically.",
+    "type": "boolean"
+  },
+  "listbox/filter": {
+    "description": "When specified, displays a filter input at header.",
+    "type": "boolean"
+  },
+  "listbox/filterPlaceholder": {
+    "description": "Placeholder text to show when filter input is empty.",
+    "type": "string"
+  },
+  "listbox/filterLocale": {
+    "description": "Locale to use in filtering. The default locale is the host environment's current locale.",
+    "type": "string"
+  },
+  "listbox/filterMatchMode": {
+    "description": "Defines the filtering algorithm to use when searching the options. Valid values are \"contains\" (default), \"startsWith\" and \"endsWith\"",
+    "type": "string"
+  },
+  "listbox/filterFields": {
+    "description": "Fields used when filtering the options, defaults to optionLabel.",
+    "type": "array"
+  },
+  "listbox/emptyFilterMessage": {
+    "description": "Text to display when filtering does not return any results. Defaults to value from PrimeVue locale configuration.",
+    "type": "string"
+  },
+  "listbox/emptyMessage": {
+    "description": "Text to display when there are no options available. Defaults to value from PrimeVue locale configuration.",
+    "type": "string"
+  },
+  "megamenu/modelValue": {
+    "description": "An array of menuitems.",
+    "type": "array"
+  },
+  "megamenu/orientation": {
+    "description": "Defines the orientation, valid values are horizontal and vertical.",
+    "type": "string"
+  },
+  "megamenu/exact": {
+    "description": "Whether to apply 'router-link-active-exact' class if route exactly matches the item path.",
+    "type": "boolean"
+  },
+  "menu/modelValue": {
+    "description": "An array of menuitems.",
+    "type": "array"
+  },
+  "menu/popup": {
+    "description": "Defines if menu would displayed as a popup.",
+    "type": "boolean"
+  },
+  "menu/appendTo": {
+    "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached.",
+    "type": "string"
+  },
+  "menu/baseZIndex": {
+    "description": "Base zIndex value to use in layering.",
+    "type": "number"
+  },
+  "menu/autoZIndex": {
+    "description": "Whether to automatically manage layering.",
+    "type": "boolean"
+  },
+  "menu/exact": {
+    "description": "Whether to apply 'router-link-active-exact' class if route exactly matches the item path.",
+    "type": "boolean"
+  },
+  "menubar/modelValue": {
+    "description": "An array of menuitems.",
+    "type": "array"
+  },
+  "menubar/exact": {
+    "description": "Whether to apply 'router-link-active-exact' class if route exactly matches the item path.",
+    "type": "boolean"
+  },
+  "message/severity": {
+    "description": "Severity level of the message. Valid severities are \"success\", \"info\", \"warn\" and \"error\".",
+    "type": "string"
+  },
+  "message/closable": {
+    "description": "Whether the message can be closed manually using the close icon.",
+    "type": "boolean"
+  },
+  "message/sticky": {
+    "description": "When enabled, message is not removed automatically.",
+    "type": "boolean"
+  },
+  "message/life": {
+    "description": "Delay in milliseconds to close the message automatically.",
+    "type": "number"
+  },
+  "message/icon": {
+    "description": "Display a custom icon for the message.",
+    "type": "string"
+  },
+  "multiselect/modelValue": {
+    "description": "Value of the component.",
+    "type": "any"
+  },
+  "multiselect/options": {
+    "description": "An array of selectitems to display as the available options.",
+    "type": "array"
+  },
+  "multiselect/optionLabel": {
+    "description": "Property name or getter function to use as the label of an option.",
+    "type": "string"
+  },
+  "multiselect/optionValue": {
+    "description": "Property name or getter function to use as the value of an option, defaults to the option itself when not defined.",
+    "type": "string | function"
+  },
+  "multiselect/optionDisabled": {
+    "description": "Property name or getter function to use as the disabled flag of an option, defaults to false when not defined.",
+    "type": "boolean | function"
+  },
+  "multiselect/optionGroupLabel": {
+    "description": "Property name or getter function to use as the label of an option group.",
+    "type": "string | function"
+  },
+  "multiselect/optionGroupChildren": {
+    "description": "Property name or getter function that refers to the children options of option group.",
+    "type": "string | function"
+  },
+  "multiselect/scrollHeight": {
+    "description": "Height of the viewport, a scrollbar is defined if height of list exceeds this value.",
+    "type": "string"
+  },
+  "multiselect/filter": {
+    "description": "When specified, displays a filter input at header.",
+    "type": "boolean"
+  },
+  "multiselect/filterPlaceholder": {
+    "description": "Placeholder text to show when filter input is empty.",
+    "type": "string"
+  },
+  "multiselect/filterLocale": {
+    "description": "Locale to use in filtering. The default locale is the host environment's current locale.",
+    "type": "string"
+  },
+  "multiselect/filterMatchMode": {
+    "description": "Defines the filtering algorithm to use when searching the options. Valid values are \"contains\" (default), \"startsWith\" and \"endsWith\"",
+    "type": "string"
+  },
+  "multiselect/filterFields": {
+    "description": "Fields used when filtering the options, defaults to optionLabel.",
+    "type": "array"
+  },
+  "multiselect/placeholder": {
+    "description": "Label to display when there are no selections.",
+    "type": "string"
+  },
+  "multiselect/disabled": {
+    "description": "When present, it specifies that the component should be disabled.",
+    "type": "boolean"
+  },
+  "multiselect/tabindex": {
+    "description": "Index of the element in tabbing order.",
+    "type": "string"
+  },
+  "multiselect/inputId": {
+    "description": "Identifier of the underlying input element.",
+    "type": "string"
+  },
+  "multiselect/dataKey": {
+    "description": "A property to uniquely identify an option.",
+    "type": "string"
+  },
+  "multiselect/ariaLabelledBy": {
+    "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are \"body\" for document body and \"self\" for the element itself.",
+    "type": "string"
+  },
+  "multiselect/emptyFilterMessage": {
+    "description": "Text to display when filtering does not return any results. Defaults to value from PrimeVue locale configuration.",
+    "type": "string"
+  },
+  "multiselect/emptyMessage": {
+    "description": "Text to display when there are no options available. Defaults to value from PrimeVue locale configuration.",
+    "type": "string"
+  },
+  "multiselect/display": {
+    "description": "Defines how the selected items are displayed, valid values are \"comma\" and \"chip\".",
+    "type": "string"
+  },
+  "multiselect/panelClass": {
+    "description": "Style class of the overlay panel.",
+    "type": "string"
+  },
+  "multiselect/selectionLimit": {
+    "description": "Maximum number of selectable items.",
+    "type": "number"
+  },
+  "multiselect/showToggleAll": {
+    "description": "Whether to show the header checkbox to toggle the selection of all items at once.",
+    "type": "boolean"
+  },
+  "multiselect/loading": {
+    "description": "Whether the multiselect is in loading state.",
+    "type": "boolean"
+  },
+  "multiselect/loadingIcon": {
+    "description": "Icon to display in loading state.",
+    "type": "string"
+  },
+  "multiselect/maxSelectedLabels": {
+    "description": "Decides how many selected item labels to show at most.",
+    "type": "number"
+  },
+  "multiselect/selectedItemsLabel": {
+    "description": "Label to display after exceeding max selected labels.",
+    "type": "string"
+  },
+  "multiselect/selectAll": {
+    "description": "Whether all data is selected.",
+    "type": "boolean"
+  },
+  "multiselect/virtualScrollerOptions": {
+    "description": "Whether to use the virtualScroller feature. The properties of VirtualScroller component can be used like an object in it.",
+    "type": "object"
+  },
+  "orderlist/modelValue": {
+    "description": "Value of the component.",
+    "type": "array"
+  },
+  "orderlist/selection": {
+    "description": "Selected items in the list.",
+    "type": "any"
+  },
+  "orderlist/metaKeySelection": {
+    "description": "Defines whether metaKey is requred or not for the selection. When true metaKey needs to be pressed to select or unselect an item and when set to false selection of each item can be toggled individually. On touch enabled devices, metaKeySelection is turned off automatically.",
+    "type": "boolean"
+  },
+  "orderlist/dataKey": {
+    "description": "Name of the field that uniquely identifies the a record in the data.",
+    "type": "string"
+  },
+  "orderlist/listStyle": {
+    "description": "Inline style of the the list element.",
+    "type": "object"
+  },
+  "orderlist/responsive": {
+    "description": "Whether the list optimizes layout based on screen size.",
+    "type": "boolean"
+  },
+  "orderlist/breakpoint": {
+    "description": "The breakpoint to define the maximum width boundary when responsiveness is enabled.",
+    "type": "string"
+  },
+  "orderlist/stripedRows": {
+    "description": "Whether to displays rows with alternating colors.",
+    "type": "boolean"
+  },
+  "organizationchart/value": {
+    "description": "Value of the component.",
+    "type": "any"
+  },
+  "organizationchart/selectionKeys": {
+    "description": "A map instance of key-value pairs to represented the selected nodes.",
+    "type": "object"
+  },
+  "organizationchart/selectionMode": {
+    "description": "Type of the selection, valid values are \"single\" and \"multiple\".",
+    "type": "string"
+  },
+  "organizationchart/collapsible": {
+    "description": "Whether the nodes can be expanded or toggled.",
+    "type": "boolean"
+  },
+  "organizationchart/collapsedKeys": {
+    "description": "A map instance of key-value pairs to represented the collapsed nodes.",
+    "type": "object"
+  },
+  "overlaypanel/dismissable": {
+    "description": "Enables to hide the overlay when outside is clicked.",
+    "type": "boolean"
+  },
+  "overlaypanel/showCloseIcon": {
+    "description": "When enabled, displays a close icon at top right corner.",
+    "type": "boolean"
+  },
+  "overlaypanel/appendTo": {
+    "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached.",
+    "type": "string"
+  },
+  "overlaypanel/baseZIndex": {
+    "description": "Base zIndex value to use in layering.",
+    "type": "number"
+  },
+  "overlaypanel/autoZIndex": {
+    "description": "Whether to automatically manage layering.",
+    "type": "boolean"
+  },
+  "overlaypanel/ariaCloseLabel": {
+    "description": "Aria label of the close icon.",
+    "type": "string"
+  },
+  "overlaypanel/breakpoints": {
+    "description": "Object literal to define widths per screen size.",
+    "type": "object"
+  },
+  "paginator/totalRecords": {
+    "description": "Number of total records.",
+    "type": "number"
+  },
+  "paginator/rows": {
+    "description": "Data count to display per page.",
+    "type": "number"
+  },
+  "paginator/first": {
+    "description": "Zero-relative number of the first row to be displayed.",
+    "type": "number"
+  },
+  "paginator/pageLinkSize": {
+    "description": "Number of page links to display.",
+    "type": "number"
+  },
+  "paginator/rowsPerPageOptions": {
+    "description": "Array of integer values to display inside rows per page dropdown.",
+    "type": "array"
+  },
+  "paginator/template": {
+    "description": "Template of the paginator.",
+    "type": "string"
+  },
+  "paginator/currentPageReportTemplate": {
+    "description": "Template of the current page report element. Available placeholders are {currentPage},{totalPages},{rows},{first},{last} and {totalRecords}",
+    "type": "string"
+  },
+  "paginator/alwaysShow": {
+    "description": "Whether to show the paginator even there is only one page.",
+    "type": "boolean"
+  },
+  "panel/header": {
+    "description": "Header text of the panel.",
+    "type": "string"
+  },
+  "panel/toggleable": {
+    "description": "Defines if content of panel can be expanded and collapsed.",
+    "type": "boolean"
+  },
+  "panel/collapsed": {
+    "description": "Defines the initial state of panel content.",
+    "type": "boolean"
+  },
+  "panelmenu/model": {
+    "description": "An array of menuitems.",
+    "type": "array"
+  },
+  "panelmenu/expandedKeys": {
+    "description": "A map of keys to represent the expansion state in controlled mode.",
+    "type": "array"
+  },
+  "panelmenu/exact": {
+    "description": "Whether to apply 'router-link-active-exact' class if route exactly matches the item path.",
+    "type": "boolean"
+  },
+  "password/modelValue": {
+    "description": "Value of the component.",
+    "type": "any"
+  },
+  "password/promptLabel": {
+    "description": "Text to prompt password entry. Defaults to PrimeVue Locale configuration.",
+    "type": "string"
+  },
+  "password/mediumRegex": {
+    "description": "Regex for a medium level password.",
+    "type": "string"
+  },
+  "password/strongRegex": {
+    "description": "Regex for a strong level password.",
+    "type": "string"
+  },
+  "password/weakLabel": {
+    "description": "Text for a weak password. Defaults to PrimeVue Locale configuration.",
+    "type": "string"
+  },
+  "password/mediumLabel": {
+    "description": "Text for a medium password. Defaults to PrimeVue Locale configuration.",
+    "type": "string"
+  },
+  "password/strongLabel": {
+    "description": "Text for a strong password. Defaults to PrimeVue Locale configuration.",
+    "type": "string"
+  },
+  "password/feedback": {
+    "description": "Whether to show the strength indicator or not.",
+    "type": "boolean"
+  },
+  "password/toogleMask": {
+    "description": "Whether to show an icon to display the password as plain text.",
+    "type": "boolean"
+  },
+  "password/appendTo": {
+    "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are \"body\" for document body and \"self\" for the element itself.",
+    "type": "string"
+  },
+  "password/hideIcon": {
+    "description": "Icon to hide displaying the password as plain text.",
+    "type": "string"
+  },
+  "password/showIcon": {
+    "description": "Icon to show displaying the password as plain text.",
+    "type": "string"
+  },
+  "password/inputStyle": {
+    "description": "Inline style of the input field.",
+    "type": "any"
+  },
+  "password/inputClass": {
+    "description": "Style class of the input field.",
+    "type": "any"
+  },
+  "password/class": {
+    "description": "Style class of the component.",
+    "type": "string"
+  },
+  "password/style": {
+    "description": "Inline of the component.",
+    "type": "any"
+  },
+  "password/panelClass": {
+    "description": "Style class of the overlay panel.",
+    "type": "string"
+  },
+  "picklist/modelValue": {
+    "description": "Value of the component as a multidimensional array.",
+    "type": "array"
+  },
+  "picklist/selection": {
+    "description": "Selected items in the list as a multidimensional array.",
+    "type": "array"
+  },
+  "picklist/metaKeySelection": {
+    "description": "Defines whether metaKey is requred or not for the selection. When true metaKey needs to be pressed to select or unselect an item and when set to false selection of each item can be toggled individually. On touch enabled devices, metaKeySelection is turned off automatically.",
+    "type": "boolean"
+  },
+  "picklist/dataKey": {
+    "description": "Name of the field that uniquely identifies the a record in the data.",
+    "type": "string"
+  },
+  "picklist/listStyle": {
+    "description": "Inline style of the the list element.",
+    "type": "object"
+  },
+  "picklist/responsive": {
+    "description": "Whether the list optimizes layout based on screen size.",
+    "type": "boolean"
+  },
+  "picklist/breakpoint": {
+    "description": "The breakpoint to define the maximum width boundary when responsiveness is enabled.",
+    "type": "string"
+  },
+  "picklist/stripedRows": {
+    "description": "Whether to displays rows with alternating colors.",
+    "type": "boolean"
+  },
+  "progressbar/value": {
+    "description": "Current value of the progress.",
+    "type": "number"
+  },
+  "progressbar/mode": {
+    "description": "Defines the mode of the progress, valid values are \"determinate\" and \"indeterminate\".",
+    "type": "string"
+  },
+  "progressbar/showValue": {
+    "description": "Whether to display the progress bar value.",
+    "type": "boolean"
+  },
+  "progressspinner/strokeWidth": {
+    "description": "Width of the circle stroke.",
+    "type": "string"
+  },
+  "progressspinner/fill": {
+    "description": "Color for the background of the circle.",
+    "type": "string"
+  },
+  "progressspinner/animationDuration": {
+    "description": "Duration of the rotate animation.",
+    "type": "string"
+  },
+  "radiobutton/value": {
+    "description": "Value of the checkbox.",
+    "type": "any"
+  },
+  "radiobutton/modelValue": {
+    "description": "Value binding of the checkbox.",
+    "type": "any"
+  },
+  "radiobutton/class": {
+    "description": "Style class of the component.",
+    "type": "string"
+  },
+  "radiobutton/style": {
+    "description": "Inline of the component.",
+    "type": "any"
+  },
+  "rating/modelValue": {
+    "description": "Value of the rating.",
+    "type": "number"
+  },
+  "rating/disabled": {
+    "description": "When present, it specifies that the element should be disabled.",
+    "type": "boolean"
+  },
+  "rating/readonly": {
+    "description": "When present, it specifies that component is read-only.",
+    "type": "boolean"
+  },
+  "rating/stars": {
+    "description": "Number of stars.",
+    "type": "number"
+  },
+  "rating/cancel": {
+    "description": "When specified a cancel icon is displayed to allow clearing the value.",
+    "type": "boolean"
+  },
+  "scrolltop/target": {
+    "description": "Target of the ScrollTop, valid values are \"window\" and \"parent\".",
+    "type": "string"
+  },
+  "scrolltop/threshold": {
+    "description": "Defines the threshold value of the vertical scroll position of the target to toggle the visibility.",
+    "type": "number"
+  },
+  "scrolltop/icon": {
+    "description": "Icon to display.",
+    "type": "string"
+  },
+  "scrolltop/behavior": {
+    "description": "Defines the scrolling behavi, \"smooth\" adds an animation and \"auto\" scrolls with a jump.",
+    "type": "string"
+  },
+  "selectbutton/modelValue": {
+    "description": "Value of the component.",
+    "type": "any"
+  },
+  "selectbutton/options": {
+    "description": "An array of selectitems to display as the available options.",
+    "type": "array"
+  },
+  "selectbutton/optionLabel": {
+    "description": "Property name or getter function to use as the label of an option.",
+    "type": "string"
+  },
+  "selectbutton/optionValue": {
+    "description": "Property name or getter function to use as the value of an option, defaults to the option itself when not defined.",
+    "type": "string"
+  },
+  "selectbutton/optionDisabled": {
+    "description": "Property name or getter function to use as the disabled flag of an option, defaults to false when not defined.",
+    "type": "boolean"
+  },
+  "selectbutton/multiple": {
+    "description": "When specified, allows selecting multiple values.",
+    "type": "boolean"
+  },
+  "selectbutton/disabled": {
+    "description": "When present, it specifies that the element should be disabled.",
+    "type": "boolean"
+  },
+  "selectbutton/dataKey": {
+    "description": "A property to uniquely identify an option.",
+    "type": "string"
+  },
+  "selectbutton/ariaLabelledBy": {
+    "description": "Establishes relationships between the component and label(s) where its value should be one or more element IDs.",
+    "type": "string"
+  },
+  "sidebar/visible": {
+    "description": "Specifies the visibility of the dialog.",
+    "type": "boolean"
+  },
+  "sidebar/position": {
+    "description": "Specifies the position of the sidebar, valid values are \"left\", \"right\", \"top\", \"bottom\" and \"full\".",
+    "type": "string"
+  },
+  "sidebar/baseZIndex": {
+    "description": "Base zIndex value to use in layering.",
+    "type": "number"
+  },
+  "sidebar/autoZIndex": {
+    "description": "Whether to automatically manage layering.",
+    "type": "boolean"
+  },
+  "sidebar/dismissable": {
+    "description": "Whether clicking outside closes the panel.",
+    "type": "boolean"
+  },
+  "sidebar/showCloseIcon": {
+    "description": "Whether to display a close icon inside the panel.",
+    "type": "boolean"
+  },
+  "sidebar/modal": {
+    "description": "Whether to a modal layer behind the sidebar.",
+    "type": "boolean"
+  },
+  "sidebar/ariaCloseLabel": {
+    "description": "Aria label of the close icon.",
+    "type": "string"
+  },
+  "skeleton/shape": {
+    "description": "Shape of the element, options are \"rectangle\" and \"circle\".",
+    "type": "string"
+  },
+  "skeleton/size": {
+    "description": "Size of the Circle or Square.",
+    "type": "string"
+  },
+  "skeleton/width": {
+    "description": "Width of the element.",
+    "type": "string"
+  },
+  "skeleton/height": {
+    "description": "Height of the element.",
+    "type": "string"
+  },
+  "skeleton/borderRadius": {
+    "description": "Border radius of the element, defaults to value from theme.",
+    "type": "string"
+  },
+  "skeleton/animation": {
+    "description": "Type of the animation, valid options are \"wave\" and \"none\".",
+    "type": "string"
+  },
+  "slider/modelValue": {
+    "description": "Value of the component.",
+    "type": "number"
+  },
+  "slider/min": {
+    "description": "Mininum boundary value.",
+    "type": "number"
+  },
+  "slider/max": {
+    "description": "Maximum boundary value.",
+    "type": "number"
+  },
+  "slider/orientation": {
+    "description": "Orientation of the slider, valid values are horizontal and vertical.",
+    "type": "string"
+  },
+  "slider/step": {
+    "description": "Step factor to increment/decrement the value.",
+    "type": "number"
+  },
+  "slider/range": {
+    "description": "When speficed, allows two boundary values to be picked.",
+    "type": "boolean"
+  },
+  "slider/disabled": {
+    "description": "When present, it specifies that the component should be disabled.",
+    "type": "boolean"
+  },
+  "slider/ariaLabelledBy": {
+    "description": "Establishes relationships between the component and label(s) where its value should be one or more element IDs.",
+    "type": "string"
+  },
+  "speeddial/model": {
+    "description": "MenuModel instance to define the action items.",
+    "type": "object"
+  },
+  "speeddial/visible": {
+    "description": "Specifies the visibility of the overlay.",
+    "type": "boolean"
+  },
+  "speeddial/direction": {
+    "description": "Specifies the opening direction of actions. Valid values are 'up', 'down', 'left', 'right', 'up-left', 'up-right', 'down-left' and 'down-right'",
+    "type": "string"
+  },
+  "speeddial/transitionDelay": {
+    "description": "Transition delay step for each action item.",
+    "type": "number"
+  },
+  "speeddial/type": {
+    "description": "Specifies the opening type of actions.",
+    "type": "string"
+  },
+  "speeddial/radius": {
+    "description": "Radius for *circle types.",
+    "type": "number"
+  },
+  "speeddial/mask": {
+    "description": "Whether to show a mask element behind the speeddial",
+    "type": "boolean"
+  },
+  "speeddial/disabled": {
+    "description": "Whether the component is disabled.",
+    "type": "boolean"
+  },
+  "speeddial/hideOnClickOutside": {
+    "description": "Whether the actions close when clicked outside.",
+    "type": "boolean"
+  },
+  "speeddial/buttonClass": {
+    "description": "Style class of the button element.",
+    "type": "string"
+  },
+  "speeddial/maskClass": {
+    "description": "Style class of the mask element.",
+    "type": "string"
+  },
+  "speeddial/maskStyle": {
+    "description": "Inline style of the mask element.",
+    "type": "object"
+  },
+  "speeddial/showIcon": {
+    "description": "Show icon of the button element.",
+    "type": "string"
+  },
+  "speeddial/hideIcon": {
+    "description": "\tHide icon of the button element.",
+    "type": "string"
+  },
+  "speeddial/rotateAnimation": {
+    "description": "Defined to rotate showIcon when hideIcon is not present.",
+    "type": "boolean"
+  },
+  "speeddial/class": {
+    "description": "Style class of the element.",
+    "type": "object"
+  },
+  "speeddial/style": {
+    "description": "Style class of the element.",
+    "type": "any"
+  },
+  "speeddial/tooltipOptions": {
+    "description": "Whether to display the tooltip on items. The modifiers of tooltip can be used like an object in it. Valid keys are 'event' and 'position'.",
+    "type": "object"
+  },
+  "splitbutton/label": {
+    "description": "Text of the button.",
+    "type": "string"
+  },
+  "splitbutton/icon": {
+    "description": "Name of the icon.",
+    "type": "string"
+  },
+  "splitbutton/model": {
+    "description": "MenuModel instance to define the overlay items.",
+    "type": "object"
+  },
+  "splitbutton/autoZIndex": {
+    "description": "Whether to automatically manage layering.",
+    "type": "boolean"
+  },
+  "splitbutton/baseZIndex": {
+    "description": "Base zIndex value to use in layering.",
+    "type": "number"
+  },
+  "splitbutton/appendTo": {
+    "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached.",
+    "type": "string"
+  },
+  "splitbutton/class": {
+    "description": "Style class of the component.",
+    "type": "string"
+  },
+  "splitbutton/style": {
+    "description": "Inline of the component.",
+    "type": "any"
+  },
+  "splitter/layout": {
+    "description": "Orientation of the panels, valid values are \"horizontal\" and \"vertical\".",
+    "type": "string"
+  },
+  "splitter/gutterSize": {
+    "description": "Size of the divider in pixels.",
+    "type": "number"
+  },
+  "splitter/stateKey": {
+    "description": "Storage identifier of a stateful Splitter.",
+    "type": "string"
+  },
+  "splitter/stateStorage": {
+    "description": "Defines where a stateful splitter keeps its state, valid values are \"session\" for sessionStorage and \"local\" for localStorage.",
+    "type": "string"
+  },
+  "splitterpanel/size": {
+    "description": "Size of the element relative to 100%.",
+    "type": "number"
+  },
+  "splitterpanel/minSize": {
+    "description": "Minimum size of the element relative to 100%.",
+    "type": "number"
+  },
+  "steps/id": {
+    "description": "Unique identifier of the element.",
+    "type": "string"
+  },
+  "steps/model": {
+    "description": "An array of menuitems.",
+    "type": "array"
+  },
+  "steps/readonly": {
+    "description": "Whether the items are clickable or not.",
+    "type": "boolean"
+  },
+  "steps/exact": {
+    "description": "Whether to apply 'router-link-active-exact' class if route exactly matches the item path.",
+    "type": "boolean"
+  },
+  "tabmenu/model": {
+    "description": "An array of menuitems.",
+    "type": "array"
+  },
+  "tabmenu/exact": {
+    "description": "Defines if active route highlight should match the exact route path.",
+    "type": "boolean"
+  },
+  "tabmenu/activeIndex": {
+    "description": "Active index of menuitem.",
+    "type": "number"
+  },
+  "tabpanel/header": {
+    "description": "Orientation of tab headers.",
+    "type": "string"
+  },
+  "tabpanel/disabled": {
+    "description": "Whether the tab is disabled.",
+    "type": "boolean"
+  },
+  "tabview/activeIndex": {
+    "description": "Index of the active tab.",
+    "type": "number"
+  },
+  "tabview/lazy": {
+    "description": "When enabled, hidden tabs are not rendered at all. Defaults to false that hides tabs with css.",
+    "type": "boolean"
+  },
+  "tabview/scrollable": {
+    "description": "When enabled displays buttons at each side of the tab headers to scroll the tab list.",
+    "type": "boolean"
+  },
+  "tag/value": {
+    "description": "Value to display inside the tag.",
+    "type": "any"
+  },
+  "tag/severity": {
+    "description": "Severity type of the tag. Valid severities are \"success\", \"info\", \"warning\" and \"danger\".",
+    "type": "string"
+  },
+  "tag/rounded": {
+    "description": "Whether the corners of the tag are rounded.",
+    "type": "boolean"
+  },
+  "tag/icon": {
+    "description": "Icon of the tag to display next to the value.",
+    "type": "string"
+  },
+  "terminal/welcomeMessage": {
+    "description": "Initial text to display on terminal.",
+    "type": "string"
+  },
+  "terminal/prompt": {
+    "description": "Prompt text for each command.",
+    "type": "string"
+  },
+  "textarea/modelValue": {
+    "description": "Value of the component.",
+    "type": "any"
+  },
+  "textarea/autoResize": {
+    "description": "When present, height of textarea changes as being typed.",
+    "type": "boolean"
+  },
+  "tieredmenu/model": {
+    "description": "An array of menuitems.",
+    "type": "array"
+  },
+  "tieredmenu/popup": {
+    "description": "Defines if menu would displayed as a popup.",
+    "type": "boolean"
+  },
+  "tieredmenu/appendTo": {
+    "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached.",
+    "type": "string"
+  },
+  "tieredmenu/baseZIndex": {
+    "description": "Base zIndex value to use in layering.",
+    "type": "number"
+  },
+  "tieredmenu/autoZIndex": {
+    "description": "Whether to automatically manage layering.",
+    "type": "boolean"
+  },
+  "tieredmenu/exact": {
+    "description": "Whether to apply 'router-link-active-exact' class if route exactly matches the item path.",
+    "type": "boolean"
+  },
+  "timeline/value": {
+    "description": "An array of events to display.",
+    "type": "array"
+  },
+  "timeline/align": {
+    "description": "Position of the timeline bar relative to the content. Valid values are \"left\", \"right\" and \"alternate\" for vertical layout and \"top\", \"bottom\" for horizontal layout.",
+    "type": "string"
+  },
+  "timeline/layout": {
+    "description": "Orientation of the timeline, valid values are \"vertical\" and \"horizontal\".",
+    "type": "string"
+  },
+  "timeline/dataKey": {
+    "description": "Name of the field that uniquely identifies the a record in the data.",
+    "type": "string"
+  },
+  "toast/group": {
+    "description": "Unique identifier of a message group.",
+    "type": "string"
+  },
+  "toast/position": {
+    "description": "Position of the toast in viewport. Other valid values are \"top-left\", \"top-center\", \"bottom-left\", \"bottom-center\", \"bottom-right\" and \"center\".",
+    "type": "string"
+  },
+  "toast/autoZIndex": {
+    "description": "Whether to automatically manage layering.",
+    "type": "boolean"
+  },
+  "toast/baseZIndex": {
+    "description": "Base zIndex value to use in layering.",
+    "type": "number"
+  },
+  "toast/breakpoints": {
+    "description": "Object literal to define widths per screen size.",
+    "type": "object"
+  },
+  "togglebutton/modelValue": {
+    "description": "Value of the component.",
+    "type": "any"
+  },
+  "togglebutton/onIcon": {
+    "description": "Icon for the on state.",
+    "type": "string"
+  },
+  "togglebutton/offIcon": {
+    "description": "Icon for the off state.",
+    "type": "string"
+  },
+  "togglebutton/onLabel": {
+    "description": "Label for the on state.",
+    "type": "string"
+  },
+  "togglebutton/offLabel": {
+    "description": "Label for the off state.",
+    "type": "string"
+  },
+  "togglebutton/iconPos": {
+    "description": "Position of the icon, valid values are \"left\" and \"right\".",
+    "type": "string"
+  },
+  "tree/value": {
+    "description": "An array of treenodes.",
+    "type": "any"
+  },
+  "tree/expandedKeys": {
+    "description": "A map of keys to represent the expansion state in controlled mode.",
+    "type": "array"
+  },
+  "tree/selectionMode": {
+    "description": "Defines the selection mode, valid values \"single\", \"multiple\", and \"checkbox\".",
+    "type": "string"
+  },
+  "tree/selectionKeys": {
+    "description": "A map of keys to control the selection state.",
+    "type": "any"
+  },
+  "tree/metaKeySelection": {
+    "description": "Defines how multiple items can be selected, when true metaKey needs to be pressed to select or unselect an item and when set to false selection of each item can be toggled individually. On touch enabled devices, metaKeySelection is turned off automatically.",
+    "type": "boolean"
+  },
+  "tree/loading": {
+    "description": "Whether to display loading indicator.",
+    "type": "boolean"
+  },
+  "tree/loadingIcon": {
+    "description": "Icon to display when tree is loading.",
+    "type": "string"
+  },
+  "tree/filter": {
+    "description": "When specified, displays an input field to filter the items.",
+    "type": "boolean"
+  },
+  "tree/filterBy": {
+    "description": "When filtering is enabled, filterBy decides which field or fields (comma separated) to search against.",
+    "type": "string"
+  },
+  "tree/filterMode": {
+    "description": "Mode for filtering valid values are \"lenient\" and \"strict\". Default is lenient.",
+    "type": "string"
+  },
+  "tree/filterPlaceholder": {
+    "description": "Placeholder text to show when filter input is empty.",
+    "type": "string"
+  },
+  "tree/filterLocale": {
+    "description": "Locale to use in filtering. The default locale is the host environment's current locale.",
+    "type": "string"
+  },
+  "tree/scrollHeight": {
+    "description": "Height of the scroll viewport in fixed units or the \"flex\" keyword for a dynamic size.",
+    "type": "string"
+  },
+  "treeselect/modelValue": {
+    "description": "Value of the component.",
+    "type": "any"
+  },
+  "treeselect/options": {
+    "description": "An array of treenodes.",
+    "type": "array"
+  },
+  "treeselect/scrollHeight": {
+    "description": "Height of the viewport, a scrollbar is defined if height of list exceeds this value.",
+    "type": "string"
+  },
+  "treeselect/placeholder": {
+    "description": "Label to display when there are no selections.",
+    "type": "string"
+  },
+  "treeselect/disabled": {
+    "description": "When present, it specifies that the component should be disabled.",
+    "type": "boolean"
+  },
+  "treeselect/tabindex": {
+    "description": "Index of the element in tabbing order.",
+    "type": "string"
+  },
+  "treeselect/inputId": {
+    "description": "Identifier of the underlying input element.",
+    "type": "string"
+  },
+  "treeselect/ariaLabelledBy": {
+    "description": "Establishes relationships between the component and label(s) where its value should be one or more element IDs.",
+    "type": "string"
+  },
+  "treeselect/selectionMode": {
+    "description": "Defines the selection mode, valid values \"single\", \"multiple\", and \"checkbox\".",
+    "type": "string"
+  },
+  "treeselect/panelClass": {
+    "description": "Style class of the overlay panel.",
+    "type": "string"
+  },
+  "treeselect/appendTo": {
+    "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are \"body\" for document body and \"self\" for the element itself.",
+    "type": "string"
+  },
+  "treeselect/emptyMessage": {
+    "description": "Text to display when there are no options available. Defaults to value from PrimeVue locale configuration.",
+    "type": "string"
+  },
+  "treeselect/display": {
+    "description": "Defines how the selected items are displayed, valid values are \"comma\" and \"chip\".",
+    "type": "string"
+  },
+  "treeselect/metaKeySelection": {
+    "description": "Defines how multiple items can be selected, when true metaKey needs to be pressed to select or unselect an item and when set to false selection of each item can be toggled individually. On touch enabled devices, metaKeySelection is turned off automatically.",
+    "type": "boolean"
+  },
+  "treetable/value": {
+    "description": "An array of treenodes.",
+    "type": "array"
+  },
+  "treetable/expandedKeys": {
+    "description": "A map of keys to represent the state of the tree expansion state in controlled mode.",
+    "type": "array"
+  },
+  "treetable/selectionKeys": {
+    "description": "A map of keys to control the selection state.",
+    "type": "any"
+  },
+  "treetable/selectionMode": {
+    "description": "Defines the selection mode, valid values \"single\", \"multiple\", and \"checkbox\".",
+    "type": "string"
+  },
+  "treetable/metaKeySelection": {
+    "description": "Defines how multiple items can be selected, when true metaKey needs to be pressed to select or unselect an item and when set to false selection of each item can be toggled individually. On touch enabled devices, metaKeySelection is turned off automatically.",
+    "type": "boolean"
+  },
+  "treetable/rows": {
+    "description": "Number of rows to display per page.",
+    "type": "number"
+  },
+  "treetable/first": {
+    "description": "Index of the first row to be displayed.",
+    "type": "number"
+  },
+  "treetable/totalRecords": {
+    "description": "Number of total records, defaults to length of value when not defined.",
+    "type": "number"
+  },
+  "treetable/paginator": {
+    "description": "When specified as true, enables the pagination.",
+    "type": "boolean"
+  },
+  "treetable/paginatorPosition": {
+    "description": "Position of the paginator, options are \"top\", \"bottom\" or \"both\".",
+    "type": "string"
+  },
+  "treetable/alwaysShowPaginator": {
+    "description": "Whether to show it even there is only one page.",
+    "type": "boolean"
+  },
+  "treetable/paginatorTemplate": {
+    "description": "Template of the paginator.",
+    "type": "string"
+  },
+  "treetable/pageLinkSize": {
+    "description": "Number of page links to display.",
+    "type": "number"
+  },
+  "treetable/rowsPerPageOptions": {
+    "description": "Array of integer values to display inside rows per page dropdown.",
+    "type": "array"
+  },
+  "treetable/currentPageReportTemplate": {
+    "description": "Template of the current page report element.",
+    "type": "string"
+  },
+  "treetable/lazy": {
+    "description": "Defines if data is loaded and interacted with in lazy manner.",
+    "type": "boolean"
+  },
+  "treetable/loading": {
+    "description": "Displays a loader to indicate data load is in progress.",
+    "type": "boolean"
+  },
+  "treetable/loadingIcon": {
+    "description": "The icon to show while indicating data load is in progress.",
+    "type": "string"
+  },
+  "treetable/rowHover": {
+    "description": "When enabled, background of the rows change on hover.",
+    "type": "boolean"
+  },
+  "treetable/autoLayout": {
+    "description": "Whether the cell widths scale according to their content or not.",
+    "type": "boolean"
+  },
+  "treetable/sortField": {
+    "description": "Property name or a getter function of a row data used for sorting by default.",
+    "type": "string"
+  },
+  "treetable/sortOrder": {
+    "description": "Order to sort the data by default.",
+    "type": "number"
+  },
+  "treetable/defaultSortOrder": {
+    "description": "Default sort order of an unsorted column.",
+    "type": "number"
+  },
+  "treetable/multiSortMeta": {
+    "description": "An array of SortMeta objects to sort the data by default in multiple sort mode.",
+    "type": "array"
+  },
+  "treetable/sortMode": {
+    "description": "Defines whether sorting works on single column or on multiple columns.",
+    "type": "string"
+  },
+  "treetable/removableSort": {
+    "description": "When enabled, columns can have an un-sorted state.",
+    "type": "boolean"
+  },
+  "treetable/filters": {
+    "description": "Filters object with key-value pairs to define the filters.",
+    "type": "object"
+  },
+  "treetable/filterMode": {
+    "description": "Mode for filtering valid values are \"lenient\" and \"strict\". Default is lenient.",
+    "type": "string"
+  },
+  "treetable/filterLocale": {
+    "description": "Locale to use in filtering. The default locale is the host environment's current locale.",
+    "type": "string"
+  },
+  "treetable/resizableColumns": {
+    "description": "When enabled, columns can be resized using drag and drop.",
+    "type": "boolean"
+  },
+  "treetable/columnResizeMode": {
+    "description": "Defines whether the overall table width should change on column resize, valid values are \"fit\" and \"expand\".",
+    "type": "string"
+  },
+  "treetable/indentation": {
+    "description": "Indentation factor as rem value for children nodes. Defaults to 1rem.",
+    "type": "number"
+  },
+  "treetable/showGridlines": {
+    "description": "Whether to show grid lines between cells.",
+    "type": "boolean"
+  },
+  "treetable/scrollable": {
+    "description": "When specified, enables horizontal and/or vertical scrolling.",
+    "type": "boolean"
+  },
+  "treetable/scrollDirection": {
+    "description": "Orientation of the scrolling, options are \"vertical\", \"horizontal\" and \"both\".",
+    "type": "string"
+  },
+  "treetable/scrollHeight": {
+    "description": "Height of the scroll viewport in fixed units or the \"flex\" keyword for a dynamic size.",
+    "type": "string"
+  },
+  "treetable/responsiveLayout": {
+    "description": "Defines the responsive mode, currently only option is scroll.",
+    "type": "string"
+  },
+  "tristatecheckbox/modelValue": {
+    "description": "Value of the component.",
+    "type": "boolean"
+  },
+  "tristatecheckbox/class": {
+    "description": "Style class of the component.",
+    "type": "string"
+  },
+  "tristatecheckbox/style": {
+    "description": "Inline of the component.",
+    "type": "any"
+  },
+  "virtualscroller/id": {
+    "description": "Unique identifier of the element.",
+    "type": "string"
+  },
+  "virtualscroller/style": {
+    "description": "Inline style of the component.",
+    "type": "any"
+  },
+  "virtualscroller/class": {
+    "description": "Style class of the component.",
+    "type": "string"
+  },
+  "virtualscroller/items": {
+    "description": "An array of objects to display.",
+    "type": "array"
+  },
+  "virtualscroller/itemSize": {
+    "description": "The height/width of item according to orientation.",
+    "type": "number|array"
+  },
+  "virtualscroller/scrollHeight": {
+    "description": "Height of the scroll viewport.",
+    "type": "string"
+  },
+  "virtualscroller/scrollWidth": {
+    "description": "Width of the scroll viewport.",
+    "type": "string"
+  },
+  "virtualscroller/orientation": {
+    "description": "The orientation of scrollbar, valid values are 'vertical', 'horizontal' and 'both'.",
+    "type": "string"
+  },
+  "virtualscroller/numToleratedItems": {
+    "description": "Determines how many additional elements to add to the DOM outside of the view. According to the scrolls made up and down, extra items are added in a certain algorithm in the form of multiples of this number. Default value is half the number of items shown in the view.",
+    "type": "number"
+  },
+  "virtualscroller/delay": {
+    "description": "Delay in scroll before new data is loaded.",
+    "type": "number"
+  },
+  "virtualscroller/lazy": {
+    "description": "Defines if data is loaded and interacted with in lazy manner.",
+    "type": "boolean"
+  },
+  "virtualscroller/disabled": {
+    "description": "If disabled, the VirtualScroller feature is eliminated and the content is displayed directly.",
+    "type": "boolean"
+  },
+  "virtualscroller/loaderDisabled": {
+    "description": "Used to implement a custom loader instead of using the loader feature in the VirtualScroller.",
+    "type": "boolean"
+  },
+  "virtualscroller/loading": {
+    "description": "Whether the data is loaded.",
+    "type": "boolean"
+  },
+  "virtualscroller/showSpacer": {
+    "description": "Used to implement a custom spacer instead of using the spacer feature in the VirtualScroller.",
+    "type": "boolean"
+  },
+  "virtualscroller/showLoader": {
+    "description": "Whether to show loader.",
+    "type": "boolean"
+  }
+}

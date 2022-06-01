@@ -1,0 +1,1 @@
+import e from"primevue/toasteventbus";import{PrimeVueToastSymbol as o}from"primevue/usetoast";var r={install:r=>{const t={add:o=>{e.emit("add",o)},removeGroup:o=>{e.emit("remove-group",o)},removeAllGroups:()=>{e.emit("remove-all-groups")}};r.config.globalProperties.$toast=t,r.provide(o,t)}};export{r as default};

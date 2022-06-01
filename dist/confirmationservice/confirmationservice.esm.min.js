@@ -1,0 +1,1 @@
+import e from"primevue/confirmationeventbus";import{PrimeVueConfirmSymbol as o}from"primevue/useconfirm";var r={install:r=>{const i={require:o=>{e.emit("confirm",o)},close:()=>{e.emit("close")}};r.config.globalProperties.$confirm=i,r.provide(o,i)}};export{r as default};

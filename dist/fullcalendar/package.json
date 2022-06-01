@@ -1,0 +1,9 @@
+{
+  "main": "./fullcalendar.cjs.js",
+  "module": "./fullcalendar.esm.js",
+  "unpkg": "./fullcalendar.min.js",
+  "types": "./FullCalendar.d.ts",
+  "browser": {
+    "./sfc": "./FullCalendar.vue"
+  }
+}

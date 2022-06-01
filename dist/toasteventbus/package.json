@@ -1,0 +1,5 @@
+{
+    "main": "./toasteventbus.cjs.js",
+    "module": "./toasteventbus.esm.js",
+    "unpkg": "./toasteventbus.min.js"
+  }

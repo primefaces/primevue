@@ -1,0 +1,9 @@
+{
+  "main": "./galleria.cjs.js",
+  "module": "./galleria.esm.js",
+  "unpkg": "./galleria.min.js",
+  "types": "./Galleria.d.ts",
+  "browser": {
+    "./sfc": "./Galleria.vue"
+  }
+}

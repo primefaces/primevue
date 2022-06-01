@@ -1,0 +1,9 @@
+{
+  "main": "./paginator.cjs.js",
+  "module": "./paginator.esm.js",
+  "unpkg": "./paginator.min.js",
+  "types": "./Paginator.d.ts",
+  "browser": {
+    "./sfc": "./Paginator.vue"
+  }
+}

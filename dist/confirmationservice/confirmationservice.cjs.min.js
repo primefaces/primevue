@@ -1,0 +1,1 @@
+"use strict";var e=require("primevue/confirmationeventbus"),r=require("primevue/useconfirm");function i(e){return e&&"object"==typeof e&&"default"in e?e:{default:e}}var o=i(e),t={install:e=>{const i={require:e=>{o.default.emit("confirm",e)},close:()=>{o.default.emit("close")}};e.config.globalProperties.$confirm=i,e.provide(r.PrimeVueConfirmSymbol,i)}};module.exports=t;

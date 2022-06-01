@@ -1,0 +1,9 @@
+{
+  "main": "./terminal.cjs.js",
+  "module": "./terminal.esm.js",
+  "unpkg": "./terminal.min.js",
+  "types": "./Terminal.d.ts",
+  "browser": {
+    "./sfc": "./Terminal.vue"
+  }
+}

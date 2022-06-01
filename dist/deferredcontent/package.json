@@ -1,0 +1,9 @@
+{
+  "main": "./deferredcontent.cjs.js",
+  "module": "./deferredcontent.esm.js",
+  "unpkg": "./deferredcontent.min.js",
+  "types": "./DeferredContent.d.ts",
+  "browser": {
+    "./sfc": "./DeferredContent.vue"
+  }
+}

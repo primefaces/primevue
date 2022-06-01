@@ -1,0 +1,72 @@
+'use strict';
+
+var vue = require('vue');
+
+var script = {
+    name: 'DeferredContent',
+    emits: ['load'],
+    data() {
+        return {
+            loaded: false
+        }
+    },
+    mounted() {
+        if (!this.loaded) {
+            if (this.shouldLoad())
+                this.load();
+            else
+                this.bindScrollListener();
+        }
+    },
+    beforeUnmount() {
+        this.unbindScrollListener();
+    },
+    methods: {
+        bindScrollListener() {
+            this.documentScrollListener = () => {
+                if (this.shouldLoad()) {
+                    this.load();
+                    this.unbindScrollListener();
+                }
+            };
+
+            window.addEventListener('scroll', this.documentScrollListener);
+        },
+        unbindScrollListener() {
+            if (this.documentScrollListener) {
+                window.removeEventListener('scroll', this.documentScrollListener);
+                this.documentScrollListener = null;
+            }
+        },
+        shouldLoad() {
+            if (this.loaded) {
+                return false;
+            }
+            else {
+                const rect = this.$refs.container.getBoundingClientRect();
+                const docElement = document.documentElement;
+                const winHeight = docElement.clientHeight;
+
+                return (winHeight >= rect.top);
+            }
+        },
+        load(event) {
+            this.loaded = true;
+            this.$emit('load', event);
+        }
+    }
+};
+
+const _hoisted_1 = { ref: "container" };
+
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  return (vue.openBlock(), vue.createElementBlock("div", _hoisted_1, [
+    ($data.loaded)
+      ? vue.renderSlot(_ctx.$slots, "default", { key: 0 })
+      : vue.createCommentVNode("", true)
+  ], 512))
+}
+
+script.render = render;
+
+module.exports = script;

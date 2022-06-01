@@ -1,0 +1,1 @@
+this.primevue=this.primevue||{},this.primevue.usetoast=function(e,t){"use strict";const r=Symbol();return e.PrimeVueToastSymbol=r,e.useToast=function(){const e=t.inject(r);if(!e)throw new Error("No PrimeVue Toast provided!");return e},Object.defineProperty(e,"__esModule",{value:!0}),e}({},Vue);

@@ -1,0 +1,6 @@
+{
+  "main": "./useconfirm.cjs.js",
+  "module": "./useconfirm.esm.js",
+  "unpkg": "./useconfirm.min.js",
+  "types": "./UseConfirm.d.ts"
+}

@@ -1,0 +1,9 @@
+{
+  "main": "./tabmenu.cjs.js",
+  "module": "./tabmenu.esm.js",
+  "unpkg": "./tabmenu.min.js",
+  "types": "./TabMenu.d.ts",
+  "browser": {
+    "./sfc": "./TabMenu.vue"
+  }
+}

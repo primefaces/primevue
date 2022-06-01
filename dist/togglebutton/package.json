@@ -1,0 +1,9 @@
+{
+  "main": "./togglebutton.cjs.js",
+  "module": "./togglebutton.esm.js",
+  "unpkg": "./togglebutton.min.js",
+  "types": "./ToggleButton.d.ts",
+  "browser": {
+    "./sfc": "./ToggleButton.vue"
+  }
+}

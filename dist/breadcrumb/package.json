@@ -1,0 +1,10 @@
+{
+  "main": "./breadcrumb.cjs.js",
+  "module": "./breadcrumb.esm.js",
+  "unpkg": "./breadcrumb.min.js",
+  "types": "./Breadcrumb.d.ts"
+  ,
+  "browser": {
+    "./sfc": "./Breadcrumb.vue"
+  }
+}

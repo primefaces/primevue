@@ -1,0 +1,1 @@
+this.primevue=this.primevue||{},this.primevue.useconfirm=function(e,r){"use strict";const i=Symbol();return e.PrimeVueConfirmSymbol=i,e.useConfirm=function(){const e=r.inject(i);if(!e)throw new Error("No PrimeVue Confirmation provided!");return e},Object.defineProperty(e,"__esModule",{value:!0}),e}({},Vue);
