@@ -54,7 +54,7 @@ app.component('Dialog', Dialog);
 
 Finally you'll be able to utilize the component in your application. See the Styles section to apply styling.
 
-```
+```vue
 <Dialog></Dialog>
 ```
 
