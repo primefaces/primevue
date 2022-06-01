@@ -92,9 +92,6 @@ export default {
         }
     },
     computed: {
-        activeRoute() {
-            return this.$route.path;
-        },
         containerClass() {
             return ['p-steps p-component', {'p-readonly': this.readonly}];
         }
