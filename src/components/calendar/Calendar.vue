@@ -3,7 +3,7 @@
         <input :ref="inputRef" v-if="!inline" type="text" :class="['p-inputtext p-component', inputClass]" :style="inputStyle" @input="onInput" v-bind="$attrs"
             @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" :readonly="!manualInput" inputmode="none">
         <CalendarButton v-if="showIcon" :icon="icon" tabindex="-1" class="p-datepicker-trigger" :disabled="$attrs.disabled" @click="onButtonClick" type="button" :aria-label="inputFieldValue"/>
-        <Teleport :to="appendTarget" :disabled="appendDisabled">
+        <Portal :appendTo="appendTo" :disabled="inline">
             <transition name="p-connected-overlay" @enter="onOverlayEnter($event)" @after-enter="onOverlayEnterComplete" @after-leave="onOverlayAfterLeave" @leave="onOverlayLeave">
                 <div :ref="overlayRef" :class="panelStyleClass" v-if="inline ? true : overlayVisible" :role="inline ? null : 'dialog'" @click="onOverlayClick" @mouseup="onOverlayMouseUp">
                     <template v-if="!timeOnly">
@@ -137,7 +137,7 @@
                     <slot name="footer"></slot>
                 </div>
             </transition>
-        </Teleport>
+        </Portal>
     </span>
 </template>
 
@@ -146,6 +146,7 @@ import {ConnectedOverlayScrollHandler,DomHandler,ZIndexUtils,UniqueComponentId} 
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Button from 'primevue/button';
 import Ripple from 'primevue/ripple';
+import Portal from 'primevue/portal';
 
 export default {
     name: 'Calendar',
@@ -793,7 +794,7 @@ export default {
                 this.enableModality();
             }
             else if (this.overlay) {
-                if (this.appendDisabled) {
+                if (this.appendTo === 'self' || this.inline) {
                     DomHandler.relativePosition(this.overlay, this.$el);
                 }
                 else {
@@ -1706,7 +1707,7 @@ export default {
             }
 
             date = this.daylightSavingAdjust(new Date(year, month - 1, day));
-            
+
             if (date.getFullYear() !== year || date.getMonth() + 1 !== month || date.getDate() !== day) {
                 throw "Invalid date"; // E.g. 31/02/00
             }
@@ -2494,12 +2495,6 @@ export default {
         monthNames() {
             return this.$primevue.config.locale.monthNames;
         },
-        appendDisabled() {
-            return this.appendTo === 'self' || this.inline;
-        },
-        appendTarget() {
-            return this.appendDisabled ? null : this.appendTo;
-        },
         attributeSelector() {
             return UniqueComponentId();
         },
@@ -2508,7 +2503,8 @@ export default {
         }
     },
     components: {
-        'CalendarButton': Button
+        'CalendarButton': Button,
+        'Portal': Portal
     },
     directives: {
         'ripple': Ripple

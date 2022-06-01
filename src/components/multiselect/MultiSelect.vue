@@ -27,7 +27,7 @@
                 <span :class="dropdownIconClass"></span>
             </slot>
         </div>
-        <Teleport :to="appendTarget" :disabled="appendDisabled">
+        <Portal :appendTo="appendTo">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @after-enter="onOverlayAfterEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
                 <div :ref="overlayRef" :class="panelStyleClass" v-if="overlayVisible" @click="onOverlayClick">
                     <slot name="header" :value="modelValue" :options="visibleOptions"></slot>
@@ -99,7 +99,7 @@
                     <slot name="footer" :value="modelValue" :options="visibleOptions"></slot>
                 </div>
             </transition>
-        </Teleport>
+        </Portal>
     </div>
 </template>
 
@@ -109,6 +109,7 @@ import OverlayEventBus from 'primevue/overlayeventbus';
 import {FilterService} from 'primevue/api';
 import Ripple from 'primevue/ripple';
 import VirtualScroller from 'primevue/virtualscroller';
+import Portal from 'primevue/portal';
 
 export default {
     name: 'MultiSelect',
@@ -451,7 +452,7 @@ export default {
             ZIndexUtils.clear(el);
         },
         alignOverlay() {
-            if (this.appendDisabled) {
+            if (this.appendTo === 'self') {
                 DomHandler.relativePosition(this.overlay, this.$el);
             }
             else {
@@ -722,12 +723,6 @@ export default {
         emptyMessageText() {
             return this.emptyMessage || this.$primevue.config.locale.emptyMessage;
         },
-        appendDisabled() {
-            return this.appendTo === 'self';
-        },
-        appendTarget() {
-            return this.appendDisabled ? null : this.appendTo;
-        },
         virtualScrollerDisabled() {
             return !this.virtualScrollerOptions;
         },
@@ -742,7 +737,8 @@ export default {
         'ripple': Ripple
     },
     components: {
-        'VirtualScroller': VirtualScroller
+        'VirtualScroller': VirtualScroller,
+        'Portal': Portal
     }
 }
 </script>

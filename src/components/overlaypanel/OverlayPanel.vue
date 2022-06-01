@@ -1,5 +1,5 @@
 <template>
-    <Teleport :to="appendTo">
+    <Portal :appendTo="appendTo">
         <transition name="p-overlaypanel" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave">
             <div :class="containerClass" v-if="visible" :ref="containerRef" v-bind="$attrs" @click="onOverlayClick">
                 <div class="p-overlaypanel-content" @click="onContentClick" @mousedown="onContentClick">
@@ -10,13 +10,14 @@
                 </button>
             </div>
         </transition>
-    </Teleport>
+    </Portal>
 </template>
 
 <script>
 import {UniqueComponentId,DomHandler,ConnectedOverlayScrollHandler,ZIndexUtils} from 'primevue/utils';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Ripple from 'primevue/ripple';
+import Portal from 'primevue/portal';
 
 export default {
     name: 'OverlayPanel',
@@ -267,6 +268,9 @@ export default {
     },
     directives: {
         'ripple': Ripple
+    },
+    components: {
+        'Portal': Portal
     }
 }
 </script>

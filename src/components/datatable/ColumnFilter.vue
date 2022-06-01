@@ -7,7 +7,7 @@
             :class="{'p-column-filter-menu-button-open': overlayVisible, 'p-column-filter-menu-button-active': hasFilter()}"
             @click="toggleMenu()" @keydown="onToggleButtonKeyDown($event)"><span class="pi pi-filter-icon pi-filter"></span></button>
         <button v-if="showClearButton && display === 'row'" :class="{'p-hidden-space': !hasRowFilter()}" type="button" class="p-column-filter-clear-button p-link" @click="clearFilter()"><span class="pi pi-filter-slash"></span></button>
-        <Teleport to="body">
+        <Portal>
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
                 <div :ref="overlayRef" :class="overlayClass" v-if="overlayVisible" @keydown.escape="onEscape" @click="onContentClick" @mousedown="onContentMouseDown">
                     <component :is="filterHeaderTemplate" :field="field" :filterModel="filters[field]" :filterCallback="filterCallback" />
@@ -49,7 +49,7 @@
                     <component :is="filterFooterTemplate" :field="field" :filterModel="filters[field]" :filterCallback="filterCallback" />
                 </div>
             </transition>
-        </Teleport>
+        </Portal>
     </div>
 </template>
 
@@ -59,6 +59,7 @@ import OverlayEventBus from 'primevue/overlayeventbus';
 import {FilterOperator} from 'primevue/api';
 import Dropdown from 'primevue/dropdown';
 import Button from 'primevue/button';
+import Portal from 'primevue/portal';
 
 export default {
     name: 'ColumnFilter',
@@ -514,7 +515,8 @@ export default {
     },
     components: {
         'CFDropdown': Dropdown,
-        'CFButton': Button
+        'CFButton': Button,
+        'Portal': Portal
     }
 }
 </script>

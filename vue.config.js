@@ -12,6 +12,7 @@ module.exports = {
                 'primevue/usetoast': path.resolve(__dirname, 'src/components/usetoast/UseToast.js'),
                 'primevue/utils': path.resolve(__dirname, 'src/components/utils/Utils.js'),
                 'primevue/api': path.resolve(__dirname, 'src/components/api/Api.js'),
+                'primevue/portal': path.resolve(__dirname, 'src/components/portal/Portal.vue'),
                 'primevue/button': path.resolve(__dirname, 'src/components/button/Button.vue'),
                 'primevue/inputtext': path.resolve(__dirname, 'src/components/inputtext/InputText.vue'),
                 'primevue/dialog': path.resolve(__dirname, 'src/components/dialog/Dialog.vue'),

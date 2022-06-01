@@ -14,7 +14,7 @@
                 <span :class="dropdownIconClass"></span>
             </slot>
         </div>
-        <Teleport :to="appendTarget" :disabled="appendDisabled">
+        <Portal :appendTo="appendTo">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
                 <div :ref="overlayRef" :class="panelStyleClass" v-if="overlayVisible" @click="onOverlayClick">
                     <div class="p-cascadeselect-items-wrapper">
@@ -25,7 +25,7 @@
                     </div>
                 </div>
             </transition>
-        </Teleport>
+        </Portal>
     </div>
 </template>
 
@@ -33,6 +33,7 @@
 import {ConnectedOverlayScrollHandler,ObjectUtils,DomHandler,ZIndexUtils} from 'primevue/utils';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import CascadeSelectSub from './CascadeSelectSub.vue';
+import Portal from 'primevue/portal';
 
 export default {
     name: 'CascadeSelect',
@@ -199,7 +200,7 @@ export default {
             ZIndexUtils.clear(el);
         },
         alignOverlay() {
-            if (this.appendDisabled) {
+            if (this.appendTo === 'self') {
                 DomHandler.relativePosition(this.overlay, this.$el);
             }
             else {
@@ -323,18 +324,13 @@ export default {
                 'p-ripple-disabled': this.$primevue.config.ripple === false
             }];
         },
-        appendDisabled() {
-            return this.appendTo === 'self';
-        },
-        appendTarget() {
-            return this.appendDisabled ? null : this.appendTo;
-        },
         dropdownIconClass() {
             return ['p-cascadeselect-trigger-icon', this.loading ? this.loadingIcon : 'pi pi-chevron-down'];
         }
     },
     components: {
-        'CascadeSelectSub': CascadeSelectSub
+        'CascadeSelectSub': CascadeSelectSub,
+        'Portal': Portal
     }
 }
 </script>

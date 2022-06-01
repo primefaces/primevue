@@ -1,5 +1,5 @@
 <template>
-    <Teleport to="body">
+    <Portal>
         <transition name="p-sidebar" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave" appear>
             <div :class="containerClass" v-if="visible" :ref="containerRef" role="complementary" :aria-modal="modal" v-bind="$attrs">
                 <div class="p-sidebar-header">
@@ -15,12 +15,13 @@
                 </div>
             </div>
         </transition>
-    </Teleport>
+    </Portal>
 </template>
 
 <script>
 import {DomHandler,ZIndexUtils} from 'primevue/utils';
 import Ripple from 'primevue/ripple';
+import Portal from 'primevue/portal';
 
 export default {
     name: 'Sidebar',
@@ -164,6 +165,9 @@ export default {
     },
     directives: {
         'ripple': Ripple
+    },
+    components: {
+        'Portal': Portal
     }
 }
 </script>

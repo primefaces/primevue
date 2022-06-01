@@ -6,7 +6,7 @@
                 <i class="p-image-preview-icon pi pi-eye"></i>
             </slot>
         </div>
-        <Teleport to="body">
+        <Portal>
             <div :ref="maskRef" :class="maskClass" v-if="maskVisible" @click="onMaskClick">
                 <div class="p-image-toolbar">
                     <button class="p-image-action p-link" @click="rotateRight" type="button">
@@ -31,12 +31,13 @@
                     </div>
                 </transition>
             </div>
-        </Teleport>
+        </Portal>
     </span>
 </template>
 
 <script>
 import {DomHandler,ZIndexUtils} from 'primevue/utils';
+import Portal from 'primevue/portal';
 
 export default {
     name: 'Image',
@@ -143,6 +144,9 @@ export default {
         zoomDisabled() {
             return this.scale <= 0.5 || this.scale >= 1.5;
         }
+    },
+    components: {
+        'Portal': Portal
     }
 }
 </script>

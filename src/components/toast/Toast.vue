@@ -1,17 +1,18 @@
 <template>
-    <Teleport to="body">
+    <Portal>
         <div ref="container" :class="containerClass" v-bind="$attrs">
             <transition-group name="p-toast-message" tag="div" @enter="onEnter" @leave="onLeave">
                 <ToastMessage v-for="msg of messages" :key="msg.id" :message="msg" @close="remove($event)" :template="$slots.message"/>
             </transition-group>
         </div>
-    </Teleport>
+    </Portal>
 </template>
 
 <script>
 import ToastEventBus from 'primevue/toasteventbus';
 import ToastMessage from './ToastMessage.vue';
 import {ZIndexUtils,UniqueComponentId,ObjectUtils} from 'primevue/utils';
+import Portal from 'primevue/portal';
 
 var messageIdx = 0;
 
@@ -142,7 +143,8 @@ export default {
         }
     },
     components: {
-        'ToastMessage': ToastMessage
+        'ToastMessage': ToastMessage,
+        'Portal': Portal
     },
     computed: {
         containerClass() {

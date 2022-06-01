@@ -1,16 +1,17 @@
 <template>
-    <Teleport :to="appendTo">
+    <Portal :appendTo="appendTo">
         <transition name="p-contextmenu" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave">
             <div :ref="containerRef" :class="containerClass" v-if="visible" v-bind="$attrs">
                 <ContextMenuSub :model="model" :root="true" @leaf-click="onLeafClick" :template="$slots.item" :exact="exact" />
             </div>
         </transition>
-    </Teleport>
+    </Portal>
 </template>
 
 <script>
 import {DomHandler,ZIndexUtils} from 'primevue/utils';
 import ContextMenuSub from './ContextMenuSub.vue';
+import Portal from 'primevue/portal';
 
 export default {
     name: 'ContextMenu',
@@ -209,7 +210,8 @@ export default {
         }
     },
     components: {
-        'ContextMenuSub': ContextMenuSub
+        'ContextMenuSub': ContextMenuSub,
+        'Portal': Portal
     }
 }
 </script>

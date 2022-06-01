@@ -16,7 +16,7 @@
         </ul>
         <i class="p-autocomplete-loader pi pi-spinner pi-spin" v-if="searching"></i>
         <Button ref="dropdownButton" type="button" icon="pi pi-chevron-down" class="p-autocomplete-dropdown" :disabled="$attrs.disabled" @click="onDropdownClick" v-if="dropdown"/>
-        <Teleport :to="appendTarget" :disabled="appendDisabled">
+        <Portal :appendTo="appendTo">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
                 <div :ref="overlayRef" :class="panelStyleClass" :style="{'max-height': virtualScrollerDisabled ? scrollHeight : ''}" v-if="overlayVisible" @click="onOverlayClick">
                     <slot name="header" :value="modelValue" :suggestions="suggestions"></slot>
@@ -47,7 +47,7 @@
                     <slot name="footer" :value="modelValue" :suggestions="suggestions"></slot>
                 </div>
             </transition>
-        </Teleport>
+        </Portal>
     </span>
 </template>
 
@@ -57,6 +57,7 @@ import OverlayEventBus from 'primevue/overlayeventbus';
 import Button from 'primevue/button';
 import Ripple from 'primevue/ripple';
 import VirtualScroller from 'primevue/virtualscroller';
+import Portal from 'primevue/portal';
 
 export default {
     name: 'AutoComplete',
@@ -208,7 +209,7 @@ export default {
         },
         alignOverlay() {
             let target = this.multiple ? this.$refs.multiContainer : this.$refs.input;
-            if (this.appendDisabled) {
+            if (this.appendTo === 'self') {
                 DomHandler.relativePosition(this.overlay, target);
             }
             else {
@@ -613,19 +614,14 @@ export default {
         listId() {
             return UniqueComponentId() + '_list';
         },
-        appendDisabled() {
-            return this.appendTo === 'self';
-        },
-        appendTarget() {
-            return this.appendDisabled ? null : this.appendTo;
-        },
         virtualScrollerDisabled() {
             return !this.virtualScrollerOptions;
         }
     },
     components: {
         'Button': Button,
-        'VirtualScroller': VirtualScroller
+        'VirtualScroller': VirtualScroller,
+        'Portal': Portal
     },
     directives: {
         'ripple': Ripple

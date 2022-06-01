@@ -1,5 +1,5 @@
 <template>
-    <Teleport :to="appendTarget" :disabled="appendDisabled">
+    <Portal :appendTo="appendTo">
         <div :ref="maskRef" :class="maskClass" v-if="containerVisible" @click="onMaskClick">
             <transition name="p-dialog" @before-enter="onBeforeEnter" @enter="onEnter" @before-leave="onBeforeLeave" @leave="onLeave" @after-leave="onAfterLeave" appear>
                 <div :ref="containerRef" :class="dialogClass" v-if="visible" v-bind="$attrs" role="dialog" :aria-labelledby="ariaLabelledById" :aria-modal="modal">
@@ -25,12 +25,13 @@
                 </div>
             </transition>
         </div>
-    </Teleport>
+    </Portal>
 </template>
 
 <script>
 import {UniqueComponentId,DomHandler,ZIndexUtils} from 'primevue/utils';
 import Ripple from 'primevue/ripple';
+import Portal from 'primevue/portal';
 
 export default {
     name: 'Dialog',
@@ -405,16 +406,13 @@ export default {
         },
         contentStyleClass() {
             return ['p-dialog-content', this.contentClass];
-        },
-        appendDisabled() {
-            return this.appendTo === 'self';
-        },
-        appendTarget() {
-            return this.appendDisabled ? null : this.appendTo;
         }
     },
     directives: {
         'ripple': Ripple
+    },
+    components: {
+        'Portal': Portal
     }
 }
 </script>

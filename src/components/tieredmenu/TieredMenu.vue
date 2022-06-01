@@ -1,16 +1,17 @@
 <template>
-    <Teleport :to="appendTo" :disabled="!popup">
+    <Portal :appendTo="appendTo" :disabled="!popup">
         <transition name="p-connected-overlay" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave">
             <div :ref="containerRef" :class="containerClass" v-if="popup ? visible : true" v-bind="$attrs" @click="onOverlayClick">
                 <TieredMenuSub :model="model" :root="true" :popup="popup" @leaf-click="onLeafClick" :template="$slots.item" :exact="exact" />
             </div>
         </transition>
-    </Teleport>
+    </Portal>
 </template>
 
 <script>
 import {ConnectedOverlayScrollHandler,DomHandler,ZIndexUtils} from 'primevue/utils';
 import OverlayEventBus from 'primevue/overlayeventbus';
+import Portal from 'primevue/portal';
 import TieredMenuSub from './TieredMenuSub.vue';
 
 export default {
@@ -188,7 +189,8 @@ export default {
         }
     },
     components: {
-        'TieredMenuSub': TieredMenuSub
+        'TieredMenuSub': TieredMenuSub,
+        'Portal': Portal
     }
 }
 </script>

@@ -1,17 +1,18 @@
 <template>
-    <Teleport to="body" v-if="fullScreen">
+    <Portal v-if="fullScreen">
         <div v-if="containerVisible" :ref="maskRef" :class="maskContentClass">
             <transition name="p-galleria" @before-enter="onBeforeEnter" @enter="onEnter" @before-leave="onBeforeLeave" @after-leave="onAfterLeave" appear>
                 <GalleriaContent :ref="containerRef" v-if="visible" v-bind="$props" @mask-hide="maskHide" :templates="$slots" @activeitem-change="onActiveItemChange" />
             </transition>
         </div>
-    </Teleport>
+    </Portal>
     <GalleriaContent v-else v-bind="$props" :templates="$slots" @activeitem-change="onActiveItemChange" />
 </template>
 
 <script>
 import GalleriaContent from './GalleriaContent.vue';
 import {DomHandler,ZIndexUtils} from 'primevue/utils';
+import Portal from 'primevue/portal';
 
 export default {
     name: 'Galleria',
@@ -172,7 +173,8 @@ export default {
         }
     },
     components: {
-        'GalleriaContent': GalleriaContent
+        'GalleriaContent': GalleriaContent,
+        'Portal': Portal
     }
 }
 </script>

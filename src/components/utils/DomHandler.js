@@ -453,6 +453,10 @@ export default  {
         (element)[methodName].apply(element, args);
     },
 
+    isClient() {
+        return !!(typeof window !== 'undefined' && window.document && window.document.createElement);
+    },
+
     getFocusableElements(element) {
         let focusableElements = this.find(element, `button:not([tabindex = "-1"]):not([disabled]):not([style*="display:none"]):not([hidden]),
                 [href][clientHeight][clientWidth]:not([tabindex = "-1"]):not([disabled]):not([style*="display:none"]):not([hidden]),

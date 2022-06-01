@@ -24,7 +24,7 @@
                 <span class="p-treeselect-trigger-icon pi pi-chevron-down"></span>
             </slot>
         </div>
-        <Teleport :to="appendTarget" :disabled="appendDisabled">
+        <Portal :appendTo="appendTo">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
                 <div :ref="overlayRef" v-if="overlayVisible" @click="onOverlayClick" :class="panelStyleClass">
                     <slot name="header" :value="modelValue" :options="options"></slot>
@@ -40,7 +40,7 @@
                     <slot name="footer" :value="modelValue" :options="options"></slot>
                 </div>
             </transition>
-        </Teleport>
+        </Portal>
     </div>
 </template>
 
@@ -49,6 +49,7 @@ import {ConnectedOverlayScrollHandler,DomHandler,ZIndexUtils} from 'primevue/uti
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Tree from 'primevue/tree';
 import Ripple from 'primevue/ripple';
+import Portal from 'primevue/portal';
 
 export default {
     name: 'TreeSelect',
@@ -232,7 +233,7 @@ export default {
             ZIndexUtils.clear(el);
         },
         alignOverlay() {
-            if (this.appendDisabled) {
+            if (this.appendTo === 'self') {
                 DomHandler.relativePosition(this.overlay, this.$el);
             }
             else {
@@ -414,16 +415,11 @@ export default {
         },
         emptyOptions() {
             return !this.options || this.options.length === 0;
-        },
-        appendDisabled() {
-            return this.appendTo === 'self';
-        },
-        appendTarget() {
-            return this.appendDisabled ? null : this.appendTo;
         }
     },
     components: {
-        'TSTree': Tree
+        'TSTree': Tree,
+        'Portal': Portal
     },
     directives: {
         'ripple': Ripple

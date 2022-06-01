@@ -1,5 +1,5 @@
 <template>
-    <Teleport :to="appendTo" :disabled="!popup">
+    <Portal :appendTo="appendTo" :disabled="!popup">
         <transition name="p-connected-overlay" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave">
             <div :ref="containerRef" :class="containerClass" v-if="popup ? overlayVisible : true" v-bind="$attrs" @click="onOverlayClick">
                 <ul class="p-menu-list p-reset" role="menu">
@@ -19,13 +19,14 @@
                 </ul>
             </div>
         </transition>
-    </Teleport>
+    </Portal>
 </template>
 
 <script>
 import {ConnectedOverlayScrollHandler,DomHandler,ZIndexUtils} from 'primevue/utils';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Menuitem from './Menuitem.vue';
+import Portal from 'primevue/portal';
 
 export default {
     name: 'Menu',
@@ -220,7 +221,8 @@ export default {
         }
     },
     components: {
-        'Menuitem': Menuitem
+        'Menuitem': Menuitem,
+        'Portal': Portal
     }
 }
 </script>
