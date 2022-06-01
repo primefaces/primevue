@@ -4117,7 +4117,7 @@
 .p-overlaypanel:before {
   border: solid transparent;
   border-color: rgba(241, 241, 241, 0);
-  border-bottom-color: #f1f1f1;
+  border-bottom-color: #e5e5e5;
 }
 .p-overlaypanel.p-overlaypanel-flipped:after {
   border-top-color: #ffffff;
