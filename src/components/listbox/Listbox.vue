@@ -4,6 +4,7 @@
         <div class="p-listbox-header" v-if="filter">
             <div class="p-listbox-filter-container">
                 <input type="text" class="p-listbox-filter p-inputtext p-component" v-model="filterValue" :placeholder="filterPlaceholder" @input="onFilterChange">
+                <span v-if="filterClear" class="p-listbox-filter-icon pi pi-times me-4" @click="clearFilter"></span>
                 <span class="p-listbox-filter-icon pi pi-search"></span>
             </div>
         </div>
@@ -96,7 +97,8 @@ export default {
     virtualScroller: null,
     data() {
         return {
-            filterValue: null
+            filterValue: null,
+            filterClear: false
         };
     },
     methods: {
@@ -283,10 +285,19 @@ export default {
                 return null;
         },
         onFilterChange(event) {
+            if( event.target.value.length > 0 )
+                this.filterClear = true;
+            else
+                this.filterClear = false;
             this.$emit('filter', {originalEvent: event, value: event.target.value});
         },
         virtualScrollerRef(el) {
             this.virtualScroller = el;
+        },
+        clearFilter(event) {
+            this.$emit('filter', {originalEvent: event, value: ''});
+            this.filterValue = null;
+            this.filterClear = false;
         }
     },
     computed: {
@@ -368,5 +379,8 @@ export default {
 
 .p-listbox-filter {
     width: 100%;
+}
+.me-4{
+    margin-right: 1.5rem;
 }
 </style>
