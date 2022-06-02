@@ -433,7 +433,8 @@ export default {
                     }
                 break;
 
-                //enter
+                //tab and enter
+                case 9:
                 case 13:
                     newValueStr = this.validateValue(this.parseValue(inputValue));
                     this.$refs.input.$el.value = this.formatValue(newValueStr);
