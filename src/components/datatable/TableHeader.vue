@@ -6,7 +6,7 @@
                     <DTHeaderCell v-if="!columnProp(col, 'hidden') && (rowGroupMode !== 'subheader' || (groupRowsBy !== columnProp(col, 'field')))" :column="col"
                     @column-click="$emit('column-click', $event)" @column-mousedown="$emit('column-mousedown', $event)"
                     @column-dragstart="$emit('column-dragstart', $event)" @column-dragover="$emit('column-dragover', $event)" @column-dragleave="$emit('column-dragleave', $event)" @column-drop="$emit('column-drop', $event)"
-                    :groupRowsBy="groupRowsBy" :groupRowSortField="groupRowSortField" :resizableColumns="resizableColumns" @column-resizestart="$emit('column-resizestart', $event)"
+                    :groupRowsBy="groupRowsBy" :groupRowSortField="groupRowSortField" :reorderableColumns="reorderableColumns" :resizableColumns="resizableColumns" @column-resizestart="$emit('column-resizestart', $event)"
                     :sortMode="sortMode" :sortField="sortField" :sortOrder="sortOrder" :multiSortMeta="multiSortMeta"
                     :allRowsSelected="allRowsSelected" :empty="empty" @checkbox-change="$emit('checkbox-change', $event)"
                     :filters="filters" :filterDisplay="filterDisplay" :filtersStore="filtersStore" @filter-change="$emit('filter-change', $event)" @filter-apply="$emit('filter-apply')"
@@ -118,6 +118,10 @@ export default {
         filtersStore: {
             type: Object,
             default: null
+        },
+        reorderableColumns: {
+            type: Boolean,
+            default: false
         }
     },
     methods: {
