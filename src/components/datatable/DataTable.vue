@@ -1254,7 +1254,7 @@ export default {
                 let dragIndex = DomHandler.index(this.draggedColumn);
                 let dropIndex = DomHandler.index(this.findParentHeader(event.target));
                 let allowDrop = (dragIndex !== dropIndex);
-                if (allowDrop && ((dropIndex - dragIndex === 1 && this.dropPosition === -1) || (dragIndex - dropIndex === 1 && this.dropPosition === 1))) {
+                if (allowDrop && ((dragIndex - dropIndex === 1 && this.dropPosition === -1) || (dropIndex - dragIndex === 1 && this.dropPosition === 1))) {
                     allowDrop = false;
                 }
 
