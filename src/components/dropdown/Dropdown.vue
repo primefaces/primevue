@@ -238,9 +238,11 @@ export default {
         isSelected(option) {
             return ObjectUtils.equals(this.modelValue, this.getOptionValue(option), this.equalityKey);
         },
-        show() {
+        show(isFocus) {
             this.$emit('before-show');
             this.overlayVisible = true;
+
+            isFocus && this.$refs.focusInput.focus();
         },
         hide() {
             this.$emit('before-hide');

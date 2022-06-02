@@ -379,7 +379,7 @@ export default {
 				<tbody>
                     <tr>
                         <td>show</td>
-                        <td>-</td>
+                        <td>isFocus: Decides whether to focus on the component. Default value is false.</td>
                         <td>Shows the overlay.</td>
                     </tr>
                     <tr>
