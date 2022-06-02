@@ -14,7 +14,7 @@
                     role="searchbox" aria-autocomplete="list" :aria-controls="listId">
             </li>
         </ul>
-        <i class="p-autocomplete-loader pi pi-spinner pi-spin" v-if="searching"></i>
+        <i :class="computedIconClasses" v-if="searching"></i>
         <Button ref="dropdownButton" type="button" icon="pi pi-chevron-down" class="p-autocomplete-dropdown" :disabled="$attrs.disabled" @click="onDropdownClick" v-if="dropdown"/>
         <Portal :appendTo="appendTo">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
@@ -123,6 +123,10 @@ export default {
         virtualScrollerOptions: {
             type: Object,
             default: null
+        },
+        loadingIcon: {
+            type: String,
+            default: 'pi pi-spinner'
         }
     },
     timeout: null,
@@ -571,6 +575,9 @@ export default {
         }
     },
     computed: {
+        loadingIconClass() {
+            return ['p-autocomplete-loader', 'pi-spin', this.loadingIcon];
+        },
         containerClass() {
             return ['p-autocomplete p-component p-inputwrapper', this.class, {
                 'p-autocomplete-dd': this.dropdown,
