@@ -88,6 +88,10 @@ export default {
         filterColumn: {
             type: Boolean,
             default: false
+        },
+        reorderableColumns: {
+            type: Boolean,
+            default: false
         }
     },
     data() {
@@ -95,7 +99,7 @@ export default {
             styleObject: {}
         }
     },
-    mounted() {
+    mounted() {console.log(this.reorderableColumns)
         if (this.columnProp('frozen')) {
             this.updateStickyPosition();
         }
@@ -188,7 +192,8 @@ export default {
                     'p-resizable-column': this.resizableColumns,
                     'p-highlight': this.isColumnSorted(),
                     'p-filter-column': this.filterColumn,
-                    'p-frozen-column': this.columnProp('frozen')
+                    'p-frozen-column': this.columnProp('frozen'),
+                    'p-reorderable-column': this.reorderableColumns
             }];
         },
         containerStyle() {

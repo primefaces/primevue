@@ -22,7 +22,7 @@
                 <template #content="slotProps">
                     <table ref="table" role="table" :class="[tableClass, 'p-datatable-table']" :style="[tableStyle, slotProps.spacerStyle]">
                         <DTTableHeader :columnGroup="headerColumnGroup" :columns="slotProps.columns" :rowGroupMode="rowGroupMode"
-                                :groupRowsBy="groupRowsBy" :groupRowSortField="groupRowSortField" :resizableColumns="resizableColumns" :allRowsSelected="allRowsSelected" :empty="empty"
+                                :groupRowsBy="groupRowsBy" :groupRowSortField="groupRowSortField" :reorderableColumns="reorderableColumns" :resizableColumns="resizableColumns" :allRowsSelected="allRowsSelected" :empty="empty"
                                 :sortMode="sortMode" :sortField="d_sortField" :sortOrder="d_sortOrder" :multiSortMeta="d_multiSortMeta" :filters="d_filters" :filtersStore="filters" :filterDisplay="filterDisplay"
                                 @column-click="onColumnHeaderClick($event)" @column-mousedown="onColumnHeaderMouseDown($event)" @filter-change="onFilterChange" @filter-apply="onFilterApply"
                                 @column-dragstart="onColumnHeaderDragStart($event)" @column-dragover="onColumnHeaderDragOver($event)" @column-dragleave="onColumnHeaderDragLeave($event)" @column-drop="onColumnHeaderDrop($event)"
@@ -2131,6 +2131,11 @@ export default {
 .p-datatable-reorder-indicator-down {
     position: absolute;
     display: none;
+}
+
+.p-reorderable-column,
+.p-datatable-reorderablerow-handle {
+    cursor: move;
 }
 
 /* Loader */
