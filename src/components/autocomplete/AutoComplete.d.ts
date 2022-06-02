@@ -136,6 +136,11 @@ export interface AutoCompleteProps {
      */
     panelClass?: any;
     /**
+     * Icon to display in loading state.
+     * Default value is 'pi pi-spinner pi-spin'.
+     */
+    loadingIcon?: string | undefined;
+    /**
      * Whether to use the virtualScroller feature. The properties of VirtualScroller component can be used like an object in it.
      * @see VirtualScroller.VirtualScrollerProps
      */

@@ -120,6 +120,12 @@ const AutoCompleteProps = [
         description: "Style class of the overlay panel."
     },
     {
+        name: "loadingIcon",
+        type: "string",
+        default: "pi pi-spinner",
+        description: "Icon to display in loading state."
+    },
+    {
         name: "virtualScrollerOptions",
         type: "object",
         default: "null",
