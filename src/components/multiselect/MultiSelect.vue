@@ -647,7 +647,10 @@ export default {
             let label;
 
             if (this.modelValue && this.modelValue.length) {
-                if (!this.maxSelectedLabels || this.modelValue.length <= this.maxSelectedLabels) {
+                if (ObjectUtils.isNotEmpty(this.maxSelectedLabels) && this.modelValue.length > this.maxSelectedLabels) {
+                    return this.getSelectedItemsLabel();
+                }
+                else {
                     label = '';
                     for(let i = 0; i < this.modelValue.length; i++) {
                         if(i !== 0) {
@@ -656,9 +659,6 @@ export default {
 
                         label += this.getLabelByValue(this.modelValue[i]);
                     }
-                }
-                else {
-                    return this.getSelectedItemsLabel();
                 }
             }
             else {
