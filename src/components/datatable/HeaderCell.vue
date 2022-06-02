@@ -99,7 +99,7 @@ export default {
             styleObject: {}
         }
     },
-    mounted() {console.log(this.reorderableColumns)
+    mounted() {
         if (this.columnProp('frozen')) {
             this.updateStickyPosition();
         }
