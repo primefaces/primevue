@@ -48,7 +48,7 @@ export default {
     },
     computed: {
         checked() {
-            return this.modelValue != null && ObjectUtils.equals(this.modelValue, this.value);
+            return (this.modelValue != null && ObjectUtils.equals(this.modelValue, this.value)) || null;
         },
         containerClass() {
             return ['p-radiobutton p-component', this.class, {'p-radiobutton-checked': this.checked, 'p-radiobutton-disabled': this.$attrs.disabled, 'p-radiobutton-focused': this.focused}];
