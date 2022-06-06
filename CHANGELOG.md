@@ -1,5 +1,42 @@
 # Changelog
 
+## [3.13.0](https://github.com/primefaces/primevue/tree/3.13.0) (2022-06-06)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.12.6...3.13.0)
+
+**Implemented New Features and Enhancements:**
+
+- DataTable | new 'p-reorderable-column' class and reorderable columns cursor update [\#2620](https://github.com/primefaces/primevue/issues/2620)
+- Add a param to the show\(\) method to focus Dropdown component [\#2619](https://github.com/primefaces/primevue/issues/2619)
+- The overlay elements automatically close on mobile devices [\#2618](https://github.com/primefaces/primevue/issues/2618)
+- Add Nuxt3 support for components using teleport [\#2602](https://github.com/primefaces/primevue/issues/2602)
+- DataTable: support passing a function to the dataKey prop [\#2589](https://github.com/primefaces/primevue/issues/2589)
+- Autocomplete | new loadingIcon property [\#2542](https://github.com/primefaces/primevue/issues/2542)
+- Tooltip new fitContent property [\#2536](https://github.com/primefaces/primevue/issues/2536)
+- Arrow for OverlayPanel doesn't have borders in Lara Light Blue theme [\#2390](https://github.com/primefaces/primevue/issues/2390)
+- 'tab' key support on Input Number [\#1518](https://github.com/primefaces/primevue/issues/1518)
+
+**Fixed bugs:**
+
+- The maxSelectedLabels props is not working with 0 value on MultiSelect [\#2617](https://github.com/primefaces/primevue/issues/2617)
+- Calendar | Could not edit end date with time picker properly [\#2588](https://github.com/primefaces/primevue/issues/2588)
+- PanelMenu animation issue [\#2583](https://github.com/primefaces/primevue/issues/2583)
+- Add null types to InputText and Password [\#2576](https://github.com/primefaces/primevue/issues/2576)
+- Step tabs not highlighted correctly for named routes [\#2568](https://github.com/primefaces/primevue/issues/2568)
+- DataTable | column reorder is broken with hidden column [\#2562](https://github.com/primefaces/primevue/issues/2562)
+- Column node declaration TypeScript error [\#2553](https://github.com/primefaces/primevue/issues/2553)
+- DataTable \#loading overridden template is not always rendered [\#2547](https://github.com/primefaces/primevue/issues/2547)
+- Dropdown duplicates options key [\#2545](https://github.com/primefaces/primevue/issues/2545)
+- Header elements in DataTable with virtualScroller are not in the correct position on the scroll.  [\#2534](https://github.com/primefaces/primevue/issues/2534)
+- Sub-items in PanelMenu does not receive the `router-link-active` class [\#2528](https://github.com/primefaces/primevue/issues/2528)
+- InputText and Textarea duplicating custom class\(es\) in DOM element [\#2522](https://github.com/primefaces/primevue/issues/2522)
+- Carousel: Display issues when loading less items that the allocated slots [\#2516](https://github.com/primefaces/primevue/issues/2516)
+- Missing invalid float label color [\#2510](https://github.com/primefaces/primevue/issues/2510)
+- Calendar resize listener bug [\#2509](https://github.com/primefaces/primevue/issues/2509)
+- The default severity of the InlineMessage is info, but in the code the default severity is 'error'. [\#2507](https://github.com/primefaces/primevue/issues/2507)
+- \[BUG\] DataTable column reorder in wrong order [\#2225](https://github.com/primefaces/primevue/issues/2225)
+- \[BUG\] Range slider cannot be set to \[min, min\] [\#2104](https://github.com/primefaces/primevue/issues/2104)
+
 ## [3.12.6](https://github.com/primefaces/primevue/tree/3.12.5) (2022-04-27)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.12.5...3.12.6)
