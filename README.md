@@ -146,7 +146,7 @@ Nuxt 3 is currently in beta and an official module is planned after the final re
 Open the nuxt configuration file and add the css dependencies.
 
 ```javascript
-import { defineNuxtConfig } from 'nuxt3';
+import { defineNuxtConfig } from 'nuxt';
 
 export default defineNuxtConfig({
     css: [
