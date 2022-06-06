@@ -63,7 +63,6 @@ declare class TieredMenu extends ClassComponent<TieredMenuProps, TieredMenuSlots
     /**
      * Shows the overlay.
      * @param {Event} event - Browser event
-     * @param {*} [target] - Optional target if event.target would not be used
      *
      * @memberof TieredMenu
      */

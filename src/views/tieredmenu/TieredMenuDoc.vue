@@ -270,8 +270,7 @@ toggle(event) {
                     </tr>
                     <tr>
                         <td>show</td>
-                        <td>event: Browser event <br />
-                            target: Optional target if event.target would not be used</td>
+                        <td>event: Browser event</td>
                         <td>Shows the overlay.</td>
                     </tr>
                     <tr>
