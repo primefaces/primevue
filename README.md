@@ -157,9 +157,9 @@ export default defineNuxtConfig({
 })
 ```
 
-**primevue.js**
+**primevue.client.js**
 
-Create a file like **primevue.js** under the plugins directory for the configuration.
+Create a file like **primevue.client.js** under the plugins directory for the configuration.
 
 ```javascript
 import { defineNuxtPlugin } from "#app";
