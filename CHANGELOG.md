@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.13.1](https://github.com/primefaces/primevue/tree/3.13.1) (2022-06-07)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.13.0...3.13.1)
+
+**Fixed bugs:**
+
+- Script: CDN Script Fail [\#2642](https://github.com/primefaces/primevue/issues/2642)
+
 ## [3.13.0](https://github.com/primefaces/primevue/tree/3.13.0) (2022-06-06)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.12.6...3.13.0)
