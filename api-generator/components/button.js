@@ -28,6 +28,18 @@ const ButtonProps = [
         type: "string",
         default: "null",
         description: "Style class of the badge."
+    },
+    {
+        name: "loading",
+        type: "boolean",
+        default: "false",
+        description: "Whether the button is in loading state."
+    },
+    {
+        name: "loadingIcon",
+        type: "string",
+        default: "pi pi-spinner pi-spin",
+        description: "Icon to display in loading state."
     }
 ];
 

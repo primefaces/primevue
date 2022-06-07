@@ -88,6 +88,11 @@ import Button from 'primevue/button';
 &lt;Button type="button" label="Emails" badge="8" /&gt;
 &lt;Button type="button" label="Messages" icon="pi pi-users" class="p-button-warning" badge="8" badgeClass="p-badge-info" /&gt;
 </CodeHighlight>
+                <h5>Loading State</h5>
+                <p>Button displays a <i>loadingIcon</i> when <i>loading</i> property is enabled.</p>
+<CodeHighlight>
+&lt;Button label="Save" icon="pi pi-check" :loading="isLoading" /&gt;
+</CodeHighlight>
 
                 <h5>ButtonSet</h5>
                 <p>Wrapping the buttons in a container having a <i>.p-buttonset</i> class, groups the buttons side to side.</p>
@@ -158,6 +163,18 @@ import Button from 'primevue/button';
                                 <td>string</td>
                                 <td>null</td>
                                 <td>Style class of the badge.</td>
+                            </tr>
+                            <tr>
+                                <td>loading</td>
+                                <td>boolean</td>
+                                <td>false</td>
+                                <td>Whether the button is in loading state.</td>
+                            </tr>
+                            <tr>
+                                <td>loadingIcon</td>
+                                <td>string</td>
+                                <td>pi pi-spinner pi-spin</td>
+                                <td>Icon to display in loading state.</td>
                             </tr>
 						</tbody>
 					</table>
@@ -305,6 +322,9 @@ import Button from 'primevue/button';
 &lt;h5&gt;Badges&lt;/h5&gt;
 &lt;Button type="button" label="Emails" badge="8" /&gt;
 &lt;Button type="button" label="Messages" icon="pi pi-users" class="p-button-warning" badge="8" badgeClass="p-badge-danger" /&gt;
+
+&lt;h5&gt;Loading State&lt;/h5&gt;
+&lt;Button label="Save" icon="pi pi-check" :loading="isLoading" /&gt;
 
 &lt;h5&gt;Button Set&lt;/h5&gt;
 &lt;span class="p-buttonset"&gt;

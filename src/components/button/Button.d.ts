@@ -6,6 +6,8 @@ declare class Button extends Vue {
     iconPos?: string;
     badge?: string;
     badgeClass?: string;
+    loading?: boolean;
+    loadingIcon?: string;
 }
 
 export default Button;
