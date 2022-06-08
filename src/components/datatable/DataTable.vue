@@ -1894,7 +1894,7 @@ export default {
             }
             else {
                 const val = this.frozenValue ? [...this.frozenValue, ...this.processedData] : this.processedData;
-                return !!val?.length && this.selection && Array.isArray(this.selection) && val.every(v => this.selection.some(s => this.equals(s, v)));
+                return ObjectUtils.isNotEmpty(val) && this.selection && Array.isArray(this.selection) && val.every(v => this.selection.some(s => this.equals(s, v)));
             }
         },
         attributeSelector() {
