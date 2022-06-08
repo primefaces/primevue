@@ -83,9 +83,12 @@ function show(el) {
 }
 
 function hide(el) {
+    const tooltipElement = getTooltipElement(el);
     remove(el);
     unbindScrollListener(el);
-    ZIndexUtils.clear(el);
+    if (tooltipElement) {
+        ZIndexUtils.clear(tooltipElement);
+    }
 }
 
 function getTooltipElement(el) {
