@@ -2,12 +2,12 @@
     <div>
         <Button label="Show" @click="onShow" />
 
-        <DynamicDialog v-model:visible="isShow"/>
+        <DynamicDialog v-model:visible="isShow" group="dialog"/>
     </div>
 </template>
 
 <script>
-import { defineAsyncComponent } from "vue";
+import ProductListDemo from './ProductListDemo.vue';
 
 export default {
     data() {
@@ -18,7 +18,8 @@ export default {
     methods:{
         onShow() {
             this.$dialog.open({
-                component: defineAsyncComponent(() => import('./ProductListDemo.vue')),
+                component: ProductListDemo,
+                group: 'dialog',
                 header: 'Dialog Header',
                 width: '50%',
                 height: '550px'

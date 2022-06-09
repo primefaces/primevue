@@ -8,7 +8,7 @@
                             {{dialog.header}}
                         </span>
                         <div class="p-dialog-header-icons">
-                            <button class="p-dialog-header-icon p-dialog-header-close p-link" @click="close" v-if="dialog.closable !== false" type="button" v-ripple>
+                            <button class="p-dialog-header-icon p-dialog-header-close p-link" @click="close(dialog.group)" v-if="dialog.closable !== false" type="button" v-ripple>
                                 <span class="p-dialog-header-close-icon pi pi-times"></span>
                             </button>
                         </div>
@@ -28,7 +28,6 @@
 </template>
 
 <script>
-import {markRaw} from 'vue';
 import DynamicDialogEventBus from 'primevue/dynamicdialogeventbus';
 import {UniqueComponentId,DomHandler,ZIndexUtils} from 'primevue/utils';
 import Ripple from 'primevue/ripple';
@@ -46,6 +45,10 @@ export default {
         appendTo: {
             type: String,
             default: 'body'
+        },
+        group: {
+            type: String,
+            default: null
         }
     },
     data() {
@@ -70,13 +73,17 @@ export default {
                 return;
             }
 
-            this.dialog = markRaw(dialog);
-            this.$emit('update:visible', true);
+            if (dialog.group === this.group) {
+                this.dialog = dialog;
+                this.$emit('update:visible', true);
+            }
         };
 
-        this.closeListener = () => {
-            this.dialog = null;
-            this.$emit('update:visible', false);
+        this.closeListener = (group) => {
+            if (group === this.group) {
+                this.dialog = null;
+                this.$emit('update:visible', false);
+            }
         };
 
         DynamicDialogEventBus.on('open', this.dialogListener);
@@ -90,7 +97,7 @@ export default {
 
         this.mask = null;
 
-        if (this.container && this.dialog.autoZIndex !== false) {
+        if (this.container && this.dialog && this.dialog.autoZIndex !== false) {
             ZIndexUtils.clear(this.container);
         }
         this.container = null;
@@ -125,8 +132,8 @@ export default {
             this.containerVisible = false;
             this.unbindGlobalListeners();
         },
-        close() {
-            this.closeListener();
+        close(group) {
+            this.closeListener(group);
         },
         onMaskClick(event) {
             if (this.dialog && this.dialog.dismissableMask && this.dialog.closable !== false && this.mask === event.target) {

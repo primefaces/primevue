@@ -32,7 +32,7 @@ export default {
     },
     methods: {
         closeDialog() {
-            this.$dialog.close();
+            this.$dialog.close('dialog');
         }
     }
 }

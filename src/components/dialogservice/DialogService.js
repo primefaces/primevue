@@ -7,8 +7,8 @@ export default {
             open: (dialog) => {
                 DynamicDialogEventBus.emit('open', dialog);
             },
-            close: () => {
-                DynamicDialogEventBus.emit('close');
+            close: (group) => {
+                DynamicDialogEventBus.emit('close', group);
             }
         };
         app.config.globalProperties.$dialog = DialogService;
