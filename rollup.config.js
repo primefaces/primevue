@@ -20,9 +20,11 @@ let coreDependencies = {
     'primevue/confirmationeventbus': 'primevue.confirmationeventbus',
     'primevue/toasteventbus': 'primevue.toasteventbus',
     'primevue/overlayeventbus': 'primevue.overlayeventbus',
+    'primevue/dynamicdialogeventbus': 'primevue.dynamicdialogeventbus',
     'primevue/terminalservice': 'primevue.terminalservice',
     'primevue/useconfirm': 'primevue.useconfirm',
     'primevue/usetoast': 'primevue.usetoast',
+    'primevue/usedialog': 'primevue.usedialog',
     'primevue/button': 'primevue.button',
     'primevue/inputtext': 'primevue.inputtext',
     'primevue/inputnumber': 'primevue.inputnumber',
@@ -182,6 +184,9 @@ function addServices() {
     addEntry('overlayeventbus', 'OverlayEventBus.js', 'overlayeventbus');
     addEntry('usetoast', 'UseToast.js', 'usetoast');
     addEntry('terminalservice', 'TerminalService.js', 'terminalservice');
+    addEntry('usedialog', 'UseDialog.js', 'usedialog');
+    addEntry('dialogservice', 'DialogService.js', 'dialogservice');
+    addEntry('dialogeventbus', 'DialogEventBus.js', 'dialogeventbus');
 }
 
 addUtils();

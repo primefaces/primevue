@@ -33,9 +33,11 @@ import DataView from './components/dataview/DataView';
 import DataViewLayoutOptions from './components/dataviewlayoutoptions/DataViewLayoutOptions';
 import DeferredContent from './components/deferredcontent/DeferredContent';
 import Dialog from './components/dialog/Dialog';
+import DialogService from './components/dialogservice/DialogService';
 import Divider from './components/divider/Divider';
 import Dock from './components/dock/Dock';
 import Dropdown from './components/dropdown/Dropdown';
+import DynamicDialog from './components/dynamicdialog/DynamicDialog';
 import Editor from './components/editor/Editor';
 import Fieldset from './components/fieldset/Fieldset';
 import FileUpload from './components/fileupload/FileUpload';
@@ -128,6 +130,7 @@ app.config.globalProperties.$appState = reactive({theme: 'lara-light-blue', dark
 app.use(PrimeVue, {ripple: true});
 app.use(ToastService);
 app.use(ConfirmationService);
+app.use(DialogService);
 app.use(router);
 
 app.directive('badge', BadgeDirective);
@@ -166,6 +169,7 @@ app.component('Dialog', Dialog);
 app.component('Divider', Divider);
 app.component('Dock', Dock);
 app.component('Dropdown', Dropdown);
+app.component('DynamicDialog', DynamicDialog);
 app.component('Editor', Editor);
 app.component('Fieldset', Fieldset);
 app.component('FileUpload', FileUpload);

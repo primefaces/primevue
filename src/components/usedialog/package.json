@@ -1,0 +1,6 @@
+{
+    "main": "./usedialog.cjs.js",
+    "module": "./usedialog.esm.js",
+    "unpkg": "./usedialog.min.js",
+    "types": "./UseDialog.d.ts"
+}
