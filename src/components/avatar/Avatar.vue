@@ -3,7 +3,7 @@
         <slot>
             <span class="p-avatar-text" v-if="label">{{label}}</span>
             <span :class="iconClass" v-else-if="icon"></span>
-            <img :src="image" v-else-if="image">
+            <img :src="image" v-else-if="image" @error="onError">
         </slot>
     </div>
 </template>
@@ -31,6 +31,11 @@ export default {
         shape: {
             type: String,
             default: "square"
+        }
+    },
+    methods: {
+        onError() {
+            this.$emit('error');
         }
     },
     computed: {

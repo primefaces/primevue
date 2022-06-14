@@ -40,6 +40,7 @@ import AvatarGroup from 'primevue/avatargroup';
 	&lt;Avatar image="user.png" /&gt;
 	&lt;Avatar label="+2" /&gt;
 &lt;/AvatarGroup&gt;
+
 </code></pre>
 
 		<h5>Shape</h5>
@@ -60,7 +61,7 @@ import AvatarGroup from 'primevue/avatargroup';
 		<p>Content can easily be customized with the default slot instead of using the built-in modes.</p>
 <pre v-code><code>
 &lt;Avatar&gt;
-   Content
+    Content
 &lt;/Avatar&gt;
 
 </code></pre>
@@ -114,6 +115,26 @@ import AvatarGroup from 'primevue/avatargroup';
 
 		<h5>Properties of AvatarGroup</h5>
 		<p>Any property as style and class are passed to the main container element. There are no additional properties.</p>
+
+        <h5>Events</h5>
+        <div class="doc-tablewrapper">
+			<table class="doc-table">
+				<thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Parameters</th>
+                        <th>Description</th>
+                    </tr>
+				</thead>
+				<tbody>
+                    <tr>
+                        <td>error</td>
+                        <td>-</td>
+                        <td>Triggered when an error occurs while loading an image file.</td>
+                    </tr>
+				</tbody>
+			</table>
+		</div>
 				
 		<h5>Styling of Avatar</h5>
 		<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
@@ -216,7 +237,7 @@ export default {
             </div>
         </div>
     </div>
-           
+
     <div class="grid">
         <div class="col-12 md:col-4">
             <div class="card">
@@ -236,7 +257,7 @@ export default {
             </div>
         </div>
 
-         <div class="col-12 md:col-4">
+        <div class="col-12 md:col-4">
             <div class="card">
                 <h5>Icon - Badge</h5>
                 <Avatar icon="pi pi-user" size="xlarge" v-badge="4"/>
@@ -268,12 +289,12 @@ export default {
             </div>
         </div>
 
-    	 <div class="col-12 md:col-4">
-    	    <div class="card">
-    	        <h5>Image - Badge</h5>
-    	        <Avatar image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" size="xlarge" v-badge.danger="4" />
-    	    </div>
-    	</div>
+        <div class="col-12 md:col-4">
+            <div class="card">
+                <h5>Image - Badge</h5>
+                <Avatar image="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" size="xlarge" v-badge.danger="4" />
+            </div>
+        </div>
     </div>
 </template>
 
@@ -313,7 +334,7 @@ export default {
             </div>
         </div>
     </div>
-           
+
     <div class="grid">
         <div class="col-12 md:col-4">
             <div class="card">
@@ -333,7 +354,7 @@ export default {
             </div>
         </div>
 
-         <div class="col-12 md:col-4">
+        <div class="col-12 md:col-4">
             <div class="card">
                 <h5>Icon - Badge</h5>
                 <Avatar icon="pi pi-user" size="xlarge" v-badge="4"/>
@@ -411,7 +432,7 @@ export default {
                     </div>
                 </div>
             </div>
-           
+
             <div class="grid">
                 <div class="col-12 md:col-4">
                     <div class="card">
