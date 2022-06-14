@@ -191,6 +191,10 @@ export default {
         selectAll: {
             type: Boolean,
             default: null
+        },
+        clearFilterOnHide: {
+            type: Boolean,
+            default: null
         }
     },
     data() {
@@ -286,6 +290,9 @@ export default {
         hide() {
             this.$emit('before-hide');
             this.overlayVisible = false;
+            if (this.clearFilterOnHide) {
+                this.filterValue = null;
+            }
         },
         onFocus() {
             this.focused = true;
@@ -599,6 +606,9 @@ export default {
                 originalEvent: event,
                 target: this.$el
             });
+        },
+        clearFilter() {
+            this.filterValue = null;
         }
     },
     computed: {
