@@ -10,7 +10,7 @@
 
         <div class="content-section implementation">
             <div class="card">
-                <Button label="Show" @click="onShow" />
+                <Button label="Select a Product" icon="pi pi-search" @click="showProducts" />
 
                 <DynamicDialog />
             </div>
@@ -28,13 +28,16 @@ import DynamicDialogDoc from './DynamicDialogDoc.vue';
 
 export default {
     methods:{
-        onShow() {
+        showProducts() {
             const dialogRef = this.$dialog.open(ProductListDemo, {
                 props: {
                     header: 'Product List',
                     style: {
-                        width: '50%',
-                        height: '550px',
+                        width: '50vw',
+                    },
+                    breakpoints:{
+                        '960px': '75vw',
+                        '640px': '90vw'
                     },
                     modal: true
                 },
@@ -42,7 +45,7 @@ export default {
                     footer: () => {
                         return [
                             h(Button, { label: "No", icon: "pi pi-times", onClick: () => dialogRef.hide({ buttonType: 'No' }), class: "p-button-text" }),
-                            h(Button, { label: "Yes", icon: "pi pi-check", onClick: () => dialogRef.hide({ buttonType: 'Yes' }), autofocus: true })
+                            h(Button, { label: "Yes", icon: "pi pi-check", onClick: () => dialogRef.hide({ buttonType: 'Yes' }), autofocus: true})
                         ]
                     }
                 },

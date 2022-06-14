@@ -1,7 +1,9 @@
 <template>
-    <div class="flex flex-column align-items-center justify-content-center row-gap-3">
+    <div>
         <p>There are <strong>{{totalProducts}}</strong> products in total in this list.</p>
-        <Button type="button" label="Close" @click="closeDialog"></Button>
+        <div class="flex justify-content-end">
+            <Button type="button" label="Close" @click="closeDialog"></Button>
+        </div>
     </div>
 </template>
 
