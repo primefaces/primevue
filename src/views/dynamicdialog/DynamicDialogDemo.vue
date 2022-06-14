@@ -15,13 +15,16 @@
                 <DynamicDialog />
             </div>
         </div>
+
+        <DynamicDialogDoc />
     </div>
 </template>
 
 <script>
-import ProductListDemo from './ProductListDemo';
-import Button from 'primevue/button';
 import { h } from 'vue';
+import Button from 'primevue/button';
+import ProductListDemo from './ProductListDemo';
+import DynamicDialogDoc from './DynamicDialogDoc.vue';
 
 export default {
     methods:{
@@ -54,6 +57,9 @@ export default {
                 }
             });
         }
+    },
+    components: {
+        'DynamicDialogDoc': DynamicDialogDoc
     }
 }
 </script>
