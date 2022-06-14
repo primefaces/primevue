@@ -184,16 +184,16 @@ export default {
             type: String,
             default: 'pi pi-spinner pi-spin'
         },
-        virtualScrollerOptions: {
-            type: Object,
-            default: null
-        },
         selectAll: {
             type: Boolean,
             default: null
         },
-        clearFilterOnHide: {
+        resetFilterOnHide: {
             type: Boolean,
+            default: false
+        },
+        virtualScrollerOptions: {
+            type: Object,
             default: null
         }
     },
@@ -290,7 +290,7 @@ export default {
         hide() {
             this.$emit('before-hide');
             this.overlayVisible = false;
-            if (this.clearFilterOnHide) {
+            if (this.resetFilterOnHide) {
                 this.filterValue = null;
             }
         },

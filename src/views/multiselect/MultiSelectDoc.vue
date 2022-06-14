@@ -328,16 +328,16 @@ export default {
                         <td>Whether all data is selected.</td>
                     </tr>
                     <tr>
+                        <td>resetFilterOnHide</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>Clears the filter value when hiding the dropdown.</td>
+                    </tr>
+                    <tr>
                         <td>virtualScrollerOptions</td>
                         <td>object</td>
                         <td>null</td>
                         <td>Whether to use the virtualScroller feature. The properties of <router-link to="/virtualscroller">VirtualScroller</router-link> component can be used like an object in it.</td>
-                    </tr>
-                    <tr>
-                        <td>clearFilterOnHide</td>
-                        <td>boolean</td>
-                        <td>false</td>
-                        <td>Whether to clear filterInput when the overlay is hidden.</td>
                     </tr>
 				</tbody>
 			</table>
