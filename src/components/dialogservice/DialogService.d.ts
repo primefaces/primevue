@@ -1,37 +1,17 @@
 import { Plugin, VNode } from 'vue';
-import { DynamicDialogOptions } from '../dynamicdialogoptions';
+import { DynamicDialogOptions, DynamicDialogInstance } from '../dynamicdialogoptions';
 
 declare const plugin: Plugin;
 export default plugin;
-
-export interface DialogInstance {
-    /**
-     * Dynamic component for content template
-     */
-    content: VNode | undefined;
-    /**
-     * Instance options
-     * @see DynamicDialogOptions
-     */
-    options: DynamicDialogOptions;
-    /**
-     * Custom data object
-     */
-    data: any;
-    /**
-     * Closes the dialog.
-     * @param {*} params - Parameters sent by the user to the root instance
-     */
-    close: (params?: any) => void;
-}
 
 export interface DialogServiceMethods {
     /**
      * Displays the dialog using the dynamic dialog object options.
      * @param {VNode} content - Dynamic component for content template
      * @param {DynamicDialogOptions} options - DynamicDialog Object
+     * @return {@link DynamicDialogInstance}
      */
-    open(content: VNode, options?: DynamicDialogOptions): DialogInstance;
+    open: (content: VNode, options?: DynamicDialogOptions) => DynamicDialogInstance;
 }
 
 declare module 'vue/types/vue' {

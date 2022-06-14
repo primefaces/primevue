@@ -51,3 +51,24 @@ export interface DynamicDialogOptions {
      */
     [key: string]: any;
 }
+
+export interface DynamicDialogInstance {
+    /**
+     * Dynamic component for content template
+     */
+    content: VNode | undefined;
+    /**
+     * Instance options
+     * @see DynamicDialogOptions
+     */
+    options: DynamicDialogOptions;
+    /**
+     * Custom data object
+     */
+    data: any;
+    /**
+     * Closes the dialog.
+     * @param {*} params - Parameters sent by the user to the root instance
+     */
+    close: (params?: any) => void;
+}

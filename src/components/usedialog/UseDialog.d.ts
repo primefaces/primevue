@@ -1,6 +1,6 @@
-//import { DynamicDialogOptions } from '../dynamicdialogoptions';
+import { VNode } from 'vue';
+import { DynamicDialogOptions, DynamicDialogInstance } from '../dynamicdialogoptions';
 
 export declare function useDialog(): {
-    open: (dialog: any) => void;
-    close: () => void;
+    open: (content: VNode, options?: DynamicDialogOptions) => DynamicDialogInstance;
 }
