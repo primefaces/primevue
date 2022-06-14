@@ -180,11 +180,17 @@ const MultiSelectProps = [
         description: "Whether all data is selected."
     },
     {
+        name: "resetFilterOnHide",
+        type: "boolean",
+        default: "false",
+        description: "Clears the filter value when hiding the dropdown."
+    },
+    {
         name: "virtualScrollerOptions",
         type: "object",
         default: "null",
         description: "Whether to use the virtualScroller feature. The properties of VirtualScroller component can be used like an object in it."
-    }
+    },
 ];
 
 const MultiSelectEvents = [

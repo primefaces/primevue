@@ -183,14 +183,18 @@ export interface MultiSelectProps {
      */
     loadingIcon?: string | undefined;
     /**
+     * Whether all data is selected.
+     */
+    selectAll?: boolean | undefined;
+    /**
+     * Clears the filter value when hiding the dropdown.
+     */
+    resetFilterOnHide?: boolean;
+    /**
      * Whether to use the virtualScroller feature. The properties of VirtualScroller component can be used like an object in it.
      * @see VirtualScroller.VirtualScrollerProps
      */
     virtualScrollerOptions?: VirtualScrollerProps;
-    /**
-     * Whether all data is selected.
-     */
-    selectAll?: boolean | undefined;
 }
 
 export interface MultiSelectSlots {
