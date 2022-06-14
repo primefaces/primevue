@@ -1,7 +1,7 @@
 import { VNode } from 'vue';
 import { DialogProps } from '../dialog';
 
-export type DynamicDialogHideType = 'config-close' | 'dialog-close' | undefined;
+export type DynamicDialogCloseType = 'config-close' | 'dialog-close' | undefined;
 
 export interface DynamicDialogTemplates {
     /**
@@ -14,16 +14,16 @@ export interface DynamicDialogTemplates {
     footer: () => VNode[];
 }
 
-export interface DynamicDialogHideOptions {
+export interface DynamicDialogCloseOptions {
     /**
      * Custom data object
      */
     data?: any;
     /**
-     * Hide type
-     * @see DynamicDialogHideType
+     * Close type
+     * @see DynamicDialogCloseType
      */
-    type: DynamicDialogHideType;
+    type: DynamicDialogCloseType;
 }
 
 export interface DynamicDialogOptions {
@@ -42,10 +42,10 @@ export interface DynamicDialogOptions {
      */
     data?: any;
     /**
-     * Hides the dialog.
-     * @see DynamicDialogHideOptions
+     * Closes the dialog.
+     * @see DynamicDialogCloseOptions
      */
-    onHide?: (options?: DynamicDialogHideOptions) => void;
+    onClose?: (options?: DynamicDialogCloseOptions) => void;
     /**
      * Optional
      */
