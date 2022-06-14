@@ -83,7 +83,7 @@ export default {
 </code></pre>
 
         <h5>Closing a Dialog</h5>
-        <p>The <i>hide</i> function of the <i>dialogRef</i> is used to hide a Dialog. The <i>dialogRef</i> is injected to the component that is loaded by the dialog.</p>
+        <p>The <i>close</i> function of the <i>dialogRef</i> is used to hide a Dialog. The <i>dialogRef</i> is injected to the component that is loaded by the dialog.</p>
 
         <h6>Options API</h6>
 <pre v-code.script><code>
@@ -91,7 +91,7 @@ export default {
     inject: ['dialogRef'],
     methods:{
         closeDialog() {
-            this.dialogRef.hide();
+            this.dialogRef.close();
         }
     }
 }
@@ -106,7 +106,7 @@ export default {
     methods:{
         closeDialog() {
             const dialogRef = inject('dialogRef');
-            dialogRef.hide();
+            dialogRef.close();
         }
     }
 }
@@ -135,10 +135,10 @@ export default {
 
 </code></pre>
 
-        <p>Similarly when hiding a Dialog, any parameter passed to the <i>hide</i> function is received from the <i>onHide</i> callback defined by the <i>open</i> function at the caller.</p>
+        <p>Similarly when hiding a Dialog, any parameter passed to the <i>close</i> function is received from the <i>onClose</i> callback defined by the <i>open</i> function at the caller.</p>
 <pre v-code.script><code>
 this.$dialog.open(ProductListDemo, {
-    onHide(options) {
+    onClose(options) {
         const callbackParams = options.data; //{id: 12}
     }
 );
@@ -150,7 +150,7 @@ export default {
     inject: ['dialogRef'],
     methods:{
         closeDialog() {
-            this.dialogRef.hide({id: 12});
+            this.dialogRef.close({id: 12});
         }
     }
 }
@@ -183,12 +183,12 @@ export default {
                 templates: {
                     footer: () => {
                         return [
-                            h(Button, { label: "No", icon: "pi pi-times", onClick: () => dialogRef.hide(), class: "p-button-text" }),
-                            h(Button, { label: "Yes", icon: "pi pi-check", onClick: () => dialogRef.hide(), autofocus: true})
+                            h(Button, { label: "No", icon: "pi pi-times", onClick: () => dialogRef.close(), class: "p-button-text" }),
+                            h(Button, { label: "Yes", icon: "pi pi-check", onClick: () => dialogRef.close(), autofocus: true})
                         ]
                     }
                 },
-                onHide: (options) => {
+                onClose: (options) => {
                     const data = options.data;
                     if (data) {
                         this.$toast.add({ severity:'info', ...summary_and_detail, life: 3000 });
@@ -201,6 +201,8 @@ export default {
 </code></pre>
 
         <h5>DialogService API</h5>
+        <p>DialogService is the main entry point to open a dialog and load any content within.</p>
+
         <div class="doc-tablewrapper">
 			<table class="doc-table">
                 <thead>
@@ -216,14 +218,15 @@ export default {
                         <td>content: The component to load<br />
                             options: Configuration of the Dialog
                         </td>
-                        <td>Creates a dialog dynamically with the given options and loads the component. See the <i>Dialog Options</i> section below for
+                        <td>Creates a dialog dynamically with the given options and loads the component. See the <i>Dialog Open Configuration API</i> section below for
                         the avaiable properties.</td>
                     </tr>
                 </tbody>
             </table>
         </div>
 
-        <h5>Dialog Options</h5>
+        <h5>Dialog Open Configuration API</h5>
+        <p>Options to configure a dynamically loaded Dialog including Dialog props, data to pass and callback to execute on hide.</p>
         <div class="doc-tablewrapper">
             <table class="doc-table">
                 <thead>
@@ -254,7 +257,7 @@ export default {
                         <td>Templates of a dialog including, <strong>header</strong> and <strong>footer</strong>.</td>
                     </tr>
                     <tr>
-                        <td>onHide</td>
+                        <td>onClose</td>
                         <td>function</td>
                         <td>null</td>
                         <td>Function callback to invoke when dialog is closed.</td>
@@ -263,7 +266,46 @@ export default {
             </table>
         </div>
 
-
+        <h5>Dialog Ref API</h5>
+        <p>Reference to the dynamic dialog that can be used to access the passed data and close the dialog with the option of passing data back to the caller.</p>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Default</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>content</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td>Loaded content of a dialog.</td>
+                    </tr>
+                    <tr>
+                        <td>options</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td>Options used to open a dialog.</td>
+                    </tr>
+                    <tr>
+                        <td>data</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td>Data passed to the dialog.</td>
+                    </tr>
+                    <tr>
+                        <td>close</td>
+                        <td>function</td>
+                        <td>null</td>
+                        <td>Function to close a dialog.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
     </AppDoc>
 </template>

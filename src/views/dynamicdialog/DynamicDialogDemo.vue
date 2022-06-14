@@ -44,12 +44,12 @@ export default {
                 templates: {
                     footer: () => {
                         return [
-                            h(Button, { label: "No", icon: "pi pi-times", onClick: () => dialogRef.hide({ buttonType: 'No' }), class: "p-button-text" }),
-                            h(Button, { label: "Yes", icon: "pi pi-check", onClick: () => dialogRef.hide({ buttonType: 'Yes' }), autofocus: true})
+                            h(Button, { label: "No", icon: "pi pi-times", onClick: () => dialogRef.close({ buttonType: 'No' }), class: "p-button-text" }),
+                            h(Button, { label: "Yes", icon: "pi pi-check", onClick: () => dialogRef.close({ buttonType: 'Yes' }), autofocus: true})
                         ]
                     }
                 },
-                onHide: (options) => {
+                onClose: (options) => {
                     const data = options.data;
                     if (data) {
                         const buttonType = data.buttonType;

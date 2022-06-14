@@ -43,7 +43,7 @@ export default {
     },
     methods: {
         selectProduct(data) {
-            this.dialogRef.hide(data);
+            this.dialogRef.close(data);
         },
         showInfo() {
             this.$dialog.open(InfoDemo, {

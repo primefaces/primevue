@@ -20,7 +20,7 @@ export default {
     },
     methods: {
         closeDialog() {
-            this.dialogRef.hide();
+            this.dialogRef.close();
         }
     }
 }

@@ -19,10 +19,10 @@ export interface DialogInstance {
      */
     data: any;
     /**
-     * Hides the dialog.
+     * Closes the dialog.
      * @param {*} params - Parameters sent by the user to the root instance
      */
-    hide: (params?: any) => void;
+    close: (params?: any) => void;
 }
 
 export interface DialogServiceMethods {

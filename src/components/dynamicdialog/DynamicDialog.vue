@@ -43,7 +43,7 @@ export default {
 
             if (currentInstance) {
                 currentInstance.visible = false;
-                currentInstance.options.onHide && currentInstance.options.onHide({ data: params,  type: 'config-close' });
+                currentInstance.options.onClose && currentInstance.options.onClose({ data: params,  type: 'config-close' });
 
                 this.currentInstance = currentInstance;
             }
@@ -58,7 +58,7 @@ export default {
     },
     methods: {
         onDialogHide(instance) {
-            !this.currentInstance && instance.options.onHide && instance.options.onHide({ type: 'dialog-close' });
+            !this.currentInstance && instance.options.onClose && instance.options.onClose({ type: 'dialog-close' });
         },
         onDialogAfterHide() {
             this.currentInstance && (delete this.currentInstance);

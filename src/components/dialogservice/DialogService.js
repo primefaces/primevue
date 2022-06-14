@@ -10,7 +10,7 @@ export default {
                     content: content && markRaw(content),
                     options: options || {},
                     data: options && options.data,
-                    hide: (params) => {
+                    close: (params) => {
                         DynamicDialogEventBus.emit('close', { instance, params });
                     }
                 }
