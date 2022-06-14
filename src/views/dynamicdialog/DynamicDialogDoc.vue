@@ -1,5 +1,5 @@
 <template>
-    <AppDoc name="DynamicDialogDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="dynamicdialog/DynamicDialogDemo.vue">
+    <AppDoc name="DynamicDialogDemo" :sources="sources" :extPages="pages" :service="['ProductService']" :data="['products-small']" github="dynamicdialog/DynamicDialogDemo.vue">
         <h5>DialogService</h5>
         <p>Dynamic dialogs require the <i>DialogService</i> to be configured globally.</p>
 
@@ -45,7 +45,7 @@ const dialogRef = this.$dialog;
         <h5>Composition API</h5>
         <p>The service can be injected with the <i>useDialog</i> function.</p>
 <pre v-code.script><code>
-import { useDialog } from 'primevue/useDialog';
+import { useDialog } from 'primevue/usedialog';
 
 const dialog = useDialog();
 
@@ -72,7 +72,7 @@ export default {
         <h6>Composition API</h6>
 <pre v-code.script><code>
 import ProductListDemo from './ProductListDemo';
-import { useDialog } from 'primevue/useDialog';
+import { useDialog } from 'primevue/usedialog';
 
 export default {
     methods:{
@@ -332,7 +332,7 @@ export default {
 <script>
 import { h } from 'vue';
 import Button from 'primevue/button';
-import ProductListDemo from './ProductListDemo';
+import ProductListDemo from './components/ProductListDemo';
 
 export default {
     methods:{
@@ -369,8 +369,346 @@ export default {
 }
 <\\/script>
                         `
+                    },
+                    'composition-api': {
+                        tabName: 'Composition API Source',
+                        content: `
+<template>
+    <div>
+        <Button label="Show" @click="onShow" />
+        <Toast />
+
+        <DynamicDialog />
+    </div>
+</template> 
+
+<script>
+import { h } from 'vue';
+import { useDialog } from 'primevue/usedialog';
+import { useToast } from 'priemvue/usetoast';
+import Button from 'primevue/button';
+import ProductListDemo from './components/ProductListDemo';
+
+export default {
+    setup() {
+        const dialog = useDialog();
+        const toast = useToast();
+    
+        const showProducts = () => {
+            const dialogRef = dialog.open(ProductListDemo, {
+                props: {
+                    header: 'Product List',
+                    style: {
+                        width: '50vw',
+                    },
+                    breakpoints:{
+                        '960px': '75vw',
+                        '640px': '90vw'
+                    },
+                    modal: true
+                },
+                templates: {
+                    footer: () => {
+                        return [
+                            h(Button, { label: "No", icon: "pi pi-times", onClick: () => dialogRef.close({ buttonType: 'No' }), class: "p-button-text" }),
+                            h(Button, { label: "Yes", icon: "pi pi-check", onClick: () => dialogRef.close({ buttonType: 'Yes' }), autofocus: true})
+                        ]
+                    }
+                },
+                onClose: (options) => {
+                    const data = options.data;
+                    if (data) {
+                        const buttonType = data.buttonType;
+                        const summary_and_detail = buttonType ? { summary: 'No Product Selected', detail: \`Pressed '\${buttonType}' button\` } : { summary: 'Product Selected', detail: data.name };
+
+                        toast.add({ severity:'info', ...summary_and_detail, life: 3000 });
                     }
                 }
+            });
+        }
+
+        return { dialog, showProducts }
+    }
+}
+<\\/script>
+                        `
+                    },
+                    'browser-source': {
+                        tabName: 'Browser Source',
+                        imports: `<script src="https://unpkg.com/primevue@^3/dynamicdialog/dynamicdialog.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/dynamicdialogservice/dynamicdialogservice.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/toast/toast.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/toastservice/toastservice.min.js"><\\/script>`,
+                        content: `<div id="app">
+                <p-button label="Show" @click="onShow"></p-button>
+                <p-toast></p-toast>
+
+                <p-dynamicdialog></p-dynamicdialog>
+        </div>
+
+        <script type="module">
+            const { createApp } = Vue;
+            const { useDialog } = primevue.usedialog;
+            const { useToast } = primevue.usetoast;
+
+            const App = {
+                setup() {
+                    const dialog = useDialog();
+                    const toast = useToast();
+                
+                    const showProducts = () => {
+                        const dialogRef = dialog.open(ProductListDemo, {
+                            props: {
+                                header: 'Product List',
+                                style: {
+                                    width: '50vw',
+                                },
+                                breakpoints:{
+                                    '960px': '75vw',
+                                    '640px': '90vw'
+                                },
+                                modal: true
+                            },
+                            templates: {
+                                footer: () => {
+                                    return [
+                                        h(Button, { label: "No", icon: "pi pi-times", onClick: () => dialogRef.close({ buttonType: 'No' }), class: "p-button-text" }),
+                                        h(Button, { label: "Yes", icon: "pi pi-check", onClick: () => dialogRef.close({ buttonType: 'Yes' }), autofocus: true})
+                                    ]
+                                }
+                            },
+                            onClose: (options) => {
+                                const data = options.data;
+                                if (data) {
+                                    const buttonType = data.buttonType;
+                                    const summary_and_detail = buttonType ? { summary: 'No Product Selected', detail: \`Pressed '\${buttonType}' button\` } : { summary: 'Product Selected', detail: data.name };
+
+                                    toast.add({ severity:'info', ...summary_and_detail, life: 3000 });
+                                }
+                            }
+                        });
+                    }
+                },
+                components: {
+                    "p-dynamicdialog": primevue.dynamicdialog,
+                    "p-button": primevue.button,
+                    "p-toast": primevue.toast
+                }
+            };
+
+            createApp(App)
+            .use(primevue.config.default)
+            .use(primevue.dialogservice)
+            .use(primevue.toastservice)
+            .mount("#app");
+        <\\/script>
+        <\\/script>                
+                        `
+                    },
+                    'demo1':  {
+                        tabName: 'ProductListDemo.vue',
+                        content: `
+<template>
+	<div>
+        <div class="flex justify-content-end mt-1 mb-3">
+            <Button icon="pi pi-external-link" label="Nested Dialog" class="p-button-outlined p-button-success" @click="showInfo" />
+        </div>
+        <DataTable :value="products" responsiveLayout="scroll">
+			<Column field="code" header="Code"></Column>
+			<Column field="name" header="Name"></Column>
+            <Column header="Image">
+                <template #body="slotProps">
+                    <img :src="'demo/images/product/' + slotProps.data.image" :alt="slotProps.data.name" class="shadow-2 w-4rem" />
+                </template>
+            </Column>
+			<Column field="category" header="Category"></Column>
+			<Column field="quantity" header="Quantity"></Column>
+            <Column style="width:5rem">
+                <template #body="slotProps">
+                    <Button type="button" icon="pi pi-plus" class="p-button-text p-button-rounded" @click="selectProduct(slotProps.data)"></Button>
+                </template>
+            </Column>
+		</DataTable>
+
+	</div>
+</template>
+
+<script>
+import ProductService from '../../service/ProductService';
+import InfoDemo from './InfoDemo.vue';
+
+export default {
+    inject: ['dialogRef'],
+    data() {
+        return {
+            products: null
+        }
+    },
+    productService: null,
+    created() {
+        this.productService = new ProductService();
+    },
+    mounted() {
+        this.productService.getProductsSmall().then(data => this.products = data.slice(0,5));
+    },
+    methods: {
+        selectProduct(data) {
+            this.dialogRef.close(data);
+        },
+        showInfo() {
+            this.$dialog.open(InfoDemo, {
+                props: {
+                    header: 'Information',
+                    modal: true,
+                    dismissableMask: true
+                },
+                data: {
+                    totalProducts: this.products ? this.products.length : 0
+                }
+            });
+        }
+    }
+}
+<\\/script>
+                        `
+                    },
+                    'demo2': {
+                        tabName: 'InfoDemo.vue',
+                        content: `
+<template>
+    <div>
+        <p>There are <strong>{{totalProducts}}</strong> products in total in this list.</p>
+        <div class="flex justify-content-end">
+            <Button type="button" label="Close" @click="closeDialog"></Button>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+    inject: ['dialogRef'],
+    data() {
+        return {
+            totalProducts: 0
+        }
+    },
+    mounted() {
+        this.totalProducts = this.dialogRef.data.totalProducts;
+    },
+    methods: {
+        closeDialog() {
+            this.dialogRef.close();
+        }
+    }
+}
+<\\/script>
+
+                        `
+                    }
+                },
+                pages: [
+                    {
+                        tabName: 'ProductsListDemo',
+                        content: `
+<template>
+	<div>
+        <div class="flex justify-content-end mt-1 mb-3">
+            <Button icon="pi pi-external-link" label="Nested Dialog" class="p-button-outlined p-button-success" @click="showInfo" />
+        </div>
+        <DataTable :value="products" responsiveLayout="scroll">
+			<Column field="code" header="Code"></Column>
+			<Column field="name" header="Name"></Column>
+            <Column header="Image">
+                <template #body="slotProps">
+                    <img :src="'demo/images/product/' + slotProps.data.image" :alt="slotProps.data.name" class="shadow-2 w-4rem" />
+                </template>
+            </Column>
+			<Column field="category" header="Category"></Column>
+			<Column field="quantity" header="Quantity"></Column>
+            <Column style="width:5rem">
+                <template #body="slotProps">
+                    <Button type="button" icon="pi pi-plus" class="p-button-text p-button-rounded" @click="selectProduct(slotProps.data)"></Button>
+                </template>
+            </Column>
+		</DataTable>
+
+	</div>
+</template>
+
+<script>
+import ProductService from '../../service/ProductService';
+import InfoDemo from './InfoDemo.vue';
+
+export default {
+    inject: ['dialogRef'],
+    data() {
+        return {
+            products: null
+        }
+    },
+    productService: null,
+    created() {
+        this.productService = new ProductService();
+    },
+    mounted() {
+        this.productService.getProductsSmall().then(data => this.products = data.slice(0,5));
+    },
+    methods: {
+        selectProduct(data) {
+            this.dialogRef.close(data);
+        },
+        showInfo() {
+            this.$dialog.open(InfoDemo, {
+                props: {
+                    header: 'Information',
+                    modal: true,
+                    dismissableMask: true
+                },
+                data: {
+                    totalProducts: this.products ? this.products.length : 0
+                }
+            });
+        }
+    }
+}
+<\\/script>
+
+                        `
+                    },
+                    {
+                        tabName: 'InfoDemo',
+                        content: `
+<template>
+    <div>
+        <p>There are <strong>{{totalProducts}}</strong> products in total in this list.</p>
+        <div class="flex justify-content-end">
+            <Button type="button" label="Close" @click="closeDialog"></Button>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+    inject: ['dialogRef'],
+    data() {
+        return {
+            totalProducts: 0
+        }
+    },
+    mounted() {
+        this.totalProducts = this.dialogRef.data.totalProducts;
+    },
+    methods: {
+        closeDialog() {
+            this.dialogRef.close();
+        }
+    }
+}
+<\\/script>
+
+                        `
+                    }
+                ]
             }
         }
     }

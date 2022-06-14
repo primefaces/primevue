@@ -37,6 +37,8 @@ export default {
             this.renderSource('options-api', tabs);
             this.renderSource('composition-api', tabs);
             this.renderSource('browser-source', tabs);
+            this.renderSource('demo1', tabs);
+            this.renderSource('demo2', tabs);
 
             if (this.service) {
                 let serviceArr = [];
