@@ -40,6 +40,10 @@ export interface AvatarSlots {
 }
 
 export declare type AvatarEmits = {
+    /**
+     * Triggered when an error occurs while loading an image file.
+     */
+    error: () => void;
 }
 
 declare class Avatar extends ClassComponent<AvatarProps, AvatarSlots, AvatarEmits> { }
