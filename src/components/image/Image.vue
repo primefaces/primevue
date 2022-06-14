@@ -42,6 +42,7 @@ import Portal from 'primevue/portal';
 export default {
     name: 'Image',
     inheritAttrs: false,
+    emits: ['show', 'hide', 'error'],
     props: {
         preview: {
             type: Boolean,
@@ -94,7 +95,7 @@ export default {
             this.previewClick = false;
         },
         onError() {
-            this.$emit('onError');
+            this.$emit('error');
         },
         rotateRight() {
             this.rotate += 90;
