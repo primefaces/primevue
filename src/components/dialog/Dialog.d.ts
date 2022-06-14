@@ -154,11 +154,15 @@ export declare type DialogEmits = {
     /**
      * Callback to invoke when dialog is hidden.
      */
-    'show': () => void;
-    /**
-     * Callback to invoke when dialog is showed.
-     */
     'hide': () => void;
+    /**
+     * Callback to invoke after dialog is hidden.
+    */
+    'after-hide': () => void;
+    /**
+     * Callback to invoke when dialog is shown.
+     */
+    'show': () => void;
     /**
      * Fired when a dialog gets maximized.
      * @param {event} event - Browser event.

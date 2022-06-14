@@ -139,6 +139,10 @@ const DialogEvents = [
         description: "Callback to invoke when dialog is hidden."
     },
     {
+        name: "after-hide",
+        description: "Callback to invoke after dialog is hidden."
+    },
+    {
         name: "show",
         description: "Callback to invoke when dialog is showed."
     },

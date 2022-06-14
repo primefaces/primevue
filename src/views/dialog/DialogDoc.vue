@@ -255,6 +255,11 @@ export default {
                         <td>Callback to invoke when dialog is hidden.</td>
                     </tr>
                     <tr>
+                        <td>after-hide</td>
+                        <td>-</td>
+                        <td>Callback to invoke after dialog is hidden.</td>
+                    </tr>
+                    <tr>
                         <td>show</td>
                         <td>-</td>
                         <td>Callback to invoke when dialog is showed.</td>
