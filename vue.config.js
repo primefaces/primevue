@@ -10,6 +10,7 @@ module.exports = {
                 'primevue/tooltip': path.resolve(__dirname, 'src/components/tooltip/Tooltip.js'),
                 'primevue/useconfirm': path.resolve(__dirname, 'src/components/useconfirm/UseConfirm.js'),
                 'primevue/usetoast': path.resolve(__dirname, 'src/components/usetoast/UseToast.js'),
+                'primevue/usedialog': path.resolve(__dirname, 'src/components/usedialog/UseDialog.js'),
                 'primevue/utils': path.resolve(__dirname, 'src/components/utils/Utils.js'),
                 'primevue/api': path.resolve(__dirname, 'src/components/api/Api.js'),
                 'primevue/portal': path.resolve(__dirname, 'src/components/portal/Portal.vue'),
@@ -28,6 +29,7 @@ module.exports = {
                 'primevue/toasteventbus': path.resolve(__dirname, 'src/components/toasteventbus/ToastEventBus.js'),
                 'primevue/overlayeventbus': path.resolve(__dirname, 'src/components/overlayeventbus/OverlayEventBus.js'),
                 'primevue/terminalservice': path.resolve(__dirname, 'src/components/terminalservice/TerminalService.js'),
+                'primevue/dynamicdialogeventbus': path.resolve(__dirname, 'src/components/dynamicdialogeventbus/DynamicDialogEventBus.js'),
                 'primevue/virtualscroller': path.resolve(__dirname, 'src/components/virtualscroller/VirtualScroller.vue')
             },
         },

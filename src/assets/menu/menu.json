@@ -581,6 +581,10 @@
                     "to": "/dialog"
                 },
                 {
+                    "name": "DynamicDialog",
+                    "to": "/dynamicdialog"
+                },
+                {
                     "name": "OverlayPanel",
                     "to": "/overlaypanel"
                 },

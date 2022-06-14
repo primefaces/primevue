@@ -86,6 +86,10 @@ export default {
         return !!(obj && obj.constructor && obj.call && obj.apply);
     },
 
+    getItemValue(obj, ...params) {
+        return this.isFunction(obj) ? obj(...params) : obj;
+    },
+
     filter(value, fields, filterValue) {
         var filteredItems = [];
 

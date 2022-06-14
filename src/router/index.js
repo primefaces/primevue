@@ -350,6 +350,11 @@ const routes = [
             component: () => import('../views/dropdown/DropdownDemo.vue')
         },
         {
+            path: '/dynamicdialog',
+            name: 'dynamicdialog',
+            component: () => import('../views/dynamicdialog/DynamicDialogDemo.vue')
+        },
+        {
             path: '/editor',
             name: 'editor',
             component: () => import('../views/editor/EditorDemo.vue')
