@@ -45,6 +45,8 @@ const dialogRef = this.$dialog;
         <h5>Composition API</h5>
         <p>The service can be injected with the <i>useDialog</i> function.</p>
 <pre v-code.script><code>
+import { useDialog } from 'primevue/useDialog';
+
 const dialog = useDialog();
 
 </code></pre>
@@ -70,6 +72,7 @@ export default {
         <h6>Composition API</h6>
 <pre v-code.script><code>
 import ProductListDemo from './ProductListDemo';
+import { useDialog } from 'primevue/useDialog';
 
 export default {
     methods:{
