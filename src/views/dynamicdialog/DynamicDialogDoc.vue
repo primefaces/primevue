@@ -378,7 +378,7 @@ export default {
                         content: `
 <template>
     <div>
-        <Button label="Show" @click="onShow" />
+        <Button label="Show" @click="showProducts" />
         <Toast />
 
         <DynamicDialog />
@@ -388,7 +388,7 @@ export default {
 <script>
 import { h } from 'vue';
 import { useDialog } from 'primevue/usedialog';
-import { useToast } from 'priemvue/usetoast';
+import { useToast } from 'primevue/usetoast';
 import Button from 'primevue/button';
 import ProductListDemo from './components/ProductListDemo';
 
@@ -446,7 +446,7 @@ export default {
         <script src="https://unpkg.com/primevue@^3/column/column.min.js"><\\/script>
         <script src="./ProductService.js"><\\/script>`,
                         content: `<div id="app">
-                <p-button label="Show" @click="onShow"></p-button>
+                <p-button label="Show" @click="showProducts"></p-button>
                 <p-toast></p-toast>
 
                 <p-dynamicdialog></p-dynamicdialog>
@@ -698,7 +698,7 @@ export default {
                 },
                 pages: [
                     {
-                        tabName: 'ProductsListDemo',
+                        tabName: 'ProductListDemo',
                         content: `
 <template>
 	<div>
@@ -710,7 +710,7 @@ export default {
 			<Column field="name" header="Name"></Column>
             <Column header="Image">
                 <template #body="slotProps">
-                    <img :src="'demo/images/product/' + slotProps.data.image" :alt="slotProps.data.name" class="shadow-2 w-4rem" />
+                    <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" :alt="slotProps.data.name" class="shadow-2 w-4rem" />
                 </template>
             </Column>
 			<Column field="category" header="Category"></Column>
@@ -726,7 +726,7 @@ export default {
 </template>
 
 <script>
-import ProductService from '../../service/ProductService';
+import ProductService from '../service/ProductService';
 import InfoDemo from './InfoDemo.vue';
 
 export default {
