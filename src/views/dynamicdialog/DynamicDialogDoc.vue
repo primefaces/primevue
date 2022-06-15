@@ -439,7 +439,7 @@ export default {
                     'browser-source': {
                         tabName: 'Browser Source',
                         imports: `<script src="https://unpkg.com/primevue@^3/dynamicdialog/dynamicdialog.min.js"><\\/script>
-        <script src="https://unpkg.com/primevue@^3/dynamicdialogservice/dynamicdialogservice.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/dialogservice/dialogservice.min.js"><\\/script>
         <script src="https://unpkg.com/primevue@^3/toast/toast.min.js"><\\/script>
         <script src="https://unpkg.com/primevue@^3/toastservice/toastservice.min.js"><\\/script>
         <script src="https://unpkg.com/primevue@^3/datatable/datatable.min.js"><\\/script>
@@ -494,6 +494,8 @@ export default {
                             }
                         });
                     }
+
+                    return { showProducts }
                 },
                 components: {
                     "p-dynamicdialog": primevue.dynamicdialog,
