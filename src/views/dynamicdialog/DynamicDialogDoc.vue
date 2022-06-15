@@ -438,7 +438,10 @@ export default {
                         imports: `<script src="https://unpkg.com/primevue@^3/dynamicdialog/dynamicdialog.min.js"><\\/script>
         <script src="https://unpkg.com/primevue@^3/dynamicdialogservice/dynamicdialogservice.min.js"><\\/script>
         <script src="https://unpkg.com/primevue@^3/toast/toast.min.js"><\\/script>
-        <script src="https://unpkg.com/primevue@^3/toastservice/toastservice.min.js"><\\/script>`,
+        <script src="https://unpkg.com/primevue@^3/toastservice/toastservice.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/datatable/datatable.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/column/column.min.js"><\\/script>
+        <script src="./ProductService.js"><\\/script>`,
                         content: `<div id="app">
                 <p-button label="Show" @click="onShow"></p-button>
                 <p-toast></p-toast>
@@ -493,6 +496,91 @@ export default {
                     "p-dynamicdialog": primevue.dynamicdialog,
                     "p-button": primevue.button,
                     "p-toast": primevue.toast
+                }
+            };
+
+            const ProductListDemo = {
+                template: \`<div>
+        <div class="flex justify-content-end mt-1 mb-3">
+            <p-button icon="pi pi-external-link" label="Nested Dialog" class="p-button-outlined p-button-success" @click="showInfo"></p-button>
+        </div>
+        <p-datatable :value="products" responsive-layout="scroll">
+			<p-column field="code" header="Code"></p-column>
+			<p-column field="name" header="Name"></p-column>
+            <p-column header="Image">
+                <template #body="slotProps">
+                    <img :src="'demo/images/product/' + slotProps.data.image" :alt="slotProps.data.name" class="shadow-2 w-4rem" />
+                </template>
+            </p-column>
+			<p-column field="category" header="Category"></p-column>
+			<p-column field="quantity" header="Quantity"></p-column>
+            <p-column style="width:5rem">
+                <template #body="slotProps">
+                    <p-button type="button" icon="pi pi-plus" class="p-button-text p-button-rounded" @click="selectProduct(slotProps.data)"></p-button>
+                </template>
+            </p-column>
+		</p-datatable>
+	</div>\`,
+                inject: ['dialogRef'],
+                data() {
+                    return {
+                        products: null
+                    }
+                },
+                productService: null,
+                created() {
+                    this.productService = new ProductService();
+                },
+                mounted() {
+                    this.productService.getProductsSmall().then(data => this.products = data.slice(0,5));
+                },
+                methods: {
+                    selectProduct(data) {
+                        this.dialogRef.close(data);
+                    },
+                    showInfo() {
+                        this.$dialog.open(InfoDemo, {
+                            props: {
+                                header: 'Information',
+                                modal: true,
+                                dismissableMask: true
+                            },
+                            data: {
+                                totalProducts: this.products ? this.products.length : 0
+                            }
+                        });
+                    }
+                },
+                components: {
+                    "p-datatable": primevue.datatable,
+                    "p-column": primevue.column,
+                    "p-button": primevue.button
+                }
+            };
+
+            const InfoDemo = {
+                template: \`<div>
+        <p>There are <strong>{{totalProducts}}</strong> products in total in this list.</p>
+        <div class="flex justify-content-end">
+            <p-button type="button" label="Close" @click="closeDialog"></p-button>
+        </div>
+    </div>\`,
+                inject: ['dialogRef'],
+                data() {
+                    return {
+                        totalProducts: 0
+                    }
+                },
+                mounted() {
+                    this.totalProducts = this.dialogRef.data.totalProducts;
+                },
+                methods: {
+                    closeDialog() {
+                        this.dialogRef.close();
+                    }
+                },
+                components: {
+                    "p-button": primevue.button
                 }
             };
 

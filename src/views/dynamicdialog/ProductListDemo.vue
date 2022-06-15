@@ -19,7 +19,6 @@
                 </template>
             </Column>
 		</DataTable>
-
 	</div>
 </template>
 
