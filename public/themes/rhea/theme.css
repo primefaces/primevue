@@ -4064,6 +4064,10 @@
   color: #666666;
   padding: 1rem;
 }
+.p-dialog .p-dialog-content:last-of-type {
+  border-bottom-right-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
 .p-dialog .p-dialog-footer {
   border-top: 1px solid #dadada;
   background: #ffffff;
