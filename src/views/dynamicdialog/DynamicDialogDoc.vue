@@ -593,7 +593,6 @@ export default {
             .use(primevue.toastservice)
             .mount("#app");
         <\\/script>
-        <\\/script>
                         `
                     },
                     'demo1':  {
