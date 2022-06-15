@@ -194,7 +194,7 @@ export default {
                 onClose: (options) => {
                     const data = options.data;
                     if (data) {
-                        this.$toast.add({ severity:'info', ...summary_and_detail, life: 3000 });
+                        this.$toast.add({ severity:'info', summary: 'Info Message', detail:'Order submitted', life: 3000 });
                     }
                 }
             });
