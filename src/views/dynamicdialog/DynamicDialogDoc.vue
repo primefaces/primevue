@@ -327,7 +327,7 @@ export default {
 
         <DynamicDialog />
     </div>
-</template> 
+</template>
 
 <script>
 import { h } from 'vue';
@@ -341,20 +341,23 @@ export default {
                 props: {
                     header: 'Product List',
                     style: {
-                        width: '50%',
-                        height: '550px',
+                        width: '50vw',
+                    },
+                    breakpoints:{
+                        '960px': '75vw',
+                        '640px': '90vw'
                     },
                     modal: true
                 },
                 templates: {
                     footer: () => {
                         return [
-                            h(Button, { label: "No", icon: "pi pi-times", onClick: () => dialogRef.hide({ buttonType: 'No' }), class: "p-button-text" }),
-                            h(Button, { label: "Yes", icon: "pi pi-check", onClick: () => dialogRef.hide({ buttonType: 'Yes' }), autofocus: true })
+                            h(Button, { label: "No", icon: "pi pi-times", onClick: () => dialogRef.close({ buttonType: 'No' }), class: "p-button-text" }),
+                            h(Button, { label: "Yes", icon: "pi pi-check", onClick: () => dialogRef.close({ buttonType: 'Yes' }), autofocus: true })
                         ]
                     }
                 },
-                onHide: (options) => {
+                onClose: (options) => {
                     const data = options.data;
                     if (data) {
                         const buttonType = data.buttonType;
@@ -380,7 +383,7 @@ export default {
 
         <DynamicDialog />
     </div>
-</template> 
+</template>
 
 <script>
 import { h } from 'vue';
@@ -393,7 +396,7 @@ export default {
     setup() {
         const dialog = useDialog();
         const toast = useToast();
-    
+
         const showProducts = () => {
             const dialogRef = dialog.open(ProductListDemo, {
                 props: {
@@ -458,7 +461,7 @@ export default {
                 setup() {
                     const dialog = useDialog();
                     const toast = useToast();
-                
+
                     const showProducts = () => {
                         const dialogRef = dialog.open(ProductListDemo, {
                             props: {
@@ -590,7 +593,7 @@ export default {
             .use(primevue.toastservice)
             .mount("#app");
         <\\/script>
-        <\\/script>                
+        <\\/script>
                         `
                     },
                     'demo1':  {
