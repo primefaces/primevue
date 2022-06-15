@@ -1,4 +1,3 @@
-import { VNode } from 'vue';
 import { DialogProps } from '../dialog';
 
 export type DynamicDialogCloseType = 'config-close' | 'dialog-close' | undefined;
@@ -7,11 +6,11 @@ export interface DynamicDialogTemplates {
     /**
      * Custom header template.
      */
-    header: () => VNode[];
+    header?: any;
     /**
      * Custom footer template.
      */
-    footer: () => VNode[];
+    footer?: any;
 }
 
 export interface DynamicDialogCloseOptions {
@@ -45,7 +44,7 @@ export interface DynamicDialogOptions {
      * Closes the dialog.
      * @see DynamicDialogCloseOptions
      */
-    onClose?: (options?: DynamicDialogCloseOptions) => void;
+    onClose?(options?: DynamicDialogCloseOptions): void;
     /**
      * Optional
      */
@@ -56,7 +55,7 @@ export interface DynamicDialogInstance {
     /**
      * Dynamic component for content template
      */
-    content: VNode | undefined;
+    content: any;
     /**
      * Instance options
      * @see DynamicDialogOptions
