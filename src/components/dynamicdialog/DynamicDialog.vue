@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { ObjectUtils, UniqueComponentId } from 'primevue/utils';
+import { UniqueComponentId } from 'primevue/utils';
 import DynamicDialogEventBus from 'primevue/dynamicdialogeventbus';
 import Dialog from 'primevue/dialog';
 
@@ -65,8 +65,7 @@ export default {
             this.currentInstance = null;
         },
         getTemplateItems(template) {
-            const items = ObjectUtils.getItemValue(template);
-            return Array.isArray(items) ? items : [items];
+            return Array.isArray(template) ? template : [template];
         }
     },
     components: {
