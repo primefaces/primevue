@@ -313,7 +313,7 @@ export default {
                             dependencies: {
                                 ...extDependencies,
                                 'vue': dependencies['vue'],
-                                'primevue': '^3.14.0',
+                                'primevue': '^3.14.1',
                                 'primeflex': dependencies['primeflex'],
                                 'primeicons': dependencies['primeicons'],
                                 '@babel/cli': dependencies['@babel/cli'],
