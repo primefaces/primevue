@@ -106,6 +106,7 @@ import AppInputStyleSwitch from './AppInputStyleSwitch';
 import AppDemoActions from './AppDemoActions';
 import AppDocumentation from './AppDocumentation';
 import CodeHighlight from './AppCodeHighlight';
+import DevelopmentSection from './DevelopmentSection';
 
 import EventBus from '@/AppEventBus';
 
@@ -233,6 +234,7 @@ app.component('VirtualScroller', VirtualScroller);
 app.component('AppDemoActions', AppDemoActions);
 app.component('AppInputStyleSwitch', AppInputStyleSwitch);
 app.component('AppDoc', AppDocumentation);
+app.component('DevelopmentSection', DevelopmentSection);
 app.directive('code', CodeHighlight);
 
 app.mount('#app');
