@@ -140,7 +140,7 @@ export default {
 &lt;Calendar v-model="value"&gt;
     &lt;template #date="slotProps"&gt;
         &lt;strong v-if="slotProps.date.day &gt; 10 && slotProps.date.day &lt; 15" class="special-day"&gt;{{slotProps.date.day}}&lt;/strong&gt;
-        &lt;template v-else&gt;&#123;&#123;slotProps.date.day&#125;&#125;}&lt;/template&gt;
+        &lt;template v-else&gt;&#123;&#123;slotProps.date.day&#125;&#125;&lt;/template&gt;
     &lt;/template&gt;
 &lt;/Calendar&gt;
 </template>
