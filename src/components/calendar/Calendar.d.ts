@@ -3,6 +3,8 @@ import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 type CalendarValueType = Date | Date[] | undefined;
 
+type CalendarSlotDateType = { day: number; month: number; year: number; today: boolean; selectable: boolean }
+
 type CalendarSelectionModeType = 'single' | 'multiple' | 'range' | undefined;
 
 type CalendarViewType = 'date' | 'month' | 'year' | undefined;
@@ -267,7 +269,7 @@ export interface CalendarSlots {
         /**
          * Value of the component.
          */
-        date: CalendarValueType;
+        date: CalendarSlotDateType;
     }) => VNode[];
     /**
      * Custom decade template.
