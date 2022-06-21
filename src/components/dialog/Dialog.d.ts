@@ -42,6 +42,10 @@ export interface DialogProps {
      */
     modal?: boolean | undefined;
     /**
+     * Style of the dialog.
+     */
+    style?: any;
+    /**
      * Style of the content section.
      */
     contentStyle?: any;
