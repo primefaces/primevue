@@ -689,7 +689,7 @@ export default {
                     this.currentMonth++;
                 }
 
-                this.$emit('month-change', {month: this.currentMonth , year: this.currentYear});
+                this.$emit('month-change', {month: this.currentMonth + 1, year: this.currentYear});
             }
         },
         decrementYear() {
