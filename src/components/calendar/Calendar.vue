@@ -5,7 +5,7 @@
         <CalendarButton v-if="showIcon" :icon="icon" tabindex="-1" class="p-datepicker-trigger" :disabled="$attrs.disabled" @click="onButtonClick" type="button" :aria-label="inputFieldValue"/>
         <Portal :appendTo="appendTo" :disabled="inline">
             <transition name="p-connected-overlay" @enter="onOverlayEnter($event)" @after-enter="onOverlayEnterComplete" @after-leave="onOverlayAfterLeave" @leave="onOverlayLeave">
-                <div :ref="overlayRef" :class="panelStyleClass" v-if="inline ? true : overlayVisible" :role="inline ? null : 'dialog'" @click="onOverlayClick" @mouseup="onOverlayMouseUp">
+                <div :ref="overlayRef" :class="panelStyleClass" v-if="inline || overlayVisible" :role="inline ? null : 'dialog'" @click="onOverlayClick" @mouseup="onOverlayMouseUp">
                     <template v-if="!timeOnly">
                         <div class="p-datepicker-group-container">
                             <div class="p-datepicker-group" v-for="(month,groupIndex) of months" :key="month.month + month.year">
@@ -2190,10 +2190,10 @@ export default {
             this.$emit('focus', event);
         },
         onBlur(event) {
-            this.$emit('blur', {originalEvent: event, value: this.input.value});
+            this.$emit('blur', {originalEvent: event, value: event.target.value});
 
             this.focused = false;
-            this.input.value = this.formatValue(this.modelValue);
+            event.target.value = this.formatValue(this.modelValue);
         },
         onKeyDown(event) {
             if (event.keyCode === 40 && this.overlay) {
