@@ -26,8 +26,8 @@ export default {
         inline() {
             return this.disabled || this.appendTo === 'self';
         },
-        isClient () {
-            return DomHandler.isClient()
+        isClient() {
+            return DomHandler.isClient();
         }
     }
 }
