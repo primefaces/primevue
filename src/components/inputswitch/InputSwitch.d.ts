@@ -14,6 +14,10 @@ export interface InputSwitchProps {
      */
     style?: any;
     /**
+     * Index of the element in tabbing order.
+     */
+    tabindex?: number;
+    /**
      * Value in checked state.
      */
     trueValue?: any;
