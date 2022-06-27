@@ -88,7 +88,7 @@ import Textarea from 'primevue/textarea';
 &lt;Textarea id="address1" /&gt;
 
 &lt;span id="address2"&gt;Address 2&lt;/span&gt;
-&lt;Textarea id="address2" aria-labelledby="address2" /&gt;
+&lt;Textarea aria-labelledby="address2" /&gt;
 
 &lt;Textarea aria-label="Address Details"/&gt;
 
