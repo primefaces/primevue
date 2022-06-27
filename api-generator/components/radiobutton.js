@@ -12,6 +12,12 @@ const RadioButtonProps = [
         description: "Value binding of the checkbox."
     },
     {
+        name: "tabindex",
+        type: "number",
+        default: "null",
+        description: "Index of the element in tabbing order."
+    },
+    {
         name: "class",
         type: "string",
         default: "null",
