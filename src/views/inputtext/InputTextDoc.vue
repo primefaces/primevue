@@ -153,7 +153,7 @@ import InputText from 'primevue/inputtext';
 &lt;InputText id="firstname" /&gt;
 
 &lt;span id="lastname"&gt;Lastname&lt;/span&gt;
-&lt;InputText id="firstname" aria-labelledby="lastname" /&gt;
+&lt;InputText aria-labelledby="lastname" /&gt;
 
 &lt;InputText aria-label="Age"/&gt;
 
