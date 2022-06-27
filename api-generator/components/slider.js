@@ -42,10 +42,22 @@ const SliderProps = [
         description: "When present, it specifies that the component should be disabled."
     },
     {
+        name: "tabindex",
+        type: "number",
+        default: "null",
+        description: "Index of the element in tabbing order."
+    },
+    {
         name: "ariaLabelledBy",
         type: "string",
         default: "null",
         description: "Establishes relationships between the component and label(s) where its value should be one or more element IDs."
+    },
+    {
+        name: "ariaLabel",
+        type: "string",
+        default: "null",
+        description: "Used to define a string that labels the element."
     }
 ];
 
