@@ -76,6 +76,12 @@ export default {
                         <td>Allows to select a boolean value instead of multiple values.</td>
                     </tr>
                     <tr>
+                        <td>tabindex</td>
+                        <td>number</td>
+                        <td>null</td>
+                        <td>Index of the element in tabbing order.</td>
+                    </tr>
+                    <tr>
                         <td>style</td>
                         <td>any</td>
                         <td>null</td>
@@ -161,6 +167,45 @@ export default {
 			</table>
 		</div>
 
+        <h5>Accessibility</h5>
+        <DevelopmentSection>
+            <h6>Screen Reader</h6>
+            <p>Checkbox component uses a hidden native checkbox element internally that is only visible to screen readers. Value to describe the component can either be provided via <i>label</i> tag combined with <i>id</i> prop or using <i>aria-labelledby</i>, <i>aria-label</i> props.</p>
+
+<pre v-code><code>
+&lt;label for="chkbox1"&gt;Remember Me&lt;/label&gt;
+&lt;Checkbox id="chkbox1" /&gt;
+
+&lt;span id="chkbox2"&gt;Remember Me&lt;/span&gt;
+&lt;Checkbox aria-labelledby="chkbox2" /&gt;
+
+&lt;Checkbox aria-label="Remember Me" /&gt;
+
+</code></pre>
+
+            <h6>Keyboard Support</h6>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Key</th>
+                            <th>Function</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><i>tab</i></td>
+                            <td>Moves focus to the checkbox.</td>
+                        </tr>
+                        <tr>
+                            <td><i>space</i></td>
+                            <td>Toggles the checked state.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </DevelopmentSection>
+
 		<h5>Dependencies</h5>
 		<p>None.</p>
     </AppDoc>
@@ -202,7 +247,7 @@ export default {
 
         <h5>Dynamic Values, Preselection, Value Binding and Disabled Option</h5>
         <div v-for="category of categories" :key="category.key" class="field-checkbox">
-            <Checkbox :id="category.key" name="category" :value="category" v-model="selectedCategories" :disabled="category.key === 'R'"/>
+            <Checkbox :id="category.key" name="category" :value="category.name" v-model="selectedCategories" :disabled="category.key === 'R'"/>
             <label :for="category.key">{{category.name}}</label>
         </div>
     </div>
@@ -255,7 +300,7 @@ export default {
 
         <h5>Dynamic Values, Preselection, Value Binding and Disabled Option</h5>
         <div v-for="category of categories" :key="category.key" class="field-checkbox">
-            <Checkbox :id="category.key" name="category" :value="category" v-model="selectedCategories" :disabled="category.key === 'R'"/>
+            <Checkbox :id="category.key" name="category" :value="category.name" v-model="selectedCategories" :disabled="category.key === 'R'"/>
             <label :for="category.key">{{category.name}}</label>
         </div>
     </div>
@@ -310,7 +355,7 @@ export default {
 
         <h5>Dynamic Values, Preselection, Value Binding and Disabled Option</h5>
         <div v-for="category of categories" :key="category.key" class="field-checkbox">
-            <p-checkbox :id="category.key" name="category" :value="category" v-model="selectedCategories" :disabled="category.key === 'R'"></p-checkbox>
+            <p-checkbox :id="category.key" name="category" :value="category.name" v-model="selectedCategories" :disabled="category.key === 'R'"></p-checkbox>
             <label :for="category.key">{{category.name}}</label>
         </div>
     </div>
