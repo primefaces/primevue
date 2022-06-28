@@ -140,19 +140,19 @@ export interface InputNumberProps {
     /**
      * Inline style of the input field.
      */
-    inputStyle?: any;
+    inputStyle?: any | undefined;
     /**
      * Style class of the input field.
      */
-    inputClass?: string | undefined;
+    inputClass?: any | undefined;
     /**
      * Inline style of the component.
      */
-    style?: any;
+    style?: any | undefined;
     /**
      * Style class of the element.
      */
-    class?: string | undefined;
+    class?: any | undefined;
 }
 
 export interface InputNumberSlots {
