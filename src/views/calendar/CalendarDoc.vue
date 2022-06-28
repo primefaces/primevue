@@ -91,7 +91,7 @@ export default {
 </code></pre>
 
         <h5>Date Restriction</h5>
-        <p>To disable entering dates manually, set <i>manualInput</i> to true and to restrict selectable dates with the <i>minDate</i>
+        <p>To disable entering dates manually, set <i>manualInput</i> to false and to restrict selectable dates with the <i>minDate</i>
             and <i>maxDate</i> options.</p>
 <pre v-code><code>
 &lt;Calendar v-model="value" :minDate="minDateValue" maxDate="maxDateValue" /&gt;
