@@ -128,6 +128,10 @@ export interface DialogProps {
      * Default value is 'body'.
      */
     appendTo?: DialogAppendToType;
+    /**
+     * Style of the dynamic dialog.
+     */
+    style?: any;
 }
 
 export interface DialogSlots {
