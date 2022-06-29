@@ -10,10 +10,6 @@ export interface RadioButtonProps {
      */
     modelValue?: any;
     /**
-     * Index of the element in tabbing order.
-     */
-    tabindex?: number;
-    /**
      * Style class of the component input field.
      */
     class?: any;

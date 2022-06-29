@@ -1,7 +1,7 @@
 <template>
     <div :class="containerClass" @click="onClick($event)" :style="style">
         <div class="p-hidden-accessible">
-            <input ref="input" type="radio" :checked="checked" :value="value" v-bind="$attrs" :tabindex="tabindex" @focus="onFocus" @blur="onBlur">
+            <input ref="input" type="radio" :checked="checked" :value="value" v-bind="$attrs" @focus="onFocus" @blur="onBlur">
         </div>
         <div ref="box" :class="['p-radiobutton-box', {'p-highlight': checked, 'p-disabled': $attrs.disabled, 'p-focus': focused}]">
             <div class="p-radiobutton-icon"></div>
@@ -19,7 +19,6 @@ export default {
     props: {
 		value: null,
         modelValue: null,
-        tabindex: null,
         class: null,
         style: null
     },
