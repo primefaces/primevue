@@ -261,6 +261,11 @@ export declare type VirtualScrollerEmits = {
      */
     'update:numToleratedItems': (value: number) => void;
     /**
+     * Emitted when the visible items change.
+     * @param {*} value[] - List of items currently visible (in DOM)
+     */
+    'update:items': (value: any[]) => void;
+    /**
      * Callback to invoke when scroll position changes.
      * @param {Event} event - Browser event.
     */

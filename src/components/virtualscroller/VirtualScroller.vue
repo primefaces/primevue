@@ -30,7 +30,7 @@
 <script>
 export default {
     name: 'VirtualScroller',
-    emits: ['update:numToleratedItems', 'scroll', 'scroll-index-change', 'lazy-load'],
+    emits: ['update:items', 'update:numToleratedItems', 'scroll', 'scroll-index-change', 'lazy-load'],
     props: {
         id: {
             type: String,
@@ -122,6 +122,9 @@ export default {
             if (!oldValue || oldValue.length !== (newValue || []).length) {
                 this.init();
             }
+        },
+        loadedItems (newValue) {
+            this.$emit('update:items', newValue)
         },
         orientation() {
             this.lastScrollPos = this.isBoth() ? { top: 0, left: 0 } : 0;

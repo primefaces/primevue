@@ -20,11 +20,11 @@
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
                 <div :ref="overlayRef" :class="panelStyleClass" :style="{'max-height': virtualScrollerDisabled ? scrollHeight : ''}" v-if="overlayVisible" @click="onOverlayClick">
                     <slot name="header" :value="modelValue" :suggestions="suggestions"></slot>
-                    <VirtualScroller :ref="virtualScrollerRef" v-bind="virtualScrollerOptions" :style="{'height': scrollHeight}" :items="suggestions" :disabled="virtualScrollerDisabled">
+                    <VirtualScroller :ref="virtualScrollerRef" v-bind="virtualScrollerOptions" :style="{'height': scrollHeight}" :items="suggestions" :disabled="virtualScrollerDisabled" @update:items="updateVirtualScrollItems">
                         <template v-slot:content="{ styleClass, contentRef, items, getItemOptions, contentStyle }">
                             <ul :id="listId" :ref="(el) => listRef(el, contentRef)" :class="['p-autocomplete-items', styleClass]" :style="contentStyle" role="listbox">
                                 <template v-if="!optionGroupLabel">
-                                    <li v-for="(item, i) of items" class="p-autocomplete-item" :key="getOptionRenderKey(item)" @click="selectItem($event, item)" role="option" v-ripple :data-index="getOptionIndex(i, getItemOptions)">
+                                    <li v-for="(item, i) of items" :ref="el => itemRef(el, item)" class="p-autocomplete-item" :class="{'p-highlight': isItemHighlighted(item)}" :key="getOptionRenderKey(item)" @click="selectItem($event, item)" role="option" v-ripple :data-index="getOptionIndex(i, getItemOptions)">
                                         <slot name="item" :item="item" :index="getOptionIndex(i, getItemOptions)">{{getItemContent(item)}}</slot>
                                     </li>
                                 </template>
@@ -33,7 +33,7 @@
                                         <li  class="p-autocomplete-item-group">
                                             <slot name="optiongroup" :item="optionGroup" :index="getOptionIndex(i, getItemOptions)">{{getOptionGroupLabel(optionGroup)}}</slot>
                                         </li>
-                                        <li v-for="(item, j) of getOptionGroupChildren(optionGroup)" class="p-autocomplete-item" :key="j" @click="selectItem($event, item)" role="option" v-ripple :data-group="i" :data-index="getOptionIndex(j, getItemOptions)">
+                                        <li v-for="(item, j) of getOptionGroupChildren(optionGroup)" :ref="el => itemRef(el, item)" class="p-autocomplete-item" :class="{'p-highlight': isItemHighlighted(item)}"  :key="j" @click="selectItem($event, item)" role="option" v-ripple :data-group="i" :data-index="getOptionIndex(j, getItemOptions)">
                                             <slot name="item" :item="item" :index="getOptionIndex(j, getItemOptions)">{{getItemContent(item)}}</slot>
                                         </li>
                                     </template>
@@ -141,7 +141,9 @@ export default {
             focused: false,
             overlayVisible: false,
             inputTextValue: null,
-            highlightItem: null
+            highlightedItem: null,
+            virtualScrollItems: [],
+            itemsRefs: new Map(),
         };
     },
     watch: {
@@ -176,6 +178,9 @@ export default {
         }
     },
     methods: {
+        itemRef (el, item) {
+            this.itemsRefs.set(item, el)
+        },
         getOptionIndex(index, fn) {
             return this.virtualScrollerDisabled ? index : (fn && fn(index)['index']);
         },
@@ -191,16 +196,15 @@ export default {
         getOptionGroupChildren(optionGroup) {
             return ObjectUtils.resolveFieldData(optionGroup, this.optionGroupChildren);
         },
+        isItemHighlighted(item) {
+            return item === this.highlightedItem || (!this.highlightedItem && this.autoHighlight && this.visibleItems.indexOf(item) === 0)
+        },
         onOverlayEnter(el) {
             ZIndexUtils.set('overlay', el, this.$primevue.config.zIndex.overlay);
             this.alignOverlay();
             this.bindOutsideClickListener();
             this.bindScrollListener();
             this.bindResizeListener();
-
-            if (this.autoHighlight && this.suggestions && this.suggestions.length) {
-                DomHandler.addClass(this.list.firstElementChild, 'p-highlight');
-            }
         },
         onOverlayLeave() {
             this.unbindOutsideClickListener();
@@ -303,6 +307,11 @@ export default {
             this.focus();
             this.hideOverlay();
         },
+        updateVirtualScrollItems (items) {
+            this.itemsRefs.clear()
+            this.highlightedItem = null
+            this.virtualScrollItems = items
+        },
         onMultiContainerClick(event) {
             this.focus();
             if(this.completeOnFocus) {
@@ -401,67 +410,46 @@ export default {
         },
         onKeyDown(event) {
             if (this.overlayVisible) {
-                let highlightItem = DomHandler.findSingle(this.list, 'li.p-highlight');
+                let highlightedItemIndex = this.visibleItems.indexOf(this.highlightedItem)
 
-                switch(event.which) {
-                    //down
-                    case 40:
-                        if (highlightItem) {
-                            let nextElement = this.findNextItem(highlightItem);
-                            if (nextElement) {
-                                DomHandler.addClass(nextElement, 'p-highlight');
-                                DomHandler.removeClass(highlightItem, 'p-highlight');
-                                nextElement.scrollIntoView({ block: 'nearest', inline: 'start' });
-                            }
-                        }
-                        else {
-                            highlightItem = this.list.firstElementChild;
-                            if (DomHandler.hasClass(highlightItem, 'p-autocomplete-item-group')) {
-                                highlightItem = this.findNextItem(highlightItem);
-                            }
+                if (this.autoHighlight && highlightedItemIndex < 0) {
+                    highlightedItemIndex = 0
+                }
 
-                            if (highlightItem) {
-                                DomHandler.addClass(highlightItem, 'p-highlight');
-                            }
+                let newHighlightItemIndex = null
+
+                switch(event.key) {
+                    case 'ArrowDown':
+                        newHighlightItemIndex = Math.min(highlightedItemIndex + 1, this.visibleItems.length - 1)
+
+                        event.preventDefault();
+                    break;
+
+                    case 'ArrowUp':
+                        if (highlightedItemIndex >= 0) {
+                            newHighlightItemIndex = Math.max(0, highlightedItemIndex - 1)
                         }
 
                         event.preventDefault();
                     break;
 
-                    //up
-                    case 38:
-                        if (highlightItem) {
-                            let previousElement = this.findPrevItem(highlightItem);
-                            if (previousElement) {
-                                DomHandler.addClass(previousElement, 'p-highlight');
-                                DomHandler.removeClass(highlightItem, 'p-highlight');
-                                previousElement.scrollIntoView({ block: 'nearest', inline: 'start' });
-                            }
-                        }
-
-                        event.preventDefault();
-                    break;
-
-                    //enter
-                    case 13:
-                        if (highlightItem) {
-                            this.selectHighlightItem(event, highlightItem);
+                    case 'Enter':
+                        if (this.highlightedItem) {
+                            this.selectHighlightItem(event, this.itemsRefs.get(this.highlightedItem));
                             this.hideOverlay();
                         }
 
                         event.preventDefault();
                     break;
 
-                    //escape
-                    case 27:
+                    case 'Escape':
                         this.hideOverlay();
                         event.preventDefault();
                     break;
 
-                    //tab
-                    case 9:
-                        if (highlightItem) {
-                            this.selectHighlightItem(event, highlightItem);
+                    case 'Tab':
+                        if (this.highlightedItem) {
+                            this.selectHighlightItem(event, this.itemsRefs.get(this.highlightedItem));
                         }
 
                         this.hideOverlay();
@@ -470,12 +458,20 @@ export default {
                     default:
                     break;
                 }
+
+                if (newHighlightItemIndex !== null) {
+                    this.highlightedItem = this.visibleItems[newHighlightItemIndex]
+
+                    const itemRef = this.itemsRefs.get(this.highlightedItem)
+
+                    itemRef && itemRef.scrollIntoView({block: 'nearest', inline: 'start'})
+                }
             }
 
+
             if (this.multiple) {
-                switch(event.which) {
-                    //backspace
-                    case 8:
+                switch(event.key) {
+                    case 'Backspace':
                         if (this.modelValue && this.modelValue.length && !this.$refs.input.value) {
                             let removedValue = this.modelValue[this.modelValue.length - 1];
                             let newValue = this.modelValue.slice(0, -1);
@@ -623,6 +619,9 @@ export default {
         },
         virtualScrollerDisabled() {
             return !this.virtualScrollerOptions;
+        },
+        visibleItems () {
+            return (!this.virtualScrollerDisabled ? this.virtualScrollItems : null) || this.suggestions
         }
     },
     components: {
