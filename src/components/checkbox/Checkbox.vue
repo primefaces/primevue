@@ -1,9 +1,9 @@
 <template>
-   <div :class="containerClass" @click="onClick($event)" :style="style">
-       <div class="p-hidden-accessible">
-           <input ref="input" type="checkbox" :checked="checked" :value="value" v-bind="$attrs" @focus="onFocus" @blur="onBlur">
+    <div :class="containerClass" @click="onClick($event)" :style="style">
+        <div class="p-hidden-accessible">
+            <input ref="input" type="checkbox" :checked="checked" :value="value" v-bind="$attrs" @focus="onFocus" @blur="onBlur">
         </div>
-        <div ref="box" :class="['p-checkbox-box', {'p-highlight': checked, 'p-disabled': $attrs.disabled, 'p-focus': focused}]" role="checkbox" :aria-checked="checked">
+        <div ref="box" :class="['p-checkbox-box', {'p-highlight': checked, 'p-disabled': $attrs.disabled, 'p-focus': focused}]">
             <span :class="['p-checkbox-icon', {'pi pi-check': checked}]"></span>
         </div>
     </div>
@@ -70,7 +70,12 @@ export default {
             return this.binary ? this.modelValue === this.trueValue : ObjectUtils.contains(this.value, this.modelValue);
         },
         containerClass() {
-            return ['p-checkbox p-component', this.class, {'p-checkbox-checked': this.checked, 'p-checkbox-disabled': this.$attrs.disabled, 'p-checkbox-focused': this.focused}];
+            return [
+                'p-checkbox p-component', this.class, {
+                    'p-checkbox-checked': this.checked,
+                    'p-checkbox-disabled': this.$attrs.disabled,
+                    'p-checkbox-focused': this.focused
+                }];
         }
     }
 }

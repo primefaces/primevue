@@ -13,7 +13,7 @@
                 <h5>Basic</h5>
                 <div class="field-checkbox">
                     <Checkbox id="binary" v-model="checked" :binary="true" />
-                    <label for="binary">{{checked}}</label>
+                    <label for="binary">Remember Me</label>
                 </div>
 
                 <h5>Multiple</h5>
@@ -36,7 +36,7 @@
 
                 <h5>Dynamic Values, Preselection, Value Binding and Disabled Option</h5>
                 <div v-for="category of categories" :key="category.key" class="field-checkbox">
-                    <Checkbox :id="category.key" name="category" :value="category" v-model="selectedCategories" :disabled="category.key === 'R'"/>
+                    <Checkbox :id="category.key" name="category" :value="category.name" v-model="selectedCategories" :disabled="category.key === 'R'"/>
                     <label :for="category.key">{{category.name}}</label>
                 </div>
             </div>
