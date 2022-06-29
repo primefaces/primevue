@@ -153,6 +153,11 @@ export interface VirtualScrollerProps {
      * Whether to load items.
      */
     loading?: boolean | undefined;
+    /**
+     * Callback to invoke in lazy mode to load new data.
+     * @param {VirtualScrollerLazyEvent} event - Custom lazy event.
+     */
+    onLazyLoad?: (event: VirtualScrollerLazyEvent) => void;
 }
 
 export interface VirtualScrollerSlots {
