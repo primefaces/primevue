@@ -76,12 +76,6 @@ export default {
                         <td>Allows to select a boolean value instead of multiple values.</td>
                     </tr>
                     <tr>
-                        <td>tabindex</td>
-                        <td>number</td>
-                        <td>null</td>
-                        <td>Index of the element in tabbing order.</td>
-                    </tr>
-                    <tr>
                         <td>style</td>
                         <td>any</td>
                         <td>null</td>

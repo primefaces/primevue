@@ -1,7 +1,7 @@
 <template>
     <div :class="containerClass" @click="onClick($event)" :style="style">
         <div class="p-hidden-accessible">
-            <input ref="input" type="checkbox" :checked="checked" :value="value" v-bind="$attrs" :tabindex="tabindex" @focus="onFocus" @blur="onBlur">
+            <input ref="input" type="checkbox" :checked="checked" :value="value" v-bind="$attrs" @focus="onFocus" @blur="onBlur">
         </div>
         <div ref="box" :class="['p-checkbox-box', {'p-highlight': checked, 'p-disabled': $attrs.disabled, 'p-focus': focused}]">
             <span :class="['p-checkbox-icon', {'pi pi-check': checked}]"></span>
@@ -22,10 +22,6 @@ export default {
         binary: Boolean,
         class: null,
         style: null,
-        tabindex: {
-            type: Number,
-            default: null
-        },
         trueValue: {
             type: null,
             default: true
