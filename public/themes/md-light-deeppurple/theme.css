@@ -42,6 +42,7 @@
   --surface-hover:rgba(0,0,0,.04);
   --focus-ring: none;
   --maskbg: rgba(0, 0, 0, 0.32);
+  color-scheme: light;
 }
 
 /* roboto-regular - latin-ext_latin */
