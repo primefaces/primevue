@@ -18,12 +18,6 @@ const InputSwitchProps = [
         description: "Inline of the component."
     },
     {
-        name: "tabindex",
-        type: "number",
-        default: "null",
-        description: "Index of the element in tabbing order."
-    },
-    {
         name: "trueValue",
         type: "any",
         default: "null",

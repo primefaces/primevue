@@ -1,7 +1,7 @@
 <template>
     <div :class="containerClass" @click="onClick($event)" :style="style" role="checkbox" :aria-checked="checked">
         <div class="p-hidden-accessible">
-            <input ref="input" type="checkbox" :checked="checked" v-bind="$attrs" role="switch" :tabindex="tabindex" :aria-checked="checked"
+            <input ref="input" type="checkbox" :checked="checked" v-bind="$attrs" role="switch" :aria-checked="checked"
                 @focus="onFocus($event)" @blur="onBlur($event)">
         </div>
         <span class="p-inputswitch-slider"></span>
@@ -20,10 +20,6 @@ export default {
         },
         class: null,
         style: null,
-        tabindex: {
-            type: Number,
-            default: null
-        },
         trueValue: {
             type: null,
             default: true

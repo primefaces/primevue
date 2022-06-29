@@ -76,12 +76,6 @@ export default {
                         <td>Inline style of the component.</td>
                     </tr>
 					<tr>
-                        <td>tabindex</td>
-                        <td>number</td>
-                        <td>null</td>
-                        <td>Index of the element in tabbing order.</td>
-                    </tr>
-					<tr>
                         <td>trueValue</td>
                         <td>any</td>
                         <td>null</td>
