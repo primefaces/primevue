@@ -30,7 +30,7 @@
 
                 <h5>Dynamic Values, Preselection, Value Binding and Disabled Option</h5>
                 <div v-for="category of categories" :key="category.key" class="field-radiobutton">
-                    <RadioButton :id="category.key" name="category" :value="category" v-model="selectedCategory" :disabled="category.key === 'R'" />
+                    <RadioButton :id="category.key" name="category" :value="category.name" v-model="selectedCategory" :disabled="category.key === 'R'" />
                     <label :for="category.key">{{category.name}}</label>
                 </div>
             </div>
