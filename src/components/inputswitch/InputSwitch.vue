@@ -1,8 +1,8 @@
 <template>
-    <div :class="containerClass" @click="onClick($event)" :style="style">
+    <div :class="containerClass" @click="onClick($event)" :style="style" role="checkbox" :aria-checked="checked">
         <div class="p-hidden-accessible">
-            <input ref="input" type="checkbox" :checked="checked" v-bind="$attrs" @focus="onFocus($event)" @blur="onBlur($event)" @keydown.enter.prevent="onClick($event)"
-                role="switch" :aria-checked="checked">
+            <input ref="input" type="checkbox" :checked="checked" v-bind="$attrs" role="switch" :aria-checked="checked"
+                @focus="onFocus($event)" @blur="onBlur($event)">
         </div>
         <span class="p-inputswitch-slider"></span>
     </div>
