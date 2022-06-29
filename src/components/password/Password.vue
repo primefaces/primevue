@@ -1,6 +1,6 @@
 <template>
-    <div :class="containerClass" :style="style">
-        <PInputText ref="input" :class="inputFieldClass" :style="inputStyle" :type="inputType" :value="modelValue" @input="onInput" @focus="onFocus" @blur="onBlur" @keyup="onKeyUp" v-bind="$attrs" />
+    <div :class="containerClass" :id="id" :style="style">
+        <PInputText ref="input" :id="inputId" :class="inputFieldClass" :style="inputStyle" :type="inputType" :value="modelValue" @input="onInput" @focus="onFocus" @blur="onBlur" @keyup="onKeyUp" v-bind="$attrs" />
         <i v-if="toggleMask" :class="toggleIconClass" @click="onMaskToggle" />
         <Portal :appendTo="appendTo">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
@@ -31,6 +31,14 @@ export default {
     inheritAttrs: false,
     props: {
         modelValue: String,
+        id: {
+            type: String,
+            default: null
+        },
+        inputId: {
+            type: String,
+            default: null
+        },
         promptLabel: {
             type: String,
             default: null
@@ -202,6 +210,12 @@ export default {
 
                 this.meter = meter;
                 this.infoText = label;
+
+                //escape
+                if (event.which === 27) {
+                    this.overlayVisible && (this.overlayVisible = false);
+                    return;
+                }
 
                 if (!this.overlayVisible) {
                     this.overlayVisible = true;
