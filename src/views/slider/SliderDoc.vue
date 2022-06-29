@@ -121,18 +121,6 @@ export default {
                         <td>null</td>
                         <td>Index of the element in tabbing order.</td>
                     </tr>
-                    <tr>
-                        <td>ariaLabelledBy</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Establishes relationships between the component and label(s) where its value should be one or more element IDs.</td>
-                    </tr>
-                    <tr>
-                        <td>ariaLabel</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Used to define a string that labels the element.</td>
-                    </tr>
 				</tbody>
 			</table>
 		</div>
