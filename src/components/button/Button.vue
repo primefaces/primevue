@@ -1,5 +1,5 @@
 <template>
-    <button :class="buttonClass" type="button" v-ripple :disabled="disabled">
+    <button :class="buttonClass" type="button" :aria-label="defaultAriaLabel" v-ripple :disabled="disabled">
         <slot>
             <span v-if="loading && !icon" :class="iconClass"></span>
             <span v-if="icon" :class="iconClass"></span>
@@ -72,6 +72,9 @@ export default {
         },
         disabled() {
             return this.$attrs.disabled || this.loading;
+        },
+        defaultAriaLabel() {
+            return (this.label ? this.label + (this.badge ? ' ' + this.badge : '') : this.$attrs['aria-label']);
         }
     },
     directives: {
