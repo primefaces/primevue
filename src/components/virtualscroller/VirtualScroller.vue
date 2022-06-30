@@ -143,6 +143,7 @@ export default {
             return this.orientation === 'both';
         },
         scrollTo(options) {
+            this.lastScrollPos = this.isBoth() ? { top: 0, left: 0 } : 0;
             this.element && this.element.scrollTo(options);
         },
         scrollToIndex(index, behavior = 'auto') {
@@ -160,7 +161,6 @@ export default {
                 const newFirst = { rows: calculateFirst(index[0], numToleratedItems[0]), cols: calculateFirst(index[1], numToleratedItems[1]) };
                 if (newFirst.rows !== first.rows || newFirst.cols !== first.cols) {
                     scrollTo(calculateCoord(newFirst.cols, itemSize[1], contentPos.left), calculateCoord(newFirst.rows, itemSize[0], contentPos.top))
-                    this.first = newFirst;
                 }
             }
             else {
@@ -168,7 +168,6 @@ export default {
 
                 if (newFirst !== first) {
                     horizontal ? scrollTo(calculateCoord(newFirst, itemSize, contentPos.left), 0) : scrollTo(0, calculateCoord(newFirst, itemSize, contentPos.top));
-                    this.first = newFirst;
                 }
             }
         },

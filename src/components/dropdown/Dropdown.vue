@@ -617,6 +617,8 @@ export default {
         onFilterChange(event) {
             this.filterValue = event.target.value;
             this.$emit('filter', {originalEvent: event, value: event.target.value});
+
+            !this.virtualScrollerDisabled && this.virtualScroller.scrollToIndex(0);
         },
         onFilterUpdated() {
             if (this.overlayVisible) {
