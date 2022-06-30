@@ -189,7 +189,6 @@ export default {
                 case 37:
                     this.decrementValue(event, index);
                     event.preventDefault();
-                    
                 break;
 
                 //up and right
@@ -197,14 +196,35 @@ export default {
                 case 39:
                     this.incrementValue(event, index);
                     event.preventDefault();
-                    
+                break;
+
+                //page down
+                case 34:
+                    this.decrementValue(event, index, true);
+                    event.preventDefault();
+                break;
+
+                //page up
+                case 33:
+                    this.incrementValue(event, index, true);
+                    event.preventDefault();
+                break;
+
+                //home
+                case 36:
+                    this.updateModel(event, this.min);
+                break;
+
+                //end
+                case 35:
+                    this.updateModel(event, this.max);
                 break;
 
                 default:
                 break;
             }
         },
-        decrementValue(event, index) {
+        decrementValue(event, index, pageKey = false) {
             let newValue;
             if (this.range) {
                 if (this.step)
@@ -215,13 +235,15 @@ export default {
             else {
                 if (this.step)
                     newValue = this.modelValue - this.step;
+                else if (!this.step && pageKey)
+                    newValue = this.modelValue - 10;
                 else
                     newValue = this.modelValue - 1;
             }
             this.updateModel(event, newValue);
             event.preventDefault();
         },
-        incrementValue(event, index) {
+        incrementValue(event, index, pageKey = false) {
             let newValue;
             if (this.range) {
                 if (this.step)
@@ -232,6 +254,8 @@ export default {
             else {
                 if (this.step)
                     newValue = this.modelValue + this.step;
+                else if (!this.step && pageKey)
+                    newValue = this.modelValue + 10;
                 else
                     newValue = this.modelValue + 1;
             }
