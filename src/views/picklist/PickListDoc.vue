@@ -143,6 +143,18 @@ import PickList from 'primevue/picklist';
                         <td>false</td>
                         <td>Whether to displays rows with alternating colors.</td>
                     </tr>
+                    <tr>
+                        <td>showSourceControls</td>
+                        <td>boolean</td>
+                        <td>true</td>
+                        <td>Whether to show buttons of source list.</td>
+                    </tr>
+                    <tr>
+                        <td>showTargetControls</td>
+                        <td>boolean</td>
+                        <td>true</td>
+                        <td>Whether to show buttons of target list.</td>
+                    </tr>
 				</tbody>
 			</table>
 		</div>

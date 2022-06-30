@@ -1,6 +1,6 @@
 <template>
     <div :class="containerClass">
-        <div class="p-picklist-buttons p-picklist-source-controls">
+        <div class="p-picklist-buttons p-picklist-source-controls" v-if="showSourceControls">
             <slot name="sourcecontrolsstart"></slot>
             <PLButton type="button" icon="pi pi-angle-up" @click="moveUp($event, 0)"></PLButton>
             <PLButton type="button" icon="pi pi-angle-double-up" @click="moveTop($event, 0)"></PLButton>
@@ -44,7 +44,7 @@
                 </template>
             </transition-group>
         </div>
-        <div class="p-picklist-buttons p-picklist-target-controls">
+        <div class="p-picklist-buttons p-picklist-target-controls" v-if="showTargetControls">
             <slot name="targetcontrolsstart"></slot>
             <PLButton type="button" icon="pi pi-angle-up" @click="moveUp($event, 1)"></PLButton>
             <PLButton type="button" icon="pi pi-angle-double-up" @click="moveTop($event, 1)"></PLButton>
@@ -95,6 +95,14 @@ export default {
         stripedRows: {
             type: Boolean,
             default: false
+        },
+        showSourceControls: {
+            type: Boolean,
+            default: true
+        },
+        showTargetControls: {
+            type: Boolean,
+            default: true
         }
     },
     itemTouched: false,
