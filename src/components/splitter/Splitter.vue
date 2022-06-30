@@ -40,6 +40,8 @@ export default {
     dragging: false,
     mouseMoveListener: null,
     mouseUpListener: null,
+    touchMoveListener: null,
+    touchEndListener: null,
     size: null,
     gutterElement: null,
     startPos: null,
@@ -83,7 +85,7 @@ export default {
             this.gutterElement = event.currentTarget;
             this.size = this.horizontal ? DomHandler.getWidth(this.$el) : DomHandler.getHeight(this.$el);
             this.dragging = true;
-            this.startPos = this.layout === 'horizontal' ? event.pageX : event.pageY;
+            this.startPos = this.layout === 'horizontal' ? (event.pageX || event.changedTouches[0].pageX) : (event.pageY || event.changedTouches[0].pageY);
             this.prevPanelElement = this.gutterElement.previousElementSibling;
             this.nextPanelElement = this.gutterElement.nextElementSibling;
             this.prevPanelSize = 100 * (this.horizontal ? DomHandler.getOuterWidth(this.prevPanelElement, true): DomHandler.getOuterHeight(this.prevPanelElement, true)) / this.size;
@@ -125,6 +127,7 @@ export default {
         },
         onGutterTouchStart(event, index) {
             this.onResizeStart(event, index);
+            this.bindTouchListeners();
             event.preventDefault();
         },
         onGutterTouchMove(event) {
@@ -133,6 +136,7 @@ export default {
         },
         onGutterTouchEnd(event) {
             this.onResizeEnd(event);
+            this.unbindTouchListeners();
             event.preventDefault();
         },
         bindMouseListeners() {
@@ -147,6 +151,20 @@ export default {
                     this.unbindMouseListeners();
                 }
                 document.addEventListener('mouseup', this.mouseUpListener);
+            }
+        },
+        bindTouchListeners() {
+            if (!this.touchMoveListener) {
+                this.touchMoveListener = event => this.onResize(event.changedTouches[0])
+                document.addEventListener('touchmove', this.touchMoveListener);
+            }
+
+            if (!this.touchEndListener) {
+                this.touchEndListener = event => {
+                    this.resizeEnd(event);
+                    this.unbindTouchListeners();
+                }
+                document.addEventListener('touchend', this.touchEndListener);
             }
         },
         validateResize(newPrevPanelSize, newNextPanelSize) {
@@ -171,6 +189,17 @@ export default {
             if (this.mouseUpListener) {
                 document.removeEventListener('mouseup', this.mouseUpListener);
                 this.mouseUpListener = null;
+            }
+        },
+        unbindTouchListeners() {
+            if (this.touchMoveListener) {
+                document.removeEventListener('touchmove', this.touchMoveListener);
+                this.touchMoveListener = null;
+            }
+
+            if (this.touchEndListener) {
+                document.removeEventListener('touchend', this.touchEndListener);
+                this.touchEndListener = null;
             }
         },
         clear() {
