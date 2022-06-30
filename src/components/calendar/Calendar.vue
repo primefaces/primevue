@@ -283,6 +283,10 @@ export default {
             type: Boolean,
             default: false
         },
+        hideOnRangeSelection: {
+            type: Boolean,
+            default: false
+        },
         timeSeparator: {
             type: String,
             default: ':'
@@ -938,6 +942,12 @@ export default {
 
             if (modelVal !== null) {
                 this.updateModel(modelVal);
+            }
+
+            if (this.isRangeSelection() && this.hideOnRangeSelection && modelVal[1] !== null) {
+                setTimeout(() => {
+                    this.overlayVisible = false;
+                }, 150);
             }
             this.$emit('date-select', date);
         },

@@ -199,6 +199,12 @@ const CalendarProps = [
         description: "Whether to hide the overlay on date selection when showTime is enabled."
     },
     {
+        name: "hideOnRangeSelection",
+        type: "boolean",
+        default: "false",
+        description: "Whether to hide the overlay on date selection is completed when selectionMode is range."
+    },
+    {
         name: "timeSeparator",
         type: "string",
         default: ":",
