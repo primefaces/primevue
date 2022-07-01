@@ -1,6 +1,6 @@
 <template>
     <CDialog v-model:visible="visible" :modal="true" :header="header" :blockScroll="blockScroll" :position="position" class="p-confirm-dialog"
-        :breakpoints="breakpoints">
+        :breakpoints="breakpoints" :closeOnEscape="closeOnEscape">
         <i :class="iconClass" />
         <span class="p-confirm-dialog-message">{{message}}</span>
         <template #footer>
@@ -110,6 +110,9 @@ export default {
         },
         autoFocusReject() {
             return this.confirmation.defaultFocus === 'reject' ? true : false;
+        },
+        closeOnEscape() {
+            return this.confirmation ? this.confirmation.closeOnEscape : true;
         }
     },
     components: {
