@@ -87,7 +87,7 @@ export interface PaginatorSlots {
          * Current state
          * @see PageState
          */
-        currentState: PageState;
+        state: PageState;
     }) => VNode[];
     /**
      * Custom end template.
@@ -98,7 +98,7 @@ export interface PaginatorSlots {
          * Current state
          * @see PageState
          */
-        currentState: PageState;
+        state: PageState;
     }) => VNode[];
 }
 
