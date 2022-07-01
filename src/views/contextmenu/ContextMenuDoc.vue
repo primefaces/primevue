@@ -338,6 +338,10 @@ export default {
                         <td>p-menuitem</td>
                         <td>Menuitem element.</td>
                     </tr>
+					<tr>
+                        <td>p-menuitem-active</td>
+                        <td>Active menuitem element.</td>
+                    </tr>
                     <tr>
                         <td>p-menuitem-text</td>
                         <td>Label of a menuitem.</td>
