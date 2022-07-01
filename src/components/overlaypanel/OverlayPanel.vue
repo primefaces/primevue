@@ -22,6 +22,7 @@ import Portal from 'primevue/portal';
 export default {
     name: 'OverlayPanel',
     inheritAttrs: false,
+    emits: ['show', 'hide'],
     props: {
 		dismissable: {
 			type: Boolean,
@@ -52,18 +53,20 @@ export default {
             default: null
         }
     },
-    emits: ['show', 'hide'],
     data() {
         return {
             visible: false
         }
     },
     watch: {
-        dismissable(newValue) {
-            if (newValue) {
-                this.bindOutsideClickListener();
-            } else {
-                this.unbindOutsideClickListener();
+        dismissable: {
+            immediate: true,
+            handler(newValue) {
+                if (newValue) {
+                    this.bindOutsideClickListener();
+                } else {
+                    this.unbindOutsideClickListener();
+                }
             }
         }
     },
