@@ -113,7 +113,7 @@ export default {
                 if (this.activeItem && item === this.activeItem)
                     this.activeItem = null;
                 else
-                   this.activeItem = item;
+                    this.activeItem = item;
             }
 
             if (!item.items) {
