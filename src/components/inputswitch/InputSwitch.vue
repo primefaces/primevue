@@ -1,5 +1,5 @@
 <template>
-    <div :class="containerClass" @click="onClick($event)" :style="style" role="checkbox" :aria-checked="checked">
+    <div :class="containerClass" @click="onClick($event)" :style="style">
         <div class="p-hidden-accessible">
             <input ref="input" type="checkbox" :checked="checked" v-bind="$attrs" role="switch" :aria-checked="checked"
                 @focus="onFocus($event)" @blur="onBlur($event)">
