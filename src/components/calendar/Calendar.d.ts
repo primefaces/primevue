@@ -216,6 +216,10 @@ export interface CalendarProps {
      */
     hideOnDateTimeSelect?: boolean | undefined;
     /**
+     * Whether to hide the overlay on date selection is completed when selectionMode is range.
+     */
+    hideOnRangeSelection?: boolean | undefined;
+    /**
      * Separator of time selector.
      * Default value is ':'.
      */

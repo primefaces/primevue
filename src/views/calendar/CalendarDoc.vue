@@ -399,6 +399,12 @@ export default {
                         <td>Whether to hide the overlay on date selection when showTime is enabled.</td>
                     </tr>
                     <tr>
+                        <td>hideOnRangeSelection</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>Whether to hide the overlay on date selection is completed when selectionMode is range.</td>
+                    </tr>
+                    <tr>
                         <td>timeSeparator</td>
                         <td>string</td>
                         <td>:</td>
