@@ -1,9 +1,9 @@
 <template>
-    <div :class="containerClass" @click="onClick($event)" :style="style">
+    <div :class="containerClass" @click="onClick($event)">
         <div class="p-hidden-accessible">
-            <input ref="input" type="checkbox" :checked="checked" :value="value" v-bind="$attrs" @focus="onFocus" @blur="onBlur">
+            <input :id="inputId" ref="input" type="checkbox" :value="value" :checked="checked" :disabled="disabled" @focus="onFocus($event)" @blur="onBlur($event)" v-bind="inputProps">
         </div>
-        <div ref="box" :class="['p-checkbox-box', {'p-highlight': checked, 'p-disabled': $attrs.disabled, 'p-focus': focused}]">
+        <div ref="box" :class="['p-checkbox-box', {'p-highlight': checked, 'p-disabled': disabled, 'p-focus': focused}]">
             <span :class="['p-checkbox-icon', {'pi pi-check': checked}]"></span>
         </div>
     </div>
@@ -14,14 +14,11 @@ import {ObjectUtils} from 'primevue/utils';
 
 export default {
     name: 'Checkbox',
-    inheritAttrs: false,
-    emits: ['click', 'update:modelValue', 'change', 'input'],
+    emits: ['click', 'update:modelValue', 'change', 'input', 'focus', 'blur'],
     props: {
         value: null,
         modelValue: null,
         binary: Boolean,
-        class: null,
-        style: null,
         trueValue: {
             type: null,
             default: true
@@ -29,16 +26,22 @@ export default {
         falseValue: {
             type: null,
             default: false
-        }
+        },
+        disabled: {
+            type: Boolean,
+            default: false
+        },
+        inputId: null,
+        inputProps: null
     },
     data() {
         return {
             focused: false
-        };
+        }
     },
     methods: {
         onClick(event) {
-            if (!this.$attrs.disabled) {
+            if (!this.disabled) {
                 let newModelValue;
 
                 if (this.binary) {
@@ -58,11 +61,13 @@ export default {
                 this.$refs.input.focus();
             }
         },
-        onFocus() {
+        onFocus(event) {
             this.focused = true;
+            this.$emit('focus', event);
         },
-        onBlur() {
+        onBlur(event) {
             this.focused = false;
+            this.$emit('blur', event);
         }
     },
     computed: {
@@ -71,9 +76,9 @@ export default {
         },
         containerClass() {
             return [
-                'p-checkbox p-component', this.class, {
+                'p-checkbox p-component', {
                     'p-checkbox-checked': this.checked,
-                    'p-checkbox-disabled': this.$attrs.disabled,
+                    'p-checkbox-disabled': this.disabled,
                     'p-checkbox-focused': this.focused
                 }];
         }
