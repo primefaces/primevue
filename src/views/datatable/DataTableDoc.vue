@@ -2128,7 +2128,7 @@ export default {
                             <td>rowStyle</td>
                             <td>object</td>
                             <td>null</td>
-                            <td>A function that takes the row data as a parameter and returns the inline style for the corresponding row.</td>
+                            <td>Inline style of the row element.</td>
                         </tr>
                         <tr>
                             <td>scrollable</td>
