@@ -1,6 +1,5 @@
 <template>
-    <input :class="inputClass" v-bind="$attrs" @input="onInput" @focus="onFocus" @blur="onBlur"
-        @keydown="onKeyDown" @keypress="onKeyPress" @paste="onPaste" />
+    <input :class="inputClass" :readonly="readonly" @input="onInput" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" @keypress="onKeyPress" @paste="onPaste" />
 </template>
 
 <script>
@@ -26,6 +25,10 @@ export default {
         unmask: {
             type: Boolean,
             default: false
+        },
+        readonly: {
+            type: Boolean,
+            default: false
         }
     },
     methods: {
@@ -38,7 +41,7 @@ export default {
             this.$emit('update:modelValue', event.target.value);
         },
         onFocus(event) {
-            if (this.$attrs.readonly) {
+            if (this.readonly) {
                 return;
             }
 
@@ -79,7 +82,7 @@ export default {
             this.$emit('blur', event);
         },
         onKeyDown(event) {
-            if (this.$attrs.readonly) {
+            if (this.readonly) {
                 return;
             }
 
@@ -120,7 +123,7 @@ export default {
             this.$emit('keydown', event);
         },
         onKeyPress(event) {
-            if (this.$attrs.readonly) {
+            if (this.readonly) {
                 return;
             }
 
@@ -365,7 +368,7 @@ export default {
             return (this.partialPosition ? i : this.firstNonMaskPos);
         },
         handleInputChange(event) {
-            if (this.$attrs.readonly) {
+            if (this.readonly) {
                 return;
             }
 
