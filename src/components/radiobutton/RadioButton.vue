@@ -1,9 +1,9 @@
 <template>
-    <div :class="containerClass" @click="onClick($event)" :style="style">
+    <div :class="containerClass" @click="onClick($event)">
         <div class="p-hidden-accessible">
-            <input ref="input" type="radio" :checked="checked" :value="value" v-bind="$attrs" @focus="onFocus" @blur="onBlur">
+            <input ref="input" type="radio" :id="inputId" :checked="checked" :value="value" @focus="onFocus" @blur="onBlur" v-bind="inputProps">
         </div>
-        <div ref="box" :class="['p-radiobutton-box', {'p-highlight': checked, 'p-disabled': $attrs.disabled, 'p-focus': focused}]">
+        <div ref="box" :class="['p-radiobutton-box', {'p-highlight': checked, 'p-disabled': disabled, 'p-focus': focused}]">
             <div class="p-radiobutton-icon"></div>
         </div>
     </div>
@@ -14,13 +14,22 @@ import {ObjectUtils} from 'primevue/utils';
 
 export default {
     name: 'RadioButton',
-    inheritAttrs: false,
-    emits: ['click', 'update:modelValue', 'change'],
+    emits: ['click', 'update:modelValue', 'change', 'focus', 'blur'],
     props: {
 		value: null,
         modelValue: null,
-        class: null,
-        style: null
+        disabled: {
+            type: Boolean,
+            default: false
+        },
+        inputId: {
+            type: String,
+            default: null
+        },
+        inputProps: {
+            type: Object,
+            default: null
+        }
     },
     data() {
         return {
@@ -29,7 +38,7 @@ export default {
     },
     methods: {
         onClick(event) {
-            if (!this.$attrs.disabled) {
+            if (!this.disabled) {
                 this.$emit('click', event);
                 this.$emit('update:modelValue', this.value);
                 this.$refs.input.focus();
@@ -39,11 +48,13 @@ export default {
                 }
             }
         },
-        onFocus() {
+        onFocus(event) {
             this.focused = true;
+            this.$emit('focus', event);
         },
-        onBlur() {
+        onBlur(event) {
             this.focused = false;
+            this.$emit('blur', event);
         }
     },
     computed: {
@@ -52,9 +63,9 @@ export default {
         },
         containerClass() {
             return [
-                'p-radiobutton p-component', this.class, {
+                'p-radiobutton p-component', {
                     'p-radiobutton-checked': this.checked,
-                    'p-radiobutton-disabled': this.$attrs.disabled,
+                    'p-radiobutton-disabled': this.disabled,
                     'p-radiobutton-focused': this.focused
                 }];
         }
