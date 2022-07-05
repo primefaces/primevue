@@ -83,12 +83,6 @@ import Password from 'primevue/password';
                         <td>Value of the component.</td>
                     </tr>
                     <tr>
-                        <td>id</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Unique identifier of the element.</td>
-                    </tr>
-                    <tr>
                         <td>inputId</td>
                         <td>string</td>
                         <td>null</td>
@@ -259,7 +253,7 @@ import Password from 'primevue/password';
 
 <pre v-code><code>
 &lt;label for="pwd1"&gt;Password&lt;/label&gt;
-&lt;Password id="pwd1" /&gt;
+&lt;Password inputId="pwd1" /&gt;
 
 &lt;span id="pwd2"&gt;Password&lt;/span&gt;
 &lt;Password aria-labelledby="pwd2" /&gt;

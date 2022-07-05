@@ -1,6 +1,6 @@
 <template>
-    <div :class="containerClass" v-bind="passwordProps">
-        <PInputText ref="input" :type="inputType" :value="modelValue" @input="onInput" @focus="onFocus" @blur="onBlur" @keyup="onKeyUp" v-bind="inputProps" />
+    <div :class="containerClass">
+        <PInputText ref="input" :id="inputId" :type="inputType" :value="modelValue" @input="onInput" @focus="onFocus" @blur="onBlur" @keyup="onKeyUp" v-bind="inputProps" />
         <i v-if="toggleMask" :class="toggleIconClass" @click="onMaskToggle" />
         <Portal :appendTo="appendTo">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
@@ -30,6 +30,10 @@ export default {
     emits: ['update:modelValue', 'change', 'focus', 'blur'],
     props: {
         modelValue: String,
+        inputId: {
+            type: String,
+            default: null
+        },
         promptLabel: {
             type: String,
             default: null
@@ -79,7 +83,6 @@ export default {
             type: Boolean,
             default: false
         },
-        passwordProps: null,
         inputProps: null
     },
     data() {
