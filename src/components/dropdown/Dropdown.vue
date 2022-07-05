@@ -313,6 +313,11 @@ export default {
                     this.overlayVisible = false;
                     event.preventDefault();
                 break;
+                
+                //tab
+                case 9:
+                    this.hide();
+                break;
 
                 default:
                 break;
