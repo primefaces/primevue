@@ -1,13 +1,13 @@
 <template>
-    <span :class="containerClass" :style="style">
-        <INInputText ref="input" :class="['p-inputnumber-input', inputClass]" :style="inputStyle" :value="formattedValue" v-bind="$attrs" :aria-valumin="min" :aria-valuemax="max" :readonly="readonly"
-            @input="onUserInput" @keydown="onInputKeyDown" @keypress="onInputKeyPress" @paste="onPaste" @click="onInputClick" @focus="onInputFocus" @blur="onInputBlur"/>
+    <span :class="containerClass">
+        <INInputText ref="input" class="p-inputnumber-input" role="spinbutton" :id="inputId" :value="formattedValue" :aria-valuemin="min" :aria-valuemax="max" :aria-valuenow="modelValue" :readonly="readonly"
+            @input="onUserInput" @keydown="onInputKeyDown" @keypress="onInputKeyPress" @paste="onPaste" @click="onInputClick" @focus="onInputFocus" @blur="onInputBlur" v-bind="inputProps"/>
         <span class="p-inputnumber-button-group" v-if="showButtons && buttonLayout === 'stacked'">
-            <INButton :class="upButtonClass" :icon="incrementButtonIcon" v-on="upButtonListeners" :disabled="$attrs.disabled" />
-            <INButton :class="downButtonClass" :icon="decrementButtonIcon" v-on="downButtonListeners" :disabled="$attrs.disabled" />
+            <INButton :class="upButtonClass" :icon="incrementButtonIcon" v-on="upButtonListeners" :disabled="disabled" v-bind="incrementButtonProps" />
+            <INButton :class="downButtonClass" :icon="decrementButtonIcon" v-on="downButtonListeners" :disabled="disabled" v-bind="decrementButtonProps" />
         </span>
-        <INButton :class="upButtonClass" :icon="incrementButtonIcon" v-on="upButtonListeners" v-if="showButtons && buttonLayout !== 'stacked'" :disabled="$attrs.disabled" />
-        <INButton :class="downButtonClass" :icon="decrementButtonIcon" v-on="downButtonListeners" v-if="showButtons && buttonLayout !== 'stacked'" :disabled="$attrs.disabled" />
+        <INButton :class="upButtonClass" :icon="incrementButtonIcon" v-on="upButtonListeners" v-if="showButtons && buttonLayout !== 'stacked'" :disabled="disabled" v-bind="incrementButtonProps" />
+        <INButton :class="downButtonClass" :icon="decrementButtonIcon" v-on="downButtonListeners" v-if="showButtons && buttonLayout !== 'stacked'" :disabled="disabled" v-bind="decrementButtonProps" />
     </span>
 </template>
 
@@ -17,7 +17,6 @@ import Button from 'primevue/button';
 
 export default {
     name: 'InputNumber',
-    inheritAttrs: false,
     emits: ['update:modelValue', 'input', 'focus', 'blur'],
     props: {
         modelValue: {
@@ -112,10 +111,14 @@ export default {
             type: Boolean,
             default: false
         },
-        style: null,
-        class: null,
-        inputStyle: null,
-        inputClass: null
+        disabled: {
+            type: Boolean,
+            default: false
+        },
+        inputId: null,
+        inputProps: null,
+        incrementButtonProps: null,
+        decrementButtonProps: null
     },
     numberFormat: null,
     _numeral: null,
@@ -327,24 +330,24 @@ export default {
             }
         },
         onUpButtonMouseDown(event) {
-            if (!this.$attrs.disabled) {
+            if (!this.disabled) {
                 this.$refs.input.$el.focus();
                 this.repeat(event, null, 1);
                 event.preventDefault();
             }
         },
         onUpButtonMouseUp() {
-            if (!this.$attrs.disabled) {
+            if (!this.disabled) {
                 this.clearTimer();
             }
         },
         onUpButtonMouseLeave() {
-            if (!this.$attrs.disabled) {
+            if (!this.disabled) {
                 this.clearTimer();
             }
         },
         onUpButtonKeyUp() {
-            if (!this.$attrs.disabled) {
+            if (!this.disabled) {
                 this.clearTimer();
             }
         },
@@ -354,24 +357,24 @@ export default {
             }
         },
         onDownButtonMouseDown(event) {
-            if (!this.$attrs.disabled) {
+            if (!this.disabled) {
                 this.$refs.input.$el.focus();
                 this.repeat(event, null, -1);
                 event.preventDefault();
             }
         },
         onDownButtonMouseUp() {
-            if (!this.$attrs.disabled) {
+            if (!this.disabled) {
                 this.clearTimer();
             }
         },
         onDownButtonMouseLeave() {
-            if (!this.$attrs.disabled) {
+            if (!this.disabled) {
                 this.clearTimer();
             }
         },
         onDownButtonKeyUp() {
-            if (!this.$attrs.disabled) {
+            if (!this.disabled) {
                 this.clearTimer();
             }
         },
@@ -533,6 +536,22 @@ export default {
                     else {
                         newValueStr = this.deleteRange(inputValue, selectionStart, selectionEnd);
                         this.updateValue(event, newValueStr, null, 'delete-range');
+                    }
+                break;
+
+                //home
+                case 36:
+                    if (this.min) {
+                        this.updateModel(event, this.min);
+                        event.preventDefault();
+                    }
+                break;
+
+                //end
+                case 35:
+                    if (this.max) {
+                        this.updateModel(event, this.max);
+                        event.preventDefault();
                     }
                 break;
 
@@ -947,7 +966,7 @@ export default {
     },
     computed: {
         containerClass() {
-            return ['p-inputnumber p-component p-inputwrapper', this.class, {
+            return ['p-inputnumber p-component p-inputwrapper', {
                 'p-inputwrapper-filled': this.filled,
                 'p-inputwrapper-focus': this.focused,
                 'p-inputnumber-buttons-stacked': this.showButtons && this.buttonLayout === 'stacked',
@@ -957,7 +976,7 @@ export default {
         },
         
         upButtonClass() {
-            return ['p-inputnumber-button p-inputnumber-button-up', this.incrementButtonClass, {
+            return ['p-inputnumber-button p-inputnumber-button-up', {
                 'p-disabled': this.showButtons && this.max !== null && this.maxBoundry()
             }];
         },
