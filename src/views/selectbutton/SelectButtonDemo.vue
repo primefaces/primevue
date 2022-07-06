@@ -45,10 +45,11 @@ export default {
                 {name: 'Option 3', value: 3}
             ],
             justifyOptions: [
-                {icon: 'pi pi-align-left', value: 'Left', tabindex: 2},
-                {icon: 'pi pi-align-right', value: 'Right', tabindex: 2},
-                {icon: 'pi pi-align-center', value: 'Center', tabindex: 3},
-                {icon: 'pi pi-align-justify', value: 'Justify', tabindex: 4}]
+                {icon: 'pi pi-align-left', value: 'Left'},
+                {icon: 'pi pi-align-right', value: 'Right'},
+                {icon: 'pi pi-align-center', value: 'Center'},
+                {icon: 'pi pi-align-justify', value: 'Justify'}
+            ]
         }
     },
     components: {
