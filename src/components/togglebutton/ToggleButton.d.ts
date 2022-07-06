@@ -47,6 +47,16 @@ export declare type ToggleButtonEmits = {
      * @param {Event} event - Browser event.
      */
     'change': (event: Event) => void;
+    /**
+     * Callback to invoke when the component receives focus.
+     * @param {Event} event - Browser event.
+     */
+    'focus': (event: Event) => void;
+    /**
+     * Callback to invoke when the component loses focus.
+     * @param {Event} event - Browser event.
+     */
+    'blur': (event: Event) => void;
 }
 
 declare class ToggleButton extends ClassComponent<ToggleButtonProps, ToggleButtonSlots, ToggleButtonEmits> { }

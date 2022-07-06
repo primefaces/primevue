@@ -108,6 +108,16 @@ export default {
                         <td>event: Browser event</td>
                         <td>Callback to invoke on value change.</td>
                     </tr>
+                    <tr>
+                        <td>focus</td>
+                        <td>event: Browser event</td>
+                        <td>Callback to invoke when the component receives focus.</td>
+                    </tr>
+                    <tr>
+                        <td>blur</td>
+                        <td>event: Browser event</td>
+                        <td>Callback to invoke when the component loses focus.</td>
+                    </tr>
 				</tbody>
 			</table>
 		</div>
@@ -139,6 +149,43 @@ export default {
 			</table>
 		</div>
 
+        <h5>Accessibility</h5>
+        <DevelopmentSection>
+            <h6>Screen Reader</h6>
+            <p>ToggleButton component uses an element with <i>button</i> role and updates <i>aria-pressed</i> state for screen readers. Value to describe the component can be defined with <i>aria-labelledby</i> or <i>aria-label</i> props, it is highly suggested to use
+            either of these props as the component changes the label displayed which will result in screen readers to read different labels when the component receives focus. To prevent this, always provide an aria label that does not change related to state.</p>
+
+<pre v-code><code>
+&lt;span id="rememberme"&gt;Remember Me&lt;/span&gt;
+&lt;ToggleButton aria-labelledby="rememberme" /&gt;
+
+&lt;ToggleButton aria-label="Remember Me" /&gt;
+
+</code></pre>
+
+            <h6>Keyboard Support</h6>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Key</th>
+                            <th>Function</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><i>tab</i></td>
+                            <td>Moves focus to the button.</td>
+                        </tr>
+                        <tr>
+                            <td><i>space</i></td>
+                            <td>Toggles the checked state.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </DevelopmentSection>
+
 		<h5>Dependencies</h5>
 		<p>None.</p>
     </AppDoc>
@@ -155,10 +202,10 @@ export default {
 <template>
     <div>
         <h5>Basic</h5>
-        <ToggleButton v-model="checked1" onIcon="pi pi-check" offIcon="pi pi-times" />
+        <ToggleButton v-model="checked1" onIcon="pi pi-check" offIcon="pi pi-times" class="w-full sm:w-10rem" aria-label="Confirmation" />
 
         <h5>Customized</h5>
-        <ToggleButton v-model="checked2" onLabel="I confirm" offLabel="I reject" onIcon="pi pi-check" offIcon="pi pi-times" style="width: 10em" />
+        <ToggleButton v-model="checked2" onLabel="I confirm" offLabel="I reject" onIcon="pi pi-check" offIcon="pi pi-times" class="w-full sm:w-10rem" aria-label="Confirmation" />
     </div>
 </template>
 
@@ -180,10 +227,10 @@ export default {
 <template>
     <div>
         <h5>Basic</h5>
-        <ToggleButton v-model="checked1" onIcon="pi pi-check" offIcon="pi pi-times" />
+        <ToggleButton v-model="checked1" onIcon="pi pi-check" offIcon="pi pi-times" class="w-full sm:w-10rem" aria-label="Confirmation" />
 
         <h5>Customized</h5>
-        <ToggleButton v-model="checked2" onLabel="I confirm" offLabel="I reject" onIcon="pi pi-check" offIcon="pi pi-times" style="width: 10em" />
+        <ToggleButton v-model="checked2" onLabel="I confirm" offLabel="I reject" onIcon="pi pi-check" offIcon="pi pi-times" class="w-full sm:w-10rem" aria-label="Confirmation" />
     </div>
 </template>
 
@@ -206,10 +253,10 @@ export default {
                     imports: `<script src="https://unpkg.com/primevue@^3/togglebutton/togglebutton.min.js"><\\/script>`,
                     content: `<div id="app">
             <h5>Basic</h5>
-            <p-togglebutton v-model="checked1" on-icon="pi pi-check" off-icon="pi pi-times"></p-togglebutton>
+            <p-togglebutton v-model="checked1" on-icon="pi pi-check" off-icon="pi pi-times" class="w-full sm:w-10rem" aria-label="Confirmation"></p-togglebutton>
 
             <h5>Customized</h5>
-            <p-togglebutton v-model="checked2" on-label="I confirm" off-label="I reject" on-icon="pi pi-check" off-icon="pi pi-times" style="width: 10em"></p-togglebutton>
+            <p-togglebutton v-model="checked2" on-label="I confirm" off-label="I reject" on-icon="pi pi-check" off-icon="pi pi-times" class="w-full sm:w-10rem" aria-label="Confirmation"></p-togglebutton>
         </div>
 
         <script type="module">

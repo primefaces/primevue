@@ -48,6 +48,28 @@ const ToggleButtonEvents = [
                 description: "Browser event"
             }
         ]
+    },
+    {
+        name: "focus",
+        description: "Callback to invoke when the component receives focus.",
+        arguments: [
+            {
+                name: "event",
+                type: "object",
+                description: "Browser event"
+            }
+        ]
+    },
+    {
+        name: "blur",
+        description: "Callback to invoke when the component loses focus.",
+        arguments: [
+            {
+                name: "event",
+                type: "object",
+                description: "Browser event"
+            }
+        ]
     }
 ];
 
