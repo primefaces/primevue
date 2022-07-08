@@ -75,10 +75,6 @@ export interface CascadeSelectProps {
      */
     inputId?: string | undefined;
     /**
-     * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
-     */
-    ariaLabelledBy?: string | undefined;
-    /**
      * A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are 'body' for document body and 'self' for the element itself.
      * @see CascadeSelectAppendToType
      * Default value is 'body'.

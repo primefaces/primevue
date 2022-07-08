@@ -2,7 +2,7 @@
     <div ref="container" :class="containerClass" @click="onClick($event)">
         <div class="p-hidden-accessible">
             <input ref="focusInput" role="combobox" type="text" :id="inputId" readonly :disabled="disabled" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" :tabindex="tabindex"
-                aria-haspopup="listbox" :aria-expanded="overlayVisible" :aria-labelledby="ariaLabelledBy" :aria-controls="listId" v-bind="inputProps" />
+                aria-haspopup="listbox" :aria-expanded="overlayVisible" :aria-controls="listId" v-bind="inputProps" />
         </div>
         <span :class="labelClass">
             <slot name="value" :value="modelValue" :placeholder="placeholder">
@@ -58,7 +58,6 @@ export default {
         dataKey: null,
         inputId: String,
         tabindex: String,
-        ariaLabelledBy: null,
         appendTo: {
             type: String,
             default: 'body'
