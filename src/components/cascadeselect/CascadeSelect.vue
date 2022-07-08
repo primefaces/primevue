@@ -37,7 +37,7 @@ import Portal from 'primevue/portal';
 
 export default {
     name: 'CascadeSelect',
-    emits: ['update:modelValue','change','group-change', 'before-show','before-hide','hide','show'],
+    emits: ['update:modelValue','change','group-change', 'before-show','before-hide','hide','show','focus','blur'],
     data() {
         return {
             selectionPath: null,
@@ -160,11 +160,13 @@ export default {
             this.$emit('before-hide');
             this.overlayVisible = false;
         },
-        onFocus() {
+        onFocus(event) {
             this.focused = true;
+            this.$emit('focus', event);
         },
-        onBlur() {
+        onBlur(event) {
             this.focused = false;
+            this.$emit('blur', event);
         },
         onClick(event) {
             if (this.disabled || this.loading) {
