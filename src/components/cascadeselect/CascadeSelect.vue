@@ -1,8 +1,8 @@
 <template>
     <div ref="container" :class="containerClass" @click="onClick($event)">
         <div class="p-hidden-accessible">
-            <input ref="focusInput" type="text" :id="inputId" readonly :disabled="disabled" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" :tabindex="tabindex"
-                aria-haspopup="listbox" :aria-expanded="overlayVisible" :aria-labelledby="ariaLabelledBy" />
+            <input ref="focusInput" role="combobox" type="text" :id="inputId" readonly :disabled="disabled" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" :tabindex="tabindex"
+                aria-haspopup="listbox" :aria-expanded="overlayVisible" :aria-labelledby="ariaLabelledBy" :aria-controls="listId" v-bind="inputProps" />
         </div>
         <span :class="labelClass">
             <slot name="value" :value="modelValue" :placeholder="placeholder">
@@ -16,9 +16,9 @@
         </div>
         <Portal :appendTo="appendTo">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
-                <div :ref="overlayRef" :class="panelStyleClass" v-if="overlayVisible" @click="onOverlayClick">
+                <div :ref="overlayRef" :class="panelStyleClass" v-if="overlayVisible" @click="onOverlayClick" role="group">
                     <div class="p-cascadeselect-items-wrapper">
-                        <CascadeSelectSub :options="options" :selectionPath="selectionPath"
+                        <CascadeSelectSub :id="listId" role="tree" :options="options" :selectionPath="selectionPath"
                             :optionLabel="optionLabel" :optionValue="optionValue" :level="0" :templates="$slots"
                             :optionGroupLabel="optionGroupLabel" :optionGroupChildren="optionGroupChildren"
                             @option-select="onOptionSelect" @optiongroup-select="onOptionGroupSelect" :dirty="dirty" :root="true" />
@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import {ConnectedOverlayScrollHandler,ObjectUtils,DomHandler,ZIndexUtils} from 'primevue/utils';
+import {ConnectedOverlayScrollHandler,ObjectUtils,DomHandler,ZIndexUtils,UniqueComponentId} from 'primevue/utils';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import CascadeSelectSub from './CascadeSelectSub.vue';
 import Portal from 'primevue/portal';
@@ -71,7 +71,8 @@ export default {
         loadingIcon: {
             type: String,
             default: 'pi pi-spinner pi-spin'
-        }
+        },
+        inputProps: null
     },
     outsideClickListener: null,
     scrollHandler: null,
@@ -260,7 +261,12 @@ export default {
             this.overlay = el;
         },
         onKeyDown(event) {
-            switch(event.key) {
+            if (this.disabled || this.loading) {
+                event.preventDefault();
+                return;
+            }
+
+            switch(event.code) {
                 case 'Down':
                 case 'ArrowDown':
                     if (this.overlayVisible) {
@@ -272,11 +278,14 @@ export default {
                     event.preventDefault();
                 break;
 
-                case 'Escape':
+                case 'Space':
                     if (this.overlayVisible) {
                         this.hide();
-                        event.preventDefault();
                     }
+                    else {
+                        this.show();
+                    }
+                    event.preventDefault();
                 break;
 
                 case 'Tab':
@@ -326,6 +335,9 @@ export default {
         },
         dropdownIconClass() {
             return ['p-cascadeselect-trigger-icon', this.loading ? this.loadingIcon : 'pi pi-chevron-down'];
+        },
+        listId() {
+            return UniqueComponentId() + '_list';
         }
     },
     components: {

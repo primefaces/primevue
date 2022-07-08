@@ -1,8 +1,9 @@
 <template>
-    <ul class="p-cascadeselect-panel p-cascadeselect-items" role="listbox" aria-orientation="horizontal">
-        <template v-for="(option,i) of options" :key="getOptionLabelToRender(option)">
-            <li :class="getItemClass(option)" role="none">
-                <div class="p-cascadeselect-item-content" @click="onOptionClick($event, option)" tabindex="0" @keydown="onKeyDown($event, option, i)" v-ripple>
+    <ul class="p-cascadeselect-panel p-cascadeselect-items" aria-orientation="horizontal">
+        <template v-for="(option,index) of options" :key="getOptionLabelToRender(option)">
+            <li :class="getItemClass(option)" role="treeitem"  :aria-label="getOptionLabelToRender(option)" :aria-selected="isOptionActive(option)" :aria-expanded="isOptionActive(option)"
+                :aria-setsize="options.length" :aria-posinset="index + 1" :aria-level="level + 1">
+                <div class="p-cascadeselect-item-content" @click="onOptionClick($event, option)" tabindex="0" @keydown="onKeyDown($event, option, index)" v-ripple>
                     <component :is="templates['option']" :option="option" v-if="templates['option']"/>
                     <template v-else>
                         <span class="p-cascadeselect-item-text">{{getOptionLabelToRender(option)}}</span>
@@ -11,7 +12,7 @@
                 </div>
                 <CascadeSelectSub v-if="isOptionGroup(option) && isOptionActive(option)" class="p-cascadeselect-sublist" :selectionPath="selectionPath" :options="getOptionGroupChildren(option)"
                         :optionLabel="optionLabel" :optionValue="optionValue" :level="level + 1" @option-select="onOptionSelect" @optiongroup-select="onOptionGroupSelect"
-                        :optionGroupLabel="optionGroupLabel" :optionGroupChildren="optionGroupChildren" :parentActive="isOptionActive(option)" :dirty="dirty" :templates="templates"/>
+                        :optionGroupLabel="optionGroupLabel" :optionGroupChildren="optionGroupChildren" :parentActive="isOptionActive(option)" :dirty="dirty" :templates="templates" :aria-level="level + 2"/>
             </li>
         </template>
     </ul>
@@ -117,7 +118,7 @@ export default {
             return this.activeOption === option;
         },
         onKeyDown(event, option, index) {
-            switch (event.key) {
+            switch (event.code) {
                 case 'Down':
                 case 'ArrowDown':
                     var nextItem = this.$el.children[index + 1];
@@ -157,6 +158,7 @@ export default {
                 break;
 
                 case 'Enter':
+                case 'Space':
                     this.onOptionClick(event, option);
                 break;
             }
