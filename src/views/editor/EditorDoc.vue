@@ -36,6 +36,7 @@ import Editor from 'primevue/editor';
 </code></pre>
 
 		<h5>Properties</h5>
+        <p>Any valid attribute is passed to the root element implicitly, extended properties are as follows;</p>
 		<div class="doc-tablewrapper">
 			<table class="doc-table">
 				<thead>

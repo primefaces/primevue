@@ -43,7 +43,7 @@ export default {
 </code></pre>
 
 		<h5>Properties</h5>
-        <p>Any property such as name and autofocus are passed to the underlying input element. Following is the additional property to configure the component.</p>
+        <p>Any valid attribute is passed to the root element implicitly, extended properties are as follows;</p>
 		<div class="doc-tablewrapper">
 			<table class="doc-table">
 				<thead>

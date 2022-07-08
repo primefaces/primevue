@@ -61,7 +61,7 @@ export default {
 </code></pre>
 
 		<h5>Properties</h5>
-        <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
+        <p>Any valid attribute is passed to the root element implicitly, extended properties are as follows;</p>
 		<div class="doc-tablewrapper">
 			<table class="doc-table">
 				<thead>
