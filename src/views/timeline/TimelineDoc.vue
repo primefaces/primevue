@@ -201,7 +201,8 @@ export default {
                     </tr>
                     <tr>
                         <td>connector</td>
-                        <td>-</td>
+                        <td>item: Connector of the event<br />
+							index: Index of the event</td>
                     </tr>
 				</tbody>
 			</table>
