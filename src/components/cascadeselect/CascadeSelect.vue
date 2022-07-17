@@ -17,7 +17,7 @@
         <Portal :appendTo="appendTo">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
                 <div :ref="overlayRef" :class="panelStyleClass" v-if="overlayVisible" @click="onOverlayClick" role="group">
-                    <div class="p-cascadeselect-items-wrapper">
+                    <div class="p-cascadeselect-items-wrapper" role="group">
                         <CascadeSelectSub :id="listId" role="tree" :options="options" :selectionPath="selectionPath"
                             :optionLabel="optionLabel" :optionValue="optionValue" :level="0" :templates="$slots"
                             :optionGroupLabel="optionGroupLabel" :optionGroupChildren="optionGroupChildren"

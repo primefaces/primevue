@@ -127,7 +127,7 @@ data() &#123;
 </template>
 </code></pre>
 
-				<h5>Properties</h5>
+		<h5>Properties</h5>
         <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
 		<div class="doc-tablewrapper">
 			<table class="doc-table">
@@ -411,7 +411,7 @@ data() &#123;
                             <td>Hides the popup and moves focus to the next tabbable element.</td>
                         </tr>
                         <tr>
-                            <td><i>tab</i></td>
+                            <td><i>shift</i> + <i>tab</i></td>
                             <td>Hides the popup and moves focus to the previous tabbable element.</td>
                         </tr>
                         <tr>
