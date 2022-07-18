@@ -4,7 +4,7 @@ import { TreeNode } from '../tree';
 
 type TreeSelectSelectionModeType = 'single' | 'multiple' | 'checkbox' | undefined;
 
-type TreeSelectAppendToType = 'body' | 'self' | string | undefined;
+type TreeSelectAppendToType = 'body' | 'self' | string | undefined | HTMLElement;
 
 type TreeSelectDisplayType = 'comma' | 'chip' | undefined;
 
@@ -113,7 +113,7 @@ export interface TreeSelectSlots {
         /**
          * Selected value
          */
-         value: TreeNode | any;
+        value: TreeNode | any;
         /**
          * An array of treenodes.
          */
