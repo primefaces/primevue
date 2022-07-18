@@ -1,5 +1,5 @@
 <template>
-    <AppDoc name="DynamicDialogDemo" :sources="sources" :extPages="pages" :service="['ProductService']" :data="['products-small']" github="dynamicdialog/DynamicDialogDemo.vue">
+    <AppDoc name="DynamicDialogDemo" :sources="sources" :extFiles="extFiles" :service="['ProductService']" :data="['products-small']" github="dynamicdialog/DynamicDialogDemo.vue">
         <h5>DialogService</h5>
         <p>Dynamic dialogs require the <i>DialogService</i> to be configured globally.</p>
 
@@ -514,7 +514,7 @@ export default {
 			<p-column field="name" header="Name"></p-column>
             <p-column header="Image">
                 <template #body="slotProps">
-                    <img :src="'demo/images/product/' + slotProps.data.image" :alt="slotProps.data.name" class="shadow-2 w-4rem" />
+                    <img :src="'demo/images/product/' + slotProps.data.image" @error="(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'" :alt="slotProps.data.name" class="shadow-2 w-4rem" />
                 </template>
             </p-column>
 			<p-column field="category" header="Category"></p-column>
@@ -596,112 +596,12 @@ export default {
             .mount("#app");
         <\\/script>
                         `
-                    },
-                    'demo1':  {
-                        tabName: 'ProductListDemo.vue',
-                        content: `
-<template>
-	<div>
-        <div class="flex justify-content-end mt-1 mb-3">
-            <Button icon="pi pi-external-link" label="Nested Dialog" class="p-button-outlined p-button-success" @click="showInfo" />
-        </div>
-        <DataTable :value="products" responsiveLayout="scroll">
-			<Column field="code" header="Code"></Column>
-			<Column field="name" header="Name"></Column>
-            <Column header="Image">
-                <template #body="slotProps">
-                    <img :src="'demo/images/product/' + slotProps.data.image" :alt="slotProps.data.name" class="shadow-2 w-4rem" />
-                </template>
-            </Column>
-			<Column field="category" header="Category"></Column>
-			<Column field="quantity" header="Quantity"></Column>
-            <Column style="width:5rem">
-                <template #body="slotProps">
-                    <Button type="button" icon="pi pi-plus" class="p-button-text p-button-rounded" @click="selectProduct(slotProps.data)"></Button>
-                </template>
-            </Column>
-		</DataTable>
-
-	</div>
-</template>
-
-<script>
-import ProductService from '../../service/ProductService';
-import InfoDemo from './InfoDemo.vue';
-
-export default {
-    inject: ['dialogRef'],
-    data() {
-        return {
-            products: null
-        }
-    },
-    productService: null,
-    created() {
-        this.productService = new ProductService();
-    },
-    mounted() {
-        this.productService.getProductsSmall().then(data => this.products = data.slice(0,5));
-    },
-    methods: {
-        selectProduct(data) {
-            this.dialogRef.close(data);
-        },
-        showInfo() {
-            this.$dialog.open(InfoDemo, {
-                props: {
-                    header: 'Information',
-                    modal: true,
-                    dismissableMask: true
-                },
-                data: {
-                    totalProducts: this.products ? this.products.length : 0
-                }
-            });
-        }
-    }
-}
-<\\/script>
-                        `
-                    },
-                    'demo2': {
-                        tabName: 'InfoDemo.vue',
-                        content: `
-<template>
-    <div>
-        <p>There are <strong>{{totalProducts}}</strong> products in total in this list.</p>
-        <div class="flex justify-content-end">
-            <Button type="button" label="Close" @click="closeDialog"></Button>
-        </div>
-    </div>
-</template>
-
-<script>
-export default {
-    inject: ['dialogRef'],
-    data() {
-        return {
-            totalProducts: 0
-        }
-    },
-    mounted() {
-        this.totalProducts = this.dialogRef.data.totalProducts;
-    },
-    methods: {
-        closeDialog() {
-            this.dialogRef.close();
-        }
-    }
-}
-<\\/script>
-
-                        `
                     }
                 },
-                pages: [
-                    {
-                        tabName: 'ProductListDemo',
-                        content: `
+                extFiles: {
+                    'options-api': {
+                        'src/components/ProductListDemo.vue': {
+                            content: `
 <template>
 	<div>
         <div class="flex justify-content-end mt-1 mb-3">
@@ -712,7 +612,7 @@ export default {
 			<Column field="name" header="Name"></Column>
             <Column header="Image">
                 <template #body="slotProps">
-                    <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" :alt="slotProps.data.name" class="shadow-2 w-4rem" />
+                    <img :src="'demo/images/product/' + slotProps.data.image" @error="(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'" :alt="slotProps.data.name" class="shadow-2 w-4rem" />
                 </template>
             </Column>
 			<Column field="category" header="Category"></Column>
@@ -764,12 +664,10 @@ export default {
     }
 }
 <\\/script>
-
                         `
-                    },
-                    {
-                        tabName: 'InfoDemo',
-                        content: `
+                        },
+                        'src/components/InfoDemo.vue': {
+                            content: `
 <template>
     <div>
         <p>There are <strong>{{totalProducts}}</strong> products in total in this list.</p>
@@ -797,10 +695,109 @@ export default {
     }
 }
 <\\/script>
+                            `
+                        }
+                    },
+                    'composition-api': {
+                        'src/components/ProductListDemo.vue': {
+                            content: `
+<template>
+	<div>
+        <div class="flex justify-content-end mt-1 mb-3">
+            <Button icon="pi pi-external-link" label="Nested Dialog" class="p-button-outlined p-button-success" @click="showInfo" />
+        </div>
+        <DataTable :value="products" responsiveLayout="scroll">
+			<Column field="code" header="Code"></Column>
+			<Column field="name" header="Name"></Column>
+            <Column header="Image">
+                <template #body="slotProps">
+                    <img :src="'demo/images/product/' + slotProps.data.image" @error="(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'" :alt="slotProps.data.name" class="shadow-2 w-4rem" />
+                </template>
+            </Column>
+			<Column field="category" header="Category"></Column>
+			<Column field="quantity" header="Quantity"></Column>
+            <Column style="width:5rem">
+                <template #body="slotProps">
+                    <Button type="button" icon="pi pi-plus" class="p-button-text p-button-rounded" @click="selectProduct(slotProps.data)"></Button>
+                </template>
+            </Column>
+		</DataTable>
 
+	</div>
+</template>
+
+<script>
+import ProductService from '../service/ProductService';
+import InfoDemo from './InfoDemo.vue';
+
+export default {
+    inject: ['dialogRef'],
+    data() {
+        return {
+            products: null
+        }
+    },
+    productService: null,
+    created() {
+        this.productService = new ProductService();
+    },
+    mounted() {
+        this.productService.getProductsSmall().then(data => this.products = data.slice(0,5));
+    },
+    methods: {
+        selectProduct(data) {
+            this.dialogRef.close(data);
+        },
+        showInfo() {
+            this.$dialog.open(InfoDemo, {
+                props: {
+                    header: 'Information',
+                    modal: true,
+                    dismissableMask: true
+                },
+                data: {
+                    totalProducts: this.products ? this.products.length : 0
+                }
+            });
+        }
+    }
+}
+<\\/script>
                         `
+                        },
+                        'src/components/InfoDemo.vue': {
+                            content: `
+<template>
+    <div>
+        <p>There are <strong>{{totalProducts}}</strong> products in total in this list.</p>
+        <div class="flex justify-content-end">
+            <Button type="button" label="Close" @click="closeDialog"></Button>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+    inject: ['dialogRef'],
+    data() {
+        return {
+            totalProducts: 0
+        }
+    },
+    mounted() {
+        this.totalProducts = this.dialogRef.data.totalProducts;
+    },
+    methods: {
+        closeDialog() {
+            this.dialogRef.close();
+        }
+    }
+}
+<\\/script>
+                            `
+                        }
                     }
-                ]
+                }
             }
         }
     }
