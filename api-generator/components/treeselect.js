@@ -42,12 +42,6 @@ const TreeSelectProps = [
         description: "Identifier of the underlying input element."
     },
     {
-        name: "ariaLabelledBy",
-        type: "string",
-        default: "null",
-        description: "Establishes relationships between the component and label(s) where its value should be one or more element IDs."
-    },
-    {
         name: "selectionMode",
         type: "string",
         default: "null",

@@ -1,5 +1,6 @@
 <template>
-    <li :class="containerClass">
+    <li :class="containerClass" role="treeitem" :aria-label="label(node)" :aria-selected="selected" :aria-expanded="expanded"
+        :aria-setsize="node.children ? node.children.length : 0" :aria-posinset="index + 1" :aria-level="level">
         <div :class="contentClass" tabindex="0" role="treeitem" :aria-expanded="expanded"
             @click="onClick" @keydown="onKeyDown" @touchend="onTouchEnd" :style="node.style">
             <button type="button" class="p-tree-toggler p-link" @click="toggle" tabindex="-1" v-ripple>
@@ -17,7 +18,7 @@
             </span>
         </div>
         <ul class="p-treenode-children" role="group" v-if="hasChildren && expanded">
-            <TreeNode v-for="childNode of node.children" :key="childNode.key" :node="childNode" :templates="templates"
+            <TreeNode v-for="childNode of node.children" :key="childNode.key" :node="childNode" :templates="templates" :level="level + 1"
                 :expandedKeys="expandedKeys" @node-toggle="onChildNodeToggle" @node-click="onChildNodeClick"
                 :selectionMode="selectionMode" :selectionKeys="selectionKeys"
                 @checkbox-change="propagateUp" />
@@ -51,6 +52,14 @@ export default {
         },
         templates: {
             type: null,
+            default: null
+        },
+        level: {
+            type: Number,
+            default: null
+        },
+        index: {
+            type: Number,
             default: null
         }
     },
@@ -92,9 +101,8 @@ export default {
         onKeyDown(event) {
             const nodeElement = event.target.parentElement;
 
-            switch (event.which) {
-                //down arrow
-                case 40:
+            switch (event.code) {
+                case 'ArrowDown':
                     var listElement = nodeElement.children[1];
                     if (listElement) {
                         this.focusNode(listElement.children[0]);
@@ -111,12 +119,9 @@ export default {
                             }
                         }
                     }
-
-                    event.preventDefault();
                 break;
 
-                //up arrow
-                case 38:
+                case 'ArrowUp':
                     if (nodeElement.previousElementSibling) {
                         this.focusNode(this.findLastVisibleDescendant(nodeElement.previousElementSibling));
                     }
@@ -126,28 +131,24 @@ export default {
                             this.focusNode(parentNodeElement);
                         }
                     }
-
-                    event.preventDefault();
                 break;
 
-                //right-left arrows
-                case 37:
-                case 39:
+                case 'ArrowRight':
+                case 'ArrowLeft':
                     this.$emit('node-toggle', this.node);
-
-                    event.preventDefault();
                 break;
 
-                //enter
-                case 13:
+                case 'Enter':
+                case 'Space':
                     this.onClick(event);
-                    event.preventDefault();
                 break;
 
                 default:
                     //no op
                 break;
             }
+
+            event.preventDefault();
         },
         toggleCheckbox() {
             let _selectionKeys = this.selectionKeys ? {...this.selectionKeys} : {};

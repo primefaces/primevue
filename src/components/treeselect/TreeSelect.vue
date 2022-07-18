@@ -1,8 +1,8 @@
 <template>
     <div ref="container" :class="containerClass" @click="onClick">
         <div class="p-hidden-accessible">
-            <input ref="focusInput" type="text" role="listbox" :id="inputId" readonly :disabled="disabled" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" :tabindex="tabindex"
-                aria-haspopup="true" :aria-expanded="overlayVisible" :aria-labelledby="ariaLabelledBy"/>
+            <input ref="focusInput" type="text" role="combobox" :id="inputId" readonly :disabled="disabled" :tabindex="tabindex" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel"
+                aria-haspopup="listbox" :aria-expanded="overlayVisible" :aria-controls="listId" @focus="onFocus($event)" @blur="onBlur($event)" @keydown="onKeyDown($event)" v-bind="inputProps" />
         </div>
         <div class="p-treeselect-label-container">
             <div :class="labelClass">
@@ -19,7 +19,7 @@
                 </slot>
             </div>
         </div>
-        <div class="p-treeselect-trigger">
+        <div class="p-treeselect-trigger" role="button" aria-haspopup="listbox" :aria-expanded="overlayVisible">
             <slot name="indicator">
                 <span class="p-treeselect-trigger-icon pi pi-chevron-down"></span>
             </slot>
@@ -29,10 +29,10 @@
                 <div :ref="overlayRef" v-if="overlayVisible" @click="onOverlayClick" :class="panelStyleClass">
                     <slot name="header" :value="modelValue" :options="options"></slot>
                     <div class="p-treeselect-items-wrapper" :style="{'max-height': scrollHeight}">
-                        <TSTree :value="options" :selectionMode="selectionMode" @update:selectionKeys="onSelectionChange" :selectionKeys="modelValue"
+                        <TSTree :id="listId" :value="options" :selectionMode="selectionMode" @update:selectionKeys="onSelectionChange" :selectionKeys="modelValue"
                             :expandedKeys="expandedKeys" @update:expandedKeys="onNodeToggle" :metaKeySelection="metaKeySelection"
                             @node-expand="$emit('node-expand', $event)" @node-collapse="$emit('node-collapse', $event)"
-                            @node-select="onNodeSelect" @node-unselect="onNodeUnselect" />
+                            @node-select="onNodeSelect" @node-unselect="onNodeUnselect" :level="0" />
                         <div v-if="emptyOptions" class="p-treeselect-empty-message">
                             <slot name="empty">{{emptyMessageText}}</slot>
                         </div>
@@ -45,7 +45,7 @@
 </template>
 
 <script>
-import {ConnectedOverlayScrollHandler,DomHandler,ZIndexUtils} from 'primevue/utils';
+import {ConnectedOverlayScrollHandler,DomHandler,ZIndexUtils,UniqueComponentId} from 'primevue/utils';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Tree from 'primevue/tree';
 import Ripple from 'primevue/ripple';
@@ -53,7 +53,7 @@ import Portal from 'primevue/portal';
 
 export default {
     name: 'TreeSelect',
-    emits: ['update:modelValue', 'before-show', 'before-hide', 'change', 'show', 'hide', 'node-select', 'node-unselect', 'node-expand', 'node-collapse'],
+    emits: ['update:modelValue', 'before-show', 'before-hide', 'change', 'show', 'hide', 'node-select', 'node-unselect', 'node-expand', 'node-collapse', 'focus', 'blur'],
     props: {
         modelValue: null,
         options: Array,
@@ -65,7 +65,7 @@ export default {
 		disabled: Boolean,
         tabindex: String,
         inputId: String,
-        ariaLabelledBy: null,
+        inputProps: null,
         selectionMode: {
             type: String,
             default: 'single'
@@ -89,6 +89,14 @@ export default {
         metaKeySelection: {
             type: Boolean,
             default: true
+        },
+        'aria-labelledby': {
+            type: String,
+			default: null
+        },
+        'aria-label': {
+            type: String,
+            default: null
         }
     },
     watch: {
@@ -143,11 +151,13 @@ export default {
             this.$emit('before-hide');
             this.overlayVisible = false;
         },
-        onFocus() {
+        onFocus(event) {
             this.focused = true;
+            this.$emit('focus', event);
         },
-        onBlur() {
+        onBlur(event) {
             this.focused = false;
+            this.$emit('blur', event);
         },
         onClick(event) {
             if (!this.disabled && (!this.overlay || !this.overlay.contains(event.target)) && !DomHandler.hasClass(event.target, 'p-treeselect-close')) {
@@ -178,35 +188,36 @@ export default {
             this.expandedKeys = keys;
         },
         onKeyDown(event) {
-            switch(event.which) {
-                //down
-                case 40:
-                    if (!this.overlayVisible && event.altKey) {
-                        this.show();
-                        event.preventDefault();
+            switch(event.code) {
+                case 'Down':
+                case 'ArrowDown':
+                    if (this.overlayVisible) {
+                        if (DomHandler.findSingle(this.overlay, '.p-highlight')) {
+                            DomHandler.findSingle(this.overlay, '.p-highlight').focus();
+                        }
+                        else DomHandler.findSingle(this.overlay, '.p-treenode').children[0].focus();
                     }
+                    else {
+                        this.show();
+                    }
+
+                    event.preventDefault();
                 break;
 
-                //space
-                case 32:
+                case 'Space':
+                case 'Enter':
                     if (!this.overlayVisible) {
                         this.show();
                         event.preventDefault();
                     }
                 break;
 
-                //enter and escape
-                case 13:
-                case 27:
+                case 'Escape':
+                case 'Tab':
                     if (this.overlayVisible) {
                         this.hide();
                         event.preventDefault();
                     }
-                break;
-
-                //tab
-                case 9:
-                    this.hide();
                 break;
 
                 default:
@@ -415,6 +426,9 @@ export default {
         },
         emptyOptions() {
             return !this.options || this.options.length === 0;
+        },
+        listId() {
+            return UniqueComponentId() + '_list';
         }
     },
     components: {

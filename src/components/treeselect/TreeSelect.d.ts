@@ -39,10 +39,6 @@ export interface TreeSelectProps {
      */
     inputId?: string | undefined;
     /**
-     * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
-     */
-    ariaLabelledBy?: string | undefined;
-    /**
      * Defines the selection mode.
      * @see TreeSelectSelectionModeType
      */
