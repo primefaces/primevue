@@ -109,7 +109,7 @@ export default {
     methods:{
         closeDialog() {
             const dialogRef = inject('dialogRef');
-            dialogRef.close();
+            dialogRef.value.close();
         }
     }
 }
