@@ -12,7 +12,7 @@ type MultiSelectOptionChildrenType = string | ((data: any) => any[]) | undefin
 
 type MultiSelectFilterMatchModeType = 'contains' | 'startsWith' | 'endsWith' | undefined;
 
-type MultiSelectAppendToType = 'body' | 'self' | string | undefined;
+type MultiSelectAppendToType = 'body' | 'self' | string | undefined | HTMLElement;
 
 type MultiSelectDisplayType = 'comma' | 'chip' | undefined;
 
@@ -226,7 +226,7 @@ export interface MultiSelectSlots {
          */
         options: any[];
     }) => VNode[];
-     /**
+    /**
      * Custom footer template.
      * @param {Object} scope - footer slot's params.
      */
@@ -244,7 +244,7 @@ export interface MultiSelectSlots {
      * Custom emptyfilter template.
      */
     emptyfilter: () => VNode[];
-     /**
+    /**
      * Custom empty template.
      */
     empty: () => VNode[];
@@ -276,7 +276,7 @@ export interface MultiSelectSlots {
          */
         index: number;
     }) => VNode[];
-     /**
+    /**
      * Custom chip template.
      * @param {Object} scope - chip slot's params.
      */

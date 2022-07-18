@@ -3,7 +3,7 @@ import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 type DialogPositionType = 'center' | 'top' | 'bottom' | 'left' | 'right' | 'topleft' | 'topright' | 'bottomleft' | 'bottomright' | undefined;
 
-type DialogAppendToType = 'body' | 'self' | string | undefined;
+type DialogAppendToType = 'body' | 'self' | string | undefined | HTMLElement;
 
 export interface DialogBreakpoints {
     /**

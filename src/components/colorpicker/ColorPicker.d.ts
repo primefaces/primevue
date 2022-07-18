@@ -2,7 +2,7 @@ import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 type ColorPickerFormatType = 'hex' | 'rgb' | 'hsb' | undefined;
 
-type ColorPickerAppendToType = 'body' | 'self' | string | undefined;
+type ColorPickerAppendToType = 'body' | 'self' | string | undefined | HTMLElement;
 
 export interface ColorPickerChangeEvent {
     /**
@@ -63,6 +63,7 @@ export interface ColorPickerProps {
     panelClass?: any;
     /**
      * A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are 'body' for document body and 'self' for the element itself.
+     * @see ColorPickerAppendToType
      * Default value is 'body'.
      */
     appendTo?: ColorPickerAppendToType;
@@ -86,7 +87,7 @@ export declare type ColorPickerEmits = {
      * Callback to invoke when input is cleared by the user.
      */
     'show': () => void;
-     /**
+    /**
      * Callback to invoke when input is cleared by the user.
      */
     'hide': () => void;

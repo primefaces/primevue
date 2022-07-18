@@ -12,7 +12,7 @@ type DropdownOptionChildrenType = string | ((data: any) => any[]) | undefined;
 
 type DropdownFilterMatchModeType = 'contains' | 'startsWith' | 'endsWith' | undefined;
 
-type DropdownAppendToType = 'body' | 'self' | string | undefined;
+type DropdownAppendToType = 'body' | 'self' | string | undefined | HTMLElement;
 
 export interface DropdownChangeEvent {
     /**
@@ -244,7 +244,7 @@ export interface DropdownSlots {
      * Custom empty template.
      */
     empty: () => VNode[];
-     /**
+    /**
      * Custom content template.
      * @param {Object} scope - content slot's params.
      */

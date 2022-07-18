@@ -1,7 +1,7 @@
 import { VNode, InputHTMLAttributes } from 'vue';
 import { ClassComponent, GlobalComponentConstructor, Nullable } from '../ts-helpers';
 
-type PasswordAppendToType = 'body' | 'self' | string | undefined;
+type PasswordAppendToType = 'body' | 'self' | string | undefined | HTMLElement;
 
 export interface PasswordProps extends InputHTMLAttributes {
     /**

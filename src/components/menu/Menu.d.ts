@@ -2,7 +2,7 @@ import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 import { MenuItem } from '../menuitem';
 
-type MenuAppendToType = 'body' | 'self' | string | undefined;
+type MenuAppendToType = 'body' | 'self' | string | undefined | HTMLElement;
 
 export interface MenuProps {
     /**

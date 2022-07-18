@@ -7,7 +7,7 @@ type CascadeSelectOptionValueType = string | ((data: any) => any) | undefined;
 
 type CascadeSelectOptionChildrenType = string[] | string | ((data: any) => any[]) | undefined;
 
-type CascadeSelectAppendToType = 'body' | 'self' | string | undefined;
+type CascadeSelectAppendToType = 'body' | 'self' | string | undefined | HTMLElement;
 
 export interface CascadeSelectChangeEvent {
     /**

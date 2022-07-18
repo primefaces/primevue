@@ -11,7 +11,7 @@ type CalendarViewType = 'date' | 'month' | 'year' | undefined;
 
 type CalendarHourFormatType = '12' | '24' | undefined;
 
-type CalendarAppendToType = 'body' | 'self' | string | undefined;
+type CalendarAppendToType = 'body' | 'self' | string | undefined | HTMLElement;
 
 export interface CalendarResponsiveOptions {
     /**
@@ -235,6 +235,7 @@ export interface CalendarProps {
     manualInput?: boolean | undefined;
     /**
      * A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are 'body' for document body and 'self' for the element itself.
+     * @see CalendarAppendToType
      * Default value is 'body'.
      */
     appendTo?: CalendarAppendToType;
