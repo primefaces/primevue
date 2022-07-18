@@ -6,6 +6,12 @@ interface PrimeVueConfiguration {
     locale?: PrimeVueLocaleOptions;
 }
 
+interface PrimeVueLocaleAriaOptions {
+    trueLabel?: string;
+    falseLabel?: string;
+    nullLabel?: string;
+}
+
 interface PrimeVueLocaleOptions {
     startsWith?: string;
     contains?: string;
@@ -48,6 +54,7 @@ interface PrimeVueLocaleOptions {
     passwordPrompt?: string;
     emptyFilterMessage?: string;
     emptyMessage?: string;
+    aria?: PrimeVueLocaleAriaOptions;
 }
 
 export declare function usePrimeVue(): { config: PrimeVueConfiguration };
