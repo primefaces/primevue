@@ -727,39 +727,42 @@ export default {
 </template>
 
 <script>
-import ProductService from '../service/ProductService';
-import InfoDemo from './InfoDemo.vue';
+import { ref, onMounted, inject } from "vue";
+import { useDialog } from "primevue/usedialog";
+import ProductService from "../service/ProductService";
+import InfoDemo from "./InfoDemo.vue";
 
 export default {
-    inject: ['dialogRef'],
-    data() {
-        return {
-            products: null
-        }
-    },
-    productService: null,
-    created() {
-        this.productService = new ProductService();
-    },
-    mounted() {
-        this.productService.getProductsSmall().then(data => this.products = data.slice(0,5));
-    },
-    methods: {
-        selectProduct(data) {
-            this.dialogRef.close(data);
-        },
-        showInfo() {
-            this.$dialog.open(InfoDemo, {
+    setup() {
+        const dialogRef = inject("dialogRef");
+        const dialog = useDialog();
+        const products = ref(null);
+        const productService = ref(new ProductService());
+
+        onMounted(() => {
+            productService.value
+                .getProductsSmall()
+                .then((data) => (products.value = data.slice(0, 5)));
+        });
+
+        const selectProduct = (data) => {
+            dialogRef.value.close(data);
+        };
+
+        const showInfo = () => {
+            dialog.open(InfoDemo, {
                 props: {
-                    header: 'Information',
+                    header: "Information",
                     modal: true,
-                    dismissableMask: true
+                    dismissableMask: true,
                 },
                 data: {
-                    totalProducts: this.products ? this.products.length : 0
+                    totalProducts: products.value ? products.value.length : 0,
                 }
             });
-        }
+        };
+
+        return { products, selectProduct, showInfo };
     }
 }
 <\\/script>
@@ -777,20 +780,22 @@ export default {
 </template>
 
 <script>
+import { ref, onMounted, inject } from "vue";
+
 export default {
-    inject: ['dialogRef'],
-    data() {
-        return {
-            totalProducts: 0
-        }
-    },
-    mounted() {
-        this.totalProducts = this.dialogRef.data.totalProducts;
-    },
-    methods: {
-        closeDialog() {
-            this.dialogRef.close();
-        }
+    setup() {
+        const totalProducts = ref(0);
+        const dialogRef = inject("dialogRef");
+
+        onMounted(() => {
+            totalProducts.value = dialogRef.value.data.totalProducts;
+        });
+
+        const closeDialog = () => {
+            dialogRef.value.close();
+        };
+
+        return { totalProducts, closeDialog };
     }
 }
 <\\/script>
