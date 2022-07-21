@@ -40,13 +40,25 @@ export interface ChipsProps {
      */
     separator?: string | undefined;
     /**
-     * Style class of the component input field.
+     * 	Identifier of the focus input to match a label defined for the chips.
      */
-    class?: any;
+    inputId?: string | undefined;
     /**
-     * Inline style of the component.
+     * 
      */
-    style?: any;
+    inputProps?: object | undefined;
+    /**
+     * When present, it specifies that the element should be disabled.
+     */
+    disabled?: boolean | undefined;
+    /**
+     * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
+     */
+    'aria-labelledby'?: string | undefined;
+    /**
+     * Establishes a string value that labels the component.
+     */
+    'aria-label'?: string | undefined;
 }
 
 export interface ChipsSlots {

@@ -78,16 +78,16 @@ import Chips from 'primevue/chips';
                         <td>Whether to allow duplicate values or not.</td>
                     </tr>
                     <tr>
-                        <td>style</td>
-                        <td>any</td>
+                        <td>inputId</td>
+                        <td>string</td>
                         <td>null</td>
                         <td>Style class of the component input field.</td>
                     </tr>
                     <tr>
-                        <td>class</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Inline style of the component.</td>
+                        <td>disabled</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>When present, it specifies that the element should be disabled.</td>
                     </tr>
 				</tbody>
 			</table>
@@ -173,6 +173,80 @@ import Chips from 'primevue/chips';
 				</tbody>
 			</table>
 		</div>
+
+        <h5>Accessibility</h5>
+        <DevelopmentSection>
+            <h6>Screen Reader</h6>
+            <p>Value to describe the component can either be provided via <i>label</i> tag combined with <i>inputId</i> prop or using <i>aria-labelledby</i>, <i>aria-label</i> props.
+            Chip list uses <i>listbox</i> role with <i>aria-orientation</i> set to horizontal whereas each chip has the <i>option</i> role with <i>aria-label</i> set to the label of the chip.</p>
+
+<pre v-code><code>
+&lt;label for="chips1"&gt;Tags&lt;/label&gt;
+&lt;Chips inputId="chips1" /&gt;
+
+&lt;span id="chips2"&gt;Tags&lt;/span&gt;
+&lt;Chips aria-labelledby="chips2" /&gt;
+
+&lt;Chips aria-label="Tags" /&gt;
+
+</code></pre>
+
+            <h6>Input Field Keyboard Support</h6>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Key</th>
+                            <th>Function</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><i>tab</i></td>
+                            <td>Moves focus to the input element</td>
+                        </tr>
+                        <tr>
+                            <td><i>enter</i></td>
+                            <td>Adds a new chips using the input field value.</td>
+                        </tr>
+                        <tr>
+                            <td><i>backspace</i></td>
+                            <td>Deletes the previous chip if the input field is empty.</td>
+                        </tr>
+                        <tr>
+                            <td><i>left arrow</i></td>
+                            <td>Moves focus to the previous chip if available and input field is empty.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h6>Chip Keyboard Support</h6>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Key</th>
+                            <th>Function</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><i>left arrow</i></td>
+                            <td>Moves focus to the previous chip if available.</td>
+                        </tr>
+                        <tr>
+                            <td><i>right arrow</i></td>
+                            <td>Moves focus to the next chip, if there is none then input field receives the focus.</td>
+                        </tr>
+                        <tr>
+                            <td><i>backspace</i></td>
+                            <td>Deletes the chips and adds focus to the input field.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </DevelopmentSection>
 
 		<h5>Dependencies</h5>
 		<p>None.</p>
