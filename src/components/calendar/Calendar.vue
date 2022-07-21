@@ -426,6 +426,9 @@ export default {
         months() {
             if (this.overlay) {
                 if (!this.focused) {
+                    if (this.inline) {
+                        this.preventFocus = true
+                    }
                     setTimeout(this.updateFocus, 0);
                 }
             }
