@@ -1,7 +1,7 @@
 <template>
     <div :class="containerClass" @click="onClick($event)">
         <div class="p-hidden-accessible">
-            <input :id="inputId" ref="input" type="checkbox" :value="value" :checked="checked" :tabindex="tabindex" :disabled="disabled" :readonly="readonly" :required="required" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel"
+            <input :id="inputId" ref="input" type="checkbox" :value="value" :name="name" :checked="checked" :tabindex="tabindex" :disabled="disabled" :readonly="readonly" :required="required" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel"
                 @focus="onFocus($event)" @blur="onBlur($event)" v-bind="inputProps">
         </div>
         <div ref="box" :class="['p-checkbox-box', {'p-highlight': checked, 'p-disabled': disabled, 'p-focus': focused}]">
@@ -20,6 +20,10 @@ export default {
         value: null,
         modelValue: null,
         binary: Boolean,
+        name: {
+            type: String,
+            default: null
+        },
         trueValue: {
             type: null,
             default: true
