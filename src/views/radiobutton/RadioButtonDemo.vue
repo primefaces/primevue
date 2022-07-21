@@ -52,7 +52,7 @@ export default {
         }
     },
     created() {
-        this.selectedCategory = this.categories[1];
+        this.selectedCategory = this.categories[1].name;
     },
     components: {
         'RadioButtonDoc': RadioButtonDoc

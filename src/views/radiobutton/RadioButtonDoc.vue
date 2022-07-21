@@ -249,7 +249,7 @@ export default {
         }
     },
     created() {
-        this.selectedCategory = this.categories[1];
+        this.selectedCategory = this.categories[1].name;
     }
 }
 <\\/script>
@@ -298,7 +298,7 @@ export default {
             {name: 'Production', key: 'P'}, 
             {name: 'Research', key: 'R'}
         ]);
-        const selectedCategory = ref(categories.value[1]);
+        const selectedCategory = ref(categories.value[1].name);
 
         return { city, categories, selectedCategory }
     }
@@ -347,7 +347,7 @@ export default {
                     {name: 'Production', key: 'P'}, 
                     {name: 'Research', key: 'R'}
                 ]);
-                const selectedCategory = ref(categories.value[1]);
+                const selectedCategory = ref(categories.value[1].name);
 
                 return { city, categories, selectedCategory }
             },
