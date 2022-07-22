@@ -1,6 +1,6 @@
 <template>
     <span :class="containerClass">
-        <INInputText ref="input" class="p-inputnumber-input" role="spinbutton" :id="inputId" :value="formattedValue" :aria-valuemin="min" :aria-valuemax="max" :aria-valuenow="modelValue" :readonly="readonly"
+        <INInputText ref="input" class="p-inputnumber-input" role="spinbutton" :id="inputId" :class="inputClass" :style="inputStyle" :value="formattedValue" :aria-valuemin="min" :aria-valuemax="max" :aria-valuenow="modelValue" :readonly="readonly"
             @input="onUserInput" @keydown="onInputKeyDown" @keypress="onInputKeyPress" @paste="onPaste" @click="onInputClick" @focus="onInputFocus" @blur="onInputBlur" v-bind="inputProps"/>
         <span class="p-inputnumber-button-group" v-if="showButtons && buttonLayout === 'stacked'">
             <INButton :class="upButtonClass" :icon="incrementButtonIcon" v-on="upButtonListeners" :disabled="disabled" v-bind="incrementButtonProps" />
@@ -116,6 +116,8 @@ export default {
             default: false
         },
         inputId: null,
+        inputClass: null,
+        inputStyle: null,
         inputProps: null,
         incrementButtonProps: null,
         decrementButtonProps: null
