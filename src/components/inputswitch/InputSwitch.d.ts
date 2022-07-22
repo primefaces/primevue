@@ -6,14 +6,6 @@ export interface InputSwitchProps {
      */
     modelValue?: boolean | string | undefined;
     /**
-     * Inline style of the component.
-     */
-    class?: any;
-    /**
-     * Style class of the component input field.
-     */
-    style?: any;
-    /**
      * Value in checked state.
      */
     trueValue?: any;
@@ -21,6 +13,22 @@ export interface InputSwitchProps {
      * Value in unchecked state.
      */
     falseValue?: any;
+    /**
+     * 	Identifier of the underlying input element.
+     */
+    inputId?: string | undefined;
+    /**
+     * Style class of the input field.
+     */
+    inputClass?: any | undefined;
+    /**
+     * Inline style of the input field.
+     */
+    inputStyle?: any | undefined;
+    /**
+     * 
+     */
+    inputProps?: object | undefined;
 }
 
 export interface InputSwitchSlots {

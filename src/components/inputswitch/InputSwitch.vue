@@ -1,7 +1,7 @@
 <template>
     <div :class="containerClass" @click="onClick($event)">
         <div class="p-hidden-accessible">
-            <input :id="inputId" ref="input" type="checkbox" role="switch" :checked="checked" :disabled="disabled"
+            <input :id="inputId" ref="input" type="checkbox" role="switch" :class="inputClass" :style="inputStyle" :checked="checked" :disabled="disabled"
                 @focus="onFocus($event)" @blur="onBlur($event)" v-bind="inputProps">
         </div>
         <span class="p-inputswitch-slider"></span>
@@ -30,6 +30,8 @@ export default {
             default: false
         },
         inputId: null,
+        inputClass: null,
+        inputStyle: null,
         inputProps: null
     },
     data() {
