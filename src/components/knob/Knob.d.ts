@@ -66,11 +66,11 @@ export interface KnobProps {
     /**
        * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
        */
-    ariaLabelledby?: string | undefined;
+    'aria-labelledby'?: string | undefined;
     /**
        * Used to define a string that labels the element.
        */
-    ariaLabel?: string | undefined;
+    'aria-label'?: string | undefined;
 }
 
 export interface KnobSlots {

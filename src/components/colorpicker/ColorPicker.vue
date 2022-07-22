@@ -1,7 +1,7 @@
 <template>
     <div ref="container" :class="containerClass">
         <input ref="input" type="text" :class="inputClass" readonly="readonly" :tabindex="tabindex" :disabled="disabled"
-            @click="onInputClick" @keydown="onInputKeydown" v-if="!inline" :aria-labelledby="ariaLabelledBy"/>
+            @click="onInputClick" @keydown="onInputKeydown" v-if="!inline"/>
         <Portal :appendTo="appendTo" :disabled="inline">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
                 <div :ref="pickerRef" :class="pickerClass" v-if="inline ? true : overlayVisible" @click="onOverlayClick">
@@ -63,10 +63,6 @@ export default {
         baseZIndex: {
             type: Number,
             default: 0
-        },
-        ariaLabelledBy: {
-            type: String,
-            default: null
         },
         appendTo: {
             type: String,

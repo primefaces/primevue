@@ -100,12 +100,6 @@ export default {
                         <td>Whether to automatically manage layering.</td>
                     </tr>
                     <tr>
-                        <td>ariaLabelledBy</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Establishes relationships between the component and label(s) where its value should be one or more element IDs.</td>
-                    </tr>
-                    <tr>
                         <td>panelClass</td>
                         <td>string</td>
                         <td>null</td>

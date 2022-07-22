@@ -88,6 +88,18 @@ const TreeSelectProps = [
         type: "boolean",
         default: "true",
         description: "Defines how multiple items can be selected, when true metaKey needs to be pressed to select or unselect an item and when set to false selection of each item can be toggled individually. On touch enabled devices, metaKeySelection is turned off automatically."
+    },
+    {
+        name: "aria-labelledby",
+        type: "string",
+        default: "null",
+        description: "Establishes relationships between the component and label(s) where its value should be one or more element IDs."
+    },
+    {
+        name: "aria-label",
+        type: "string",
+        default: "null",
+        description: "Used to define a string that labels the element."
     }
 ];
 

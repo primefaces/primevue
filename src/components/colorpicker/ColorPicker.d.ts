@@ -54,10 +54,6 @@ export interface ColorPickerProps {
      */
     baseZIndex?: number | undefined;
     /**
-     * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
-     */
-    ariaLabelledBy?: string | undefined;
-    /**
      * Style class of the overlay panel.
      */
     panelClass?: any;

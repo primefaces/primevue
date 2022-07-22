@@ -48,12 +48,6 @@ const ColorPickerProps = [
         description: "Whether to automatically manage layering."
     },
     {
-        name: "ariaLabelledBy",
-        type: "string",
-        default: "null",
-        description: "Establishes relationships between the component and label(s) where its value should be one or more element IDs."
-    },
-    {
         name: "panelClass",
         type: "string",
         default: "null",
@@ -64,6 +58,18 @@ const ColorPickerProps = [
         type: "string",
         default: "body",
         description: 'A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are "body" for document body and "self" for the element itself.'
+    },
+    {
+        name: "aria-labelledby",
+        type: "string",
+        default: "null",
+        description: "Establishes relationships between the component and label(s) where its value should be one or more element IDs."
+    },
+    {
+        name: "aria-label",
+        type: "string",
+        default: "null",
+        description: "Used to define a string that labels the element."
     }
 ];
 
