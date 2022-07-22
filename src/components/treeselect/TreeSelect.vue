@@ -26,7 +26,7 @@
         </div>
         <Portal :appendTo="appendTo">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
-                <div :ref="overlayRef" v-if="overlayVisible" @click="onOverlayClick" :class="panelStyleClass">
+                <div :ref="overlayRef" v-if="overlayVisible" @click="onOverlayClick" :class="panelStyleClass" v-bind="panelProps">
                     <slot name="header" :value="modelValue" :options="options"></slot>
                     <div class="p-treeselect-items-wrapper" :style="{'max-height': scrollHeight}">
                         <TSTree :id="listId" :value="options" :selectionMode="selectionMode" @update:selectionKeys="onSelectionChange" :selectionKeys="modelValue"
@@ -74,6 +74,7 @@ export default {
             type: String,
             default: null
         },
+        panelProps: null,
         appendTo: {
             type: String,
             default: 'body'

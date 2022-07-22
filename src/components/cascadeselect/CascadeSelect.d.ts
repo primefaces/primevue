@@ -75,6 +75,10 @@ export interface CascadeSelectProps {
      */
     inputId?: string | undefined;
     /**
+     *
+     */
+    inputProps?: object | undefined;
+    /**
      * A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are 'body' for document body and 'self' for the element itself.
      * @see CascadeSelectAppendToType
      * Default value is 'body'.
@@ -84,6 +88,10 @@ export interface CascadeSelectProps {
      * Style class of the overlay panel.
      */
     panelClass?: any;
+    /**
+     * 
+     */
+    panelProps?: object | undefined;
     /**
      * Whether the dropdown is in loading state.
      */

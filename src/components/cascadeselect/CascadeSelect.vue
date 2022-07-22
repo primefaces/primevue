@@ -16,9 +16,9 @@
         </div>
         <Portal :appendTo="appendTo">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
-                <div :ref="overlayRef" :class="panelStyleClass" v-if="overlayVisible" @click="onOverlayClick" role="group">
+                <div :ref="overlayRef" :class="panelStyleClass" v-if="overlayVisible" @click="onOverlayClick" v-bind="panelProps">
                     <div class="p-cascadeselect-items-wrapper" role="group">
-                        <CascadeSelectSub :id="listId" role="tree" :options="options" :selectionPath="selectionPath"
+                        <CascadeSelectSub :id="listId" :options="options" :selectionPath="selectionPath"
                             :optionLabel="optionLabel" :optionValue="optionValue" :level="0" :templates="$slots"
                             :optionGroupLabel="optionGroupLabel" :optionGroupChildren="optionGroupChildren"
                             @option-select="onOptionSelect" @optiongroup-select="onOptionGroupSelect" :dirty="dirty" :root="true" />
@@ -63,6 +63,7 @@ export default {
             default: 'body'
         },
         panelClass: null,
+        panelProps: null,
         loading: {
             type: Boolean,
             default: false
