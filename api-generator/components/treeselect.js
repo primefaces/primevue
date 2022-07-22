@@ -42,6 +42,18 @@ const TreeSelectProps = [
         description: "Identifier of the underlying input element."
     },
     {
+        name: "inputStyle",
+        type: "any",
+        default: "null",
+        description: "Inline style of the input field."
+    },
+    {
+        name: "inputClass",
+        type: "string",
+        default: "null",
+        description: "Style class of the input field."
+    },
+    {
         name: "selectionMode",
         type: "string",
         default: "null",

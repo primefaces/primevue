@@ -287,22 +287,10 @@ data() {
                         <td>Index of the element in tabbing order.</td>
                     </tr>
                     <tr>
-                        <td>inputId</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Identifier of the underlying input element.</td>
-                    </tr>
-                    <tr>
                         <td>selectionMode</td>
                         <td>string</td>
                         <td>null</td>
                         <td>Defines the selection mode, valid values "single", "multiple", and "checkbox".</td>
-                    </tr>
-                    <tr>
-                        <td>panelClass</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Style class of the overlay panel.</td>
                     </tr>
                     <tr>
                         <td>appendTo</td>
@@ -329,6 +317,30 @@ data() {
                         <td>true</td>
                         <td>Defines how multiple items can be selected, when true metaKey needs to be pressed to select or unselect an item and when set to false selection of each item
                             can be toggled individually. On touch enabled devices, metaKeySelection is turned off automatically.</td>
+                    </tr>
+                    <tr>
+                        <td>inputId</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Identifier of the underlying input element.</td>
+                    </tr>
+                    <tr>
+                        <td>inputClass</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Style class of the input field.</td>
+                    </tr>
+                    <tr>
+                        <td>inputStyle</td>
+                        <td>any</td>
+                        <td>null</td>
+                        <td>Inline style of the input field.</td>
+                    </tr>
+                    <tr>
+                        <td>panelClass</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Style class of the overlay panel.</td>
                     </tr>
 				</tbody>
 			</table>

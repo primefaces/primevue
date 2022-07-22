@@ -35,10 +35,6 @@ export interface TreeSelectProps {
      */
     tabindex?: string | undefined;
     /**
-     * Identifier of the underlying input element.
-     */
-    inputId?: string | undefined;
-    /**
      * Defines the selection mode.
      * @see TreeSelectSelectionModeType
      */
@@ -70,6 +66,22 @@ export interface TreeSelectProps {
      * Default value is true.
      */
     metaKeySelection?: boolean | undefined;
+    /**
+     * 	Identifier of the underlying input element.
+     */
+    inputId?: string | undefined;
+    /**
+     * Style class of the input field.
+     */
+    inputClass?: any | undefined;
+    /**
+     * Inline style of the input field.
+     */
+    inputStyle?: any | undefined;
+    /**
+     * 
+     */
+    inputProps?: object | undefined;
 }
 
 export interface TreeSelectSlots {
