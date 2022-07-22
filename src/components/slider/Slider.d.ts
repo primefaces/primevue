@@ -59,7 +59,7 @@ export interface SliderProps {
     /**
      * Used to define a string that labels the element.
      */
-    ariaLabel?: string | undefined
+    ariaLabel?: string | undefined;
 }
 
 export interface SliderSlots {
