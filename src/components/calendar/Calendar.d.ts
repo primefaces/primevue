@@ -230,6 +230,14 @@ export interface CalendarProps {
      */
     manualInput?: boolean | undefined;
     /**
+     * When present, it specifies that the component should be disabled.
+     */
+    disabled?: boolean | undefined;
+    /**
+     * When present, it specifies that an input field is read-only.
+     */
+    readonly?: boolean | undefined;
+    /**
      * A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are 'body' for document body and 'self' for the element itself.
      * @see CalendarAppendToType
      * Default value is 'body'.
