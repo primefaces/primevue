@@ -18,16 +18,28 @@ const CheckboxProps = [
         description: "Allows to select a boolean value instead of multiple values."
     },
     {
-        name: "class",
-        type: "string",
-        default: "null",
-        description: "Style class of the component."
+        name: "disabled",
+        type: "boolean",
+        default: "false",
+        description: "When present, it specifies that the element should be disabled."
     },
     {
-        name: "style",
-        type: "any",
+        name: "readonly",
+        type: "boolean",
+        default: "false",
+        description: "When present, it specifies that an input field is read-only."
+    },
+    {
+        name: "required",
+        type: "boolean",
+        default: "false",
+        description: "When present, it specifies that the element is required."
+    },
+    {
+        name: "tabindex",
+        type: "number",
         default: "null",
-        description: "Inline of the component."
+        description: "Index of the element in tabbing order."
     },
     {
         name: "trueValue",
@@ -40,6 +52,24 @@ const CheckboxProps = [
         type: "any",
         default: "null",
         description: "Value in unchecked state."
+    },
+    {
+        name: "inputId",
+        type: "string",
+        default: "null",
+        description: "Identifier of the underlying input element."
+    },
+    {
+        name: "inputClass",
+        type: "any",
+        default: "null",
+        description: "Style class of the input field."
+    },
+    {
+        name: "inputStyle",
+        type: "any",
+        default: "null",
+        description: "Inline style of the input field."
     }
 ];
 

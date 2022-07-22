@@ -70,22 +70,16 @@ export default {
                         <td>Value binding of the checkbox.</td>
                     </tr>
                     <tr>
+                        <td>name</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Name of the input element.</td>
+                    </tr>
+                    <tr>
                         <td>binary</td>
                         <td>boolean</td>
                         <td>false</td>
                         <td>Allows to select a boolean value instead of multiple values.</td>
-                    </tr>
-                    <tr>
-                        <td>style</td>
-                        <td>any</td>
-                        <td>null</td>
-                        <td>Style class of the component input field.</td>
-                    </tr>
-                    <tr>
-                        <td>class</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Inline style of the component.</td>
                     </tr>
                     <tr>
                         <td>trueValue</td>
@@ -98,6 +92,54 @@ export default {
                         <td>any</td>
                         <td>null</td>
                         <td>Value in unchecked state.</td>
+                    </tr>
+                    <tr>
+                        <td>disabled</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>When present, it specifies that the element should be disabled.</td>
+                    </tr>
+                    <tr>
+                        <td>readonly</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>When present, it specifies that an input field is read-only.</td>
+                    </tr>
+                    <tr>
+                        <td>required</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>When present, it specifies that the element is required.</td>
+                    </tr>
+                    <tr>
+                        <td>tabindex</td>
+                        <td>number</td>
+                        <td>null</td>
+                        <td>Index of the element in tabbing order.</td>
+                    </tr>
+                    <tr>
+                        <td>inputId</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Identifier of the underlying input element.</td>
+                    </tr>
+                    <tr>
+                        <td>inputClass</td>
+                        <td>any</td>
+                        <td>null</td>
+                        <td>Style class of the input field.</td>
+                    </tr>
+                    <tr>
+                        <td>inputStyle</td>
+                        <td>any</td>
+                        <td>null</td>
+                        <td>Inline style of the input field.</td>
+                    </tr>
+                    <tr>
+                        <td>inputProps</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td></td>
                     </tr>
 				</tbody>
 			</table>
