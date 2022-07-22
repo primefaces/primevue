@@ -94,6 +94,12 @@ data() {
                         <td>false</td>
                         <td>When present, it specifies that the component value cannot be edited.</td>
                     </tr>
+                    <tr>
+                        <td>tabindex</td>
+                        <td>number</td>
+                        <td>null</td>
+                        <td>Index of the element in tabbing order.</td>
+                    </tr>
 					<tr>
                         <td>step</td>
                         <td>number</td>
@@ -203,6 +209,73 @@ data() {
 			</table>
 		</div>
 
+        <h5>Accessibility</h5>
+        <DevelopmentSection>
+            <h6>Screen Reader</h6>
+            <p>Knob element component uses <i>slider</i> role in addition to the <i>aria-valuemin</i>, <i>aria-valuemax</i> and <i>aria-valuenow</i> attributes. Value to describe the component can be defined using
+            <i>aria-labelledby</i> and <i>aria-label</i> props.</p>
+
+<pre v-code><code>
+&lt;span id="label_number"&gt;Number&lt;/span&gt;
+&lt;Knob aria-labelledby="label_number" /&gt;
+
+&lt;Knob aria-label="Number" /&gt;
+
+</code></pre>
+
+            <h6>Keyboard Support</h6>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Key</th>
+                            <th>Function</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><i>tab</i></td>
+                            <td>Moves focus to the slider.</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="inline-flex flex-column">
+                                    <i class="mb-1">left arrow</i>
+                                    <i>up arrow</i>
+                                </span>
+                            </td>
+                            <td>Decrements the value.</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="inline-flex flex-column">
+                                    <i class="mb-1">right arrow</i>
+                                    <i>down arrow</i>
+                                </span>
+                            </td>
+                            <td>Increments the value.</td>
+                        </tr>
+                        <tr>
+                            <td><i>home</i></td>
+                            <td>Set the minimum value.</td>
+                        </tr>
+                        <tr>
+                            <td><i>end</i></td>
+                            <td>Set the maximum value.</td>
+                        </tr>
+                        <tr>
+                            <td><i>page up</i></td>
+                            <td>Increments the value by 10 steps.</td>
+                        </tr>
+                        <tr>
+                            <td><i>page down</i></td>
+                            <td>Decrements the value by 10 steps.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </DevelopmentSection>
+
 		<h5>Dependencies</h5>
 		<p>None.</p>
 
@@ -259,6 +332,12 @@ export default {
                 <h5 class="mt-3">Color</h5>
                 <Knob v-model="value9" valueColor="SlateGray" rangeColor="MediumTurquoise"  />
             </div>
+            <div class="field col-12 md:col-4">
+                <h5>Reactive Knob</h5>
+                <Knob v-model="value10" :size="150" readonly />
+                <Button label="Increment" @click="value10++" class="mr-2" :disabled="value10 >= 100" />
+                <Button label="Decrement" @click="value10--" :disabled="value10 <= 0" />
+            </div>
         </div>
     </div>
 </template>
@@ -276,6 +355,7 @@ export default {
             value7: 40,
             value8: 60,
             value9: 50,
+            value10: 0
         }
     }
 }
@@ -324,6 +404,12 @@ export default {
                 <h5 class="mt-3">Color</h5>
                 <Knob v-model="value9" valueColor="SlateGray" rangeColor="MediumTurquoise"  />
             </div>
+            <div class="field col-12 md:col-4">
+                <h5>Reactive Knob</h5>
+                <Knob v-model="value10" :size="150" readonly />
+                <Button label="Increment" @click="value10++" class="mr-2" :disabled="value10 >= 100" />
+                <Button label="Decrement" @click="value10--" :disabled="value10 <= 0" />
+            </div>
         </div>
     </div>
 </template>
@@ -341,8 +427,9 @@ export default {
         const value7 = ref(40);
         const value8 = ref(60);
         const value9 = ref(50);
+        const value10 = ref(0);
 
-        return { value1, value2, value3, value4, value5, value6, value7, value8, value9 }
+        return { value1, value2, value3, value4, value5, value6, value7, value8, value9, value10 }
     }
 }
 <\\/script>
@@ -389,6 +476,12 @@ export default {
                     <h5 class="mt-3">Color</h5>
                     <p-knob v-model="value9" value-color="SlateGray" range-color="MediumTurquoise"></p-knob>
                 </div>
+                <div class="field col-12 md:col-4">
+                    <h5>Reactive Knob</h5>
+                    <p-knob v-model="value10" :size="150" readonly></p-knob>
+                    <p-button label="Increment" @click="value10++" class="mr-2" :disabled="value10 >= 100"></p-button>
+                    <p-button label="Decrement" @click="value10--" :disabled="value10 <= 0"></p-button>
+                </div>
             </div>
         </div>
 
@@ -406,11 +499,13 @@ export default {
                 const value7 = ref(40);
                 const value8 = ref(60);
                 const value9 = ref(50);
+                const value10 = ref(0);
 
-                return { value1, value2, value3, value4, value5, value6, value7, value8, value9 }
+                return { value1, value2, value3, value4, value5, value6, value7, value8, value9, value10 }
             },
             components: {
-                "p-knob": primevue.knob
+                "p-knob": primevue.knob,
+                "p-button": primevue.button
             }
         };
 
