@@ -60,22 +60,10 @@ const CascadeSelectProps = [
         description: "Index of the element in tabbing order."
     },
     {
-        name: "inputId",
-        type: "string",
-        default: "null",
-        description: "Identifier of the underlying input element."
-    },
-    {
         name: "appendTo",
         type: "string",
         default: "body",
         description: 'A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are "body" for document body and "self" for the element itself.'
-    },
-    {
-        name: "panelClass",
-        type: "string",
-        default: "null",
-        description: "Style class of the overlay panel."
     },
     {
         name: "loading",
@@ -88,7 +76,25 @@ const CascadeSelectProps = [
         type: "string",
         default: "pi pi-spinner pi-spin",
         description: "Icon to display in loading state."
-    }
+    },
+    {
+        name: "inputId",
+        type: "string",
+        default: "null",
+        description: "Identifier of the underlying input element."
+    },
+    {
+        name: "inputClass",
+        type: "any",
+        default: "null",
+        description: "Style class of the input field."
+    },
+    {
+        name: "inputStyle",
+        type: "any",
+        default: "null",
+        description: "Inline style of the input field."
+    },
 ];
 
 const CascadeSelectEvents = [

@@ -1,7 +1,7 @@
 <template>
     <div ref="container" :class="containerClass" @click="onClick($event)">
         <div class="p-hidden-accessible">
-            <input ref="focusInput" role="combobox" type="text" :id="inputId" readonly :disabled="disabled" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" :tabindex="tabindex"
+            <input ref="focusInput" role="combobox" type="text" :id="inputId" :class="inputClass" :style="inputStyle" readonly :disabled="disabled" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" :tabindex="tabindex"
                 aria-haspopup="listbox" :aria-expanded="overlayVisible" :aria-controls="listId" v-bind="inputProps" />
         </div>
         <span :class="labelClass">
@@ -56,14 +56,11 @@ export default {
         placeholder: String,
 		disabled: Boolean,
         dataKey: null,
-        inputId: String,
         tabindex: String,
         appendTo: {
             type: String,
             default: 'body'
         },
-        panelClass: null,
-        panelProps: null,
         loading: {
             type: Boolean,
             default: false
@@ -72,7 +69,12 @@ export default {
             type: String,
             default: 'pi pi-spinner pi-spin'
         },
-        inputProps: null
+        inputId: null,
+        inputClass: null,
+        inputStyle: null,
+        inputProps: null,
+        panelClass: null,
+        panelProps: null,
     },
     outsideClickListener: null,
     scrollHandler: null,

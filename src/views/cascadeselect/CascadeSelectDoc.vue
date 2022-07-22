@@ -201,23 +201,11 @@ data() &#123;
                         <td>Index of the element in tabbing order.</td>
                     </tr>
                     <tr>
-                        <td>inputId</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Identifier of the underlying input element.</td>
-                    </tr>
-                    <tr>
                         <td>appendTo</td>
                         <td>string</td>
                         <td>body</td>
                         <td>A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are "body" for document body
                         and "self" for the element itself.</td>
-                    </tr>
-                    <tr>
-                        <td>panelClass</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Style class of the overlay panel.</td>
                     </tr>
                     <tr>
                         <td>loading</td>
@@ -230,6 +218,42 @@ data() &#123;
                         <td>string</td>
                         <td>pi pi-spinner pi-spin</td>
                         <td>Icon to display in loading state.</td>
+                    </tr>
+                    <tr>
+                        <td>inputId</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Identifier of the underlying input element.</td>
+                    </tr>
+                    <tr>
+                        <td>inputProps</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>inputClass</td>
+                        <td>any</td>
+                        <td>null</td>
+                        <td>Style class of the input field.</td>
+                    </tr>
+                    <tr>
+                        <td>inputStyle</td>
+                        <td>any</td>
+                        <td>null</td>
+                        <td>Inline style of the input field.</td>
+                    </tr>
+                    <tr>
+                        <td>panelClass</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Style class of the overlay panel.</td>
+                    </tr>
+                    <tr>
+                        <td>panelProps</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td></td>
                     </tr>
 				</tbody>
 			</table>

@@ -71,27 +71,11 @@ export interface CascadeSelectProps {
      */
     tabindex?: string | undefined;
     /**
-     * Identifier of the underlying input element.
-     */
-    inputId?: string | undefined;
-    /**
-     *
-     */
-    inputProps?: object | undefined;
-    /**
      * A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are 'body' for document body and 'self' for the element itself.
      * @see CascadeSelectAppendToType
      * Default value is 'body'.
      */
     appendTo?: CascadeSelectAppendToType;
-    /**
-     * Style class of the overlay panel.
-     */
-    panelClass?: any;
-    /**
-     * 
-     */
-    panelProps?: object | undefined;
     /**
      * Whether the dropdown is in loading state.
      */
@@ -101,6 +85,30 @@ export interface CascadeSelectProps {
      * Default value is 'pi pi-spinner pi-spin'.
      */
     loadingIcon?: string | undefined;
+    /**
+     * Identifier of the underlying input element.
+     */
+    inputId?: string | undefined;
+    /**
+     * Style class of the input field.
+     */
+    inputClass?: any | undefined;
+    /**
+     *
+     */
+    inputStyle?: any | undefined;
+    /**
+     * Inline style of the input field.
+     */
+    inputProps?: object | undefined;
+    /**
+     * Style class of the overlay panel.
+     */
+    panelClass?: any;
+    /**
+     * 
+     */
+    panelProps?: object | undefined;
 }
 
 export interface CascadeSelectSlots {
