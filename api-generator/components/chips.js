@@ -30,16 +30,28 @@ const ChipsProps = [
         description: "Whether to allow duplicate values or not."
     },
     {
+        name: "disabled",
+        type: "boolean",
+        default: "false",
+        description: "When present, it specifies that the element should be disabled."
+    },
+    {
         name: "inputId",
         type: "string",
         default: "null",
         description: "Identifier of the focus input to match a label defined for the chips."
     },
     {
-        name: "disabled",
-        type: "boolean",
-        default: "false",
-        description: "When present, it specifies that the element should be disabled."
+        name: "inputClass",
+        type: "string",
+        default: "null",
+        description: "Style class of the input field."
+    },
+    {
+        name: "inputStyle",
+        type: "any",
+        default: "null",
+        description: "Inline style of the input field."
     },
     {
         name: "'aria-labelledby'",

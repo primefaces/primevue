@@ -44,6 +44,14 @@ export interface ChipsProps {
      */
     inputId?: string | undefined;
     /**
+     * Style class of the input field.
+     */
+    inputClass?: any | undefined;
+    /**
+     * Inline style of the input field.
+     */
+    inputStyle?: any | undefined;
+    /**
      * 
      */
     inputProps?: object | undefined;

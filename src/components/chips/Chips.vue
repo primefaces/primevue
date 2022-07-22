@@ -8,7 +8,7 @@
                 <span class="p-chips-token-icon pi pi-times-circle" @click="removeItem($event, i)"></span>
             </li>
             <li class="p-chips-input-token">
-                <input ref="input" type="text" :id="inputId" :disabled="disabled || maxedOut" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel"
+                <input ref="input" type="text" :id="inputId" :class="inputClass" :style="inputStyle" :disabled="disabled || maxedOut" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel"
                     @focus="onFocus($event)" @blur="onBlur($event)" @input="onInput" @keydown="onKeyDown($event)" @paste="onPaste($event)" v-bind="inputProps">
             </li>
         </ul>
@@ -41,6 +41,8 @@ export default {
             default: true
         },
         inputId: null,
+        inputClass: null,
+        inputStyle: null,
         inputProps: null,
         disabled: {
             type: Boolean,
