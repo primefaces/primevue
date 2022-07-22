@@ -34,7 +34,7 @@ const InputSwitchProps = [
         type: "string",
         default: "null",
         description: "Style class of the input field."
-    },
+    }
 ];
 
 const InputSwitchEvents = [
