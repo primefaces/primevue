@@ -94,7 +94,7 @@ const CascadeSelectProps = [
         type: "any",
         default: "null",
         description: "Inline style of the input field."
-    },
+    }
 ];
 
 const CascadeSelectEvents = [
