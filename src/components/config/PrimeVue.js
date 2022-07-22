@@ -66,7 +66,10 @@ const defaultOptions = {
         aria: {
             trueLabel: 'True',
             falseLabel: 'False',
-            nullLabel: 'Not Selected'
+            nullLabel: 'Not Selected',
+            star: 'star',
+            stars: 'stars',
+            noneStars: 'No Rating'
         }
     },
     filterMatchModeOptions: {

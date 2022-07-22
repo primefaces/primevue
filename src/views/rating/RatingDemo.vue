@@ -11,16 +11,16 @@
         <div class="content-section implementation">
             <div class="card">
                 <h5>Basic {{val1}}</h5>
-                <Rating v-model="val1" />
+                <Rating v-model="val1" name="basic" />
 
                 <h5>Without Cancel</h5>
-                <Rating v-model="val2" :cancel="false" />
+                <Rating v-model="val2" :cancel="false" name="cancel" />
 
                 <h5>ReadOnly</h5>
-                <Rating :modelValue="5" :readonly="true" :stars="10" :cancel="false" />
+                <Rating :modelValue="5" :readonly="true" :stars="10" :cancel="false" name="readonly" />
 
                 <h5>Disabled</h5>
-                <Rating :modelValue="8" :disabled="true" :stars="10" />
+                <Rating :modelValue="8" :disabled="true" :stars="10" name="disabled" />
             </div>
         </div>
 
