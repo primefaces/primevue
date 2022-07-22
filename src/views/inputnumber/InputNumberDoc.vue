@@ -279,6 +279,12 @@ Vertical
                         <td>When present, it specifies that an input field is read-only.</td>
                     </tr>
                     <tr>
+                        <td>inputId</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Style class of the component input field.</td>
+                    </tr>
+                    <tr>
                         <td>inputStyle</td>
                         <td>any</td>
                         <td>null</td>
@@ -289,18 +295,6 @@ Vertical
                         <td>string</td>
                         <td>null</td>
                         <td>Style class of the input field.</td>
-                    </tr>
-                    <tr>
-                        <td>style</td>
-                        <td>any</td>
-                        <td>null</td>
-                        <td>Inline style of the component.</td>
-                    </tr>
-                    <tr>
-                        <td>class</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Style class of the element.</td>
                     </tr>
                 </tbody>
             </table>
