@@ -133,10 +133,6 @@ export interface CalendarProps {
      */
     yearRange?: string | undefined;
     /**
-     * Style class of the datetimepicker panel.
-     */
-    panelClass?: any;
-    /**
      * The minimum selectable date.
      */
     minDate?: Date | undefined;
@@ -239,6 +235,19 @@ export interface CalendarProps {
      * Default value is 'body'.
      */
     appendTo?: CalendarAppendToType;
+    id?: string | undefined;
+    /**
+     * Inline style of the component.
+     */
+    style?: any;
+    /**
+     * Style class of the component.
+     */
+    class?: any;
+    /**
+     * Identifier of the underlying input element.
+     */
+    inputId?: string | undefined;
     /**
      * Inline style of the input field.
      */
@@ -248,13 +257,16 @@ export interface CalendarProps {
      */
     inputClass?: any;
     /**
-     * Inline style of the component.
+     * 
      */
-    style?: any;
+    inputProps?: object | undefined;
     /**
-     * Style class of the component.
+     * Unique identifier of the element.
      */
-    class?: any;
+    /**
+     * 
+     */
+    panelProps?: object | undefined;
 }
 
 export interface CalendarSlots {

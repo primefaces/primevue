@@ -218,6 +218,12 @@ export default {
                         <td>When specified, disables the component.</td>
                     </tr>
                     <tr>
+                        <td>readonly</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>When present, it specifies that an input field is read-only.</td>
+                    </tr>
+                    <tr>
                         <td>showOtherMonths</td>
                         <td>boolean</td>
                         <td>true</td>
@@ -283,12 +289,6 @@ export default {
                         <td>null</td>
                         <td>The range of years displayed in the year drop-down in (nnnn:nnnn) format such as (2000:2020). <br><br>
                         <b> Deprecated: </b> Years are based on decades by default.</td>
-                    </tr>
-                    <tr>
-                        <td>panelClass</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Style class of the datetimepicker panel.</td>
                     </tr>
                     <tr>
                         <td>minDate</td>
@@ -430,16 +430,10 @@ export default {
                         and "self" for the element itself.</td>
                     </tr>
                     <tr>
-                        <td>inputStyle</td>
-                        <td>any</td>
-                        <td>null</td>
-                        <td>Inline style of the input field.</td>
-                    </tr>
-                    <tr>
-                        <td>inputClass</td>
+                        <td>id</td>
                         <td>string</td>
                         <td>null</td>
-                        <td>Style class of the input field.</td>
+                        <td>Unique identifier of the element.</td>
                     </tr>
                     <tr>
                         <td>style</td>
@@ -452,6 +446,24 @@ export default {
                         <td>string</td>
                         <td>null</td>
                         <td>Style class of the component.</td>
+                    </tr>
+                    <tr>
+                        <td>inputStyle</td>
+                        <td>any</td>
+                        <td>null</td>
+                        <td>Inline style of the input field.</td>
+                    </tr>
+                    <tr>
+                        <td>inputClass</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Style class of the input field.</td>
+                    </tr>
+                    <tr>
+                        <td>panelClass</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Style class of the datetimepicker panel.</td>
                     </tr>
                 </tbody>
             </table>

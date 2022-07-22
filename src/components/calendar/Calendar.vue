@@ -316,8 +316,6 @@ export default {
         inputId: null,
         inputClass: null,
         inputStyle: null,
-        class: null,
-        style: null,
         inputProps: null,
         panelProps: null,
         disabled: {
