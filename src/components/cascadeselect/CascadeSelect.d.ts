@@ -94,11 +94,11 @@ export interface CascadeSelectProps {
      */
     inputClass?: any | undefined;
     /**
-     *
+     * Inline style of the input field.
      */
     inputStyle?: any | undefined;
     /**
-     * Inline style of the input field.
+     * 
      */
     inputProps?: object | undefined;
     /**
