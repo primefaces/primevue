@@ -90,18 +90,6 @@ const PasswordProps = [
         description: "Style class of the input field."
     },
     {
-        name: "class",
-        type: "string",
-        default: "null",
-        description: "Style class of the component."
-    },
-    {
-        name: "style",
-        type: "any",
-        default: "null",
-        description: "Inline of the component."
-    },
-    {
         name: "panelClass",
         type: "string",
         default: "null",
