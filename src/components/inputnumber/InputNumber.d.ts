@@ -138,21 +138,21 @@ export interface InputNumberProps {
      */
     readonly?: boolean | undefined;
     /**
-     * Inline style of the input field.
+     * 	Identifier of the focus input to match a label defined for the chips.
      */
-    inputStyle?: any | undefined;
+    inputId?: string | undefined;
     /**
      * Style class of the input field.
      */
     inputClass?: any | undefined;
     /**
-     * Inline style of the component.
+     * Inline style of the input field.
      */
-    style?: any | undefined;
+    inputStyle?: any | undefined;
     /**
-     * Style class of the element.
+     * 
      */
-    class?: any | undefined;
+    inputProps?: object | undefined;
 }
 
 export interface InputNumberSlots {
