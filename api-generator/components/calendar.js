@@ -95,7 +95,6 @@ const CalendarProps = [
         default: "null",
         description: "The minimum selectable date."
     },
-
     {
         name: "maxDate",
         type: "Date",
@@ -227,6 +226,12 @@ const CalendarProps = [
         type: "string",
         default: "body",
         description: 'A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are "body" for document body and "self" for the element itself.'
+    },
+    {
+        name: "id",
+        type: "string",
+        default: "null",
+        description: "Identifier of the element."
     },
     {
         name: "inputId",

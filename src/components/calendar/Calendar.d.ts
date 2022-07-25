@@ -243,15 +243,10 @@ export interface CalendarProps {
      * Default value is 'body'.
      */
     appendTo?: CalendarAppendToType;
+    /**
+     * Identifier of the element.
+     */
     id?: string | undefined;
-    /**
-     * Inline style of the component.
-     */
-    style?: any;
-    /**
-     * Style class of the component.
-     */
-    class?: any;
     /**
      * Identifier of the underlying input element.
      */

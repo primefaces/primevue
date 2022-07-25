@@ -1,5 +1,5 @@
 <template>
-    <span ref="container" :id="id" :class="containerClass" :style="style">
+    <span ref="container" :id="id" :class="containerClass">
         <input :ref="inputRef" v-if="!inline" type="text" role="combobox" :id="inputId" :class="['p-inputtext p-component', inputClass]" :style="inputStyle"
             aria-autocomplete="none" aria-haspopup="dialog" :aria-expanded="overlayVisible" :aria-controls="panelId" inputmode="none" 
             @input="onInput" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" :readonly="!manualInput" v-bind="inputProps">
@@ -2423,7 +2423,7 @@ export default {
         },
         containerClass() {
             return [
-                'p-calendar p-component p-inputwrapper', this.class,
+                'p-calendar p-component p-inputwrapper',
                 {
                     'p-calendar-w-btn': this.showIcon,
                     'p-calendar-timeonly': this.timeOnly,
