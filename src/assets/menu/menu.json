@@ -85,6 +85,17 @@
             ]
         },
         {
+            "name": "UI Kit",
+            "meta": ["ui kit"],
+            "children": [
+                {
+                    "name": "Figma",
+                    "to": "/uikit",
+                    "badge": "NEW"
+                }
+            ]
+        },
+        {
             "name": "Accessibility",
             "meta": ["accessibility"],
             "children": [
