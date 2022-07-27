@@ -209,10 +209,14 @@ export default {
 
                 case 'Space':
                 case 'Enter':
-                    if (!this.overlayVisible) {
-                        this.show();
-                        event.preventDefault();
+                    if (this.overlayVisible) {
+                        this.hide();
                     }
+                    else {
+                        this.show();
+                    }
+
+                    event.preventDefault();
                 break;
 
                 case 'Escape':
