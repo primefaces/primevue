@@ -17,7 +17,7 @@
         <Portal :appendTo="appendTo">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
                 <div :ref="overlayRef" :class="panelStyleClass" v-if="overlayVisible" @click="onOverlayClick" v-bind="panelProps">
-                    <div class="p-cascadeselect-items-wrapper" role="group">
+                    <div class="p-cascadeselect-items-wrapper">
                         <CascadeSelectSub :id="listId" :options="options" :selectionPath="selectionPath"
                             :optionLabel="optionLabel" :optionValue="optionValue" :level="0" :templates="$slots"
                             :optionGroupLabel="optionGroupLabel" :optionGroupChildren="optionGroupChildren"
@@ -282,26 +282,39 @@ export default {
                 case 'Down':
                 case 'ArrowDown':
                     if (this.overlayVisible) {
-                        DomHandler.findSingle(this.overlay, '.p-cascadeselect-item').children[0].focus();
+                        if (DomHandler.findSingle(this.overlay, '.p-highlight')) {
+                            DomHandler.findSingle(this.overlay, '.p-highlight').focus();
+                        }
+                        else DomHandler.findSingle(this.overlay, '.p-cascadeselect-item').children[0].focus();
                     }
-                    else if (event.altKey && this.options && this.options.length) {
+                    else {
                         this.show();
                     }
+
                     event.preventDefault();
                 break;
 
                 case 'Space':
+                case 'Enter':
                     if (this.overlayVisible) {
                         this.hide();
                     }
                     else {
                         this.show();
                     }
+
                     event.preventDefault();
                 break;
 
+                case 'Escape':
                 case 'Tab':
-                    this.hide();
+                    if (this.overlayVisible) {
+                        this.hide();
+                        event.preventDefault();
+                    }
+                break;
+
+                default:
                 break;
             }
         },
@@ -349,7 +362,7 @@ export default {
             return ['p-cascadeselect-trigger-icon', this.loading ? this.loadingIcon : 'pi pi-chevron-down'];
         },
         listId() {
-            return UniqueComponentId() + '_list';
+            return this.overlayVisible ? UniqueComponentId() + '_list' : null;
         }
     },
     components: {

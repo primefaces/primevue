@@ -1,5 +1,5 @@
 <template>
-    <ul class="p-cascadeselect-panel p-cascadeselect-items" aria-orientation="horizontal" role="tree">
+    <ul class="p-cascadeselect-panel p-cascadeselect-items" aria-orientation="horizontal" :role="root === true ? 'tree' : 'group'">
         <template v-for="(option,index) of options" :key="getOptionLabelToRender(option)">
             <li :class="getItemClass(option)" role="treeitem"  :aria-label="getOptionLabelToRender(option)" :aria-selected="isOptionActive(option)" :aria-expanded="isOptionActive(option)"
                 :aria-setsize="options.length" :aria-posinset="index + 1" :aria-level="level + 1">
