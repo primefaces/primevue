@@ -168,14 +168,14 @@ export default {
         onKeyDown(event) {
             if (!this.disabled && !this.readonly) {
                 switch (event.code) {
-                    case 'ArrowLeft':
+                    case 'ArrowRight':
                     case 'ArrowUp': {
                         event.preventDefault();
                         this.updateModelValue(this.modelValue + 1);
                         break;
                     }
 
-                    case 'ArrowRight':
+                    case 'ArrowLeft':
                     case 'ArrowDown': {
                         event.preventDefault();
                         this.updateModelValue(this.modelValue - 1);
