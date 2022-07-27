@@ -68,16 +68,34 @@ export default {
                         <td>Value binding of the checkbox.</td>
                     </tr>
                     <tr>
-                        <td>style</td>
-                        <td>any</td>
+                        <td>name</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Name of the input element.</td>
+                    </tr>
+                    <tr>
+                        <td>disabled</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>When present, it specifies that the element should be disabled.</td>
+                    </tr>
+                    <tr>
+                        <td>inputId</td>
+                        <td>string</td>
                         <td>null</td>
                         <td>Style class of the component input field.</td>
                     </tr>
                     <tr>
-                        <td>class</td>
+                        <td>inputClass</td>
                         <td>string</td>
                         <td>null</td>
-                        <td>Inline style of the component.</td>
+                        <td>Style class of the input field.</td>
+                    </tr>
+                    <tr>
+                        <td>inputStyle</td>
+                        <td>any</td>
+                        <td>null</td>
+                        <td>Inline style of the input field.</td>
                     </tr>
 				</tbody>
 			</table>

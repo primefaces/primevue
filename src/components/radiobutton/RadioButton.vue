@@ -1,7 +1,8 @@
 <template>
     <div :class="containerClass" @click="onClick($event)">
         <div class="p-hidden-accessible">
-            <input ref="input" type="radio" :id="inputId" :name="name" :checked="checked" :disabled="disabled" :value="value" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel" @focus="onFocus" @blur="onBlur" v-bind="inputProps">
+            <input ref="input" type="radio" :id="inputId" :class="inputClass" :style="inputStyle" :name="name" :checked="checked" :disabled="disabled" :value="value" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel"
+                @focus="onFocus" @blur="onBlur" v-bind="inputProps">
         </div>
         <div ref="box" :class="['p-radiobutton-box', {'p-highlight': checked, 'p-disabled': disabled, 'p-focus': focused}]">
             <div class="p-radiobutton-icon"></div>
@@ -18,22 +19,18 @@ export default {
     props: {
 		value: null,
         modelValue: null,
-        disabled: {
-            type: Boolean,
-            default: false
-        },
-        inputId: {
-            type: String,
-            default: null
-        },
-        inputProps: {
-            type: Object,
-            default: null
-        },
         name: {
             type: String,
             default: null
         },
+        disabled: {
+            type: Boolean,
+            default: false
+        },
+        inputId: null,
+        inputClass: null,
+        inputStyle: null,
+        inputProps: null,
         'aria-labelledby': {
             type: String,
 			default: null
