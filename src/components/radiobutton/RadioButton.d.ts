@@ -17,6 +17,14 @@ export interface RadioButtonProps {
      * Inline style of the component.
      */
     style?: any;
+    /**
+     * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
+     */
+    'aria-labelledby'?: string | undefined;
+    /**
+     * Establishes a string value that labels the component.
+     */
+    'aria-label'?: string | undefined;
 }
 
 export interface RadioButtonSlots {

@@ -75,6 +75,14 @@ export interface PasswordProps extends InputHTMLAttributes {
      * Style class of the overlay panel.
      */
     panelClass?: any | undefined;
+    /**
+     * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
+     */
+    'aria-labelledby'?: string | undefined;
+    /**
+     * Establishes a string value that labels the component.
+     */
+    'aria-label'?: string | undefined;
 }
 
 export interface PasswordSlots {

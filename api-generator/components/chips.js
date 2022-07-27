@@ -52,18 +52,6 @@ const ChipsProps = [
         type: "any",
         default: "null",
         description: "Inline style of the input field."
-    },
-    {
-        name: "'aria-labelledby'",
-        type: "string",
-        default: "null",
-        description: "Establishes relationships between the component and label(s) where its value should be one or more element IDs."
-    },
-    {
-        name: "'aria-label'",
-        type: "string",
-        default: "null",
-        description: "Establishes a string value that labels the component."
     }
 ];
 

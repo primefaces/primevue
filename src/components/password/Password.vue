@@ -1,6 +1,6 @@
 <template>
     <div :class="containerClass">
-        <PInputText ref="input" :id="inputId" :type="inputType" :class="inputClass" :style="inputStyle" :value="modelValue" @input="onInput" @focus="onFocus" @blur="onBlur" @keyup="onKeyUp" v-bind="inputProps" />
+        <PInputText ref="input" :id="inputId" :type="inputType" :class="inputClass" :style="inputStyle" :value="modelValue" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel" @input="onInput" @focus="onFocus" @blur="onBlur" @keyup="onKeyUp" v-bind="inputProps" />
         <i v-if="toggleMask" :class="toggleIconClass" @click="onMaskToggle" />
         <span class="p-hidden-accessible" aria-live="polite">
             {{infoText}}
@@ -88,7 +88,15 @@ export default {
         },
         inputClass: null,
         inputStyle: null,
-        inputProps: null
+        inputProps: null,
+        'aria-labelledby': {
+            type: String,
+			default: null
+        },
+        'aria-label': {
+            type: String,
+            default: null
+        }
     },
     data() {
         return {

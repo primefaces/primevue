@@ -1,7 +1,7 @@
 <template>
     <span ref="container" :id="id" :class="containerClass">
         <input :ref="inputRef" v-if="!inline" type="text" role="combobox" :id="inputId" :class="['p-inputtext p-component', inputClass]" :style="inputStyle"
-            aria-autocomplete="none" aria-haspopup="dialog" :aria-expanded="overlayVisible" :aria-controls="panelId" inputmode="none" 
+            aria-autocomplete="none" aria-haspopup="dialog" :aria-expanded="overlayVisible" :aria-controls="panelId" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel" inputmode="none" 
             @input="onInput" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" :readonly="!manualInput" v-bind="inputProps">
         <CalendarButton v-if="showIcon" :icon="icon" class="p-datepicker-trigger" :disabled="disabled" @click="onButtonClick" type="button" :aria-label="$primevue.config.locale.chooseDate" aria-haspopup="dialog" :aria-expanded="overlayVisible" :aria-controls="panelId"/>
         <Portal :appendTo="appendTo" :disabled="inline">
@@ -325,6 +325,14 @@ export default {
         readonly: {
             type: Boolean,
             default: false
+        },
+        'aria-labelledby': {
+            type: String,
+			default: null
+        },
+        'aria-label': {
+            type: String,
+            default: null
         }
     },
     navigationState: null,

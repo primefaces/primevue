@@ -264,12 +264,17 @@ export interface CalendarProps {
      */
     inputProps?: object | undefined;
     /**
-     * Unique identifier of the element.
-     */
-    /**
      * 
      */
     panelProps?: object | undefined;
+    /**
+     * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
+     */
+    'aria-labelledby'?: string | undefined;
+    /**
+     * Establishes a string value that labels the component.
+     */
+    'aria-label'?: string | undefined;
 }
 
 export interface CalendarSlots {
