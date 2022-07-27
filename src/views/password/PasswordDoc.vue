@@ -156,10 +156,10 @@ import Password from 'primevue/password';
                         <td>Icon to show displaying the password as plain text.</td>
                     </tr>
                     <tr>
-                        <td>inputStyle</td>
-                        <td>any</td>
+                        <td>inputId</td>
+                        <td>string</td>
                         <td>null</td>
-                        <td>Inline style of the input field.</td>
+                        <td>Style class of the component input field.</td>
                     </tr>
                     <tr>
                         <td>inputClass</td>
@@ -168,10 +168,22 @@ import Password from 'primevue/password';
                         <td>Style class of the input field.</td>
                     </tr>
                     <tr>
+                        <td>inputStyle</td>
+                        <td>any</td>
+                        <td>null</td>
+                        <td>Inline style of the input field.</td>
+                    </tr>
+                    <tr>
                         <td>panelClass</td>
                         <td>string</td>
                         <td>null</td>
                         <td>Style class of the overlay panel.</td>
+                    </tr>
+                    <tr>
+                        <td>panelStyle</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Inline style of the overlay panel.</td>
                     </tr>
 				</tbody>
 			</table>

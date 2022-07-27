@@ -6,7 +6,7 @@
         <CalendarButton v-if="showIcon" :icon="icon" class="p-datepicker-trigger" :disabled="disabled" @click="onButtonClick" type="button" :aria-label="$primevue.config.locale.chooseDate" aria-haspopup="dialog" :aria-expanded="overlayVisible" :aria-controls="panelId"/>
         <Portal :appendTo="appendTo" :disabled="inline">
             <transition name="p-connected-overlay" @enter="onOverlayEnter($event)" @after-enter="onOverlayEnterComplete" @after-leave="onOverlayAfterLeave" @leave="onOverlayLeave">
-                <div :ref="overlayRef" :id="panelId" :class="panelStyleClass" v-if="inline || overlayVisible" :role="inline ? null : 'dialog'" :aria-modal="inline ? null : 'true'" :aria-label="$primevue.config.locale.chooseDate" @click="onOverlayClick" @mouseup="onOverlayMouseUp" v-bind="panelProps">
+                <div :ref="overlayRef" :id="panelId" :class="panelStyleClass" :style=panelStyle v-if="inline || overlayVisible" :role="inline ? null : 'dialog'" :aria-modal="inline ? null : 'true'" :aria-label="$primevue.config.locale.chooseDate" @click="onOverlayClick" @mouseup="onOverlayMouseUp" v-bind="panelProps">
                     <template v-if="!timeOnly">
                         <div class="p-datepicker-group-container">
                             <div class="p-datepicker-group" v-for="(month,groupIndex) of months" :key="month.month + month.year">
@@ -216,10 +216,6 @@ export default {
             type: String,
             default: null
         },
-        panelClass: {
-            type: String,
-            default: null
-        },
         minDate: {
             type: Date,
             value: null
@@ -312,12 +308,6 @@ export default {
             type: String,
             default: 'body'
         },
-        id: null,
-        inputId: null,
-        inputClass: null,
-        inputStyle: null,
-        inputProps: null,
-        panelProps: null,
         disabled: {
             type: Boolean,
             default: false
@@ -326,6 +316,14 @@ export default {
             type: Boolean,
             default: false
         },
+        id: null,
+        inputId: null,
+        inputClass: null,
+        inputStyle: null,
+        inputProps: null,
+        panelClass: null,
+        panelStyle: null,
+        panelProps: null,
         'aria-labelledby': {
             type: String,
 			default: null
