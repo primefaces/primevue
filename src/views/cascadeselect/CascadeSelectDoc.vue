@@ -384,8 +384,6 @@ data() &#123;
             <p>The popup list has an id that refers to the <i>aria-controls</i> attribute of the <i>combobox</i> element and uses <i>tree</i> as the role. Each list item has a <i>treeitem</i> role along with <i>aria-label</i>, <i>aria-selected</i> and <i>aria-expanded</i> attributes. The container
             element of a treenode has the <i>group</i> role. The <i>aria-setsize</i>, <i>aria-posinset</i> and <i>aria-level</i> attributes are calculated implicitly and added to each treeitem.</p>
 
-            <p>If filtering is enabled, <i>filterInputProps</i> can be defined to give <i>aria-*</i> props to the filter input element.</p>
-
 <pre v-code><code>
 &lt;span id="dd1"&gt;Options&lt;/span&gt;
 &lt;CascadeSelect aria-labelledby="dd1" /&gt;
