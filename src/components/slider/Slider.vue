@@ -183,41 +183,37 @@ export default {
         },
         onKeyDown(event, index) {
             this.handleIndex = index;
-            switch (event.which) {
-                //down and left
-                case 40:
-                case 37:
+            switch (event.code) {
+                case 'ArrowDown':
+                case 'ArrowLeft':
                     this.decrementValue(event, index);
                     event.preventDefault();
                 break;
 
-                //up and right
-                case 38:
-                case 39:
+                case 'ArrowUp':
+                case 'ArrowRight':
                     this.incrementValue(event, index);
                     event.preventDefault();
                 break;
 
-                //page down
-                case 34:
+                case 'PageDown':
                     this.decrementValue(event, index, true);
                     event.preventDefault();
                 break;
 
-                //page up
-                case 33:
+                case 'PageUp':
                     this.incrementValue(event, index, true);
                     event.preventDefault();
                 break;
 
-                //home
-                case 36:
+                case 'Home':
                     this.updateModel(event, this.min);
+                    event.preventDefault();
                 break;
 
-                //end
-                case 35:
+                case 'End':
                     this.updateModel(event, this.max);
+                    event.preventDefault();
                 break;
 
                 default:
