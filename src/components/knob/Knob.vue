@@ -1,6 +1,6 @@
 <template>
     <div :class="containerClass">
-        <svg viewBox="0 0 100 100" role="slider" :width="size" :height="size" :tabindex="tabindex" :aria-valuemin="min" :aria-valuemax="max" :aria-valuenow="modelValue" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel"
+        <svg viewBox="0 0 100 100" role="slider" :width="size" :height="size" :tabindex="readonly || disabled ? -1 : tabindex" :aria-valuemin="min" :aria-valuemax="max" :aria-valuenow="modelValue" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel"
             @click="onClick" @keydown="onKeyDown" @mousedown="onMouseDown" @mouseup="onMouseUp" @touchstart="onTouchStart" @touchend="onTouchEnd">
             <path :d="rangePath" :stroke-width="strokeWidth" :stroke="rangeColor" class="p-knob-range"></path>
             <path :d="valuePath" :stroke-width="strokeWidth" :stroke="valueColor" class="p-knob-value"></path>
@@ -166,7 +166,7 @@ export default {
             }
         },
         onKeyDown(event) {
-            if (!this.disabled || !this.readonly) {
+            if (!this.disabled && !this.readonly) {
                 switch (event.code) {
                     case 'ArrowLeft':
                     case 'ArrowUp': {
