@@ -7,7 +7,7 @@
         </span>
         <Portal :appendTo="appendTo">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
-                <div :ref="overlayRef" :class="panelStyleClass" v-if="overlayVisible" @click="onOverlayClick">
+                <div :ref="overlayRef" :class="panelStyleClass" :style="panelStyle" v-if="overlayVisible" @click="onOverlayClick" v-bind="panelProps">
                     <slot name="header"></slot>
                     <slot name="content">
                         <div class="p-password-meter">
@@ -33,10 +33,6 @@ export default {
     emits: ['update:modelValue', 'change', 'focus', 'blur'],
     props: {
         modelValue: String,
-        inputId: {
-            type: String,
-            default: null
-        },
         promptLabel: {
             type: String,
             default: null
@@ -81,14 +77,18 @@ export default {
             type: String,
             default: 'pi pi-eye'
         },
-        panelClass: String,
         disabled: {
             type: Boolean,
             default: false
         },
+
+        inputId: null,
         inputClass: null,
         inputStyle: null,
         inputProps: null,
+        panelClass: String,
+        panelStyle: String,
+        panelProps: null,
         'aria-labelledby': {
             type: String,
 			default: null
