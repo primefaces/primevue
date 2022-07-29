@@ -36,7 +36,7 @@ export interface DropdownFilterEvent {
     value: any;
 }
 
-export interface DropdownProps {
+export interface DropdownProps extends HTMLDivElement {
     /**
      * Value of the component.
      */

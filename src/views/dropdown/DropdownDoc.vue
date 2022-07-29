@@ -279,13 +279,13 @@ export default {
                         <td>panelProps</td>
                         <td>object</td>
                         <td>null</td>
-                        <td>Uses to pass all properties of the HTMLDivElement to the overlay panel inside the component.</td>
+                        <td>Uses to pass all properties of the HTMLDivElement to the overlay panel.</td>
                     </tr>
                     <tr>
                         <td>filterInputProps</td>
                         <td>object</td>
                         <td>null</td>
-                        <td>Uses to pass all properties of the HTMLInputElement to the filter input inside the component.</td>
+                        <td>Uses to pass all properties of the HTMLInputElement to the filter input inside the overlay panel.</td>
                     </tr>
                     <tr>
                         <td>clearIconProps</td>
