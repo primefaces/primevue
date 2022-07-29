@@ -108,40 +108,64 @@ const DropdownProps = [
         description: "When enabled, a clear icon is displayed to clear the value."
     },
     {
-        name: "tabindex",
-        type: "number",
-        default: "null",
-        description: "Index of the element in tabbing order."
-    },
-    {
         name: "inputId",
         type: "string",
         default: "null",
         description: "Identifier of the underlying input element."
     },
     {
-        name: "ariaLabelledBy",
+        name: "inputStyle",
+        type: "object",
+        default: "null",
+        description: "Inline style of the input field."
+    },
+    {
+        name: "inputClass",
         type: "string",
         default: "null",
-        description: 'A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are "body" for document body and "self" for the element itself.'
+        description: "Style class of the input field."
     },
     {
-        name: "emptyFilterMessage",
-        type: "string",
-        default: "No results found",
-        description: "Text to display when filtering does not return any results. Defaults to value from PrimeVue locale configuration."
+        name: "inputProps",
+        type: "object",
+        default: "null",
+        description: "Uses to pass all properties of the HTMLInputElement/HTMLSpanElement to the focusable input element inside the component."
     },
     {
-        name: "emptyMessage",
-        type: "string",
-        default: "No results found",
-        description: "Text to display when there are no options available. Defaults to value from PrimeVue locale configuration."
+        name: "panelStyle",
+        type: "object",
+        default: "null",
+        description: "Inline style of the overlay panel."
     },
     {
         name: "panelClass",
         type: "string",
         default: "null",
         description: "Style class of the overlay panel."
+    },
+    {
+        name: "panelProps",
+        type: "object",
+        default: "null",
+        description: "Uses to pass all properties of the HTMLDivElement to the overlay panel inside the component."
+    },
+    {
+        name: "filterInputProps",
+        type: "object",
+        default: "null",
+        description: "Uses to pass all properties of the HTMLInputElement to the filter input inside the component."
+    },
+    {
+        name: "clearIconProps",
+        type: "object",
+        default: "null",
+        description: "Uses to pass all properties of the HTMLElement to the clear icon inside the component."
+    },
+    {
+        name: "appendTo",
+        type: "string",
+        default: "body",
+        description: "A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are 'body' for document body and 'self' for the element itself."
     },
     {
         name: "loading",
@@ -160,6 +184,60 @@ const DropdownProps = [
         type: "object",
         default: "null",
         description: "Whether to use the virtualScroller feature. The properties of VirtualScroller component can be used like an object in it."
+    },
+    {
+        name: "autoOptionFocus",
+        type: "boolean",
+        default: "true",
+        description: "Whether to focus on the first visible or selected element when the overlay panel is shown."
+    },
+    {
+        name: "filterMessage",
+        type: "string",
+        default: "{0} results are available",
+        description: "Text to be displayed in hidden accessible field when filtering returns any results. Defaults to value from PrimeVue locale configuration."
+    },
+    {
+        name: "selectionMessage",
+        type: "string",
+        default: "{0} items selected",
+        description: "Text to be displayed in hidden accessible field when options are selected. Defaults to value from PrimeVue locale configuration."
+    },
+    {
+        name: "emptySelectionMessage",
+        type: "string",
+        default: "No selected item",
+        description: "Text to be displayed in hidden accessible field when any option is not selected. Defaults to value from PrimeVue locale configuration."
+    },
+    {
+        name: "emptyFilterMessage",
+        type: "string",
+        default: "No results found",
+        description: "Text to display when filtering does not return any results. Defaults to value from PrimeVue locale configuration."
+    },
+    {
+        name: "emptyMessage",
+        type: "string",
+        default: "No results found",
+        description: "Text to display when there are no options available. Defaults to value from PrimeVue locale configuration."
+    },
+    {
+        name: "tabindex",
+        type: "number",
+        default: "null",
+        description: "Index of the element in tabbing order."
+    },
+    {
+        name: "ariaLabel",
+        type: "string",
+        default: "null",
+        description: "Defines a string value that labels an interactive element."
+    }
+    {
+        name: "ariaLabelledby",
+        type: "string",
+        default: "null",
+        description: "Identifier of the underlying input element."
     }
 ];
 
@@ -181,8 +259,19 @@ const DropdownEvents = [
         ]
     },
     {
-        name: "input",
-        description: "Callback to invoke on value change.",
+        name: "focus",
+        description: "Callback to invoke when component receives focus.",
+        arguments: [
+            {
+                name: "event",
+                type: "object",
+                description: "Browser event"
+            }
+        ]
+    },
+    {
+        name: "blur",
+        description: "Callback to invoke when component loses focus.",
         arguments: [
             {
                 name: "event",
@@ -208,28 +297,6 @@ const DropdownEvents = [
         description: "Callback to invoke when the overlay is hidden."
     },
     {
-        name: "focus",
-        description: "Callback to invoke when component receives focus.",
-        arguments: [
-            {
-                name: "event",
-                type: "object",
-                description: "Browser event"
-            }
-        ]
-    },
-    {
-        name: "blur",
-        description: "Callback to invoke when component loses focus.",
-        arguments: [
-            {
-                name: "event",
-                type: "object",
-                description: "Browser event"
-            }
-        ]
-    },
-    {
         name: "filter",
         description: "Callback to invoke when the overlay is shown.",
         arguments: [
@@ -249,16 +316,12 @@ const DropdownEvents = [
 
 const DropdownSlots = [
     {
-        name: "option",
-        description: "Custom content for the item's option"
-    },
-    {
-        name: "optiongroup",
-        description: "Custom content for the item's optiongroup"
-    },
-    {
         name: "value",
         description: "Custom content for the item's value"
+    },
+    {
+        name: "indicator",
+        description: "Custom content for the dropdown indicator"
     },
     {
         name: "header",
@@ -267,6 +330,14 @@ const DropdownSlots = [
     {
         name: "footer",
         description: "Custom content for the component's footer"
+    },
+    {
+        name: "option",
+        description: "Custom content for the item's option"
+    },
+    {
+        name: "optiongroup",
+        description: "Custom content for the item's optiongroup"
     },
     {
         name: "emptyfilter",
@@ -283,10 +354,6 @@ const DropdownSlots = [
     {
         name: "loader",
         description: "Custom content for the virtual scroller loader items"
-    },
-    {
-        name: "indicator",
-        description: "Custom content for the dropdown indicator"
     }
 ];
 
