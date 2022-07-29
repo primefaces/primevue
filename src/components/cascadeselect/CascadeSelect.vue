@@ -2,14 +2,14 @@
     <div ref="container" :class="containerClass" @click="onClick($event)">
         <div class="p-hidden-accessible">
             <input ref="focusInput" role="combobox" type="text" :id="inputId" :class="inputClass" :style="inputStyle" readonly :disabled="disabled" :tabindex="tabindex" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel"
-                aria-haspopup="listbox" :aria-expanded="overlayVisible" :aria-controls="listId" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" v-bind="inputProps" />
+                aria-haspopup="tree" :aria-expanded="overlayVisible" :aria-controls="listId" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" v-bind="inputProps" />
         </div>
         <span :class="labelClass">
             <slot name="value" :value="modelValue" :placeholder="placeholder">
                 {{label}}
             </slot>
         </span>
-        <div class="p-cascadeselect-trigger" role="button" aria-haspopup="listbox" :aria-expanded="overlayVisible">
+        <div class="p-cascadeselect-trigger" role="button" aria-haspopup="tree" :aria-expanded="overlayVisible">
             <slot name="indicator">
                 <span :class="dropdownIconClass"></span>
             </slot>

@@ -2,7 +2,7 @@
     <div ref="container" :class="containerClass" @click="onClick">
         <div class="p-hidden-accessible">
             <input ref="focusInput" type="text" role="combobox" :id="inputId" :class="inputClass" :style="inputStyle" readonly :disabled="disabled" :tabindex="tabindex" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel"
-                aria-haspopup="listbox" :aria-expanded="overlayVisible" :aria-controls="listId" @focus="onFocus($event)" @blur="onBlur($event)" @keydown="onKeyDown($event)" v-bind="inputProps" />
+                aria-haspopup="tree" :aria-expanded="overlayVisible" :aria-controls="listId" @focus="onFocus($event)" @blur="onBlur($event)" @keydown="onKeyDown($event)" v-bind="inputProps" />
         </div>
         <div class="p-treeselect-label-container">
             <div :class="labelClass">
@@ -19,7 +19,7 @@
                 </slot>
             </div>
         </div>
-        <div class="p-treeselect-trigger" role="button" aria-haspopup="listbox" :aria-expanded="overlayVisible">
+        <div class="p-treeselect-trigger" role="button" aria-haspopup="tree" :aria-expanded="overlayVisible">
             <slot name="indicator">
                 <span class="p-treeselect-trigger-icon pi pi-chevron-down"></span>
             </slot>
