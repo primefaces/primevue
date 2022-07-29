@@ -1362,14 +1362,16 @@
   color: #9FA8DA;
   background: rgba(159, 168, 218, 0.16);
 }
+.p-multiselect-panel .p-multiselect-items .p-multiselect-item.p-highlight.p-focus {
+  background: rgba(159, 168, 218, 0.24);
+}
+.p-multiselect-panel .p-multiselect-items .p-multiselect-item:not(.p-highlight):not(.p-disabled).p-focus {
+  color: rgba(255, 255, 255, 0.87);
+  background: rgba(255, 255, 255, 0.12);
+}
 .p-multiselect-panel .p-multiselect-items .p-multiselect-item:not(.p-highlight):not(.p-disabled):hover {
   color: rgba(255, 255, 255, 0.87);
   background: rgba(255, 255, 255, 0.04);
-}
-.p-multiselect-panel .p-multiselect-items .p-multiselect-item:focus {
-  outline: 0 none;
-  outline-offset: 0;
-  box-shadow: none;
 }
 .p-multiselect-panel .p-multiselect-items .p-multiselect-item .p-checkbox {
   margin-right: 0.5rem;

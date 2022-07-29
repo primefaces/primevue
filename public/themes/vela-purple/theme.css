@@ -1338,14 +1338,16 @@
   color: rgba(255, 255, 255, 0.87);
   background: rgba(186, 104, 200, 0.16);
 }
+.p-multiselect-panel .p-multiselect-items .p-multiselect-item.p-highlight.p-focus {
+  background: rgba(186, 104, 200, 0.24);
+}
+.p-multiselect-panel .p-multiselect-items .p-multiselect-item:not(.p-highlight):not(.p-disabled).p-focus {
+  color: rgba(255, 255, 255, 0.87);
+  background: #304562;
+}
 .p-multiselect-panel .p-multiselect-items .p-multiselect-item:not(.p-highlight):not(.p-disabled):hover {
   color: rgba(255, 255, 255, 0.87);
   background: rgba(255, 255, 255, 0.03);
-}
-.p-multiselect-panel .p-multiselect-items .p-multiselect-item:focus {
-  outline: 0 none;
-  outline-offset: 0;
-  box-shadow: inset 0 0 0 0.15rem #cf95d9;
 }
 .p-multiselect-panel .p-multiselect-items .p-multiselect-item .p-checkbox {
   margin-right: 0.5rem;
