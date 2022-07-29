@@ -3,10 +3,10 @@
         <input v-if="editable" ref="focusInput" :id="inputId" type="text" :style="inputStyle" :class="inputStyleClass" :value="editableInputValue" :placeholder="placeholder" :tabindex="!disabled ? tabindex : -1" :disabled="disabled" autocomplete="off"
             role="combobox" :aria-label="ariaLabel" :aria-labelledby="ariaLabelledby" aria-haspopup="listbox" :aria-expanded="overlayVisible" :aria-controls="id + '_list'" :aria-activedescendant="focused ? focusedOptionId : undefined"
             @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" @input="onEditableInput" v-bind="inputProps">
-        <span v-else ref="focusInput" :id="inputId" :style="inputStyle" :class="inputStyleClass" :tabindex="!disabled ? tabindex : -1" role="combobox" :aria-label="ariaLabel" :aria-labelledby="ariaLabelledby"
+        <span v-else ref="focusInput" :id="inputId" :style="inputStyle" :class="inputStyleClass" :tabindex="!disabled ? tabindex : -1" role="combobox" :aria-label="ariaLabel || (label === 'p-emptylabel' ? undefined : label)" :aria-labelledby="ariaLabelledby"
             aria-haspopup="listbox" :aria-expanded="overlayVisible" :aria-controls="id + '_list'" :aria-activedescendant="focused ? focusedOptionId : undefined" :aria-disabled="disabled"
             @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" v-bind="inputProps">
-            <slot name="value" :value="modelValue" :placeholder="placeholder">{{label === 'p-emptylabel' ? '&nbsp;' : label ||'empty'}}</slot>
+            <slot name="value" :value="modelValue" :placeholder="placeholder">{{label === 'p-emptylabel' ? '&nbsp;' : label || 'empty'}}</slot>
         </span>
         <i v-if="showClear && modelValue != null" class="p-dropdown-clear-icon pi pi-times" @click="onClearClick" v-bind="clearIconProps"></i>
         <div class="p-dropdown-trigger">
@@ -52,6 +52,9 @@
                                         <slot name="empty">{{emptyMessageText}}</slot>
                                     </li>
                                 </ul>
+                                <span v-if="(!options || (options && options.length === 0))" role="status" aria-live="polite" class="p-hidden-accessible">
+                                    {{emptyMessageText}}
+                                </span>
                                 <span role="status" aria-live="polite" class="p-hidden-accessible">
                                     {{selectedMessageText}}
                                 </span>
@@ -257,12 +260,16 @@ export default {
             isFocus && this.$refs.focusInput.focus();
         },
         hide(isFocus) {
-            this.$emit('before-hide');
-            this.overlayVisible = false;
-            this.focusedOptionIndex = -1;
-            this.searchValue = '';
+            const _hide = () => {
+                this.$emit('before-hide');
+                this.overlayVisible = false;
+                this.focusedOptionIndex = -1;
+                this.searchValue = '';
 
-            isFocus && this.$refs.focusInput.focus();
+                isFocus && this.$refs.focusInput.focus();
+            }
+
+            setTimeout(() => { _hide() }, 0); // For ScreenReaders
         },
         onFocus(event) {
             this.focused = true;
@@ -771,7 +778,7 @@ export default {
         },
         listRef(el, contentRef) {
             this.list = el;
-            contentRef && contentRef(el); // for virtualScroller
+            contentRef && contentRef(el); // For VirtualScroller
         },
         virtualScrollerRef(el) {
             this.virtualScroller = el;
@@ -855,7 +862,7 @@ export default {
             return this.emptySelectionMessage || this.$primevue.config.locale.emptySelectionMessage;
         },
         selectedMessageText() {
-            return ObjectUtils.isNotEmpty(this.modelValue) ? this.selectionMessageText.replaceAll('{0}', this.modelValue.length) : this.emptySelectionMessageText;
+            return ObjectUtils.isNotEmpty(this.modelValue) ? this.selectionMessageText.replaceAll('{0}', '1') : this.emptySelectionMessageText;
         },
         focusedOptionId() {
             return this.focusedOptionIndex !== -1 ? `${this.id}_${this.focusedOptionIndex}` : null;
