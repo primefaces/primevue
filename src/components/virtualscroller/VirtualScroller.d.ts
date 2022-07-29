@@ -158,6 +158,11 @@ export interface VirtualScrollerProps {
      * @param {VirtualScrollerLazyEvent} event - Custom lazy event.
      */
     onLazyLoad?: (event: VirtualScrollerLazyEvent) => void;
+    /**
+     * Index of the element in tabbing order.
+     * Default value is 0.
+     */
+    tabindex?: number | string | undefined;
 }
 
 export interface VirtualScrollerSlots {

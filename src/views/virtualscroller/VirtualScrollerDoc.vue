@@ -220,6 +220,12 @@ export default {
                         <td>false</td>
                         <td>Whether to show loader.</td>
                     </tr>
+                    <tr>
+                        <td>tabindex</td>
+                        <td>number</td>
+                        <td>0</td>
+                        <td>Index of the element in tabbing order.</td>
+                    </tr>
                 </tbody>
             </table>
         </div>

@@ -1,6 +1,6 @@
 <template>
     <template v-if="!disabled">
-        <div :ref="elementRef" :class="containerClass" :tabindex="0" :style="style" @scroll="onScroll">
+        <div :ref="elementRef" :class="containerClass" :tabindex="tabindex" :style="style" @scroll="onScroll">
             <slot name="content" :styleClass="contentClass" :items="loadedItems" :getItemOptions="getOptions" :loading="d_loading" :getLoaderOptions="getLoaderOptions" :itemSize="itemSize"
                 :rows="loadedRows" :columns="loadedColumns" :contentRef="contentRef" :spacerStyle="spacerStyle" :contentStyle="contentStyle"
                 :vertical="isVertical()" :horizontal="isHorizontal()" :both="isBoth()">
@@ -87,6 +87,10 @@ export default {
         showLoader: {
             type: Boolean,
             default: false
+        },
+        tabindex: {
+            type: Number,
+            default: 0
         }
     },
     data() {
