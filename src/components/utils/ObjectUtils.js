@@ -218,6 +218,9 @@ export default {
 
     isNotEmpty(value) {
         return !this.isEmpty(value);
-    }
+    },
 
+    isPrintableCharacter(char = '') {
+        return this.isNotEmpty(char) && char.length === 1 && char.match(/\S| /);
+    }
 }
