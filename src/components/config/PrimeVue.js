@@ -61,7 +61,11 @@ const defaultOptions = {
         medium: 'Medium',
         strong: 'Strong',
         passwordPrompt: 'Enter a password',
-        emptyFilterMessage: 'No results found',
+        emptyFilterMessage: 'No results found', // @deprecated Use 'emptySearchMessage' option instead.
+        searchMessage: '{0} results are available',
+        selectionMessage: '{0} items selected',
+        emptySelectionMessage: 'No selected item',
+        emptySearchMessage: 'No results found',
         emptyMessage: 'No available options',
         aria: {
             trueLabel: 'True',
@@ -110,8 +114,8 @@ export function usePrimeVue() {
     const PrimeVue = inject(PrimeVueSymbol);
     if (!PrimeVue) {
         throw new Error('PrimeVue is not installed!');
-    } 
-    
+    }
+
     return PrimeVue;
 }
 
