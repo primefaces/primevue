@@ -73,7 +73,10 @@ const defaultOptions = {
             nullLabel: 'Not Selected',
             star: 'star',
             stars: 'stars',
-            noneStars: 'No Rating'
+            noneStars: 'No Rating',
+            selectAll: 'All items selected',
+            unselectAll: 'All items unselected',
+            close: 'Close'
         }
     },
     filterMatchModeOptions: {
