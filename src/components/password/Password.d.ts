@@ -9,10 +9,6 @@ export interface PasswordProps extends InputHTMLAttributes {
      */
     modelValue?: Nullable<string>;
     /**
-     * Identifier of the underlying input element.
-     */
-    inputId?: string | undefined;
-    /**
      * Text to prompt password entry. Defaults to PrimeVue Locale configuration.
      */
     promptLabel?: string | undefined;
@@ -64,6 +60,10 @@ export interface PasswordProps extends InputHTMLAttributes {
      */
     showIcon?: string | undefined;
     /**
+     * Identifier of the underlying input element.
+     */
+    inputId?: string | undefined;
+    /**
      * Inline style of the input field.
      */
     inputStyle?: any | undefined;
@@ -72,9 +72,21 @@ export interface PasswordProps extends InputHTMLAttributes {
      */
     inputClass?: any | undefined;
     /**
+     * Identifier of the underlying overlay panel element.
+     */
+    panelId?: string | undefined;
+    /**
      * Style class of the overlay panel.
      */
     panelClass?: any | undefined;
+    /**
+     * Inline style of the overlay panel.
+     */
+    panelStyle?: any | undefined;
+    /**
+     * 
+     */
+    panelProps?: object | undefined;
     /**
      * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
      */

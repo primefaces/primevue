@@ -78,6 +78,12 @@ const PasswordProps = [
         description: "Icon to show displaying the password as plain text."
     },
     {
+        name: "inputId",
+        type: "string",
+        default: "null",
+        description: "Identifier of the underlying input element."
+    },
+    {
         name: "inputStyle",
         type: "any",
         default: "null",
@@ -90,10 +96,22 @@ const PasswordProps = [
         description: "Style class of the input field."
     },
     {
+        name: "panelId",
+        type: "string",
+        default: "null",
+        description: "Identifier of the underlying overlay panel element."
+    },
+    {
         name: "panelClass",
         type: "string",
         default: "null",
         description: "Style class of the overlay panel."
+    },
+    {
+        name: "panelStyle",
+        type: "string",
+        default: "null",
+        description: "Inline style of the overlay panel."
     }
 ];
 

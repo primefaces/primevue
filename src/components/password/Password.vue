@@ -1,13 +1,15 @@
 <template>
     <div :class="containerClass">
-        <PInputText ref="input" :id="inputId" :type="inputType" :class="inputClass" :style="inputStyle" :value="modelValue" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel" @input="onInput" @focus="onFocus" @blur="onBlur" @keyup="onKeyUp" v-bind="inputProps" />
+        <PInputText ref="input" :id="inputId" :type="inputType" :class="inputClass" :style="inputStyle" :value="modelValue" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel"
+            :aria-controls="(panelProps&&panelProps.id)||panelId||panelUniqueId" :aria-expanded="overlayVisible" :aria-haspopup="true"
+            @input="onInput" @focus="onFocus" @blur="onBlur" @keyup="onKeyUp" v-bind="inputProps" />
         <i v-if="toggleMask" :class="toggleIconClass" @click="onMaskToggle" />
         <span class="p-hidden-accessible" aria-live="polite">
             {{infoText}}
         </span>
         <Portal :appendTo="appendTo">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
-                <div :ref="overlayRef" :class="panelStyleClass" :style="panelStyle" v-if="overlayVisible" @click="onOverlayClick" v-bind="panelProps">
+                <div :ref="overlayRef" :id="panelId||panelUniqueId" :class="panelStyleClass" :style="panelStyle" v-if="overlayVisible" @click="onOverlayClick" v-bind="panelProps">
                     <slot name="header"></slot>
                     <slot name="content">
                         <div class="p-password-meter">
@@ -23,7 +25,7 @@
 </template>
 
 <script>
-import {ConnectedOverlayScrollHandler,DomHandler,ZIndexUtils} from 'primevue/utils';
+import {ConnectedOverlayScrollHandler,DomHandler,ZIndexUtils,UniqueComponentId} from 'primevue/utils';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import InputText from 'primevue/inputtext';
 import Portal from 'primevue/portal';
@@ -86,8 +88,9 @@ export default {
         inputClass: null,
         inputStyle: null,
         inputProps: null,
-        panelClass: String,
-        panelStyle: String,
+        panelId: null,
+        panelClass: null,
+        panelStyle: null,
         panelProps: null,
         'aria-labelledby': {
             type: String,
@@ -322,6 +325,9 @@ export default {
         },
         promptText() {
             return this.promptLabel || this.$primevue.config.locale.passwordPrompt;
+        },
+        panelUniqueId() {
+            return UniqueComponentId() + '_panel';
         }
     },
     components: {

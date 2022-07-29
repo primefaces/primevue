@@ -174,6 +174,12 @@ import Password from 'primevue/password';
                         <td>Inline style of the input field.</td>
                     </tr>
                     <tr>
+                        <td>panelId</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Identifier of the underlying overlay panel element.</td>
+                    </tr>
+                    <tr>
                         <td>panelClass</td>
                         <td>string</td>
                         <td>null</td>
