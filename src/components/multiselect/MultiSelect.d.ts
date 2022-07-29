@@ -2,13 +2,13 @@ import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 import { VirtualScrollerProps, VirtualScrollerItemOptions } from '../virtualscroller';
 
-type MultiSelectOptionLabelType = string | ((data: any) => string) | undefined;
+type MultiSelectOptionLabelType = string | ((data: any) => string) | undefined;
 
-type MultiSelectOptionValueType = string | ((data: any) => any) | undefined;
+type MultiSelectOptionValueType = string | ((data: any) => any) | undefined;
 
-type MultiSelectOptionDisabledType = string | ((data: any) => boolean) | undefined;
+type MultiSelectOptionDisabledType = string | ((data: any) => boolean) | undefined;
 
-type MultiSelectOptionChildrenType = string | ((data: any) => any[]) | undefined;
+type MultiSelectOptionChildrenType = string | ((data: any) => any[]) | undefined;
 
 type MultiSelectFilterMatchModeType = 'contains' | 'startsWith' | 'endsWith' | undefined;
 
@@ -49,7 +49,7 @@ export interface MultiSelectFilterEvent {
     value: string;
 }
 
-export interface MultiSelectProps {
+export interface MultiSelectProps extends HTMLDivElement {
     /**
      * Value of the component.
      */
@@ -92,13 +92,33 @@ export interface MultiSelectProps {
      */
     disabled?: boolean | undefined;
     /**
-     * Index of the element in tabbing order.
-     */
-    tabindex?: string | number | undefined;
-    /**
      * Identifier of the underlying input element.
      */
     inputId?: string | undefined;
+    /**
+     * Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.
+     */
+    inputProps?: HTMLInputElement | undefined;
+    /**
+     * Inline style of the overlay panel.
+     */
+    panelStyle?: any;
+    /**
+     * Style class of the overlay panel.
+     */
+    panelClass?: any;
+    /**
+     * Uses to pass all properties of the HTMLDivElement to the overlay panel.
+     */
+    panelProps?: HTMLDivElement | undefined;
+    /**
+     * Uses to pass all properties of the HTMLInputElement to the filter input inside the overlay panel.
+     */
+    filterInputProps?: HTMLInputElement | undefined;
+    /**
+     * Uses to pass all properties of the HTMLButtonElement to the clear button inside the overlay panel.
+     */
+    closeButtonProps?: HTMLButtonElement | undefined;
     /**
      * A property to uniquely identify an option.
      */
@@ -126,35 +146,17 @@ export interface MultiSelectProps {
      */
     filterFields?: string[] | undefined;
     /**
-     * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
-     */
-    ariaLabelledBy?: string | undefined;
-    /**
      * A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are 'body' for document body and 'self' for the element itself.
      * @see MultiSelectAppendToType
      * Default value is 'body'.
      */
     appendTo?: MultiSelectAppendToType;
     /**
-     * Text to display when filtering does not return any results. Defaults to value from PrimeVue locale configuration.
-     * Default value is 'No results found'.
-     */
-    emptyFilterMessage?: string | undefined;
-    /**
-     * Text to display when there are no options available. Defaults to value from PrimeVue locale configuration.
-     * Default value is 'No results found'.
-     */
-    emptyMessage?: string | undefined;
-    /**
      * Defines how the selected items are displayed.
      * @see MultiSelectDisplayType
      * Default value is 'comma'.
      */
     display?: MultiSelectDisplayType;
-    /**
-     * Style class of the overlay panel.
-     */
-    panelClass?: any;
     /**
      * Label to display after exceeding max selected labels.
      * Default value is '{0} items selected'.
@@ -195,6 +197,48 @@ export interface MultiSelectProps {
      * @see VirtualScroller.VirtualScrollerProps
      */
     virtualScrollerOptions?: VirtualScrollerProps;
+    /**
+     * Whether to focus on the first visible or selected element when the overlay panel is shown.
+     * Default value is true.
+     */
+    autoOptionFocus?: boolean | undefined;
+    /**
+     * Text to be displayed in hidden accessible field when filtering returns any results. Defaults to value from PrimeVue locale configuration.
+     * Default value is '{0} results are available'.
+     */
+    filterMessage?: string | undefined;
+    /**
+     * Text to be displayed in hidden accessible field when options are selected. Defaults to value from PrimeVue locale configuration.
+     * Default value is '{0} items selected'.
+     */
+    selectionMessage?: string | undefined;
+    /**
+     * Text to be displayed in hidden accessible field when any option is not selected. Defaults to value from PrimeVue locale configuration.
+     * Default value is 'No selected item'.
+     */
+    emptySelectionMessage?: string | undefined;
+    /**
+     * Text to display when filtering does not return any results. Defaults to value from PrimeVue locale configuration.
+     * Default value is 'No results found'.
+     */
+    emptyFilterMessage?: string | undefined;
+    /**
+     * Text to display when there are no options available. Defaults to value from PrimeVue locale configuration.
+     * Default value is 'No results found'.
+     */
+    emptyMessage?: string | undefined;
+    /**
+     * Index of the element in tabbing order.
+     */
+    tabindex?: number | string | undefined;
+    /**
+     * Defines a string value that labels an interactive element.
+     */
+    ariaLabel?: string | undefined;
+    /**
+     * Identifier of the underlying input element.
+     */
+    ariaLabelledby?: string | undefined;
 }
 
 export interface MultiSelectSlots {
@@ -212,6 +256,20 @@ export interface MultiSelectSlots {
          */
         placeholder: string;
     }) => VNode[];
+    /**
+     * Custom chip template.
+     * @param {Object} scope - chip slot's params.
+     */
+    chip: (scope: {
+        /**
+         * A value in the selection
+         */
+        value: any;
+    }) => VNode[];
+    /**
+     * Custom indicator template.
+     */
+    indicator: () => VNode[];
     /**
      * Custom header template.
      * @param {Object} scope - header slot's params.
@@ -241,14 +299,6 @@ export interface MultiSelectSlots {
         options: any[];
     }) => VNode[];
     /**
-     * Custom emptyfilter template.
-     */
-    emptyfilter: () => VNode[];
-    /**
-     * Custom empty template.
-     */
-    empty: () => VNode[];
-    /**
      * Custom option template.
      * @param {Object} scope - option slot's params.
      */
@@ -277,15 +327,13 @@ export interface MultiSelectSlots {
         index: number;
     }) => VNode[];
     /**
-     * Custom chip template.
-     * @param {Object} scope - chip slot's params.
+     * Custom emptyfilter template.
      */
-    chip: (scope: {
-        /**
-         * A value in the selection
-         */
-        value: any;
-    }) => VNode[];
+    emptyfilter: () => VNode[];
+    /**
+     * Custom empty template.
+     */
+    empty: () => VNode[];
     /**
      * Custom content template.
      * @param {Object} scope - content slot's params.
@@ -321,10 +369,6 @@ export interface MultiSelectSlots {
          */
         options: any[];
     }) => VNode[];
-    /**
-     * Custom indicator template.
-     */
-    indicator: () => VNode[];
 }
 
 export declare type MultiSelectEmits = {
@@ -338,6 +382,16 @@ export declare type MultiSelectEmits = {
      * @param {MultiSelectChangeEvent} event - Custom change event.
      */
     'change': (event: MultiSelectChangeEvent) => void;
+    /**
+     * Callback to invoke when the component receives focus.
+     * @param {Event} event - Browser event.
+     */
+    'focus': (event: Event) => void;
+    /**
+     * Callback to invoke when the component loses focus.
+     * @param {Event} event - Browser event.
+     */
+    'blur': (event: Event) => void;
     /**
      * Callback to invoke before the overlay is shown.
      */
@@ -369,12 +423,18 @@ export declare type MultiSelectEmits = {
 declare class MultiSelect extends ClassComponent<MultiSelectProps, MultiSelectSlots, MultiSelectEmits> {
     /**
      * Shows the overlay.
+     * @param {boolean} [isFocus] - Decides whether to focus on the component. Default value is false.
+     *
+     * @memberof MultiSelect
      */
-    show: () => void;
+    show: (isFocus?: boolean) => void;
     /**
      * Hides the overlay.
+     * @param {boolean} [isFocus] - Decides whether to focus on the component. Default value is false.
+     *
+     * @memberof MultiSelect
      */
-    hide: () => void;
+    hide: (isFocus?: boolean) => void;
 }
 
 declare module '@vue/runtime-core' {
