@@ -3,11 +3,11 @@
         <INInputText ref="input" class="p-inputnumber-input" role="spinbutton" :id="inputId" :class="inputClass" :style="inputStyle" :value="formattedValue" :aria-valuemin="min" :aria-valuemax="max" :aria-valuenow="modelValue" :readonly="readonly" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel"
             @input="onUserInput" @keydown="onInputKeyDown" @keypress="onInputKeyPress" @paste="onPaste" @click="onInputClick" @focus="onInputFocus" @blur="onInputBlur" v-bind="inputProps"/>
         <span class="p-inputnumber-button-group" v-if="showButtons && buttonLayout === 'stacked'">
-            <INButton :class="upButtonClass" :icon="incrementButtonIcon" v-on="upButtonListeners" :disabled="disabled" v-bind="incrementButtonProps" />
-            <INButton :class="downButtonClass" :icon="decrementButtonIcon" v-on="downButtonListeners" :disabled="disabled" v-bind="decrementButtonProps" />
+            <INButton :class="upButtonClass" :icon="incrementButtonIcon" v-on="upButtonListeners" :disabled="disabled" :tabindex="-1" v-bind="incrementButtonProps" />
+            <INButton :class="downButtonClass" :icon="decrementButtonIcon" v-on="downButtonListeners" :disabled="disabled" :tabindex="-1" v-bind="decrementButtonProps" />
         </span>
-        <INButton :class="upButtonClass" :icon="incrementButtonIcon" v-on="upButtonListeners" v-if="showButtons && buttonLayout !== 'stacked'" :disabled="disabled" v-bind="incrementButtonProps" />
-        <INButton :class="downButtonClass" :icon="decrementButtonIcon" v-on="downButtonListeners" v-if="showButtons && buttonLayout !== 'stacked'" :disabled="disabled" v-bind="decrementButtonProps" />
+        <INButton :class="upButtonClass" :icon="incrementButtonIcon" v-on="upButtonListeners" v-if="showButtons && buttonLayout !== 'stacked'" :disabled="disabled" :tabindex="-1" v-bind="incrementButtonProps" />
+        <INButton :class="downButtonClass" :icon="decrementButtonIcon" v-on="downButtonListeners" v-if="showButtons && buttonLayout !== 'stacked'" :disabled="disabled" :tabindex="-1" v-bind="decrementButtonProps" />
     </span>
 </template>
 
