@@ -274,6 +274,7 @@ export default {
         onFocus(event) {
             this.focused = true;
             this.focusedOptionIndex = this.overlayVisible && this.autoOptionFocus ? this.findFirstFocusedOptionIndex() : -1;
+            this.overlayVisible && this.scrollInView(this.focusedOptionIndex);
             this.$emit('focus', event);
         },
         onBlur(event) {
