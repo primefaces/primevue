@@ -88,6 +88,36 @@ export default {
                         <td>left</td>
                         <td>Position of the icon, valid values are "left" and "right".</td>
                     </tr>
+                    <tr>
+                        <td>disabled</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>When present, it specifies that the component should be disabled.</td>
+                    </tr>
+                    <tr>
+                        <td>tabindex</td>
+                        <td>number</td>
+                        <td>null</td>
+                        <td>Index of the element in tabbing order.</td>
+                    </tr>
+                    <tr>
+                        <td>inputId</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Style class of the component input field.</td>
+                    </tr>
+                    <tr>
+                        <td>inputClass</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Style class of the input field.</td>
+                    </tr>
+                    <tr>
+                        <td>inputStyle</td>
+                        <td>any</td>
+                        <td>null</td>
+                        <td>Inline style of the input field.</td>
+                    </tr>
 				</tbody>
 			</table>
 		</div>
@@ -164,6 +194,7 @@ export default {
 </code></pre>
 
             <h6>Keyboard Support</h6>
+            <p>Keyboard interaction is derived from the native browser handling of checkboxs in a group.</p>
             <div class="doc-tablewrapper">
                 <table class="doc-table">
                     <thead>
@@ -205,7 +236,7 @@ export default {
         <ToggleButton v-model="checked1" onIcon="pi pi-check" offIcon="pi pi-times" class="w-full sm:w-10rem" aria-label="Confirmation" />
 
         <h5>Customized</h5>
-        <ToggleButton v-model="checked2" onLabel="I confirm" offLabel="I reject" onIcon="pi pi-check" offIcon="pi pi-times" class="w-full sm:w-10rem" aria-label="Confirmation" />
+        <ToggleButton v-model="checked2" onLabel="I confirm" offLabel="I reject" onIcon="pi pi-check" offIcon="pi pi-times" class="w-full sm:w-10rem" aria-label="do you confirm" />
     </div>
 </template>
 
@@ -230,7 +261,7 @@ export default {
         <ToggleButton v-model="checked1" onIcon="pi pi-check" offIcon="pi pi-times" class="w-full sm:w-10rem" aria-label="Confirmation" />
 
         <h5>Customized</h5>
-        <ToggleButton v-model="checked2" onLabel="I confirm" offLabel="I reject" onIcon="pi pi-check" offIcon="pi pi-times" class="w-full sm:w-10rem" aria-label="Confirmation" />
+        <ToggleButton v-model="checked2" onLabel="I confirm" offLabel="I reject" onIcon="pi pi-check" offIcon="pi pi-times" class="w-full sm:w-10rem" aria-label="do you confirm" />
     </div>
 </template>
 
@@ -256,7 +287,7 @@ export default {
             <p-togglebutton v-model="checked1" on-icon="pi pi-check" off-icon="pi pi-times" class="w-full sm:w-10rem" aria-label="Confirmation"></p-togglebutton>
 
             <h5>Customized</h5>
-            <p-togglebutton v-model="checked2" on-label="I confirm" off-label="I reject" on-icon="pi pi-check" off-icon="pi pi-times" class="w-full sm:w-10rem" aria-label="Confirmation"></p-togglebutton>
+            <p-togglebutton v-model="checked2" on-label="I confirm" off-label="I reject" on-icon="pi pi-check" off-icon="pi pi-times" class="w-full sm:w-10rem" aria-label="do you confirm"></p-togglebutton>
         </div>
 
         <script type="module">
