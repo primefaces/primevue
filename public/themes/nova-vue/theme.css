@@ -751,7 +751,7 @@
 .p-dropdown .p-dropdown-label.p-placeholder {
   color: #666666;
 }
-.p-dropdown .p-dropdown-label:enabled:focus {
+.p-dropdown .p-dropdown-label:focus, .p-dropdown .p-dropdown-label:enabled:focus {
   outline: 0 none;
   box-shadow: none;
 }
@@ -809,6 +809,13 @@
 .p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight {
   color: #ffffff;
   background: #41b883;
+}
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight.p-focus {
+  background: rgba(65, 184, 131, 0.24);
+}
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item:not(.p-highlight):not(.p-disabled).p-focus {
+  color: #333333;
+  background: #d6d6d6;
 }
 .p-dropdown-panel .p-dropdown-items .p-dropdown-item:not(.p-highlight):not(.p-disabled):hover {
   color: #333333;
@@ -1179,6 +1186,7 @@
 }
 .p-listbox .p-listbox-list {
   padding: 0;
+  outline: 0 none;
 }
 .p-listbox .p-listbox-list .p-listbox-item {
   margin: 0;
@@ -1192,11 +1200,6 @@
   color: #ffffff;
   background: #41b883;
 }
-.p-listbox .p-listbox-list .p-listbox-item:focus {
-  outline: 0 none;
-  outline-offset: 0;
-  box-shadow: inset 0 0 0 0.15rem #c2e9d8;
-}
 .p-listbox .p-listbox-list .p-listbox-item-group {
   margin: 0;
   padding: 0.857rem;
@@ -1209,9 +1212,22 @@
   color: #333333;
   background: transparent;
 }
+.p-listbox:not(.p-disabled) .p-listbox-item.p-highlight.p-focus {
+  background: rgba(65, 184, 131, 0.24);
+}
+.p-listbox:not(.p-disabled) .p-listbox-item:not(.p-highlight):not(.p-disabled).p-focus {
+  color: #333333;
+  background: #d6d6d6;
+}
 .p-listbox:not(.p-disabled) .p-listbox-item:not(.p-highlight):not(.p-disabled):hover {
   color: #333333;
   background: #eaeaea;
+}
+.p-listbox.p-focus {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: 0 0 0 0.2rem #c2e9d8;
+  border-color: #41b883;
 }
 .p-listbox.p-invalid {
   border-color: #a80000;
@@ -1747,6 +1763,9 @@
   outline: 0 none;
   outline-offset: 0;
   box-shadow: 0 0 0 0.2rem #c2e9d8;
+}
+.p-button .p-button-label {
+  transition-duration: 0.2s;
 }
 .p-button .p-button-icon-left {
   margin-right: 0.5rem;

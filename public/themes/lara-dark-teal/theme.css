@@ -747,7 +747,7 @@
 .p-dropdown .p-dropdown-label.p-placeholder {
   color: rgba(255, 255, 255, 0.6);
 }
-.p-dropdown .p-dropdown-label:enabled:focus {
+.p-dropdown .p-dropdown-label:focus, .p-dropdown .p-dropdown-label:enabled:focus {
   outline: 0 none;
   box-shadow: none;
 }
@@ -805,6 +805,13 @@
 .p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight {
   color: rgba(255, 255, 255, 0.87);
   background: rgba(94, 234, 212, 0.16);
+}
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight.p-focus {
+  background: rgba(94, 234, 212, 0.24);
+}
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item:not(.p-highlight):not(.p-disabled).p-focus {
+  color: rgba(255, 255, 255, 0.87);
+  background: #0b213f;
 }
 .p-dropdown-panel .p-dropdown-items .p-dropdown-item:not(.p-highlight):not(.p-disabled):hover {
   color: rgba(255, 255, 255, 0.87);
@@ -1175,6 +1182,7 @@
 }
 .p-listbox .p-listbox-list {
   padding: 0.75rem 0;
+  outline: 0 none;
 }
 .p-listbox .p-listbox-list .p-listbox-item {
   margin: 0;
@@ -1188,11 +1196,6 @@
   color: rgba(255, 255, 255, 0.87);
   background: rgba(94, 234, 212, 0.16);
 }
-.p-listbox .p-listbox-list .p-listbox-item:focus {
-  outline: 0 none;
-  outline-offset: 0;
-  box-shadow: inset 0 0 0 0.15rem rgba(94, 234, 212, 0.5);
-}
 .p-listbox .p-listbox-list .p-listbox-item-group {
   margin: 0;
   padding: 0.75rem 1.25rem;
@@ -1205,9 +1208,22 @@
   color: rgba(255, 255, 255, 0.87);
   background: transparent;
 }
+.p-listbox:not(.p-disabled) .p-listbox-item.p-highlight.p-focus {
+  background: rgba(94, 234, 212, 0.24);
+}
+.p-listbox:not(.p-disabled) .p-listbox-item:not(.p-highlight):not(.p-disabled).p-focus {
+  color: rgba(255, 255, 255, 0.87);
+  background: #0b213f;
+}
 .p-listbox:not(.p-disabled) .p-listbox-item:not(.p-highlight):not(.p-disabled):hover {
   color: rgba(255, 255, 255, 0.87);
   background: rgba(255, 255, 255, 0.03);
+}
+.p-listbox.p-focus {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: 0 0 0 0.2rem rgba(94, 234, 212, 0.5);
+  border-color: #5EEAD4;
 }
 .p-listbox.p-invalid {
   border-color: #FCA5A5;
@@ -1735,6 +1751,9 @@
   outline: 0 none;
   outline-offset: 0;
   box-shadow: 0 0 0 0.2rem rgba(94, 234, 212, 0.5);
+}
+.p-button .p-button-label {
+  transition-duration: 0.2s;
 }
 .p-button .p-button-icon-left {
   margin-right: 0.5rem;
