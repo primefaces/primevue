@@ -142,7 +142,7 @@ import Rating from 'primevue/rating';
         <h5>Accessibility</h5>
         <DevelopmentSection>
             <h6>Screen Reader</h6>
-            <p>Rating component internally uses radio buttons that are only visible to screen readers. The value to read for item is retrieved from the <router-link to="/locale">locale</router-link> API via <i>star</i>, <i>stars</i> and <i>noneStars</i> of the <i>aria</i> property.</p>
+            <p>Rating component internally uses radio buttons that are only visible to screen readers. The value to read for item is retrieved from the <router-link to="/locale">locale</router-link> API via <i>star</i> and <i>stars</i> of the <i>aria</i> property.</p>
 
             <h6>Keyboard Support</h6>
             <p>Keyboard interaction is derived from the native browser handling of radio buttons in a group.</p>

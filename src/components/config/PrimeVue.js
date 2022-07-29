@@ -71,9 +71,8 @@ const defaultOptions = {
             trueLabel: 'True',
             falseLabel: 'False',
             nullLabel: 'Not Selected',
-            star: 'star',
-            stars: 'stars',
-            noneStars: 'No Rating',
+            star: '1 star',
+            stars: '{star} stars',
             selectAll: 'All items selected',
             unselectAll: 'All items unselected',
             close: 'Close'
