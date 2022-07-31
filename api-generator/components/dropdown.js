@@ -224,7 +224,7 @@ const DropdownProps = [
     {
         name: "tabindex",
         type: "number",
-        default: "null",
+        default: "0",
         description: "Index of the element in tabbing order."
     },
     {
