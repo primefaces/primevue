@@ -10,17 +10,29 @@ export interface CheckboxProps {
      */
     modelValue?: any;
     /**
+     * Name of the input element.
+     */
+    name?: string | undefined;
+    /**
      * Allows to select a boolean value instead of multiple values.
      */
     binary?: boolean;
     /**
-     * Style class of the component input field.
+     * When present, it specifies that the element should be disabled.
      */
-    class?: any;
+    disabled?: boolean | undefined;
     /**
-     * Inline style of the component.
+     * When present, it specifies that an input field is read-only.
      */
-    style?: any;
+    readonly?: boolean | undefined;
+    /**
+     * When present, it specifies that the element is required.
+     */
+    required?: boolean | undefined;
+    /**
+     * Index of the element in tabbing order.
+     */
+    tabindex?: number | undefined;
     /**
      * Value in checked state.
      */
@@ -29,6 +41,30 @@ export interface CheckboxProps {
      * Value in unchecked state.
      */
     falseValue?: any;
+    /**
+     * Identifier of the underlying input element.
+     */
+    inputId?: string | undefined;
+    /**
+     * Style class of the input field.
+     */
+    inputClass?: any | undefined;
+    /**
+      * Inline style of the input field.
+      */
+    inputStyle?: any | undefined;
+    /**
+     * 
+     */
+    inputProps?: object | undefined;
+    /**
+     * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
+     */
+    'aria-labelledby'?: string | undefined;
+    /**
+     * Establishes a string value that labels the component.
+     */
+    'aria-label'?: string | undefined;
 }
 
 export interface CheckboxSlots {

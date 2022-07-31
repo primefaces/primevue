@@ -33,6 +33,8 @@ import DataView from './components/dataview/DataView';
 import DataViewLayoutOptions from './components/dataviewlayoutoptions/DataViewLayoutOptions';
 import DeferredContent from './components/deferredcontent/DeferredContent';
 import Dialog from './components/dialog/Dialog';
+import DynamicDialog from './components/dynamicdialog/DynamicDialog';
+import DialogService from './components/dialogservice/DialogService';
 import Divider from './components/divider/Divider';
 import Dock from './components/dock/Dock';
 import Dropdown from './components/dropdown/Dropdown';
@@ -104,6 +106,7 @@ import AppInputStyleSwitch from './AppInputStyleSwitch';
 import AppDemoActions from './AppDemoActions';
 import AppDocumentation from './AppDocumentation';
 import CodeHighlight from './AppCodeHighlight';
+import DevelopmentSection from './DevelopmentSection';
 
 import EventBus from '@/AppEventBus';
 
@@ -128,6 +131,7 @@ app.config.globalProperties.$appState = reactive({theme: 'lara-light-blue', dark
 app.use(PrimeVue, {ripple: true});
 app.use(ToastService);
 app.use(ConfirmationService);
+app.use(DialogService);
 app.use(router);
 
 app.directive('badge', BadgeDirective);
@@ -163,6 +167,7 @@ app.component('DataView', DataView);
 app.component('DataViewLayoutOptions', DataViewLayoutOptions);
 app.component('DeferredContent', DeferredContent);
 app.component('Dialog', Dialog);
+app.component('DynamicDialog', DynamicDialog);
 app.component('Divider', Divider);
 app.component('Dock', Dock);
 app.component('Dropdown', Dropdown);
@@ -229,6 +234,7 @@ app.component('VirtualScroller', VirtualScroller);
 app.component('AppDemoActions', AppDemoActions);
 app.component('AppInputStyleSwitch', AppInputStyleSwitch);
 app.component('AppDoc', AppDocumentation);
+app.component('DevelopmentSection', DevelopmentSection);
 app.directive('code', CodeHighlight);
 
 app.mount('#app');

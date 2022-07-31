@@ -4,7 +4,7 @@ import { TreeNode } from '../tree';
 
 type TreeSelectSelectionModeType = 'single' | 'multiple' | 'checkbox' | undefined;
 
-type TreeSelectAppendToType = 'body' | 'self' | string | undefined;
+type TreeSelectAppendToType = 'body' | 'self' | string | undefined | HTMLElement;
 
 type TreeSelectDisplayType = 'comma' | 'chip' | undefined;
 
@@ -34,14 +34,6 @@ export interface TreeSelectProps {
      * Index of the element in tabbing order.
      */
     tabindex?: string | undefined;
-    /**
-     * Identifier of the underlying input element.
-     */
-    inputId?: string | undefined;
-    /**
-     * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
-     */
-    ariaLabelledBy?: string | undefined;
     /**
      * Defines the selection mode.
      * @see TreeSelectSelectionModeType
@@ -74,6 +66,30 @@ export interface TreeSelectProps {
      * Default value is true.
      */
     metaKeySelection?: boolean | undefined;
+    /**
+     * 	Identifier of the underlying input element.
+     */
+    inputId?: string | undefined;
+    /**
+     * Style class of the input field.
+     */
+    inputClass?: any | undefined;
+    /**
+     * Inline style of the input field.
+     */
+    inputStyle?: any | undefined;
+    /**
+     * 
+     */
+    inputProps?: object | undefined;
+    /**
+     * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
+     */
+    'aria-labelledby'?: string | undefined;
+    /**
+      * Establishes a string value that labels the component.
+      */
+    'aria-label'?: string | undefined;
 }
 
 export interface TreeSelectSlots {
@@ -113,7 +129,7 @@ export interface TreeSelectSlots {
         /**
          * Selected value
          */
-         value: TreeNode | any;
+        value: TreeNode | any;
         /**
          * An array of treenodes.
          */

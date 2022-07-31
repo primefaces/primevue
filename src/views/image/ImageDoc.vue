@@ -91,6 +91,11 @@ import Image from 'primevue/image';
                         <td>-</td>
                         <td>Triggered when the preview overlay is hidden.</td>
                     </tr>
+                    <tr>
+                        <td>error</td>
+                        <td>-</td>
+                        <td>Triggered when an error occurs while loading an image file.</td>
+                    </tr>
 				</tbody>
 			</table>
 		</div>

@@ -8,6 +8,8 @@
 import EventBus from '@/AppEventBus';
 import { services, data } from './LiveEditorData';
 
+const sourceTypes = ['options-api', 'composition-api', 'browser-source'];
+
 export default {
     data() {
         return {
@@ -80,8 +82,10 @@ export default {
         },
 
         createSandboxParameters(sourceType, nameWithExt, files, extDependencies) {
-            const boolExtFiles = !this.extFiles;
-            let extFiles = !boolExtFiles ? {...this.extFiles} : {};
+            /* eslint-disable */
+            let extFiles = this.extFiles ? (this.extFiles[sourceType] ? {...this.extFiles[sourceType]} : Object.keys(this.extFiles).filter(k => !sourceTypes.includes(k)).reduce((result, current) => (result[current] = this.extFiles[current]) && result, {})) : {};
+            Object.entries(extFiles).forEach(([key, value]) => extFiles[key].content && (extFiles[key].content = value.content.replaceAll('<\\/script>', '<\/script>')));
+
             let extIndexCSS = extFiles['index.css'] || '';
             delete extFiles['index.css'];
 
@@ -295,7 +299,7 @@ export default {
     ${extIndexCSS}
     `
 };
-            
+
             if (sourceType === 'browser-source') {
                 return {
                     files: {
@@ -313,7 +317,7 @@ export default {
                             dependencies: {
                                 ...extDependencies,
                                 'vue': dependencies['vue'],
-                                'primevue': '^3.13.0',
+                                'primevue': '^3.15.0',
                                 'primeflex': dependencies['primeflex'],
                                 'primeicons': dependencies['primeicons'],
                                 '@babel/cli': dependencies['@babel/cli'],
@@ -397,8 +401,8 @@ export default {
 
                 serviceArr.forEach(serv => {
                     path = sourceType === 'browser-source' ? `${serv}.js` : `src/service/${serv}.js`;
-                    let _content = sourceType === 'browser-source' ? 
-                                `${services[serv].replaceAll('export default class', 'class').replaceAll('demo/data/', './')}` : 
+                    let _content = sourceType === 'browser-source' ?
+                                `${services[serv].replaceAll('export default class', 'class').replaceAll('demo/data/', './')}` :
                                 `${services[serv]}`;
 
                     _files[path] = {
@@ -537,9 +541,11 @@ import DataView from 'primevue/dataview';
 import DataViewLayoutOptions from 'primevue/dataviewlayoutoptions';
 import DeferredContent from 'primevue/deferredcontent';
 import Dialog from 'primevue/dialog';
+import DialogService from 'primevue/dialogservice'
 import Divider from 'primevue/divider';
 import Dock from 'primevue/dock';
 import Dropdown from 'primevue/dropdown';
+import DynamicDialog from 'primevue/dynamicdialog';
 import Fieldset from 'primevue/fieldset';
 import FileUpload from 'primevue/fileupload';
 import Galleria from 'primevue/galleria';
@@ -608,6 +614,7 @@ const app = createApp(${name});
 app.use(PrimeVue, { ripple: true });
 app.use(ConfirmationService);
 app.use(ToastService);
+app.use(DialogService);
 app.use(router);
 
 app.directive('tooltip', Tooltip);
@@ -645,6 +652,7 @@ app.component('Dialog', Dialog);
 app.component('Divider', Divider);
 app.component('Dock', Dock);
 app.component('Dropdown', Dropdown);
+app.component('DynamicDialog', DynamicDialog);
 app.component('Fieldset', Fieldset);
 app.component('FileUpload', FileUpload);
 app.component('Galleria', Galleria);

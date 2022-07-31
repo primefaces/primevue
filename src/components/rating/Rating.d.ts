@@ -17,6 +17,10 @@ export interface RatingProps {
      */
     modelValue?: number | undefined;
     /**
+     * Name of the element.
+     */
+    name?: string | undefined;
+    /**
      * When present, it specifies that the element should be disabled.
      */
     disabled?: boolean | undefined;

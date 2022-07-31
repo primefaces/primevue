@@ -216,7 +216,7 @@ export default {
                             color: '#495057'
                         }
                     },
-                    tooltips: {
+                    tooltip: {
                         mode: 'index',
                         intersect: true
                     }
@@ -262,7 +262,7 @@ export default {
 
             this.stackedOptions = {
                 plugins: {
-                    tooltips: {
+                    tooltip: {
                         mode: 'index',
                         intersect: false
                     },
@@ -359,7 +359,7 @@ export default {
                             color: '#ebedef'
                         }
                     },
-                    tooltips: {
+                    tooltip: {
                         mode: 'index',
                         intersect: true
                     }
@@ -410,7 +410,7 @@ export default {
                             color: '#ebedef'
                         }
                     },
-                    tooltips: {
+                    tooltip: {
                         mode: 'index',
                         intersect: false
                     }

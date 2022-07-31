@@ -34,7 +34,7 @@
                 </Listbox>
 
                 <h5>Virtual Scroll (100000 Items)</h5>
-                <Listbox v-model="selectedItem" :options="items" optionLabel="label" optionValue="value" :virtualScrollerOptions="{ itemSize: 31 }" style="width:15rem" listStyle="height:250px" />
+                <Listbox v-model="selectedItem" :options="items" optionLabel="label" optionValue="value" :virtualScrollerOptions="{ itemSize: 38 }" style="width:15rem" listStyle="height:250px" />
             </div>
         </div>
 

@@ -2,11 +2,9 @@
     <template v-if="inline">
         <slot></slot>
     </template>
-    <template v-else-if="mounted">
-        <Teleport :to="appendTo">
-            <slot></slot>
-        </Teleport>
-    </template>
+    <Teleport v-else-if="isClient" :to="appendTo">
+        <slot></slot>
+    </Teleport>
 </template>
 
 <script>
@@ -24,17 +22,12 @@ export default {
             default: false
         }
     },
-    data() {
-        return {
-            mounted: false
-        }
-    },
-    mounted() {
-        this.mounted = DomHandler.isClient();
-    },
     computed: {
         inline() {
             return this.disabled || this.appendTo === 'self';
+        },
+        isClient() {
+            return DomHandler.isClient();
         }
     }
 }

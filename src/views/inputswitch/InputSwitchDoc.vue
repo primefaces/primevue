@@ -45,7 +45,7 @@ export default {
 </code></pre>
 
 		<h5>Properties</h5>
-        <p>Any property such as name and placeholder are passed to the underlying input element. Following are the additional properties to configure the component.</p>
+        <p>Any valid attribute is passed to the root element implicitly, extended properties are as follows;</p>
 		<div class="doc-tablewrapper">
 			<table class="doc-table">
 				<thead>
@@ -64,18 +64,6 @@ export default {
                         <td>Specifies whether a inputswitch should be checked or not.</td>
                     </tr>
 					<tr>
-                        <td>style</td>
-                        <td>any</td>
-                        <td>null</td>
-                        <td>Style class of the component input field.</td>
-                    </tr>
-                    <tr>
-                        <td>class</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Inline style of the component.</td>
-                    </tr>
-					<tr>
                         <td>trueValue</td>
                         <td>any</td>
                         <td>null</td>
@@ -86,6 +74,24 @@ export default {
                         <td>any</td>
                         <td>null</td>
                         <td>Value in unchecked state.</td>
+                    </tr>
+					<tr>
+                        <td>inputId</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Style class of the component input field.</td>
+                    </tr>
+                    <tr>
+                        <td>inputClass</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Style class of the input field.</td>
+                    </tr>
+                    <tr>
+                        <td>inputStyle</td>
+                        <td>any</td>
+                        <td>null</td>
+                        <td>Inline style of the input field.</td>
                     </tr>
 				</tbody>
 			</table>
@@ -148,6 +154,45 @@ export default {
 				</tbody>
 			</table>
 		</div>
+
+		<h5>Accessibility</h5>
+		<DevelopmentSection>
+			<h6>Screen Reader</h6>
+			<p>InputSwitch component uses a hidden native checkbox element with <i>switch</i> role internally that is only visible to screen readers. Value to describe the component can either be provided via <i>label</i> tag combined with <i>id</i> prop or using <i>aria-labelledby</i>, <i>aria-label</i> props.</p>
+
+<pre v-code><code>
+&lt;label for="switch1"&gt;Remember Me&lt;/label&gt;
+&lt;InputSwitch id="switch1" /&gt;
+
+&lt;span id="switch2"&gt;Remember Me&lt;/span&gt;
+&lt;InputSwitch aria-labelledby="switch2" /&gt;
+
+&lt;InputSwitch aria-label="Remember Me" /&gt;
+
+</code></pre>
+
+			<h6>Keyboard Support</h6>
+			<div class="doc-tablewrapper">
+				<table class="doc-table">
+					<thead>
+						<tr>
+							<th>Key</th>
+							<th>Function</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><i>tab</i></td>
+							<td>Moves focus to the switch.</td>
+						</tr>
+						<tr>
+							<td><i>space</i></td>
+							<td>Toggles the checked state.</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</DevelopmentSection>
 
 		<h5>Dependencies</h5>
 		<p>None.</p>

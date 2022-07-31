@@ -1,15 +1,15 @@
 <template>
-    <div :class="containerClass" :style="style">
-        <ul :class="['p-inputtext p-chips-multiple-container', {'p-disabled': $attrs.disabled, 'p-focus': focused}]" @click="onWrapperClick()">
-            <li v-for="(val,i) of modelValue" :key="`${i}_${val}`" class="p-chips-token">
-                <slot name="chip" :value="val">
+    <div :class="containerClass">
+        <ul :class="['p-inputtext p-chips-multiple-container', {'p-disabled': disabled, 'p-focus': focused}]" role="listbox" aria-orientation="horizontal" @click="onWrapperClick()">
+            <li v-for="(val,i) of modelValue" :key="`${i}_${val}`" role="option" :class="['p-chips-token', {'p-focus': focusedIndex === i}]">
+                <slot name="chip" :value="val" :aria-label="val">
                     <span class="p-chips-token-label">{{val}}</span>
                 </slot>
                 <span class="p-chips-token-icon pi pi-times-circle" @click="removeItem($event, i)"></span>
             </li>
             <li class="p-chips-input-token">
-                <input ref="input" type="text" v-bind="$attrs" @focus="onFocus" @blur="onBlur($event)" @input="onInput" @keydown="onKeyDown($event)" @paste="onPaste($event)"
-                     :disabled="$attrs.disabled || maxedOut">
+                <input ref="input" type="text" :id="inputId" :class="inputClass" :style="inputStyle" :disabled="disabled || maxedOut" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel"
+                    @focus="onFocus($event)" @blur="onBlur($event)" @input="onInput" @keydown="onKeyDown($event)" @paste="onPaste($event)" v-bind="inputProps">
             </li>
         </ul>
     </div>
@@ -18,8 +18,7 @@
 <script>
 export default {
     name: 'Chips',
-    inheritAttrs: false,
-    emits: ['update:modelValue', 'add', 'remove'],
+    emits: ['update:modelValue', 'add', 'remove', 'focus', 'blur'],
     props: {
         modelValue: {
             type: Array,
@@ -41,13 +40,28 @@ export default {
             type: Boolean,
             default: true
         },
-        class: null,
-        style: null
+        inputId: null,
+        inputClass: null,
+        inputStyle: null,
+        inputProps: null,
+        disabled: {
+            type: Boolean,
+            default: false
+        },
+        'aria-labelledby': {
+            type: String,
+			default: null
+        },
+        'aria-label': {
+            type: String,
+            default: null
+        }
     },
     data() {
         return {
             inputValue: null,
-            focused: false
+            focused: false,
+            focusedIndex: null
         };
     },
     methods: {
@@ -57,36 +71,55 @@ export default {
         onInput(event) {
             this.inputValue = event.target.value;
         },
-        onFocus() {
+        onFocus(event) {
             this.focused = true;
+            this.$emit('focus', event);
         },
         onBlur(event) {
             this.focused = false;
+            this.focusedIndex = null;
             if (this.addOnBlur) {
                 this.addItem(event, event.target.value, false);
             }
+            this.$emit('blur', event);
         },
         onKeyDown(event) {
             const inputValue = event.target.value;
 
-            switch(event.which) {
-                //backspace
-                case 8:
+            switch(event.code) {
+                case 'Backspace':
                     if (inputValue.length === 0 && this.modelValue && this.modelValue.length > 0) {
-                        this.removeItem(event, this.modelValue.length - 1);
+                        if (this.focusedIndex !== null) {
+                            this.removeItem(event, this.focusedIndex);
+                        }
+                        else this.removeItem(event, this.modelValue.length - 1);
                     }
+
                 break;
 
-                //enter
-                case 13:
+                case 'Enter':
                     if (inputValue && inputValue.trim().length && !this.maxedOut) {
                         this.addItem(event, inputValue, true);
                     }
                 break;
 
+                case 'ArrowLeft':
+                    if (inputValue.length === 0 && this.modelValue && this.modelValue.length > 0) {
+                        if (this.focusedIndex === 0 || this.focusedIndex === null) this.focusedIndex = this.modelValue.length-1;
+                        else this.focusedIndex--;
+                    }
+                break;
+
+                case 'ArrowRight':
+                    if (inputValue.length === 0 && this.modelValue && this.modelValue.length > 0) {
+                        if (this.focusedIndex === null || this.focusedIndex === this.modelValue.length-1) this.focusedIndex = 0;
+                        else this.focusedIndex++;
+                    }
+                break;
+
                 default:
                     if (this.separator) {
-                        if (this.separator === ',' && (event.which === 188 || event.which === 110)) {
+                        if (this.separator === ',' && event.key === ',') {
                             this.addItem(event, inputValue, true);
                         }
                     }
@@ -128,12 +161,13 @@ export default {
             }
         },
         removeItem(event, index) {
-            if (this.$attrs.disabled) {
+            if (this.disabled) {
                 return;
             }
 
             let values = [...this.modelValue];
             const removedItem = values.splice(index, 1);
+            if (values.length === 0) this.focusedIndex = null;
             this.$emit('update:modelValue', values);
             this.$emit('remove', {
                 originalEvent: event,
@@ -146,7 +180,7 @@ export default {
             return this.max && this.modelValue && this.max === this.modelValue.length;
         },
         containerClass() {
-            return ['p-chips p-component p-inputwrapper', this.class, {
+            return ['p-chips p-component p-inputwrapper', {
                 'p-inputwrapper-filled': ((this.modelValue && this.modelValue.length) || (this.inputValue && this.inputValue.length)),
                 'p-inputwrapper-focus': this.focused
             }];
@@ -200,5 +234,9 @@ export default {
 
 .p-fluid .p-chips {
     display: flex;
+}
+
+.p-chips .p-chips-multiple-container .p-chips-token.p-focus {
+    background-color: var(--primary-color);
 }
 </style>

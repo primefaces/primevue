@@ -6,13 +6,29 @@ export interface TriStateCheckboxProps {
      */
     modelValue?: Nullable<boolean>;
     /**
-     * 	Inline style of the component.
+     * When present, it specifies that the component should be disabled.
      */
-    style?: any;
+    disabled?: boolean | undefined;
     /**
-     * Style class of the component.
+     * Index of the element in tabbing order.
      */
-    class?: any;
+    tabindex?: string | undefined;
+    /**
+     * Identifier of the underlying input element.
+     */
+    inputId?: string | undefined;
+    /**
+     * 
+     */
+    inputProps?: object | undefined;
+    /**
+     * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
+     */
+    'aria-labelledby'?: string | undefined;
+    /**
+      * Establishes a string value that labels the component.
+      */
+    'aria-label'?: string | undefined;
 }
 
 export interface TriStateCheckboxSlots {

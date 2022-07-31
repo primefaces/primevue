@@ -29,6 +29,13 @@ import Toast from 'primevue/toast';
         <p>Ideal location of a Toast is the main application template so that it can be used by any component within the application. A single message is represented by the Message interface in PrimeVue that defines various properties such as severity,
 			summary and detail.</p>
 
+<pre v-code><code>
+&lt;template&gt;
+    &lt;Toast /&gt;
+&lt;template&gt;
+
+</code></pre>
+
         <h5>Options API</h5>
         <p><i>$toast</i> is available as a property in the application instance.</p>
 <pre v-code.script><code>

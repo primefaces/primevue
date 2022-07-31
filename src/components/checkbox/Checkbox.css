@@ -6,6 +6,10 @@
     position: relative;
 }
 
+.p-checkbox.p-checkbox-disabled {
+    cursor: default;
+}
+
 .p-checkbox-box {
     display: flex;
     justify-content: center;

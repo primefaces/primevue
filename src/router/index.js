@@ -40,6 +40,11 @@ const routes = [
             component: () => import('../views/support/Support.vue')
         },
         {
+            path: '/uikit',
+            name: 'uikit',
+            component: () => import('../views/uikit/UIKit.vue')
+        },
+        {
             path: '/theming',
             name: 'theming',
             component: () => import('../views/theming/Theming.vue')
@@ -348,6 +353,11 @@ const routes = [
             path: '/dropdown',
             name: 'dropdown',
             component: () => import('../views/dropdown/DropdownDemo.vue')
+        },
+        {
+            path: '/dynamicdialog',
+            name: 'dynamicdialog',
+            component: () => import('../views/dynamicdialog/DynamicDialogDemo.vue')
         },
         {
             path: '/editor',

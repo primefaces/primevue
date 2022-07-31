@@ -1,11 +1,10 @@
 <template>
-    <textarea :class="['p-inputtextarea p-inputtext p-component', {'p-filled': filled, 'p-inputtextarea-resizable ': autoResize}]" v-bind="$attrs" :value="modelValue" @input="onInput"></textarea>
+    <textarea :class="['p-inputtextarea p-inputtext p-component', {'p-filled': filled, 'p-inputtextarea-resizable ': autoResize}]" :value="modelValue" @input="onInput"></textarea>
 </template>
 
 <script>
 export default {
     name: 'Textarea',
-    inheritAttrs: false,
     emits: ['update:modelValue'],
     props: {
         modelValue: null,

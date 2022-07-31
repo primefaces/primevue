@@ -25,87 +25,85 @@ import CascadeSelect from 'primevue/cascadeselect';
 </code></pre>
 
 <pre v-code.script><code>
-data() {
-	data() &#123;
-        return &#123;
-            selectedCity: null,
-            countries: [
-                &#123;
-                    name: 'Australia',
-                    code: 'AU',
-                    states: [
-                        &#123;
-                            name: 'New South Wales',
-                            cities: [
-                                &#123;cname: 'Sydney', code: 'A-SY'&#125;,
-                                &#123;cname: 'Newcastle', code: 'A-NE'&#125;,
-                                &#123;cname: 'Wollongong', code: 'A-WO'&#125;
-                            ]
-                        &#125;,
-                        &#123;
-                            name: 'Queensland',
-                            cities: [
-                                &#123;cname: 'Brisbane', code: 'A-BR'&#125;,
-                                &#123;cname: 'Townsville', code: 'A-TO'&#125;
-                            ]
-                        &#125;,
-                        
-                    ]
-                &#125;,
-                &#123;
-                    name: 'Canada', 
-                    code: 'CA',
-                    states: [
-                        &#123;
-                            name: 'Quebec',
-                            cities: [
-                                &#123;cname: 'Montreal', code: 'C-MO'&#125;,
-                                &#123;cname: 'Quebec City', code: 'C-QU'&#125;
-                            ]
-                        &#125;,
-                        &#123;
-                            name: 'Ontario',
-                            cities: [
-                                &#123;cname: 'Ottawa', code: 'C-OT'&#125;,
-                                &#123;cname: 'Toronto', code: 'C-TO'&#125;
-                            ]
-                        &#125;,
-                        
-                    ]
-                &#125;,
-                &#123;
-                    name: 'United States',
-                    code: 'US',
-                    states: [
-                        &#123;
-                            name: 'California',
-                            cities: [
-                                &#123;cname: 'Los Angeles', code: 'US-LA'&#125;,
-                                &#123;cname: 'San Diego', code: 'US-SD'&#125;,
-                                &#123;cname: 'San Francisco', code: 'US-SF'&#125;
-                            ]
-                        &#125;,
-                        &#123;
-                            name: 'Florida',
-                            cities: [
-                                &#123;cname: 'Jacksonville', code: 'US-JA'&#125;,
-                                &#123;cname: 'Miami', code: 'US-MI'&#125;,
-                                &#123;cname: 'Tampa', code: 'US-TA'&#125;,
-                                &#123;cname: 'Orlando', code: 'US-OR'&#125;
-                            ]
-                        &#125;,
-                        &#123;
-                            name: 'Texas',
-                            cities: [
-                                &#123;cname: 'Austin', code: 'US-AU'&#125;,
-                                &#123;cname: 'Dallas', code: 'US-DA'&#125;,
-                                &#123;cname: 'Houston', code: 'US-HO'&#125;
-                            ]
-                        &#125;
-                    ]
-                &#125;
-            ]
-        &#125; 
+data() &#123;
+    return &#123;
+        selectedCity: null,
+        countries: [
+            &#123;
+                name: 'Australia',
+                code: 'AU',
+                states: [
+                    &#123;
+                        name: 'New South Wales',
+                        cities: [
+                            &#123;cname: 'Sydney', code: 'A-SY'&#125;,
+                            &#123;cname: 'Newcastle', code: 'A-NE'&#125;,
+                            &#123;cname: 'Wollongong', code: 'A-WO'&#125;
+                        ]
+                    &#125;,
+                    &#123;
+                        name: 'Queensland',
+                        cities: [
+                            &#123;cname: 'Brisbane', code: 'A-BR'&#125;,
+                            &#123;cname: 'Townsville', code: 'A-TO'&#125;
+                        ]
+                    &#125;,
+                    
+                ]
+            &#125;,
+            &#123;
+                name: 'Canada', 
+                code: 'CA',
+                states: [
+                    &#123;
+                        name: 'Quebec',
+                        cities: [
+                            &#123;cname: 'Montreal', code: 'C-MO'&#125;,
+                            &#123;cname: 'Quebec City', code: 'C-QU'&#125;
+                        ]
+                    &#125;,
+                    &#123;
+                        name: 'Ontario',
+                        cities: [
+                            &#123;cname: 'Ottawa', code: 'C-OT'&#125;,
+                            &#123;cname: 'Toronto', code: 'C-TO'&#125;
+                        ]
+                    &#125;,
+                    
+                ]
+            &#125;,
+            &#123;
+                name: 'United States',
+                code: 'US',
+                states: [
+                    &#123;
+                        name: 'California',
+                        cities: [
+                            &#123;cname: 'Los Angeles', code: 'US-LA'&#125;,
+                            &#123;cname: 'San Diego', code: 'US-SD'&#125;,
+                            &#123;cname: 'San Francisco', code: 'US-SF'&#125;
+                        ]
+                    &#125;,
+                    &#123;
+                        name: 'Florida',
+                        cities: [
+                            &#123;cname: 'Jacksonville', code: 'US-JA'&#125;,
+                            &#123;cname: 'Miami', code: 'US-MI'&#125;,
+                            &#123;cname: 'Tampa', code: 'US-TA'&#125;,
+                            &#123;cname: 'Orlando', code: 'US-OR'&#125;
+                        ]
+                    &#125;,
+                    &#123;
+                        name: 'Texas',
+                        cities: [
+                            &#123;cname: 'Austin', code: 'US-AU'&#125;,
+                            &#123;cname: 'Dallas', code: 'US-DA'&#125;,
+                            &#123;cname: 'Houston', code: 'US-HO'&#125;
+                        ]
+                    &#125;
+                ]
+            &#125;
+        ]
     &#125;
 }
 
@@ -129,7 +127,7 @@ data() {
 </template>
 </code></pre>
 
-				<h5>Properties</h5>
+		<h5>Properties</h5>
         <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
 		<div class="doc-tablewrapper">
 			<table class="doc-table">
@@ -203,29 +201,11 @@ data() {
                         <td>Index of the element in tabbing order.</td>
                     </tr>
                     <tr>
-                        <td>inputId</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Identifier of the underlying input element.</td>
-                    </tr>
-                    <tr>
-                        <td>ariaLabelledBy</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Establishes relationships between the component and label(s) where its value should be one or more element IDs.</td>
-                    </tr>
-                    <tr>
                         <td>appendTo</td>
                         <td>string</td>
                         <td>body</td>
                         <td>A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are "body" for document body
                         and "self" for the element itself.</td>
-                    </tr>
-                    <tr>
-                        <td>panelClass</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Style class of the overlay panel.</td>
                     </tr>
                     <tr>
                         <td>loading</td>
@@ -238,6 +218,42 @@ data() {
                         <td>string</td>
                         <td>pi pi-spinner pi-spin</td>
                         <td>Icon to display in loading state.</td>
+                    </tr>
+                    <tr>
+                        <td>inputId</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Identifier of the underlying input element.</td>
+                    </tr>
+                    <tr>
+                        <td>inputProps</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>inputClass</td>
+                        <td>any</td>
+                        <td>null</td>
+                        <td>Style class of the input field.</td>
+                    </tr>
+                    <tr>
+                        <td>inputStyle</td>
+                        <td>any</td>
+                        <td>null</td>
+                        <td>Inline style of the input field.</td>
+                    </tr>
+                    <tr>
+                        <td>panelClass</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Style class of the overlay panel.</td>
+                    </tr>
+                    <tr>
+                        <td>panelProps</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td></td>
                     </tr>
 				</tbody>
 			</table>
@@ -359,6 +375,99 @@ data() {
 				</tbody>
 			</table>
 		</div>
+
+        <h5>Accessibility</h5>
+        <DevelopmentSection>
+            <h6>Screen Reader</h6>
+            <p>Value to describe the component can either be provided with <i>aria-labelledby</i> or <i>aria-label</i> props. The cascadeselect element has a <i>combobox</i> role
+            in addition to <i>aria-haspopup</i> and <i>aria-expanded</i> attributes. The relation between the combobox and the popup is created with <i>aria-controls</i> that refers to the id of the popup.</p>
+            <p>The popup list has an id that refers to the <i>aria-controls</i> attribute of the <i>combobox</i> element and uses <i>tree</i> as the role. Each list item has a <i>treeitem</i> role along with <i>aria-label</i>, <i>aria-selected</i> and <i>aria-expanded</i> attributes. The container
+            element of a treenode has the <i>group</i> role. The <i>aria-setsize</i>, <i>aria-posinset</i> and <i>aria-level</i> attributes are calculated implicitly and added to each treeitem.</p>
+
+<pre v-code><code>
+&lt;span id="dd1"&gt;Options&lt;/span&gt;
+&lt;CascadeSelect aria-labelledby="dd1" /&gt;
+
+&lt;CascadeSelect aria-label="Options" /&gt;
+
+</code></pre>
+
+            <h6>Closed State Keyboard Support</h6>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Key</th>
+                            <th>Function</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><i>tab</i></td>
+                            <td>Moves focus to the cascadeselect element.</td>
+                        </tr>
+                        <tr>
+                            <td><i>space</i></td>
+                            <td>Opens the popup and moves visual focus to the selected option, if there is none then first option receives the focus.</td>
+                        </tr>
+                        <tr>
+                            <td><i>down arrow</i></td>
+                            <td>Opens the popup and moves visual focus to the selected option, if there is none then first option receives the focus.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h6>Popup Keyboard Support</h6>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Key</th>
+                            <th>Function</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><i>tab</i></td>
+                            <td>Hides the popup and moves focus to the next tabbable element.</td>
+                        </tr>
+                        <tr>
+                            <td><i>shift</i> + <i>tab</i></td>
+                            <td>Hides the popup and moves focus to the previous tabbable element.</td>
+                        </tr>
+                        <tr>
+                            <td><i>enter</i></td>
+                            <td>Selects the focused option and closes the popup.</td>
+                        </tr>
+                        <tr>
+                            <td><i>space</i></td>
+                            <td>Selects the focused option and closes the popup.</td>
+                        </tr>
+                        <tr>
+                            <td><i>escape</i></td>
+                            <td>Closes the popup, moves focus to the cascadeselect element.</td>
+                        </tr>
+                        <tr>
+                            <td><i>down arrow</i></td>
+                            <td>Moves focus to the next option.</td>
+                        </tr>
+                        <tr>
+                            <td><i>up arrow</i></td>
+                            <td>Moves focus to the previous option.</td>
+                        </tr>
+                        <tr>
+                            <td><i>right arrow</i></td>
+                            <td>If option is closed, opens the option otherwise moves focus to the first child option.</td>
+                        </tr>
+                        <tr>
+                            <td><i>left arrow</i></td>
+                            <td>If option is open, closes the option otherwise moves focus to the parent option.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </DevelopmentSection>
 
 		<h5>Dependencies</h5>
 		<p>None.</p>

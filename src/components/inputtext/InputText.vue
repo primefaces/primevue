@@ -1,11 +1,10 @@
 <template>
-    <input :class="['p-inputtext p-component', {'p-filled': filled}]" :value="modelValue" @input="onInput" v-bind="$attrs" />
+    <input :class="['p-inputtext p-component', {'p-filled': filled}]" :value="modelValue" @input="onInput"/>
 </template>
 
 <script>
 export default {
     name: 'InputText',
-    inheritAttrs: false,
     emits: ['update:modelValue'],
     props: {
         modelValue: null

@@ -330,10 +330,19 @@ export default {
             this.$emit('row-edit-init', {originalEvent: event, data: this.rowData, newData: this.editingRowData, field: this.field, index: this.rowIndex});
         },
         editorSaveCallback(event) {
-            this.$emit('row-edit-save', {originalEvent: event, data: this.rowData, newData: this.editingRowData, field: this.field, index: this.rowIndex});
+            if (this.editMode === 'row') {
+                this.$emit('row-edit-save', {originalEvent: event, data: this.rowData, newData: this.editingRowData, field: this.field, index: this.rowIndex});
+            } else {
+                this.completeEdit(event, 'enter');
+            }
         },
         editorCancelCallback(event) {
-            this.$emit('row-edit-cancel', {originalEvent: event, data: this.rowData, newData: this.editingRowData, field: this.field, index: this.rowIndex});
+            if (this.editMode === 'row') {
+                this.$emit('row-edit-cancel', {originalEvent: event, data: this.rowData, newData: this.editingRowData, field: this.field, index: this.rowIndex});
+            } else {
+                this.switchCellToViewMode();
+                this.$emit('cell-edit-cancel', {originalEvent: event, data: this.rowData, field: this.field, index: this.rowIndex});
+            }
         },
         updateStickyPosition() {
             if (this.columnProp('frozen')) {

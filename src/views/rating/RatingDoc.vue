@@ -54,6 +54,12 @@ import Rating from 'primevue/rating';
                         <td>Value of the rating.</td>
                     </tr>
                     <tr>
+                        <td>name</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Name of the element.</td>
+                    </tr>
+                    <tr>
                         <td>disabled</td>
                         <td>boolean</td>
                         <td>false</td>
@@ -133,6 +139,53 @@ import Rating from 'primevue/rating';
 			</table>
 		</div>
 
+        <h5>Accessibility</h5>
+        <DevelopmentSection>
+            <h6>Screen Reader</h6>
+            <p>Rating component internally uses radio buttons that are only visible to screen readers. The value to read for item is retrieved from the <router-link to="/locale">locale</router-link> API via <i>star</i> and <i>stars</i> of the <i>aria</i> property.</p>
+
+            <h6>Keyboard Support</h6>
+            <p>Keyboard interaction is derived from the native browser handling of radio buttons in a group.</p>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Key</th>
+                            <th>Function</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><i>tab</i></td>
+                            <td>Moves focus to the star representing the value, if there is none then first star receives the focus.</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="inline-flex flex-column">
+                                    <i class="mb-1">left arrow</i>
+                                    <i>up arrow</i>
+                                </span>
+                            </td>
+                            <td>Moves focus to the previous star, if there is none then last radio button receives the focus.</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="inline-flex flex-column">
+                                    <i class="mb-1">right arrow</i>
+                                    <i>down arrow</i>
+                                </span>
+                            </td>
+                            <td>Moves focus to the next star, if there is none then first star receives the focus.</td>
+                        </tr>
+                        <tr>
+                            <td><i>space</i></td>
+                            <td>If the focused star does not represent the value, changes the value to the star value.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </DevelopmentSection>
+
 		<h5>Dependencies</h5>
 		<p>None.</p>
     </AppDoc>
@@ -149,16 +202,16 @@ export default {
 <template>
     <div>
         <h5>Basic {{val1}}</h5>
-        <Rating v-model="val1" />
+        <Rating v-model="val1" name="basic" />
 
         <h5>Without Cancel</h5>
-        <Rating v-model="val2" :cancel="false" />
+        <Rating v-model="val2" :cancel="false" name="cancel" />
 
         <h5>ReadOnly</h5>
-        <Rating :modelValue="5" :readonly="true" :stars="10" :cancel="false" />
+        <Rating :modelValue="5" :readonly="true" :stars="10" :cancel="false" name="readonly" />
 
         <h5>Disabled</h5>
-        <Rating :modelValue="8" :disabled="true" :stars="10" />
+        <Rating :modelValue="8" :disabled="true" :stars="10" name="disabled" />
     </div>
 </template>
 
@@ -180,16 +233,16 @@ export default {
 <template>
     <div>
         <h5>Basic {{val1}}</h5>
-        <Rating v-model="val1" />
+        <Rating v-model="val1" name="basic" />
 
         <h5>Without Cancel</h5>
-        <Rating v-model="val2" :cancel="false" />
+        <Rating v-model="val2" :cancel="false" name="cancel" />
 
         <h5>ReadOnly</h5>
-        <Rating :modelValue="5" :readonly="true" :stars="10" :cancel="false" />
+        <Rating :modelValue="5" :readonly="true" :stars="10" :cancel="false" name="readonly" />
 
         <h5>Disabled</h5>
-        <Rating :modelValue="8" :disabled="true" :stars="10" />
+        <Rating :modelValue="8" :disabled="true" :stars="10" name="disabled" />
     </div>
 </template>
 
@@ -212,16 +265,16 @@ export default {
                     imports: `<script src="https://unpkg.com/primevue@^3/rating/rating.min.js"><\\/script>`,
                     content: `<div id="app">
             <h5>Basic {{val1}}</h5>
-            <p-rating v-model="val1"></p-rating>
+            <p-rating v-model="val1" name="basic"></p-rating>
 
             <h5>Without Cancel</h5>
-            <p-rating v-model="val2" :cancel="false"></p-rating>
+            <p-rating v-model="val2" :cancel="false" name="cancel"></p-rating>
 
             <h5>ReadOnly</h5>
-            <p-rating :model-value="5" :readonly="true" :stars="10" :cancel="false"></p-rating>
+            <p-rating :modelValue="5" :readonly="true" :stars="10" :cancel="false" name="readonly"></p-rating>
 
             <h5>Disabled</h5>
-            <p-rating :model-value="8" :disabled="true" :stars="10"></p-rating>
+            <p-rating :modelValue="8" :disabled="true" :stars="10" name="disabled"></p-rating>
         </div>
 
         <script type="module">

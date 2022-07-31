@@ -3,7 +3,7 @@
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>CascadeSelect</h1>
-                <p>CascadeSelect displays a nested structure of options.</p>
+                <p>CascadeSelect is a form component to select a value from a nested structure of options.</p>
             </div>
             <AppDemoActions />
         </div>

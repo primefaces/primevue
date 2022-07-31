@@ -1,24 +1,24 @@
 <template>
     <div ref="container" :class="containerClass" @click="onClick($event)">
         <div class="p-hidden-accessible">
-            <input ref="focusInput" type="text" :id="inputId" readonly :disabled="disabled" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" :tabindex="tabindex"
-                aria-haspopup="listbox" :aria-expanded="overlayVisible" :aria-labelledby="ariaLabelledBy" />
+            <input ref="focusInput" role="combobox" type="text" :id="inputId" :class="inputClass" :style="inputStyle" readonly :disabled="disabled" :tabindex="tabindex" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel"
+                aria-haspopup="tree" :aria-expanded="overlayVisible" :aria-controls="listId" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" v-bind="inputProps" />
         </div>
         <span :class="labelClass">
             <slot name="value" :value="modelValue" :placeholder="placeholder">
                 {{label}}
             </slot>
         </span>
-        <div class="p-cascadeselect-trigger" role="button" aria-haspopup="listbox" :aria-expanded="overlayVisible">
+        <div class="p-cascadeselect-trigger" role="button" aria-haspopup="tree" :aria-expanded="overlayVisible">
             <slot name="indicator">
                 <span :class="dropdownIconClass"></span>
             </slot>
         </div>
         <Portal :appendTo="appendTo">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
-                <div :ref="overlayRef" :class="panelStyleClass" v-if="overlayVisible" @click="onOverlayClick">
+                <div :ref="overlayRef" :class="panelStyleClass" v-if="overlayVisible" @click="onOverlayClick" v-bind="panelProps">
                     <div class="p-cascadeselect-items-wrapper">
-                        <CascadeSelectSub :options="options" :selectionPath="selectionPath"
+                        <CascadeSelectSub :id="listId" :options="options" :selectionPath="selectionPath"
                             :optionLabel="optionLabel" :optionValue="optionValue" :level="0" :templates="$slots"
                             :optionGroupLabel="optionGroupLabel" :optionGroupChildren="optionGroupChildren"
                             @option-select="onOptionSelect" @optiongroup-select="onOptionGroupSelect" :dirty="dirty" :root="true" />
@@ -30,14 +30,14 @@
 </template>
 
 <script>
-import {ConnectedOverlayScrollHandler,ObjectUtils,DomHandler,ZIndexUtils} from 'primevue/utils';
+import {ConnectedOverlayScrollHandler,ObjectUtils,DomHandler,ZIndexUtils,UniqueComponentId} from 'primevue/utils';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import CascadeSelectSub from './CascadeSelectSub.vue';
 import Portal from 'primevue/portal';
 
 export default {
     name: 'CascadeSelect',
-    emits: ['update:modelValue','change','group-change', 'before-show','before-hide','hide','show'],
+    emits: ['update:modelValue','change','group-change', 'before-show','before-hide','hide','show','focus','blur'],
     data() {
         return {
             selectionPath: null,
@@ -56,14 +56,11 @@ export default {
         placeholder: String,
 		disabled: Boolean,
         dataKey: null,
-        inputId: String,
         tabindex: String,
-        ariaLabelledBy: null,
         appendTo: {
             type: String,
             default: 'body'
         },
-        panelClass: null,
         loading: {
             type: Boolean,
             default: false
@@ -71,6 +68,20 @@ export default {
         loadingIcon: {
             type: String,
             default: 'pi pi-spinner pi-spin'
+        },
+        inputId: null,
+        inputClass: null,
+        inputStyle: null,
+        inputProps: null,
+        panelClass: null,
+        panelProps: null,
+        'aria-labelledby': {
+            type: String,
+			default: null
+        },
+        'aria-label': {
+            type: String,
+            default: null
         }
     },
     outsideClickListener: null,
@@ -160,11 +171,13 @@ export default {
             this.$emit('before-hide');
             this.overlayVisible = false;
         },
-        onFocus() {
+        onFocus(event) {
             this.focused = true;
+            this.$emit('focus', event);
         },
-        onBlur() {
+        onBlur(event) {
             this.focused = false;
+            this.$emit('blur', event);
         },
         onClick(event) {
             if (this.disabled || this.loading) {
@@ -260,27 +273,48 @@ export default {
             this.overlay = el;
         },
         onKeyDown(event) {
-            switch(event.key) {
+            if (this.disabled || this.loading) {
+                event.preventDefault();
+                return;
+            }
+
+            switch(event.code) {
                 case 'Down':
                 case 'ArrowDown':
                     if (this.overlayVisible) {
-                        DomHandler.findSingle(this.overlay, '.p-cascadeselect-item').children[0].focus();
+                        if (DomHandler.findSingle(this.overlay, '.p-highlight')) {
+                            DomHandler.findSingle(this.overlay, '.p-highlight').focus();
+                        }
+                        else DomHandler.findSingle(this.overlay, '.p-cascadeselect-item').children[0].focus();
                     }
-                    else if (event.altKey && this.options && this.options.length) {
+                    else {
                         this.show();
                     }
+
+                    event.preventDefault();
+                break;
+
+                case 'Space':
+                case 'Enter':
+                    if (this.overlayVisible) {
+                        this.hide();
+                    }
+                    else {
+                        this.show();
+                    }
+
                     event.preventDefault();
                 break;
 
                 case 'Escape':
+                case 'Tab':
                     if (this.overlayVisible) {
                         this.hide();
                         event.preventDefault();
                     }
                 break;
 
-                case 'Tab':
-                    this.hide();
+                default:
                 break;
             }
         },
@@ -326,6 +360,9 @@ export default {
         },
         dropdownIconClass() {
             return ['p-cascadeselect-trigger-icon', this.loading ? this.loadingIcon : 'pi pi-chevron-down'];
+        },
+        listId() {
+            return this.overlayVisible ? UniqueComponentId() + '_list' : null;
         }
     },
     components: {

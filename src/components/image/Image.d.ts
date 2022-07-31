@@ -39,6 +39,12 @@ declare class Image extends ClassComponent<ImageProps, ImageSlots, ImageEmits> {
      * @memberof Image
      */
     hide: () => void;
+    /**
+     * Triggered when an error occurs while loading an image file.
+     * 
+     * @memberof Image
+     */
+    error: () => void;
 }
 
 declare module '@vue/runtime-core' {

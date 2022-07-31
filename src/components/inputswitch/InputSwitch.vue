@@ -1,8 +1,8 @@
 <template>
-    <div :class="containerClass" @click="onClick($event)" :style="style">
+    <div :class="containerClass" @click="onClick($event)">
         <div class="p-hidden-accessible">
-            <input ref="input" type="checkbox" :checked="checked" v-bind="$attrs" @focus="onFocus($event)" @blur="onBlur($event)" @keydown.enter.prevent="onClick($event)"
-                role="switch" :aria-checked="checked">
+            <input :id="inputId" ref="input" type="checkbox" role="switch" :class="inputClass" :style="inputStyle" :checked="checked" :disabled="disabled" :aria-checked="checked" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel"
+                @focus="onFocus($event)" @blur="onBlur($event)" v-bind="inputProps">
         </div>
         <span class="p-inputswitch-slider"></span>
     </div>
@@ -11,15 +11,12 @@
 <script>
 export default {
     name: 'InputSwitch',
-    inheritAttrs: false,
-    emits: ['click', 'update:modelValue', 'change', 'input'],
+    emits: ['click', 'update:modelValue', 'change', 'input', 'focus', 'blur'],
     props: {
         modelValue: {
             type: null,
             default: false
         },
-        class: null,
-        style: null,
         trueValue: {
             type: null,
             default: true
@@ -27,6 +24,22 @@ export default {
         falseValue: {
             type: null,
             default: false
+        },
+        disabled: {
+            type: Boolean,
+            default: false
+        },
+        inputId: null,
+        inputClass: null,
+        inputStyle: null,
+        inputProps: null,
+        'aria-labelledby': {
+            type: String,
+			default: null
+        },
+        'aria-label': {
+            type: String,
+            default: null
         }
     },
     data() {
@@ -36,7 +49,7 @@ export default {
     },
     methods: {
         onClick(event) {
-            if (!this.$attrs.disabled) {
+            if (!this.disabled) {
                 const newValue = this.checked ? this.falseValue : this.trueValue;
                 this.$emit('click', event);
                 this.$emit('update:modelValue', newValue);
@@ -46,20 +59,22 @@ export default {
             }
             event.preventDefault();
         },
-        onFocus() {
+        onFocus(event) {
             this.focused = true;
+            this.$emit('focus', event);
         },
-        onBlur() {
+        onBlur(event) {
             this.focused = false;
+            this.$emit('blur', event);
         }
     },
     computed: {
         containerClass() {
             return [
-                'p-inputswitch p-component', this.class,
+                'p-inputswitch p-component',
                 {
                     'p-inputswitch-checked': this.checked,
-					'p-disabled': this.$attrs.disabled,
+					'p-disabled': this.disabled,
                     'p-focus': this.focused
                 }
             ];

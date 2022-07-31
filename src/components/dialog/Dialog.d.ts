@@ -3,7 +3,7 @@ import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 type DialogPositionType = 'center' | 'top' | 'bottom' | 'left' | 'right' | 'topleft' | 'topright' | 'bottomleft' | 'bottomright' | undefined;
 
-type DialogAppendToType = 'body' | 'self' | string | undefined;
+type DialogAppendToType = 'body' | 'self' | string | undefined | HTMLElement;
 
 export interface DialogBreakpoints {
     /**
@@ -128,6 +128,10 @@ export interface DialogProps {
      * Default value is 'body'.
      */
     appendTo?: DialogAppendToType;
+    /**
+     * Style of the dynamic dialog.
+     */
+    style?: any;
 }
 
 export interface DialogSlots {
@@ -154,11 +158,15 @@ export declare type DialogEmits = {
     /**
      * Callback to invoke when dialog is hidden.
      */
-    'show': () => void;
-    /**
-     * Callback to invoke when dialog is showed.
-     */
     'hide': () => void;
+    /**
+     * Callback to invoke after dialog is hidden.
+    */
+    'after-hide': () => void;
+    /**
+     * Callback to invoke when dialog is shown.
+     */
+    'show': () => void;
     /**
      * Fired when a dialog gets maximized.
      * @param {event} event - Browser event.

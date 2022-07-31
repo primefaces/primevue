@@ -1,65 +1,71 @@
 <template>
-    <div ref="container" :class="containerClass" @click="onClick($event)">
-        <div class="p-hidden-accessible">
-            <input ref="focusInput" type="text" :id="inputId" readonly :disabled="disabled" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" :tabindex="tabindex"
-                aria-haspopup="true" :aria-expanded="overlayVisible" :aria-labelledby="ariaLabelledBy"/>
-        </div>
-        <input v-if="editable" type="text" class="p-dropdown-label p-inputtext" :disabled="disabled" @focus="onFocus" @blur="onBlur" :placeholder="placeholder" :value="editableInputValue" @input="onEditableInput"
-            aria-haspopup="listbox" :aria-expanded="overlayVisible">
-        <span v-if="!editable" :class="labelClass">
-            <slot name="value" :value="modelValue" :placeholder="placeholder">{{label||'empty'}}</slot>
+    <div ref="container" :id="id" :class="containerClass" @click="onContainerClick">
+        <input v-if="editable" ref="focusInput" :id="inputId" type="text" :style="inputStyle" :class="inputStyleClass" :value="editableInputValue" :placeholder="placeholder" :tabindex="!disabled ? tabindex : -1" :disabled="disabled" autocomplete="off"
+            role="combobox" :aria-label="ariaLabel" :aria-labelledby="ariaLabelledby" aria-haspopup="listbox" :aria-expanded="overlayVisible" :aria-controls="id + '_list'" :aria-activedescendant="focused ? focusedOptionId : undefined"
+            @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" @input="onEditableInput" v-bind="inputProps">
+        <span v-else ref="focusInput" :id="inputId" :style="inputStyle" :class="inputStyleClass" :tabindex="!disabled ? tabindex : -1" role="combobox" :aria-label="ariaLabel || (label === 'p-emptylabel' ? undefined : label)" :aria-labelledby="ariaLabelledby"
+            aria-haspopup="listbox" :aria-expanded="overlayVisible" :aria-controls="id + '_list'" :aria-activedescendant="focused ? focusedOptionId : undefined" :aria-disabled="disabled"
+            @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" v-bind="inputProps">
+            <slot name="value" :value="modelValue" :placeholder="placeholder">{{label === 'p-emptylabel' ? '&nbsp;' : label || 'empty'}}</slot>
         </span>
-        <i v-if="showClear && modelValue != null" class="p-dropdown-clear-icon pi pi-times" @click="onClearClick($event)"></i>
-        <div class="p-dropdown-trigger" role="button" aria-haspopup="listbox" :aria-expanded="overlayVisible">
+        <i v-if="showClear && modelValue != null" class="p-dropdown-clear-icon pi pi-times" @click="onClearClick" v-bind="clearIconProps"></i>
+        <div class="p-dropdown-trigger">
             <slot name="indicator">
-                <span :class="dropdownIconClass"></span>
+                <span :class="dropdownIconClass" aria-hidden="true"></span>
             </slot>
         </div>
         <Portal :appendTo="appendTo">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @after-enter="onOverlayAfterEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
-                <div :ref="overlayRef" :class="panelStyleClass" v-if="overlayVisible" @click="onOverlayClick">
+                <div v-if="overlayVisible" :ref="overlayRef" :style="panelStyle" :class="panelStyleClass" @click="onOverlayClick" v-bind="panelProps">
+                    <a ref="firstHiddenFocusableElementOnOverlay" role="presentation" aria-hidden="true" class="p-hidden-accessible p-hidden-focusable" :tabindex="0" @focus="onFirstHiddenFocus"></a>
                     <slot name="header" :value="modelValue" :options="visibleOptions"></slot>
-                    <div class="p-dropdown-header" v-if="filter">
-                        <div  class="p-dropdown-filter-container">
-                            <input type="text" ref="filterInput" :value="filterValue" @vnode-updated="onFilterUpdated" autoComplete="off" class="p-dropdown-filter p-inputtext p-component" :placeholder="filterPlaceholder" @keydown="onFilterKeyDown" @input="onFilterChange"/>
+                    <div v-if="filter" class="p-dropdown-header">
+                        <div class="p-dropdown-filter-container">
+                            <input type="text" ref="filterInput" :value="filterValue" @vnode-updated="onFilterUpdated" class="p-dropdown-filter p-inputtext p-component" :placeholder="filterPlaceholder"
+                                role="searchbox" autocomplete="off" :aria-owns="id + '_list'" :aria-activedescendant="focusedOptionId"
+                                @keydown="onFilterKeyDown" @blur="onFilterBlur" @input="onFilterChange" v-bind="filterInputProps"/>
                             <span class="p-dropdown-filter-icon pi pi-search"></span>
                         </div>
+                        <span role="status" aria-live="polite" class="p-hidden-accessible">
+                            {{filterResultMessageText}}
+                        </span>
                     </div>
-                    <div :ref="itemsWrapperRef" class="p-dropdown-items-wrapper" :style="{'max-height': virtualScrollerDisabled ? scrollHeight : ''}">
-                        <VirtualScroller :ref="virtualScrollerRef" v-bind="virtualScrollerOptions" :items="visibleOptions" :style="{'height': scrollHeight}" :disabled="virtualScrollerDisabled">
-                            <template v-slot:content="{ styleClass, contentRef, items, getItemOptions, contentStyle }">
-                                <ul :ref="contentRef" :class="['p-dropdown-items', styleClass]" :style="contentStyle" role="listbox">
-                                    <template v-if="!optionGroupLabel">
-                                        <li v-for="(option, i) of items" :class="['p-dropdown-item', {'p-highlight': isSelected(option), 'p-disabled': isOptionDisabled(option)}]" v-ripple
-                                            :key="getOptionRenderKey(option, i)" @click="onOptionSelect($event, option)" role="option" :aria-label="getOptionLabel(option)" :aria-selected="isSelected(option)">
+                    <div class="p-dropdown-items-wrapper" :style="{'max-height': virtualScrollerDisabled ? scrollHeight : ''}">
+                        <VirtualScroller :ref="virtualScrollerRef" v-bind="virtualScrollerOptions" :items="visibleOptions" :style="{'height': scrollHeight}" :tabindex="-1" :disabled="virtualScrollerDisabled">
+                            <template v-slot:content="{ styleClass, contentRef, items, getItemOptions, contentStyle, itemSize }">
+                                <ul :ref="(el) => listRef(el, contentRef)" :id="id + '_list'" :class="['p-dropdown-items', styleClass]" :style="contentStyle" role="listbox">
+                                    <template v-for="(option, i) of items" :key="getOptionRenderKey(option, getOptionIndex(i, getItemOptions))">
+                                        <li v-if="isOptionGroup(option)" :id="id + '_' + getOptionIndex(i, getItemOptions)" :style="{height: itemSize ? itemSize + 'px' : undefined}" class="p-dropdown-item-group" role="option">
+                                            <slot name="optiongroup" :option="option.optionGroup" :index="getOptionIndex(i, getItemOptions)">{{getOptionGroupLabel(option.optionGroup)}}</slot>
+                                        </li>
+                                        <li v-else v-ripple :id="id + '_' + getOptionIndex(i, getItemOptions)" :style="{height: itemSize ? itemSize + 'px' : undefined}"
+                                            :class="['p-dropdown-item', {'p-highlight': isSelected(option), 'p-focus': focusedOptionIndex === getOptionIndex(i, getItemOptions), 'p-disabled': isOptionDisabled(option)}]"
+                                            role="option" :aria-label="getOptionLabel(option)" :aria-selected="isSelected(option)" :aria-disabled="isOptionDisabled(option)" :aria-setsize="ariaSetSize" :aria-posinset="getAriaPosInset(getOptionIndex(i, getItemOptions))"
+                                            @click="onOptionSelect($event, option)" @mousemove="onOptionMouseMove($event, getOptionIndex(i, getItemOptions))">
                                             <slot name="option" :option="option" :index="getOptionIndex(i, getItemOptions)">{{getOptionLabel(option)}}</slot>
                                         </li>
                                     </template>
-                                    <template v-else>
-                                        <template v-for="(optionGroup, i) of items" :key="getOptionGroupRenderKey(optionGroup)">
-                                            <li  class="p-dropdown-item-group">
-                                                <slot name="optiongroup" :option="optionGroup" :index="getOptionIndex(i, getItemOptions)">{{getOptionGroupLabel(optionGroup)}}</slot>
-                                            </li>
-                                            <li v-for="(option, i) of getOptionGroupChildren(optionGroup)" :class="['p-dropdown-item', {'p-highlight': isSelected(option), 'p-disabled': isOptionDisabled(option)}]" v-ripple
-                                                :key="getOptionRenderKey(option, i)" @click="onOptionSelect($event, option)" role="option" :aria-label="getOptionLabel(option)" :aria-selected="isSelected(option)">
-                                                <slot name="option" :option="option" :index="getOptionIndex(i, getItemOptions)">{{getOptionLabel(option)}}</slot>
-                                            </li>
-                                        </template>
-                                    </template>
-                                    <li v-if="filterValue && (!items || (items && items.length === 0))" class="p-dropdown-empty-message">
+                                    <li v-if="filterValue && (!items || (items && items.length === 0))" class="p-dropdown-empty-message" role="option">
                                         <slot name="emptyfilter">{{emptyFilterMessageText}}</slot>
                                     </li>
-                                    <li v-else-if="(!options || (options && options.length === 0))" class="p-dropdown-empty-message">
+                                    <li v-else-if="(!options || (options && options.length === 0))" class="p-dropdown-empty-message" role="option">
                                         <slot name="empty">{{emptyMessageText}}</slot>
                                     </li>
                                 </ul>
+                                <span v-if="(!options || (options && options.length === 0))" role="status" aria-live="polite" class="p-hidden-accessible">
+                                    {{emptyMessageText}}
+                                </span>
+                                <span role="status" aria-live="polite" class="p-hidden-accessible">
+                                    {{selectedMessageText}}
+                                </span>
                             </template>
-                            <template v-slot:loader="{ options }" v-if="$slots.loader">
+                            <template v-if="$slots.loader" v-slot:loader="{ options }">
                                 <slot name="loader" :options="options"></slot>
                             </template>
                         </VirtualScroller>
                     </div>
                     <slot name="footer" :value="modelValue" :options="visibleOptions"></slot>
+                    <a ref="lastHiddenFocusableElementOnOverlay" role="presentation" aria-hidden="true" class="p-hidden-accessible p-hidden-focusable" :tabindex="0" @focus="onLastHiddenFocus"></a>
                 </div>
             </transition>
         </Portal>
@@ -67,7 +73,7 @@
 </template>
 
 <script>
-import {ConnectedOverlayScrollHandler,ObjectUtils,DomHandler,ZIndexUtils} from 'primevue/utils';
+import {ConnectedOverlayScrollHandler,ObjectUtils,DomHandler,ZIndexUtils,UniqueComponentId} from 'primevue/utils';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import {FilterService} from 'primevue/api';
 import Ripple from 'primevue/ripple';
@@ -76,7 +82,7 @@ import Portal from 'primevue/portal';
 
 export default {
     name: 'Dropdown',
-    emits: ['update:modelValue', 'before-show', 'before-hide', 'show', 'hide', 'change', 'filter', 'focus', 'blur'],
+    emits: ['update:modelValue', 'change', 'focus', 'blur', 'before-show', 'before-hide', 'show', 'hide', 'filter'],
     props: {
         modelValue: null,
         options: Array,
@@ -106,21 +112,18 @@ export default {
         dataKey: null,
         showClear: Boolean,
         inputId: String,
-        tabindex: String,
-        ariaLabelledBy: null,
+        inputStyle: null,
+        inputClass: null,
+        inputProps: null,
+        panelStyle: null,
+        panelClass: null,
+        panelProps: null,
+        filterInputProps: null,
+        clearIconProps: null,
         appendTo: {
             type: String,
             default: 'body'
         },
-        emptyFilterMessage: {
-            type: String,
-            default: null
-        },
-        emptyMessage: {
-            type: String,
-            default: null
-        },
-        panelClass: null,
         loading: {
             type: Boolean,
             default: false
@@ -132,34 +135,80 @@ export default {
         virtualScrollerOptions: {
             type: Object,
             default: null
-        }
-    },
-    data() {
-        return {
-            focused: false,
-            filterValue: null,
-            overlayVisible: false
-        };
-    },
-    watch: {
-        modelValue() {
-            this.isModelValueChanged = true;
+        },
+        autoOptionFocus: {
+            type: Boolean,
+            default: true
+        },
+        filterMessage: {
+            type: String,
+            default: null
+        },
+        selectionMessage: {
+            type: String,
+            default: null
+        },
+        emptySelectionMessage: {
+            type: String,
+            default: null
+        },
+        emptyFilterMessage: {
+            type: String,
+            default: null
+        },
+        emptyMessage: {
+            type: String,
+            default: null
+        },
+        tabindex: {
+            type: Number,
+            default: 0
+        },
+        ariaLabel: {
+            type: String,
+            default: null
+        },
+        ariaLabelledby: {
+            type: String,
+            default: null
         }
     },
     outsideClickListener: null,
     scrollHandler: null,
     resizeListener: null,
-    searchTimeout: null,
-    currentSearchChar: null,
-    previousSearchChar: null,
-    searchValue: null,
     overlay: null,
-    itemsWrapper: null,
+    list: null,
     virtualScroller: null,
+    searchTimeout: null,
+    searchValue: null,
     isModelValueChanged: false,
+    selectOnFocus: false,
+    focusOnHover: false,
+    data() {
+        return {
+            id: UniqueComponentId(),
+            focused: false,
+            focusedOptionIndex: -1,
+            filterValue: null,
+            overlayVisible: false
+        }
+    },
+    watch: {
+        modelValue() {
+            this.isModelValueChanged = true;
+        },
+        options() {
+            this.autoUpdateModel();
+        }
+    },
+    mounted() {
+        this.id = this.$attrs.id || this.id;
+
+        this.autoUpdateModel();
+    },
     updated() {
         if (this.overlayVisible && this.isModelValueChanged) {
-            this.scrollValueInView();
+            this.scrollInView(this.findSelectedOptionIndex());
         }
 
         this.isModelValueChanged = false;
@@ -172,8 +221,6 @@ export default {
             this.scrollHandler.destroy();
             this.scrollHandler = null;
         }
-
-        this.itemsWrapper = null;
 
         if (this.overlay) {
             ZIndexUtils.clear(this.overlay);
@@ -191,13 +238,10 @@ export default {
             return this.optionValue ? ObjectUtils.resolveFieldData(option, this.optionValue) : option;
         },
         getOptionRenderKey(option, index) {
-            return this.dataKey ? ObjectUtils.resolveFieldData(option, this.dataKey) : this.getOptionLabel(option) + '_' + index.toString();
+            return (this.dataKey ? ObjectUtils.resolveFieldData(option, this.dataKey) : this.getOptionLabel(option)) + '_' + index;
         },
         isOptionDisabled(option) {
             return this.optionDisabled ? ObjectUtils.resolveFieldData(option, this.optionDisabled) : false;
-        },
-        getOptionGroupRenderKey(optionGroup) {
-            return ObjectUtils.resolveFieldData(optionGroup, this.optionGroupLabel);
         },
         getOptionGroupLabel(optionGroup) {
             return ObjectUtils.resolveFieldData(optionGroup, this.optionGroupLabel);
@@ -205,210 +249,115 @@ export default {
         getOptionGroupChildren(optionGroup) {
             return ObjectUtils.resolveFieldData(optionGroup, this.optionGroupChildren);
         },
-        getSelectedOption() {
-            let index = this.getSelectedOptionIndex();
-            return index !== -1 ? (this.optionGroupLabel ? this.getOptionGroupChildren(this.visibleOptions[index.group])[index.option]: this.visibleOptions[index]) : null;
-        },
-        getSelectedOptionIndex() {
-            if (this.modelValue != null && this.visibleOptions) {
-                if (this.optionGroupLabel) {
-                    for (let i = 0; i < this.visibleOptions.length; i++) {
-                        let selectedOptionIndex = this.findOptionIndexInList(this.modelValue, this.getOptionGroupChildren(this.visibleOptions[i]));
-                        if (selectedOptionIndex !== -1) {
-                            return {group: i, option: selectedOptionIndex};
-                        }
-                    }
-                }
-                else {
-                    return this.findOptionIndexInList(this.modelValue, this.visibleOptions);
-                }
-            }
-
-            return -1;
-        },
-        findOptionIndexInList(value, list) {
-            for (let i = 0; i < list.length; i++) {
-                if ((ObjectUtils.equals(value, this.getOptionValue(list[i]), this.equalityKey))) {
-                    return i;
-                }
-            }
-
-            return -1;
-        },
-        isSelected(option) {
-            return ObjectUtils.equals(this.modelValue, this.getOptionValue(option), this.equalityKey);
+        getAriaPosInset(index) {
+            return (this.optionGroupLabel ? index - this.visibleOptions.slice(0, index).filter(option => this.isOptionGroup(option)).length : index) + 1;
         },
         show(isFocus) {
             this.$emit('before-show');
             this.overlayVisible = true;
+            this.focusedOptionIndex = this.focusedOptionIndex !== -1 ? this.focusedOptionIndex : (this.autoOptionFocus ? this.findFirstFocusedOptionIndex() : -1);
 
             isFocus && this.$refs.focusInput.focus();
         },
-        hide() {
-            this.$emit('before-hide');
-            this.overlayVisible = false;
+        hide(isFocus) {
+            const _hide = () => {
+                this.$emit('before-hide');
+                this.overlayVisible = false;
+                this.focusedOptionIndex = -1;
+                this.searchValue = '';
+
+                isFocus && this.$refs.focusInput.focus();
+            }
+
+            setTimeout(() => { _hide() }, 0); // For ScreenReaders
         },
         onFocus(event) {
             this.focused = true;
+            this.focusedOptionIndex = this.overlayVisible && this.autoOptionFocus ? this.findFirstFocusedOptionIndex() : -1;
+            this.overlayVisible && this.scrollInView(this.focusedOptionIndex);
             this.$emit('focus', event);
         },
         onBlur(event) {
             this.focused = false;
+            this.focusedOptionIndex = -1;
+            this.searchValue = '';
             this.$emit('blur', event);
         },
         onKeyDown(event) {
-            switch(event.which) {
-                //down
-                case 40:
-                    this.onDownKey(event);
-                break;
-
-                //up
-                case 38:
-                    this.onUpKey(event);
-                break;
-
-                //space
-                case 32:
-                    if (!this.overlayVisible) {
-                        this.show();
-                        event.preventDefault();
-                    }
-                break;
-
-                //enter and escape
-                case 13:
-                case 27:
-                    if (this.overlayVisible) {
-                        this.hide();
-                        event.preventDefault();
-                    }
-                break;
-
-                //tab
-                case 9:
-                    this.hide();
-                break;
-
-                default:
-                    this.search(event);
-                break;
-            }
-        },
-        onFilterKeyDown(event) {
-            switch (event.which) {
-                //down
-                case 40:
-                    this.onDownKey(event);
+            switch (event.code) {
+                case 'ArrowDown':
+                    this.onArrowDownKey(event);
                     break;
 
-                //up
-                case 38:
-                    this.onUpKey(event);
+                case 'ArrowUp':
+                    this.onArrowUpKey(event, this.editable);
                     break;
 
-                //enter and escape
-                case 13:
-                case 27:
-                    this.overlayVisible = false;
-                    event.preventDefault();
-                break;
+                case 'ArrowLeft':
+                case 'ArrowRight':
+                    this.onArrowLeftKey(event, this.editable);
+                    break;
+
+                case 'Home':
+                    this.onHomeKey(event, this.editable);
+                    break;
+
+                case 'End':
+                    this.onEndKey(event, this.editable);
+                    break;
+
+                case 'PageDown':
+                    this.onPageDownKey(event);
+                    break;
+
+                case 'PageUp':
+                    this.onPageUpKey(event);
+                    break;
+
+                case 'Space':
+                    this.onSpaceKey(event, this.editable);
+                    break;
+
+                case 'Enter':
+                    this.onEnterKey(event);
+                    break;
+
+                case 'Escape':
+                    this.onEscapeKey(event);
+                    break;
+
+                case 'Tab':
+                    this.onTabKey(event);
+                    break;
+
+                case 'Backspace':
+                    this.onBackspaceKey(event, this.editable);
+                    break;
+
+                case 'ShiftLeft':
+                case 'ShiftRight':
+                    //NOOP
+                    break;
 
                 default:
-                break;
-            }
-        },
-        onDownKey(event) {
-            if (this.visibleOptions) {
-                if (!this.overlayVisible && event.altKey) {
-                    this.show();
-                }
-                else {
-                    let nextOption = this.visibleOptions && this.visibleOptions.length > 0 ? this.findNextOption(this.getSelectedOptionIndex()) : null;
-                    if (nextOption) {
-                        this.updateModel(event, this.getOptionValue(nextOption));
+                    if (ObjectUtils.isPrintableCharacter(event.key)) {
+                        !this.overlayVisible && this.show();
+                        !this.editable && this.searchOptions(event, event.key);
                     }
-                }
-            }
 
-            event.preventDefault();
-        },
-        onUpKey(event) {
-            if (this.visibleOptions) {
-                let prevOption = this.findPrevOption(this.getSelectedOptionIndex());
-                if (prevOption) {
-                    this.updateModel(event, this.getOptionValue(prevOption));
-                }
-            }
-
-            event.preventDefault();
-        },
-        findNextOption(index) {
-            if (this.optionGroupLabel) {
-                let groupIndex = index === -1 ? 0 : index.group;
-                let optionIndex = index === -1 ? -1 : index.option;
-                let option = this.findNextOptionInList(this.getOptionGroupChildren(this.visibleOptions[groupIndex]), optionIndex);
-
-                if (option)
-                    return option;
-                else if ((groupIndex + 1) !== this.visibleOptions.length)
-                    return this.findNextOption({group: (groupIndex + 1), option: -1});
-                else
-                    return null;
-            }
-            else {
-                return this.findNextOptionInList(this.visibleOptions, index);
+                    break;
             }
         },
-        findNextOptionInList(list, index) {
-                let i = index + 1;
-                if (i === list.length) {
-                    return null;
-                }
+        onEditableInput(event) {
+            const value = event.target.value;
 
-                let option = list[i];
-                if (this.isOptionDisabled(option))
-                    return this.findNextOptionInList(i);
-                else
-                    return option;
-        },
-        findPrevOption(index) {
-            if (index === -1) {
-                return null;
-            }
+            this.searchValue = '';
+            const matched = this.searchOptions(event, value);
+            !matched && (this.focusedOptionIndex = -1);
 
-            if (this.optionGroupLabel) {
-                let groupIndex = index.group;
-                let optionIndex = index.option;
-                let option = this.findPrevOptionInList(this.getOptionGroupChildren(this.visibleOptions[groupIndex]), optionIndex);
-
-                if (option)
-                    return option;
-                else if (groupIndex > 0)
-                    return this.findPrevOption({group: (groupIndex - 1), option: this.getOptionGroupChildren(this.visibleOptions[groupIndex - 1]).length});
-                else
-                    return null;
-            }
-            else {
-                return this.findPrevOptionInList(this.visibleOptions, index);
-            }
+            this.$emit('update:modelValue', value);
         },
-        findPrevOptionInList(list, index) {
-            let i = index - 1;
-            if (i < 0) {
-                return null;
-            }
-
-            let option = list[i];
-            if (this.isOptionDisabled(option))
-                return this.findPrevOption(i);
-            else
-                return option;
-        },
-        onClearClick(event) {
-            this.updateModel(event, null);
-        },
-        onClick(event) {
+        onContainerClick(event) {
             if (this.disabled || this.loading) {
                 return;
             }
@@ -417,45 +366,214 @@ export default {
                 return;
             }
             else if (!this.overlay || !this.overlay.contains(event.target)) {
-                if (this.overlayVisible)
-                    this.hide();
-                else
-                    this.show();
-
+                this.overlayVisible ? this.hide() : this.show();
                 this.$refs.focusInput.focus();
             }
         },
+        onClearClick(event) {
+            this.updateModel(event, null);
+        },
+        onFirstHiddenFocus(event) {
+            const relatedTarget = event.relatedTarget;
+
+            if (relatedTarget === this.$refs.focusInput) {
+                const firstFocusableEl = DomHandler.getFirstFocusableElement(this.overlay, ':not(.p-hidden-focusable)');
+                firstFocusableEl && firstFocusableEl.focus();
+            }
+            else {
+                this.$refs.focusInput.focus();
+            }
+        },
+        onLastHiddenFocus() {
+            this.$refs.firstHiddenFocusableElementOnOverlay.focus();
+        },
         onOptionSelect(event, option) {
-            let value = this.getOptionValue(option);
+            const value = this.getOptionValue(option);
             this.updateModel(event, value);
             this.$refs.focusInput.focus();
 
-            setTimeout(() => {
-                this.hide();
-            }, 200);
+            this.hide();
         },
-        onEditableInput(event) {
-            this.$emit('update:modelValue', event.target.value);
+        onOptionMouseMove(event, index) {
+            if (this.focusOnHover) {
+                this.changeFocusedOptionIndex(event, index);
+            }
+        },
+        onFilterChange(event) {
+            const value = event.target.value;
+
+            this.filterValue = value;
+            this.focusedOptionIndex = -1;
+            this.$emit('filter', { originalEvent: event, value });
+
+            !this.virtualScrollerDisabled && this.virtualScroller.scrollToIndex(0);
+        },
+        onFilterKeyDown(event) {
+            switch (event.code) {
+                case 'ArrowDown':
+                    this.onArrowDownKey(event);
+                    break;
+
+                case 'ArrowUp':
+                    this.onArrowUpKey(event, true);
+                    break;
+
+                case 'ArrowLeft':
+                case 'ArrowRight':
+                    this.onArrowLeftKey(event, true);
+                    break;
+
+                case 'Home':
+                    this.onHomeKey(event, true);
+                    break;
+
+                case 'End':
+                    this.onEndKey(event, true);
+                    break;
+
+                case 'Enter':
+                    this.onEnterKey(event);
+                    break;
+
+                case 'Escape':
+                    this.onEscapeKey(event);
+                    break;
+
+                case 'Tab':
+                    this.onTabKey(event, true);
+                    break;
+
+                default:
+                    break;
+            }
+        },
+        onFilterBlur() {
+            this.focusedOptionIndex = -1;
+        },
+        onFilterUpdated() {
+            if (this.overlayVisible) {
+                this.alignOverlay();
+            }
+        },
+        onOverlayClick(event) {
+            OverlayEventBus.emit('overlay-click', {
+                originalEvent: event,
+                target: this.$el
+            });
+        },
+        onArrowDownKey(event) {
+            const optionIndex = this.focusedOptionIndex !== -1 ? this.findNextOptionIndex(this.focusedOptionIndex) : this.findFirstFocusedOptionIndex();
+
+            this.changeFocusedOptionIndex(event, optionIndex);
+
+            !this.overlayVisible && this.show();
+            event.preventDefault();
+        },
+        onArrowUpKey(event, pressedInInputText = false) {
+            if (event.altKey && !pressedInInputText) {
+                if (this.focusedOptionIndex !== -1) {
+                    this.onOptionSelect(event, this.visibleOptions[this.focusedOptionIndex]);
+                }
+
+                this.overlayVisible && this.hide();
+                event.preventDefault();
+            }
+            else {
+                const optionIndex = this.focusedOptionIndex !== -1 ? this.findPrevOptionIndex(this.focusedOptionIndex) : this.findLastFocusedOptionIndex();
+
+                this.changeFocusedOptionIndex(event, optionIndex);
+
+                !this.overlayVisible && this.show();
+                event.preventDefault();
+            }
+        },
+        onArrowLeftKey(event, pressedInInputText = false) {
+            pressedInInputText && (this.focusedOptionIndex = -1);
+        },
+        onHomeKey(event, pressedInInputText = false) {
+            if (pressedInInputText) {
+                event.currentTarget.setSelectionRange(0, 0);
+                this.focusedOptionIndex = -1;
+            }
+            else {
+                this.changeFocusedOptionIndex(event, this.findFirstOptionIndex());
+
+                !this.overlayVisible && this.show();
+            }
+
+            event.preventDefault();
+        },
+        onEndKey(event, pressedInInputText = false) {
+            if (pressedInInputText) {
+                const target = event.currentTarget;
+                const len = target.value.length;
+                target.setSelectionRange(len, len);
+                this.focusedOptionIndex = -1;
+            }
+            else {
+                this.changeFocusedOptionIndex(event, this.findLastOptionIndex());
+
+                !this.overlayVisible && this.show();
+            }
+
+            event.preventDefault();
+        },
+        onPageUpKey(event) {
+            this.scrollInView(0);
+            event.preventDefault();
+        },
+        onPageDownKey(event) {
+            this.scrollInView(this.visibleOptions.length - 1);
+            event.preventDefault();
+        },
+        onEnterKey(event) {
+            if (!this.overlayVisible) {
+                this.onArrowDownKey(event);
+            }
+            else {
+                if (this.focusedOptionIndex !== -1) {
+                    this.onOptionSelect(event, this.visibleOptions[this.focusedOptionIndex]);
+                }
+
+                this.hide();
+            }
+
+            event.preventDefault();
+        },
+        onSpaceKey(event, pressedInInputText = false) {
+            !pressedInInputText && this.onEnterKey(event);
+        },
+        onEscapeKey(event) {
+            this.overlayVisible && this.hide(true);
+            event.preventDefault();
+        },
+        onTabKey(event, pressedInInputText = false) {
+            if (!pressedInInputText) {
+                if (this.overlayVisible && this.hasFocusableElements()) {
+                    this.$refs.firstHiddenFocusableElementOnOverlay.focus();
+
+                    event.preventDefault();
+                }
+                else {
+                    if (this.focusedOptionIndex !== -1) {
+                        this.onOptionSelect(event, this.visibleOptions[this.focusedOptionIndex]);
+                    }
+
+                    this.overlayVisible && this.hide(this.filter);
+                }
+            }
+        },
+        onBackspaceKey(event, pressedInInputText = false) {
+            if (pressedInInputText) {
+                !this.overlayVisible && this.show();
+            }
         },
         onOverlayEnter(el) {
             ZIndexUtils.set('overlay', el, this.$primevue.config.zIndex.overlay);
             this.alignOverlay();
-            this.scrollValueInView();
-
-            if (!this.virtualScrollerDisabled) {
-                const selectedIndex = this.getSelectedOptionIndex();
-                if (selectedIndex !== -1) {
-                    setTimeout(() => {
-                        this.virtualScroller && this.virtualScroller.scrollToIndex(selectedIndex)
-                    }, 0);
-                }
-            }
+            this.scrollInView();
         },
         onOverlayAfterEnter() {
-            if (this.filter) {
-                this.$refs.filterInput.focus();
-            }
-
             this.bindOutsideClickListener();
             this.bindScrollListener();
             this.bindResizeListener();
@@ -467,7 +585,6 @@ export default {
             this.unbindScrollListener();
             this.unbindResizeListener();
             this.$emit('hide');
-            this.itemsWrapper = null;
             this.overlay = null;
         },
         onOverlayAfterLeave(el) {
@@ -481,10 +598,6 @@ export default {
                 this.overlay.style.minWidth = DomHandler.getOuterWidth(this.$el) + 'px';
                 DomHandler.absolutePosition(this.overlay, this.$el);
             }
-        },
-        updateModel(event, value) {
-            this.$emit('update:modelValue', value);
-            this.$emit('change', {originalEvent: event, value: value});
         },
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
@@ -534,162 +647,146 @@ export default {
                 this.resizeListener = null;
             }
         },
-        search(event) {
-            if (!this.visibleOptions) {
-                return;
+        hasFocusableElements() {
+            return DomHandler.getFocusableElements(this.overlay, ':not(.p-hidden-focusable)').length > 0;
+        },
+        isOptionGroup(option) {
+            return this.optionGroupLabel && option.optionGroup && option.group;
+        },
+        isOptionMatched(option) {
+            return this.isValidOption(option) && this.getOptionLabel(option).toLocaleLowerCase(this.filterLocale).startsWith(this.searchValue.toLocaleLowerCase(this.filterLocale));
+        },
+        isValidOption(option) {
+            return option && !(this.isOptionDisabled(option) || option.optionGroup);
+        },
+        isValidSelectedOption(option) {
+            return this.isValidOption(option) && this.isSelected(option);
+        },
+        isSelected(option) {
+            return ObjectUtils.equals(this.modelValue, this.getOptionValue(option), this.equalityKey);
+        },
+        findFirstOptionIndex() {
+            return this.visibleOptions.findIndex(option => this.isValidOption(option));
+        },
+        findLastOptionIndex() {
+            return this.visibleOptions.findLastIndex(option => this.isValidOption(option));
+        },
+        findNextOptionIndex(index) {
+            const matchedOptionIndex = index < (this.visibleOptions.length - 1) ? this.visibleOptions.slice(index + 1).findIndex(option => this.isValidOption(option)) : -1;
+            return matchedOptionIndex > -1 ? matchedOptionIndex + index + 1 : index;
+        },
+        findPrevOptionIndex(index) {
+            const matchedOptionIndex = index > 0 ? this.visibleOptions.slice(0, index).findLastIndex(option => this.isValidOption(option)) : -1;
+            return matchedOptionIndex > -1 ? matchedOptionIndex : index;
+        },
+        findSelectedOptionIndex() {
+            return this.hasSelectedOption ? this.visibleOptions.findIndex(option => this.isValidSelectedOption(option)) : -1;
+        },
+        findFirstFocusedOptionIndex() {
+            const selectedIndex = this.findSelectedOptionIndex();
+            return selectedIndex < 0 ? this.findFirstOptionIndex() : selectedIndex;
+        },
+        findLastFocusedOptionIndex() {
+            const selectedIndex = this.findSelectedOptionIndex();
+            return selectedIndex < 0 ? this.findLastOptionIndex() : selectedIndex;
+        },
+        searchOptions(event, char) {
+            this.searchValue = (this.searchValue || '') + char;
+
+            let optionIndex = -1;
+            let matched = false;
+
+            if (this.focusedOptionIndex !== -1) {
+                optionIndex = this.visibleOptions.slice(this.focusedOptionIndex).findIndex(option => this.isOptionMatched(option));
+                optionIndex = optionIndex === -1 ? this.visibleOptions.slice(0, this.focusedOptionIndex).findIndex(option => this.isOptionMatched(option)) : optionIndex + this.focusedOptionIndex;
+            }
+            else {
+                optionIndex = this.visibleOptions.findIndex(option => this.isOptionMatched(option));
+            }
+
+            if (optionIndex !== -1) {
+                matched = true;
+            }
+
+            if (optionIndex === -1 && this.focusedOptionIndex === -1) {
+                optionIndex = this.findFirstFocusedOptionIndex();
+            }
+
+            if (optionIndex !== -1) {
+                this.changeFocusedOptionIndex(event, optionIndex);
             }
 
             if (this.searchTimeout) {
                 clearTimeout(this.searchTimeout);
             }
 
-            const char = event.key;
-            this.previousSearchChar = this.currentSearchChar;
-            this.currentSearchChar = char;
-
-            if (this.previousSearchChar === this.currentSearchChar)
-                this.searchValue = this.currentSearchChar;
-            else
-                this.searchValue = this.searchValue ? this.searchValue + char : char;
-
-            if (this.searchValue) {
-                let searchIndex = this.getSelectedOptionIndex();
-                let newOption = this.optionGroupLabel ? this.searchOptionInGroup(searchIndex) : this.searchOption(++searchIndex);
-                if (newOption) {
-                    this.updateModel(event, this.getOptionValue(newOption));
-                }
-            }
-
             this.searchTimeout = setTimeout(() => {
-                this.searchValue = null;
-            }, 250);
+                this.searchValue = '';
+                this.searchTimeout = null;
+            }, 500);
+
+            return matched;
         },
-        searchOption(index) {
-            let option;
+        changeFocusedOptionIndex(event, index) {
+            if (this.focusedOptionIndex !== index) {
+                this.focusedOptionIndex = index;
+                this.scrollInView();
 
-            if (this.searchValue) {
-                option = this.searchOptionInRange(index, this.visibleOptions.length);
-
-                if (!option) {
-                    option = this.searchOptionInRange(0, index);
+                if (this.selectOnFocus) {
+                    this.updateModel(event, this.getOptionValue(this.visibleOptions[index]));
                 }
             }
-
-            return option;
         },
-        searchOptionInRange(start, end) {
-            for (let i = start; i < end; i++) {
-                let opt = this.visibleOptions[i];
-                if (this.matchesSearchValue(opt)) {
-                    return opt;
-                }
+        scrollInView(index = -1) {
+            const id = index !== -1 ? `${this.id}_${index}` : this.focusedOptionId;
+            const element = DomHandler.findSingle(this.list, `li[id="${id}"]`);
+            if (element) {
+                element.scrollIntoView && element.scrollIntoView({ block: 'nearest', inline: 'start' });
             }
-
-            return null;
-        },
-        searchOptionInGroup(index) {
-            let searchIndex = index === -1 ? {group: 0, option: -1} : index;
-
-            for (let i = searchIndex.group; i < this.visibleOptions.length; i++) {
-                let groupOptions = this.getOptionGroupChildren(this.visibleOptions[i]);
-                for (let j = (searchIndex.group === i ? searchIndex.option + 1 : 0); j < groupOptions.length; j++) {
-                    if (this.matchesSearchValue(groupOptions[j])) {
-                        return groupOptions[j];
-                    }
-                }
+            else if (!this.virtualScrollerDisabled) {
+                setTimeout(() => {
+                    this.virtualScroller && this.virtualScroller.scrollToIndex(index !== -1 ? index : this.focusedOptionIndex);
+                }, 0);
             }
-
-            for (let i = 0; i <= searchIndex.group; i++) {
-                let groupOptions = this.getOptionGroupChildren(this.visibleOptions[i]);
-                for (let j = 0; j < (searchIndex.group === i ? searchIndex.option: groupOptions.length); j++) {
-                    if (this.matchesSearchValue(groupOptions[j])) {
-                        return groupOptions[j];
-                    }
-                }
+        },
+        autoUpdateModel() {
+            if (this.selectOnFocus && this.autoOptionFocus && !this.hasSelectedOption) {
+                this.focusedOptionIndex = this.findFirstFocusedOptionIndex();
+                const value = this.getOptionValue(this.visibleOptions[this.focusedOptionIndex]);
+                this.updateModel(null, value);
             }
-
-            return null;
         },
-        matchesSearchValue(option) {
-            let label = this.getOptionLabel(option).toLocaleLowerCase(this.filterLocale);
-            return label.startsWith(this.searchValue.toLocaleLowerCase(this.filterLocale));
-        },
-        onFilterChange(event) {
-            this.filterValue = event.target.value;
-            this.$emit('filter', {originalEvent: event, value: event.target.value});
-        },
-        onFilterUpdated() {
-            if (this.overlayVisible) {
-                this.alignOverlay();
-            }
+        updateModel(event, value) {
+            this.$emit('update:modelValue', value);
+            this.$emit('change', { originalEvent: event, value });
         },
         overlayRef(el) {
             this.overlay = el;
         },
-        itemsWrapperRef(el) {
-            this.itemsWrapper = el;
+        listRef(el, contentRef) {
+            this.list = el;
+            contentRef && contentRef(el); // For VirtualScroller
         },
         virtualScrollerRef(el) {
             this.virtualScroller = el;
-        },
-        scrollValueInView() {
-            if (this.overlay) {
-                let selectedItem = DomHandler.findSingle(this.overlay, 'li.p-highlight');
-                if (selectedItem) {
-                    selectedItem.scrollIntoView({ block: 'nearest', inline: 'start' });
-                }
-            }
-        },
-        onOverlayClick(event) {
-            OverlayEventBus.emit('overlay-click', {
-                originalEvent: event,
-                target: this.$el
-            });
         }
     },
     computed: {
-        visibleOptions() {
-            if (this.filterValue) {
-                if (this.optionGroupLabel) {
-                    let filteredGroups = [];
-                    for (let optgroup of this.options) {
-                        let filteredSubOptions = FilterService.filter(this.getOptionGroupChildren(optgroup), this.searchFields, this.filterValue, this.filterMatchMode, this.filterLocale);
-                        if (filteredSubOptions && filteredSubOptions.length) {
-                            let filteredGroup = {...optgroup};
-                            filteredGroup[this.optionGroupChildren] = filteredSubOptions;
-                            filteredGroups.push(filteredGroup);
-                        }
-                    }
-                    return filteredGroups
-                }
-                else {
-                    return FilterService.filter(this.options, this.searchFields, this.filterValue, this.filterMatchMode, this.filterLocale);
-                }
-            }
-            else {
-                return this.options;
-            }
-        },
         containerClass() {
-            return [
-                'p-dropdown p-component p-inputwrapper',
-                {
-                    'p-disabled': this.disabled,
-                    'p-dropdown-clearable': this.showClear && !this.disabled,
-                    'p-focus': this.focused,
-                    'p-inputwrapper-filled': this.modelValue,
-                    'p-inputwrapper-focus': this.focused || this.overlayVisible
-                }
-            ];
+            return ['p-dropdown p-component p-inputwrapper', {
+                'p-disabled': this.disabled,
+                'p-dropdown-clearable': this.showClear && !this.disabled,
+                'p-focus': this.focused,
+                'p-inputwrapper-filled': this.modelValue,
+                'p-inputwrapper-focus': this.focused || this.overlayVisible,
+                'p-overlay-open': this.overlayVisible
+            }];
         },
-        labelClass() {
-            return [
-                'p-dropdown-label p-inputtext',
-                {
-                    'p-placeholder': this.label === this.placeholder,
-                    'p-dropdown-label-empty': !this.$slots['value'] && (this.label === 'p-emptylabel' || this.label.length === 0)
-                }
-            ];
+        inputStyleClass() {
+            return ['p-dropdown-label p-inputtext', this.inputClass, {
+                'p-placeholder': !this.editable && this.label === this.placeholder,
+                'p-dropdown-label-empty': !this.editable && !this.$slots['value'] && (this.label === 'p-emptylabel' || this.label.length === 0)
+            }];
         },
         panelStyleClass() {
             return ['p-dropdown-panel p-component', this.panelClass, {
@@ -697,19 +794,35 @@ export default {
                 'p-ripple-disabled': this.$primevue.config.ripple === false
             }];
         },
+        dropdownIconClass() {
+            return ['p-dropdown-trigger-icon', (this.loading ? this.loadingIcon : 'pi pi-chevron-down')];
+        },
+        visibleOptions() {
+            let options = this.options || [];
+
+            if (this.optionGroupLabel) {
+                options = options.reduce((result, option, index) => {
+                    result.push({ optionGroup: option, group: true, groupIndex: index });
+
+                    let optionGroupChildren = this.getOptionGroupChildren(option);
+                    optionGroupChildren && optionGroupChildren.forEach(o => result.push(o));
+
+                    return result;
+                }, []);
+            }
+
+            return this.filterValue ? FilterService.filter(options, this.searchFields, this.filterValue, this.filterMatchMode, this.filterLocale) : options;
+        },
+        hasSelectedOption() {
+            return ObjectUtils.isNotEmpty(this.modelValue);
+        },
         label() {
-            let selectedOption = this.getSelectedOption();
-            if (selectedOption !== null)
-                return this.getOptionLabel(selectedOption);
-            else
-                return this.placeholder||'p-emptylabel';
+            const selectedOptionIndex = this.findSelectedOptionIndex();
+            return selectedOptionIndex !== -1 ? this.getOptionLabel(this.visibleOptions[selectedOptionIndex]) : (this.placeholder || 'p-emptylabel');
         },
         editableInputValue() {
-            let selectedOption = this.getSelectedOption();
-            if (selectedOption)
-                return this.getOptionLabel(selectedOption);
-            else
-                return this.modelValue;
+            const selectedOptionIndex = this.findSelectedOptionIndex();
+            return selectedOptionIndex !== -1 ? this.getOptionLabel(this.visibleOptions[selectedOptionIndex]) : (this.modelValue || '');
         },
         equalityKey() {
             return this.optionValue ? null : this.dataKey;
@@ -717,17 +830,35 @@ export default {
         searchFields() {
             return this.filterFields || [this.optionLabel];
         },
+        filterResultMessageText() {
+            return ObjectUtils.isNotEmpty(this.visibleOptions) ? this.filterMessageText.replaceAll('{0}', this.visibleOptions.length) : this.emptyFilterMessageText;
+        },
+        filterMessageText() {
+            return this.filterMessage || this.$primevue.config.locale.searchMessage;
+        },
         emptyFilterMessageText() {
-            return this.emptyFilterMessage || this.$primevue.config.locale.emptyFilterMessage;
+            return this.emptyFilterMessage || this.$primevue.config.locale.emptySearchMessage || this.$primevue.config.locale.emptyFilterMessage;
         },
         emptyMessageText() {
             return this.emptyMessage || this.$primevue.config.locale.emptyMessage;
         },
+        selectionMessageText() {
+            return this.selectionMessage || this.$primevue.config.locale.selectionMessage;
+        },
+        emptySelectionMessageText() {
+            return this.emptySelectionMessage || this.$primevue.config.locale.emptySelectionMessage;
+        },
+        selectedMessageText() {
+            return ObjectUtils.isNotEmpty(this.modelValue) ? this.selectionMessageText.replaceAll('{0}', '1') : this.emptySelectionMessageText;
+        },
+        focusedOptionId() {
+            return this.focusedOptionIndex !== -1 ? `${this.id}_${this.focusedOptionIndex}` : null;
+        },
+        ariaSetSize() {
+            return this.visibleOptions.filter(option => !this.isOptionGroup(option)).length;
+        },
         virtualScrollerDisabled() {
             return !this.virtualScrollerOptions;
-        },
-        dropdownIconClass() {
-            return ['p-dropdown-trigger-icon', this.loading ? this.loadingIcon : 'pi pi-chevron-down'];
         }
     },
     directives: {
@@ -773,7 +904,7 @@ export default {
 
 .p-dropdown-label-empty {
     overflow: hidden;
-    visibility: hidden;
+    opacity: 0;
 }
 
 input.p-dropdown-label  {

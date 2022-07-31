@@ -1,5 +1,34 @@
 # Changelog
 
+## [3.15.0](https://github.com/primefaces/primevue/tree/3.15.0) (2022-06-15)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.13.1...3.15.0)
+
+**Implemented New Features and Enhancements:**
+
+- Avatar | New error event [\#2670](https://github.com/primefaces/primevue/issues/2670)
+- MultiSelect | resetFilterOnHide property [\#2664](https://github.com/primefaces/primevue/issues/2664)
+- Add after-hide event to Dialog [\#2662](https://github.com/primefaces/primevue/issues/2662)
+- New Image error event [\#2661](https://github.com/primefaces/primevue/issues/2661)
+- New Component: DynamicDialog [\#2653](https://github.com/primefaces/primevue/issues/2653)
+
+**Fixed bugs:**
+
+- Dialog bottom has no border radius when footer does not exist  [\#2673](https://github.com/primefaces/primevue/issues/2673)
+- ColorPicker: inline mode doesn't work [\#2656](https://github.com/primefaces/primevue/issues/2656)
+- Tooltip: ZIndex is cleared on wrong element [\#2649](https://github.com/primefaces/primevue/issues/2649)
+- DataTable: when using v-model:selection the checkbox appears checked when the table has no items [\#2637](https://github.com/primefaces/primevue/issues/2637)
+- DTHeaderCheckbox: browser displays the "pointer" cursor when disabled [\#2635](https://github.com/primefaces/primevue/issues/2635)
+- DataTable: Header columns and row columns doesn't resize together with Virtual Scroller and resizable columns [\#2630](https://github.com/primefaces/primevue/issues/2630)
+
+## [3.13.1](https://github.com/primefaces/primevue/tree/3.13.1) (2022-06-07)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.13.0...3.13.1)
+
+**Fixed bugs:**
+
+- Script: CDN Script Fail [\#2642](https://github.com/primefaces/primevue/issues/2642)
+
 ## [3.13.0](https://github.com/primefaces/primevue/tree/3.13.0) (2022-06-06)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.12.6...3.13.0)

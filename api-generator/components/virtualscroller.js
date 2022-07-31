@@ -94,6 +94,12 @@ const VirtualScrollerProps = [
         type: "boolean",
         default: "false",
         description: "Whether to show loader."
+    },
+    {
+        name: "tabindex",
+        type: "number|string",
+        default: "0",
+        description: "Index of the element in tabbing order."
     }
 ];
 

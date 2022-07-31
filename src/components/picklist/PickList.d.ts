@@ -95,6 +95,14 @@ export interface PickListProps {
      * Whether to displays rows with alternating colors.
      */
     stripedRows?: boolean | undefined;
+    /**
+     * Whether to show buttons of source list.
+     */
+    showSourceControls?: boolean | undefined;
+    /**
+     * Whether to show buttons of target list.
+     */
+    showTargetControls?: boolean | undefined;
 }
 
 export interface PickListSlots {

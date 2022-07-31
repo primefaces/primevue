@@ -41,7 +41,7 @@
                         <div class="country-item">
                             <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.option.code.toLowerCase()" />
                             <div>{{slotProps.option.name}}</div>
-                        </div>
+                            </div>
                     </template>
                 </MultiSelect>
 

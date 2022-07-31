@@ -2,7 +2,7 @@ import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 import { MenuItem } from '../menuitem';
 
-type ContextMenuAppendTo = 'body' | 'self' | string | undefined;
+type ContextMenuAppendTo = 'body' | 'self' | string | undefined | HTMLElement;
 
 export interface ContextMenuProps {
     /**

@@ -78,7 +78,16 @@ export interface TimelineSlots {
     /**
      * Custom connector template.
      */
-    connector: () => VNode[];
+    connector: (scope: {
+        /**
+         * Item data
+         */
+        item: any;
+        /**
+         * Index of item
+         */
+        index: number;
+    }) => VNode[];
 }
 
 export declare type TimelineEmits = {

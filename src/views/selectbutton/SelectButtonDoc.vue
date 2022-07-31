@@ -58,7 +58,7 @@ export default {
 </code></pre>
 
 		<h5>Properties</h5>
-        <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
+        <p>Any valid attribute is passed to the root element implicitly, extended properties are as follows;</p>
 		<div class="doc-tablewrapper">
 			<table class="doc-table">
 				<thead>
@@ -118,12 +118,6 @@ export default {
                         <td>null</td>
                         <td>A property to uniquely identify an option.</td>
                     </tr>
-                    <tr>
-                        <td>ariaLabelledBy</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Establishes relationships between the component and label(s) where its value should be one or more element IDs.</td>
-                    </tr>
 				</tbody>
 			</table>
 		</div>
@@ -178,6 +172,36 @@ export default {
 			</table>
         </div>
 
+        <h5>Accessibility</h5>
+        <DevelopmentSection>
+            <h6>Screen Reader</h6>
+            <p>The container element that wraps the buttons has a <i>group</i> role whereas each button element uses <i>button</i> role and <i>aria-pressed</i> is updated depending on selection state.
+            Value to describe an option is automatically set using the <i>aria-label</i> property that refers to the label of an option so it is still suggested to define a label even the option display
+            consists of presentational content like icons only.</p>
+
+            <h6>Keyboard Support</h6>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Key</th>
+                            <th>Function</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><i>tab</i></td>
+                            <td>Moves focus to the buttons.</td>
+                        </tr>
+                        <tr>
+                            <td><i>space</i></td>
+                            <td>Toggles the checked state of a button.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </DevelopmentSection>
+
 		<h5>Dependencies</h5>
 		<p>None.</p>
     </AppDoc>
@@ -200,7 +224,7 @@ export default {
         <SelectButton v-model="value2" :options="paymentOptions" optionLabel="name" multiple />
 
         <h5>Custom Content</h5>
-        <SelectButton v-model="value3" :options="justifyOptions" dataKey="value">
+        <SelectButton v-model="value3" :options="justifyOptions" optionLabel="value" dataKey="value">
             <template #option="slotProps">
                 <i :class="slotProps.option.icon"></i>
             </template>
@@ -222,7 +246,7 @@ export default {
                 {name: 'Option 3', value: 3}
             ],
             justifyOptions: [
-                {icon: 'pi pi-align-left', value: 'left'},
+                {icon: 'pi pi-align-left', value: 'Left'},
                 {icon: 'pi pi-align-right', value: 'Right'},
                 {icon: 'pi pi-align-center', value: 'Center'},
                 {icon: 'pi pi-align-justify', value: 'Justify'}]
@@ -244,7 +268,7 @@ export default {
         <SelectButton v-model="value2" :options="paymentOptions" optionLabel="name" multiple />
 
         <h5>Custom Content</h5>
-        <SelectButton v-model="value3" :options="justifyOptions" dataKey="value">
+        <SelectButton v-model="value3" :options="justifyOptions" optionLabel="value" dataKey="value">
             <template #option="slotProps">
                 <i :class="slotProps.option.icon"></i>
             </template>
@@ -267,7 +291,7 @@ export default {
             {name: 'Option 3', value: 3}
         ]);
         const justifyOptions = ref([
-            {icon: 'pi pi-align-left', value: 'left'},
+            {icon: 'pi pi-align-left', value: 'Left'},
             {icon: 'pi pi-align-right', value: 'Right'},
             {icon: 'pi pi-align-center', value: 'Center'},
             {icon: 'pi pi-align-justify', value: 'Justify'}
@@ -290,7 +314,7 @@ export default {
             <p-selectbutton v-model="value2" :options="paymentOptions" option-label="name" multiple></p-selectbutton>
 
             <h5>Custom Content</h5>
-            <p-selectbutton v-model="value3" :options="justifyOptions" data-key="value">
+            <p-selectbutton v-model="value3" :options="justifyOptions" option-label="value" data-key="value">
                 <template #option="slotProps">
                     <i :class="slotProps.option.icon"></i>
                 </template>
@@ -312,7 +336,7 @@ export default {
                     {name: 'Option 3', value: 3}
                 ]);
                 const justifyOptions = ref([
-                    {icon: 'pi pi-align-left', value: 'left'},
+                    {icon: 'pi pi-align-left', value: 'Left'},
                     {icon: 'pi pi-align-right', value: 'Right'},
                     {icon: 'pi pi-align-center', value: 'Center'},
                     {icon: 'pi pi-align-justify', value: 'Justify'}

@@ -91,7 +91,7 @@ export default {
 </code></pre>
 
         <h5>Date Restriction</h5>
-        <p>To disable entering dates manually, set <i>manualInput</i> to true and to restrict selectable dates with the <i>minDate</i>
+        <p>To disable entering dates manually, set <i>manualInput</i> to false and to restrict selectable dates with the <i>minDate</i>
             and <i>maxDate</i> options.</p>
 <pre v-code><code>
 &lt;Calendar v-model="value" :minDate="minDateValue" maxDate="maxDateValue" /&gt;
@@ -140,7 +140,7 @@ export default {
 &lt;Calendar v-model="value"&gt;
     &lt;template #date="slotProps"&gt;
         &lt;strong v-if="slotProps.date.day &gt; 10 && slotProps.date.day &lt; 15" class="special-day"&gt;{{slotProps.date.day}}&lt;/strong&gt;
-        &lt;template v-else&gt;&#123;&#123;slotProps.date.day&#125;&#125;}&lt;/template&gt;
+        &lt;template v-else&gt;&#123;&#123;slotProps.date.day&#125;&#125;&lt;/template&gt;
     &lt;/template&gt;
 &lt;/Calendar&gt;
 </template>
@@ -218,6 +218,12 @@ export default {
                         <td>When specified, disables the component.</td>
                     </tr>
                     <tr>
+                        <td>readonly</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>When present, it specifies that an input field is read-only.</td>
+                    </tr>
+                    <tr>
                         <td>showOtherMonths</td>
                         <td>boolean</td>
                         <td>true</td>
@@ -283,12 +289,6 @@ export default {
                         <td>null</td>
                         <td>The range of years displayed in the year drop-down in (nnnn:nnnn) format such as (2000:2020). <br><br>
                         <b> Deprecated: </b> Years are based on decades by default.</td>
-                    </tr>
-                    <tr>
-                        <td>panelClass</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Style class of the datetimepicker panel.</td>
                     </tr>
                     <tr>
                         <td>minDate</td>
@@ -399,6 +399,12 @@ export default {
                         <td>Whether to hide the overlay on date selection when showTime is enabled.</td>
                     </tr>
                     <tr>
+                        <td>hideOnRangeSelection</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>Whether to hide the overlay on date selection is completed when selectionMode is range.</td>
+                    </tr>
+                    <tr>
                         <td>timeSeparator</td>
                         <td>string</td>
                         <td>:</td>
@@ -424,6 +430,18 @@ export default {
                         and "self" for the element itself.</td>
                     </tr>
                     <tr>
+                        <td>id</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Unique identifier of the element.</td>
+                    </tr>
+                    <tr>
+                        <td>inputId</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Style class of the component input field.</td>
+                    </tr>
+                    <tr>
                         <td>inputStyle</td>
                         <td>any</td>
                         <td>null</td>
@@ -436,16 +454,16 @@ export default {
                         <td>Style class of the input field.</td>
                     </tr>
                     <tr>
-                        <td>style</td>
-                        <td>any</td>
-                        <td>null</td>
-                        <td>Inline style of the component.</td>
-                    </tr>
-                    <tr>
-                        <td>class</td>
+                        <td>panelClass</td>
                         <td>string</td>
                         <td>null</td>
-                        <td>Style class of the component.</td>
+                        <td>Style class of the datetimepicker panel.</td>
+                    </tr>
+                    <tr>
+                        <td>panelStyle</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Inline style of the overlay panel.</td>
                     </tr>
                 </tbody>
             </table>
@@ -621,6 +639,191 @@ export default {
                 </tbody>
             </table>
         </div>
+
+        <h5>Accessibility</h5>
+        <DevelopmentSection>
+            <h6>Screen Reader</h6>
+            <p>Value to describe the component can either be provided via <i>label</i> tag combined with <i>inputId</i> prop or using <i>aria-labelledby</i>, <i>aria-label</i> props. The input element has <i>combobox</i> role
+            in addition to <i>aria-autocomplete</i> as "none", <i>aria-haspopup</i> as "dialog" and <i>aria-expanded</i> attributes. The relation between the input and the popup is created with <i>aria-controls</i> attribute that refers to the id of the popup.</p>
+            <p>The optional calendar button requires includes <i>aria-haspopup</i>, <i>aria-expanded</i> for states along with <i>aria-controls</i> to define the relation between the popup and the button. The value to read is retrieved from the <i>chooseDate</i>
+            key of the aria property from the <router-link to="/locale">locale</router-link> API. This label is also used for the <i>aria-label</i> of the popup as well. When there is a value selected, it is formatted and appended to the label to be able to notify users
+            about the current value.</p>
+
+            <p>Popup has a <i>dialog</i> role along with <i>aria-modal</i> and <i>aria-label</i>. The navigation buttons at the header has an <i>aria-label</i> retrieved from the <i>prevYear</i>, <i>nextYear</i>, <i>prevMonth</i>, <i>nextMonth</i>,
+            <i>prevDecade</i> and <i>nextDecade</i> keys of the locale aria API. Similarly month picker button uses the <i>chooseMonth</i> and year picker button uses the <i>chooseYear</i> keys.</p>
+
+            <p>Main date table uses <i>grid</i> role that contains th elements with <i>col</i> as the scope along with <i>abbr</i> tag resolving to the full name of the month. Each date cell has an <i>aria-label</i> referring to the full date value.
+            Buttons at the footer utilize their readable labels as <i>aria-label</i> as well. Selected date also receives the <i>aria-selected</i> attribute.</p>
+
+            <p>Timepicker spinner buttons get their labels for <i>aria-label</i> from the aria locale API using the <i>prevHour</i>, <i>nextHour</i>, <i>prevMinute</i>, <i>nextMinute</i>, <i>prevSecond</i>, <i>nextSecond</i>, <i>am</i> and <i>pm</i> keys.</p>
+
+            <p>Calendar also includes a hidden section that is only available to screen readers with <i>aria-live</i> as "polite". This element is updated when the selected date changes to instruct the user about the current date selected.</p>
+
+<pre v-code><code>
+&lt;label for="date1"&gt;Date&lt;/label&gt;
+&lt;Calendar inputId="date1" /&gt;
+
+&lt;span id="date2"&gt;Date&lt;/span&gt;
+&lt;Calendar aria-labelledby="date2" /&gt;
+
+&lt;Calendar aria-label="Date" /&gt;
+
+</code></pre>
+
+            <h6>Choose Date Button Keyboard Support</h6>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Key</th>
+                            <th>Function</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><i>space</i></td>
+                            <td>Opens popup and moves focus to the selected date, if there is none focuses on today.</td>
+                        </tr>
+                        <tr>
+                            <td><i>enter</i></td>
+                            <td>Opens popup and moves focus to the selected date, if there is none focuses on today.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h6>Popup Keyboard Support</h6>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Key</th>
+                            <th>Function</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><i>escape</i></td>
+                            <td>Closes the popup and moves focus to the input element.</td>
+                        </tr>
+                        <tr>
+                            <td><i>tab</i></td>
+                            <td>Moves focus to the next focusable element within the popup.</td>
+                        </tr>
+                        <tr>
+                            <td><i>shift</i> + <i>tab</i></td>
+                            <td>Moves focus to the next focusable element within the popup.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h6>Header Buttons Keyboard Support</h6>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Key</th>
+                            <th>Function</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><i>enter</i></td>
+                            <td>Triggers the button action.</td>
+                        </tr>
+                        <tr>
+                            <td><i>space</i></td>
+                            <td>Triggers the button action.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h6>Date Grid Keyboard Support</h6>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Key</th>
+                            <th>Function</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><i>enter</i></td>
+                            <td>Selects the date, closes the popup and moves focus to the input element.</td>
+                        </tr>
+                        <tr>
+                            <td><i>space</i></td>
+                            <td>Selects the date, closes the popup and moves focus to the input element.</td>
+                        </tr>
+                        <tr>
+                            <td><i>up arrow</i></td>
+                            <td>Moves focus to the same day of the previous week.</td>
+                        </tr>
+                        <tr>
+                            <td><i>down arrow</i></td>
+                            <td>Moves focus to the same day of the next week.</td>
+                        </tr>
+                        <tr>
+                            <td><i>right arrow</i></td>
+                            <td>Moves focus to the next day.</td>
+                        </tr>
+                        <tr>
+                            <td><i>left arrow</i></td>
+                            <td>Moves focus to the previous day.</td>
+                        </tr>
+                        <tr>
+                            <td><i>home</i></td>
+                            <td>Moves focus to the first day of the current week.</td>
+                        </tr>
+                        <tr>
+                            <td><i>end</i></td>
+                            <td>Moves focus to the last day of the current week.</td>
+                        </tr>
+                        <tr>
+                            <td><i>page up</i></td>
+                            <td>Changes the date to previous month in date picker mode. Moves to previous year in month picker mode and previous decade in year picker.</td>
+                        </tr>
+                        <tr>
+                            <td><i>shift</i> + <i>page up</i></td>
+                            <td>Changes the date to previous year in date picker mode. Has no effect in month or year picker</td>
+                        </tr>
+                        <tr>
+                            <td><i>page down</i></td>
+                            <td>Changes the date to next month in date picker mode. Moves to next year in month picker mode and next decade in year picker.</td>
+                        </tr>
+                        <tr>
+                            <td><i>shift</i> + <i>page down</i></td>
+                            <td>Changes the date to next year in date picker mode. Has no effect in month or year picker</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h6>Footer Buttons Keyboard Support</h6>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Key</th>
+                            <th>Function</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><i>enter</i></td>
+                            <td>Triggers the button action.</td>
+                        </tr>
+                        <tr>
+                            <td><i>space</i></td>
+                            <td>Triggers the button action.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </DevelopmentSection>
 
 		<h5>Dependencies</h5>
 		<p>None.</p>

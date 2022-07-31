@@ -15,6 +15,10 @@ const ImageEvents = [
     {
         name: "hide",
         description: "Triggered when the preview overlay is hidden."
+    },
+    {
+        name: "error",
+        description: "Triggered when an error occurs while loading an image file."
     }
 ];
 

@@ -1,7 +1,7 @@
 import { VNode, InputHTMLAttributes } from 'vue';
 import { ClassComponent, GlobalComponentConstructor, Nullable } from '../ts-helpers';
 
-type PasswordAppendToType = 'body' | 'self' | string | undefined;
+type PasswordAppendToType = 'body' | 'self' | string | undefined | HTMLElement;
 
 export interface PasswordProps extends InputHTMLAttributes {
     /**
@@ -60,25 +60,41 @@ export interface PasswordProps extends InputHTMLAttributes {
      */
     showIcon?: string | undefined;
     /**
+     * Identifier of the underlying input element.
+     */
+    inputId?: string | undefined;
+    /**
      * Inline style of the input field.
      */
-    inputStyle?: any;
+    inputStyle?: any | undefined;
     /**
      * Style class of the input field.
      */
-    inputClass?: any;
+    inputClass?: any | undefined;
     /**
-     * Inline style of the component.
+     * Identifier of the underlying overlay panel element.
      */
-    style?: any;
-    /**
-     * Style class of the component input field.
-     */
-    class?: any;
+    panelId?: string | undefined;
     /**
      * Style class of the overlay panel.
      */
-    panelClass?: any;
+    panelClass?: any | undefined;
+    /**
+     * Inline style of the overlay panel.
+     */
+    panelStyle?: any | undefined;
+    /**
+     * 
+     */
+    panelProps?: object | undefined;
+    /**
+     * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
+     */
+    'aria-labelledby'?: string | undefined;
+    /**
+     * Establishes a string value that labels the component.
+     */
+    'aria-label'?: string | undefined;
 }
 
 export interface PasswordSlots {

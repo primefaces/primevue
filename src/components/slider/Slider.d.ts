@@ -49,9 +49,17 @@ export interface SliderProps {
      */
     disabled?: boolean | undefined;
     /**
+     * Index of the element in tabbing order.
+     */
+    tabindex?: number | undefined;
+    /**
      * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
      */
-    ariaLabelledBy?: string | undefined;
+    'aria-labelledby'?: string | undefined;
+    /**
+     * Used to define a string that labels the element.
+     */
+    'aria-label'?: string | undefined;
 }
 
 export interface SliderSlots {

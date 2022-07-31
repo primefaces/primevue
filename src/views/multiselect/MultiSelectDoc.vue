@@ -128,7 +128,7 @@ export default {
 </code></pre>
 
 		<h5>Properties</h5>
-        <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
+        <p>Any property of HTMLDivElement are passed to the main container element. Following are the additional properties to configure the component.</p>
 		<div class="doc-tablewrapper">
 			<table class="doc-table">
 				<thead>
@@ -189,6 +189,66 @@ export default {
                         <td>Height of the viewport, a scrollbar is defined if height of list exceeds this value.</td>
                     </tr>
                     <tr>
+                        <td>placeholder</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Label to display when there are no selections.</td>
+                    </tr>
+                    <tr>
+                        <td>disabled</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>When present, it specifies that the component should be disabled.</td>
+                    </tr>
+                    <tr>
+                        <td>inputId</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Identifier of the underlying input element.</td>
+                    </tr>
+                    <tr>
+                        <td>inputProps</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td>Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.</td>
+                    </tr>
+                    <tr>
+                        <td>panelStyle</td>
+                        <td>any</td>
+                        <td>null</td>
+                        <td>Inline style of the overlay panel.</td>
+                    </tr>
+                    <tr>
+                        <td>panelClass</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Style class of the overlay panel.</td>
+                    </tr>
+                    <tr>
+                        <td>panelProps</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td>Uses to pass all properties of the HTMLDivElement to the overlay panel.</td>
+                    </tr>
+                    <tr>
+                        <td>filterInputProps</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td>Uses to pass all properties of the HTMLInputElement to the filter input inside the overlay panel.</td>
+                    </tr>
+                    <tr>
+                        <td>closeButtonProps</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td>Uses to pass all properties of the HTMLButtonElement to the close button inside the overlay panel.</td>
+                    </tr>
+                    <tr>
+                        <td>dataKey</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>A property to uniquely identify an option.</td>
+                    </tr>
+                    <tr>
                         <td>filter</td>
                         <td>boolean</td>
                         <td>false</td>
@@ -219,59 +279,11 @@ export default {
                         <td>Fields used when filtering the options, defaults to optionLabel.</td>
                     </tr>
                     <tr>
-                        <td>placeholder</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Label to display when there are no selections.</td>
-                    </tr>
-                    <tr>
-                        <td>disabled</td>
-                        <td>boolean</td>
-                        <td>false</td>
-                        <td>When present, it specifies that the component should be disabled.</td>
-                    </tr>
-                    <tr>
-                        <td>tabindex</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Index of the element in tabbing order.</td>
-                    </tr>
-                    <tr>
-                        <td>inputId</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Identifier of the underlying input element.</td>
-                    </tr>
-                    <tr>
-                        <td>dataKey</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>A property to uniquely identify an option.</td>
-                    </tr>
-                    <tr>
-                        <td>ariaLabelledBy</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Establishes relationships between the component and label(s) where its value should be one or more element IDs.</td>
-                    </tr>
-                    <tr>
                         <td>appendTo</td>
                         <td>string</td>
                         <td>body</td>
                         <td>A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are "body" for document body
                         and "self" for the element itself.</td>
-                    </tr>
-                    <tr>
-                        <td>emptyFilterMessage</td>
-                        <td>string</td>
-                        <td>No results found</td>
-                        <td>Text to display when filtering does not return any results. Defaults to value from PrimeVue locale configuration.</td>
-                    </tr>
-                    <tr>
-                        <td>emptyMessage</td>
-                        <td>string</td>
-                        <td>No results found</td>
-                        <td>Text to display when there are no options available. Defaults to value from PrimeVue locale configuration.</td>
                     </tr>
                     <tr>
                         <td>display</td>
@@ -280,10 +292,16 @@ export default {
                         <td>Defines how the selected items are displayed, valid values are "comma" and "chip".</td>
                     </tr>
                     <tr>
-                        <td>panelClass</td>
+                        <td>selectedItemsLabel</td>
                         <td>string</td>
+                        <td>&#123;0&#125; items selected</td>
+                        <td>Label to display after exceeding max selected labels.</td>
+                    </tr>
+                    <tr>
+                        <td>maxSelectedLabels</td>
+                        <td>number</td>
                         <td>null</td>
-                        <td>Style class of the overlay panel.</td>
+                        <td>Decides how many selected item labels to show at most.</td>
                     </tr>
                     <tr>
                         <td>selectionLimit</td>
@@ -310,28 +328,76 @@ export default {
                         <td>Icon to display in loading state.</td>
                     </tr>
                     <tr>
-                        <td>maxSelectedLabels</td>
-                        <td>number</td>
-                        <td>null</td>
-                        <td>Decides how many selected item labels to show at most.</td>
-                    </tr>
-                    <tr>
-                        <td>selectedItemsLabel</td>
-                        <td>string</td>
-                        <td>&#123;0&#125; items selected</td>
-                        <td>Label to display after exceeding max selected labels.</td>
-                    </tr>
-                    <tr>
                         <td>selectAll</td>
                         <td>boolean</td>
                         <td>false</td>
                         <td>Whether all data is selected.</td>
                     </tr>
                     <tr>
+                        <td>resetFilterOnHide</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>Clears the filter value when hiding the dropdown.</td>
+                    </tr>
+                    <tr>
                         <td>virtualScrollerOptions</td>
                         <td>object</td>
                         <td>null</td>
                         <td>Whether to use the virtualScroller feature. The properties of <router-link to="/virtualscroller">VirtualScroller</router-link> component can be used like an object in it.</td>
+                    </tr>
+                    <tr>
+                        <td>autoOptionFocus</td>
+                        <td>boolean</td>
+                        <td>true</td>
+                        <td>Whether to focus on the first visible or selected element when the overlay panel is shown.</td>
+                    </tr>
+                    <tr>
+                        <td>filterMessage</td>
+                        <td>string</td>
+                        <td>{0} results are available</td>
+                        <td>Text to be displayed in hidden accessible field when filtering returns any results. Defaults to value from PrimeVue locale configuration.</td>
+                    </tr>
+                    <tr>
+                        <td>selectionMessage</td>
+                        <td>string</td>
+                        <td>{0} items selected</td>
+                        <td>Text to be displayed in hidden accessible field when options are selected. Defaults to value from PrimeVue locale configuration.</td>
+                    </tr>
+                    <tr>
+                        <td>emptySelectionMessage</td>
+                        <td>string</td>
+                        <td>No selected item</td>
+                        <td>Text to be displayed in hidden accessible field when any option is not selected. Defaults to value from PrimeVue locale configuration.</td>
+                    </tr>
+                    <tr>
+                        <td>emptyFilterMessage</td>
+                        <td>string</td>
+                        <td>No results found</td>
+                        <td>Text to be displayed when filtering does not return any results. Defaults to value from PrimeVue locale configuration.</td>
+                    </tr>
+                    <tr>
+                        <td>emptyMessage</td>
+                        <td>string</td>
+                        <td>No results found</td>
+                        <td>Text to be displayed when there are no options available. Defaults to value from PrimeVue locale configuration.</td>
+                    </tr>
+                    <tr>
+                        <td>tabindex</td>
+                        <td>number</td>
+                        <td>0</td>
+                        <td>Index of the element in tabbing order.</td>
+                    </tr>
+                    <tr>
+                        <td>ariaLabel</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Defines a string value that labels an interactive element.</td>
+                    </tr>
+                    <tr>
+                        <td>ariaLabelledby</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Establishes relationships between the component and label(s) where its value should be one or more element IDs.</td>
                     </tr>
 				</tbody>
 			</table>
@@ -353,6 +419,16 @@ export default {
                         <td>event.originalEvent: Original event <br />
                             event.value: Selected option value </td>
                         <td>Callback to invoke on value change.</td>
+                    </tr>
+                    <tr>
+                        <td>focus</td>
+                        <td>event</td>
+                        <td>Callback to invoke when the component receives focus.</td>
+                    </tr>
+                    <tr>
+                        <td>blur</td>
+                        <td>event</td>
+                        <td>Callback to invoke when the component loses focus.</td>
                     </tr>
                     <tr>
                         <td>before-show</td>
@@ -403,13 +479,18 @@ export default {
 				<tbody>
                     <tr>
                         <td>show</td>
-                        <td>-</td>
+                        <td>isFocus: Decides whether to focus on the component. Default value is false.</td>
                         <td>Shows the overlay.</td>
                     </tr>
                     <tr>
                         <td>hide</td>
-                        <td>-</td>
+                        <td>isFocus: Decides whether to focus on the component. Default value is false.</td>
                         <td>Hides the overlay.</td>
+                    </tr>
+                    <tr>
+                        <td>clearFilter</td>
+                        <td>-</td>
+                        <td>Clears filter input.</td>
                     </tr>
 				</tbody>
 			</table>
@@ -426,19 +507,17 @@ export default {
 				</thead>
 				<tbody>
                     <tr>
-                        <td>option</td>
-                        <td>option: Option instance <br />
-                            index: Index of the option</td>
-                    </tr>
-                    <tr>
-                        <td>optiongroup</td>
-                        <td>option: OptionGroup instance <br />
-                            index: Index of the option group</td>
-                    </tr>
-                    <tr>
                         <td>value</td>
                         <td>value: Value of the component <br />
                             placeholder: Placeholder prop value</td>
+                    </tr>
+                    <tr>
+                        <td>chip</td>
+                        <td>value: A value in the selection</td>
+                    </tr>
+                    <tr>
+                        <td>indicator</td>
+                        <td>-</td>
                     </tr>
                     <tr>
                         <td>header</td>
@@ -451,16 +530,22 @@ export default {
                             options: Displayed options</td>
                     </tr>
                     <tr>
+                        <td>option</td>
+                        <td>option: Option instance <br />
+                            index: Index of the option</td>
+                    </tr>
+                    <tr>
+                        <td>optiongroup</td>
+                        <td>option: OptionGroup instance <br />
+                            index: Index of the option group</td>
+                    </tr>
+                    <tr>
                         <td>emptyfilter</td>
                         <td>-</td>
                     </tr>
                     <tr>
                         <td>empty</td>
                         <td>-</td>
-                    </tr>
-                    <tr>
-                        <td>chip</td>
-                        <td>value: A value in the selection</td>
                     </tr>
                     <tr>
                         <td>content</td>
@@ -472,10 +557,6 @@ export default {
                     <tr>
                         <td>loader</td>
                         <td>options: Options of the loader items for virtualscroller</td>
-                    </tr>
-                    <tr>
-                        <td>indicator</td>
-                        <td>-</td>
                     </tr>
 				</tbody>
 			</table>
@@ -524,9 +605,258 @@ export default {
                         <td>p-multiselect-item</td>
                         <td>An item in the list.</td>
                     </tr>
+                    <tr>
+                        <td>p-overlay-open</td>
+                        <td>Container element when overlay is visible.</td>
+                    </tr>
 				</tbody>
 			</table>
 		</div>
+
+        <h5>Accessibility</h5>
+        <h6>Screen Reader</h6>
+        <p>Value to describe the component can either be provided with <i>aria-labelledby</i> or <i>aria-label</i> props. The multiselect component has a <i>combobox</i> role
+        in addition to <i>aria-haspopup</i> and <i>aria-expanded</i> attributes. The relation between the combobox and the popup is created with <i>aria-controls</i> attribute that refers to the id of the popup listbox.</p>
+        <p>The popup listbox uses <i>listbox</i> as the role with <i>aria-multiselectable</i> enabled. Each list item has an <i>option</i> role along with <i>aria-label</i>, <i>aria-selected</i> and <i>aria-disabled</i> attributes.</p>
+
+        <p>Checkbox component at the header uses a hidden native checkbox element internally that is only visible to screen readers. Value to read is defined with the <i>selectAll</i> and <i>unselectAll</i> keys of the <i>aria</i> property from the <router-link to="/locale">locale</router-link> API.</p>
+
+        <p>If filtering is enabled, <i>filterInputProps</i> can be defined to give <i>aria-*</i> props to the input element.</p>
+
+        <p>Close button uses <i>close</i> key of the <i>aria</i> property from the <router-link to="/locale">locale</router-link> API as the <i>aria-label</i> by default, this can be overriden with the <i>closeButtonProps</i>.</p>
+<pre v-code><code>
+&lt;span id="dd1"&gt;Options&lt;/span&gt;
+&lt;MultiSelect aria-labelledby="dd1" /&gt;
+
+&lt;MultiSelect aria-label="Options" /&gt;
+
+</code></pre>
+
+        <h6>Closed State Keyboard Support</h6>
+        <div className="doc-tablewrapper">
+            <table className="doc-table">
+                <thead>
+                    <tr>
+                        <th>Key</th>
+                        <th>Function</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><i>tab</i></td>
+                        <td>Moves focus to the multiselect element.</td>
+                    </tr>
+                    <tr>
+                        <td><i>space</i></td>
+                        <td>Opens the popup and moves visual focus to the selected option, if there is none then first option receives the focus.</td>
+                    </tr>
+                    <tr>
+                        <td><i>enter</i></td>
+                        <td>Opens the popup and moves visual focus to the selected option, if there is none then first option receives the focus.</td>
+                    </tr>
+                    <tr>
+                        <td><i>down arrow</i></td>
+                        <td>Opens the popup and moves visual focus to the selected option, if there is none then first option receives the focus.</td>
+                    </tr>
+                    <tr>
+                        <td><i>up arrow</i></td>
+                        <td>Opens the popup and moves visual focus to the selected option, if there is none then first option receives the focus.</td>
+                    </tr>
+                    <tr>
+                        <td><i>any printable character</i></td>
+                        <td>Opens the popup and moves focus to the option whose label starts with the characters being typed, if there is none then first option receives the focus.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h6>Popup Keyboard Support</h6>
+        <div className="doc-tablewrapper">
+            <table className="doc-table">
+                <thead>
+                    <tr>
+                        <th>Key</th>
+                        <th>Function</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><i>tab</i></td>
+                        <td>Moves focus to the next focusable element in the popup, if there is none then first focusable element receives the focus.</td>
+                    </tr>
+                    <tr>
+                        <td><i>shift</i> + <i>tab</i></td>
+                        <td>Moves focus to the previous focusable element in the popup, if there is none then last focusable element receives the focus.</td>
+                    </tr>
+                    <tr>
+                        <td><i>enter</i></td>
+                        <td>Toggles the selection state of the focused option, then moves focus to the multiselect element.</td>
+                    </tr>
+                    <tr>
+                        <td><i>space</i></td>
+                        <td>Toggles the selection state of the focused option, then moves focus to the multiselect element.</td>
+                    </tr>
+                    <tr>
+                        <td><i>escape</i></td>
+                        <td>Closes the popup, moves focus to the multiselect element.</td>
+                    </tr>
+                    <tr>
+                        <td><i>down arrow</i></td>
+                        <td>Moves focus to the next option, if there is none then visual focus does not change.</td>
+                    </tr>
+                    <tr>
+                        <td><i>up arrow</i></td>
+                        <td>Moves focus to the previous option, if there is none then visual focus does not change.</td>
+                    </tr>
+                    <tr>
+                        <td><i>alt</i> + <i>up arrow</i></td>
+                        <td>Selects the focused option and closes the popup, then moves focus to the multiselect element.</td>
+                    </tr>
+                    <tr>
+                        <td><i>shift</i> + <i>down arrow</i></td>
+                        <td>Moves focus to the next option and toggles the selection state.</td>
+                    </tr>
+                    <tr>
+                        <td><i>shift</i> + <i>up arrow</i></td>
+                        <td>Moves focus to the previous option and toggles the selection state.</td>
+                    </tr>
+                    <tr>
+                        <td><i>shift</i> + <i>space</i></td>
+                        <td>Selects the items between the most recently selected option and the focused option.</td>
+                    </tr>
+                    <tr>
+                        <td><i>home</i></td>
+                        <td>Moves focus to the first option.</td>
+                    </tr>
+                    <tr>
+                        <td><i>end</i></td>
+                        <td>Moves focus to the last option.</td>
+                    </tr>
+                    <tr>
+                        <td><i>control</i> + <i>shift</i> + <i>home</i></td>
+                        <td>Selects the focused options and all the options up to the first one.</td>
+                    </tr>
+                    <tr>
+                        <td><i>control</i> + <i>shift</i> + <i>end</i></td>
+                        <td>Selects the focused options and all the options down to the last one.</td>
+                    </tr>
+                    <tr>
+                        <td><i>control</i> + <i>a</i></td>
+                        <td>Selects all options.</td>
+                    </tr>
+                    <tr>
+                        <td><i>pageUp</i></td>
+                        <td>Jumps visual focus to first option.</td>
+                    </tr>
+                    <tr>
+                        <td><i>pageDown</i></td>
+                        <td>Jumps visual focus to last option.</td>
+                    </tr>
+                    <tr>
+                        <td><i>any printable character</i></td>
+                        <td>Moves focus to the option whose label starts with the characters being typed.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h6>Toggle All Checkbox Keyboard Support</h6>
+        <div className="doc-tablewrapper">
+            <table className="doc-table">
+                <thead>
+                    <tr>
+                        <th>Key</th>
+                        <th>Function</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><i>space</i></td>
+                        <td>Toggles the checked state.</td>
+                    </tr>
+                    <tr>
+                        <td><i>escape</i></td>
+                        <td>Closes the popup and moves focus to the multiselect element.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h6>Filter Input Keyboard Support</h6>
+        <div className="doc-tablewrapper">
+            <table className="doc-table">
+                <thead>
+                    <tr>
+                        <th>Key</th>
+                        <th>Function</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><i>down arrow</i></td>
+                        <td>Moves focus to the next option, if there is none then visual focus does not change.</td>
+                    </tr>
+                    <tr>
+                        <td><i>up arrow</i></td>
+                        <td>Moves focus to the previous option, if there is none then visual focus does not change.</td>
+                    </tr>
+                    <tr>
+                        <td><i>left arrow</i></td>
+                        <td>Removes the visual focus from the current option and moves input cursor to one character left.</td>
+                    </tr>
+                    <tr>
+                        <td><i>right arrow</i></td>
+                        <td>Removes the visual focus from the current option and moves input cursor to one character right.</td>
+                    </tr>
+                    <tr>
+                        <td><i>home</i></td>
+                        <td>Moves input cursor at the end, if not then moves focus to the first option.</td>
+                    </tr>
+                    <tr>
+                        <td><i>end</i></td>
+                        <td>Moves input cursor at the beginning, if not then moves focus to the last option.</td>
+                    </tr>
+                    <tr>
+                        <td><i>enter</i></td>
+                        <td>Closes the popup and moves focus to the multiselect element.</td>
+                    </tr>
+                    <tr>
+                        <td><i>escape</i></td>
+                        <td>Closes the popup and moves focus to the multiselect element.</td>
+                    </tr>
+                    <tr>
+                        <td><i>tab</i></td>
+                        <td>Moves focus to the next focusable element in the popup. If there is none, the focusable option is selected and the overlay is closed then moves focus to next element in page.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h6>Close Button Keyboard Support</h6>
+        <div className="doc-tablewrapper">
+            <table className="doc-table">
+                <thead>
+                    <tr>
+                        <th>Key</th>
+                        <th>Function</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><i>enter</i></td>
+                        <td>Closes the popup and moves focus to the multiselect element.</td>
+                    </tr>
+                    <tr>
+                        <td><i>space</i></td>
+                        <td>Closes the popup and moves focus to the multiselect element.</td>
+                    </tr>
+                    <tr>
+                        <td><i>escape</i></td>
+                        <td>Closes the popup and moves focus to the multiselect element.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
 		<h5>Dependencies</h5>
 		<p>None.</p>

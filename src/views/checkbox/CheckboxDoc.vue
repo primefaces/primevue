@@ -45,7 +45,7 @@ export default {
 			checkboxes as checked by default.</p>
 
 		<h5>Properties</h5>
-        <p>Any property such as name and autofocus are passed to the underlying input element. Following are the additional properties to configure the component.</p>
+        <p>Any valid attribute is passed to the root element implicitly, extended properties are as follows;</p>
 		<div class="doc-tablewrapper">
 			<table class="doc-table">
 				<thead>
@@ -70,22 +70,16 @@ export default {
                         <td>Value binding of the checkbox.</td>
                     </tr>
                     <tr>
+                        <td>name</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Name of the input element.</td>
+                    </tr>
+                    <tr>
                         <td>binary</td>
                         <td>boolean</td>
                         <td>false</td>
                         <td>Allows to select a boolean value instead of multiple values.</td>
-                    </tr>
-                    <tr>
-                        <td>style</td>
-                        <td>any</td>
-                        <td>null</td>
-                        <td>Style class of the component input field.</td>
-                    </tr>
-                    <tr>
-                        <td>class</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Inline style of the component.</td>
                     </tr>
                     <tr>
                         <td>trueValue</td>
@@ -98,6 +92,54 @@ export default {
                         <td>any</td>
                         <td>null</td>
                         <td>Value in unchecked state.</td>
+                    </tr>
+                    <tr>
+                        <td>disabled</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>When present, it specifies that the element should be disabled.</td>
+                    </tr>
+                    <tr>
+                        <td>readonly</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>When present, it specifies that an input field is read-only.</td>
+                    </tr>
+                    <tr>
+                        <td>required</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>When present, it specifies that the element is required.</td>
+                    </tr>
+                    <tr>
+                        <td>tabindex</td>
+                        <td>number</td>
+                        <td>null</td>
+                        <td>Index of the element in tabbing order.</td>
+                    </tr>
+                    <tr>
+                        <td>inputId</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Identifier of the underlying input element.</td>
+                    </tr>
+                    <tr>
+                        <td>inputClass</td>
+                        <td>any</td>
+                        <td>null</td>
+                        <td>Style class of the input field.</td>
+                    </tr>
+                    <tr>
+                        <td>inputStyle</td>
+                        <td>any</td>
+                        <td>null</td>
+                        <td>Inline style of the input field.</td>
+                    </tr>
+                    <tr>
+                        <td>inputProps</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td></td>
                     </tr>
 				</tbody>
 			</table>
@@ -161,6 +203,45 @@ export default {
 			</table>
 		</div>
 
+        <h5>Accessibility</h5>
+        <DevelopmentSection>
+            <h6>Screen Reader</h6>
+            <p>Checkbox component uses a hidden native checkbox element internally that is only visible to screen readers. Value to describe the component can either be provided via <i>label</i> tag combined with <i>id</i> prop or using <i>aria-labelledby</i>, <i>aria-label</i> props.</p>
+
+<pre v-code><code>
+&lt;label for="chkbox1"&gt;Remember Me&lt;/label&gt;
+&lt;Checkbox inputId="chkbox1" /&gt;
+
+&lt;span id="chkbox2"&gt;Remember Me&lt;/span&gt;
+&lt;Checkbox aria-labelledby="chkbox2" /&gt;
+
+&lt;Checkbox aria-label="Remember Me" /&gt;
+
+</code></pre>
+
+            <h6>Keyboard Support</h6>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Key</th>
+                            <th>Function</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><i>tab</i></td>
+                            <td>Moves focus to the checkbox.</td>
+                        </tr>
+                        <tr>
+                            <td><i>space</i></td>
+                            <td>Toggles the checked state.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </DevelopmentSection>
+
 		<h5>Dependencies</h5>
 		<p>None.</p>
     </AppDoc>
@@ -178,31 +259,31 @@ export default {
     <div>
         <h5>Basic</h5>
         <div class="field-checkbox">
-            <Checkbox id="binary" v-model="checked" :binary="true" />
+            <Checkbox inputId="binary" v-model="checked" :binary="true" />
             <label for="binary">{{checked}}</label>
         </div>
 
         <h5>Multiple</h5>
         <div class="field-checkbox">
-            <Checkbox id="city1" name="city" value="Chicago" v-model="cities" />
+            <Checkbox inputId="city1" name="city" value="Chicago" v-model="cities" />
             <label for="city1">Chicago</label>
         </div>
         <div class="field-checkbox">
-            <Checkbox id="city2" name="city" value="Los Angeles" v-model="cities" />
+            <Checkbox inputId="city2" name="city" value="Los Angeles" v-model="cities" />
             <label for="city2">Los Angeles</label>
         </div>
         <div class="field-checkbox">
-            <Checkbox id="city3" name="city" value="New York" v-model="cities" />
+            <Checkbox inputId="city3" name="city" value="New York" v-model="cities" />
             <label for="city3">New York</label>
         </div>
         <div class="field-checkbox">
-            <Checkbox id="city4" name="city" value="San Francisco" v-model="cities" />
+            <Checkbox inputId="city4" name="city" value="San Francisco" v-model="cities" />
             <label for="city4">San Francisco</label>
         </div>
 
         <h5>Dynamic Values, Preselection, Value Binding and Disabled Option</h5>
         <div v-for="category of categories" :key="category.key" class="field-checkbox">
-            <Checkbox :id="category.key" name="category" :value="category" v-model="selectedCategories" :disabled="category.key === 'R'"/>
+            <Checkbox :inputId="category.key" name="category" :value="category.name" v-model="selectedCategories" :disabled="category.key === 'R'"/>
             <label :for="category.key">{{category.name}}</label>
         </div>
     </div>
@@ -231,31 +312,31 @@ export default {
     <div>
         <h5>Basic</h5>
         <div class="field-checkbox">
-            <Checkbox id="binary" v-model="checked" :binary="true" />
+            <Checkbox inputId="binary" v-model="checked" :binary="true" />
             <label for="binary">{{checked}}</label>
         </div>
 
         <h5>Multiple</h5>
         <div class="field-checkbox">
-            <Checkbox id="city1" name="city" value="Chicago" v-model="cities" />
+            <Checkbox inputId="city1" name="city" value="Chicago" v-model="cities" />
             <label for="city1">Chicago</label>
         </div>
         <div class="field-checkbox">
-            <Checkbox id="city2" name="city" value="Los Angeles" v-model="cities" />
+            <Checkbox inputId="city2" name="city" value="Los Angeles" v-model="cities" />
             <label for="city2">Los Angeles</label>
         </div>
         <div class="field-checkbox">
-            <Checkbox id="city3" name="city" value="New York" v-model="cities" />
+            <Checkbox inputId="city3" name="city" value="New York" v-model="cities" />
             <label for="city3">New York</label>
         </div>
         <div class="field-checkbox">
-            <Checkbox id="city4" name="city" value="San Francisco" v-model="cities" />
+            <Checkbox inputId="city4" name="city" value="San Francisco" v-model="cities" />
             <label for="city4">San Francisco</label>
         </div>
 
         <h5>Dynamic Values, Preselection, Value Binding and Disabled Option</h5>
         <div v-for="category of categories" :key="category.key" class="field-checkbox">
-            <Checkbox :id="category.key" name="category" :value="category" v-model="selectedCategories" :disabled="category.key === 'R'"/>
+            <Checkbox :inputId="category.key" name="category" :value="category.name" v-model="selectedCategories" :disabled="category.key === 'R'"/>
             <label :for="category.key">{{category.name}}</label>
         </div>
     </div>
@@ -286,31 +367,31 @@ export default {
                     content: `<div id="app">
         <h5>Basic</h5>
         <div class="field-checkbox">
-            <p-checkbox id="binary" v-model="checked" :binary="true"></p-checkbox>
+            <p-checkbox inputId="binary" v-model="checked" :binary="true"></p-checkbox>
             <label for="binary">{{checked}}</label>
         </div>
 
         <h5>Multiple</h5>
         <div class="field-checkbox">
-            <p-checkbox id="city1" name="city" value="Chicago" v-model="cities"></p-checkbox>
+            <p-checkbox inputId="city1" name="city" value="Chicago" v-model="cities"></p-checkbox>
             <label for="city1">Chicago</label>
         </div>
         <div class="field-checkbox">
-            <p-checkbox id="city2" name="city" value="Los Angeles" v-model="cities"></p-checkbox>
+            <p-checkbox inputId="city2" name="city" value="Los Angeles" v-model="cities"></p-checkbox>
             <label for="city2">Los Angeles</label>
         </div>
         <div class="field-checkbox">
-            <p-checkbox id="city3" name="city" value="New York" v-model="cities"></p-checkbox>
+            <p-checkbox inputId="city3" name="city" value="New York" v-model="cities"></p-checkbox>
             <label for="city3">New York</label>
         </div>
         <div class="field-checkbox">
-            <p-checkbox id="city4" name="city" value="San Francisco" v-model="cities"></p-checkbox>
+            <p-checkbox inputId="city4" name="city" value="San Francisco" v-model="cities"></p-checkbox>
             <label for="city4">San Francisco</label>
         </div>
 
         <h5>Dynamic Values, Preselection, Value Binding and Disabled Option</h5>
         <div v-for="category of categories" :key="category.key" class="field-checkbox">
-            <p-checkbox :id="category.key" name="category" :value="category" v-model="selectedCategories" :disabled="category.key === 'R'"></p-checkbox>
+            <p-checkbox :inputId="category.key" name="category" :value="category.name" v-model="selectedCategories" :disabled="category.key === 'R'"></p-checkbox>
             <label :for="category.key">{{category.name}}</label>
         </div>
     </div>

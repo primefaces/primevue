@@ -12,7 +12,7 @@
         </div>
         <div class="p-tree-wrapper" :style="{maxHeight: scrollHeight}">
             <ul class="p-tree-container" role="tree">
-                <TreeNode v-for="node of valueToRender" :key="node.key" :node="node" :templates="$slots"
+                <TreeNode v-for="(node, index) of valueToRender" :key="node.key" :node="node" :templates="$slots" :level="level + 1" :index="index"
                     :expandedKeys="d_expandedKeys" @node-toggle="onNodeToggle" @node-click="onNodeClick"
                     :selectionMode="selectionMode" :selectionKeys="selectionKeys" @checkbox-change="onCheckboxChange"></TreeNode>
             </ul>
@@ -79,6 +79,10 @@ export default {
         scrollHeight: {
             type: String,
             default: null
+        },
+        level: {
+            type: Number,
+            default: 0
         }
     },
     data() {

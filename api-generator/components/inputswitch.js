@@ -6,18 +6,6 @@ const InputSwitchProps = [
         description: "Specifies whether a inputswitch should be checked or not."
     },
     {
-        name: "class",
-        type: "string",
-        default: "null",
-        description: "Style class of the component."
-    },
-    {
-        name: "style",
-        type: "any",
-        default: "null",
-        description: "Inline of the component."
-    },
-    {
         name: "trueValue",
         type: "any",
         default: "null",
@@ -28,6 +16,24 @@ const InputSwitchProps = [
         type: "any",
         default: "null",
         description: "Value in unchecked state."
+    },
+    {
+        name: "inputId",
+        type: "string",
+        default: "null",
+        description: "Identifier of the underlying input element."
+    },
+    {
+        name: "inputStyle",
+        type: "any",
+        default: "null",
+        description: "Inline style of the input field."
+    },
+    {
+        name: "inputClass",
+        type: "string",
+        default: "null",
+        description: "Style class of the input field."
     }
 ];
 

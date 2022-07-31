@@ -6,7 +6,7 @@ type AutoCompleteFieldType = string | ((data: any) => string) | undefined;
 
 type AutoCompleteDropdownMode = 'blank' | 'current' | undefined;
 
-type AutoCompleteAppendTo = 'body' | 'self' | string | undefined;
+type AutoCompleteAppendTo = 'body' | 'self' | string | undefined | HTMLElement;
 
 export interface AutoCompleteItemSelectEvent {
     /**
@@ -104,6 +104,7 @@ export interface AutoCompleteProps {
     /**
      * A valid query selector or an HTMLElement to specify where the overlay gets attached.
      * Special keywords are 'body' for document body and 'self' for the element itself.
+     * @see AutoCompleteAppendTo
      * Default value is body.
      */
     appendTo?: AutoCompleteAppendTo;

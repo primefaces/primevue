@@ -1,7 +1,7 @@
 import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-type OverlayPanelAppendToType = 'body' | 'self' | string | undefined;
+type OverlayPanelAppendToType = 'body' | 'self' | string | undefined | HTMLElement;
 
 export interface OverlayPanelBreakpoints {
     /**

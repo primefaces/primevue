@@ -7,7 +7,7 @@ type CascadeSelectOptionValueType = string | ((data: any) => any) | undefined;
 
 type CascadeSelectOptionChildrenType = string[] | string | ((data: any) => any[]) | undefined;
 
-type CascadeSelectAppendToType = 'body' | 'self' | string | undefined;
+type CascadeSelectAppendToType = 'body' | 'self' | string | undefined | HTMLElement;
 
 export interface CascadeSelectChangeEvent {
     /**
@@ -71,23 +71,11 @@ export interface CascadeSelectProps {
      */
     tabindex?: string | undefined;
     /**
-     * Identifier of the underlying input element.
-     */
-    inputId?: string | undefined;
-    /**
-     * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
-     */
-    ariaLabelledBy?: string | undefined;
-    /**
      * A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are 'body' for document body and 'self' for the element itself.
      * @see CascadeSelectAppendToType
      * Default value is 'body'.
      */
     appendTo?: CascadeSelectAppendToType;
-    /**
-     * Style class of the overlay panel.
-     */
-    panelClass?: any;
     /**
      * Whether the dropdown is in loading state.
      */
@@ -97,6 +85,39 @@ export interface CascadeSelectProps {
      * Default value is 'pi pi-spinner pi-spin'.
      */
     loadingIcon?: string | undefined;
+    /**
+     * Identifier of the underlying input element.
+     */
+    inputId?: string | undefined;
+    /**
+     * Style class of the input field.
+     */
+    inputClass?: any | undefined;
+    /**
+     * Inline style of the input field.
+     */
+    inputStyle?: any | undefined;
+    /**
+     * 
+     */
+    inputProps?: object | undefined;
+    /**
+     * Style class of the overlay panel.
+     */
+    panelClass?: any;
+    /**
+     * 
+     */
+    panelProps?: object | undefined;
+
+    /**
+     * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
+     */
+    'aria-labelledby'?: string | undefined;
+    /**
+     * Establishes a string value that labels the component.
+     */
+    'aria-label'?: string | undefined;
 }
 
 export interface CascadeSelectSlots {

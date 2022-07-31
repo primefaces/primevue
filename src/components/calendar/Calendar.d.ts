@@ -3,13 +3,15 @@ import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 type CalendarValueType = Date | Date[] | undefined;
 
+type CalendarSlotDateType = { day: number; month: number; year: number; today: boolean; selectable: boolean }
+
 type CalendarSelectionModeType = 'single' | 'multiple' | 'range' | undefined;
 
 type CalendarViewType = 'date' | 'month' | 'year' | undefined;
 
 type CalendarHourFormatType = '12' | '24' | undefined;
 
-type CalendarAppendToType = 'body' | 'self' | string | undefined;
+type CalendarAppendToType = 'body' | 'self' | string | undefined | HTMLElement;
 
 export interface CalendarResponsiveOptions {
     /**
@@ -131,10 +133,6 @@ export interface CalendarProps {
      */
     yearRange?: string | undefined;
     /**
-     * Style class of the datetimepicker panel.
-     */
-    panelClass?: any;
-    /**
      * The minimum selectable date.
      */
     minDate?: Date | undefined;
@@ -214,6 +212,10 @@ export interface CalendarProps {
      */
     hideOnDateTimeSelect?: boolean | undefined;
     /**
+     * Whether to hide the overlay on date selection is completed when selectionMode is range.
+     */
+    hideOnRangeSelection?: boolean | undefined;
+    /**
      * Separator of time selector.
      * Default value is ':'.
      */
@@ -228,10 +230,27 @@ export interface CalendarProps {
      */
     manualInput?: boolean | undefined;
     /**
+     * When present, it specifies that the component should be disabled.
+     */
+    disabled?: boolean | undefined;
+    /**
+     * When present, it specifies that an input field is read-only.
+     */
+    readonly?: boolean | undefined;
+    /**
      * A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are 'body' for document body and 'self' for the element itself.
+     * @see CalendarAppendToType
      * Default value is 'body'.
      */
     appendTo?: CalendarAppendToType;
+    /**
+     * Identifier of the element.
+     */
+    id?: string | undefined;
+    /**
+     * Identifier of the underlying input element.
+     */
+    inputId?: string | undefined;
     /**
      * Inline style of the input field.
      */
@@ -241,13 +260,21 @@ export interface CalendarProps {
      */
     inputClass?: any;
     /**
-     * Inline style of the component.
+     * 
      */
-    style?: any;
+    inputProps?: object | undefined;
     /**
-     * Style class of the component.
+     * 
      */
-    class?: any;
+    panelProps?: object | undefined;
+    /**
+     * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
+     */
+    'aria-labelledby'?: string | undefined;
+    /**
+     * Establishes a string value that labels the component.
+     */
+    'aria-label'?: string | undefined;
 }
 
 export interface CalendarSlots {
@@ -267,7 +294,7 @@ export interface CalendarSlots {
         /**
          * Value of the component.
          */
-        date: CalendarValueType;
+        date: CalendarSlotDateType;
     }) => VNode[];
     /**
      * Custom decade template.

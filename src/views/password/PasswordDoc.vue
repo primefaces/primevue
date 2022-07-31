@@ -83,6 +83,12 @@ import Password from 'primevue/password';
                         <td>Value of the component.</td>
                     </tr>
                     <tr>
+                        <td>inputId</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Identifier of the underlying input element.</td>
+                    </tr>
+                    <tr>
                         <td>promptLabel</td>
                         <td>string</td>
                         <td>null</td>
@@ -150,10 +156,10 @@ import Password from 'primevue/password';
                         <td>Icon to show displaying the password as plain text.</td>
                     </tr>
                     <tr>
-                        <td>inputStyle</td>
-                        <td>any</td>
+                        <td>inputId</td>
+                        <td>string</td>
                         <td>null</td>
-                        <td>Inline style of the input field.</td>
+                        <td>Style class of the component input field.</td>
                     </tr>
                     <tr>
                         <td>inputClass</td>
@@ -162,22 +168,28 @@ import Password from 'primevue/password';
                         <td>Style class of the input field.</td>
                     </tr>
                     <tr>
-                        <td>style</td>
+                        <td>inputStyle</td>
                         <td>any</td>
                         <td>null</td>
-                        <td>Style class of the component input field.</td>
+                        <td>Inline style of the input field.</td>
                     </tr>
                     <tr>
-                        <td>class</td>
+                        <td>panelId</td>
                         <td>string</td>
                         <td>null</td>
-                        <td>Inline style of the component.</td>
+                        <td>Identifier of the underlying overlay panel element.</td>
                     </tr>
                     <tr>
                         <td>panelClass</td>
                         <td>string</td>
                         <td>null</td>
                         <td>Style class of the overlay panel.</td>
+                    </tr>
+                    <tr>
+                        <td>panelStyle</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Inline style of the overlay panel.</td>
                     </tr>
 				</tbody>
 			</table>
@@ -238,6 +250,46 @@ import Password from 'primevue/password';
 				</tbody>
 			</table>
 		</div>
+
+        <h5>Accessibility</h5>
+        <DevelopmentSection>
+            <h6>Screen Reader</h6>
+            <p>Value to describe the component can either be provided via <i>label</i> tag combined with <i>id</i> prop or using <i>aria-labelledby</i>, <i>aria-label</i> props. Screen reader
+            is notified about the changes to the strength of the password using a section that has <i>aria-live</i> while typing.</p>
+
+<pre v-code><code>
+&lt;label for="pwd1"&gt;Password&lt;/label&gt;
+&lt;Password inputId="pwd1" /&gt;
+
+&lt;span id="pwd2"&gt;Password&lt;/span&gt;
+&lt;Password aria-labelledby="pwd2" /&gt;
+
+&lt;Password aria-label="Password"/&gt;
+
+</code></pre>
+
+            <h6>Keyboard Support</h6>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Key</th>
+                            <th>Function</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><i>tab</i></td>
+                            <td>Moves focus to the input.</td>
+                        </tr>
+                        <tr>
+                            <td><i>escape</i></td>
+                            <td>Hides the strength meter if open.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </DevelopmentSection>
 
 		<h5>Dependencies</h5>
 		<p>None.</p>

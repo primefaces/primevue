@@ -37,6 +37,8 @@ export default {
             this.renderSource('options-api', tabs);
             this.renderSource('composition-api', tabs);
             this.renderSource('browser-source', tabs);
+            this.renderSource('demo1', tabs);
+            this.renderSource('demo2', tabs);
 
             if (this.service) {
                 let serviceArr = [];
@@ -62,7 +64,7 @@ export default {
                 this.data.forEach(el => {
                     dataArr.push(el.split(','))
                 })
-                
+
                 dataArr.forEach((el, i) => {
                     tabs.push(
                         <TabPanel key={`${el}_i`} header={`${el}.json`}>
@@ -111,11 +113,26 @@ export default {
         },
         renderSource(sourceType, tabs) {
             if (this.sources && this.sources[sourceType]) {
+                let extFiles = this.extFiles ? this.extFiles[sourceType] || this.extFiles : null;
+                extFiles = extFiles && Object.entries(extFiles).map(([key, value], i) => {
+                    if (key === 'index.css' || !value.content) {
+                        return null;
+                    }
+
+                    return (
+                        <pre v-code><code>
+                            {`\n/* ${key.replace('src/components/', '')} */\n`}
+                            {this.renderContent(value)}
+                        </code></pre>
+                    )
+                });
+
                 tabs.push(
                     <TabPanel key={sourceType} header={this.sources[sourceType].tabName}>
                         <pre v-code><code>
                             {this.renderContent(this.sources[sourceType])}
                         </code></pre>
+                        {extFiles}
                     </TabPanel>
                 );
             }

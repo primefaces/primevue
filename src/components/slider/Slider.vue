@@ -1,12 +1,12 @@
 <template>
     <div :class="containerClass" @click="onBarClick">
         <span class="p-slider-range" :style="rangeStyle"></span>
-        <span v-if="!range" class="p-slider-handle" :style="handleStyle" @touchstart="onDragStart($event)" @touchmove="onDrag($event)" @touchend="onDragEnd($event)" @mousedown="onMouseDown($event)" @keydown="onKeyDown($event)" tabindex="0"
-            role="slider" :aria-valuemin="min" :aria-valuenow="modelValue" :aria-valuemax="max" :aria-labelledby="ariaLabelledBy"></span>
-        <span v-if="range" class="p-slider-handle" :style="rangeStartHandleStyle" @touchstart="onDragStart($event, 0)" @touchmove="onDrag($event)" @touchend="onDragEnd($event)" @mousedown="onMouseDown($event, 0)" @keydown="onKeyDown($event)" tabindex="0"
-            role="slider" :aria-valuemin="min" :aria-valuenow="modelValue ? modelValue[0] : null" :aria-valuemax="max" :aria-labelledby="ariaLabelledBy"></span>
-        <span v-if="range" class="p-slider-handle" :style="rangeEndHandleStyle" @touchstart="onDragStart($event, 1)" @touchmove="onDrag($event)" @touchend="onDragEnd($event)" @mousedown="onMouseDown($event, 1)" @keydown="onKeyDown($event, 1)" tabindex="0"
-            role="slider" :aria-valuemin="min" :aria-valuenow="modelValue ? modelValue[1] : null" :aria-valuemax="max" :aria-labelledby="ariaLabelledBy"></span>
+        <span v-if="!range" class="p-slider-handle" :style="handleStyle" @touchstart="onDragStart($event)" @touchmove="onDrag($event)" @touchend="onDragEnd($event)" @mousedown="onMouseDown($event)" @keydown="onKeyDown($event)" :tabindex="tabindex"
+            role="slider" :aria-valuemin="min" :aria-valuenow="modelValue" :aria-valuemax="max" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel" :aria-orientation="orientation"></span>
+        <span v-if="range" class="p-slider-handle" :style="rangeStartHandleStyle" @touchstart="onDragStart($event, 0)" @touchmove="onDrag($event)" @touchend="onDragEnd($event)" @mousedown="onMouseDown($event, 0)" @keydown="onKeyDown($event)" :tabindex="tabindex"
+            role="slider" :aria-valuemin="min" :aria-valuenow="modelValue ? modelValue[0] : null" :aria-valuemax="max" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel" :aria-orientation="orientation"></span>
+        <span v-if="range" class="p-slider-handle" :style="rangeEndHandleStyle" @touchstart="onDragStart($event, 1)" @touchmove="onDrag($event)" @touchend="onDragEnd($event)" @mousedown="onMouseDown($event, 1)" @keydown="onKeyDown($event, 1)" :tabindex="tabindex"
+            role="slider" :aria-valuemin="min" :aria-valuenow="modelValue ? modelValue[1] : null" :aria-valuemax="max" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel" :aria-orientation="orientation"></span>
     </div>
 </template>
 
@@ -42,9 +42,17 @@ export default {
 			type: Boolean,
 			default: false
         },
-        ariaLabelledBy: {
+        tabindex: {
+            type: Number,
+            default: 0
+        },
+        'aria-labelledby': {
             type: String,
 			default: null
+        },
+        'aria-label': {
+            type: String,
+            default: null
         }
     },
     dragging: false,
@@ -175,40 +183,44 @@ export default {
         },
         onKeyDown(event, index) {
             this.handleIndex = index;
-            switch (event.which) {
-                //down
-                case 40:
-                    if (this.vertical) {
-                        this.decrementValue(event, index);
-                        event.preventDefault();
-                    }
+            switch (event.code) {
+                case 'ArrowDown':
+                case 'ArrowLeft':
+                    this.decrementValue(event, index);
+                    event.preventDefault();
                 break;
-                //up
-                case 38:
-                    if (this.vertical) {
-                        this.incrementValue(event, index);
-                        event.preventDefault();
-                    }
+
+                case 'ArrowUp':
+                case 'ArrowRight':
+                    this.incrementValue(event, index);
+                    event.preventDefault();
                 break;
-                //left
-                case 37:
-                    if (this.horizontal) {
-                        this.decrementValue(event, index);
-                        event.preventDefault();
-                    }
+
+                case 'PageDown':
+                    this.decrementValue(event, index, true);
+                    event.preventDefault();
                 break;
-                //right
-                case 39:
-                    if (this.horizontal) {
-                        this.incrementValue(event, index);
-                        event.preventDefault();
-                    }
+
+                case 'PageUp':
+                    this.incrementValue(event, index, true);
+                    event.preventDefault();
                 break;
+
+                case 'Home':
+                    this.updateModel(event, this.min);
+                    event.preventDefault();
+                break;
+
+                case 'End':
+                    this.updateModel(event, this.max);
+                    event.preventDefault();
+                break;
+
                 default:
                 break;
             }
         },
-        decrementValue(event, index) {
+        decrementValue(event, index, pageKey = false) {
             let newValue;
             if (this.range) {
                 if (this.step)
@@ -219,13 +231,15 @@ export default {
             else {
                 if (this.step)
                     newValue = this.modelValue - this.step;
+                else if (!this.step && pageKey)
+                    newValue = this.modelValue - 10;
                 else
                     newValue = this.modelValue - 1;
             }
             this.updateModel(event, newValue);
             event.preventDefault();
         },
-        incrementValue(event, index) {
+        incrementValue(event, index, pageKey = false) {
             let newValue;
             if (this.range) {
                 if (this.step)
@@ -236,6 +250,8 @@ export default {
             else {
                 if (this.step)
                     newValue = this.modelValue + this.step;
+                else if (!this.step && pageKey)
+                    newValue = this.modelValue + 10;
                 else
                     newValue = this.modelValue + 1;
             }

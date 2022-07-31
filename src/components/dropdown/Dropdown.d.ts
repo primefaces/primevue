@@ -2,17 +2,17 @@ import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 import { VirtualScrollerProps, VirtualScrollerItemOptions } from '../virtualscroller';
 
-type DropdownOptionLabelType = string | ((data: any) => string) | undefined;
+type DropdownOptionLabelType = string | ((data: any) => string) | undefined;
 
-type DropdownOptionValueType = string | ((data: any) => any) | undefined;
+type DropdownOptionValueType = string | ((data: any) => any) | undefined;
 
-type DropdownOptionDisabledType = string | ((data: any) => boolean) | undefined;
+type DropdownOptionDisabledType = string | ((data: any) => boolean) | undefined;
 
-type DropdownOptionChildrenType = string | ((data: any) => any[]) | undefined;
+type DropdownOptionChildrenType = string | ((data: any) => any[]) | undefined;
 
 type DropdownFilterMatchModeType = 'contains' | 'startsWith' | 'endsWith' | undefined;
 
-type DropdownAppendToType = 'body' | 'self' | string | undefined;
+type DropdownAppendToType = 'body' | 'self' | string | undefined | HTMLElement;
 
 export interface DropdownChangeEvent {
     /**
@@ -36,7 +36,7 @@ export interface DropdownFilterEvent {
     value: any;
 }
 
-export interface DropdownProps {
+export interface DropdownProps extends HTMLDivElement {
     /**
      * Value of the component.
      */
@@ -118,37 +118,47 @@ export interface DropdownProps {
      */
     showClear?: boolean | undefined;
     /**
-     * Index of the element in tabbing order.
-     */
-    tabindex?: number | string | undefined;
-    /**
      * Identifier of the underlying input element.
      */
     inputId?: string | undefined;
     /**
-     * Identifier of the underlying input element.
+     * Inline style of the input field.
      */
-    ariaLabelledBy?: string | undefined;
+    inputStyle?: any;
+    /**
+     * Style class of the input field.
+     */
+    inputClass?: any;
+    /**
+     * Uses to pass all properties of the HTMLInputElement/HTMLSpanElement to the focusable input element inside the component.
+     */
+    inputProps?: HTMLInputElement | HTMLSpanElement | undefined;
+    /**
+     * Inline style of the overlay panel.
+     */
+    panelStyle?: any;
+    /**
+     * Style class of the overlay panel.
+     */
+    panelClass?: any;
+    /**
+     * Uses to pass all properties of the HTMLDivElement to the overlay panel inside the component.
+     */
+    panelProps?: HTMLDivElement | undefined;
+    /**
+     * Uses to pass all properties of the HTMLInputElement to the filter input inside the component.
+     */
+    filterInputProps?: HTMLInputElement | undefined;
+    /**
+     * Uses to pass all properties of the HTMLElement to the clear icon inside the component.
+     */
+    clearIconProps?: HTMLElement | undefined;
     /**
      * A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are 'body' for document body and 'self' for the element itself.
      * @see DropdownAppendToType
      * Default value is 'body'.
      */
     appendTo?: DropdownAppendToType;
-    /**
-     * Text to display when filtering does not return any results. Defaults to value from PrimeVue locale configuration.
-     * Default value is 'No results found'.
-     */
-    emptyFilterMessage?: string | undefined;
-    /**
-     * Text to display when there are no options available. Defaults to value from PrimeVue locale configuration.
-     * Default value is 'No results found'.
-     */
-    emptyMessage?: string | undefined;
-    /**
-     * Style class of the overlay panel.
-     */
-    panelClass?: any;
     /**
      * Whether the dropdown is in loading state.
      */
@@ -163,6 +173,48 @@ export interface DropdownProps {
      * @see VirtualScroller.VirtualScrollerProps
      */
     virtualScrollerOptions?: VirtualScrollerProps;
+    /**
+     * Whether to focus on the first visible or selected element when the overlay panel is shown.
+     * Default value is true.
+     */
+    autoOptionFocus?: boolean | undefined;
+    /**
+     * Text to be displayed in hidden accessible field when filtering returns any results. Defaults to value from PrimeVue locale configuration.
+     * Default value is '{0} results are available'.
+     */
+    filterMessage?: string | undefined;
+    /**
+     * Text to be displayed in hidden accessible field when options are selected. Defaults to value from PrimeVue locale configuration.
+     * Default value is '{0} items selected'.
+     */
+    selectionMessage?: string | undefined;
+    /**
+     * Text to be displayed in hidden accessible field when any option is not selected. Defaults to value from PrimeVue locale configuration.
+     * Default value is 'No selected item'.
+     */
+    emptySelectionMessage?: string | undefined;
+    /**
+     * Text to display when filtering does not return any results. Defaults to value from PrimeVue locale configuration.
+     * Default value is 'No results found'.
+     */
+    emptyFilterMessage?: string | undefined;
+    /**
+     * Text to display when there are no options available. Defaults to value from PrimeVue locale configuration.
+     * Default value is 'No results found'.
+     */
+    emptyMessage?: string | undefined;
+    /**
+     * Index of the element in tabbing order.
+     */
+    tabindex?: number | string | undefined;
+    /**
+     * Defines a string value that labels an interactive element.
+     */
+    ariaLabel?: string | undefined;
+    /**
+     * Identifier of the underlying input element.
+     */
+    ariaLabelledby?: string | undefined;
 }
 
 export interface DropdownSlots {
@@ -180,6 +232,10 @@ export interface DropdownSlots {
          */
         placeholder: string;
     }) => VNode[];
+    /**
+     * Custom indicator template.
+     */
+    indicator: () => VNode[];
     /**
      * Custom header template of panel.
      * @param {Object} scope - header slot's params.
@@ -244,7 +300,7 @@ export interface DropdownSlots {
      * Custom empty template.
      */
     empty: () => VNode[];
-     /**
+    /**
      * Custom content template.
      * @param {Object} scope - content slot's params.
      */
@@ -279,10 +335,6 @@ export interface DropdownSlots {
          */
         options: any[];
     }) => VNode[];
-    /**
-     * Custom indicator template.
-     */
-    indicator: () => VNode[];
 }
 
 export declare type DropdownEmits = {
@@ -296,6 +348,16 @@ export declare type DropdownEmits = {
      * @param {DropdownChangeEvent} event - Custom change event.
      */
     'change': (event: DropdownChangeEvent) => void;
+    /**
+     * Callback to invoke when the component receives focus.
+     * @param {Event} event - Browser event.
+     */
+    'focus': (event: Event) => void;
+    /**
+     * Callback to invoke when the component loses focus.
+     * @param {Event} event - Browser event.
+     */
+    'blur': (event: Event) => void;
     /**
      * Callback to invoke before the overlay is shown.
      */
@@ -313,16 +375,6 @@ export declare type DropdownEmits = {
      */
     'hide': () => void;
     /**
-     * Callback to invoke when the component receives focus.
-     * @param {Event} event - Browser event.
-     */
-    'focus': (event: Event) => void;
-    /**
-     * Callback to invoke when the component loses focus.
-     * @param {Event} event - Browser event.
-     */
-    'blur': () => void;
-    /**
      * Callback to invoke on filter input.
      * @param {DropdownFilterEvent} event - Custom filter event.
      */
@@ -332,16 +384,18 @@ export declare type DropdownEmits = {
 declare class Dropdown extends ClassComponent<DropdownProps, DropdownSlots, DropdownEmits> {
     /**
      * Shows the overlay.
+     * @param {boolean} [isFocus] - Decides whether to focus on the component. Default value is false.
      *
      * @memberof Dropdown
      */
-    show: () => void;
+    show: (isFocus?: boolean) => void;
     /**
      * Hides the overlay.
+     * @param {boolean} [isFocus] - Decides whether to focus on the component. Default value is false.
      *
      * @memberof Dropdown
      */
-    hide: () => void;
+    hide: (isFocus?: boolean) => void;
 }
 
 declare module '@vue/runtime-core' {

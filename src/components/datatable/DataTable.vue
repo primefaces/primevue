@@ -18,7 +18,7 @@
             </template>
         </DTPaginator>
         <div class="p-datatable-wrapper" :style="{ maxHeight: virtualScrollerDisabled ? scrollHeight : '' }">
-            <DTVirtualScroller v-bind="virtualScrollerOptions" :items="processedData" :columns="columns" :style="{ height: scrollHeight }" :disabled="virtualScrollerDisabled" loaderDisabled :showSpacer="false">
+            <DTVirtualScroller ref="virtualScroller" v-bind="virtualScrollerOptions" :items="processedData" :columns="columns" :style="{ height: scrollHeight }" :disabled="virtualScrollerDisabled" loaderDisabled :showSpacer="false">
                 <template #content="slotProps">
                     <table ref="table" role="table" :class="[tableClass, 'p-datatable-table']" :style="[tableStyle, slotProps.spacerStyle]">
                         <DTTableHeader :columnGroup="headerColumnGroup" :columns="slotProps.columns" :rowGroupMode="rowGroupMode"
@@ -27,7 +27,7 @@
                                 @column-click="onColumnHeaderClick($event)" @column-mousedown="onColumnHeaderMouseDown($event)" @filter-change="onFilterChange" @filter-apply="onFilterApply"
                                 @column-dragstart="onColumnHeaderDragStart($event)" @column-dragover="onColumnHeaderDragOver($event)" @column-dragleave="onColumnHeaderDragLeave($event)" @column-drop="onColumnHeaderDrop($event)"
                                 @column-resizestart="onColumnResizeStart($event)" @checkbox-change="toggleRowsWithCheckbox($event)" />
-                        <DTTableBody v-if="frozenValue" :value="frozenValue" :frozenRow="true" class="p-datatable-frozen-tbody" :columns="slotProps.columns" :dataKey="dataKey" :selection="selection" :selectionKeys="d_selectionKeys" :selectionMode="selectionMode" :contextMenu="contextMenu" :contextMenuSelection="contextMenuSelection"
+                        <DTTableBody ref="frozenBodyRef" v-if="frozenValue" :value="frozenValue" :frozenRow="true" class="p-datatable-frozen-tbody" :columns="slotProps.columns" :dataKey="dataKey" :selection="selection" :selectionKeys="d_selectionKeys" :selectionMode="selectionMode" :contextMenu="contextMenu" :contextMenuSelection="contextMenuSelection"
                             :rowGroupMode="rowGroupMode" :groupRowsBy="groupRowsBy" :expandableRowGroups="expandableRowGroups" :rowClass="rowClass" :rowStyle="rowStyle" :editMode="editMode" :compareSelectionBy="compareSelectionBy" :scrollable="scrollable"
                             :expandedRowIcon="expandedRowIcon" :collapsedRowIcon="collapsedRowIcon" :expandedRows="expandedRows" :expandedRowKeys="d_expandedRowKeys" :expandedRowGroups="expandedRowGroups"
                             :editingRows="editingRows" :editingRowKeys="d_editingRowKeys" :templates="$slots" :responsiveLayout="responsiveLayout"
@@ -37,7 +37,7 @@
                             @cell-edit-init="onCellEditInit($event)" @cell-edit-complete="onCellEditComplete($event)" @cell-edit-cancel="onCellEditCancel($event)"
                             @row-edit-init="onRowEditInit($event)" @row-edit-save="onRowEditSave($event)" @row-edit-cancel="onRowEditCancel($event)"
                             :editingMeta="d_editingMeta" @editing-meta-change="onEditingMetaChange" :isVirtualScrollerDisabled="true"  />
-                        <DTTableBody :value="dataToRender(slotProps.rows)" :class="slotProps.styleClass" :columns="slotProps.columns" :empty="empty" :dataKey="dataKey" :selection="selection" :selectionKeys="d_selectionKeys" :selectionMode="selectionMode" :contextMenu="contextMenu" :contextMenuSelection="contextMenuSelection"
+                        <DTTableBody ref="bodyRef" :value="dataToRender(slotProps.rows)" :class="slotProps.styleClass" :columns="slotProps.columns" :empty="empty" :dataKey="dataKey" :selection="selection" :selectionKeys="d_selectionKeys" :selectionMode="selectionMode" :contextMenu="contextMenu" :contextMenuSelection="contextMenuSelection"
                             :rowGroupMode="rowGroupMode" :groupRowsBy="groupRowsBy" :expandableRowGroups="expandableRowGroups" :rowClass="rowClass" :rowStyle="rowStyle" :editMode="editMode" :compareSelectionBy="compareSelectionBy" :scrollable="scrollable"
                             :expandedRowIcon="expandedRowIcon" :collapsedRowIcon="collapsedRowIcon" :expandedRows="expandedRows" :expandedRowKeys="d_expandedRowKeys" :expandedRowGroups="expandedRowGroups"
                             :editingRows="editingRows" :editingRowKeys="d_editingRowKeys" :templates="$slots" :responsiveLayout="responsiveLayout"
@@ -1112,8 +1112,19 @@ export default {
                 }
                 else if (this.columnResizeMode === 'expand') {
                     const tableWidth = this.$refs.table.offsetWidth + delta + 'px';
-                    this.$refs.table.style.width = tableWidth;
-                    this.$refs.table.style.minWidth = tableWidth;
+                    const updateTableWidth = (el) => {
+                        !!el && (el.style.width = el.style.minWidth = tableWidth);
+                    }
+
+                    updateTableWidth(this.$refs.table);
+
+                    if (!this.virtualScrollerDisabled) {
+                        const body = this.$refs.bodyRef && this.$refs.bodyRef.$el;
+                        const frozenBody = this.$refs.frozenBodyRef && this.$refs.frozenBodyRef.$el;
+
+                        updateTableWidth(body);
+                        updateTableWidth(frozenBody);
+                    }
 
                     this.resizeTableCells(newColumnWidth);
                 }
@@ -1769,6 +1780,9 @@ export default {
             }
 
             return _data;
+        },
+        getVirtualScrollerRef() {
+            return this.$refs.virtualScroller;
         }
     },
     computed: {
@@ -1894,7 +1908,7 @@ export default {
             }
             else {
                 const val = this.frozenValue ? [...this.frozenValue, ...this.processedData] : this.processedData;
-                return val && this.selection && Array.isArray(this.selection) && val.every(v => this.selection.some(s => this.equals(s, v)));
+                return ObjectUtils.isNotEmpty(val) && this.selection && Array.isArray(this.selection) && val.every(v => this.selection.some(s => this.equals(s, v)));
             }
         },
         attributeSelector() {

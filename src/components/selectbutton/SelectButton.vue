@@ -1,9 +1,8 @@
 <template>
     <div :class="containerClass" role="group">
         <div v-for="(option, i) of options" :key="getOptionRenderKey(option)" :aria-label="getOptionLabel(option)" role="button" :aria-pressed="isSelected(option)"
-            @click="onOptionSelect($event, option, i)" @keydown.enter.prevent="onOptionSelect($event, option, i)" @keydown.space.prevent="onOptionSelect($event, option)"
-            :tabindex="isOptionDisabled(option) ? null : '0'" @focus="onFocus($event)" @blur="onBlur($event)" :aria-labelledby="ariaLabelledBy" v-ripple
-            :class="getButtonClass(option)">
+            :class="getButtonClass(option)" :tabindex="isOptionDisabled(option) ? null : '0'" v-ripple
+            @click="onOptionSelect($event, option)" @keydown="onKeydown($event, option)" @focus="onFocus($event)" @blur="onBlur($event)">
             <slot name="option" :option="option" :index="i">
                 <span class="p-button-label">{{getOptionLabel(option)}}</span>
             </slot>
@@ -26,8 +25,7 @@ export default {
         optionDisabled: null,
 		multiple: Boolean,
         disabled: Boolean,
-        dataKey: null,
-        ariaLabelledBy: null
+        dataKey: null
     },
     methods: {
         getOptionLabel(option) {
@@ -58,11 +56,18 @@ export default {
                     newValue = this.modelValue ? [...this.modelValue, optionValue]: [optionValue];
             }
             else {
-                newValue = optionValue;
+                newValue = selected ? null : optionValue;
             }
 
             this.$emit('update:modelValue', newValue);
             this.$emit('change', {event: event, value: newValue});
+        },
+        onKeydown(event, option) {
+            //space
+            if (event.which === 32) {
+                this.onOptionSelect(event, option);
+                event.preventDefault();
+            }
         },
         isSelected(option) {
             let selected = false;

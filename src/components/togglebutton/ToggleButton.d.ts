@@ -31,6 +31,38 @@ export interface ToggleButtonProps {
      * Default value is 'left'.
      */
     iconPos?: ToggleButtonType;
+    /**
+     * When present, it specifies that the element should be disabled.
+     */
+    disabled?: boolean | undefined;
+    /**
+     * Index of the element in tabbing order.
+     */
+    tabindex?: string | undefined;
+    /**
+     * 	Identifier of the focus input to match a label defined for the chips.
+     */
+    inputId?: string | undefined;
+    /**
+     * Style class of the input field.
+     */
+    inputClass?: any | undefined;
+    /**
+     * Inline style of the input field.
+     */
+    inputStyle?: any | undefined;
+    /**
+     * 
+     */
+    inputProps?: object | undefined;
+    /**
+     * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
+     */
+    'aria-labelledby'?: string | undefined;
+    /**
+     * Establishes a string value that labels the component.
+     */
+    'aria-label'?: string | undefined;
 }
 
 export interface ToggleButtonSlots {
@@ -47,6 +79,16 @@ export declare type ToggleButtonEmits = {
      * @param {Event} event - Browser event.
      */
     'change': (event: Event) => void;
+    /**
+     * Callback to invoke when the component receives focus.
+     * @param {Event} event - Browser event.
+     */
+    'focus': (event: Event) => void;
+    /**
+     * Callback to invoke when the component loses focus.
+     * @param {Event} event - Browser event.
+     */
+    'blur': (event: Event) => void;
 }
 
 declare class ToggleButton extends ClassComponent<ToggleButtonProps, ToggleButtonSlots, ToggleButtonEmits> { }

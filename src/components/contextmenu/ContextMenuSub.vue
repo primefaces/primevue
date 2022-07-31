@@ -7,13 +7,13 @@
                     <template v-if="!template">
                         <router-link v-if="item.to && !disabled(item)" :to="item.to" custom v-slot="{navigate, href, isActive, isExactActive}">
                             <a :href="href" @click="onItemClick($event, item, navigate)" :class="linkClass(item, {isActive, isExactActive})" v-ripple role="menuitem">
-                                <span :class="['p-menuitem-icon', item.icon]"></span>
+                                <span :class="['p-menuitem-icon', item.icon]" v-if="item.icon"></span>
                                 <span class="p-menuitem-text">{{label(item)}}</span>
                             </a>
                         </router-link>
                         <a v-else :href="item.url" :class="linkClass(item)" :target="item.target" @click="onItemClick($event, item)" v-ripple
                             :aria-haspopup="item.items != null" :aria-expanded="item === activeItem" role="menuitem" :tabindex="disabled(item) ? null : '0'">
-                            <span :class="['p-menuitem-icon', item.icon]"></span>
+                            <span :class="['p-menuitem-icon', item.icon]" v-if="item.icon"></span>
                             <span class="p-menuitem-text">{{label(item)}}</span>
                             <span class="p-submenu-icon pi pi-angle-right" v-if="item.items"></span>
                         </a>
@@ -95,7 +95,7 @@ export default {
                 if (this.activeItem && item === this.activeItem)
                     this.activeItem = null;
                 else
-                   this.activeItem = item;
+                    this.activeItem = item;
             }
 
             if (!item.items) {

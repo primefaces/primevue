@@ -138,21 +138,29 @@ export interface InputNumberProps {
      */
     readonly?: boolean | undefined;
     /**
-     * Inline style of the input field.
+     * 	Identifier of the focus input to match a label defined for the chips.
      */
-    inputStyle?: any;
+    inputId?: string | undefined;
     /**
      * Style class of the input field.
      */
-    inputClass?: string | undefined;
+    inputClass?: any | undefined;
     /**
-     * Inline style of the component.
+     * Inline style of the input field.
      */
-    style?: any;
+    inputStyle?: any | undefined;
     /**
-     * Style class of the element.
+     * 
      */
-    class?: string | undefined;
+    inputProps?: object | undefined;
+    /**
+     * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
+     */
+    'aria-labelledby'?: string | undefined;
+    /**
+     * Establishes a string value that labels the component.
+     */
+    'aria-label'?: string | undefined;
 }
 
 export interface InputNumberSlots {

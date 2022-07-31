@@ -46,6 +46,18 @@ const PickListProps = [
         type: "boolean",
         default: "false",
         description: "Whether to displays rows with alternating colors."
+    },
+    {
+        name: "showSourceControls",
+        type: "boolean",
+        default: "true",
+        description: "Whether to show buttons of source list."
+    },
+    {
+        name: "showTargetControls",
+        type: "boolean",
+        default: "true",
+        description: "Whether to show buttons of target list."
     }
 ];
 

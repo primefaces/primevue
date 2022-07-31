@@ -86,6 +86,10 @@ export default {
         return !!(obj && obj.constructor && obj.call && obj.apply);
     },
 
+    getItemValue(obj, ...params) {
+        return this.isFunction(obj) ? obj(...params) : obj;
+    },
+
     filter(value, fields, filterValue) {
         var filteredItems = [];
 
@@ -214,6 +218,9 @@ export default {
 
     isNotEmpty(value) {
         return !this.isEmpty(value);
-    }
+    },
 
+    isPrintableCharacter(char = '') {
+        return this.isNotEmpty(char) && char.length === 1 && char.match(/\S| /);
+    }
 }

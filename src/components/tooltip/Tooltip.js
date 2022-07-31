@@ -85,7 +85,6 @@ function show(el) {
 function hide(el) {
     remove(el);
     unbindScrollListener(el);
-    ZIndexUtils.clear(el);
 }
 
 function getTooltipElement(el) {
@@ -131,6 +130,7 @@ function remove(el) {
     if (el) {
         let tooltipElement = getTooltipElement(el);
         if (tooltipElement && tooltipElement.parentElement) {
+            ZIndexUtils.clear(tooltipElement);
             document.body.removeChild(tooltipElement);
         }
         el.$_ptooltipId = null;
@@ -299,12 +299,15 @@ const Tooltip = {
             target.$_ptooltipClass = null;
             target.$_ptooltipFitContent = true;
         }
-        else {
-            target.$_ptooltipValue = options.value.value;
-            target.$_ptooltipDisabled = options.value.disabled || false;
-            target.$_ptooltipEscape = options.value.escape || false;
-            target.$_ptooltipClass = options.value.class;
-            target.$_ptooltipFitContent = options.value.fitContent || true;
+        else if (typeof options.value === 'object' && options.value) {
+            if (options.value.value === undefined || options.value.value === null || options.value.value.trim() === '') return;
+            else {
+                target.$_ptooltipValue = options.value.value;
+                target.$_ptooltipDisabled = options.value.disabled || false;
+                target.$_ptooltipEscape = options.value.escape || false;
+                target.$_ptooltipClass = options.value.class;
+                target.$_ptooltipFitContent = options.value.fitContent || true;
+            }
         }
 
         target.$_ptooltipZIndex = options.instance.$primevue && options.instance.$primevue.config && options.instance.$primevue.config.zIndex.tooltip;
@@ -333,11 +336,15 @@ const Tooltip = {
             target.$_ptooltipEscape = false;
             target.$_ptooltipClass = null;
         }
-        else {
-            target.$_ptooltipValue = options.value.value;
-            target.$_ptooltipDisabled = options.value.disabled || false;
-            target.$_ptooltipEscape = options.value.escape || false;
-            target.$_ptooltipClass = options.value.class;
+        else if (typeof options.value === 'object' && options.value) {
+            if (options.value.value === undefined || options.value.value === null || options.value.value.trim() === '') return;
+            else {
+                target.$_ptooltipValue = options.value.value;
+                target.$_ptooltipDisabled = options.value.disabled || false;
+                target.$_ptooltipEscape = options.value.escape || false;
+                target.$_ptooltipClass = options.value.class;
+                target.$_ptooltipFitContent = options.value.fitContent || true;
+            }
         }
     }
 };

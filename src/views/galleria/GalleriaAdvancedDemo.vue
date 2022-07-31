@@ -72,20 +72,9 @@ export default {
     data() {
         return {
             images: null,
-			responsiveOptions: [
-				{
-                    breakpoint: '1024px',
-                    numVisible: 5
-                },
-                {
-                    breakpoint: '768px',
-                    numVisible: 3
-                },
-                {
-                    breakpoint: '560px',
-                    numVisible: 1
-                }
-			]
+            activeIndex: 0,
+            showThumbnails: false,
+            fullScreen: false
         }
     },
     galleriaService: null,
@@ -93,7 +82,73 @@ export default {
 		this.galleriaService = new PhotoService();
 	},
 	mounted() {
-		this.galleriaService.getImages().then(data => this.images = data);
+        this.galleriaService.getImages().then(data => this.images = data);
+        this.bindDocumentListeners();
+    },
+    methods: {
+        onThumbnailButtonClick() {
+            this.showThumbnails = !this.showThumbnails;
+        },
+        toggleFullScreen() {
+            if (this.fullScreen) {
+                this.closeFullScreen();
+            }
+            else {
+                this.openFullScreen();
+            }
+        },
+        onFullScreenChange() {
+            this.fullScreen = !this.fullScreen;
+        },
+        openFullScreen() {
+            let elem = this.$refs.galleria.$el;
+            if (elem.requestFullscreen) {
+                elem.requestFullscreen();
+            }
+            else if (elem.mozRequestFullScreen) { /* Firefox */
+                elem.mozRequestFullScreen();
+            }
+            else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+                elem.webkitRequestFullscreen();
+            }
+            else if (elem.msRequestFullscreen) { /* IE/Edge */
+                elem.msRequestFullscreen();
+            }
+        },
+        closeFullScreen() {
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            }
+            else if (document.mozCancelFullScreen) {
+                document.mozCancelFullScreen();
+            }
+            else if (document.webkitExitFullscreen) {
+                document.webkitExitFullscreen();
+            }
+            else if (document.msExitFullscreen) {
+                document.msExitFullscreen();
+            }
+        },
+        bindDocumentListeners() {
+            document.addEventListener("fullscreenchange", this.onFullScreenChange);
+            document.addEventListener("mozfullscreenchange", this.onFullScreenChange);
+            document.addEventListener("webkitfullscreenchange", this.onFullScreenChange);
+            document.addEventListener("msfullscreenchange", this.onFullScreenChange);
+        },
+        unbindDocumentListeners() {
+            document.removeEventListener("fullscreenchange", this.onFullScreenChange);
+            document.removeEventListener("mozfullscreenchange", this.onFullScreenChange);
+            document.removeEventListener("webkitfullscreenchange", this.onFullScreenChange);
+            document.removeEventListener("msfullscreenchange", this.onFullScreenChange);
+        }
+    },
+    computed: {
+        galleriaClass() {
+            return ['custom-galleria', {'fullscreen': this.fullScreen}];
+        },
+        fullScreenIcon() {
+            return `pi ${this.fullScreen ? 'pi-window-minimize' : 'pi-window-maximize'}`;
+        }
     }
 }
 

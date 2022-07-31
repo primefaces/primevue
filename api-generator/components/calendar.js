@@ -95,7 +95,6 @@ const CalendarProps = [
         default: "null",
         description: "The minimum selectable date."
     },
-
     {
         name: "maxDate",
         type: "Date",
@@ -199,6 +198,12 @@ const CalendarProps = [
         description: "Whether to hide the overlay on date selection when showTime is enabled."
     },
     {
+        name: "hideOnRangeSelection",
+        type: "boolean",
+        default: "false",
+        description: "Whether to hide the overlay on date selection is completed when selectionMode is range."
+    },
+    {
         name: "timeSeparator",
         type: "string",
         default: ":",
@@ -223,10 +228,16 @@ const CalendarProps = [
         description: 'A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are "body" for document body and "self" for the element itself.'
     },
     {
-        name: "inputStyle",
-        type: "any",
+        name: "id",
+        type: "string",
         default: "null",
-        description: "Inline style of the input field."
+        description: "Identifier of the element."
+    },
+    {
+        name: "inputId",
+        type: "string",
+        default: "null",
+        description: "Identifier of the underlying input element."
     },
     {
         name: "inputClass",
@@ -235,16 +246,10 @@ const CalendarProps = [
         description: "Style class of the input field."
     },
     {
-        name: "class",
-        type: "string",
-        default: "null",
-        description: "Style class of the component."
-    },
-    {
-        name: "style",
+        name: "inputStyle",
         type: "any",
         default: "null",
-        description: "Inline style of the component."
+        description: "Inline style of the input field."
     }
 ];
 

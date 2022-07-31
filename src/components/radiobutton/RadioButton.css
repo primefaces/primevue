@@ -5,6 +5,10 @@
     vertical-align: bottom;
 }
 
+.p-radiobutton.p-radiobutton-disabled {
+    cursor: default;
+}
+
 .p-radiobutton-box {
     display: flex;
     justify-content: center;

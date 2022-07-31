@@ -42,6 +42,7 @@
   --surface-hover:rgba(255,255,255,.04);
   --focus-ring: 0 0 0 1px #e3f3fe;
   --maskbg: rgba(0, 0, 0, 0.4);
+  color-scheme: dark;
 }
 
 * {
@@ -750,7 +751,7 @@
 .p-dropdown .p-dropdown-label.p-placeholder {
   color: rgba(255, 255, 255, 0.6);
 }
-.p-dropdown .p-dropdown-label:enabled:focus {
+.p-dropdown .p-dropdown-label:focus, .p-dropdown .p-dropdown-label:enabled:focus {
   outline: 0 none;
   box-shadow: none;
 }
@@ -808,6 +809,13 @@
 .p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight {
   color: #151515;
   background: #8dd0ff;
+}
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight.p-focus {
+  background: rgba(141, 208, 255, 0.24);
+}
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item:not(.p-highlight):not(.p-disabled).p-focus {
+  color: rgba(255, 255, 255, 0.87);
+  background: #687c97;
 }
 .p-dropdown-panel .p-dropdown-items .p-dropdown-item:not(.p-highlight):not(.p-disabled):hover {
   color: rgba(255, 255, 255, 0.87);
@@ -1178,6 +1186,7 @@
 }
 .p-listbox .p-listbox-list {
   padding: 0.5rem 0;
+  outline: 0 none;
 }
 .p-listbox .p-listbox-list .p-listbox-item {
   margin: 0;
@@ -1191,11 +1200,6 @@
   color: #151515;
   background: #8dd0ff;
 }
-.p-listbox .p-listbox-list .p-listbox-item:focus {
-  outline: 0 none;
-  outline-offset: 0;
-  box-shadow: inset 0 0 0 0.15rem #e3f3fe;
-}
 .p-listbox .p-listbox-list .p-listbox-item-group {
   margin: 0;
   padding: 0.75rem 1rem;
@@ -1208,9 +1212,22 @@
   color: rgba(255, 255, 255, 0.87);
   background: transparent;
 }
+.p-listbox:not(.p-disabled) .p-listbox-item.p-highlight.p-focus {
+  background: rgba(141, 208, 255, 0.24);
+}
+.p-listbox:not(.p-disabled) .p-listbox-item:not(.p-highlight):not(.p-disabled).p-focus {
+  color: rgba(255, 255, 255, 0.87);
+  background: #687c97;
+}
 .p-listbox:not(.p-disabled) .p-listbox-item:not(.p-highlight):not(.p-disabled):hover {
   color: rgba(255, 255, 255, 0.87);
   background: rgba(255, 255, 255, 0.04);
+}
+.p-listbox.p-focus {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: 0 0 0 1px #e3f3fe;
+  border-color: #8dd0ff;
 }
 .p-listbox.p-invalid {
   border-color: #f19ea6;
@@ -1325,14 +1342,16 @@
   color: #151515;
   background: #8dd0ff;
 }
+.p-multiselect-panel .p-multiselect-items .p-multiselect-item.p-highlight.p-focus {
+  background: rgba(141, 208, 255, 0.24);
+}
+.p-multiselect-panel .p-multiselect-items .p-multiselect-item:not(.p-highlight):not(.p-disabled).p-focus {
+  color: rgba(255, 255, 255, 0.87);
+  background: #687c97;
+}
 .p-multiselect-panel .p-multiselect-items .p-multiselect-item:not(.p-highlight):not(.p-disabled):hover {
   color: rgba(255, 255, 255, 0.87);
   background: rgba(255, 255, 255, 0.04);
-}
-.p-multiselect-panel .p-multiselect-items .p-multiselect-item:focus {
-  outline: 0 none;
-  outline-offset: 0;
-  box-shadow: inset 0 0 0 0.15rem #e3f3fe;
 }
 .p-multiselect-panel .p-multiselect-items .p-multiselect-item .p-checkbox {
   margin-right: 0.5rem;
@@ -1746,6 +1765,9 @@
   outline: 0 none;
   outline-offset: 0;
   box-shadow: 0 0 0 1px #e3f3fe;
+}
+.p-button .p-button-label {
+  transition-duration: 0.15s;
 }
 .p-button .p-button-icon-left {
   margin-right: 0.5rem;
@@ -4100,6 +4122,10 @@
   background: #2a323d;
   color: rgba(255, 255, 255, 0.87);
   padding: 1rem;
+}
+.p-dialog .p-dialog-content:last-of-type {
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
 }
 .p-dialog .p-dialog-footer {
   border-top: 1px solid #3f4b5b;
