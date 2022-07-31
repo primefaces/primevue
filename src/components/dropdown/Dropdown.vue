@@ -462,14 +462,7 @@ export default {
             });
         },
         onArrowDownKey(event) {
-            let optionIndex = -1;
-
-            if (this.focusedOptionIndex !== -1) {
-                optionIndex = this.findNextOptionIndex(this.focusedOptionIndex);
-            }
-            else {
-                optionIndex = this.findFirstFocusedOptionIndex();
-            }
+            const optionIndex = this.focusedOptionIndex !== -1 ? this.findNextOptionIndex(this.focusedOptionIndex) : this.findFirstFocusedOptionIndex();
 
             this.changeFocusedOptionIndex(event, optionIndex);
 
@@ -486,14 +479,7 @@ export default {
                 event.preventDefault();
             }
             else {
-                let optionIndex = -1;
-
-                if (this.focusedOptionIndex !== -1) {
-                    optionIndex = this.findPrevOptionIndex(this.focusedOptionIndex);
-                }
-                else {
-                    optionIndex = this.findLastFocusedOptionIndex();
-                }
+                const optionIndex = this.focusedOptionIndex !== -1 ? this.findPrevOptionIndex(this.focusedOptionIndex) : this.findLastFocusedOptionIndex();
 
                 this.changeFocusedOptionIndex(event, optionIndex);
 

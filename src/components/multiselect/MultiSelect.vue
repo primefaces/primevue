@@ -534,14 +534,7 @@ export default {
             }
         },
         onArrowDownKey(event) {
-            let optionIndex = -1;
-
-            if (this.focusedOptionIndex !== -1) {
-                optionIndex = this.findNextOptionIndex(this.focusedOptionIndex);
-            }
-            else {
-                optionIndex = this.findFirstFocusedOptionIndex();
-            }
+            const optionIndex = this.focusedOptionIndex !== -1 ? this.findNextOptionIndex(this.focusedOptionIndex) : this.findFirstFocusedOptionIndex();
 
             if (event.shiftKey) {
                 this.onOptionSelectRange(event, this.startRangeIndex, optionIndex);
@@ -562,14 +555,7 @@ export default {
                 event.preventDefault();
             }
             else {
-                let optionIndex = -1;
-
-                if (this.focusedOptionIndex !== -1) {
-                    optionIndex = this.findPrevOptionIndex(this.focusedOptionIndex);
-                }
-                else {
-                    optionIndex = this.findLastFocusedOptionIndex();
-                }
+                const optionIndex = this.focusedOptionIndex !== -1 ? this.findPrevOptionIndex(this.focusedOptionIndex) : this.findLastFocusedOptionIndex();
 
                 if (event.shiftKey) {
                     this.onOptionSelectRange(event, optionIndex, this.startRangeIndex);
