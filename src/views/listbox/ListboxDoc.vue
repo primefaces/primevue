@@ -232,6 +232,42 @@ export default {
                         <td>Fields used when filtering the options, defaults to optionLabel.</td>
                     </tr>
                     <tr>
+                        <td>filterInputProps</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td>Uses to pass all properties of the HTMLInputElement to the filter input inside the component.</td>
+                    </tr>
+                    <tr>
+                        <td>virtualScrollerOptions</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td>Whether to use the virtualScroller feature. The properties of <router-link to="/virtualscroller">VirtualScroller</router-link> component can be used like an object in it.</td>
+                    </tr>
+                    <tr>
+                        <td>autoOptionFocus</td>
+                        <td>boolean</td>
+                        <td>true</td>
+                        <td>Whether to focus on the first visible or selected element.</td>
+                    </tr>
+                    <tr>
+                        <td>filterMessage</td>
+                        <td>string</td>
+                        <td>{0} results are available</td>
+                        <td>Text to be displayed in hidden accessible field when filtering returns any results. Defaults to value from PrimeVue locale configuration.</td>
+                    </tr>
+                    <tr>
+                        <td>selectionMessage</td>
+                        <td>string</td>
+                        <td>{0} items selected</td>
+                        <td>Text to be displayed in hidden accessible field when options are selected. Defaults to value from PrimeVue locale configuration.</td>
+                    </tr>
+                    <tr>
+                        <td>emptySelectionMessage</td>
+                        <td>string</td>
+                        <td>No selected item</td>
+                        <td>Text to be displayed in hidden accessible field when any option is not selected. Defaults to value from PrimeVue locale configuration.</td>
+                    </tr>
+                    <tr>
                         <td>emptyFilterMessage</td>
                         <td>string</td>
                         <td>No results found</td>
@@ -244,10 +280,22 @@ export default {
                         <td>Text to display when there are no options available. Defaults to value from PrimeVue locale configuration.</td>
                     </tr>
                     <tr>
-                        <td>virtualScrollerOptions</td>
-                        <td>object</td>
+                        <td>tabindex</td>
+                        <td>number</td>
+                        <td>0</td>
+                        <td>Index of the element in tabbing order.</td>
+                    </tr>
+                    <tr>
+                        <td>ariaLabel</td>
+                        <td>string</td>
                         <td>null</td>
-                        <td>Whether to use the virtualScroller feature. The properties of <router-link to="/virtualscroller">VirtualScroller</router-link> component can be used like an object in it.</td>
+                        <td>Defines a string value that labels an interactive element.</td>
+                    </tr>
+                    <tr>
+                        <td>ariaLabelledby</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Establishes relationships between the component and label(s) where its value should be one or more element IDs.</td>
                     </tr>
 				</tbody>
 			</table>
@@ -269,6 +317,16 @@ export default {
                         <td>event.originalEvent: Original event <br />
                             event.value: Selected option value </td>
                         <td>Callback to invoke on value change.</td>
+                    </tr>
+                    <tr>
+                        <td>focus</td>
+                        <td>event</td>
+                        <td>Callback to invoke when the component receives focus.</td>
+                    </tr>
+                    <tr>
+                        <td>blur</td>
+                        <td>event</td>
+                        <td>Callback to invoke when the component loses focus.</td>
                     </tr>
                     <tr>
                         <td>filter</td>
@@ -368,6 +426,147 @@ export default {
 			</table>
 		</div>
 
+        <h5>Accessibility</h5>
+        <h6>Screen Reader</h6>
+        <p>Value to describe the component can be provided  <i>aria-labelledby</i> or <i>aria-label</i> props. The list element has a <i>listbox</i> role with the <i>aria-multiselectable</i> attribute that sets to true when multiple selection is enabled.
+        Each list item has an <i>option</i> role with <i>aria-selected</i> and <i>aria-disabled</i> as their attributes.</p>
+        <p>If filtering is enabled, <i>filterInputProps</i> can be defined to give <i>aria-*</i> props to the input element. Alternatively <i>filterPlaceholder</i> is usually utilized by the screen readers as well.</p>
+<pre v-code><code>
+&lt;span id="lb"&gt;Options&lt;/span&gt;
+&lt;ListBox aria-labelledby="lb" /&gt;
+
+&lt;ListBox aria-label="City" /&gt;
+
+</code></pre>
+
+        <h6>Keyboard Support</h6>
+        <div className="doc-tablewrapper">
+            <table className="doc-table">
+                <thead>
+                    <tr>
+                        <th>Key</th>
+                        <th>Function</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><i>tab</i></td>
+                        <td>Moves focus to the first selected option, if there is none then first option receives the focus.</td>
+                    </tr>
+                    <tr>
+                        <td><i>up arrow</i></td>
+                        <td>Moves focus to the previous option.</td>
+                    </tr>
+                    <tr>
+                        <td><i>down arrow</i></td>
+                        <td>Moves focus to the next option.</td>
+                    </tr>
+                    <tr>
+                        <td><i>enter</i></td>
+                        <td>Toggles the selected state of the focused option.</td>
+                    </tr>
+                    <tr>
+                        <td><i>space</i></td>
+                        <td>Toggles the selected state of the focused option.</td>
+                    </tr>
+                    <tr>
+                        <td><i>home</i></td>
+                        <td>Moves focus to the first option.</td>
+                    </tr>
+                    <tr>
+                        <td><i>end</i></td>
+                        <td>Moves focus to the last option.</td>
+                    </tr>
+                    <tr>
+                        <td><i>shift</i> + <i>down arrow</i></td>
+                        <td>Moves focus to the next option and toggles the selection state.</td>
+                    </tr>
+                    <tr>
+                        <td><i>shift</i> + <i>up arrow</i></td>
+                        <td>Moves focus to the previous option and toggles the selection state.</td>
+                    </tr>
+                    <tr>
+                        <td><i>shift</i> + <i>space</i></td>
+                        <td>Selects the items between the most recently selected option and the focused option.</td>
+                    </tr>
+                    <tr>
+                        <td><i>control</i> + <i>shift</i> + <i>home</i></td>
+                        <td>Selects the focused options and all the options up to the first one.</td>
+                    </tr>
+                    <tr>
+                        <td><i>control</i> + <i>shift</i> + <i>end</i></td>
+                        <td>Selects the focused options and all the options down to the last one.</td>
+                    </tr>
+                    <tr>
+                        <td><i>control</i> + <i>a</i></td>
+                        <td>Selects all options.</td>
+                    </tr>
+                    <tr>
+                        <td><i>pageUp</i></td>
+                        <td>Jumps visual focus to first option.</td>
+                    </tr>
+                    <tr>
+                        <td><i>pageDown</i></td>
+                        <td>Jumps visual focus to last option.</td>
+                    </tr>
+                    <tr>
+                        <td><i>any printable character</i></td>
+                        <td>Moves focus to the option whose label starts with the characters being typed.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h6>Filter Input Keyboard Support</h6>
+        <div className="doc-tablewrapper">
+            <table className="doc-table">
+                <thead>
+                    <tr>
+                        <th>Key</th>
+                        <th>Function</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><i>down arrow</i></td>
+                        <td>Moves focus to the next option, if there is none then visual focus does not change.</td>
+                    </tr>
+                    <tr>
+                        <td><i>up arrow</i></td>
+                        <td>Moves focus to the previous option, if there is none then visual focus does not change.</td>
+                    </tr>
+                    <tr>
+                        <td><i>left arrow</i></td>
+                        <td>Removes the visual focus from the current option and moves input cursor to one character left.</td>
+                    </tr>
+                    <tr>
+                        <td><i>right arrow</i></td>
+                        <td>Removes the visual focus from the current option and moves input cursor to one character right.</td>
+                    </tr>
+                    <tr>
+                        <td><i>home</i></td>
+                        <td>Moves input cursor at the end, if not then moves focus to the first option.</td>
+                    </tr>
+                    <tr>
+                        <td><i>end</i></td>
+                        <td>Moves input cursor at the beginning, if not then moves focus to the last option.</td>
+                    </tr>
+                    <tr>
+                        <td><i>enter</i></td>
+                        <td>Closes the popup and moves focus to the multiselect element.</td>
+                    </tr>
+                    <tr>
+                        <td><i>escape</i></td>
+                        <td>Closes the popup and moves focus to the multiselect element.</td>
+                    </tr>
+                    <tr>
+                        <td><i>tab</i></td>
+                        <td>Moves focus to the next focusable element in the component. If there is none, moves focus to next element in page.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
 		<h5>Dependencies</h5>
 		<p>None.</p>
     </AppDoc>
@@ -407,7 +606,7 @@ export default {
         </Listbox>
 
         <h5>Virtual Scroll (1000 Items)</h5>
-        <Listbox v-model="selectedItem" :options="items" optionLabel="label" optionValue="value" :virtualScrollerOptions="{ itemSize: 31 }" style="width:15rem" listStyle="height:250px" />
+        <Listbox v-model="selectedItem" :options="items" optionLabel="label" optionValue="value" :virtualScrollerOptions="{ itemSize: 38 }" style="width:15rem" listStyle="height:250px" />
     </div>
 </template>
 
@@ -501,7 +700,7 @@ export default {
         </Listbox>
 
         <h5>Virtual Scroll (1000 Items)</h5>
-        <Listbox v-model="selectedItem" :options="items" optionLabel="label" optionValue="value" :virtualScrollerOptions="{ itemSize: 31 }" style="width:15rem" listStyle="height:250px" />
+        <Listbox v-model="selectedItem" :options="items" optionLabel="label" optionValue="value" :virtualScrollerOptions="{ itemSize: 38 }" style="width:15rem" listStyle="height:250px" />
     </div>
 </template>
 
@@ -599,7 +798,7 @@ export default {
         </p-listbox>
 
             <h5>Virtual Scroll (1000 Items)</h5>
-            <p-listbox v-model="selectedItem" :options="items" option-label="label" option-value="value" :virtual-scroller-options="{ itemSize: 31 }" style="width:15rem" list-style="height:250px"></p-listbox>
+            <p-listbox v-model="selectedItem" :options="items" option-label="label" option-value="value" :virtual-scroller-options="{ itemSize: 38 }" style="width:15rem" list-style="height:250px"></p-listbox>
         </div>
 
         <script type="module">
