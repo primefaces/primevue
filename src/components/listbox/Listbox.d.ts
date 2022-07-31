@@ -3,13 +3,13 @@ import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 import { VirtualScrollerProps, VirtualScrollerItemOptions } from '../virtualscroller';
 
 
-type ListboxOptionLabelType = string | ((data: any) => string) | undefined;
+type ListboxOptionLabelType = string | ((data: any) => string) | undefined;
 
-type ListboxOptionValueType = string | ((data: any) => any) | undefined;
+type ListboxOptionValueType = string | ((data: any) => any) | undefined;
 
-type ListboxOptionDisabledType = string | ((data: any) => boolean) | undefined;
+type ListboxOptionDisabledType = string | ((data: any) => boolean) | undefined;
 
-type ListboxOptionChildrenType = string | ((data: any) => any[]) | undefined;
+type ListboxOptionChildrenType = string | ((data: any) => any[]) | undefined;
 
 type ListboxFilterMatchModeType = 'contains' | 'startsWith' | 'endsWith' | undefined;
 
@@ -109,6 +109,35 @@ export interface ListboxProps {
      */
     filterFields?: string[] | undefined;
     /**
+     * Uses to pass all properties of the HTMLInputElement to the filter input inside the component.
+     */
+    filterInputProps?: HTMLInputElement | undefined;
+    /**
+     * Whether to use the virtualScroller feature. The properties of VirtualScroller component can be used like an object in it.
+     * @see VirtualScroller.VirtualScrollerProps
+     */
+    virtualScrollerOptions?: VirtualScrollerProps;
+    /**
+     * Whether to focus on the first visible or selected element.
+     * Default value is true.
+     */
+    autoOptionFocus?: boolean | undefined;
+    /**
+     * Text to be displayed in hidden accessible field when filtering returns any results. Defaults to value from PrimeVue locale configuration.
+     * Default value is '{0} results are available'.
+     */
+    filterMessage?: string | undefined;
+    /**
+     * Text to be displayed in hidden accessible field when options are selected. Defaults to value from PrimeVue locale configuration.
+     * Default value is '{0} items selected'.
+     */
+    selectionMessage?: string | undefined;
+    /**
+     * Text to be displayed in hidden accessible field when any option is not selected. Defaults to value from PrimeVue locale configuration.
+     * Default value is 'No selected item'.
+     */
+    emptySelectionMessage?: string | undefined;
+    /**
      * Text to display when filtering does not return any results. Defaults to value from PrimeVue locale configuration.
      * Default value is 'No results found'.
      */
@@ -119,10 +148,17 @@ export interface ListboxProps {
      */
     emptyMessage?: string | undefined;
     /**
-     * Whether to use the virtualScroller feature. The properties of VirtualScroller component can be used like an object in it.
-     * @see VirtualScroller.VirtualScrollerProps
+     * Index of the element in tabbing order.
      */
-    virtualScrollerOptions?: VirtualScrollerProps;
+    tabindex?: number | string | undefined;
+    /**
+     * Defines a string value that labels an interactive element.
+     */
+    ariaLabel?: string | undefined;
+    /**
+     * Identifier of the underlying input element.
+     */
+    ariaLabelledby?: string | undefined;
 }
 
 export interface ListboxSlots {
@@ -238,6 +274,16 @@ export declare type ListboxEmits = {
      * @param {ListboxChangeEvent} event - Custom change event.
      */
     'change': (event: ListboxChangeEvent) => void;
+    /**
+     * Callback to invoke when the component receives focus.
+     * @param {Event} event - Browser event.
+     */
+    'focus': (event: Event) => void;
+    /**
+     * Callback to invoke when the component loses focus.
+     * @param {Event} event - Browser event.
+     */
+    'blur': (event: Event) => void;
     /**
      * Callback to invoke on filter input.
      * @param {ListboxFilterEvent} event - Custom filter event.
