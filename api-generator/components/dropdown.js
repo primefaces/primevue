@@ -232,7 +232,7 @@ const DropdownProps = [
         type: "string",
         default: "null",
         description: "Defines a string value that labels an interactive element."
-    }
+    },
     {
         name: "ariaLabelledby",
         type: "string",
