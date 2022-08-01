@@ -2,11 +2,12 @@
     <span ref="container" :id="id" :class="containerClass">
         <input :ref="inputRef" v-if="!inline" type="text" role="combobox" :id="inputId" :class="['p-inputtext p-component', inputClass]" :style="inputStyle"
             aria-autocomplete="none" aria-haspopup="dialog" :aria-expanded="overlayVisible" :aria-controls="panelId" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel" inputmode="none" 
-            @input="onInput" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" :readonly="!manualInput" v-bind="inputProps">
+            @input="onInput" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" :readonly="!manualInput" :tabindex="0" v-bind="inputProps">
         <CalendarButton v-if="showIcon" :icon="icon" class="p-datepicker-trigger" :disabled="disabled" @click="onButtonClick" type="button" :aria-label="$primevue.config.locale.chooseDate" aria-haspopup="dialog" :aria-expanded="overlayVisible" :aria-controls="panelId"/>
         <Portal :appendTo="appendTo" :disabled="inline">
             <transition name="p-connected-overlay" @enter="onOverlayEnter($event)" @after-enter="onOverlayEnterComplete" @after-leave="onOverlayAfterLeave" @leave="onOverlayLeave">
-                <div :ref="overlayRef" :id="panelId" :class="panelStyleClass" :style=panelStyle v-if="inline || overlayVisible" :role="inline ? null : 'dialog'" :aria-modal="inline ? null : 'true'" :aria-label="$primevue.config.locale.chooseDate" @click="onOverlayClick" @mouseup="onOverlayMouseUp" v-bind="panelProps">
+                <div :ref="overlayRef" :id="panelId" :class="panelStyleClass" :style=panelStyle v-if="inline || overlayVisible" :role="inline ? null : 'dialog'" :aria-modal="inline ? null : 'true'" :aria-label="$primevue.config.locale.chooseDate"
+                    @click="onOverlayClick" @keydown="onOverlayKeyDown" @mouseup="onOverlayMouseUp" v-bind="panelProps">
                     <template v-if="!timeOnly">
                         <div class="p-datepicker-group-container">
                             <div class="p-datepicker-group" v-for="(month,groupIndex) of months" :key="month.month + month.year">
@@ -2248,7 +2249,9 @@ export default {
                             focusableElements[focusedIndex - 1].focus();
                     }
                     else {
-                        if (focusedIndex == -1 || focusedIndex === (focusableElements.length - 1))
+                        if (focusedIndex == -1)
+                            focusableElements[focusableElements.length - 1].focus();
+                        else if (focusedIndex === (focusableElements.length - 1))
                             focusableElements[0].focus();
                         else
                             focusableElements[focusedIndex + 1].focus();
@@ -2308,6 +2311,9 @@ export default {
             if (event.code === 'ArrowDown' && this.overlay) {
                 this.trapFocus(event);
             }
+            else if (event.code === 'ArrowDown' && !this.overlay) {
+                this.overlayVisible = true;
+            }
             else if (event.code === 'Escape') {
                 if (this.overlayVisible) {
                     this.overlayVisible = false;
@@ -2342,6 +2348,17 @@ export default {
                     originalEvent: event,
                     target: this.$el
                 });
+            }
+        },
+        onOverlayKeyDown(event) {
+            switch (event.code) {
+                case 'Escape':
+                    this.input.focus();
+                    this.overlayVisible = false;
+                    break;
+
+                default:
+                    break;
             }
         },
         onOverlayMouseUp(event) {
