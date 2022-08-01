@@ -178,11 +178,11 @@ export default {
             type: Number,
             default: 0
         },
-        ariaLabel: {
+        "aria-label": {
             type: String,
             default: null
         },
-        ariaLabelledby: {
+        "aria-labelledby": {
             type: String,
             default: null
         }

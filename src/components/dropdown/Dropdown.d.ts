@@ -210,11 +210,11 @@ export interface DropdownProps extends HTMLDivElement {
     /**
      * Defines a string value that labels an interactive element.
      */
-    ariaLabel?: string | undefined;
+    "aria-label"?: string | undefined;
     /**
      * Identifier of the underlying input element.
      */
-    ariaLabelledby?: string | undefined;
+    "aria-labelledby"?: string | undefined;
 }
 
 export interface DropdownSlots {
