@@ -918,6 +918,7 @@ export default {
 
             if (this.isSingleSelection() && (!this.showTime || this.hideOnDateTimeSelect)) {
                 setTimeout(() => {
+                    this.input.focus();
                     this.overlayVisible = false;
                 }, 150);
             }
