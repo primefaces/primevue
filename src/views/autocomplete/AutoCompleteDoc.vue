@@ -17,7 +17,7 @@ import AutoComplete from 'primevue/autocomplete';
 		<p>AutoComplete uses v-model for two-way binding, requires a list of suggestions and a complete method to query for the results. The complete method
 			gets the query text as event.query property and should update the suggestions with the search results. Example below connects to a remote datasource to fetch the results;</p>
 <pre v-code><code>
-&lt;AutoComplete v-model="selectedCountry" :suggestions="filteredCountriesBasic" @complete="searchCountry($event)" field="name" /&gt;
+&lt;AutoComplete v-model="selectedCountry" :suggestions="filteredCountriesBasic" @complete="searchCountry($event)" optionLabel="name" /&gt;
 
 </code></pre>
 <pre v-code.script><code>
@@ -54,16 +54,16 @@ export default {
 		<h5>Multiple Mode</h5>
 		<p>Multiple mode is enabled using <i>multiple</i> property to select more than one value from the autocomplete. In this case, value reference should be an array.</p>
 <pre v-code><code>
-&lt;AutoComplete :multiple="true" v-model="selectedCountries" :suggestions="filteredCountriesMultiple" @complete="searchCountryMultiple($event)" field="name" /&gt;
+&lt;AutoComplete :multiple="true" v-model="selectedCountries" :suggestions="filteredCountriesMultiple" @complete="searchCountryMultiple($event)" optionLabel="name" /&gt;
 
 </code></pre>
 
 		<h5>Objects</h5>
-		<p>AutoComplete can also work with objects using the  <i>field</i> property that defines the label to display
+		<p>AutoComplete can also work with objects using the  <i>optionLabel</i> property that defines the label to display
 			as a suggestion. The value passed to the model would still be the object instance of a suggestion.
 			Here is an example with a Country object that has name and code fields such as &#123;name:"United States",code:"USA"&#125;.</p>
 <pre v-code><code>
-&lt;AutoComplete field="label" v-model="selectedCountry" :suggestions="filteredCountriesBasic" @complete="searchCountryBasic($event)" /&gt;
+&lt;AutoComplete optionLabel="label" v-model="selectedCountry" :suggestions="filteredCountriesBasic" @complete="searchCountryBasic($event)" /&gt;
 
 </code></pre>
 
@@ -108,7 +108,7 @@ export default {
 
 <pre v-code><code><template v-pre>
 &lt;AutoComplete v-model="selectedCity" :suggestions="filteredCities" @complete="searchCity($event)"
-    field="label" optionGroupLabel="label" optionGroupChildren="items"&gt;&lt;/AutoComplete&gt;
+    optionLabel="label" optionGroupLabel="label" optionGroupChildren="items"&gt;&lt;/AutoComplete&gt;
 </template>
 </code></pre>
 
@@ -134,7 +134,7 @@ export default {
 </code></pre>
 
 		<h5>Properties</h5>
-        <p>Any property such as name and placeholder are passed to the underlying input element. Following are the additional properties to configure the component.</p>
+        <p>Any property of HTMLDivElement are passed to the main container element. Following are the additional properties to configure the component.</p>
 		<div class="doc-tablewrapper">
 			<table class="doc-table">
 				<thead>
@@ -162,7 +162,19 @@ export default {
                         <td>field</td>
                         <td>any</td>
                         <td>null</td>
-                        <td>Property name or getter function of a suggested object to resolve and display.</td>
+                        <td>Property name or getter function of a suggested object to resolve and display. <small>*Deprecated since v3.16.0. Use 'optionLabel' property instead.</small></td>
+                    </tr>
+                    <tr>
+                        <td>optionLabel</td>
+                        <td>string | function</td>
+                        <td>null</td>
+                        <td>Property name or getter function to use as the label of an option.</td>
+                    </tr>
+                    <tr>
+                        <td>optionDisabled</td>
+                        <td>string | function</td>
+                        <td>null</td>
+                        <td>Property name or getter function to use as the disabled flag of an option, defaults to false when not defined.</td>
                     </tr>
                     <tr>
                         <td>optionGroupLabel</td>
@@ -198,7 +210,7 @@ export default {
                         <td>autoHighlight</td>
                         <td>boolean</td>
                         <td>false</td>
-                        <td>Highlights automatically the first item of the dropdown to be selected.</td>
+                        <td>Highlights automatically the first item of the dropdown to be selected. <small>*Deprecated since v3.16.0.</small></td>
                     </tr>
                     <tr>
                         <td>multiple</td>
@@ -207,16 +219,28 @@ export default {
                         <td>Specifies if multiple values can be selected.</td>
                     </tr>
                     <tr>
+                        <td>placeholder</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Default text to display when no option is selected.</td>
+                    </tr>
+                    <tr>
+                        <td>disabled</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>When present, it specifies that the component should be disabled.</td>
+                    </tr>
+                    <tr>
+                        <td>dataKey</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>A property to uniquely identify an option.</td>
+                    </tr>
+                    <tr>
                         <td>minLength</td>
                         <td>number</td>
                         <td>1</td>
                         <td>Minimum number of characters to initiate a search.</td>
-                    </tr>
-                    <tr>
-                        <td>completeOnFocus</td>
-                        <td>boolean</td>
-                        <td>false</td>
-                        <td>Whether to run a query when input receives focus.</td>
                     </tr>
                     <tr>
                         <td>delay</td>
@@ -239,6 +263,18 @@ export default {
                         accepting values from the suggestions.</td>
                     </tr>
                     <tr>
+                        <td>completeOnFocus</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>Whether to run a query when input receives focus.</td>
+                    </tr>
+                    <tr>
+                        <td>inputId</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Identifier of the underlying input element.</td>
+                    </tr>
+                    <tr>
                         <td>inputStyle</td>
                         <td>any</td>
                         <td>null</td>
@@ -251,22 +287,28 @@ export default {
                         <td>Style class of the input field.</td>
                     </tr>
                     <tr>
-                        <td>style</td>
-                        <td>any</td>
+                        <td>inputProps</td>
+                        <td>object</td>
                         <td>null</td>
-                        <td>Style class of the component input field.</td>
+                        <td>Uses to pass all properties of the HTMLInputElement/HTMLSpanElement to the focusable input element inside the component.</td>
                     </tr>
                     <tr>
-                        <td>class</td>
-                        <td>string</td>
+                        <td>panelStyle</td>
+                        <td>any</td>
                         <td>null</td>
-                        <td>Inline style of the component.</td>
+                        <td>Inline style of the overlay panel.</td>
                     </tr>
                     <tr>
                         <td>panelClass</td>
                         <td>string</td>
                         <td>null</td>
                         <td>Style class of the overlay panel.</td>
+                    </tr>
+                    <tr>
+                        <td>panelProps</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td>Uses to pass all properties of the HTMLDivElement to the overlay panel.</td>
                     </tr>
                     <tr>
                         <td>loadingIcon</td>
@@ -280,13 +322,66 @@ export default {
                         <td>null</td>
                         <td>Whether to use the virtualScroller feature. The properties of <router-link to="/virtualscroller">VirtualScroller</router-link> component can be used like an object in it.</td>
                     </tr>
+                    <tr>
+                        <td>autoOptionFocus</td>
+                        <td>boolean</td>
+                        <td>true</td>
+                        <td>Whether to focus on the first visible or selected element when the overlay panel is shown.</td>
+                    </tr>
+                    <tr>
+                        <td>searchLocale</td>
+                        <td>string</td>
+                        <td>undefined</td>
+                        <td>Locale to use in searching. The default locale is the host environment's current locale.</td>
+                    </tr>
+                    <tr>
+                        <td>searchMessage</td>
+                        <td>string</td>
+                        <td>{0} results are available</td>
+                        <td>Text to be displayed in hidden accessible field when filtering returns any results. Defaults to value from PrimeVue locale configuration.</td>
+                    </tr>
+                    <tr>
+                        <td>selectionMessage</td>
+                        <td>string</td>
+                        <td>{0} items selected</td>
+                        <td>Text to be displayed in hidden accessible field when options are selected. Defaults to value from PrimeVue locale configuration.</td>
+                    </tr>
+                    <tr>
+                        <td>emptySelectionMessage</td>
+                        <td>string</td>
+                        <td>No selected item</td>
+                        <td>Text to be displayed in hidden accessible field when any option is not selected. Defaults to value from PrimeVue locale configuration.</td>
+                    </tr>
+                    <tr>
+                        <td>emptySearchMessage</td>
+                        <td>string</td>
+                        <td>No results found</td>
+                        <td>Text to be displayed when filtering does not return any results. Defaults to value from PrimeVue locale configuration.</td>
+                    </tr>
+                    <tr>
+                        <td>tabindex</td>
+                        <td>number</td>
+                        <td>0</td>
+                        <td>Index of the element in tabbing order.</td>
+                    </tr>
+                    <tr>
+                        <td>ariaLabel</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Defines a string value that labels an interactive element.</td>
+                    </tr>
+                    <tr>
+                        <td>ariaLabelledby</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Establishes relationships between the component and label(s) where its value should be one or more element IDs.</td>
+                    </tr>
 				</tbody>
 			</table>
 		</div>
 
 		<h5>Events</h5>
-        <p>Any valid event such as focus, blur and input are passed to the underlying input element. Following are the additional events to configure the component.</p>
-		<div class="doc-tablewrapper">
+        <div class="doc-tablewrapper">
 			<table class="doc-table">
 				<thead>
                     <tr>
@@ -297,12 +392,20 @@ export default {
 				</thead>
 				<tbody>
                     <tr>
-                        <td>complete</td>
-                        <td>
-                            event.originalEvent: Browser event <br />
-                            event.query: Value to search with
-                        </td>
-                        <td>Callback to invoke to search for suggestions.</td>
+                        <td>change</td>
+                        <td>event.originalEvent: Original event <br />
+                            event.value: Selected option value </td>
+                        <td>Callback to invoke on value change.</td>
+                    </tr>
+                    <tr>
+                        <td>focus</td>
+                        <td>event</td>
+                        <td>Callback to invoke when the component receives focus.</td>
+                    </tr>
+                    <tr>
+                        <td>blur</td>
+                        <td>event</td>
+                        <td>Callback to invoke when the component loses focus.</td>
                     </tr>
                     <tr>
                         <td>item-select</td>
@@ -329,6 +432,34 @@ export default {
                         <td>-</td>
                         <td>Callback to invoke when input is cleared by the user.</td>
                     </tr>
+                    <tr>
+                        <td>complete</td>
+                        <td>
+                            event.originalEvent: Browser event <br />
+                            event.query: Value to search with
+                        </td>
+                        <td>Callback to invoke to search for suggestions.</td>
+                    </tr>
+                    <tr>
+                        <td>before-show</td>
+                        <td>-</td>
+                        <td>Callback to invoke before the overlay is shown.</td>
+                    </tr>
+                    <tr>
+                        <td>before-hide</td>
+                        <td>-</td>
+                        <td>Callback to invoke before the overlay is hidden.</td>
+                    </tr>
+                    <tr>
+                        <td>show</td>
+                        <td>-</td>
+                        <td>Callback to invoke when the overlay is shown.</td>
+                    </tr>
+                    <tr>
+                        <td>hide</td>
+                        <td>-</td>
+                        <td>Callback to invoke when the overlay is hidden.</td>
+                    </tr>
 				</tbody>
 			</table>
 		</div>
@@ -344,14 +475,8 @@ export default {
 				</thead>
 				<tbody>
                     <tr>
-                        <td>item</td>
-                        <td>item: Option instance <br />
-                            index: Index of the option</td>
-                    </tr>
-                    <tr>
-                        <td>optiongroup</td>
-                        <td>item: OptionGroup instance <br />
-                            index: Index of the option group</td>
+                        <td>chip</td>
+                        <td>value: A value in the selection</td>
                     </tr>
                     <tr>
                         <td>header</td>
@@ -364,8 +489,20 @@ export default {
                             suggestions: Displayed options</td>
                     </tr>
                     <tr>
-                        <td>chip</td>
-                        <td>value: A value in the selection</td>
+                        <td>item <small>*Deprecated since v3.16.0</small></td>
+                        <td>item: Option instance <br />
+                            index: Index of the option</td>
+                    </tr>
+                    <tr>
+                        <td>option</td>
+                        <td>option: Option instance <br />
+                            index: Index of the option</td>
+                    </tr>
+                    <tr>
+                        <td>optiongroup</td>
+                        <td>item: OptionGroup instance <small>*Deprecated since v3.16.0</small><br />
+                            option: OptionGroup instance <br />
+                            index: Index of the option group</td>
                     </tr>
                     <tr>
                         <td>content</td>
@@ -421,9 +558,172 @@ export default {
                         <td>p-autocomplete-token-label</td>
                         <td>Label of a selected item in multiple mode.</td>
                     </tr>
+                    <tr>
+                        <td>p-overlay-open</td>
+                        <td>Container element when overlay is visible.</td>
+                    </tr>
 				</tbody>
 			</table>
 		</div>
+
+        <h5>Accessibility</h5>
+        <h6>Screen Reader</h6>
+        <p>Value to describe the component can either be provided via <i>label</i> tag combined with <i>inputId</i> prop or using <i>aria-labelledby</i>, <i>aria-label</i> props. The input element has <i>combobox</i> role
+        in addition to <i>aria-autocomplete</i>, <i>aria-haspopup</i> and <i>aria-expanded</i> attributes. The relation between the input and the popup is created with <i>aria-controls</i> and <i>aria-activedescendant</i> attribute is used
+        to instruct screen reader which option to read during keyboard navigation within the popup list.</p>
+        <p>In multiple mode, chip list uses <i>listbox</i> role with <i>aria-orientation</i> set to horizontal whereas each chip has the <i>option</i> role with <i>aria-label</i> set to the label of the chip.</p>
+        <p>The popup list has an id that refers to the <i>aria-controls</i> attribute of the input element and uses <i>listbox</i> as the role. Each list item has <i>option</i> role and an id to match the <i>aria-activedescendant</i> of the input element.</p>
+
+<pre v-code><code>
+&lt;label for="ac1"&gt;Username&lt;/label&gt;
+&lt;AutoComplete inputId="ac1" /&gt;
+
+&lt;span id="ac2"&gt;Email&lt;/span&gt;
+&lt;AutoComplete aria-labelledby="ac2" /&gt;
+
+&lt;AutoComplete aria-label="City" /&gt;
+
+</code></pre>
+
+        <h6>Closed State Keyboard Support</h6>
+        <div className="doc-tablewrapper">
+            <table className="doc-table">
+                <thead>
+                    <tr>
+                        <th>Key</th>
+                        <th>Function</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><i>tab</i></td>
+                        <td>Moves focus to the autocomplete element.</td>
+                    </tr>
+                    <tr>
+                        <td><i>any printable character</i></td>
+                        <td>Opens the popup and moves focus to the first option.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h6>Popup Keyboard Support</h6>
+        <div className="doc-tablewrapper">
+            <table className="doc-table">
+                <thead>
+                    <tr>
+                        <th>Key</th>
+                        <th>Function</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><i>tab</i></td>
+                        <td>Moves focus to the next focusable element in the popup. If there is none, the focusable option is selected and the overlay is closed then moves focus to next element in page.</td>
+                    </tr>
+                    <tr>
+                        <td><i>shift</i> + <i>tab</i></td>
+                        <td>Moves focus to the previous focusable element in the popup. If there is none, the focusable option is selected and the overlay is closed then moves focus to next element in page.</td>
+                    </tr>
+                    <tr>
+                        <td><i>enter</i></td>
+                        <td>Selects the focused option and closes the popup, then moves focus to the autocomplete element.</td>
+                    </tr>
+                    <tr>
+                        <td><i>space</i></td>
+                        <td>Selects the focused option and closes the popup, then moves focus to the autocomplete element.</td>
+                    </tr>
+                    <tr>
+                        <td><i>escape</i></td>
+                        <td>Closes the popup, then moves focus to the autocomplete element.</td>
+                    </tr>
+                    <tr>
+                        <td><i>down arrow</i></td>
+                        <td>Moves focus to the next option, if there is none then visual focus does not change.</td>
+                    </tr>
+                    <tr>
+                        <td><i>up arrow</i></td>
+                        <td>Moves focus to the previous option, if there is none then visual focus does not change.</td>
+                    </tr>
+                    <tr>
+                        <td><i>alt</i> + <i>up arrow</i></td>
+                        <td>Selects the focused option and closes the popup, then moves focus to the autocomplete element.</td>
+                    </tr>
+                    <tr>
+                        <td><i>left arrow</i></td>
+                        <td>Removes the visual focus from the current option and moves input cursor to one character left.</td>
+                    </tr>
+                    <tr>
+                        <td><i>right arrow</i></td>
+                        <td>Removes the visual focus from the current option and moves input cursor to one character right.</td>
+                    </tr>
+                    <tr>
+                        <td><i>home</i></td>
+                        <td>Moves input cursor at the end, if not then moves focus to the first option.</td>
+                    </tr>
+                    <tr>
+                        <td><i>end</i></td>
+                        <td>Moves input cursor at the beginning, if not then moves focus to the last option.</td>
+                    </tr>
+                    <tr>
+                        <td><i>pageUp</i></td>
+                        <td>Jumps visual focus to first option.</td>
+                    </tr>
+                    <tr>
+                        <td><i>pageDown</i></td>
+                        <td>Jumps visual focus to last option.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h6>Chips Input Keyboard Support</h6>
+        <div className="doc-tablewrapper">
+            <table className="doc-table">
+                <thead>
+                    <tr>
+                        <th>Key</th>
+                        <th>Function</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><i>backspace</i></td>
+                        <td>Deletes the previous chip if the input field is empty.</td>
+                    </tr>
+                    <tr>
+                        <td><i>left arrow</i></td>
+                        <td>Moves focus to the previous chip if available and input field is empty.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h6>Chip Keyboard Support</h6>
+        <div className="doc-tablewrapper">
+            <table className="doc-table">
+                <thead>
+                    <tr>
+                        <th>Key</th>
+                        <th>Function</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><i>left arrow</i></td>
+                        <td>Moves focus to the previous chip if available.</td>
+                    </tr>
+                    <tr>
+                        <td><i>right arrow</i></td>
+                        <td>Moves focus to the next chip, if there is none then input field receives the focus.</td>
+                    </tr>
+                    <tr>
+                        <td><i>backspace</i></td>
+                        <td>Deletes the chips and adds focus to the input field.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
 		<h5>Dependencies</h5>
 		<p>None.</p>
@@ -442,10 +742,10 @@ export default {
     <div>
         <div>
             <h5>Basic</h5>
-            <AutoComplete v-model="selectedCountry1" :suggestions="filteredCountries" @complete="searchCountry($event)" field="name" />
+            <AutoComplete v-model="selectedCountry1" :suggestions="filteredCountries" @complete="searchCountry($event)" optionLabel="name" />
 
             <h5>Grouped</h5>
-            <AutoComplete v-model="selectedCity" :suggestions="filteredCities" @complete="searchCity($event)" field="label" optionGroupLabel="label" optionGroupChildren="items">
+            <AutoComplete v-model="selectedCity" :suggestions="filteredCities" @complete="searchCity($event)" optionLabel="label" optionGroupLabel="label" optionGroupChildren="items">
                 <template #optiongroup="slotProps">
                     <div class="flex align-items-center country-item">
                         <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="18" />
@@ -455,7 +755,7 @@ export default {
             </AutoComplete>
 
             <h5>Dropdown, Templating and Force Selection</h5>
-            <AutoComplete v-model="selectedCountry2" :suggestions="filteredCountries" @complete="searchCountry($event)" :dropdown="true" field="name" forceSelection>
+            <AutoComplete v-model="selectedCountry2" :suggestions="filteredCountries" @complete="searchCountry($event)" :dropdown="true" optionLabel="name" forceSelection>
                 <template #item="slotProps">
                     <div class="country-item">
                         <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="18" />
@@ -465,11 +765,11 @@ export default {
             </AutoComplete>
 
             <h5>Virtual Scroll (1000 Items)</h5>
-            <AutoComplete v-model="selectedItem" :suggestions="filteredItems" @complete="searchItems" :virtualScrollerOptions="{ itemSize: 31 }" field="label" dropdown />
+            <AutoComplete v-model="selectedItem" :suggestions="filteredItems" @complete="searchItems" :virtualScrollerOptions="{ itemSize: 38 }" optionLabel="label" dropdown />
 
             <h5>Multiple</h5>
             <span class="p-fluid">
-                <AutoComplete :multiple="true" v-model="selectedCountries" :suggestions="filteredCountries" @complete="searchCountry($event)" field="name" />
+                <AutoComplete :multiple="true" v-model="selectedCountries" :suggestions="filteredCountries" @complete="searchCountry($event)" optionLabel="name" />
             </span>
         </div>
     </div>
@@ -579,10 +879,10 @@ export default {
     <div>
         <div>
             <h5>Basic</h5>
-            <AutoComplete v-model="selectedCountry1" :suggestions="filteredCountries" @complete="searchCountry($event)" field="name" />
+            <AutoComplete v-model="selectedCountry1" :suggestions="filteredCountries" @complete="searchCountry($event)" optionLabel="name" />
 
             <h5>Grouped</h5>
-            <AutoComplete v-model="selectedCity" :suggestions="filteredCities" @complete="searchCity($event)" field="label" optionGroupLabel="label" optionGroupChildren="items">
+            <AutoComplete v-model="selectedCity" :suggestions="filteredCities" @complete="searchCity($event)" optionLabel="label" optionGroupLabel="label" optionGroupChildren="items">
                 <template #optiongroup="slotProps">
                     <div class="flex align-items-center country-item">
                         <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="18" />
@@ -592,7 +892,7 @@ export default {
             </AutoComplete>
 
             <h5>Dropdown, Templating and Force Selection</h5>
-            <AutoComplete v-model="selectedCountry2" :suggestions="filteredCountries" @complete="searchCountry($event)" :dropdown="true" field="name" forceSelection>
+            <AutoComplete v-model="selectedCountry2" :suggestions="filteredCountries" @complete="searchCountry($event)" :dropdown="true" optionLabel="name" forceSelection>
                 <template #item="slotProps">
                     <div class="country-item">
                         <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="18" />
@@ -602,11 +902,11 @@ export default {
             </AutoComplete>
 
             <h5>Virtual Scroll (1000 Items)</h5>
-            <AutoComplete v-model="selectedItem" :suggestions="filteredItems" @complete="searchItems" :virtualScrollerOptions="{ itemSize: 31 }" field="label" dropdown />
+            <AutoComplete v-model="selectedItem" :suggestions="filteredItems" @complete="searchItems" :virtualScrollerOptions="{ itemSize: 38 }" optionLabel="label" dropdown />
 
             <h5>Multiple</h5>
             <span class="p-fluid">
-                <AutoComplete :multiple="true" v-model="selectedCountries" :suggestions="filteredCountries" @complete="searchCountry($event)" field="name" />
+                <AutoComplete :multiple="true" v-model="selectedCountries" :suggestions="filteredCountries" @complete="searchCountry($event)" optionLabel="name" />
             </span>
         </div>
     </div>
@@ -713,10 +1013,10 @@ export default {
         <script src="./CountryService.js"><\\/script>`,
                     content:`<div id="app">
             <h5>Basic</h5>
-            <p-autocomplete v-model="selectedCountry1" :suggestions="filteredCountries" @complete="searchCountry($event)" field="name"></p-autocomplete>
+            <p-autocomplete v-model="selectedCountry1" :suggestions="filteredCountries" @complete="searchCountry($event)" optionLabel="name"></p-autocomplete>
 
             <h5>Grouped</h5>
-            <p-autocomplete v-model="selectedCity" :suggestions="filteredCities" @complete="searchCity($event)" field="label" option-group-label="label" option-group-children="items">
+            <p-autocomplete v-model="selectedCity" :suggestions="filteredCities" @complete="searchCity($event)" optionLabel="label" option-group-label="label" option-group-children="items">
                 <template #optiongroup="slotProps">
                     <div class="flex align-items-center country-item">
                         <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="18" />
@@ -726,7 +1026,7 @@ export default {
             </p-autocomplete>
 
             <h5>Dropdown, Templating and Force Selection</h5>
-            <p-autocomplete v-model="selectedCountry2" :suggestions="filteredCountries" @complete="searchCountry($event)" :dropdown="true" field="name" force-selection>
+            <p-autocomplete v-model="selectedCountry2" :suggestions="filteredCountries" @complete="searchCountry($event)" :dropdown="true" optionLabel="name" force-selection>
                 <template #item="slotProps">
                     <div class="country-item">
                         <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" width="18" />
@@ -736,11 +1036,11 @@ export default {
             </p-autocomplete>
 
             <h5>Virtual Scroll (1000 Items)</h5>
-            <p-autocomplete v-model="selectedItem" :suggestions="filteredItems" @complete="searchItems" :virtual-scroller-options="{ itemSize: 31 }" field="label" dropdown></p-autocomplete>
+            <p-autocomplete v-model="selectedItem" :suggestions="filteredItems" @complete="searchItems" :virtual-scroller-options="{ itemSize: 38 }" optionLabel="label" dropdown></p-autocomplete>
 
             <h5>Multiple</h5>
             <span class="p-fluid">
-                <p-autocomplete :multiple="true" v-model="selectedCountries" :suggestions="filteredCountries" @complete="searchCountry($event)" field="name"></p-autocomplete>
+                <p-autocomplete :multiple="true" v-model="selectedCountries" :suggestions="filteredCountries" @complete="searchCountry($event)" optionLabel="name"></p-autocomplete>
             </span>
         </div>
 

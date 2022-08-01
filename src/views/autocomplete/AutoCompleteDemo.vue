@@ -11,10 +11,10 @@
         <div class="content-section implementation">
             <div class="card">
                 <h5>Basic</h5>
-                <AutoComplete v-model="selectedCountry1" :suggestions="filteredCountries" @complete="searchCountry($event)" field="name" />
+                <AutoComplete v-model="selectedCountry1" :suggestions="filteredCountries" @complete="searchCountry($event)" optionLabel="name" />
 
                 <h5>Grouped</h5>
-                <AutoComplete v-model="selectedCity" :suggestions="filteredCities" @complete="searchCity($event)" field="label" optionGroupLabel="label" optionGroupChildren="items">
+                <AutoComplete v-model="selectedCity" :suggestions="filteredCities" @complete="searchCity($event)" optionLabel="label" optionGroupLabel="label" optionGroupChildren="items">
                     <template #optiongroup="slotProps">
                         <div class="flex align-items-center country-item">
                             <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.item.code.toLowerCase()" width="18" />
@@ -24,7 +24,7 @@
                 </AutoComplete>
 
                 <h5>Dropdown, Templating and Force Selection</h5>
-                <AutoComplete v-model="selectedCountry2" loadingIcon="pi pi-discord" :suggestions="filteredCountries" @complete="searchCountry($event)" :dropdown="true" field="name" forceSelection>
+                <AutoComplete v-model="selectedCountry2" loadingIcon="pi pi-discord" :suggestions="filteredCountries" @complete="searchCountry($event)" :dropdown="true" optionLabel="name" forceSelection>
                     <template #item="slotProps">
                         <div class="country-item">
                             <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.item.code.toLowerCase()" />
@@ -34,11 +34,11 @@
                 </AutoComplete>
 
                 <h5>Virtual Scroll (1000 Items)</h5>
-                <AutoComplete v-model="selectedItem" :suggestions="filteredItems" @complete="searchItems" :virtualScrollerOptions="{ itemSize: 31 }" field="label" dropdown />
+                <AutoComplete v-model="selectedItem" :suggestions="filteredItems" @complete="searchItems" :virtualScrollerOptions="{ itemSize: 38 }" optionLabel="label" dropdown />
 
                 <h5>Multiple</h5>
                 <span class="p-fluid">
-                    <AutoComplete :multiple="true" v-model="selectedCountries" :suggestions="filteredCountries" @complete="searchCountry($event)" field="name" />
+                    <AutoComplete :multiple="true" v-model="selectedCountries" :suggestions="filteredCountries" @complete="searchCountry($event)" optionLabel="name" />
                 </span>
             </div>
         </div>
