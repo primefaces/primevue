@@ -771,6 +771,16 @@ export default {
             this.$emit('update:modelValue', value);
             this.$emit('change', { originalEvent: event, value });
         },
+        flatOptions(options = []) {
+            return options.reduce((result, option, index) => {
+                result.push({ optionGroup: option, group: true, index });
+
+                const optionGroupChildren = this.getOptionGroupChildren(option);
+                optionGroupChildren && optionGroupChildren.forEach(o => result.push(o));
+
+                return result;
+            }, []);
+        },
         overlayRef(el) {
             this.overlay = el;
         },
@@ -809,18 +819,7 @@ export default {
             return ['p-dropdown-trigger-icon', (this.loading ? this.loadingIcon : 'pi pi-chevron-down')];
         },
         visibleOptions() {
-            let options = this.options || [];
-
-            if (this.optionGroupLabel) {
-                options = options.reduce((result, option, index) => {
-                    result.push({ optionGroup: option, group: true, index });
-
-                    let optionGroupChildren = this.getOptionGroupChildren(option);
-                    optionGroupChildren && optionGroupChildren.forEach(o => result.push(o));
-
-                    return result;
-                }, []);
-            }
+            const options = this.optionGroupLabel ? this.flatOptions(this.options) : (this.options || []);
 
             return this.filterValue ? FilterService.filter(options, this.searchFields, this.filterValue, this.filterMatchMode, this.filterLocale) : options;
         },

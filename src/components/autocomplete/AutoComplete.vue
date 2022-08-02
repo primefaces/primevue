@@ -783,6 +783,16 @@ export default {
             this.$emit('update:modelValue', value);
             this.$emit('change', { originalEvent: event, value });
         },
+        flatOptions(options = []) {
+            return options.reduce((result, option, index) => {
+                result.push({ optionGroup: option, group: true, index });
+
+                const optionGroupChildren = this.getOptionGroupChildren(option);
+                optionGroupChildren && optionGroupChildren.forEach(o => result.push(o));
+
+                return result;
+            }, []);
+        },
         overlayRef(el) {
             this.overlay = el;
         },
@@ -824,20 +834,7 @@ export default {
             return ['p-autocomplete-loader pi-spin', this.loadingIcon];
         },
         visibleOptions() {
-            let options = this.suggestions || [];
-
-            if (this.optionGroupLabel) {
-                options = options.reduce((result, option, index) => {
-                    result.push({ optionGroup: option, group: true, index });
-
-                    let optionGroupChildren = this.getOptionGroupChildren(option);
-                    optionGroupChildren && optionGroupChildren.forEach(o => result.push(o));
-
-                    return result;
-                }, []);
-            }
-
-            return options;
+            return this.optionGroupLabel ? this.flatOptions(this.suggestions) : (this.suggestions || []);
         },
         inputValue() {
             if (this.modelValue) {
