@@ -783,8 +783,8 @@ export default {
             this.$emit('update:modelValue', value);
             this.$emit('change', { originalEvent: event, value });
         },
-        flatOptions(options = []) {
-            return options.reduce((result, option, index) => {
+        flatOptions(options) {
+            return (options || []).reduce((result, option, index) => {
                 result.push({ optionGroup: option, group: true, index });
 
                 const optionGroupChildren = this.getOptionGroupChildren(option);
