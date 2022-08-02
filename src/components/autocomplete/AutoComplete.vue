@@ -256,6 +256,9 @@ export default {
         isOptionDisabled(option) {
             return this.optionDisabled ? ObjectUtils.resolveFieldData(option, this.optionDisabled) : false;
         },
+        isOptionGroup(option) {
+            return this.optionGroupLabel && option.optionGroup && option.group;
+        },
         getOptionGroupLabel(optionGroup) {
             return ObjectUtils.resolveFieldData(optionGroup, this.optionGroupLabel);
         },
@@ -701,9 +704,6 @@ export default {
         },
         isDropdownClicked(event) {
             return this.$refs.dropdownButton ? (event.target === this.$refs.dropdownButton || this.$refs.dropdownButton.$el.contains(event.target)) : false;
-        },
-        isOptionGroup(option) {
-            return this.optionGroupLabel && option.optionGroup && option.group;
         },
         isOptionMatched(option, value) {
             return this.isValidOption(option) && this.getOptionLabel(option).toLocaleLowerCase(this.searchLocale) === value.toLocaleLowerCase(this.searchLocale);

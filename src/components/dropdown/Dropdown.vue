@@ -243,6 +243,9 @@ export default {
         isOptionDisabled(option) {
             return this.optionDisabled ? ObjectUtils.resolveFieldData(option, this.optionDisabled) : false;
         },
+        isOptionGroup(option) {
+            return this.optionGroupLabel && option.optionGroup && option.group;
+        },
         getOptionGroupLabel(optionGroup) {
             return ObjectUtils.resolveFieldData(optionGroup, this.optionGroupLabel);
         },
@@ -660,9 +663,6 @@ export default {
         },
         hasFocusableElements() {
             return DomHandler.getFocusableElements(this.overlay, ':not(.p-hidden-focusable)').length > 0;
-        },
-        isOptionGroup(option) {
-            return this.optionGroupLabel && option.optionGroup && option.group;
         },
         isOptionMatched(option) {
             return this.isValidOption(option) && this.getOptionLabel(option).toLocaleLowerCase(this.filterLocale).startsWith(this.searchValue.toLocaleLowerCase(this.filterLocale));
