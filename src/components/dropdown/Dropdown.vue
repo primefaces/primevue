@@ -369,8 +369,7 @@ export default {
                 return;
             }
             else if (!this.overlay || !this.overlay.contains(event.target)) {
-                this.overlayVisible ? this.hide() : this.show();
-                this.$refs.focusInput.focus();
+                this.overlayVisible ? this.hide(true) : this.show(true);
             }
         },
         onClearClick(event) {
@@ -392,10 +391,9 @@ export default {
         },
         onOptionSelect(event, option) {
             const value = this.getOptionValue(option);
-            this.updateModel(event, value);
-            this.$refs.focusInput.focus();
 
-            this.hide();
+            this.updateModel(event, value);
+            this.hide(true);
         },
         onOptionMouseMove(event, index) {
             if (this.focusOnHover) {

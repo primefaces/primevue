@@ -403,8 +403,7 @@ export default {
             }
 
             if (!this.overlay || !this.overlay.contains(event.target)) {
-                this.overlayVisible ? this.hide() : this.show();
-                this.$refs.focusInput.focus();
+                this.overlayVisible ? this.hide(true) : this.show(true);
             }
         },
         onFirstHiddenFocus(event) {

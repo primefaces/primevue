@@ -471,8 +471,7 @@ export default {
 
             this.$emit('item-select', { originalEvent: event, value: option });
 
-            this.$refs.focusInput.focus();
-            this.hide();
+            this.hide(true);
         },
         onOptionMouseMove(event, index) {
             if (this.focusOnHover) {
