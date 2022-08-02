@@ -164,11 +164,11 @@ export default {
             type: Number,
             default: 0
         },
-        "aria-label": {
+        'aria-label': {
             type: String,
             default: null
         },
-        "aria-labelledby": {
+        'aria-labelledby': {
             type: String,
             default: null
         }
