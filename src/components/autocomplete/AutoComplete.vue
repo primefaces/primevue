@@ -709,7 +709,7 @@ export default {
             return this.isValidOption(option) && this.getOptionLabel(option).toLocaleLowerCase(this.searchLocale) === value.toLocaleLowerCase(this.searchLocale);
         },
         isValidOption(option) {
-            return option && !(this.isOptionDisabled(option) || option.optionGroup);
+            return option && !(this.isOptionDisabled(option) || this.isOptionGroup(option));
         },
         isSelected(option) {
             return ObjectUtils.equals(this.modelValue, this.getOptionValue(option), this.equalityKey);
