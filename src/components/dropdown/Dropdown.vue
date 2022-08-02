@@ -813,7 +813,7 @@ export default {
 
             if (this.optionGroupLabel) {
                 options = options.reduce((result, option, index) => {
-                    result.push({ optionGroup: option, group: true, groupIndex: index });
+                    result.push({ optionGroup: option, group: true, index });
 
                     let optionGroupChildren = this.getOptionGroupChildren(option);
                     optionGroupChildren && optionGroupChildren.forEach(o => result.push(o));
