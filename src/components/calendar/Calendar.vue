@@ -2249,7 +2249,7 @@ export default {
                         else
                             focusableElements[focusedIndex - 1].focus();
                     }
-                    else {debugger;
+                    else {
                         if (focusedIndex === -1) {
                             if (this.timeOnly) {
                                 focusableElements[0].focus();
@@ -2369,10 +2369,6 @@ export default {
                     this.overlayVisible = false;
                     break;
 
-                case 'Tab': {
-                    console.log('inline')
-                    break;
-                }
                 default:
                     break;
             }
