@@ -2244,7 +2244,7 @@ export default {
                     let focusedIndex = focusableElements.indexOf(document.activeElement);
 
                     if (event.shiftKey) {
-                        if (focusedIndex == -1 || focusedIndex === 0)
+                        if (focusedIndex === -1 || focusedIndex === 0)
                             focusableElements[focusableElements.length - 1].focus();
                         else
                             focusableElements[focusedIndex - 1].focus();
