@@ -2249,9 +2249,20 @@ export default {
                         else
                             focusableElements[focusedIndex - 1].focus();
                     }
-                    else {
-                        if (focusedIndex == -1)
-                            focusableElements[focusableElements.length - 1].focus();
+                    else {debugger;
+                        if (focusedIndex === -1) {
+                            if (this.timeOnly) {
+                                focusableElements[0].focus();
+                            }
+                            else {
+                                let spanIndex = null;
+                                for (let i = 0; i < focusableElements.length; i++){
+                                    if (focusableElements[i].tagName === 'SPAN')
+                                        spanIndex = i;
+                                }
+                                focusableElements[spanIndex].focus();
+                            }
+                        }
                         else if (focusedIndex === (focusableElements.length - 1))
                             focusableElements[0].focus();
                         else
@@ -2358,6 +2369,10 @@ export default {
                     this.overlayVisible = false;
                     break;
 
+                case 'Tab': {
+                    console.log('inline')
+                    break;
+                }
                 default:
                     break;
             }
