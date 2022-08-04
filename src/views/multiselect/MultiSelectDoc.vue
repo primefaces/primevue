@@ -633,8 +633,8 @@ export default {
 </code></pre>
 
         <h6>Closed State Keyboard Support</h6>
-        <div className="doc-tablewrapper">
-            <table className="doc-table">
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
                 <thead>
                     <tr>
                         <th>Key</th>
@@ -671,8 +671,8 @@ export default {
         </div>
 
         <h6>Popup Keyboard Support</h6>
-        <div className="doc-tablewrapper">
-            <table className="doc-table">
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
                 <thead>
                     <tr>
                         <th>Key</th>
@@ -761,8 +761,8 @@ export default {
         </div>
 
         <h6>Toggle All Checkbox Keyboard Support</h6>
-        <div className="doc-tablewrapper">
-            <table className="doc-table">
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
                 <thead>
                     <tr>
                         <th>Key</th>
@@ -783,8 +783,8 @@ export default {
         </div>
 
         <h6>Filter Input Keyboard Support</h6>
-        <div className="doc-tablewrapper">
-            <table className="doc-table">
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
                 <thead>
                     <tr>
                         <th>Key</th>
@@ -833,8 +833,8 @@ export default {
         </div>
 
         <h6>Close Button Keyboard Support</h6>
-        <div className="doc-tablewrapper">
-            <table className="doc-table">
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
                 <thead>
                     <tr>
                         <th>Key</th>
