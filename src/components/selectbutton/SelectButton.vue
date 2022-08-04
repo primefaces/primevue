@@ -23,6 +23,10 @@ export default {
         optionValue: null,
         optionDisabled: null,
 		multiple: Boolean,
+        unselectable: {
+            type: Boolean,
+            default: true
+        },
         disabled: Boolean,
         dataKey: null,
         'aria-labelledby': {
@@ -67,6 +71,10 @@ export default {
             }
 
             let selected = this.isSelected(option);
+            if (selected && !this.unselectable) {
+                return;
+            }
+
             let optionValue = this.getOptionValue(option);
             let newValue;
 

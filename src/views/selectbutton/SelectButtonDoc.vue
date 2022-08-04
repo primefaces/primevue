@@ -107,6 +107,12 @@ export default {
                         <td>When specified, allows selecting multiple values.</td>
                     </tr>
                     <tr>
+                        <td>unselectable</td>
+                        <td>boolean</td>
+                        <td>true</td>
+                        <td>Whether selection can be cleared.</td>
+                    </tr>
+                    <tr>
                         <td>disabled</td>
                         <td>boolean</td>
                         <td>false</td>

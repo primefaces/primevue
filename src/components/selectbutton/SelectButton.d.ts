@@ -52,6 +52,10 @@ export interface SelectButtonProps {
      */
     dataKey?: string | undefined;
     /**
+     * Whether selection can be cleared.
+     */
+    unselectable?: boolean | undefined;
+    /**
      * Identifier of the underlying element.
      */
     "aria-labelledby"?: string | undefined;
