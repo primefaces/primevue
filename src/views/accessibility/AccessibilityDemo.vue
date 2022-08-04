@@ -149,7 +149,7 @@
 
 </code></pre>
 
-            <p>One alternative is using ARIA roles for readers and use javascript for keyboard support. Notice the usage of <i>aria-labelledby</i> as a replacement of the <i>label</i> tag with htmlFor.</p>
+            <p>One alternative is using ARIA roles for readers and use javascript for keyboard support. Notice the usage of <i>aria-labelledby</i> as a replacement of the <i>label</i> tag with for.</p>
 <pre v-code.script><code>
 &lt;span id="chk-label"&gt;Remember Me&lt;/span&gt;
 &lt;div class="fancy-checkbox" role="checkbox" aria-checked="false" tabindex="0" aria-labelledby="chk-label"
