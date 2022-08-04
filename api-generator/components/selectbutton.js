@@ -46,6 +46,12 @@ const SelectButtonProps = [
         type: "string",
         default: "null",
         description: "A property to uniquely identify an option."
+    },
+    {
+        name: "aria-labelledby",
+        type: "string",
+        default: "null",
+        description: "Identifier of the underlying element."
     }
 ];
 
