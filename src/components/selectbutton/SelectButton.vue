@@ -162,7 +162,7 @@ export default {
             this.$emit('focus', event);
         },
         onBlur(event, option) {
-            if (event.target && event.target.parentElement && event.relatedTarget && event.relatedTarget.parentElement && event.target.parentElement.getAttribute('aria-labelledby') !== event.relatedTarget.parentElement.getAttribute('aria-labelledby')) {
+            if (event.target && event.relatedTarget && event.target.parentElement.getAttribute('aria-labelledby') !== event.relatedTarget.parentElement.getAttribute('aria-labelledby')) {
                 this.defaultTabIndexes();
             }
             this.$emit('blur', event, option);
