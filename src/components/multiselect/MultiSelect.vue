@@ -67,7 +67,7 @@
                                         <li v-else v-ripple :id="id + '_' + getOptionIndex(i, getItemOptions)" :style="{height: itemSize ? itemSize + 'px' : undefined}"
                                             :class="['p-multiselect-item', {'p-highlight': isSelected(option), 'p-focus': focusedOptionIndex === getOptionIndex(i, getItemOptions), 'p-disabled': isOptionDisabled(option)}]"
                                             role="option" :aria-label="getOptionLabel(option)" :aria-selected="isSelected(option)" :aria-disabled="isOptionDisabled(option)" :aria-setsize="ariaSetSize" :aria-posinset="getAriaPosInset(getOptionIndex(i, getItemOptions))"
-                                            @click="onOptionSelect($event, option, getOptionIndex(i, getItemOptions))" @mousemove="onOptionMouseMove($event, getOptionIndex(i, getItemOptions))">
+                                            @click="onOptionSelect($event, option, getOptionIndex(i, getItemOptions), true)" @mousemove="onOptionMouseMove($event, getOptionIndex(i, getItemOptions))">
                                             <div class="p-checkbox p-component">
                                                 <div :class="['p-checkbox-box', {'p-highlight': isSelected(option)}]">
                                                     <span :class="['p-checkbox-icon', {'pi pi-check': isSelected(option)}]"></span>
@@ -429,7 +429,7 @@ export default {
         onHeaderCheckboxBlur() {
             this.headerCheckboxFocused = false;
         },
-        onOptionSelect(event, option, index = -1) {
+        onOptionSelect(event, option, index = -1, isFocus = false) {
             if (this.disabled || this.isOptionDisabled(option)) {
                 return;
             }
@@ -443,7 +443,7 @@ export default {
                 value = [...(this.modelValue || []), this.getOptionValue(option)];
 
             this.updateModel(event, value);
-            this.$refs.focusInput.focus();
+            isFocus && this.$refs.focusInput.focus();
             index !== -1 && (this.focusedOptionIndex = index);
         },
         onOptionMouseMove(event, index) {
