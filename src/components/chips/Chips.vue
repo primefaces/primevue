@@ -235,8 +235,4 @@ export default {
 .p-fluid .p-chips {
     display: flex;
 }
-
-.p-chips .p-chips-multiple-container .p-chips-token.p-focus {
-    background-color: var(--primary-color);
-}
 </style>
