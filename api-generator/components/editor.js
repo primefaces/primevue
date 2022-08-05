@@ -64,13 +64,38 @@ const EditorEvents = [
         ]
     },
     {
-        name: "input",
-        description: "Callback to invoke when text of editor changes.",
+        name: "selection-change",
+        description: "Callback to invoke when selection of the text changes.",
         arguments: [
             {
-                name: "event",
+                name: "event.range",
                 type: "object",
+                description: "Representation of the selection boundaries."
+            },
+            {
+                name: "event.oldRange",
+                type: "string",
+                description: 'Representation of the previous selection boundaries.'
+            },
+            {
+                name: "event.source",
+                type: "string",
+                description: 'Source of change. Will be either "user" or "api".'
+            },
+            {
+                name: "event.htmlValue",
+                type: "string",
                 description: "Current value as html."
+            },
+            {
+                name: "event.textValue",
+                type: "string",
+                description: "Current value as text."
+            },
+            {
+                name: "event.instance",
+                type: "object",
+                description: "Text editor instance."
             }
         ]
     }

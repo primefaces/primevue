@@ -103,9 +103,14 @@ import Editor from 'primevue/editor';
                         <td>Callback to invoke when text of editor changes.</td>
                     </tr>
                     <tr>
-                        <td>input</td>
-                        <td>event: Current value as html.</td>
-                        <td>Callback to invoke when text of editor changes.</td>
+                        <td>selection-change</td>
+                        <td>event.range: Representation of the selection boundaries.<br/>
+                            event.oldRange: Representation of the previous selection boundaries.<br/>
+                            event.source: Source of change. Will be either "user" or "api".<br/>
+                            event.htmlValue: Current value as html.<br/>
+                            event.textValue: Current value as text.<br/>
+                            event.instance: Text editor instance.</td>
+                        <td>Callback to invoke when selection of the text changes.</td>
                     </tr>
 				</tbody>
 			</table>
