@@ -70,9 +70,11 @@ export default {
         },
         onInput(event) {
             this.inputValue = event.target.value;
+            this.focusedIndex = null;
         },
         onFocus(event) {
             this.focused = true;
+            this.focusedIndex = null;
             this.$emit('focus', event);
         },
         onBlur(event) {
@@ -105,15 +107,15 @@ export default {
 
                 case 'ArrowLeft':
                     if (inputValue.length === 0 && this.modelValue && this.modelValue.length > 0) {
-                        if (this.focusedIndex === 0 || this.focusedIndex === null) this.focusedIndex = this.modelValue.length-1;
-                        else this.focusedIndex--;
+                        this.focusedIndex = this.focusedIndex === null ? this.modelValue.length -1 : this.focusedIndex - 1;
+                        if (this.focusedIndex < 0) this.focusedIndex = 0;
                     }
                 break;
 
                 case 'ArrowRight':
                     if (inputValue.length === 0 && this.modelValue && this.modelValue.length > 0) {
-                        if (this.focusedIndex === null || this.focusedIndex === this.modelValue.length-1) this.focusedIndex = 0;
-                        else this.focusedIndex++;
+                        this.focusedIndex = this.focusedIndex === null ? 0 : this.focusedIndex + 1;
+                        if (this.focusedIndex === this.modelValue.length) this.focusedIndex = this.modelValue.length - 1;
                     }
                 break;
 
