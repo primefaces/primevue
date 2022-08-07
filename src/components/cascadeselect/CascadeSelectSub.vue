@@ -1,169 +1,86 @@
 <template>
-    <ul class="p-cascadeselect-panel p-cascadeselect-items" aria-orientation="horizontal" :role="root === true ? 'tree' : 'group'">
-        <template v-for="(option,index) of options" :key="getOptionLabelToRender(option)">
-            <li :class="getItemClass(option)" role="treeitem"  :aria-label="getOptionLabelToRender(option)" :aria-selected="isOptionActive(option)" :aria-expanded="isOptionActive(option)"
-                :aria-setsize="options.length" :aria-posinset="index + 1" :aria-level="level + 1">
-                <div class="p-cascadeselect-item-content" @click="onOptionClick($event, option)" tabindex="0" @keydown="onKeyDown($event, option, index)" v-ripple>
-                    <component :is="templates['option']" :option="option" v-if="templates['option']"/>
-                    <template v-else>
-                        <span class="p-cascadeselect-item-text">{{getOptionLabelToRender(option)}}</span>
-                    </template>
-                    <span class="p-cascadeselect-group-icon pi pi-angle-right" v-if="isOptionGroup(option)"></span>
+    <ul class="p-cascadeselect-panel p-cascadeselect-items">
+        <template v-for="(processedOption,index) of options" :key="getOptionLabelToRender(processedOption)">
+            <li :id="getOptionId(processedOption)" :class="['p-cascadeselect-item', {'p-cascadeselect-item-group': isOptionGroup(processedOption), 'p-cascadeselect-item-active p-highlight': isOptionActive(processedOption), 'p-focus': isOptionFocused(processedOption), 'p-disabled': isOptionDisabled(processedOption)}]"
+                role="treeitem" :aria-label="getOptionLabelToRender(processedOption)" :aria-selected="isOptionGroup(processedOption) ? undefined : isOptionSelected(processedOption)" :aria-expanded="isOptionGroup(processedOption) ? isOptionActive(processedOption) : undefined"
+                :aria-setsize="processedOption.length" :aria-posinset="index + 1" :aria-level="level + 1">
+                <div class="p-cascadeselect-item-content" @click="onOptionClick($event, processedOption)" v-ripple>
+                    <component v-if="templates['option']" :is="templates['option']" :option="processedOption.option" />
+                    <span v-else class="p-cascadeselect-item-text">{{getOptionLabelToRender(processedOption)}}</span>
+                    <span v-if="isOptionGroup(processedOption)" class="p-cascadeselect-group-icon pi pi-angle-right" aria-hidden="true"></span>
                 </div>
-                <CascadeSelectSub v-if="isOptionGroup(option) && isOptionActive(option)" class="p-cascadeselect-sublist" :selectionPath="selectionPath" :options="getOptionGroupChildren(option)"
-                        :optionLabel="optionLabel" :optionValue="optionValue" :level="level + 1" @option-select="onOptionSelect" @optiongroup-select="onOptionGroupSelect"
-                        :optionGroupLabel="optionGroupLabel" :optionGroupChildren="optionGroupChildren" :parentActive="isOptionActive(option)" :dirty="dirty" :templates="templates" :aria-level="level + 2"/>
+                <CascadeSelectSub v-if="isOptionGroup(processedOption) && isOptionActive(processedOption)" role="group" class="p-cascadeselect-sublist" :selectId="selectId" :focusedOptionId="focusedOptionId"
+                    :options="getOptionGroupChildren(processedOption)" :activeOptionPath="activeOptionPath" :level="level + 1" :templates="templates" :optionLabel="optionLabel" :optionValue="optionValue" :optionDisabled="optionDisabled"
+                    :optionGroupLabel="optionGroupLabel" :optionGroupChildren="optionGroupChildren" @option-change="onOptionChange" />
             </li>
         </template>
     </ul>
 </template>
 
 <script>
-import {ObjectUtils} from 'primevue/utils';
-import {DomHandler} from 'primevue/utils';
+import {ObjectUtils,DomHandler} from 'primevue/utils';
 import Ripple from 'primevue/ripple';
 
 export default {
     name: 'CascadeSelectSub',
-    emits: ['option-select','optiongroup-select'],
+    emits: ['option-change'],
     props: {
-        selectionPath: Array,
-        level: Number,
+        selectId: String,
+        focusedOptionId: String,
         options: Array,
         optionLabel: String,
         optionValue: String,
+        optionDisabled: null,
         optionGroupLabel: String,
         optionGroupChildren: Array,
-        parentActive: Boolean,
-        dirty: Boolean,
-        templates: null,
-        root: Boolean
-    },
-    data() {
-        return {
-            activeOption: null
-        }
+        activeOptionPath: Array,
+        level: Number,
+        templates: null
     },
     mounted() {
-        if (this.selectionPath && this.options && !this.dirty) {
-            for (let option of this.options) {
-                if (this.selectionPath.includes(option)) {
-                    this.activeOption = option;
-                    break;
-                }
-            }
-        }
-
-        if (!this.root) {
+        if (ObjectUtils.isNotEmpty(this.parentKey)) {
             this.position();
         }
     },
-    watch: {
-        parentActive(newValue) {
-            if (!newValue) {
-                this.activeOption = null;
-            }
-        }
-    },
     methods: {
-        onOptionClick(event, option) {
-            if (this.isOptionGroup(option)) {
-                this.activeOption = (this.activeOption === option) ? null : option;
-
-                this.$emit('optiongroup-select', {
-                    originalEvent: event,
-                    value: option
-                });
-            }
-            else {
-                this.$emit('option-select', {
-                    originalEvent: event,
-                    value: this.getOptionValue(option)
-                });
-            }
+        getOptionId(processedOption) {
+            return `${this.selectId}_${processedOption.key}`;
         },
-        onOptionSelect(event) {
-            this.$emit('option-select', event);
+        getOptionLabel(processedOption) {
+            return this.optionLabel ? ObjectUtils.resolveFieldData(processedOption.option, this.optionLabel) : processedOption.option;
         },
-        onOptionGroupSelect(event) {
-            this.$emit('optiongroup-select', event);
+        getOptionValue(processedOption) {
+            return this.optionValue ? ObjectUtils.resolveFieldData(processedOption.option, this.optionValue) : processedOption.option;
         },
-        getOptionLabel(option) {
-            return this.optionLabel ? ObjectUtils.resolveFieldData(option, this.optionLabel) : option;
+        isOptionDisabled(processedOption) {
+            return this.optionDisabled ? ObjectUtils.resolveFieldData(processedOption.option, this.optionDisabled) : false;
         },
-        getOptionValue(option) {
-            return this.optionValue ? ObjectUtils.resolveFieldData(option, this.optionValue) : option;
+        getOptionGroupLabel(processedOption) {
+            return this.optionGroupLabel ? ObjectUtils.resolveFieldData(processedOption.option, this.optionGroupLabel) : null;
         },
-        getOptionGroupLabel(optionGroup) {
-            return this.optionGroupLabel ? ObjectUtils.resolveFieldData(optionGroup, this.optionGroupLabel) : null;
+        getOptionGroupChildren(processedOption) {
+            return processedOption.children;
         },
-        getOptionGroupChildren(optionGroup) {
-            return ObjectUtils.resolveFieldData(optionGroup, this.optionGroupChildren[this.level]);
+        isOptionGroup(processedOption) {
+            return ObjectUtils.isNotEmpty(processedOption.children);
         },
-        isOptionGroup(option) {
-            return Object.prototype.hasOwnProperty.call(option, this.optionGroupChildren[this.level]);
+        isOptionSelected(processedOption) {
+            return !this.isOptionGroup(processedOption) && this.isOptionActive(processedOption);
         },
-        getOptionLabelToRender(option) {
-            return this.isOptionGroup(option) ? this.getOptionGroupLabel(option) : this.getOptionLabel(option);
+        isOptionActive(processedOption) {
+            return this.activeOptionPath.some(path => path.key === processedOption.key);
         },
-        getItemClass(option) {
-            return [
-                'p-cascadeselect-item', {
-                    'p-cascadeselect-item-group': this.isOptionGroup(option),
-                    'p-cascadeselect-item-active p-highlight': this.isOptionActive(option)
-                }
-            ]
+        isOptionFocused(processedOption) {
+            return this.focusedOptionId === this.getOptionId(processedOption);
         },
-        isOptionActive(option) {
-            return this.activeOption === option;
+        getOptionLabelToRender(processedOption) {
+            return this.isOptionGroup(processedOption) ? this.getOptionGroupLabel(processedOption) : this.getOptionLabel(processedOption);
         },
-        onKeyDown(event, option, index) {
-            switch (event.code) {
-                case 'Down':
-                case 'ArrowDown':
-                    var nextItem = this.$el.children[index + 1];
-                    if (nextItem) {
-                        nextItem.children[0].focus();
-                    }
-                break;
-
-                case 'Up':
-                case 'ArrowUp':
-                    var prevItem = this.$el.children[index - 1];
-                    if (prevItem) {
-                        prevItem.children[0].focus();
-                    }
-                break;
-
-                case 'Right':
-                case 'ArrowRight':
-                    if (this.isOptionGroup(option)) {
-                        if (this.isOptionActive(option)) {
-                            event.currentTarget.nextElementSibling.children[0].children[0].focus();
-                        }
-                        else {
-                            this.activeOption = option;
-                        }
-                    }
-                break;
-
-                case 'Left':
-                case 'ArrowLeft':
-                    this.activeOption = null;
-
-                    var parentList = event.currentTarget.parentElement.parentElement.previousElementSibling;
-                    if (parentList) {
-                        parentList.focus();
-                    }
-                break;
-
-                case 'Enter':
-                case 'Space':
-                    this.onOptionClick(event, option);
-                break;
-            }
-
-            event.preventDefault();
+        onOptionClick(event, processedOption) {
+            this.$emit('option-change', { originalEvent: event, processedOption, isFocus: true });
+        },
+        onOptionChange(event) {
+            this.$emit('option-change', event);
         },
         position() {
             const parentItem = this.$el.parentElement;

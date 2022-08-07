@@ -1,11 +1,13 @@
 import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-type CascadeSelectOptionLabelType = string | ((data: any) => string) | undefined;
+type CascadeSelectOptionLabelType = string | ((data: any) => string) | undefined;
 
-type CascadeSelectOptionValueType = string | ((data: any) => any) | undefined;
+type CascadeSelectOptionValueType = string | ((data: any) => any) | undefined;
 
-type CascadeSelectOptionChildrenType = string[] | string | ((data: any) => any[]) | undefined;
+type CascadeSelectOptionDisabledType = string | ((data: any) => boolean) | undefined;
+
+type CascadeSelectOptionChildrenType = string[] | string | ((data: any) => any[]) | undefined;
 
 type CascadeSelectAppendToType = 'body' | 'self' | string | undefined | HTMLElement;
 
@@ -23,7 +25,7 @@ export interface CascadeSelectChangeEvent {
 /**
  * @extends CascadeSelectChangeEvent
  */
-export interface CascadeSelectChangeGroupEvent extends CascadeSelectChangeEvent { }
+export interface CascadeSelectGroupChangeEvent extends CascadeSelectChangeEvent { }
 
 export interface CascadeSelectProps {
     /**
@@ -44,6 +46,11 @@ export interface CascadeSelectProps {
      * @see CascadeSelectOptionValueType
      */
     optionValue?: CascadeSelectOptionValueType;
+    /**
+     * Property name or getter function to use as the disabled flag of an option, defaults to false when not defined.
+     * @see CascadeSelectOptionDisabledType
+     */
+    optionDisabled?: CascadeSelectOptionDisabledType;
     /**
      * Property name or getter function to use as the label of an option group.
      * @see CascadeSelectOptionLabelType
@@ -67,9 +74,33 @@ export interface CascadeSelectProps {
      */
     dataKey?: string | undefined;
     /**
-     * Index of the element in tabbing order.
+     * Identifier of the underlying input element.
      */
-    tabindex?: string | undefined;
+    inputId?: string | undefined;
+    /**
+     * Inline style of the input field.
+     */
+    inputStyle?: any;
+    /**
+     * Style class of the input field.
+     */
+    inputClass?: any;
+    /**
+     * Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.
+     */
+    inputProps?: HTMLInputElement | undefined;
+    /**
+     * Inline style of the overlay panel.
+     */
+    panelStyle?: any;
+    /**
+     * Style class of the overlay panel.
+     */
+    panelClass?: any;
+    /**
+     * Uses to pass all properties of the HTMLDivElement to the overlay panel inside the component.
+     */
+    panelProps?: HTMLDivElement | undefined;
     /**
      * A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are 'body' for document body and 'self' for the element itself.
      * @see CascadeSelectAppendToType
@@ -86,30 +117,43 @@ export interface CascadeSelectProps {
      */
     loadingIcon?: string | undefined;
     /**
-     * Identifier of the underlying input element.
+     * Whether to focus on the first visible or selected element when the overlay panel is shown.
+     * Default value is true.
      */
-    inputId?: string | undefined;
+    autoOptionFocus?: boolean | undefined;
     /**
-     * Style class of the input field.
+     * Locale to use in searching. The default locale is the host environment's current locale.
      */
-    inputClass?: any | undefined;
+    searchLocale?: string | undefined;
     /**
-     * Inline style of the input field.
+     * Text to be displayed in hidden accessible field when filtering returns any results. Defaults to value from PrimeVue locale configuration.
+     * Default value is '{0} results are available'.
      */
-    inputStyle?: any | undefined;
+    searchMessage?: string | undefined;
     /**
-     * 
+     * Text to be displayed in hidden accessible field when options are selected. Defaults to value from PrimeVue locale configuration.
+     * Default value is '{0} items selected'.
      */
-    inputProps?: object | undefined;
+    selectionMessage?: string | undefined;
     /**
-     * Style class of the overlay panel.
+     * Text to be displayed in hidden accessible field when any option is not selected. Defaults to value from PrimeVue locale configuration.
+     * Default value is 'No selected item'.
      */
-    panelClass?: any;
+    emptySelectionMessage?: string | undefined;
     /**
-     * 
+     * Text to display when filtering does not return any results. Defaults to value from PrimeVue locale configuration.
+     * Default value is 'No results found'.
      */
-    panelProps?: object | undefined;
-
+    emptySearchMessage?: string | undefined;
+    /**
+     * Text to be displayed when there are no options available. Defaults to value from PrimeVue locale configuration.
+     * Default value is 'No available options'.
+     */
+    emptyMessage?: string | undefined;
+    /**
+     * Index of the element in tabbing order.
+     */
+    tabindex?: number | string | undefined;
     /**
      * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
      */
@@ -163,10 +207,25 @@ export declare type CascadeSelectEmits = {
      */
     'change': (event: CascadeSelectChangeEvent) => void;
     /**
-     * Callback to invoke when a group changes.
-     * @param { CascadeSelectChangeGroupEvent } event - Custom change event.
+     * Callback to invoke when the component receives focus.
+     * @param {Event} event - Browser event.
      */
-    'change-group': (event: CascadeSelectChangeGroupEvent) => void;
+    'focus': (event: Event) => void;
+    /**
+     * Callback to invoke when the component loses focus.
+     * @param {Event} event - Browser event.
+     */
+    'blur': (event: Event) => void;
+    /**
+     * Callback to invoke on click.
+     * @param { Event } event - Browser event.
+     */
+    'click': (event: Event) => void;
+    /**
+     * Callback to invoke when a group changes.
+     * @param { CascadeSelectGroupChangeEvent } event - Custom change event.
+     */
+    'group-change': (event: CascadeSelectGroupChangeEvent) => void;
     /**
      * Callback to invoke before the overlay is shown.
      */
