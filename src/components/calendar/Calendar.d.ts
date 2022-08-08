@@ -254,19 +254,27 @@ export interface CalendarProps {
     /**
      * Inline style of the input field.
      */
-    inputStyle?: any;
+    inputStyle?: any | undefined;
     /**
      * Style class of the input field.
      */
-    inputClass?: any;
+    inputClass?: any | undefined;
     /**
-     * 
+     * Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.
      */
-    inputProps?: object | undefined;
+    inputProps?: HTMLInputElement | undefined;
     /**
-     * 
+     * Inline style of the overlay panel.
      */
-    panelProps?: object | undefined;
+    panelStyle?: any | undefined;
+    /**
+     * Style class of the overlay panel.
+     */
+    panelClass?: any | undefined;
+    /**
+     * Uses to pass all properties of the HTMLDivElement to the overlay panel inside the component.
+     */
+    panelProps?: HTMLDivElement | undefined;
     /**
      * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
      */

@@ -52,6 +52,12 @@ const ChipsProps = [
         type: "any",
         default: "null",
         description: "Inline style of the input field."
+    },
+    {
+        name: "inputProps",
+        type: "object",
+        default: "null",
+        description: "Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component."
     }
 ];
 

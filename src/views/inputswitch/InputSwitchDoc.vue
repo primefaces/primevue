@@ -93,6 +93,12 @@ export default {
                         <td>null</td>
                         <td>Inline style of the input field.</td>
                     </tr>
+					<tr>
+                        <td>inputProps</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td>Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.</td>
+                    </tr>
 				</tbody>
 			</table>
 		</div>
@@ -161,7 +167,7 @@ export default {
 
 <pre v-code><code>
 &lt;label for="switch1"&gt;Remember Me&lt;/label&gt;
-&lt;InputSwitch id="switch1" /&gt;
+&lt;InputSwitch inputId="switch1" /&gt;
 
 &lt;span id="switch2"&gt;Remember Me&lt;/span&gt;
 &lt;InputSwitch aria-labelledby="switch2" /&gt;

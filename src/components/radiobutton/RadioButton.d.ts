@@ -30,9 +30,9 @@ export interface RadioButtonProps {
      */
     inputClass?: any;
     /**
-     * 
+     * Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.
      */
-    inputProps?: object | undefined;
+    inputProps?: HTMLInputElement | undefined;
     /**
      * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
      */

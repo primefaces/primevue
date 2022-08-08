@@ -174,6 +174,12 @@ import Password from 'primevue/password';
                         <td>Inline style of the input field.</td>
                     </tr>
                     <tr>
+                        <td>inputProps</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td>Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.</td>
+                    </tr>
+                    <tr>
                         <td>panelId</td>
                         <td>string</td>
                         <td>null</td>
@@ -190,6 +196,12 @@ import Password from 'primevue/password';
                         <td>string</td>
                         <td>null</td>
                         <td>Inline style of the overlay panel.</td>
+                    </tr>
+                    <tr>
+                        <td>panelProps</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td>Uses to pass all properties of the HTMLDivElement to the overlay panel inside the component.</td>
                     </tr>
 				</tbody>
 			</table>

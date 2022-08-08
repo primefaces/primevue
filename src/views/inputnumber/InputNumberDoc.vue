@@ -296,6 +296,24 @@ Vertical
                         <td>null</td>
                         <td>Style class of the input field.</td>
                     </tr>
+                    <tr>
+                        <td>inputProps</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td>Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.</td>
+                    </tr>
+                    <tr>
+                        <td>incrementButtonProps</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td>Uses to pass all properties of the HTMLButtonElement to increment button inside the component.</td>
+                    </tr>
+                    <tr>
+                        <td>decrementButtonProps</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td>Uses to pass all properties of the HTMLButtonElement to decrement button inside the component.</td>
+                    </tr>
                 </tbody>
             </table>
         </div>

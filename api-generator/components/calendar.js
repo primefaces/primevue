@@ -250,6 +250,30 @@ const CalendarProps = [
         type: "any",
         default: "null",
         description: "Inline style of the input field."
+    },
+    {
+        name: "inputProps",
+        type: "object",
+        default: "null",
+        description: "Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component."
+    },
+    {
+        name: "panelClass",
+        type: "string",
+        default: "null",
+        description: "Style class of the overlay panel."
+    },
+    {
+        name: "panelStyle",
+        type: "string",
+        default: "null",
+        description: "Inline style of the overlay panel."
+    },
+    {
+        name: "panelProps",
+        type: "object",
+        default: "null",
+        description: "Uses to pass all properties of the HTMLDivElement to the overlay panel inside the component."
     }
 ];
 

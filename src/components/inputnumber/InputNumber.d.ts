@@ -150,9 +150,17 @@ export interface InputNumberProps {
      */
     inputStyle?: any | undefined;
     /**
-     * 
+     * Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.
      */
-    inputProps?: object | undefined;
+    inputProps?: HTMLInputElement | undefined;
+    /**
+     * Uses to pass all properties of the HTMLButtonElement to increment button inside the component.
+     */
+    incrementButtonProps?: HTMLButtonElement | undefined;
+    /**
+     * Uses to pass all properties of the HTMLButtonElement to decrement button inside the component.
+     */
+    decrementButtonProps?: HTMLButtonElement | undefined;
     /**
      * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
      */
