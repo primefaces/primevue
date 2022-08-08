@@ -4,9 +4,26 @@ import { VirtualScrollerProps, VirtualScrollerItemOptions } from '../virtualscro
 
 type AutoCompleteFieldType = string | ((data: any) => string) | undefined;
 
+type AutoCompleteOptionLabelType = string | ((data: any) => string) | undefined;
+
+type AutoCompleteOptionDisabledType = string | ((data: any) => boolean) | undefined;
+
+type AutoCompleteOptionChildrenType = string | ((data: any) => any[]) | undefined;
+
 type AutoCompleteDropdownMode = 'blank' | 'current' | undefined;
 
 type AutoCompleteAppendTo = 'body' | 'self' | string | undefined | HTMLElement;
+
+export interface AutoCompleteChangeEvent {
+    /**
+     * Browser event.
+     */
+    originalEvent: Event;
+    /**
+     * Selected option value
+     */
+    value: any;
+}
 
 export interface AutoCompleteItemSelectEvent {
     /**
@@ -56,18 +73,31 @@ export interface AutoCompleteProps {
      */
     suggestions?: any[];
     /**
+     * @deprecated since v3.16.0. Use 'optionLabel' property instead.
      * Property name or getter function of a suggested object to resolve and display.
      * @type {AutoCompleteFieldType}
      */
     field?: AutoCompleteFieldType;
     /**
-     * Property name or getter function to use as the label of an option group.
+     * Property name or getter function to use as the label of an option.
+     * @see AutoCompleteOptionLabelType
      */
-    optionGroupLabel?: string | undefined;
+    optionLabel?: AutoCompleteOptionLabelType;
+    /**
+     * Property name or getter function to use as the disabled flag of an option, defaults to false when not defined.
+     * @see AutoCompleteOptionDisabledType
+     */
+    optionDisabled?: AutoCompleteOptionDisabledType;
+    /**
+     * Property name or getter function to use as the label of an option group.
+     * @see AutoCompletenOptionLabelType
+     */
+    optionGroupLabel?: AutoCompletenOptionLabelType;
     /**
      * Property name or getter function that refers to the children options of option group.
+     * @see AutoCompleteOptionChildrenType
      */
-    optionGroupChildren?: string | undefined;
+    optionGroupChildren?: AutoCompleteOptionChildrenType;
     /**
      * Maximum height of the suggestions panel.
      * Default value is '200px'.
@@ -84,6 +114,7 @@ export interface AutoCompleteProps {
      */
     dropdownMode?: AutoCompleteDropdownMode;
     /**
+     * @deprecated since v3.16.0
      * Highlights automatically the first item of the dropdown to be selected.
      */
     autoHighlight?: boolean | undefined;
@@ -91,6 +122,18 @@ export interface AutoCompleteProps {
      * Specifies if multiple values can be selected.
      */
     multiple?: boolean | undefined;
+    /**
+     * Default text to display when no option is selected.
+     */
+    placeholder?: string | undefined;
+    /**
+     * When present, it specifies that the component should be disabled.
+     */
+    disabled?: boolean | undefined;
+    /**
+     * A property to uniquely identify an option.
+     */
+    dataKey?: string | undefined;
     /**
      * Minimum number of characters to initiate a search.
      * Default value is 1.
@@ -117,25 +160,33 @@ export interface AutoCompleteProps {
      */
     completeOnFocus?: boolean | undefined;
     /**
+     * Identifier of the underlying input element.
+     */
+    inputId?: string | undefined;
+    /**
      * Inline style of the input field.
      */
     inputStyle?: any;
     /**
      * Style class of the input field.
      */
-    inputClass?: string;
+    inputClass?: any;
     /**
-     * Inline style of the component.
+     * Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.
      */
-    class?: any;
+    inputProps?: HTMLInputElement | undefined;
     /**
-     * Style class of the component input field.
+     * Inline style of the overlay panel.
      */
-    style?: any;
+    panelStyle?: any;
     /**
      * Style class of the overlay panel.
      */
     panelClass?: any;
+    /**
+     * Uses to pass all properties of the HTMLDivElement to the overlay panel inside the component.
+     */
+    panelProps?: HTMLDivElement | undefined;
     /**
      * Icon to display in loading state.
      * Default value is 'pi pi-spinner pi-spin'.
@@ -146,36 +197,59 @@ export interface AutoCompleteProps {
      * @see VirtualScroller.VirtualScrollerProps
      */
     virtualScrollerOptions?: VirtualScrollerProps;
+    /**
+     * Whether to focus on the first visible or selected element when the overlay panel is shown.
+     * Default value is true.
+     */
+    autoOptionFocus?: boolean | undefined;
+    /**
+     * Locale to use in searching. The default locale is the host environment's current locale.
+     */
+    searchLocale?: string | undefined;
+    /**
+     * Text to be displayed in hidden accessible field when filtering returns any results. Defaults to value from PrimeVue locale configuration.
+     * Default value is '{0} results are available'.
+     */
+    searchMessage?: string | undefined;
+    /**
+     * Text to be displayed in hidden accessible field when options are selected. Defaults to value from PrimeVue locale configuration.
+     * Default value is '{0} items selected'.
+     */
+    selectionMessage?: string | undefined;
+    /**
+     * Text to be displayed in hidden accessible field when any option is not selected. Defaults to value from PrimeVue locale configuration.
+     * Default value is 'No selected item'.
+     */
+    emptySelectionMessage?: string | undefined;
+    /**
+     * Text to display when filtering does not return any results. Defaults to value from PrimeVue locale configuration.
+     * Default value is 'No results found'.
+     */
+    emptySearchMessage?: string | undefined;
+    /**
+     * Index of the element in tabbing order.
+     */
+    tabindex?: number | string | undefined;
+    /**
+     * Defines a string value that labels an interactive element.
+     */
+    "aria-label"?: string | undefined;
+    /**
+     * Identifier of the underlying input element.
+     */
+    "aria-labelledby"?: string | undefined;
 }
 
 export interface AutoCompleteSlots {
     /**
-     * Custom content for each item.
-     * @param {Object} scope - item slot's params.
+     * Custom chip template.
+     * @param {Object} scope - chip slot's params.
      */
-    item: (scope: {
+    chip: (scope: {
         /**
-         * Option instance
+         * A value in the selection
          */
-        item: any;
-        /**
-         * Index of the option
-         */
-        index: number;
-    }) => VNode[];
-    /**
-     * Custom option group template.
-     * @param {Object} scope - option group slot's params.
-     */
-    optiongroup: (scope: {
-        /**
-         * Option instance
-         */
-        item: any;
-        /**
-         * Index of the option
-         */
-        index: number;
+        value: any;
     }) => VNode[];
     /**
      * Custom header template of panel.
@@ -206,14 +280,52 @@ export interface AutoCompleteSlots {
         suggestions: any[];
     }) => VNode[];
     /**
-     * Custom chip template.
-     * @param {Object} scope - chip slot's params.
+     * @deprecated since v3.16.0
+     * Custom content for each item.
+     * @param {Object} scope - item slot's params.
      */
-    chip: (scope: {
+    item: (scope: {
         /**
-         * A value in the selection
+         * Option instance
          */
-        value: any;
+        item: any;
+        /**
+         * Index of the option
+         */
+        index: number;
+    }) => VNode[];
+    /**
+     * Custom option template.
+     * @param {Object} scope - option slot's params.
+     */
+    option: (scope: {
+        /**
+         * Option instance
+         */
+        option: any;
+        /**
+         * Index of the option
+         */
+        index: number;
+    }) => VNode[];
+    /**
+     * Custom option group template.
+     * @param {Object} scope - option group slot's params.
+     */
+    optiongroup: (scope: {
+        /**
+         * @deprecated since v3.16.0. Use the 'option' instead.
+         * Option instance
+         */
+        item: any;
+        /**
+         * Option instance
+         */
+        option: any;
+        /**
+         * Index of the option
+         */
+        index: number;
     }) => VNode[];
     /**
      * Custom panel template.
@@ -259,6 +371,21 @@ export declare type AutoCompleteEmits = {
      */
     'update:modelValue': (value: any) => void;
     /**
+     * Callback to invoke on value change.
+     * @param {AutoCompleteChangeEvent} event - Custom change event.
+     */
+    'change': (event: AutoCompleteChangeEvent) => void;
+    /**
+     * Callback to invoke when the component receives focus.
+     * @param {Event} event - Browser event.
+     */
+    'focus': (event: Event) => void;
+    /**
+     * Callback to invoke when the component loses focus.
+     * @param {Event} event - Browser event.
+     */
+    'blur': (event: Event) => void;
+    /**
      * Callback to invoke when a suggestion is selected.
      * @param {AutoCompleteItemSelectEvent} event - Custom item select event.
      */
@@ -274,14 +401,30 @@ export declare type AutoCompleteEmits = {
      */
     'dropdown-click': (event: AutoCompleteDropdownClickEvent) => void;
     /**
+     * Callback to invoke when input is cleared by the user.
+     */
+    'clear': () => void;
+    /**
      * Callback to invoke to search for suggestions.
      * @param {AutoCompleteCompleteEvent} event - Custom complete event.
      */
     'complete': (event: AutoCompleteCompleteEvent) => void;
     /**
-     * Callback to invoke when input is cleared by the user.
+     * Callback to invoke before the overlay is shown.
      */
-    'clear': () => void;
+    'before-show': () => void;
+    /**
+     * Callback to invoke before the overlay is hidden.
+     */
+    'before-hide': () => void;
+    /**
+     * Callback to invoke when the overlay is shown.
+     */
+    'show': () => void;
+    /**
+     * Callback to invoke when the overlay is hidden.
+     */
+    'hide': () => void;
 }
 
 declare class AutoComplete extends ClassComponent<AutoCompleteProps, AutoCompleteSlots, AutoCompleteEmits> { }

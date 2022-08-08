@@ -1,8 +1,7 @@
 <template>
-    <div :class="containerClass" role="group">
-        <div v-for="(option, i) of options" :key="getOptionRenderKey(option)" :aria-label="getOptionLabel(option)" role="button" :aria-pressed="isSelected(option)"
-            :class="getButtonClass(option)" :tabindex="isOptionDisabled(option) ? null : '0'" v-ripple
-            @click="onOptionSelect($event, option)" @keydown="onKeydown($event, option)" @focus="onFocus($event)" @blur="onBlur($event)">
+    <div ref="container" :class="containerClass" role="group" :aria-labelledby="ariaLabelledby">
+        <div v-for="(option, i) of options" :key="getOptionRenderKey(option)" :tabindex="i === focusedIndex ? '0' : '-1'" :aria-label="getOptionLabel(option)" :role="multiple ? 'checkbox' : 'radio'" :aria-checked="isSelected(option)" :aria-disabled="optionDisabled"
+            :class="getButtonClass(option, i)" @click="onOptionSelect($event, option, i)" @keydown="onKeydown($event, option, i)" @focus="onFocus($event)" @blur="onBlur($event, option)" v-ripple>
             <slot name="option" :option="option" :index="i">
                 <span class="p-button-label">{{getOptionLabel(option)}}</span>
             </slot>
@@ -11,7 +10,7 @@
 </template>
 
 <script>
-import {ObjectUtils} from 'primevue/utils';
+import {ObjectUtils,DomHandler} from 'primevue/utils';
 import Ripple from 'primevue/ripple';
 
 export default {
@@ -24,10 +23,36 @@ export default {
         optionValue: null,
         optionDisabled: null,
 		multiple: Boolean,
+        unselectable: {
+            type: Boolean,
+            default: true
+        },
         disabled: Boolean,
-        dataKey: null
+        dataKey: null,
+        'aria-labelledby': {
+            type: String,
+			default: null
+        }
+    },
+    data() {
+        return {
+            focusedIndex: 0
+        }
+    },
+    mounted() {
+        this.defaultTabIndexes();
     },
     methods: {
+        defaultTabIndexes() {
+            let opts = DomHandler.find(this.$refs.container, '.p-button');
+            let firstHighlight = DomHandler.findSingle(this.$refs.container, '.p-highlight');
+
+            for (let i = 0; i < opts.length; i++) {
+                if ((DomHandler.hasClass(opts[i], 'p-highlight') && ObjectUtils.equals(opts[i], firstHighlight)) || (firstHighlight === null && i == 0)) {
+                    this.focusedIndex = i;
+                }
+            }
+        },
         getOptionLabel(option) {
             return this.optionLabel ? ObjectUtils.resolveFieldData(option, this.optionLabel) : option;
         },
@@ -40,16 +65,20 @@ export default {
         isOptionDisabled(option) {
             return this.optionDisabled ? ObjectUtils.resolveFieldData(option, this.optionDisabled) : false;
         },
-        onOptionSelect(event, option) {
+        onOptionSelect(event, option, index) {
             if (this.disabled || this.isOptionDisabled(option)) {
                 return;
             }
 
             let selected = this.isSelected(option);
+            if (selected && !this.unselectable) {
+                return;
+            }
+
             let optionValue = this.getOptionValue(option);
             let newValue;
 
-            if(this.multiple) {
+            if (this.multiple) {
                 if (selected)
                     newValue = this.modelValue.filter(val => !ObjectUtils.equals(val, optionValue, this.equalityKey));
                 else
@@ -59,15 +88,9 @@ export default {
                 newValue = selected ? null : optionValue;
             }
 
+            this.focusedIndex = index;
             this.$emit('update:modelValue', newValue);
             this.$emit('change', {event: event, value: newValue});
-        },
-        onKeydown(event, option) {
-            //space
-            if (event.which === 32) {
-                this.onOptionSelect(event, option);
-                event.preventDefault();
-            }
         },
         isSelected(option) {
             let selected = false;
@@ -89,11 +112,60 @@ export default {
 
             return selected;
         },
+        onKeydown(event, option, index) {
+            switch (event.code) {
+                case 'Space': {
+                    this.onOptionSelect(event, option, index);
+                    event.preventDefault();
+                    break;
+                }
+
+                case 'ArrowDown':
+                case 'ArrowRight': {
+                    this.changeTabIndexes(event, 'next');
+                    event.preventDefault();
+                    break;
+                }
+
+                case 'ArrowUp':
+                case 'ArrowLeft': {
+                    this.changeTabIndexes(event, 'prev');
+                    event.preventDefault();
+                    break;
+                }
+                
+                default:
+                    //no op
+                break;
+            }
+        },
+        changeTabIndexes(event, direction) {
+            let firstTabableChild, index;
+            for (let i = 0; i <= this.$refs.container.children.length - 1; i++) {
+                if (this.$refs.container.children[i].getAttribute('tabindex') === '0')
+                    firstTabableChild = {elem: this.$refs.container.children[i], index: i};
+            }
+
+            if (direction === 'prev') {
+                if (firstTabableChild.index === 0) index = this.$refs.container.children.length - 1;
+                else index = firstTabableChild.index - 1;
+            }
+            else {
+                if (firstTabableChild.index === this.$refs.container.children.length - 1) index = 0;
+                else index = firstTabableChild.index + 1;
+            }
+
+            this.focusedIndex = index;
+            this.$refs.container.children[index].focus();
+        },
         onFocus(event) {
             this.$emit('focus', event);
         },
-        onBlur(event) {
-            this.$emit('blur', event);
+        onBlur(event, option) {
+            if (event.target && event.relatedTarget && event.target.parentElement !== event.relatedTarget.parentElement) {
+                this.defaultTabIndexes();
+            }
+            this.$emit('blur', event, option);
         },
         getButtonClass(option) {
             return ['p-button p-component', {

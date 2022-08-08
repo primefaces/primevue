@@ -228,13 +228,13 @@ const DropdownProps = [
         description: "Index of the element in tabbing order."
     },
     {
-        name: "ariaLabel",
+        name: "aria-label",
         type: "string",
         default: "null",
         description: "Defines a string value that labels an interactive element."
-    }
+    },
     {
-        name: "ariaLabelledby",
+        name: "aria-labelledby",
         type: "string",
         default: "null",
         description: "Identifier of the underlying input element."

@@ -107,6 +107,12 @@ export default {
                         <td>When specified, allows selecting multiple values.</td>
                     </tr>
                     <tr>
+                        <td>unselectable</td>
+                        <td>boolean</td>
+                        <td>true</td>
+                        <td>Whether selection can be cleared.</td>
+                    </tr>
+                    <tr>
                         <td>disabled</td>
                         <td>boolean</td>
                         <td>false</td>
@@ -173,34 +179,50 @@ export default {
         </div>
 
         <h5>Accessibility</h5>
-        <DevelopmentSection>
-            <h6>Screen Reader</h6>
-            <p>The container element that wraps the buttons has a <i>group</i> role whereas each button element uses <i>button</i> role and <i>aria-pressed</i> is updated depending on selection state.
-            Value to describe an option is automatically set using the <i>aria-label</i> property that refers to the label of an option so it is still suggested to define a label even the option display
-            consists of presentational content like icons only.</p>
+        <h6>Screen Reader</h6>
+        <p>SelectButton component uses hidden native checkbox role for multiple selection and hidden radio role for single selection that is only visible to screen readers.
+        Value to describe the component can be provided via <i>aria-labelledby</i> property.</p>
 
-            <h6>Keyboard Support</h6>
-            <div class="doc-tablewrapper">
-                <table class="doc-table">
-                    <thead>
-                        <tr>
-                            <th>Key</th>
-                            <th>Function</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><i>tab</i></td>
-                            <td>Moves focus to the buttons.</td>
-                        </tr>
-                        <tr>
-                            <td><i>space</i></td>
-                            <td>Toggles the checked state of a button.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </DevelopmentSection>
+        <h6>Keyboard Support</h6>
+        <p>Keyboard interaction is derived from the native browser handling of checkboxs in a group.</p>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Key</th>
+                        <th>Function</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><i>tab</i></td>
+                        <td>Moves focus to the first selected option, if there is none then first option receives the focus.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="inline-flex flex-column">
+                                <i class="mb-1">right arrow</i>
+                                <i>up arrow</i>
+                            </span>
+                        </td>
+                        <td>Moves focus to the previous option.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="inline-flex flex-column">
+                                <i class="mb-1">left arrow</i>
+                                <i>down arrow</i>
+                            </span>
+                        </td>
+                        <td>Moves focus to the next option.</td>
+                    </tr>
+                    <tr>
+                        <td><i>space</i></td>
+                        <td>Toggles the checked state of a button.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
 		<h5>Dependencies</h5>
 		<p>None.</p>
@@ -217,14 +239,14 @@ export default {
                     content: `
 <template>
     <div>
-        <h5>Single Selection</h5>
-        <SelectButton v-model="value1" :options="options" />
+        <h5 id="single">Single Selection</h5>
+        <SelectButton v-model="value1" :options="options" aria-labelledby="single" />
 
-        <h5>Multiple Selection</h5>
-        <SelectButton v-model="value2" :options="paymentOptions" optionLabel="name" multiple />
+        <h5 id="multiple">Multiple Selection</h5>
+        <SelectButton v-model="value2" :options="paymentOptions" optionLabel="name" multiple aria-labelledby="multiple" />
 
-        <h5>Custom Content</h5>
-        <SelectButton v-model="value3" :options="justifyOptions" optionLabel="value" dataKey="value">
+        <h5 id="custom">Custom Content</h5>
+        <SelectButton v-model="value3" :options="justifyOptions" optionLabel="value" dataKey="value" aria-labelledby="custom">
             <template #option="slotProps">
                 <i :class="slotProps.option.icon"></i>
             </template>
@@ -261,14 +283,14 @@ export default {
                     content: `
 <template>
     <div>
-        <h5>Single Selection</h5>
-        <SelectButton v-model="value1" :options="options" />
+        <h5 id="single">Single Selection</h5>
+        <SelectButton v-model="value1" :options="options" aria-labelledby="single" />
 
-        <h5>Multiple Selection</h5>
-        <SelectButton v-model="value2" :options="paymentOptions" optionLabel="name" multiple />
+        <h5 id="multiple">Multiple Selection</h5>
+        <SelectButton v-model="value2" :options="paymentOptions" optionLabel="name" multiple aria-labelledby="multiple" />
 
-        <h5>Custom Content</h5>
-        <SelectButton v-model="value3" :options="justifyOptions" optionLabel="value" dataKey="value">
+        <h5 id="custom">Custom Content</h5>
+        <SelectButton v-model="value3" :options="justifyOptions" optionLabel="value" dataKey="value" aria-labelledby="custom">
             <template #option="slotProps">
                 <i :class="slotProps.option.icon"></i>
             </template>
@@ -307,14 +329,14 @@ export default {
                     tabName: 'Browser Source',
                     imports: `<script src="https://unpkg.com/primevue@^3/selectbutton/selectbutton.min.js"><\\/script>`,
                     content: `<div id="app">
-            <h5>Single Selection</h5>
-            <p-selectbutton v-model="value1" :options="options"></p-selectbutton>
+            <h5 id="single">Single Selection</h5>
+            <p-selectbutton v-model="value1" :options="options" aria-labelledby="single"></p-selectbutton>
 
-            <h5>Multiple Selection</h5>
-            <p-selectbutton v-model="value2" :options="paymentOptions" option-label="name" multiple></p-selectbutton>
+            <h5 id="multiple">Multiple Selection</h5>
+            <p-selectbutton v-model="value2" :options="paymentOptions" option-label="name" multiple aria-labelledby="multiple"></p-selectbutton>
 
-            <h5>Custom Content</h5>
-            <p-selectbutton v-model="value3" :options="justifyOptions" option-label="value" data-key="value">
+            <h5 id="custom">Custom Content</h5>
+            <p-selectbutton v-model="value3" :options="justifyOptions" option-label="value" data-key="value" aria-labelledby="custom">
                 <template #option="slotProps">
                     <i :class="slotProps.option.icon"></i>
                 </template>

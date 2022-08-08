@@ -46,6 +46,18 @@ const SelectButtonProps = [
         type: "string",
         default: "null",
         description: "A property to uniquely identify an option."
+    },
+    {
+        name: "unselectable",
+        type: "boolean",
+        default: "true",
+        description: "Whether selection can be cleared."
+    },
+    {
+        name: "aria-labelledby",
+        type: "string",
+        default: "null",
+        description: "Identifier of the underlying element."
     }
 ];
 

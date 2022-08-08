@@ -286,13 +286,13 @@ export default {
                         <td>Index of the element in tabbing order.</td>
                     </tr>
                     <tr>
-                        <td>ariaLabel</td>
+                        <td>aria-label</td>
                         <td>string</td>
                         <td>null</td>
                         <td>Defines a string value that labels an interactive element.</td>
                     </tr>
                     <tr>
-                        <td>ariaLabelledby</td>
+                        <td>aria-labelledby</td>
                         <td>string</td>
                         <td>null</td>
                         <td>Establishes relationships between the component and label(s) where its value should be one or more element IDs.</td>
@@ -440,8 +440,8 @@ export default {
 </code></pre>
 
         <h6>Keyboard Support</h6>
-        <div className="doc-tablewrapper">
-            <table className="doc-table">
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
                 <thead>
                     <tr>
                         <th>Key</th>
@@ -518,8 +518,8 @@ export default {
         </div>
 
         <h6>Filter Input Keyboard Support</h6>
-        <div className="doc-tablewrapper">
-            <table className="doc-table">
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
                 <thead>
                     <tr>
                         <th>Key</th>

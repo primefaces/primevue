@@ -52,7 +52,7 @@ import Quill from "quill";
 
 export default {
     name: 'Editor',
-    emits: ['update:modelValue', 'text-change'],
+    emits: ['update:modelValue', 'text-change', 'selection-change'],
     props: {
         modelValue: String,
         placeholder: String,
@@ -98,6 +98,20 @@ export default {
                     instance: this.quill
                 });
             }
+        });
+
+        this.quill.on('selection-change', (range, oldRange, source) => {
+            let html = this.$refs.editorElement.children[0].innerHTML;
+            let text = this.quill.getText().trim();
+            
+            this.$emit('selection-change', {
+                htmlValue: html,
+                textValue: text,
+                range: range,
+                oldRange: oldRange,
+                source: source,
+                instance: this.quill
+            })
         });
     },
     methods: {

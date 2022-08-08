@@ -16,7 +16,7 @@
         </div>
         <Portal :appendTo="appendTo">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @after-enter="onOverlayAfterEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
-                <div v-if="overlayVisible" :ref="overlayRef" :style="panelStyle" :class="panelStyleClass" @click="onOverlayClick" v-bind="panelProps">
+                <div v-if="overlayVisible" :ref="overlayRef" :style="panelStyle" :class="panelStyleClass" @click="onOverlayClick" @keydown="onOverlayKeyDown" v-bind="panelProps">
                     <a ref="firstHiddenFocusableElementOnOverlay" role="presentation" aria-hidden="true" class="p-hidden-accessible p-hidden-focusable" :tabindex="0" @focus="onFirstHiddenFocus"></a>
                     <slot name="header" :value="modelValue" :options="visibleOptions"></slot>
                     <div v-if="filter" class="p-dropdown-header">
@@ -164,11 +164,11 @@ export default {
             type: Number,
             default: 0
         },
-        ariaLabel: {
+        'aria-label': {
             type: String,
             default: null
         },
-        ariaLabelledby: {
+        'aria-labelledby': {
             type: String,
             default: null
         }
@@ -242,6 +242,9 @@ export default {
         },
         isOptionDisabled(option) {
             return this.optionDisabled ? ObjectUtils.resolveFieldData(option, this.optionDisabled) : false;
+        },
+        isOptionGroup(option) {
+            return this.optionGroupLabel && option.optionGroup && option.group;
         },
         getOptionGroupLabel(optionGroup) {
             return ObjectUtils.resolveFieldData(optionGroup, this.optionGroupLabel);
@@ -366,8 +369,7 @@ export default {
                 return;
             }
             else if (!this.overlay || !this.overlay.contains(event.target)) {
-                this.overlayVisible ? this.hide() : this.show();
-                this.$refs.focusInput.focus();
+                this.overlayVisible ? this.hide(true) : this.show(true);
             }
         },
         onClearClick(event) {
@@ -389,10 +391,9 @@ export default {
         },
         onOptionSelect(event, option) {
             const value = this.getOptionValue(option);
-            this.updateModel(event, value);
-            this.$refs.focusInput.focus();
 
-            this.hide();
+            this.updateModel(event, value);
+            this.hide(true);
         },
         onOptionMouseMove(event, index) {
             if (this.focusOnHover) {
@@ -460,6 +461,16 @@ export default {
                 originalEvent: event,
                 target: this.$el
             });
+        },
+        onOverlayKeyDown(event) {
+            switch (event.code) {
+                case 'Escape':
+                    this.onEscapeKey(event);
+                    break;
+
+                default:
+                    break;
+            }
         },
         onArrowDownKey(event) {
             const optionIndex = this.focusedOptionIndex !== -1 ? this.findNextOptionIndex(this.focusedOptionIndex) : this.findFirstFocusedOptionIndex();
@@ -584,6 +595,7 @@ export default {
             this.unbindOutsideClickListener();
             this.unbindScrollListener();
             this.unbindResizeListener();
+
             this.$emit('hide');
             this.overlay = null;
         },
@@ -650,14 +662,11 @@ export default {
         hasFocusableElements() {
             return DomHandler.getFocusableElements(this.overlay, ':not(.p-hidden-focusable)').length > 0;
         },
-        isOptionGroup(option) {
-            return this.optionGroupLabel && option.optionGroup && option.group;
-        },
         isOptionMatched(option) {
             return this.isValidOption(option) && this.getOptionLabel(option).toLocaleLowerCase(this.filterLocale).startsWith(this.searchValue.toLocaleLowerCase(this.filterLocale));
         },
         isValidOption(option) {
-            return option && !(this.isOptionDisabled(option) || option.optionGroup);
+            return option && !(this.isOptionDisabled(option) || this.isOptionGroup(option));
         },
         isValidSelectedOption(option) {
             return this.isValidOption(option) && this.isSelected(option);
@@ -760,6 +769,16 @@ export default {
             this.$emit('update:modelValue', value);
             this.$emit('change', { originalEvent: event, value });
         },
+        flatOptions(options) {
+            return (options || []).reduce((result, option, index) => {
+                result.push({ optionGroup: option, group: true, index });
+
+                const optionGroupChildren = this.getOptionGroupChildren(option);
+                optionGroupChildren && optionGroupChildren.forEach(o => result.push(o));
+
+                return result;
+            }, []);
+        },
         overlayRef(el) {
             this.overlay = el;
         },
@@ -798,18 +817,7 @@ export default {
             return ['p-dropdown-trigger-icon', (this.loading ? this.loadingIcon : 'pi pi-chevron-down')];
         },
         visibleOptions() {
-            let options = this.options || [];
-
-            if (this.optionGroupLabel) {
-                options = options.reduce((result, option, index) => {
-                    result.push({ optionGroup: option, group: true, groupIndex: index });
-
-                    let optionGroupChildren = this.getOptionGroupChildren(option);
-                    optionGroupChildren && optionGroupChildren.forEach(o => result.push(o));
-
-                    return result;
-                }, []);
-            }
+            const options = this.optionGroupLabel ? this.flatOptions(this.options) : (this.options || []);
 
             return this.filterValue ? FilterService.filter(options, this.searchFields, this.filterValue, this.filterMatchMode, this.filterLocale) : options;
         },
@@ -849,7 +857,7 @@ export default {
             return this.emptySelectionMessage || this.$primevue.config.locale.emptySelectionMessage;
         },
         selectedMessageText() {
-            return ObjectUtils.isNotEmpty(this.modelValue) ? this.selectionMessageText.replaceAll('{0}', '1') : this.emptySelectionMessageText;
+            return this.hasSelectedOption ? this.selectionMessageText.replaceAll('{0}', '1') : this.emptySelectionMessageText;
         },
         focusedOptionId() {
             return this.focusedOptionIndex !== -1 ? `${this.id}_${this.focusedOptionIndex}` : null;

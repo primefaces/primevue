@@ -67,7 +67,7 @@
                                         <li v-else v-ripple :id="id + '_' + getOptionIndex(i, getItemOptions)" :style="{height: itemSize ? itemSize + 'px' : undefined}"
                                             :class="['p-multiselect-item', {'p-highlight': isSelected(option), 'p-focus': focusedOptionIndex === getOptionIndex(i, getItemOptions), 'p-disabled': isOptionDisabled(option)}]"
                                             role="option" :aria-label="getOptionLabel(option)" :aria-selected="isSelected(option)" :aria-disabled="isOptionDisabled(option)" :aria-setsize="ariaSetSize" :aria-posinset="getAriaPosInset(getOptionIndex(i, getItemOptions))"
-                                            @click="onOptionSelect($event, option, getOptionIndex(i, getItemOptions))" @mousemove="onOptionMouseMove($event, getOptionIndex(i, getItemOptions))">
+                                            @click="onOptionSelect($event, option, getOptionIndex(i, getItemOptions), true)" @mousemove="onOptionMouseMove($event, getOptionIndex(i, getItemOptions))">
                                             <div class="p-checkbox p-component">
                                                 <div :class="['p-checkbox-box', {'p-highlight': isSelected(option)}]">
                                                     <span :class="['p-checkbox-icon', {'pi pi-check': isSelected(option)}]"></span>
@@ -221,11 +221,11 @@ export default {
             type: Number,
             default: 0
         },
-        ariaLabel: {
+        'aria-label': {
             type: String,
             default: null
         },
-        ariaLabelledby: {
+        'aria-labelledby': {
             type: String,
             default: null
         }
@@ -294,6 +294,9 @@ export default {
             }
 
             return this.optionDisabled ? ObjectUtils.resolveFieldData(option, this.optionDisabled) : false;
+        },
+        isOptionGroup(option) {
+            return this.optionGroupLabel && option.optionGroup && option.group;
         },
         getOptionGroupLabel(optionGroup) {
             return ObjectUtils.resolveFieldData(optionGroup, this.optionGroupLabel);
@@ -400,8 +403,7 @@ export default {
             }
 
             if (!this.overlay || !this.overlay.contains(event.target)) {
-                this.overlayVisible ? this.hide() : this.show();
-                this.$refs.focusInput.focus();
+                this.overlayVisible ? this.hide(true) : this.show(true);
             }
         },
         onFirstHiddenFocus(event) {
@@ -427,7 +429,7 @@ export default {
         onHeaderCheckboxBlur() {
             this.headerCheckboxFocused = false;
         },
-        onOptionSelect(event, option, index = -1) {
+        onOptionSelect(event, option, index = -1, isFocus = false) {
             if (this.disabled || this.isOptionDisabled(option)) {
                 return;
             }
@@ -441,7 +443,7 @@ export default {
                 value = [...(this.modelValue || []), this.getOptionValue(option)];
 
             this.updateModel(event, value);
-            this.$refs.focusInput.focus();
+            isFocus && this.$refs.focusInput.focus();
             index !== -1 && (this.focusedOptionIndex = index);
         },
         onOptionMouseMove(event, index) {
@@ -674,6 +676,7 @@ export default {
             this.unbindOutsideClickListener();
             this.unbindScrollListener();
             this.unbindResizeListener();
+
             this.$emit('hide');
             this.overlay = null;
         },
@@ -775,14 +778,11 @@ export default {
         hasFocusableElements() {
             return DomHandler.getFocusableElements(this.overlay, ':not(.p-hidden-focusable)').length > 0;
         },
-        isOptionGroup(option) {
-            return this.optionGroupLabel && option.optionGroup && option.group;
-        },
         isOptionMatched(option) {
             return this.isValidOption(option) && this.getOptionLabel(option).toLocaleLowerCase(this.filterLocale).startsWith(this.searchValue.toLocaleLowerCase(this.filterLocale));
         },
         isValidOption(option) {
-            return option && !(this.isOptionDisabled(option) || option.optionGroup);
+            return option && !(this.isOptionDisabled(option) || this.isOptionGroup(option));
         },
         isValidSelectedOption(option) {
             return this.isValidOption(option) && this.isSelected(option);
@@ -900,6 +900,16 @@ export default {
             this.$emit('update:modelValue', value);
             this.$emit('change', { originalEvent: event, value });
         },
+        flatOptions(options) {
+            return (options || []).reduce((result, option, index) => {
+                result.push({ optionGroup: option, group: true, index });
+
+                const optionGroupChildren = this.getOptionGroupChildren(option);
+                optionGroupChildren && optionGroupChildren.forEach(o => result.push(o));
+
+                return result;
+            }, []);
+        },
         overlayRef(el) {
             this.overlay = el;
         },
@@ -938,18 +948,7 @@ export default {
             }];
         },
         visibleOptions() {
-            let options = this.options || [];
-
-            if (this.optionGroupLabel) {
-                options = options.reduce((result, option, index) => {
-                    result.push({ optionGroup: option, group: true, groupIndex: index });
-
-                    let optionGroupChildren = this.getOptionGroupChildren(option);
-                    optionGroupChildren && optionGroupChildren.forEach(o => result.push(o));
-
-                    return result;
-                }, []);
-            }
+            const options = this.optionGroupLabel ? this.flatOptions(this.options) : (this.options || []);
 
             return this.filterValue ? FilterService.filter(options, this.searchFields, this.filterValue, this.filterMatchMode, this.filterLocale) : options;
         },
@@ -1011,7 +1010,7 @@ export default {
             return this.emptySelectionMessage || this.$primevue.config.locale.emptySelectionMessage;
         },
         selectedMessageText() {
-            return ObjectUtils.isNotEmpty(this.modelValue) ? this.selectionMessageText.replaceAll('{0}', this.modelValue.length) : this.emptySelectionMessageText;
+            return this.hasSelectedOption ? this.selectionMessageText.replaceAll('{0}', this.modelValue.length) : this.emptySelectionMessageText;
         },
         focusedOptionId() {
             return this.focusedOptionIndex !== -1 ? `${this.id}_${this.focusedOptionIndex}` : null;

@@ -103,9 +103,14 @@ import Editor from 'primevue/editor';
                         <td>Callback to invoke when text of editor changes.</td>
                     </tr>
                     <tr>
-                        <td>input</td>
-                        <td>event: Current value as html.</td>
-                        <td>Callback to invoke when text of editor changes.</td>
+                        <td>selection-change</td>
+                        <td>event.range: Representation of the selection boundaries.<br/>
+                            event.oldRange: Representation of the previous selection boundaries.<br/>
+                            event.source: Source of change. Will be either "user" or "api".<br/>
+                            event.htmlValue: Current value as html.<br/>
+                            event.textValue: Current value as text.<br/>
+                            event.instance: Text editor instance.</td>
+                        <td>Callback to invoke when selection of the text changes.</td>
                     </tr>
 				</tbody>
 			</table>
@@ -159,10 +164,8 @@ import Editor from 'primevue/editor';
 		</div>
 
         <h5>Accessibility</h5>
-        <DevelopmentSection>
-            <p>Quill performs generally well in terms of accessibility. The elements in the toolbar can be tabbed and have the necessary ARIA roles/attributes for screen readers. One known limitation is the lack of arrow key support
-                for <a href="https://github.com/quilljs/quill/issues/1031">dropdowns</a> in the toolbar that may be overcome with a custom toolbar.</p>
-        </DevelopmentSection>
+        <p>Quill performs generally well in terms of accessibility. The elements in the toolbar can be tabbed and have the necessary ARIA roles/attributes for screen readers. One known limitation is the lack of arrow key support
+            for <a href="https://github.com/quilljs/quill/issues/1031">dropdowns</a> in the toolbar that may be overcome with a custom toolbar.</p>
 
 		<h5>Dependencies</h5>
 		<p><a href="http://quilljs.com">Quill</a> Editor 1.3+.</p>
