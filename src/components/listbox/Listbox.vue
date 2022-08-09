@@ -205,7 +205,7 @@ export default {
             this.$refs.lastHiddenFocusableElement.tabIndex = -1;
         },
         onFocusout(event) {
-            if (!this.$el.contains(event.relatedTarget)) {
+            if (!this.$el.contains(event.relatedTarget) && this.$refs.lastHiddenFocusableElement && this.$refs.firstHiddenFocusableElement) {
                 this.$refs.lastHiddenFocusableElement.tabIndex = this.$refs.firstHiddenFocusableElement.tabIndex = undefined;
             }
         },
