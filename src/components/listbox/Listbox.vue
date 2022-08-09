@@ -1,6 +1,6 @@
 <template>
     <div :id="id" :class="containerClass" @focusout="onFocusout">
-        <a ref="firstHiddenFocusableElement" role="presentation" aria-hidden="true" class="p-hidden-accessible p-hidden-focusable" :tabindex="!disabled ? tabindex : -1" @focus="onFirstHiddenFocus"></a>
+        <span ref="firstHiddenFocusableElement" role="presentation" aria-hidden="true" class="p-hidden-accessible p-hidden-focusable" :tabindex="!disabled ? tabindex : -1" @focus="onFirstHiddenFocus"></span>
         <slot name="header" :value="modelValue" :options="visibleOptions"></slot>
         <div v-if="filter" class="p-listbox-header">
             <div class="p-listbox-filter-container">
@@ -50,7 +50,7 @@
             </VirtualScroller>
         </div>
         <slot name="footer" :value="modelValue" :options="visibleOptions"></slot>
-        <a ref="lastHiddenFocusableElement" role="presentation" aria-hidden="true" class="p-hidden-accessible p-hidden-focusable" :tabindex="!disabled ? tabindex : -1" @focus="onLastHiddenFocus"></a>
+        <span ref="lastHiddenFocusableElement" role="presentation" aria-hidden="true" class="p-hidden-accessible p-hidden-focusable" :tabindex="!disabled ? tabindex : -1" @focus="onLastHiddenFocus"></span>
     </div>
 </template>
 
