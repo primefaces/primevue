@@ -198,6 +198,7 @@ export default {
     data() {
         return {
             id: UniqueComponentId(),
+            inputText: null,
             focused: false,
             focusedOptionIndex: -1,
             focusedMultipleOptionIndex: -1,
@@ -357,6 +358,8 @@ export default {
             }
         },
         onInput(event) {
+            this.inputText = event.target.value;
+
             if (this.searchTimeout) {
                 clearTimeout(this.searchTimeout);
             }
@@ -537,6 +540,7 @@ export default {
         },
         onArrowRightKey() {
             this.focusedOptionIndex = -1;
+            this.$refs.multiContainer.focus();
         },
         onHomeKey(event) {
             event.currentTarget.setSelectionRange(0, 0);
@@ -597,13 +601,20 @@ export default {
             }
         },
         onArrowLeftKeyOnMultiple() {
-            this.focusedMultipleOptionIndex = this.focusedMultipleOptionIndex < 1 ? 0 : this.focusedMultipleOptionIndex - 1;
+            if (!ObjectUtils.isNotEmpty(this.inputText) && this.modelValue && this.modelValue.length > 0) {
+                this.focusedMultipleOptionIndex = this.focusedMultipleOptionIndex < 1 ? 0 : this.focusedMultipleOptionIndex - 1;
+            }
         },
         onArrowRightKeyOnMultiple() {
-            this.focusedMultipleOptionIndex++;
+            if (!ObjectUtils.isNotEmpty(this.inputText) && this.modelValue && this.modelValue.length > 0) {
+                this.focusedMultipleOptionIndex++;
 
-            if (this.focusedMultipleOptionIndex > (this.modelValue.length - 1)) {
-                this.focusedMultipleOptionIndex = -1;
+                if (this.focusedMultipleOptionIndex > (this.modelValue.length - 1)) {
+                    this.focusedMultipleOptionIndex = -1;
+                    this.$refs.focusInput.focus();
+                }
+            }
+            else {
                 this.$refs.focusInput.focus();
             }
         },
