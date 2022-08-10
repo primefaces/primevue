@@ -382,6 +382,12 @@ export default {
                             <td>Custom export header of the column to be exported as CSV.</td>
                         </tr>
                         <tr>
+                            <td>exportFooter</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Custom export footer of the column to be exported as CSV.</td>
+                        </tr>
+                        <tr>
                             <td>filterMatchMode</td>
                             <td>string</td>
                             <td>null</td>

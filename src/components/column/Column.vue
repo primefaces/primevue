@@ -166,6 +166,10 @@ export default {
             type: String,
             default: null
         },
+        exportFooter: {
+            type: String,
+            default: null
+        },
         filterMatchMode: {
             type: String,
             default: null
