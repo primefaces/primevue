@@ -66,7 +66,7 @@ import Inplace from 'primevue/inplace';
 import CarService from '../../service/CarService';
 
 export default {
-     data() {
+    data() {
         return {
             cars: null
         }
@@ -77,7 +77,7 @@ export default {
     },
     methods: {
         loadData() {
-             this.carService.getCarsSmall().then(data => this.cars = data);
+            this.carService.getCarsSmall().then(data => this.cars = data);
         }
     }
 }
@@ -250,7 +250,7 @@ export default {
 import ProductService from './service/ProductService';
 
 export default {
-     data() {
+    data() {
         return {
             text: null,
             products: null
@@ -262,7 +262,7 @@ export default {
     },
     methods: {
         loadData() {
-             this.productService.getProductsSmall().then(data => this.products = data);
+            this.productService.getProductsSmall().then(data => this.products = data);
         }
     }
 }

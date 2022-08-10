@@ -57,7 +57,7 @@ import ProductService from '../../service/ProductService';
 import InplaceDoc from './InplaceDoc';
 
 export default {
-     data() {
+    data() {
         return {
             text: null,
             products: null
@@ -69,7 +69,7 @@ export default {
     },
     methods: {
         loadData() {
-             this.productService.getProductsSmall().then(data => this.products = data);
+            this.productService.getProductsSmall().then(data => this.products = data);
         }
     },
     components: {
