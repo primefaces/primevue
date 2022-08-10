@@ -10,7 +10,7 @@
                 <slot name="chip" :value="option">
                     <span class="p-autocomplete-token-label">{{getOptionLabel(option)}}</span>
                 </slot>
-                <span class="p-autocomplete-token-icon pi pi-times-circle" @click="removeOption($event, option, i)" aria-hidden="true"></span>
+                <span class="p-autocomplete-token-icon pi pi-times-circle" @click="removeOption($event, i)" aria-hidden="true"></span>
             </li>
             <li class="p-autocomplete-input-token" role="option">
                 <input ref="focusInput" :id="inputId" type="text" :style="inputStyle" :class="inputClass" :placeholder="placeholder" :tabindex="!disabled ? tabindex : -1" :disabled="disabled" autocomplete="off"
@@ -198,7 +198,6 @@ export default {
     data() {
         return {
             id: UniqueComponentId(),
-            inputText: null,
             focused: false,
             focusedOptionIndex: -1,
             focusedMultipleOptionIndex: -1,
@@ -358,8 +357,6 @@ export default {
             }
         },
         onInput(event) {
-            this.inputText = event.target.value;
-
             if (this.searchTimeout) {
                 clearTimeout(this.searchTimeout);
             }
@@ -533,14 +530,20 @@ export default {
             const target = event.currentTarget;
             this.focusedOptionIndex = -1;
 
-            if (this.multiple && ObjectUtils.isEmpty(target.value) && this.hasSelectedOption) {
-                this.$refs.multiContainer.focus();
-                this.focusedMultipleOptionIndex = this.modelValue.length;
+            if (this.multiple) {
+                if (ObjectUtils.isEmpty(target.value) && this.hasSelectedOption) {
+                    this.$refs.multiContainer.focus();
+                    this.focusedMultipleOptionIndex = this.modelValue.length;
+                }
+                else {
+                    event.stopPropagation(); // To prevent onArrowLeftKeyOnMultiple method
+                }
             }
         },
-        onArrowRightKey() {
+        onArrowRightKey(event) {
             this.focusedOptionIndex = -1;
-            this.$refs.multiContainer.focus();
+
+            this.multiple && event.stopPropagation(); // To prevent onArrowRightKeyOnMultiple method
         },
         onHomeKey(event) {
             event.currentTarget.setSelectionRange(0, 0);
@@ -598,29 +601,24 @@ export default {
                     this.$emit('update:modelValue', newValue);
                     this.$emit('item-unselect', { originalEvent: event, value: removedValue });
                 }
+
+                event.stopPropagation(); // To prevent onBackspaceKeyOnMultiple method
             }
         },
         onArrowLeftKeyOnMultiple() {
-            if (!ObjectUtils.isNotEmpty(this.inputText) && this.modelValue && this.modelValue.length > 0) {
-                this.focusedMultipleOptionIndex = this.focusedMultipleOptionIndex < 1 ? 0 : this.focusedMultipleOptionIndex - 1;
-            }
+            this.focusedMultipleOptionIndex = this.focusedMultipleOptionIndex < 1 ? 0 : this.focusedMultipleOptionIndex - 1;
         },
         onArrowRightKeyOnMultiple() {
-            if (!ObjectUtils.isNotEmpty(this.inputText) && this.modelValue && this.modelValue.length > 0) {
-                this.focusedMultipleOptionIndex++;
+            this.focusedMultipleOptionIndex++;
 
-                if (this.focusedMultipleOptionIndex > (this.modelValue.length - 1)) {
-                    this.focusedMultipleOptionIndex = -1;
-                    this.$refs.focusInput.focus();
-                }
-            }
-            else {
+            if (this.focusedMultipleOptionIndex > (this.modelValue.length - 1)) {
+                this.focusedMultipleOptionIndex = -1;
                 this.$refs.focusInput.focus();
             }
         },
         onBackspaceKeyOnMultiple(event) {
             if (this.focusedMultipleOptionIndex !== -1) {
-                this.removeOption(event, this.modelValue[this.focusedMultipleOptionIndex], this.focusedMultipleOptionIndex);
+                this.removeOption(event, this.focusedMultipleOptionIndex);
             }
         },
         onOverlayEnter(el) {
@@ -752,9 +750,9 @@ export default {
             this.searching = true;
             this.$emit('complete', { originalEvent: event, query });
         },
-        removeOption(event, option, index) {
+        removeOption(event, index) {
             const removedOption = this.modelValue[index];
-            const value = this.modelValue.filter(val => !ObjectUtils.equals(val, this.getOptionValue(option), this.equalityKey)).map(option => this.getOptionValue(option));
+            const value = this.modelValue.filter((_, i) => i !== index).map(option => this.getOptionValue(option));
 
             this.updateModel(event, value);
             this.$emit('item-unselect', { originalEvent: event, value: removedOption });
@@ -792,8 +790,6 @@ export default {
         updateModel(event, value) {
             this.$emit('update:modelValue', value);
             this.$emit('change', { originalEvent: event, value });
-
-            this.inputText = null;
         },
         flatOptions(options) {
             return (options || []).reduce((result, option, index) => {
