@@ -1,16 +1,16 @@
 <template>
     <div :class="containerClass">
-        <ul ref="container" class="p-inputtext p-chips-multiple-container" tabindex="-1" role="listbox" aria-orientation="horizontal" :aria-activedescendant="focused ? focusedOptionId : undefined"
+        <ul ref="container" class="p-inputtext p-chips-multiple-container" tabindex="-1" role="listbox" aria-orientation="horizontal" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel" :aria-activedescendant="focused ? focusedOptionId : undefined"
             @click="onWrapperClick()" @focus="onContainerFocus" @blur="onContainerBlur" @keydown="onContainerKeyDown">
-            <li v-for="(val,i) of modelValue" :key="`${i}_${val}`" :id="id + '_chips_item' + i" role="option" :class="['p-chips-token', {'p-focus': focusedIndex === i}]"
-                :aria-selected="true" :aria-setsize="modelValue.length" :aria-posinset="i + 1">
-                <slot name="chip" :value="val" :aria-label="val">
+            <li v-for="(val,i) of modelValue" :key="`${i}_${val}`" :id="id + '_chips_item_' + i" role="option" :class="['p-chips-token', {'p-focus': focusedIndex === i}]"
+                :aria-label="val" :aria-selected="true" :aria-setsize="modelValue.length" :aria-posinset="i + 1">
+                <slot name="chip" :value="val">
                     <span class="p-chips-token-label">{{val}}</span>
                 </slot>
                 <span class="p-chips-token-icon pi pi-times-circle" @click="removeItem($event, i)" aria-hidden="true"></span>
             </li>
             <li class="p-chips-input-token" role="option">
-                <input ref="input" type="text" :id="inputId" :class="inputClass" :style="inputStyle" :disabled="disabled || maxedOut" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel"
+                <input ref="input" type="text" :id="inputId" :class="inputClass" :style="inputStyle" :disabled="disabled || maxedOut"
                     @focus="onFocus($event)" @blur="onBlur($event)" @input="onInput" @keydown="onKeyDown($event)" @paste="onPaste($event)" v-bind="inputProps">
             </li>
         </ul>
@@ -110,10 +110,13 @@ export default {
                 break;
 
                 case 'ArrowLeft':
-                case 'ArrowRight':
                     if (inputValue.length === 0 && this.modelValue && this.modelValue.length > 0) {
                         this.$refs.container.focus();
                     }
+                break;
+
+                case 'ArrowRight':
+                    event.stopPropagation();
                 break;
 
                 default:
@@ -170,10 +173,13 @@ export default {
         },
         onArrowRightKeyOn() {
             if (this.inputValue.length === 0 && this.modelValue && this.modelValue.length > 0) {
-                this.focusedIndex = this.focusedIndex === null ? 0 : this.focusedIndex + 1;
-                if (this.focusedIndex === this.modelValue.length) {
+
+                if (this.focusedIndex === this.modelValue.length - 1) {
                     this.focusedIndex = null;
                     this.$refs.input.focus();
+                }
+                else {
+                    this.focusedIndex++;
                 }
             }
         },
@@ -233,7 +239,7 @@ export default {
             }];
         },
         focusedOptionId() {
-            return this.focusedIndex !== null ? `${this.id}_${this.focusedIndex}` : null;
+            return this.focusedIndex !== null ? `${this.id}_chips_item_${this.focusedIndex}` : null;
         }
     }
 }
