@@ -792,6 +792,8 @@ export default {
         updateModel(event, value) {
             this.$emit('update:modelValue', value);
             this.$emit('change', { originalEvent: event, value });
+
+            this.inputText = null;
         },
         flatOptions(options) {
             return (options || []).reduce((result, option, index) => {
