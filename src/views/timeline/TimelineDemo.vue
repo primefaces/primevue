@@ -142,7 +142,7 @@ export default {
     z-index: 1;
 }
 
-::v-deep(.p-timeline-event-content)
+::v-deep(.p-timeline-event-content),
 ::v-deep(.p-timeline-event-opposite) {
     line-height: 1;
 }
