@@ -60,6 +60,10 @@ export interface PasswordProps extends InputHTMLAttributes {
      */
     showIcon?: string | undefined;
     /**
+     * When present, it specifies that the component should be disabled.
+     */
+    disabled?: boolean | undefined;
+    /**
      * Placeholder text for the input.
      */
     placeholder?: string | undefined;

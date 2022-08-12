@@ -273,6 +273,12 @@ Vertical
                         <td>Determines whether the input field is empty.</td>
                     </tr>
                     <tr>
+                        <td>disabled</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>When present, it specifies that the element should be disabled.</td>
+                    </tr>
+                    <tr>
                         <td>readonly</td>
                         <td>boolean</td>
                         <td>false</td>

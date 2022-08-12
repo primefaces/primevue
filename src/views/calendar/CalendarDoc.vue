@@ -430,6 +430,18 @@ export default {
                         and "self" for the element itself.</td>
                     </tr>
                     <tr>
+                        <td>disabled</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>When present, it specifies that the element should be disabled.</td>
+                    </tr>
+                    <tr>
+                        <td>readonly</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>When present, it specifies that an input field is read-only.</td>
+                    </tr>
+                    <tr>
                         <td>placeholder</td>
                         <td>string</td>
                         <td>null</td>

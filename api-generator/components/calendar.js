@@ -228,6 +228,18 @@ const CalendarProps = [
         description: 'A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are "body" for document body and "self" for the element itself.'
     },
     {
+        name: "disabled",
+        type: "boolean",
+        default: "false",
+        description: "When present, it specifies that the element should be disabled."
+    },
+    {
+        name: "readonly",
+        type: "boolean",
+        default: "false",
+        description: "When present, it specifies that an input field is read-only."
+    },
+    {
         name: "placeholder",
         type: "string",
         default: "null",
