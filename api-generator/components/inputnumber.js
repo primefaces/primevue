@@ -138,6 +138,12 @@ const InputNumberProps = [
         description: "When present, it specifies that an input field is read-only."
     },
     {
+        name: "placeholder",
+        type: "string",
+        default: "null",
+        description: "Placeholder text for the input."
+    },
+    {
         name: "inputId",
         type: "string",
         default: "null",

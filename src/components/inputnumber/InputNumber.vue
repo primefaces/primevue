@@ -1,6 +1,6 @@
 <template>
     <span :class="containerClass">
-        <INInputText ref="input" class="p-inputnumber-input" role="spinbutton" :id="inputId" :class="inputClass" :style="inputStyle" :value="formattedValue" :aria-valuemin="min" :aria-valuemax="max" :aria-valuenow="modelValue" :readonly="readonly" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel"
+        <INInputText ref="input" class="p-inputnumber-input" role="spinbutton" :id="inputId" :class="inputClass" :style="inputStyle" :value="formattedValue" :aria-valuemin="min" :aria-valuemax="max" :aria-valuenow="modelValue" :readonly="readonly" :placeholder="placeholder" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel"
             @input="onUserInput" @keydown="onInputKeyDown" @keypress="onInputKeyPress" @paste="onPaste" @click="onInputClick" @focus="onInputFocus" @blur="onInputBlur" v-bind="inputProps"/>
         <span class="p-inputnumber-button-group" v-if="showButtons && buttonLayout === 'stacked'">
             <INButton :class="upButtonClass" :icon="incrementButtonIcon" v-on="upButtonListeners" :disabled="disabled" :tabindex="-1" aria-hidden="true" v-bind="incrementButtonProps" />
@@ -114,6 +114,10 @@ export default {
         disabled: {
             type: Boolean,
             default: false
+        },
+        placeholder: {
+            type: String,
+            default: null
         },
         inputId: null,
         inputClass: null,
