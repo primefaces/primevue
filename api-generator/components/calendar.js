@@ -228,6 +228,12 @@ const CalendarProps = [
         description: 'A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are "body" for document body and "self" for the element itself.'
     },
     {
+        name: "placeholder",
+        type: "string",
+        default: "null",
+        description: "Placeholder text for the input."
+    },
+    {
         name: "id",
         type: "string",
         default: "null",

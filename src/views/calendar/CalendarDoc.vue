@@ -430,6 +430,12 @@ export default {
                         and "self" for the element itself.</td>
                     </tr>
                     <tr>
+                        <td>placeholder</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Default text to display when no option is selected.</td>
+                    </tr>
+                    <tr>
                         <td>id</td>
                         <td>string</td>
                         <td>null</td>
