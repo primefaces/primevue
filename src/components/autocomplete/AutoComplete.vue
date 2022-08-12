@@ -209,7 +209,7 @@ export default {
         suggestions() {
             if (this.searching) {
                 ObjectUtils.isNotEmpty(this.suggestions) ? this.show() : this.hide();
-                this.focusedOptionIndex = this.overlayVisible && this.autoOptionFocus ? this.findFirstOptionIndex() : -1;
+                this.focusedOptionIndex = this.overlayVisible && this.autoOptionFocus ? this.findFirstFocusedOptionIndex() : -1;
                 this.searching = false;
             }
 
@@ -271,7 +271,7 @@ export default {
         show(isFocus) {
             this.$emit('before-show');
             this.overlayVisible = true;
-            this.focusedOptionIndex = this.focusedOptionIndex !== -1 ? this.focusedOptionIndex : (this.autoOptionFocus ? this.findFirstOptionIndex() : -1);
+            this.focusedOptionIndex = this.focusedOptionIndex !== -1 ? this.focusedOptionIndex : (this.autoOptionFocus ? this.findFirstFocusedOptionIndex() : -1);
 
             isFocus && this.$refs.focusInput.focus();
         },
@@ -288,7 +288,7 @@ export default {
         },
         onFocus(event) {
             this.focused = true;
-            this.focusedOptionIndex = this.overlayVisible && this.autoOptionFocus ? this.findFirstOptionIndex() : -1;
+            this.focusedOptionIndex = this.overlayVisible && this.autoOptionFocus ? this.findFirstFocusedOptionIndex() : -1;
             this.overlayVisible && this.scrollInView(this.focusedOptionIndex);
             this.$emit('focus', event);
         },
@@ -499,7 +499,7 @@ export default {
                 return;
             }
 
-            const optionIndex = this.focusedOptionIndex !== -1 ? this.findNextOptionIndex(this.focusedOptionIndex) : this.findFirstOptionIndex();
+            const optionIndex = this.focusedOptionIndex !== -1 ? this.findNextOptionIndex(this.focusedOptionIndex) : this.findFirstFocusedOptionIndex();
 
             this.changeFocusedOptionIndex(event, optionIndex);
 
@@ -519,7 +519,7 @@ export default {
                 event.preventDefault();
             }
             else {
-                const optionIndex = this.focusedOptionIndex !== -1 ? this.findPrevOptionIndex(this.focusedOptionIndex) : this.findLastOptionIndex();
+                const optionIndex = this.focusedOptionIndex !== -1 ? this.findPrevOptionIndex(this.focusedOptionIndex) : this.findLastFocusedOptionIndex();
 
                 this.changeFocusedOptionIndex(event, optionIndex);
 
@@ -719,6 +719,9 @@ export default {
         isValidOption(option) {
             return option && !(this.isOptionDisabled(option) || this.isOptionGroup(option));
         },
+        isValidSelectedOption(option) {
+            return this.isValidOption(option) && this.isSelected(option);
+        },
         isSelected(option) {
             return ObjectUtils.equals(this.modelValue, this.getOptionValue(option), this.equalityKey);
         },
@@ -735,6 +738,17 @@ export default {
         findPrevOptionIndex(index) {
             const matchedOptionIndex = index > 0 ? this.visibleOptions.slice(0, index).findLastIndex(option => this.isValidOption(option)) : -1;
             return matchedOptionIndex > -1 ? matchedOptionIndex : index;
+        },
+        findSelectedOptionIndex() {
+            return this.hasSelectedOption ? this.visibleOptions.findIndex(option => this.isValidSelectedOption(option)) : -1;
+        },
+        findFirstFocusedOptionIndex() {
+            const selectedIndex = this.findSelectedOptionIndex();
+            return selectedIndex < 0 ? this.findFirstOptionIndex() : selectedIndex;
+        },
+        findLastFocusedOptionIndex() {
+            const selectedIndex = this.findSelectedOptionIndex();
+            return selectedIndex < 0 ? this.findLastOptionIndex() : selectedIndex;
         },
         search(event, query, source) {
             //allow empty string but not undefined or null
