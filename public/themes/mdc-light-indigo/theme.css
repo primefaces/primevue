@@ -301,10 +301,6 @@
   background: rgba(0, 0, 0, 0.24);
   color: rgba(0, 0, 0, 0.87);
 }
-.p-autocomplete .p-autocomplete-multiple-container .p-autocomplete-token:hover {
-  background: rgba(0, 0, 0, 0.04);
-  color: rgba(0, 0, 0, 0.87);
-}
 .p-autocomplete.p-invalid.p-component > .p-inputtext {
   border-color: #B00020;
 }
@@ -452,7 +448,7 @@
 .p-datepicker table td.p-datepicker-today > span {
   background: #ffffff;
   color: rgba(0, 0, 0, 0.87);
-  border-color: rgb(0, 0, 0);
+  border-color: black;
 }
 .p-datepicker table td.p-datepicker-today > span.p-highlight {
   color: #3F51B5;
@@ -727,10 +723,6 @@
   background: rgba(0, 0, 0, 0.12);
   color: rgba(0, 0, 0, 0.87);
   border-radius: 16px;
-}
-.p-chips .p-chips-multiple-container .p-chips-token:hover {
-  background: rgba(0, 0, 0, 0.04);
-  color: rgba(0, 0, 0, 0.87);
 }
 .p-chips .p-chips-multiple-container .p-chips-token.p-focus {
   background: rgba(0, 0, 0, 0.24);

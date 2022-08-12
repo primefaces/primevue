@@ -277,10 +277,6 @@
   background: #cbcbcb;
   color: #666666;
 }
-.p-autocomplete .p-autocomplete-multiple-container .p-autocomplete-token:hover {
-  background: #dfdfdf;
-  color: #666666;
-}
 .p-autocomplete.p-invalid.p-component > .p-inputtext {
   border-color: #e7a3a3;
 }
@@ -703,10 +699,6 @@
   background: #dadada;
   color: #666666;
   border-radius: 16px;
-}
-.p-chips .p-chips-multiple-container .p-chips-token:hover {
-  background: #dfdfdf;
-  color: #666666;
 }
 .p-chips .p-chips-multiple-container .p-chips-token.p-focus {
   background: #cbcbcb;
