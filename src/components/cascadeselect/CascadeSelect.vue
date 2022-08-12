@@ -215,7 +215,6 @@ export default {
         },
         onBlur(event) {
             this.focused = false;
-            this.activeOptionPath = [];
             this.focusedOptionInfo = { index: -1, level: 0, parentKey: '' };
             this.searchValue = '';
             this.$emit('blur', event);
