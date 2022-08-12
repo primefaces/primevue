@@ -10,7 +10,7 @@
                 <span class="p-chips-token-icon pi pi-times-circle" @click="removeItem($event, i)" aria-hidden="true"></span>
             </li>
             <li class="p-chips-input-token" role="option">
-                <input ref="input" type="text" :id="inputId" :class="inputClass" :style="inputStyle" :disabled="disabled || maxedOut"
+                <input ref="input" type="text" :id="inputId" :class="inputClass" :style="inputStyle" :disabled="disabled || maxedOut" :placeholder="placeholder"
                     @focus="onFocus($event)" @blur="onBlur($event)" @input="onInput" @keydown="onKeyDown($event)" @paste="onPaste($event)" v-bind="inputProps">
             </li>
         </ul>
@@ -43,6 +43,10 @@ export default {
         allowDuplicate: {
             type: Boolean,
             default: true
+        },
+        placeholder: {
+            type: String,
+            default: null
         },
         inputId: null,
         inputClass: null,

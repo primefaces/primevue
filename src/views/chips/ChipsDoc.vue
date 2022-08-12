@@ -84,6 +84,12 @@ import Chips from 'primevue/chips';
                         <td>When present, it specifies that the element should be disabled.</td>
                     </tr>
                     <tr>
+                        <td>placeholder</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Placeholder text for the input.</td>
+                    </tr>
+                    <tr>
                         <td>inputId</td>
                         <td>string</td>
                         <td>null</td>

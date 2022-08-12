@@ -36,6 +36,12 @@ const ChipsProps = [
         description: "When present, it specifies that the element should be disabled."
     },
     {
+        name: "placeholder",
+        type: "string",
+        default: "null",
+        description: "Placeholder text for the input."
+    },
+    {
         name: "inputId",
         type: "string",
         default: "null",

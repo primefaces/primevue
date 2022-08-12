@@ -60,6 +60,10 @@ export interface ChipsProps {
      */
     disabled?: boolean | undefined;
     /**
+     * Placeholder text for the input.
+     */
+    placeholder?: string | undefined;
+    /**
      * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
      */
     'aria-labelledby'?: string | undefined;
