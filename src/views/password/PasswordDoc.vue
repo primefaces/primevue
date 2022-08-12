@@ -156,6 +156,12 @@ import Password from 'primevue/password';
                         <td>Icon to show displaying the password as plain text.</td>
                     </tr>
                     <tr>
+                        <td>placeholder</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Placeholder text for the input.</td>
+                    </tr>
+                    <tr>
                         <td>inputId</td>
                         <td>string</td>
                         <td>null</td>

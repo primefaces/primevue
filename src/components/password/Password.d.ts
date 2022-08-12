@@ -60,6 +60,10 @@ export interface PasswordProps extends InputHTMLAttributes {
      */
     showIcon?: string | undefined;
     /**
+     * Placeholder text for the input.
+     */
+    placeholder?: string | undefined;
+    /**
      * Identifier of the underlying input element.
      */
     inputId?: string | undefined;

@@ -78,6 +78,12 @@ const PasswordProps = [
         description: "Icon to show displaying the password as plain text."
     },
     {
+        name: "placeholder",
+        type: "string",
+        default: "null",
+        description: "Placeholder text for the input."
+    },
+    {
         name: "inputId",
         type: "string",
         default: "null",
