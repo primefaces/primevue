@@ -445,13 +445,20 @@ export default {
             }
         },
         onDropdownClick(event) {
-            this.$refs.focusInput.focus();
-            const query = this.$refs.focusInput.value;
+            let query = undefined;
 
-            if (this.dropdownMode === 'blank')
-                this.search(event, '', 'dropdown');
-            else if (this.dropdownMode === 'current')
-                this.search(event, query, 'dropdown');
+            if (this.overlayVisible) {
+                this.hide(true);
+            }
+            else {
+                this.$refs.focusInput.focus();
+                query = this.$refs.focusInput.value;
+
+                if (this.dropdownMode === 'blank')
+                    this.search(event, '', 'dropdown');
+                else if (this.dropdownMode === 'current')
+                    this.search(event, query, 'dropdown');
+            }
 
             this.$emit('dropdown-click', { originalEvent: event, query });
         },
