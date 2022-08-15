@@ -12,7 +12,6 @@
 - Improve MultiSelect implementation for Accessibility [\#2814](https://github.com/primefaces/primevue/issues/2814)
 - Improve Dropdown implementation for Accessibility [\#2811](https://github.com/primefaces/primevue/issues/2811)
 
-
 **Implemented New Features and Enhancements:**
 
 - Editor | new `selection-change` event [\#2829](https://github.com/primefaces/primevue/issues/2829)
