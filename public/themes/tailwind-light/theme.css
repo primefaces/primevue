@@ -1215,6 +1215,7 @@
   color: #3f3f46;
   border: 1px solid #d4d4d8;
   border-radius: 0.375rem;
+  transition: none;
 }
 .p-listbox .p-listbox-header {
   padding: 0.5rem 0.75rem;
