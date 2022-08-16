@@ -842,19 +842,19 @@ export default {
             return ObjectUtils.isNotEmpty(this.visibleOptions) ? this.filterMessageText.replaceAll('{0}', this.visibleOptions.length) : this.emptyFilterMessageText;
         },
         filterMessageText() {
-            return this.filterMessage || this.$primevue.config.locale.searchMessage;
+            return this.filterMessage || this.$primevue.config.locale.searchMessage || '';
         },
         emptyFilterMessageText() {
-            return this.emptyFilterMessage || this.$primevue.config.locale.emptySearchMessage || this.$primevue.config.locale.emptyFilterMessage;
+            return this.emptyFilterMessage || this.$primevue.config.locale.emptySearchMessage || this.$primevue.config.locale.emptyFilterMessage || '';
         },
         emptyMessageText() {
-            return this.emptyMessage || this.$primevue.config.locale.emptyMessage;
+            return this.emptyMessage || this.$primevue.config.locale.emptyMessage || '';
         },
         selectionMessageText() {
-            return this.selectionMessage || this.$primevue.config.locale.selectionMessage;
+            return this.selectionMessage || this.$primevue.config.locale.selectionMessage || '';
         },
         emptySelectionMessageText() {
-            return this.emptySelectionMessage || this.$primevue.config.locale.emptySelectionMessage;
+            return this.emptySelectionMessage || this.$primevue.config.locale.emptySelectionMessage || '';
         },
         selectedMessageText() {
             return this.hasSelectedOption ? this.selectionMessageText.replaceAll('{0}', '1') : this.emptySelectionMessageText;

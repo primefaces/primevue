@@ -889,16 +889,16 @@ export default {
             return ObjectUtils.isNotEmpty(this.visibleOptions) && this.overlayVisible ? this.searchMessageText.replaceAll('{0}', this.visibleOptions.length) : this.emptySearchMessageText;
         },
         searchMessageText() {
-            return this.searchMessage || this.$primevue.config.locale.searchMessage;
+            return this.searchMessage || this.$primevue.config.locale.searchMessage || '';
         },
         emptySearchMessageText() {
-            return this.emptySearchMessage || this.$primevue.config.locale.emptySearchMessage;
+            return this.emptySearchMessage || this.$primevue.config.locale.emptySearchMessage || '';
         },
         selectionMessageText() {
-            return this.selectionMessage || this.$primevue.config.locale.selectionMessage;
+            return this.selectionMessage || this.$primevue.config.locale.selectionMessage || '';
         },
         emptySelectionMessageText() {
-            return this.emptySelectionMessage || this.$primevue.config.locale.emptySelectionMessage;
+            return this.emptySelectionMessage || this.$primevue.config.locale.emptySelectionMessage || '';
         },
         selectedMessageText() {
             return this.hasSelectedOption ? this.selectionMessageText.replaceAll('{0}', this.multiple ? this.modelValue.length : '1') : this.emptySelectionMessageText;

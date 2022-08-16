@@ -732,19 +732,19 @@ export default {
             return ObjectUtils.isNotEmpty(this.visibleOptions) ? this.searchMessageText.replaceAll('{0}', this.visibleOptions.length) : this.emptySearchMessageText;
         },
         searchMessageText() {
-            return this.searchMessage || this.$primevue.config.locale.searchMessage;
+            return this.searchMessage || this.$primevue.config.locale.searchMessage || '';
         },
         emptySearchMessageText() {
-            return this.emptySearchMessage || this.$primevue.config.locale.emptySearchMessage;
+            return this.emptySearchMessage || this.$primevue.config.locale.emptySearchMessage || '';
         },
         emptyMessageText() {
-            return this.emptyMessage || this.$primevue.config.locale.emptyMessage;
+            return this.emptyMessage || this.$primevue.config.locale.emptyMessage || '';
         },
         selectionMessageText() {
-            return this.selectionMessage || this.$primevue.config.locale.selectionMessage;
+            return this.selectionMessage || this.$primevue.config.locale.selectionMessage || '';
         },
         emptySelectionMessageText() {
-            return this.emptySelectionMessage || this.$primevue.config.locale.emptySelectionMessage;
+            return this.emptySelectionMessage || this.$primevue.config.locale.emptySelectionMessage || '';
         },
         selectedMessageText() {
             return this.hasSelectedOption ? this.selectionMessageText.replaceAll('{0}', '1') : this.emptySelectionMessageText;
