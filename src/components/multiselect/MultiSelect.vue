@@ -35,7 +35,7 @@
                     <span ref="firstHiddenFocusableElementOnOverlay" role="presentation" aria-hidden="true" class="p-hidden-accessible p-hidden-focusable" :tabindex="0" @focus="onFirstHiddenFocus"></span>
                     <slot name="header" :value="modelValue" :options="visibleOptions"></slot>
                     <div v-if="(showToggleAll && selectionLimit == null) || filter" class="p-multiselect-header">
-                        <div v-if="showToggleAll && selectionLimit == null" class="p-checkbox p-component" @click="onToggleAll">
+                        <div v-if="showToggleAll && selectionLimit == null" :class="headerCheckboxClass" @click="onToggleAll">
                             <div class="p-hidden-accessible">
                                 <input type="checkbox" readonly :checked="allSelected" :aria-label="toggleAllAriaLabel" @focus="onHeaderCheckboxFocus" @blur="onHeaderCheckboxBlur">
                             </div>
@@ -945,6 +945,12 @@ export default {
             return ['p-multiselect-panel p-component', this.panelClass, {
                 'p-input-filled': this.$primevue.config.inputStyle === 'filled',
                 'p-ripple-disabled': this.$primevue.config.ripple === false
+            }];
+        },
+        headerCheckboxClass() {
+            return ['p-checkbox p-component', {
+                'p-checkbox-checked': this.allSelected,
+                'p-checkbox-focused': this.headerCheckboxFocused
             }];
         },
         visibleOptions() {
