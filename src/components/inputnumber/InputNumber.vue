@@ -990,7 +990,7 @@ export default {
         },
         
         upButtonClass() {
-            return ['p-inputnumber-button p-inputnumber-button-up', {
+            return ['p-inputnumber-button p-inputnumber-button-up', this.incrementButtonClass, {
                 'p-disabled': this.showButtons && this.max !== null && this.maxBoundry()
             }];
         },
