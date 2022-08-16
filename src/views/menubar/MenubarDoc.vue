@@ -329,14 +329,13 @@ export default {
 									icon:'pi pi-fw pi-plus',
 									items:[
 										{
-										label:'Bookmark',
-										icon:'pi pi-fw pi-bookmark'
+											label:'Bookmark',
+											icon:'pi pi-fw pi-bookmark'
 										},
 										{
-										label:'Video',
-										icon:'pi pi-fw pi-video'
-										},
-
+											label:'Video',
+											icon:'pi pi-fw pi-video'
+										}
 									]
 								},
 								{
@@ -371,8 +370,7 @@ export default {
 								{
 									label:'Justify',
 									icon:'pi pi-fw pi-align-justify'
-								},
-
+								}
 							]
 						},
 						{
@@ -394,18 +392,18 @@ export default {
 									icon:'pi pi-fw pi-users',
 									items:[
 										{
-										label:'Filter',
-										icon:'pi pi-fw pi-filter',
-										items:[
-											{
-												label:'Print',
-												icon:'pi pi-fw pi-print'
-											}
-										]
+											label:'Filter',
+											icon:'pi pi-fw pi-filter',
+											items:[
+												{
+													label:'Print',
+													icon:'pi pi-fw pi-print'
+												}
+											]
 										},
 										{
-										icon:'pi pi-fw pi-bars',
-										label:'List'
+											icon:'pi pi-fw pi-bars',
+											label:'List'
 										}
 									]
 								}
@@ -420,14 +418,13 @@ export default {
 									icon:'pi pi-fw pi-pencil',
 									items:[
 										{
-										label:'Save',
-										icon:'pi pi-fw pi-calendar-plus'
+											label:'Save',
+											icon:'pi pi-fw pi-calendar-plus'
 										},
 										{
-										label:'Delete',
-										icon:'pi pi-fw pi-calendar-minus'
-										},
-
+											label:'Delete',
+											icon:'pi pi-fw pi-calendar-minus'
+										}
 									]
 								},
 								{
@@ -435,8 +432,8 @@ export default {
 									icon:'pi pi-fw pi-calendar-times',
 									items:[
 										{
-										label:'Remove',
-										icon:'pi pi-fw pi-calendar-minus'
+											label:'Remove',
+											icon:'pi pi-fw pi-calendar-minus'
 										}
 									]
 								}
@@ -490,7 +487,7 @@ export default {
 									{
 										label:'Video',
 										icon:'pi pi-fw pi-video'
-									},
+									}
 								]
 							},
 							{
@@ -504,7 +501,7 @@ export default {
 								label:'Export',
 								icon:'pi pi-fw pi-external-link'
 							}
-					]
+						]
 					},
 					{
 						label:'Edit',
@@ -577,7 +574,7 @@ export default {
 									{
 										label:'Delete',
 										icon:'pi pi-fw pi-calendar-minus'
-									},
+									}
 								]
 							},
 							{
@@ -640,7 +637,7 @@ export default {
 									{
 										label:'Video',
 										icon:'pi pi-fw pi-video'
-									},
+									}
 								]
 							},
 							{
@@ -675,8 +672,8 @@ export default {
 							{
 								label:'Justify',
 								icon:'pi pi-fw pi-align-justify'
-							},
-					]
+							}
+						]
 					},
 					{
 						label:'Users',
@@ -727,7 +724,7 @@ export default {
 									{
 										label:'Delete',
 										icon:'pi pi-fw pi-calendar-minus'
-									},
+									}
 								]
 							},
 							{
