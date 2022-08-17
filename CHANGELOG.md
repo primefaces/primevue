@@ -1,5 +1,19 @@
 # Changelog
 
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.16.0...3.16.1)
+
+**Fixed bugs:**
+
+- Header checkbox is not styled as expected in Material themes. [\#2856](https://github.com/primefaces/primevue/issues/2856)
+- Types: Missing types in PrimeVueLocaleOptions [\#2855](https://github.com/primefaces/primevue/issues/2855)
+- Overlay components don't work with SSR [\#2853](https://github.com/primefaces/primevue/issues/2853)
+- Editor | selection-change typing error [\#2852](https://github.com/primefaces/primevue/issues/2852)
+- InputNumber : incrementButtonClass does not working [\#2850](https://github.com/primefaces/primevue/issues/2850)
+- Dropdown:  Cannot read properties of undefined \(reading 'replaceAll'\) [\#2848](https://github.com/primefaces/primevue/issues/2848)
+- Dropdown and MultiSelect: TS2322 compilcation error [\#2845](https://github.com/primefaces/primevue/issues/2845)
+- CDN Script fails [\#2844](https://github.com/primefaces/primevue/issues/2844)
+- AutoComplete: completeOnFocus with keyboard navigation [\#2824](https://github.com/primefaces/primevue/issues/2824)
+
 ## [3.16.0](https://github.com/primefaces/primevue/tree/3.16.0) (2022-08-15)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.15.0...3.16.0)
