@@ -92,7 +92,7 @@ export interface AutoCompleteProps {
      * Property name or getter function to use as the label of an option group.
      * @see AutoCompletenOptionLabelType
      */
-    optionGroupLabel?: AutoCompletenOptionLabelType;
+    optionGroupLabel?: AutoCompleteOptionLabelType;
     /**
      * Property name or getter function that refers to the children options of option group.
      * @see AutoCompleteOptionChildrenType
