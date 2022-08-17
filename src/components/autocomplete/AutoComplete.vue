@@ -195,6 +195,7 @@ export default {
     searchTimeout: null,
     selectOnFocus: false,
     focusOnHover: false,
+    dirty: false,
     data() {
         return {
             id: UniqueComponentId(),
@@ -270,6 +271,7 @@ export default {
         },
         show(isFocus) {
             this.$emit('before-show');
+            this.dirty = true;
             this.overlayVisible = true;
             this.focusedOptionIndex = this.focusedOptionIndex !== -1 ? this.focusedOptionIndex : (this.autoOptionFocus ? this.findFirstFocusedOptionIndex() : -1);
 
@@ -278,6 +280,7 @@ export default {
         hide(isFocus) {
             const _hide = () => {
                 this.$emit('before-hide');
+                this.dirty = isFocus;
                 this.overlayVisible = false;
                 this.focusedOptionIndex = -1;
 
@@ -287,12 +290,18 @@ export default {
             setTimeout(() => { _hide() }, 0); // For ScreenReaders
         },
         onFocus(event) {
+            if (!this.dirty && this.completeOnFocus) {
+                this.search(event, event.target.value, 'focus');
+            }
+
+            this.dirty = true;
             this.focused = true;
             this.focusedOptionIndex = this.overlayVisible && this.autoOptionFocus ? this.findFirstFocusedOptionIndex() : -1;
             this.overlayVisible && this.scrollInView(this.focusedOptionIndex);
             this.$emit('focus', event);
         },
         onBlur(event) {
+            this.dirty = false;
             this.focused = false;
             this.focusedOptionIndex = -1;
             this.$emit('blur', event);
@@ -429,18 +438,11 @@ export default {
             }
         },
         onContainerClick(event) {
-            if (this.disabled || this.searching) {
+            if (this.disabled || this.searching || this.isInputClicked(event) || this.isDropdownClicked(event)) {
                 return;
             }
 
-            if (this.isDropdownClicked(event)) {
-                return;
-            }
-            else if (!this.overlay || !this.overlay.contains(event.target)) {
-                if (this.completeOnFocus) {
-                    this.search(event, '', 'click');
-                }
-
+            if (!this.overlay || !this.overlay.contains(event.target)) {
                 this.$refs.focusInput.focus();
             }
         },
@@ -777,6 +779,7 @@ export default {
 
             this.updateModel(event, value);
             this.$emit('item-unselect', { originalEvent: event, value: removedOption });
+            this.dirty = true;
             this.$refs.focusInput.focus();
         },
         changeFocusedOptionIndex(event, index) {
