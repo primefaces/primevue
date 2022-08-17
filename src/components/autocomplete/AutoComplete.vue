@@ -433,7 +433,7 @@ export default {
                 return;
             }
 
-            if (this.isDropdownClicked(event) || event.target.tagName === 'INPUT') {
+            if (this.isDropdownClicked(event)) {
                 return;
             }
             else if (!this.overlay || !this.overlay.contains(event.target)) {
