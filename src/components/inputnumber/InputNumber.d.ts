@@ -144,7 +144,7 @@ export interface InputNumberProps {
     /**
      * Placeholder text for the input.
      */
-    placeholder?: boolean | undefined;
+    placeholder?: string | undefined;
     /**
      * 	Identifier of the focus input to match a label defined for the chips.
      */
