@@ -1,5 +1,7 @@
 # Changelog
 
+## [3.16.1](https://github.com/primefaces/primevue/tree/3.16.1) (2022-08-17)
+
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.16.0...3.16.1)
 
 **Fixed bugs:**
