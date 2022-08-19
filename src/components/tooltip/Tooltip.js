@@ -118,6 +118,7 @@ function create(el) {
     document.body.appendChild(container);
 
     container.style.display = 'inline-block';
+    container.style.backgroundColor = 'transparent';
 
     if (el.$_ptooltipFitContent) {
         container.style.width = 'fit-content';
