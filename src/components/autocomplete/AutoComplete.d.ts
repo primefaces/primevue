@@ -90,7 +90,7 @@ export interface AutoCompleteProps {
     optionDisabled?: AutoCompleteOptionDisabledType;
     /**
      * Property name or getter function to use as the label of an option group.
-     * @see AutoCompletenOptionLabelType
+     * @see AutoCompleteOptionLabelType
      */
     optionGroupLabel?: AutoCompleteOptionLabelType;
     /**
