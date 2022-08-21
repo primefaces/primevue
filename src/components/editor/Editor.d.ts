@@ -96,7 +96,7 @@ export declare type EditorEmits = {
      * Callback to invoke when selection of the text changes.
      * @param {EditorSelectionChangeEvent} event - Custom selection change event.
      */
-    'selection-change': (event: EditorTextChangeEvent) => void;
+    'selection-change': (event: EditorSelectionChangeEvent) => void;
 }
 
 declare class Editor extends ClassComponent<EditorProps, EditorSlots, EditorEmits> { }

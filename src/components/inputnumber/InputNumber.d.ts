@@ -134,9 +134,17 @@ export interface InputNumberProps {
      */
     allowEmpty?: boolean | undefined;
     /**
+     * When present, it specifies that the component should be disabled.
+     */
+    disabled?: boolean | undefined;
+    /**
      * When present, it specifies that an input field is read-only.
      */
     readonly?: boolean | undefined;
+    /**
+     * Placeholder text for the input.
+     */
+    placeholder?: string | undefined;
     /**
      * 	Identifier of the focus input to match a label defined for the chips.
      */
@@ -150,9 +158,17 @@ export interface InputNumberProps {
      */
     inputStyle?: any | undefined;
     /**
-     * 
+     * Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.
      */
-    inputProps?: object | undefined;
+    inputProps?: HTMLInputElement | undefined;
+    /**
+     * Uses to pass all properties of the HTMLButtonElement to increment button inside the component.
+     */
+    incrementButtonProps?: HTMLButtonElement | undefined;
+    /**
+     * Uses to pass all properties of the HTMLButtonElement to decrement button inside the component.
+     */
+    decrementButtonProps?: HTMLButtonElement | undefined;
     /**
      * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
      */

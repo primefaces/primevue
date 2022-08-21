@@ -30,7 +30,7 @@ const ColorPickerProps = [
         description: "When present, it specifies that the component should be disabled."
     },
     {
-        name: "tabIndex",
+        name: "tabindex",
         type: "string",
         default: "null",
         description: "Index of the element in tabbing order."

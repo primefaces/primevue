@@ -389,11 +389,36 @@ export default {
 		}
 	},
 	mounted() {
+		let stateChanged = false;
 		this.createStyle();
 		this.calculatePosition();
 
 		if (this.responsiveOptions) {
 			this.bindDocumentListeners();
+		}
+
+		if (this.isCircular()) {
+			let totalShiftedItems = this.totalShiftedItems;
+
+			if (this.d_page === 0) {
+				totalShiftedItems = -1 * this.d_numVisible;
+			}
+			else if (totalShiftedItems === 0) {
+				totalShiftedItems = -1 * this.value.length;
+				if (this.remainingItems > 0) {
+					this.isRemainingItemsAdded = true;
+				}
+			}
+
+			if (totalShiftedItems !== this.totalShiftedItems) {
+				this.totalShiftedItems = totalShiftedItems;
+
+				stateChanged = true;
+			}
+		}
+
+		if (!stateChanged && this.isAutoplay()) {
+			this.startAutoplay();
 		}
 	},
 	updated() {

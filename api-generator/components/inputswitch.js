@@ -34,6 +34,12 @@ const InputSwitchProps = [
         type: "string",
         default: "null",
         description: "Style class of the input field."
+    },
+    {
+        name: "inputProps",
+        type: "object",
+        default: "null",
+        description: "Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component."
     }
 ];
 

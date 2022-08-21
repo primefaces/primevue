@@ -49,7 +49,7 @@ export interface MultiSelectFilterEvent {
     value: string;
 }
 
-export interface MultiSelectProps extends HTMLDivElement {
+export interface MultiSelectProps {
     /**
      * Value of the component.
      */

@@ -78,6 +78,12 @@ const PasswordProps = [
         description: "Icon to show displaying the password as plain text."
     },
     {
+        name: "placeholder",
+        type: "string",
+        default: "null",
+        description: "Placeholder text for the input."
+    },
+    {
         name: "inputId",
         type: "string",
         default: "null",
@@ -96,6 +102,12 @@ const PasswordProps = [
         description: "Style class of the input field."
     },
     {
+        name: "inputProps",
+        type: "object",
+        default: "null",
+        description: "Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component."
+    },
+    {
         name: "panelId",
         type: "string",
         default: "null",
@@ -112,6 +124,12 @@ const PasswordProps = [
         type: "string",
         default: "null",
         description: "Inline style of the overlay panel."
+    },
+    {
+        name: "panelProps",
+        type: "object",
+        default: "null",
+        description: "Uses to pass all properties of the HTMLDivElement to the overlay panel inside the component."
     }
 ];
 

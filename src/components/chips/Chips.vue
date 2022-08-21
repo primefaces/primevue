@@ -1,14 +1,16 @@
 <template>
     <div :class="containerClass">
-        <ul :class="['p-inputtext p-chips-multiple-container', {'p-disabled': disabled, 'p-focus': focused}]" role="listbox" aria-orientation="horizontal" @click="onWrapperClick()">
-            <li v-for="(val,i) of modelValue" :key="`${i}_${val}`" role="option" :class="['p-chips-token', {'p-focus': focusedIndex === i}]">
-                <slot name="chip" :value="val" :aria-label="val">
+        <ul ref="container" class="p-inputtext p-chips-multiple-container" tabindex="-1" role="listbox" aria-orientation="horizontal" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel" :aria-activedescendant="focused ? focusedOptionId : undefined"
+            @click="onWrapperClick()" @focus="onContainerFocus" @blur="onContainerBlur" @keydown="onContainerKeyDown">
+            <li v-for="(val,i) of modelValue" :key="`${i}_${val}`" :id="id + '_chips_item_' + i" role="option" :class="['p-chips-token', {'p-focus': focusedIndex === i}]"
+                :aria-label="val" :aria-selected="true" :aria-setsize="modelValue.length" :aria-posinset="i + 1">
+                <slot name="chip" :value="val">
                     <span class="p-chips-token-label">{{val}}</span>
                 </slot>
-                <span class="p-chips-token-icon pi pi-times-circle" @click="removeItem($event, i)"></span>
+                <span class="p-chips-token-icon pi pi-times-circle" @click="removeItem($event, i)" aria-hidden="true"></span>
             </li>
-            <li class="p-chips-input-token">
-                <input ref="input" type="text" :id="inputId" :class="inputClass" :style="inputStyle" :disabled="disabled || maxedOut" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel"
+            <li class="p-chips-input-token" role="option">
+                <input ref="input" type="text" :id="inputId" :class="inputClass" :style="inputStyle" :disabled="disabled || maxedOut" :placeholder="placeholder"
                     @focus="onFocus($event)" @blur="onBlur($event)" @input="onInput" @keydown="onKeyDown($event)" @paste="onPaste($event)" v-bind="inputProps">
             </li>
         </ul>
@@ -16,6 +18,8 @@
 </template>
 
 <script>
+import {UniqueComponentId} from 'primevue/utils';
+
 export default {
     name: 'Chips',
     emits: ['update:modelValue', 'add', 'remove', 'focus', 'blur'],
@@ -40,6 +44,10 @@ export default {
             type: Boolean,
             default: true
         },
+        placeholder: {
+            type: String,
+            default: null
+        },
         inputId: null,
         inputClass: null,
         inputStyle: null,
@@ -59,6 +67,7 @@ export default {
     },
     data() {
         return {
+            id: UniqueComponentId(),
             inputValue: null,
             focused: false,
             focusedIndex: null
@@ -96,7 +105,6 @@ export default {
                         }
                         else this.removeItem(event, this.modelValue.length - 1);
                     }
-
                 break;
 
                 case 'Enter':
@@ -107,16 +115,12 @@ export default {
 
                 case 'ArrowLeft':
                     if (inputValue.length === 0 && this.modelValue && this.modelValue.length > 0) {
-                        this.focusedIndex = this.focusedIndex === null ? this.modelValue.length -1 : this.focusedIndex - 1;
-                        if (this.focusedIndex < 0) this.focusedIndex = 0;
+                        this.$refs.container.focus();
                     }
                 break;
 
                 case 'ArrowRight':
-                    if (inputValue.length === 0 && this.modelValue && this.modelValue.length > 0) {
-                        this.focusedIndex = this.focusedIndex === null ? 0 : this.focusedIndex + 1;
-                        if (this.focusedIndex === this.modelValue.length) this.focusedIndex = this.modelValue.length - 1;
-                    }
+                    event.stopPropagation();
                 break;
 
                 default:
@@ -138,6 +142,54 @@ export default {
                     value = [...value, ...pastedValues];
                     this.updateModel(event, value, true);
                 }
+            }
+        },
+        onContainerFocus() {
+            this.focused = true;
+        },
+        onContainerBlur() {
+            this.focusedIndex = -1;
+            this.focused = false;
+        },
+        onContainerKeyDown(event) {
+            switch (event.code) {
+                case 'ArrowLeft':
+                    this.onArrowLeftKeyOn(event);
+                    break;
+
+                case 'ArrowRight':
+                    this.onArrowRightKeyOn(event);
+                    break;
+
+                case 'Backspace':
+                    this.onBackspaceKeyOn(event);
+                    break;
+
+                default:
+                    break;
+            }
+        },
+        onArrowLeftKeyOn() {
+            if (this.inputValue.length === 0 && this.modelValue && this.modelValue.length > 0) {
+                this.focusedIndex = this.focusedIndex === null ? this.modelValue.length - 1 : this.focusedIndex - 1;
+                if (this.focusedIndex < 0) this.focusedIndex = 0;
+            }
+        },
+        onArrowRightKeyOn() {
+            if (this.inputValue.length === 0 && this.modelValue && this.modelValue.length > 0) {
+
+                if (this.focusedIndex === this.modelValue.length - 1) {
+                    this.focusedIndex = null;
+                    this.$refs.input.focus();
+                }
+                else {
+                    this.focusedIndex++;
+                }
+            }
+        },
+        onBackspaceKeyOn(event) {
+            if (this.focusedIndex !== null) {
+                this.removeItem(event, this.focusedIndex);
             }
         },
         updateModel(event, value, preventDefault) {
@@ -169,7 +221,8 @@ export default {
 
             let values = [...this.modelValue];
             const removedItem = values.splice(index, 1);
-            if (values.length === 0) this.focusedIndex = null;
+            this.focusedIndex = null;
+            this.$refs.input.focus();
             this.$emit('update:modelValue', values);
             this.$emit('remove', {
                 originalEvent: event,
@@ -183,9 +236,14 @@ export default {
         },
         containerClass() {
             return ['p-chips p-component p-inputwrapper', {
+                'p-disabled': this.disabled,
+                'p-focus': this.focused,
                 'p-inputwrapper-filled': ((this.modelValue && this.modelValue.length) || (this.inputValue && this.inputValue.length)),
                 'p-inputwrapper-focus': this.focused
             }];
+        },
+        focusedOptionId() {
+            return this.focusedIndex !== null ? `${this.id}_chips_item_${this.focusedIndex}` : null;
         }
     }
 }

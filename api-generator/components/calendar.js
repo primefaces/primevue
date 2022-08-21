@@ -228,6 +228,24 @@ const CalendarProps = [
         description: 'A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are "body" for document body and "self" for the element itself.'
     },
     {
+        name: "disabled",
+        type: "boolean",
+        default: "false",
+        description: "When present, it specifies that the element should be disabled."
+    },
+    {
+        name: "readonly",
+        type: "boolean",
+        default: "false",
+        description: "When present, it specifies that an input field is read-only."
+    },
+    {
+        name: "placeholder",
+        type: "string",
+        default: "null",
+        description: "Placeholder text for the input."
+    },
+    {
         name: "id",
         type: "string",
         default: "null",
@@ -250,6 +268,30 @@ const CalendarProps = [
         type: "any",
         default: "null",
         description: "Inline style of the input field."
+    },
+    {
+        name: "inputProps",
+        type: "object",
+        default: "null",
+        description: "Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component."
+    },
+    {
+        name: "panelClass",
+        type: "string",
+        default: "null",
+        description: "Style class of the overlay panel."
+    },
+    {
+        name: "panelStyle",
+        type: "string",
+        default: "null",
+        description: "Inline style of the overlay panel."
+    },
+    {
+        name: "panelProps",
+        type: "object",
+        default: "null",
+        description: "Uses to pass all properties of the HTMLDivElement to the overlay panel inside the component."
     }
 ];
 

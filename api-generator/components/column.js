@@ -240,6 +240,12 @@ const ColumnProps = [
         description: "Custom export header of the column to be exported as CSV."
     },
     {
+        name: "exportFooter",
+        type: "string",
+        default: "null",
+        description: "Custom export footer of the column to be exported as CSV."
+    },
+    {
         name: "hidden",
         type: "boolean",
         default: "false",

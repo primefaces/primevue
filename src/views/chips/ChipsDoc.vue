@@ -84,6 +84,12 @@ import Chips from 'primevue/chips';
                         <td>When present, it specifies that the element should be disabled.</td>
                     </tr>
                     <tr>
+                        <td>placeholder</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Placeholder text for the input.</td>
+                    </tr>
+                    <tr>
                         <td>inputId</td>
                         <td>string</td>
                         <td>null</td>
@@ -100,6 +106,12 @@ import Chips from 'primevue/chips';
                         <td>any</td>
                         <td>null</td>
                         <td>Inline style of the input field.</td>
+                    </tr>
+                    <tr>
+                        <td>inputProps</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td>Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.</td>
                     </tr>
 				</tbody>
 			</table>

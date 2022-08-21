@@ -12,16 +12,52 @@ const RadioButtonProps = [
         description: "Value binding of the checkbox."
     },
     {
-        name: "class",
+        name: "name",
         type: "string",
         default: "null",
-        description: "Style class of the component."
+        description: "Name of the input element."
     },
     {
-        name: "style",
+        name: "disabled",
+        type: "boolean",
+        default: "false",
+        description: "When present, it specifies that the element should be disabled."
+    },
+    {
+        name: "inputId",
+        type: "string",
+        default: "null",
+        description: "Identifier of the underlying input element."
+    },
+    {
+        name: "inputClass",
+        type: "string",
+        default: "null",
+        description: "Style class of the input field."
+    },
+    {
+        name: "inputStyle",
         type: "any",
         default: "null",
-        description: "Inline of the component."
+        description: "Inline style of the input field."
+    },
+    {
+        name: "inputProps",
+        type: "object",
+        default: "null",
+        description: "Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component."
+    },
+    {
+        name: "aria-labelledby",
+        type: "string",
+        default: "null",
+        description: "Establishes relationships between the component and label(s) where its value should be one or more element IDs."
+    },
+    {
+        name: "aria-label",
+        type: "string",
+        default: "null",
+        description: "Used to define a string that labels the element."
     }
 ];
 

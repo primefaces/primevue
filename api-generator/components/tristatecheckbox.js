@@ -6,16 +6,28 @@ const TriStateCheckboxProps = [
         description: "Value of the component."
     },
     {
-        name: "class",
-        type: "string",
-        default: "null",
-        description: "Style class of the component."
+        name: "disabled",
+        type: "boolean",
+        default: "false",
+        description: "When present, it specifies that the component should be disabled."
     },
     {
-        name: "style",
-        type: "any",
+        name: "tabindex",
+        type: "string",
         default: "null",
-        description: "Inline of the component."
+        description: "Index of the element in tabbing order."
+    },
+    {
+        name: "inputId",
+        type: "string",
+        default: "null",
+        description: "Identifier of the underlying input element."
+    },
+    {
+        name: "inputProps",
+        type: "object",
+        default: "null",
+        description: "Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component."
     },
     {
         name: "aria-labelledby",

@@ -1,8 +1,9 @@
 <template>
     <div ref="container" :class="containerClass" @click="onClick">
         <div class="p-hidden-accessible">
-            <input ref="focusInput" type="text" role="combobox" :id="inputId" :class="inputClass" :style="inputStyle" readonly :disabled="disabled" :tabindex="tabindex" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel"
-                aria-haspopup="tree" :aria-expanded="overlayVisible" :aria-controls="listId" @focus="onFocus($event)" @blur="onBlur($event)" @keydown="onKeyDown($event)" v-bind="inputProps" />
+            <input ref="focusInput" type="text" role="combobox" :id="inputId" :class="inputClass" :style="inputStyle" readonly :disabled="disabled" :tabindex="!disabled ? tabindex : -1"
+                :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel" aria-haspopup="tree" :aria-expanded="overlayVisible" :aria-controls="listId"
+                @focus="onFocus($event)" @blur="onBlur($event)" @keydown="onKeyDown($event)" v-bind="inputProps" />
         </div>
         <div class="p-treeselect-label-container">
             <div :class="labelClass">
@@ -153,6 +154,7 @@ export default {
         hide() {
             this.$emit('before-hide');
             this.overlayVisible = false;
+            this.$refs.focusInput.focus();
         },
         onFocus(event) {
             this.focused = true;

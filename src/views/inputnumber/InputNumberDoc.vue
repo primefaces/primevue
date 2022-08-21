@@ -273,10 +273,22 @@ Vertical
                         <td>Determines whether the input field is empty.</td>
                     </tr>
                     <tr>
+                        <td>disabled</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>When present, it specifies that the element should be disabled.</td>
+                    </tr>
+                    <tr>
                         <td>readonly</td>
                         <td>boolean</td>
                         <td>false</td>
                         <td>When present, it specifies that an input field is read-only.</td>
+                    </tr>
+                    <tr>
+                        <td>placeholder</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Placeholder text for the input.</td>
                     </tr>
                     <tr>
                         <td>inputId</td>
@@ -295,6 +307,24 @@ Vertical
                         <td>string</td>
                         <td>null</td>
                         <td>Style class of the input field.</td>
+                    </tr>
+                    <tr>
+                        <td>inputProps</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td>Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.</td>
+                    </tr>
+                    <tr>
+                        <td>incrementButtonProps</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td>Uses to pass all properties of the HTMLButtonElement to increment button inside the component.</td>
+                    </tr>
+                    <tr>
+                        <td>decrementButtonProps</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td>Uses to pass all properties of the HTMLButtonElement to decrement button inside the component.</td>
                     </tr>
                 </tbody>
             </table>

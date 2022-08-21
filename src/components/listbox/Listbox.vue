@@ -1,6 +1,6 @@
 <template>
     <div :id="id" :class="containerClass" @focusout="onFocusout">
-        <a ref="firstHiddenFocusableElement" role="presentation" aria-hidden="true" class="p-hidden-accessible p-hidden-focusable" :tabindex="!disabled ? tabindex : -1" @focus="onFirstHiddenFocus"></a>
+        <span ref="firstHiddenFocusableElement" role="presentation" aria-hidden="true" class="p-hidden-accessible p-hidden-focusable" :tabindex="!disabled ? tabindex : -1" @focus="onFirstHiddenFocus"></span>
         <slot name="header" :value="modelValue" :options="visibleOptions"></slot>
         <div v-if="filter" class="p-listbox-header">
             <div class="p-listbox-filter-container">
@@ -50,7 +50,7 @@
             </VirtualScroller>
         </div>
         <slot name="footer" :value="modelValue" :options="visibleOptions"></slot>
-        <a ref="lastHiddenFocusableElement" role="presentation" aria-hidden="true" class="p-hidden-accessible p-hidden-focusable" :tabindex="!disabled ? tabindex : -1" @focus="onLastHiddenFocus"></a>
+        <span ref="lastHiddenFocusableElement" role="presentation" aria-hidden="true" class="p-hidden-accessible p-hidden-focusable" :tabindex="!disabled ? tabindex : -1" @focus="onLastHiddenFocus"></span>
     </div>
 </template>
 
@@ -205,7 +205,7 @@ export default {
             this.$refs.lastHiddenFocusableElement.tabIndex = -1;
         },
         onFocusout(event) {
-            if (!this.$el.contains(event.relatedTarget)) {
+            if (!this.$el.contains(event.relatedTarget) && this.$refs.lastHiddenFocusableElement && this.$refs.firstHiddenFocusableElement) {
                 this.$refs.lastHiddenFocusableElement.tabIndex = this.$refs.firstHiddenFocusableElement.tabIndex = undefined;
             }
         },
@@ -664,19 +664,19 @@ export default {
             return ObjectUtils.isNotEmpty(this.visibleOptions) ? this.filterMessageText.replaceAll('{0}', this.visibleOptions.length) : this.emptyFilterMessageText;
         },
         filterMessageText() {
-            return this.filterMessage || this.$primevue.config.locale.searchMessage;
+            return this.filterMessage || this.$primevue.config.locale.searchMessage || '';
         },
         emptyFilterMessageText() {
-            return this.emptyFilterMessage || this.$primevue.config.locale.emptySearchMessage || this.$primevue.config.locale.emptyFilterMessage;
+            return this.emptyFilterMessage || this.$primevue.config.locale.emptySearchMessage || this.$primevue.config.locale.emptyFilterMessage || '';
         },
         emptyMessageText() {
-            return this.emptyMessage || this.$primevue.config.locale.emptyMessage;
+            return this.emptyMessage || this.$primevue.config.locale.emptyMessage || '';
         },
         selectionMessageText() {
-            return this.selectionMessage || this.$primevue.config.locale.selectionMessage;
+            return this.selectionMessage || this.$primevue.config.locale.selectionMessage || '';
         },
         emptySelectionMessageText() {
-            return this.emptySelectionMessage || this.$primevue.config.locale.emptySelectionMessage;
+            return this.emptySelectionMessage || this.$primevue.config.locale.emptySelectionMessage || '';
         },
         selectedMessageText() {
             return this.hasSelectedOption ? this.selectionMessageText.replaceAll('{0}', this.multiple ? this.modelValue.length : '1') : this.emptySelectionMessageText;

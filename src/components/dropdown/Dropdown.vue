@@ -17,7 +17,7 @@
         <Portal :appendTo="appendTo">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @after-enter="onOverlayAfterEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
                 <div v-if="overlayVisible" :ref="overlayRef" :style="panelStyle" :class="panelStyleClass" @click="onOverlayClick" @keydown="onOverlayKeyDown" v-bind="panelProps">
-                    <a ref="firstHiddenFocusableElementOnOverlay" role="presentation" aria-hidden="true" class="p-hidden-accessible p-hidden-focusable" :tabindex="0" @focus="onFirstHiddenFocus"></a>
+                    <span ref="firstHiddenFocusableElementOnOverlay" role="presentation" aria-hidden="true" class="p-hidden-accessible p-hidden-focusable" :tabindex="0" @focus="onFirstHiddenFocus"></span>
                     <slot name="header" :value="modelValue" :options="visibleOptions"></slot>
                     <div v-if="filter" class="p-dropdown-header">
                         <div class="p-dropdown-filter-container">
@@ -65,7 +65,7 @@
                         </VirtualScroller>
                     </div>
                     <slot name="footer" :value="modelValue" :options="visibleOptions"></slot>
-                    <a ref="lastHiddenFocusableElementOnOverlay" role="presentation" aria-hidden="true" class="p-hidden-accessible p-hidden-focusable" :tabindex="0" @focus="onLastHiddenFocus"></a>
+                    <span ref="lastHiddenFocusableElementOnOverlay" role="presentation" aria-hidden="true" class="p-hidden-accessible p-hidden-focusable" :tabindex="0" @focus="onLastHiddenFocus"></span>
                 </div>
             </transition>
         </Portal>
@@ -842,19 +842,19 @@ export default {
             return ObjectUtils.isNotEmpty(this.visibleOptions) ? this.filterMessageText.replaceAll('{0}', this.visibleOptions.length) : this.emptyFilterMessageText;
         },
         filterMessageText() {
-            return this.filterMessage || this.$primevue.config.locale.searchMessage;
+            return this.filterMessage || this.$primevue.config.locale.searchMessage || '';
         },
         emptyFilterMessageText() {
-            return this.emptyFilterMessage || this.$primevue.config.locale.emptySearchMessage || this.$primevue.config.locale.emptyFilterMessage;
+            return this.emptyFilterMessage || this.$primevue.config.locale.emptySearchMessage || this.$primevue.config.locale.emptyFilterMessage || '';
         },
         emptyMessageText() {
-            return this.emptyMessage || this.$primevue.config.locale.emptyMessage;
+            return this.emptyMessage || this.$primevue.config.locale.emptyMessage || '';
         },
         selectionMessageText() {
-            return this.selectionMessage || this.$primevue.config.locale.selectionMessage;
+            return this.selectionMessage || this.$primevue.config.locale.selectionMessage || '';
         },
         emptySelectionMessageText() {
-            return this.emptySelectionMessage || this.$primevue.config.locale.emptySelectionMessage;
+            return this.emptySelectionMessage || this.$primevue.config.locale.emptySelectionMessage || '';
         },
         selectedMessageText() {
             return this.hasSelectedOption ? this.selectionMessageText.replaceAll('{0}', '1') : this.emptySelectionMessageText;

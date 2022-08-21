@@ -60,6 +60,14 @@ export interface PasswordProps extends InputHTMLAttributes {
      */
     showIcon?: string | undefined;
     /**
+     * When present, it specifies that the component should be disabled.
+     */
+    disabled?: boolean | undefined;
+    /**
+     * Placeholder text for the input.
+     */
+    placeholder?: string | undefined;
+    /**
      * Identifier of the underlying input element.
      */
     inputId?: string | undefined;
@@ -71,6 +79,10 @@ export interface PasswordProps extends InputHTMLAttributes {
      * Style class of the input field.
      */
     inputClass?: any | undefined;
+    /**
+     * Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.
+     */
+    inputProps?: HTMLInputElement | undefined;
     /**
      * Identifier of the underlying overlay panel element.
      */
@@ -84,9 +96,9 @@ export interface PasswordProps extends InputHTMLAttributes {
      */
     panelStyle?: any | undefined;
     /**
-     * 
+     * Uses to pass all properties of the HTMLDivElement to the overlay panel inside the component.
      */
-    panelProps?: object | undefined;
+    panelProps?: HTMLDivElement | undefined;
     /**
      * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
      */

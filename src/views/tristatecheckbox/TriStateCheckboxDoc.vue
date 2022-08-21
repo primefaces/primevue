@@ -40,16 +40,28 @@ import TriStateCheckbox from 'primevue/tristatecheckbox';
                         <td>Value of the component.</td>
                     </tr>
                     <tr>
-                        <td>style</td>
-                        <td>any</td>
-                        <td>null</td>
-                        <td>Style class of the component.</td>
+                        <td>disabled</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>When specified, disables the component.</td>
                     </tr>
                     <tr>
-                        <td>class</td>
+                        <td>tabindex</td>
+                        <td>number</td>
+                        <td>0</td>
+                        <td>Index of the element in tabbing order.</td>
+                    </tr>
+                    <tr>
+                        <td>inputId</td>
                         <td>string</td>
                         <td>null</td>
-                        <td>Inline style of the component.</td>
+                        <td>Style class of the component input field.</td>
+                    </tr>
+                    <tr>
+                        <td>inputProps</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td>Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.</td>
                     </tr>
 				</tbody>
 			</table>

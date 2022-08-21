@@ -10,7 +10,7 @@
                 <slot name="chip" :value="option">
                     <span class="p-autocomplete-token-label">{{getOptionLabel(option)}}</span>
                 </slot>
-                <span class="p-autocomplete-token-icon pi pi-times-circle" @click="removeOption($event, option, i)" aria-hidden="true"></span>
+                <span class="p-autocomplete-token-icon pi pi-times-circle" @click="removeOption($event, i)" aria-hidden="true"></span>
             </li>
             <li class="p-autocomplete-input-token" role="option">
                 <input ref="focusInput" :id="inputId" type="text" :style="inputStyle" :class="inputClass" :placeholder="placeholder" :tabindex="!disabled ? tabindex : -1" :disabled="disabled" autocomplete="off"
@@ -195,6 +195,7 @@ export default {
     searchTimeout: null,
     selectOnFocus: false,
     focusOnHover: false,
+    dirty: false,
     data() {
         return {
             id: UniqueComponentId(),
@@ -209,7 +210,7 @@ export default {
         suggestions() {
             if (this.searching) {
                 ObjectUtils.isNotEmpty(this.suggestions) ? this.show() : this.hide();
-                this.focusedOptionIndex = this.overlayVisible && this.autoOptionFocus ? this.findFirstOptionIndex() : -1;
+                this.focusedOptionIndex = this.overlayVisible && this.autoOptionFocus ? this.findFirstFocusedOptionIndex() : -1;
                 this.searching = false;
             }
 
@@ -270,14 +271,16 @@ export default {
         },
         show(isFocus) {
             this.$emit('before-show');
+            this.dirty = true;
             this.overlayVisible = true;
-            this.focusedOptionIndex = this.focusedOptionIndex !== -1 ? this.focusedOptionIndex : (this.autoOptionFocus ? this.findFirstOptionIndex() : -1);
+            this.focusedOptionIndex = this.focusedOptionIndex !== -1 ? this.focusedOptionIndex : (this.autoOptionFocus ? this.findFirstFocusedOptionIndex() : -1);
 
             isFocus && this.$refs.focusInput.focus();
         },
         hide(isFocus) {
             const _hide = () => {
                 this.$emit('before-hide');
+                this.dirty = isFocus;
                 this.overlayVisible = false;
                 this.focusedOptionIndex = -1;
 
@@ -287,12 +290,18 @@ export default {
             setTimeout(() => { _hide() }, 0); // For ScreenReaders
         },
         onFocus(event) {
+            if (!this.dirty && this.completeOnFocus) {
+                this.search(event, event.target.value, 'focus');
+            }
+
+            this.dirty = true;
             this.focused = true;
-            this.focusedOptionIndex = this.overlayVisible && this.autoOptionFocus ? this.findFirstOptionIndex() : -1;
+            this.focusedOptionIndex = this.overlayVisible && this.autoOptionFocus ? this.findFirstFocusedOptionIndex() : -1;
             this.overlayVisible && this.scrollInView(this.focusedOptionIndex);
             this.$emit('focus', event);
         },
         onBlur(event) {
+            this.dirty = false;
             this.focused = false;
             this.focusedOptionIndex = -1;
             this.$emit('blur', event);
@@ -429,29 +438,29 @@ export default {
             }
         },
         onContainerClick(event) {
-            if (this.disabled || this.searching) {
+            if (this.disabled || this.searching || this.isInputClicked(event) || this.isDropdownClicked(event)) {
                 return;
             }
 
-            if (this.isDropdownClicked(event) || event.target.tagName === 'INPUT') {
-                return;
-            }
-            else if (!this.overlay || !this.overlay.contains(event.target)) {
-                if (this.completeOnFocus) {
-                    this.search(event, '', 'click');
-                }
-
+            if (!this.overlay || !this.overlay.contains(event.target)) {
                 this.$refs.focusInput.focus();
             }
         },
         onDropdownClick(event) {
-            this.$refs.focusInput.focus();
-            const query = this.$refs.focusInput.value;
+            let query = undefined;
 
-            if (this.dropdownMode === 'blank')
-                this.search(event, '', 'dropdown');
-            else if (this.dropdownMode === 'current')
-                this.search(event, query, 'dropdown');
+            if (this.overlayVisible) {
+                this.hide(true);
+            }
+            else {
+                this.$refs.focusInput.focus();
+                query = this.$refs.focusInput.value;
+
+                if (this.dropdownMode === 'blank')
+                    this.search(event, '', 'dropdown');
+                else if (this.dropdownMode === 'current')
+                    this.search(event, query, 'dropdown');
+            }
 
             this.$emit('dropdown-click', { originalEvent: event, query });
         },
@@ -499,7 +508,7 @@ export default {
                 return;
             }
 
-            const optionIndex = this.focusedOptionIndex !== -1 ? this.findNextOptionIndex(this.focusedOptionIndex) : this.findFirstOptionIndex();
+            const optionIndex = this.focusedOptionIndex !== -1 ? this.findNextOptionIndex(this.focusedOptionIndex) : this.findFirstFocusedOptionIndex();
 
             this.changeFocusedOptionIndex(event, optionIndex);
 
@@ -519,7 +528,7 @@ export default {
                 event.preventDefault();
             }
             else {
-                const optionIndex = this.focusedOptionIndex !== -1 ? this.findPrevOptionIndex(this.focusedOptionIndex) : this.findLastOptionIndex();
+                const optionIndex = this.focusedOptionIndex !== -1 ? this.findPrevOptionIndex(this.focusedOptionIndex) : this.findLastFocusedOptionIndex();
 
                 this.changeFocusedOptionIndex(event, optionIndex);
 
@@ -530,13 +539,20 @@ export default {
             const target = event.currentTarget;
             this.focusedOptionIndex = -1;
 
-            if (this.multiple && ObjectUtils.isEmpty(target.value) && this.hasSelectedOption) {
-                this.$refs.multiContainer.focus();
-                this.focusedMultipleOptionIndex = this.modelValue.length;
+            if (this.multiple) {
+                if (ObjectUtils.isEmpty(target.value) && this.hasSelectedOption) {
+                    this.$refs.multiContainer.focus();
+                    this.focusedMultipleOptionIndex = this.modelValue.length;
+                }
+                else {
+                    event.stopPropagation(); // To prevent onArrowLeftKeyOnMultiple method
+                }
             }
         },
-        onArrowRightKey() {
+        onArrowRightKey(event) {
             this.focusedOptionIndex = -1;
+
+            this.multiple && event.stopPropagation(); // To prevent onArrowRightKeyOnMultiple method
         },
         onHomeKey(event) {
             event.currentTarget.setSelectionRange(0, 0);
@@ -594,6 +610,8 @@ export default {
                     this.$emit('update:modelValue', newValue);
                     this.$emit('item-unselect', { originalEvent: event, value: removedValue });
                 }
+
+                event.stopPropagation(); // To prevent onBackspaceKeyOnMultiple method
             }
         },
         onArrowLeftKeyOnMultiple() {
@@ -609,7 +627,7 @@ export default {
         },
         onBackspaceKeyOnMultiple(event) {
             if (this.focusedMultipleOptionIndex !== -1) {
-                this.removeOption(event, this.modelValue[this.focusedMultipleOptionIndex], this.focusedMultipleOptionIndex);
+                this.removeOption(event, this.focusedMultipleOptionIndex);
             }
         },
         onOverlayEnter(el) {
@@ -710,6 +728,9 @@ export default {
         isValidOption(option) {
             return option && !(this.isOptionDisabled(option) || this.isOptionGroup(option));
         },
+        isValidSelectedOption(option) {
+            return this.isValidOption(option) && this.isSelected(option);
+        },
         isSelected(option) {
             return ObjectUtils.equals(this.modelValue, this.getOptionValue(option), this.equalityKey);
         },
@@ -727,6 +748,17 @@ export default {
             const matchedOptionIndex = index > 0 ? this.visibleOptions.slice(0, index).findLastIndex(option => this.isValidOption(option)) : -1;
             return matchedOptionIndex > -1 ? matchedOptionIndex : index;
         },
+        findSelectedOptionIndex() {
+            return this.hasSelectedOption ? this.visibleOptions.findIndex(option => this.isValidSelectedOption(option)) : -1;
+        },
+        findFirstFocusedOptionIndex() {
+            const selectedIndex = this.findSelectedOptionIndex();
+            return selectedIndex < 0 ? this.findFirstOptionIndex() : selectedIndex;
+        },
+        findLastFocusedOptionIndex() {
+            const selectedIndex = this.findSelectedOptionIndex();
+            return selectedIndex < 0 ? this.findLastOptionIndex() : selectedIndex;
+        },
         search(event, query, source) {
             //allow empty string but not undefined or null
             if (query === undefined || query === null) {
@@ -741,12 +773,13 @@ export default {
             this.searching = true;
             this.$emit('complete', { originalEvent: event, query });
         },
-        removeOption(event, option, index) {
+        removeOption(event, index) {
             const removedOption = this.modelValue[index];
-            const value = this.modelValue.filter(val => !ObjectUtils.equals(val, this.getOptionValue(option), this.equalityKey)).map(option => this.getOptionValue(option));
+            const value = this.modelValue.filter((_, i) => i !== index).map(option => this.getOptionValue(option));
 
             this.updateModel(event, value);
             this.$emit('item-unselect', { originalEvent: event, value: removedOption });
+            this.dirty = true;
             this.$refs.focusInput.focus();
         },
         changeFocusedOptionIndex(event, index) {
@@ -859,16 +892,16 @@ export default {
             return ObjectUtils.isNotEmpty(this.visibleOptions) && this.overlayVisible ? this.searchMessageText.replaceAll('{0}', this.visibleOptions.length) : this.emptySearchMessageText;
         },
         searchMessageText() {
-            return this.searchMessage || this.$primevue.config.locale.searchMessage;
+            return this.searchMessage || this.$primevue.config.locale.searchMessage || '';
         },
         emptySearchMessageText() {
-            return this.emptySearchMessage || this.$primevue.config.locale.emptySearchMessage;
+            return this.emptySearchMessage || this.$primevue.config.locale.emptySearchMessage || '';
         },
         selectionMessageText() {
-            return this.selectionMessage || this.$primevue.config.locale.selectionMessage;
+            return this.selectionMessage || this.$primevue.config.locale.selectionMessage || '';
         },
         emptySelectionMessageText() {
-            return this.emptySelectionMessage || this.$primevue.config.locale.emptySelectionMessage;
+            return this.emptySelectionMessage || this.$primevue.config.locale.emptySelectionMessage || '';
         },
         selectedMessageText() {
             return this.hasSelectedOption ? this.selectionMessageText.replaceAll('{0}', this.multiple ? this.modelValue.length : '1') : this.emptySelectionMessageText;

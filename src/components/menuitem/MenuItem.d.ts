@@ -38,7 +38,7 @@ export interface MenuItem {
      * Callback to execute when item is clicked.
      * @param {@link MenuItemCommandEvent} event - Custom command event.
      */
-    command?(event: MenuItemCommandEvent): void;
+    command?: (event: MenuItemCommandEvent) => void;
     /**
      * External link to navigate when item is clicked.
      */

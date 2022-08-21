@@ -139,7 +139,7 @@ export default {
                         <td>inputProps</td>
                         <td>object</td>
                         <td>null</td>
-                        <td></td>
+                        <td>Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.</td>
                     </tr>
 				</tbody>
 			</table>

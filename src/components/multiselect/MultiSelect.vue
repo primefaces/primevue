@@ -32,10 +32,10 @@
         <Portal :appendTo="appendTo">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @after-enter="onOverlayAfterEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
                 <div v-if="overlayVisible" :ref="overlayRef" :style="panelStyle" :class="panelStyleClass" @click="onOverlayClick" @keydown="onOverlayKeyDown" v-bind="panelProps">
-                    <a ref="firstHiddenFocusableElementOnOverlay" role="presentation" aria-hidden="true" class="p-hidden-accessible p-hidden-focusable" :tabindex="0" @focus="onFirstHiddenFocus"></a>
+                    <span ref="firstHiddenFocusableElementOnOverlay" role="presentation" aria-hidden="true" class="p-hidden-accessible p-hidden-focusable" :tabindex="0" @focus="onFirstHiddenFocus"></span>
                     <slot name="header" :value="modelValue" :options="visibleOptions"></slot>
                     <div v-if="(showToggleAll && selectionLimit == null) || filter" class="p-multiselect-header">
-                        <div v-if="showToggleAll && selectionLimit == null" class="p-checkbox p-component" @click="onToggleAll">
+                        <div v-if="showToggleAll && selectionLimit == null" :class="headerCheckboxClass" @click="onToggleAll">
                             <div class="p-hidden-accessible">
                                 <input type="checkbox" readonly :checked="allSelected" :aria-label="toggleAllAriaLabel" @focus="onHeaderCheckboxFocus" @blur="onHeaderCheckboxBlur">
                             </div>
@@ -98,7 +98,7 @@
                         </VirtualScroller>
                     </div>
                     <slot name="footer" :value="modelValue" :options="visibleOptions"></slot>
-                    <a ref="lastHiddenFocusableElementOnOverlay" role="presentation" aria-hidden="true" class="p-hidden-accessible p-hidden-focusable" :tabindex="0" @focus="onLastHiddenFocus"></a>
+                    <span ref="lastHiddenFocusableElementOnOverlay" role="presentation" aria-hidden="true" class="p-hidden-accessible p-hidden-focusable" :tabindex="0" @focus="onLastHiddenFocus"></span>
                 </div>
             </transition>
         </Portal>
@@ -947,6 +947,12 @@ export default {
                 'p-ripple-disabled': this.$primevue.config.ripple === false
             }];
         },
+        headerCheckboxClass() {
+            return ['p-checkbox p-component', {
+                'p-checkbox-checked': this.allSelected,
+                'p-checkbox-focused': this.headerCheckboxFocused
+            }];
+        },
         visibleOptions() {
             const options = this.optionGroupLabel ? this.flatOptions(this.options) : (this.options || []);
 
@@ -995,19 +1001,19 @@ export default {
             return ObjectUtils.isNotEmpty(this.visibleOptions) ? this.filterMessageText.replaceAll('{0}', this.visibleOptions.length) : this.emptyFilterMessageText;
         },
         filterMessageText() {
-            return this.filterMessage || this.$primevue.config.locale.searchMessage;
+            return this.filterMessage || this.$primevue.config.locale.searchMessage || '';
         },
         emptyFilterMessageText() {
-            return this.emptyFilterMessage || this.$primevue.config.locale.emptySearchMessage || this.$primevue.config.locale.emptyFilterMessage;
+            return this.emptyFilterMessage || this.$primevue.config.locale.emptySearchMessage || this.$primevue.config.locale.emptyFilterMessage || '';
         },
         emptyMessageText() {
-            return this.emptyMessage || this.$primevue.config.locale.emptyMessage;
+            return this.emptyMessage || this.$primevue.config.locale.emptyMessage || '';
         },
         selectionMessageText() {
-            return this.selectionMessage || this.$primevue.config.locale.selectionMessage;
+            return this.selectionMessage || this.$primevue.config.locale.selectionMessage || '';
         },
         emptySelectionMessageText() {
-            return this.emptySelectionMessage || this.$primevue.config.locale.emptySelectionMessage;
+            return this.emptySelectionMessage || this.$primevue.config.locale.emptySelectionMessage || '';
         },
         selectedMessageText() {
             return this.hasSelectedOption ? this.selectionMessageText.replaceAll('{0}', this.modelValue.length) : this.emptySelectionMessageText;

@@ -138,6 +138,18 @@ const InputNumberProps = [
         description: "When present, it specifies that an input field is read-only."
     },
     {
+        name: "placeholder",
+        type: "string",
+        default: "null",
+        description: "Placeholder text for the input."
+    },
+    {
+        name: "inputId",
+        type: "string",
+        default: "null",
+        description: "Identifier of the underlying input element."
+    },
+    {
         name: "inputStyle",
         type: "any",
         default: "null",
@@ -150,16 +162,22 @@ const InputNumberProps = [
         description: "Style class of the input field."
     },
     {
-        name: "class",
-        type: "string",
+        name: "inputProps",
+        type: "object",
         default: "null",
-        description: "Style class of the component."
+        description: "Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component."
     },
     {
-        name: "style",
-        type: "any",
+        name: "incrementButtonProps",
+        type: "object",
         default: "null",
-        description: "Inline of the component."
+        description: "Uses to pass all properties of the HTMLButtonElement to increment button inside the component."
+    },
+    {
+        name: "decrementButtonProps",
+        type: "object",
+        default: "null",
+        description: "Uses to pass all properties of the HTMLButtonElement to decrement button inside the component."
     }
 ];
 

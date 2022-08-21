@@ -57,7 +57,7 @@ export default defineComponent({
         }
 
         onMounted(() => {
-             changeToSpanish();
+            changeToSpanish();
         })
     }
 });
@@ -100,6 +100,23 @@ locale: {
     dayNamesMin: ["Su","Mo","Tu","We","Th","Fr","Sa"],
     monthNames: ["January","February","March","April","May","June","July","August","September","October","November","December"],
     monthNamesShort: ["Jan", "Feb", "Mar", "Apr", "May", "Jun","Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+    chooseYear: 'Choose Year',
+    chooseMonth: 'Choose Month',
+    chooseDate: 'Choose Date',
+    prevDecade: 'Previous Decade',
+    nextDecade: 'Next Decade',
+    prevYear: 'Previous Year',
+    nextYear: 'Next Year',
+    prevMonth: 'Previous Month',
+    nextMonth: 'Next Month',
+    prevHour: 'Previous Hour',
+    nextHour: 'Next Hour',
+    prevMinute: 'Previous Minute',
+    nextMinute: 'Next Minute',
+    prevSecond: 'Previous Second',
+    nextSecond: 'Next Second',
+    am: 'am',
+    pm: 'pm',
     today: 'Today',
     weekHeader: 'Wk',
     firstDayOfWeek: 0,
@@ -108,8 +125,22 @@ locale: {
     medium: 'Medium',
     strong: 'Strong',
     passwordPrompt: 'Enter a password',
-    emptyFilterMessage: 'No results found',
-    emptyMessage: 'No available options'
+    emptyFilterMessage: 'No results found', // @deprecated Use 'emptySearchMessage' option instead.
+    searchMessage: '{0} results are available',
+    selectionMessage: '{0} items selected',
+    emptySelectionMessage: 'No selected item',
+    emptySearchMessage: 'No results found',
+    emptyMessage: 'No available options',
+    aria: {
+        trueLabel: 'True',
+        falseLabel: 'False',
+        nullLabel: 'Not Selected',
+        star: '1 star',
+        stars: '{star} stars',
+        selectAll: 'All items selected',
+        unselectAll: 'All items unselected',
+        close: 'Close'
+    }
 }
 
 </code></pre>
