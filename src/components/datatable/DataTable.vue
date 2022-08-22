@@ -415,16 +415,6 @@ export default {
     mounted() {
         this.allChildren = this.$children;
 
-        if (this.reorderableColumns) {
-            let columnOrder = [];
-            for (let child of this.allChildren) {
-                if (child.$options._propKeys.indexOf('columnKey') !== -1) {
-                    columnOrder.push(child.columnKey||child.field);
-                }
-            }
-            this.d_columnOrder = columnOrder;
-        }
-
         this.$el.setAttribute(this.attributeSelector, '');
 
         if (this.responsiveLayout === 'stack' && !this.scrollable) {
