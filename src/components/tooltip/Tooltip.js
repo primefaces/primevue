@@ -302,11 +302,12 @@ const Tooltip = {
         else if (typeof options.value === 'object' && options.value) {
             if (options.value.value === undefined || options.value.value === null || options.value.value.trim() === '') return;
             else {
+                /* eslint-disable */
                 target.$_ptooltipValue = options.value.value;
-                target.$_ptooltipDisabled = options.value.disabled || false;
-                target.$_ptooltipEscape = options.value.escape || false;
+                target.$_ptooltipDisabled = !!options.value.disabled === options.value.disabled ? options.value.disabled : false;
+                target.$_ptooltipEscape = !!options.value.escape === options.value.escape ? options.value.escape : false;
                 target.$_ptooltipClass = options.value.class;
-                target.$_ptooltipFitContent = options.value.fitContent || true;
+                target.$_ptooltipFitContent = !!options.value.fitContent === options.value.fitContent ? options.value.fitContent : true;
             }
         }
 
@@ -339,11 +340,12 @@ const Tooltip = {
         else if (typeof options.value === 'object' && options.value) {
             if (options.value.value === undefined || options.value.value === null || options.value.value.trim() === '') return;
             else {
+                /* eslint-disable */
                 target.$_ptooltipValue = options.value.value;
-                target.$_ptooltipDisabled = options.value.disabled || false;
-                target.$_ptooltipEscape = options.value.escape || false;
+                target.$_ptooltipDisabled = !!options.value.disabled === options.value.disabled ? options.value.disabled : false;
+                target.$_ptooltipEscape = !!options.value.escape === options.value.escape ? options.value.escape : false;
                 target.$_ptooltipClass = options.value.class;
-                target.$_ptooltipFitContent = options.value.fitContent || true;
+                target.$_ptooltipFitContent = !!options.value.fitContent === options.value.fitContent ? options.value.fitContent : true;
             }
         }
     }
