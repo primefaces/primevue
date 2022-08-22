@@ -2043,7 +2043,7 @@ export default {
 .p-datatable-scrollable-horizontal .p-datatable-thead > tr > th
 .p-datatable-scrollable-horizontal .p-datatable-tbody > tr > td,
 .p-datatable-scrollable-horizontal .p-datatable-tfoot > tr > td {
-    flex: 0 0 auto;
+    flex: 1 0 auto;
 }
 
 .p-datatable-flex-scrollable {
