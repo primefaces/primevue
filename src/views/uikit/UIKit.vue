@@ -213,7 +213,7 @@
                                     </li>
                                 </ul>
                                 <hr class="mb-3 mx-0 border-top-1 border-none surface-border" />
-                                <a href="mailto:contact@primetek:com.tr" pRipple class="bg-bluegray-500 text-white hover:bg-bluegray-400 p-3 w-full border-round text-center transition-colors transition-duration-300 font-bold">Contact Us</a>
+                                <a href="mailto:contact@primetek.com.tr" pRipple class="bg-bluegray-500 text-white hover:bg-bluegray-400 p-3 w-full border-round text-center transition-colors transition-duration-300 font-bold">Contact Us</a>
                             </div>
                         </div>
                     </div>
