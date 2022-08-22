@@ -10,7 +10,7 @@
 
         <div class="content-section implementation">
             <div class="card">
-                <Button type="button" icon="pi pi-search" :label="selectedProduct ? selectedProduct.name : 'Select a Product'" @click="toggle" aria:haspopup="true" aria-controls="overlay_panel" />
+                <Button type="button" icon="pi pi-search" :label="selectedProduct ? selectedProduct.name : 'Select a Product'" @click="toggle" aria-haspopup="true" aria-controls="overlay_panel" />
 
                 <OverlayPanel ref="op" appendTo="body" :showCloseIcon="true" id="overlay_panel" style="width:450px" :breakpoints="{'960px': '75vw'}">
                     <DataTable :value="products" v-model:selection="selectedProduct" selectionMode="single" :paginator="true" :rows="5" @row-select="onProductSelect" responsiveLayout="scroll">
