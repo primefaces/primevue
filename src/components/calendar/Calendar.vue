@@ -13,7 +13,7 @@
                             <div class="p-datepicker-group" v-for="(month,groupIndex) of months" :key="month.month + month.year">
                                 <div class="p-datepicker-header">
                                     <slot name="header"></slot>
-                                    <button class="p-datepicker-prev p-link" v-show="groupIndex === 0" @click="onPrevButtonClick" type="button" @keydown="onContainerButtonKeydown" v-ripple :disabled="disabled" :aria-label=" currentView === 'year' ? $primevue.config.locale.prevDecade: currentView === 'month' ? $primevue.config.locale.prevYear : $primevue.config.locale.prevMonth">
+                                    <button class="p-datepicker-prev p-link" v-show="showOtherMonths ? groupIndex === 0 : false" @click="onPrevButtonClick" type="button" @keydown="onContainerButtonKeydown" v-ripple :disabled="disabled" :aria-label=" currentView === 'year' ? $primevue.config.locale.prevDecade: currentView === 'month' ? $primevue.config.locale.prevYear : $primevue.config.locale.prevMonth">
                                         <span class="p-datepicker-prev-icon pi pi-chevron-left"></span>
                                     </button>
                                     <div class="p-datepicker-title">
@@ -29,7 +29,7 @@
                                             </slot>
                                         </span>
                                     </div>
-                                    <button class="p-datepicker-next p-link" v-show="numberOfMonths === 1 ? true : (groupIndex === numberOfMonths - 1)"
+                                    <button class="p-datepicker-next p-link" v-show="showOtherMonths ? numberOfMonths === 1 ? true : (groupIndex === numberOfMonths - 1) : false"
                                         @click="onNextButtonClick" type="button" @keydown="onContainerButtonKeydown" v-ripple :disabled="disabled" :aria-label=" currentView === 'year' ? $primevue.config.locale.nextDecade : currentView === 'month' ? $primevue.config.locale.nextYear : $primevue.config.locale.nextMonth">
                                         <span class="p-datepicker-next-icon pi pi-chevron-right"></span>
                                     </button>
