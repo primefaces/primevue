@@ -1,40 +1,38 @@
 <template>
     <div :id="id" v-if="$attrs.value && $attrs.value.length > 0" :class="galleriaClass" :style="$attrs.containerStyle">
-        <button v-if="$attrs.fullScreen" type="button" class="p-galleria-close p-link" @click="$emit('mask-hide')" v-ripple>
+        <button v-if="$attrs.fullScreen" type="button" class="p-galleria-close p-link" @click="$emit('maskHide')" v-ripple>
             <span class="p-galleria-close-icon pi pi-times"></span>
         </button>
         <div v-if="$attrs.templates && $attrs.templates['header']" class="p-galleria-header">
-            <component :is="$attrs.templates['header']" />
+            <GalleriaItemSlot type="header" :templates="$attrs.templates"/>
         </div>
         <div class="p-galleria-content">
-            <GalleriaItem :value="$attrs.value" v-model:activeIndex="activeIndex" :circular="$attrs.circular" :templates="$attrs.templates"
+            <GalleriaItem :value="$attrs.value" :activeIndex.sync="activeIndex" :circular="$attrs.circular" :templates="$attrs.templates"
                 :showIndicators="$attrs.showIndicators" :changeItemOnIndicatorHover="$attrs.changeItemOnIndicatorHover"
-                :showItemNavigators="$attrs.showItemNavigators" :autoPlay="$attrs.autoPlay" v-model:slideShowActive="slideShowActive"
-                @start-slideshow="startSlideShow" @stop-slideshow="stopSlideShow" />
+                :showItemNavigators="$attrs.showItemNavigators" :autoPlay="$attrs.autoPlay" :slideShowActive.sync="slideShowActive"
+                @startSlideShow="startSlideShow" @stopSlideShow="stopSlideShow" />
 
-            <GalleriaThumbnails v-if="$attrs.showThumbnails" :containerId="id" :value="$attrs.value" v-model:activeIndex="activeIndex" :templates="$attrs.templates"
-                :numVisible="numVisible" :responsiveOptions="$attrs.responsiveOptions" :circular="$attrs.circular"
+            <GalleriaThumbnails v-if="$attrs.showThumbnails" :containerId="id" :value="$attrs.value" :activeIndex.sync="activeIndex" :templates="$attrs.templates"
+                :numVisible="$attrs.numVisible" :responsiveOptions="$attrs.responsiveOptions" :circular="$attrs.circular"
                 :isVertical="isVertical()" :contentHeight="$attrs.verticalThumbnailViewPortHeight" :showThumbnailNavigators="$attrs.showThumbnailNavigators"
-                v-model:slideShowActive="slideShowActive" @stop-slideshow="stopSlideShow" />
+                :slideShowActive.sync="slideShowActive" @stopSlideShow="stopSlideShow" />
         </div>
         <div v-if="$attrs.templates && $attrs.templates['footer']" class="p-galleria-footer">
-            <component :is="$attrs.templates['footer']" />
+            <GalleriaItemSlot type="footer" :templates="$attrs.templates"/>
         </div>
     </div>
 </template>
 
 <script>
-import {UniqueComponentId} from 'primevue/utils';
-import GalleriaItem from './GalleriaItem.vue';
-import GalleriaThumbnails from './GalleriaThumbnails.vue';
-import GalleriaItemSlot from './GalleriaItemSlot.vue';
-import Ripple from 'primevue/ripple';
+import UniqueComponentId from '../utils/UniqueComponentId';
+import GalleriaItem from './GalleriaItem';
+import GalleriaThumbnails from './GalleriaThumbnails';
+import GalleriaItemSlot from './GalleriaItemSlot';
+import Ripple from '../ripple/Ripple';
 
 export default {
-    name: 'GalleriaContent',
     inheritAttrs: false,
     interval: null,
-    emits: ['activeitem-change', 'mask-hide'],
     data() {
         return {
             id: this.$attrs.id || UniqueComponentId(),
@@ -57,9 +55,9 @@ export default {
         }
     },
     updated() {
-        this.$emit('activeitem-change', this.activeIndex);
+        this.$emit('activeItemChange', this.activeIndex);
     },
-    beforeUnmount() {
+    beforeDestroy() {
 		if (this.slideShowActive) {
 			this.stopSlideShow();
 		}

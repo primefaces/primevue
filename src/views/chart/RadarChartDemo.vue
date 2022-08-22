@@ -5,7 +5,6 @@
                 <h1>Radar Chart</h1>
                 <p>A radar chart is a graphical method of displaying multivariate data in the form of a two-dimensional chart of three or more quantitative variables represented on axes starting from the same point.</p>
             </div>
-            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">
@@ -20,21 +19,19 @@
 
 <script>
 import RadarChartDoc from './RadarChartDoc';
-import EventBus from '@/AppEventBus';
+import EventBus from '@/EventBus';
 
 export default {
-    themeChangeListener: null,
     mounted() {
-        this.themeChangeListener = (event) => {
+        EventBus.$on('change-theme', event => {
             if (event.dark)
                 this.chartOptions = this.getDarkTheme();
             else
                 this.chartOptions = this.getLightTheme();
-        }
-        EventBus.on('theme-change', this.themeChangeListener );
+        });
     },
-    beforeUnmount() {
-        EventBus.off('change-theme', this.themeChangeListener );
+    beforeDestroy() {
+        EventBus.$off('change-theme');
     },
     data() {
         return {

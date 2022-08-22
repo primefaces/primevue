@@ -42,18 +42,6 @@ const ColumnProps = [
         description: "Footer content of the column."
     },
     {
-        name: "style",
-        type: "object",
-        default: "null",
-        description: "Inline style of header, body and footer cells."
-    },
-    {
-        name: "class",
-        type: "string",
-        default: "null",
-        description: "Style class of header, body and footer cells."
-    },
-    {
         name: "headerStyle",
         type: "object",
         default: "null",
@@ -90,60 +78,6 @@ const ColumnProps = [
         description: "Style class of the footer body."
     },
     {
-        name: "showFilterMenu",
-        type: "boolean",
-        default: "true",
-        description: "Whether to display the filter overlay."
-    },
-    {
-        name: "showFilterOperator",
-        type: "boolean",
-        default: "true",
-        description: "When enabled, match all and match any operator selector is displayed."
-    },
-    {
-        name: "showClearButton",
-        type: "boolean",
-        default: "true",
-        description: "Displays a button to clear the column filtering."
-    },
-    {
-        name: "showApplyButton",
-        type: "boolean",
-        default: "true",
-        description: "Displays a button to apply the column filtering."
-    },
-    {
-        name: "showFilterMatchModes",
-        type: "boolean",
-        default: "true",
-        description: "Whether to show the match modes selector."
-    },
-    {
-        name: "showAddButton",
-        type: "boolean",
-        default: "true",
-        description: "When enabled, a button is displayed to add more rules."
-    },
-    {
-        name: "filterMatchModeOptions",
-        type: "array",
-        default: "null",
-        description: "An array of label-value pairs to override the global match mode options."
-    },
-    {
-        name: "maxConstraints",
-        type: "number",
-        default: "2",
-        description: "Maximum number of constraints for a column filter."
-    },
-    {
-        name: "excludeGlobalFilter",
-        type: "boolean",
-        default: "false",
-        description: "Whether to exclude from global filtering or not."
-    },
-    {
         name: "filterHeaderStyle",
         type: "object",
         default: "null",
@@ -156,16 +90,22 @@ const ColumnProps = [
         description: "Style class of the column filter header in row filter display."
     },
     {
-        name: "filterMenuStyle",
-        type: "object",
-        default: "null",
-        description: "Inline style of the column filter overlay."
+        name: "filterMatchMode",
+        type: "string",
+        default: "startsWith",
+        description: 'Defines filterMatchMode; "startsWith", "contains", "endsWidth", "equals", "notEquals", "in", "lt", "lte", "gt", "gte" and "custom".'
     },
     {
-        name: "filterMenuClass",
-        type: "string",
+        name: "filterFunction",
+        type: "function",
         default: "null",
-        description: "Style class of the column filter overlay."
+        description: 'A function that takes a value and a filter to compare against by returning either true or false. filterMatchMode must be set to "custom" for this function to be triggered.'
+    },
+    {
+        name: "excludeGlobalFilter",
+        type: "boolean",
+        default: "false",
+        description: "Whether to exclude from global filtering or not."
     },
     {
         name: "selectionMode",
@@ -238,20 +178,7 @@ const ColumnProps = [
         type: "string",
         default: "null",
         description: "Custom export header of the column to be exported as CSV."
-    },
-    {
-        name: "exportFooter",
-        type: "string",
-        default: "null",
-        description: "Custom export footer of the column to be exported as CSV."
-    },
-    {
-        name: "hidden",
-        type: "boolean",
-        default: "false",
-        description: "Whether the column is rendered."
     }
-
 ];
 
 const ColumnSlots = [
@@ -270,26 +197,6 @@ const ColumnSlots = [
     {
         name: "editor",
         description: "Custom content for the editing cell"
-    },
-    {
-        name: "filter",
-        description: "Custom content for the filtering items"
-    },
-    {
-        name: "filterheader",
-        description: "Custom content for the filter menu's header"
-    },
-    {
-        name: "filterfooter",
-        description: "Custom content for the filter menu's footer"
-    },
-    {
-        name: "filterclear",
-        description: "Custom content for the filter menu's clear section"
-    },
-    {
-        name: "filterapply",
-        description: "Custom content for the filter menu's apply section"
     }
 ];
 

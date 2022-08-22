@@ -5,7 +5,6 @@
                 <h1>ContextMenu</h1>
                 <p>ContextMenu displays an overlay menu on right click of its target. Note that components like DataTable has special integration with ContextMenu. Refer to documentation of the individual documentation of the with context menu support.</p>
             </div>
-            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">
@@ -42,7 +41,8 @@ export default {
                                     label:'Video',
                                     icon:'pi pi-fw pi-video'
                                 },
-                                ]
+
+                            ]
                         },
                         {
                             label:'Delete',
@@ -99,18 +99,18 @@ export default {
                             icon:'pi pi-fw pi-users',
                             items:[
                                 {
-                                    label:'Filter',
-                                    icon:'pi pi-fw pi-filter',
-                                    items:[
-                                        {
-                                            label:'Print',
-                                            icon:'pi pi-fw pi-print'
-                                        }
-                                    ]
+                                label:'Filter',
+                                icon:'pi pi-fw pi-filter',
+                                items:[
+                                    {
+                                        label:'Print',
+                                        icon:'pi pi-fw pi-print'
+                                    }
+                                ]
                                 },
                                 {
-                                    icon:'pi pi-fw pi-bars',
-                                    label:'List'
+                                icon:'pi pi-fw pi-bars',
+                                label:'List'
                                 }
                             ]
                         }
@@ -132,12 +132,13 @@ export default {
                                     label:'Delete',
                                     icon:'pi pi-fw pi-calendar-minus'
                                 },
+
                             ]
                         },
                         {
                             label:'Archieve',
                             icon:'pi pi-fw pi-calendar-times',
-                                items:[
+                            items:[
                                 {
                                     label:'Remove',
                                     icon:'pi pi-fw pi-calendar-minus'

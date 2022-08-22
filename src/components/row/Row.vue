@@ -1,8 +1,21 @@
+<template>
+    <div>
+        <slot></slot>
+    </div>
+</template>
+
 <script>
 export default {
-    name: 'Row',
-    render() {
-        return null;
+    props: {
+
+    },
+    data() {
+        return {
+            columns: null
+        };
+    },
+    mounted() {
+        this.columns = this.$children;
     }
 }
 </script>

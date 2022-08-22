@@ -42,15 +42,13 @@ export declare class DomHandler {
     static resolveUserAgent(): { browser: string; version: string; };
     static isVisible(el: HTMLElement): boolean;
     static invokeElementMethod(el: HTMLElement, methodName: string, args: any): void;
-    static isClient(): boolean;
-    static getFocusableElements(el: HTMLElement, selector?: string): any[];
-    static getFirstFocusableElement(el: HTMLElement, selector?: string): any;
+    static getFocusableElements(el: HTMLElement): any[];
+    static getFirstFocusableElement(el: HTMLElement): any;
     static isClickable(el: HTMLElement): boolean;
     static applyStyle(el: HTMLElement, style: any): void;
     static isIOS(): boolean;
     static isAndroid(): boolean;
     static isTouchDevice(): boolean;
-    static exportCSV(csv: any, filename: string): void;
 }
 
 export declare class ObjectUtils {
@@ -64,16 +62,6 @@ export declare class ObjectUtils {
     static contains(value: any, list: any[]): boolean;
     static insertIntoOrderedArray(item: any, index: number, arr: any[], sourceArr: any[]): void;
     static removeAccents(str: any): string;
-    static isEmpty(value: any): boolean;
-    static isNotEmpty(value: any): boolean;
-    static isPrintableCharacter(char: string): boolean;
-}
-
-export declare namespace ZIndexUtils {
-    export function get(el?: HTMLElement): number;
-    export function set(key: string, el: HTMLElement, baseZIndex?: number): void;
-    export function clear(el: HTMLElement): void;
-    export function getCurrent(): number;
 }
 
 export declare function UniqueComponentId(prefix?: string): string;

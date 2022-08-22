@@ -5,18 +5,17 @@
 				<h1>DataTable</h1>
 				<p>DataTable displays data in tabular format.</p>
 			</div>
-            <AppDemoActions />
 		</div>
 
 		<div class="content-section implementation">
             <div class="card">
                 <DataTable :value="customers" :paginator="true" class="p-datatable-customers" :rows="10"
-                    dataKey="id" :rowHover="true" v-model:selection="selectedCustomers" v-model:filters="filters" filterDisplay="menu" :loading="loading"
+                    dataKey="id" :rowHover="true" :selection.sync="selectedCustomers" :filters.sync="filters" filterDisplay="menu" :loading="loading"
                     paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" :rowsPerPageOptions="[10,25,50]"
                     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
                     :globalFilterFields="['name','country.name','representative.name','status']" responsiveLayout="scroll">
                     <template #header>
-                        <div class="flex flex-column md:flex-row md:justify-content-between md:align-items-center">
+                        <div class="flex justify-content-between align-items-center">
                             <h5 class="m-0">Customers</h5>
                             <span class="p-input-icon-left">
                                 <i class="pi pi-search" />
@@ -30,8 +29,8 @@
                     <template #loading>
                         Loading customers data. Please wait.
                     </template>
-                    <Column selectionMode="multiple" style="min-width: 3rem"></Column>
-                    <Column field="name" header="Name" sortable style="min-width: 14rem">
+                    <Column selectionMode="multiple" :styles="{'min-width': '3rem'}"></Column>
+                    <Column field="name" header="Name" sortable :styles="{'min-width': '14rem'}">
                         <template #body="{data}">
                             {{data.name}}
                         </template>
@@ -39,7 +38,7 @@
                             <InputText type="text" v-model="filterModel.value" class="p-column-filter" placeholder="Search by name"/>
                         </template>
                     </Column>
-                    <Column field="country.name" header="Country" sortable filterMatchMode="contains" style="min-width: 14rem">
+                    <Column field="country.name" header="Country" sortable filterMatchMode="contains" :styles="{'min-width': '14rem'}">
                         <template #body="{data}">
                             <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + data.country.code" width="30" />
                             <span class="image-text">{{data.country.name}}</span>
@@ -48,7 +47,7 @@
                             <InputText type="text" v-model="filterModel.value" class="p-column-filter" placeholder="Search by country"/>
                         </template>
                     </Column>
-                    <Column header="Agent" sortable filterField="representative" sortField="representative.name" :showFilterMatchModes="false" :filterMenuStyle="{'width':'14rem'}" style="min-width: 14rem">
+                    <Column header="Agent" sortable filterField="representative" sortField="representative.name" :showFilterMatchModes="false" :filterMenuStyle="{'width':'14rem'}" :styles="{'min-width': '14rem'}">
                         <template #body="{data}">
                             <img :alt="data.representative.name" :src="'demo/images/avatar/' + data.representative.image" width="32" style="vertical-align: middle" />
                             <span class="image-text">{{data.representative.name}}</span>
@@ -65,7 +64,7 @@
                             </MultiSelect>
                         </template>
                     </Column>
-                    <Column field="date" header="Date" sortable dataType="date" style="min-width: 8rem">
+                    <Column field="date" header="Date" sortable dataType="date" :styles="{'min-width': '8rem'}">
                         <template #body="{data}">
                             {{formatDate(data.date)}}
                         </template>
@@ -73,7 +72,7 @@
                             <Calendar v-model="filterModel.value" dateFormat="mm/dd/yy" placeholder="mm/dd/yyyy" />
                         </template>
                     </Column>
-                    <Column field="balance" header="Balance" sortable dataType="numeric" style="min-width: 8rem">
+                    <Column field="balance" header="Balance" sortable dataType="numeric" :styles="{'min-width': '8rem'}">
                         <template #body="{data}">
                             {{formatCurrency(data.balance)}}
                         </template>
@@ -81,7 +80,7 @@
                             <InputNumber v-model="filterModel.value" mode="currency" currency="USD" locale="en-US" />
                         </template>
                     </Column>
-                    <Column field="status" header="Status" sortable :filterMenuStyle="{'width':'14rem'}" style="min-width: 10rem">
+                    <Column field="status" header="Status" sortable :filterMenuStyle="{'width':'14rem'}" :styles="{'min-width': '10rem'}">
                         <template #body="{data}">
                             <span :class="'customer-badge status-' + data.status">{{data.status}}</span>
                         </template>
@@ -96,7 +95,7 @@
                             </Dropdown>
                         </template>
                     </Column>
-                    <Column field="activity" header="Activity" sortable :showFilterMatchModes="false" style="min-width: 10rem">
+                    <Column field="activity" header="Activity" sortable :showFilterMatchModes="false" :styles="{'min-width': '10rem'}">
                         <template #body="{data}">
                             <ProgressBar :value="data.activity" :showValue="false" />
                         </template>
@@ -108,7 +107,7 @@
                             </div>
                         </template>
                     </Column>
-                    <Column headerStyle="min-width: 4rem; text-align: center" bodyStyle="text-align: center; overflow: visible">
+                    <Column :headerStyle="{'min-width': '4rem', 'text-align': 'center'}" :bodyStyle="{'text-align': 'center', overflow: 'visible'}">
                         <template #body>
                             <Button type="button" icon="pi pi-cog"></Button>
                         </template>
@@ -122,8 +121,9 @@
 </template>
 
 <script>
+import FilterMatchMode from '../../../src/components/api/FilterMatchMode';
+import FilterOperator from '../../../src/components/api/FilterOperator';
 import CustomerService from '../../service/CustomerService';
-import {FilterMatchMode,FilterOperator} from 'primevue/api';
 import DataTableDoc from './DataTableDoc';
 
 export default {
@@ -165,7 +165,7 @@ export default {
     },
     mounted() {
         this.customerService.getCustomersLarge().then(data => {
-            this.customers = data; 
+            this.customers = data;
             this.customers.forEach(customer => customer.date = new Date(customer.date));
             this.loading = false;
         });
@@ -189,13 +189,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-::v-deep(.p-paginator) {
+::v-deep .p-paginator {
     .p-paginator-current {
         margin-left: auto;
     }
 }
 
-::v-deep(.p-progressbar) {
+::v-deep .p-progressbar {
     height: .5rem;
     background-color: #D8DADC;
 
@@ -204,7 +204,7 @@ export default {
     }
 }
 
-::v-deep(.p-datepicker) {
+::v-deep .p-datepicker {
     min-width: 25rem;
 
     td {
@@ -212,7 +212,7 @@ export default {
     }
 }
 
-::v-deep(.p-datatable.p-datatable-customers) {
+::v-deep .p-datatable.p-datatable-customers {
     .p-datatable-header {
         padding: 1rem;
         text-align: left;
@@ -229,10 +229,6 @@ export default {
 
     .p-datatable-tbody > tr > td {
         cursor: auto;
-    }
-
-    .p-dropdown-label:not(.p-placeholder) {
-        text-transform: uppercase;
     }
 }
 </style>

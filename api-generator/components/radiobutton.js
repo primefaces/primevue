@@ -4,67 +4,13 @@ const RadioButtonProps = [
         type: "any",
         default: "null",
         description: "Value of the checkbox."
-    },
-    {
-        name: "modelValue",
-        type: "any",
-        default: "null",
-        description: "Value binding of the checkbox."
-    },
-    {
-        name: "name",
-        type: "string",
-        default: "null",
-        description: "Name of the input element."
-    },
-    {
-        name: "disabled",
-        type: "boolean",
-        default: "false",
-        description: "When present, it specifies that the element should be disabled."
-    },
-    {
-        name: "inputId",
-        type: "string",
-        default: "null",
-        description: "Identifier of the underlying input element."
-    },
-    {
-        name: "inputClass",
-        type: "string",
-        default: "null",
-        description: "Style class of the input field."
-    },
-    {
-        name: "inputStyle",
-        type: "any",
-        default: "null",
-        description: "Inline style of the input field."
-    },
-    {
-        name: "inputProps",
-        type: "object",
-        default: "null",
-        description: "Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component."
-    },
-    {
-        name: "aria-labelledby",
-        type: "string",
-        default: "null",
-        description: "Establishes relationships between the component and label(s) where its value should be one or more element IDs."
-    },
-    {
-        name: "aria-label",
-        type: "string",
-        default: "null",
-        description: "Used to define a string that labels the element."
     }
 ];
 
 const RadioButtonEvents = [
     {
-        name: "click",
-        description: "Callback to invoke on radio button click.",
+        name: "change",
+        description: "Callback to invoke on value change.",
         arguments: [
             {
                 name: "event",
@@ -74,8 +20,41 @@ const RadioButtonEvents = [
         ]
     },
     {
-        name: "change",
-        description: "Callback to invoke on radio button value change.",
+        name: "input",
+        description: "Callback to invoke on value change.",
+        arguments: [
+            {
+                name: "event",
+                type: "object",
+                description: "Value of checkbox"
+            }
+        ]
+    },
+    {
+        name: "click",
+        description: "Callback to invoke click.",
+        arguments: [
+            {
+                name: "event",
+                type: "object",
+                description: "Browser event"
+            }
+        ]
+    },
+    {
+        name: "focus",
+        description: "Callback to invoke on focus.",
+        arguments: [
+            {
+                name: "event",
+                type: "object",
+                description: "Browser event"
+            }
+        ]
+    },
+    {
+        name: "blur",
+        description: "Callback to invoke on blur.",
         arguments: [
             {
                 name: "event",

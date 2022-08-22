@@ -13,8 +13,8 @@
                 <slot name="header"></slot>
             </div>
             <transition-group ref="list" name="p-orderlist-flip" tag="ul" class="p-orderlist-list" :style="listStyle" role="listbox" aria-multiselectable="multiple">
-                <template v-for="(item, i) of modelValue" :key="getItemKey(item, i)">
-                    <li tabindex="0" :class="['p-orderlist-item', {'p-highlight': isSelected(item)}]" v-ripple
+                <template v-for="(item, i) of value">
+                    <li tabindex="0" :key="getItemKey(item, i)" :class="['p-orderlist-item', {'p-highlight': isSelected(item)}]" v-ripple
                         @click="onItemClick($event, item, i)" @keydown="onItemKeyDown($event, item, i)" @touchend="onItemTouchEnd"
                         role="option" :aria-selected="isSelected(item)">
                         <slot name="item" :item="item" :index="i"> </slot>
@@ -26,15 +26,14 @@
 </template>
 
 <script>
-import Button from 'primevue/button';
-import {ObjectUtils,UniqueComponentId,DomHandler} from 'primevue/utils';
-import Ripple from 'primevue/ripple';
+import Button from '../button/Button';
+import ObjectUtils from '../utils/ObjectUtils';
+import DomHandler from '../utils/DomHandler';
+import Ripple from '../ripple/Ripple';
 
 export default {
-    name: 'OrderList',
-    emits: ['update:modelValue', 'reorder', 'update:selection', 'selection-change'],
     props: {
-        modelValue: {
+        value: {
             type: Array,
             default: null
         },
@@ -54,14 +53,6 @@ export default {
             type: Boolean,
             default: true
         },
-        responsive: {
-            type: Boolean,
-            default: true
-        },
-        breakpoint: {
-            type: String,
-            default: '960px'
-        },
         stripedRows: {
             type: Boolean,
             default: false
@@ -69,24 +60,15 @@ export default {
     },
     itemTouched: false,
     reorderDirection: null,
-    styleElement: null,
     data() {
         return {
             d_selection: this.selection
         }
     },
-    beforeUnmount() {
-        this.destroyStyle();
-    },
     updated() {
         if (this.reorderDirection) {
             this.updateListScroll();
             this.reorderDirection = null;
-        }
-    },
-    mounted() {
-        if (this.responsive) {
-            this.createStyle();
         }
     },
     methods: {
@@ -96,9 +78,9 @@ export default {
         isSelected(item) {
             return ObjectUtils.findIndexInList(item, this.d_selection) != -1;
         },
-        moveUp(event) {
+        moveUp() {
             if (this.d_selection) {
-                let value = [...this.modelValue];
+                let value = [...this.value];
 
                 for (let i = 0; i < this.d_selection.length; i++) {
                     let selectedItem = this.d_selection[i];
@@ -116,7 +98,7 @@ export default {
                 }
 
                 this.reorderDirection = 'up';
-                this.$emit('update:modelValue', value);
+                this.$emit('input', value);
                 this.$emit('reorder', {
                     originalEvent: event,
                     value: value,
@@ -124,9 +106,9 @@ export default {
                 });
             }
         },
-        moveTop(event) {
+        moveTop() {
             if(this.d_selection) {
-                let value = [...this.modelValue];
+                let value = [...this.value];
 
                 for (let i = 0; i < this.d_selection.length; i++) {
                     let selectedItem = this.d_selection[i];
@@ -142,7 +124,7 @@ export default {
                 }
 
                 this.reorderDirection = 'top';
-                this.$emit('update:modelValue', value);
+                this.$emit('input', value);
                 this.$emit('reorder', {
                     originalEvent: event,
                     value: value,
@@ -150,9 +132,9 @@ export default {
                 });
             }
         },
-        moveDown(event) {
+        moveDown() {
             if(this.d_selection) {
-                let value = [...this.modelValue];
+                let value = [...this.value];
 
                 for (let i = this.d_selection.length - 1; i >= 0; i--) {
                     let selectedItem = this.d_selection[i];
@@ -170,7 +152,7 @@ export default {
                 }
 
                 this.reorderDirection = 'down';
-                this.$emit('update:modelValue', value);
+                this.$emit('input', value);
                 this.$emit('reorder', {
                     originalEvent: event,
                     value: value,
@@ -178,9 +160,9 @@ export default {
                 });
             }
         },
-        moveBottom(event) {
+        moveBottom() {
             if (this.d_selection) {
-                let value = [...this.modelValue];
+                let value = [...this.value];
 
                 for (let i = this.d_selection.length - 1; i >= 0; i--) {
                     let selectedItem = this.d_selection[i];
@@ -196,7 +178,7 @@ export default {
                 }
 
                 this.reorderDirection = 'bottom';
-                this.$emit('update:modelValue', value);
+                this.$emit('input', value);
                 this.$emit('reorder', {
                     originalEvent: event,
                     value: value,
@@ -218,7 +200,7 @@ export default {
                 }
                 else {
                     this.d_selection = (metaKey) ? this.d_selection ? [...this.d_selection] : [] : [];
-                    ObjectUtils.insertIntoOrderedArray(item, index, this.d_selection, this.modelValue);
+                    ObjectUtils.insertIntoOrderedArray(item, index, this.d_selection, this.value);
                 }
             }
             else {
@@ -227,7 +209,7 @@ export default {
                 }
                 else {
                     this.d_selection = this.d_selection ? [...this.d_selection] : [];
-                    ObjectUtils.insertIntoOrderedArray(item, index, this.d_selection, this.modelValue);
+                    ObjectUtils.insertIntoOrderedArray(item, index, this.d_selection, this.value);
                 }
             }
 
@@ -315,44 +297,6 @@ export default {
                     break;
                 }
             }
-        },
-        createStyle() {
-			if (!this.styleElement) {
-                this.$el.setAttribute(this.attributeSelector, '');
-				this.styleElement = document.createElement('style');
-				this.styleElement.type = 'text/css';
-				document.head.appendChild(this.styleElement);
-
-                let innerHTML = `
-@media screen and (max-width: ${this.breakpoint}) {
-    .p-orderlist[${this.attributeSelector}] {
-        flex-direction: column;
-    }
-
-    .p-orderlist[${this.attributeSelector}] .p-orderlist-controls {
-        padding: var(--content-padding);
-        flex-direction: row;
-    }
-
-    .p-orderlist[${this.attributeSelector}] .p-orderlist-controls .p-button {
-        margin-right: var(--inline-spacing);
-        margin-bottom: 0;
-    }
-
-    .p-orderlist[${this.attributeSelector}] .p-orderlist-controls .p-button:last-child {
-        margin-right: 0;
-    }
-}
-`;
-
-                this.styleElement.innerHTML = innerHTML;
-			}
-		},
-        destroyStyle() {
-            if (this.styleElement) {
-                document.head.removeChild(this.styleElement);
-                this.styleElement = null;
-            }
         }
     },
     computed: {
@@ -360,9 +304,6 @@ export default {
             return ['p-orderlist p-component', {
                 'p-orderlist-striped': this.stripedRows
             }];
-        },
-        attributeSelector() {
-            return UniqueComponentId();
         }
     },
     components: {

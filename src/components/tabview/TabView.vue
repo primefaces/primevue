@@ -1,49 +1,53 @@
 <template>
     <div :class="contentClasses">
         <div class="p-tabview-nav-container">
-            <button v-if="scrollable && !backwardIsDisabled" ref="prevBtn" :class="prevButtonClasses" @click="navBackward" type="button" v-ripple>
+            <button v-if="scrollable && !backwardIsDisabled" ref="prevBtn" :class="prevButtonClasses" :disabled="backwardIsDisabled" @click="navBackward" type="button" v-ripple>
 				<span class="pi pi-chevron-left"></span>
 			</button>
             <div ref="content" class="p-tabview-nav-content" @scroll="onScroll">
                 <ul ref="nav" class="p-tabview-nav" role="tablist">
-                    <li role="presentation" v-for="(tab, i) of tabs" :key="getKey(tab,i)" :class="[{'p-highlight': (d_activeIndex === i), 'p-disabled': isTabDisabled(tab)}]">
-                        <a role="tab" class="p-tabview-nav-link" @click="onTabClick($event, i)" @keydown="onTabKeydown($event, i)" :tabindex="isTabDisabled(tab) ? null : '0'" :aria-selected="d_activeIndex === i" v-ripple>
-                            <span class="p-tabview-title" v-if="tab.props && tab.props.header">{{tab.props.header}}</span>
-                            <component :is="tab.children.header" v-if="tab.children && tab.children.header"></component>
+                    <li role="presentation" v-for="(tab, i) of tabs" :key="getKey(tab, i)" :class="[{'p-highlight': (d_activeIndex === i), 'p-disabled': isTabDisabled(tab)}]">
+                        <a role="tab" class="p-tabview-nav-link" @click="onTabClick($event, i)" @keydown="onTabKeydown($event, i)" :tabindex="isTabDisabled(tab) ? null : '0'" :aria-selected="d_activeIndex" v-ripple>
+                            <span class="p-tabview-title" v-if="tab.header">{{tab.header}}</span>
+                            <TabPanelHeaderSlot :tab="tab" v-if="tab.$scopedSlots.header"/>
                         </a>
                     </li>
                     <li ref="inkbar" class="p-tabview-ink-bar"></li>
                 </ul>
             </div>
-            <button v-if="scrollable && !forwardIsDisabled" ref="nextBtn" :class="nextButtonClasses" @click="navForward" type="button" v-ripple>
+            <button v-if="scrollable && !forwardIsDisabled" ref="nextBtn" :class="nextButtonClasses" :disabled="forwardIsDisabled" @click="navForward" type="button" v-ripple>
 				<span class="pi pi-chevron-right"></span>
 			</button>
         </div>
         <div class="p-tabview-panels">
-            <template v-for="(tab, i) of tabs" :key="getKey(tab,i)">
-                <div  class="p-tabview-panel" role="tabpanel" v-if="lazy ? (d_activeIndex === i) : true" v-show="lazy ? true: (d_activeIndex === i)">
-                    <component :is="tab"></component>
-                </div>
-            </template>
+            <slot></slot>
         </div>
     </div>
 </template>
 
 <script>
-import {DomHandler} from 'primevue/utils';
-import Ripple from 'primevue/ripple';
+import DomHandler from '../utils/DomHandler';
+import ObjectUtils from '../utils/ObjectUtils';
+import Ripple from '../ripple/Ripple';
+
+const TabPanelHeaderSlot = {
+    functional: true,
+    props: {
+        tab: {
+            type: null,
+            default: null
+        }
+    },
+    render(createElement, context) {
+        return [context.props.tab.$scopedSlots['header']()];
+    }
+};
 
 export default {
-    name: 'TabView',
-    emits: ['update:activeIndex', 'tab-change', 'tab-click'],
     props: {
         activeIndex: {
             type: Number,
             default: 0
-        },
-        lazy: {
-            type: Boolean,
-            default: false
         },
         scrollable: {
             type: Boolean,
@@ -52,10 +56,11 @@ export default {
     },
     data() {
         return {
+            allChildren: [],
             d_activeIndex: this.activeIndex,
             backwardIsDisabled: true,
             forwardIsDisabled: false
-        }
+        };
     },
     watch: {
         activeIndex(newValue) {
@@ -64,10 +69,11 @@ export default {
             this.updateScrollBar(newValue);
         }
     },
-    updated() {
+    mounted() {
+        this.allChildren = this.$children;
         this.updateInkBar();
     },
-    mounted() {
+    updated() {
         this.updateInkBar();
     },
     methods: {
@@ -95,39 +101,35 @@ export default {
             }
         },
         updateInkBar() {
-            let tabHeader = this.$refs.nav.children[this.d_activeIndex];
-            this.$refs.inkbar.style.width = DomHandler.getWidth(tabHeader) + 'px';
-            this.$refs.inkbar.style.left =  DomHandler.getOffset(tabHeader).left - DomHandler.getOffset(this.$refs.nav).left + 'px';
+            if (this.$refs.nav.children.length > 1) {
+                let tabHeader = this.$refs.nav.children[this.d_activeIndex];
+                this.$refs.inkbar.style.width = DomHandler.getWidth(tabHeader) + 'px';
+                this.$refs.inkbar.style.left =  DomHandler.getOffset(tabHeader).left - DomHandler.getOffset(this.$refs.nav).left + 'px';
+            }
         },
         updateScrollBar(index) {
             let tabHeader = this.$refs.nav.children[index];
-            tabHeader.scrollIntoView({ block: 'nearest' })
+            tabHeader.scrollIntoView({ block: 'nearest' });
         },
         updateButtonState() {
             const content = this.$refs.content;
             const { scrollLeft, scrollWidth } = content;
             const width = DomHandler.getWidth(content);
-
             this.backwardIsDisabled = scrollLeft === 0;
             this.forwardIsDisabled = parseInt(scrollLeft) === scrollWidth - width;
         },
-        getKey(tab, i) {
-            return (tab.props && tab.props.header) ? tab.props.header : i;
+        getKey(tab, index) {
+            return tab.header ? ObjectUtils.resolveFieldData(tab, tab.header) : index;
         },
         isTabDisabled(tab) {
-            return (tab.props && tab.props.disabled);
-        },
-        isTabPanel(child) {
-            return child.type.name === 'TabPanel'
+            return tab.disabled;
         },
         onScroll(event) {
             this.scrollable && this.updateButtonState();
-
             event.preventDefault();
         },
         getVisibleButtonWidths() {
             const { prevBtn, nextBtn } = this.$refs;
-
             return [prevBtn, nextBtn].reduce((acc, el) => el ? acc + DomHandler.getWidth(el) : acc, 0);
         },
         navBackward() {
@@ -141,7 +143,6 @@ export default {
             const width = DomHandler.getWidth(content) - this.getVisibleButtonWidths();
             const pos = content.scrollLeft + width;
             const lastPos = content.scrollWidth - width;
-
             content.scrollLeft = pos >= lastPos ? lastPos : pos;
         }
     },
@@ -150,28 +151,23 @@ export default {
 			return ['p-tabview p-component', {'p-tabview-scrollable': this.scrollable}];
 		},
         prevButtonClasses() {
-            return ['p-tabview-nav-prev p-tabview-nav-btn p-link']
+            return ['p-tabview-nav-prev p-tabview-nav-btn p-link', {'p-disabled': this.backwardIsDisabled}]
         },
         nextButtonClasses() {
-            return ['p-tabview-nav-next p-tabview-nav-btn p-link']
+            return ['p-tabview-nav-next p-tabview-nav-btn p-link', {'p-disabled': this.forwardIsDisabled}]
         },
         tabs() {
-            const tabs = []
-            this.$slots.default().forEach(child => {
-                    if (this.isTabPanel(child)) {
-                        tabs.push(child);
-                    }
-                    else if (child.children && child.children instanceof Array) {
-                        child.children.forEach(nestedChild => {
-                            if (this.isTabPanel(nestedChild)) {
-                                tabs.push(nestedChild)
-                            }
-                        });
-                    }
-                }
-            )
+            let tabs = [];
+
+            if (this.allChildren) {
+                tabs = this.allChildren.filter(child => child.$vnode.tag.indexOf('tabpanel') !== -1);
+            }
+
             return tabs;
         }
+    },
+    components: {
+        'TabPanelHeaderSlot': TabPanelHeaderSlot
     },
     directives: {
         'ripple': Ripple

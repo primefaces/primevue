@@ -1,22 +1,17 @@
 .layout-topbar {
+    background-color: var(--surface-section);
     padding: 0;
-    height: 5rem;
+    height: 70px;
     position: fixed;
     top: 0;
-    left: 250px;
-    width: calc(100% - 250px);
-    z-index: 1100;
+    left: 0;
+    width: 100%;
+    z-index: 997;
+    box-shadow: 0 0 4px rgba(0,0,0,0.25);
+    border-bottom: 1px solid var(--surface-border);
     display: flex;
     align-items: center;
-    padding: 0 4rem;
-    
-    &.layout-topbar-sticky {
-        backdrop-filter: blur(12px);
-    }
-
-    .logo {
-        display: none;
-    }
+    padding: 0 35px;
 
     .menu-button {
         display: none;
@@ -39,10 +34,14 @@
     }
 
     .logo {
+        img {
+            width: 180px;
+        }
+
         &:focus {
             outline: 0 none;
             transition: box-shadow .2s;
-            box-shadow: var(--focus-ring);
+            box-shadow: 0 0 0 0.2rem $focusBorderColor;
         }
     }
 
@@ -54,6 +53,7 @@
         box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
         width: 39px;
         height: 39px;
+        margin-left: 70px;
     
         img {
             width: 25px;
@@ -100,7 +100,7 @@
                 > ul {
                     position: absolute;
                     transform-origin: top;
-                    top: 3rem;
+                    top: 40px;
                     right: 0;
                     width: 275px;
                     max-height: 400px;
@@ -184,22 +184,6 @@
 
         .theme-badge.darkmode {
             background: linear-gradient(to bottom, #141d26, #5a6067);
-        }
-    }
-}
-
-.layout-wrapper-dark {
-    .layout-topbar {
-        &.layout-topbar-sticky {
-            background-color: rgba(0, 0, 0 , 0.3);
-        }
-    }
-}
-
-.layout-wrapper-light {
-    .layout-topbar {
-        &.layout-topbar-sticky {
-            background-color: rgba(255, 255, 255, 0.85);
         }
     }
 }

@@ -1,6 +1,6 @@
 const ColorPickerProps = [
     {
-        name: "modelValue",
+        name: "value",
         type: "string",
         default: "null",
         description: "Value of the component."
@@ -30,7 +30,7 @@ const ColorPickerProps = [
         description: "When present, it specifies that the component should be disabled."
     },
     {
-        name: "tabindex",
+        name: "tabIndex",
         type: "string",
         default: "null",
         description: "Index of the element in tabbing order."
@@ -48,55 +48,24 @@ const ColorPickerProps = [
         description: "Whether to automatically manage layering."
     },
     {
-        name: "panelClass",
-        type: "string",
-        default: "null",
-        description: "Style class of the overlay panel."
-    },
-    {
-        name: "appendTo",
-        type: "string",
-        default: "body",
-        description: 'A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are "body" for document body and "self" for the element itself.'
-    },
-    {
-        name: "aria-labelledby",
+        name: "ariaLabelledBy",
         type: "string",
         default: "null",
         description: "Establishes relationships between the component and label(s) where its value should be one or more element IDs."
-    },
-    {
-        name: "aria-label",
-        type: "string",
-        default: "null",
-        description: "Used to define a string that labels the element."
     }
 ];
 
 const ColorPickerEvents = [
     {
-        name: "change",
-        description: "Callback to invoke when a color is selected.",
+        name: "input",
+        description: "Callback to invoke on value change.",
         arguments: [
             {
-                name: "event.originalEvent",
+                name: "event",
                 type: "object",
-                description: "Original event"
-            },
-            {
-                name: "event.value",
-                type: "any",
-                description: "Selected color"
+                description: "New value"
             }
         ]
-    },
-    {
-        name: "show",
-        description: "Callback to invoke when popup is shown."
-    },
-    {
-        name: "hide",
-        description: "Callback to invoke when popup is hidden."
     }
 ];
 

@@ -12,12 +12,6 @@ const AccordionProps = [
         description: "Index of the active tab or an array of indexes in multiple mode."
     },
     {
-        name: "lazy",
-        type: "boolean",
-        default: "false",
-        description: "When enabled, hidden tabs are not rendered at all. Defaults to false that hides tabs with css."
-    },
-    {
         name: "expandIcon",
         type: "string",
         default: "pi-chevron-right",

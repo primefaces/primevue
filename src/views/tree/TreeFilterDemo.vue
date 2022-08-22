@@ -5,7 +5,6 @@
                 <h1>Tree <span>Filter</span></h1>
                 <p>Filtering updates the node based on the constraints.</p>
             </div>
-            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">
@@ -18,34 +17,21 @@
             </div>
         </div>
 
-        <AppDoc name="TreeFilterDemo" :sources="sources" :service="['NodeService']" :data="['treenodes']" github="tree/TreeFilterDemo.vue" />
-    </div>
-</template>
+        <div class="content-section documentation">
+            <TabView>
+                <TabPanel header="Source">
+<CodeHighlight>
+<template v-pre>
+&lt;h3&gt;Lenient Filter&lt;/h3&gt;
+&lt;Tree :value="nodes" :filter="true" filterMode="lenient"&gt;&lt;/Tree&gt;
 
-<script>
+&lt;h3&gt;Strict Filter&lt;/h3&gt;
+&lt;Tree :value="nodes" :filter="true" filterMode="strict"&gt;&lt;/Tree&gt;
+</template>
+</CodeHighlight>
+
+<CodeHighlight lang="javascript">
 import NodeService from '../../service/NodeService';
-
-export default {
-    data() {
-        return {
-            nodes: null,
-            expandedKeys: {},
-            sources: {
-                'options-api': {
-                    tabName: 'Options API Source',
-                    content: `
-<template>
-    <div>
-        <h5>Lenient Filter</h5>
-        <Tree :value="nodes" :filter="true" filterMode="lenient"></Tree>
-
-        <h5>Strict Filter</h5>
-        <Tree :value="nodes" :filter="true" filterMode="strict"></Tree>
-    </div>
-</template>
-
-<script>
-import NodeService from './service/NodeService';
 
 export default {
     data() {
@@ -74,7 +60,7 @@ export default {
         },
         expandNode(node) {
             this.expandedKeys[node.key] = true;
-            if (node.children && node.children.length) {
+            if (node.children &lt;&lt; node.children.length) {
                 for (let child of node.children) {
                     this.expandNode(child);
                 }
@@ -82,116 +68,21 @@ export default {
         }
     }
 }
-<\\/script>
-`
-                },
-                'composition-api': {
-                    tabName: 'Composition API Source',
-                    content: `
-<template>
-    <div>
-        <h5>Lenient Filter</h5>
-        <Tree :value="nodes" :filter="true" filterMode="lenient"></Tree>
-
-        <h5>Strict Filter</h5>
-        <Tree :value="nodes" :filter="true" filterMode="strict"></Tree>
+</CodeHighlight>
+                </TabPanel>
+            </TabView>
+        </div>
     </div>
 </template>
 
 <script>
-import { ref, onMounted } from 'vue';
-import NodeService from './service/NodeService';
+import NodeService from '../../service/NodeService';
 
 export default {
-    setup() {
-        onMounted(() => {
-            nodeService.value.getTreeNodes().then(data => nodes.value = data);
-        })
-
-        const nodes = ref(null);
-        const nodeService = ref(new NodeService());
-        const expandedKeys = ref({});
-        const expandAll = () => {
-            for (let node of nodes.value) {
-                expandNode(node);
-            }
-
-            expandedKeys.value = {...expandedKeys.value};
-        };
-        const collapseAll = () => {
-            expandedKeys.value = {};
-        };
-        const expandNode = (node) => {
-            expandedKeys.value[node.key] = true;
-            if (node.children && node.children.length) {
-                for (let child of node.children) {
-                    expandNode(child);
-                }
-            }
-        };
-
-        return { nodes, nodeService, expandedKeys, expandAll, collapseAll, expandNode }
-    }
-}
-<\\/script>
-`
-                },
-                'browser-source': {
-                    tabName: 'Browser Source',
-                    imports: `<script src="./NodeService.js"><\\/script>`,
-                    content: `<div id="app">
-            <h5>Lenient Filter</h5>
-            <p-tree :value="nodes" :filter="true" filter-mode="lenient"></p-tree>
-
-            <h5>Strict Filter</h5>
-            <p-tree :value="nodes" :filter="true" filter-mode="strict"></p-tree>
-        </div>
-
-        <script type="module">
-        const { createApp, ref, onMounted } = Vue;
-
-        const App = {
-            setup() {
-                onMounted(() => {
-                    nodeService.value.getTreeNodes().then(data => nodes.value = data);
-                })
-
-                const nodes = ref(null);
-                const nodeService = ref(new NodeService());
-                const expandedKeys = ref({});
-                const expandAll = () => {
-                    for (let node of nodes.value) {
-                        expandNode(node);
-                    }
-
-                    expandedKeys.value = {...expandedKeys.value};
-                };
-                const collapseAll = () => {
-                    expandedKeys.value = {};
-                };
-                const expandNode = (node) => {
-                    expandedKeys.value[node.key] = true;
-                    if (node.children && node.children.length) {
-                        for (let child of node.children) {
-                            expandNode(child);
-                        }
-                    }
-                };
-
-                return { nodes, nodeService, expandedKeys, expandAll, collapseAll, expandNode }
-            },
-            components: {
-                "p-tree": primevue.tree
-            }
-        };
-
-        createApp(App)
-            .use(primevue.config.default)
-            .mount("#app");
-        <\\/script>
-`
-                }
-            }
+    data() {
+        return {
+            nodes: null,
+            expandedKeys: {}
         }
     },
     nodeService: null,

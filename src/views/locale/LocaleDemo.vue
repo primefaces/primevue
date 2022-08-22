@@ -6,32 +6,28 @@
 
             <h5>Getting Started</h5>
             <p>Locale values are stored in the global configuration that becomes accessible after installing the PrimeVue.</p>
-<pre v-code.script><code>
-import {createApp} from 'vue';
+<CodeHighlight lang="javascript">
 import PrimeVue from 'primevue/config';
-const app = createApp(App);
 
-app.use(PrimeVue);
-
-</code></pre>
+Vue.use(PrimeVue);
+</CodeHighlight>
 
             <p>Second parameter of the <i>use</i> function can be used to initiate the locale during PrimeVue installation.</p>
-<pre v-code.script><code>
-app.use(PrimeVue, {
+<CodeHighlight lang="javascript">
+Vue.use(PrimeVue, {
     locale: {
         accept: 'Aceptar',
         reject: 'Rechazar',
         //...
     }
 });
-
-</code></pre>
+</CodeHighlight>
 
             <p>The locale configuration is reactive so that any changes are instantly reflected in the UI. Suppose you are doing a multi language
                 application and need to change the language dynamically.</p>
 
             <h6>Options API</h6>
-<pre v-code.script><code>
+<CodeHighlight lang="javascript">
 export default {
     methods: {
         changeToSpanish() {
@@ -40,34 +36,10 @@ export default {
         }
     }
 }
-
-</code></pre>
-
-            <h6>Composition API</h6>
-<pre v-code.script><code>
-import { defineComponent, onMounted } from "vue";
-import { usePrimeVue } from "primevue/config";
-
-export default defineComponent({
-    setup() {
-        const changeToSpanish = () => {
-            const primevue = usePrimeVue();
-            primevue.config.locale.accept = 'Aceptar';
-            primevue.config.locale.reject = 'Rechazar';
-        }
-
-        onMounted(() => {
-            changeToSpanish();
-        })
-    }
-});
-
-</code></pre>
-
-
+</CodeHighlight>
 
             <h5>Locale Options</h5>
-<pre v-code.script><code>
+<CodeHighlight lang="javascript">
 locale: {
     startsWith: 'Starts with',
     contains: 'Contains',
@@ -100,23 +72,6 @@ locale: {
     dayNamesMin: ["Su","Mo","Tu","We","Th","Fr","Sa"],
     monthNames: ["January","February","March","April","May","June","July","August","September","October","November","December"],
     monthNamesShort: ["Jan", "Feb", "Mar", "Apr", "May", "Jun","Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-    chooseYear: 'Choose Year',
-    chooseMonth: 'Choose Month',
-    chooseDate: 'Choose Date',
-    prevDecade: 'Previous Decade',
-    nextDecade: 'Next Decade',
-    prevYear: 'Previous Year',
-    nextYear: 'Next Year',
-    prevMonth: 'Previous Month',
-    nextMonth: 'Next Month',
-    prevHour: 'Previous Hour',
-    nextHour: 'Next Hour',
-    prevMinute: 'Previous Minute',
-    nextMinute: 'Next Minute',
-    prevSecond: 'Previous Second',
-    nextSecond: 'Next Second',
-    am: 'am',
-    pm: 'pm',
     today: 'Today',
     weekHeader: 'Wk',
     firstDayOfWeek: 0,
@@ -125,25 +80,10 @@ locale: {
     medium: 'Medium',
     strong: 'Strong',
     passwordPrompt: 'Enter a password',
-    emptyFilterMessage: 'No results found', // @deprecated Use 'emptySearchMessage' option instead.
-    searchMessage: '{0} results are available',
-    selectionMessage: '{0} items selected',
-    emptySelectionMessage: 'No selected item',
-    emptySearchMessage: 'No results found',
-    emptyMessage: 'No available options',
-    aria: {
-        trueLabel: 'True',
-        falseLabel: 'False',
-        nullLabel: 'Not Selected',
-        star: '1 star',
-        stars: '{star} stars',
-        selectAll: 'All items selected',
-        unselectAll: 'All items unselected',
-        close: 'Close'
-    }
+    emptyFilterMessage: 'No results found',
+    emptyMessage: 'No available options'
 }
-
-</code></pre>
+</CodeHighlight>
         </div>
     </div>
 </template>

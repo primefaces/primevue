@@ -1,34 +1,35 @@
 <template>
     <div class="stepsdemo-content">
         <Card>
-            <template v-slot:title>
+            <template #title>
                 Personal Information
             </template>
-            <template v-slot:subtitle>
+            <template #subtitle>
                 Enter your personal information
             </template>
-            <template v-slot:content>
+            <template #content>
                 <div class="p-fluid">
                     <div class="field">
                         <label for="firstname">Firstname</label>
-                        <InputText id="firstname" v-model="firstname" :class="{'p-invalid': validationErrors.firstname && submitted}" />
-                        <small v-show="validationErrors.firstname && submitted" class="p-error">Firstname is required.</small>
+                        <InputText id="firstname" v-model="$v.firstname.$model" :class="{'p-invalid':$v.firstname.$invalid && submitted}" />
+                        <small v-show="$v.firstname.$invalid && submitted" class="p-error">Firstname is required.</small>
                     </div>
                     <div class="field">
                         <label for="lastname">Lastname</label>
-                        <InputText id="lastname" v-model="lastname" :class="{'p-invalid': validationErrors.lastname && submitted}" />
-                        <small v-show="validationErrors.lastname && submitted" class="p-error">Lastname is required.</small>
+                        <InputText v-model="$v.lastname.$model" :class="{'p-invalid':$v.lastname.$invalid && submitted}" />
+                        <small v-show="$v.lastname.$invalid && submitted" class="p-error">Lastname is required.</small>
                     </div>
                     <div class="field">
                         <label for="age">Age</label>
-                        <InputNumber id="age" v-model="age" />
+                        <InputText id="age" v-model="$v.age.$model" :class="{'p-invalid':$v.age.$error && submitted}" />
+                        <small v-show="$v.age.$invalid && submitted" class="p-error">Age should be a number.</small>
                     </div>
                 </div>
             </template>
-            <template v-slot:footer>
+            <template #footer>
                 <div class="grid grid-nogutter justify-content-between">
                     <i></i>
-                    <Button label="Next" @click="nextPage()" icon="pi pi-angle-right" iconPos="right" />
+                    <Button label="Next" @click="nextPage(!$v.$invalid)" icon="pi pi-angle-right" iconPos="right" />
                 </div>
             </template>
         </Card>
@@ -36,35 +37,37 @@
 </template>
 
 <script>
+import {required, integer} from 'vuelidate/lib/validators';
+
 export default {
     data () {
         return {
             firstname: '',
             lastname: '',
-            age: null,
-            submitted: false,
-            validationErrors: {}
+            age: '',
+            submitted: false
+        }
+    },
+    validations: {
+        firstname: {
+            required
+        },
+        lastname: {
+            required
+        },
+        age: {
+            integer
         }
     },
     methods: {
-        nextPage() {
+        nextPage(isFormValid) {
             this.submitted = true;
-            if (this.validateForm() ) {
-                this.$emit('next-page', {formData: {firstname: this.firstname, lastname: this.lastname, age: this.age}, pageIndex: 0});
+
+            if (!isFormValid) {
+                return;
             }
-        },
-        validateForm() {
-            if (!this.firstname.trim())
-                this.validationErrors['firstname'] = true;
-            else
-                delete this.validationErrors['firstname'];
 
-            if (!this.lastname.trim())
-                this.validationErrors['lastname'] = true;
-            else
-                delete this.validationErrors['lastname'];
-
-            return !Object.keys(this.validationErrors).length;
+            this.$emit('nextPage', {formData: {firstname: this.firstname, lastname: this.lastname, age: this.age}, pageIndex: 0});
         }
     }
 }

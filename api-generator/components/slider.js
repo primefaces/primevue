@@ -1,6 +1,6 @@
 const SliderProps = [
     {
-        name: "modelValue",
+        name: "value",
         type: "number",
         default: "0",
         description: "Value of the component."
@@ -42,22 +42,10 @@ const SliderProps = [
         description: "When present, it specifies that the component should be disabled."
     },
     {
-        name: "tabindex",
-        type: "number",
-        default: "null",
-        description: "Index of the element in tabbing order."
-    },
-    {
-        name: "aria-labelledby",
+        name: "ariaLabelledBy",
         type: "string",
         default: "null",
         description: "Establishes relationships between the component and label(s) where its value should be one or more element IDs."
-    },
-    {
-        name: "aria-label",
-        type: "string",
-        default: "null",
-        description: "Used to define a string that labels the element."
     }
 ];
 
@@ -86,6 +74,17 @@ const SliderEvents = [
                 name: "event.value",
                 type: "number",
                 description: "New value."
+            }
+        ]
+    },
+    {
+        name: "input",
+        description: "Callback to invoke on value change.",
+        arguments: [
+            {
+                name: "value",
+                type: "number | any[]",
+                description: "New value"
             }
         ]
     }

@@ -1,15 +1,13 @@
 <template>
-    <div ref="container" class="p-blockui-container" v-bind="$attrs">
+    <div class="p-blockui-container">
         <slot></slot>
     </div>
 </template>
 
 <script>
-import {DomHandler,ZIndexUtils} from 'primevue/utils';
+import DomHandler from '../utils/DomHandler';
 
 export default {
-    name: 'BlockUI',
-    emits: ['block', 'unblock'],
     props: {
         blocked: {
             type: Boolean,
@@ -54,13 +52,17 @@ export default {
                 document.activeElement.blur();
             }
             else {
-                this.mask = document.createElement('div');
-                this.mask.setAttribute('class', styleClass);
-                this.$refs.container.appendChild(this.mask);
+                const target = this.$children ? this.$children[0]: null;
+                if (target) {
+                    this.mask = document.createElement('div');
+                    this.mask.setAttribute('class', styleClass);
+                    target.$el.appendChild(this.mask);
+                    target.$el.style.position = 'relative';
+                }
             }
 
             if (this.autoZIndex) {
-                ZIndexUtils.set('modal', this.mask, this.baseZIndex + this.$primevue.config.zIndex.modal);
+                this.mask.style.zIndex = String(this.baseZIndex + DomHandler.generateZIndex());
             }
 
             this.$emit('block');
@@ -72,13 +74,12 @@ export default {
             });
         },
         removeMask() {
-            ZIndexUtils.clear(this.mask);
              if (this.fullScreen) {
                 document.body.removeChild(this.mask);
                 DomHandler.removeClass(document.body, 'p-overflow-hidden');
             }
             else {
-                this.$refs.container.removeChild(this.mask);
+                this.$children[0].$el.removeChild(this.mask);
             }
 
             this.$emit('unblock');
@@ -88,10 +89,6 @@ export default {
 </script>
 
 <style>
-.p-blockui-container {
-    position: relative;
-}
-
 .p-blockui {
     position: absolute;
     top: 0;

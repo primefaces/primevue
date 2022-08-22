@@ -1,16 +1,17 @@
 <template>
     <td :style="containerStyle" :class="containerClass" role="cell"
         :colspan="columnProp('colspan')" :rowspan="columnProp('rowspan')">
-        <component :is="column.children.footer" :column="column" v-if="column.children && column.children.footer"/>
+        <ColumnSlot :data="column.$scopedSlots.footer" :column="column" type="footer" v-if="column.$scopedSlots && column.$scopedSlots.footer"/>
         {{columnProp('footer')}}
     </td>
 </template>
 
 <script>
-import {DomHandler,ObjectUtils} from 'primevue/utils';
+import ColumnSlot from './ColumnSlot';
+import DomHandler from '../utils/DomHandler';
+import ObjectUtils from '../utils/ObjectUtils';
 
 export default {
-    name: 'FooterCell',
     props: {
         column: {
             type: null,
@@ -19,7 +20,10 @@ export default {
     },
     data() {
         return {
-            styleObject: {}
+            styleObject: {
+                left: '',
+                right: ''
+            }
         }
     },
     mounted() {
@@ -60,16 +64,19 @@ export default {
     },
     computed: {
         containerClass() {
-            return [this.columnProp('footerClass'), this.columnProp('class'), {
+            return [this.columnProp('footerClass'), this.columnProp('className'), {
                 'p-frozen-column': this.columnProp('frozen')
             }];
         },
         containerStyle() {
             let bodyStyle = this.columnProp('footerStyle');
-            let columnStyle = this.columnProp('style');
+            let columnStyle = this.columnProp('styles');
 
             return this.columnProp('frozen') ? [columnStyle, bodyStyle, this.styleObject]: [columnStyle, bodyStyle];
         }
+    },
+    components: {
+        'ColumnSlot': ColumnSlot
     }
 }
 </script>

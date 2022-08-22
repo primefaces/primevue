@@ -7,7 +7,7 @@ const DataTableProps = [
     },
     {
         name: "dataKey",
-        type: "string|function",
+        type: "string",
         default: "null",
         description: "Name of the field that uniquely identifies the a record in the data."
     },
@@ -51,7 +51,7 @@ const DataTableProps = [
         name: "paginatorTemplate",
         type: "string",
         default: "FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown",
-        description: "emplate of the paginator."
+        description: "Template of the paginator."
     },
     {
         name: "pageLinkSize",
@@ -132,12 +132,6 @@ const DataTableProps = [
         description: "Filters object with key-value pairs to define the filters."
     },
     {
-        name: "filterDisplay",
-        type: "string",
-        default: "null",
-        description: 'Layout of the filter elements, valid values are "row" and "menu".'
-    },
-    {
         name: "filterLocale",
         type: "string",
         default: "undefined",
@@ -186,12 +180,6 @@ const DataTableProps = [
         description: "When enabled, background of the rows change on hover."
     },
     {
-        name: "selectAll",
-        type: "boolean",
-        default: "null",
-        description: "Whether all data is selected."
-    },
-    {
         name: "csvSeparator",
         type: "string",
         default: ",",
@@ -202,12 +190,6 @@ const DataTableProps = [
         type: "string",
         default: "download",
         description: "Name of the exported file."
-    },
-    {
-        name: "exportFunction",
-        type: "function",
-        default: "null",
-        description: "Custom function to export data."
     },
     {
         name: "autoLayout",
@@ -309,7 +291,7 @@ const DataTableProps = [
         name: "rowStyle",
         type: "object",
         default: "null",
-        description: "A function that takes the row data as a parameter and returns the inline style for the corresponding row."
+        description: "Inline style of the row."
     },
     {
         name: "scrollable",
@@ -318,22 +300,10 @@ const DataTableProps = [
         description: "When specified, enables horizontal and/or vertical scrolling."
     },
     {
-        name: "scrollDirection",
-        type: "string",
-        default: "vertical",
-        description: 'Orientation of the scrolling, options are "vertical", "horizontal" and "both".'
-    },
-    {
         name: "scrollHeight",
         type: "string",
         default: "null",
-        description: 'Height of the scroll viewport in fixed units or the "flex" keyword for a dynamic size.'
-    },
-    {
-        name: "virtualScrollerOptions",
-        type: "object",
-        default: "null",
-        description: 'Whether to use the virtualScroller feature. The properties of VirtualScroller component can be used like an object in it. Note: Currently only vertical orientation mode is supported.'
+        description: 'Height of the scroll viewport in fixed pixels or the "flex" keyword for a dynamic size.'
     },
     {
         name: "frozenValue",
@@ -342,40 +312,28 @@ const DataTableProps = [
         description: "Items of the frozen part in scrollable DataTable."
     },
     {
-        name: "responsiveLayout",
-        type: "string",
-        default: "stack",
-        description: 'Defines the responsive mode, valid options are "stack" and "scroll".'
-    },
-    {
-        name: "breakpoint",
-        type: "string",
-        default: "960px",
-        description: "The breakpoint to define the maximum width boundary when using stack responsive layout."
-    },
-    {
-        name: "showGridlines",
-        type: "boolean",
-        default: "false",
-        description: "Whether to show grid lines between cells."
-    },
-    {
-        name: "stripedRows",
-        type: "boolean",
-        default: "false",
-        description: "Whether to displays rows with alternating colors."
-    },
-    {
-        name: "tableStyle",
-        type: "object",
-        default: "null",
-        description: "Inline style of the table element."
-    },
-    {
-        name: "tableClass",
+        name: "frozenWidth",
         type: "string",
         default: "null",
-        description: "Style class of the table element."
+        description: "Width of the frozen part in scrollable DataTable."
+    },
+    {
+        name: "virtualScroll",
+        type: "boolean",
+        default: "false",
+        description: "Whether the data should be loaded on demand during scroll."
+    },
+    {
+        name: "virtualScrollDelay",
+        type: "number",
+        default: "150",
+        description: "Delay in virtual scroll before doing a call to lazy load."
+    },
+    {
+        name: "virtualRowHeight",
+        type: "number",
+        default: "28",
+        description: "Height of a row to use in calculations of virtual scrolling."
     }
 ];
 
@@ -534,19 +492,29 @@ const DataTableEvents = [
         ]
     },
     {
-        name: "value-change",
-        description: "Invoked after filtering, sorting, pagination and cell editing to pass the rendered value.",
+        name: "row-click",
+        description: "Callback to invoke when a row is clicked.",
         arguments: [
             {
-                name: "value",
-                type: "array",
-                description: "Value displayed by the table."
+                name: "event.originalEvent",
+                type: "object",
+                description: "Browser event."
+            },
+            {
+                name: "event.data",
+                type: "object",
+                description: "Selected row data."
+            },
+            {
+                name: "event.index",
+                type: "number",
+                description: "Row index"
             }
         ]
     },
     {
-        name: "row-click",
-        description: "Callback to invoke when a row is clicked.",
+        name: "row-dblclick",
+        description: "Callback to invoke when a row is double clicked.",
         arguments: [
             {
                 name: "event.originalEvent",
@@ -637,22 +605,6 @@ const DataTableEvents = [
                 type: "string",
                 description:
                     'Type of the selection, valid values are "row", "radio" or "checkbox".'
-            }
-        ]
-    },
-    {
-        name: "select-all-change",
-        description: "Callback to invoke when all data is selected.",
-        arguments: [
-            {
-                name: "event.originalEvent",
-                type: "object",
-                description: "Browser event."
-            },
-            {
-                name: "event.checked",
-                type: "object",
-                description: "Whether all data is selected."
             }
         ]
     },
@@ -824,21 +776,6 @@ const DataTableEvents = [
                 description: "Row data to edit."
             },
             {
-                name: "event.newData",
-                type: "object",
-                description: "New row data after editing."
-            },
-            {
-                name: "event.value",
-                type: "object",
-                description: "Field value of row data to edit."
-            },
-            {
-                name: "event.newValue",
-                type: "object",
-                description: "Field value of new row data after editing"
-            },
-            {
                 name: "event.field",
                 type: "string",
                 description: "Field name of the row data."
@@ -897,11 +834,6 @@ const DataTableEvents = [
                 description: "Row data to edit."
             },
             {
-                name: "event.newData",
-                type: "object",
-                description: "New row data after editing."
-            },
-            {
                 name: "event.field",
                 type: "string",
                 description: "Field name of the row data."
@@ -915,7 +847,7 @@ const DataTableEvents = [
     },
     {
         name: "row-edit-save",
-        description: "Callback to invoke when row edit is saved.",
+        description: "Callback to invoke when cell edit is saved.",
         arguments: [
             {
                 name: "event.originalEvent",
@@ -926,11 +858,6 @@ const DataTableEvents = [
                 name: "event.data",
                 type: "object",
                 description: "Row data to edit."
-            },
-            {
-                name: "event.newData",
-                type: "object",
-                description: "New row data after editing."
             },
             {
                 name: "event.field",
@@ -946,7 +873,7 @@ const DataTableEvents = [
     },
     {
         name: "row-edit-cancel",
-        description: "Callback to invoke when row edit is cancelled.",
+        description: "Callback to invoke when cell edit is cancelled.",
         arguments: [
             {
                 name: "event.originalEvent",
@@ -959,11 +886,6 @@ const DataTableEvents = [
                 description: "Row data to edit."
             },
             {
-                name: "event.newData",
-                type: "object",
-                description: "New row data after editing."
-            },
-            {
                 name: "event.field",
                 type: "string",
                 description: "Field name of the row data."
@@ -972,6 +894,22 @@ const DataTableEvents = [
                 name: "event.index",
                 type: "number",
                 description: "Index of the row data to edit."
+            }
+        ]
+    },
+    {
+        name: "virtual-scroll",
+        description: "Callback to invoke during virtual scrolling.",
+        arguments: [
+            {
+                name: "event.first",
+                type: "number",
+                description: "Index of the first row."
+            },
+            {
+                name: "event.rows",
+                type: "number",
+                description: "Rows per page."
             }
         ]
     },

@@ -5,7 +5,6 @@
                 <h1>Terminal</h1>
                 <p>Terminal is a text based user interface.</p>
             </div>
-            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">
@@ -21,7 +20,7 @@
 
 <script>
 import TerminalDoc from './TerminalDoc';
-import TerminalService from 'primevue/terminalservice';
+import TerminalService from '../../components/terminalservice/TerminalService';
 
 export default {
     methods: {
@@ -47,14 +46,14 @@ export default {
                     response = "Unknown command: " + command;
             }
 
-            TerminalService.emit('response', response);
+            TerminalService.$emit('response', response);
         }
     },
     mounted() {
-        TerminalService.on('command', this.commandHandler);
+        TerminalService.$on('command', this.commandHandler);
     },
-    beforeUnmount() {
-        TerminalService.off('command', this.commandHandler);
+    beforeDestroy() {
+        TerminalService.$off('command', this.commandHandler);
     },
     components: {
         'TerminalDoc': TerminalDoc
@@ -67,7 +66,7 @@ p {
     margin-top: 0;
 }
 
-::v-deep(.dark-demo-terminal) {
+::v-deep .dark-demo-terminal {
     background-color: #212121;
     color: #ffffff;
 

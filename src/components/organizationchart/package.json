@@ -1,9 +1,0 @@
-{
-  "main": "./organizationchart.cjs.js",
-  "module": "./organizationchart.esm.js",
-  "unpkg": "./organizationchart.min.js",
-  "types": "./OrganizationChart.d.ts",
-  "browser": {
-    "./sfc": "./OrganizationChart.vue"
-  }
-}

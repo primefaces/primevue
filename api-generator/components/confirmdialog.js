@@ -4,12 +4,6 @@ const ConfirmDialogProps = [
         type: "string",
         default: "null",
         description: "Optional key to match the key of the confirmation, useful to target a specific confirm dialog instance."
-    },
-    {
-        name: "breakpoints",
-        type: "object",
-        default: "null",
-        description: "Object literal to define widths per screen size."
     }
 ];
 

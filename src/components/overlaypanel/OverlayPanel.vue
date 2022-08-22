@@ -1,28 +1,22 @@
 <template>
-    <Portal :appendTo="appendTo">
-        <transition name="p-overlaypanel" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave">
-            <div :class="containerClass" v-if="visible" :ref="containerRef" v-bind="$attrs" @click="onOverlayClick">
-                <div class="p-overlaypanel-content" @click="onContentClick" @mousedown="onContentClick">
-                    <slot></slot>
-                </div>
-                <button class="p-overlaypanel-close p-link" @click="hide" v-if="showCloseIcon" :aria-label="ariaCloseLabel" type="button" v-ripple>
-                    <span class="p-overlaypanel-close-icon pi pi-times"></span>
-                </button>
+    <transition name="p-overlaypanel" @enter="onEnter" @leave="onLeave">
+        <div class="p-overlaypanel p-component" v-if="visible" ref="container">
+            <div class="p-overlaypanel-content" @click="onContentClick">
+                <slot></slot>
             </div>
-        </transition>
-    </Portal>
+            <button class="p-overlaypanel-close p-link" @click="hide" v-if="showCloseIcon" :aria-label="ariaCloseLabel" type="button" v-ripple>
+                <span class="p-overlaypanel-close-icon pi pi-times"></span>
+            </button>
+        </div>
+    </transition>
 </template>
 
 <script>
-import {UniqueComponentId,DomHandler,ConnectedOverlayScrollHandler,ZIndexUtils} from 'primevue/utils';
-import OverlayEventBus from 'primevue/overlayeventbus';
-import Ripple from 'primevue/ripple';
-import Portal from 'primevue/portal';
+import ConnectedOverlayScrollHandler from '../utils/ConnectedOverlayScrollHandler';
+import DomHandler from '../utils/DomHandler';
+import Ripple from '../ripple/Ripple';
 
 export default {
-    name: 'OverlayPanel',
-    inheritAttrs: false,
-    emits: ['show', 'hide'],
     props: {
 		dismissable: {
 			type: Boolean,
@@ -34,7 +28,7 @@ export default {
 		},
         appendTo: {
 			type: String,
-			default: 'body'
+			default: null
 		},
         baseZIndex: {
             type: Number,
@@ -47,10 +41,6 @@ export default {
         ariaCloseLabel: {
             type: String,
             default: 'close'
-        },
-        breakpoints: {
-            type: Object,
-            default: null
         }
     },
     data() {
@@ -58,67 +48,33 @@ export default {
             visible: false
         }
     },
-    watch: {
-        dismissable: {
-            immediate: true,
-            handler(newValue) {
-                if (newValue) {
-                    this.bindOutsideClickListener();
-                } else {
-                    this.unbindOutsideClickListener();
-                }
-            }
-        }
-    },
     selfClick: false,
     target: null,
-    eventTarget: null,
     outsideClickListener: null,
     scrollHandler: null,
     resizeListener: null,
-    container: null,
-    styleElement: null,
-    overlayEventListener: null,
-    beforeUnmount() {
+    beforeDestroy() {
+        this.restoreAppend();
         if (this.dismissable) {
             this.unbindOutsideClickListener();
         }
-
         if (this.scrollHandler) {
             this.scrollHandler.destroy();
             this.scrollHandler = null;
         }
-        this.destroyStyle();
         this.unbindResizeListener();
         this.target = null;
-
-        if (this.container && this.autoZIndex) {
-            ZIndexUtils.clear(this.container);
-        }
-
-        if (this.overlayEventListener) {
-            OverlayEventBus.off('overlay-click', this.overlayEventListener);
-            this.overlayEventListener = null;
-        }
-
-        this.container = null;
-    },
-    mounted() {
-        if (this.breakpoints) {
-            this.createStyle();
-        }
     },
     methods: {
-        toggle(event, target) {
+        toggle(event) {
             if (this.visible)
                 this.hide();
             else
-                this.show(event, target);
+                this.show(event);
         },
-        show(event, target) {
+        show(event) {
             this.visible = true;
-            this.eventTarget = event.currentTarget;
-            this.target = target || event.currentTarget;
+            this.target = event.currentTarget;
         },
         hide() {
             this.visible = false;
@@ -126,8 +82,8 @@ export default {
         onContentClick() {
             this.selfClick = true;
         },
-        onEnter(el) {
-            this.container.setAttribute(this.attributeSelector, '');
+        onEnter() {
+            this.appendContainer();
             this.alignOverlay();
             if (this.dismissable) {
                 this.bindOutsideClickListener();
@@ -137,45 +93,28 @@ export default {
             this.bindResizeListener();
 
             if (this.autoZIndex) {
-                ZIndexUtils.set('overlay', el, this.baseZIndex + this.$primevue.config.zIndex.overlay);
+                this.$refs.container.style.zIndex = String(this.baseZIndex + DomHandler.generateZIndex());
             }
-
-            this.overlayEventListener = (e) => {
-                if (this.container.contains(e.target)) {
-                    this.selfClick = true;
-                }
-            };
-
-            OverlayEventBus.on('overlay-click', this.overlayEventListener);
-            this.$emit('show');
         },
         onLeave() {
             this.unbindOutsideClickListener();
             this.unbindScrollListener();
             this.unbindResizeListener();
-            OverlayEventBus.off('overlay-click', this.overlayEventListener);
-            this.overlayEventListener = null;
-            this.$emit('hide');
-        },
-        onAfterLeave(el) {
-            if (this.autoZIndex) {
-                ZIndexUtils.clear(el);
-            }
         },
         alignOverlay() {
-            DomHandler.absolutePosition(this.container, this.target);
+            DomHandler.absolutePosition(this.$refs.container, this.target);
 
-            const containerOffset = DomHandler.getOffset(this.container);
+            const containerOffset = DomHandler.getOffset(this.$refs.container);
             const targetOffset = DomHandler.getOffset(this.target);
             let arrowLeft = 0;
 
             if (containerOffset.left < targetOffset.left) {
                 arrowLeft = targetOffset.left - containerOffset.left;
             }
-            this.container.style.setProperty('--overlayArrowLeft', `${arrowLeft}px`);
+            this.$refs.container.style.setProperty('--overlayArrowLeft', `${arrowLeft}px`);
 
             if (containerOffset.top < targetOffset.top) {
-                DomHandler.addClass(this.container, 'p-overlaypanel-flipped');
+                DomHandler.addClass(this.$refs.container, 'p-overlaypanel-flipped');
             }
         },
         bindOutsideClickListener() {
@@ -193,7 +132,7 @@ export default {
             if (this.outsideClickListener) {
                 document.removeEventListener('click', this.outsideClickListener);
                 this.outsideClickListener = null;
-                this.selfClick = false;
+                this.selfClick= false;
             }
         },
         bindScrollListener() {
@@ -215,7 +154,7 @@ export default {
         bindResizeListener() {
             if (!this.resizeListener) {
                 this.resizeListener = () => {
-                    if (this.visible && !DomHandler.isTouchDevice()) {
+                    if (this.visible && !DomHandler.isAndroid()) {
                         this.visible = false;
                     }
                 };
@@ -228,61 +167,28 @@ export default {
                 this.resizeListener = null;
             }
         },
-        isTargetClicked(event) {
-            return (this.eventTarget && (this.eventTarget === event.target || this.eventTarget.contains(event.target)));
+        isTargetClicked() {
+            return this.target && (this.target === event.target || this.target.contains(event.target));
         },
-        containerRef(el) {
-            this.container = el;
-        },
-        createStyle() {
-			if (!this.styleElement) {
-				this.styleElement = document.createElement('style');
-				this.styleElement.type = 'text/css';
-				document.head.appendChild(this.styleElement);
-
-                let innerHTML = '';
-                for (let breakpoint in this.breakpoints) {
-                    innerHTML += `
-                        @media screen and (max-width: ${breakpoint}) {
-                            .p-overlaypanel[${this.attributeSelector}] {
-                                width: ${this.breakpoints[breakpoint]} !important;
-                            }
-                        }
-                    `
-                }
-
-                this.styleElement.innerHTML = innerHTML;
-			}
-		},
-        destroyStyle() {
-            if (this.styleElement) {
-                document.head.removeChild(this.styleElement);
-                this.styleElement = null;
+        appendContainer() {
+            if (this.appendTo) {
+                if (this.appendTo === 'body')
+                    document.body.appendChild(this.$refs.container);
+                else
+                    document.getElementById(this.appendTo).appendChild(this.$refs.container);
             }
         },
-        onOverlayClick(event) {
-            OverlayEventBus.emit('overlay-click', {
-                originalEvent: event,
-                target: this.target
-            });
-        }
-    },
-    computed: {
-        containerClass() {
-            return ['p-overlaypanel p-component', {
-                'p-input-filled': this.$primevue.config.inputStyle === 'filled',
-                'p-ripple-disabled': this.$primevue.config.ripple === false
-            }];
-        },
-        attributeSelector() {
-            return UniqueComponentId();
+        restoreAppend() {
+            if (this.$refs.container && this.appendTo) {
+                if (this.appendTo === 'body')
+                    document.body.removeChild(this.$refs.container);
+                else
+                    document.getElementById(this.appendTo).removeChild(this.$refs.container);
+            }
         }
     },
     directives: {
         'ripple': Ripple
-    },
-    components: {
-        'Portal': Portal
     }
 }
 </script>
@@ -291,8 +197,6 @@ export default {
 .p-overlaypanel {
     position: absolute;
     margin-top: 10px;
-    top: 0;
-    left: 0;
 }
 
 .p-overlaypanel-flipped {
@@ -309,7 +213,7 @@ export default {
 }
 
 /* Animation */
-.p-overlaypanel-enter-from {
+.p-overlaypanel-enter {
     opacity: 0;
     transform: scaleY(0.8);
 }
@@ -328,7 +232,7 @@ export default {
 
 .p-overlaypanel:after, .p-overlaypanel:before {
 	bottom: 100%;
-	left: calc(var(--overlayArrowLeft, 0) + 1.25rem);
+    left: calc(var(--overlayArrowLeft, 0) + 1.25rem);
 	content: " ";
 	height: 0;
 	width: 0;

@@ -4,47 +4,41 @@
             <slot name="start"></slot>
         </div>
         <ul class="p-megamenu-root-list" role="menubar">
-            <template v-for="(category,index) of model" :key="label(category) + '_' + index">
-                <li v-if="visible(category)"  :class="getCategoryClass(category)" :style="category.style"
+            <template v-for="(category,index) of model">
+                <li v-if="visible(category)" :key="label(category) + '_' + index" :class="getCategoryClass(category)" :style="category.style"
                     @mouseenter="onCategoryMouseEnter($event, category)" role="none">
-                    <template v-if="!$slots.item">
-                        <router-link v-if="category.to && !disabled(category)" :to="category.to" custom v-slot="{navigate, href, isActive, isExactActive}">
-                            <a :href="href" :class="linkClass(category, {isActive, isExactActive})" @click="onCategoryClick($event, category, navigate)" @keydown="onCategoryKeydown($event, category)" role="menuitem" v-ripple>
-                                <span v-if="category.icon" :class="getCategoryIcon(category)"></span>
-                                <span class="p-menuitem-text">{{label(category)}}</span>
-                            </a>
-                        </router-link>
-                        <a v-else :href="category.url" :class="linkClass(category)" :target="category.target" @click="onCategoryClick($event, category)" @keydown="onCategoryKeydown($event, category)"
-                            role="menuitem" :aria-haspopup="category.items != null" :aria-expanded="category === activeItem" :tabindex="disabled(category) ? null : '0'" v-ripple>
+                    <router-link v-if="category.to && !disabled(category)" :to="category.to" custom v-slot="{navigate, href, isActive, isExactActive}">
+                        <a :href="href" :class="linkClass(category, {isActive, isExactActive})" @click="onCategoryClick($event, category, navigate)" @keydown="onCategoryKeydown($event, category)" role="menuitem" v-ripple>
                             <span v-if="category.icon" :class="getCategoryIcon(category)"></span>
                             <span class="p-menuitem-text">{{label(category)}}</span>
-                            <span v-if="category.items" :class="getCategorySubMenuIcon()"></span>
                         </a>
-                    </template>
-                    <component v-else :is="$slots.item" :item="category"></component>
+                    </router-link>
+                    <a v-else :href="category.url" :class="linkClass(category)" :target="category.target" @click="onCategoryClick($event, category)" @keydown="onCategoryKeydown($event, category)"
+                        role="menuitem" :aria-haspopup="category.items != null" :aria-expanded="category === activeItem" :tabindex="disabled(category) ? null : '0'" v-ripple>
+                        <span v-if="category.icon" :class="getCategoryIcon(category)"></span>
+                        <span class="p-menuitem-text">{{label(category)}}</span>
+                        <span v-if="category.items" :class="getCategorySubMenuIcon()"></span>
+                    </a>
                     <div class="p-megamenu-panel" v-if="category.items">
                         <div class="p-megamenu-grid">
                             <div v-for="(column,columnIndex) of category.items" :key="label(category) + '_column_' + columnIndex" :class="getColumnClassName(category)">
-                                <ul v-for="(submenu,submenuIndex) of column" class="p-megamenu-submenu" :key="submenu.label + '_submenu_' + submenuIndex" role="menu">
-                                    <li :class="getSubmenuHeaderClass(submenu)" :style="submenu.style" role="presentation">{{submenu.label}}</li>
-                                    <template v-for="(item, i) of submenu.items" :key="label(item) + i.toString()">
-                                        <li role="none" :class="getSubmenuItemClass(item)" :style="item.style" v-if="visible(item) && !item.separator">
-                                            <template v-if="!$slots.item">
-                                                <router-link v-if="item.to && !disabled(item)" :to="item.to" custom v-slot="{navigate, href, isActive, isExactActive}">
-                                                    <a :href="href" :class="linkClass(item, {isActive, isExactActive})" @click="onLeafClick($event, item, navigate)" role="menuitem" v-ripple>
-                                                        <span v-if="item.icon" :class="['p-menuitem-icon', item.icon]"></span>
-                                                        <span class="p-menuitem-text">{{label(item)}}</span>
-                                                    </a>
-                                                </router-link>
-                                                <a v-else :href="item.url" :class="linkClass(item)" :target="item.target" @click="onLeafClick($event, item)" role="menuitem" :tabindex="disabled(item) ? null : '0'" v-ripple>
+                                <ul v-for="(submenu,submenuIndex) of column" class="p-megamenu-submenu" :key="label(submenu) + '_submenu_' + submenuIndex" role="menu">
+                                    <li :class="getSubmenuHeaderClass(submenu)" :style="submenu.style" role="presentation">{{label(submenu)}}</li>
+                                    <template v-for="(item, i) of submenu.items">
+                                        <li role="none" :class="getSubmenuItemClass(item)" :style="item.style" v-if="visible(item) && !item.separator" :key="label(item) + i">
+                                            <router-link v-if="item.to && !disabled(item)" :to="item.to" custom v-slot="{navigate, href, isActive, isExactActive}" >
+                                                <a :href="href" :class="linkClass(item, {isActive, isExactActive})" @click.native="onLeafClick($event, item, navigate)" role="menuitem" v-ripple>
                                                     <span v-if="item.icon" :class="['p-menuitem-icon', item.icon]"></span>
                                                     <span class="p-menuitem-text">{{label(item)}}</span>
-                                                    <span :class="getSubmenuIcon()" v-if="item.items"></span>
                                                 </a>
-                                            </template>
-                                            <component v-else :is="$slots.item" :item="item"></component>
+                                            </router-link>
+                                            <a v-else :href="item.url" :class="linkClass(item)" :target="item.target" @click="onLeafClick($event, item, navigate)" role="menuitem" :tabindex="disabled(item) ? null : '0'" v-ripple>
+                                                <span v-if="item.icon" :class="['p-menuitem-icon', item.icon]"></span>
+                                                <span class="p-menuitem-text">{{label(item)}}</span>
+                                                <span :class="getSubmenuIcon()" v-if="item.items"></span>
+                                            </a>
                                         </li>
-                                        <li :class="['p-menu-separator', item.class]" :style="item.style" v-if="visible(item) && item.separator" :key="'separator' + i.toString()" role="separator"></li>
+                                        <li :class="['p-menu-separator', item.class]" :style="item.style" v-if="visible(item) && item.separator" :key="'separator' + i" role="separator"></li>
                                     </template>
                                 </ul>
                             </div>
@@ -60,11 +54,10 @@
 </template>
 
 <script>
-import {DomHandler} from 'primevue/utils';
-import Ripple from 'primevue/ripple';
+import DomHandler from '../utils/DomHandler';
+import Ripple from '../ripple/Ripple';
 
 export default {
-    name: 'MegaMenu',
     props: {
 		model: {
             type: Array,
@@ -85,7 +78,7 @@ export default {
             activeItem: null
         }
     },
-    beforeUnmount() {
+    beforeDestroy() {
         this.unbindDocumentClickListener();
     },
     methods: {
@@ -95,6 +88,10 @@ export default {
                 return;
             }
 
+            if (!item.url && !item.to) {
+                event.preventDefault();
+            }
+
             if (item.command) {
                 item.command({
                     originalEvent: event,
@@ -102,11 +99,11 @@ export default {
                 });
             }
 
-            this.activeItem = null;
-
             if (item.to && navigate) {
                 navigate(event);
             }
+
+            this.activeItem = null;
         },
         onCategoryMouseEnter(event, category) {
             if (this.disabled(category)) {
@@ -118,10 +115,14 @@ export default {
                 this.activeItem = category;
             }
         },
-        onCategoryClick(event, category, navigate) {
+        onCategoryClick(event, category) {
             if (this.disabled(category)) {
                 event.preventDefault();
                 return;
+            }
+
+            if (!category.url && !category.to) {
+                event.preventDefault();
             }
 
             if (category.command) {
@@ -140,10 +141,6 @@ export default {
                     this.activeItem = category;
                     this.bindDocumentClickListener();
                 }
-            }
-
-            if (category.to && navigate) {
-                navigate(event);
             }
         },
         onCategoryKeydown(event, category) {
@@ -310,7 +307,7 @@ export default {
             return (typeof item.disabled === 'function' ? item.disabled() : item.disabled);
         },
         label(item) {
-            return (typeof item.disabled === 'function' ? item.label() : item.label);
+            return (typeof item.label === 'function' ? item.label() : item.label);
         }
     },
     computed: {

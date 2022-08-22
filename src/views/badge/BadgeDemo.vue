@@ -5,7 +5,6 @@
                 <h1>Badge</h1>
                 <p>Badge is a small status indicator for another element.</p>
             </div>
-            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">
@@ -23,7 +22,7 @@
                 <i class="pi pi-envelope p-text-secondary" style="font-size: 2rem" v-badge.danger></i>
 
                 <h5>Button Badge</h5>
-                <Button type="button" label="Emails" badge="8" class="mr-2" />
+                <Button type="button" label="Emails" badge="8" class="mr-2" badgeClass="p-badge-success"/>
                 <Button type="button" label="Messages" icon="pi pi-users" class="p-button-warning" badge="8" badgeClass="p-badge-danger" />
 
                 <h5>Sizes</h5>
@@ -41,6 +40,11 @@
 import BadgeDoc from './BadgeDoc';
 
 export default {
+    data() {
+        return {
+
+        }
+    },
 	components: {
 		'BadgeDoc': BadgeDoc
 	}

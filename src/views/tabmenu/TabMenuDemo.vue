@@ -5,7 +5,6 @@
                 <h1>TabMenu</h1>
                 <p>TabMenu is a navigation component that displays items as tab headers. Example below uses nested routes with TabMenu.</p>
             </div>
-            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">
@@ -14,7 +13,7 @@
                 <TabMenu :model="items" />
                 <router-view/>
             </div>
-            
+
             <div class="card">
                 <h5>Programmatic</h5>
                 <div class="py-2">
@@ -23,7 +22,7 @@
                     <Button @click="active = 2" class="p-button-text mr-2" label="Activate 3rd" />
                 </div>
 
-                <TabMenu :model="items2" v-model:activeIndex="active" />
+                <TabMenu :model="items2" :activeIndex.sync="active" />
             </div>
         </div>
 
@@ -61,7 +60,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-::v-deep(.tabmenudemo-content) {
+::v-deep .tabmenudemo-content  {
     padding: 2rem 1rem;
 }
 </style>

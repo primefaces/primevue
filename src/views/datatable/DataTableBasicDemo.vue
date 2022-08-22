@@ -5,7 +5,6 @@
 				<h1>DataTable <span>Basic</span></h1>
 				<p>DataTable requires a collection to display along with column components for the representation of the data.</p>
 			</div>
-            <AppDemoActions />
 		</div>
 
 		<div class="content-section implementation">
@@ -19,13 +18,22 @@
             </div>
 		</div>
 
-        <DataTableBasicDoc />
-	</div>
+        <div class="content-section documentation">
+            <TabView>
+                <TabPanel header="Source">
+<CodeHighlight>
+<template v-pre>
+&lt;DataTable :value="products" responsiveLayout="scroll"&gt;
+    &lt;Column field="code" header="Code"&gt;&lt;/Column&gt;
+    &lt;Column field="name" header="Name"&gt;&lt;/Column&gt;
+    &lt;Column field="category" header="Category"&gt;&lt;/Column&gt;
+    &lt;Column field="quantity" header="Quantity"&gt;&lt;/Column&gt;
+&lt;/DataTable&gt;
 </template>
+</CodeHighlight>
 
-<script>
+<CodeHighlight lang="javascript">
 import ProductService from '../../service/ProductService';
-import DataTableBasicDoc from './DataTableBasicDoc';
 
 export default {
     data() {
@@ -39,9 +47,30 @@ export default {
     },
     mounted() {
         this.productService.getProductsSmall().then(data => this.products = data);
+    }
+}
+</CodeHighlight>
+                </TabPanel>
+            </TabView>
+        </div>
+	</div>
+</template>
+
+<script>
+import ProductService from '../../service/ProductService';
+
+export default {
+    data() {
+        return {
+            products: null
+        }
     },
-    components: {
-        DataTableBasicDoc
+    productService: null,
+    created() {
+        this.productService = new ProductService();
+    },
+    mounted() {
+        this.productService.getProductsSmall().then(data => this.products = data);
     }
 }
 </script>

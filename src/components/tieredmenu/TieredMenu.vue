@@ -1,22 +1,17 @@
 <template>
-    <Portal :appendTo="appendTo" :disabled="!popup">
-        <transition name="p-connected-overlay" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave">
-            <div :ref="containerRef" :class="containerClass" v-if="popup ? visible : true" v-bind="$attrs" @click="onOverlayClick">
-                <TieredMenuSub :model="model" :root="true" :popup="popup" @leaf-click="onLeafClick" :template="$slots.item" :exact="exact" />
-            </div>
-        </transition>
-    </Portal>
+    <transition name="p-connected-overlay" @enter="onEnter" @leave="onLeave">
+        <div ref="container" :class="containerClass" v-if="popup ? visible : true">
+            <TieredMenuSub :model="model" :root="true" :popup="popup" @leaf-click="onLeafClick" :exact="exact" />
+        </div>
+    </transition>
 </template>
 
 <script>
-import {ConnectedOverlayScrollHandler,DomHandler,ZIndexUtils} from 'primevue/utils';
-import OverlayEventBus from 'primevue/overlayeventbus';
-import Portal from 'primevue/portal';
-import TieredMenuSub from './TieredMenuSub.vue';
+import ConnectedOverlayScrollHandler from '../utils/ConnectedOverlayScrollHandler';
+import DomHandler from '../utils/DomHandler';
+import TieredMenuSub from './TieredMenuSub';
 
 export default {
-    name: 'TieredMenu',
-    inheritAttrs: false,
     props: {
         popup: {
             type: Boolean,
@@ -28,7 +23,7 @@ export default {
         },
         appendTo: {
             type: String,
-            default: 'body'
+            default: null
         },
         autoZIndex: {
             type: Boolean,
@@ -44,7 +39,6 @@ export default {
         }
     },
     target: null,
-    container: null,
     outsideClickListener: null,
     scrollHandler: null,
     resizeListener: null,
@@ -53,7 +47,8 @@ export default {
             visible: false
         };
     },
-    beforeUnmount() {
+    beforeDestroy() {
+        this.restoreAppend();
         this.unbindResizeListener();
         this.unbindOutsideClickListener();
 
@@ -61,11 +56,8 @@ export default {
             this.scrollHandler.destroy();
             this.scrollHandler = null;
         }
+
         this.target = null;
-        if (this.container && this.autoZIndex) {
-            ZIndexUtils.clear(this.container);
-        }
-        this.container = null;
     },
     methods: {
         itemClick(event) {
@@ -89,14 +81,15 @@ export default {
         hide() {
             this.visible = false;
         },
-        onEnter(el) {
+        onEnter() {
+            this.appendContainer();
             this.alignOverlay();
             this.bindOutsideClickListener();
             this.bindResizeListener();
             this.bindScrollListener();
 
             if (this.autoZIndex) {
-                ZIndexUtils.set('menu', el, this.baseZIndex + this.$primevue.config.zIndex.menu);
+                this.$refs.container.style.zIndex = String(this.baseZIndex + DomHandler.generateZIndex());
             }
         },
         onLeave() {
@@ -104,19 +97,13 @@ export default {
             this.unbindResizeListener();
             this.unbindScrollListener();
         },
-        onAfterLeave(el) {
-            if (this.autoZIndex) {
-                ZIndexUtils.clear(el);
-            }
-        },
         alignOverlay() {
-            DomHandler.absolutePosition(this.container, this.target);
-            this.container.style.minWidth = DomHandler.getOuterWidth(this.target) + 'px';
+            DomHandler.absolutePosition(this.$refs.container, this.target);
         },
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
                 this.outsideClickListener = (event) => {
-                    if (this.visible && this.container && !this.container.contains(event.target) && !this.isTargetClicked(event)) {
+                    if (this.visible && this.$refs.container && !this.$refs.container.contains(event.target) && !this.isTargetClicked(event)) {
                         this.hide();
                     }
                 };
@@ -148,7 +135,7 @@ export default {
         bindResizeListener() {
             if (!this.resizeListener) {
                 this.resizeListener = () => {
-                    if (this.visible && !DomHandler.isTouchDevice()) {
+                    if (this.visible) {
                         this.hide();
                     }
                 };
@@ -161,36 +148,40 @@ export default {
                 this.resizeListener = null;
             }
         },
-        isTargetClicked(event) {
+        isTargetClicked() {
             return this.target && (this.target === event.target || this.target.contains(event.target));
+        },
+        appendContainer() {
+            if (this.appendTo) {
+                if (this.appendTo === 'body')
+                    document.body.appendChild(this.$refs.container);
+                else
+                    document.getElementById(this.appendTo).appendChild(this.$refs.container);
+            }
+        },
+        restoreAppend() {
+            if (this.$refs.container && this.appendTo) {
+                if (this.appendTo === 'body')
+                    document.body.removeChild(this.$refs.container);
+                else
+                    document.getElementById(this.appendTo).removeChild(this.$refs.container);
+            }
         },
         onLeafClick() {
             if (this.popup) {
                 this.hide();
             }
-        },
-        containerRef(el) {
-            this.container = el;
-        },
-        onOverlayClick(event) {
-            OverlayEventBus.emit('overlay-click', {
-                originalEvent: event,
-                target: this.target
-            });
         }
     },
     computed: {
         containerClass() {
             return ['p-tieredmenu p-component', {
-                'p-tieredmenu-overlay': this.popup,
-                'p-input-filled': this.$primevue.config.inputStyle === 'filled',
-                'p-ripple-disabled': this.$primevue.config.ripple === false
+                'p-tieredmenu-overlay': this.popup
             }];
         }
     },
     components: {
-        'TieredMenuSub': TieredMenuSub,
-        'Portal': Portal
+        'TieredMenuSub': TieredMenuSub
     }
 }
 </script>
@@ -198,8 +189,6 @@ export default {
 <style>
 .p-tieredmenu-overlay {
     position: absolute;
-    top: 0;
-    left: 0;
 }
 
 .p-tieredmenu ul {

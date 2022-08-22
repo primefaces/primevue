@@ -5,13 +5,13 @@
             <span class="p-galleria-item-prev-icon pi pi-chevron-left"></span>
         </button>
         <div class="p-galleria-item">
-            <component :is="templates.item" :item="activeItem" v-if="templates.item" />
+            <GalleriaItemSlot type="item" :item="activeItem" :templates="templates" />
         </div>
         <button v-if="showItemNavigators" type="button" :class="navForwardClass" @click="navForward($event)" :disabled="isNavForwardDisabled()" v-ripple>
             <span class="p-galleria-item-next-icon pi pi-chevron-right"></span>
         </button>
         <div class="p-galleria-caption" v-if="templates['caption']">
-            <component :is="templates.caption" :item="activeItem" v-if="templates.caption" />
+            <GalleriaItemSlot type="caption" :item="activeItem" :templates="templates" />
         </div>
     </div>
     <ul v-if="showIndicators" class="p-galleria-indicators p-reset">
@@ -19,18 +19,17 @@
             @click="onIndicatorClick(index)" @mouseenter="onIndicatorMouseEnter(index)" @keydown.enter="onIndicatorKeyDown(index)"
             :class="['p-galleria-indicator', {'p-highlight': isIndicatorItemActive(index)}]">
             <button type="button" tabindex="-1" class="p-link" v-if="!templates['indicator']"></button>
-            <component :is="templates.indicator" :index="index" v-if="templates.indicator" />
+            <GalleriaItemSlot type="indicator" :index="index" :templates="templates" />
         </li>
     </ul>
   </div>
 </template>
 
 <script>
-import Ripple from 'primevue/ripple';
+import GalleriaItemSlot from './GalleriaItemSlot';
+import Ripple from '../ripple/Ripple';
 
 export default {
-    name: 'GalleriaItem',
-    emits: ['start-slideshow', 'stop-slideshow', 'update:activeIndex'],
     props: {
         circular: {
             type: Boolean,
@@ -71,7 +70,7 @@ export default {
     },
     mounted() {
         if (this.autoPlay) {
-            this.$emit('start-slideshow');
+            this.$emit('startSlideShow');
         }
     },
     methods: {
@@ -93,7 +92,7 @@ export default {
         },
         stopSlideShow() {
             if (this.slideShowActive && this.stopSlideShow) {
-                this.$emit('stop-slideshow');
+                this.$emit('stopSlideShow');
             }
         },
         navBackward(e) {
@@ -152,6 +151,9 @@ export default {
                 'p-disabled': this.isNavForwardDisabled()
             }];
         }
+    },
+    components: {
+        'GalleriaItemSlot': GalleriaItemSlot
     },
     directives: {
         'ripple': Ripple

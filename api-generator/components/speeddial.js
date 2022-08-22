@@ -90,16 +90,16 @@ const SpeedDialProps = [
         description: "Defined to rotate showIcon when hideIcon is not present."
     },
     {
-        name: "class",
-        type: "object",
+        name: "className",
+        type: "string",
         default: "null",
         description: "Style class of the element."
     },
     {
-        name: "style",
+        name: "styles",
         type: "any",
         default: "null",
-        description: "Style class of the element."
+        description: "Inline style of the element."
     },
     {
         name: "tooltipOptions",

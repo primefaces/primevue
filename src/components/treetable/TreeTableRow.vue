@@ -1,26 +1,31 @@
 <template>
     <tr :class="containerClass" @click="onClick" @keydown="onKeyDown" @touchend="onTouchEnd" :style="node.style" tabindex="0">
-        <template v-for="(col,i) of columns" :key="columnProp(col, 'columnKey')||columnProp(col, 'field')||i">
-            <TTBodyCell v-if="!columnProp(col, 'hidden')" :column="col" :node="node"
-                :level="level" :leaf="leaf" :indentation="indentation" :expanded="expanded" :selectionMode="selectionMode"
-                :checked="checked" :partialChecked="partialChecked"
-                @node-toggle="$emit('node-toggle', $event)" @checkbox-toggle="toggleCheckbox"></TTBodyCell>
-        </template>
+        <td v-for="(col,i) of columns" :key="columnProp(col, 'columnKey')||columnProp(col, 'field')||i" :style="columnProp(col, 'bodyStyle')" :class="columnProp(col, 'bodyClass')">
+            <button type="button" class="p-treetable-toggler p-link" @click="toggle" v-if="columnProp(col,'expander')" :style="togglerStyle" tabindex="-1" v-ripple>
+                <i :class="togglerIcon"></i>
+            </button>
+            <div :class="['p-checkbox p-treetable-checkbox p-component', {'p-checkbox-focused': checkboxFocused}]" @click="toggleCheckbox" v-if="checkboxSelectionMode && columnProp(col,'expander')" role="checkbox" :aria-checked="checked">
+                <div class="p-hidden-accessible">
+                    <input type="checkbox" @focus="onCheckboxFocus" @blur="onCheckboxBlur" />
+                </div>
+                <div ref="checkboxEl" :class="checkboxClass">
+                    <span :class="checkboxIcon"></span>
+                </div>
+            </div>
+            <TTColumnSlot :node="node" :column="col" type="body" v-if="col.$scopedSlots.body" />
+            <template v-else><span>{{resolveFieldData(node.data, col.field)}}</span></template>
+        </td>
     </tr>
-    <template v-if="expanded && node.children && node.children.length">
-        <TreeTableRow v-for="childNode of node.children" :key="childNode.key" :columns="columns" :node="childNode" :parentNode="node"  :level="level + 1"
-            :expandedKeys="expandedKeys" :selectionMode="selectionMode" :selectionKeys="selectionKeys" :indentation="indentation"
-            @node-toggle="$emit('node-toggle', $event)" @node-click="$emit('node-click', $event)" @checkbox-change="onCheckboxChange" />
-    </template>
 </template>
 
 <script>
-import {DomHandler, ObjectUtils} from 'primevue/utils';
-import BodyCell from './BodyCell.vue';
+import ObjectUtils from '../utils/ObjectUtils';
+import DomHandler from '../utils/DomHandler';
+import TreeTableColumnSlot from './TreeTableColumnSlot';
+import Ripple from '../ripple/Ripple';
 
 export default {
-    name: 'TreeTableRow',
-    emits: ['node-click', 'node-toggle', 'checkbox-change','nodeClick', 'nodeToggle', 'checkboxChange'],
+    name: 'sub-ttnode',
     props: {
         node: {
             type: null,
@@ -55,10 +60,18 @@ export default {
             default: 1
         }
     },
+    data() {
+        return {
+            checkboxFocused: false
+        }
+    },
     nodeTouched: false,
     methods: {
-        columnProp(col, prop) {
-            return ObjectUtils.getVNodeProp(col, prop);
+        columnProp(column, prop) {
+            return ObjectUtils.getVNodeProp(column, prop);
+        },
+        resolveFieldData(rowData, field) {
+            return ObjectUtils.resolveFieldData(rowData, field);
         },
         toggle() {
             this.$emit('node-toggle', this.node);
@@ -187,38 +200,11 @@ export default {
                 selectionKeys: _selectionKeys
             });
         },
-        onCheckboxChange(event) {
-            let check = event.check;
-            let _selectionKeys = {...event.selectionKeys};
-            let checkedChildCount = 0;
-            let childPartialSelected = false;
-
-            for(let child of this.node.children) {
-                if(_selectionKeys[child.key] && _selectionKeys[child.key].checked)
-                    checkedChildCount++;
-                else if(_selectionKeys[child.key] && _selectionKeys[child.key].partialChecked)
-                    childPartialSelected = true;
-            }
-
-            if(check && checkedChildCount === this.node.children.length) {
-                _selectionKeys[this.node.key] = {checked: true, partialChecked: false};
-            }
-            else {
-                if (!check) {
-                    delete _selectionKeys[this.node.key];
-                }
-
-                if(childPartialSelected || (checkedChildCount > 0 && checkedChildCount !== this.node.children.length))
-                    _selectionKeys[this.node.key] = {checked: false, partialChecked: true};
-                else
-                    _selectionKeys[this.node.key] = {checked: false, partialChecked: false};
-            }
-
-            this.$emit('checkbox-change', {
-                node: event.node,
-                check: event.check,
-                selectionKeys: _selectionKeys
-            });
+        onCheckboxFocus() {
+            this.checkboxFocused = true;
+        },
+        onCheckboxBlur() {
+            this.checkboxFocused = false;
         }
     },
     computed: {
@@ -239,8 +225,26 @@ export default {
         selected() {
             return (this.selectionMode && this.selectionKeys) ? this.selectionKeys[this.node.key] === true : false;
         },
+        togglerIcon() {
+            return ['p-treetable-toggler-icon pi', {'pi-chevron-right': !this.expanded, 'pi-chevron-down': this.expanded}];
+        },
+        togglerStyle() {
+            return {
+                marginLeft: this.level * this.indentation + 'rem',
+                visibility: this.leaf ? 'hidden' : 'visible'
+            };
+        },
         childLevel() {
             return this.level + 1;
+        },
+        checkboxSelectionMode() {
+            return this.selectionMode === 'checkbox';
+        },
+        checkboxClass() {
+            return ['p-checkbox-box', {'p-highlight': this.checked, 'p-focus': this.checkboxFocused, 'p-indeterminate': this.partialChecked}];
+        },
+        checkboxIcon() {
+            return ['p-checkbox-icon', {'pi pi-check': this.checked, 'pi pi-minus': this.partialChecked}];
         },
         checked() {
             return this.selectionKeys ? this.selectionKeys[this.node.key] && this.selectionKeys[this.node.key].checked: false;
@@ -250,7 +254,10 @@ export default {
         }
     },
     components: {
-        'TTBodyCell': BodyCell
+        'TTColumnSlot': TreeTableColumnSlot
+    },
+    directives: {
+        'ripple': Ripple
     }
 }
 </script>

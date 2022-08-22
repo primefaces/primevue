@@ -1,10 +1,10 @@
 <template>
     <div class="stepsdemo-content">
         <Card>
-            <template v-slot:title>
+            <template #title>
                 Confirmation
             </template>
-            <template v-slot:content>
+            <template #content>
                 <div class="field col-12">
                     <label for="class">Name</label>
                     <b>{{formData.firstname ? formData.firstname : '-'}} {{formData.lastname ? formData.lastname : '-'}}</b>
@@ -42,7 +42,7 @@
                     <b>{{formData.cvv && formData.cvv.length === 3  ? '**' + formData.cvv[2] : '-'}}</b>
                 </div>
             </template>
-            <template v-slot:footer>
+            <template #footer>
                 <div class="grid grid-nogutter justify-content-between">
                     <Button label="Back" @click="prevPage()" icon="pi pi-angle-left" />
                     <Button label="Complete" @click="complete()" icon="pi pi-check" iconPos="right" class="p-button-success"/>
@@ -59,11 +59,11 @@ export default {
     },
     methods: {
         prevPage() {
-            this.$emit('prev-page', {pageIndex: 3});
+            this.$emit('prevPage', {pageIndex: 3});
         },
         complete() {
             this.$emit('complete');
         }
-    }
+    },
 }
 </script>

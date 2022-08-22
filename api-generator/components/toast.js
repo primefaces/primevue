@@ -9,7 +9,7 @@ const ToastProps = [
         name: "position",
         type: "string",
         default: "top-right",
-        description: 'Position of the toast in viewport. Other valid values are "top-left", "top-center", "bottom-left", "bottom-center", "bottom-right" and "center".'
+        description: 'Position of the toast in viewport. Other valid values are "top-left", "top-center", "bottom-left", "botton-center", "bottom-right" and "center".'
     },
     {
         name: "autoZIndex",
@@ -27,14 +27,14 @@ const ToastProps = [
         name: "breakpoints",
         type: "object",
         default: "null",
-        description: "Object literal to define widths per screen size."
+        description: "Object literal to define styles per screen size."
     }
 ];
 
 const ToastSlots = [
     {
         name: "message",
-        description: "Custom content for the toast message"
+        description: "Custom content for the component."
     }
 ];
 

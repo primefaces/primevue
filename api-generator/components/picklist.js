@@ -1,6 +1,6 @@
 const PickListProps = [
     {
-        name: "modelValue",
+        name: "value",
         type: "array",
         default: "null",
         description: "Value of the component as a multidimensional array."
@@ -30,34 +30,10 @@ const PickListProps = [
         description: "Inline style of the the list element."
     },
     {
-        name: "responsive",
-        type: "boolean",
-        default: "true",
-        description: "Whether the list optimizes layout based on screen size."
-    },
-    {
-        name: "breakpoint",
-        type: "string",
-        default: "960px",
-        description: "The breakpoint to define the maximum width boundary when responsiveness is enabled."
-    },
-    {
         name: "stripedRows",
         type: "boolean",
         default: "false",
         description: "Whether to displays rows with alternating colors."
-    },
-    {
-        name: "showSourceControls",
-        type: "boolean",
-        default: "true",
-        description: "Whether to show buttons of source list."
-    },
-    {
-        name: "showTargetControls",
-        type: "boolean",
-        default: "true",
-        description: "Whether to show buttons of target list."
     }
 ];
 
@@ -149,22 +125,6 @@ const PickListEvents = [
                 name: "event.items",
                 type: "object",
                 description: "Moved items"
-            }
-        ]
-    },
-    {
-        name: "selection-change",
-        description: "Callback to invoke when one or more items are moved to the other list.",
-        arguments: [
-            {
-                name: "event.originalEvent",
-                type: "object",
-                description: "Browser event"
-            },
-            {
-                name: "event.value",
-                type: "array",
-                description: "Selected items"
             }
         ]
     }

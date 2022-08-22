@@ -1,39 +1,25 @@
 <template>
-	<AppDoc name="ChartDemo" :sources="sources" :dependencies="{'chart.js': '3.3.2'}" component="Chart" github="chart/LineChartDemo.vue" />
-</template>
+	<div class="content-section documentation">
+		<TabView>
+			<TabPanel header="Source">
+<CodeHighlight>
+<template v-pre>
+&lt;h3&gt;Basic&lt;/h3&gt;
+&lt;Chart type="line" :data="basicData" /&gt;
 
-<script>
+&lt;h3&gt;Multi Axis&lt;/h3&gt;
+&lt;Chart type="line" :data="multiAxisData" :options="multiAxisOptions" /&gt;
+
+&lt;h3&gt;Line Styles&lt;/h3&gt;
+&lt;Chart type="line" :data="lineStylesData" /&gt;
+</template>
+</CodeHighlight>
+
+<CodeHighlight lang="javascript">
 export default {
 	data() {
 		return {
-			sources: {
-				'options-api': {
-					tabName: 'Options API Source',
-					content: `
-<template>
-    <div>
-        <div class="card">
-            <h5>Basic</h5>
-            <Chart type="line" :data="basicData" :options="basicOptions" />
-        </div>
-
-        <div class="card">
-            <h5>Multi Axis</h5>
-            <Chart type="line" :data="multiAxisData" :options="multiAxisOptions" />
-        </div>
-
-        <div class="card">
-            <h5>Line Styles</h5>
-            <Chart type="line" :data="lineStylesData" :options="basicOptions" />
-        </div>
-    </div>
-</template>
-
-<script>
-export default {
-    data() {
-        return {
-            basicData: {
+			basicData: {
                 labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
                 datasets: [
                     {
@@ -125,22 +111,22 @@ export default {
                     }
                 }
             },
-            multiAxisOptions:{
+            multiAxisOptions: {
                 stacked: false,
                 plugins: {
                     legend: {
                         labels: {
-                            color: '#495057'
+                            color: '#ebedef'
                         }
                     }
                 },
                 scales: {
                     x: {
                         ticks: {
-                            color: '#495057'
+                            color: '#ebedef'
                         },
                         grid: {
-                            color: '#ebedef'
+                            color: 'rgba(255,255,255,0.2)'
                         }
                     },
                     y: {
@@ -148,10 +134,10 @@ export default {
                         display: true,
                         position: 'left',
                         ticks: {
-                            color: '#495057'
+                            color: '#ebedef'
                         },
                         grid: {
-                            color: '#ebedef'
+                            color: 'rgba(255,255,255,0.2)'
                         }
                     },
                     y1: {
@@ -159,206 +145,20 @@ export default {
                         display: true,
                         position: 'right',
                         ticks: {
-                            color: '#495057'
+                            color: '#ebedef'
                         },
                         grid: {
                             drawOnChartArea: false,
-                            color: '#ebedef'
+                            color: 'rgba(255,255,255,0.2)'
                         }
                     }
                 }
             }
-        }
-    }
-}
-<\\/script>
-`
-				},
-				'composition-api': {
-					tabName: 'Composition API Source',
-					content: `
-<template>
-    <div>
-        <div class="card">
-            <h5>Basic</h5>
-            <Chart type="line" :data="basicData" :options="basicOptions" />
-        </div>
-
-        <div class="card">
-            <h5>Multi Axis</h5>
-            <Chart type="line" :data="multiAxisData" :options="multiAxisOptions" />
-        </div>
-
-        <div class="card">
-            <h5>Line Styles</h5>
-            <Chart type="line" :data="lineStylesData" :options="basicOptions" />
-        </div>
-    </div>
-</template>
-
-<script>
-import { ref } from 'vue';
-
-export default {
-    setup() {
-        const basicData =  ref(
-            {
-                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-                datasets: [
-                    {
-                        label: 'First Dataset',
-                        data: [65, 59, 80, 81, 56, 55, 40],
-                        fill: false,
-                        borderColor: '#42A5F5',
-                        tension: .4
-                    },
-                    {
-                        label: 'Second Dataset',
-                        data: [28, 48, 40, 19, 86, 27, 90],
-                        fill: false,
-                        borderColor: '#FFA726',
-                        tension: .4
-                    }
-                ]
-            }
-        );
-
-        const multiAxisData = ref(
-            {
-                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-                datasets: [{
-                    label: 'Dataset 1',
-                    fill: false,
-                    borderColor: '#42A5F5',
-                    yAxisID: 'y',
-                    tension: .4,
-                    data: [65, 59, 80, 81, 56, 55, 10]
-                }, {
-                    label: 'Dataset 2',
-                    fill: false,
-                    borderColor: '#00bb7e',
-                    yAxisID: 'y1',
-                    tension: .4,
-                    data: [28, 48, 40, 19, 86, 27, 90]
-                }]
-            }
-        );
-
-        const lineStylesData = ref(
-            {
-                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-                datasets: [
-                    {
-                        label: 'First Dataset',
-                        data: [65, 59, 80, 81, 56, 55, 40],
-                        fill: false,
-                        tension: .4,
-                        borderColor: '#42A5F5'
-                    },
-                    {
-                        label: 'Second Dataset',
-                        data: [28, 48, 40, 19, 86, 27, 90],
-                        fill: false,
-                        borderDash: [5, 5],
-                        tension: .4,
-                        borderColor: '#66BB6A'
-                    },
-                    {
-                        label: 'Third Dataset',
-                        data: [12, 51, 62, 33, 21, 62, 45],
-                        fill: true,
-                        borderColor: '#FFA726',
-                        tension: .4,
-                        backgroundColor: 'rgba(255,167,38,0.2)'
-                    }
-                ]
-            }
-        );
-
-        const basicOptions = ref(
-            {
-                plugins: {
-                    legend: {
-                        labels: {
-                            color: '#495057'
-                        }
-                    }
-                },
-                scales: {
-                    x: {
-                        ticks: {
-                            color: '#495057'
-                        },
-                        grid: {
-                            color: '#ebedef'
-                        }
-                    },
-                    y: {
-                        ticks: {
-                            color: '#495057'
-                        },
-                        grid: {
-                            color: '#ebedef'
-                        }
-                    }
-                }
-            }
-        );
-
-        const multiAxisOptions = ref(
-            {
-                stacked: false,
-                plugins: {
-                    legend: {
-                        labels: {
-                            color: '#495057'
-                        }
-                    }
-                },
-                scales: {
-                    x: {
-                        ticks: {
-                            color: '#495057'
-                        },
-                        grid: {
-                            color: '#ebedef'
-                        }
-                    },
-                    y: {
-                        type: 'linear',
-                        display: true,
-                        position: 'left',
-                        ticks: {
-                            color: '#495057'
-                        },
-                        grid: {
-                            color: '#ebedef'
-                        }
-                    },
-                    y1: {
-                        type: 'linear',
-                        display: true,
-                        position: 'right',
-                        ticks: {
-                            color: '#495057'
-                        },
-                        grid: {
-                            drawOnChartArea: false,
-                            color: '#ebedef'
-                        }
-                    }
-                }
-            }
-        );
-
-		return { basicData, multiAxisData, multiAxisOptions, lineStylesData, basicOptions }
-    }
-}
-<\\/script>
-`
-				}
-			}
 		}
 	}
 }
-</script>
+</CodeHighlight>
+			</TabPanel>
+		</TabView>
+	</div>
+</template>

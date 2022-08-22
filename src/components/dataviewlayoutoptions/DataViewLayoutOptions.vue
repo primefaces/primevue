@@ -11,28 +11,26 @@
 
 <script>
 	export default {
-        name: 'DataViewLayoutOptions',
-		emits: ['update:modelValue'],
 		props: {
-			modelValue: String
+			value: String
 		},
 		computed: {
 			buttonListClass(){
 				return [
 					'p-button p-button-icon-only',
-					{'p-highlight': this.modelValue === 'list'}
+					{'p-highlight': this.value === 'list'}
 				]
 			},
 			buttonGridClass() {
 				return [
 					'p-button p-button-icon-only',
-					{'p-highlight': this.modelValue === 'grid'}
+					{'p-highlight': this.value === 'grid'}
 				]
 			}
 		},
 		methods: {
 			changeLayout(layout){
-				this.$emit('update:modelValue', layout);
+				this.$emit('input', layout);
 			}
 		}
 	}

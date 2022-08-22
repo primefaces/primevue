@@ -5,7 +5,7 @@
                 <h1>InputText</h1>
                 <p>InputText renders a text field to enter data.</p>
             </div>
-            <AppDemoActions />
+            <AppInputStyleSwitch />
         </div>
 
         <div class="content-section implementation">
@@ -43,7 +43,7 @@
                 <div class="field">
                     <label for="username2">Username</label>
                     <InputText id="username2" type="username" aria-describedby="username2-help" class="p-invalid" />
-                    <small id="username2-help" class="p-error">Username is not available.</small>
+                    <small id="username2-help" class="p-invalid">Username is not available.</small>
                 </div>
 
                 <h5>Disabled</h5>
@@ -68,16 +68,16 @@ import InputTextDoc from './InputTextDoc';
 export default {
     data() {
         return {
-            value1: null,
-            value2: null,
-            value3: null,
-            value4: null,
+            value1: '',
+            value2: '',
+            value3: '',
+            value4: '',
             value5: 'PrimeVue'
         }
     },
 	components: {
 		'InputTextDoc': InputTextDoc
-    }
+	}
 }
 </script>
 

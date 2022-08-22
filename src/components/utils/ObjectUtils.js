@@ -1,13 +1,13 @@
-export default {
+export default class ObjectUtils {
 
-    equals(obj1, obj2, field) {
+    static equals(obj1, obj2, field) {
         if (field)
             return (this.resolveFieldData(obj1, field) === this.resolveFieldData(obj2, field));
         else
             return this.deepEquals(obj1, obj2);
-    },
+    }
 
-    deepEquals(a, b) {
+    static deepEquals(a, b) {
         if (a === b) return true;
 
         if (a && b && typeof a == 'object' && typeof b == 'object') {
@@ -55,9 +55,9 @@ export default {
         }
 
         return a !== a && b !== b;
-    },
+    }
 
-    resolveFieldData(data, field) {
+    static resolveFieldData(data, field) {
         if (data && Object.keys(data).length && field) {
             if (this.isFunction(field)) {
                 return field(data);
@@ -80,17 +80,13 @@ export default {
         else {
             return null;
         }
-    },
+    }
 
-    isFunction(obj) {
+    static isFunction(obj) {
         return !!(obj && obj.constructor && obj.call && obj.apply);
-    },
+    }
 
-    getItemValue(obj, ...params) {
-        return this.isFunction(obj) ? obj(...params) : obj;
-    },
-
-    filter(value, fields, filterValue) {
+    static filter(value, fields, filterValue) {
         var filteredItems = [];
 
         if (value) {
@@ -105,9 +101,9 @@ export default {
         }
 
         return filteredItems;
-    },
+    }
 
-    reorderArray(value, from, to) {
+    static reorderArray(value, from, to) {
         let target;
         if (value && (from !== to)) {
             if (to >= value.length) {
@@ -118,9 +114,9 @@ export default {
             }
             value.splice(to, 0, value.splice(from, 1)[0]);
         }
-    },
+    }
 
-    findIndexInList(value, list) {
+    static findIndexInList(value, list) {
         let index = -1;
 
         if (list) {
@@ -133,9 +129,9 @@ export default {
         }
 
         return index;
-    },
+    }
 
-    contains(value, list) {
+    static contains(value, list) {
         if (value != null && list && list.length) {
             for (let val of list) {
                 if (this.equals(value, val))
@@ -144,9 +140,9 @@ export default {
         }
 
         return false;
-    },
+    }
 
-    insertIntoOrderedArray(item, index, arr, sourceArr) {
+    static insertIntoOrderedArray(item, index, arr, sourceArr) {
         if (arr.length > 0) {
             let injected = false;
             for (let i = 0; i < arr.length; i++) {
@@ -165,9 +161,9 @@ export default {
         else {
             arr.push(item);
         }
-    },
+    }
 
-    removeAccents(str) {
+    static removeAccents(str) {
         if (str && str.search(/[\xC0-\xFF]/g) > -1) {
             str = str
                     .replace(/[\xC0-\xC5]/g, "A")
@@ -194,33 +190,17 @@ export default {
         }
 
         return str;
-    },
+    }
 
-    getVNodeProp(vnode, prop) {
-        let props = vnode.props;
+    static getVNodeProp(vnode, prop) {
+        let props = vnode._props;
         if (props) {
             let kebapProp = prop.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
             let propName = Object.prototype.hasOwnProperty.call(props, kebapProp) ? kebapProp : prop;
 
-            return ((vnode.type.props[prop].type === Boolean && props[propName] === '') ? true : props[propName]);
+            return props[propName];
         }
 
         return null;
-    },
-
-    isEmpty(value) {
-        return (
-            value === null || value === undefined || value === '' ||
-            (Array.isArray(value) && value.length === 0) ||
-            (!(value instanceof Date) && typeof value === 'object' && Object.keys(value).length === 0)
-        );
-    },
-
-    isNotEmpty(value) {
-        return !this.isEmpty(value);
-    },
-
-    isPrintableCharacter(char = '') {
-        return this.isNotEmpty(char) && char.length === 1 && char.match(/\S| /);
     }
 }

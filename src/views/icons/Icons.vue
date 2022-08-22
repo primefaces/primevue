@@ -7,27 +7,18 @@
             <h5>Download</h5>
             <p>PrimeIcons is available at npm, run the following command to download it to your project.</p>
 
-<pre v-code.script><code>
+<CodeHighlight lang="javascript">
 npm install primeicons --save
-
-</code></pre>
-
-<p>Then import the library.</p>
-
-<pre v-code.script><code>
-import 'primeicons/primeicons.css';
-
-</code></pre>
+</CodeHighlight>
 
             <h5>Getting Started</h5>
             <p>PrimeIcons use the <strong>pi pi-&#123;icon&#125;</strong> syntax such as <strong>pi pi-check</strong>.
             A standalone icon can be displayed using an element like <i>i</i> or <i>span</i></p>
 
-<pre v-code><code>
+<CodeHighlight>
 &lt;i class="pi pi-check"&gt;&lt;/i&gt;
 &lt;i class="pi pi-times"&gt;&lt;/i&gt;
-
-</code></pre>
+</CodeHighlight>
 
 <i class="pi pi-check" style="margin-right: .5rem"></i>
 <i class="pi pi-times"></i>
@@ -35,37 +26,33 @@ import 'primeicons/primeicons.css';
             <h5>Size</h5>
             <p>Size of the icons can easily be changed using font-size property.</p>
 
-<pre v-code><code>
+<CodeHighlight>
 &lt;i class="pi pi-check"&gt;&lt;/i&gt;
-
-</code></pre>
+</CodeHighlight>
 
             <i class="pi pi-check"></i>
 
-<pre v-code><code>
+<CodeHighlight>
 &lt;i class="pi pi-check" style="font-size: 2rem"&gt;&lt;/i&gt;
-
-</code></pre>
+</CodeHighlight>
 
             <i class="pi pi-check" style="font-size: 2rem"></i>
 
             <h5>Spinning Animation</h5>
             <p>Special pi-spin class applies continuous rotation to an icon.</p>
-<pre v-code><code>
+<CodeHighlight>
 &lt;i class="pi pi-spin pi-spinner" style="font-size: 2rem"&gt;&lt;/i&gt;
-
-</code></pre>
+</CodeHighlight>
 
             <i class="pi pi-spin pi-spinner" style="font-size: 2rem"></i>
 
             <h5>Constants</h5>
             <p>PrimeIcons constants API is provided to easily choose an icon with typescript e.g. when defining a menu model.</p>
-<pre v-code><code>
+<CodeHighlight>
 &lt;Menu :model="items" /&gt;
+</CodeHighlight>
 
-</code></pre>
-
-<pre v-code.script><code>
+<CodeHighlight lang="javascript">
 import {PrimeIcons} from 'primevue/api';
 
 export default {
@@ -86,8 +73,7 @@ export default {
 		}
 	}
 }
-
-</code></pre>
+</CodeHighlight>
 
             <h5>List of Icons</h5>
             <p>Here is the current list of PrimeIcons, more icons are added periodically. You may also <a href="https://github.com/primefaces/primeicons/issues">request new icons</a> at the issue tracker.</p>

@@ -1,18 +1,15 @@
 <template>
-    <transition name="p-scrolltop" appear @enter="onEnter" @after-leave="onAfterLeave">
-        <button :ref="containerRef" :class="containerClass" v-if="visible" @click="onClick" type="button">
+    <transition name="p-scrolltop" appear @enter="onEnter">
+        <button :class="containerClass" v-if="visible" @click="onClick" type="button" ref="button">
             <span :class="iconClass"></span>
         </button>
     </transition>
 </template>
 
 <script>
-import {DomHandler,ZIndexUtils} from 'primevue/utils';
-
+import DomHandler from '../utils/DomHandler';
 export default {
-    name: 'ScrollTop',
     scrollListener: null,
-    container: null,
     data() {
         return {
             visible: false
@@ -42,21 +39,16 @@ export default {
         else if (this.target === 'parent')
             this.bindParentScrollListener();
     },
-    beforeUnmount() {
+    beforeDestroy() {
         if (this.target === 'window')
             this.unbindDocumentScrollListener();
         else if (this.target === 'parent')
             this.unbindParentScrollListener();
-
-        if (this.container) {
-            ZIndexUtils.clear(this.container);
-            this.overlay = null;
-        }
     },
     methods: {
         onClick() {
             let scrollElement = this.target === 'window' ? window : this.$el.parentElement;
-            scrollElement.scroll({
+             scrollElement.scroll({
                 top: 0,
                 behavior: this.behavior
             });
@@ -93,14 +85,8 @@ export default {
                 this.scrollListener = null;
             }
         },
-        onEnter(el) {
-            ZIndexUtils.set('overlay', el, this.$primevue.config.zIndex.overlay);
-        },
-        onAfterLeave(el) {
-            ZIndexUtils.clear(el);
-        },
-        containerRef(el) {
-            this.container = el;
+        onEnter() {
+            this.$refs.button.style.zIndex = String(DomHandler.generateZIndex());
         }
     },
     computed: {
@@ -123,27 +109,21 @@ export default {
     align-items: center;
     justify-content: center;
 }
-
 .p-scrolltop-sticky {
     position: sticky;
 }
-
 .p-scrolltop-sticky.p-link {
     margin-left: auto;
 }
-
 .p-scrolltop-enter-from {
     opacity: 0;
 }
-
 .p-scrolltop-enter-active {
     transition: opacity .15s;
 }
-
 .p-scrolltop.p-scrolltop-leave-to {
     opacity: 0;
 }
-
 .p-scrolltop-leave-active {
     transition: opacity .15s;
 }

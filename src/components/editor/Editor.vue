@@ -51,10 +51,8 @@
 import Quill from "quill";
 
 export default {
-    name: 'Editor',
-    emits: ['update:modelValue', 'text-change', 'selection-change'],
     props: {
-        modelValue: String,
+        value: String,
         placeholder: String,
         readonly: Boolean,
         formats: Array,
@@ -62,10 +60,10 @@ export default {
     },
     quill: null,
     watch: {
-        modelValue(newValue, oldValue) {
-            if (newValue !== oldValue && this.quill && !this.quill.hasFocus()) {
-                this.renderValue(newValue);
-            }
+        value(newValue, oldValue) {
+          if (newValue !== oldValue && this.quill && !this.quill.hasFocus()) {
+            this.renderValue(newValue);
+          }
         }
     },
     mounted() {
@@ -79,7 +77,7 @@ export default {
             placeholder: this.placeholder
         });
 
-        this.renderValue(this.modelValue);
+        this.renderValue(this.value);
 
         this.quill.on('text-change', (delta, oldContents, source) => {
             if (source === 'user') {
@@ -89,29 +87,14 @@ export default {
                     html = '';
                 }
 
-                this.$emit('update:modelValue', html);
+                this.$emit('input', html);
                 this.$emit('text-change', {
                     htmlValue: html,
                     textValue: text,
                     delta: delta,
-                    source: source,
-                    instance: this.quill
+                    source: source
                 });
             }
-        });
-
-        this.quill.on('selection-change', (range, oldRange, source) => {
-            let html = this.$refs.editorElement.children[0].innerHTML;
-            let text = this.quill.getText().trim();
-            
-            this.$emit('selection-change', {
-                htmlValue: html,
-                textValue: text,
-                range: range,
-                oldRange: oldRange,
-                source: source,
-                instance: this.quill
-            })
         });
     },
     methods: {
@@ -124,7 +107,7 @@ export default {
             }
         }
     },
-    beforeUnmount() {
+    beforeDestroy() {
         this.quill = null;
     }
 }

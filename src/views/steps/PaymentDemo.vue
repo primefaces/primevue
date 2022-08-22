@@ -1,13 +1,13 @@
 <template>
     <div class="stepsdemo-content">
         <Card>
-            <template v-slot:title>
+            <template #title>
                 Payment Information
             </template>
-            <template v-slot:subtitle>
+            <template #subtitle>
                 Enter your card details
             </template>
-            <template v-slot:content>
+            <template #content>
                 <div class="p-fluid formgrid grid">
                     <div class="field col-12">
                         <label for="class">Card Holder Name</label>
@@ -31,7 +31,7 @@
                     </div>
                 </div>
             </template>
-            <template v-slot:footer>
+            <template #footer>
                 <div class="grid grid-nogutter justify-content-between">
                     <Button label="Back" @click="prevPage()" icon="pi pi-angle-left" />
                     <Button label="Next" @click="nextPage()" icon="pi pi-angle-right" iconPos="right" />
@@ -54,10 +54,10 @@ export default {
     },
     methods: {
         nextPage() {
-            this.$emit('next-page', {formData: {cardholderName: this.cardholderName, cardholderNumber: this.cardholderNumber, date: this.date, cvv: this.cvv}, pageIndex: 2});
+            this.$emit('nextPage', {formData: {cardholderName: this.cardholderName, cardholderNumber: this.cardholderNumber, date: this.date, cvv: this.cvv}, pageIndex: 2});
         },
         prevPage() {
-            this.$emit('prev-page', {pageIndex: 2});
+            this.$emit('prevPage', {pageIndex: 2});
         }
     }
 }

@@ -1,17 +1,15 @@
 <template>
     <div class="p-organizationchart p-component">
-        <OrganizationChartNode :node="value" :templates="$slots"
+        <OrganizationChartNode :node="value" :templates="$scopedSlots"
             @node-toggle="onNodeToggle" :collapsedKeys="d_collapsedKeys" :collapsible="collapsible"
             @node-click="onNodeClick" :selectionMode="selectionMode" :selectionKeys="selectionKeys" />
     </div>
 </template>
 
 <script>
-import OrganizationChartNode from './OrganizationChartNode.vue';
+import OrganizationChartNode from './OrganizationChartNode';
 
 export default {
-    name: 'OrganizationChart',
-    emits: ['node-unselect', 'node-select', 'update:selectionKeys', 'node-expand', 'node-collapse', 'update:collapsedKeys'],
     props: {
         value: {
             type: null,
@@ -117,7 +115,6 @@ export default {
     cursor: pointer;
     width: 1.5rem;
     height: 1.5rem;
-    text-decoration: none;
 }
 
 .p-organizationchart-node-content .p-node-toggler .p-node-toggler-icon {

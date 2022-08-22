@@ -1,15 +1,13 @@
 <template>
-    <input :class="inputClass" :readonly="readonly" @input="onInput" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" @keypress="onKeyPress" @paste="onPaste" />
+    <input :class="inputClass" v-on="listeners" />
 </template>
 
 <script>
-import {DomHandler} from 'primevue/utils';
+import DomHandler from '../utils/DomHandler';
 
 export default {
-    name: 'InputMask',
-    emits: ['update:modelValue', 'focus', 'blur', 'keydown', 'complete', 'keypress', 'paste'],
     props: {
-        modelValue: null,
+        value: null,
         slotChar: {
             type: String,
             default: '_'
@@ -26,163 +24,9 @@ export default {
             type: Boolean,
             default: false
         },
-        readonly: {
-            type: Boolean,
-            default: false
-        }
+        ariaLabelledBy: null
     },
     methods: {
-        onInput(event) {
-            if (this.androidChrome)
-                this.handleAndroidInput(event);
-            else
-                this.handleInputChange(event);
-
-            this.$emit('update:modelValue', event.target.value);
-        },
-        onFocus(event) {
-            if (this.readonly) {
-                return;
-            }
-
-            this.focus = true;
-
-            clearTimeout(this.caretTimeoutId);
-            let pos;
-
-            this.focusText = this.$el.value;
-
-            pos = this.checkVal();
-
-            this.caretTimeoutId = setTimeout(() => {
-                if (this.$el !== document.activeElement) {
-                    return;
-                }
-                this.writeBuffer();
-                if (pos === this.mask.replace("?", "").length) {
-                    this.caret(0, pos);
-                } else {
-                    this.caret(pos);
-                }
-            }, 10);
-
-            this.$emit('focus', event)
-        },
-        onBlur(event) {
-            this.focus = false;
-            this.checkVal();
-            this.updateModel(event);
-
-            if (this.$el.value !== this.focusText) {
-                let e = document.createEvent('HTMLEvents');
-                e.initEvent('change', true, false);
-                this.$el.dispatchEvent(e);
-            }
-
-            this.$emit('blur', event);
-        },
-        onKeyDown(event) {
-            if (this.readonly) {
-                return;
-            }
-
-            let k = event.which || event.keyCode,
-                pos,
-                begin,
-                end;
-            let iPhone = /iphone/i.test(DomHandler.getUserAgent());
-            this.oldVal = this.$el.value;
-
-            //backspace, delete, and escape get special treatment
-            if (k === 8 || k === 46 || (iPhone && k === 127)) {
-                pos = this.caret();
-                begin = pos.begin;
-                end = pos.end;
-
-
-                if (end - begin === 0) {
-                    begin = k !== 46 ? this.seekPrev(begin) : (end = this.seekNext(begin - 1));
-                    end = k === 46 ? this.seekNext(end) : end;
-                }
-
-                this.clearBuffer(begin, end);
-                this.shiftL(begin, end - 1);
-                this.updateModel(event);
-
-                event.preventDefault();
-            } else if (k === 13) { // enter
-                this.$el.blur();
-                this.updateModel(event);
-            } else if (k === 27) { // escape
-                this.$el.value = this.focusText;
-                this.caret(0, this.checkVal());
-                this.updateModel(event);
-                event.preventDefault();
-            }
-
-            this.$emit('keydown', event);
-        },
-        onKeyPress(event) {
-            if (this.readonly) {
-                return;
-            }
-
-            var k = event.which || event.keyCode,
-                pos = this.caret(),
-                p,
-                c,
-                next,
-                completed;
-
-            if (event.ctrlKey || event.altKey || event.metaKey || k < 32) {//Ignore
-                return;
-            } else if (k && k !== 13) {
-                if (pos.end - pos.begin !== 0) {
-                    this.clearBuffer(pos.begin, pos.end);
-                    this.shiftL(pos.begin, pos.end - 1);
-                }
-
-                p = this.seekNext(pos.begin - 1);
-                if (p < this.len) {
-                    c = String.fromCharCode(k);
-                    if (this.tests[p].test(c)) {
-                        this.shiftR(p);
-
-                        this.buffer[p] = c;
-                        this.writeBuffer();
-                        next = this.seekNext(p);
-
-                        if (/android/i.test(DomHandler.getUserAgent())) {
-                            //Path for CSP Violation on FireFox OS 1.1
-                            let proxy = () => {
-                                this.caret(next);
-                            };
-
-                            setTimeout(proxy, 0);
-                        } else {
-                            this.caret(next);
-                        }
-                        if (pos.begin <= this.lastRequiredNonMaskPos) {
-                            completed = this.isCompleted();
-                        }
-                    }
-                }
-                event.preventDefault();
-            }
-
-            this.updateModel(event);
-
-            if (completed) {
-                this.$emit('complete', event);
-            }
-
-            this.$emit('keypress', event);
-        },
-        onPaste(event)  {
-            this.handleInputChange(event);
-
-            this.$emit('paste', event);
-        },
         caret(first, last) {
             let range, begin, end;
 
@@ -368,7 +212,7 @@ export default {
             return (this.partialPosition ? i : this.firstNonMaskPos);
         },
         handleInputChange(event) {
-            if (this.readonly) {
+            if (this.$attrs.readonly) {
                 return;
             }
 
@@ -393,16 +237,16 @@ export default {
         },
         updateModel(e) {
             let val = this.unmask ? this.getUnmaskedValue() : e.target.value;
-            this.$emit('update:modelValue', (this.defaultBuffer !== val) ? val : '');
+            this.$emit('input', (this.defaultBuffer !== val) ? val : '');
         },
         updateValue(updateModel = true) {
             if (this.$el) {
-                if (this.modelValue == null) {
+                if (this.value == null) {
                     this.$el.value = '';
-                    updateModel && this.$emit('update:modelValue', '');
+                    updateModel && this.$emit('input', '');
                 }
                 else {
-                    this.$el.value = this.modelValue;
+                    this.$el.value = this.value;
                     this.checkVal();
 
                     setTimeout(() => {
@@ -423,8 +267,8 @@ export default {
         },
         isValueUpdated() {
             return this.unmask ?
-                        (this.modelValue != this.getUnmaskedValue()) :
-                        (this.defaultBuffer !== this.$el.value && this.$el.value !== this.modelValue);
+                            (this.value != this.getUnmaskedValue()) :
+                            (this.defaultBuffer !== this.$el.value && this.$el.value !== this.value);
         }
     },
     mounted() {
@@ -481,12 +325,171 @@ export default {
         }
     },
     computed: {
+        listeners() {
+            let $vm = this;
+
+            return {
+                ...$vm.$listeners,
+                input: event => {
+                    if ($vm.androidChrome)
+                        $vm.handleAndroidInput(event);
+                    else
+                        $vm.handleInputChange(event);
+
+                    $vm.$emit('input', event.target.value);
+                },
+                focus: event => {
+                    if ($vm.$attrs.readonly) {
+                        return;
+                    }
+
+                    $vm.focus = true;
+
+                    clearTimeout($vm.caretTimeoutId);
+                    let pos;
+
+                    $vm.focusText = $vm.$el.value;
+
+                    pos = $vm.checkVal();
+
+                    $vm.caretTimeoutId = setTimeout(() => {
+                        if ($vm.$el !== document.activeElement) {
+                            return;
+                        }
+                        $vm.writeBuffer();
+                        if (pos === $vm.mask.replace("?", "").length) {
+                            $vm.caret(0, pos);
+                        } else {
+                            $vm.caret(pos);
+                        }
+                    }, 10);
+
+                    $vm.$emit('focus', event)
+                },
+                blur: event => {
+					$vm.focus = false;
+                    $vm.checkVal();
+                    $vm.updateModel(event);
+
+                    if ($vm.$el.value !== $vm.focusText) {
+                        let e = document.createEvent('HTMLEvents');
+                        e.initEvent('change', true, false);
+                        $vm.$el.dispatchEvent(e);
+                    }
+
+                    $vm.$emit('blur', event);
+                },
+                keydown: event => {
+                    if ($vm.$attrs.readonly) {
+                        return;
+                    }
+
+                    let k = event.which || event.keyCode,
+                        pos,
+                        begin,
+                        end;
+                    let iPhone = /iphone/i.test(DomHandler.getUserAgent());
+                    $vm.oldVal = $vm.$el.value;
+
+                    //backspace, delete, and escape get special treatment
+                    if (k === 8 || k === 46 || (iPhone && k === 127)) {
+                        pos = $vm.caret();
+                        begin = pos.begin;
+                        end = pos.end;
+
+
+                        if (end - begin === 0) {
+                            begin = k !== 46 ? $vm.seekPrev(begin) : (end = $vm.seekNext(begin - 1));
+                            end = k === 46 ? $vm.seekNext(end) : end;
+                        }
+
+                        $vm.clearBuffer(begin, end);
+                        $vm.shiftL(begin, end - 1);
+                        $vm.updateModel(event);
+
+                        event.preventDefault();
+                    } else if (k === 13) { // enter
+                        $vm.$el.blur();
+                        $vm.updateModel(event);
+                    } else if (k === 27) { // escape
+                        $vm.$el.value = $vm.focusText;
+                        $vm.caret(0, $vm.checkVal());
+                        $vm.updateModel(event);
+                        event.preventDefault();
+                    }
+
+                    $vm.$emit('keydown', event);
+                },
+                keypress: event => {
+                    if ($vm.$attrs.readonly) {
+                        return;
+                    }
+
+                    var k = event.which || event.keyCode,
+                        pos = $vm.caret(),
+                        p,
+                        c,
+                        next,
+                        completed;
+
+                    if (event.ctrlKey || event.altKey || event.metaKey || k < 32) {//Ignore
+                        return;
+                    } else if (k && k !== 13) {
+                        if (pos.end - pos.begin !== 0) {
+                            $vm.clearBuffer(pos.begin, pos.end);
+                            $vm.shiftL(pos.begin, pos.end - 1);
+                        }
+
+                        p = $vm.seekNext(pos.begin - 1);
+                        if (p < $vm.len) {
+                            c = String.fromCharCode(k);
+                            if ($vm.tests[p].test(c)) {
+                                $vm.shiftR(p);
+
+                                $vm.buffer[p] = c;
+                                $vm.writeBuffer();
+                                next = $vm.seekNext(p);
+
+                                if (/android/i.test(DomHandler.getUserAgent())) {
+                                    //Path for CSP Violation on FireFox OS 1.1
+                                    let proxy = () => {
+                                        $vm.caret(next);
+                                    };
+
+                                    setTimeout(proxy, 0);
+                                } else {
+                                    $vm.caret(next);
+                                }
+                                if (pos.begin <= $vm.lastRequiredNonMaskPos) {
+                                    completed = $vm.isCompleted();
+                                }
+                            }
+                        }
+                        event.preventDefault();
+                    }
+
+                    $vm.updateModel(event);
+
+                    if (completed) {
+                        $vm.$emit('complete', event);
+                    }
+
+                    $vm.$emit('keypress', event);
+                },
+                paste: event => {
+                    $vm.handleInputChange(event);
+
+                    $vm.$emit('paste', event);
+                }
+            };
+        },
         filled() {
-            return (this.modelValue != null && this.modelValue.toString().length > 0)
+            return (this.value != null && this.value.toString().length > 0)
         },
         inputClass() {
             return ['p-inputmask p-inputtext p-component', {
-                'p-filled': this.filled
+                'p-filled': this.filled,
+                'p-disabled': this.$attrs.disabled
             }];
         },
     }

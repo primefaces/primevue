@@ -1,6 +1,6 @@
 const ChipsProps = [
     {
-        name: "modelValue",
+        name: "value",
         type: "array",
         default: "null",
         description: "Value of the component."
@@ -30,40 +30,10 @@ const ChipsProps = [
         description: "Whether to allow duplicate values or not."
     },
     {
-        name: "disabled",
-        type: "boolean",
-        default: "false",
-        description: "When present, it specifies that the element should be disabled."
-    },
-    {
-        name: "placeholder",
+        name: "ariaLabelledBy",
         type: "string",
         default: "null",
-        description: "Placeholder text for the input."
-    },
-    {
-        name: "inputId",
-        type: "string",
-        default: "null",
-        description: "Identifier of the focus input to match a label defined for the chips."
-    },
-    {
-        name: "inputClass",
-        type: "string",
-        default: "null",
-        description: "Style class of the input field."
-    },
-    {
-        name: "inputStyle",
-        type: "any",
-        default: "null",
-        description: "Inline style of the input field."
-    },
-    {
-        name: "inputProps",
-        type: "object",
-        default: "null",
-        description: "Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component."
+        description: "Establishes relationships between the component and label(s) where its value should be one or more element IDs."
     }
 ];
 
@@ -97,6 +67,39 @@ const ChipsEvents = [
                 name: "value",
                 type: "array",
                 description: "Removed item value"
+            }
+        ]
+    },
+    {
+        name: "input",
+        description: "Callback to invoke on value change.",
+        arguments: [
+            {
+                name: "event",
+                type: "object",
+                description: "New value"
+            }
+        ]
+    },
+    {
+        name: "focus",
+        description: "Callback to invoke on focus.",
+        arguments: [
+            {
+                name: "event",
+                type: "object",
+                description: "Browser event"
+            }
+        ]
+    },
+    {
+        name: "blur",
+        description: "Callback to invoke on blur.",
+        arguments: [
+            {
+                name: "event",
+                type: "object",
+                description: "Browser event"
             }
         ]
     }

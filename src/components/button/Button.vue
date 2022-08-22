@@ -1,19 +1,18 @@
 <template>
-    <button :class="buttonClass" type="button" :aria-label="defaultAriaLabel" v-ripple :disabled="disabled">
+    <button :class="buttonClass" v-on="$listeners" type="button" v-ripple>
         <slot>
             <span v-if="loading && !icon" :class="iconClass"></span>
             <span v-if="icon" :class="iconClass"></span>
             <span class="p-button-label">{{label||'&nbsp;'}}</span>
-            <span v-if="badge" :class="badgeStyleClass">{{badge}}</span>
+            <span class="p-badge" v-if="badge" :class="badgeStyleClass">{{badge}}</span>
         </slot>
     </button>
 </template>
 
 <script>
-import Ripple from 'primevue/ripple';
+import Ripple from '../ripple/Ripple';
 
 export default {
-    name: 'Button',
     props: {
         label: {
             type: String
@@ -47,14 +46,12 @@ export default {
                 'p-button p-component': true,
                 'p-button-icon-only': this.icon && !this.label,
                 'p-button-vertical': (this.iconPos === 'top' || this.iconPos === 'bottom') && this.label,
-                'p-disabled': this.$attrs.disabled || this.loading,
-                'p-button-loading': this.loading,
-                'p-button-loading-label-only': this.loading && !this.icon && this.label
+                'p-disabled': this.disabled
             }
         },
         iconClass() {
             return [
-                this.loading ? 'p-button-loading-icon ' + this.loadingIcon : this.icon,
+                this.loading ? this.loadingIcon : this.icon,
                 'p-button-icon',
                 {
                     'p-button-icon-left': this.iconPos === 'left' && this.label,
@@ -67,14 +64,8 @@ export default {
         badgeStyleClass() {
             return [
                 'p-badge p-component', this.badgeClass, {
-                'p-badge-no-gutter': this.badge && String(this.badge).length === 1
+                    'p-badge-no-gutter': this.badge && String(this.badge).length === 1
             }]
-        },
-        disabled() {
-            return this.$attrs.disabled || this.loading;
-        },
-        defaultAriaLabel() {
-            return (this.label ? this.label + (this.badge ? ' ' + this.badge : '') : this.$attrs['aria-label']);
         }
     },
     directives: {

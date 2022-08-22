@@ -14,8 +14,8 @@ const TieredMenuProps = [
     {
         name: "appendTo",
         type: "string",
-        default: "body",
-        description: "A valid query selector or an HTMLElement to specify where the overlay gets attached."
+        default: "null",
+        description: 'Id of the element or "body" for document where the overlay should be appended to.'
     },
     {
         name: "baseZIndex",
@@ -37,18 +37,10 @@ const TieredMenuProps = [
     }
 ];
 
-const TieredMenuSlots = [
-    {
-        name: "item",
-        description: "Template of a menuitem."
-    }
-];
-
 module.exports = {
     tieredmenu: {
         name: "TieredMenu",
         description: "TieredMenu displays submenus in nested overlays.",
-        props: TieredMenuProps,
-        slots: TieredMenuSlots
+        props: TieredMenuProps
     }
 };

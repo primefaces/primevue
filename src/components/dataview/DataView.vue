@@ -1,22 +1,22 @@
 <template>
 	<div :class="containerClass">
-		<div class="p-dataview-header" v-if="$slots.header">
+		<div class="p-dataview-header" v-if="$scopedSlots.header">
 			<slot name="header"></slot>
 		</div>
 		<DVPaginator v-if="paginatorTop" :rows="d_rows" :first="d_first" :totalRecords="getTotalRecords" :pageLinkSize="pageLinkSize" :template="paginatorTemplate" :rowsPerPageOptions="rowsPerPageOptions"
 					:currentPageReportTemplate="currentPageReportTemplate" :class="{'p-paginator-top': paginatorTop}" :alwaysShow="alwaysShowPaginator" @page="onPage($event)">
-			<template #start v-if="$slots.paginatorstart">
+			<template #start v-if="$scopedSlots.paginatorstart">
 				<slot name="paginatorstart"></slot>
 			</template>
-			<template #end v-if="$slots.paginatorend">
+			<template #end v-if="$scopedSlots.paginatorend">
 				<slot name="paginatorend"></slot>
 			</template>
 		</DVPaginator>
 		<div class="p-dataview-content">
 			<div class="p-grid p-nogutter grid grid-nogutter">
-                <template v-for="(item,index) of items" :key="getKey(item, index)">
-					<slot v-if="$slots.list && layout === 'list'" name="list" :data="item" :index="index"></slot>
-					<slot v-if="$slots.grid && layout === 'grid'" name="grid" :data="item" :index="index"></slot>
+				<template v-for="(item,index) of items">
+					<slot v-if="$scopedSlots.list && layout === 'list'" name="list" :data="item" :index="index"></slot>
+					<slot v-if="$scopedSlots.grid && layout === 'grid'" name="grid" :data="item" :index="index"></slot>
 				</template>
 				<div v-if="empty" class="p-col col">
                     <div class="p-dataview-emptymessage">
@@ -27,25 +27,23 @@
 		</div>
 		<DVPaginator v-if="paginatorBottom" :rows="d_rows" :first="d_first" :totalRecords="getTotalRecords" :pageLinkSize="pageLinkSize" :template="paginatorTemplate" :rowsPerPageOptions="rowsPerPageOptions"
 					:currentPageReportTemplate="currentPageReportTemplate" :class="{'p-paginator-bottom': paginatorBottom}" :alwaysShow="alwaysShowPaginator" @page="onPage($event)">
-			<template #start v-if="$slots.paginatorstart">
+			<template #start v-if="$scopedSlots.paginatorstart">
 				<slot name="paginatorstart"></slot>
 			</template>
-			<template #end v-if="$slots.paginatorend">
+			<template #end v-if="$scopedSlots.paginatorend">
 				<slot name="paginatorend"></slot>
 			</template>
 		</DVPaginator>
-		<div class="p-dataview-footer" v-if="$slots.footer">
+		<div class="p-dataview-footer" v-if="$scopedSlots.footer">
 			<slot name="footer"></slot>
 		</div>
 	</div>
 </template>
 <script>
-import {ObjectUtils} from 'primevue/utils';
-import Paginator from 'primevue/paginator';
+import ObjectUtils from '../utils/ObjectUtils';
+import Paginator from '../paginator/Paginator';
 
 export default {
-    name: 'DataView',
-    emits: ['update:first', 'update:rows', 'page'],
     props: {
         value: {
             type: Array,
@@ -106,10 +104,6 @@ export default {
         lazy: {
             type: Boolean,
             default: false
-        },
-        dataKey: {
-            type: String,
-            default: null
         }
     },
     data() {
@@ -133,9 +127,6 @@ export default {
         }
     },
     methods: {
-        getKey(item, index) {
-            return this.dataKey ? ObjectUtils.resolveFieldData(item, this.dataKey) : index;
-        },
         onPage(event) {
             this.d_first = event.first;
             this.d_rows = event.rows;

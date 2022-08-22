@@ -1,6 +1,6 @@
 <template>
     <div :class="containerClass">
-        <div :class="displayClass" :tabindex="$attrs.tabindex||'0'" v-if="!d_active" @click="open" @keydown.enter="open">
+        <div class="p-inplace-display" :tabindex="$attrs.tabindex||'0'" v-if="!d_active" @click="open" @keydown.enter="open">
             <slot name="display"></slot>
         </div>
         <div class="p-inplace-content" v-else>
@@ -11,23 +11,17 @@
 </template>
 
 <script>
-import Button from 'primevue/button';
+import Button from '../button/Button';
 
 export default {
-    name: 'Inplace',
-    emits: ['open', 'close', 'update:active'],
     props: {
         closable: {
             type: Boolean,
-            default: false
+            defaault: false
         },
         active: {
             type: Boolean,
-            default: false
-        },
-        disabled: {
-            type: Boolean,
-            default: false
+            defaault: false
         }
     },
     watch: {
@@ -42,10 +36,6 @@ export default {
     },
     methods: {
         open(event) {
-            if (this.disabled) {
-                return;
-            }
-
             this.$emit('open', event);
             this.d_active = true;
             this.$emit('update:active', true);
@@ -59,9 +49,6 @@ export default {
     computed: {
         containerClass() {
             return ['p-inplace p-component', {'p-inplace-closable': this.closable}];
-        },
-        displayClass() {
-            return ['p-inplace-display', {'p-disabled': this.disabled}];
         }
     },
     components: {

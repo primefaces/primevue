@@ -32,20 +32,8 @@ const SplitButtonProps = [
     {
         name: "appendTo",
         type: "string",
-        default: "body",
-        description: "A valid query selector or an HTMLElement to specify where the overlay gets attached."
-    },
-    {
-        name: "class",
-        type: "string",
         default: "null",
-        description: "Style class of the component."
-    },
-    {
-        name: "style",
-        type: "any",
-        default: "null",
-        description: "Inline of the component."
+        description: 'Id of the element or "body" for document where the overlay should be appended to.'
     }
 ];
 

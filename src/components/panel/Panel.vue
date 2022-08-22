@@ -23,12 +23,10 @@
 </template>
 
 <script>
-import {UniqueComponentId} from 'primevue/utils';
-import Ripple from 'primevue/ripple';
+import UniqueComponentId from '../utils/UniqueComponentId';
+import Ripple from '../ripple/Ripple';
 
 export default {
-    name: 'Panel',
-    emits: ['update:collapsed', 'toggle'],
     props: {
         header: String,
         toggleable: Boolean,
@@ -44,6 +42,14 @@ export default {
             this.d_collapsed = newValue;
         }
     },
+    computed: {
+        ariaId() {
+            return UniqueComponentId();
+        },
+        containerClass() {
+            return ['p-panel p-component', {'p-panel-toggleable': this.toggleable}];
+        }
+    },
     methods: {
         toggle(event) {
             this.d_collapsed = !this.d_collapsed;
@@ -52,14 +58,6 @@ export default {
                 originalEvent: event,
                 value: this.d_collapsed
             });
-        }
-    },
-    computed: {
-        ariaId() {
-            return UniqueComponentId();
-        },
-        containerClass() {
-            return ['p-panel p-component', {'p-panel-toggleable': this.toggleable}];
         }
     },
     directives: {

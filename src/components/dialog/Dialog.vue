@@ -1,50 +1,44 @@
 <template>
-    <Portal :appendTo="appendTo">
-        <div :ref="maskRef" :class="maskClass" v-if="containerVisible" @click="onMaskClick">
-            <transition name="p-dialog" @before-enter="onBeforeEnter" @enter="onEnter" @before-leave="onBeforeLeave" @leave="onLeave" @after-leave="onAfterLeave" appear>
-                <div :ref="containerRef" :class="dialogClass" v-if="visible" v-bind="$attrs" role="dialog" :aria-labelledby="ariaLabelledById" :aria-modal="modal">
-                    <div class="p-dialog-header" v-if="showHeader" @mousedown="initDrag">
-                        <slot name="header">
-                            <span :id="ariaLabelledById" class="p-dialog-title" v-if="header">{{header}}</span>
-                        </slot>
-                        <div class="p-dialog-header-icons">
-                            <button class="p-dialog-header-icon p-dialog-header-maximize p-link" @click="maximize" v-if="maximizable" type="button" tabindex="-1" v-ripple>
-                                <span :class="maximizeIconClass"></span>
-                            </button>
-                            <button class="p-dialog-header-icon p-dialog-header-close p-link" @click="close" v-if="closable" :aria-label="ariaCloseLabel" type="button" v-ripple>
-                                <span class="p-dialog-header-close-icon pi pi-times"></span>
-                            </button>
-                        </div>
-                    </div>
-                    <div :class="contentStyleClass" :style="contentStyle">
-                        <slot></slot>
-                    </div>
-                    <div class="p-dialog-footer" v-if="footer || $slots.footer">
-                        <slot name="footer">{{footer}}</slot>
+    <div ref="mask" :class="maskClass" v-if="maskVisible" @click="onMaskClick">
+        <transition name="p-dialog" @before-enter="onBeforeEnter" @enter="onEnter" @before-leave="onBeforeLeave" @leave="onLeave" @after-leave="onAfterLeave" @appear="onAppear">
+            <div ref="dialog" :class="dialogClass" :style="dialogStyle" v-if="visible" v-bind="$attrs" v-on="listeners" role="dialog" :aria-labelledby="ariaLabelledById" :aria-modal="modal">
+                <div class="p-dialog-header" v-if="showHeader">
+                    <slot name="header">
+                        <span :id="ariaLabelledById" class="p-dialog-title" v-if="header" >{{header}}</span>
+                    </slot>
+                    <div class="p-dialog-header-icons">
+                        <button class="p-dialog-header-icon p-dialog-header-maximize p-link" @click="maximize" v-if="maximizable" type="button" tabindex="-1" v-ripple>
+                            <span :class="maximizeIconClass"></span>
+                        </button>
+                        <button class="p-dialog-header-icon p-dialog-header-close p-link" @click="close" v-if="closable" :aria-label="ariaCloseLabel" type="button" v-ripple>
+                            <span class="p-dialog-header-close-icon pi pi-times"></span>
+                        </button>
                     </div>
                 </div>
-            </transition>
-        </div>
-    </Portal>
+                <div class="p-dialog-content" :style="contentStyle">
+                    <slot></slot>
+                </div>
+                <div class="p-dialog-footer" v-if="footer || $slots.footer">
+                    <slot name="footer">{{footer}}</slot>
+                </div>
+            </div>
+        </transition>
+    </div>
 </template>
-
 <script>
-import { computed } from 'vue';
-import { UniqueComponentId,DomHandler,ZIndexUtils } from 'primevue/utils';
-import Ripple from 'primevue/ripple';
-import Portal from 'primevue/portal';
+import UniqueComponentId from '../utils/UniqueComponentId';
+import DomHandler from '../utils/DomHandler';
+import Ripple from '../ripple/Ripple';
 
 export default {
-    name: 'Dialog',
     inheritAttrs: false,
-    emits: ['update:visible','show','hide', 'after-hide', 'maximize','unmaximize','dragend'],
     props: {
         header: null,
         footer: null,
         visible: Boolean,
         modal: Boolean,
+        containerStyle: null,
         contentStyle: null,
-        contentClass: String,
         rtl: Boolean,
         maximizable: Boolean,
         dismissableMask: Boolean,
@@ -76,127 +70,77 @@ export default {
             type: String,
             default: 'center'
         },
-        breakpoints: {
-            type: Object,
-            default: null
-        },
-        draggable: {
-            type: Boolean,
-            default: true
-        },
-        keepInViewport: {
-            type: Boolean,
-            default: true
-        },
-        minX: {
-            type: Number,
-            default: 0
-        },
-        minY: {
-            type: Number,
-            default: 0
-        },
         appendTo: {
             type: String,
-            default: 'body'
-        },
-        _instance: null
-    },
-    provide() {
-        return {
-            dialogRef: computed(() => this._instance)
+            default: null
         }
     },
     data() {
         return {
-            containerVisible: this.visible,
+            dialogClasses: null,
+            dialogStyles: null,
+            maskVisible: this.visible,
             maximized: false
         }
     },
     documentKeydownListener: null,
-    container: null,
-    mask: null,
-    styleElement: null,
-    dragging: null,
-    documentDragListener: null,
-    documentDragEndListener: null,
-    lastPageX: null,
-    lastPageY: null,
     updated() {
-        if (this.visible) {
-            this.containerVisible = this.visible;
+        if (this.visible && !this.maskVisible) {
+            this.maskVisible = true;
         }
     },
-    beforeUnmount() {
-        this.unbindDocumentState();
-        this.unbindGlobalListeners();
-        this.destroyStyle();
-
-        if (this.mask && this.autoZIndex) {
-            ZIndexUtils.clear(this.mask);
-        }
-        this.container = null;
-        this.mask = null;
-    },
-    mounted() {
-        if (this.breakpoints) {
-            this.createStyle();
-        }
+    beforeDestroy() {
+        this.restoreAppend();
+        this.disableDocumentSettings();
     },
     methods: {
         close() {
             this.$emit('update:visible', false);
         },
         onBeforeEnter(el) {
-            el.setAttribute(this.attributeSelector, '');
+            if (this.autoZIndex) {
+                el.style.zIndex = String(this.baseZIndex + DomHandler.generateZIndex());
+            }
         },
         onEnter() {
+            this.$refs.mask.style.zIndex = String(parseInt(this.$refs.dialog.style.zIndex, 10) - 1);
+            this.removeStylesFromMask();
+            this.appendContainer();
+            this.alignOverlay();
             this.$emit('show');
             this.focus();
             this.enableDocumentSettings();
-            this.bindGlobalListeners();
-
-            if (this.autoZIndex) {
-                ZIndexUtils.set('modal', this.mask, this.baseZIndex + this.$primevue.config.zIndex.modal);
-            }
         },
         onBeforeLeave() {
             if (this.modal) {
-                DomHandler.addClass(this.mask, 'p-component-overlay-leave');
+                DomHandler.addClass(this.$refs.mask, 'p-component-overlay-leave');
             }
         },
         onLeave() {
             this.$emit('hide');
         },
         onAfterLeave() {
-            if (this.autoZIndex) {
-                ZIndexUtils.clear(this.mask);
+            this.maskVisible = false;
+            this.disableDocumentSettings();
+        },
+        onAppear() {
+            if (this.visible) {
+                this.onEnter();
             }
-            this.containerVisible = false;
-            this.unbindDocumentState();
-            this.unbindGlobalListeners();
-            this.$emit('after-hide');
         },
         onMaskClick(event) {
-            if (this.dismissableMask && this.closable && this.modal && this.mask === event.target) {
+            if (this.dismissableMask && this.closable && this.modal && this.$refs.mask === event.target) {
                 this.close();
             }
         },
         focus() {
-            let focusTarget = this.container.querySelector('[autofocus]');
+            let focusTarget = this.$refs.dialog.querySelector('[autofocus]');
             if (focusTarget) {
                 focusTarget.focus();
             }
         },
-        maximize(event) {
-            if (this.maximized) {
-                this.maximized = false;
-                this.$emit('unmaximize', event);
-            }
-            else {
-                this.maximized = true;
-                this.$emit('maximize', event);
-            }
+        maximize() {
+            this.maximized = !this.maximized;
 
             if (!this.modal) {
                 if (this.maximized)
@@ -206,19 +150,27 @@ export default {
             }
         },
         enableDocumentSettings() {
-            if (this.modal || (this.maximizable && this.maximized)) {
+            if (this.modal) {
+                DomHandler.addClass(document.body, 'p-overflow-hidden');
+                this.bindDocumentKeydownListener();
+            }
+            else if (this.maximizable && this.maximized) {
                 DomHandler.addClass(document.body, 'p-overflow-hidden');
             }
         },
-        unbindDocumentState() {
-            if (this.modal || (this.maximizable && this.maximized)) {
+        disableDocumentSettings() {
+            if (this.modal) {
+                DomHandler.removeClass(document.body, 'p-overflow-hidden');
+                this.unbindDocumentKeydownListener();
+            }
+            else if (this.maximizable && this.maximized) {
                 DomHandler.removeClass(document.body, 'p-overflow-hidden');
             }
         },
         onKeyDown(event) {
             if (event.which === 9) {
                 event.preventDefault();
-                let focusableElements = DomHandler.getFocusableElements(this.container);
+                let focusableElements = DomHandler.getFocusableElements(this.$refs.dialog);
                 if (focusableElements && focusableElements.length > 0) {
                     if (!document.activeElement) {
                         focusableElements[0].focus();
@@ -243,13 +195,13 @@ export default {
                 this.close();
             }
         },
-        bindDocumentKeyDownListener() {
+        bindDocumentKeydownListener() {
             if (!this.documentKeydownListener) {
                 this.documentKeydownListener = this.onKeyDown.bind(this);
                 window.document.addEventListener('keydown', this.documentKeydownListener);
             }
         },
-        unbindDocumentKeyDownListener() {
+        unbindDocumentKeydownListener() {
             if (this.documentKeydownListener) {
                 window.document.removeEventListener('keydown', this.documentKeydownListener);
                 this.documentKeydownListener = null;
@@ -261,137 +213,58 @@ export default {
 
             return pos ? `p-dialog-${pos}` : '';
         },
-        containerRef(el) {
-            this.container = el;
-        },
-        maskRef(el) {
-            this.mask = el;
-        },
-        createStyle() {
-			if (!this.styleElement) {
-				this.styleElement = document.createElement('style');
-				this.styleElement.type = 'text/css';
-				document.head.appendChild(this.styleElement);
-
-                let innerHTML = '';
-                for (let breakpoint in this.breakpoints) {
-                    innerHTML += `
-                        @media screen and (max-width: ${breakpoint}) {
-                            .p-dialog[${this.attributeSelector}] {
-                                width: ${this.breakpoints[breakpoint]} !important;
-                            }
-                        }
-                    `
+        removeStylesFromMask() {
+            if (this.$refs.mask) {
+                this.dialogStyles = this.$vnode.data.style || this.containerStyle;
+                if (this.dialogStyles) {
+                    Object.keys(this.dialogStyles).forEach((key) => {
+                        this.$refs.mask.style[key] = '';
+                    });
                 }
 
-                this.styleElement.innerHTML = innerHTML;
-			}
-		},
-        destroyStyle() {
-            if (this.styleElement) {
-                document.head.removeChild(this.styleElement);
-                this.styleElement = null;
+                this.dialogClasses = this.$vnode.data.class || this.$vnode.data.staticClass;
             }
         },
-        initDrag(event) {
-            if (DomHandler.hasClass(event.target, 'p-dialog-header-icon') || DomHandler.hasClass(event.target.parentElement, 'p-dialog-header-icon')) {
-                return;
+        alignOverlay() {
+            if (this.appendTo) {
+                DomHandler.absolutePosition(this.$refs.dialog, this.$refs.mask);
+                this.$refs.dialog.style.minWidth = DomHandler.getOuterWidth(this.$refs.mask) + 'px';
             }
-
-            if (this.draggable) {
-                this.dragging = true;
-                this.lastPageX = event.pageX;
-                this.lastPageY = event.pageY;
-
-                this.container.style.margin = '0';
-                DomHandler.addClass(document.body, 'p-unselectable-text');
+            else {
+                DomHandler.relativePosition(this.$refs.dialog, this.$refs.mask);
             }
         },
-        bindGlobalListeners() {
-            if (this.draggable) {
-                this.bindDocumentDragListener();
-                this.bindDocumentDragEndListener();
-            }
-
-            if (this.closeOnEscape && this.closable) {
-                this.bindDocumentKeyDownListener();
+        appendContainer() {
+            if (this.appendTo) {
+                if (this.appendTo === 'body')
+                    document.body.appendChild(this.$refs.dialog);
+                else
+                    document.getElementById(this.appendTo).appendChild(this.$refs.dialog);
             }
         },
-        unbindGlobalListeners() {
-            this.unbindDocumentDragListener();
-            this.unbindDocumentDragEndListener();
-            this.unbindDocumentKeyDownListener();
-        },
-        bindDocumentDragListener() {
-            this.documentDragListener = (event) => {
-                if (this.dragging) {
-                    let width = DomHandler.getOuterWidth(this.container);
-                    let height = DomHandler.getOuterHeight(this.container);
-                    let deltaX = event.pageX - this.lastPageX;
-                    let deltaY = event.pageY - this.lastPageY;
-                    let offset = this.container.getBoundingClientRect();
-                    let leftPos = offset.left + deltaX;
-                    let topPos = offset.top + deltaY;
-                    let viewport = DomHandler.getViewport();
-
-                    this.container.style.position = 'fixed';
-
-                    if (this.keepInViewport) {
-                        if (leftPos >= this.minX && (leftPos + width) < viewport.width) {
-                            this.lastPageX = event.pageX;
-                            this.container.style.left = leftPos + 'px';
-                        }
-
-                        if (topPos >= this.minY && (topPos + height) < viewport.height) {
-                            this.lastPageY = event.pageY;
-                            this.container.style.top = topPos + 'px';
-                        }
-                    }
-                    else {
-                        this.lastPageX = event.pageX;
-                        this.container.style.left = leftPos + 'px';
-                        this.lastPageY = event.pageY;
-                        this.container.style.top = topPos + 'px';
-                    }
-                }
-            }
-            window.document.addEventListener('mousemove', this.documentDragListener);
-        },
-        unbindDocumentDragListener() {
-            if (this.documentDragListener) {
-                window.document.removeEventListener('mousemove', this.documentDragListener);
-                this.documentDragListener = null;
-            }
-        },
-        bindDocumentDragEndListener() {
-            this.documentDragEndListener = (event) => {
-                if (this.dragging) {
-                    this.dragging = false;
-                    DomHandler.removeClass(document.body, 'p-unselectable-text');
-
-                    this.$emit('dragend', event);
-                }
-            };
-            window.document.addEventListener('mouseup', this.documentDragEndListener);
-        },
-        unbindDocumentDragEndListener() {
-            if (this.documentDragEndListener) {
-                window.document.removeEventListener('mouseup', this.documentDragEndListener);
-                this.documentDragEndListener = null;
+        restoreAppend() {
+            if (this.$refs.overlay && this.appendTo) {
+                if (this.appendTo === 'body')
+                    document.body.removeChild(this.$refs.dialog);
+                else
+                    document.getElementById(this.appendTo).removeChild(this.$refs.dialog);
             }
         }
     },
     computed: {
+        listeners() {
+            return {
+                ...this.$listeners
+            };
+        },
         maskClass() {
             return ['p-dialog-mask', {'p-component-overlay p-component-overlay-enter': this.modal}, this.getPositionClass()];
         },
         dialogClass() {
             return ['p-dialog p-component', {
                 'p-dialog-rtl': this.rtl,
-                'p-dialog-maximized': this.maximizable && this.maximized,
-                'p-input-filled': this.$primevue.config.inputStyle === 'filled',
-                'p-ripple-disabled': this.$primevue.config.ripple === false
-            }];
+                'p-dialog-maximized': this.maximizable && this.maximized
+            }, this.dialogClasses];
         },
         maximizeIconClass() {
             return ['p-dialog-header-maximize-icon pi', {
@@ -399,24 +272,18 @@ export default {
                 'pi-window-minimize': this.maximized
             }];
         },
+        dialogStyle() {
+            return this.dialogStyles || this.containerStyle;
+        },
         ariaId() {
             return UniqueComponentId();
         },
         ariaLabelledById() {
             return this.header != null ? this.ariaId + '_header' : null;
-        },
-        attributeSelector() {
-            return UniqueComponentId();
-        },
-        contentStyleClass() {
-            return ['p-dialog-content', this.contentClass];
         }
     },
     directives: {
         'ripple': Ripple
-    },
-    components: {
-        'Portal': Portal
     }
 }
 </script>
@@ -486,7 +353,7 @@ export default {
 .p-dialog-leave-active {
     transition: all 150ms cubic-bezier(0.4, 0.0, 0.2, 1);
 }
-.p-dialog-enter-from,
+.p-dialog-enter,
 .p-dialog-leave-to {
     opacity: 0;
     transform: scale(0.7);
@@ -522,27 +389,27 @@ export default {
 .p-dialog-bottomright .p-dialog-leave-active {
     transition: all .3s ease-out;
 }
-.p-dialog-top .p-dialog-enter-from,
+.p-dialog-top .p-dialog-enter,
 .p-dialog-top .p-dialog-leave-to {
     transform: translate3d(0px, -100%, 0px);
 }
-.p-dialog-bottom .p-dialog-enter-from,
+.p-dialog-bottom .p-dialog-enter,
 .p-dialog-bottom .p-dialog-leave-to {
     transform: translate3d(0px, 100%, 0px);
 }
-.p-dialog-left .p-dialog-enter-from,
+.p-dialog-left .p-dialog-enter,
 .p-dialog-left .p-dialog-leave-to,
-.p-dialog-topleft .p-dialog-enter-from,
+.p-dialog-topleft .p-dialog-enter,
 .p-dialog-topleft .p-dialog-leave-to,
-.p-dialog-bottomleft .p-dialog-enter-from,
+.p-dialog-bottomleft .p-dialog-enter,
 .p-dialog-bottomleft .p-dialog-leave-to {
     transform: translate3d(-100%, 0px, 0px);
 }
-.p-dialog-right .p-dialog-enter-from,
+.p-dialog-right .p-dialog-enter,
 .p-dialog-right .p-dialog-leave-to,
-.p-dialog-topright .p-dialog-enter-from,
+.p-dialog-topright .p-dialog-enter,
 .p-dialog-topright .p-dialog-leave-to,
-.p-dialog-bottomright .p-dialog-enter-from,
+.p-dialog-bottomright .p-dialog-enter,
 .p-dialog-bottomright .p-dialog-leave-to {
     transform: translate3d(100%, 0px, 0px);
 }
@@ -553,9 +420,6 @@ export default {
     transition: none;
     transform: none;
     width: 100vw !important;
-    height: 100vh !important;
-    top: 0px !important;
-    left: 0px !important;
     max-height: 100%;
     height: 100%;
 }

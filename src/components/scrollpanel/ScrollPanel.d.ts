@@ -1,34 +1,9 @@
-import { VNode } from 'vue';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import Vue, {VNode} from 'vue';
 
-export interface ScrollPanelProps {
-}
-
-export interface ScrollPanelSlots {
-    /**
-     * Custom content slot.
-     */
-    default: () => VNode[];
-}
-
-export declare type ScrollPanelEmits = {
-}
-
-declare class ScrollPanel extends ClassComponent<ScrollPanelProps, ScrollPanelSlots, ScrollPanelEmits> { }
-
-declare module '@vue/runtime-core' {
-    interface GlobalComponents {
-        ScrollPanel: GlobalComponentConstructor<ScrollPanel>
+declare class ScrollPanel extends Vue {
+    $slots: {
+        '': VNode[];
     }
 }
 
-/**
- *
- * ScrollPanel is a cross browser, lightweight and themable alternative to native browser scrollbar.
- *
- * Demos:
- *
- * - [ScrollPanel](https://www.primefaces.org/primevue/showcase/#/scrollpanel)
- *
- */
 export default ScrollPanel;

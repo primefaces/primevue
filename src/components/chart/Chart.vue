@@ -6,8 +6,6 @@
 
 <script>
 export default {
-    name: 'Chart',
-    emits: ['select', 'loaded'],
     props: {
         type: String,
         data: null,
@@ -20,23 +18,19 @@ export default {
         height: {
             type: Number,
             default: 150
-        },
+        }
     },
     chart: null,
     mounted() {
         this.initChart();
     },
-    beforeUnmount() {
+    beforeDestroy() {
         if (this.chart) {
             this.chart.destroy();
             this.chart = null;
         }
     },
     watch: {
-        /*
-         * Use deep watch to enable triggering watch for changes within structure
-         * otherwise the entire data object needs to be replaced to trigger watch
-         */
         data: {
             handler() {
                 this.reinit();

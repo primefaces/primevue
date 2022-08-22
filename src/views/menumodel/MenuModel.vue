@@ -4,12 +4,9 @@
             <h1>MenuModel</h1>
             <p>PrimeVue menu components share a common api to specify the menuitems and submenus.</p>
 
-            <h1>Router</h1>
-            <p>Menu components require <a href="https://router.vuejs.org">Vue-Router</a> as a dependency so make sure the router is installed in your application.</p>
-
             <h5>MenuItem</h5>
                 <p>Core of the API is the MenuItem class that defines various options such as the label, icon and children of an item in a menu.</p>
-<pre v-code.script><code>
+<CodeHighlight lang="js">
 const items: [
     {
         label: 'Options',
@@ -22,8 +19,7 @@ const items: [
                 {label: 'Sign Out', icon: 'pi pi-fw pi-power-off', to: '/logout'} ]
     }
 ];
-                
-</code></pre>
+                </CodeHighlight>
 
                 <p>MenuItem provides the following properties. Note that not all of them may be utilized by the corresponding menu component.</p>
 
@@ -40,9 +36,9 @@ const items: [
                         <tbody>
                             <tr>
                                 <td>label</td>
-                                <td>string | function</td>
+                                <td>string|function</td>
                                 <td>null</td>
-                                 <td>Property name or getter function to use as the label of an item.</td>
+                                <td>Property name or getter function to use as the label of an item.</td>
                             </tr>
                             <tr>
                                 <td>icon</td>
@@ -54,7 +50,7 @@ const items: [
                                 <td>to</td>
                                 <td>string</td>
                                 <td>null</td>
-                                <td>Route configuration such as path, name and parameters.</td>
+                                <td>Path of the route.</td>
                             </tr>
                             <tr>
                                 <td>command</td>
@@ -110,19 +106,13 @@ const items: [
                                 <td>null</td>
                                 <td>Style class of the menuitem.</td>
                             </tr>
-                            <tr>
-                                <td>key</td>
-                                <td>object</td>
-                                <td>null</td>
-                                <td>Unique identifier of an item.</td>
-                            </tr>
                         </tbody>
                     </table>
                 </div>
 
                 <h5>Command</h5>
                 <p>The function to invoke when an item is clicked is defined using the command property.</p>
-<pre v-code.script><code>
+<CodeHighlight lang="js">
 const items = [
     {
         label: 'New',
@@ -133,22 +123,16 @@ const items = [
         }
     }
 ];
-
-</code></pre>
+</CodeHighlight>
 
                 <h5>Navigation</h5>
                 <p>Navigation is specified using <i>url</i> property for external links or using <i>to</i> property for internal routing.</p>
-<pre v-code.script><code>
+<CodeHighlight lang="js">
 const items = [
     {
-        label: 'Route Path',
+        label: 'Internal',
         icon: 'pi pi-plus',
         to: '/fileupload'
-    },
-    {
-        label: 'Named Route',
-        icon: 'pi pi-plus',
-        to: {name: 'fileupload'}
     },
     {
         label: 'External',
@@ -156,13 +140,12 @@ const items = [
         url: 'https://www.primefaces.org/primevue'
     }
 ];
-
-</code></pre>
+</CodeHighlight>
 
             <h5>Visibility</h5>
             <p>It is a common case to hide certain items based on conditions such as user roles, <i>visible</i> property is available
             to implement such cases by supporting functions that returns booleans or simple booleans.</p>
-<pre v-code.script><code>
+<CodeHighlight lang="js">
 const items = [
     {
         label: 'Remove',
@@ -173,26 +156,9 @@ const items = [
         visible: () => this.isUserAdmin()
     }
 ];
-
-</code></pre>
-
-            <h5>Separator</h5>
-            <p>Separators are special menuitems whose sole purpose is to divide menuitems. A separator is simply configured as below.</p>
-<pre v-code.script><code>
-const items = [
-    {
-        label: 'Item 1'
-    },
-    {
-        separator: true
-    },
-    {
-        label: 'Item 2'
-    }
-];
-
-</code></pre>
-
+</CodeHighlight>
         </div>
     </div>
 </template>
+
+<script>

@@ -20,7 +20,7 @@
                     <AppInputStyleSwitch />
 
                     <h4>Ripple Effect</h4>
-                    <InputSwitch :modelValue="rippleActive" @update:modelValue="onRippleChange"  />
+                    <InputSwitch :value="rippleActive" @input="onRippleChange"  />
 
                     <h4>Free Themes</h4>
                     <p>Built-in component themes created by the <a href="https://www.primefaces.org/designer/primevue">PrimeVue Theme Designer</a>.</p>
@@ -258,7 +258,7 @@
                     </div>
 
                     <h4>Premium Themes</h4>
-                    <p>Premium themes are only available exclusively for <a href="https://www.primefaces.org/designer/primevue">PrimeVue Theme Designer</a> subscribers and therefore not included in PrimeVue core.</p>
+                    <p>Premium themes are only available exclusively for <a href="https://www.primefaces.org/designer/primevue">PrimeVue Theme Designer</a> subscribers and therefore not included in PrimeNG core.</p>
                     <div class="grid free-themes">
                         <div class="col-3">
                             <button class="p-link" type="button" @click="changeTheme($event, 'soho-light')">
@@ -298,12 +298,12 @@
                         </div>
                     </div>
 
-                    <h4>Admin Templates</h4>
-                    <p>Beautifully crafted <a href="https://cli.vuejs.org">Vue CLI</a> application templates by the PrimeTek design team.</p>
+                    <h4>Premium Vue-CLI Templates</h4>
+                    <p>Beautifully crafted premium <a href="https://cli.vuejs.org">Vue CLI</a> application templates by the PrimeTek design team.</p>
                     <div class="grid premium-themes">
                         <div class="col-12 md:col-6">
                             <a href="https://www.primefaces.org/sakai-vue">
-                                <img alt="Ultima" src="./assets/images/layouts/sakai-vue.jpg">
+                                <img alt="Sakai" src="./assets/images/layouts/sakai-vue.jpg">
                             </a>
                         </div>
                         <div class="col-12 md:col-6">
@@ -324,16 +324,6 @@
                         <div class="col-12 md:col-6">
                             <a href="https://www.primefaces.org/layouts/diamond-vue">
                                 <img alt="Diamond" src="./assets/images/layouts/diamond-vue.jpg">
-                            </a>
-                        </div>
-                        <div class="col-12 md:col-6">
-                            <a href="https://www.primefaces.org/layouts/verona-vue">
-                                <img alt="Verona" src="./assets/images/layouts/verona-vue.jpg">
-                            </a>
-                        </div>
-                        <div class="col-12 md:col-6">
-                            <a href="https://www.primefaces.org/layouts/poseidon-vue">
-                                <img alt="Poseidon" src="./assets/images/layouts/poseidon-vue.jpg">
                             </a>
                         </div>
                         <div class="col-12 md:col-6">
@@ -379,10 +369,11 @@
 </template>
 
 <script>
-import EventBus from '@/AppEventBus';
+import EventBus from '@/EventBus';
 
 export default {
     props: {
+        theme: String,
         inputStyle: String
     },
     data() {
@@ -393,7 +384,6 @@ export default {
         }
     },
     outsideClickListener: null,
-    themeChangeListener: null,
     watch: {
         $route() {
             if (this.active) {
@@ -402,20 +392,15 @@ export default {
             }
         }
     },
-    beforeUnmount() {
-        EventBus.off('theme-change', this.themeChangeListener);
-    },
     mounted() {
-        this.themeChangeListener = (event) => {
+        EventBus.$on('change-theme', event => {
             if (event.theme === 'nano')
                 this.scale = 12;
             else
                 this.scale = 14;
 
             this.applyScale();
-        };
-
-        EventBus.on('theme-change', this.themeChangeListener);
+        });
     },
     methods: {
         toggleConfigurator(event) {
@@ -433,7 +418,7 @@ export default {
             event.preventDefault();
         },
         changeTheme(event, theme, dark) {
-            EventBus.emit('theme-change', { theme: theme, dark: dark });
+            this.$emit('change-theme', {theme: theme, dark: dark});
             event.preventDefault();
         },
         bindOutsideClickListener() {

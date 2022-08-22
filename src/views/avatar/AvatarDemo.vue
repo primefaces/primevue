@@ -5,7 +5,6 @@
                 <h1>Avatar</h1>
                 <p>Avatar represents people using icons, labels and images.</p>
             </div>
-            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">
@@ -55,7 +54,7 @@
                     </div>
                 </div>
 
-                 <div class="col-12 md:col-4">
+                <div class="col-12 md:col-4">
                     <div class="card">
                         <h5>Icon - Badge</h5>
                         <Avatar icon="pi pi-user" size="xlarge" v-badge="4"/>
@@ -87,7 +86,7 @@
                     </div>
                 </div>
 
-                 <div class="col-12 md:col-4">
+                <div class="col-12 md:col-4">
                     <div class="card">
                         <h5>Image - Badge</h5>
                         <Avatar image="demo/images/organization/walter.jpg" size="xlarge" v-badge.danger="4" />
@@ -102,7 +101,6 @@
 
 <script>
 import AvatarDoc from './AvatarDoc';
-
 export default {
     components: {
         'AvatarDoc': AvatarDoc

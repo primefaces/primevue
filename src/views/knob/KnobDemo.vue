@@ -5,7 +5,6 @@
                 <h1>Knob</h1>
                 <p>Knob is a form component to define number inputs with a dial.</p>
             </div>
-            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">
@@ -49,12 +48,6 @@
                     </div>
                 </div>
             </div>
-            <div class="card text-center">
-                <h5>Reactive Knob</h5>
-                <Knob v-model="value10" :size="150" readonly />
-                <Button label="Increment" @click="value10++" class="mr-2" :disabled="value10 >= 100" />
-                <Button label="Decrement" @click="value10--" :disabled="value10 <= 0" />
-            </div>
         </div>
 
         <KnobDoc />
@@ -63,7 +56,6 @@
 
 <script>
 import KnobDoc from './KnobDoc';
-
 export default {
     data() {
         return {
@@ -76,7 +68,6 @@ export default {
             value7: 40,
             value8: 60,
             value9: 50,
-            value10: 0
         }
     },
     components: {

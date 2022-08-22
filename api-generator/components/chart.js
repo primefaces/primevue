@@ -26,13 +26,13 @@ const ChartProps = [
     {
         name: "width",
         type: "number",
-        default: "300",
+        default: "null",
         description: "Width of the chart in non-responsive mode."
     },
     {
         name: "height",
         type: "number",
-        default: "150",
+        default: "null",
         description: "Height of the chart in non-responsive mode."
     }
 ];

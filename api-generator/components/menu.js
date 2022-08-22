@@ -14,8 +14,8 @@ const MenuProps = [
     {
         name: "appendTo",
         type: "string",
-        default: "body",
-        description: "A valid query selector or an HTMLElement to specify where the overlay gets attached."
+        default: "null",
+        description: 'Id of the element or "body" for document where the overlay should be appended to.'
     },
     {
         name: "baseZIndex",
@@ -37,30 +37,10 @@ const MenuProps = [
     }
 ];
 
-const MenuEvents = [
-    {
-        name: "show",
-        description: "Callback to invoke when the overlay is shown."
-    },
-    {
-        name: "hide",
-        description: "Callback to invoke when the overlay is hidden."
-    }
-];
-
-const MenuSlots = [
-    {
-        name: "item",
-        description: "Template of a menuitem."
-    }
-];
-
 module.exports = {
     menu: {
         name: "Menu",
         description: "Menu is a navigation / command component that supports dynamic and static positioning.",
-        props: MenuProps,
-        events: MenuEvents,
-        slots: MenuSlots
+        props: MenuProps
     }
 };

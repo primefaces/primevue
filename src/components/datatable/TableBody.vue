@@ -1,58 +1,98 @@
 <template>
-    <tbody :ref="bodyRef" class="p-datatable-tbody" role="rowgroup" :style="bodyStyle">
+    <tbody class="p-datatable-tbody" role="rowgroup">
         <template v-if="!empty">
-            <template v-for="(rowData, index) of value" :key="getRowKey(rowData, getRowIndex(index)) + '_subheader'">
-                <tr class="p-rowgroup-header" :style="rowGroupHeaderStyle" v-if="templates['groupheader'] && rowGroupMode === 'subheader' && shouldRenderRowGroupHeader(value, rowData, getRowIndex(index))" role="row">
+            <template v-for="(rowData, index) of value">
+                <tr class="p-rowgroup-header" :style="rowGroupHeaderStyle" v-if="templates['groupheader'] && rowGroupMode === 'subheader' && shouldRenderRowGroupHeader(value, rowData, index)" :key="getRowKey(rowData, index) + '_subheader' + index" role="row">
                     <td :colspan="columnsLength - 1">
                         <button class="p-row-toggler p-link" @click="onRowGroupToggle($event, rowData)" v-if="expandableRowGroups" type="button">
                             <span :class="rowGroupTogglerIcon(rowData)"></span>
                         </button>
-                        <component :is="templates['groupheader']" :data="rowData" :index="getRowIndex(index)" />
+                        <DTRowExpansionTemplate :template="templates['groupheader']" :data="rowData" :index="index" />
                     </td>
                 </tr>
-                <tr :class="getRowClass(rowData)" :style="rowStyle" :key="getRowKey(rowData, getRowIndex(index))"
+                <tr :class="getRowClass(rowData)" :style="rowStyle" :key="getRowKey(rowData, index)"
                     v-if="expandableRowGroups ? isRowGroupExpanded(rowData): true"
-                    @click="onRowClick($event, rowData, getRowIndex(index))" @dblclick="onRowDblClick($event, rowData, getRowIndex(index))" @contextmenu="onRowRightClick($event, rowData, getRowIndex(index))" @touchend="onRowTouchEnd($event)" @keydown="onRowKeyDown($event, rowData, getRowIndex(index))" :tabindex="selectionMode || contextMenu ? '0' : null"
-                    @mousedown="onRowMouseDown($event)" @dragstart="onRowDragStart($event, getRowIndex(index))" @dragover="onRowDragOver($event, getRowIndex(index))" @dragleave="onRowDragLeave($event)" @dragend="onRowDragEnd($event)" @drop="onRowDrop($event)" role="row">
-                    <template v-for="(col,i) of columns" :key="columnProp(col,'columnKey')||columnProp(col,'field')||i">
-                        <DTBodyCell v-if="shouldRenderBodyCell(value, col, getRowIndex(index))" :rowData="rowData" :column="col" :rowIndex="getRowIndex(index)" :index="i" :selected="isSelected(rowData)"
+                    @click="onRowClick($event, rowData, index)" @dblclick="onRowDblClick($event, rowData, index)" @contextmenu="onRowRightClick($event, rowData, index)" @touchend="onRowTouchEnd($event)" @keydown="onRowKeyDown($event, rowData, index)" :tabindex="selectionMode || contextMenu ? '0' : null"
+                    @mousedown="onRowMouseDown($event)" @dragstart="onRowDragStart($event, index)" @dragover="onRowDragOver($event,index)" @dragleave="onRowDragLeave($event)" @dragend="onRowDragEnd($event)" @drop="onRowDrop($event)" role="row">
+                    <template v-for="(col,i) of columns">
+                        <DTBodyCell v-if="shouldRenderBodyCell(value, col, index)" :rowData="rowData" :column="col" :rowIndex="index" :index="i" :selected="isSelected(rowData)" :key="columnProp(col,'columnKey')+i||columnProp(col,'field')+i||i"
                             :rowTogglerIcon="columnProp(col,'expander') ? rowTogglerIcon(rowData): null" :frozenRow="frozenRow"
-                            :rowspan="rowGroupMode === 'rowspan' ? calculateRowGroupSize(value, col, getRowIndex(index)) : null"
+                            :rowspan="rowGroupMode === 'rowspan' ? calculateRowGroupSize(value, col, index) : null"
                             :editMode="editMode" :editing="editMode === 'row' && isRowEditing(rowData)" :responsiveLayout="responsiveLayout"
                             @radio-change="onRadioChange($event)" @checkbox-change="onCheckboxChange($event)" @row-toggle="onRowToggle($event)"
                             @cell-edit-init="onCellEditInit($event)" @cell-edit-complete="onCellEditComplete($event)" @cell-edit-cancel="onCellEditCancel($event)"
                             @row-edit-init="onRowEditInit($event)" @row-edit-save="onRowEditSave($event)" @row-edit-cancel="onRowEditCancel($event)"
-                            :editingMeta="editingMeta" @editing-meta-change="onEditingMetaChange" :virtualScrollerContentProps="virtualScrollerContentProps"/>
+                            :editingMeta="editingMeta" @editing-meta-change="onEditingMetaChange"/>
                     </template>
                 </tr>
-                <tr class="p-datatable-row-expansion" v-if="templates['expansion'] && expandedRows && isRowExpanded(rowData)" :key="getRowKey(rowData, getRowIndex(index)) + '_expansion'" role="row">
+                <tr class="p-datatable-row-expansion" v-if="templates['expansion'] && expandedRows && isRowExpanded(rowData)" :key="getRowKey(rowData, index) + '_expansion' + index" role="row">
                     <td :colspan="columnsLength">
-                        <component :is="templates['expansion']" :data="rowData" :index="getRowIndex(index)" />
+                        <DTRowExpansionTemplate :template="templates['expansion']" :data="rowData" :index="index" />
                     </td>
                 </tr>
-                <tr class="p-rowgroup-footer" v-if="templates['groupfooter'] && rowGroupMode === 'subheader' && shouldRenderRowGroupFooter(value, rowData, getRowIndex(index))" :key="getRowKey(rowData, getRowIndex(index)) + '_subfooter'" role="row">
-                    <component :is="templates['groupfooter']" :data="rowData" :index="getRowIndex(index)" />
+                <tr class="p-rowgroup-footer" v-if="templates['groupfooter'] && rowGroupMode === 'subheader' && shouldRenderRowGroupFooter(value, rowData, index)" :key="getRowKey(rowData, index) + '_subfooter' + index" role="row">
+                    <DTRowExpansionTemplate :template="templates['groupfooter']" :data="rowData" :index="index" />
                 </tr>
             </template>
         </template>
-        <tr v-else class="p-datatable-emptymessage" role="row">
+        <tr v-else class="p-datatable-emptymessage">
             <td :colspan="columnsLength">
-                <component :is="templates.empty" v-if="templates.empty" />
+                <DTSlotTemplate :template="templates.empty" v-if="templates.empty && !loading"/>
+                <DTSlotTemplate :template="templates.loading" v-if="templates.loading && loading"/>
             </td>
         </tr>
     </tbody>
 </template>
 
 <script>
-import {ObjectUtils,DomHandler} from 'primevue/utils';
+import DomHandler from '../utils/DomHandler';
+import ObjectUtils from '../utils/ObjectUtils';
 import BodyCell from './BodyCell.vue';
 
+const RowExpansionTemplate = {
+    functional: true,
+    props: {
+        name: {
+            type: String,
+            default: null
+        },
+        data: {
+            type: null,
+            default: null
+        },
+        index: {
+            type: Number,
+            default: null
+        },
+        template: {
+            type: null,
+            default: null
+        }
+    },
+    render(createElement, context) {
+        const content = context.props.template({
+            'data': context.props.data,
+            'index': context.props.index
+        });
+        return [content];
+    }
+}
+
+const SlotTemplate = {
+    functional: true,
+    props: {
+        template: {
+            type: null,
+            default: null
+        }
+    },
+    render(createElement, context) {
+        const content = context.props.template();
+        return [content];
+    }
+}
+
 export default {
-    name: 'TableBody',
-    emits: ['rowgroup-toggle', 'row-click', 'row-dblclick', 'row-rightclick', 'row-touchend', 'row-keydown', 'row-mousedown',
-        'row-dragstart', 'row-dragover', 'row-dragleave', 'row-dragend', 'row-drop', 'row-toggle',
-        'radio-change', 'checkbox-change', 'cell-edit-init', 'cell-edit-complete', 'cell-edit-cancel',
-        'row-edit-init', 'row-edit-save', 'row-edit-cancel', 'editing-meta-change'],
     props: {
         value: {
             type: Array,
@@ -154,6 +194,10 @@ export default {
             type: Object,
             default: null
         },
+        loading: {
+            type: Boolean,
+            default: false
+        },
         templates: {
             type: null,
             default: null
@@ -165,21 +209,6 @@ export default {
         responsiveLayout: {
             type: String,
             default: 'stack'
-        },
-        virtualScrollerContentProps: {
-            type: Object,
-            default: null
-        },
-        isVirtualScrollerDisabled: {
-            type: Boolean,
-            default: false
-        }
-    },
-    watch: {
-        virtualScrollerContentProps(newValue, oldValue) {
-            if (!this.isVirtualScrollerDisabled && this.getVirtualScrollerProp('vertical') && this.getVirtualScrollerProp('itemSize', oldValue) !== this.getVirtualScrollerProp('itemSize', newValue)) {
-                this.updateVirtualScrollerPosition();
-            }
         }
     },
     mounted() {
@@ -189,10 +218,6 @@ export default {
 
         if (this.scrollable && this.rowGroupMode === 'subheader') {
             this.updateFrozenRowGroupHeaderStickyPosition();
-        }
-
-        if (!this.isVirtualScrollerDisabled && this.getVirtualScrollerProp('vertical')) {
-            this.updateVirtualScrollerPosition();
         }
     },
     updated() {
@@ -227,14 +252,10 @@ export default {
         getRowKey(rowData, index) {
             return this.dataKey ? ObjectUtils.resolveFieldData(rowData, this.dataKey): index;
         },
-        getRowIndex(index) {
-            const getItemOptions = this.getVirtualScrollerProp('getItemOptions');
-            return getItemOptions ? getItemOptions(index).index : index;
-        },
         getRowClass(rowData) {
             let rowStyleClass = [];
             if (this.selectionMode) {
-                 rowStyleClass.push('p-selectable-row');
+                rowStyleClass.push('p-selectable-row');
             }
 
             if (this.selection) {
@@ -335,9 +356,9 @@ export default {
         isGrouped(column) {
             if (this.groupRowsBy && this.columnProp(column, 'field')) {
                 if (Array.isArray(this.groupRowsBy))
-                    return this.groupRowsBy.indexOf(column.props.field) > -1;
+                    return this.groupRowsBy.indexOf(column.field) > -1;
                 else
-                    return this.groupRowsBy === column.props.field;
+                    return this.groupRowsBy === column.field;
             }
             else {
                 return false;
@@ -482,30 +503,15 @@ export default {
         },
         updateFrozenRowGroupHeaderStickyPosition() {
             let tableHeaderHeight = DomHandler.getOuterHeight(this.$el.previousElementSibling);
-            this.rowGroupHeaderStyleObject.top = tableHeaderHeight + 'px'
-        },
-        updateVirtualScrollerPosition() {
-            const tableHeaderHeight = DomHandler.getOuterHeight(this.$el.previousElementSibling);
-            this.$el.style.top = (this.$el.style.top || 0) + tableHeaderHeight + 'px';
-        },
-        getVirtualScrollerProp(option, options) {
-            options = options || this.virtualScrollerContentProps;
-            return options ? options[option] : null;
-        },
-        bodyRef(el) {
-            // For VirtualScroller
-            const contentRef = this.getVirtualScrollerProp('contentRef');
-            contentRef && contentRef(el);
+            this.rowGroupHeaderStyleObject.top = tableHeaderHeight + 'px';
         }
     },
     computed: {
         columnsLength() {
             let hiddenColLength = 0;
-
             this.columns.forEach(column => {
                 if(this.columnProp(column, 'hidden')) hiddenColLength++;
             });
-
             return this.columns ? this.columns.length - hiddenColLength : 0;
         },
         rowGroupHeaderStyle() {
@@ -514,13 +520,12 @@ export default {
             }
 
             return null;
-        },
-        bodyStyle() {
-            return this.getVirtualScrollerProp('contentStyle');
         }
     },
     components: {
-        'DTBodyCell': BodyCell
+        'DTBodyCell': BodyCell,
+        'DTRowExpansionTemplate': RowExpansionTemplate,
+        'DTSlotTemplate': SlotTemplate
     }
 }
 </script>

@@ -5,7 +5,6 @@
 				<h1>DataTable <span>Dynamic Columns</span></h1>
 				<p>Columns can be defined dynamically using the v-for directive.</p>
 			</div>
-            <AppDemoActions />
 		</div>
 
 		<div class="content-section implementation">
@@ -16,33 +15,19 @@
             </div>
 		</div>
 
-        <AppDoc name="DataTableDynamicColumnsDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="datatable/DataTableDynamicColumnsDemo.vue" />
-                    
-	</div>
+        <div class="content-section documentation">
+            <TabView>
+                <TabPanel header="Source">
+<CodeHighlight>
+<template v-pre>
+&lt;DataTable :value="products" responsiveLayout="scroll"&gt;
+    &lt;Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field"&gt;&lt;/Column&gt;
+&lt;/DataTable&gt;
 </template>
+</CodeHighlight>
 
-<script>
+<CodeHighlight lang="javascript">
 import ProductService from '../../service/ProductService';
-
-export default {
-    data() {
-        return {
-            columns: null,
-            products: null,
-            sources: {
-                'options-api': {
-                    tabName: 'Options API Source',
-                    content: `
-<template>
-    <div>
-        <DataTable :value="products" responsiveLayout="scroll">
-            <Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field"></Column>
-        </DataTable>
-    </div>
-</template>
-
-<script>
-import ProductService from './service/ProductService';
 
 export default {
     data() {
@@ -66,89 +51,21 @@ export default {
         this.productService.getProductsSmall().then(data => this.products = data);
     }
 }
-<\\/script>
-`
-                },
-                'composition-api': {
-                    tabName: 'Composition API Source',
-                    content: `
-<template>
-    <div>
-        <DataTable :value="products" responsiveLayout="scroll">
-            <Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field"></Column>
-        </DataTable>
-    </div>
+</CodeHighlight>
+                </TabPanel>
+            </TabView>
+        </div>
+	</div>
 </template>
 
 <script>
-import { ref, onMounted } from 'vue';
-import ProductService from './service/ProductService';
+import ProductService from '../../service/ProductService';
 
 export default {
-    setup() {
-        onMounted(() => {
-            productService.value.getProductsSmall().then(data => products.value = data);
-        })
-
-        const productService = ref(new ProductService());
-        const columns = ref([
-            {field: 'code', header: 'Code'},
-            {field: 'name', header: 'Name'},
-            {field: 'category', header: 'Category'},
-            {field: 'quantity', header: 'Quantity'}
-        ]);
-        const products = ref();
-
-        return { columns, products }
-    }
-}
-<\\/script>
-`
-                },
-                'browser-source': {
-                    tabName: 'Browser Source',
-                    imports: `<script src="https://unpkg.com/primevue@^3/datatable/datatable.min.js"><\\/script>
-        <script src="https://unpkg.com/primevue@^3/column/column.min.js"><\\/script>
-        <script src="./ProductService.js"><\\/script>`,
-                    content: `<div id="app">
-            <p-datatable :value="products" responsive-layout="scroll">
-                <p-column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field"></p-column>
-            </p-datatable>
-        </div>
-
-        <script type="module">
-        const { createApp, ref, onMounted } = Vue;
-
-        const App = {
-            setup() {
-                onMounted(() => {
-                    productService.value.getProductsSmall().then(data => products.value = data);
-                })
-
-                const productService = ref(new ProductService());
-                const columns = ref([
-                    {field: 'code', header: 'Code'},
-                    {field: 'name', header: 'Name'},
-                    {field: 'category', header: 'Category'},
-                    {field: 'quantity', header: 'Quantity'}
-                ]);
-                const products = ref();
-
-                return { columns, products }
-            },
-            components: {
-                "p-datatable": primevue.datatable,
-                "p-column": primevue.column
-            }
-        };
-
-        createApp(App)
-            .use(primevue.config.default)
-            .mount("#app");
-        <\\/script>
-`
-                }
-            }
+    data() {
+        return {
+            columns: null,
+            products: null
         }
     },
     productService: null,

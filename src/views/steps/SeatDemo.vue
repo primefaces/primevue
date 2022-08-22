@@ -1,21 +1,21 @@
 <template>
     <div class="stepsdemo-content">
         <Card>
-            <template v-slot:title>
+            <template #title>
                 Seat Information
             </template>
-            <template v-slot:subtitle>
+            <template #subtitle>
                 Choose your seat
             </template>
-            <template v-slot:content>
+            <template #content>
                 <div class="p-fluid formgrid grid">
                     <div class="field col-12 md:col-6">
                         <label for="class">Class</label>
-                        <Dropdown inputId="class" v-model="selectedClass" :options="classes" @change="setWagons($event)" optionLabel="name" placeholder="Select a Class" />
+                        <Dropdown inputId="class" v-model="selectedClass" :options="classes" @change="setVagons($event)" optionLabel="name" placeholder="Select a Class" />
                     </div>
                     <div class="field col-12 md:col-6">
                         <label for="lastname">Wagon</label>
-                        <Dropdown inputId="wagon" v-model="selectedWagon" :options="wagons" @change="setSeats($event)" optionLabel="wagon" placeholder="Select a Wagon" />
+                        <Dropdown inputId="wagon" v-model="selectedVagon" :options="vagons" @change="setSeats($event)" optionLabel="vagon" placeholder="Select a Vagon" />
                     </div>
                     <div class="field col-12">
                         <label for="seat">Seat</label>
@@ -23,7 +23,7 @@
                     </div>
                 </div>
             </template>
-            <template v-slot:footer>
+            <template #footer>
                 <div class="grid grid-nogutter justify-content-between">
                     <Button label="Back" @click="prevPage()" icon="pi pi-angle-left" />
                     <Button label="Next" @click="nextPage()" icon="pi pi-angle-right" iconPos="right" />
@@ -43,24 +43,24 @@ export default {
                 {name: 'Second Class', code: 'B', factor: 2},
                 {name: 'Third Class', code: 'C', factor: 3}
             ],
-            wagons: [],
-            selectedWagon: '',
+            vagons: [],
+            selectedVagon: '',
             seats: [],
             selectedSeat: ''
         }
     },
     methods: {
-        setWagons(event) {
+        setVagons(event) {
             if (this.selectedClass && event.value) {
-                this.wagons = [];
+                this.vagons = [];
                 this.seats = [];
                 for (let i = 1; i < 3 * event.value.factor; i++) {
-                    this.wagons.push({wagon: i + event.value.code, type: event.value.name, factor: event.value.factor});
+                    this.vagons.push({vagon: i + event.value.code, type: event.value.name, factor: event.value.factor});
                 }
             }
         },
         setSeats(event) {
-            if (this.selectedWagon && event.value) {
+            if (this.selectedVagon && event.value) {
                 this.seats = [];
                 for (let i = 1; i < 10 * event.value.factor; i++) {
                     this.seats.push({seat: i, type: event.value.type});
@@ -68,10 +68,10 @@ export default {
             }
         },
         nextPage() {
-            this.$emit('next-page', {formData: {class: this.selectedClass.name, wagon: this.selectedWagon.wagon, seat: this.selectedSeat.seat}, pageIndex: 1});
+            this.$emit('nextPage', {formData: {class: this.selectedClass.name, vagon: this.selectedVagon.vagon, seat: this.selectedSeat.seat}, pageIndex: 1});
         },
         prevPage() {
-            this.$emit('prev-page', {pageIndex: 1});
+            this.$emit('prevPage', {pageIndex: 1});
         }
     }
 }

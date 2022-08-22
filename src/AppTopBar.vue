@@ -1,10 +1,13 @@
 <template>
-    <div :ref="containerRef" class="layout-topbar">
+    <div class="layout-topbar">
         <a class="menu-button" @click="$emit('menubutton-click')">
             <i class="pi pi-bars"></i>
         </a>
-        <div class="app-theme" v-tooltip.bottom="$appState.theme">
-            <img :src="'demo/images/themes/' + logoMap[$appState.theme]" />
+        <router-link to="/" class="logo">
+            <img alt="logo" src="./assets/images/primevue-logo.png">
+        </router-link>
+        <div class="app-theme" v-tooltip.bottom="theme">
+            <img :src="'demo/images/themes/' + logoMap[theme]" />
         </div>
         <ul ref="topbarMenu" class="topbar-menu">
             <li class="topbar-submenu">
@@ -18,8 +21,6 @@
                         <li><a href="https://www.primefaces.org/designer/primevue"><i class="pi pi-fw pi-palette" /><span>Designer</span></a></li>
                         <li><a href="https://www.primefaces.org/designer-vue"><i class="pi pi-fw pi-desktop" /><span>Visual Editor</span></a></li>
                         <li><router-link to="/icons"><i class="pi pi-fw pi-info-circle"/><span>Icons</span></router-link></li>
-                        <li><a href="https://www.figma.com/community/file/890589747170608208/PrimeOne-Design-Library"><i class="pi pi-fw pi-pencil"/><span>Figma UI Kit</span></a></li>
-
                         <li class="topbar-submenu-header">BOOTSTRAP</li>
                         <li><a @click="changeTheme($event, 'bootstrap4-light-blue')"><img src="demo/images/themes/bootstrap4-light-blue.svg" alt="Blue Light" /><span>Blue Light</span></a></li>
                         <li><a @click="changeTheme($event, 'bootstrap4-light-purple')"><img src="demo/images/themes/bootstrap4-light-purple.svg" alt="Purple Light" /><span>Purple Light</span></a></li>
@@ -71,10 +72,19 @@
                         <li class="topbar-submenu-header">PREMIUM</li>
                         <li><a @click="changeTheme($event, 'soho-light')"><img src="demo/images/themes/soho-light.png" alt="Soho Light" /><span>Soho Light</span></a></li>
                         <li><a @click="changeTheme($event, 'soho-dark', true)"><img src="demo/images/themes/soho-dark.png" alt="Soho Dark" /><span>Soho Dark</span></a></li>
-                        <li><a @click="changeTheme($event, 'viva-light')"><img src="demo/images/themes/viva-light.svg" alt="Viva Light" /><span>Viva Light</span></a></li>
-                        <li><a @click="changeTheme($event, 'viva-dark', true)"><img src="demo/images/themes/viva-dark.svg" alt="Viva Dark" /><span>Viva Dark</span></a></li>
                         <li><a @click="changeTheme($event, 'mira')"><img src="demo/images/themes/mira.jpg" alt="Mira" /><span>Mira</span></a></li>
                         <li><a @click="changeTheme($event, 'nano')"><img src="demo/images/themes/nano.jpg" alt="Nano" /><span>Nano</span></a></li>
+
+                        <li class="topbar-submenu-header">LEGACY</li>
+                        <li><a @click="changeTheme($event, 'nova')"><img src="demo/images/themes/nova.png" alt="Nova" /><span>Nova</span></a></li>
+                        <li><a @click="changeTheme($event, 'nova-alt')"><img src="demo/images/themes/nova-alt.png" alt="Nova Alt" /><span>Nova Alt</span></a></li>
+                        <li><a @click="changeTheme($event, 'nova-accent')"><img src="demo/images/themes/nova-accent.png" alt="Nova Accent" /><span>Nova Accent</span></a></li>
+                        <li><a @click="changeTheme($event, 'nova-vue')"><img src="demo/images/themes/nova-vue.png" alt="Nova Vue" /><span>Nova Vue</span></a></li>
+                        <li><a @click="changeTheme($event, 'luna-amber', true)"><img src="demo/images/themes/luna-amber.png" alt="Luna Amber" /><span>Luna Amber</span></a></li>
+                        <li><a @click="changeTheme($event, 'luna-blue', true)"><img src="demo/images/themes/luna-blue.png" alt="Luna Blue" /><span>Luna Blue</span></a></li>
+                        <li><a @click="changeTheme($event, 'luna-green', true)"><img src="demo/images/themes/luna-green.png" alt="Luna Green" /><span>Luna Green</span></a></li>
+                        <li><a @click="changeTheme($event, 'luna-pink', true)"><img src="demo/images/themes/luna-pink.png" alt="Luna Pink" /><span>Luna Pink</span></a></li>
+                        <li><a @click="changeTheme($event, 'rhea')"><img src="demo/images/themes/rhea.png" alt="Rhea" /><span>Rhea</span></a></li>
                     </ul>
                 </transition>
             </li>
@@ -88,8 +98,6 @@
                         <li><a href="https://www.primefaces.org/layouts/atlantis-vue"><img src="./assets/images/layouts/themeswitcher-atlantis.svg" alt="Atlantis" /><span>Atlantis</span></a></li>
                         <li><a href="https://www.primefaces.org/layouts/freya-vue"><img src="./assets/images/layouts/themeswitcher-freya.png" alt="Freya" /><span>Freya</span></a></li>
                         <li><a href="https://www.primefaces.org/layouts/diamond-vue"><img src="./assets/images/layouts/themeswitcher-diamond.png" alt="Diamond" /><span>Diamond</span></a></li>
-                        <li><a href="https://www.primefaces.org/layouts/verona-vue"><img src="./assets/images/layouts/themeswitcher-verona.png" alt="Verona" /><span>Verona</span></a></li>
-                        <li><a href="https://www.primefaces.org/layouts/poseidon-vue"><img src="./assets/images/layouts/themeswitcher-poseidon.svg" alt="Poseidon" /><span>Poseidon</span></a></li>
                         <li><a href="https://www.primefaces.org/layouts/sapphire-vue"><img src="./assets/images/layouts/themeswitcher-sapphire.png" alt="Sapphire" /><span>Sapphire</span><span class="theme-badge material">material</span></a></li>
                         <li><a href="https://www.primefaces.org/layouts/serenity-vue"><img src="./assets/images/layouts/themeswitcher-serenity.png" alt="Serenity" /><span>Serenity</span><span class="theme-badge material">material</span></a></li>
                         <li><a href="https://www.primefaces.org/layouts/ultima-vue"><img src="./assets/images/layouts/themeswitcher-ultima.png" alt="Ultima" /><span>Ultima</span><span class="theme-badge material">material</span></a></li>
@@ -105,11 +113,11 @@
                 <a href="https://www.primefaces.org/primeblocks-vue/#/" target="_blank"><span>Blocks</span></a>
             </li>
             <li class="topbar-submenu">
-                <a tabindex="0" @click="toggleMenu($event, 3)">v3.16.1</a>
+                <a tabindex="0" @click="toggleMenu($event, 3)">v2.9.2</a>
                 <transition name="p-connected-overlay" @enter="onMenuEnter">
                     <ul v-show="activeMenuIndex === 3" style="width: 100%">
-                        <li><router-link to="/"><span class="m-0">v3.16.1</span></router-link></li>
-                        <li><a href="https://www.primefaces.org/primevue-v2"><span class="m-0">v2.9.2</span></a></li>
+                        <li><router-link to="/"><span class="m-0">v2.9.2</span></router-link></li>
+                        <li><a href="https://www.primefaces.org/primevue"><span class="m-0">v3.12.5</span></a></li>
                     </ul>
                 </transition>
             </li>
@@ -118,8 +126,6 @@
 </template>
 
 <script>
-import EventBus from '@/AppEventBus';
-
 export default {
     outsideClickListener: null,
     darkDemoStyle: null,
@@ -127,6 +133,9 @@ export default {
         $route() {
             this.activeMenuIndex = null;
         }
+    },
+    props: {
+        theme: null
     },
     data() {
         return {
@@ -144,6 +153,14 @@ export default {
                 'mdc-light-deeppurple': 'md-light-deeppurple.svg',
                 'mdc-dark-indigo': 'md-dark-indigo.svg',
                 'mdc-dark-deeppurple': 'md-dark-deeppurple.svg',
+                'lara-dark-indigo': 'lara-dark-indigo.png',
+                'lara-dark-blue': 'lara-dark-blue.png',
+                'lara-dark-purple': 'lara-dark-purple.png',
+                'lara-dark-teal': 'lara-dark-teal.png',
+                'lara-light-indigo': 'lara-light-indigo.png',
+                'lara-light-blue': 'lara-light-blue.png',
+                'lara-light-purple': 'lara-light-purple.png',
+                'lara-light-teal': 'lara-light-teal.png',
                 'saga-blue': 'saga-blue.png',
                 'saga-green': 'saga-green.png',
                 'saga-orange': 'saga-orange.png',
@@ -173,30 +190,12 @@ export default {
                 'mira': 'mira.jpg',
                 'nano': 'nano.jpg',
                 'tailwind-light': 'tailwind-light.png',
-                'lara-dark-indigo': 'lara-dark-indigo.png',
-                'lara-dark-purple': 'lara-dark-purple.png',
-                'lara-dark-teal': 'lara-dark-teal.png',
-                'lara-dark-blue': 'lara-dark-blue.png',
-                'lara-light-indigo': 'lara-light-indigo.png',
-                'lara-light-purple': 'lara-light-purple.png',
-                'lara-light-teal': 'lara-light-teal.png',
-                'lara-light-blue': 'lara-light-blue.png'
             }
-        }
-    },
-    scrollListener: null,
-    container: null,
-    mounted() {
-        this.bindScrollListener();
-    },
-    beforeUnmount() {
-        if (this.scrollListener) {
-            this.unbindScrollListener();
         }
     },
     methods: {
         changeTheme(event, theme, dark) {
-            EventBus.emit('theme-change', { theme: theme, dark: dark });
+            this.$emit('change-theme', {theme: theme, dark: dark});
             this.activeMenuIndex = null;
             event.preventDefault();
         },
@@ -206,25 +205,6 @@ export default {
         },
         onMenuEnter() {
             this.bindOutsideClickListener();
-        },
-        bindScrollListener() {
-            if (!this.scrollListener) {
-                if (this.container) {
-                    this.scrollListener = () => {
-                        if (window.scrollY > 0)
-                            this.container.classList.add('layout-topbar-sticky');
-                        else
-                            this.container.classList.remove('layout-topbar-sticky');
-                    }
-                }
-            }
-            window.addEventListener('scroll', this.scrollListener);
-        },
-        unbindScrollListener() {
-            if (this.scrollListener) {
-                window.removeEventListener('scroll', this.scrollListener);
-                this.scrollListener = null;
-            }
         },
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
@@ -245,9 +225,6 @@ export default {
         },
         isOutsideTopbarMenuClicked(event) {
             return !(this.$refs.topbarMenu.isSameNode(event.target) || this.$refs.topbarMenu.contains(event.target));
-        },
-        containerRef(el) {
-            this.container = el;
         }
     }
 }

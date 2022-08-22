@@ -5,7 +5,6 @@
                 <h1>BarChart</h1>
                 <p>A bar chart or bar graph is a chart that presents grouped data with rectangular bars with lengths proportional to the values that they represent.</p>
             </div>
-            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">
@@ -36,18 +35,16 @@
 
 <script>
 import BarChartDoc from './BarChartDoc';
-import EventBus from '@/AppEventBus';
+import EventBus from '@/EventBus';
 
 export default {
-    themeChangeListener: null,
     mounted() {
-        this.themeChangeListener = (event) => {
+        EventBus.$on('change-theme', event => {
             if (event.dark)
                 this.applyDarkTheme();
             else
                 this.applyLightTheme();
-        };
-        EventBus.on('theme-change', this.themeChangeListener);
+        });
 
         if (this.isDarkTheme()) {
             this.applyDarkTheme();
@@ -56,8 +53,8 @@ export default {
             this.applyLightTheme();
         }
     },
-    beforeUnmount() {
-        EventBus.off('change-theme', this.themeChangeListener);
+    beforeDestroy() {
+        EventBus.$off('change-theme');
     },
     data() {
         return {
@@ -216,7 +213,7 @@ export default {
                             color: '#495057'
                         }
                     },
-                    tooltip: {
+                    tooltips: {
                         mode: 'index',
                         intersect: true
                     }
@@ -262,7 +259,7 @@ export default {
 
             this.stackedOptions = {
                 plugins: {
-                    tooltip: {
+                    tooltips: {
                         mode: 'index',
                         intersect: false
                     },
@@ -359,7 +356,7 @@ export default {
                             color: '#ebedef'
                         }
                     },
-                    tooltip: {
+                    tooltips: {
                         mode: 'index',
                         intersect: true
                     }
@@ -410,7 +407,7 @@ export default {
                             color: '#ebedef'
                         }
                     },
-                    tooltip: {
+                    tooltips: {
                         mode: 'index',
                         intersect: false
                     }
@@ -435,7 +432,7 @@ export default {
                         }
                     }
                 }
-            };            
+            };
         }
     },
     components: {

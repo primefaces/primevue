@@ -1,12 +1,9 @@
 <template>
-    <td v-if="loading" :style="containerStyle" :class="containerClass">
-        <component :is="column.children.loading" :data="rowData" :column="column" :field="field" :index="rowIndex" :frozenRow="frozenRow" :loadingOptions="loadingOptions"  />
-    </td>
-    <td v-else :style="containerStyle" :class="containerClass" @click="onClick" @keydown="onKeyDown" role="cell">
+    <td :style="containerStyle" :class="containerClass" @click="onClick" @keydown="onKeyDown" role="cell" :data-prime="editingRowData">
         <span v-if="responsiveLayout === 'stack'" class="p-column-title">{{columnProp('header')}}</span>
-        <component :is="column.children.body" :data="rowData" :column="column" :field="field" :index="rowIndex" :frozenRow="frozenRow" :editorInitCallback="editorInitCallback" v-if="column.children && column.children.body && !d_editing" />
-        <component :is="column.children.editor" :data="editingRowData" :column="column" :field="field" :index="rowIndex" :frozenRow="frozenRow" :editorSaveCallback="editorSaveCallback" :editorCancelCallback="editorCancelCallback" v-else-if="column.children && column.children.editor && d_editing" />
-        <component :is="column.children.body" :data="editingRowData" :column="column" :field="field" :index="rowIndex" :frozenRow="frozenRow" v-else-if="column.children && column.children.body && !column.children.editor && d_editing" />
+        <ColumnSlot :data="rowData" :column="column" :field="field" :index="rowIndex" type="body" :frozenRow="frozenRow" :editorInitCallback="editorInitCallback" v-if="column.$scopedSlots.body && !d_editing" />
+        <ColumnSlot :data="editingRowData" :column="column" :field="field" :index="rowIndex" type="editor" :frozenRow="frozenRow" :editorSaveCallback="editorSaveCallback" :editorCancelCallback="editorCancelCallback" v-else-if="column.$scopedSlots.editor && d_editing" />
+        <ColumnSlot :data="editingRowData" :column="column" :field="field" :index="rowIndex" type="body" :frozenRow="frozenRow" :editorSaveCallback="editorSaveCallback" :editorCancelCallback="editorCancelCallback" v-else-if="!column.$scopedSlots.editor && column.$scopedSlots.body && d_editing" />
         <template v-else-if="columnProp('selectionMode')">
             <DTRadioButton :value="rowData" :checked="selected" @change="toggleRowWithRadio($event, rowIndex)" v-if="columnProp('selectionMode') === 'single'" />
             <DTCheckbox :value="rowData" :checked="selected" @change="toggleRowWithCheckbox($event, rowIndex)" v-else-if="columnProp('selectionMode') ==='multiple'" />
@@ -35,16 +32,15 @@
 </template>
 
 <script>
-import {DomHandler,ObjectUtils} from 'primevue/utils';
-import OverlayEventBus from 'primevue/overlayeventbus';
-import RowRadioButton from './RowRadioButton.vue';
+import OverlayEventBus from '../overlayeventbus/OverlayEventBus';
+import DomHandler from '../utils/DomHandler';
+import ObjectUtils from '../utils/ObjectUtils';
+import ColumnSlot from './ColumnSlot.vue';
+import RowRadioButton from './RowRadioButton';
 import RowCheckbox from './RowCheckbox.vue';
-import Ripple from 'primevue/ripple';
+import Ripple from '../ripple/Ripple';
 
 export default {
-    name: 'BodyCell',
-    emits: ['cell-edit-init', 'cell-edit-complete', 'cell-edit-cancel', 'row-edit-init', 'row-edit-save', 'row-edit-cancel',
-            'row-toggle', 'radio-change', 'checkbox-change', 'editing-meta-change'],
     props: {
         rowData: {
             type: Object,
@@ -89,19 +85,17 @@ export default {
         responsiveLayout: {
             type: String,
             default: 'stack'
-        },
-        virtualScrollerContentProps: {
-            type: Object,
-            default: null
         }
     },
     documentEditListener: null,
     selfClick: false,
-    overlayEventListener: null,
     data() {
         return {
             d_editing: this.editing,
-            styleObject: {}
+            styleObject: {
+                left: '',
+                right: ''
+            }
         }
     },
     watch: {
@@ -127,7 +121,7 @@ export default {
             focusableEl && focusableEl.focus();
         }
     },
-    beforeUnmount() {
+    beforeDestroy() {
         if (this.overlayEventListener) {
             OverlayEventBus.off('overlay-click', this.overlayEventListener);
             this.overlayEventListener = null;
@@ -153,7 +147,7 @@ export default {
             this.$emit('checkbox-change', { originalEvent: event.originalEvent, index: index, data: event.data });
         },
         isEditable() {
-            return this.column.children && this.column.children.editor != null;
+            return this.column.$scopedSlots.editor != null;
         },
         bindDocumentEditListener() {
             if (!this.documentEditListener) {
@@ -364,9 +358,6 @@ export default {
                     this.styleObject.left = left + 'px';
                 }
             }
-        },
-        getVirtualScrollerProp(option) {
-            return this.virtualScrollerContentProps ? this.virtualScrollerContentProps[option] : null;
         }
     },
     computed: {
@@ -377,7 +368,7 @@ export default {
             return this.columnProp('field');
         },
         containerClass() {
-            return [this.columnProp('bodyClass'), this.columnProp('class'), {
+            return [this.columnProp('bodyClass'), this.columnProp('className'), {
                 'p-selection-column': this.columnProp('selectionMode') != null,
                 'p-editable-column': this.isEditable(),
                 'p-cell-editing': this.d_editing,
@@ -386,27 +377,13 @@ export default {
         },
         containerStyle() {
             let bodyStyle = this.columnProp('bodyStyle');
-            let columnStyle = this.columnProp('style');
+            let columnStyle = this.columnProp('styles');
 
             return this.columnProp('frozen') ? [columnStyle, bodyStyle, this.styleObject]: [columnStyle, bodyStyle];
-        },
-        loading() {
-            return this.getVirtualScrollerProp('loading');
-        },
-        loadingOptions() {
-            const getLoaderOptions = this.getVirtualScrollerProp('getLoaderOptions');
-            return getLoaderOptions && getLoaderOptions(this.rowIndex, {
-                cellIndex: this.index,
-                cellFirst: this.index === 0,
-                cellLast: this.index === (this.getVirtualScrollerProp('columns').length - 1),
-                cellEven: this.index % 2 === 0,
-                cellOdd: this.index % 2 !== 0,
-                column: this.column,
-                field: this.field
-            });
         }
     },
     components: {
+        'ColumnSlot': ColumnSlot,
         'DTRadioButton': RowRadioButton,
         'DTCheckbox': RowCheckbox
     },

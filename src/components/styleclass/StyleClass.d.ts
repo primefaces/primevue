@@ -1,5 +1,5 @@
-import { ObjectDirective } from 'vue';
+import Directive from 'vue';
 
-declare const StyleClass: ObjectDirective;
+declare interface StyleClass extends Directive {}
 
 export default StyleClass;

@@ -5,7 +5,7 @@
     right: 0;
     display: block;
     width: 550px;
-    z-index: 1101;
+    z-index: 998;
     height: 100%;
     transition: transform .4s cubic-bezier(.05,.74,.2,.99);
     transform: translateX(100%);
@@ -48,10 +48,6 @@
             border-top-right-radius: 3px;
             border-bottom-left-radius: 3px;
             border-bottom-right-radius: 3px;
-            animation-name: rubberBand;
-            animation-duration: 1s;
-            animation-iteration-count: 3;
-            animation-delay: 5s;
             box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
 
             i {
@@ -95,7 +91,7 @@
 
             &.scale-active {
                 font-size: 1.25rem;
-                color: var(--primary-color);
+                color: $linkColor;
             }
         }
     }
@@ -172,33 +168,3 @@
         }
     }
 }
-
-@keyframes rubberBand {
-    from {
-      transform: scale3d(1, 1, 1);
-    }
-  
-    30% {
-      transform: scale3d(1.25, 0.75, 1);
-    }
-  
-    40% {
-      transform: scale3d(0.75, 1.25, 1);
-    }
-  
-    50% {
-      transform: scale3d(1.15, 0.85, 1);
-    }
-  
-    65% {
-      transform: scale3d(.95, 1.05, 1);
-    }
-  
-    75% {
-      transform: scale3d(1.05, .95, 1);
-    }
-  
-    to {
-      transform: scale3d(1, 1, 1);
-    }
-  }

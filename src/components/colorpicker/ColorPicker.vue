@@ -1,38 +1,33 @@
 <template>
-    <div ref="container" :class="containerClass">
+    <div :class="containerClass">
         <input ref="input" type="text" :class="inputClass" readonly="readonly" :tabindex="tabindex" :disabled="disabled"
-            @click="onInputClick" @keydown="onInputKeydown" v-if="!inline"/>
-        <Portal :appendTo="appendTo" :disabled="inline">
-            <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
-                <div :ref="pickerRef" :class="pickerClass" v-if="inline ? true : overlayVisible" @click="onOverlayClick">
-                    <div class="p-colorpicker-content">
-                        <div :ref="colorSelectorRef" class="p-colorpicker-color-selector" @mousedown="onColorMousedown($event)"
-                            @touchstart="onColorDragStart($event)" @touchmove="onDrag($event)" @touchend="onDragEnd()">
-                            <div class="p-colorpicker-color">
-                                <div :ref="colorHandleRef" class="p-colorpicker-color-handle"></div>
-                            </div>
-                        </div>
-                        <div :ref="hueViewRef" class="p-colorpicker-hue" @mousedown="onHueMousedown($event)"
-                            @touchstart="onHueDragStart($event)" @touchmove="onDrag($event)" @touchend="onDragEnd()">
-                            <div :ref="hueHandleRef" class="p-colorpicker-hue-handle"></div>
+            @click="onInputClick" @keydown="onInputKeydown" v-if="!inline" :aria-labelledby="ariaLabelledBy"/>
+        <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
+            <div ref="picker" :class="pickerClass" v-if="inline ? true : overlayVisible">
+                <div class="p-colorpicker-content">
+                    <div ref="colorSelector" class="p-colorpicker-color-selector" @mousedown="onColorMousedown($event)"
+                        @touchstart="onColorDragStart($event)" @touchmove="onDrag($event)" @touchend="onDragEnd()">
+                        <div class="p-colorpicker-color">
+                            <div ref="colorHandle" class="p-colorpicker-color-handle"></div>
                         </div>
                     </div>
+                    <div ref="hueView" class="p-colorpicker-hue" @mousedown="onHueMousedown($event)"
+                        @touchstart="onHueDragStart($event)" @touchmove="onDrag($event)" @touchend="onDragEnd()">
+                        <div ref="hueHandle" class="p-colorpicker-hue-handle"></div>
+                    </div>
                 </div>
-            </transition>
-        </Portal>
+            </div>
+        </transition>
     </div>
 </template>
 
 <script>
-import {ConnectedOverlayScrollHandler,DomHandler,ZIndexUtils} from 'primevue/utils';
-import OverlayEventBus from 'primevue/overlayeventbus';
-import Portal from 'primevue/portal';
+import ConnectedOverlayScrollHandler from '../utils/ConnectedOverlayScrollHandler';
+import DomHandler from '../utils/DomHandler';
 
 export default {
-    name: 'ColorPicker',
-    emits: ['update:modelValue', 'change', 'show', 'hide'],
     props: {
-        modelValue: {
+        value: {
             type: null,
             default: null
         },
@@ -64,11 +59,10 @@ export default {
             type: Number,
             default: 0
         },
-        appendTo: {
+        ariaLabelledBy: {
             type: String,
-            default: 'body'
-        },
-        panelClass: null
+            default: null
+        }
     },
     data() {
         return {
@@ -84,12 +78,7 @@ export default {
     hueDragging: null,
     colorDragging: null,
     selfUpdate: null,
-    picker: null,
-    colorSelector: null,
-    colorHandle: null,
-    hueView: null,
-    hueHandle: null,
-    beforeUnmount() {
+    beforeDestroy() {
         this.unbindOutsideClickListener();
         this.unbindDragListeners();
         this.unbindResizeListener();
@@ -98,18 +87,12 @@ export default {
             this.scrollHandler.destroy();
             this.scrollHandler = null;
         }
-
-        if (this.picker && this.autoZIndex) {
-            ZIndexUtils.clear(this.picker);
-        }
-
-        this.clearRefs();
     },
     mounted() {
         this.updateUI();
     },
     watch: {
-        modelValue: {
+        value: {
             immediate: true,
             handler(newValue) {
                 this.hsbValue = this.toHSB(newValue);
@@ -123,11 +106,11 @@ export default {
     },
     methods: {
         pickColor(event) {
-            let rect = this.colorSelector.getBoundingClientRect();
+            let rect = this.$refs.colorSelector.getBoundingClientRect();
             let top = rect.top + (window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0);
             let left = rect.left + document.body.scrollLeft;
-            let saturation = Math.floor(100 * (Math.max(0, Math.min(150, ((event.pageX || event.changedTouches[0].pageX)- left)))) / 150);
-            let brightness = Math.floor(100 * (150 - Math.max(0, Math.min(150, ((event.pageY || event.changedTouches[0].pageY) - top)))) / 150);
+            let saturation = Math.floor(100 * (Math.max(0, Math.min(150, (event.pageX - left)))) / 150);
+            let brightness = Math.floor(100 * (150 - Math.max(0, Math.min(150, (event.pageY - top)))) / 150);
             this.hsbValue = this.validateHSB({
                 h: this.hsbValue.h,
                 s: saturation,
@@ -138,12 +121,11 @@ export default {
             this.updateColorHandle();
             this.updateInput();
             this.updateModel();
-            this.$emit('change', {event: event, value: this.modelValue});
         },
         pickHue(event) {
-            let top = this.hueView.getBoundingClientRect().top + (window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0);
+            let top = this.$refs.hueView.getBoundingClientRect().top + (window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0);
             this.hsbValue = this.validateHSB({
-                h: Math.floor(360 * (150 - Math.max(0, Math.min(150, ((event.pageY || event.changedTouches[0].pageY) - top)))) / 150),
+                h: Math.floor(360 * (150 - Math.max(0, Math.min(150, (event.pageY - top)))) / 150),
                 s: 100,
                 b: 100
             });
@@ -153,20 +135,19 @@ export default {
             this.updateHue();
             this.updateModel();
             this.updateInput();
-            this.$emit('change', {event: event, value: this.modelValue});
         },
         updateModel() {
             switch(this.format) {
                 case 'hex':
-                    this.$emit('update:modelValue', this.HSBtoHEX(this.hsbValue));
+                    this.$emit('input', this.HSBtoHEX(this.hsbValue));
                 break;
 
                 case 'rgb':
-                    this.$emit('update:modelValue', this.HSBtoRGB(this.hsbValue));
+                    this.$emit('input', this.HSBtoRGB(this.hsbValue));
                 break;
 
                 case 'hsb':
-                    this.$emit('update:modelValue', this.hsbValue);
+                    this.$emit('input', this.hsbValue);
                 break;
 
                 default:
@@ -175,24 +156,24 @@ export default {
             }
         },
         updateColorSelector() {
-            if (this.colorSelector) {
+            if (this.$refs.colorSelector) {
                 let hsbValue = this.validateHSB({
                     h: this.hsbValue.h,
                     s: 100,
                     b: 100
                 });
-                this.colorSelector.style.backgroundColor = '#' + this.HSBtoHEX(hsbValue);
+                this.$refs.colorSelector.style.backgroundColor = '#' + this.HSBtoHEX(hsbValue);
             }
         },
         updateColorHandle() {
-            if (this.colorHandle) {
-                this.colorHandle.style.left = Math.floor(150 * this.hsbValue.s / 100) + 'px';
-                this.colorHandle.style.top = Math.floor(150 * (100 - this.hsbValue.b) / 100) + 'px';
+            if (this.$refs.colorHandle) {
+                this.$refs.colorHandle.style.left = Math.floor(150 * this.hsbValue.s / 100) + 'px';
+                this.$refs.colorHandle.style.top = Math.floor(150 * (100 - this.hsbValue.b) / 100) + 'px';
             }
         },
         updateHue() {
-            if (this.hueHandle) {
-                this.hueHandle.style.top = Math.floor(150 - (150 * this.hsbValue.h / 360)) + 'px';
+            if (this.$refs.hueHandle) {
+                this.$refs.hueHandle.style.top = Math.floor(150 - (150 * this.hsbValue.h / 360)) + 'px';
             }
         },
         updateInput() {
@@ -343,7 +324,7 @@ export default {
 
             return hsb;
         },
-        onOverlayEnter(el) {
+        onOverlayEnter() {
             this.updateUI();
             this.alignOverlay();
             this.bindOutsideClickListener();
@@ -351,28 +332,16 @@ export default {
             this.bindResizeListener();
 
             if (this.autoZIndex) {
-                ZIndexUtils.set('overlay', el, this.$primevue.config.zIndex.overlay);
+                this.$refs.picker.style.zIndex = String(this.baseZIndex + DomHandler.generateZIndex());
             }
-
-            this.$emit('show');
         },
         onOverlayLeave() {
             this.unbindOutsideClickListener();
             this.unbindScrollListener();
             this.unbindResizeListener();
-            this.clearRefs();
-            this.$emit('hide');
-        },
-        onOverlayAfterLeave(el) {
-            if (this.autoZIndex) {
-                ZIndexUtils.clear(el);
-            }
         },
         alignOverlay() {
-            if (this.appendTo === 'self')
-                DomHandler.relativePosition(this.picker, this.$refs.input);
-            else
-                DomHandler.absolutePosition(this.picker, this.$refs.input);
+            DomHandler.relativePosition(this.$refs.picker, this.$refs.input);
         },
         onInputClick() {
             if (this.disabled) {
@@ -404,15 +373,13 @@ export default {
             if (this.disabled) {
                 return;
             }
-
             this.bindDragListeners();
             this.onColorDragStart(event);
         },
-        onColorDragStart(event) {
+         onColorDragStart(event) {
             if (this.disabled) {
                 return;
             }
-
             this.colorDragging = true;
             this.pickColor(event);
             DomHandler.addClass(this.$el, 'p-colorpicker-dragging');
@@ -423,7 +390,6 @@ export default {
                 this.pickColor(event);
                 event.preventDefault();
             }
-
             if (this.hueDragging) {
                 this.pickHue(event);
                 event.preventDefault();
@@ -439,7 +405,6 @@ export default {
             if (this.disabled) {
                 return;
             }
-
             this.bindDragListeners();
             this.onHueDragStart(event);
         },
@@ -447,7 +412,6 @@ export default {
             if (this.disabled) {
                 return;
             }
-
             this.hueDragging = true;
             this.pickHue(event);
             DomHandler.addClass(this.$el, 'p-colorpicker-dragging');
@@ -466,7 +430,7 @@ export default {
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
                 this.outsideClickListener = (event) => {
-                    if (this.overlayVisible && this.picker && !this.picker.contains(event.target) && !this.isInputClicked(event)) {
+                    if (this.overlayVisible && this.$refs.picker && !this.$refs.picker.contains(event.target) && !this.isInputClicked(event)) {
                         this.overlayVisible = false;
                     }
                 };
@@ -481,7 +445,7 @@ export default {
         },
         bindScrollListener() {
             if (!this.scrollHandler) {
-                this.scrollHandler = new ConnectedOverlayScrollHandler(this.$refs.container, () => {
+                this.scrollHandler = new ConnectedOverlayScrollHandler(this.$el, () => {
                     if (this.overlayVisible) {
                         this.overlayVisible = false;
                     }
@@ -498,7 +462,7 @@ export default {
         bindResizeListener() {
             if (!this.resizeListener) {
                 this.resizeListener = () => {
-                    if (this.overlayVisible && !DomHandler.isTouchDevice()) {
+                    if (this.overlayVisible) {
                         this.overlayVisible = false;
                     }
                 };
@@ -534,34 +498,6 @@ export default {
                 document.removeEventListener('mouseup', this.documentMouseUpListener);
                 this.documentMouseUpListener = null;
             }
-        },
-        pickerRef(el) {
-            this.picker = el
-        },
-        colorSelectorRef(el) {
-            this.colorSelector = el;
-        },
-        colorHandleRef(el) {
-            this.colorHandle = el;
-        },
-        hueViewRef(el) {
-            this.hueView = el;
-        },
-        hueHandleRef(el) {
-            this.hueHandle = el;
-        },
-        clearRefs() {
-            this.picker = null;
-            this.colorSelector = null;
-            this.colorHandle = null;
-            this.hueView = null;
-            this.hueHandle = null;
-        },
-        onOverlayClick(event) {
-            OverlayEventBus.emit('overlay-click', {
-                originalEvent: event,
-                target: this.$el
-            });
         }
     },
     computed: {
@@ -572,15 +508,8 @@ export default {
             return ['p-colorpicker-preview p-inputtext', {'p-disabled': this.disabled}];
         },
         pickerClass() {
-            return ['p-colorpicker-panel', this.panelClass, {
-                'p-colorpicker-overlay-panel': !this.inline, 'p-disabled': this.disabled,
-                'p-input-filled': this.$primevue.config.inputStyle === 'filled',
-                'p-ripple-disabled': this.$primevue.config.ripple === false
-            }];
+            return ['p-colorpicker-panel', {'p-colorpicker-overlay-panel': !this.inline, 'p-disabled': this.disabled}];
         }
-    },
-    components: {
-        'Portal': Portal
     }
 }
 </script>
@@ -606,8 +535,6 @@ export default {
 
 .p-colorpicker-overlay-panel {
     position: absolute;
-    top: 0;
-    left: 0;
 }
 
 .p-colorpicker-preview {

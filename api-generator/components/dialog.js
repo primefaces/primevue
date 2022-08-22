@@ -42,6 +42,12 @@ const DialogProps = [
         description: 'Position of the dialog, options are "center", "top", "bottom", "left", "right", "topleft", "topright", "bottomleft" or "bottomright".'
     },
     {
+        name: "containerStyle",
+        type: "string",
+        default: "null",
+        description: "Inline style of the component."
+    },
+    {
         name: "contentStyle",
         type: "object",
         default: "null",
@@ -96,81 +102,28 @@ const DialogProps = [
         description: "Whether the dialog can be displayed full screen."
     },
     {
-        name: "breakpoints",
-        type: "object",
-        default: "null",
-        description: "Object literal to define widths per screen size."
-    },
-    {
-        name: "draggable",
-        type: "boolean",
-        default: "true",
-        description: "Whether the dialog can be relocated by dragging."
-    },
-    {
-        name: "minX",
-        type: "number",
-        default: "0",
-        description: "Minimum value for the left coordinate of dialog in dragging."
-    },
-    {
-        name: "minY",
-        type: "number",
-        default: "0",
-        description: "Minimum value for the top coordinate of dialog in dragging."
-    },
-    {
-        name: "keepInViewport",
-        type: "boolean",
-        default: "true",
-        description: "Keeps dialog in the viewport when dragging."
-    },
-    {
         name: "appendTo",
         type: "string",
-        default: "body",
-        description: 'A valid query selector or an HTMLElement to specify where the dialog gets attached. Special keywords are "body" for document body and "self" for the element itself.'
+        default: "null",
+        description: "Id of the element or 'body' for document where the overlay should be appended to."
     }
 ];
 
 const DialogEvents = [
     {
         name: "hide",
-        description: "Callback to invoke when dialog is hidden."
-    },
-    {
-        name: "after-hide",
-        description: "Callback to invoke after dialog is hidden."
+        description: "Callback to invoke when dialog is hidden.",
+        arguments: [
+            {
+                name: "event",
+                type: "object",
+                description: "Event Object"
+            }
+        ]
     },
     {
         name: "show",
-        description: "Callback to invoke when dialog is showed."
-    },
-    {
-        name: "maximize",
-        description: "Fired when a dialog gets maximized.",
-        arguments: [
-            {
-                name: "event",
-                type: "object",
-                description: "Event Object"
-            }
-        ]
-    },
-    {
-        name: "unmaximize",
-        description: "Fired when a dialog gets unmaximized.",
-        arguments: [
-            {
-                name: "event",
-                type: "object",
-                description: "Event Object"
-            }
-        ]
-    },
-    {
-        name: "dragend",
-        description: "Fired when a dialog drag completes.",
+        description: "Callback to invoke when dialog is showed.",
         arguments: [
             {
                 name: "event",

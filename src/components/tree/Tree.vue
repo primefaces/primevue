@@ -10,23 +10,19 @@
                 @keydown="onFilterKeydown" v-model="filterValue" />
             <span class="p-tree-filter-icon pi pi-search"></span>
         </div>
-        <div class="p-tree-wrapper" :style="{maxHeight: scrollHeight}">
-            <ul class="p-tree-container" role="tree">
-                <TreeNode v-for="(node, index) of valueToRender" :key="node.key" :node="node" :templates="$slots" :level="level + 1" :index="index"
-                    :expandedKeys="d_expandedKeys" @node-toggle="onNodeToggle" @node-click="onNodeClick"
-                    :selectionMode="selectionMode" :selectionKeys="selectionKeys" @checkbox-change="onCheckboxChange"></TreeNode>
-            </ul>
-        </div>
+        <ul class="p-tree-container" role="tree">
+            <TreeNode v-for="node of valueToRender" :key="node.key" :node="node" :templates="$scopedSlots"
+                :expandedKeys="d_expandedKeys" @node-toggle="onNodeToggle" @node-click="onNodeClick"
+                :selectionMode="selectionMode" :selectionKeys="selectionKeys" @checkbox-change="onCheckboxChange"></TreeNode>
+        </ul>
     </div>
 </template>
 
 <script>
-import TreeNode from './TreeNode.vue';
-import {ObjectUtils} from 'primevue/utils';
+import TreeNode from './TreeNode';
+import ObjectUtils from '../utils/ObjectUtils';
 
 export default {
-    name: 'Tree',
-    emits: ['node-expand', 'node-collapse', 'update:expandedKeys', 'update:selectionKeys', 'node-select', 'node-unselect'],
     props: {
         value: {
             type: null,
@@ -75,14 +71,6 @@ export default {
         filterLocale: {
             type: String,
             default: undefined
-        },
-        scrollHeight: {
-            type: String,
-            default: null
-        },
-        level: {
-            type: Number,
-            default: 0
         }
     },
     data() {
@@ -253,8 +241,7 @@ export default {
         containerClass() {
             return ['p-tree p-component', {
                 'p-tree-selectable': this.selectionMode != null,
-                'p-tree-loading': this.loading,
-                'p-tree-flex-scrollable': this.scrollHeight === 'flex'
+                'p-tree-loading': this.loading
             }];
         },
         loadingIconClass() {
@@ -303,10 +290,6 @@ export default {
     margin: 0;
     padding: 0;
     list-style-type: none;
-}
-
-.p-tree-wrapper {
-    overflow: auto;
 }
 
 .p-treenode-selectable {
@@ -361,16 +344,5 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.p-tree-flex-scrollable {
-    display: flex;
-    flex: 1;
-    height: 100%;
-    flex-direction: column;
-}
-
-.p-tree-flex-scrollable .p-tree-wrapper {
-    flex: 1;
 }
 </style>

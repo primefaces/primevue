@@ -6,12 +6,6 @@ const TabViewProps = [
         description: "Index of the active tab."
     },
     {
-        name: "lazy",
-        type: "boolean",
-        default: "false",
-        description: "When enabled, hidden tabs are not rendered at all. Defaults to false that hides tabs with css."
-    },
-    {
         name: "scrollable",
         type: "boolean",
         default: "false",
@@ -19,10 +13,46 @@ const TabViewProps = [
     }
 ];
 
+const TabViewEvents = [
+    {
+        name: "tab-change",
+        description: "Callback to invoke when an active tab is changed.",
+        arguments: [
+            {
+                name: "event.originalEvent",
+                type: "object",
+                description: "Original event"
+            },
+            {
+                name: "event.index",
+                type: "number",
+                description: "Index of the selected tab"
+            }
+        ]
+    },
+    {
+        name: "tab-click",
+        description: "Callback to invoke when an active tab is clicked.",
+        arguments: [
+            {
+                name: "event.originalEvent",
+                type: "object",
+                description: "Original event"
+            },
+            {
+                name: "event.index",
+                type: "number",
+                description: "Index of the selected tab"
+            }
+        ]
+    }
+];
+
 module.exports = {
     tabview: {
         name: "TabView",
         description: "TabView is a container component to group content with tabs.",
-        props: TabViewProps
+        props: TabViewProps,
+        events: TabViewEvents
     }
 };

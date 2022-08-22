@@ -6,8 +6,7 @@
         <a ref="menubutton" tabindex="0" class="p-menubar-button" @click="toggle($event)">
             <i class="pi pi-bars" />
         </a>
-        <MenubarSub ref="rootmenu" :model="model" :root="true" :mobileActive="mobileActive" 
-            @leaf-click="onLeafClick" :template="$slots.item" :exact="exact" />
+        <MenubarSub ref="rootmenu" :model="model" :root="true" :mobileActive="mobileActive" @leaf-click="onLeafClick" :exact="exact" />
         <div class="p-menubar-end" v-if="$slots.end">
             <slot name="end"></slot>
         </div>
@@ -15,11 +14,10 @@
 </template>
 
 <script>
-import MenubarSub from './MenubarSub.vue';
-import {ZIndexUtils} from 'primevue/utils';
+import MenubarSub from './MenubarSub';
+import DomHandler from '../utils/DomHandler';
 
 export default {
-    name: 'Menubar',
     props: {
 		model: {
             type: Array,
@@ -36,24 +34,14 @@ export default {
             mobileActive: false
         }
     },
-    beforeUnmount() {
+    beforeDestroy() {
         this.mobileActive = false;
         this.unbindOutsideClickListener();
-        if (this.$refs.rootmenu && this.$refs.rootmenu.$el) {
-            ZIndexUtils.clear(this.$refs.rootmenu.$el);
-        }
     },
     methods: {
         toggle(event) {
-            if (this.mobileActive) {
-                this.mobileActive = false;
-                ZIndexUtils.clear(this.$refs.rootmenu.$el);
-            }
-            else {
-                this.mobileActive = true;
-                ZIndexUtils.set('menu', this.$refs.rootmenu.$el, this.$primevue.config.zIndex.menu);
-            }
-
+            this.mobileActive = !this.mobileActive;
+            this.$refs.rootmenu.$el.style.zIndex = String(DomHandler.generateZIndex());
             this.bindOutsideClickListener();
             event.preventDefault();
         },
@@ -159,6 +147,5 @@ export default {
     cursor: pointer;
     align-items: center;
     justify-content: center;
-    text-decoration: none;
 }
 </style>

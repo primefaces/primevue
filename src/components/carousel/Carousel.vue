@@ -1,6 +1,6 @@
 <template>
 	<div :id="id" :class="['p-carousel p-component', {'p-carousel-vertical': isVertical(), 'p-carousel-horizontal': !isVertical()}]">
-		<div class="p-carousel-header" v-if="$slots.header">
+		<div class="p-carousel-header" v-if="$scopedSlots.header">
 			<slot name="header"></slot>
 		</div>
 		<div :class="contentClasses">
@@ -40,26 +40,24 @@
 					<span :class="['p-carousel-prev-icon pi', {'pi-chevron-right': !isVertical(),'pi-chevron-down': isVertical()}]"></span>
 				</button>
 			</div>
-			<ul v-if="totalIndicators >= 0" :class="indicatorsContentClasses">
-				<li v-for="(indicator, i) of totalIndicators" :key="'p-carousel-indicator-' + i.toString()" :class="['p-carousel-indicator', {'p-highlight': d_page === i}]">
+			<ul :class="indicatorsContentClasses">
+				<li v-for="(indicator, i) of totalIndicators" :key="'p-carousel-indicator-' + i" :class="['p-carousel-indicator', {'p-highlight': d_page === i}]">
 					<button class="p-link" @click="onIndicatorClick($event, i)" type="button" />
 				</li>
 			</ul>
 		</div>
-		<div class="p-carousel-footer" v-if="$slots.footer">
+		<div class="p-carousel-footer" v-if="$scopedSlots.footer">
 			<slot name="footer"></slot>
 		</div>
 	</div>
 </template>
 
 <script>
-import {UniqueComponentId} from 'primevue/utils';
-import {DomHandler} from 'primevue/utils';
-import Ripple from 'primevue/ripple';
+import UniqueComponentId from '../utils/UniqueComponentId';
+import DomHandler from '../utils/DomHandler';
+import Ripple from '../ripple/Ripple';
 
 export default {
-    name: 'Carousel',
-	emits: ['update:page'],
 	props: {
 		value: null,
 		page: {
@@ -337,8 +335,7 @@ export default {
         `;
 
 			if (this.responsiveOptions) {
-				let _responsiveOptions = [...this.responsiveOptions];
-				_responsiveOptions.sort((data1, data2) => {
+				this.responsiveOptions.sort((data1, data2) => {
 					const value1 = data1.breakpoint;
 					const value2 = data2.breakpoint;
 					let result = null;
@@ -357,8 +354,8 @@ export default {
 					return -1 * result;
 				});
 
-				for (let i = 0; i < _responsiveOptions.length; i++) {
-					let res = _responsiveOptions[i];
+				for (let i = 0; i < this.responsiveOptions.length; i++) {
+					let res = this.responsiveOptions[i];
 
 					innerHTML += `
                     @media screen and (max-width: ${res.breakpoint}) {
@@ -389,36 +386,11 @@ export default {
 		}
 	},
 	mounted() {
-		let stateChanged = false;
 		this.createStyle();
 		this.calculatePosition();
 
 		if (this.responsiveOptions) {
 			this.bindDocumentListeners();
-		}
-
-		if (this.isCircular()) {
-			let totalShiftedItems = this.totalShiftedItems;
-
-			if (this.d_page === 0) {
-				totalShiftedItems = -1 * this.d_numVisible;
-			}
-			else if (totalShiftedItems === 0) {
-				totalShiftedItems = -1 * this.value.length;
-				if (this.remainingItems > 0) {
-					this.isRemainingItemsAdded = true;
-				}
-			}
-
-			if (totalShiftedItems !== this.totalShiftedItems) {
-				this.totalShiftedItems = totalShiftedItems;
-
-				stateChanged = true;
-			}
-		}
-
-		if (!stateChanged && this.isAutoplay()) {
-			this.startAutoplay();
 		}
 	},
 	updated() {
@@ -491,7 +463,7 @@ export default {
 			this.startAutoplay();
 		}
 	},
-	beforeUnmount() {
+	beforeDestroy() {
 		if (this.responsiveOptions) {
 			this.unbindDocumentListeners();
 		}
@@ -502,7 +474,7 @@ export default {
 	},
 	computed: {
 		totalIndicators() {
-			return this.value ? Math.max(Math.ceil((this.value.length - this.d_numVisible) / this.d_numScroll) + 1, 0) : 0;
+			return this.value ? Math.ceil((this.value.length - this.d_numVisible) / this.d_numScroll) + 1 : 0;
 		},
 		backwardIsDisabled() {
 			return (this.value && (!this.circular || this.value.length < this.d_numVisible) && this.d_page === 0);
@@ -522,7 +494,8 @@ export default {
     },
     directives: {
         'ripple': Ripple
-    }
+    },
+	name: "Carousel"
 }
 </script>
 

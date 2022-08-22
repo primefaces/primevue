@@ -54,6 +54,11 @@ const FileUploadProps = [
         description: "Message of the invalid fize size."
     },
     {
+        name: "invalidFileTypeMessage",
+        type: "string",
+        default: '"{0}: Invalid file type, allowed file types: "{1}."'
+    },
+    {
         name: "invalidFileLimitMessage",
         type: "string",
         default: "Maximum number of files exceeded, limit is {0} at most.",
@@ -114,31 +119,13 @@ const FileUploadProps = [
         description: "Whether to cancel the upload button."
     },
     {
-        name: "chooseIcon",
-        type: "string",
-        default: "pi pi-plus",
-        description: "Icon of the choose button."
-    },
-    {
-        name: "uploadIcon",
-        type: "string",
-        default: "pi pi-upload",
-        description: "Icon of the upload button."
-    },
-    {
-        name: "cancelIcon",
-        type: "string",
-        default: "pi pi-times",
-        description: "Icon of the cancel button."
-    },
-    {
-        name: "style",
+        name: "buttonStyle",
         type: "any",
         default: "null",
         description: "Inline style of the component."
     },
     {
-        name: "class",
+        name: "buttonClass",
         type: "string",
         default: "null",
         description: "Style class of the component."
@@ -254,22 +241,6 @@ const FileUploadEvents = [
                 name: "event.files",
                 type: "object",
                 description: "List of selected files."
-            }
-        ]
-    },
-    {
-        name: "remove",
-        description: "Callback to invoke when a singe file is removed from the list.",
-        arguments: [
-            {
-                name: "event.file",
-                type: "object",
-                description: "Removed file."
-            },
-            {
-                name: "event.files",
-                type: "object",
-                description: "Remaining files to be uploaded."
             }
         ]
     }

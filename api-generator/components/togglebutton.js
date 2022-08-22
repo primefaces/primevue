@@ -1,6 +1,6 @@
 const ToggleButtonProps = [
     {
-        name: "modelValue",
+        name: "value",
         type: "any",
         default: "null",
         description: "Value of the component."
@@ -36,40 +36,10 @@ const ToggleButtonProps = [
         description: 'Position of the icon, valid values are "left" and "right".'
     },
     {
-        name: "tabindex",
-        type: "number",
-        default: "null",
-        description: "Index of the element in tabbing order."
-    },
-    {
-        name: "disabled",
-        type: "boolean",
-        default: "false",
-        description: "When present, it specifies that the element should be disabled."
-    },
-    {
-        name: "inputId",
+        name: "ariaLabelledBy",
         type: "string",
         default: "null",
-        description: "Identifier of the focus input to match a label defined for the chips."
-    },
-    {
-        name: "inputClass",
-        type: "string",
-        default: "null",
-        description: "Style class of the input field."
-    },
-    {
-        name: "inputStyle",
-        type: "any",
-        default: "null",
-        description: "Inline style of the input field."
-    },
-    {
-        name: "inputProps",
-        type: "object",
-        default: "null",
-        description: "Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component."
+        description: "Establishes relationships between the component and label(s) where its value should be one or more element IDs."
     }
 ];
 
@@ -86,8 +56,30 @@ const ToggleButtonEvents = [
         ]
     },
     {
+        name: "input",
+        description: "Callback to invoke on value change.",
+        arguments: [
+            {
+                name: "event",
+                type: "object",
+                description: "Value as the checked state."
+            }
+        ]
+    },
+    {
+        name: "click",
+        description: "Callback to invoke click.",
+        arguments: [
+            {
+                name: "event",
+                type: "object",
+                description: "Browser event"
+            }
+        ]
+    },
+    {
         name: "focus",
-        description: "Callback to invoke when the component receives focus.",
+        description: "Callback to invoke on focus.",
         arguments: [
             {
                 name: "event",
@@ -98,7 +90,7 @@ const ToggleButtonEvents = [
     },
     {
         name: "blur",
-        description: "Callback to invoke when the component loses focus.",
+        description: "Callback to invoke on blur.",
         arguments: [
             {
                 name: "event",

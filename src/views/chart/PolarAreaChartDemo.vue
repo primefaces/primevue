@@ -5,7 +5,6 @@
                 <h1>Polar Area Chart</h1>
                 <p>Polar area charts are similar to pie charts, but each segment has the same angle - the radius of the segment differs depending on the value.</p>
             </div>
-            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">
@@ -20,21 +19,19 @@
 
 <script>
 import PolarAreaChartDoc from './PolarAreaChartDoc';
-import EventBus from '@/AppEventBus';
+import EventBus from '@/EventBus';
 
 export default {
-    themeChangeListener: null,
     mounted() {
-        this.themeChangeListener = (event) => {
+        EventBus.$on('change-theme', event => {
             if (event.dark)
                 this.chartOptions = this.getDarkTheme();
             else
                 this.chartOptions = this.getLightTheme();
-        }
-        EventBus.on('theme-change', this.themeChangeListener );
+        });
     },
-    beforeUnmount() {
-        EventBus.off('change-theme', this.themeChangeListener );
+    beforeDestroy() {
+        EventBus.$off('change-theme');
     },
     data() {
         return {

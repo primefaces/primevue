@@ -5,7 +5,6 @@
                 <h1>TabView</h1>
                 <p>TabView is a container component to group content with tabs.</p>
             </div>
-            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">
@@ -38,7 +37,7 @@
                     <Button @click="active1 = 2" class="p-button-text mr-2" label="Activate 3rd" />
                 </div>
 
-                <TabView ref="tabview2" v-model:activeIndex="active1">
+                <TabView ref="tabview2" :activeIndex="active1">
                     <TabPanel header="Header I">
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
                             ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
@@ -130,7 +129,7 @@
                     <Button @click="active2 = 49" class="p-button-text mr-2" label="Activate 50th" />
                 </div>
 
-                <TabView v-model:activeIndex="active2" :scrollable="true">
+                <TabView :activeIndex.sync="active2" :scrollable="true">
                     <TabPanel v-for="tab in scrollableTabs" :key="tab.title" :header="tab.title">
                         <p>{{tab.content}}</p>
                     </TabPanel>
@@ -144,7 +143,7 @@
 
 <script>
 import TabViewDoc from './TabViewDoc';
-import EventBus from '@/AppEventBus';
+import EventBus from '@/EventBus';
 
 export default {
     data() {
@@ -175,23 +174,19 @@ export default {
         }
     },
     timeout: null,
-    themeChangeListener: null,
     mounted() {
-        this.themeChangeListener = () => {
+        EventBus.$on('change-theme', () => {
             this.timeout = setTimeout(() => {
-                if (this.$refs.tabview1) {
-                    this.$refs.tabview1.updateInkBar();
-                    this.$refs.tabview2.updateInkBar();
-                    this.$refs.tabview3.updateInkBar();
-                    this.$refs.tabview4.updateInkBar();
-                }
+                this.$refs.tabview1.updateInkBar();
+                this.$refs.tabview2.updateInkBar();
+                this.$refs.tabview3.updateInkBar();
+                this.$refs.tabview4.updateInkBar();
             }, 50);
-        };
-        EventBus.on('theme-change', this.themeChangeListener);
+        });
     },
-    beforeUnmount() {
+    beforeDestroy() {
         clearTimeout(this.timeout);
-        EventBus.off('change-theme', this.themeChangeListener);
+        EventBus.$off('change-theme');
     },
     components: {
         'TabViewDoc': TabViewDoc
@@ -208,6 +203,10 @@ export default {
     span {
         margin: 0 .5rem;
     }
+}
+
+.p-button {
+    margin-right: .25rem;
 }
 
 .p-tabview p {

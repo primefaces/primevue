@@ -1,5 +1,5 @@
 <template>
-    <span :class="containerClass" v-bind="$attrs">
+    <span :class="containerClass">
         <span :class="iconClass" v-if="icon"></span>
         <slot>
             <span class="p-tag-value">{{value}}</span>
@@ -9,7 +9,6 @@
 
 <script>
 export default {
-    name: 'Tag',
     props: {
         value: null,
         severity: null,
@@ -39,13 +38,11 @@ export default {
     align-items: center;
     justify-content: center;
 }
-
 .p-tag-icon,
 .p-tag-value,
 .p-tag-icon.pi {
     line-height: 1.5;
 }
-
 .p-tag.p-tag-rounded {
     border-radius: 10rem;
 }

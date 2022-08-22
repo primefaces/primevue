@@ -1,42 +1,40 @@
 <template>
 	<div class="p-paginator p-component" v-if="alwaysShow ? true : (pageLinks && pageLinks.length > 1)">
-        <div class="p-paginator-left-content" v-if="$slots.start">
+        <div class="p-paginator-left-content" v-if="$scopedSlots.start">
             <slot name="start" :state="currentState"></slot>
         </div>
-		<template v-for="item of templateItems" :key="item">
-			<FirstPageLink v-if="item === 'FirstPageLink'" @click="changePageToFirst($event)" :disabled="isFirstPage || empty" />
-			<PrevPageLink v-else-if="item === 'PrevPageLink'" @click="changePageToPrev($event)" :disabled="isFirstPage || empty" />
-			<NextPageLink v-else-if="item === 'NextPageLink'" @click="changePageToNext($event)" :disabled="isLastPage || empty" />
-			<LastPageLink v-else-if="item === 'LastPageLink'" @click="changePageToLast($event)" :disabled="isLastPage || empty" />
-			<PageLinks v-else-if="item === 'PageLinks'" :value="pageLinks" :page="page" @click="changePageLink($event)" />
-			<CurrentPageReport v-else-if="item === 'CurrentPageReport'" :template="currentPageReportTemplate" :currentPage="currentPage"
+		<template v-for="item of templateItems">
+			<FirstPageLink v-if="item === 'FirstPageLink'" :key="item" @click="changePageToFirst($event)" :disabled="isFirstPage || empty" />
+			<PrevPageLink v-else-if="item === 'PrevPageLink'" :key="item" @click="changePageToPrev($event)" :disabled="isFirstPage || empty" />
+			<NextPageLink v-else-if="item === 'NextPageLink'" :key="item" @click="changePageToNext($event)" :disabled="isLastPage || empty" />
+			<LastPageLink v-else-if="item === 'LastPageLink'" :key="item" @click="changePageToLast($event)" :disabled="isLastPage || empty" />
+			<PageLinks v-else-if="item === 'PageLinks'" :key="item" :value="pageLinks" :page="page" @click="changePageLink($event)" />
+			<CurrentPageReport v-else-if="item === 'CurrentPageReport'" :key="item" :template="currentPageReportTemplate" :currentPage="currentPage"
                 :page="page" :pageCount="pageCount" :first="d_first" :rows="d_rows" :totalRecords="totalRecords" />
-			<RowsPerPageDropdown v-else-if="item === 'RowsPerPageDropdown' && rowsPerPageOptions" :rows="d_rows"
-                :options="rowsPerPageOptions" @rows-change="onRowChange($event)" :disabled="empty"/>
-            <JumpToPageDropdown v-else-if="item === 'JumpToPageDropdown'" :page="page" :pageCount="pageCount"
+			<RowsPerPageDropdown v-else-if="item === 'RowsPerPageDropdown' && rowsPerPageOptions" :key="item" :rows="d_rows"
+                :options="rowsPerPageOptions" @rows-change="onRowChange($event)" :disabled="empty" />
+            <JumpToPageDropdown v-else-if="item === 'JumpToPageDropdown'" :key="item" :page="page" :pageCount="pageCount"
                 @page-change="changePage($event)" :disabled="empty"/>
-            <JumpToPageInput v-else-if="item === 'JumpToPageInput'" :page="currentPage" @page-change="changePage($event)" :disabled="empty"/>
+            <JumpToPageInput v-else-if="item === 'JumpToPageInput'" :key="item" :page="currentPage" @page-change="changePage($event)" :disabled="empty"/>
         </template>
-        <div class="p-paginator-right-content" v-if="$slots.end">
+        <div class="p-paginator-right-content" v-if="$scopedSlots.end">
             <slot name="end" :state="currentState"></slot>
         </div>
 	</div>
 </template>
 
 <script>
-import CurrrentPageReport from './CurrentPageReport.vue';
-import FirstPageLink from './FirstPageLink.vue';
-import LastPageLink from './LastPageLink.vue';
-import NextPageLink from './NextPageLink.vue';
-import PageLinks from './PageLinks.vue';
-import PrevPageLink from './PrevPageLink.vue';
-import RowsPerPageDropdown from './RowsPerPageDropdown.vue';
-import JumpToPageDropdown from './JumpToPageDropdown.vue';
-import JumpToPageInput from './JumpToPageInput.vue';
+import CurrrentPageReport from './CurrentPageReport';
+import FirstPageLink from './FirstPageLink';
+import LastPageLink from './LastPageLink';
+import NextPageLink from './NextPageLink';
+import PageLinks from './PageLinks';
+import PrevPageLink from './PrevPageLink';
+import RowsPerPageDropdown from './RowsPerPageDropdown';
+import JumpToPageDropdown from './JumpToPageDropdown';
+import JumpToPageInput from './JumpToPageInput';
 
 export default {
-    name: 'Paginator',
-    emits: ['update:first', 'update:rows', 'page'],
     props: {
         totalRecords: {
             type: Number,
@@ -209,7 +207,7 @@ export default {
         'RowsPerPageDropdown': RowsPerPageDropdown,
         'JumpToPageDropdown': JumpToPageDropdown,
         'JumpToPageInput': JumpToPageInput
-    }
+    },
 }
 </script>
 

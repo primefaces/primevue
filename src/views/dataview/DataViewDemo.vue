@@ -5,7 +5,6 @@
 				<h1>DataView</h1>
 				<p>DataView displays data in grid or list layout with pagination and sorting features.</p>
 			</div>
-			<AppDemoActions />
 		</div>
 
 		<div class="content-section implementation">
@@ -29,7 +28,7 @@
 								<div class="product-list-detail">
 									<div class="product-name">{{slotProps.data.name}}</div>
 									<div class="product-description">{{slotProps.data.description}}</div>
-									<Rating :modelValue="slotProps.data.rating" :readonly="true" :cancel="false"></Rating>
+									<Rating :value="slotProps.data.rating" :readonly="true" :cancel="false"></Rating>
 									<i class="pi pi-tag product-category-icon"></i><span class="product-category">{{slotProps.data.category}}</span>
 								</div>
 								<div class="product-list-action">
@@ -55,7 +54,7 @@
 									<img :src="'demo/images/product/' + slotProps.data.image" :alt="slotProps.data.name"/>
 									<div class="product-name">{{slotProps.data.name}}</div>
 									<div class="product-description">{{slotProps.data.description}}</div>
-									<Rating :modelValue="slotProps.data.rating" :readonly="true" :cancel="false"></Rating>
+									<Rating :value="slotProps.data.rating" :readonly="true" :cancel="false"></Rating>
 								</div>
 								<div class="product-grid-item-bottom">
 									<span class="product-price">${{slotProps.data.price}}</span>
@@ -145,7 +144,7 @@ export default {
 	vertical-align: middle;
 }
 
-::v-deep(.product-list-item) {
+::v-deep .product-list-item {
 	display: flex;
 	align-items: center;
 	padding: 1rem;
@@ -182,9 +181,9 @@ export default {
 	}
 }
 
-::v-deep(.product-grid-item) {
+::v-deep .product-grid-item {
 	margin: .5rem;
-	border: 1px solid var(--surface-border);
+	border: 1px solid #dee2e6;
 
 	.product-grid-item-top,
 	.product-grid-item-bottom {

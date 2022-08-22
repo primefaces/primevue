@@ -1,27 +1,22 @@
 <template>
     <li :class="containerClass(item)" v-if="visible()">
-        <template v-if="!template">
-            <router-link v-if="item.to" :to="item.to" custom v-slot="{navigate, href, isActive, isExactActive}">
-                <a :href="href" :class="linkClass({isActive, isExactActive})" @click="onClick($event, navigate)">
-                    <span v-if="item.icon" :class="iconClass"></span>
-                    <span v-if="item.label" class="p-menuitem-text">{{label()}}</span>
-                </a>
-            </router-link>
-            <a v-else :href="item.url||'#'" :class="linkClass()" @click="onClick" :target="item.target">
+        <router-link v-if="item.to" :to="item.to" custom v-slot="{navigate, href, isActive, isExactActive}">
+            <a :href="href" @click="onClick($event, navigate)" :class="linkClass({isActive, isExactActive})">
                 <span v-if="item.icon" :class="iconClass"></span>
-                <span v-if="item.label" class="p-menuitem-text">{{label()}}</span>
+                <span v-if="item.label" class="p-menuitem-text">{{label(item)}}</span>
             </a>
-        </template>
-        <component v-else :is="template" :item="item"></component>
+        </router-link>
+        <a v-else :href="item.url||'#'" :class="linkClass()" @click="onClick" :target="item.target">
+            <span v-if="item.icon" :class="iconClass"></span>
+            <span v-if="item.label" class="p-menuitem-text">{{label(item)}}</span>
+        </a>
     </li>
 </template>
 
 <script>
 export default {
-    name: 'BreadcrumbItem',
     props: {
         item: null,
-        template: null,
         exact: null
     },
     methods: {
@@ -38,7 +33,7 @@ export default {
             }
         },
         containerClass(item) {
-            return [{'p-disabled': this.disabled(item)}, this.item.class];
+            return [{'p-disabled': this.disabled(item)}, item.class];
         },
         linkClass(routerProps) {
             return ['p-menuitem-link', {

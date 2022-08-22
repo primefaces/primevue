@@ -1,4 +1,4 @@
-import {DomHandler} from 'primevue/utils';
+import DomHandler from '../utils/DomHandler';
 
 function bindEvents(el) {
     el.addEventListener('mousedown', onMouseDown);
@@ -11,7 +11,6 @@ function unbindEvents(el) {
 function create(el) {
     let ink = document.createElement('span');
     ink.className = 'p-ink';
-    ink.setAttribute("role", "presentation");
     el.appendChild(ink);
 
     ink.addEventListener('animationend', onAnimationEnd);
@@ -63,13 +62,13 @@ function getInk(el) {
 }
 
 const Ripple = {
-    mounted(el, binding) {
-        if (binding.instance.$primevue && binding.instance.$primevue.config && binding.instance.$primevue.config.ripple) {
+    inserted(el, binding, vnode) {
+        if (vnode.context.$primevue && vnode.context.$primevue.config.ripple) {
             create(el);
             bindEvents(el);
         }
     },
-    unmounted(el) {
+    unbind(el) {
         remove(el);
     }
 };

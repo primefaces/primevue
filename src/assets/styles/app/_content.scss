@@ -1,6 +1,6 @@
 .layout-content {
     margin-left: 250px;
-    padding-top: 5rem;
+    padding-top: 70px;
 
     .content-section {
         padding: 2rem 4rem;
@@ -43,10 +43,6 @@
         &.implementation {
             color: var(--text-color);
 
-            h1, h2, h3, h4, h5, h6 {
-                color: var(--surface-900);
-            }
-
             +.documentation {
                 padding-top: 0;
             }
@@ -87,11 +83,6 @@
                 border-radius: 3px;
                 font-weight: 600;
                 margin: 0 2px;
-                white-space: nowrap;
-            }
-
-            h1, h2, h3, h4, h5, h6 {
-                color: var(--surface-900);
             }
 
             .p-tabview {
@@ -167,16 +158,6 @@
 
                         &:hover {
                             text-decoration: underline;
-                        }
-                    }
-
-                    .liveEditorButton a,
-                    .liveEditorSplitButton a {
-                        padding: 0.75rem 0.5rem;
-                        font-weight: normal;
-
-                        &:hover {
-                            text-decoration: none;
                         }
                     }
                 }

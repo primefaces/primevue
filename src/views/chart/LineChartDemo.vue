@@ -5,7 +5,6 @@
                 <h1>Line Chart</h1>
                 <p>A line chart or line graph is a type of chart which displays information as a series of data points called 'markers' connected by straight line segments.</p>
             </div>
-            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">
@@ -31,18 +30,16 @@
 
 <script>
 import LineChartDoc from './LineChartDoc';
-import EventBus from '@/AppEventBus';
+import EventBus from '@/EventBus';
 
 export default {
-    themeChangeListener: null,
     mounted() {
-        this.themeChangeListener = (event) => {
+        EventBus.$on('change-theme', event => {
             if (event.dark)
                 this.applyDarkTheme();
             else
                 this.applyLightTheme();
-        };
-        EventBus.on('theme-change', this.themeChangeListener);
+        });
 
         if (this.isDarkTheme()) {
             this.applyDarkTheme();
@@ -51,8 +48,8 @@ export default {
             this.applyLightTheme();
         }
     },
-    beforeUnmount() {
-        EventBus.off('change-theme', this.themeChangeListener);
+    beforeDestroy() {
+        EventBus.$off('change-theme');
     },
     data() {
         return {

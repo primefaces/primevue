@@ -1,3 +1,4 @@
-import {EventBus} from 'primevue/utils';
+import Vue from 'vue';
+const TerminalService = new Vue();
 
-export default EventBus();
+export default TerminalService;

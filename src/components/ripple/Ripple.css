@@ -20,7 +20,7 @@
     display: none !important;
 }
 
-@keyframes ripple {
+@keyframes ripple {  
     100% {
         opacity: 0;
         transform: scale(2.5);

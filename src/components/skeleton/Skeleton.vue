@@ -4,7 +4,6 @@
 
 <script>
 export default {
-    name: 'Skeleton',
     props: {
         shape: {
             type: String,
@@ -53,7 +52,6 @@ export default {
     position: relative;
     overflow: hidden;
 }
-
 .p-skeleton::after {
     content: "";
     animation: p-skeleton-animation 1.2s infinite;
@@ -65,15 +63,12 @@ export default {
     transform: translateX(-100%);
     z-index: 1;
 }
-
 .p-skeleton.p-skeleton-circle {
     border-radius: 50%;
 }
-
 .p-skeleton-none::after {
    animation: none;
 }
-
 @keyframes p-skeleton-animation {
     from {
         transform: translateX(-100%);

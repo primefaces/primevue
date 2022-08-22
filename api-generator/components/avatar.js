@@ -28,13 +28,6 @@ const AvatarProps = [
         type: "string",
         default: "square",
         description: 'Shape of the element, valid options are "square" and "circle".'
-    } 
-];
-
-const AvatarEvents = [
-    {
-        name: "error",
-        description: "Triggered when an error occurs while loading an image file."
     }
 ];
 
@@ -42,7 +35,6 @@ module.exports = {
     avatar: {
         name: "Avatar",
         description: "Avatar represents people using icons, labels and images.",
-        props: AvatarProps,
-        events: AvatarEvents
+        props: AvatarProps
     }
 };

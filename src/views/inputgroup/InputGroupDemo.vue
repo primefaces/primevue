@@ -5,7 +5,7 @@
                 <h1>InputGroup</h1>
                 <p>Text, icon, buttons and other content can be grouped next to an input.</p>
             </div>
-            <AppDemoActions />
+            <AppInputStyleSwitch />
         </div>
 
         <div class="content-section implementation">

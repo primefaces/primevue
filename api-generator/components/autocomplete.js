@@ -1,6 +1,6 @@
 const AutoCompleteProps = [
     {
-        name: "modelValue",
+        name: "value",
         type: "any",
         default: "null",
         description: "Value of the component."
@@ -16,30 +16,6 @@ const AutoCompleteProps = [
         type: "any",
         default: "null",
         description: "Property name or getter function of a suggested object to resolve and display."
-    },
-    {
-        name: "optionLabel",
-        type: "string | function",
-        default: "null",
-        description: "Property name or getter function to use as the label of an option."
-    },
-    {
-        name: "optionDisabled",
-        type: "boolean",
-        default: "null",
-        description: "Property name or getter function to use as the disabled flag of an option, defaults to false when not defined."
-    },
-    {
-        name: "optionGroupLabel",
-        type: "string",
-        default: "null",
-        description: "Property name or getter function to use as the label of an option group."
-    },
-    {
-        name: "optionGroupChildren",
-        type: "string",
-        default: "null",
-        description: "Property name or getter function that refers to the children options of option group."
     },
     {
         name: "scrollHeight",
@@ -60,34 +36,10 @@ const AutoCompleteProps = [
         description: 'Specifies the behavior dropdown button. Default "blank" mode sends an empty string and "current" mode sends the input value.'
     },
     {
-        name: "autoHighlight",
-        type: "boolean",
-        default: false,
-        description: "Highlights automatically the first item of the dropdown to be selected."
-    },
-    {
         name: "multiple",
         type: "boolean",
         default: "false",
         description: "Specifies if multiple values can be selected."
-    },
-    {
-        name: "placeholder",
-        type: "string",
-        default: "null",
-        description: "Default text to display when no option is selected."
-    },
-    {
-        name: "disabled",
-        type: "boolean",
-        default: "false",
-        description: "When present, it specifies that the component should be disabled."
-    },
-    {
-        name: "dataKey",
-        type: "string",
-        default: "null",
-        description: "A property to uniquely identify an option."
     },
     {
         name: "minLength",
@@ -104,8 +56,8 @@ const AutoCompleteProps = [
     {
         name: "appendTo",
         type: "string",
-        default: "body",
-        description: 'A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are "body" for document body and "self" for the element itself.'
+        default: "null",
+        description: 'Id of the element or "body" for document where the overlay should be appended to.'
     },
     {
         name: "forceSelection",
@@ -114,157 +66,33 @@ const AutoCompleteProps = [
         description: "When present, autocomplete clears the manual input if it does not match of the suggestions to force only accepting values from the suggestions."
     },
     {
-        name: "completeOnFocus",
-        type: "boolean",
-        default: "false",
-        description: "Whether to run a query when input receives focus."
-    },
-    {
-        name: "inputId",
-        type: "string",
-        default: "null",
-        description: "Identifier of the underlying input element."
-    },
-    {
-        name: "inputStyle",
-        type: "object",
-        default: "null",
-        description: "Inline style of the input field."
-    },
-    {
-        name: "inputClass",
-        type: "string",
-        default: "null",
-        description: "Style class of the input field."
-    },
-    {
-        name: "inputProps",
-        type: "object",
-        default: "null",
-        description: "Uses to pass all properties of the HTMLInputElement/HTMLSpanElement to the focusable input element inside the component."
-    },
-    {
-        name: "panelStyle",
-        type: "object",
-        default: "null",
-        description: "Inline style of the overlay panel."
-    },
-    {
         name: "panelClass",
         type: "string",
         default: "null",
         description: "Style class of the overlay panel."
     },
     {
-        name: "panelProps",
-        type: "object",
-        default: "null",
-        description: "Uses to pass all properties of the HTMLDivElement to the overlay panel inside the component."
-    },
-    {
-        name: "loadingIcon",
-        type: "string",
-        default: "pi pi-spinner",
-        description: "Icon to display in loading state."
-    },
-    {
-        name: "virtualScrollerOptions",
-        type: "object",
-        default: "null",
-        description: "Whether to use the virtualScroller feature. The properties of VirtualScroller component can be used like an object in it."
-    },
-    {
-        name: "autoOptionFocus",
+        name: "autoHighlight",
         type: "boolean",
-        default: "true",
-        description: "Whether to focus on the first visible or selected element when the overlay panel is shown."
-    },
-    {
-        name: "searchLocale",
-        type: "string",
-        default: "undefined",
-        description: "Locale to use in searching. The default locale is the host environment's current locale."
-    },
-    {
-        name: "searchMessage",
-        type: "string",
-        default: "{0} results are available",
-        description: "Text to be displayed in hidden accessible field when filtering returns any results. Defaults to value from PrimeVue locale configuration."
-    },
-    {
-        name: "selectionMessage",
-        type: "string",
-        default: "{0} items selected",
-        description: "Text to be displayed in hidden accessible field when options are selected. Defaults to value from PrimeVue locale configuration."
-    },
-    {
-        name: "emptySelectionMessage",
-        type: "string",
-        default: "No selected item",
-        description: "Text to be displayed in hidden accessible field when any option is not selected. Defaults to value from PrimeVue locale configuration."
-    },
-    {
-        name: "emptySearchMessage",
-        type: "string",
-        default: "No results found",
-        description: "Text to display when filtering does not return any results. Defaults to value from PrimeVue locale configuration."
-    },
-    {
-        name: "tabindex",
-        type: "number",
-        default: "0",
-        description: "Index of the element in tabbing order."
-    },
-    {
-        name: "aria-label",
-        type: "string",
-        default: "null",
-        description: "Defines a string value that labels an interactive element."
-    },
-    {
-        name: "aria-labelledby",
-        type: "string",
-        default: "null",
-        description: "Identifier of the underlying input element."
+        default: "false",
+        description: "Highlights automatically the first item of the dropdown to be selected."
     }
 ];
 
 const AutoCompleteEvents = [
     {
-        name: "change",
-        description: "Callback to invoke on value change.",
+        name: "complete",
+        description: "Callback to invoke to search for suggestions.",
         arguments: [
             {
-                name: "event.originalEvent",
+                name: "originalEvent",
                 type: "object",
-                description: "Browser event"
+                description: "Original event"
             },
             {
-                name: "event.value",
+                name: "query",
                 type: "string",
-                description: "Selected option value"
-            }
-        ]
-    },
-    {
-        name: "focus",
-        description: "Callback to invoke when component receives focus.",
-        arguments: [
-            {
-                name: "event",
-                type: "object",
-                description: "Browser event"
-            }
-        ]
-    },
-    {
-        name: "blur",
-        description: "Callback to invoke when component loses focus.",
-        arguments: [
-            {
-                name: "event",
-                type: "object",
-                description: "Browser event"
+                description: "Value to search with"
             }
         ]
     },
@@ -319,73 +147,13 @@ const AutoCompleteEvents = [
     {
         name: "clear",
         description: "Callback to invoke when input is cleared by the user."
-    },
-    {
-        name: "complete",
-        description: "Callback to invoke to search for suggestions.",
-        arguments: [
-            {
-                name: "originalEvent",
-                type: "object",
-                description: "Original event"
-            },
-            {
-                name: "query",
-                type: "string",
-                description: "Value to search with"
-            }
-        ]
-    },
-    {
-        name: "before-show",
-        description: "Callback to invoke before the overlay is shown."
-    },
-    {
-        name: "before-hide",
-        description: "Callback to invoke before the overlay is hidden."
-    },
-    {
-        name: "show",
-        description: "Callback to invoke when the overlay is shown."
-    },
-    {
-        name: "hide",
-        description: "Callback to invoke when the overlay is hidden."
     }
 ];
 
 const AutoCompleteSlots = [
     {
-        name: "chip",
-        description: "Custom content for the chip display."
-    },
-    {
-        name: "header",
-        description: "Custom content for the component header."
-    },
-    {
-        name: "footer",
-        description: "Custom content for the component footer."
-    },
-    {
         name: "item",
         description: "Custom content for the item."
-    },
-    {
-        name: "option",
-        description: "Custom content for the item."
-    },
-    {
-        name: "optiongroup",
-        description: "Custom content for the optiongroup item."
-    },
-    {
-        name: "content",
-        description: "Custom content for the virtual scroller"
-    },
-    {
-        name: "loader",
-        description: "Custom content for the virtual scroller loader items"
     }
 ];
 

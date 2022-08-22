@@ -1,6 +1,6 @@
 const CalendarProps = [
     {
-        name: "modelValue",
+        name: "value",
         type: "any",
         default: "null",
         description: "Value of the component."
@@ -54,6 +54,12 @@ const CalendarProps = [
         description: "Number of months to display."
     },
     {
+        name: "responsiveOptions",
+        type: "array",
+        default: "null",
+        description: "An array of options for responsive design."
+    },
+    {
         name: "view",
         type: "string",
         default: "date",
@@ -95,6 +101,7 @@ const CalendarProps = [
         default: "null",
         description: "The minimum selectable date."
     },
+
     {
         name: "maxDate",
         type: "Date",
@@ -198,12 +205,6 @@ const CalendarProps = [
         description: "Whether to hide the overlay on date selection when showTime is enabled."
     },
     {
-        name: "hideOnRangeSelection",
-        type: "boolean",
-        default: "false",
-        description: "Whether to hide the overlay on date selection is completed when selectionMode is range."
-    },
-    {
         name: "timeSeparator",
         type: "string",
         default: ":",
@@ -224,44 +225,8 @@ const CalendarProps = [
     {
         name: "appendTo",
         type: "string",
-        default: "body",
-        description: 'A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are "body" for document body and "self" for the element itself.'
-    },
-    {
-        name: "disabled",
-        type: "boolean",
-        default: "false",
-        description: "When present, it specifies that the element should be disabled."
-    },
-    {
-        name: "readonly",
-        type: "boolean",
-        default: "false",
-        description: "When present, it specifies that an input field is read-only."
-    },
-    {
-        name: "placeholder",
-        type: "string",
         default: "null",
-        description: "Placeholder text for the input."
-    },
-    {
-        name: "id",
-        type: "string",
-        default: "null",
-        description: "Identifier of the element."
-    },
-    {
-        name: "inputId",
-        type: "string",
-        default: "null",
-        description: "Identifier of the underlying input element."
-    },
-    {
-        name: "inputClass",
-        type: "string",
-        default: "null",
-        description: "Style class of the input field."
+        description: 'Id of the element or "body" for document where the overlay should be appended to.'
     },
     {
         name: "inputStyle",
@@ -270,43 +235,26 @@ const CalendarProps = [
         description: "Inline style of the input field."
     },
     {
-        name: "inputProps",
-        type: "object",
-        default: "null",
-        description: "Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component."
-    },
-    {
-        name: "panelClass",
+        name: "inputClass",
         type: "string",
         default: "null",
-        description: "Style class of the overlay panel."
+        description: "Style class of the input field."
     },
     {
-        name: "panelStyle",
+        name: "class",
         type: "string",
         default: "null",
-        description: "Inline style of the overlay panel."
+        description: "Style class of the component."
     },
     {
-        name: "panelProps",
-        type: "object",
+        name: "style",
+        type: "any",
         default: "null",
-        description: "Uses to pass all properties of the HTMLDivElement to the overlay panel inside the component."
+        description: "Inline style of the component."
     }
 ];
 
 const CalendarEvents = [
-    {
-        name: "input",
-        description: "Callback to invoke when input field is being typed.",
-        arguments: [
-            {
-                name: "event",
-                type: "object",
-                description: "New date"
-            }
-        ]
-    },
     {
         name: "date-select",
         description: "Callback to invoke when a date is selected.",
@@ -379,44 +327,6 @@ const CalendarEvents = [
                 description: "New year"
             }
         ]
-    },
-    {
-        name: "focus",
-        description: "Callback to invoke on focus of input field.",
-        arguments: [
-            {
-                name: "event",
-                type: "object",
-                description: "Focus event"
-            }
-        ]
-    },
-    {
-        name: "blur",
-        description: "Callback to invoke on blur of input field.",
-        arguments: [
-            {
-                name: "event.originalEvent",
-                type: "object",
-                description: "Browser event"
-            },
-            {
-                name: "event.value",
-                type: "string",
-                description: "Input value"
-            }
-        ]
-    },
-    {
-        name: "keydown",
-        description: "Callback to invoke when a key is pressed.",
-        arguments: [
-            {
-                name: "event",
-                type: "object",
-                description: "Keydown event"
-            }
-        ]
     }
 ];
 
@@ -432,10 +342,6 @@ const CalendarSlots = [
     {
         name: "date",
         description: "Custom content for the calendar cell."
-    },
-    {
-        name: "decade",
-        description: "Custom content for the calendar decade."
     }
 ];
 

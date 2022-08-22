@@ -10,7 +10,7 @@
         <div class="content-section implementation">
             <div class="card">
                 <h5>Positioned at Bottom</h5>
-                <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px">
+                <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px">
                     <template #item="slotProps">
                         <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
                     </template>
@@ -22,7 +22,7 @@
 
             <div class="card">
                 <h5>Positioned at Left</h5>
-                <Galleria :value="images" :responsiveOptions="responsiveOptions2" :numVisible="4" thumbnailsPosition="left" containerStyle="max-width: 640px">
+                <Galleria :value="images" :responsiveOptions="responsiveOptions2" :numVisible="4" thumbnailsPosition="left" style="max-width: 640px">
                     <template #item="slotProps">
                         <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
                     </template>
@@ -36,7 +36,7 @@
 
             <div class="card">
                 <h5>Positioned at Right</h5>
-                <Galleria :value="images" :responsiveOptions="responsiveOptions2" :numVisible="4" thumbnailsPosition="right" containerStyle="max-width: 640px">
+                <Galleria :value="images" :responsiveOptions="responsiveOptions2" :numVisible="4" thumbnailsPosition="right" style="max-width: 640px">
                     <template #item="slotProps">
                         <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
                     </template>
@@ -50,7 +50,7 @@
 
             <div class="card">
                 <h5>Positioned at Top</h5>
-                <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" thumbnailsPosition="top" containerStyle="max-width: 640px">
+                <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" thumbnailsPosition="top" style="max-width: 640px">
                     <template #item="slotProps">
                         <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
                     </template>
@@ -64,9 +64,10 @@
         <div class="content-section documentation">
             <TabView>
                 <TabPanel header="Source">
-<pre v-code><code><template v-pre>
+<CodeHighlight>
+<template v-pre>
 &lt;h3&gt;Positioned at Bottom&lt;/h3&gt;
-&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px"&gt;
+&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px"&gt;
     &lt;template #item="slotProps"&gt;
         &lt;img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" /&gt;
     &lt;/template&gt;
@@ -76,7 +77,7 @@
 &lt;/Galleria&gt;
 
 &lt;h3&gt;Positioned at Left&lt;/h3&gt;
-&lt;Galleria :value="images" :responsiveOptions="responsiveOptions2" :numVisible="4" thumbnailsPosition="left" containerStyle="max-width: 640px"&gt;
+&lt;Galleria :value="images" :responsiveOptions="responsiveOptions2" :numVisible="4" thumbnailsPosition="left" style="max-width: 640px"&gt;
     &lt;template #item="slotProps"&gt;
         &lt;img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" /&gt;
     &lt;/template&gt;
@@ -88,7 +89,7 @@
 &lt;/Galleria&gt;
 
 &lt;h3&gt;Positioned at Right&lt;/h3&gt;
-&lt;Galleria :value="images" :responsiveOptions="responsiveOptions2" :numVisible="4" thumbnailsPosition="right" containerStyle="max-width: 640px"&gt;
+&lt;Galleria :value="images" :responsiveOptions="responsiveOptions2" :numVisible="4" thumbnailsPosition="right" style="max-width: 640px"&gt;
     &lt;template #item="slotProps"&gt;
         &lt;img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" /&gt;
     &lt;/template&gt;
@@ -100,7 +101,7 @@
 &lt;/Galleria&gt;
 
 &lt;h3&gt;Positioned at Top&lt;/h3&gt;
-&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" thumbnailsPosition="top" containerStyle="max-width: 640px"&gt;
+&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" thumbnailsPosition="top" style="max-width: 640px"&gt;
     &lt;template #item="slotProps"&gt;
         &lt;img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" /&gt;
     &lt;/template&gt;
@@ -109,9 +110,9 @@
     &lt;/template&gt;
 &lt;/Galleria&gt;
 </template>
-</code></pre>
+</CodeHighlight>
 
-<pre v-code.script><code>
+<CodeHighlight lang="javascript">
 import PhotoService from '../../service/PhotoService';
 
 export default {
@@ -152,8 +153,7 @@ export default {
 		this.galleriaService.getImages().then(data => this.images = data);
     }
 }
-
-</code></pre>
+</CodeHighlight>
                 </TabPanel>
             </TabView>
         </div>

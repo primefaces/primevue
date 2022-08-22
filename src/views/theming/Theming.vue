@@ -18,20 +18,15 @@
             <h5>Customization</h5>
             <p>CSS of the themes share the same license as PrimeVue which is MIT, this means the generated CSS can be customized per your needs however this should be avoided if your customizations
                 are not simple. For instance even to change a primary color, since there is no variable a find and replace should be performed various times. On the other hand, this can be achieved
-                by changing a single variable e.g. $primaryColor. Visit the <a href="https://www.primefaces.org/designer/api/primevue/3.12.0">SASS API</a> for the documentation of available customization options.</p>
+                by changing a single variable e.g. $primaryColor. Visit the <a href="https://www.primefaces.org/designer/api/primevue/2.0.0">SASS API</a> for the documentation of available customization options.</p>
 
             <p><a href="https://www.primefaces.org/designer/primevue">Designer</a> is the ultimate tool to create your own PrimeVue experience powered by a SASS based theme engine
-                with 500+ variables and a Visual Designer. PrimeVue only ships the generated CSS of <b>Material</b>, <b>Bootstrap</b>, <b>Tailwind</b>, <b>FluentUI</b>, <b>Saga</b>, <b>Vela</b>, <b>Arya</b> and legacy themes whereas Designer provides
-                full access to the whole SASS structure and the variables of these pre-built themes for easier customization. In addition, designer provides exclusive premium themes to subscribers including Soho, Viva, Mira and Nano that are not available in core PrimeVue distribution.</p>
+                with 500+ variables and a Visual Designer. PrimeVue only ships the generated CSS of <b>Material</b>, <b>Bootstrap</b>, <b>Saga</b>, <b>Vela</b>, <b>Arya</b> and legacy themes whereas Designer provides
+                full access to the whole SASS structure and the variables of these pre-built themes for easier customization.</p>
 
             <p>Whether you have your own style guide or just need a custom theme, Designer API is the right tool to design and bring them to existence.</p>
 
             <p>Visit <a href="https://www.primefaces.org/designer/primevue">Designer API HomePage</a> for more information and live demos.</p>
-
-            <div class="video-container text-center">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/7SqoSutntcE" frameborder="0" allowfullscreen></iframe>
-            </div>
-
             <a href="http://www.primefaces.org/designer/primevue" class="designer-image">
                 <img alt="PrimeVue Designer" src="../../assets/images/primevue-designer.jpg" style="width: 100%" />
             </a>
@@ -41,40 +36,36 @@
                 is easy as configuring the font size of your document. Code below sets the scale of the components based on 16px. If you reqire bigger or smaller components, just
                 change this variable and components will scale accordingly.</p>
 
-<pre v-code.css><code>
+<CodeHighlight lang="css">
 html {
     font-size: 16px;
 }
-
-</code></pre>
+</CodeHighlight>
 
             <p>Some commonly used components such as inputs, buttons and datatable also provide per component scaling with special classes. Components with specific scaling options
                 are documented in their own documentation.</p>
-<pre v-code><code>
+<CodeHighlight>
 &lt;InputText type="text" class="p-inputtext-sm" /&gt;
 &lt;Button label="Button" class="p-button-lg" /&gt;
-
-</code></pre>
+</CodeHighlight>
 
             <h5>Local Styling</h5>
             <p>Theming styles the components globally, in case you required to change the style of a certain component for a specific use case use the class property and override the defaults.
                 Example below changes the background of the panel. Note that this is only for local styling, if you require to change the background color of all the panels, a custom theme is a far better choice.</p>
-<pre v-code><code>
+<CodeHighlight>
 &lt;Panel header="Custom Header" class="dark-panel"/&gt;
+</CodeHighlight>
 
-</code></pre>
-
-<pre v-code><code>
+<CodeHighlight>
 &lt;style lang="scss" scoped&gt;
-::v-deep(.dark-panel.p-panel) {
+::v-deep .dark-panel.p-panel {
     .p-panel-titlebar {
         background: #212121;
     }
 
 }
 &lt;/style&gt;
-
-</code></pre>
+</CodeHighlight>
 
             <h5>Utility Classes</h5>
             <p>A couple of utility classes are provided as a solution to common requirements.</p>
@@ -110,11 +101,11 @@ html {
                             </tr>
                             <tr>
                                 <td>p-error</td>
-                                <td>Indicates an error text.</td>
+                                <td>Applies the invalid theme color to a text.</td>
                             </tr>
                             <tr>
                                 <td>p-invalid</td>
-                                <td>Styles an form element as invalid.</td>
+                                <td>Alias to p-error.</td>
                             </tr>
                             <tr>
                                 <td>p-text-secondary</td>

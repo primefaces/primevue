@@ -5,7 +5,6 @@
                 <h1>Tree</h1>
                 <p>Tree is used to display hierarchical data.</p>
             </div>
-            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">

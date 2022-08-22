@@ -1,11 +1,5 @@
 const InputMaskProps = [
     {
-        name: "modelValue",
-        type: "any",
-        default: "null",
-        description: "Value of the component."
-    },
-    {
         name: "mask",
         type: "string",
         default: "null",

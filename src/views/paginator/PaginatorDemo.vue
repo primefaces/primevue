@@ -5,7 +5,6 @@
 				<h1>Paginator</h1>
 				<p>Paginator is a generic component to display content in paged format.</p>
 			</div>
-            <AppDemoActions />
 		</div>
 
 		<div class="content-section implementation">
@@ -14,7 +13,7 @@
                 <Paginator :rows="10" :totalRecords="totalRecords" :rowsPerPageOptions="[10,20,30]"></Paginator>
 
                 <h5>Custom</h5>
-                <Paginator v-model:first="first" :rows="1" :totalRecords="totalRecords2"
+                <Paginator :first.sync="first" :rows="1" :totalRecords="totalRecords2"
                     template="FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink">
                     <template #start>
                         <Button type="button" icon="pi pi-refresh" @click="reset()"/>
@@ -62,6 +61,10 @@ export default {
 </script>
 
 <style scoped>
+.p-button.p-button-icon-only {
+    border-radius: 0;
+}
+
 .image-gallery {
     text-align: center;
     padding: 1rem;

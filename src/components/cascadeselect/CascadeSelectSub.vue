@@ -1,86 +1,173 @@
 <template>
-    <ul class="p-cascadeselect-panel p-cascadeselect-items">
-        <template v-for="(processedOption,index) of options" :key="getOptionLabelToRender(processedOption)">
-            <li :id="getOptionId(processedOption)" :class="['p-cascadeselect-item', {'p-cascadeselect-item-group': isOptionGroup(processedOption), 'p-cascadeselect-item-active p-highlight': isOptionActive(processedOption), 'p-focus': isOptionFocused(processedOption), 'p-disabled': isOptionDisabled(processedOption)}]"
-                role="treeitem" :aria-label="getOptionLabelToRender(processedOption)" :aria-selected="isOptionGroup(processedOption) ? undefined : isOptionSelected(processedOption)" :aria-expanded="isOptionGroup(processedOption) ? isOptionActive(processedOption) : undefined"
-                :aria-setsize="processedOption.length" :aria-posinset="index + 1" :aria-level="level + 1">
-                <div class="p-cascadeselect-item-content" @click="onOptionClick($event, processedOption)" v-ripple>
-                    <component v-if="templates['option']" :is="templates['option']" :option="processedOption.option" />
-                    <span v-else class="p-cascadeselect-item-text">{{getOptionLabelToRender(processedOption)}}</span>
-                    <span v-if="isOptionGroup(processedOption)" class="p-cascadeselect-group-icon pi pi-angle-right" aria-hidden="true"></span>
+    <ul class="p-cascadeselect-panel p-cascadeselect-items" role="listbox" aria-orientation="horizontal">
+        <template v-for="(option,i) of options">
+            <li :class="getItemClass(option)" role="none" :key="getOptionLabelToRender(option)">
+                <div class="p-cascadeselect-item-content" @click="onOptionClick($event, option)" tabindex="0" @keydown="onKeyDown($event, option, i)" v-ripple>
+                    <CascadeSelectOptionTemplate v-if="templates['option']" :option="option" :template="templates['option']" />
+                    <template v-else>
+                        <span class="p-cascadeselect-item-text">{{getOptionLabelToRender(option)}}</span>
+                    </template>
+                    <span class="p-cascadeselect-group-icon pi pi-angle-right" v-if="isOptionGroup(option)"></span>
                 </div>
-                <CascadeSelectSub v-if="isOptionGroup(processedOption) && isOptionActive(processedOption)" role="group" class="p-cascadeselect-sublist" :selectId="selectId" :focusedOptionId="focusedOptionId"
-                    :options="getOptionGroupChildren(processedOption)" :activeOptionPath="activeOptionPath" :level="level + 1" :templates="templates" :optionLabel="optionLabel" :optionValue="optionValue" :optionDisabled="optionDisabled"
-                    :optionGroupLabel="optionGroupLabel" :optionGroupChildren="optionGroupChildren" @option-change="onOptionChange" />
+                <cascadeselect-sub v-if="isOptionGroup(option) && isOptionActive(option)" class="p-cascadeselect-sublist" :selectionPath="selectionPath" :options="getOptionGroupChildren(option)"
+                        :optionLabel="optionLabel" :optionValue="optionValue" :level="level + 1" @option-select="onOptionSelect" @optiongroup-select="onOptionGroupSelect"
+                        :optionGroupLabel="optionGroupLabel" :optionGroupChildren="optionGroupChildren" :parentActive="isOptionActive(option)" :dirty="dirty" :templates="templates"/>
             </li>
         </template>
     </ul>
 </template>
 
 <script>
-import {ObjectUtils,DomHandler} from 'primevue/utils';
-import Ripple from 'primevue/ripple';
+import ObjectUtils from '../utils/ObjectUtils';
+import DomHandler from '../utils/DomHandler';
+import Ripple from '../ripple/Ripple';
+
+const CascadeSelectOptionTemplate = {
+    functional: true,
+    props: {
+        option: {
+            type: null,
+            default: null
+        },
+        template: {
+            type: null,
+            default: null
+        }
+    },
+    render(createElement, context) {
+        const content = context.props.template({
+            'option': context.props.option
+        });
+
+        return [content];
+    }
+};
 
 export default {
-    name: 'CascadeSelectSub',
-    emits: ['option-change'],
+    name: 'cascadeselect-sub',
     props: {
-        selectId: String,
-        focusedOptionId: String,
+        selectionPath: Array,
+        level: Number,
         options: Array,
         optionLabel: String,
         optionValue: String,
-        optionDisabled: null,
         optionGroupLabel: String,
         optionGroupChildren: Array,
-        activeOptionPath: Array,
-        level: Number,
-        templates: null
+        parentActive: Boolean,
+        dirty: Boolean,
+        templates: null,
+        root: Boolean
+    },
+    data() {
+        return {
+            activeOption: null
+        }
     },
     mounted() {
-        if (ObjectUtils.isNotEmpty(this.parentKey)) {
+        if (this.selectionPath && this.options && !this.dirty) {
+            for (let option of this.options) {
+                if (this.selectionPath.includes(option)) {
+                    this.activeOption = option;
+                    break;
+                }
+            }
+        }
+        if (!this.root) {
             this.position();
         }
     },
+    watch: {
+        parentActive(newValue) {
+            if (!newValue) {
+                this.activeOption = null;
+            }
+        }
+    },
     methods: {
-        getOptionId(processedOption) {
-            return `${this.selectId}_${processedOption.key}`;
+        onOptionClick(event, option) {
+            if (this.isOptionGroup(option)) {
+                this.activeOption = (this.activeOption === option) ? null : option;
+                this.$emit('optiongroup-select', {originalEvent: event, value: option });
+            }
+            else {
+                this.$emit('option-select', {originalEvent: event, value: this.getOptionValue(option) });
+            }
         },
-        getOptionLabel(processedOption) {
-            return this.optionLabel ? ObjectUtils.resolveFieldData(processedOption.option, this.optionLabel) : processedOption.option;
+        onOptionSelect(event) {
+            this.$emit('option-select', event);
         },
-        getOptionValue(processedOption) {
-            return this.optionValue ? ObjectUtils.resolveFieldData(processedOption.option, this.optionValue) : processedOption.option;
+        onOptionGroupSelect(event) {
+            this.$emit('optiongroup-select', event);
         },
-        isOptionDisabled(processedOption) {
-            return this.optionDisabled ? ObjectUtils.resolveFieldData(processedOption.option, this.optionDisabled) : false;
+        getOptionLabel(option) {
+            return this.optionLabel ? ObjectUtils.resolveFieldData(option, this.optionLabel) : option;
         },
-        getOptionGroupLabel(processedOption) {
-            return this.optionGroupLabel ? ObjectUtils.resolveFieldData(processedOption.option, this.optionGroupLabel) : null;
+        getOptionValue(option) {
+            return this.optionValue ? ObjectUtils.resolveFieldData(option, this.optionValue) : option;
         },
-        getOptionGroupChildren(processedOption) {
-            return processedOption.children;
+        getOptionGroupLabel(optionGroup) {
+            return this.optionGroupLabel ? ObjectUtils.resolveFieldData(optionGroup, this.optionGroupLabel) : null;
         },
-        isOptionGroup(processedOption) {
-            return ObjectUtils.isNotEmpty(processedOption.children);
+        getOptionGroupChildren(optionGroup) {
+            return ObjectUtils.resolveFieldData(optionGroup, this.optionGroupChildren[this.level]);
         },
-        isOptionSelected(processedOption) {
-            return !this.isOptionGroup(processedOption) && this.isOptionActive(processedOption);
+        isOptionGroup(option) {
+            return Object.prototype.hasOwnProperty.call(option, this.optionGroupChildren[this.level]);
         },
-        isOptionActive(processedOption) {
-            return this.activeOptionPath.some(path => path.key === processedOption.key);
+        getOptionLabelToRender(option) {
+            return this.isOptionGroup(option) ? this.getOptionGroupLabel(option) : this.getOptionLabel(option);
         },
-        isOptionFocused(processedOption) {
-            return this.focusedOptionId === this.getOptionId(processedOption);
+        getItemClass(option) {
+            return [
+                'p-cascadeselect-item', {
+                    'p-cascadeselect-item-group': this.isOptionGroup(option),
+                    'p-cascadeselect-item-active p-highlight': this.isOptionActive(option)
+                }
+            ]
         },
-        getOptionLabelToRender(processedOption) {
-            return this.isOptionGroup(processedOption) ? this.getOptionGroupLabel(processedOption) : this.getOptionLabel(processedOption);
+        isOptionActive(option) {
+            return this.activeOption === option;
         },
-        onOptionClick(event, processedOption) {
-            this.$emit('option-change', { originalEvent: event, processedOption, isFocus: true });
-        },
-        onOptionChange(event) {
-            this.$emit('option-change', event);
+        onKeyDown(event, option, index) {
+            switch (event.key) {
+                case 'Down':
+                case 'ArrowDown':
+                    var nextItem = this.$el.children[index + 1];
+                    if (nextItem) {
+                        nextItem.children[0].focus();
+                    }
+                break;
+                case 'Up':
+                case 'ArrowUp':
+                    var prevItem = this.$el.children[index - 1];
+                    if (prevItem) {
+                        prevItem.children[0].focus();
+                    }
+                break;
+                case 'Right':
+                case 'ArrowRight':
+                    if (this.isOptionGroup(option)) {
+                        if (this.isOptionActive(option)) {
+                            event.currentTarget.nextElementSibling.children[0].children[0].focus();
+                        }
+                        else {
+                            this.activeOption = option;
+                        }
+                    }
+                break;
+                case 'Left':
+                case 'ArrowLeft':
+                    this.activeOption = null;
+                    var parentList = event.currentTarget.parentElement.parentElement.previousElementSibling;
+                    if (parentList) {
+                        parentList.focus();
+                    }
+                break;
+                case 'Enter':
+                    this.onOptionClick(event, option);
+                break;
+            }
+            event.preventDefault();
         },
         position() {
             const parentItem = this.$el.parentElement;
@@ -88,7 +175,6 @@ export default {
             const viewport = DomHandler.getViewport();
             const sublistWidth = this.$el.offsetParent ? this.$el.offsetWidth : DomHandler.getHiddenElementOuterWidth(this.$el);
             const itemOuterWidth = DomHandler.getOuterWidth(parentItem.children[0]);
-
             if ((parseInt(containerOffset.left, 10) + itemOuterWidth + sublistWidth) > (viewport.width - DomHandler.calculateScrollbarWidth())) {
                 this.$el.style.left = '-100%';
             }
@@ -96,6 +182,9 @@ export default {
     },
     directives: {
         'ripple': Ripple
+    },
+    components: {
+        CascadeSelectOptionTemplate
     }
 }
 </script>

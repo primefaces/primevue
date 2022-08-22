@@ -5,7 +5,6 @@
                 <h1>Toolbar</h1>
                 <p>Toolbar is a grouping component for buttons and other content.</p>
             </div>
-            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">
@@ -53,7 +52,7 @@ export default {
                 {   label: 'Upload',
                     icon: 'pi pi-upload',
                     command: () => {
-                        this.$router.push('fileupload');
+                        window.location.hash = "/fileupload"
                     }
                 }
             ]

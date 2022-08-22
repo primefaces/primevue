@@ -5,7 +5,7 @@
                 <h1>Calendar</h1>
                 <p>Calendar is an input component to select a date.</p>
             </div>
-            <AppDemoActions />
+            <AppInputStyleSwitch />
         </div>
 
         <div class="content-section implementation">
@@ -14,7 +14,7 @@
                 <div class="p-fluid grid formgrid">
                     <div class="field col-12 md:col-4">
                         <label for="basic">Basic</label>
-                        <Calendar id="basic" v-model="date1" autocomplete="off" />
+                        <Calendar id="basic" v-model="date1" />
                     </div>
                     <div class="field col-12 md:col-4">
                         <label for="dateformat">DateFormat</label>

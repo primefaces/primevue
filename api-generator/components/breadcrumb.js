@@ -19,18 +19,10 @@ const BreadcrumbProps = [
     }
 ];
 
-const BreadcrumbSlots = [
-    {
-        name: "item",
-        description: "Template of a menuitem."
-    }
-];
-
 module.exports = {
     breadcrumb: {
         name: "Breadcrumb",
         description: "Breadcrumb provides contextual information about page hierarchy.",
-        props: BreadcrumbProps,
-        slots: BreadcrumbSlots
+        props: BreadcrumbProps
     }
 };

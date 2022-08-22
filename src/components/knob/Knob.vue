@@ -1,7 +1,7 @@
 <template>
     <div :class="containerClass">
-        <svg viewBox="0 0 100 100" role="slider" :width="size" :height="size" :tabindex="readonly || disabled ? -1 : tabindex" :aria-valuemin="min" :aria-valuemax="max" :aria-valuenow="modelValue" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel"
-            @click="onClick" @keydown="onKeyDown" @mousedown="onMouseDown" @mouseup="onMouseUp" @touchstart="onTouchStart" @touchend="onTouchEnd">
+        <svg viewBox="0 0 100 100" :width="size" :height="size" @click="onClick" @mousedown="onMouseDown" @mouseup="onMouseUp"
+            @touchstart="onTouchStart" @touchend="onTouchEnd">
             <path :d="rangePath" :stroke-width="strokeWidth" :stroke="rangeColor" class="p-knob-range"></path>
             <path :d="valuePath" :stroke-width="strokeWidth" :stroke="valueColor" class="p-knob-value"></path>
             <text v-if="showValue" :x="50" :y="57" text-anchor="middle" :fill="textColor" class="p-knob-text">{{valueToDisplay}}</text>
@@ -11,8 +11,6 @@
 
 <script>
 export default {
-    name: 'Knob',
-    emits: ['update:modelValue', 'change'],
     data() {
         return {
             radius: 40,
@@ -23,7 +21,7 @@ export default {
         }
     },
     props: {
-        modelValue: {
+        value: {
             type: Number,
             default: null
         },
@@ -74,18 +72,6 @@ export default {
         valueTemplate: {
             type: String,
             default: "{value}"
-        },
-        tabindex: {
-            type: Number,
-            default: 0
-        },
-        'aria-labelledby': {
-            type: String,
-			default: null
-        },
-        'aria-label': {
-            type: String,
-            default: null
         }
     },
     methods: {
@@ -106,13 +92,8 @@ export default {
                 return;
 
             let newValue = Math.round((mappedValue - this.min) / this.step) * this.step + this.min;
-            this.$emit('update:modelValue', newValue);
+            this.$emit('input', newValue);
             this.$emit('change', newValue);
-        },
-        updateModelValue(newValue) {
-            if (newValue > this.max) this.$emit('update:modelValue', this.max);
-            else if (newValue < this.min) this.$emit('update:modelValue', this.min);
-            else this.$emit('update:modelValue', newValue);
         },
         mapRange(x, inMin, inMax, outMin, outMax) {
             return (x - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
@@ -164,49 +145,6 @@ export default {
                 const offsetY = touch.clientY - rect.top;
                 this.updateValue(offsetX, offsetY);
             }
-        },
-        onKeyDown(event) {
-            if (!this.disabled && !this.readonly) {
-                switch (event.code) {
-                    case 'ArrowRight':
-                    case 'ArrowUp': {
-                        event.preventDefault();
-                        this.updateModelValue(this.modelValue + 1);
-                        break;
-                    }
-
-                    case 'ArrowLeft':
-                    case 'ArrowDown': {
-                        event.preventDefault();
-                        this.updateModelValue(this.modelValue - 1);
-                        break;
-                    }
-
-                    case 'Home': {
-                        event.preventDefault();
-                        this.$emit('update:modelValue', this.min);
-                        break;
-                    }
-
-                    case 'End': {
-                        event.preventDefault();
-                        this.$emit('update:modelValue', this.max);
-                        break;
-                    }
-
-                    case 'PageUp': {
-                        event.preventDefault();
-                        this.updateModelValue(this.modelValue + 10);
-                        break;
-                    }
-
-                    case 'PageDown': {
-                        event.preventDefault();
-                        this.updateModelValue(this.modelValue - 10);
-                        break;
-                    }
-                }
-            }
         }
     },
     computed: {
@@ -230,7 +168,7 @@ export default {
                 return this.mapRange(0, this.min, this.max, this.minRadians, this.maxRadians);
         },
         valueRadians() {
-            return this.mapRange(this.modelValue, this.min, this.max, this.minRadians, this.maxRadians);
+            return this.mapRange(this.value, this.min, this.max, this.minRadians, this.maxRadians);
         },
         minX() {
             return this.midX + Math.cos(this.minRadians) * this.radius;
@@ -263,11 +201,11 @@ export default {
             return this.valueRadians > this.zeroRadians ? 0 : 1;
         },
         valueToDisplay() {
-            return this.valueTemplate.replace(/{value}/g, this.modelValue);
+            return this.valueTemplate.replace(/{value}/g, this.value);
         }
     }
 }
-//Derived and forked from https://github.com/kramer99/vue-knob-control
+//Inspired from https://github.com/kramer99/vue-knob-control
 </script>
 
 <style>

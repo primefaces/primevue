@@ -1,9 +1,8 @@
-import ConfirmationEventBus from 'primevue/confirmationeventbus';
-import {PrimeVueConfirmSymbol} from 'primevue/useconfirm';
+import ConfirmationEventBus from '../confirmationeventbus/ConfirmationEventBus';
 
-export default {
-    install: (app) => {
-        const ConfirmationService = {
+const ConfirmationService = {
+    install: (Vue) => {
+        Vue.prototype.$confirm = {
             require: (options) => {
                 ConfirmationEventBus.emit('confirm', options);
             },
@@ -11,7 +10,7 @@ export default {
                 ConfirmationEventBus.emit('close');
             }
         };
-        app.config.globalProperties.$confirm = ConfirmationService;
-        app.provide(PrimeVueConfirmSymbol, ConfirmationService);
     }
 };
+
+export default ConfirmationService;

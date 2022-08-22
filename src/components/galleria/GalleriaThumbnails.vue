@@ -13,7 +13,7 @@
                         'p-galleria-thumbnail-item-start': firstItemAciveIndex() === index,
                         'p-galleria-thumbnail-item-end': lastItemActiveIndex() === index }]">
                         <div class="p-galleria-thumbnail-item-content" :tabindex="isItemActive(index) ? 0 : null" @click="onItemClick(index)" @keydown.enter="onItemClick(index)">
-                             <component :is="templates.thumbnail" :item="item" v-if="templates.thumbnail" />
+                            <GalleriaItemSlot type="thumbnail" :item="item" :templates="templates" />
                         </div>
                     </div>
                 </div>
@@ -26,12 +26,11 @@
 </template>
 
 <script>
-import {DomHandler} from 'primevue/utils';
-import Ripple from 'primevue/ripple';
+import GalleriaItemSlot from './GalleriaItemSlot';
+import DomHandler from '../utils/DomHandler';
+import Ripple from '../ripple/Ripple';
 
 export default {
-    name: 'GalleriaThumbnails',
-    emits: ['stop-slideshow', 'update:activeIndex'],
     props: {
         containerId: {
             type: String,
@@ -141,7 +140,7 @@ export default {
             this.d_oldNumVisible = this.d_numVisible;
         }
     },
-    beforeUnmount() {
+    beforeDestroy() {
 		if (this.responsiveOptions) {
 			this.unbindDocumentListeners();
         }
@@ -180,7 +179,7 @@ export default {
         },
         stopSlideShow() {
             if (this.slideShowActive && this.stopSlideShow) {
-                this.$emit('stop-slideshow');
+                this.$emit('stopSlideShow');
             }
         },
         getMedianItemIndex() {
@@ -405,6 +404,9 @@ export default {
                 'pi-chevron-down': this.isVertical
             }];
         }
+    },
+    components: {
+        'GalleriaItemSlot': GalleriaItemSlot
     },
     directives: {
         'ripple': Ripple

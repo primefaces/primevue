@@ -1,29 +1,23 @@
 <template>
-    <div :class="containerClass" @click="onClick($event)">
-        <div class="p-hidden-accessible">
-            <input :id="inputId" ref="input" type="checkbox" :value="value" :class="inputClass" :style="inputStyle" :name="name" :checked="checked" :tabindex="tabindex" :disabled="disabled" :readonly="readonly" :required="required" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel"
-                @focus="onFocus($event)" @blur="onBlur($event)" v-bind="inputProps">
+   <div :class="containerClass" @click="onClick($event)">
+       <div class="p-hidden-accessible">
+           <input ref="input" type="checkbox" :checked="checked" :value="value" v-bind="$attrs" @focus="onFocus($event)" @blur="onBlur($event)">
         </div>
-        <div ref="box" :class="['p-checkbox-box', {'p-highlight': checked, 'p-disabled': disabled, 'p-focus': focused}]">
+        <div ref="box" :class="['p-checkbox-box', {'p-highlight': checked, 'p-disabled': $attrs.disabled, 'p-focus': focused}]" role="checkbox" :aria-checked="checked">
             <span :class="['p-checkbox-icon', {'pi pi-check': checked}]"></span>
         </div>
     </div>
 </template>
 
 <script>
-import {ObjectUtils} from 'primevue/utils';
+import ObjectUtils from '../utils/ObjectUtils';
 
 export default {
-    name: 'Checkbox',
-    emits: ['click', 'update:modelValue', 'change', 'input', 'focus', 'blur'],
+    inheritAttrs: false,
     props: {
         value: null,
         modelValue: null,
         binary: Boolean,
-        name: {
-            type: String,
-            default: null
-        },
         trueValue: {
             type: null,
             default: true
@@ -31,44 +25,20 @@ export default {
         falseValue: {
             type: null,
             default: false
-        },
-        disabled: {
-            type: Boolean,
-            default: false
-        },
-        readonly: {
-            type: Boolean,
-            default: false
-        },
-        required: {
-            type: Boolean,
-            default: false
-        },
-        tabindex: {
-            type: Number,
-            default: null
-        },
-        inputId: null,
-        inputClass: null,
-        inputStyle: null,
-        inputProps: null,
-        'aria-labelledby': {
-            type: String,
-			default: null
-        },
-        'aria-label': {
-            type: String,
-            default: null
         }
+    },
+    model: {
+        prop: 'modelValue',
+        event: 'input'
     },
     data() {
         return {
             focused: false
-        }
+        };
     },
     methods: {
         onClick(event) {
-            if (!this.disabled) {
+            if (!this.$attrs.disabled) {
                 let newModelValue;
 
                 if (this.binary) {
@@ -82,9 +52,8 @@ export default {
                 }
 
                 this.$emit('click', event);
-                this.$emit('update:modelValue', newModelValue);
-                this.$emit('change', event);
                 this.$emit('input', newModelValue);
+                this.$emit('change', event);
                 this.$refs.input.focus();
             }
         },
@@ -102,12 +71,7 @@ export default {
             return this.binary ? this.modelValue === this.trueValue : ObjectUtils.contains(this.value, this.modelValue);
         },
         containerClass() {
-            return [
-                'p-checkbox p-component', {
-                    'p-checkbox-checked': this.checked,
-                    'p-checkbox-disabled': this.disabled,
-                    'p-checkbox-focused': this.focused
-                }];
+            return ['p-checkbox p-component', {'p-checkbox-checked': this.checked, 'p-checkbox-disabled': this.$attrs.disabled, 'p-checkbox-focused': this.focused}];
         }
     }
 }

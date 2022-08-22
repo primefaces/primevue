@@ -2,33 +2,24 @@
 	<div class="content-section documentation">
 		<TabView>
 			<TabPanel header="Documentation">
-				<h5>Import via Module</h5>
-<pre v-code.script><code>
+				<h5>Import</h5>
+<CodeHighlight lang="javascript">
 import Galleria from 'primevue/galleria';
-
-</code></pre>
-
-                <h5>Import via CDN</h5>
-<pre v-code><code>
-&lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
-&lt;script src="https://unpkg.com/primevue@^3/galleria/galleria.min.js"&gt;&lt;/script&gt;
-
-</code></pre>
+</CodeHighlight>
 
 				<h5>Getting Started</h5>
 				<p>Galleria requires item template and a value as an array of objects.</p>
-<pre v-code><code>
+<CodeHighlight>
 &lt;Galleria :value="images"&gt;
     &lt;template #item="slotProps"&gt;
         &lt;img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" /&gt;
     &lt;/template&gt;
 &lt;/Galleria&gt;
-
-</code></pre>
+</CodeHighlight>
 
                 <p>For the rest of the documentation, sample data below would be return from an example service e.g. PhotoService.</p>
 <div style="overflow: auto; height: 400px">
-<pre v-code.script><code>
+<CodeHighlight lang="js">
 {
     "data":[
         {
@@ -123,22 +114,19 @@ import Galleria from 'primevue/galleria';
         }
     ]
 }
-
-</code></pre>
+</CodeHighlight>
 </div>
 
-<pre v-code.script><code>
+<CodeHighlight lang="js">
 export default class PhotoService {
 
 	getImages() {
-        return fetch('demo/data/photos.json').then(res => res.json())
-                .then(d => d.data);
+        return fetch('demo/data/photos.json').then(res => res.json()).then(d => d.data);
     }
 }
+</CodeHighlight>
 
-</code></pre>
-
-<pre v-code.script><code>
+<CodeHighlight lang="js">
 export default {
     data() {
         return {
@@ -153,13 +141,12 @@ export default {
         this.galleriaService.getImages().then(data => this.images = data);
     }
 }
-
-</code></pre>
+</CodeHighlight>
 
 				<h5>Items per page</h5>
                 <p>Number of items per page is defined using the <i>numVisible</i> property.</p>
 
-<pre v-code><code>
+<CodeHighlight>
 &lt;Galleria :value="images" :numVisible="5"&gt;
     &lt;template #item="slotProps"&gt;
         &lt;img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%" /&gt;
@@ -168,14 +155,13 @@ export default {
         &lt;img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" /&gt;
     &lt;/template&gt;
 &lt;/Galleria&gt;
-
-</code></pre>
+</CodeHighlight>
 
 				<h5>Responsive</h5>
                 <p>For responsive design, <i>numVisible</i> can be defined using the <i>responsiveOptions</i> property which references an array of
                 objects whose breakpoint defines the max-width to apply the settings.</p>
 
-<pre v-code><code>
+<CodeHighlight>
 &lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5"&gt;
     &lt;template #item="slotProps"&gt;
         &lt;img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%" /&gt;
@@ -184,10 +170,9 @@ export default {
         &lt;img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" /&gt;
     &lt;/template&gt;
 &lt;/Galleria&gt;
+</CodeHighlight>
 
-</code></pre>
-
-<pre v-code.script><code>
+<CodeHighlight lang="javascript">
 responsiveOptions: [
     {
         breakpoint: '1024px',
@@ -202,13 +187,12 @@ responsiveOptions: [
         numVisible: 1
     }
 ]
-
-</code></pre>
+</CodeHighlight>
 
 				<h5>Header and Footer</h5>
                 <p>Custom content projection is available using the <i>header</i> and <i>footer</i> properties.</p>
-<pre v-code><code>
-&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px"&gt;
+<CodeHighlight>
+&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px"&gt;
     &lt;template #header&gt;
         &lt;h1&gt;Header&lt;/h1&gt;
     &lt;/template&gt;
@@ -219,20 +203,18 @@ responsiveOptions: [
         &lt;h1&gt;Footer&lt;/h1&gt;
     &lt;/template&gt;
 &lt;/Galleria&gt;
-
-</code></pre>
+</CodeHighlight>
 
                 <h5>Indicators</h5>
                 <p>Indicators allow quick navigation between the items. Set <i>showIndicators</i> to display indicators which can be customized further
                 with the <i>changeItemOnIndicatorHover</i>, <i>showIndicatorsOnItem</i> and <i>indicatorsPosition</i> properties.</p>
-<pre v-code><code>
+<CodeHighlight>
 &lt;Galleria :value="images" :showIndicators="true"&gt;
     &lt;template #item="slotProps"&gt;
         &lt;img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" /&gt;
     &lt;/template&gt;
 &lt;/Galleria&gt;
-
-</code></pre>
+</CodeHighlight>
 
 				<h5>Properties</h5>
                 <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
@@ -381,13 +363,13 @@ responsiveOptions: [
                             </tr>
                             <tr>
                                 <td>containerStyle</td>
-                                <td>any</td>
+                                <td>string</td>
                                 <td>null</td>
                                 <td>Inline style of the component on fullscreen mode. Otherwise, the 'style' property can be used.</td>
                             </tr>
                             <tr>
-                                <td>containerClass</td>
-                                <td>any</td>
+                                <td>galleriaClass</td>
+                                <td>string</td>
                                 <td>null</td>
                                 <td>Style class of the component on fullscreen mode. Otherwise, the 'class' property can be used.</td>
                             </tr>
@@ -489,11 +471,12 @@ responsiveOptions: [
 			</TabPanel>
 
 			<TabPanel header="Source">
-				<a href="https://github.com/primefaces/primevue/tree/master/src/views/galleria" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
+				<a href="https://github.com/primefaces/primevue/tree/2.x/src/views/galleria" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
 					<span>View on GitHub</span>
 				</a>
-<pre v-code><code><template v-pre>
-&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px"&gt;
+<CodeHighlight>
+<template v-pre>
+&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px"&gt;
     &lt;template #item="slotProps"&gt;
         &lt;img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%" /&gt;
     &lt;/template&gt;
@@ -502,9 +485,9 @@ responsiveOptions: [
     &lt;/template&gt;
 &lt;/Galleria&gt;
 </template>
-</code></pre>
+</CodeHighlight>
 
-<pre v-code.script><code>
+<CodeHighlight lang="javascript">
 import PhotoService from '../../service/PhotoService';
 
 export default {
@@ -535,8 +518,7 @@ export default {
 		this.galleriaService.getImages().then(data => this.images = data);
     }
 }
-
-</code></pre>
+</CodeHighlight>
 
 			</TabPanel>
 		</TabView>

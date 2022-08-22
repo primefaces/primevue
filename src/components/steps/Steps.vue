@@ -1,21 +1,18 @@
 <template>
     <div :id="id" :class="containerClass">
         <ul role="tablist">
-            <template v-for="(item,index) of model" :key="item.to">
-                <li v-if="visible(item)" :class="getItemClass(item)" :style="item.style" role="tab" :aria-selected="isActive(item)" :aria-expanded="isActive(item)">
-                    <template v-if="!$slots.item">
-                        <router-link :to="item.to" v-if="!isItemDisabled(item)" custom v-slot="{navigate, href, isActive, isExactActive}">
-                            <a :href="href" :class="linkClass({isActive, isExactActive})" @click="onItemClick($event, item, navigate)" role="presentation">
-                                <span class="p-steps-number">{{index + 1}}</span>
-                                <span class="p-steps-title">{{label(item)}}</span>
-                            </a>
-                        </router-link>
-                        <span v-else :class="linkClass()" role="presentation">
+            <template v-for="(item,index) of model">
+                <li v-if="visible(item)" :key="item.to" :class="getItemClass(item)" :style="item.style" role="tab" :aria-selected="isActive(item)" :aria-expanded="isActive(item)">
+                    <router-link :to="item.to" v-if="!isItemDisabled(item)" custom v-slot="{navigate, href, isActive, isExactActive}" >
+                        <a :href="href" :class="linkClass({isActive, isExactActive})" @click="onItemClick($event, item, navigate)" role="presentation">
                             <span class="p-steps-number">{{index + 1}}</span>
                             <span class="p-steps-title">{{label(item)}}</span>
-                        </span>
-                    </template>
-                    <component v-else :is="$slots.item" :item="item"></component>
+                        </a>
+                    </router-link>
+                    <span v-else :class="linkClass()" role="presentation">
+                        <span class="p-steps-number">{{index + 1}}</span>
+                        <span class="p-steps-title">{{label(item)}}</span>
+                    </span>
                 </li>
             </template>
         </ul>
@@ -23,10 +20,9 @@
 </template>
 
 <script>
-import {UniqueComponentId} from 'primevue/utils';
+import UniqueComponentId from '../utils/UniqueComponentId';
 
 export default {
-    name: 'Steps',
     props: {
         id: {
             type: String,
@@ -64,7 +60,7 @@ export default {
             }
         },
         isActive(item) {
-            return item.to ? this.$router.resolve(item.to).path === this.$route.path : false;
+            return this.activeRoute === item.to || this.activeRoute === item.to + '/' ;
         },
         getItemClass(item) {
             return ['p-steps-item', item.class, {
@@ -92,6 +88,9 @@ export default {
         }
     },
     computed: {
+        activeRoute() {
+            return this.$route.path;
+        },
         containerClass() {
             return ['p-steps p-component', {'p-readonly': this.readonly}];
         }

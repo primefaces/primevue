@@ -1,4 +1,6 @@
-import {UniqueComponentId,DomHandler,ConnectedOverlayScrollHandler,ZIndexUtils} from 'primevue/utils';
+import UniqueComponentId from '../utils/UniqueComponentId';
+import DomHandler from '../utils/DomHandler';
+import ConnectedOverlayScrollHandler from '../utils/ConnectedOverlayScrollHandler';
 
 function bindEvents(el) {
     const modifiers = el.$_ptooltipModifiers;
@@ -70,16 +72,16 @@ function show(el) {
     let tooltipElement = create(el);
     align(el);
     DomHandler.fadeIn(tooltipElement, 250);
+    tooltipElement.style.zIndex = ++DomHandler.zindex;
 
     window.addEventListener('resize', function onWindowResize() {
-        if (!DomHandler.isTouchDevice()) {
+        if (!DomHandler.isAndroid()) {
             hide(el);
         }
         this.removeEventListener('resize', onWindowResize);
     });
 
     bindScrollListener(el);
-    ZIndexUtils.set('tooltip', tooltipElement, el.$_ptooltipZIndex);
 }
 
 function hide(el) {
@@ -105,7 +107,6 @@ function create(el) {
     let tooltipText = document.createElement('div');
     tooltipText.className = 'p-tooltip-text';
 
-
     if (el.$_ptooltipEscape) {
         tooltipText.innerHTML = el.$_ptooltipValue;
     }
@@ -119,10 +120,6 @@ function create(el) {
 
     container.style.display = 'inline-block';
 
-    if (el.$_ptooltipFitContent) {
-        container.style.width = 'fit-content';
-    }
-
     return container;
 }
 
@@ -130,7 +127,6 @@ function remove(el) {
     if (el) {
         let tooltipElement = getTooltipElement(el);
         if (tooltipElement && tooltipElement.parentElement) {
-            ZIndexUtils.clear(tooltipElement);
             document.body.removeChild(tooltipElement);
         }
         el.$_ptooltipId = null;
@@ -250,7 +246,7 @@ function preAlign(el, position) {
     let tooltipElement = getTooltipElement(el);
     tooltipElement.style.left = -999 + 'px';
     tooltipElement.style.top = -999 + 'px';
-    tooltipElement.className = `p-tooltip p-component p-tooltip-${position} ${el.$_ptooltipClass||''}`;
+    tooltipElement.className = 'p-tooltip p-component p-tooltip-' + position;
 }
 
 function isOutOfBounds(el) {
@@ -263,10 +259,6 @@ function isOutOfBounds(el) {
     let viewport = DomHandler.getViewport();
 
     return (targetLeft + width > viewport.width) || (targetLeft < 0) || (targetTop < 0) || (targetTop + height > viewport.height);
-}
-
-function getTarget(el) {
-    return DomHandler.hasClass(el, 'p-inputwrapper') ? DomHandler.findSingle(el, 'input'): el;
 }
 
 function getModifiers(options) {
@@ -287,66 +279,41 @@ function getModifiers(options) {
 }
 
 const Tooltip = {
-    beforeMount(el, options) {
-        let target = getTarget(el);
-        target.$_ptooltipModifiers = getModifiers(options);
-
-        if (!options.value) return;
-        else if (typeof options.value === 'string') {
-            target.$_ptooltipValue = options.value;
-            target.$_ptooltipDisabled = false;
-            target.$_ptooltipEscape = false;
-            target.$_ptooltipClass = null;
-            target.$_ptooltipFitContent = true;
-        }
-        else if (typeof options.value === 'object' && options.value) {
-            if (options.value.value === undefined || options.value.value === null || options.value.value.trim() === '') return;
-            else {
-                /* eslint-disable */
-                target.$_ptooltipValue = options.value.value;
-                target.$_ptooltipDisabled = !!options.value.disabled === options.value.disabled ? options.value.disabled : false;
-                target.$_ptooltipEscape = !!options.value.escape === options.value.escape ? options.value.escape : false;
-                target.$_ptooltipClass = options.value.class;
-                target.$_ptooltipFitContent = !!options.value.fitContent === options.value.fitContent ? options.value.fitContent : true;
-            }
-        }
-
-        target.$_ptooltipZIndex = options.instance.$primevue && options.instance.$primevue.config && options.instance.$primevue.config.zIndex.tooltip;
-        bindEvents(target);
-    },
-    unmounted(el) {
-        let target = getTarget(el);
-        remove(target);
-        unbindEvents(target);
-
-        if (target.$_ptooltipScrollHandler) {
-            target.$_ptooltipScrollHandler.destroy();
-            target.$_ptooltipScrollHandler = null;
-        }
-
-        ZIndexUtils.clear(el);
-    },
-    updated(el, options) {
-        let target = getTarget(el);
-        target.$_ptooltipModifiers = getModifiers(options);
-
-        if (!options.value) return;
+    bind(el, options) {
+        el.$_ptooltipModifiers = getModifiers(options);
         if (typeof options.value === 'string') {
-            target.$_ptooltipValue = options.value;
-            target.$_ptooltipDisabled = false;
-            target.$_ptooltipEscape = false;
-            target.$_ptooltipClass = null;
+            el.$_ptooltipValue = options.value;
+            el.$_ptooltipDisabled = false;
+            el.$_ptooltipEscape = false;
         }
-        else if (typeof options.value === 'object' && options.value) {
-            if (options.value.value === undefined || options.value.value === null || options.value.value.trim() === '') return;
-            else {
-                /* eslint-disable */
-                target.$_ptooltipValue = options.value.value;
-                target.$_ptooltipDisabled = !!options.value.disabled === options.value.disabled ? options.value.disabled : false;
-                target.$_ptooltipEscape = !!options.value.escape === options.value.escape ? options.value.escape : false;
-                target.$_ptooltipClass = options.value.class;
-                target.$_ptooltipFitContent = !!options.value.fitContent === options.value.fitContent ? options.value.fitContent : true;
-            }
+        else {
+            el.$_ptooltipValue = options.value.value;
+            el.$_ptooltipDisabled = options.value.disabled || false;
+            el.$_ptooltipEscape = options.value.escape || false;
+        }
+        bindEvents(el);
+    },
+    unbind(el) {
+        remove(el);
+        unbindEvents(el);
+
+        if (el.$_ptooltipScrollHandler) {
+            el.$_ptooltipScrollHandler.destroy();
+            el.$_ptooltipScrollHandler = null;
+        }
+    },
+    update(el, options) {
+        el.$_ptooltipModifiers = getModifiers(options);
+
+        if (typeof options.value === 'string') {
+            el.$_ptooltipValue = options.value;
+            el.$_ptooltipDisabled = false;
+            el.$_ptooltipEscape = false;
+        }
+        else {
+            el.$_ptooltipValue = options.value.value;
+            el.$_ptooltipDisabled = options.value.disabled;
+            el.$_ptooltipEscape = false;
         }
     }
 };

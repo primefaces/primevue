@@ -5,7 +5,6 @@
                 <h1>Inplace</h1>
                 <p>Inplace provides an easy to do editing and display at the same time where clicking the output displays the actual content.</p>
             </div>
-            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">
@@ -57,7 +56,7 @@ import ProductService from '../../service/ProductService';
 import InplaceDoc from './InplaceDoc';
 
 export default {
-    data() {
+     data() {
         return {
             text: null,
             products: null
@@ -69,7 +68,7 @@ export default {
     },
     methods: {
         loadData() {
-            this.productService.getProductsSmall().then(data => this.products = data);
+             this.productService.getProductsSmall().then(data => this.products = data);
         }
     },
     components: {

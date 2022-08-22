@@ -12,28 +12,28 @@ const DockProps = [
         description: "Position of element. Valid values are 'bottom', 'top', 'left' and 'right'."
     },
     {
-        name: "class",
+        name: "className",
         type: "string",
         default: "null",
         description: "Style class of the element."
     },
     {
-        name: "style",
+        name: "styles",
         type: "object",
         default: "null",
         description: "Inline style of the element."
-    },
-    {
-        name: "exact",
-        type: "boolean",
-        default: "true",
-        description: "Whether to apply 'router-link-active-exact' class if route exactly matches the item path."
     },
     {
         name: "tooltipOptions",
         type: "object",
         default: "null",
         description: "Whether to display the tooltip on items. The modifiers of tooltip can be used like an object in it. Valid keys are 'event' and 'position'."
+    },
+    {
+        name: "exact",
+        type: "boolean",
+        default: "true",
+        description: "Whether to apply 'router-link-active-exact' class if route exactly matches the item path."
     }
 ];
 
@@ -41,10 +41,6 @@ const DockSlots = [
     {
         name: "item",
         description: "Custom content for the item."
-    },
-    {
-        name: "icon",
-        description: "Custom content for the icon."
     }
 ];
 

@@ -1,9 +1,7 @@
 <template>
-    <div :class="containerClass" :style="style">
-        <slot>
-            <PVSButton type="button" class="p-splitbutton-defaultbutton" v-bind="$attrs" :icon="icon" :label="label" @click="onDefaultButtonClick" />
-        </slot>
-        <PVSButton type="button" class="p-splitbutton-menubutton" icon="pi pi-chevron-down" @click="onDropdownButtonClick" :disabled="$attrs.disabled"
+    <div class="p-splitbutton p-component">
+        <PVSButton type="button" class="p-splitbutton-defaultbutton" :icon="icon" :label="label" @click="onDefaultButtonClick" :disabled="disabled" :tabindex="tabindex" />
+        <PVSButton type="button" class="p-splitbutton-menubutton" icon="pi pi-chevron-down" @click="onDropdownButtonClick" :disabled="disabled"
             aria-haspopup="true" :aria-controls="ariaId + '_overlay'"/>
         <PVSMenu :id="ariaId + '_overlay'" ref="menu" :model="model" :popup="true" :autoZIndex="autoZIndex"
             :baseZIndex="baseZIndex" :appendTo="appendTo" />
@@ -11,13 +9,11 @@
 </template>
 
 <script>
-import Button from 'primevue/button';
-import TieredMenu from 'primevue/tieredmenu';
-import {UniqueComponentId} from 'primevue/utils';
+import Button from '../button/Button';
+import Menu from '../menu/Menu';
+import UniqueComponentId from '../utils/UniqueComponentId';
 
 export default {
-    name: 'SplitButton',
-    inheritAttrs: false,
     props: {
         label: {
             type: String,
@@ -31,6 +27,14 @@ export default {
             type: Array,
             default: null
         },
+        disabled: {
+            type: Boolean,
+            default: false
+        },
+        tabindex: {
+            type: String,
+            default: null
+        },
         autoZIndex: {
             type: Boolean,
             default: true
@@ -41,30 +45,26 @@ export default {
         },
         appendTo: {
             type: String,
-            default: 'body'
-        },
-        class: null,
-        style: null
+            default: null
+        }
     },
     methods: {
-        onDropdownButtonClick() {
-            this.$refs.menu.toggle({currentTarget: this.$el});
+        onDefaultButtonClick(event) {
+            this.$emit('click', event);
+                this.$refs.menu.hide();
         },
-        onDefaultButtonClick() {
-            this.$refs.menu.hide();
+        onDropdownButtonClick() {
+            this.$refs.menu.toggle({currentTarget: this.$el, relativeAlign: this.appendTo == null});
         }
     },
     computed: {
         ariaId() {
             return UniqueComponentId();
-        },
-        containerClass() {
-            return ['p-splitbutton p-component', this.class];
         }
     },
     components: {
         'PVSButton': Button,
-        'PVSMenu': TieredMenu
+        'PVSMenu': Menu
     }
 }
 </script>
@@ -86,7 +86,7 @@ export default {
 
 .p-splitbutton-menubutton,
 .p-splitbutton.p-button-rounded > .p-splitbutton-menubutton.p-button,
-.p-splitbutton.p-button-outlined > .p-splitbutton-menubutton.p-button {
+.p-splitbutton.p-button-outlined > .p-splitbutton-menubutton.p-button  {
     display: flex;
     align-items: center;
     justify-content: center;

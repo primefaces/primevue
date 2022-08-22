@@ -1,30 +1,26 @@
 <template>
     <div class="p-panelmenu p-component">
-        <template v-for="(item, index) of model" :key="label(item) + '_' + index">
-            <div v-if="visible(item)"  :class="getPanelClass(item)" :style="item.style">
+        <template v-for="(item, index) of model">
+            <div v-if="visible(item)" :key="label(item) + '_' + index" :class="getPanelClass(item)" :style="item.style">
                 <div :class="getHeaderClass(item)" :style="item.style">
-                    <template v-if="!$slots.item">
-                        <router-link v-if="item.to && !disabled(item)" :to="item.to" custom v-slot="{navigate, href, isActive, isExactActive}">
-                            <a :href="href" :class="getHeaderLinkClass(item, {isActive, isExactActive})" @click="onItemClick($event, item, navigate)" role="treeitem">
-                                <span v-if="item.icon" :class="getPanelIcon(item)"></span>
-                                <span class="p-menuitem-text">{{label(item)}}</span>
-                            </a>
-                        </router-link>
-                        <a v-else :href="item.url" :class="getHeaderLinkClass(item)" @click="onItemClick($event, item)" @keydown="onItemKeydown($event, item)" :tabindex="disabled(item) ? null : '0'"
-                            :aria-expanded="isActive(item)" :id="ariaId +'_header_' + index" :aria-controls="ariaId +'_content_' + index">
-                            <span v-if="item.items" :class="getPanelToggleIcon(item)"></span>
+                    <router-link v-if="item.to && !disabled(item)" :to="item.to" custom v-slot="{navigate, href, isActive:isRouterActive, isExactActive}">
+                        <a :href="href" :class="getHeaderLinkClass(item, {isRouterActive, isExactActive})" @click="onItemClick($event, item, navigate)" role="treeitem">
                             <span v-if="item.icon" :class="getPanelIcon(item)"></span>
                             <span class="p-menuitem-text">{{label(item)}}</span>
                         </a>
-                    </template>
-                    <component v-else :is="$slots.item" :item="item"></component>
+                    </router-link>
+                    <a v-else :href="item.url" :class="getHeaderLinkClass(item)" @click="onItemClick($event, item)" :tabindex="disabled(item) ? null : '0'"
+                        :aria-expanded="isActive(item)" :id="ariaId +'_header'" :aria-controls="ariaId +'_content'">
+                        <span v-if="item.items" :class="getPanelToggleIcon(item)"></span>
+                        <span v-if="item.icon" :class="getPanelIcon(item)"></span>
+                        <span class="p-menuitem-text">{{label(item)}}</span>
+                    </a>
                 </div>
                 <transition name="p-toggleable-content">
-                    <div class="p-toggleable-content" v-show="isActive(item)"
-                        role="region" :id="ariaId +'_content_' + index" :aria-labelledby="ariaId +'_header_' + index">
+                    <div class="p-toggleable-content" v-show="item === activeItem"
+                        role="region" :id="ariaId +'_content' " :aria-labelledby="ariaId +'_header'">
                         <div class="p-panelmenu-content" v-if="item.items">
-                            <PanelMenuSub :model="item.items" class="p-panelmenu-root-submenu" :template="$slots.item"
-                                :expandedKeys="expandedKeys" @item-toggle="updateExpandedKeys" :exact="exact" />
+                            <PanelMenuSub :model="item.items" class="p-panelmenu-root-submenu" />
                         </div>
                     </div>
                 </transition>
@@ -34,19 +30,13 @@
 </template>
 
 <script>
-import PanelMenuSub from './PanelMenuSub.vue';
-import {UniqueComponentId} from 'primevue/utils';
+import PanelMenuSub from './PanelMenuSub';
+import UniqueComponentId from '../utils/UniqueComponentId';
 
 export default {
-    name: 'PanelMenu',
-    emits: ['update:expandedKeys'],
     props: {
 		model: {
             type: Array,
-            default: null
-        },
-        expandedKeys: {
-            type: null,
             default: null
         },
         exact: {
@@ -61,13 +51,13 @@ export default {
     },
     methods: {
         onItemClick(event, item, navigate) {
-            if (this.isActive(item) && this.activeItem === null) {
-                this.activeItem = item;
-            }
-
             if (this.disabled(item)) {
                 event.preventDefault();
                 return;
+            }
+
+            if (!item.url && !item.to) {
+                event.preventDefault();
             }
 
             if (item.command) {
@@ -82,35 +72,15 @@ export default {
             else
                 this.activeItem = item;
 
-            this.updateExpandedKeys({item: item, expanded: this.activeItem != null});
-
             if (item.to && navigate) {
                 navigate(event);
-            }
-        },
-        onItemKeydown(event, item) {
-            if (event.which === 13) {
-                this.onItemClick(event, item);
-            }
-        },
-        updateExpandedKeys(event) {
-            if (this.expandedKeys) {
-                let item = event.item;
-                let _keys = {...this.expandedKeys};
-
-                if (event.expanded)
-                    _keys[item.key] = true;
-                else
-                    delete _keys[item.key];
-
-                this.$emit('update:expandedKeys', _keys);
             }
         },
         getPanelClass(item) {
             return ['p-panelmenu-panel', item.class];
         },
         getPanelToggleIcon(item) {
-            const active = this.isActive(item);
+            const active = item === this.activeItem;
             return ['p-panelmenu-icon pi', {'pi-chevron-right': !active,' pi-chevron-down': active}];
         },
         getPanelIcon(item) {
@@ -123,7 +93,7 @@ export default {
             }];
         },
         isActive(item) {
-            return this.expandedKeys ? this.expandedKeys[item.key] : item === this.activeItem;
+            return item === this.activeItem;
         },
         getHeaderClass(item) {
             return ['p-component p-panelmenu-header', {'p-highlight': this.isActive(item), 'p-disabled': this.disabled(item)}];

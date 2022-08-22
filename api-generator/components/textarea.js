@@ -1,6 +1,6 @@
 const TextareaProps = [
     {
-        name: "modelValue",
+        name: "value",
         type: "any",
         default: "null",
         description: "Value of the component."

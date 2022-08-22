@@ -3,11 +3,9 @@
 </template>
 
 <script>
-import '@fullcalendar/core/vdom'; // vite support
 import {Calendar} from '@fullcalendar/core';
 
 export default {
-    name: 'FullCalendar',
     props: {
         events: Array,
         options: null
@@ -15,10 +13,8 @@ export default {
     calendar: null,
     watch: {
         events(value) {
-            if (value && this.calendar) {
-                this.calendar.removeAllEventSources();
-                this.calendar.addEventSource(value);
-            }
+            this.calendar.removeAllEventSources();
+            this.calendar.addEventSource(value);
         },
         options(value) {
             if (value && this.calendar) {
@@ -38,7 +34,7 @@ export default {
             this.initialize();
         }
     },
-    beforeUnmount() {
+    beforeDestroy() {
         if (this.calendar) {
             this.calendar.destroy();
             this.calendar = null;
@@ -46,7 +42,7 @@ export default {
     },
     methods: {
         initialize() {
-            let defaultConfig = {themeSystem: 'standard'};
+            let defaultConfig = {themeSystem: false};
             let config = this.options ? {...this.options, ...defaultConfig} : defaultConfig;
             this.calendar = new Calendar(this.$el, config);
             this.calendar.render();

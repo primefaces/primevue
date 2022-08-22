@@ -6,11 +6,9 @@
 
 <script>
 export default {
-    name: 'DeferredContent',
-    emits: ['load'],
     data() {
         return {
-            loaded: false
+           loaded: false
         }
     },
     mounted() {
@@ -21,7 +19,7 @@ export default {
                 this.bindScrollListener();
         }
     },
-    beforeUnmount() {
+    beforeDestroy() {
         this.unbindScrollListener();
     },
     methods: {
@@ -53,7 +51,7 @@ export default {
                 return (winHeight >= rect.top);
             }
         },
-        load(event) {
+        load() {
             this.loaded = true;
             this.$emit('load', event);
         }

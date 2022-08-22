@@ -1,6 +1,5 @@
 <template>
-    <li :class="containerClass" role="treeitem" :aria-label="label(node)" :aria-selected="selected" :aria-expanded="expanded"
-        :aria-setsize="node.children ? node.children.length : 0" :aria-posinset="index + 1" :aria-level="level">
+    <li :class="containerClass">
         <div :class="contentClass" tabindex="0" role="treeitem" :aria-expanded="expanded"
             @click="onClick" @keydown="onKeyDown" @touchend="onTouchEnd" :style="node.style">
             <button type="button" class="p-tree-toggler p-link" @click="toggle" tabindex="-1" v-ripple>
@@ -13,26 +12,49 @@
             </div>
             <span :class="icon"></span>
             <span class="p-treenode-label">
-                <component :is="templates[node.type]||templates['default']" :node="node" v-if="templates[node.type]||templates['default']"/>
-                <template v-else>{{label(node)}}</template>
+                <TreeNodeTemplate :node="node" :template="templates[node.type]||templates['default']" />
             </span>
         </div>
         <ul class="p-treenode-children" role="group" v-if="hasChildren && expanded">
-            <TreeNode v-for="childNode of node.children" :key="childNode.key" :node="childNode" :templates="templates" :level="level + 1"
+            <sub-treenode v-for="childNode of node.children" :key="childNode.key" :node="childNode" :templates="templates"
                 :expandedKeys="expandedKeys" @node-toggle="onChildNodeToggle" @node-click="onChildNodeClick"
                 :selectionMode="selectionMode" :selectionKeys="selectionKeys"
-                @checkbox-change="propagateUp" />
+                @checkbox-change="propagateUp"></sub-treenode>
         </ul>
     </li>
 </template>
 
 <script>
-import {DomHandler} from 'primevue/utils';
-import Ripple from 'primevue/ripple';
+import DomHandler from '../utils/DomHandler';
+import Ripple from '../ripple/Ripple';
+
+const TreeNodeTemplate = {
+    functional: true,
+    props: {
+        node: {
+            type: null,
+            default: null
+        },
+        template: {
+            type: null,
+            default: null
+        }
+    },
+    render(createElement, context) {
+        const label = (node) => {
+            return (typeof node.label === 'function' ? node.label() : node.label);
+        };
+
+        const content = context.props.template ? context.props.template({
+            'node': context.props.node
+        }): label(context.props.node);
+
+        return [content];
+    }
+};
 
 export default {
-    name: 'TreeNode',
-    emits: ['node-toggle', 'node-click', 'checkbox-change'],
+    name: 'sub-treenode',
     props: {
         node: {
             type: null,
@@ -53,23 +75,12 @@ export default {
         templates: {
             type: null,
             default: null
-        },
-        level: {
-            type: Number,
-            default: null
-        },
-        index: {
-            type: Number,
-            default: null
         }
     },
     nodeTouched: false,
     methods: {
         toggle() {
             this.$emit('node-toggle', this.node);
-        },
-        label(node) {
-            return (typeof node.label === 'function' ? node.label() : node.label);
         },
         onChildNodeToggle(node) {
             this.$emit('node-toggle', node);
@@ -101,8 +112,9 @@ export default {
         onKeyDown(event) {
             const nodeElement = event.target.parentElement;
 
-            switch (event.code) {
-                case 'ArrowDown':
+            switch (event.which) {
+                //down arrow
+                case 40:
                     var listElement = nodeElement.children[1];
                     if (listElement) {
                         this.focusNode(listElement.children[0]);
@@ -119,9 +131,12 @@ export default {
                             }
                         }
                     }
+
+                    event.preventDefault();
                 break;
 
-                case 'ArrowUp':
+                //up arrow
+                case 38:
                     if (nodeElement.previousElementSibling) {
                         this.focusNode(this.findLastVisibleDescendant(nodeElement.previousElementSibling));
                     }
@@ -131,24 +146,28 @@ export default {
                             this.focusNode(parentNodeElement);
                         }
                     }
+
+                    event.preventDefault();
                 break;
 
-                case 'ArrowRight':
-                case 'ArrowLeft':
+                //right-left arrows
+                case 37:
+                case 39:
                     this.$emit('node-toggle', this.node);
+
+                    event.preventDefault();
                 break;
 
-                case 'Enter':
-                case 'Space':
+                //enter
+                case 13:
                     this.onClick(event);
+                    event.preventDefault();
                 break;
 
                 default:
                     //no op
                 break;
             }
-
-            event.preventDefault();
         },
         toggleCheckbox() {
             let _selectionKeys = this.selectionKeys ? {...this.selectionKeys} : {};
@@ -180,7 +199,7 @@ export default {
             let checkedChildCount = 0;
             let childPartialSelected = false;
 
-            for (let child of this.node.children) {
+            for(let child of this.node.children) {
                 if(_selectionKeys[child.key] && _selectionKeys[child.key].checked)
                     checkedChildCount++;
                 else if(_selectionKeys[child.key] && _selectionKeys[child.key].partialChecked)
@@ -195,10 +214,10 @@ export default {
                     delete _selectionKeys[this.node.key];
                 }
 
-                if (childPartialSelected || (checkedChildCount > 0 && checkedChildCount !== this.node.children.length))
+                if(childPartialSelected || (checkedChildCount > 0 && checkedChildCount !== this.node.children.length))
                     _selectionKeys[this.node.key] = {checked: false, partialChecked: true};
                 else
-                    delete _selectionKeys[this.node.key];
+                    _selectionKeys[this.node.key] = {checked: false, partialChecked: false};
             }
 
             this.$emit('checkbox-change', {
@@ -274,7 +293,10 @@ export default {
             return ['p-treenode-icon', this.node.icon];
         },
         toggleIcon() {
-            return ['p-tree-toggler-icon pi pi-fw', this.expanded ? this.node.expandedIcon || 'pi-chevron-down' : this.node.collapsedIcon || 'pi-chevron-right'];
+            return ['p-tree-toggler-icon pi pi-fw', {
+                'pi-chevron-down': this.expanded,
+                'pi-chevron-right': !this.expanded
+            }];
         },
         checkboxClass() {
             return ['p-checkbox-box', {'p-highlight': this.checked, 'p-indeterminate': this.partialChecked}];
@@ -291,6 +313,9 @@ export default {
         partialChecked() {
             return this.selectionKeys ? this.selectionKeys[this.node.key] && this.selectionKeys[this.node.key].partialChecked: false;
         }
+    },
+    components: {
+        'TreeNodeTemplate': TreeNodeTemplate
     },
     directives: {
         'ripple': Ripple

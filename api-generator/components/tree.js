@@ -9,7 +9,7 @@ const TreeProps = [
         name: "expandedKeys",
         type: "array",
         default: "null",
-        description: "A map of keys to represent the expansion state in controlled mode."
+        description: "A map of keys to represent the state of the tree expansion state in controlled mode."
     },
     {
         name: "selectionMode",
@@ -70,12 +70,6 @@ const TreeProps = [
         type: "string",
         default: "undefined",
         description: "Locale to use in filtering. The default locale is the host environment's current locale."
-    },
-    {
-        name: "scrollHeight",
-        type: "string",
-        default: "null",
-        description: 'Height of the scroll viewport in fixed units or the "flex" keyword for a dynamic size.'
     }
 ];
 

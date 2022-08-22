@@ -1,22 +1,21 @@
 <template>
-    <input :class="['p-inputtext p-component', {'p-filled': filled}]" :value="modelValue" @input="onInput"/>
+    <input :class="['p-inputtext p-component', {'p-filled': filled}]" v-on="listeners" :value="value" />
 </template>
 
 <script>
 export default {
-    name: 'InputText',
-    emits: ['update:modelValue'],
     props: {
-        modelValue: null
-    },
-    methods: {
-        onInput(event) {
-            this.$emit('update:modelValue', event.target.value);
-        }
+        value: null
     },
     computed: {
+        listeners() {
+            return {
+                ...this.$listeners,
+                input: event => this.$emit('input', event.target.value)
+            };
+        },
         filled() {
-            return (this.modelValue != null && this.modelValue.toString().length > 0)
+            return (this.value != null && this.value.toString().length > 0)
         }
     }
 }

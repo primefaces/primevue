@@ -1,6 +1,6 @@
 const OrderListProps = [
     {
-        name: "modelValue",
+        name: "value",
         type: "array",
         default: "null",
         description: "Value of the component."
@@ -30,18 +30,6 @@ const OrderListProps = [
         description: "Inline style of the the list element."
     },
     {
-        name: "responsive",
-        type: "boolean",
-        default: "true",
-        description: "Whether the list optimizes layout based on screen size."
-    },
-    {
-        name: "breakpoint",
-        type: "string",
-        default: "960px",
-        description: "The breakpoint to define the maximum width boundary when responsiveness is enabled."
-    },
-    {
         name: "stripedRows",
         type: "boolean",
         default: "false",
@@ -69,22 +57,6 @@ const OrderListEvents = [
                 type: "string",
                 description:
                     'Direction of the change; "up", "down", "bottom", "top"'
-            }
-        ]
-    },
-    {
-        name: "selection-change",
-        description: "Callback to invoke when selection changes.",
-        arguments: [
-            {
-                name: "event.originalEvent",
-                type: "object",
-                description: "Browser event"
-            },
-            {
-                name: "event.value",
-                type: "array",
-                description: "Ordered list"
             }
         ]
     }

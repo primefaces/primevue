@@ -1,15 +1,16 @@
 <template>
     <td :style="containerStyle" :class="containerClass">
-        <component :is="column.children.footer" :column="column" v-if="column.children && column.children.footer" />
+        <TTColumnSlot :column="col" v-if="column.children && column.children.footer" />
         {{columnProp('footer')}}
     </td>
 </template>
 
 <script>
-import {DomHandler,ObjectUtils} from 'primevue/utils';
+import DomHandler from '../utils/DomHandler.js';
+import ObjectUtils from '../utils/ObjectUtils.js';
+import TreeTableColumnSlot from './TreeTableColumnSlot.vue';
 
 export default {
-    name: 'FooterCell',
     props: {
         column: {
             type: Object,
@@ -18,7 +19,10 @@ export default {
     },
     data() {
         return {
-            styleObject: {}
+            styleObject: {
+                left: '',
+                right: ''
+            }
         }
     },
     mounted() {
@@ -42,7 +46,7 @@ export default {
                     let right = 0;
                     let next = this.$el.nextElementSibling;
                     if (next) {
-                        right = DomHandler.getOuterWidth(next) + parseFloat(next.style.right || 0);
+                        right = DomHandler.getOuterWidth(next) + parseFloat(next.style.right);
                     }
                     this.styleObject.right = right + 'px';
                 }
@@ -50,7 +54,7 @@ export default {
                     let left = 0;
                     let prev = this.$el.previousElementSibling;
                     if (prev) {
-                        left = DomHandler.getOuterWidth(prev) + parseFloat(prev.style.left || 0);
+                        left = DomHandler.getOuterWidth(prev) + parseFloat(prev.style.left);
                     }
                     this.styleObject.left = left + 'px';
                 }
@@ -59,16 +63,19 @@ export default {
     },
     computed: {
         containerClass() {
-            return [this.columnProp('footerClass'), this.columnProp('class'), {
+            return [this.columnProp('footerClass'), this.columnProp('className'), {
                 'p-frozen-column': this.columnProp('frozen')
             }];
         },
         containerStyle() {
             let bodyStyle = this.columnProp('footerStyle');
-            let columnStyle = this.columnProp('style');
+            let columnStyle = this.columnProp('styles');
 
             return this.columnProp('frozen') ? [columnStyle, bodyStyle, this.styleObject]: [columnStyle, bodyStyle];
         }
-    }
+    },
+    components: {
+        'TTColumnSlot': TreeTableColumnSlot
+    },
 }
 </script>

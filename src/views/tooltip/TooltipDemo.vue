@@ -5,7 +5,6 @@
                 <h1>Tooltip</h1>
                 <p>Tooltip directive provides advisory information for a component.</p>
             </div>
-            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">
@@ -31,9 +30,6 @@
 
                 <h5>Button</h5>
                 <Button type="button" label="Save" icon="pi pi-check" v-tooltip="'Click to proceed'" />
-
-                <h5>Custom Class</h5>
-                <InputText type="text" placeholder="Custom Class" v-tooltip.right="{value:'Invalid username', class: 'custom-error'}" />
             </div>
         </div>
 
@@ -52,11 +48,5 @@ export default {
 </script>
 
 <style>
-.custom-error .p-tooltip-text {
-    background-color: var(--pink-800);
-    color: rgb(255, 255, 255);
-}
-.custom-error.p-tooltip-right .p-tooltip-arrow {
-    border-right-color: var(--pink-800);
-}
+
 </style>

@@ -7,7 +7,6 @@
 
 <script>
 export default {
-    name: 'InlineMessage',
     props: {
         severity: {
             type: String,
@@ -29,7 +28,7 @@ export default {
     },
     computed: {
         containerClass() {
-            return ['p-inline-message p-component p-inline-message-' + this.severity, {'p-inline-message-icon-only': !this.$slots.default}];
+            return ['p-inline-message p-component p-inline-message-' + this.severity, {'p-inline-message-icon-only': !this.$scopedSlots.default}];
         },
         iconClass() {
             return ['p-inline-message-icon pi', {

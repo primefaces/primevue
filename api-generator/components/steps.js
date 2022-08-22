@@ -25,18 +25,10 @@ const StepsProps = [
     }
 ];
 
-const StepsSlots = [
-    {
-        name: "item",
-        description: "Template of a menuitem."
-    }
-];
-
 module.exports = {
     steps: {
         name: "steps",
         description: "Steps components is an indicator for the steps in a wizard workflow.",
-        props: StepsProps,
-        slots: StepsSlots
+        props: StepsProps
     }
 };

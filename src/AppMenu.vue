@@ -1,90 +1,292 @@
 <template>
     <div :class="['layout-sidebar', {'active': active}]">
-        <router-link to="/" class="logo">
-            <img :src="'demo/images/primevue-logo-' + `${$appState.darkTheme ? 'light' : 'dark'}` + '.svg'" alt="primevue logo"/>
-        </router-link>
-        <div class="layout-sidebar-filter p-fluid">
-            <AutoComplete v-model="selectedRoute" :suggestions="filteredRoutes" @complete="searchRoute($event)" @item-select="onItemSelect($event)" scrollHeight="300px" placeholder="Search" 
-                field="name" optionGroupLabel="name" optionGroupChildren="children" appendTo="self">
-            </AutoComplete>
-        </div>
         <div class="layout-menu">
-            <template v-for="item of menu" :key="item.name">
-                <div class="menu-category">
-                    {{item.name}}
-                    <Tag v-if="item.badge" :value="item.badge"></Tag>
-                </div>
-                <div class="menu-items" v-if="item.children && item.children.length">
-                    <template v-for="child of item.children" :key="child.name">
-                        <a v-if="child.href" :href="child.href" target="_blank">{{child.name}}</a>
-                        <router-link v-if="child.to" :to="child.to">
-                            {{child.name}}
-                            <Tag v-if="child.badge" :value="child.badge"></Tag>
-                        </router-link>
-                        <template v-if="child.children">
-                            <router-link :to="child.children[0].to" v-slot="{isActive}" custom>
-                                <div>
-                                    <a tabindex="0" @click="toggleSubmenu($event, child.meta[0])">
-                                        {{child.name}}
-                                        <Tag v-if="child.badge" :value="child.badge"></Tag>
-                                    </a>
-                                    <transition name="p-toggleable-content">
-                                        <div class="p-toggleable-content" v-show="isSubmenuActive(child.meta[0], isActive)">
-                                            <ul>
-                                                <li v-for="(submenuitem, i) of child.children" :key="i">
-                                                    <router-link :to="submenuitem.to">
-                                                        {{submenuitem.name}}
-                                                        <Tag v-if="submenuitem.badge" :value="submenuitem.badge"></Tag>
-                                                    </router-link>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </transition>
-                                </div>
-                            </router-link>
-                        </template>
-                    </template>
-                </div>
-                <div v-if="item.banner" class="menu-image">
-                    <a :href="item.url">
-                        <img :src="darkTheme ? item.imageDark : item.imageLight">
-                    </a>
-                </div>
-            </template> 
+            <div class="menu-category">Vue 3</div>
+            <div class="menu-items">
+                <a href="https://www.primefaces.org/primevue" target="_blank">PrimeVue v3</a>
+            </div>
+
+            <div class="menu-category">General</div>
+            <div class="menu-items">
+                <router-link to="/setup">Get Started</router-link>
+                <a href="https://forum.primefaces.org/viewforum.php?f=110" target="_blank">Forum</a>
+                <a href="https://discord.gg/gzKFYnpmCY" target="_blank">Discord Chat</a>
+                <a href="https://github.com/primefaces/primevue/tree/2.x" target="_blank">Source Code</a>
+                <router-link to="/support">Support</router-link>
+                <a href="https://www.primefaces.org/store" target="_blank">Store</a>
+                <router-link to="/locale">Locale</router-link>
+                <router-link to="/accessibility">Accessibility</router-link>
+            </div>
+
+            <div class="menu-category">Theming</div>
+            <div class="menu-items">
+                <router-link to="/theming">Guide</router-link>
+                <a href="https://www.primefaces.org/designer/primevue">Theme Designer</a>
+                <a href="https://www.primefaces.org/designer-vue">Visual Editor</a>
+                <a href="https://www.primefaces.org/designer/api/primevue/2.0.1">SASS API</a>
+            </div>
+
+            <div class="menu-category">PRIMEBLOCKS</div>
+            <div class="menu-items">
+                <a href="https://www.primefaces.org/primeblocks-vue/#/free">Free Blocks</a>
+                <a href="https://www.primefaces.org/primeblocks-vue">All Blocks</a>
+            </div>
+
+            <div class="menu-category">PRIMEFLEX</div>
+            <div class="menu-items">
+                <a href="https://www.primefaces.org/primeflex" target="_blank">PrimeFlex v3</a>
+                <a href="https://github.com/primefaces/primeflex/wiki/PrimeFlex-v2" target="_blank">PrimeFlex v2</a>
+            </div>
+
+            <div class="menu-category">PrimeIcons</div>
+            <div class="menu-items">
+                <router-link to="/icons">Icons v5</router-link>
+            </div>
+
+            <div class="menu-category">Form</div>
+            <div class="menu-items">
+                <router-link to="/autocomplete">AutoComplete</router-link>
+                <router-link to="/calendar">Calendar</router-link>
+                <router-link to="/cascadeselect">CascadeSelect</router-link>
+                <router-link to="/checkbox">Checkbox</router-link>
+                <router-link to="/chips">Chips</router-link>
+                <router-link to="/colorpicker">ColorPicker</router-link>
+                <router-link to="/dropdown">Dropdown</router-link>
+                <router-link to="/editor">Editor</router-link>
+                <router-link to="/floatlabel">FloatLabel</router-link>
+                <router-link to="/inputgroup">InputGroup</router-link>
+                <router-link to="/inputmask">InputMask</router-link>
+                <router-link to="/inputnumber">InputNumber</router-link>
+                <router-link to="/inputswitch">InputSwitch</router-link>
+                <router-link to="/inputtext">InputText</router-link>
+                <router-link to="/invalid">InvalidState</router-link>
+                <router-link to="/knob">Knob</router-link>
+                <router-link to="/listbox">Listbox</router-link>
+                <router-link to="/multiselect">MultiSelect</router-link>
+                <router-link to="/password">Password</router-link>
+                <router-link to="/radiobutton">RadioButton</router-link>
+                <router-link to="/rating">Rating</router-link>
+                <router-link to="/selectbutton">SelectButton</router-link>
+                <router-link to="/slider">Slider</router-link>
+                <router-link to="/textarea">Textarea</router-link>
+                <router-link to="/togglebutton">ToggleButton</router-link>
+                <router-link to="/tristatecheckbox">TriStateCheckbox</router-link>
+            </div>
+
+            <div class="menu-category">Button</div>
+            <div class="menu-items">
+                <router-link to="/button">Button</router-link>
+                <router-link to="/speeddial">Speed Dial</router-link>
+                <router-link to="/splitbutton">SplitButton</router-link>
+            </div>
+
+            <div class="menu-category">Data</div>
+            <div class="menu-items">
+                <router-link to="/datatable" custom v-slot="{ href, route, navigate, isActive }">
+                    <div>
+                        <a tabindex="0" @click="toggleSubmenu($event, 'datatable')">DataTable</a>
+                        <transition name="p-toggleable-content">
+                            <div class="p-toggleable-content" v-show="isSubmenuActive('datatable', isActive)">
+                                <ul>
+                                    <li><router-link to="/datatable">Documentation</router-link></li>
+                                    <li><router-link to="/datatable/basic">Basic</router-link></li>
+                                    <li><router-link to="/datatable/dynamiccolumns">Dynamic</router-link></li>
+                                    <li><router-link to="/datatable/templating">Templating</router-link></li>
+                                    <li><router-link to="/datatable/size">Size</router-link></li>
+                                    <li><router-link to="/datatable/gridlines">GridLines</router-link></li>
+                                    <li><router-link to="/datatable/striped">Striped</router-link></li>
+                                    <li><router-link to="/datatable/colgroup">ColGroup</router-link></li>
+                                    <li><router-link to="/datatable/paginator">Paginator</router-link></li>
+                                    <li><router-link to="/datatable/sort">Sort</router-link></li>
+                                    <li><router-link to="/datatable/filter">Filter</router-link></li>
+                                    <li><router-link to="/datatable/selection">Selection</router-link></li>
+                                    <li><router-link to="/datatable/lazy">Lazy</router-link></li>
+                                    <li><router-link to="/datatable/scroll">Scroll</router-link></li>
+                                    <li><router-link to="/datatable/flexscroll">FlexScroll</router-link></li>
+                                    <li><router-link to="/datatable/rowexpand">Expand</router-link></li>
+                                    <li><router-link to="/datatable/edit">Edit</router-link></li>
+                                    <li><router-link to="/datatable/coltoggle">ColToggle</router-link></li>
+                                    <li><router-link to="/datatable/colresize">ColResize</router-link></li>
+                                    <li><router-link to="/datatable/reorder">Reorder</router-link></li>
+                                    <li><router-link to="/datatable/rowgroup">RowGroup</router-link></li>
+                                    <li><router-link to="/datatable/contextmenu">ContextMenu</router-link></li>
+                                    <li><router-link to="/datatable/responsive">Responsive</router-link></li>
+                                    <li><router-link to="/datatable/export">Export</router-link></li>
+                                    <li><router-link to="/datatable/state">State</router-link></li>
+                                    <li><router-link to="/datatable/style">Style</router-link></li>
+                                    <li><router-link to="/datatable/crud">Crud</router-link></li>
+                                </ul>
+                            </div>
+                        </transition>
+                    </div>
+                </router-link>
+
+                <router-link to="/dataview">DataView</router-link>
+                <router-link to="/filterservice">FilterService</router-link>
+                <router-link to="/fullcalendar">FullCalendar</router-link>
+                <router-link to="/orderlist">OrderList</router-link>
+                <router-link to="/organizationchart">OrganizationChart</router-link>
+                <router-link to="/paginator">Paginator</router-link>
+                <router-link to="/picklist">PickList</router-link>
+                <router-link to="/timeline">Timeline</router-link>
+                <router-link to="/tree" custom v-slot="{ href, route, navigate, isActive }">
+                    <div>
+                        <a tabindex="0" @click="toggleSubmenu($event, 'tree')">Tree</a>
+                        <transition name="p-toggleable-content">
+                            <div class="p-toggleable-content" v-show="isSubmenuActive('tree', isActive)">
+                                <ul>
+                                    <li><router-link to="/tree">Documentation</router-link></li>
+                                    <li><router-link to="/tree/selection">Selection</router-link></li>
+                                    <li><router-link to="/tree/lazy">Lazy</router-link></li>
+                                    <li><router-link to="/tree/templating">Templating</router-link></li>
+                                    <li><router-link to="/tree/filter">Filter</router-link></li>
+                                </ul>
+                            </div>
+                        </transition>
+                    </div>
+                </router-link>
+                <router-link to="/treetable" custom v-slot="{ href, route, navigate, isActive }">
+                    <div>
+                        <a tabindex="0" @click="toggleSubmenu($event, 'treetable')">TreeTable</a>
+                        <transition name="p-toggleable-content">
+                            <div class="p-toggleable-content" v-show="isSubmenuActive('treetable', isActive)">
+                                <ul>
+                                    <li><router-link to="/treetable">Documentation</router-link></li>
+                                    <li><router-link to="/treetable/templating">Templating</router-link></li>
+                                    <li><router-link to="/treetable/size">Size</router-link></li>
+                                    <li><router-link to="/treetable/paginator">Paginator</router-link></li>
+                                    <li><router-link to="/treetable/sort">Sort</router-link></li>
+                                    <li><router-link to="/treetable/filter">Filter</router-link></li>
+                                    <li><router-link to="/treetable/selection">Selection</router-link></li>
+                                    <li><router-link to="/treetable/lazy">Lazy</router-link></li>
+                                    <li><router-link to="/treetable/coltoggle">ColToggle</router-link></li>
+                                    <li><router-link to="/treetable/colresize">Resize</router-link></li>
+                                    <li><router-link to="/treetable/responsive">Responsive</router-link></li>
+                                </ul>
+                            </div>
+                        </transition>
+                    </div>
+                </router-link>
+            </div>
+
+            <div class="menu-category">Panel</div>
+            <div class="menu-items">
+                <router-link to="/accordion">Accordion</router-link>
+                <router-link to="/card">Card</router-link>
+                <router-link to="/deferredcontent">Deferred</router-link>
+                <router-link to="/divider">Divider</router-link>
+                <router-link to="/fieldset">Fieldset</router-link>
+                <router-link to="/panel">Panel</router-link>
+                <router-link to="/splitter">Splitter</router-link>
+                <router-link to="/scrollpanel">ScrollPanel</router-link>
+                <router-link to="/tabview">TabView</router-link>
+                <router-link to="/toolbar">Toolbar</router-link>
+            </div>
+
+            <div class="menu-category">Overlay</div>
+            <div class="menu-items">
+                <router-link to="/confirmdialog">ConfirmDialog</router-link>
+                <router-link to="/confirmpopup">ConfirmPopup</router-link>
+                <router-link to="/dialog">Dialog</router-link>
+                <router-link to="/overlaypanel">OverlayPanel</router-link>
+                <router-link to="/sidebar">Sidebar</router-link>
+                <router-link to="/tooltip">Tooltip</router-link>
+            </div>
+
+            <div class="menu-category">File</div>
+            <div class="menu-items">
+                <router-link to="/fileupload">Upload</router-link>
+            </div>
+
+            <div class="menu-category">Menu</div>
+            <div class="menu-items">
+                <router-link to="/menumodel">MenuModel</router-link>
+                <router-link to="/breadcrumb">Breadcrumb</router-link>
+                <router-link to="/contextmenu">ContextMenu</router-link>
+                <router-link to="/dock">Dock</router-link>
+                <router-link to="/megamenu">MegaMenu</router-link>
+                <router-link to="/menu">Menu</router-link>
+                <router-link to="/menubar">Menubar</router-link>
+                <router-link to="/panelmenu">PanelMenu</router-link>
+                <router-link to="/steps">Steps</router-link>
+                <router-link to="/tabmenu">TabMenu</router-link>
+                <router-link to="/tieredmenu">TieredMenu</router-link>
+            </div>
+
+            <div class="menu-category">Chart</div>
+            <div class="menu-items">
+                <router-link to="/chart">ChartModel</router-link>
+                <router-link to="/chart/pie">Pie</router-link>
+                <router-link to="/chart/doughnut">Doughnut</router-link>
+                <router-link to="/chart/bar">Bar</router-link>
+                <router-link to="/chart/line">Line</router-link>
+                <router-link to="/chart/polararea">PolarArea</router-link>
+                <router-link to="/chart/radar">Radar</router-link>
+                <router-link to="/chart/combo">Combo</router-link>
+            </div>
+
+            <div class="menu-category">Messages</div>
+            <div class="menu-items">
+                <router-link to="/message">Message</router-link>
+                <router-link to="/toast">Toast</router-link>
+            </div>
+
+            <div class="menu-category">Media</div>
+            <div class="menu-items">
+                <router-link to="/carousel">Carousel</router-link>
+                <router-link to="/galleria" custom v-slot="{ href, route, navigate, isActive }">
+                    <div>
+                        <a tabindex="0" @click="toggleSubmenu($event, 'galleria')">Galleria</a>
+                        <transition name="p-toggleable-content">
+                            <div class="p-toggleable-content" v-show="isSubmenuActive('galleria', isActive)">
+                                <ul>
+                                    <li><router-link to="/galleria">Documentation</router-link></li>
+                                    <li><router-link to="/galleria/programmatic">Programmatic</router-link></li>
+                                    <li><router-link to="/galleria/indicator">Indicator</router-link></li>
+                                    <li><router-link to="/galleria/thumbnail">Thumbnail</router-link></li>
+                                    <li><router-link to="/galleria/navigator">Navigator</router-link></li>
+                                    <li><router-link to="/galleria/responsive">Responsive</router-link></li>
+                                    <li><router-link to="/galleria/fullscreen">FullScreen</router-link></li>
+                                    <li><router-link to="/galleria/autoplay">AutoPlay</router-link></li>
+                                    <li><router-link to="/galleria/caption">Caption</router-link></li>
+                                    <li><router-link to="/galleria/advanced">Advanced</router-link></li>
+                                </ul>
+                            </div>
+                        </transition>
+                    </div>
+                </router-link>
+                <router-link to="/imagepreview">Image Preview</router-link>
+            </div>
+
+            <div class="menu-category">Misc</div>
+            <div class="menu-items">
+                <router-link to="/avatar">Avatar</router-link>
+                <router-link to="/badge">Badge</router-link>
+                <router-link to="/chip">Chip</router-link>
+                <router-link to="/blockui">BlockUI</router-link>
+                <router-link to="/inplace">Inplace</router-link>
+                <router-link to="/scrolltop">ScrollTop</router-link>
+                <router-link to="/skeleton">Skeleton</router-link>
+                <router-link to="/progressbar">ProgressBar</router-link>
+                <router-link to="/progressspinner">ProgressSpinner</router-link>
+                <router-link to="/ripple">Ripple</router-link>
+                <router-link to="/styleclass">StyleClass</router-link>
+                <router-link to="/tag">Tag</router-link>
+                <router-link to="/terminal">Terminal</router-link>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
-import {FilterService,FilterMatchMode} from 'primevue/api';
-import menudata from '@/assets/menu/menu.json';
-
 export default {
     props: {
         active: Boolean
     },
     data() {
         return {
-            activeSubmenus: {},
-            menu: menudata.data,
-            filteredRoutes: null,
-            selectedRoute: null,
-            routes: []
+            activeSubmenus: {}
         }
-    },
-    mounted() {
-        this.menu.forEach((route) => {
-            let childRoute = {...route};
-            childRoute.children = childRoute.children.filter((child) => {
-                if (child.meta) {
-                    this.routes.push(child);
-                }
-
-                return !child.meta;
-            })
-
-            this.routes.push(childRoute);            
-        });
     },
     methods: {
         toggleSubmenu(event, name) {
@@ -93,40 +295,15 @@ export default {
             event.preventDefault();
         },
         isSubmenuActive(name, routerIsActive) {
-            if (this.activeSubmenus[name]) {
-                return true;
+            if (this.activeSubmenus.hasOwnProperty(name)) {
+                return this.activeSubmenus[name];
             }
             else if (routerIsActive) {
                 this.activeSubmenus[name] = true;
                 return true;
             }
+
             return false;
-        },
-        searchRoute(event) {
-            let query = event.query;
-            let filteredRoutes = [];
-
-            for (let route of this.routes) {
-                let filteredItems = FilterService.filter(route.children, ['to', 'href'], query, FilterMatchMode.CONTAINS);
-                if (filteredItems && filteredItems.length) {
-                    filteredRoutes.push({name: route.name, children: filteredItems});
-                }
-            }
-
-            this.filteredRoutes = filteredRoutes;
-        },
-        onItemSelect(event) {
-            this.selectedRoute = null;
-            
-            if (event.value.to)
-                this.$router.push(event.value.to)
-            else if (event.value.href)
-                window.location.href = event.value.href;
-        }
-    },
-    computed: {
-        darkTheme() {
-            return this.$appState.darkTheme === true;
         }
     }
 }

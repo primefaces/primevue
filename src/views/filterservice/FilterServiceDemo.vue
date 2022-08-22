@@ -5,7 +5,7 @@
                 <h1>FilterService</h1>
                 <p>FilterService is a helper utility to filter collections against constraints.</p>
             </div>
-            <AppDemoActions />
+            <AppInputStyleSwitch />
         </div>
 
         <div class="content-section implementation">
@@ -14,7 +14,7 @@
                 <p>A custom equals filter that checks for exact case sensitive value is registered and defined as a match mode of a column filter.</p>
 
                 <DataTable :value="customers" :paginator="true" :rows="10" responsiveLayout="scroll"
-                    dataKey="id" v-model:filters="filters" filterDisplay="row" :loading="loading">
+                    dataKey="id" :filters.sync="filters" filterDisplay="row" :loading="loading">
                     <template #empty>
                         No customers found.
                     </template>
@@ -47,9 +47,10 @@
 </template>
 
 <script>
-import FilterServiceDoc from './FilterServiceDoc';
-import {FilterMatchMode,FilterService} from 'primevue/api';
+import FilterMatchMode from '../../../src/components/api/FilterMatchMode';
+import FilterService from '../../../src/components/api/FilterService';
 import CustomerService from '../../service/CustomerService';
+import FilterServiceDoc from './FilterServiceDoc';
 
 const YOUR_FILTER = 'YOUR FILTER';
 
@@ -73,7 +74,7 @@ export default {
     },
     mounted() {
         this.customerService.getCustomersLarge().then(data => {
-            this.customers = data; 
+            this.customers = data;
             this.loading = false;
         });
 
@@ -81,11 +82,11 @@ export default {
             if (filter === undefined || filter === null || filter.trim() === '') {
                 return true;
             }
-    
+
             if (value === undefined || value === null) {
                 return false;
             }
-            
+
             return value.toString() === filter.toString();
         });
     },

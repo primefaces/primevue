@@ -5,15 +5,15 @@
         :colspan="columnProp('colspan')" :rowspan="columnProp('rowspan')" :aria-sort="ariaSort">
         <span class="p-column-resizer" @mousedown="onResizeStart" v-if="resizableColumns && !columnProp('frozen')"></span>
         <div class="p-column-header-content">
-            <component :is="column.children.header" :column="column" v-if="column.children && column.children.header"/>
+            <ColumnSlot :data="column.$scopedSlots.header" :column="column" type="header" v-if="column.$scopedSlots && column.$scopedSlots.header"/>
             <span class="p-column-title" v-if="columnProp('header')">{{columnProp('header')}}</span>
             <span v-if="columnProp('sortable')" :class="sortableColumnIcon"></span>
             <span v-if="isMultiSorted()" class="p-sortable-column-badge">{{getBadgeValue()}}</span>
             <DTHeaderCheckbox :checked="allRowsSelected" @change="onHeaderCheckboxChange" :disabled="empty" v-if="columnProp('selectionMode') ==='multiple' && filterDisplay !== 'row'" />
-            <DTColumnFilter v-if="filterDisplay === 'menu' && column.children && column.children.filter" :field="columnProp('filterField')||columnProp('field')" :type="columnProp('dataType')" display="menu"
-            :showMenu="columnProp('showFilterMenu')" :filterElement="column.children && column.children.filter"
-            :filterHeaderTemplate="column.children && column.children.filterheader" :filterFooterTemplate="column.children && column.children.filterfooter"
-            :filterClearTemplate="column.children && column.children.filterclear" :filterApplyTemplate="column.children && column.children.filterapply"
+            <DTColumnFilter v-if="filterDisplay === 'menu' && column.$scopedSlots.filter" :field="columnProp('filterField')||columnProp('field')" :type="columnProp('dataType')" display="menu"
+            :showMenu="columnProp('showFilterMenu')" :filterElement="column.$scopedSlots.filter" :templates="column.$scopedSlots"
+            :filterHeaderTemplate="column.$scopedSlots.filterheader" :filterFooterTemplate="column.$scopedSlots.filterfooter"
+            :filterClearTemplate="column.$scopedSlots.filterclear" :filterApplyTemplate="column.$scopedSlots.filterapply"
             :filters="filters" :filtersStore="filtersStore" @filter-change="$emit('filter-change', $event)" @filter-apply="$emit('filter-apply')" :filterMenuStyle="columnProp('filterMenuStyle')" :filterMenuClass="columnProp('filterMenuClass')"
             :showOperator="columnProp('showFilterOperator')" :showClearButton="columnProp('showClearButton')" :showApplyButton="columnProp('showApplyButton')"
             :showMatchModes="columnProp('showFilterMatchModes')" :showAddButton="columnProp('showAddButton')" :matchModeOptions="columnProp('filterMatchModeOptions')" :maxConstraints="columnProp('maxConstraints')"
@@ -23,15 +23,13 @@
 </template>
 
 <script>
-import {DomHandler,ObjectUtils} from 'primevue/utils';
+import DomHandler from '../utils/DomHandler';
+import ObjectUtils from '../utils/ObjectUtils';
+import ColumnSlot from './ColumnSlot.vue';
 import HeaderCheckbox from './HeaderCheckbox.vue';
 import ColumnFilter from './ColumnFilter.vue';
 
 export default {
-    name: 'HeaderCell',
-    emits: ['column-click', 'column-mousedown', 'column-dragstart', 'column-dragover', 'column-dragleave', 'column-drop',
-            'column-resizestart', 'checkbox-change', 'filter-change', 'filter-apply',
-            'operator-change', 'matchmode-change', 'constraint-add', 'constraint-remove', 'filter-clear', 'apply-click'],
     props: {
         column: {
             type: Object,
@@ -88,15 +86,14 @@ export default {
         filterColumn: {
             type: Boolean,
             default: false
-        },
-        reorderableColumns: {
-            type: Boolean,
-            default: false
         }
     },
     data() {
         return {
-            styleObject: {}
+            styleObject: {
+                left: '',
+                right: ''
+            }
         }
     },
     mounted() {
@@ -187,18 +184,17 @@ export default {
     },
     computed: {
         containerClass() {
-            return [this.filterColumn ? this.columnProp('filterHeaderClass') : this.columnProp('headerClass'), this.columnProp('class'), {
+            return [this.filterColumn ? this.columnProp('filterHeaderClass') : this.columnProp('headerClass'), this.columnProp('className'), {
                     'p-sortable-column': this.columnProp('sortable'),
                     'p-resizable-column': this.resizableColumns,
                     'p-highlight': this.isColumnSorted(),
                     'p-filter-column': this.filterColumn,
-                    'p-frozen-column': this.columnProp('frozen'),
-                    'p-reorderable-column': this.reorderableColumns
+                    'p-frozen-column': this.columnProp('frozen')
             }];
         },
         containerStyle() {
             let headerStyle = this.filterColumn ? this.columnProp('filterHeaderStyle'): this.columnProp('headerStyle');
-            let columnStyle = this.columnProp('style');
+            let columnStyle = this.columnProp('styles');
 
             return this.columnProp('frozen') ? [columnStyle, headerStyle, this.styleObject]: [columnStyle, headerStyle];
         },
@@ -243,7 +239,8 @@ export default {
     },
     components: {
         'DTHeaderCheckbox': HeaderCheckbox,
-        'DTColumnFilter': ColumnFilter
+        'DTColumnFilter': ColumnFilter,
+        'ColumnSlot': ColumnSlot
     }
 }
 </script>

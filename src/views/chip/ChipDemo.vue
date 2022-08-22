@@ -5,41 +5,41 @@
                 <h1>Chip</h1>
                 <p>Chip represents entities using icons, labels and images.</p>
             </div>
-            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">
             <div class="card">
-                <h5>Basic</h5>
-                <div class="flex align-items-center">
-                    <Chip label="Action" class="mr-2" />
-                    <Chip label="Comedy" class="mr-2" />
-                    <Chip label="Mystery" class="mr-2" />
-                    <Chip label="Thriller" removable />
+                <h4>Chip</h4>
+                <h5 class="text-center sm:text-left">Basic</h5>
+                <div class="flex align-items-center flex-column sm:flex-row">
+                    <Chip label="Action" class="mr-2 mb-2"></Chip>
+                    <Chip label="Comedy" class="mr-2 mb-2"></Chip>
+                    <Chip label="Mystery" class="mr-2 mb-2"></Chip>
+                    <Chip label="Thriller" :removable="true" class="mb-2"></Chip>
                 </div>
 
-                <h5>Icon</h5>
-                <div class="flex align-items-center">
-                    <Chip label="Apple" icon="pi pi-apple" class="mr-2" />
-                    <Chip label="Facebook" icon="pi pi-facebook" class="mr-2" />
-                    <Chip label="Google" icon="pi pi-google" class="mr-2" />
-                    <Chip label="Microsoft" icon="pi pi-microsoft" removable />
+                <h5 class="text-center sm:text-left">Icon</h5>
+                <div class="flex align-items-center flex-column sm:flex-row">
+                    <Chip label="Apple" icon="pi pi-apple" class="mr-2 mb-2"></Chip>
+                    <Chip label="Facebook" icon="pi pi-facebook" class="mr-2 mb-2"></Chip>
+                    <Chip label="Google" icon="pi pi-google" class="mr-2 mb-2"></Chip>
+                    <Chip label="Microsoft" icon="pi pi-microsoft" :removable="true" class="mb-2"></Chip>
                 </div>
 
-                <h5>Image</h5>
-                <div class="flex align-items-center">
-                    <Chip label="Amy Elsner" image="demo/images/avatar/amyelsner.png" class="mr-2" />
-                    <Chip label="Asiya Javayant" image="demo/images/avatar/asiyajavayant.png" class="mr-2" />
-                    <Chip label="Onyama Limba" image="demo/images/avatar/onyamalimba.png" class="mr-2" />
-                    <Chip label="Xuxue Feng" image="demo/images/avatar/xuxuefeng.png" removable />
+                <h5 class="text-center sm:text-left">Image</h5>
+                <div class="flex align-items-center flex-column sm:flex-row">
+                    <Chip label="Amy Elsner" image="demo/images/avatar/amyelsner.png" class="mr-2 mb-2"></Chip>
+                    <Chip label="Asiya Javayant" image="demo/images/avatar/asiyajavayant.png" class="mr-2 mb-2"></Chip>
+                    <Chip label="Onyama Limba" image="demo/images/avatar/onyamalimba.png" class="mr-2 mb-2"></Chip>
+                    <Chip label="Xuxue Feng" image="demo/images/avatar/xuxuefeng.png" :removable="true" class="mb-2"></Chip>
                 </div>
 
-                <h5>Styling</h5>
-                <div class="flex align-items-center">
-                    <Chip label="Action" class="mr-2 custom-chip" />
-                    <Chip label="Apple" icon="pi pi-apple" class="mr-2 custom-chip" />
-                    <Chip label="Onyama Limba" image="demo/images/avatar/onyamalimba.png" class="mr-2 custom-chip" />
-                    <Chip label="Xuxue Feng" image="demo/images/avatar/xuxuefeng.png" class="custom-chip" removable />
+                <h5 class="text-center sm:text-left">Styling</h5>
+                <div class="flex align-items-center flex-column sm:flex-row">
+                    <Chip label="Action" class="mr-2 mb-2 custom-chip"></Chip>
+                    <Chip label="Comedy" class="mr-2 mb-2 custom-chip"></Chip>
+                    <Chip label="Onyama Limba" image="demo/images/avatar/onyamalimba.png" class="mr-2 mb-2 custom-chip"></Chip>
+                    <Chip label="Xuxue Feng" image="demo/images/avatar/xuxuefeng.png" :removable="true" class="mb-2 custom-chip"></Chip>
                 </div>
             </div>
         </div>
@@ -50,7 +50,6 @@
 
 <script>
 import ChipDoc from './ChipDoc';
-
 export default {
     components: {
         'ChipDoc': ChipDoc

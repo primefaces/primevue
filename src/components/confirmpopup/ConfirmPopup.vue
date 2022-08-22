@@ -1,33 +1,28 @@
 <template>
-    <Portal>
-        <transition name="p-confirm-popup" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave">
-            <div :class="containerClass" v-if="visible" :ref="containerRef" v-bind="$attrs" @click="onOverlayClick">
-                <template v-if="!$slots.message">
-                    <div class="p-confirm-popup-content">
-                        <i :class="iconClass" />
-                        <span class="p-confirm-popup-message">{{confirmation.message}}</span>
-                    </div>
-                </template>
-                <component v-else :is="$slots.message" :message="confirmation"></component>
-                <div class="p-confirm-popup-footer">
-                    <CPButton :label="rejectLabel" :icon="rejectIcon" :class="rejectClass" @click="reject()"/>
-                    <CPButton :label="acceptLabel" :icon="acceptIcon" :class="acceptClass" @click="accept()" autofocus />
+    <transition name="p-confirm-popup" @enter="onEnter" @leave="onLeave">
+        <div class="p-confirm-popup p-component" v-if="visible" ref="container">
+            <slot name="message" v-if="$scopedSlots.message"></slot>
+            <template v-else>
+                <div class="p-confirm-popup-content">
+                    <i :class="iconClass" />
+                    <span class="p-confirm-popup-message">{{confirmation.message}}</span>
                 </div>
+            </template>
+            <div class="p-confirm-popup-footer">
+                <CPButton :label="rejectLabel" :icon="rejectIcon" :class="rejectClass" @click="reject()"/>
+                <CPButton :label="acceptLabel" :icon="acceptIcon" :class="acceptClass" @click="accept()" autofocus />
             </div>
-        </transition>
-    </Portal>
+        </div>
+    </transition>
 </template>
 
 <script>
-import ConfirmationEventBus from 'primevue/confirmationeventbus';
-import {ConnectedOverlayScrollHandler,DomHandler,ZIndexUtils} from 'primevue/utils';
-import OverlayEventBus from 'primevue/overlayeventbus';
-import Button from 'primevue/button';
-import Portal from 'primevue/portal';
+import ConfirmationEventBus from '../confirmationeventbus/ConfirmationEventBus';
+import ConnectedOverlayScrollHandler from '../utils/ConnectedOverlayScrollHandler';
+import DomHandler from '../utils/DomHandler';
+import Button from '../button/Button';
 
 export default {
-    name: 'ConfirmPopup',
-    inheritAttrs: false,
     props: {
         group: String
     },
@@ -42,10 +37,8 @@ export default {
     scrollHandler: null,
     resizeListener: null,
     container: null,
-    confirmListener: null,
-    closeListener: null,
     mounted() {
-        this.confirmListener = (options) => {
+        ConfirmationEventBus.on('confirm', (options) => {
             if (!options) {
                 return;
             }
@@ -55,35 +48,30 @@ export default {
                 this.target = options.target;
                 this.visible = true;
             }
-        };
-        this.closeListener = () => {
+        });
+
+        ConfirmationEventBus.on('close', () => {
             this.visible = false;
             this.confirmation = null;
-        };
-        ConfirmationEventBus.on('confirm', this.confirmListener);
-        ConfirmationEventBus.on('close', this.closeListener);
+        });
     },
-    beforeUnmount() {
-        ConfirmationEventBus.off('confirm', this.confirmListener);
-        ConfirmationEventBus.off('close', this.closeListener);
+    beforeDestroy() {
+        ConfirmationEventBus.off('confirm');
+        ConfirmationEventBus.off('close');
 
+        this.restoreAppend();
         this.unbindOutsideClickListener();
         if (this.scrollHandler) {
             this.scrollHandler.destroy();
             this.scrollHandler = null;
         }
         this.unbindResizeListener();
-
-        if (this.container) {
-            ZIndexUtils.clear(this.container);
-            this.container = null;
-        }
-
         this.target = null;
+        this.container = null;
         this.confirmation = null;
     },
     methods: {
-         accept() {
+        accept() {
             if (this.confirmation.accept) {
                 this.confirmation.accept();
             }
@@ -97,44 +85,40 @@ export default {
 
             this.visible = false;
         },
-        onEnter(el) {
+        onEnter() {
+            this.appendContainer();
+            this.alignOverlay();
             this.bindOutsideClickListener();
             this.bindScrollListener();
             this.bindResizeListener();
-
-            ZIndexUtils.set('overlay', el, this.$primevue.config.zIndex.overlay);
+            this.$refs.container.style.zIndex = String(this.baseZIndex + DomHandler.generateZIndex());
         },
         onLeave() {
             this.unbindOutsideClickListener();
             this.unbindScrollListener();
             this.unbindResizeListener();
         },
-        onAfterLeave(el) {
-            ZIndexUtils.clear(el);
-        },
         alignOverlay() {
-            DomHandler.absolutePosition(this.container, this.target);
+            DomHandler.absolutePosition(this.$refs.container, this.target);
 
-            const containerOffset = DomHandler.getOffset(this.container);
+            const containerOffset = DomHandler.getOffset(this.$refs.container);
             const targetOffset = DomHandler.getOffset(this.target);
             let arrowLeft = 0;
 
             if (containerOffset.left < targetOffset.left) {
                 arrowLeft = targetOffset.left - containerOffset.left;
             }
-            this.container.style.setProperty('--overlayArrowLeft', `${arrowLeft}px`);
+            this.$refs.container.style.setProperty('--overlayArrowLeft', `${arrowLeft}px`);
 
             if (containerOffset.top < targetOffset.top) {
-                DomHandler.addClass(this.container, 'p-confirm-popup-flipped');
+                DomHandler.addClass(this.$refs.container, 'p-confirm-popup-flipped');
             }
         },
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
                 this.outsideClickListener = (event) => {
-                    if (this.visible && this.container && !this.container.contains(event.target) && !this.isTargetClicked(event)) {
+                        if (this.visible && this.$refs.container && !this.$refs.container.contains(event.target) && !this.isTargetClicked(event)) {
                         this.visible = false;
-                    } else {
-                        this.alignOverlay();
                     }
                 };
                 document.addEventListener('click', this.outsideClickListener);
@@ -165,7 +149,7 @@ export default {
         bindResizeListener() {
             if (!this.resizeListener) {
                 this.resizeListener = () => {
-                    if (this.visible && !DomHandler.isTouchDevice()) {
+                    if (this.visible) {
                         this.visible = false;
                     }
                 };
@@ -178,26 +162,19 @@ export default {
                 this.resizeListener = null;
             }
         },
-        isTargetClicked(event) {
+        isTargetClicked() {
             return this.target && (this.target === event.target || this.target.contains(event.target));
         },
-        containerRef(el) {
-            this.container = el;
+        appendContainer() {
+            document.body.append(this.$refs.container);
         },
-        onOverlayClick(event) {
-            OverlayEventBus.emit('overlay-click', {
-                originalEvent: event,
-                target: this.target
-            });
+        restoreAppend() {
+            if (this.container) {
+                document.body.remove(this.$refs.container);
+            }
         }
     },
     computed: {
-        containerClass() {
-            return ['p-confirm-popup p-component', {
-                'p-input-filled': this.$primevue.config.inputStyle === 'filled',
-                'p-ripple-disabled': this.$primevue.config.ripple === false
-            }];
-        },
         message() {
             return this.confirmation ? this.confirmation.message : null;
         },
@@ -224,8 +201,7 @@ export default {
         }
     },
     components: {
-        'CPButton': Button,
-        'Portal': Portal
+        'CPButton': Button
     }
 }
 </script>
@@ -234,8 +210,6 @@ export default {
 .p-confirm-popup {
     position: absolute;
     margin-top: 10px;
-    top: 0;
-    left: 0;
 }
 
 .p-confirm-popup-flipped {

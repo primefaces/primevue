@@ -5,7 +5,6 @@
                 <h1>DoughnutChart</h1>
                 <p>A doughnut chart is a variant of the pie chart, with a blank center allowing for additional information about the data as a whole to be included.</p>
             </div>
-            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">
@@ -20,21 +19,19 @@
 
 <script>
 import DoughnutChartDoc from './DoughnutChartDoc';
-import EventBus from '@/AppEventBus';
+import EventBus from '@/EventBus';
 
 export default {
-    themeChangeListener: null,
     mounted() {
-        this.themeChangeListener = (event) => {
+        EventBus.$on('change-theme', event => {
             if (event.dark)
                 this.chartOptions = this.getDarkTheme();
             else
                 this.chartOptions = this.getLightTheme();
-        }
-        EventBus.on('theme-change', this.themeChangeListener );
+        });
     },
-    beforeUnmount() {
-        EventBus.off('change-theme', this.themeChangeListener );
+    beforeDestroy() {
+        EventBus.$off('change-theme');
     },
     data() {
         return {

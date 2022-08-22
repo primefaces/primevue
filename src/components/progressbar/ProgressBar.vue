@@ -117,6 +117,7 @@ export default {
     left: 100%;
     right: -90%; }
 }
+
 @keyframes p-progressbar-indeterminate-anim {
   0% {
     left: -35%;
@@ -140,6 +141,7 @@ export default {
     left: 107%;
     right: -8%; }
 }
+
 @keyframes p-progressbar-indeterminate-anim-short {
   0% {
     left: -200%;

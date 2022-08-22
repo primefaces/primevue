@@ -17,9 +17,7 @@
 </template>
 
 <script>
-export default {
-    name: 'Card'
-}
+export default {}
 </script>
 
 <style>

@@ -3,9 +3,9 @@
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>CascadeSelect</h1>
-                <p>CascadeSelect is a form component to select a value from a nested structure of options.</p>
+                <p>CascadeSelect displays a nested structure of options.</p>
             </div>
-            <AppDemoActions />
+            <AppInputStyleSwitch />
         </div>
 
         <div class="content-section implementation">
@@ -15,7 +15,7 @@
                         :optionGroupChildren="['states', 'cities']" style="minWidth: 14rem" placeholder="Select a City" />
 
                 <h5>Templating</h5>
-                <CascadeSelect v-model="selectedCity2" :options="countries" optionLabel="cname" optionGroupLabel="name" 
+                <CascadeSelect v-model="selectedCity2" :options="countries" optionLabel="cname" optionGroupLabel="name"
                         :optionGroupChildren="['states', 'cities']" style="minWidth: 14rem" placeholder="Select a City">
                     <template #option="slotProps">
                         <div class="country-item">
@@ -26,9 +26,6 @@
                         </div>
                     </template>
                 </CascadeSelect>
-
-                <h5>Loading State</h5>
-                <CascadeSelect placeholder="Loading..." loading style="minWidth: 14rem"></CascadeSelect>
             </div>
         </div>
 
@@ -38,7 +35,6 @@
 
 <script>
 import CascadeSelectDoc from './CascadeSelectDoc';
-
 export default {
     data() {
         return {
@@ -64,11 +60,11 @@ export default {
                                 {cname: 'Townsville', code: 'A-TO'}
                             ]
                         },
-                        
+
                     ]
                 },
                 {
-                    name: 'Canada', 
+                    name: 'Canada',
                     code: 'CA',
                     states: [
                         {
@@ -85,7 +81,7 @@ export default {
                                 {cname: 'Toronto', code: 'C-TO'}
                             ]
                         },
-                        
+
                     ]
                 },
                 {
@@ -120,7 +116,7 @@ export default {
                     ]
                 }
             ]
-        } 
+        }
     },
     components: {
         'CascadeSelectDoc': CascadeSelectDoc

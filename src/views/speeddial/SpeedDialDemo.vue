@@ -5,7 +5,6 @@
                 <h1>Speed Dial</h1>
                 <p>When pressed, a floating action button can display multiple primary actions that can be performed on a page.</p>
             </div>
-            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">
@@ -37,9 +36,9 @@
             <div class="card">
                 <h5>Tooltip</h5>
                 <div class="speeddial-tooltip-demo" :style="{ position: 'relative', height: '350px' }">
-                    <SpeedDial :model="items" direction="up" class="speeddial-right" buttonClass="p-button-danger" :tooltipOptions="{position: 'left'}" />
+                    <SpeedDial :model="items" direction="up" className="speeddial-right" buttonClass="p-button-danger" :tooltipOptions="{position: 'left'}" />
 
-                    <SpeedDial :model="items" direction="up" class="speeddial-left" buttonClass="p-button-help" :tooltipOptions="{position: 'right'}" />
+                    <SpeedDial :model="items" direction="up" className="speeddial-left" buttonClass="p-button-help" :tooltipOptions="{position: 'right'}" />
                 </div>
             </div>
 
@@ -63,8 +62,7 @@
 </template>
 
 <script>
-import SpeedDialDoc from './SpeedDialDoc.vue';
-
+import SpeedDialDoc from './SpeedDialDoc';
 export default {
     data() {
         return {
@@ -94,7 +92,7 @@ export default {
                     label: 'Upload',
                     icon: 'pi pi-upload',
                     command: () => {
-                        this.$router.push('fileupload');
+                        window.location.hash = "/fileupload"
                     }
                 },
                 {
@@ -114,101 +112,85 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-::v-deep(.speeddial-linear-demo) {
+::v-deep .speeddial-linear-demo {
     .p-speeddial-direction-up {
         left: calc(50% - 2rem);
         bottom: 0;
     }
-
     .p-speeddial-direction-down {
         left: calc(50% - 2rem);
         top: 0;
     }
-
     .p-speeddial-direction-left {
         right: 0;
         top: calc(50% - 2rem);
     }
-
     .p-speeddial-direction-right {
         left: 0;
         top: calc(50% - 2rem);
     }
 }
-
-::v-deep(.speeddial-circle-demo) {
+::v-deep .speeddial-circle-demo {
     .p-speeddial-circle {
         top: calc(50% - 2rem);
         left: calc(50% - 2rem);
     }
-
     .p-speeddial-semi-circle {
         &.p-speeddial-direction-up {
             left: calc(50% - 2rem);
             bottom: 0;
         }
-
         &.p-speeddial-direction-down {
             left: calc(50% - 2rem);
             top: 0;
         }
-
         &.p-speeddial-direction-left {
             right: 0;
             top: calc(50% - 2rem);
         }
-
         &.p-speeddial-direction-right {
             left: 0;
             top: calc(50% - 2rem);
         }
     }
-
     .p-speeddial-quarter-circle {
         &.p-speeddial-direction-up-left {
             right: 0;
             bottom: 0;
         }
-
         &.p-speeddial-direction-up-right {
             left: 0;
             bottom: 0;
         }
-
         &.p-speeddial-direction-down-left {
             right: 0;
             top: 0;
         }
-
         &.p-speeddial-direction-down-right {
             left: 0;
             top: 0;
         }
     }
 }
-
-::v-deep(.speeddial-tooltip-demo) {
+::v-deep .speeddial-tooltip-demo {
     .p-speeddial-direction-up {
         &.speeddial-left {
             left: 0;
             bottom: 0;
         }
-
         &.speeddial-right {
             right: 0;
             bottom: 0;
         }
     }
 }
-
-::v-deep(.speeddial-delay-demo) {
+::v-deep .speeddial-delay-demo {
     .p-speeddial-direction-up {
         left: calc(50% - 2rem);
         bottom: 0;
     }
 }
-
-::v-deep(.speeddial-mask-demo) {
+::v-deep .speeddial-mask-demo {
     .p-speeddial-direction-up {
         right: 0;
         bottom: 0;

@@ -5,7 +5,6 @@
                 <h1>Editor</h1>
                 <p>Editor is rich text editor component based on Quill.</p>
             </div>
-            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">
@@ -15,7 +14,7 @@
 
                 <h5>Customized</h5>
                 <Editor v-model="value2" editorStyle="height: 320px">
-                    <template v-slot:toolbar>
+                    <template #toolbar>
                         <span class="ql-formats">
                             <button class="ql-bold" v-tooltip.bottom="'Bold'"></button>
                             <button class="ql-italic" v-tooltip.bottom="'Italic'"></button>

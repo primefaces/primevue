@@ -3,14 +3,13 @@
         <slot>
             <span class="p-avatar-text" v-if="label">{{label}}</span>
             <span :class="iconClass" v-else-if="icon"></span>
-            <img :src="image" v-else-if="image" @error="onError">
+            <img :src="image" v-else-if="image">
         </slot>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'Avatar',
     props: {
         label: {
             type: String,
@@ -31,11 +30,6 @@ export default {
         shape: {
             type: String,
             default: "square"
-        }
-    },
-    methods: {
-        onError() {
-            this.$emit('error');
         }
     },
     computed: {
@@ -63,23 +57,18 @@ export default {
     height: 2rem;
     font-size: 1rem;
 }
-
 .p-avatar.p-avatar-image {
     background-color: transparent;
 }
-
 .p-avatar.p-avatar-circle {
     border-radius: 50%;
 }
-
 .p-avatar-circle img {
     border-radius: 50%;
 }
-
 .p-avatar .p-avatar-icon {
     font-size: 1rem;
 }
-
 .p-avatar img {
     width: 100%;
     height: 100%;

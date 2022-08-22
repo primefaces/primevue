@@ -1,38 +1,35 @@
 <template>
     <ul ref="element" :class="containerClass" role="'menubar' : 'menu'" aria-orientation="horizontal">
-        <template v-for="(item, i) of model" :key="label(item) + i.toString()">
-            <li :class="getItemClass(item)" :style="item.style" v-if="visible(item) && !item.separator"
+        <template v-for="(item, i) of model">
+            <li :class="getItemClass(item)" :style="item.style" v-if="visible(item) && !item.separator" :key="label(item) + i"
                 @mouseenter="onItemMouseEnter($event, item)" role="none">
-                <template v-if="!template">
-                    <router-link v-if="item.to && !disabled(item)" :to="item.to" custom v-slot="{navigate, href, isActive, isExactActive}">
-                        <a :href="href" @click="onItemClick($event, item, navigate)" :class="linkClass(item, {isActive, isExactActive})" v-ripple @keydown="onItemKeyDown($event, item)" role="menuitem">
-                            <span :class="['p-menuitem-icon', item.icon]" v-if="item.icon"></span>
-                            <span class="p-menuitem-text">{{label(item)}}</span>
-                        </a>
-                    </router-link>
-                    <a v-else :href="item.url" :class="linkClass(item)" :target="item.target" :aria-haspopup="item.items != null" :aria-expanded="item === activeItem"
-                        @click="onItemClick($event, item)" @keydown="onItemKeyDown($event, item)" role="menuitem" :tabindex="disabled(item) ? null : '0'" v-ripple>
-                        <span :class="['p-menuitem-icon', item.icon]" v-if="item.icon"></span>
+                <router-link v-if="item.to && !disabled(item)" :to="item.to" custom v-slot="{navigate, href, isActive, isExactActive}">
+                    <a :href="href" :class="linkClass(item, {isActive, isExactActive})" v-ripple @click.native="onItemClick($event, item, navigate)"
+                        @keydown.native="onItemKeyDown($event, item)" role="menuitem">
+                        <span :class="['p-menuitem-icon', item.icon]"></span>
                         <span class="p-menuitem-text">{{label(item)}}</span>
-                        <span class="p-submenu-icon pi pi-angle-right" v-if="item.items"></span>
                     </a>
-                </template>
-                <component v-else :is="template" :item="item"></component>
-                <TieredMenuSub :model="item.items" v-if="visible(item) && item.items" :key="label(item) + '_sub_'" :template="template"
+                </router-link>
+                <a v-else :href="item.url" :class="linkClass(item)" :target="item.target" :aria-haspopup="item.items != null" :aria-expanded="item === activeItem"
+                    @click="onItemClick($event, item)" @keydown="onItemKeyDown($event, item)" role="menuitem" :tabindex="disabled(item) ? null : '0'" v-ripple>
+                    <span :class="['p-menuitem-icon', item.icon]"></span>
+                    <span class="p-menuitem-text">{{label(item)}}</span>
+                    <span class="p-submenu-icon pi pi-angle-right" v-if="item.items"></span>
+                </a>
+                <sub-menu :model="item.items" v-if="visible(item) && item.items" :key="label(item) + '_sub_'"
                     @leaf-click="onLeafClick" @keydown-item="onChildItemKeyDown" :parentActive="item === activeItem" :exact="exact" />
             </li>
-            <li :class="['p-menu-separator', item.class]" :style="item.style" v-if="visible(item) && item.separator" :key="'separator' + i.toString()" role="separator"></li>
+            <li :class="['p-menu-separator', item.class]" :style="item.style" v-if="visible(item) && item.separator" :key="'separator' + i" role="separator"></li>
         </template>
     </ul>
 </template>
 
 <script>
-import {DomHandler} from 'primevue/utils';
-import Ripple from 'primevue/ripple';
+import DomHandler from '../utils/DomHandler';
+import Ripple from '../ripple/Ripple';
 
 export default {
-    name: 'TieredMenuSub',
-    emits: ['leaf-click', 'keydown-item'],
+    name: 'sub-menu',
     props: {
         model: {
             type: Array,
@@ -49,10 +46,6 @@ export default {
         parentActive: {
             type: Boolean,
             default: false
-        },
-        template: {
-            type: Function,
-            default: null
         },
         exact: {
             type: Boolean,
@@ -77,7 +70,7 @@ export default {
             this.bindDocumentClickListener();
         }
     },
-    beforeUnmount() {
+    beforeDestroy() {
         this.unbindDocumentClickListener();
     },
     methods: {
@@ -96,10 +89,14 @@ export default {
                 this.activeItem = item;
             }
         },
-        onItemClick(event, item, navigate) {
+        onItemClick(event, item) {
             if (this.disabled(item)) {
                 event.preventDefault();
                 return;
+            }
+
+            if (!item.url && !item.to) {
+                event.preventDefault();
             }
 
             if (item.command) {
@@ -113,15 +110,11 @@ export default {
                 if (this.activeItem && item === this.activeItem)
                     this.activeItem = null;
                 else
-                    this.activeItem = item;
+                   this.activeItem = item;
             }
 
             if (!item.items) {
                 this.onLeafClick();
-            }
-
-            if (item.to && navigate) {
-                navigate(event);
             }
         },
         onLeafClick() {

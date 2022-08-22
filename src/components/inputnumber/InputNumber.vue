@@ -1,25 +1,24 @@
 <template>
-    <span :class="containerClass">
-        <INInputText ref="input" class="p-inputnumber-input" role="spinbutton" :id="inputId" :class="inputClass" :style="inputStyle" :value="formattedValue" :aria-valuemin="min" :aria-valuemax="max" :aria-valuenow="modelValue" :disabled="disabled" :readonly="readonly" :placeholder="placeholder" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel"
-            @input="onUserInput" @keydown="onInputKeyDown" @keypress="onInputKeyPress" @paste="onPaste" @click="onInputClick" @focus="onInputFocus" @blur="onInputBlur" v-bind="inputProps"/>
+    <span :class="containerClass" :style="styles">
+        <INInputText ref="input" :class="['p-inputnumber-input', inputClass]" :style="inputStyle" :value="formattedValue" v-bind="$attrs" :aria-valumin="min" :aria-valuemax="max"
+           @input="onUserInput" @keydown="onInputKeyDown" @keypress="onInputKeyPress" @paste="onPaste" @click="onInputClick" @focus="onInputFocus" @blur="onInputBlur"/>
         <span class="p-inputnumber-button-group" v-if="showButtons && buttonLayout === 'stacked'">
-            <INButton :class="upButtonClass" :icon="incrementButtonIcon" v-on="upButtonListeners" :disabled="disabled" :tabindex="-1" aria-hidden="true" v-bind="incrementButtonProps" />
-            <INButton :class="downButtonClass" :icon="decrementButtonIcon" v-on="downButtonListeners" :disabled="disabled" :tabindex="-1" aria-hidden="true" v-bind="decrementButtonProps" />
+            <INButton :class="upButtonClass" :icon="incrementButtonIcon" v-on="upButtonListeners" :disabled="$attrs.disabled" />
+            <INButton :class="downButtonClass" :icon="decrementButtonIcon" v-on="downButtonListeners" :disabled="$attrs.disabled" />
         </span>
-        <INButton :class="upButtonClass" :icon="incrementButtonIcon" v-on="upButtonListeners" v-if="showButtons && buttonLayout !== 'stacked'" :disabled="disabled" :tabindex="-1" aria-hidden="true" v-bind="incrementButtonProps" />
-        <INButton :class="downButtonClass" :icon="decrementButtonIcon" v-on="downButtonListeners" v-if="showButtons && buttonLayout !== 'stacked'" :disabled="disabled" :tabindex="-1" aria-hidden="true" v-bind="decrementButtonProps" />
+        <INButton :class="upButtonClass" :icon="incrementButtonIcon" v-on="upButtonListeners" v-if="showButtons && buttonLayout !== 'stacked'" :disabled="$attrs.disabled" />
+        <INButton :class="downButtonClass" :icon="decrementButtonIcon" v-on="downButtonListeners" v-if="showButtons && buttonLayout !== 'stacked'" :disabled="$attrs.disabled" />
     </span>
 </template>
 
 <script>
-import InputText from 'primevue/inputtext';
-import Button from 'primevue/button';
+import InputText from '../inputtext/InputText';
+import Button from '../button/Button';
 
 export default {
-    name: 'InputNumber',
-    emits: ['update:modelValue', 'input', 'focus', 'blur'],
+    inheritAttrs: false,
     props: {
-        modelValue: {
+        value: {
             type: Number,
             default: null
         },
@@ -107,32 +106,10 @@ export default {
             type: Boolean,
             default: true
         },
-        readonly: {
-            type: Boolean,
-            default: false
-        },
-        disabled: {
-            type: Boolean,
-            default: false
-        },
-        placeholder: {
-            type: String,
-            default: null
-        },
-        inputId: null,
-        inputClass: null,
+        styles: null,
+        className: null,
         inputStyle: null,
-        inputProps: null,
-        incrementButtonProps: null,
-        decrementButtonProps: null,
-        'aria-labelledby': {
-            type: String,
-			default: null
-        },
-        'aria-label': {
-            type: String,
-            default: null
-        }
+        inputClass: null
     },
     numberFormat: null,
     _numeral: null,
@@ -150,13 +127,13 @@ export default {
     timer: null,
     data() {
         return {
-            d_modelValue: this.modelValue,
+            d_value: null,
             focused: false
         }
     },
     watch: {
-        modelValue(newValue) {
-            this.d_modelValue = newValue;
+        value(newValue) {
+            this.d_value = newValue;
         },
 		locale(newValue, oldValue) {
             this.updateConstructParser(newValue, oldValue);
@@ -318,10 +295,6 @@ export default {
             return null;
         },
         repeat(event, interval, dir) {
-            if (this.readonly) {
-                return;
-            }
-
             let i = interval || 500;
 
             this.clearTimer();
@@ -344,24 +317,24 @@ export default {
             }
         },
         onUpButtonMouseDown(event) {
-            if (!this.disabled) {
+            if (!this.$attrs.disabled) {
                 this.$refs.input.$el.focus();
                 this.repeat(event, null, 1);
                 event.preventDefault();
             }
         },
         onUpButtonMouseUp() {
-            if (!this.disabled) {
+            if (!this.$attrs.disabled) {
                 this.clearTimer();
             }
         },
         onUpButtonMouseLeave() {
-            if (!this.disabled) {
+            if (!this.$attrs.disabled) {
                 this.clearTimer();
             }
         },
         onUpButtonKeyUp() {
-            if (!this.disabled) {
+            if (!this.$attrs.disabled) {
                 this.clearTimer();
             }
         },
@@ -371,24 +344,24 @@ export default {
             }
         },
         onDownButtonMouseDown(event) {
-            if (!this.disabled) {
+            if (!this.$attrs.disabled) {
                 this.$refs.input.$el.focus();
                 this.repeat(event, null, -1);
                 event.preventDefault();
             }
         },
         onDownButtonMouseUp() {
-            if (!this.disabled) {
+            if (!this.$attrs.disabled) {
                 this.clearTimer();
             }
         },
         onDownButtonMouseLeave() {
-            if (!this.disabled) {
+            if (!this.$attrs.disabled) {
                 this.clearTimer();
             }
         },
         onDownButtonKeyUp() {
-            if (!this.disabled) {
+            if (!this.$attrs.disabled) {
                 this.clearTimer();
             }
         },
@@ -404,10 +377,6 @@ export default {
             this.isSpecialChar = false;
         },
         onInputKeyDown(event) {
-            if (this.readonly) {
-                return;
-            }
-
             this.lastValue = event.target.value;
             if (event.shiftKey || event.altKey) {
                 this.isSpecialChar = true;
@@ -450,8 +419,7 @@ export default {
                     }
                 break;
 
-                //tab and enter
-                case 9:
+                //enter
                 case 13:
                     newValueStr = this.validateValue(this.parseValue(inputValue));
                     this.$refs.input.$el.value = this.formatValue(newValueStr);
@@ -553,31 +521,11 @@ export default {
                     }
                 break;
 
-                //home
-                case 36:
-                    if (this.min) {
-                        this.updateModel(event, this.min);
-                        event.preventDefault();
-                    }
-                break;
-
-                //end
-                case 35:
-                    if (this.max) {
-                        this.updateModel(event, this.max);
-                        event.preventDefault();
-                    }
-                break;
-
                 default:
                 break;
             }
         },
         onInputKeyPress(event) {
-            if (this.readonly) {
-                return;
-            }
-
             event.preventDefault();
             let code = event.which || event.keyCode;
             let char = String.fromCharCode(code);
@@ -784,9 +732,7 @@ export default {
             return index || 0;
         },
         onInputClick() {
-            if (!this.readonly) {
-                this.initCursor();
-            }
+            this.initCursor();
         },
         isNumeralChar(char) {
             if (char.length === 1 && (this._numeral.test(char) || this._decimal.test(char) || this._group.test(char) || this._minusSign.test(char))) {
@@ -816,7 +762,7 @@ export default {
         },
         handleOnInput(event, currentValue, newValue) {
             if (this.isValueChanged(currentValue, newValue)) {
-                this.$emit('input', { originalEvent: event, value: newValue });
+                this.$emit('input', newValue);
             }
         },
         isValueChanged(currentValue, newValue) {
@@ -947,8 +893,8 @@ export default {
             return 0;
         },
         updateModel(event, value) {
-            this.d_modelValue = value;
-            this.$emit('update:modelValue', value);
+            this.d_value = value;
+            this.$emit('input', value);
         },
         onInputFocus(event) {
             this.focused = true;
@@ -959,12 +905,10 @@ export default {
 
             let input = event.target;
             let newValue = this.validateValue(this.parseValue(input.value));
-
-            this.$emit('blur', { originalEvent: event, value: input.value});
-            
             input.value = this.formatValue(newValue);
             input.setAttribute('aria-valuenow', newValue);
             this.updateModel(event, newValue);
+            this.$emit('blur', event);
         },
         clearTimer() {
             if (this.timer) {
@@ -972,15 +916,15 @@ export default {
             }
         },
         maxBoundry() {
-            return this.d_modelValue >= this.max;
+            return this.d_value >= this.max;
         },
         minBoundry() {
-            return this.d_modelValue <= this.min;
+            return this.d_value <= this.min;
         },
     },
     computed: {
         containerClass() {
-            return ['p-inputnumber p-component p-inputwrapper', {
+            return ['p-inputnumber p-component p-inputwrapper', this.className, {
                 'p-inputwrapper-filled': this.filled,
                 'p-inputwrapper-focus': this.focused,
                 'p-inputnumber-buttons-stacked': this.showButtons && this.buttonLayout === 'stacked',
@@ -988,7 +932,6 @@ export default {
                 'p-inputnumber-buttons-vertical': this.showButtons && this.buttonLayout === 'vertical'
             }];
         },
-        
         upButtonClass() {
             return ['p-inputnumber-button p-inputnumber-button-up', this.incrementButtonClass, {
                 'p-disabled': this.showButtons && this.max !== null && this.maxBoundry()
@@ -1000,7 +943,7 @@ export default {
             }];
         },
         filled() {
-            return (this.modelValue != null && this.modelValue.toString().length > 0)
+            return (this.value != null && this.value.toString().length > 0)
         },
         upButtonListeners() {
             return {
@@ -1021,7 +964,7 @@ export default {
             }
         },
         formattedValue() {
-            const val = !this.modelValue && !this.allowEmpty ? 0 : this.modelValue;
+            const val = !this.value && !this.allowEmpty ? 0 : this.value;
             return this.formatValue(val);
         },
         getFormatter() {

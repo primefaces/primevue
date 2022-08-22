@@ -6,68 +6,56 @@
         <h5>Getting Started</h5>
         <p>Chart component is a wrapper around on <a href="https://www.chartjs.org/docs/3.3.2/">Chart.js 3.3.2+</a> so chart.js needs to be included in your project.
         For a complete documentation and samples please refer to the <a href="https://www.chartjs.org/">chart.js website</a>.</p>
- <pre v-code.script><code>
+ <CodeHighlight lang="javascript">
 npm install chart.js --save
+</CodeHighlight>
 
-</code></pre>
-
-		<h5>Import via Module</h5>
-<pre v-code.script><code>
+		<h5>Import</h5>
+<CodeHighlight lang="javascript">
 import Chart from 'primevue/chart';
+</CodeHighlight>
 
-</code></pre>
-
-        <h5>Import via CDN</h5>
-<pre v-code><code>
-&lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
-&lt;script src="https://unpkg.com/primevue@^3/chart/chart.min.js"&gt;&lt;/script&gt;
-
-</code></pre>
-
-		<h5>Chart Types</h5>
+        <h5>Chart Types</h5>
 		<p>Chart type is defined using the <i>type</i> property. Currently there are 6 options available; <b>pie</b>, <b>doughnut</b>, <b>line</b>, <b>bar</b>, <b>radar</b> and <b>polarArea</b>.</p>
 
 		<h5>Data</h5>
 		<p>Data of a chart is provided using a binding to the <i>data</i> property, each type has its own format of data. Here is an example of a line chart.  For more information refer to the <a href="https://www.chartjs.org/">charts.js</a> documentation.</p>
-<pre v-code><code>
-&lt;Chart type="bar" :data="basicData" /&gt;
+<CodeHighlight>
+&lt;Chart type="bar" :data="basicData" :options="basicOptions" /&gt;
+</CodeHighlight>
 
-</code></pre>
-
-<pre v-code.script><code>
+<CodeHighlight lang="js">
 export default {
 	data() {
 		return {
-			basicData: {
-				labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-				datasets: [
-					{
-						label: 'My First dataset',
-						backgroundColor: '#42A5F5',
-						data: [65, 59, 80, 81, 56, 55, 40]
-					},
-					{
-						label: 'My Second dataset',
-						backgroundColor: '#9CCC65',
-						data: [28, 48, 40, 19, 86, 27, 90]
-					}
-				]
-			}
+			basicData:{
+                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                datasets: [
+                    {
+                        label: 'My First dataset',
+                        backgroundColor: '#42A5F5',
+                        data: [65, 59, 80, 81, 56, 55, 40]
+                    },
+                    {
+                        label: 'My Second dataset',
+                        backgroundColor: '#FFA726',
+                        data: [28, 48, 40, 19, 86, 27, 90]
+                    }
+                ]
+            }
 		}
 	}
 }
+</CodeHighlight>
 
-</code></pre>
-
-		<h5>Options</h5>
+        <h5>Options</h5>
 		<p>While a series can be customized per dataset, general chart options are defined with options property.
 			Example below adds a title and customizes the legend position of the chart. For all available options refer to the <a href="https://www.chartjs.org/">charts.js</a> documentation.</p>
-<pre v-code><code>
+<CodeHighlight>
 &lt;Chart type="line" :data="data" :options="options" /&gt;
+</CodeHighlight>
 
-</code></pre>
-
-<pre v-code.script><code>
+<CodeHighlight lang="js">
 options: {
 	responsive: true,
 	hoverMode: 'index',
@@ -90,8 +78,7 @@ options: {
         }]
 	}
 }
-
-</code></pre>
+</CodeHighlight>
 
 		<h5>Properties</h5>
         <p>Any property as style and class are passed to the main container element. Following is the additional property to configure the component.</p>
@@ -197,11 +184,6 @@ options: {
                             event.element._index = Index of the data in dataset
                         </td>
                         <td>Callback to invoke when a tab gets expanded.</td>
-                    </tr>
-                    <tr>
-                        <td>loaded</td>
-                        <td>chart instance</td>
-                        <td>Callback to invoke when chart is loaded.</td>
                     </tr>
                 </tbody>
             </table>

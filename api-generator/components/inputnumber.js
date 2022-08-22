@@ -1,6 +1,6 @@
 const InputNumberProps = [
     {
-        name: "modelValue",
+        name: "value",
         type: "number",
         default: "null",
         description: "Value of the component."
@@ -126,30 +126,6 @@ const InputNumberProps = [
         description: "Step factor to increment/decrement the value."
     },
     {
-        name: "allowEmpty",
-        type: "boolean",
-        default: "true",
-        description: "Determines whether the input field is empty."
-    },
-    {
-        name: "readonly",
-        type: "boolean",
-        default: "false",
-        description: "When present, it specifies that an input field is read-only."
-    },
-    {
-        name: "placeholder",
-        type: "string",
-        default: "null",
-        description: "Placeholder text for the input."
-    },
-    {
-        name: "inputId",
-        type: "string",
-        default: "null",
-        description: "Identifier of the underlying input element."
-    },
-    {
         name: "inputStyle",
         type: "any",
         default: "null",
@@ -160,24 +136,6 @@ const InputNumberProps = [
         type: "string",
         default: "null",
         description: "Style class of the input field."
-    },
-    {
-        name: "inputProps",
-        type: "object",
-        default: "null",
-        description: "Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component."
-    },
-    {
-        name: "incrementButtonProps",
-        type: "object",
-        default: "null",
-        description: "Uses to pass all properties of the HTMLButtonElement to increment button inside the component."
-    },
-    {
-        name: "decrementButtonProps",
-        type: "object",
-        default: "null",
-        description: "Uses to pass all properties of the HTMLButtonElement to decrement button inside the component."
     }
 ];
 
@@ -195,33 +153,6 @@ const InputNumberEvents = [
                 name: "event.value",
                 type: "number",
                 description: "New value"
-            }
-        ]
-    },
-    {
-        name: "focus",
-        description: "Callback to invoke on focus of input field.",
-        arguments: [
-            {
-                name: "event",
-                type: "object",
-                description: "Focus event"
-            }
-        ]
-    },
-    {
-        name: "blur",
-        description: "Callback to invoke on blur of input field.",
-        arguments: [
-            {
-                name: "event.originalEvent",
-                type: "object",
-                description: "Browser event"
-            },
-            {
-                name: "event.value",
-                type: "string",
-                description: "Input value"
             }
         ]
     }

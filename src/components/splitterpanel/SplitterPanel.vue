@@ -1,12 +1,6 @@
-<template>
-    <div ref="container" :class="containerClass">
-        <slot></slot>
-    </div>
-</template>
-
 <script>
 export default {
-    name: 'SplitterPanel',
+    name: 'splitterpanel',
     props: {
         size: {
             type: Number,
@@ -17,15 +11,8 @@ export default {
             default: null
         }
     },
-    computed: {
-        containerClass() {
-            return ['p-splitter-panel', {'p-splitter-panel-nested': this.isNested}];
-        },
-        isNested() {
-            return this.$slots.default().some(child => {
-                return child.type.name === 'Splitter';
-            });
-        }
+    render() {
+        return null;
     }
 }
 </script>

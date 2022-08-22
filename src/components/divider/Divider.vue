@@ -8,7 +8,6 @@
 
 <script>
 export default {
-    name: 'Divider',
     props: {
         align: {
             type: String,
@@ -45,7 +44,6 @@ export default {
     position: relative;
     align-items: center;
 }
-
 .p-divider-horizontal:before {
     position: absolute;
     display: block;
@@ -54,23 +52,18 @@ export default {
     width: 100%;
     content: "";
 }
-
 .p-divider-horizontal.p-divider-left {
     justify-content: flex-start;
 }
-
 .p-divider-horizontal.p-divider-right {
     justify-content: flex-end;
 }
-
 .p-divider-horizontal.p-divider-center {
     justify-content: center;
 }
-
 .p-divider-content {
     z-index: 1;
 }
-
 .p-divider-vertical {
     min-height: 100%;
     margin: 0 1rem;
@@ -78,7 +71,6 @@ export default {
     position: relative;
     justify-content: center;
 }
-
 .p-divider-vertical:before {
     position: absolute;
     display: block;
@@ -87,39 +79,30 @@ export default {
     height: 100%;
     content: "";
 }
-
 .p-divider-vertical.p-divider-top {
     align-items: flex-start;
 }
-
 .p-divider-vertical.p-divider-center {
     align-items: center;
 }
-
 .p-divider-vertical.p-divider-bottom {
     align-items: flex-end;
 }
-
 .p-divider-solid.p-divider-horizontal:before {
     border-top-style: solid;
 }
-
 .p-divider-solid.p-divider-vertical:before {
     border-left-style: solid;
 }
-
 .p-divider-dashed.p-divider-horizontal:before {
     border-top-style: dashed;
 }
-
 .p-divider-dashed.p-divider-vertical:before {
     border-left-style: dashed;
 }
-
 .p-divider-dotted.p-divider-horizontal:before {
     border-top-style: dotted;
 }
-
 .p-divider-dotted.p-divider-horizontal:before {
     border-left-style: dotted;
 }

@@ -1,40 +1,36 @@
 <template>
     <transition name="p-contextmenusub" @enter="onEnter">
         <ul ref="container" :class="containerClass" role="menu" v-if="root ? true : parentActive">
-            <template v-for="(item, i) of model" :key="label(item) + i.toString()">
-                <li role="none" :class="getItemClass(item)" :style="item.style" v-if="visible(item) && !item.separator"
+            <template v-for="(item, i) of model">
+                <li role="none" :class="getItemClass(item)" :style="item.style" v-if="visible(item) && !item.separator" :key="label(item) + i"
                     @mouseenter="onItemMouseEnter($event, item)">
-                    <template v-if="!template">
-                        <router-link v-if="item.to && !disabled(item)" :to="item.to" custom v-slot="{navigate, href, isActive, isExactActive}">
-                            <a :href="href" @click="onItemClick($event, item, navigate)" :class="linkClass(item, {isActive, isExactActive})" v-ripple role="menuitem">
-                                <span :class="['p-menuitem-icon', item.icon]" v-if="item.icon"></span>
-                                <span class="p-menuitem-text">{{label(item)}}</span>
-                            </a>
-                        </router-link>
-                        <a v-else :href="item.url" :class="linkClass(item)" :target="item.target" @click="onItemClick($event, item)" v-ripple
-                            :aria-haspopup="item.items != null" :aria-expanded="item === activeItem" role="menuitem" :tabindex="disabled(item) ? null : '0'">
-                            <span :class="['p-menuitem-icon', item.icon]" v-if="item.icon"></span>
+                    <router-link v-if="item.to && !disabled(item)" :to="item.to" custom v-slot="{navigate, href, isActive, isExactActive}">
+                        <a :href="href" :class="linkClass(item, {isActive, isExactActive})" @click.native="onItemClick($event, item, navigate)" role="menuitem" v-ripple>
+                            <span :class="['p-menuitem-icon', item.icon]"></span>
                             <span class="p-menuitem-text">{{label(item)}}</span>
-                            <span class="p-submenu-icon pi pi-angle-right" v-if="item.items"></span>
                         </a>
-                    </template>
-                    <component v-else :is="template" :item="item"></component>
-                    <ContextMenuSub :model="item.items" v-if="visible(item) && item.items" :key="label(item) + '_sub_'" :template="template"
-                        @leaf-click="onLeafClick" :parentActive="item === activeItem" :exact="exact" />
+                    </router-link>
+                    <a v-else :href="item.url" :class="linkClass(item)" :target="item.target" @click="onItemClick($event, item)" v-ripple
+                        :aria-haspopup="item.items != null" :aria-expanded="item === activeItem" role="menuitem"  :tabindex="disabled(item) ? null : '0'">
+                        <span :class="['p-menuitem-icon', item.icon]"></span>
+                        <span class="p-menuitem-text">{{label(item)}}</span>
+                        <span class="p-submenu-icon pi pi-angle-right" v-if="item.items"></span>
+                    </a>
+                    <sub-menu :model="item.items" v-if="visible(item) && item.items" :key="label(item) + '_sub_'"
+                        @leaf-click="onLeafClick" :parentActive="item === activeItem" />
                 </li>
-                <li :class="['p-menu-separator', item.class]" :style="item.style" v-if="visible(item) && item.separator" :key="'separator' + i.toString()" role="separator"></li>
+                <li :class="['p-menu-separator', item.class]" :style="item.style" v-if="visible(item) && item.separator" :key="'separator' + i" role="separator"></li>
             </template>
         </ul>
     </transition>
 </template>
 
 <script>
-import {DomHandler} from 'primevue/utils';
-import Ripple from 'primevue/ripple';
+import DomHandler from '../utils/DomHandler';
+import Ripple from '../ripple/Ripple';
 
 export default {
-    name: 'ContextMenuSub',
-    emits: ['leaf-click'],
+    name: 'sub-menu',
     props: {
         model: {
             type: Array,
@@ -47,10 +43,6 @@ export default {
         parentActive: {
             type: Boolean,
             default: false
-        },
-        template: {
-            type: Function,
-            default: null
         },
         exact: {
             type: Boolean,
@@ -84,18 +76,15 @@ export default {
                 return;
             }
 
+            if (!item.url && !item.to) {
+                event.preventDefault();
+            }
+
             if (item.command) {
                 item.command({
                     originalEvent: event,
                     item: item
                 });
-            }
-
-            if (item.items) {
-                if (this.activeItem && item === this.activeItem)
-                    this.activeItem = null;
-                else
-                    this.activeItem = item;
             }
 
             if (!item.items) {

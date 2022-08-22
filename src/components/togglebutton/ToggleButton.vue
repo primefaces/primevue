@@ -1,70 +1,33 @@
 <template>
-    <div :class="buttonClass" @click="onClick($event)" v-ripple>
-        <span class="p-hidden-accessible">
-            <input type="checkbox" role="switch" :id="inputId" :class="inputClass" :style="inputStyle" :checked="modelValue" :value="modelValue" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel"
-                @focus="onFocus($event)" @blur="onBlur($event)" v-bind="inputProps">
-        </span>
+    <div :class="buttonClass" @click="onClick($event)" role="checkbox" :aria-labelledby="ariaLabelledBy" :aria-checked="value" :tabindex="$attrs.disabled ? null : '0'" v-ripple>
         <span v-if="hasIcon" :class="iconClass"></span>
         <span class="p-button-label">{{label}}</span>
     </div>
 </template>
 
 <script>
-import Ripple from 'primevue/ripple';
+import Ripple from '../ripple/Ripple';
 
 export default {
-    name: 'ToggleButton',
-    emits: ['update:modelValue', 'change', 'click', 'focus', 'blur'],
     props: {
-        modelValue: Boolean,
+        value: Boolean,
 		onIcon: String,
 		offIcon: String,
-        onLabel: {
-            type: String,
-            default: 'Yes'
-        },
-        offLabel: {
-            type: String,
-            default: 'No'
-        },
+        onLabel: String,
+        offLabel: String,
         iconPos: {
             type: String,
             default: 'left'
         },
-        disabled: {
-            type: Boolean,
-            default: false
-        },
-        tabindex: {
-            type: Number,
-            default: null
-        },
-        inputId: null,
-        inputClass: null,
-        inputStyle: null,
-        inputProps: null,
-        'aria-labelledby': {
-            type: String,
-			default: null
-        },
-        'aria-label': {
-            type: String,
-            default: null
-        }
+        ariaLabelledBy: String
     },
     methods: {
         onClick(event) {
-            if (!this.disabled) {
-                this.$emit('update:modelValue', !this.modelValue);
-                this.$emit('change', event);
+            if (!this.$attrs.disabled) {
                 this.$emit('click', event);
+                this.$emit('input', !this.value);
+                this.$emit('change', event);
             }
-        },
-        onFocus(event) {
-            this.$emit('focus', event);
-        },
-        onBlur(event) {
-            this.$emit('blur', event);
         }
     },
     computed: {
@@ -72,13 +35,13 @@ export default {
             return {
                 'p-button p-togglebutton p-component': true,
                 'p-button-icon-only': this.hasIcon && !this.hasLabel,
-                'p-disabled': this.disabled,
-                'p-highlight': this.modelValue === true
+                'p-disabled': this.$attrs.disabled,
+                'p-highlight': this.value === true
             }
         },
         iconClass() {
             return [
-                this.modelValue ? this.onIcon: this.offIcon,
+                this.value ? this.onIcon: this.offIcon,
                 'p-button-icon',
                 {
                     'p-button-icon-left': this.iconPos === 'left' && this.label,
@@ -93,7 +56,7 @@ export default {
             return this.onIcon && this.onIcon.length > 0 && this.offIcon && this.offIcon.length > 0;
         },
         label() {
-            return this.hasLabel ? (this.modelValue ? this.onLabel : this.offLabel): '&nbsp;';
+            return this.hasLabel ? (this.value ? this.onLabel : this.offLabel): '&nbsp;';
         }
     },
     directives: {

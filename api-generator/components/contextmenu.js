@@ -8,8 +8,8 @@ const ContextMenuProps = [
     {
         name: "appendTo",
         type: "string",
-        default: "body",
-        description: "A valid query selector or an HTMLElement to specify where the overlay gets attached."
+        default: "null",
+        description: 'Id of the element or "body" for document where the overlay should be appended to.'
     },
     {
         name: "baseZIndex",
@@ -37,18 +37,10 @@ const ContextMenuProps = [
     }
 ];
 
-const ContextMenuSlots = [
-    {
-        name: "item",
-        description: "Template of a menuitem."
-    }
-];
-
 module.exports = {
     contextmenu: {
         name: "ContextMenu",
         description: "ContextMenu displays an overlay menu on right click of its target.",
-        props: ContextMenuProps,
-        slots: ContextMenuSlots
+        props: ContextMenuProps
     }
 };

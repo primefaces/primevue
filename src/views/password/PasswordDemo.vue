@@ -5,7 +5,7 @@
                 <h1>Password</h1>
                 <p>Password displays strength indicator for password fields.</p>
             </div>
-            <AppDemoActions />
+            <AppInputStyleSwitch />
         </div>
 
         <div class="content-section implementation">
@@ -61,7 +61,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-::v-deep(.p-password input) {
+::v-deep .p-password input {
     width: 15rem
 }
 </style>

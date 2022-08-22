@@ -8,7 +8,6 @@
 
 <script>
 export default {
-    name: 'ProgressSpinner',
     props: {
         strokeWidth: {
             type: String,
@@ -43,9 +42,9 @@ export default {
 }
 
 .p-progress-spinner::before {
-    content: '';
-    display: block;
-    padding-top: 100%;
+     content: '';
+     display: block;
+     padding-top: 100%;
 }
 
 .p-progress-spinner-svg {

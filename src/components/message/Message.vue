@@ -1,6 +1,6 @@
 <template>
-    <transition name="p-message" appear>
-        <div :class="containerClass" v-show="visible" role="alert">
+    <transition name="p-message">
+        <div :class="containerClass" v-if="visible" role="alert">
             <div class="p-message-wrapper">
                 <span :class="iconClass"></span>
                 <div class="p-message-text">
@@ -15,11 +15,9 @@
 </template>
 
 <script>
-import Ripple from 'primevue/ripple';
+import Ripple from '../ripple/Ripple';
 
 export default {
-    name: 'Message',
-    emits: ['close'],
     props: {
         severity: {
             type: String,
@@ -40,7 +38,7 @@ export default {
         icon: {
             type: String,
             default: null
-        },
+        }
     },
     timeout: null,
     data() {
@@ -98,15 +96,16 @@ export default {
     position: relative;
 }
 
-.p-message-enter-from {
+.p-message-enter {
     opacity: 0;
 }
 
 .p-message-enter-active {
+    -webkit-transition: opacity .3s;
     transition: opacity .3s;
 }
 
-.p-message.p-message-leave-from {
+.p-message.p-message-leave {
     max-height: 1000px;
 }
 
@@ -118,7 +117,8 @@ export default {
 
 .p-message-leave-active {
     overflow: hidden;
-    transition: max-height .3s cubic-bezier(0, 1, 0, 1), opacity .3s, margin .15s;
+    -webkit-transition: max-height .3s cubic-bezier(0, 1, 0, 1), opacity .3s, margin .3s;
+    transition: max-height .3 cubic-bezier(0, 1, 0, 1), opacity .3s, margin .3s;
 }
 
 .p-message-leave-active .p-message-close {

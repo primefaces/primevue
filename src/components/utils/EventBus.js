@@ -1,4 +1,4 @@
-export default function primebus() {
+export default function () {
 	const allHandlers = new Map();
 
 	return {

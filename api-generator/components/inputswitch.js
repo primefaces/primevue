@@ -1,60 +1,103 @@
 const InputSwitchProps = [
     {
-        name: "modelValue",
+        name: "value",
         type: "boolean",
         default: "null",
         description: "Specifies whether a inputswitch should be checked or not."
     },
     {
+        name: "inputId",
+        type: "string",
+        default: "null",
+        description: "Identifier of the input element."
+    },
+    {
+        name: "name",
+        type: "string",
+        default: "null",
+        description: "Name of the input element."
+    },
+    {
+        name: "disabled",
+        type: "boolean",
+        default: "false",
+        description: "When present, it specifies that the component should be disabled."
+    },
+    {
+        name: "ariaLabelledBy",
+        type: "string",
+        default: "null",
+        description: "Establishes relationships between the component and label(s) where its value should be one or more element IDs."
+    },
+    {
         name: "trueValue",
         type: "any",
-        default: "null",
+        default: "true",
         description: "Value in checked state."
     },
     {
         name: "falseValue",
         type: "any",
-        default: "null",
+        default: "true",
         description: "Value in unchecked state."
-    },
-    {
-        name: "inputId",
-        type: "string",
-        default: "null",
-        description: "Identifier of the underlying input element."
-    },
-    {
-        name: "inputStyle",
-        type: "any",
-        default: "null",
-        description: "Inline style of the input field."
-    },
-    {
-        name: "inputClass",
-        type: "string",
-        default: "null",
-        description: "Style class of the input field."
-    },
-    {
-        name: "inputProps",
-        type: "object",
-        default: "null",
-        description: "Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component."
     }
 ];
 
 const InputSwitchEvents = [
     {
-        name: "click",
-        description: "Callback to invoke on click."
-    },
-    {
         name: "change",
-        description: "Callback to invoke on value change."
+        description: "Callback to invoke on value change.",
+        arguments: [
+            {
+                name: "event",
+                type: "object",
+                description: "Browser event"
+            }
+        ]
     },
     {
         name: "input",
-        description: "Callback to invoke on value change."
+        description: "Checked state as a boolean.",
+        arguments: [
+            {
+                name: "event",
+                type: "object",
+                description: "New value"
+            }
+        ]
+    },
+    {
+        name: "click",
+        description: "Callback to invoke click.",
+        arguments: [
+            {
+                name: "event",
+                type: "object",
+                description: "Browser event"
+            }
+        ]
+    },
+    {
+        name: "focus",
+        description: "Callback to invoke on focus.",
+        arguments: [
+            {
+                name: "event",
+                type: "object",
+                description: "Browser event"
+            }
+        ]
+    },
+    {
+        name: "blur",
+        description: "Callback to invoke on blur.",
+        arguments: [
+            {
+                name: "event",
+                type: "object",
+                description: "Browser event"
+            }
+        ]
     }
 ];
 

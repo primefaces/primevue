@@ -1,6 +1,6 @@
 const RatingProps = [
     {
-        name: "modelValue",
+        name: "value",
         type: "number",
         default: "null",
         description: "Value of the rating."
@@ -45,6 +45,17 @@ const RatingEvents = [
                 name: "event.value",
                 type: "number",
                 description: "Selected option value"
+            }
+        ]
+    },
+    {
+        name: "input",
+        description: "Callback to invoke on value change.",
+        arguments: [
+            {
+                name: "value",
+                type: "number",
+                description: "New value"
             }
         ]
     }

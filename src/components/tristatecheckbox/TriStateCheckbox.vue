@@ -1,11 +1,9 @@
 <template>
-    <div :class="containerClass" @click="onClick($event)">
-        <div class="p-hidden-accessible">
-            <input :id="inputId" ref="input" type="checkbox" :checked="modelValue === true" :tabindex="tabindex" :disabled="disabled" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel"
-                @keydown="onKeyDown($event)" @focus="onFocus($event)" @blur="onBlur($event)" v-bind="inputProps" >
+   <div class="p-checkbox p-component" @click="onClick($event)">
+       <div class="p-hidden-accessible">
+           <input ref="input" type="checkbox" :checked="value === true" v-bind="$attrs" @focus="onFocus()" @blur="onBlur()" :aria-labelledby="ariaLabelledBy">
         </div>
-        <span class="p-sr-only" aria-live="polite">{{ariaValueLabel}}</span>
-        <div ref="box" :class="['p-checkbox-box', {'p-highlight': (modelValue != null), 'p-disabled': disabled, 'p-focus': focused}]" >
+        <div ref="box" :class="['p-checkbox-box', {'p-highlight': (value != null), 'p-disabled': $attrs.disabled, 'p-focus': focused}]" role="checkbox" :aria-checked="value === true">
             <span :class="['p-checkbox-icon', icon]"></span>
         </div>
     </div>
@@ -13,28 +11,10 @@
 
 <script>
 export default {
-    name: 'TriStateCheckbox',
-    emits: ['click', 'update:modelValue', 'change', 'keydown', 'focus', 'blur'],
+    inheritAttrs: false,
     props: {
-        modelValue: null,
-        inputId: null,
-        inputProps: null,
-        disabled: {
-			type: Boolean,
-			default: false
-        },
-        tabindex: {
-            type: Number,
-            default: 0
-        },
-        'aria-labelledby': {
-            type: String,
-            default: null
-        },
-        'aria-label': {
-            type: String,
-            default: null
-        }
+        value: null,
+        ariaLabelledBy: String
     },
     data() {
         return {
@@ -42,11 +22,11 @@ export default {
         };
     },
     methods: {
-        updateModel() {
-            if (!this.disabled) {
+        onClick(event) {
+            if (!this.$attrs.disabled) {
                 let newValue;
 
-                switch (this.modelValue) {
+                switch (this.value) {
                     case true:
                         newValue = false;
                     break;
@@ -60,20 +40,10 @@ export default {
                     break;
                 }
 
-                this.$emit('update:modelValue', newValue);
-            }
-        },
-        onClick(event) {
-            this.updateModel();
-            this.$emit('click', event);
-            this.$emit('change', event);
-            this.$refs.input.focus();
-        },
-        onKeyDown(event) {
-            if (event.code === 'Enter') {
-                this.updateModel();
-                this.$emit('keydown', event);
-                event.preventDefault();
+                this.$emit('click', event);
+                this.$emit('input', newValue);
+                this.$emit('change', event);
+                this.$refs.input.focus();
             }
         },
         onFocus(event) {
@@ -88,7 +58,7 @@ export default {
     computed: {
         icon() {
             let icon;
-            switch (this.modelValue) {
+            switch (this.value) {
                 case true:
                     icon = 'pi pi-check';
                 break;
@@ -103,17 +73,6 @@ export default {
             }
 
             return icon;
-        },
-        containerClass() {
-            return [
-                'p-checkbox p-component', {
-                    'p-checkbox-checked': this.modelValue === true,
-                    'p-checkbox-disabled': this.disabled,
-                    'p-checkbox-focused': this.focused
-            }];
-        },
-        ariaValueLabel() {
-            return this.modelValue ? this.$primevue.config.locale.aria.trueLabel : (this.modelValue === false ? this.$primevue.config.locale.aria.falseLabel : this.$primevue.config.locale.aria.nullLabel);
         }
     }
 }

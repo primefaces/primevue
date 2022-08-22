@@ -1,6 +1,6 @@
 const MegaMenuProps = [
     {
-        name: "modelValue",
+        name: "value",
         type: "array",
         default: "null",
         description: "An array of menuitems."
@@ -27,10 +27,6 @@ const MegaMenuSlots = [
     {
         name: "end",
         description: "Custom content after the content"
-    },
-    {
-        name: "item",
-        description: "Template of a menuitem."
     }
 ];
 

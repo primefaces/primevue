@@ -1,23 +1,19 @@
 <template>
-    <Portal v-if="fullScreen">
-        <div v-if="containerVisible" :ref="maskRef" :class="maskContentClass">
-            <transition name="p-galleria" @before-enter="onBeforeEnter" @enter="onEnter" @before-leave="onBeforeLeave" @after-leave="onAfterLeave" appear>
-                <GalleriaContent :ref="containerRef" v-if="visible" v-bind="$props" @mask-hide="maskHide" :templates="$slots" @activeitem-change="onActiveItemChange" />
-            </transition>
-        </div>
-    </Portal>
-    <GalleriaContent v-else v-bind="$props" :templates="$slots" @activeitem-change="onActiveItemChange" />
+    <div v-if="fullScreen && (maskVisible || visible)" ref="mask" :class="maskContentClass">
+        <transition name="p-galleria" @enter="onEnter" @before-leave="onBeforeLeave" @after-leave="onAfterLeave" @appear="onAppear">
+            <GalleriaContent v-if="visible" v-bind="$props" @maskHide="maskHide" :templates="$scopedSlots" @activeItemChange="onActiveItemChange" />
+        </transition>
+    </div>
+
+    <GalleriaContent v-else-if="!fullScreen" v-bind="$props" :templates="$scopedSlots" @activeItemChange="onActiveItemChange" />
 </template>
 
 <script>
-import GalleriaContent from './GalleriaContent.vue';
-import {DomHandler,ZIndexUtils} from 'primevue/utils';
-import Portal from 'primevue/portal';
+import GalleriaContent from './GalleriaContent';
+import DomHandler from '../utils/DomHandler';
 
 export default {
-    name: 'Galleria',
     inheritAttrs: false,
-    emits: ['update:activeIndex', 'update:visible'],
     props: {
         id: {
             type: String,
@@ -107,47 +103,55 @@ export default {
             type: String,
             default: null
         },
-        containerStyle: null,
-        containerClass: null
+        containerStyle: {
+            type: String,
+            default: null
+        },
+        containerClass: {
+            type: String,
+            default: null
+        }
     },
-    container: null,
-    mask: null,
     data() {
         return {
-            containerVisible: this.visible
+            maskVisible: this.visible
         }
     },
     updated() {
-        if (this.fullScreen && this.visible) {
-            this.containerVisible = this.visible;
+        this.removeStylesFromMask();
+
+        if (this.fullScreen && this.visible && !this.maskVisible) {
+            this.maskVisible = true;
         }
     },
-    beforeUnmount() {
+    mounted() {
+        this.removeStylesFromMask();
+    },
+    beforeDestroy() {
         if (this.fullScreen) {
             DomHandler.removeClass(document.body, 'p-overflow-hidden');
         }
-
-        this.mask = null;
-        if (this.container) {
-            ZIndexUtils.clear(this.container);
-            this.container = null;
-        }
     },
     methods: {
-        onBeforeEnter(el) {
-            ZIndexUtils.set('modal', el, this.baseZIndex || this.$primevue.config.zIndex.modal);
-        },
-        onEnter(el) {
-            this.mask.style.zIndex = String(parseInt(el.style.zIndex, 10) - 1);
+        onEnter() {
+            this.$refs.mask.style.zIndex = String(this.baseZIndex + DomHandler.generateZIndex());
             DomHandler.addClass(document.body, 'p-overflow-hidden');
         },
         onBeforeLeave() {
-            DomHandler.addClass(this.mask, 'p-component-overlay-leave');
+            DomHandler.addClass(this.$refs.mask, 'p-component-overlay-leave');
         },
-        onAfterLeave(el) {
-            ZIndexUtils.clear(el);
-            this.containerVisible = false;
+        onAfterLeave() {
+            this.maskVisible = false;
             DomHandler.removeClass(document.body, 'p-overflow-hidden');
+        },
+        onAppear() {
+            if (this.visible) {
+                this.onEnter();
+
+                setTimeout(() => {
+                    DomHandler.addClass(this.$refs.mask, 'p-component-overlay');
+                }, 1);
+            }
         },
         onActiveItemChange(index) {
             if (this.activeIndex !== index) {
@@ -157,24 +161,31 @@ export default {
         maskHide() {
             this.$emit('update:visible', false);
         },
-        containerRef(el) {
-            this.container = el;
-        },
-        maskRef(el) {
-            this.mask = el;
+        removeStylesFromMask() {
+            if (this.$refs.mask) {
+                this.galleriaStyles = this.$vnode.data.style || this.$vnode.data.staticStyle;
+                if (this.galleriaStyles) {
+                    Object.keys(this.galleriaStyles).forEach((key) => {
+                        this.$refs.mask.style[key] = '';
+                    });
+                }
+
+                this.galleriaClasses = this.$vnode.data.class || this.$vnode.data.staticClass;
+                if (this.galleriaClasses) {
+                    this.$refs.mask.classList = 'p-galleria-mask' + (this.visible && ' p-galleria-visible');
+                }
+            }
         }
     },
     computed: {
         maskContentClass() {
-            return ['p-galleria-mask p-component-overlay p-component-overlay-enter', this.maskClass, {
-                'p-input-filled': this.$primevue.config.inputStyle === 'filled',
-                'p-ripple-disabled': this.$primevue.config.ripple === false
-            }];
+            return ['p-galleria-mask p-component-overlay p-component-overlay-enter', {
+                'p-galleria-visible': this.visible
+            }, this.maskClass];
         }
     },
     components: {
-        'GalleriaContent': GalleriaContent,
-        'Portal': Portal
+        'GalleriaContent': GalleriaContent
     }
 }
 </script>
@@ -444,7 +455,7 @@ export default {
     transition: all 150ms cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 
-.p-galleria-enter-from,
+.p-galleria-enter,
 .p-galleria-leave-to {
     opacity: 0;
     transform: scale(0.7);

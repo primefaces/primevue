@@ -1,29 +1,8 @@
-import Vue, { Plugin } from 'vue';
+import Vue, { PluginFunction } from 'vue';
 
 interface PrimeVueConfiguration {
     ripple?: boolean;
-    inputStyle?: string;
     locale?: PrimeVueLocaleOptions;
-    filterMatchModeOptions?: any;
-    zIndex?: PrimeVueZIndexOptions;
-}
-
-interface PrimeVueZIndexOptions {
-    modal?: number;
-    overlay?: number;
-    menu?: number;
-    tooltip?: number;
-}
-
-interface PrimeVueLocaleAriaOptions {
-    trueLabel?: string;
-    falseLabel?: string;
-    nullLabel?: string;
-    star?: string;
-    stars?: string;
-    selectAll?: string;
-    unselectAll?: string;
-    close?: string;
 }
 
 interface PrimeVueLocaleOptions {
@@ -58,23 +37,6 @@ interface PrimeVueLocaleOptions {
     dayNamesMin: string[];
     monthNames: string[];
     monthNamesShort: string[];
-    chooseYear?: string;
-    chooseMonth?: string;
-    chooseDate?: string;
-    prevDecade?: string;
-    nextDecade?: string;
-    prevYear?: string;
-    nextYear?: string;
-    prevMonth?: string;
-    nextMonth?: string;
-    prevHour?: string;
-    nextHour?: string;
-    prevMinute?: string;
-    nextMinute?: string;
-    prevSecond?: string;
-    nextSecond?: string;
-    am?: string;
-    pm?: string;
     today?: string;
     weekHeader?: string;
     firstDayOfWeek?: number;
@@ -84,29 +46,13 @@ interface PrimeVueLocaleOptions {
     strong?: string;
     passwordPrompt?: string;
     emptyFilterMessage?: string;
-    searchMessage?: string;
-    selectionMessage?: string;
-    emptySelectionMessage?: string;
-    emptySearchMessage?: string;
     emptyMessage?: string;
-    aria?: PrimeVueLocaleAriaOptions;
 }
 
-export declare function usePrimeVue(): { config: PrimeVueConfiguration };
-
-declare const plugin: Plugin;
-export default plugin;
+export const install: PluginFunction<{}>;
 
 declare module 'vue/types/vue' {
     interface Vue {
-        $primevue: {
-            config: PrimeVueConfiguration;
-        }
-    }
-}
-
-declare module '@vue/runtime-core' {
-    interface ComponentCustomProperties {
         $primevue: {
             config: PrimeVueConfiguration;
         }

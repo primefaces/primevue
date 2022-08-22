@@ -5,7 +5,6 @@
                 <h1>Dock</h1>
                 <p>Dock is a navigation component consisting of menuitems.</p>
             </div>
-            <AppDemoActions />
         </div>
 
         <div class="content-section implementation dock-demo">
@@ -13,26 +12,10 @@
 
             <h5>Basic</h5>
             <div class="dock-window">
-                <Dock :model="dockBasicItems" position="bottom">
-                    <template #icon="{ item }">
-                        <img :alt="item.label" :src="item.icon" style="width: 100%" />
-                    </template>
-                </Dock>
-                <Dock :model="dockBasicItems" position="top">
-                    <template #icon="{ item }">
-                        <img :alt="item.label" :src="item.icon" style="width: 100%" />
-                    </template>
-                </Dock>
-                <Dock :model="dockBasicItems" position="left">
-                    <template #icon="{ item }">
-                        <img :alt="item.label" :src="item.icon" style="width: 100%" />
-                    </template>
-                </Dock>
-                <Dock :model="dockBasicItems" position="right">
-                    <template #icon="{ item }">
-                        <img :alt="item.label" :src="item.icon" style="width: 100%" />
-                    </template>
-                </Dock>
+                <Dock :model="dockBasicItems" position="bottom"/>
+                <Dock :model="dockBasicItems" position="top"/>
+                <Dock :model="dockBasicItems" position="left"/>
+                <Dock :model="dockBasicItems" position="right"/>
             </div>
 
             <h5>Advanced</h5>
@@ -52,26 +35,26 @@
 
             <div class="dock-window dock-advanced">
                 <Dock :model="dockItems">
-                    <template #item="{ item }">
-                        <a href="#" class="p-dock-action" v-tooltip.top="item.label" @click="onDockItemClick($event, item)">
-                            <img :alt="item.label" :src="item.icon" style="width: 100%" />
+                    <template #item="slotProps">
+                        <a href="#" class="p-dock-action" v-tooltip.top="slotProps.item.label" @click="onDockItemClick($event, slotProps.item)">
+                            <img :alt="slotProps.item.label" :src="slotProps.item.icon" style="width: 100%" />
                         </a>
                     </template>
                 </Dock>
 
-                <Dialog v-model:visible="displayTerminal" header="Terminal" :breakpoints="{ '960px': '50vw' }" :style="{ width: '40vw' }" :maximizable="true">
+                <Dialog :visible.sync="displayTerminal" header="Terminal" :breakpoints="{ '960px': '50vw' }" :style="{ width: '40vw' }" :maximizable="true">
                     <Terminal welcomeMessage="Welcome to PrimeVue(cmd: 'date', 'greet {0}', 'random' and 'clear')" prompt="primevue $" />
                 </Dialog>
 
-                <Dialog v-model:visible="displayFinder" header="Finder" :breakpoints="{ '960px': '50vw' }" :style="{ width: '40vw' }" :maximizable="true">
+                <Dialog :visible.sync="displayFinder" header="Finder" :breakpoints="{ '960px': '50vw' }" :style="{ width: '40vw' }" :maximizable="true">
                     <Tree :value="nodes" />
                 </Dialog>
 
-                <Galleria v-model:visible="displayPhotos" :value="images" :responsiveOptions="responsiveOptions" :numVisible="2" containerStyle="width: 400px"
+                <Galleria :visible.sync="displayPhotos" :value="images" :responsiveOptions="responsiveOptions" :numVisible="2" containerStyle="width: 400px"
                     :circular="true" :fullScreen="true" :showThumbnails="false" :showItemNavigators="true">
                     <template #item="slotProps">
                         <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%" />
-                    </template>    
+                    </template>
                 </Galleria>
             </div>
         </div>
@@ -83,7 +66,7 @@
 <script>
 import NodeService from '../../service/NodeService';
 import PhotoService from '../../service/PhotoService';
-import TerminalService from 'primevue/terminalservice';
+import TerminalService from '../../components/terminalservice/TerminalService';
 import DockDoc from './DockDoc.vue';
 
 export default {
@@ -145,20 +128,20 @@ export default {
             ],
             dockBasicItems: [
                 {
-                    label: "Finder",
-                    icon: "demo/images/dock/finder.svg"
+                    label: 'Finder',
+                    icon: () => <img alt="Finder" src="demo/images/dock/finder.svg" style="width: 100%" />
                 },
                 {
-                    label: "App Store",
-                    icon: "demo/images/dock/appstore.svg"
+                    label: 'App Store',
+                    icon: () => <img alt="App Store" src="demo/images/dock/appstore.svg" style="width: 100%" />
                 },
                 {
-                    label: "Photos",
-                    icon: "demo/images/dock/photos.svg"
+                    label: 'Photos',
+                    icon: () => <img alt="Photos" src="demo/images/dock/photos.svg" style="width: 100%" />
                 },
                 {
-                    label: "Trash",
-                    icon: "demo/images/dock/trash.png"
+                    label: 'Trash',
+                    icon: () => <img alt="trash" src="demo/images/dock/trash.png" style="width: 100%" />
                 }
             ],
             menubarItems: [
@@ -312,10 +295,10 @@ export default {
     mounted() {
         this.photoService.getImages().then(data => this.images = data);
         this.nodeService.getTreeNodes().then(data => this.nodes = data);
-        TerminalService.on('command', this.commandHandler);
+        TerminalService.$on('command', this.commandHandler);
     },
     beforeUnmount() {
-        TerminalService.off('command', this.commandHandler);
+        TerminalService.$off('command', this.commandHandler);
     },
     methods: {
         onDockItemClick(event, item) {
@@ -357,7 +340,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-::v-deep(.dock-demo) {
+::v-deep .dock-demo {
     .dock-window {
         width: 100%;
         height: 450px;

@@ -5,7 +5,6 @@
                 <h1>ConfirmDialog</h1>
                 <p>ConfirmDialog uses a Dialog UI that is integrated with the Confirmation API.</p>
             </div>
-            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">
@@ -43,7 +42,6 @@
 
 <script>
 import ConfirmDialogDoc from './ConfirmDialogDoc';
-
 export default {
     methods: {
         confirm1() {
@@ -55,7 +53,7 @@ export default {
                     this.$toast.add({severity:'info', summary:'Confirmed', detail:'You have accepted', life: 3000});
                 },
                 reject: () => {
-                    this.$toast.add({severity:'error', summary:'Rejected', detail:'You have rejected', life: 3000});
+                    this.$toast.add({severity:'info', summary:'Rejected', detail:'You have rejected', life: 3000});
                 }
             });
         },
@@ -69,13 +67,13 @@ export default {
                     this.$toast.add({severity:'info', summary:'Confirmed', detail:'Record deleted', life: 3000});
                 },
                 reject: () => {
-                    this.$toast.add({severity:'error', summary:'Rejected', detail:'You have rejected', life: 3000});
+                    this.$toast.add({severity:'info', summary:'Rejected', detail:'You have rejected', life: 3000});
                 }
             });
         },
         confirmPosition(position) {
             this.$confirm.require({
-                group: 'positionDialog',
+                key: 'positionDialog',
                 message: 'Do you want to delete this record?',
                 header: 'Delete Confirmation',
                 icon: 'pi pi-info-circle',
@@ -84,7 +82,7 @@ export default {
                     this.$toast.add({severity:'info', summary:'Confirmed', detail:'Record deleted', life: 3000});
                 },
                 reject: () => {
-                    this.$toast.add({severity:'error', summary:'Rejected', detail:'You have rejected', life: 3000});
+                    this.$toast.add({severity:'info', summary:'Rejected', detail:'You have rejected', life: 3000});
                 }
             });
         }

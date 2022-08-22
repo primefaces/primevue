@@ -5,7 +5,6 @@
                 <h1>TieredMenu</h1>
                 <p>TieredMenu displays submenus in nested overlays.</p>
             </div>
-            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">
@@ -45,7 +44,8 @@ export default {
                                 {
                                     label:'Video',
                                     icon:'pi pi-fw pi-video'
-                                }
+                                },
+
                             ]
                         },
                         {
@@ -80,7 +80,8 @@ export default {
                         {
                             label:'Justify',
                             icon:'pi pi-fw pi-align-justify'
-                        }
+                        },
+
                     ]
                 },
                 {
@@ -134,7 +135,8 @@ export default {
                                 {
                                     label:'Delete',
                                     icon:'pi pi-fw pi-calendar-minus'
-                                }
+                                },
+
                             ]
                         },
                         {
@@ -142,8 +144,8 @@ export default {
                             icon:'pi pi-fw pi-calendar-times',
                             items:[
                                 {
-                                    label:'Remove',
-                                    icon:'pi pi-fw pi-calendar-minus'
+                                label:'Remove',
+                                icon:'pi    pi-fw pi-calendar-minus'
                                 }
                             ]
                         }

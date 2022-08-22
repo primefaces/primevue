@@ -1,23 +1,21 @@
 <template>
-    <div :class="containerClass" @click="onBarClick">
+    <div :class="containerClass" @click="onBarClick" ref="container">
         <span class="p-slider-range" :style="rangeStyle"></span>
-        <span v-if="!range" class="p-slider-handle" :style="handleStyle" @touchstart="onDragStart($event)" @touchmove="onDrag($event)" @touchend="onDragEnd($event)" @mousedown="onMouseDown($event)" @keydown="onKeyDown($event)" :tabindex="tabindex"
-            role="slider" :aria-valuemin="min" :aria-valuenow="modelValue" :aria-valuemax="max" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel" :aria-orientation="orientation"></span>
-        <span v-if="range" class="p-slider-handle" :style="rangeStartHandleStyle" @touchstart="onDragStart($event, 0)" @touchmove="onDrag($event)" @touchend="onDragEnd($event)" @mousedown="onMouseDown($event, 0)" @keydown="onKeyDown($event, 0)" :tabindex="tabindex"
-            role="slider" :aria-valuemin="min" :aria-valuenow="modelValue ? modelValue[0] : null" :aria-valuemax="max" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel" :aria-orientation="orientation"></span>
-        <span v-if="range" class="p-slider-handle" :style="rangeEndHandleStyle" @touchstart="onDragStart($event, 1)" @touchmove="onDrag($event)" @touchend="onDragEnd($event)" @mousedown="onMouseDown($event, 1)" @keydown="onKeyDown($event, 1)" :tabindex="tabindex"
-            role="slider" :aria-valuemin="min" :aria-valuenow="modelValue ? modelValue[1] : null" :aria-valuemax="max" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel" :aria-orientation="orientation"></span>
+        <span v-if="!range" class="p-slider-handle" :style="handleStyle" @touchstart="onDragStart($event)" @touchmove="onDrag($event)" @touchend="onDragEnd($event)" @mousedown="onMouseDown($event)" @keydown="onKeyDown($event)" tabindex="0"
+            role="slider" :aria-valuemin="min" :aria-valuenow="value" :aria-valuemax="max" :aria-labelledby="ariaLabelledBy"></span>
+        <span v-if="range" class="p-slider-handle" :style="rangeStartHandleStyle" @touchstart="onDragStart($event, 0)" @touchmove="onDrag($event)" @touchend="onDragEnd($event)" @mousedown="onMouseDown($event, 0)" @keydown="onKeyDown($event)" tabindex="0"
+            role="slider" :aria-valuemin="min" :aria-valuenow="value ? value[0] : null" :aria-valuemax="max" :aria-labelledby="ariaLabelledBy"></span>
+        <span v-if="range" class="p-slider-handle" :style="rangeEndHandleStyle" @touchstart="onDragStart($event, 1)" @touchmove="onDrag($event)" @touchend="onDragEnd($event)" @mousedown="onMouseDown($event, 1)" @keydown="onKeyDown($event, 1)" tabindex="0"
+            role="slider" :aria-valuemin="min" :aria-valuenow="value ? value[1] : null" :aria-valuemax="max" :aria-labelledby="ariaLabelledBy"></span>
     </div>
 </template>
 
 <script>
-import {DomHandler} from 'primevue/utils';
+import DomHandler from '../utils/DomHandler';
 
 export default {
-    name: 'Slider',
-    emits: ['update:modelValue', 'change', 'slideend'],
     props: {
-        modelValue: [Number,Array],
+        value: [Number,Array],
 		min: {
 			type: Number,
 			default: 0
@@ -42,17 +40,9 @@ export default {
 			type: Boolean,
 			default: false
         },
-        tabindex: {
-            type: Number,
-            default: 0
-        },
-        'aria-labelledby': {
+        ariaLabelledBy: {
             type: String,
 			default: null
-        },
-        'aria-label': {
-            type: String,
-            default: null
         }
     },
     dragging: false,
@@ -63,37 +53,43 @@ export default {
     barHeight: null,
     dragListener: null,
     dragEndListener: null,
-    beforeUnmount() {
+    beforeDestroy() {
         this.unbindDragListeners();
     },
     methods: {
         updateDomData() {
-            let rect = this.$el.getBoundingClientRect();
+            let rect = this.$refs.container.getBoundingClientRect();
             this.initX = rect.left + DomHandler.getWindowScrollLeft();
             this.initY = rect.top + DomHandler.getWindowScrollTop();
-            this.barWidth = this.$el.offsetWidth;
-            this.barHeight = this.$el.offsetHeight;
+            this.barWidth = this.$refs.container.offsetWidth;
+            this.barHeight = this.$refs.container.offsetHeight;
         },
         setValue(event) {
             let handleValue;
             let pageX = event.touches ? event.touches[0].pageX : event.pageX;
             let pageY = event.touches ? event.touches[0].pageY : event.pageY;
+
             if(this.orientation === 'horizontal')
                 handleValue = ((pageX - this.initX) * 100) / (this.barWidth);
             else
                 handleValue = (((this.initY + this.barHeight) - pageY) * 100) / (this.barHeight);
+
             let newValue = (this.max - this.min) * (handleValue / 100) + this.min;
+
             if (this.step) {
-                const oldValue = this.range ? this.modelValue[this.handleIndex] : this.modelValue;
+                const oldValue = this.range ? this.value[this.handleIndex] : this.value;
                 const diff = (newValue - oldValue);
+
                 if (diff < 0)
                     newValue = oldValue + Math.ceil(newValue / this.step - oldValue / this.step) * this.step;
                 else if (diff > 0)
                     newValue = oldValue + Math.floor(newValue / this.step - oldValue / this.step) * this.step;
             }
+
             else {
                 newValue = Math.floor(newValue);
             }
+
             this.updateModel(event, newValue);
         },
         updateModel(event, value) {
@@ -101,10 +97,10 @@ export default {
             let modelValue;
 
             if (this.range) {
-                modelValue = this.modelValue ? [...this.modelValue] : [];
+                modelValue = this.value ? [...this.value] : [];
 
                 if (this.handleIndex == 0) {
-                    let maxValue = this.modelValue ? this.modelValue[1] : this.max;
+                    let maxValue = this.value ? this.value[1] : this.max;
 
                     if (newValue < this.min)
                         newValue = this.min;
@@ -115,7 +111,7 @@ export default {
                     modelValue[1] = modelValue[1] || this.max;
                 }
                 else {
-                    let minValue = this.modelValue ? this.modelValue[0] : this.min;
+                    let minValue = this.value ? this.value[0] : this.min;
                     if (newValue > this.max)
                         newValue = this.max;
                     else if (newValue <= minValue)
@@ -125,6 +121,7 @@ export default {
                     modelValue[1] = newValue;
                 }
             }
+
             else {
                 if (newValue < this.min)
                     newValue = this.min;
@@ -134,7 +131,7 @@ export default {
                 modelValue = newValue;
             }
 
-            this.$emit('update:modelValue', modelValue);
+            this.$emit('input', modelValue);
             this.$emit('change', modelValue);
         },
         onDragStart(event, index) {
@@ -143,6 +140,7 @@ export default {
             }
 
             DomHandler.addClass(this.$el, 'p-slider-sliding');
+
             this.dragging = true;
             this.updateDomData();
 
@@ -164,14 +162,16 @@ export default {
         onDragEnd(event) {
             if (this.dragging) {
                 this.dragging = false;
+
                 DomHandler.removeClass(this.$el, 'p-slider-sliding');
-                this.$emit('slideend', {originalEvent: event, value: this.modelValue});
+                this.$emit('slideend', {originalEvent: event, value: this.value});
             }
         },
         onBarClick(event) {
             if (this.disabled) {
                 return;
             }
+
             if (!DomHandler.hasClass(event.target, 'p-slider-handle')) {
                 this.updateDomData();
                 this.setValue(event);
@@ -183,79 +183,82 @@ export default {
         },
         onKeyDown(event, index) {
             this.handleIndex = index;
-            switch (event.code) {
-                case 'ArrowDown':
-                case 'ArrowLeft':
-                    this.decrementValue(event, index);
-                    event.preventDefault();
+
+            switch (event.which) {
+                //down
+                case 40:
+                    if (this.vertical) {
+                        this.decrementValue(event, index);
+                        event.preventDefault();
+                    }
                 break;
 
-                case 'ArrowUp':
-                case 'ArrowRight':
-                    this.incrementValue(event, index);
-                    event.preventDefault();
+                //up
+                case 38:
+                    if (this.vertical) {
+                        this.incrementValue(event, index);
+                        event.preventDefault();
+                    }
                 break;
 
-                case 'PageDown':
-                    this.decrementValue(event, index, true);
-                    event.preventDefault();
+                //left
+                case 37:
+                    if (this.horizontal) {
+                        this.decrementValue(event, index);
+                        event.preventDefault();
+                    }
                 break;
 
-                case 'PageUp':
-                    this.incrementValue(event, index, true);
-                    event.preventDefault();
-                break;
-
-                case 'Home':
-                    this.updateModel(event, this.min);
-                    event.preventDefault();
-                break;
-
-                case 'End':
-                    this.updateModel(event, this.max);
-                    event.preventDefault();
+                //right
+                case 39:
+                    if (this.horizontal) {
+                        this.incrementValue(event, index);
+                        event.preventDefault();
+                    }
                 break;
 
                 default:
                 break;
             }
         },
-        decrementValue(event, index, pageKey = false) {
+        decrementValue(event, index) {
             let newValue;
+
             if (this.range) {
                 if (this.step)
-                    newValue = this.modelValue[index] - this.step;
+                    newValue = this.value[index] - this.step;
                 else
-                    newValue = this.modelValue[index] - 1;
+                    newValue = this.value[index] - 1;
             }
             else {
                 if (this.step)
-                    newValue = this.modelValue - this.step;
-                else if (!this.step && pageKey)
-                    newValue = this.modelValue - 10;
+                    newValue = this.value - this.step;
                 else
-                    newValue = this.modelValue - 1;
+                    newValue = this.value - 1;
             }
+
             this.updateModel(event, newValue);
+
             event.preventDefault();
         },
-        incrementValue(event, index, pageKey = false) {
+        incrementValue(event, index) {
             let newValue;
+
             if (this.range) {
                 if (this.step)
-                    newValue = this.modelValue[index] + this.step;
+                    newValue = this.value[index] + this.step;
                 else
-                    newValue = this.modelValue[index] + 1;
+                    newValue = this.value[index] + 1;
             }
             else {
                 if (this.step)
-                    newValue = this.modelValue + this.step;
-                else if (!this.step && pageKey)
-                    newValue = this.modelValue + 10;
+                    newValue = this.value + this.step;
                 else
-                    newValue = this.modelValue + 1;
+                    newValue = this.value + 1;
             }
+
             this.updateModel(event, newValue);
+
             event.preventDefault();
         },
         bindDragListeners() {
@@ -263,6 +266,7 @@ export default {
                 this.dragListener = this.onDrag.bind(this);
                 document.addEventListener('mousemove', this.dragListener);
             }
+
             if (!this.dragEndListener) {
                 this.dragEndListener = this.onDragEnd.bind(this);
                 document.addEventListener('mouseup', this.dragEndListener);
@@ -273,6 +277,7 @@ export default {
                 document.removeEventListener('mousemove', this.dragListener);
                 this.dragListener = null;
             }
+
             if (this.dragEndListener) {
                 document.removeEventListener('mouseup', this.dragEndListener);
                 this.dragEndListener = null;
@@ -314,22 +319,22 @@ export default {
                 return {'bottom': this.handlePosition + '%'};
         },
         handlePosition() {
-            if (this.modelValue < this.min)
+            if (this.value < this.min)
                 return 0;
-            else if (this.modelValue > this.max)
+            else if (this.value > this.max)
                 return 100;
             else
-                return (this.modelValue - this.min) * 100 / (this.max - this.min);
+                return (this.value - this.min) * 100 / (this.max - this.min);
         },
         rangeStartPosition() {
-            if (this.modelValue && this.modelValue[0])
-                return (this.modelValue[0] < this.min ? 0 : this.modelValue[0] - this.min) * 100 / (this.max - this.min);
+            if (this.value && this.value[0])
+                return (this.value[0] < this.min ? 0 : this.value[0] - this.min) * 100 / (this.max - this.min);
             else
                 return 0;
         },
         rangeEndPosition() {
-            if (this.modelValue && this.modelValue.length === 2)
-                return (this.modelValue[1] > this.max ? 100 : this.modelValue[1] - this.min) * 100 / (this.max - this.min);
+            if (this.value && this.value[1])
+                return (this.value[1] > this.max ? 100 : this.value[1] - this.min) * 100 / (this.max - this.min);
             else
                 return 100;
         },

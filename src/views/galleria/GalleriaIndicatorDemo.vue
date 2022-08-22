@@ -10,7 +10,7 @@
         <div class="content-section implementation">
             <div class="card">
                 <h5>Indicators with Click Event</h5>
-                <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px"
+                <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px"
                     :showThumbnails="false" :showIndicators="true">
                     <template #item="slotProps">
                         <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
@@ -20,7 +20,7 @@
 
             <div class="card">
                 <h5>Indicators with Hover Event</h5>
-                <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px"
+                <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px"
                     :showThumbnails="false" :showIndicators="true" :changeItemOnIndicatorHover="true">
                     <template #item="slotProps">
                         <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
@@ -30,7 +30,7 @@
 
             <div class="card">
                 <h5>Inside Content</h5>
-                <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px"
+                <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px"
                     :showThumbnails="false" :showIndicators="true" :changeItemOnIndicatorHover="true" :showIndicatorsOnItem="true">
                     <template #item="slotProps">
                         <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
@@ -40,7 +40,7 @@
 
             <div class="card">
                 <h5>Positioned at Top</h5>
-                <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px"
+                <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px"
                     :showThumbnails="false" :showIndicators="true" :changeItemOnIndicatorHover="true" :showIndicatorsOnItem="true" indicatorsPosition="top">
                     <template #item="slotProps">
                         <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
@@ -50,7 +50,7 @@
 
             <div class="card">
                 <h5>Positioned at Left</h5>
-                <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px"
+                <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px"
                     :showThumbnails="false" :showIndicators="true" :changeItemOnIndicatorHover="true" :showIndicatorsOnItem="true" indicatorsPosition="left">
                     <template #item="slotProps">
                         <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
@@ -60,7 +60,7 @@
 
             <div class="card">
                 <h5>Positioned at Right</h5>
-                <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px"
+                <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px"
                     :showThumbnails="false" :showIndicators="true" :changeItemOnIndicatorHover="true" :showIndicatorsOnItem="true" indicatorsPosition="right">
                     <template #item="slotProps">
                         <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
@@ -70,7 +70,7 @@
 
             <div class="card">
                 <h5>Indicator Template</h5>
-                <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px" class="custom-indicator-galleria"
+                <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px;" class="custom-indicator-galleria"
                     :showThumbnails="false" :showIndicators="true" :changeItemOnIndicatorHover="true" :showIndicatorsOnItem="true" indicatorsPosition="left">
                     <template #item="slotProps">
                         <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
@@ -87,9 +87,10 @@
         <div class="content-section documentation">
             <TabView>
                 <TabPanel header="Source">
-<pre v-code><code><template v-pre>
+<CodeHighlight>
+<template v-pre>
 &lt;h3&gt;Indicators with Click Event&lt;/h3&gt;
-&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px"
+&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px"
     :showThumbnails="false" :showIndicators="true"&gt;
     &lt;template #item="slotProps"&gt;
         &lt;img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" /&gt;
@@ -97,7 +98,7 @@
 &lt;/Galleria&gt;
 
 &lt;h3&gt;Indicators with Hover Event&lt;/h3&gt;
-&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px"
+&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px"
     :showThumbnails="false" :showIndicators="true" :changeItemOnIndicatorHover="true"&gt;
     &lt;template #item="slotProps"&gt;
         &lt;img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" /&gt;
@@ -105,7 +106,7 @@
 &lt;/Galleria&gt;
 
 &lt;h3&gt;Inside Content&lt;/h3&gt;
-&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px"
+&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px"
     :showThumbnails="false" :showIndicators="true" :changeItemOnIndicatorHover="true" :showIndicatorsOnItem="true"&gt;
     &lt;template #item="slotProps"&gt;
         &lt;img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" /&gt;
@@ -113,7 +114,7 @@
 &lt;/Galleria&gt;
 
 &lt;h3&gt;Positioned at Top&lt;/h3&gt;
-&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px"
+&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px"
     :showThumbnails="false" :showIndicators="true" :changeItemOnIndicatorHover="true" :showIndicatorsOnItem="true" indicatorsPosition="top"&gt;
     &lt;template #item="slotProps"&gt;
         &lt;img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" /&gt;
@@ -121,7 +122,7 @@
 &lt;/Galleria&gt;
 
 &lt;h3&gt;Positioned at Left&lt;/h3&gt;
-&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px"
+&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px"
     :showThumbnails="false" :showIndicators="true" :changeItemOnIndicatorHover="true" :showIndicatorsOnItem="true" indicatorsPosition="left"&gt;
     &lt;template #item="slotProps"&gt;
         &lt;img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" /&gt;
@@ -129,7 +130,7 @@
 &lt;/Galleria&gt;
 
 &lt;h3&gt;Positioned at Right&lt;/h3&gt;
-&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px"
+&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px"
     :showThumbnails="false" :showIndicators="true" :changeItemOnIndicatorHover="true" :showIndicatorsOnItem="true" indicatorsPosition="right"&gt;
     &lt;template #item="slotProps"&gt;
         &lt;img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" /&gt;
@@ -137,7 +138,7 @@
 &lt;/Galleria&gt;
 
 &lt;h3&gt;Indicator Template&lt;/h3&gt;
-&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px" class="custom-indicator-galleria"
+&lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" style="max-width: 640px;" class="custom-indicator-galleria"
     :showThumbnails="false" :showIndicators="true" :changeItemOnIndicatorHover="true" :showIndicatorsOnItem="true" indicatorsPosition="left"&gt;
     &lt;template #item="slotProps"&gt;
         &lt;img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" /&gt;
@@ -149,9 +150,9 @@
     &lt;/template&gt;
 &lt;/Galleria&gt;
 </template>
-</code></pre>
+</CodeHighlight>
 
-<pre v-code.script><code>
+<CodeHighlight lang="javascript">
 import PhotoService from '../../service/PhotoService';
 
 export default {
@@ -186,24 +187,24 @@ export default {
         });
     }
 }
+</CodeHighlight>
 
-</code></pre>
-
-<pre v-code.css><code>
-::v-deep(.custom-indicator-galleria) {
-    .indicator-text {
-        color: #e9ecef;
-        cursor: pointer;
-    }
-
-    .p-highlight {
+<CodeHighlight lang="css">
+::v-deep {
+    .custom-indicator-galleria {
         .indicator-text {
-            color: var(--primary-color);
+            color: #e9ecef;
+            cursor: pointer;
+        }
+
+        .p-highlight {
+            .indicator-text {
+                color: var(--primary-color);
+            }
         }
     }
 }
-
-</code></pre>
+</CodeHighlight>
                 </TabPanel>
             </TabView>
         </div>
@@ -248,15 +249,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-::v-deep(.custom-indicator-galleria) {
-    .indicator-text {
-        color: #e9ecef;
-        cursor: pointer;
-    }
-
-    .p-highlight {
+::v-deep {
+    .custom-indicator-galleria {
         .indicator-text {
-            color: var(--primary-color);
+            color: #e9ecef;
+            cursor: pointer;
+        }
+
+        .p-highlight {
+            .indicator-text {
+                color: var(--primary-color);
+            }
         }
     }
 }

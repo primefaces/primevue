@@ -5,7 +5,6 @@
                 <h1>TreeTable</h1>
                 <p>TreeTable is used to display hierarchical data in tabular format.</p>
             </div>
-            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">

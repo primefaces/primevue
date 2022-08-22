@@ -6,6 +6,12 @@ const AccordionTabProps = [
         description: "Orientation of tab headers."
     },
     {
+        name: "active",
+        type: "boolean",
+        default: "null",
+        description: "Visibility of the content."
+    },
+    {
         name: "disabled",
         type: "boolean",
         default: "false",

@@ -5,7 +5,6 @@
 				<h1>DataTable <span>Templating</span></h1>
 				<p>Custom content at header, body and footer sections are supported via templating.</p>
 			</div>
-            <AppDemoActions />
 		</div>
 
 		<div class="content-section implementation">
@@ -28,9 +27,10 @@
                             {{formatCurrency(slotProps.data.price)}}
                         </template>
                     </Column>
+                    <Column field="category" header="Category"></Column>
                     <Column field="rating" header="Reviews">
                         <template #body="slotProps">
-                            <Rating :modelValue="slotProps.data.rating" :readonly="true" :cancel="false" />
+                            <Rating :value="slotProps.data.rating" :readonly="true" :cancel="false" />
                         </template>
                     </Column>
                     <Column header="Status">
@@ -45,61 +45,49 @@
             </div>
 		</div>
 
-        <AppDoc name="DataTableTemplatingDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="datatable/DataTableTemplatingDemo.vue" />
-
-	</div>
+        <div class="content-section documentation">
+            <TabView>
+                <TabPanel header="Source">
+<CodeHighlight>
+<template v-pre>
+&lt;DataTable :value="products" responsiveLayout="scroll"&gt;
+    &lt;template #header&gt;
+        &lt;div class="table-header"&gt;
+            Products
+            &lt;Button icon="pi pi-refresh" /&gt;
+        &lt;/div&gt;
+    &lt;/template&gt;
+    &lt;Column field="name" header="Name"&gt;&lt;/Column&gt;
+    &lt;Column header="Image"&gt;
+            &lt;template #body="slotProps"&gt;
+            &lt;img :src="'demo/images/product/' + slotProps.data.image" :alt="slotProps.data.image" class="product-image" /&gt;
+        &lt;/template&gt;
+    &lt;/Column&gt;
+    &lt;Column field="price" header="Price"&gt;
+        &lt;template #body="slotProps"&gt;
+            {{formatCurrency(slotProps.data.price)}}
+        &lt;/template&gt;
+    &lt;/Column&gt;
+    &lt;Column field="category" header="Category"&gt;&lt;/Column&gt;
+    &lt;Column field="rating" header="Reviews"&gt;
+        &lt;template #body="slotProps"&gt;
+            &lt;Rating :value="slotProps.data.rating" :readonly="true" :cancel="false" /&gt;
+        &lt;/template&gt;
+    &lt;/Column&gt;
+    &lt;Column header="Status"&gt;
+        &lt;template #body="slotProps"&gt;
+            &lt;span :class="'product-badge status-' + slotProps.data.inventoryStatus.toLowerCase()"&gt;{{slotProps.data.inventoryStatus}}&lt;/span&gt;
+        &lt;/template&gt;
+    &lt;/Column&gt;
+    &lt;template #footer&gt;
+        In total there are &#123;&#123;products ? products.length : 0 &#125;&#125; products.
+    &lt;/template&gt;
+&lt;/DataTable&gt;
 </template>
+</CodeHighlight>
 
-<script>
+<CodeHighlight lang="javascript">
 import ProductService from '../../service/ProductService';
-
-export default {
-    data() {
-        return {
-            products: null,
-            sources: {
-                'options-api': {
-                    tabName: 'Options API Source',
-                    content: `
-<template>
-	<div>
-        <DataTable :value="products" responsiveLayout="scroll">
-            <template #header>
-                <div class="table-header">
-                    Products
-                    <Button icon="pi pi-refresh" />
-                </div>
-            </template>
-            <Column field="name" header="Name"></Column>
-            <Column header="Image">
-                <template #body="slotProps">
-                    <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" :alt="slotProps.data.image" class="product-image" />
-                </template>
-            </Column>
-            <Column field="price" header="Price">
-                <template #body="slotProps">
-                    {{formatCurrency(slotProps.data.price)}}
-                </template>
-            </Column>
-            <Column field="rating" header="Reviews">
-                <template #body="slotProps">
-                    <Rating :modelValue="slotProps.data.rating" :readonly="true" :cancel="false" />
-                </template>
-            </Column>
-            <Column header="Status">
-                <template #body="slotProps">
-                    <span :class="'product-badge status-' + slotProps.data.inventoryStatus.toLowerCase()">{{slotProps.data.inventoryStatus}}</span>
-                </template>
-            </Column>
-            <template #footer>
-                In total there are {{products ? products.length : 0 }} products.
-            </template>
-        </DataTable>
-	</div>
-</template>
-
-<script>
-import ProductService from './service/ProductService';
 
 export default {
     data() {
@@ -120,9 +108,9 @@ export default {
         }
     }
 }
-<\\/script>
+</CodeHighlight>
 
-<style lang="scss" scoped>
+<CodeHighlight lang="css">
 .table-header {
     display: flex;
     align-items: center;
@@ -130,175 +118,24 @@ export default {
 }
 
 .product-image {
-    width: 50px;
+    width: 100px;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)
 }
-</style>                    
-`
-                },
-                'composition-api': {
-                    tabName: 'Composition API Source',
-                    content: `
-<template>
-	<div>
-        <DataTable :value="products" responsiveLayout="scroll">
-            <template #header>
-                <div class="table-header">
-                    Products
-                    <Button icon="pi pi-refresh" />
-                </div>
-            </template>
-            <Column field="name" header="Name"></Column>
-            <Column header="Image">
-                <template #body="slotProps">
-                    <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" :alt="slotProps.data.image" class="product-image" />
-                </template>
-            </Column>
-            <Column field="price" header="Price">
-                <template #body="slotProps">
-                    {{formatCurrency(slotProps.data.price)}}
-                </template>
-            </Column>
-            <Column field="rating" header="Reviews">
-                <template #body="slotProps">
-                    <Rating :modelValue="slotProps.data.rating" :readonly="true" :cancel="false" />
-                </template>
-            </Column>
-            <Column header="Status">
-                <template #body="slotProps">
-                    <span :class="'product-badge status-' + slotProps.data.inventoryStatus.toLowerCase()">{{slotProps.data.inventoryStatus}}</span>
-                </template>
-            </Column>
-            <template #footer>
-                In total there are {{products ? products.length : 0 }} products.
-            </template>
-        </DataTable>
+</CodeHighlight>
+
+                </TabPanel>
+            </TabView>
+        </div>
 	</div>
 </template>
 
 <script>
-import { ref, onMounted } from 'vue';
-import ProductService from './service/ProductService';
+import ProductService from '../../service/ProductService';
 
 export default {
-    setup() {
-        onMounted(() => {
-            productService.value.getProductsSmall().then(data => products.value = data);
-        })
-
-        const products = ref();
-        const productService = ref(new ProductService());
-
-        const formatCurrency = (value) => {
-            return value.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
-        };
-
-        return { products, formatCurrency }
-    }
-}
-<\\/script>
-
-<style lang="scss" scoped>
-.table-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.product-image {
-    width: 50px;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)
-}
-</style>                    
-`
-                },
-                'browser-source': {
-                    tabName: 'Browser Source',
-                    imports: `<script src="https://unpkg.com/primevue@^3/datatable/datatable.min.js"><\\/script>
-        <script src="https://unpkg.com/primevue@^3/column/column.min.js"><\\/script>
-        <script src="https://unpkg.com/primevue@^3/rating/rating.min.js"><\\/script>
-        <script src="./ProductService.js"><\\/script>`,
-                    content: `<div id="app">
-            <p-datatable :value="products" responsive-layout="scroll">
-                <template #header>
-                    <div class="table-header">
-                        Products
-                        <p-button icon="pi pi-refresh"></p-button>
-                    </div>
-                </template>
-                <p-column field="name" header="Name"></p-column>
-                <p-column header="Image">
-                    <template #body="slotProps">
-                        <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" :alt="slotProps.data.image" class="product-image" />
-                    </template>
-                </p-column>
-                <p-column field="price" header="Price">
-                    <template #body="slotProps">
-                        {{formatCurrency(slotProps.data.price)}}
-                    </template>
-                </p-column>
-                <p-column field="rating" header="Reviews">
-                    <template #body="slotProps">
-                    <p-rating :model-value="slotProps.data.rating" :readonly="true" :cancel="false"></p-rating>
-                    </template>
-                </p-column>
-                <p-column header="Status">
-                    <template #body="slotProps">
-                        <span :class="'product-badge status-' + slotProps.data.inventoryStatus.toLowerCase()">{{slotProps.data.inventoryStatus}}</span>
-                    </template>
-                </p-column>
-                <template #footer>
-                    In total there are {{products ? products.length : 0 }} products.
-                </template>
-            </p-datatable>
-        </div>
-
-    <script type="module">
-    const { createApp, ref, onMounted } = Vue;
-
-    const App = {
-        setup() {
-            onMounted(() => {
-                productService.value.getProductsSmall().then(data => products.value = data);
-            })
-
-            const products = ref();
-            const productService = ref(new ProductService());
-
-            const formatCurrency = (value) => {
-                return value.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
-            };
-
-            return { products, formatCurrency }
-        },
-        components: {
-                "p-datatable": primevue.datatable,
-                "p-column": primevue.column,
-                "p-button": primevue.button,
-                "p-rating": primevue.rating
-            }
-    };
-
-    createApp(App)
-            .use(primevue.config.default)
-            .mount("#app");
-    <\\/script>
-
-    <style>
-    .table-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    .product-image {
-        width: 50px;
-        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)
-    }
-    </style>                    
-`
-                }
-            }
+    data() {
+        return {
+            products: null
         }
     },
     productService: null,

@@ -5,7 +5,6 @@
                 <h1>Fieldset</h1>
                 <p>Fieldset is a grouping component with the optional content toggle feature.</p>
             </div>
-            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">
@@ -36,6 +35,13 @@
 import FieldsetDoc from './FieldsetDoc';
 
 export default {
+    data() {
+        return {
+            value1: '',
+            value2: '',
+            value3: 'PrimeVue'
+        }
+    },
     components: {
         'FieldsetDoc': FieldsetDoc
     }
@@ -43,7 +49,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.fieldset p {
+.p-fieldset p {
     line-height: 1.5;
     margin: 0;
 }

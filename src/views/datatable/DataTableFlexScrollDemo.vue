@@ -4,7 +4,6 @@
             <div class="feature-intro">
                 <h1>DataTable <span>Flex Scroll</span></h1>
             </div>
-            <AppDemoActions />
 		</div>
         <div class="content-section implementation">
             <div class="card" style="height: calc(100vh - 143px)">
@@ -16,35 +15,22 @@
                 </DataTable>
             </div>
         </div>
-
-        <AppDoc name="DataTableFlexScrollDemo" :sources="sources" :service="['CustomerService']" :data="['customers-large']" github="datatable/DataTableFlexScrollDemo.vue" />    
-	</div>
+        <div class="content-section documentation">
+            <TabView>
+                <TabPanel header="Source">
+<CodeHighlight>
+<template v-pre>
+&lt;DataTable :value="customers" :scrollable="true" scrollHeight="flex"&gt;
+    &lt;Column field="name" header="Name"&gt;&lt;/Column&gt;
+    &lt;Column field="country.name" header="Country"&gt;&lt;/Column&gt;
+    &lt;Column field="representative.name" header="Representative"&gt;&lt;/Column&gt;
+    &lt;Column field="status" header="Status"&gt;&lt;/Column&gt;
+&lt;/DataTable&gt;
 </template>
+</CodeHighlight>
 
-<script>
+<CodeHighlight lang="javascript">
 import CustomerService from '../../service/CustomerService';
-
-export default {
-    data() {
-        return {
-            customers: null,
-            sources: {
-                'options-api': {
-                    tabName: 'Options API Source',
-                    content: `
-<template>
-    <div class="card" style="height: calc(100vh - 143px)">
-        <DataTable :value="customers" :scrollable="true" scrollHeight="flex">
-            <Column field="name" header="Name"></Column>
-            <Column field="country.name" header="Country"></Column>
-            <Column field="representative.name" header="Representative"></Column>
-            <Column field="status" header="Status"></Column>
-        </DataTable>
-    </div>
-</template>
-
-<script>
-import CustomerService from './service/CustomerService';
 
 export default {
     data() {
@@ -60,85 +46,20 @@ export default {
         this.customerService.getCustomersLarge().then(data => this.customers = data);
     }
 }
-<\\/script>
-`
-                },
-                'composition-api': {
-                    tabName: 'Composition API Source',
-                    content: `
-<template>
-    <div class="card" style="height: calc(100vh - 143px)">
-        <DataTable :value="customers" :scrollable="true" scrollHeight="flex">
-            <Column field="name" header="Name"></Column>
-            <Column field="country.name" header="Country"></Column>
-            <Column field="representative.name" header="Representative"></Column>
-            <Column field="status" header="Status"></Column>
-        </DataTable>
+</CodeHighlight>
+                </TabPanel>
+            </TabView>
+        </div>
     </div>
 </template>
 
 <script>
-import { ref, onMounted } from 'vue';
-import CustomerService from './service/CustomerService';
+import CustomerService from '../../service/CustomerService';
 
 export default {
-    setup() {
-        onMounted(() => {
-            customerService.value.getCustomersLarge().then(data => customers.value = data);
-        })
-
-        const customers = ref(null);
-        const customerService = ref(new CustomerService());
-
-        return { customers }
-    }
-}
-<\\/script>
-`
-                },
-                'browser-source': {
-                    tabName: 'Browser Source',
-                    imports: `<script src="https://unpkg.com/primevue@^3/datatable/datatable.min.js"><\\/script>
-        <script src="https://unpkg.com/primevue@^3/column/column.min.js"><\\/script>
-        <script src="./CustomerService.js"><\\/script>`,
-                    content: `<div id="app">
-            <div class="card" style="height: calc(100vh - 143px)">
-                <p-datatable :value="customers" :scrollable="true" scroll-height="flex">
-                    <p-column field="name" header="Name"></p-column>
-                    <p-column field="country.name" header="Country"></p-column>
-                    <p-column field="representative.name" header="Representative"></p-column>
-                    <p-column field="status" header="Status"></p-column>
-                </p-datatable>
-            </div>
-        </div>
-
-        <script type="module">
-        const { createApp, ref, onMounted } = Vue;
-
-        const App = {
-            setup() {
-                onMounted(() => {
-                    customerService.value.getCustomersLarge().then(data => customers.value = data);
-                })
-
-                const customers = ref(null);
-                const customerService = ref(new CustomerService());
-
-                return { customers }
-            },
-            components: {
-                "p-datatable": primevue.datatable,
-                "p-column": primevue.column
-            }
-        };
-
-        createApp(App)
-            .use(primevue.config.default)
-            .mount("#app");
-        <\\/script>
-`
-                }
-            }
+    data() {
+        return {
+            customers: null
         }
     },
     customerService: null,

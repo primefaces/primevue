@@ -1,24 +1,20 @@
 <template>
-    <Portal>
-        <div ref="container" :class="containerClass" v-bind="$attrs">
-            <transition-group name="p-toast-message" tag="div" @enter="onEnter" @leave="onLeave">
-                <ToastMessage v-for="msg of messages" :key="msg.id" :message="msg" @close="remove($event)" :template="$slots.message"/>
-            </transition-group>
-        </div>
-    </Portal>
+    <div ref="container" :class="containerClass">
+        <transition-group name="p-toast-message" tag="div" @enter="onEnter">
+            <ToastMessage v-for="msg of messages" :key="msg.id" :message="msg" :templates="$scopedSlots" @close="remove($event)"/>
+        </transition-group>
+    </div>
 </template>
 
 <script>
-import ToastEventBus from 'primevue/toasteventbus';
-import ToastMessage from './ToastMessage.vue';
-import {ZIndexUtils,UniqueComponentId,ObjectUtils} from 'primevue/utils';
-import Portal from 'primevue/portal';
+import ToastEventBus from '../toastservice/ToastEventBus';
+import ToastMessage from './ToastMessage';
+import DomHandler from '../utils/DomHandler';
+import UniqueComponentId from '../utils/UniqueComponentId';
 
 var messageIdx = 0;
 
 export default {
-    name: 'Toast',
-    inheritAttrs: false,
     props: {
         group: {
             type: String,
@@ -48,24 +44,31 @@ export default {
     },
     styleElement: null,
     mounted() {
-        ToastEventBus.on('add', this.onAdd);
-        ToastEventBus.on('remove-group', this.onRemoveGroup);
-        ToastEventBus.on('remove-all-groups', this.onRemoveAllGroups);
+        ToastEventBus.$on('add', (message) => {
+            if (this.group == message.group) {
+                this.add(message);
+            }
+        });
+        ToastEventBus.$on('remove-group', (group) => {
+            if (this.group === group) {
+                this.messages = [];
+            }
+        });
+        ToastEventBus.$on('remove-all-groups', () => {
+            this.messages = [];
+        });
+
+        this.updateZIndex();
 
         if (this.breakpoints) {
             this.createStyle();
         }
     },
-    beforeUnmount() {
+    beforeUpdate() {
+        this.updateZIndex();
+    },
+    beforeDestroy() {
         this.destroyStyle();
-
-        if (this.$refs.container && this.autoZIndex) {
-            ZIndexUtils.clear(this.$refs.container);
-        }
-
-        ToastEventBus.off('add', this.onAdd);
-        ToastEventBus.off('remove-group', this.onRemoveGroup);
-        ToastEventBus.off('remove-all-groups', this.onRemoveAllGroups);
     },
     methods: {
         add(message) {
@@ -86,37 +89,19 @@ export default {
 
             this.messages.splice(index, 1);
         },
-        onAdd(message) {
-            if (this.group == message.group) {
-                this.add(message);
+        updateZIndex() {
+            if (this.autoZIndex) {
+                this.$refs.container.style.zIndex = String(this.baseZIndex + DomHandler.generateZIndex());
             }
-        },
-        onRemoveGroup(group) {
-            if (this.group === group) {
-                this.messages = [];
-            }
-        },
-        onRemoveAllGroups() {
-            this.messages = [];
         },
         onEnter() {
             this.$refs.container.setAttribute(this.attributeSelector, '');
-
-            if (this.autoZIndex) {
-                ZIndexUtils.set('modal', this.$refs.container, this.baseZIndex || this.$primevue.config.zIndex.modal);
-            }
-        },
-        onLeave() {
-            if (this.$refs.container && this.autoZIndex && ObjectUtils.isEmpty(this.messages)) {
-                ZIndexUtils.clear(this.$refs.container);
-            }
         },
         createStyle() {
             if (!this.styleElement) {
                 this.styleElement = document.createElement('style');
                 this.styleElement.type = 'text/css';
                 document.head.appendChild(this.styleElement);
-
                 let innerHTML = '';
                 for (let breakpoint in this.breakpoints) {
                     let breakpointStyle = '';
@@ -131,7 +116,6 @@ export default {
                         }
                     `;
                 }
-
                 this.styleElement.innerHTML = innerHTML;
             }
         },
@@ -143,15 +127,11 @@ export default {
         }
     },
     components: {
-        'ToastMessage': ToastMessage,
-        'Portal': Portal
+        'ToastMessage': ToastMessage
     },
     computed: {
         containerClass() {
-            return ['p-toast p-component p-toast-' + this.position, {
-                'p-input-filled': this.$primevue.config.inputStyle === 'filled',
-                'p-ripple-disabled': this.$primevue.config.ripple === false
-            }];
+            return 'p-toast p-component p-toast-' + this.position;
         },
         attributeSelector() {
             return UniqueComponentId();
@@ -203,7 +183,7 @@ export default {
 
 .p-toast-bottom-center {
 	bottom: 20px;
-    left: 50%;
+	left: 50%;
     transform: translateX(-50%);
 }
 
@@ -227,14 +207,14 @@ export default {
 }
 
 /* Animations */
-.p-toast-message-enter-from {
+.p-toast-message-enter {
     opacity: 0;
     -webkit-transform: translateY(50%);
     -ms-transform: translateY(50%);
     transform: translateY(50%);
 }
 
-.p-toast-message-leave-from {
+.p-toast-message-leave {
     max-height: 1000px;
 }
 

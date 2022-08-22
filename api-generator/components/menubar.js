@@ -1,6 +1,6 @@
 const MenubarProps = [
     {
-        name: "modelValue",
+        name: "value",
         type: "array",
         default: "null",
         description: "An array of menuitems."
@@ -21,10 +21,6 @@ const MenubarSlots = [
     {
         name: "end",
         description: "Custom content after the content"
-    },
-    {
-        name: "item",
-        description: "Template of a menuitem."
     }
 ];
 

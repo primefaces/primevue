@@ -5,7 +5,6 @@
                 <h1>ScrollTop</h1>
                 <p>ScrollTop gets displayed after a certain scroll position and used to navigates to the top of the page quickly.</p>
             </div>
-            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">
@@ -40,25 +39,22 @@
 
 <script>
 import ScrollTopDoc from './ScrollTopDoc';
-
 export default {
     components: {
         'ScrollTopDoc': ScrollTopDoc
     }
-}  
+}
 </script>
 
 <style lang="scss" scoped>
-::v-deep(.custom-scrolltop) {
+::v-deep .custom-scrolltop {
     width: 2rem;
     height: 2rem;
     border-radius: 4px;
     background-color: var(--primary-color);
-
     &:hover {
 		background-color: var(--primary-color);
 	}
-
     .p-scrolltop-icon {
         font-size: 1rem;
         color: var(--primary-color-text);

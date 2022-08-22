@@ -5,7 +5,6 @@
                 <h1>Skeleton</h1>
                 <p>Skeleton is a placeholder to display instead of the actual content.</p>
             </div>
-            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">
@@ -62,7 +61,7 @@
                                 </div>
                             </div>
                             <Skeleton width="100%" height="150px"></Skeleton>
-                            <div class="flex justify-content-center mt-3">
+                            <div class="flex justify-content-between mt-3">
                                 <Skeleton width="4rem" height="2rem"></Skeleton>
                                 <Skeleton width="4rem" height="2rem"></Skeleton>
                             </div>
@@ -112,10 +111,10 @@
                             </ul>
                         </div>
                     </div>
-                </div>
+                 </div>
 
                 <h5>DataTable</h5>
-                <DataTable :value="products" responsiveLayout="scroll">
+                <DataTable :value="products">
                     <Column field="code" header="Code">
                         <template #body>
                             <Skeleton></Skeleton>
@@ -147,11 +146,10 @@
 
 <script>
 import SkeletonDoc from './SkeletonDoc';
-
 export default {
     data() {
         return {
-            products: new Array(4)
+            products: new Array(5)
         }
     },
     components: {
@@ -164,7 +162,6 @@ export default {
 .custom-skeleton {
     border: 1px solid var(--surface-border);
     border-radius: 4px;
-
     ul {
         list-style: none;
     }

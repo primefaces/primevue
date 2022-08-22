@@ -1,6 +1,6 @@
 <template>
-    <div :class="containerClass" :style="style">
-        <DockSub :model="model" :templates="$slots" :exact="exact" :tooltipOptions="tooltipOptions"></DockSub>
+    <div :class="containerClass" :style="styles">
+        <DockSub :model="model" :templates="$scopedSlots" :exact="exact" :tooltipOptions="tooltipOptions"></DockSub>
     </div>
 </template>
 
@@ -15,17 +15,46 @@ export default {
             default: "bottom"
         },
         model: null,
-        class: null,
-        style: null,
+        className: null,
+        styles: null,
         tooltipOptions: null,
         exact: {
             type: Boolean,
             default: true
         }
     },
+    data() {
+        return {
+            currentIndex: -3
+        }
+    },
+    methods: {
+        onListMouseLeave() {
+            this.currentIndex = -3;
+        },
+        onItemMouseEnter(index) {
+            this.currentIndex = index;
+        },
+        onItemClick(e, item) {
+            if (item.command) {
+                item.command({ originalEvent: e, item });
+            }
+
+            e.preventDefault();
+        },
+        itemClass(index) {
+            return ['p-dock-item', {
+                'p-dock-item-second-prev': (this.currentIndex - 2) === index,
+                'p-dock-item-prev': (this.currentIndex - 1) === index,
+                'p-dock-item-current': this.currentIndex === index,
+                'p-dock-item-next': (this.currentIndex + 1) === index,
+                'p-dock-item-second-next': (this.currentIndex + 2) === index
+            }];
+        }
+    },
     computed: {
         containerClass() {
-            return ['p-dock p-component', `p-dock-${this.position}`, this.class];
+            return ['p-dock p-component', `p-dock-${this.position}`, this.className];
         }
     },
     components: {
@@ -56,6 +85,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
+    pointer-events: auto;
 }
 
 .p-dock-item {

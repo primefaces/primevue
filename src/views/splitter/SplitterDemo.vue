@@ -5,13 +5,12 @@
                 <h1>Splitter</h1>
                 <p>Splitter is utilized to separate and resize panels.</p>
             </div>
-            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">
             <div class="card">
                 <h5>Horizontal</h5>
-                <Splitter style="height: 300px" class="mb-5">
+                <Splitter style="height: 300px" classs="mb-5">
                     <SplitterPanel class="flex align-items-center justify-content-center">
                         Panel 1
                     </SplitterPanel>
@@ -66,7 +65,6 @@
 
 <script>
 import SplitterDoc from './SplitterDoc';
-
 export default {
     components: {
         'SplitterDoc': SplitterDoc

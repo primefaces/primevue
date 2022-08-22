@@ -1,13 +1,13 @@
 <template>
     <div class="p-fileupload p-fileupload-advanced p-component" v-if="isAdvanced">
         <div class="p-fileupload-buttonbar">
-            <span :class="advancedChooseButtonClass" :style="style" @click="choose" @keydown.enter="choose" @focus="onFocus" @blur="onBlur" v-ripple tabindex="0">
+            <span :class="advancedChooseButtonClass" :style="buttonStyle" @click="choose" @keydown.enter="choose" @focus="onFocus" @blur="onBlur" v-ripple tabindex="0">
                 <input ref="fileInput" type="file" @change="onFileSelect" :multiple="multiple" :accept="accept" :disabled="chooseDisabled" />
-                <span :class="advancedChooseIconClass"></span>
+                <span class="p-button-icon p-button-icon-left pi pi-fw pi-plus"></span>
                 <span class="p-button-label">{{chooseButtonLabel}}</span>
             </span>
-            <FileUploadButton :label="uploadButtonLabel" :icon="uploadIcon" @click="upload" :disabled="uploadDisabled" v-if="showUploadButton" />
-            <FileUploadButton :label="cancelButtonLabel" :icon="cancelIcon" @click="clear" :disabled="cancelDisabled" v-if="showCancelButton" />
+            <FileUploadButton :label="uploadButtonLabel" icon="pi pi-upload" @click="upload" :disabled="uploadDisabled" v-if="showUploadButton" />
+            <FileUploadButton :label="cancelButtonLabel" icon="pi pi-times" @click="clear" :disabled="cancelDisabled" v-if="showCancelButton" />
         </div>
         <div ref="content" class="p-fileupload-content" @dragenter="onDragEnter" @dragover="onDragOver" @dragleave="onDragLeave" @drop="onDrop">
             <FileUploadProgressBar :value="progress" v-if="hasFiles" />
@@ -24,31 +24,29 @@
                     </div>
                 </div>
             </div>
-            <div class="p-fileupload-empty" v-if="$slots.empty && !hasFiles">
+            <div class="p-fileupload-empty" v-if="$scopedSlots.empty && !hasFiles">
                 <slot name="empty"></slot>
             </div>
         </div>
     </div>
     <div class="p-fileupload p-fileupload-basic p-component" v-else-if="isBasic">
         <FileUploadMessage v-for="msg of messages" severity="error" :key="msg" @close="onMessageClose">{{msg}}</FileUploadMessage>
-        <span :class="basicChooseButtonClass" :style="style" @mouseup="onBasicUploaderClick"  @keydown.enter="choose" @focus="onFocus" @blur="onBlur" v-ripple tabindex="0" >
+        <span :class="basicChooseButtonClass" :style="buttonStyle" @mouseup="onBasicUploaderClick"  @keydown.enter="choose" @focus="onFocus" @blur="onBlur" v-ripple tabindex="0" >
             <span :class="basicChooseButtonIconClass"></span>
             <span class="p-button-label">{{basicChooseButtonLabel}}</span>
-            <input ref="fileInput" type="file" :accept="accept" :disabled="disabled" :multiple="multiple" @change="onFileSelect" @focus="onFocus" @blur="onBlur" v-if="!hasFiles" />
+            <input ref="fileInput" type="file" :accept="accept" :disabled="disabled" @change="onFileSelect" @focus="onFocus" @blur="onBlur" v-if="!hasFiles" />
         </span>
     </div>
 </template>
 
 <script>
-import Button from 'primevue/button';
-import ProgressBar from 'primevue/progressbar';
-import Message from 'primevue/message';
-import {DomHandler} from 'primevue/utils';
-import Ripple from 'primevue/ripple';
+import Button from '../button/Button';
+import ProgressBar from '../progressbar/ProgressBar';
+import Message from '../message/Message';
+import DomHandler from '../utils/DomHandler';
+import Ripple from '../ripple/Ripple';
 
 export default {
-    name: 'FileUpload',
-    emits: ['select', 'uploader', 'before-upload', 'progress', 'upload', 'error', 'before-send', 'clear', 'remove'],
     props: {
         name: {
             type: String,
@@ -130,27 +128,15 @@ export default {
             type: Boolean,
             default: true
         },
-        chooseIcon: {
-            type: String,
-            default: 'pi pi-plus'
-        },
-        uploadIcon: {
-            type: String,
-            default: 'pi pi-upload'
-        },
-        cancelIcon: {
-            type: String,
-            default: 'pi pi-times'
-        },
-        style: null,
-        class: null
+        buttonStyle: null,
+        buttonClass: null
     },
     duplicateIEEvent: false,
     data() {
         return {
             uploadedFileCount: 0,
             files: [],
-            messages: [],
+            messages: null,
             focused: false,
             progress: null
         }
@@ -203,7 +189,7 @@ export default {
                 }
 
                 this.$emit('uploader', {files: this.files});
-                this.clear()
+                this.clear();
             }
             else {
                 let xhr = new XMLHttpRequest();
@@ -268,7 +254,7 @@ export default {
         },
         clear() {
             this.files = [];
-            this.messages = null;
+            this.messages = [];
             this.$emit('clear');
 
             if (this.isAdvanced) {
@@ -312,12 +298,10 @@ export default {
             for(let type of acceptableTypes) {
                 let acceptable = this.isWildcard(type) ? this.getTypeClass(file.type) === this.getTypeClass(type)
                     : file.type == type || this.getFileExtension(file).toLowerCase() === type.toLowerCase();
-
                 if (acceptable) {
                     return true;
                 }
             }
-
             return false;
         },
         getTypeClass(fileType) {
@@ -372,12 +356,11 @@ export default {
         },
         remove(index) {
             this.clearInputElement();
-            let removedFile = this.files.splice(index, 1)[0];
+            this.files.splice(index, 1);
             this.files = [...this.files];
-            this.$emit('remove', {
-                file: removedFile,
-                files: this.files
-            });
+            if(this.files.length <= this.fileLimit) {
+                this.messages = [];
+            }
         },
         clearInputElement() {
             this.$refs.fileInput.value = '';
@@ -408,7 +391,7 @@ export default {
         },
         checkFileLimit() {
             if (this.isFileLimitExceeded()) {
-                this.messages.push(this.invalidFileLimitMessage.replace('{0}', this.fileLimit.toString()))
+                this.messages.push(this.invalidFileLimitMessage.replace('{0}', this.fileLimit.toString()));
             }
         },
         onMessageClose() {
@@ -423,29 +406,27 @@ export default {
             return this.mode === 'basic';
         },
         advancedChooseButtonClass() {
-            return ['p-button p-component p-fileupload-choose', this.class, {
+            return ['p-button p-component p-fileupload-choose', this.buttonClass, {
                     'p-disabled': this.disabled,
                     'p-focus': this.focused
                 }
             ];
         },
         basicChooseButtonClass() {
-            return ['p-button p-component p-fileupload-choose', this.class, {
+            return ['p-button p-component p-fileupload-choose', this.buttonClass, {
                 'p-fileupload-choose-selected': this.hasFiles,
                 'p-disabled': this.disabled,
                 'p-focus': this.focused
             }];
         },
-        advancedChooseIconClass() {
-            return ['p-button-icon p-button-icon-left pi-fw', this.chooseIcon];
-        },
         basicChooseButtonIconClass() {
-            return ['p-button-icon p-button-icon-left',
-                !this.hasFiles || this.auto ? this.uploadIcon : this.chooseIcon
-            ];
+            return ['p-button-icon p-button-icon-left pi', {
+                'pi-plus': !this.hasFiles || this.auto,
+                'pi-upload': this.hasFiles && !this.auto
+            }];
         },
         basicChooseButtonLabel() {
-            return this.auto ? this.chooseButtonLabel : (this.hasFiles ? this.files.map(f => f.name).join(', ') : this.chooseButtonLabel);
+            return this.auto ? this.chooseButtonLabel : (this.hasFiles ? this.files[0].name : this.chooseButtonLabel);
         },
         hasFiles() {
             return this.files && this.files.length > 0;

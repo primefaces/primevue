@@ -5,12 +5,10 @@
     </span>
 </template>
 <script>
-import Ripple from 'primevue/ripple';
+import Ripple from '../ripple/Ripple';
 
 export default {
-    name: 'PageLinks',
     inheritAttrs: false,
-    emits: ['click'],
     props: {
         value: Array,
         page: Number

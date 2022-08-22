@@ -8,9 +8,7 @@
                 <slot name="marker" :item="item" :index="index">
                     <div class="p-timeline-event-marker"></div>
                 </slot>
-                <slot name="connector" v-if="index !== (value.length - 1)" :item="item" :index="index">
-                    <div class="p-timeline-event-connector"></div>
-                </slot>
+                <div v-if="index !== (value.length - 1)" class="p-timeline-event-connector"></div>
             </div>
             <div class="p-timeline-event-content">
                 <slot name="content" :item="item" :index="index"></slot>
@@ -20,10 +18,9 @@
 </template>
 
 <script>
-import {ObjectUtils} from 'primevue/utils';
+import ObjectUtils from '../utils/ObjectUtils';
 
 export default {
-    name: 'Timeline',
     props: {
         value: null,
         align: {

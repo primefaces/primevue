@@ -5,7 +5,6 @@
                 <h1>Steps</h1>
                 <p>Steps components is an indicator for the steps in a wizard workflow. Example below uses nested routes with Steps.</p>
             </div>
-            <AppDemoActions />
         </div>
 
         <div class="content-section implementation">
@@ -13,11 +12,9 @@
                 <Steps :model="items" :readonly="true" />
             </div>
 
-            <router-view v-slot="{Component}" :formData="formObject" @prev-page="prevPage($event)" @next-page="nextPage($event)" @complete="complete">
-                <keep-alive>
-                    <component :is="Component" />
-                </keep-alive>
-            </router-view>
+            <keep-alive>
+                <router-view :formData="formObject" @prevPage="prevPage($event)" @nextPage="nextPage($event)" @complete="complete" />
+            </keep-alive>
         </div>
 
         <StepsDoc />
@@ -71,11 +68,11 @@ export default {
 </script>
 
 <style scoped lang="scss">
-::v-deep(b) {
-    display: block;
+::v-deep b {
+    display: block
 }
 
-::v-deep(.p-card-body) {
+::v-deep .p-card-body {
     padding: 2rem;
 }
 </style>

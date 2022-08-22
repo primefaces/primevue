@@ -1,6 +1,6 @@
 const SelectButtonProps = [
     {
-        name: "modelValue",
+        name: "value",
         type: "any",
         default: "null",
         description: "Value of the component."
@@ -13,19 +13,19 @@ const SelectButtonProps = [
     },
     {
         name: "optionLabel",
-        type: "string",
+        type: "string | function",
         default: "null",
         description: "Property name or getter function to use as the label of an option."
     },
     {
         name: "optionValue",
-        type: "string",
+        type: "string | function",
         default: "null",
         description: "Property name or getter function to use as the value of an option, defaults to the option itself when not defined."
     },
     {
         name: "optionDisabled",
-        type: "boolean",
+        type: "string | function",
         default: "null",
         description: "Property name or getter function to use as the disabled flag of an option, defaults to false when not defined."
     },
@@ -48,32 +48,21 @@ const SelectButtonProps = [
         description: "A property to uniquely identify an option."
     },
     {
-        name: "unselectable",
-        type: "boolean",
-        default: "true",
-        description: "Whether selection can be cleared."
-    },
-    {
-        name: "aria-labelledby",
+        name: "ariaLabelledBy",
         type: "string",
         default: "null",
-        description: "Identifier of the underlying element."
+        description: "Establishes relationships between the component and label(s) where its value should be one or more element IDs."
     }
 ];
 
 const SelectButtonEvents = [
     {
-        name: "change",
+        name: "input",
         description: "Callback to invoke on value change.",
         arguments: [
             {
-                name: "event.originalEvent",
+                name: "event",
                 type: "object",
-                description: "Browser event"
-            },
-            {
-                name: "event.value",
-                type: "any",
                 description: "Single value or an array of values that are selected."
             }
         ]

@@ -1,14 +1,14 @@
 <template>
     <div :class="containerClass" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="p-toast-message-content" :class="message.contentStyleClass">
-            <template v-if="!template">
+            <ToastMessageTemplate v-if="templates['message']" :message="message" :template="templates['message']" />
+            <template v-else>
                 <span :class="iconClass"></span>
                 <div class="p-toast-message-text">
                     <span class="p-toast-summary">{{message.summary}}</span>
                     <div class="p-toast-detail">{{message.detail}}</div>
                 </div>
             </template>
-            <component v-else :is="template" :message="message"></component>
             <button class="p-toast-icon-close p-link" @click="onCloseClick" v-if="message.closable !== false" type="button" v-ripple>
                 <span class="p-toast-icon-close-icon pi pi-times"></span>
             </button>
@@ -17,14 +17,33 @@
 </template>
 
 <script>
-import Ripple from 'primevue/ripple';
+import Ripple from '../ripple/Ripple';
+
+const ToastMessageTemplate = {
+    functional: true,
+    props: {
+        message: {
+            type: null,
+            default: null
+        },
+        template: {
+            type: null,
+            default: null
+        }
+    },
+    render(createElement, context) {
+        const content = context.props.template({
+            'message': context.props.message
+        });
+
+        return [content];
+    }
+};
 
 export default {
-    name: 'ToastMessage',
-    emits: ['close'],
     props: {
         message: null,
-        template: null
+        templates: null
     },
     closeTimeout: null,
     mounted() {
@@ -34,7 +53,7 @@ export default {
             }, this.message.life)
         }
     },
-    beforeUnmount() {
+    beforeDestroy() {
         this.clearCloseTimeout();
     },
     methods: {
@@ -69,6 +88,9 @@ export default {
                 'pi-check': this.message.severity === 'success'
             }];
         }
+    },
+    components: {
+        'ToastMessageTemplate': ToastMessageTemplate
     },
     directives: {
         'ripple': Ripple

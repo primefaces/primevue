@@ -1,6 +1,5 @@
 <template>
-    <CDialog v-model:visible="visible" :modal="true" :header="header" :blockScroll="blockScroll" :position="position" class="p-confirm-dialog"
-        :breakpoints="breakpoints" :closeOnEscape="closeOnEscape">
+    <CDialog :visible="visible" :modal="true" :header="header" :blockScroll="blockScroll" :position="position" class="p-confirm-dialog" @click="closeDialog($event)">
         <i :class="iconClass" />
         <span class="p-confirm-dialog-message">{{message}}</span>
         <template #footer>
@@ -11,21 +10,14 @@
 </template>
 
 <script>
-import ConfirmationEventBus from 'primevue/confirmationeventbus';
-import Dialog from 'primevue/dialog';
-import Button from 'primevue/button';
-
+import ConfirmationEventBus from '../confirmationeventbus/ConfirmationEventBus';
+import Dialog from '../dialog/Dialog';
+import Button from '../button/Button';
+import DomHandler from '../utils/DomHandler';
 export default {
-    name: 'ConfirmDialog',
     props: {
-        group: String,
-        breakpoints: {
-            type: Object,
-            default: null
-        }
+        group: String
     },
-    confirmListener: null,
-    closeListener: null,
     data() {
         return {
             visible: false,
@@ -33,42 +25,43 @@ export default {
         }
     },
     mounted() {
-        this.confirmListener = (options) => {
+        ConfirmationEventBus.on('confirm', (options) => {
             if (!options) {
                 return;
             }
-
             if (options.group === this.group) {
                 this.confirmation = options;
                 this.visible = true;
             }
-        };
-
-        this.closeListener = () => {
+        });
+        ConfirmationEventBus.on('close', () => {
             this.visible = false;
             this.confirmation = null;
-        };
-        ConfirmationEventBus.on('confirm', this.confirmListener);
-        ConfirmationEventBus.on('close', this.closeListener);
+        });
     },
-    beforeUnmount() {
-        ConfirmationEventBus.off('confirm', this.confirmListener);
-        ConfirmationEventBus.off('close', this.closeListener);
+    beforeDestroy() {
+        ConfirmationEventBus.off('confirm');
+        ConfirmationEventBus.off('close');
     },
     methods: {
         accept() {
             if (this.confirmation.accept) {
                 this.confirmation.accept();
             }
-
             this.visible = false;
         },
         reject() {
             if (this.confirmation.reject) {
                 this.confirmation.reject();
             }
-
             this.visible = false;
+        },
+        closeDialog($event) {
+            if(DomHandler.hasClass($event.target, 'p-dialog-header-close') || DomHandler.hasClass($event.target, 'p-dialog-header-close-icon')) {
+                ConfirmationEventBus.off('confirm');
+                ConfirmationEventBus.off('close');
+                this.visible = false;
+            }
         }
     },
     computed: {
@@ -110,9 +103,6 @@ export default {
         },
         autoFocusReject() {
             return this.confirmation.defaultFocus === 'reject' ? true : false;
-        },
-        closeOnEscape() {
-            return this.confirmation ? this.confirmation.closeOnEscape : true;
         }
     },
     components: {

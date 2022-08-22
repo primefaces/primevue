@@ -1,48 +1,35 @@
 <template>
     <ul class="p-submenu-list" role="tree">
-        <template v-for="(item, i) of model" :key="label(item) + i.toString()">
-            <li role="none" :class="getItemClass(item)" :style="item.style" v-if="visible(item) && !item.separator">
-                <template v-if="!template">
-                    <router-link v-if="item.to && !disabled(item)" :to="item.to" custom v-slot="{navigate, href, isActive:isRouterActive, isExactActive}">
-                        <a :href="href" :class="linkClass(item, {isActive:isRouterActive, isExactActive})" @click="onItemClick($event, item, navigate)" role="treeitem" :aria-expanded="isActive(item)">
-                            <span :class="['p-menuitem-icon', item.icon]"></span>
-                            <span class="p-menuitem-text">{{label(item)}}</span>
-                        </a>
-                    </router-link>
-                    <a v-else :href="item.url" :class="linkClass(item)" :target="item.target" @click="onItemClick($event, item)" @keydown="onItemKeydown($event, item)"
-                        role="treeitem" :aria-expanded="isActive(item)" :tabindex="disabled(item) ? null : '0'">
-                        <span :class="getSubmenuIcon(item)" v-if="item.items"></span>
+        <template v-for="(item, i) of model">
+            <li role="none" :class="getItemClass(item)" :style="item.style" v-if="visible(item) && !item.separator" :key="label(item) + i">
+                <router-link v-if="item.to && !disabled(item)" :to="item.to" custom v-slot="{navigate, href, isActive:isRouterActive, isExactActive}">
+                    <a :href="href" :class="linkClass(item, {isRouterActive, isExactActive})" @click="onItemClick($event, item, navigate)" role="treeitem" :aria-expanded="isActive(item)">
                         <span :class="['p-menuitem-icon', item.icon]"></span>
                         <span class="p-menuitem-text">{{label(item)}}</span>
                     </a>
-                </template>
-                <component v-else :is="template" :item="item"></component>
+                </router-link>
+                <a v-else :href="item.url" :class="linkClass(item)" :target="item.target" @click="onItemClick($event, item)"
+                    role="treeitem" :aria-expanded="isActive(item)" :tabindex="disabled(item) ? null : '0'">
+                    <span :class="getSubmenuIcon(item)" v-if="item.items"></span>
+                    <span :class="['p-menuitem-icon', item.icon]"></span>
+                    <span class="p-menuitem-text">{{label(item)}}</span>
+                </a>
                 <transition name="p-toggleable-content">
-                    <div class="p-toggleable-content" v-show="isActive(item)">
-                        <PanelMenuSub :model="item.items" v-if="visible(item) && item.items" :key="label(item) + '_sub_'" :template="template"
-                            :expandedKeys="expandedKeys" @item-toggle="$emit('item-toggle', $event)" :exact="exact"/>
+                    <div class="p-toggleable-content" v-show="item === activeItem">
+                        <sub-panelmenu :model="item.items" v-if="visible(item) && item.items" :key="label(item) + '_sub_'" :exact="exact" />
                     </div>
                 </transition>
             </li>
-            <li :class="['p-menu-separator', item.class]" :style="item.style" v-if="visible(item) && item.separator" :key="'separator' + i.toString()"></li>
+            <li :class="['p-menu-separator', item.class]" :style="item.style" v-if="visible(item) && item.separator" :key="'separator' + i"></li>
         </template>
     </ul>
 </template>
 
 <script>
 export default {
-    name: 'PanelMenuSub',
-    emits: ['item-toggle'],
+    name: 'sub-panelmenu',
     props: {
 		model: {
-            type: null,
-            default: null
-        },
-        template: {
-            type: Function,
-            default: null
-        },
-        expandedKeys: {
             type: null,
             default: null
         },
@@ -58,13 +45,13 @@ export default {
     },
     methods: {
         onItemClick(event, item, navigate) {
-            if (this.isActive(item) && this.activeItem === null) {
-                this.activeItem = item;
-            }
-
             if (this.disabled(item)) {
                 event.preventDefault();
                 return;
+            }
+
+            if (!item.url && !item.to) {
+                event.preventDefault();
             }
 
             if (item.command) {
@@ -79,19 +66,12 @@ export default {
             else
                 this.activeItem = item;
 
-            this.$emit('item-toggle', {item: item, expanded: this.activeItem != null});
-
             if (item.to && navigate) {
                 navigate(event);
             }
         },
-        onItemKeydown(event, item) {
-            if (event.which === 13) {
-                this.onItemClick(event, item);
-            }
-        },
         getItemClass(item) {
-            return ['p-menuitem', item.className];
+            return ['p-menuitem', item.class];
         },
         linkClass(item, routerProps) {
             return ['p-menuitem-link', {
@@ -101,7 +81,7 @@ export default {
             }];
         },
         isActive(item) {
-            return this.expandedKeys ? this.expandedKeys[item.key] : item === this.activeItem;
+            return item === this.activeItem;
         },
         getSubmenuIcon(item) {
             const active = this.isActive(item);

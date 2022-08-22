@@ -1,13 +1,13 @@
 <script>
 export default {
-    name: 'Column',
+    name: 'column',
     props: {
         columnKey: {
             type: null,
             default: null
         },
         field: {
-            type: [String, Function],
+            type: String,
             default: null
         },
         sortField: {
@@ -15,7 +15,7 @@ export default {
             default: null
         },
         filterField: {
-            type: [String, Function],
+            type: String,
             default: null
         },
         dataType: {
@@ -34,11 +34,11 @@ export default {
             type: null,
             default: null
         },
-        style: {
+        styles: {
             type: null,
             default: null
         },
-        class: {
+        className: {
             type: String,
             default: null
         },
@@ -158,15 +158,7 @@ export default {
             type: String,
             default: 'left'
         },
-        exportable: {
-            type: Boolean,
-            default: true
-        },
         exportHeader: {
-            type: String,
-            default: null
-        },
-        exportFooter: {
             type: String,
             default: null
         },

@@ -1,10 +1,9 @@
 <template>
-	<JTPInput :modelValue="page" @update:modelValue="onChange($event)" class="p-paginator-page-input" :disabled="disabled"></JTPInput>
+	<JTPInput :value="page" @input="onChange($event)" class="p-paginator-page-input" :disabled="disabled"></JTPInput>
 </template>
 
 <script>
-import InputNumber from 'primevue/inputnumber';
-
+import InputNumber from '../inputnumber/InputNumber.vue';
 export default {
     name: 'JumpToPageInput',
     inheritAttrs: false,

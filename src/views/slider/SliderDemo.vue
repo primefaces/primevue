@@ -5,13 +5,13 @@
                 <h1>Slider</h1>
                 <p>Slider is an input component to provide a numerical input.</p>
             </div>
-            <AppDemoActions />
+            <AppInputStyleSwitch />
         </div>
 
         <div class="content-section implementation">
             <div class="card">
                 <h5>Basic: {{value1}}</h5>
-                <Slider v-model="value1" />
+                <Slider v-model="value1" :step="0.01" :min="1.35" />
 
                 <h5>Input: {{value2}}</h5>
                 <InputText v-model.number="value2" />
@@ -27,7 +27,7 @@
                 <Slider v-model="value5" :range="true" />
 
                 <h5>Vertical: {{value6}}</h5>
-                <Slider v-model="value6" orientation="vertical" />
+                <Slider v-model="value6" orientation="vertical" :step="0.01" />
             </div>
         </div>
 

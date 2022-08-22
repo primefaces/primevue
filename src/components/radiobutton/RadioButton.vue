@@ -1,44 +1,26 @@
 <template>
-    <div :class="containerClass" @click="onClick($event)">
-        <div class="p-hidden-accessible">
-            <input ref="input" type="radio" :id="inputId" :class="inputClass" :style="inputStyle" :name="name" :checked="checked" :disabled="disabled" :value="value" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel"
-                @focus="onFocus" @blur="onBlur" v-bind="inputProps">
+   <div :class="containerClass" @click="onClick($event)">
+       <div class="p-hidden-accessible">
+           <input ref="input" type="radio" :checked="checked" :value="value" v-bind="$attrs" @focus="onFocus($event)" @blur="onBlur($event)">
         </div>
-        <div ref="box" :class="['p-radiobutton-box', {'p-highlight': checked, 'p-disabled': disabled, 'p-focus': focused}]">
+        <div ref="box" :class="['p-radiobutton-box', {'p-highlight': checked, 'p-disabled': $attrs.disabled, 'p-focus': focused}]" role="radio" :aria-checked="checked">
             <div class="p-radiobutton-icon"></div>
         </div>
     </div>
 </template>
 
 <script>
-import {ObjectUtils} from 'primevue/utils';
+import ObjectUtils from '../utils/ObjectUtils';
 
 export default {
-    name: 'RadioButton',
-    emits: ['click', 'update:modelValue', 'change', 'focus', 'blur'],
+    inheritAttrs: false,
     props: {
 		value: null,
-        modelValue: null,
-        name: {
-            type: String,
-            default: null
-        },
-        disabled: {
-            type: Boolean,
-            default: false
-        },
-        inputId: null,
-        inputClass: null,
-        inputStyle: null,
-        inputProps: null,
-        'aria-labelledby': {
-            type: String,
-			default: null
-        },
-        'aria-label': {
-            type: String,
-            default: null
-        }
+        modelValue: null
+    },
+    model: {
+        prop: 'modelValue',
+        event: 'input'
     },
     data() {
         return {
@@ -47,9 +29,9 @@ export default {
     },
     methods: {
         onClick(event) {
-            if (!this.disabled) {
+            if (!this.$attrs.disabled) {
                 this.$emit('click', event);
-                this.$emit('update:modelValue', this.value);
+                this.$emit('input', this.value);
                 this.$refs.input.focus();
 
                 if (!this.checked) {
@@ -71,12 +53,7 @@ export default {
             return this.modelValue != null && ObjectUtils.equals(this.modelValue, this.value);
         },
         containerClass() {
-            return [
-                'p-radiobutton p-component', {
-                    'p-radiobutton-checked': this.checked,
-                    'p-radiobutton-disabled': this.disabled,
-                    'p-radiobutton-focused': this.focused
-                }];
+            return ['p-radiobutton p-component', {'p-radiobutton-checked': this.checked, 'p-radiobutton-disabled': this.$attrs.disabled, 'p-radiobutton-focused': this.focused}];
         }
     }
 }
