@@ -1,6 +1,6 @@
 <template>
     <div :class="containerClass" :style="styles">
-        <PInputText ref="input" :class="inputFieldClass" :style="inputStyle" :type="inputType" :value="d_value" @input="onInput" @focus="onFocus" @blur="onBlur" @keyup="onKeyUp" v-bind="$attrs" />
+        <PInputText ref="input" :class="inputFieldClass" :style="inputStyle" :type="inputType" :value="d_value" v-bind="$attrs" v-on="listeners" />
         <i v-if="toggleMask" :class="toggleIconClass" @click="onMaskToggle" />
         <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
             <div ref="overlayRef" class="p-password-panel p-component" v-if="overlayVisible">
@@ -163,17 +163,19 @@ export default {
         onInput(event)  {
             this.$emit('input', event);
         },
-        onFocus() {
+        onFocus(event) {
             this.focused = true;
             if (this.feedback) {
                 this.overlayVisible = true;
             }
+            this.$emit('focus', event);
         },
-        onBlur() {
+        onBlur(event) {
             this.focused = false;
             if (this.feedback) {
                 this.overlayVisible = false;
             }
+            this.$emit('blur', event);
         },
         onKeyUp(event) {
             if (this.feedback) {
@@ -213,6 +215,8 @@ export default {
                     this.overlayVisible = true;
                 }
             }
+
+            this.$emit('keyup', event);
         },
         bindScrollListener() {
             if (!this.scrollHandler) {
@@ -251,6 +255,25 @@ export default {
         }
     },
     computed: {
+        listeners() {
+            let $vm = this;
+
+            return {
+                ...$vm.$listeners,
+                input: event => {
+                    this.onInput(event);
+                },
+                focus: event => {
+                    this.onFocus(event);
+                },
+                blur: event => {
+                    this.onBlur(event);
+                },
+                keyup: event => {
+                    this.onKeyUp(event);
+                }
+            };
+        },
         containerClass() {
             return ['p-password p-component p-inputwrapper', this.className, {
                 'p-inputwrapper-filled': this.filled,
