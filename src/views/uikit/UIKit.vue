@@ -2,13 +2,13 @@
     <div>
         <div class="content-section">
             <div style="border-radius: 50px; max-height: 500px" class="overflow-hidden mb-5 flex align-items-center">
-                <img alt="PrimeNG Designer" :src="coverImage" class="w-full"/>
+                <img alt="PrimeVue Designer" :src="coverImage" class="w-full"/>
             </div>
 
             <div class="card mb-5" style="border-radius: 50px">
                 <div class="flex flex-column md:flex-row align-items-center gap-4 md:gap-8 mb-8">
                     <div class="w-full md:w-6">
-                        <img alt="PrimeNG Designer" src="images/uikit/uikit-figma.png" class="w-full"/>
+                        <img alt="PrimeVue Designer" src="images/uikit/uikit-figma.png" class="w-full"/>
                     </div>
                     <div class="w-full md:w-6">
                         <div class="text-primary font-bold mb-2">UP-TO-DATE</div>
@@ -62,12 +62,12 @@
                         </ul>
                     </div>
                     <div class="w-full md:w-6">
-                        <img alt="PrimeNG Designer" src="images/uikit/uikit-system.png" class="w-full"/>
+                        <img alt="PrimeVue Designer" src="images/uikit/uikit-system.png" class="w-full"/>
                     </div>
                 </div>
                 <div class="flex flex-column md:flex-row align-items-center gap-4 md:gap-8">
                     <div class="w-full md:w-6">
-                        <img alt="PrimeNG Designer" src="images/uikit/uikit-themes.png" class="w-full"/>
+                        <img alt="PrimeVue Designer" src="images/uikit/uikit-themes.png" class="w-full"/>
                     </div>
                     <div class="w-full md:w-6">
                         <div class="text-primary font-bold mb-2">DARK MODE</div>
@@ -91,11 +91,11 @@
             <div class="flex flex-column md:flex-row gap-4 md:gap-8 mb-5">
                 <a href="https://www.figma.com/file/c3BuENd8nGcyPmn7ADieee/Preview-%7C-PrimeOne-2022-%7C-1.0.0?node-id=806%3A36648" class="p-5 w-full md:w-6 bg-white flex flex-column align-items-center border-2 border-transparent hover:border-primary transition-colors transition-duration-300" style="border-radius: 50px">
                     <span class="text-gray-900 text-4xl font-bold mb-5">Preview Light</span>
-                    <img alt="PrimeNG Designer" src="images/uikit/logo-figma-light.svg" class="w-4rem"/>
+                    <img alt="PrimeVue Designer" src="images/uikit/logo-figma-light.svg" class="w-4rem"/>
                 </a>
                 <a href="https://www.figma.com/file/LJBqVfMpK8xY6KR2KIc8RK/Preview-%7C-Dark-%7C-PrimeOne-2022-%7C-1.0.0?node-id=806%3A36648" class="p-5 w-6 bg-gray-900 flex flex-column align-items-center border-2 border-transparent hover:border-primary transition-colors transition-duration-300" style="border-radius: 50px">
                     <span class="text-white text-4xl font-bold mb-5">Preview Dark</span>
-                    <img alt="PrimeNG Designer" src="images/uikit/logo-figma-dark.svg" class="w-4rem"/>
+                    <img alt="PrimeVue Designer" src="images/uikit/logo-figma-dark.svg" class="w-4rem"/>
                 </a>
             </div>
 
@@ -137,7 +137,7 @@
                                     </li>
                                 </ul>
                                 <hr class="mb-3 mx-0 border-top-1 border-none surface-border mt-auto" />
-                                <a href="https://www.primefaces.org/store/uikit.xhtml" pRipple class="bg-blue-500 text-white hover:bg-blue-400 p-3 w-full border-round text-center transition-colors transition-duration-300 font-bold">Buy Now</a>
+                                <a href="https://www.primefaces.org/store/uikit.xhtml" v-ripple class="bg-blue-500 text-white hover:bg-blue-400 p-3 w-full border-round text-center transition-colors transition-duration-300 font-bold p-ripple">Buy Now</a>
                             </div>
                         </div>
                     </div>
@@ -175,7 +175,7 @@
                                     </li>
                                 </ul>
                                 <hr class="mb-3 mx-0 border-top-1 border-none surface-border" />
-                                <a href="https://www.primefaces.org/store/uikit.xhtml" pRipple class="bg-purple-500 text-white hover:bg-purple-400 p-3 w-full border-round text-center transition-colors transition-duration-300 font-bold">Buy Now</a>
+                                <a href="https://www.primefaces.org/store/uikit.xhtml" v-ripple class="bg-purple-500 text-white hover:bg-purple-400 p-3 w-full border-round text-center transition-colors transition-duration-300 font-bold p-ripple">Buy Now</a>
                             </div>
                         </div>
                     </div>
@@ -213,7 +213,7 @@
                                     </li>
                                 </ul>
                                 <hr class="mb-3 mx-0 border-top-1 border-none surface-border" />
-                                <a href="mailto:contact@primetek.com.tr" pRipple class="bg-bluegray-500 text-white hover:bg-bluegray-400 p-3 w-full border-round text-center transition-colors transition-duration-300 font-bold">Contact Us</a>
+                                <a href="mailto:contact@primetek.com.tr" v-ripple class="bg-bluegray-500 text-white hover:bg-bluegray-400 p-3 w-full border-round text-center transition-colors transition-duration-300 font-bold p-ripple">Contact Us</a>
                             </div>
                         </div>
                     </div>
@@ -269,7 +269,7 @@
 <script>
 export default {
     methods: {
-         isDarkTheme() {
+        isDarkTheme() {
             return this.$appState.darkTheme === true;
         }
     },
