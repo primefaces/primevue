@@ -27,7 +27,7 @@
                                     <template v-for="(item, i) of submenu.items">
                                         <li role="none" :class="getSubmenuItemClass(item)" :style="item.style" v-if="visible(item) && !item.separator" :key="label(item) + i">
                                             <router-link v-if="item.to && !disabled(item)" :to="item.to" custom v-slot="{navigate, href, isActive, isExactActive}" >
-                                                <a :href="href" :class="linkClass(item, {isActive, isExactActive})" @click.native="onLeafClick($event, item, navigate)" role="menuitem" v-ripple>
+                                                <a :href="href" :class="linkClass(item, {isActive, isExactActive})" @click="onLeafClick($event, item, navigate)" role="menuitem" v-ripple>
                                                     <span v-if="item.icon" :class="['p-menuitem-icon', item.icon]"></span>
                                                     <span class="p-menuitem-text">{{label(item)}}</span>
                                                 </a>
