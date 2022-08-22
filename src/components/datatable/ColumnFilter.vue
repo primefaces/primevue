@@ -187,7 +187,7 @@ export default {
     },
     selfClick: false,
     overlayEventListener: null,
-    beforeUnmount() {
+    beforeDestroy() {
         if (this.overlayEventListener) {
             OverlayEventBus.off('overlay-click', this.overlayEventListener);
             this.overlayEventListener = null;

@@ -429,7 +429,7 @@ export default {
             this.updateEditingRowKeys(this.editingRows);
         }
     },
-    beforeUnmount() {
+    beforeDestroy() {
         this.unbindColumnResizeEvents();
         this.destroyStyleElement();
         this.destroyResponsiveStyle();

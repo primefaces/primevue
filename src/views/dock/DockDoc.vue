@@ -429,7 +429,7 @@ export default {
         this.nodeService.getTreeNodes().then(data => this.nodes = data);
         TerminalService.$on('command', this.commandHandler);
     },
-    beforeUnmount() {
+    beforeDestroy() {
         TerminalService.$off('command', this.commandHandler);
     },
     methods: {
