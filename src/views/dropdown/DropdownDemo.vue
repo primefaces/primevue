@@ -47,7 +47,7 @@ import DropdownDoc from './DropdownDoc';
 export default {
     data() {
         return {
-            selectedCity1: 0,
+            selectedCity1: null,
             selectedCity2: null,
             selectedCountry: null,
             cities: [
