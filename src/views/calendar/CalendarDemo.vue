@@ -14,7 +14,7 @@
                 <div class="p-fluid grid formgrid">
                     <div class="field col-12 md:col-4">
                         <label for="basic">Basic</label>
-                        <Calendar id="basic" v-model="date1" :showOtherMonths="false" autocomplete="off" />
+                        <Calendar id="basic" v-model="date1" autocomplete="off" />
                     </div>
                     <div class="field col-12 md:col-4">
                         <label for="dateformat">DateFormat</label>
