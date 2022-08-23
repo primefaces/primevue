@@ -1,5 +1,20 @@
 # Changelog
 
+## [3.16.2](https://github.com/primefaces/primevue/tree/3.16.2) (2022-08-23)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.16.1...3.16.2)
+
+**Fixed bugs:**
+
+- Dropdown: UpArrow triggers "Uncaught TypeError: this.visibleOptions.slice\(...\).findLastIndex is not a function" Firefox, Nuxt 3 [\#2872](https://github.com/primefaces/primevue/issues/2872)
+- OverlayPanel: Doesn't work in SSR [\#2871](https://github.com/primefaces/primevue/issues/2871)
+- Tooltip: `escape`, `disabled` and  `fitContent` properties should not accept string as a value [\#2868](https://github.com/primefaces/primevue/issues/2868)
+- AutoComplete: Typescript compilation error due to a typo in the t.ds definition file [\#2866](https://github.com/primefaces/primevue/issues/2866)
+- InputNumber: disabled prop is not passed to input text [\#2864](https://github.com/primefaces/primevue/issues/2864)
+- InputNumber: invalid 'placeholder' prop type \(TS only\) [\#2863](https://github.com/primefaces/primevue/issues/2863)
+- Calendar: showOtherMonths - does not match the description in the documentation [\#2810](https://github.com/primefaces/primevue/issues/2810)
+- Datatable rows are not the full width in scroll both mode [\#2622](https://github.com/primefaces/primevue/issues/2622)
+
 ## [3.16.1](https://github.com/primefaces/primevue/tree/3.16.1) (2022-08-17)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.16.0...3.16.1)
@@ -1159,6 +1174,25 @@
 - Scrollable Table alignment improvement [\#482](https://github.com/primefaces/primevue/issues/482)
 - Button not registered in FileUpload [\#478](https://github.com/primefaces/primevue/issues/478)
 - BlockUI documentation indicates "show" event whereas the actual event is "unblock" [\#485](https://github.com/primefaces/primevue/issues/485)
+
+## [2.10.0](https://github.com/primefaces/primevue/tree/2.10.0) (2022-08-23)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/2.9.2...2.10.0)
+
+**Implemented New Features and Enhancements:**
+
+- Button: Bring the loading prop from primevue3 to primevue2 [\#2655](https://github.com/primefaces/primevue/issues/2655)
+- Password: Missing change and blur events [\#2610](https://github.com/primefaces/primevue/issues/2610)
+- v2 PrimeVue @keyup.enter event does not work on InputNumber component [\#2336](https://github.com/primefaces/primevue/issues/2336)
+
+**Fixed bugs:**
+
+- Calendar: Inconsistent @select-month values [\#2859](https://github.com/primefaces/primevue/issues/2859)
+- MegaMenu subItems 'to' route ' is not working [\#2501](https://github.com/primefaces/primevue/issues/2501)
+- Datatable column order state is not saved [\#2346](https://github.com/primefaces/primevue/issues/2346)
+- DataTable SelectAll checkbox stay focused after deselecting [\#2329](https://github.com/primefaces/primevue/issues/2329)
+- Cannot use the editorCancelCallBack / editorSaveCallback while editing in cell mode [\#2598](https://github.com/primefaces/primevue/issues/2598)
+- v2 Calendar - Could not edit end date with time picker properly [\#2546](https://github.com/primefaces/primevue/issues/2546)
 
 ## [2.9.2](https://github.com/primefaces/primevue/tree/2.9.2) (2022-04-13)
 
