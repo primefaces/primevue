@@ -117,7 +117,7 @@
                 <transition name="p-connected-overlay" @enter="onMenuEnter">
                     <ul v-show="activeMenuIndex === 3" style="width: 100%">
                         <li><router-link to="/"><span class="m-0">v2.9.2</span></router-link></li>
-                        <li><a href="https://www.primefaces.org/primevue"><span class="m-0">v3.12.5</span></a></li>
+                        <li><a href="https://www.primefaces.org/primevue"><span class="m-0">v3.16.2</span></a></li>
                     </ul>
                 </transition>
             </li>
