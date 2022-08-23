@@ -1,5 +1,67 @@
 # Changelog
 
+## [2.10.0](https://github.com/primefaces/primevue/tree/2.10.0) (2022-08-23)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/2.9.2...2.10.0)
+
+**Implemented New Features and Enhancements:**
+
+- Button: Bring the loading prop from primevue3 to primevue2 [\#2655](https://github.com/primefaces/primevue/issues/2655)
+- Password: Missing change and blur events [\#2610](https://github.com/primefaces/primevue/issues/2610)
+- v2 PrimeVue @keyup.enter event does not work on InputNumber component [\#2336](https://github.com/primefaces/primevue/issues/2336)
+
+**Fixed bugs:**
+
+- Calendar: Inconsistent @select-month values [\#2859](https://github.com/primefaces/primevue/issues/2859)
+- MegaMenu subItems 'to' route ' is not working [\#2501](https://github.com/primefaces/primevue/issues/2501)
+- Datatable column order state is not saved [\#2346](https://github.com/primefaces/primevue/issues/2346)
+- DataTable SelectAll checkbox stay focused after deselecting [\#2329](https://github.com/primefaces/primevue/issues/2329)
+- Cannot use the editorCancelCallBack / editorSaveCallback while editing in cell mode [\#2598](https://github.com/primefaces/primevue/issues/2598)
+- v2 Calendar - Could not edit end date with time picker properly [\#2546](https://github.com/primefaces/primevue/issues/2546)
+
+## [2.9.2](https://github.com/primefaces/primevue/tree/2.9.2) (2022-04-13)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/2.9.1...2.9.2)
+
+**Implemented New Features and Enhancements:**
+
+- Tooltip v2 | Escape Support [\#2432](https://github.com/primefaces/primevue/issues/2432)
+- Accordion v2 | New expandIcon and collapseIcon properties [\#2418](https://github.com/primefaces/primevue/issues/2418)
+
+**Fixed bugs:**
+
+- Ripple v2 directive breaks the behavior of list components in Firefox [\#2430](https://github.com/primefaces/primevue/issues/2430)
+- Calendar | Loses alignment when positioned at the top of the input and the user clicks in the year/month [\#2422](https://github.com/primefaces/primevue/issues/2422)
+- StyleClass v2 may fail to enter the element [\#2420](https://github.com/primefaces/primevue/issues/2420)
+- Tooltip v2 shown at wrong place [\#2416](https://github.com/primefaces/primevue/issues/2416)
+- Slider v2 | Range slider get stuck when both handle on max value [\#2414](https://github.com/primefaces/primevue/issues/2414)
+- FileUpload v2: Custom upload bug on clear list  [\#2412](https://github.com/primefaces/primevue/issues/2412)
+- DataTable v2 | Colspan defect with hidden Columns [\#2410](https://github.com/primefaces/primevue/issues/2410)
+
+## [2.9.1](https://github.com/primefaces/primevue/tree/2.9.1) (2022-03-16)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/2.9.0...2.9.1)
+
+**Implemented New Features and Enhancements:**
+
+- v2 Add p-button-\* class support to SplitButton [\#2300](https://github.com/primefaces/primevue/issues/2300)
+- Calendar v2 | hide timepicker on month/year select [\#2290](https://github.com/primefaces/primevue/issues/2290)
+- v2 New stripedRows property for OrderList and PickList [\#2288](https://github.com/primefaces/primevue/issues/2288)
+- MultiSelect v2 | Filter autocomplete attribute support [\#2286](https://github.com/primefaces/primevue/issues/2286)
+- v2 Custom Table CSV Export Headers [\#2284](https://github.com/primefaces/primevue/issues/2284)
+- Knob v2 | replace surface letters with new surface variables [\#2282](https://github.com/primefaces/primevue/issues/2282)
+- v2 Replace surface letters with new surface variables [\#2280](https://github.com/primefaces/primevue/issues/2280)
+- DataTable v2 editor templating [\#2277](https://github.com/primefaces/primevue/issues/2277)
+- InputNumber v2 | Emit focus and blur events added [\#1795](https://github.com/primefaces/primevue/issues/1935)
+
+**Fixed bugs:**
+
+- v2 Dropdown search don't work with Gboard [\#2297](https://github.com/primefaces/primevue/issues/2297)
+- v2 DataTable row-select and row-unselect index is always undefined [\#2295](https://github.com/primefaces/primevue/issues/2295)
+- v2 Scrollable TabView forwardIsDisabled defect [\#2292](https://github.com/primefaces/primevue/issues/2292)
+- Row editing does not work as expected in DataTable [\#2270](https://github.com/primefaces/primevue/issues/2270)
+- v2 DataTable ColGroup in footer/header: Cannot read properties of undefined \(reading 'tag'\) [\#2163](https://github.com/primefaces/primevue/issues/2163)
+
 ## [2.9.0](https://github.com/primefaces/primevue/tree/2.9.0) (2022-02-07)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/2.8.0...2.9.0)
