@@ -1,4 +1,4 @@
-import { VNode } from 'vue';
+import { HTMLAttributes, InputHTMLAttributes, VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 import { VirtualScrollerProps, VirtualScrollerItemOptions } from '../virtualscroller';
 
@@ -174,7 +174,7 @@ export interface AutoCompleteProps {
     /**
      * Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.
      */
-    inputProps?: HTMLInputElement | undefined;
+    inputProps?: InputHTMLAttributes | undefined;
     /**
      * Inline style of the overlay panel.
      */
@@ -186,7 +186,7 @@ export interface AutoCompleteProps {
     /**
      * Uses to pass all properties of the HTMLDivElement to the overlay panel inside the component.
      */
-    panelProps?: HTMLDivElement | undefined;
+    panelProps?: HTMLAttributes | undefined;
     /**
      * Icon to display in loading state.
      * Default value is 'pi pi-spinner pi-spin'.

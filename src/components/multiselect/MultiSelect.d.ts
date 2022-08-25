@@ -1,4 +1,4 @@
-import { VNode } from 'vue';
+import { ButtonHTMLAttributes, HTMLAttributes, InputHTMLAttributes, VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 import { VirtualScrollerProps, VirtualScrollerItemOptions } from '../virtualscroller';
 
@@ -98,7 +98,7 @@ export interface MultiSelectProps {
     /**
      * Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.
      */
-    inputProps?: HTMLInputElement | undefined;
+    inputProps?: InputHTMLAttributes | undefined;
     /**
      * Inline style of the overlay panel.
      */
@@ -110,15 +110,15 @@ export interface MultiSelectProps {
     /**
      * Uses to pass all properties of the HTMLDivElement to the overlay panel.
      */
-    panelProps?: HTMLDivElement | undefined;
+    panelProps?: HTMLAttributes | undefined;
     /**
      * Uses to pass all properties of the HTMLInputElement to the filter input inside the overlay panel.
      */
-    filterInputProps?: HTMLInputElement | undefined;
+    filterInputProps?: InputHTMLAttributes | undefined;
     /**
      * Uses to pass all properties of the HTMLButtonElement to the clear button inside the overlay panel.
      */
-    closeButtonProps?: HTMLButtonElement | undefined;
+    closeButtonProps?: ButtonHTMLAttributes | undefined;
     /**
      * A property to uniquely identify an option.
      */

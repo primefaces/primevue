@@ -1,4 +1,4 @@
-import { VNode } from 'vue';
+import { InputHTMLAttributes, VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export interface ChipsAddEvent {
@@ -54,7 +54,7 @@ export interface ChipsProps {
     /**
      * Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.
      */
-    inputProps?: HTMLInputElement | undefined;
+    inputProps?: InputHTMLAttributes | undefined;
     /**
      * When present, it specifies that the element should be disabled.
      */

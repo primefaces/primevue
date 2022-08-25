@@ -1,3 +1,4 @@
+import { InputHTMLAttributes } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export interface InputSwitchProps {
@@ -28,7 +29,7 @@ export interface InputSwitchProps {
     /**
      * Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.
      */
-    inputProps?: HTMLInputElement | undefined;
+    inputProps?: InputHTMLAttributes | undefined;
     /**
      * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
      */

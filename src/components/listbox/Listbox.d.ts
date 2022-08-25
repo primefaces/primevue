@@ -1,4 +1,4 @@
-import { VNode } from 'vue';
+import { InputHTMLAttributes, VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 import { VirtualScrollerProps, VirtualScrollerItemOptions } from '../virtualscroller';
 
@@ -111,7 +111,7 @@ export interface ListboxProps {
     /**
      * Uses to pass all properties of the HTMLInputElement to the filter input inside the component.
      */
-    filterInputProps?: HTMLInputElement | undefined;
+    filterInputProps?: InputHTMLAttributes | undefined;
     /**
      * Whether to use the virtualScroller feature. The properties of VirtualScroller component can be used like an object in it.
      * @see VirtualScroller.VirtualScrollerProps

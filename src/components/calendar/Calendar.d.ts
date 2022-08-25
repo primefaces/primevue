@@ -1,4 +1,4 @@
-import { VNode } from 'vue';
+import { HTMLAttributes, InputHTMLAttributes, VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 type CalendarValueType = Date | Date[] | undefined;
@@ -266,7 +266,7 @@ export interface CalendarProps {
     /**
      * Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.
      */
-    inputProps?: HTMLInputElement | undefined;
+    inputProps?: InputHTMLAttributes | undefined;
     /**
      * Inline style of the overlay panel.
      */
@@ -278,7 +278,7 @@ export interface CalendarProps {
     /**
      * Uses to pass all properties of the HTMLDivElement to the overlay panel inside the component.
      */
-    panelProps?: HTMLDivElement | undefined;
+    panelProps?: HTMLAttributes | undefined;
     /**
      * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
      */
