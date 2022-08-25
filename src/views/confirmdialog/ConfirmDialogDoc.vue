@@ -94,6 +94,21 @@ export default {
 
 </code></pre>
 
+        <h5>Templating</h5>
+        <p>Templating allows customizing the content where the message instance is available as the implicit variable.</p>
+<pre v-code><code><template v-pre>
+&lt;ConfirmPopup group="demo">
+    &lt;template #message="slotProps"&gt;
+        &lt;div class="flex p-4"&gt;
+            &lt;i :class="slotProps.message.icon" style="font-size: 1.5rem"&gt;&lt;/i&gt;
+            &lt;p class="pl-2"&gt;{{slotProps.message.message}}&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/template&gt;
+&lt;/ConfirmPopup&gt;
+
+</template>
+</code></pre>
+
         <h5>Responsive</h5>
         <p>ConfirmDialog width can be adjusted per screen size with the <i>breakpoints</i> option. In example below, default width is set to 50vw and below 961px, width would be 75vw and finally below 641px width becomes
         100%. The value of <i>breakpoints</i> should be an object literal whose keys are the maximum screen sizes and values are the widths per screen.</p>
@@ -258,6 +273,24 @@ export default {
                         <td>object</td>
                         <td>null</td>
                         <td>Object literal to define widths per screen size.</td>
+                    </tr>
+				</tbody>
+			</table>
+		</div>
+
+         <h5>Slots</h5>
+		<div class="doc-tablewrapper">
+			<table class="doc-table">
+				<thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Parameters</th>
+                    </tr>
+				</thead>
+				<tbody>
+                    <tr>
+                        <td>message</td>
+                        <td>-</td>
                     </tr>
 				</tbody>
 			</table>

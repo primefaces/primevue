@@ -5,8 +5,7 @@
             <i :class="iconClass" />
             <span class="p-confirm-dialog-message">{{ message }}</span>
         </template>
-        <component v-else :is="$slots.message"
-        :message="confirmation"></component>
+        <component v-else :is="$slots.message" :message="confirmation"></component>
         <template #footer>
             <CDButton :label="rejectLabel" :icon="rejectIcon" :class="rejectClass" @click="reject()" :autofocus="autoFocusReject"/>
             <CDButton :label="acceptLabel" :icon="acceptIcon" :class="acceptClass" @click="accept()" :autofocus="autoFocusAccept" />
