@@ -278,7 +278,7 @@ export default {
 			</table>
 		</div>
 
-         <h5>Slots</h5>
+        <h5>Slots</h5>
 		<div class="doc-tablewrapper">
 			<table class="doc-table">
 				<thead>
