@@ -6,11 +6,13 @@
             </span>
         </span>
         <template :key="i" v-for="i in stars">
-            <span :class="['p-rating-icon', {'pi pi-star': (i > modelValue), 'pi pi-star-fill': (i <= modelValue), 'p-focus': i === focusIndex}]" @click="onStarClick($event,i)">
+        <slot>
+            <span :class="iconClasses(i)" @click="onStarClick($event,i)">
                 <span class="p-hidden-accessible">
                     <input type="radio" :value="i" :name="name" :checked="modelValue === i" :disabled="disabled" :readonly="readonly" :aria-label="ariaLabelTemplate(i)" @focus="onFocus($event, i)" @blur="onBlur" @keydown="onKeyDown($event,i)">
                 </span>
             </span>
+            </slot>
         </template>
     </div>
 </template>
@@ -43,6 +45,14 @@ export default {
         cancel: {
             type: Boolean,
             default: true
+        },
+        onIcon: {
+            type: String,
+            default: 'pi pi-star'
+        },
+        offIcon: {
+            type: String,
+            default: 'pi pi-star-fill'
         }
     },
     data() {
@@ -99,6 +109,12 @@ export default {
         },
         ariaLabelTemplate(index) {
             return index === 1 ? this.$primevue.config.locale.aria.star : this.$primevue.config.locale.aria.stars.replace(/{star}/g, index);
+        },
+        iconClasses(i) {
+            const iconOn = i > this.modelValue ? this.onIcon : ''
+            const iconOff = i <= this.modelValue ? this.offIcon: ''
+
+            return ['p-rating-icon', iconOn, iconOff, {'p-focus': i === this.focusIndex}]
         }
     },
     computed: {
@@ -110,8 +126,8 @@ export default {
                     'p-disabled': this.disabled
                 }
             ];
-        }
-    }
+        },
+    },
 }
 </script>
 

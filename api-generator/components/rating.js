@@ -28,6 +28,18 @@ const RatingProps = [
         type: "boolean",
         default: "true",
         description: "When specified a cancel icon is displayed to allow clearing the value."
+    },
+    {
+        name: "onIcon",
+        type: "string",
+        default: "pi pi-star",
+        description: "Can be used to add different icon."
+    },
+    {
+        name: "offIcon",
+        type: "string",
+        default: "pi pi-star-fill",
+        description: "Can be used to add different icon."
     }
 ];
 

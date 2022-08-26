@@ -38,6 +38,16 @@ export interface RatingProps {
      * Default value is true.
      */
     cancel?: boolean | undefined;
+    /**
+     * Can be used to add different icon.
+     * Default value is pi pi-star.
+     */
+    onIcon?: string | undefined;
+    /**
+     * Can be used to add different icon.
+     * Default value is pi pi-star-fill.
+     */
+    offIcon?: string | undefined;
 }
 
 export interface RatingSlots {
