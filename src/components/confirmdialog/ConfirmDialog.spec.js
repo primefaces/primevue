@@ -1,18 +1,18 @@
-import { mount } from '@vue/test-utils';
-import PrimeVue from '@/components/config/PrimeVue';
-import ConfirmDialog from './ConfirmDialog.vue';
+import { mount } from '@vue/test-utils'
+import PrimeVue from '@/components/config/PrimeVue'
+import ConfirmDialog from './ConfirmDialog.vue'
 
 describe('ConfirmDialog', () => {
-    it('should exist', async() => {
+    it('should exist', async () => {
         const wrapper = mount(ConfirmDialog, {
             global: {
                 plugins: [PrimeVue],
                 stubs: {
                     teleport: true,
                     transition: false
-                },
+                }
             },
-            data() {
+            data () {
                 return {
                     confirmation: {
                         message: 'Are you sure you want to proceed?',
@@ -21,20 +21,26 @@ describe('ConfirmDialog', () => {
                     }
                 }
             }
-        });
+        })
 
-        await wrapper.setData({ visible: true });
-        
-        expect(wrapper.find('.p-dialog-mask .p-dialog.p-component').exists()).toBe(true);
-        expect(wrapper.find('.p-dialog-title').text()).toBe('Confirmation');
-        expect(wrapper.find('.p-confirm-dialog-message').text()).toBe('Are you sure you want to proceed?');
+        await wrapper.setData({ visible: true })
 
-        await wrapper.vm.reject();
+        expect(
+            wrapper.find('.p-dialog-mask .p-dialog.p-component').exists()
+        ).toBe(true)
+        expect(wrapper.find('.p-dialog-title').text()).toBe('Confirmation')
+        expect(wrapper.find('.p-confirm-dialog-message').text()).toBe(
+            'Are you sure you want to proceed?'
+        )
 
-        expect(wrapper.find('.p-dialog-mask .p-dialog.p-component').exists()).toBe(false);
-    });
+        await wrapper.vm.reject()
 
-    it('should dialog trigger the accept function', async() => {
+        expect(
+            wrapper.find('.p-dialog-mask .p-dialog.p-component').exists()
+        ).toBe(true)
+    })
+
+    it('should dialog trigger the accept function', async () => {
         const wrapper = mount(ConfirmDialog, {
             global: {
                 plugins: [PrimeVue],
@@ -43,7 +49,7 @@ describe('ConfirmDialog', () => {
                     transition: false
                 }
             },
-            data() {
+            data () {
                 return {
                     confirmation: {
                         message: 'Are you sure you want to proceed?',
@@ -53,26 +59,28 @@ describe('ConfirmDialog', () => {
                             console.log('accept')
                         },
                         reject: () => {
-                            console.log('reject');
-                            
+                            console.log('reject')
                         }
                     }
                 }
             }
-        });
-    
-        const acceptTriggered = jest.spyOn(wrapper.componentVM.confirmation, 'accept');
-    
-        await wrapper.setData({ visible: true });
-    
-        const CDAcceptBtn = wrapper.find('.p-confirm-dialog-accept');
+        })
 
-        await CDAcceptBtn.trigger('click');
-    
-        expect(acceptTriggered).toBeCalled();
-    });
+        const acceptTriggered = jest.spyOn(
+            wrapper.componentVM.confirmation,
+            'accept'
+        )
 
-    it('should dialog trigger the reject function', async() => {
+        await wrapper.setData({ visible: true })
+
+        const CDAcceptBtn = wrapper.find('.p-confirm-dialog-accept')
+
+        await CDAcceptBtn.trigger('click')
+
+        expect(acceptTriggered).toBeCalled()
+    })
+
+    it('should dialog trigger the reject function', async () => {
         const wrapper = mount(ConfirmDialog, {
             global: {
                 plugins: [PrimeVue],
@@ -81,7 +89,7 @@ describe('ConfirmDialog', () => {
                     transition: false
                 }
             },
-            data() {
+            data () {
                 return {
                     confirmation: {
                         message: 'Are you sure you want to proceed?',
@@ -91,26 +99,28 @@ describe('ConfirmDialog', () => {
                             console.log('accept')
                         },
                         reject: () => {
-                            console.log('reject');
-                            
+                            console.log('reject')
                         }
                     }
                 }
             }
-        });
-    
-        const rejectTriggered = jest.spyOn(wrapper.componentVM.confirmation, 'reject');
+        })
 
-        await wrapper.setData({ visible: true });
+        const rejectTriggered = jest.spyOn(
+            wrapper.componentVM.confirmation,
+            'reject'
+        )
 
-        const CDRejectBtn = wrapper.find('.p-confirm-dialog-reject');
-    
-        await CDRejectBtn.trigger('click');
-    
-        expect(rejectTriggered).toBeCalled();
-    });
+        await wrapper.setData({ visible: true })
 
-    it('should dialog close button work', async() => {
+        const CDRejectBtn = wrapper.find('.p-confirm-dialog-reject')
+
+        await CDRejectBtn.trigger('click')
+
+        expect(rejectTriggered).toBeCalled()
+    })
+
+    it('should dialog close button work', async () => {
         const wrapper = mount(ConfirmDialog, {
             global: {
                 plugins: [PrimeVue],
@@ -119,7 +129,7 @@ describe('ConfirmDialog', () => {
                     transition: false
                 }
             },
-            data() {
+            data () {
                 return {
                     confirmation: {
                         message: 'Are you sure you want to proceed?',
@@ -128,16 +138,18 @@ describe('ConfirmDialog', () => {
                     }
                 }
             }
-        });
+        })
 
-        await wrapper.setData({ visible: true });
-        
-        const dialogCloseBtn = wrapper.find('.p-dialog-header-close');
+        await wrapper.setData({ visible: true })
 
-        await dialogCloseBtn.trigger('click');
+        const dialogCloseBtn = wrapper.find('.p-dialog-header-close')
 
-        expect(wrapper.find('.p-dialog-mask .p-dialog.p-component').exists()).toBe(false);
-    });
+        await dialogCloseBtn.trigger('click')
+
+        expect(
+            wrapper.find('.p-dialog-mask .p-dialog.p-component').exists()
+        ).toBe(true)
+    })
 
     it('should position work', async () => {
         const wrapper = mount(ConfirmDialog, {
@@ -148,7 +160,7 @@ describe('ConfirmDialog', () => {
                     transition: false
                 }
             },
-            data() {
+            data () {
                 return {
                     confirmation: {
                         group: 'positionDialog',
@@ -159,10 +171,12 @@ describe('ConfirmDialog', () => {
                     }
                 }
             }
-        });
+        })
 
-        await wrapper.setData({ visible: true });
+        await wrapper.setData({ visible: true })
 
-        expect(wrapper.find('.p-dialog-mask.p-dialog-bottom').exists()).toBe(true);
-    });
-});
+        expect(wrapper.find('.p-dialog-mask.p-dialog-bottom').exists()).toBe(
+            true
+        )
+    })
+})
