@@ -225,6 +225,8 @@ export default {
                 return;
             }
 
+            const metaKey = event.metaKey || event.ctrlKey;
+
             switch (event.code) {
                 case 'ArrowDown':
                     this.onArrowDownKey(event);
@@ -275,7 +277,7 @@ export default {
                     break;
 
                 default:
-                    if (ObjectUtils.isPrintableCharacter(event.key)) {
+                    if (!metaKey && ObjectUtils.isPrintableCharacter(event.key)) {
                         !this.overlayVisible && this.show();
                         this.searchOptions(event, event.key);
                     }

@@ -336,6 +336,8 @@ export default {
             this.$emit('blur', event);
         },
         onKeyDown(event) {
+            const metaKey = event.metaKey || event.ctrlKey;
+
             switch (event.code) {
                 case 'ArrowDown':
                     this.onArrowDownKey(event);
@@ -380,7 +382,7 @@ export default {
                     break;
 
                 default:
-                    if (event.code === 'KeyA' && (event.metaKey || event.ctrlKey)) {
+                    if (event.code === 'KeyA' && metaKey) {
                         const value = this.visibleOptions.filter(option => this.isValidOption(option)).map(option => this.getOptionValue(option));
                         this.updateModel(event, value);
 
@@ -388,7 +390,7 @@ export default {
                         break;
                     }
 
-                    if (ObjectUtils.isPrintableCharacter(event.key)) {
+                    if (!metaKey && ObjectUtils.isPrintableCharacter(event.key)) {
                         !this.overlayVisible && this.show();
                         this.searchOptions(event);
                         event.preventDefault();
