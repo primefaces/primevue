@@ -1,4 +1,4 @@
-import { VNode } from 'vue';
+import { ButtonHTMLAttributes, VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export interface TabViewChangeEvent {
@@ -30,6 +30,22 @@ export interface TabViewProps {
      * When enabled displays buttons at each side of the tab headers to scroll the tab list.
      */
     scrollable?: boolean | undefined;
+    /**
+     * Index of the element in tabbing order.
+     */
+    tabindex?: number | undefined;
+    /**
+     * When enabled, the focused tab is activated.
+     */
+    selectOnFocus?: boolean | undefined;
+    /**
+     * Uses to pass all properties of the HTMLButtonElement to the previous button.
+     */
+    previousButtonProps?: ButtonHTMLAttributes | undefined;
+    /**
+     * Uses to pass all properties of the HTMLButtonElement to the next button.
+     */
+    nextButtonProps?: ButtonHTMLAttributes | undefined;
 }
 
 export interface TabViewSlots {

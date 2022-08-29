@@ -75,7 +75,9 @@ const defaultOptions = {
             stars: '{star} stars',
             selectAll: 'All items selected',
             unselectAll: 'All items unselected',
-            close: 'Close'
+            close: 'Close',
+            previous: 'Previous',
+            next: 'Next'
         }
     },
     filterMatchModeOptions: {
