@@ -40,6 +40,12 @@ const RatingProps = [
         type: "string",
         default: "pi pi-star-fill",
         description: "Can be used to add different icon."
+    },
+    {
+        name: "cancelIcon",
+        type: "string",
+        default: "pi pi-ban",
+        description: "Can be used to add different cancel icon."
     }
 ];
 

@@ -1,18 +1,31 @@
 <template>
     <div :class="containerClass">
-        <span :class="['p-rating-icon p-rating-cancel pi pi-ban', {'p-focus': focusIndex === 0}]" v-if="cancel" @click="onCancelClick" @keydown="onKeyDown">
-            <span class="p-hidden-accessible" v-if="cancel">
+        <template v-if="cancel">
+            <slot name="cancel">
+                <span :class="cancelIconClasses()" @click="onCancelClick" @keydown="onKeyDown">
+                    <span class="p-hidden-accessible">
+                        <input type="radio" value="0" :name="name" :checked="modelValue === 0" :disabled="disabled" :readonly="readonly" :aria-label="$primevue.config.locale.clear" @focus="onFocus($event, 0)" @blur="onBlur" @keydown="onKeyDown($event, 0)">
+                    </span>
+                </span>
+            </slot>
+            <span class="p-hidden-accessible" v-if="cancel && $slots.cancel">
                 <input type="radio" value="0" :name="name" :checked="modelValue === 0" :disabled="disabled" :readonly="readonly" :aria-label="$primevue.config.locale.clear" @focus="onFocus($event, 0)" @blur="onBlur" @keydown="onKeyDown($event, 0)">
             </span>
-        </span>
+        </template>
         <template :key="i" v-for="i in stars">
-        <slot>
+        <template v-if="!$slots.default">
             <span :class="iconClasses(i)" @click="onStarClick($event,i)">
                 <span class="p-hidden-accessible">
                     <input type="radio" :value="i" :name="name" :checked="modelValue === i" :disabled="disabled" :readonly="readonly" :aria-label="ariaLabelTemplate(i)" @focus="onFocus($event, i)" @blur="onBlur" @keydown="onKeyDown($event,i)">
                 </span>
             </span>
-            </slot>
+        </template>
+            <template v-else>
+                <component :is="$slots.default" :index="i"></component>
+                <span class="p-hidden-accessible">
+                    <input type="radio" :value="i" :name="name" :checked="modelValue === i" :disabled="disabled" :readonly="readonly" :aria-label="ariaLabelTemplate(i)" @focus="onFocus($event, i)" @blur="onBlur" @keydown="onKeyDown($event,i)">
+                </span>
+            </template>
         </template>
     </div>
 </template>
@@ -53,7 +66,11 @@ export default {
         offIcon: {
             type: String,
             default: 'pi pi-star-fill'
-        }
+        },
+        cancelIcon: {
+            type: String,
+            default: 'pi pi-ban'
+        },
     },
     data() {
         return {
@@ -115,7 +132,10 @@ export default {
             const iconOff = i <= this.modelValue ? this.offIcon: ''
 
             return ['p-rating-icon', iconOn, iconOff, {'p-focus': i === this.focusIndex}]
-        }
+        },
+        cancelIconClasses() {
+            return ['p-rating-icon p-rating-cancel', this.cancelIcon, {'p-focus': this.focusIndex === 0}]
+        },
     },
     computed: {
         containerClass() {

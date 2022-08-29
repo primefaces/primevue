@@ -48,6 +48,11 @@ export interface RatingProps {
      * Default value is pi pi-star-fill.
      */
     offIcon?: string | undefined;
+    /**
+     * Can be used to add different cancel icon.
+     * Default value is pi pi-ban.
+     */
+     cancelIcon?: string | undefined;
 }
 
 export interface RatingSlots {

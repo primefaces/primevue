@@ -13,9 +13,6 @@
                 <h5>Basic {{val1}}</h5>
                 <Rating v-model="val1" name="basic" />
 
-                <h5>Other Prime Icons</h5>
-                <Rating :modelValue="3" on-icon="pi pi-heart" off-icon="pi pi-heart-fill" :stars="5" name="primeIcons" :cancel="false"/>
-
                 <h5>Without Cancel</h5>
                 <Rating v-model="val2" :cancel="false" name="cancel" />
 
@@ -25,11 +22,17 @@
                 <h5>Disabled</h5>
                 <Rating :modelValue="8" :disabled="true" :stars="10" name="disabled" />
 
+                <h5>Custom Icons</h5>
+                <Rating v-model="val3"  on-icon="pi pi-heart" off-icon="pi pi-heart-fill" :stars="5" name="primeIcons" cancel-icon="pi pi-times"/>
+
                 <h5>Templating</h5>
-                <Rating :cancel="false">
-                    <template #default="{key}">
-                        <img v-if="key < 3" src="demo/images/rating/custom-star.png" height="24" width="24" :class="{'ml-2': key > 1}"  />
-                        <img v-else src="demo/images/rating/custom-star-2.png" height="24" width="24" class="ml-2" />
+                <Rating>
+                    <template #cancel>
+                        <img src="demo/images/rating/cancel.png" class="cursor-pointer" height="24" width="24"/>
+                    </template>
+                    <template #default="{index}">
+                        <img v-if="index < 3" src="demo/images/rating/custom-star-2.png" height="24" width="24" class="ml-2 cursor-pointer"  />
+                        <img v-else src="demo/images/rating/custom-star.png" height="24" width="24" class="ml-2 cursor-pointer" />
                     </template>
                 </Rating>
             </div>
@@ -47,6 +50,7 @@ export default {
         return {
             val1: null,
             val2: 3,
+            val3: 2
         }
     },
     components: {
