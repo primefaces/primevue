@@ -3670,6 +3670,7 @@
   border-radius: 50%;
   transition: none;
   margin-right: 0.5rem;
+  flex-shrink: 0;
 }
 .p-treetable .p-treetable-tbody > tr > td .p-treetable-toggler:enabled:hover {
   color: #18181B;

@@ -1,18 +1,20 @@
 <template>
     <td :style="containerStyle" :class="containerClass">
-        <button type="button" class="p-treetable-toggler p-link" @click="toggle" v-if="columnProp('expander')" :style="togglerStyle" tabindex="-1" v-ripple>
-            <i :class="togglerIcon"></i>
-        </button>
-        <div :class="['p-checkbox p-treetable-checkbox p-component', {'p-checkbox-focused': checkboxFocused}]" @click="toggleCheckbox" v-if="checkboxSelectionMode && columnProp('expander')" role="checkbox" :aria-checked="checked">
-            <div class="p-hidden-accessible">
-                <input type="checkbox" @focus="onCheckboxFocus" @blur="onCheckboxBlur" />
+        <div style="display:flex">
+            <button type="button" class="p-treetable-toggler p-link" @click="toggle" v-if="columnProp('expander')" :style="togglerStyle" tabindex="-1" v-ripple>
+                <i :class="togglerIcon"></i>
+            </button>
+            <div :class="['p-checkbox p-treetable-checkbox p-component', {'p-checkbox-focused': checkboxFocused}]" @click="toggleCheckbox" v-if="checkboxSelectionMode && columnProp('expander')" role="checkbox" :aria-checked="checked">
+                <div class="p-hidden-accessible">
+                    <input type="checkbox" @focus="onCheckboxFocus" @blur="onCheckboxBlur" />
+                </div>
+                <div ref="checkboxEl" :class="checkboxClass">
+                    <span :class="checkboxIcon"></span>
+                </div>
             </div>
-            <div ref="checkboxEl" :class="checkboxClass">
-                <span :class="checkboxIcon"></span>
-            </div>
+            <component :is="column.children.body" :node="node" :column="column" v-if="column.children && column.children.body" />
+            <template v-else><span>{{resolveFieldData(node.data, columnProp('field'))}}</span></template>
         </div>
-        <component :is="column.children.body" :node="node" :column="column" v-if="column.children && column.children.body" />
-        <template v-else><span>{{resolveFieldData(node.data, columnProp('field'))}}</span></template>
     </td>
 </template>
 
