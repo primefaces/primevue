@@ -284,7 +284,7 @@ export default {
                 this.overlayVisible = false;
                 this.focusedOptionIndex = -1;
 
-                isFocus && this.$refs.focusInput.focus();
+                isFocus && this.$refs.focusInput && this.$refs.focusInput.focus();
             }
 
             setTimeout(() => { _hide() }, 0); // For ScreenReaders
