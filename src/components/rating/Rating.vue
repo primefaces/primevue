@@ -1,19 +1,22 @@
 <template>
     <div :class="containerClass">
-        <template v-if="cancel">
-            <slot name="cancel">
+        <template v-if="cancel" >
+            <template v-if="!$slots.cancel">
                 <span :class="cancelIconClasses()" @click="onCancelClick" @keydown="onKeyDown">
                     <span class="p-hidden-accessible">
                         <input type="radio" value="0" :name="name" :checked="modelValue === 0" :disabled="disabled" :readonly="readonly" :aria-label="$primevue.config.locale.clear" @focus="onFocus($event, 0)" @blur="onBlur" @keydown="onKeyDown($event, 0)">
                     </span>
                 </span>
-            </slot>
+            </template>
+            <span v-else @click="onCancelClick" @keydown="onKeyDown">
+            <component :is="$slots.cancel" />
+            </span>
             <span class="p-hidden-accessible" v-if="cancel && $slots.cancel">
                 <input type="radio" value="0" :name="name" :checked="modelValue === 0" :disabled="disabled" :readonly="readonly" :aria-label="$primevue.config.locale.clear" @focus="onFocus($event, 0)" @blur="onBlur" @keydown="onKeyDown($event, 0)">
             </span>
         </template>
         <template :key="i" v-for="i in stars">
-        <template v-if="!$slots.default">
+        <template v-if="!$slots.onIcon && !$slots.offIcon">
             <span :class="iconClasses(i)" @click="onStarClick($event,i)">
                 <span class="p-hidden-accessible">
                     <input type="radio" :value="i" :name="name" :checked="modelValue === i" :disabled="disabled" :readonly="readonly" :aria-label="ariaLabelTemplate(i)" @focus="onFocus($event, i)" @blur="onBlur" @keydown="onKeyDown($event,i)">
@@ -21,7 +24,12 @@
             </span>
         </template>
             <template v-else>
-                <component :is="$slots.default" :index="i"></component>
+                <span v-if="i < activeSlotIndex + 1" :class="iconClasses(i)" @click="onStarClick($event,i)">
+                <component  :is="$slots.onIcon"  :index="i" @click="onStarClick($event,i)" ></component>
+            </span>
+            <span v-else :class="iconClasses(i)" @click="onStarClick($event,i)">
+                <component  :is="$slots.offIcon"  :index="i" @click="onStarClick($event,i)" ></component>
+            </span>
                 <span class="p-hidden-accessible">
                     <input type="radio" :value="i" :name="name" :checked="modelValue === i" :disabled="disabled" :readonly="readonly" :aria-label="ariaLabelTemplate(i)" @focus="onFocus($event, i)" @blur="onBlur" @keydown="onKeyDown($event,i)">
                 </span>
@@ -74,7 +82,8 @@ export default {
     },
     data() {
         return {
-            focusIndex: null
+            focusIndex: null,
+            activeSlotIndex: this.modelValue,
         };
     },
     methods: {
@@ -118,6 +127,7 @@ export default {
             }
         },
         updateModel(event, value) {
+            this.activeSlotIndex = value;
             this.$emit('update:modelValue', value);
             this.$emit('change', {
                 originalEvent: event,
@@ -128,6 +138,9 @@ export default {
             return index === 1 ? this.$primevue.config.locale.aria.star : this.$primevue.config.locale.aria.stars.replace(/{star}/g, index);
         },
         iconClasses(i) {
+            if(this.$slots.onIcon && this.$slots.offIcon){
+                return
+            }
             const iconOn = i > this.modelValue ? this.onIcon : ''
             const iconOff = i <= this.modelValue ? this.offIcon: ''
 

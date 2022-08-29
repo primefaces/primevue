@@ -26,13 +26,15 @@
                 <Rating v-model="val3"  on-icon="pi pi-heart" off-icon="pi pi-heart-fill" :stars="5" name="primeIcons" cancel-icon="pi pi-times"/>
 
                 <h5>Templating</h5>
-                <Rating>
+                <Rating :modelValue="3">
                     <template #cancel>
-                        <img src="demo/images/rating/cancel.png" class="cursor-pointer" height="24" width="24"/>
+                        <img src="demo/images/rating/cancel.png" class="cursor-pointer" height="24" width="24" />
                     </template>
-                    <template #default="{index}">
-                        <img v-if="index < 3" src="demo/images/rating/custom-star-2.png" height="24" width="24" class="ml-2 cursor-pointer"  />
-                        <img v-else src="demo/images/rating/custom-star.png" height="24" width="24" class="ml-2 cursor-pointer" />
+                    <template #onIcon>
+                        <img src="demo/images/rating/custom-star-2.png" height="24" width="24" class="ml-2 cursor-pointer" />
+                    </template>
+                    <template #offIcon>
+                        <img src="demo/images/rating/custom-star.png" height="24" width="24" class="ml-2 cursor-pointer" />
                     </template>
                 </Rating>
             </div>
@@ -50,11 +52,11 @@ export default {
         return {
             val1: null,
             val2: 3,
-            val3: 2
+            val3: 2,
         }
     },
     components: {
         'RatingDoc': RatingDoc
-    }
+    },
 }
 </script>
