@@ -78,6 +78,14 @@ import Editor from 'primevue/editor';
                         <td>null</td>
                         <td>Inline style of the container.</td>
                     </tr>
+                    <tr>
+                        <td>modules</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td>
+                            Modules configuration, see <a href="http://quilljs.com/docs/modules/">here</a> for available options.
+                        </td>
+                    </tr>
 				</tbody>
 			</table>
 		</div>
@@ -111,6 +119,11 @@ import Editor from 'primevue/editor';
                             event.textValue: Current value as text.<br/>
                             event.instance: Text editor instance.</td>
                         <td>Callback to invoke when selection of the text changes.</td>
+                    </tr>
+                    <tr>
+                        <td>load</td>
+                        <td>event.instance: Quill instance</td>
+                        <td>Callback to invoke when the quill modules are loaded.</td>
                     </tr>
 				</tbody>
 			</table>
@@ -253,7 +266,7 @@ export default {
                 'browser-source': {
                     tabName: 'Browser Source',
                     imports: `<script src="https://unpkg.com/quill/dist/quill.min.js"><\\/script>
-                    
+
         <script src="https://unpkg.com/primevue@^3/editor/editor.min.js"><\\/script>`,
                     content: `<div id="app">
             <h5>Default</h5>
