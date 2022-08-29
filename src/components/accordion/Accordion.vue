@@ -1,17 +1,18 @@
 <template>
     <div class="p-accordion p-component">
-        <div v-for="(tab,i) of tabs" :key="getKey(tab,i)" :class="getTabClass(i)">
-            <div :class="getTabHeaderClass(tab, i)">
-                <a role="tab" class="p-accordion-header-link" @click="onTabClick($event, tab, i)" @keydown="onTabKeydown($event, tab, i)" :tabindex="isTabDisabled(tab) ? null : '0'"
-                    :aria-expanded="isTabActive(i)" :id="getTabAriaId(i) + '_header'" :aria-controls="getTabAriaId(i) + '_content'">
-                    <span :class="isTabActive(i) ? getHeaderCollapseIcon() : getHeaderExpandIcon()"></span>
+        <div v-for="(tab,i) of tabs" :key="getKey(tab,i)" :class="getTabClass(i)" :data-index="i">
+            <div :style="getTabProp(tab, 'headerStyle')" :class="getTabHeaderClass(tab, i)" v-bind="getTabProp(tab, 'headerProps')">
+                <a :id="getTabHeaderActionId(i)" class="p-accordion-header-link p-accordion-header-action" :tabindex="getTabProp(tab, 'disabled') ? -1 : tabindex"
+                    role="button" :aria-disabled="getTabProp(tab, 'disabled')" :aria-expanded="isTabActive(i)" :aria-controls="getTabContentId(i)"
+                    @click="onTabClick($event, tab, i)" @keydown="onTabKeyDown($event, tab, i)" v-bind="getTabProp(tab, 'headerActionProps')">
+                    <span :class="getTabHeaderIconClass(i)" aria-hidden="true"></span>
                     <span class="p-accordion-header-text" v-if="tab.props && tab.props.header">{{tab.props.header}}</span>
                     <component :is="tab.children.header" v-if="tab.children && tab.children.header"></component>
                 </a>
             </div>
             <transition name="p-toggleable-content">
-                <div class="p-toggleable-content" v-if="lazy ? isTabActive(i) : true" v-show="lazy ? true: isTabActive(i)"
-                    role="region" :id="getTabAriaId(i) + '_content'" :aria-labelledby="getTabAriaId(i) + '_header'">
+                <div v-if="lazy ? isTabActive(i) : true" v-show="lazy ? true: isTabActive(i)" :id="getTabContentId(i)" :style="getTabProp(tab, 'contentStyle')" :class="getTabContentClass(tab)"
+                    role="region" :aria-labelledby="getTabHeaderActionId(i)" v-bind="getTabProp(tab, 'contentProps')">
                     <div class="p-accordion-content">
                         <component :is="tab"></component>
                     </div>
@@ -22,11 +23,12 @@
 </template>
 
 <script>
-import {UniqueComponentId} from 'primevue/utils';
+import {UniqueComponentId,DomHandler} from 'primevue/utils';
+import Ripple from 'primevue/ripple';
 
 export default {
     name: 'Accordion',
-    emits: ['tab-close', 'tab-open', 'update:activeIndex'],
+    emits: ['update:activeIndex', 'tab-open', 'tab-close', 'tab-click'],
     props: {
         multiple: {
             type: Boolean,
@@ -47,10 +49,19 @@ export default {
         collapseIcon: {
             type: String,
             default: 'pi-chevron-down'
+        },
+        tabindex: {
+            type: Number,
+            default: 0
+        },
+        selectOnFocus: {
+            type: Boolean,
+            default: false
         }
     },
     data() {
         return {
+            id: UniqueComponentId(),
             d_activeIndex: this.activeIndex
         }
     },
@@ -59,98 +70,186 @@ export default {
             this.d_activeIndex = newValue;
         }
     },
+    mounted() {
+        this.id = this.$attrs.id || this.id;
+    },
     methods: {
-        onTabClick(event, tab, i) {
-            if (!this.isTabDisabled(tab)) {
-                const active = this.isTabActive(i);
+        isAccordionTab(child) {
+            return child.type.name === 'AccordionTab';
+        },
+        isTabActive(index) {
+            return this.multiple ? (this.d_activeIndex && this.d_activeIndex.includes(index)) : this.d_activeIndex === index;
+        },
+        getTabProp(tab, name) {
+            return tab.props ? tab.props[name] : undefined;
+        },
+        getKey(tab, index) {
+            return this.getTabProp(tab, 'header') || index;
+        },
+        getTabHeaderActionId(index) {
+            return `${this.id}_${index}_header_action`;
+        },
+        getTabContentId(index) {
+            return `${this.id}_${index}_content`;
+        },
+        onTabClick(event, tab, index) {
+            this.changeActiveIndex(event, tab, index);
+            this.$emit('tab-click', { originalEvent: event, index });
+        },
+        onTabKeyDown(event, tab, index) {
+            switch (event.code) {
+                case 'ArrowDown':
+                    this.onTabArrowDownKey(event);
+                    break;
+
+                case 'ArrowUp':
+                    this.onTabArrowUpKey(event);
+                    break;
+
+                case 'Home':
+                    this.onTabHomeKey(event);
+                    break;
+
+                case 'End':
+                    this.onTabEndKey(event);
+                    break;
+
+                case 'Enter':
+                case 'Space':
+                    this.onTabEnterKey(event, tab, index);
+                    break;
+
+                default:
+                    break;
+            }
+        },
+        onTabArrowDownKey(event) {
+            const nextHeaderAction = this.findNextHeaderAction(event.target.parentElement.parentElement);
+
+            nextHeaderAction ? this.changeFocusedTab(event, nextHeaderAction) : this.onTabHomeKey(event);
+            event.preventDefault();
+        },
+        onTabArrowUpKey(event) {
+            const prevHeaderAction = this.findPrevHeaderAction(event.target.parentElement.parentElement);
+
+            prevHeaderAction ? this.changeFocusedTab(event, prevHeaderAction) : this.onTabEndKey(event);
+            event.preventDefault();
+        },
+        onTabHomeKey(event) {
+            const firstHeaderAction = this.findFirstHeaderAction();
+
+            this.changeFocusedTab(event, firstHeaderAction);
+            event.preventDefault();
+        },
+        onTabEndKey(event) {
+            const lastHeaderAction = this.findLastHeaderAction();
+
+            this.changeFocusedTab(event, lastHeaderAction);
+            event.preventDefault();
+        },
+        onTabEnterKey(event, tab, index) {
+            this.changeActiveIndex(event, tab, index);
+
+            event.preventDefault();
+        },
+        findNextHeaderAction(tabElement, selfCheck = false) {
+            const nextTabElement = selfCheck ? tabElement : tabElement.nextElementSibling;
+            const headerElement = DomHandler.findSingle(nextTabElement, '.p-accordion-header');
+
+            return headerElement ? (DomHandler.hasClass(headerElement, 'p-disabled') ? this.findNextHeaderAction(headerElement.parentElement) : DomHandler.findSingle(headerElement, '.p-accordion-header-action')) : null;
+        },
+        findPrevHeaderAction(tabElement, selfCheck = false) {
+            const prevTabElement = selfCheck ? tabElement : tabElement.previousElementSibling;
+            const headerElement = DomHandler.findSingle(prevTabElement, '.p-accordion-header');
+
+            return headerElement ? (DomHandler.hasClass(headerElement, 'p-disabled') ? this.findPrevHeaderAction(headerElement.parentElement) : DomHandler.findSingle(headerElement, '.p-accordion-header-action')) : null;
+        },
+        findFirstHeaderAction() {
+            return this.findNextHeaderAction(this.$el.firstElementChild, true);
+        },
+        findLastHeaderAction() {
+            return this.findPrevHeaderAction(this.$el.lastElementChild, true);
+        },
+        changeActiveIndex(event, tab, index) {
+            if (!this.getTabProp(tab, 'disabled')) {
+                const active = this.isTabActive(index);
                 const eventName = active ? 'tab-close' : 'tab-open';
 
                 if (this.multiple) {
                     if (active) {
-                        this.d_activeIndex = this.d_activeIndex.filter(index => index !== i);
+                        this.d_activeIndex = this.d_activeIndex.filter(i => i !== index);
                     }
                     else {
                         if (this.d_activeIndex)
-                            this.d_activeIndex.push(i);
+                            this.d_activeIndex.push(index);
                         else
-                            this.d_activeIndex = [i];
+                            this.d_activeIndex = [index];
                     }
                 }
                 else {
-                    this.d_activeIndex = this.d_activeIndex === i ? null : i;
+                    this.d_activeIndex = this.d_activeIndex === index ? null : index;
                 }
 
                 this.$emit('update:activeIndex', this.d_activeIndex);
+                this.$emit(eventName, { originalEvent: event, index });
+            }
+        },
+        changeFocusedTab(event, element) {
+            if (element) {
+                element.focus();
 
-                this.$emit(eventName, {
-                    originalEvent: event,
-                    index: i
-                });
+                if (this.selectOnFocus) {
+                    const index = parseInt(element.parentElement.parentElement.dataset.index, 10);
+                    const tab = this.tabs[index];
+
+                    this.changeActiveIndex(event, tab, index);
+                }
             }
-        },
-        onTabKeydown(event, tab, i) {
-            if (event.which === 13) {
-                this.onTabClick(event, tab, i);
-            }
-        },
-        isTabActive(index) {
-            if (this.multiple)
-                return this.d_activeIndex && this.d_activeIndex.includes(index);
-            else
-                return index === this.d_activeIndex;
-        },
-        getKey(tab, i) {
-            return (tab.props && tab.props.header) ? tab.props.header : i;
-        },
-        isTabDisabled(tab) {
-            return tab.props && tab.props.disabled;
         },
         getTabClass(i) {
-            return ['p-accordion-tab', {'p-accordion-tab-active': this.isTabActive(i)}];
+            return ['p-accordion-tab', {
+                'p-accordion-tab-active': this.isTabActive(i)
+            }];
         },
         getTabHeaderClass(tab, i) {
-            return ['p-accordion-header', {'p-highlight': this.isTabActive(i), 'p-disabled': this.isTabDisabled(tab)}];
+            return ['p-accordion-header', this.getTabProp(tab, 'headerClass'), {
+                'p-highlight': this.isTabActive(i),
+                'p-disabled': this.getTabProp(tab, 'disabled')
+            }];
         },
-        getTabAriaId(i) {
-            return this.ariaId + '_' + i;
+        getTabHeaderIconClass(i) {
+            return ['p-accordion-toggle-icon pi', this.isTabActive(i) ? this.collapseIcon : this.expandIcon];
         },
-        getHeaderCollapseIcon() {
-            return ['p-accordion-toggle-icon pi', this.collapseIcon];
-        },
-        getHeaderExpandIcon() {
-            return ['p-accordion-toggle-icon pi', this.expandIcon];
-        },
-        isAccordionTab(child) {
-            return child.type.name === 'AccordionTab';
+        getTabContentClass(tab) {
+            return ['p-toggleable-content', this.getTabProp(tab, 'contentClass')];
         }
     },
     computed: {
         tabs() {
-            const tabs = []
-            this.$slots.default().forEach(child => {
-                    if (this.isAccordionTab(child)) {
-                        tabs.push(child);
-                    }
-                    else if (child.children && child.children instanceof Array) {
-                        child.children.forEach(nestedChild => {
-                            if (this.isAccordionTab(nestedChild)) {
-                                tabs.push(nestedChild)
-                            }
-                        });
-                    }
+            return this.$slots.default().reduce((tabs, child) => {
+                if (this.isAccordionTab(child)) {
+                    tabs.push(child);
                 }
-            )
-            return tabs;
-        },
-        ariaId() {
-            return UniqueComponentId();
+                else if (child.children && child.children instanceof Array) {
+                    child.children.forEach(nestedChild => {
+                        if (this.isAccordionTab(nestedChild)) {
+                            tabs.push(nestedChild);
+                        }
+                    });
+                }
+
+                return tabs;
+            }, []);
         }
+    },
+    directives: {
+        'ripple': Ripple
     }
 }
 </script>
 
 <style>
-.p-accordion-header-link {
+.p-accordion-header-action {
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -159,7 +258,7 @@ export default {
     text-decoration: none;
 }
 
-.p-accordion-header-link:focus {
+.p-accordion-header-action:focus {
     z-index: 1;
 }
 

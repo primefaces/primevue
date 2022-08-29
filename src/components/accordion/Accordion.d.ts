@@ -18,6 +18,11 @@ export interface AccordionTabOpenEvent {
  */
 export interface AccordionTabCloseEvent extends AccordionTabOpenEvent { }
 
+/**
+ * @extends AccordionTabOpenEvent
+ */
+ export interface AccordionClickEvent extends AccordionTabOpenEvent { }
+
 export interface AccordionProps {
     /**
      * When enabled, multiple tabs can be activated at the same time.
@@ -39,6 +44,14 @@ export interface AccordionProps {
      * Icon of an expanded tab.
      */
     collapseIcon?: string | undefined;
+    /**
+     * Index of the element in tabbing order.
+     */
+    tabindex?: number | undefined;
+    /**
+     * When enabled, the focused tab is activated.
+     */
+    selectOnFocus?: boolean | undefined;
 }
 
 export interface AccordionSlots {
@@ -64,6 +77,11 @@ export declare type AccordionEmits = {
      * @param {AccordionTabCloseEvent} event - Custom tab close event.
      */
     'tab-close': (event: AccordionTabCloseEvent) => void;
+    /**
+     * Callback to invoke when an active tab is clicked.
+     * @param {AccordionClickEvent} event - Custom tab click event.
+     */
+    'tab-click': (event: AccordionClickEvent) => void;
 }
 
 declare class Accordion extends ClassComponent<AccordionProps, AccordionSlots, AccordionEmits> { }
