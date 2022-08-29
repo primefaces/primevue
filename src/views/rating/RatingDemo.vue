@@ -28,8 +28,8 @@
                 <h5>Templating</h5>
                 <Rating :cancel="false">
                     <template #default="{key}">
-                        <img v-if="key < 3" src="demo/images/rating/custom-star.svg" height="24" width="24" :class="{'ml-2': key > 1}"  />
-                        <img v-else src="demo/images/rating/custom-star-2.svg" height="24" width="24" class="ml-2" />
+                        <img v-if="key < 3" src="demo/images/rating/custom-star.png" height="24" width="24" :class="{'ml-2': key > 1}"  />
+                        <img v-else src="demo/images/rating/custom-star-2.png" height="24" width="24" class="ml-2" />
                     </template>
                 </Rating>
             </div>
