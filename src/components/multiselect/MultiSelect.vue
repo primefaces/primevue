@@ -746,7 +746,8 @@ export default {
             return !(this.$el.isSameNode(event.target) || this.$el.contains(event.target) || (this.overlay && this.overlay.contains(event.target)));
         },
         getLabelByValue(value) {
-            const matchedOption = this.visibleOptions.find(option => !this.isOptionGroup(option) && ObjectUtils.equals(this.getOptionValue(option), value, this.equalityKey));
+            const options = this.optionGroupLabel ? this.flatOptions(this.options) : (this.options || []);
+            const matchedOption = options.find(option => !this.isOptionGroup(option) && ObjectUtils.equals(this.getOptionValue(option), value, this.equalityKey));
             return matchedOption ? this.getOptionLabel(matchedOption): null;
         },
         getSelectedItemsLabel() {
