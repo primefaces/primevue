@@ -8,11 +8,11 @@
                     </span>
                 </span>
             </template>
-            <span v-else @click="onCancelClick" @keydown="onKeyDown">
+            <span :class="cancelIconClasses()" v-else @click="onCancelClick" @keydown="onKeyDown">
             <component :is="$slots.cancel" />
-            </span>
-            <span class="p-hidden-accessible" v-if="cancel && $slots.cancel">
-                <input type="radio" value="0" :name="name" :checked="modelValue === 0" :disabled="disabled" :readonly="readonly" :aria-label="$primevue.config.locale.clear" @focus="onFocus($event, 0)" @blur="onBlur" @keydown="onKeyDown($event, 0)">
+            <span class="p-hidden-accessible">
+                        <input type="radio" value="0" :name="name" :checked="modelValue === 0" :disabled="disabled" :readonly="readonly" :aria-label="$primevue.config.locale.clear" @focus="onFocus($event, 0)" @blur="onBlur" @keydown="onKeyDown($event, 0)">
+                    </span>
             </span>
         </template>
         <template :key="i" v-for="i in stars">
@@ -24,15 +24,13 @@
             </span>
         </template>
             <template v-else>
-                <span v-if="i < activeSlotIndex + 1" :class="iconClasses(i)" @click="onStarClick($event,i)">
-                <component  :is="$slots.onIcon"  :index="i" @click="onStarClick($event,i)" ></component>
-            </span>
-            <span v-else :class="iconClasses(i)" @click="onStarClick($event,i)">
-                <component  :is="$slots.offIcon"  :index="i" @click="onStarClick($event,i)" ></component>
-            </span>
+                <span  :class="iconClasses(i)" @click="onStarClick($event,i)">
+                <component v-if="i < modelValue + 1"  :is="$slots.onIcon"  :index="i" @click="onStarClick($event,i)" ></component>
+                <component v-else  :is="$slots.offIcon"  :index="i" @click="onStarClick($event,i)" ></component>
                 <span class="p-hidden-accessible">
                     <input type="radio" :value="i" :name="name" :checked="modelValue === i" :disabled="disabled" :readonly="readonly" :aria-label="ariaLabelTemplate(i)" @focus="onFocus($event, i)" @blur="onBlur" @keydown="onKeyDown($event,i)">
                 </span>
+            </span>
             </template>
         </template>
     </div>
@@ -41,7 +39,7 @@
 <script>
 export default {
     name: 'Rating',
-    emits: ['update:modelValue', 'change', 'focus', 'blur'],
+    emits: ['update:modelValue', 'change', 'focus', 'blur', 'cancel'],
     props: {
         modelValue: {
             type: Number,
@@ -83,7 +81,6 @@ export default {
     data() {
         return {
             focusIndex: null,
-            activeSlotIndex: this.modelValue,
         };
     },
     methods: {
@@ -94,24 +91,24 @@ export default {
             }
         },
         onKeyDown(event, value) {
-            if (event.code === 'Space') {
+        if (event.code === 'Space') {
                 this.updateModel(event, value);
             }
-            if (event.code === 'Tab') {
+        if (event.code === 'Tab' && !this.hasIconSlot) {
                 this.focusIndex = null;
             }
         },
         onFocus(event, index) {
             if (!this.readonly) {
                 if (this.modelValue === null && this.focusIndex === null) {
-                    this.cancel ? this.focusIndex = 0 : this.focusIndex = 1;
+                    this.focusIndex = this.cancel ? 0 : 1;
                 }
                 else if (this.modelValue !== null && this.focusIndex === null) {
                     this.focusIndex = this.modelValue;
                     this.updateModel(event, this.modelValue);
                 }
                 else {
-                    this.focusIndex = index;
+                    this.focusIndex = index
                     this.updateModel(event, index);
                 }
 
@@ -124,10 +121,10 @@ export default {
         onCancelClick(event) {
             if (!this.readonly && !this.disabled) {
                 this.updateModel(event, null);
+                this.$emit('cancel')
             }
         },
         updateModel(event, value) {
-            this.activeSlotIndex = value;
             this.$emit('update:modelValue', value);
             this.$emit('change', {
                 originalEvent: event,
@@ -138,17 +135,21 @@ export default {
             return index === 1 ? this.$primevue.config.locale.aria.star : this.$primevue.config.locale.aria.stars.replace(/{star}/g, index);
         },
         iconClasses(i) {
-            if(this.$slots.onIcon && this.$slots.offIcon){
-                return
-            }
-            const iconOn = i > this.modelValue ? this.onIcon : ''
-            const iconOff = i <= this.modelValue ? this.offIcon: ''
+            const iconOn = i > this.modelValue && !this.hasIconSlot() ? this.onIcon : null
+            const iconOff = i <= this.modelValue && !this.hasIconSlot() ? this.offIcon: null
 
             return ['p-rating-icon', iconOn, iconOff, {'p-focus': i === this.focusIndex}]
         },
         cancelIconClasses() {
+            if(this.$slots.cancel) {
+                return [ {'p-focus': this.focusIndex === null}]
+            }
+
             return ['p-rating-icon p-rating-cancel', this.cancelIcon, {'p-focus': this.focusIndex === 0}]
         },
+        hasIconSlot() {
+            return this.$slots.onIcon && this.$slots.offIcon
+        }
     },
     computed: {
         containerClass() {
@@ -167,6 +168,7 @@ export default {
 <style>
 .p-rating-icon {
     cursor: pointer;
+    display: inline-block;
 }
 
 .p-rating.p-rating-readonly .p-rating-icon {

@@ -248,7 +248,7 @@ export default {
         <Rating :modelValue="8" :disabled="true" :stars="10" name="disabled" />
 
         <h5>Templating</h5>
-        <Rating :modelValue="3">
+        <Rating v-model="val4" name="templating">
             <template #cancel>
                 <img src="data:image/png;base64,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" class="cursor-pointer" height="24" width="24"/>
             </template>
@@ -268,6 +268,8 @@ export default {
         return {
             val1: null,
             val2: 3,
+            val3: 2,
+            val4: 2
         }
     }
 }
@@ -292,7 +294,7 @@ export default {
         <Rating :modelValue="8" :disabled="true" :stars="10" name="disabled" />
 
         <h5>Templating</h5>
-        <Rating :modelValue="3">
+        <Rating v-model="val4" name="templating">
             <template #cancel>
                 <img src="data:image/png;base64,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" class="cursor-pointer" height="24" width="24"/>
             </template>
@@ -313,6 +315,8 @@ export default {
     setup() {
         const val1 = ref();
         const val2 = ref(3);
+        const val3 = ref(2);
+        const val4 = ref(2);
 
         return { val1, val2 }
     }
@@ -337,7 +341,7 @@ export default {
             <p-rating :modelValue="8" :disabled="true" :stars="10" name="disabled"></p-rating>
 
             <h5>Templating</h5>
-            <p-rating :modelValue="3">
+            <p-rating v-model="val4" name="templating">
             <template #cancel>
                 <img src="data:image/png;base64,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" class="cursor-pointer" height="24" width="24"/>
             </template>
@@ -357,6 +361,8 @@ export default {
             setup() {
                 const val1 = ref();
                 const val2 = ref(3);
+                const val3 = ref(2);
+                const val4 = ref(2);
 
                 return { val1, val2 }
             },
