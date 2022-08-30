@@ -179,6 +179,11 @@ export interface DropdownProps {
      */
     autoOptionFocus?: boolean | undefined;
     /**
+     * When enabled, the focused option is selected.
+     * Default value is false.
+     */
+    selectOnFocus?: boolean | undefined;
+    /**
      * Text to be displayed in hidden accessible field when filtering returns any results. Defaults to value from PrimeVue locale configuration.
      * Default value is '{0} results are available'.
      */

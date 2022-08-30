@@ -96,6 +96,10 @@ export default {
             type: Boolean,
             default: true
         },
+        selectOnFocus: {
+            type: Boolean,
+            default: false
+        },
         filterMessage: {
             type: String,
             default: null
@@ -135,7 +139,6 @@ export default {
     startRangeIndex: -1,
     searchTimeout: null,
     searchValue: '',
-    selectOnFocus: false,
     focusOnHover: false,
     data() {
         return {
@@ -598,7 +601,7 @@ export default {
                 this.scrollInView();
 
                 if (this.selectOnFocus && !this.multiple) {
-                    this.updateModel(event, this.getOptionValue(this.visibleOptions[index]));
+                    this.onOptionSelect(event, this.visibleOptions[index]);
                 }
             }
         },
@@ -613,10 +616,9 @@ export default {
             }
         },
         autoUpdateModel() {
-            if (this.selectOnFocus && this.autoOptionFocus && !this.hasSelectedOption) {
+            if (this.selectOnFocus && this.autoOptionFocus && !this.hasSelectedOption && !this.multiple) {
                 this.focusedOptionIndex = this.findFirstFocusedOptionIndex();
-                const value = this.getOptionValue(this.visibleOptions[this.focusedOptionIndex]);
-                this.updateModel(null, this.multiple ? [value] : value);
+                this.onOptionSelect(null, this.visibleOptions[this.focusedOptionIndex]);
             }
         },
         updateModel(event, value) {

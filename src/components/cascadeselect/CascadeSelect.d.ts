@@ -122,6 +122,11 @@ export interface CascadeSelectProps {
      */
     autoOptionFocus?: boolean | undefined;
     /**
+     * When enabled, the focused option is selected/opened.
+     * Default value is false.
+     */
+    selectOnFocus?: boolean | undefined;
+    /**
      * Locale to use in searching. The default locale is the host environment's current locale.
      */
     searchLocale?: string | undefined;

@@ -95,7 +95,7 @@ export default {
             type: String,
             default: 'blank'
         },
-        autoHighlight: { // TODO: Deprecated since v3.16.0
+        autoHighlight: { // TODO: Deprecated since v3.16.0. Use selectOnFocus property instead.
             type: Boolean,
             default: false
         },
@@ -154,6 +154,10 @@ export default {
             type: Boolean,
             default: true
         },
+        selectOnFocus: {
+            type: Boolean,
+            default: false
+        },
         searchLocale: {
             type: String,
             default: undefined
@@ -193,7 +197,6 @@ export default {
     overlay: null,
     virtualScroller: null,
     searchTimeout: null,
-    selectOnFocus: false,
     focusOnHover: false,
     dirty: false,
     data() {
@@ -464,7 +467,7 @@ export default {
 
             this.$emit('dropdown-click', { originalEvent: event, query });
         },
-        onOptionSelect(event, option) {
+        onOptionSelect(event, option, isHide = true) {
             const value = this.getOptionValue(option);
 
             if (this.multiple) {
@@ -480,7 +483,7 @@ export default {
 
             this.$emit('item-select', { originalEvent: event, value: option });
 
-            this.hide(true);
+            isHide && this.hide(true);
         },
         onOptionMouseMove(event, index) {
             if (this.focusOnHover) {
@@ -788,7 +791,7 @@ export default {
                 this.scrollInView();
 
                 if (this.selectOnFocus || this.autoHighlight) {
-                    this.updateModel(event, this.getOptionValue(this.visibleOptions[index]));
+                    this.onOptionSelect(event, this.visibleOptions[index], false);
                 }
             }
         },
@@ -807,8 +810,7 @@ export default {
         autoUpdateModel() {
             if ((this.selectOnFocus || this.autoHighlight) && this.autoOptionFocus && !this.hasSelectedOption) {
                 this.focusedOptionIndex = this.findFirstFocusedOptionIndex();
-                const value = this.getOptionValue(this.visibleOptions[this.focusedOptionIndex]);
-                this.updateModel(null, this.multiple ? [value] : value);
+                this.onOptionSelect(null, this.visibleOptions[this.focusedOptionIndex], false);
             }
         },
         updateModel(event, value) {

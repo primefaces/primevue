@@ -79,6 +79,10 @@ export default {
             type: Boolean,
             default: true
         },
+        selectOnFocus: {
+            type: Boolean,
+            default: false
+        },
         searchLocale: {
             type: String,
             default: undefined
@@ -122,7 +126,6 @@ export default {
     overlay: null,
     searchTimeout: null,
     searchValue: null,
-    selectOnFocus: false,
     focusOnHover: false,
     data() {
         return {
@@ -141,6 +144,8 @@ export default {
     },
     mounted() {
         this.id = this.$attrs.id || this.id;
+
+        this.autoUpdateModel();
     },
     beforeUnmount() {
         this.unbindOutsideClickListener();
@@ -185,7 +190,7 @@ export default {
         show(isFocus) {
             this.$emit('before-show');
             this.overlayVisible = true;
-            this.activeOptionPath = this.findOptionPathByValue(this.modelValue);
+            this.activeOptionPath = this.hasSelectedOption ? this.findOptionPathByValue(this.modelValue) : this.activeOptionPath;
 
             if (this.hasSelectedOption && ObjectUtils.isNotEmpty(this.activeOptionPath)) {
                 const processedOption = this.activeOptionPath[this.activeOptionPath.length - 1];
@@ -286,7 +291,10 @@ export default {
             }
         },
         onOptionChange(event) {
-            const { originalEvent, processedOption, isFocus } = event;
+            const { originalEvent, processedOption, isFocus, isHide } = event;
+
+            if (ObjectUtils.isEmpty(processedOption)) return;
+
             const { index, level, parentKey, children } = processedOption;
             const grouped = ObjectUtils.isNotEmpty(children);
 
@@ -296,15 +304,15 @@ export default {
             this.focusedOptionInfo = { index, level, parentKey };
             this.activeOptionPath = activeOptionPath;
 
-            grouped ? this.onOptionGroupSelect(originalEvent, processedOption) : this.onOptionSelect(originalEvent, processedOption);
+            grouped ? this.onOptionGroupSelect(originalEvent, processedOption) : this.onOptionSelect(originalEvent, processedOption, isHide);
             isFocus && this.$refs.focusInput.focus();
         },
-        onOptionSelect(event, processedOption) {
+        onOptionSelect(event, processedOption, isHide = true) {
             const value = this.getOptionValue(processedOption.option);
 
             this.activeOptionPath.forEach(p => p.selected = true);
             this.updateModel(event, value);
-            this.hide(true);
+            isHide && this.hide(true);
         },
         onOptionGroupSelect(event, processedOption) {
             this.dirty = true;
@@ -634,7 +642,7 @@ export default {
                 this.scrollInView();
 
                 if (this.selectOnFocus) {
-                    this.updateModel(event, this.getOptionValue(this.visibleOptions[index]));
+                    this.onOptionChange({ originalEvent: event, processedOption: this.visibleOptions[index], isHide: false });
                 }
             }
         },
@@ -648,8 +656,9 @@ export default {
         autoUpdateModel() {
             if (this.selectOnFocus && this.autoOptionFocus && !this.hasSelectedOption) {
                 this.focusedOptionInfo.index = this.findFirstFocusedOptionIndex();
-                const value = this.getOptionValue(this.visibleOptions[this.focusedOptionInfo.index]);
-                this.updateModel(null, value);
+                this.onOptionChange({ processedOption: this.visibleOptions[this.focusedOptionInfo.index], isHide: false });
+
+                !this.overlayVisible && (this.focusedOptionInfo = { index: -1, level: 0, parentKey: '' });
             }
         },
         updateModel(event, value) {
@@ -713,7 +722,7 @@ export default {
 
             if (this.hasSelectedOption) {
                 const activeOptionPath = this.findOptionPathByValue(this.modelValue);
-                const processedOption = activeOptionPath.length ? activeOptionPath[activeOptionPath.length - 1] : null;
+                const processedOption = ObjectUtils.isNotEmpty(activeOptionPath) ? activeOptionPath[activeOptionPath.length - 1] : null;
 
                 return processedOption ? this.getOptionLabel(processedOption.option) : label;
             }

@@ -140,6 +140,10 @@ export default {
             type: Boolean,
             default: true
         },
+        selectOnFocus: {
+            type: Boolean,
+            default: false
+        },
         filterMessage: {
             type: String,
             default: null
@@ -182,7 +186,6 @@ export default {
     searchTimeout: null,
     searchValue: null,
     isModelValueChanged: false,
-    selectOnFocus: false,
     focusOnHover: false,
     data() {
         return {
@@ -391,11 +394,11 @@ export default {
         onLastHiddenFocus() {
             this.$refs.firstHiddenFocusableElementOnOverlay.focus();
         },
-        onOptionSelect(event, option) {
+        onOptionSelect(event, option, isHide = true) {
             const value = this.getOptionValue(option);
 
             this.updateModel(event, value);
-            this.hide(true);
+            isHide && this.hide(true);
         },
         onOptionMouseMove(event, index) {
             if (this.focusOnHover) {
@@ -744,7 +747,7 @@ export default {
                 this.scrollInView();
 
                 if (this.selectOnFocus) {
-                    this.updateModel(event, this.getOptionValue(this.visibleOptions[index]));
+                    this.onOptionSelect(event, this.visibleOptions[index], false);
                 }
             }
         },
@@ -763,8 +766,7 @@ export default {
         autoUpdateModel() {
             if (this.selectOnFocus && this.autoOptionFocus && !this.hasSelectedOption) {
                 this.focusedOptionIndex = this.findFirstFocusedOptionIndex();
-                const value = this.getOptionValue(this.visibleOptions[this.focusedOptionIndex]);
-                this.updateModel(null, value);
+                this.onOptionSelect(null, this.visibleOptions[this.focusedOptionIndex], false);
             }
         },
         updateModel(event, value) {

@@ -180,6 +180,12 @@ const AutoCompleteProps = [
         description: "Whether to focus on the first visible or selected element when the overlay panel is shown."
     },
     {
+        name: "selectOnFocus",
+        type: "boolean",
+        default: "false",
+        description: "When enabled, the focused option is selected."
+    },
+    {
         name: "searchLocale",
         type: "string",
         default: "undefined",
