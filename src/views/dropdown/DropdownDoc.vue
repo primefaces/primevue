@@ -331,6 +331,12 @@ export default {
                         <td>Whether to focus on the first visible or selected element when the overlay panel is shown.</td>
                     </tr>
                     <tr>
+                        <td>autoFilterFocus</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>Whether to focus on the filter element when the overlay panel is shown.</td>
+                    </tr>
+                    <tr>
                         <td>selectOnFocus</td>
                         <td>boolean</td>
                         <td>false</td>

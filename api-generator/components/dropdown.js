@@ -198,6 +198,12 @@ const DropdownProps = [
         description: "Whether to focus on the first visible or selected element when the overlay panel is shown."
     },
     {
+        name: "autoFilterFocus",
+        type: "boolean",
+        default: "false",
+        description: "Whether to focus on the filter element when the overlay panel is shown."
+    },
+    {
         name: "selectOnFocus",
         type: "boolean",
         default: "false",

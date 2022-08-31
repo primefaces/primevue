@@ -183,6 +183,11 @@ export interface DropdownProps {
      */
     autoOptionFocus?: boolean | undefined;
     /**
+     * Whether to focus on the filter element when the overlay panel is shown.
+     * Default value is false.
+     */
+    autoFilterFocus?: boolean | undefined;
+    /**
      * When enabled, the focused option is selected.
      * Default value is false.
      */

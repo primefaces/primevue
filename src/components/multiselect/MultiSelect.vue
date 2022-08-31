@@ -44,7 +44,7 @@
                             </div>
                         </div>
                         <div v-if="filter" class="p-multiselect-filter-container">
-                            <input type="text" ref="filterInput" :value="filterValue" @vnode-updated="onFilterUpdated" class="p-multiselect-filter p-inputtext p-component" :placeholder="filterPlaceholder"
+                            <input ref="filterInput" type="text" :value="filterValue" @vnode-updated="onFilterUpdated" class="p-multiselect-filter p-inputtext p-component" :placeholder="filterPlaceholder"
                                 role="searchbox" autocomplete="off" :aria-owns="id + '_list'" :aria-activedescendant="focusedOptionId"
                                 @keydown="onFilterKeyDown" @blur="onFilterBlur" @input="onFilterChange" v-bind="filterInputProps"/>
                             <span class="p-multiselect-filter-icon pi pi-search"></span>
@@ -197,6 +197,10 @@ export default {
             type: Boolean,
             default: true
         },
+        autoFilterFocus: {
+            type: Boolean,
+            default: false
+        },
         filterMessage: {
             type: String,
             default: null
@@ -312,7 +316,7 @@ export default {
             this.overlayVisible = true;
             this.focusedOptionIndex = this.focusedOptionIndex !== -1 ? this.focusedOptionIndex : (this.autoOptionFocus ? this.findFirstFocusedOptionIndex() : -1);
 
-            isFocus && this.$refs.focusInput.focus();
+            isFocus && DomHandler.focus(this.$refs.focusInput);
         },
         hide(isFocus) {
             this.$emit('before-hide');
@@ -321,7 +325,7 @@ export default {
             this.searchValue = '';
 
             this.resetFilterOnHide && (this.filterValue = null);
-            isFocus && this.$refs.focusInput.focus();
+            isFocus && DomHandler.focus(this.$refs.focusInput);
         },
         onFocus(event) {
             this.focused = true;
@@ -413,14 +417,14 @@ export default {
 
             if (relatedTarget === this.$refs.focusInput) {
                 const firstFocusableEl = DomHandler.getFirstFocusableElement(this.overlay, ':not(.p-hidden-focusable)');
-                firstFocusableEl && firstFocusableEl.focus();
+                DomHandler.focus(firstFocusableEl);
             }
             else {
-                this.$refs.focusInput.focus();
+                DomHandler.focus(this.$refs.focusInput);
             }
         },
         onLastHiddenFocus() {
-            this.$refs.firstHiddenFocusableElementOnOverlay.focus();
+            DomHandler.focus(this.$refs.firstHiddenFocusableElementOnOverlay);
         },
         onCloseClick() {
             this.hide(true);
@@ -445,7 +449,7 @@ export default {
                 value = [...(this.modelValue || []), this.getOptionValue(option)];
 
             this.updateModel(event, value);
-            isFocus && this.$refs.focusInput.focus();
+            isFocus && DomHandler.focus(this.$refs.focusInput);
             index !== -1 && (this.focusedOptionIndex = index);
         },
         onOptionMouseMove(event, index) {
@@ -646,7 +650,7 @@ export default {
         onTabKey(event, pressedInInputText = false) {
             if (!pressedInInputText) {
                 if (this.overlayVisible && this.hasFocusableElements()) {
-                    this.$refs.firstHiddenFocusableElementOnOverlay.focus();
+                    DomHandler.focus(this.$refs.firstHiddenFocusableElementOnOverlay);
 
                     event.preventDefault();
                 }
@@ -666,6 +670,8 @@ export default {
             ZIndexUtils.set('overlay', el, this.$primevue.config.zIndex.overlay);
             this.alignOverlay();
             this.scrollInView();
+
+            this.autoFilterFocus && DomHandler.focus(this.$refs.filterInput);
         },
         onOverlayAfterEnter() {
             this.bindOutsideClickListener();
