@@ -31,10 +31,10 @@
                         <img src="demo/images/rating/cancel.png" class="cursor-pointer" height="24" width="24" />
                     </template>
                     <template #onIcon>
-                        <img src="demo/images/rating/custom-star-2.png" height="24" width="24" class="cursor-pointer" />
+                        <img src="demo/images/rating/custom-asset-2.png" height="24" width="24" class="cursor-pointer" />
                     </template>
                     <template #offIcon>
-                        <img src="demo/images/rating/custom-star.png" height="24" width="24" class="cursor-pointer" />
+                        <img src="demo/images/rating/custom-asset.png" height="24" width="24" class="cursor-pointer" />
                     </template>
                 </Rating>
             </div>

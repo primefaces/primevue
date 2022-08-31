@@ -42,10 +42,10 @@ import Rating from 'primevue/rating';
                 &lt;img src="demo/images/rating/cancel.png" class="cursor-pointer" height="24" width="24"&gt;
             &lt;/template&gt;
             &lt;template #onIcon&gt;
-                &lt;img src="demo/images/rating/custom-star-2.png" height="24" width="24" class="ml-2 cursor-pointer"&gt;
+                &lt;img src="demo/images/rating/custom-asset-2.png" height="24" width="24" class="ml-2 cursor-pointer"&gt;
             &lt;/template&gt;
             &lt;template #offIcon&gt;
-                &lt;img src="demo/images/rating/custom-star.png" height="24" width="24" class="ml-2 cursor-pointer"&gt;
+                &lt;img src="demo/images/rating/custom-asset.png" height="24" width="24" class="ml-2 cursor-pointer"&gt;
             &lt;/template&gt;
         &lt;/Rating&gt;
 
