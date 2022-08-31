@@ -1,5 +1,5 @@
 <template>
-    <div :class="containerClass">
+    <div ref="rating"  :class="containerClass">
         <template v-if="cancel" >
             <template v-if="!$slots.cancel">
                 <span :class="cancelIconClasses()" @click="onCancelClick" @keydown="onKeyDown">
@@ -25,8 +25,8 @@
         </template>
             <template v-else>
                 <span  :class="iconClasses(i)" @click="onStarClick($event,i)">
-                <component v-if="i < modelValue + 1"  :is="$slots.onIcon"  :index="i" @click="onStarClick($event,i)" ></component>
-                <component v-else  :is="$slots.offIcon"  :index="i" @click="onStarClick($event,i)" ></component>
+                <component v-if="i < modelValue + 1"  :is="$slots.onIcon" :index="i"></component>
+                <component v-else  :is="$slots.offIcon" :index="i"></component>
                 <span class="p-hidden-accessible">
                     <input type="radio" :value="i" :name="name" :checked="modelValue === i" :disabled="disabled" :readonly="readonly" :aria-label="ariaLabelTemplate(i)" @focus="onFocus($event, i)" @blur="onBlur" @keydown="onKeyDown($event,i)">
                 </span>
@@ -81,20 +81,29 @@ export default {
     data() {
         return {
             focusIndex: null,
+            outsideClickListener: null
         };
     },
+    mounted() {
+        this.bindOutsideClickListener();
+    },
+    beforeUnmount() {
+        this.unbindOutsideClickListener();
+    },
     methods: {
-        onStarClick(event, value) {
+        async onStarClick (event, value) {
             if (!this.readonly && !this.disabled) {
                 this.updateModel(event, value);
-                this.focusIndex = value;
+                window.setTimeout(() => {
+                    this.focusIndex = value;
+                }, 1);
             }
         },
         onKeyDown(event, value) {
         if (event.code === 'Space') {
                 this.updateModel(event, value);
             }
-        if (event.code === 'Tab' && !this.hasIconSlot) {
+        if (event.code === 'Tab') {
                 this.focusIndex = null;
             }
         },
@@ -122,6 +131,7 @@ export default {
             if (!this.readonly && !this.disabled) {
                 this.updateModel(event, null);
                 this.$emit('cancel')
+                this.focusIndex = null;
             }
         },
         updateModel(event, value) {
@@ -149,7 +159,25 @@ export default {
         },
         hasIconSlot() {
             return this.$slots.onIcon && this.$slots.offIcon
-        }
+        },
+        bindOutsideClickListener() {
+                this.outsideClickListener = (event) => {
+                    if ( this.focusIndex && this.isOutsideRatingClicked(event)) {
+                        this.focusIndex = null;
+                    }
+                };
+                document.addEventListener('click', this.outsideClickListener);
+
+        },
+        unbindOutsideClickListener() {
+                document.removeEventListener('click', this.outsideClickListener);
+                this.outsideClickListener = null;
+        },
+        isOutsideRatingClicked(event) {
+            const ratingRef = this.$refs.rating
+
+            return !(ratingRef === event.target || ratingRef.contains(event.target));
+        },
     },
     computed: {
         containerClass() {
