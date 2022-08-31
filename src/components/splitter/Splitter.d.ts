@@ -38,6 +38,11 @@ export interface SplitterProps {
      * Default value is 'session'.
      */
     stateStorage?: SplitterStateStorageType;
+    /**
+     * Step factor to increment/decrement the size of the panels while pressing the arrow keys.
+     * Default value is 1.
+     */
+    step?: number | undefined;
 }
 
 export interface SplitterSlots {
