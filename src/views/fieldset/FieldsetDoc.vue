@@ -98,6 +98,12 @@ import Fieldset from 'primevue/fieldset';
                         <td>null</td>
                         <td>Defines the default visibility state of the content.</td>
                     </tr>
+                    <tr>
+                        <td>toggleButtonProps</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Uses to pass the custom value to read for the anchor inside the component.</td>
+                    </tr>
 				</tbody>
 			</table>
 		</div>
@@ -154,24 +160,63 @@ import Fieldset from 'primevue/fieldset';
 				</thead>
 				<tbody>
                     <tr>
-                        <td>fieldset</td>
+                        <td>p-fieldset</td>
                         <td>Fieldset element.</td>
                     </tr>
                     <tr>
-                        <td>fieldset-toggleable</td>
+                        <td>p-fieldset-toggleable</td>
                         <td>Toggleable fieldset element.</td>
                     </tr>
                     <tr>
-                        <td>fieldset-legend</td>
+                        <td>p-fieldset-legend</td>
                         <td>Legend element.</td>
                     </tr>
                     <tr>
-                        <td>fieldset-content</td>
+                        <td>p-fieldset-content</td>
                         <td>Content element.</td>
                     </tr>
 				</tbody>
 			</table>
 		</div>
+
+        <h5>Accessibility</h5>
+    <DevelopmentSection>
+        <h6>Screen Reader</h6>
+        <p>Fieldset component uses the semantic <i>fieldset</i> element. When toggleable option is enabled, a clickable element with <i>button</i> role is included inside the <i>legend</i> element, this button
+        has <i>aria-controls</i> to define the id of the content section along with <i>aria-expanded</i> for the visibility state. The value to read the button
+        defaults to the value of the <i>legend</i> property and can be customized by defining an <i>aria-label</i> or <i>aria-labelledby</i> via the <i>toggleButtonProps</i> property.</p>
+        <p>The content uses <i>region</i>, defines an id that matches the <i>aria-controls</i> of the content toggle button and <i>aria-labelledby</i> referring to the id of the header.</p>
+
+        <h6>Content Toggle Button Keyboard Support</h6>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Key</th>
+                        <th>Function</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><i>tab</i></td>
+                        <td>Moves focus to the next the focusable element in the page tab sequence.</td>
+                    </tr>
+                    <tr>
+                        <td><i>shift</i> + <i>tab</i></td>
+                        <td>Moves focus to the previous the focusable element in the page tab sequence.</td>
+                    </tr>
+                    <tr>
+                        <td><i>enter</i></td>
+                        <td>Toggles the visibility of the content.</td>
+                    </tr>
+                    <tr>
+                        <td><i>space</i></td>
+                        <td>Toggles the visibility of the content.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </DevelopmentSection>
 
 		<h5>Dependencies</h5>
 		<p>None.</p>

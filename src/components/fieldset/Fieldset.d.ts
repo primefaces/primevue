@@ -25,6 +25,10 @@ export interface FieldsetProps {
      * Defines the default visibility state of the content.
      */
     collapsed?: boolean | undefined;
+    /**
+     * Uses to pass the custom value to read for the anchor inside the component.
+     */
+    toggleButtonProps?: string | undefined;
 }
 
 export interface FieldsetSlots {
