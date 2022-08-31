@@ -178,6 +178,12 @@ import Button from 'primevue/button';
                         <td>Position of the icon, valid values are "left", "right", "bottom" and "top".</td>
                     </tr>
                     <tr>
+                        <td>iconClass</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Style class of the icon.</td>
+                    </tr>
+                    <tr>
                         <td>badge</td>
                         <td>string</td>
                         <td>null</td>

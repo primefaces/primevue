@@ -1,8 +1,8 @@
 <template>
     <button :class="buttonClass" type="button" :aria-label="defaultAriaLabel" v-ripple :disabled="disabled">
         <slot>
-            <span v-if="loading && !icon" :class="iconClass"></span>
-            <span v-if="icon" :class="iconClass"></span>
+            <span v-if="loading && !icon" :class="iconStyleClass"></span>
+            <span v-if="icon" :class="iconStyleClass"></span>
             <span class="p-button-label">{{label||'&nbsp;'}}</span>
             <span v-if="badge" :class="badgeStyleClass">{{badge}}</span>
         </slot>
@@ -24,6 +24,10 @@ export default {
         iconPos: {
             type: String,
             default: 'left'
+        },
+        iconClass: {
+            type: String,
+            default: null
         },
         badge: {
             type: String
@@ -52,10 +56,10 @@ export default {
                 'p-button-loading-label-only': this.loading && !this.icon && this.label
             }
         },
-        iconClass() {
+        iconStyleClass() {
             return [
                 this.loading ? 'p-button-loading-icon ' + this.loadingIcon : this.icon,
-                'p-button-icon',
+                'p-button-icon', this.iconClass,
                 {
                     'p-button-icon-left': this.iconPos === 'left' && this.label,
                     'p-button-icon-right': this.iconPos === 'right' && this.label,

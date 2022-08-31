@@ -26,6 +26,10 @@ export interface ButtonProps extends ButtonHTMLAttributes {
      */
     iconPos?: ButtonIconPosType;
     /**
+     * Style class of the icon.
+     */
+    iconClass?: string | undefined;
+    /**
      * Value of the badge.
      */
     badge?: string | undefined;

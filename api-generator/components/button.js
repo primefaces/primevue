@@ -18,6 +18,12 @@ const ButtonProps = [
         description: 'Position of the icon, valid values are "left", "right", "bottom" and "top".'
     },
     {
+        name: "iconClass",
+        type: "string",
+        default: "null",
+        description: "Style class of the icon."
+    },
+    {
         name: "badge",
         type: "string",
         default: "null",
