@@ -25,7 +25,7 @@
         </template>
             <template v-else>
                 <span :class="iconClasses(i)" @click="onStarClick($event,i)">
-                <component v-if="i < modelValue + 1"  :is="$slots.onIcon" :index="i"></component>
+                <component v-if="i <= modelValue"  :is="$slots.onIcon" :index="i"></component>
                 <component v-else  :is="$slots.offIcon" :index="i"></component>
                 <span class="p-hidden-accessible">
                     <input type="radio" :value="i" :name="name" :checked="modelValue === i" :disabled="disabled" :readonly="readonly" :aria-label="ariaLabelTemplate(i)" @focus="onFocus($event, i)" @blur="onBlur" @keydown="onKeyDown($event,i)">
@@ -81,7 +81,8 @@ export default {
     data() {
         return {
             focusIndex: null,
-            outsideClickListener: null
+            outsideClickListener: null,
+            keyboardEvent: false,
         };
     },
     mounted() {
@@ -92,25 +93,36 @@ export default {
     },
     methods: {
         onStarClick (event, value) {
-            if (!this.readonly && !this.disabled) {
+            if (!this.readonly && !this.disabled && !this.keyboardEvent) {
                 this.updateModel(event, value);
                 window.setTimeout(() => {
                     this.focusIndex = value;
                 }, 1);
             }
+            this.keyboardEvent = false
         },
         onKeyDown(event, value) {
+        this.keyboardEvent = true
         if (event.code === 'Space') {
-                this.updateModel(event, value);
-            }
+            this.updateModel(event, value);
+        }
         if (event.code === 'Tab') {
-                this.focusIndex = null;
-            }
+            this.focusIndex = null;
+        }
         },
         onFocus(event, index) {
             if (!this.readonly) {
-                if (this.modelValue === null && this.focusIndex === null) {
+                if(this.modelValue === null && this.focusIndex === null && index === this.stars) {
                     this.focusIndex = this.cancel ? 0 : 1;
+                    this.updateModel(event, this.focusIndex);
+                }
+                else if(this.modelValue === 0 && this.focusIndex === 0 && index === this.stars - 1) {
+                    this.focusIndex = index + 1
+                    this.updateModel(event, this.focusIndex);
+                }
+                else if (this.modelValue === null && this.focusIndex === null) {
+                    this.focusIndex = this.cancel ? 0 : 1;
+                    this.updateModel(event, this.focusIndex);
                 }
                 else if (this.modelValue !== null && this.focusIndex === null) {
                     this.focusIndex = this.modelValue;
@@ -154,7 +166,7 @@ export default {
             return ['p-rating-icon', iconOn, iconOff, {'p-focus': i === this.focusIndex}]
         },
         cancelIconClasses() {
-            const focusOnCancel = (this.focusIndex === 0) && this.modelValue === null;
+            const focusOnCancel = this.focusIndex === 0 && (this.modelValue === 0 || this.modelValue === null)
 
             if(this.$slots.cancel) {
                 return ['p-rating-icon', {'p-focus': focusOnCancel}]
