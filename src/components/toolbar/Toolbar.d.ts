@@ -2,6 +2,10 @@ import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export interface ToolbarProps {
+    /**
+     * Defines a string value that labels an interactive element.
+     */
+    "aria-labelledby"?: string | undefined;
 }
 
 export interface ToolbarSlots {
