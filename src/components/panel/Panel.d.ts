@@ -25,6 +25,10 @@ export interface PanelProps {
      * Defines the initial state of panel content.
      */
     collapsed?: boolean;
+    /**
+     * Uses to pass the custom value to read for the button inside the component.
+     */
+    toggleButtonProps?: string | undefined;
 }
 
 export interface PanelSlots {
