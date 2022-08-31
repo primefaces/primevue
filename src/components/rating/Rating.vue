@@ -24,7 +24,7 @@
             </span>
         </template>
             <template v-else>
-                <span  :class="iconClasses(i)" @click="onStarClick($event,i)">
+                <span :class="iconClasses(i)" @click="onStarClick($event,i)">
                 <component v-if="i < modelValue + 1"  :is="$slots.onIcon" :index="i"></component>
                 <component v-else  :is="$slots.offIcon" :index="i"></component>
                 <span class="p-hidden-accessible">
@@ -91,7 +91,7 @@ export default {
         this.unbindOutsideClickListener();
     },
     methods: {
-        async onStarClick (event, value) {
+        onStarClick (event, value) {
             if (!this.readonly && !this.disabled) {
                 this.updateModel(event, value);
                 window.setTimeout(() => {
@@ -129,9 +129,12 @@ export default {
         },
         onCancelClick(event) {
             if (!this.readonly && !this.disabled) {
+                window.setTimeout(() => {
+                    this.focusIndex = 0;
+                }, 1);
                 this.updateModel(event, null);
                 this.$emit('cancel')
-                this.focusIndex = null;
+
             }
         },
         updateModel(event, value) {
@@ -151,23 +154,24 @@ export default {
             return ['p-rating-icon', iconOn, iconOff, {'p-focus': i === this.focusIndex}]
         },
         cancelIconClasses() {
+            const focusOnCancel = (this.focusIndex === 0) && this.modelValue === null;
+
             if(this.$slots.cancel) {
-                return [ {'p-focus': this.focusIndex === null}]
+                return ['p-rating-icon', {'p-focus': focusOnCancel}]
             }
 
-            return ['p-rating-icon p-rating-cancel', this.cancelIcon, {'p-focus': this.focusIndex === 0}]
+            return ['p-rating-icon p-rating-cancel', this.cancelIcon, {'p-focus': focusOnCancel }]
         },
         hasIconSlot() {
             return this.$slots.onIcon && this.$slots.offIcon
         },
         bindOutsideClickListener() {
                 this.outsideClickListener = (event) => {
-                    if ( this.focusIndex && this.isOutsideRatingClicked(event)) {
+                    if (this.focusIndex !== null && this.isOutsideRatingClicked(event)) {
                         this.focusIndex = null;
                     }
                 };
                 document.addEventListener('click', this.outsideClickListener);
-
         },
         unbindOutsideClickListener() {
                 document.removeEventListener('click', this.outsideClickListener);
@@ -176,7 +180,7 @@ export default {
         isOutsideRatingClicked(event) {
             const ratingRef = this.$refs.rating
 
-            return !(ratingRef === event.target || ratingRef.contains(event.target));
+            return !(ratingRef.isSameNode(event.target) || ratingRef.contains(event.target));
         },
     },
     computed: {
