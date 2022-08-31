@@ -1,8 +1,9 @@
 <template>
     <td :style="containerStyle" :class="containerClass">
-        <button type="button" class="p-treetable-toggler p-link" @click="toggle" v-if="columnProp('expander')" :style="togglerStyle" tabindex="-1" v-ripple>
+        <div :class="{'p-body-cell-container': !column?.children?.body}">
+        <div class="align-self-start"><button type="button" class="p-treetable-toggler p-link align-self-start" @click="toggle" v-if="columnProp('expander')" :style="togglerStyle" tabindex="-1" v-ripple>
             <i :class="togglerIcon"></i>
-        </button>
+        </button></div>
         <div :class="['p-checkbox p-treetable-checkbox p-component', {'p-checkbox-focused': checkboxFocused}]" @click="toggleCheckbox" v-if="checkboxSelectionMode && columnProp('expander')" role="checkbox" :aria-checked="checked">
             <div class="p-hidden-accessible">
                 <input type="checkbox" @focus="onCheckboxFocus" @blur="onCheckboxBlur" />
@@ -13,6 +14,7 @@
         </div>
         <component :is="column.children.body" :node="node" :column="column" v-if="column.children && column.children.body" />
         <template v-else><span>{{resolveFieldData(node.data, columnProp('field'))}}</span></template>
+    </div>
     </td>
 </template>
 
@@ -121,7 +123,7 @@ export default {
     computed: {
         containerClass() {
             return [this.columnProp('bodyClass'), this.columnProp('class'), {
-                'p-frozen-column': this.columnProp('frozen')
+                'p-frozen-column': this.columnProp('frozen'),
             }];
         },
         containerStyle() {
@@ -154,3 +156,10 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+    .p-body-cell-container {
+    display: flex;
+    align-items: center;
+}
+</style>
