@@ -180,6 +180,12 @@ const DropdownProps = [
         description: "Icon to display in loading state."
     },
     {
+        name: "resetFilterOnHide",
+        type: "boolean",
+        default: "false",
+        description: "Clears the filter value when hiding the dropdown."
+    },
+    {
         name: "virtualScrollerOptions",
         type: "object",
         default: "null",

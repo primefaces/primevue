@@ -132,6 +132,10 @@ export default {
             type: String,
             default: 'pi pi-spinner pi-spin'
         },
+        resetFilterOnHide: {
+            type: Boolean,
+            default: false
+        },
         virtualScrollerOptions: {
             type: Object,
             default: null
@@ -272,6 +276,7 @@ export default {
                 this.focusedOptionIndex = -1;
                 this.searchValue = '';
 
+                this.resetFilterOnHide && (this.filterValue = null);
                 isFocus && this.$refs.focusInput && this.$refs.focusInput.focus();
             }
 

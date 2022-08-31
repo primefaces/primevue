@@ -313,6 +313,12 @@ export default {
                         <td>Icon to display in loading state.</td>
                     </tr>
                     <tr>
+                        <td>resetFilterOnHide</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>Clears the filter value when hiding the dropdown.</td>
+                    </tr>
+                    <tr>
                         <td>virtualScrollerOptions</td>
                         <td>object</td>
                         <td>null</td>
