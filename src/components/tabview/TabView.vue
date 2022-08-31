@@ -231,7 +231,7 @@ export default {
         },
         changeFocusedTab(event, element) {
             if (element) {
-                element.focus();
+                DomHandler.focus(element);
                 this.scrollInView({ element });
 
                 if (this.selectOnFocus) {

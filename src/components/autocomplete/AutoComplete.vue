@@ -278,7 +278,7 @@ export default {
             this.overlayVisible = true;
             this.focusedOptionIndex = this.focusedOptionIndex !== -1 ? this.focusedOptionIndex : (this.autoOptionFocus ? this.findFirstFocusedOptionIndex() : -1);
 
-            isFocus && this.$refs.focusInput.focus();
+            isFocus && DomHandler.focus(this.$refs.focusInput);
         },
         hide(isFocus) {
             const _hide = () => {
@@ -287,7 +287,7 @@ export default {
                 this.overlayVisible = false;
                 this.focusedOptionIndex = -1;
 
-                isFocus && this.$refs.focusInput && this.$refs.focusInput.focus();
+                isFocus && DomHandler.focus(this.$refs.focusInput);
             }
 
             setTimeout(() => { _hide() }, 0); // For ScreenReaders
@@ -446,7 +446,7 @@ export default {
             }
 
             if (!this.overlay || !this.overlay.contains(event.target)) {
-                this.$refs.focusInput.focus();
+                DomHandler.focus(this.$refs.focusInput);
             }
         },
         onDropdownClick(event) {
@@ -456,7 +456,7 @@ export default {
                 this.hide(true);
             }
             else {
-                this.$refs.focusInput.focus();
+                DomHandler.focus(this.$refs.focusInput);
                 query = this.$refs.focusInput.value;
 
                 if (this.dropdownMode === 'blank')
@@ -544,7 +544,7 @@ export default {
 
             if (this.multiple) {
                 if (ObjectUtils.isEmpty(target.value) && this.hasSelectedOption) {
-                    this.$refs.multiContainer.focus();
+                    DomHandler.focus(this.$refs.multiContainer);
                     this.focusedMultipleOptionIndex = this.modelValue.length;
                 }
                 else {
@@ -625,7 +625,7 @@ export default {
 
             if (this.focusedMultipleOptionIndex > (this.modelValue.length - 1)) {
                 this.focusedMultipleOptionIndex = -1;
-                this.$refs.focusInput.focus();
+                DomHandler.focus(this.$refs.focusInput);
             }
         },
         onBackspaceKeyOnMultiple(event) {
@@ -783,7 +783,7 @@ export default {
             this.updateModel(event, value);
             this.$emit('item-unselect', { originalEvent: event, value: removedOption });
             this.dirty = true;
-            this.$refs.focusInput.focus();
+            DomHandler.focus(this.$refs.focusInput);
         },
         changeFocusedOptionIndex(event, index) {
             if (this.focusedOptionIndex !== index) {

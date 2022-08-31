@@ -503,6 +503,10 @@ export default  {
         return !!(typeof window !== 'undefined' && window.document && window.document.createElement);
     },
 
+    focus(el, options) {
+        el && document.activeElement !== el && el.focus(options);
+    },
+
     getFocusableElements(element, selector = '') {
         let focusableElements = this.find(element, `button:not([tabindex = "-1"]):not([disabled]):not([style*="display:none"]):not([hidden])${selector},
                 [href][clientHeight][clientWidth]:not([tabindex = "-1"]):not([disabled]):not([style*="display:none"]):not([hidden])${selector},

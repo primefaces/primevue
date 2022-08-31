@@ -196,7 +196,7 @@ export default {
         },
         changeFocusedTab(event, element) {
             if (element) {
-                element.focus();
+                DomHandler.focus(element);
 
                 if (this.selectOnFocus) {
                     const index = parseInt(element.parentElement.parentElement.dataset.index, 10);

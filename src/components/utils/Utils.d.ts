@@ -44,6 +44,7 @@ export declare class DomHandler {
     static invokeElementMethod(el: HTMLElement, methodName: string, args: any): void;
     static isExist(el: HTMLElement): boolean;
     static isClient(): boolean;
+    static focus(el: HTMLElement, options?: FocusOptions): void;
     static getFocusableElements(el: HTMLElement, selector?: string): any[];
     static getFirstFocusableElement(el: HTMLElement, selector?: string): any;
     static isClickable(el: HTMLElement): boolean;

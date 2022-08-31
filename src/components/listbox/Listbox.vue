@@ -187,7 +187,7 @@ export default {
             return (this.optionGroupLabel ? index - this.visibleOptions.slice(0, index).filter(option => this.isOptionGroup(option)).length : index) + 1;
         },
         onFirstHiddenFocus() {
-            this.list.focus();
+            DomHandler.focus(this.list);
 
             const firstFocusableEl = DomHandler.getFirstFocusableElement(this.$el, ':not(.p-hidden-focusable)');
             this.$refs.lastHiddenFocusableElement.tabIndex = ObjectUtils.isEmpty(firstFocusableEl) ? -1 : undefined;
@@ -198,11 +198,11 @@ export default {
 
             if (relatedTarget === this.list) {
                 const firstFocusableEl = DomHandler.getFirstFocusableElement(this.$el, ':not(.p-hidden-focusable)');
-                firstFocusableEl && firstFocusableEl.focus();
+                DomHandler.focus(firstFocusableEl);
                 this.$refs.firstHiddenFocusableElement.tabIndex = undefined;
             }
             else {
-                this.$refs.firstHiddenFocusableElement.focus();
+                DomHandler.focus(this.$refs.firstHiddenFocusableElement);
             }
 
             this.$refs.lastHiddenFocusableElement.tabIndex = -1;

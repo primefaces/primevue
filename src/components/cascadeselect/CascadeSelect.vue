@@ -200,7 +200,7 @@ export default {
                 this.focusedOptionInfo = { index: (this.autoOptionFocus ? this.findFirstFocusedOptionIndex() : -1), level: 0, parentKey: '' };
             }
 
-            isFocus && this.$refs.focusInput.focus();
+            isFocus && DomHandler.focus(this.$refs.focusInput);
         },
         hide(isFocus) {
             const _hide = () => {
@@ -209,7 +209,7 @@ export default {
                 this.activeOptionPath = [];
                 this.focusedOptionInfo = { index: -1, level: 0, parentKey: '' };
 
-                isFocus && this.$refs.focusInput && this.$refs.focusInput.focus();
+                isFocus && DomHandler.focus(this.$refs.focusInput);
             }
 
             setTimeout(() => { _hide() }, 0); // For ScreenReaders
@@ -305,7 +305,7 @@ export default {
             this.activeOptionPath = activeOptionPath;
 
             grouped ? this.onOptionGroupSelect(originalEvent, processedOption) : this.onOptionSelect(originalEvent, processedOption, isHide);
-            isFocus && this.$refs.focusInput.focus();
+            isFocus && DomHandler.focus(this.$refs.focusInput);
         },
         onOptionSelect(event, processedOption, isHide = true) {
             const value = this.getOptionValue(processedOption.option);
@@ -325,7 +325,7 @@ export default {
 
             if (!this.overlay || !this.overlay.contains(event.target)) {
                 this.overlayVisible ? this.hide() : this.show();
-                this.$refs.focusInput.focus();
+                DomHandler.focus(this.$refs.focusInput);
             }
 
             this.$emit('click', event);
