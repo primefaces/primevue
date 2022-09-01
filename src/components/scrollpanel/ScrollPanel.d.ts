@@ -2,6 +2,11 @@ import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export interface ScrollPanelProps {
+    /**
+     * Step factor to scroll the content while pressing the arrow keys.
+     * Default value is 5.
+     */
+    step?: number | undefined;
 }
 
 export interface ScrollPanelSlots {

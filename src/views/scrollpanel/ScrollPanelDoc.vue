@@ -48,8 +48,37 @@ import ScrollPanel from 'primevue/scrollpanel';
 
 </code></pre>
 
+        <h5>Steps</h5>
+        <p>Step factor is 5px by default and can be customized with <i>step</i> option.</p>
+<pre v-code><code>
+&lt;ScrollPanel style="width: 100%; height: 200px" :step="10"3&gt;
+    content
+&lt;/ScrollPanel&gt;
+
+</code></pre>
+
 		<h5>Properties</h5>
-        <p>Any property such as style and class are passed to the main container element. There are no component specific properties.</p>
+        <p>Any property such as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
+        <div class="doc-tablewrapper">
+			<table class="doc-table">
+				<thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Default</th>
+                        <th>Description</th>
+                    </tr>
+				</thead>
+				<tbody>
+                    <tr>
+                        <td>step</td>
+                        <td>number</td>
+                        <td>1</td>
+                        <td>Step factor to scroll the content while pressing the arrow keys.</td>
+                    </tr>
+				</tbody>
+			</table>
+		</div>
 
 		<h5>Styling</h5>
 		<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
@@ -90,6 +119,42 @@ import ScrollPanel from 'primevue/scrollpanel';
 			</table>
 		</div>
 
+        <h5>Accessibility</h5>
+    <DevelopmentSection>
+        <h6>Screen Reader</h6>
+        <p>Scrollbars of the ScrollPanel has a <i>scrollbar</i> role along with the <i>aria-controls</i> attribute that refers to the id of the scrollable content container and the <i>aria-orientation</i> to indicate the orientation of scrolling.</p>
+
+        <h6>Header Keyboard Support</h6>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Key</th>
+                        <th>Function</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><i>down arrow</i></td>
+                        <td>Scrolls content down when vertical scrolling is available.</td>
+                    </tr>
+                    <tr>
+                        <td><i>up arrow</i></td>
+                        <td>Scrolls content up when vertical scrolling is available.</td>
+                    </tr>
+                    <tr>
+                        <td><i>left</i></td>
+                        <td>Scrolls content left when horizontal scrolling is available.</td>
+                    </tr>
+                    <tr>
+                        <td><i>right</i></td>
+                        <td>Scrolls content right when horizontal scrolling is available.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </DevelopmentSection>
+
 		<h5>Dependencies</h5>
 		<p>None.</p>
     </AppDoc>
@@ -99,7 +164,7 @@ import ScrollPanel from 'primevue/scrollpanel';
 export default {
     data() {
         return {
-           sources: {
+            sources: {
                 'options-api': {
                     tabName: 'Options API Source',
                     content: `
