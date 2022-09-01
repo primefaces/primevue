@@ -2,7 +2,7 @@
     <div :class="containerClass">
         <PInputText ref="input" :id="inputId" :type="inputType" :class="inputClass" :style="inputStyle" :value="modelValue" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel"
             :aria-controls="(panelProps&&panelProps.id)||panelId||panelUniqueId" :aria-expanded="overlayVisible" :aria-haspopup="true" :placeholder="placeholder" :required="required"
-            @input="onInput" @focus="onFocus" @blur="onBlur" @keyup="onKeyUp" v-bind="inputProps" />
+            @input="onInput" @focus="onFocus" @blur="onBlur" @keyup="onKeyUp" @invalid="onInvalid" v-bind="inputProps" />
         <i v-if="toggleMask" :class="toggleIconClass" @click="onMaskToggle" />
         <span class="p-hidden-accessible" aria-live="polite">
             {{infoText}}
@@ -32,7 +32,7 @@ import Portal from 'primevue/portal';
 
 export default {
     name: 'Password',
-    emits: ['update:modelValue', 'change', 'focus', 'blur'],
+    emits: ['update:modelValue', 'change', 'focus', 'blur', 'invalid'],
     props: {
         modelValue: String,
         promptLabel: {
@@ -244,6 +244,9 @@ export default {
                     this.overlayVisible = true;
                 }
             }
+        },
+        onInvalid(event) {
+            this.$emit('invalid', event);
         },
         bindScrollListener() {
             if (!this.scrollHandler) {
