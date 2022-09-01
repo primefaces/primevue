@@ -454,7 +454,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [MultiSelect](https://www.primefaces.org/primevue/showcase/#/multiselect)
+ * - [MultiSelect](https://www.primefaces.org/primevue/multiselect)
  *
  */
 export default MultiSelect;

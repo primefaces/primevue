@@ -27,7 +27,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [AvatarGroup](https://www.primefaces.org/primevue/showcase/#/avatar)
+ * - [AvatarGroup](https://www.primefaces.org/primevue/avatar)
  *
  */
 export default AvatarGroup;

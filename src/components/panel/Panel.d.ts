@@ -73,7 +73,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [Panel](https://www.primefaces.org/primevue/showcase/#/panel)
+ * - [Panel](https://www.primefaces.org/primevue/panel)
  *
  */
 export default Panel;

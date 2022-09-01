@@ -80,7 +80,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [InputSwitch](https://www.primefaces.org/primevue/showcase/#/inputswitch)
+ * - [InputSwitch](https://www.primefaces.org/primevue/inputswitch)
  *
  */
 export default InputSwitch;

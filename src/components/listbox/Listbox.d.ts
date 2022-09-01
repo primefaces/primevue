@@ -310,7 +310,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [Listbox](https://www.primefaces.org/primevue/showcase/#/listbox)
+ * - [Listbox](https://www.primefaces.org/primevue/listbox)
  *
  */
 export default Listbox;

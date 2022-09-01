@@ -69,7 +69,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [Fieldset](https://www.primefaces.org/primevue/showcase/#/fieldset)
+ * - [Fieldset](https://www.primefaces.org/primevue/fieldset)
  *
  */
 export default Fieldset;

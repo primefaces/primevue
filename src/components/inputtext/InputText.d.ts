@@ -33,7 +33,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [InputText](https://www.primefaces.org/primevue/showcase/#/inputtext)
+ * - [InputText](https://www.primefaces.org/primevue/inputtext)
  *
  */
 export default InputText;

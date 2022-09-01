@@ -198,7 +198,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [Dialog](https://www.primefaces.org/primevue/showcase/#/dialog)
+ * - [Dialog](https://www.primefaces.org/primevue/dialog)
  *
  */
 export default Dialog;

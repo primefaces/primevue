@@ -163,7 +163,7 @@ export interface DataTablePageEvent extends DataTableSortEvent {
 /**
  * @extends DataTableSortEvent
  */
- export interface DataTableFilterEvent extends DataTableSortEvent {
+export interface DataTableFilterEvent extends DataTableSortEvent {
     /**
      * Filtered collection (non-lazy only)
      */
@@ -839,11 +839,11 @@ export interface DataTableSlots {
         /**
          * Row data
          */
-         data: any;
-         /**
-          * Row index
-          */
-         index: number;
+        data: any;
+        /**
+         * Row index
+         */
+        index: number;
     }) => VNode[];
 }
 
@@ -1066,10 +1066,10 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [DataTable](https://www.primefaces.org/primevue/showcase/#/datatable)
- * - [Edit](https://www.primefaces.org/primevue/showcase/#/datatable/edit)
- * - [Sort](https://www.primefaces.org/primevue/showcase/#/datatable/sort)
- * - [Filter](https://www.primefaces.org/primevue/showcase/#/datatable/filter)
+ * - [DataTable](https://www.primefaces.org/primevue/datatable)
+ * - [Edit](https://www.primefaces.org/primevue/datatable/edit)
+ * - [Sort](https://www.primefaces.org/primevue/datatable/sort)
+ * - [Filter](https://www.primefaces.org/primevue/datatable/filter)
  * etc.
  *
  */

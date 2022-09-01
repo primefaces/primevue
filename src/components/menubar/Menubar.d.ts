@@ -52,11 +52,11 @@ declare module '@vue/runtime-core' {
  *
  * Helper API:
  *
- * - [MenuItem](https://www.primefaces.org/primevue/showcase/#/menumodel)
+ * - [MenuItem](https://www.primefaces.org/primevue/menumodel)
  *
  * Demos:
  *
- * - [Menubar](https://www.primefaces.org/primevue/showcase/#/menubar)
+ * - [Menubar](https://www.primefaces.org/primevue/menubar)
  *
  */
 export default Menubar;

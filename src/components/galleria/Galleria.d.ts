@@ -204,7 +204,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [Galleria](https://www.primefaces.org/primevue/showcase/#/galleria)
+ * - [Galleria](https://www.primefaces.org/primevue/galleria)
  *
  */
 export default Galleria;

@@ -146,7 +146,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [Password](https://www.primefaces.org/primevue/showcase/#/password)
+ * - [Password](https://www.primefaces.org/primevue/password)
  *
  */
 export default Password;

@@ -79,7 +79,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [RadioButton](https://www.primefaces.org/primevue/showcase/#/radiobutton)
+ * - [RadioButton](https://www.primefaces.org/primevue/radiobutton)
  *
  */
 export default RadioButton;

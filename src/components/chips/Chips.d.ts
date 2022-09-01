@@ -118,7 +118,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [Chips](https://www.primefaces.org/primevue/showcase/#/chips)
+ * - [Chips](https://www.primefaces.org/primevue/chips)
  *
  */
 export default Chips;

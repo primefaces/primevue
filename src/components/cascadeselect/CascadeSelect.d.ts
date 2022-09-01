@@ -263,7 +263,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [CascadeSelect](https://www.primefaces.org/primevue/showcase/#/cascadeselect)
+ * - [CascadeSelect](https://www.primefaces.org/primevue/cascadeselect)
  *
  */
 export default CascadeSelect;

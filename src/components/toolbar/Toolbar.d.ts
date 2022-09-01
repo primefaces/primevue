@@ -36,7 +36,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [Toolbar](https://www.primefaces.org/primevue/showcase/#/toolbar)
+ * - [Toolbar](https://www.primefaces.org/primevue/toolbar)
  *
  */
 export default Toolbar;

@@ -91,7 +91,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [TabView](https://www.primefaces.org/primevue/showcase/#/tabview)
+ * - [TabView](https://www.primefaces.org/primevue/tabview)
  *
  */
 export default TabView;

@@ -36,7 +36,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [InlineMessage](https://www.primefaces.org/primevue/showcase/#/message)
+ * - [InlineMessage](https://www.primefaces.org/primevue/message)
  *
  */
 export default InlineMessage;

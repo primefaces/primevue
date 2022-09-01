@@ -33,7 +33,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [ScrollPanel](https://www.primefaces.org/primevue/showcase/#/scrollpanel)
+ * - [ScrollPanel](https://www.primefaces.org/primevue/scrollpanel)
  *
  */
 export default ScrollPanel;

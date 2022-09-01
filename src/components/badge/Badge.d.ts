@@ -46,7 +46,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [Badge](https://www.primefaces.org/primevue/showcase/#/badge)
+ * - [Badge](https://www.primefaces.org/primevue/badge)
  *
  */
 export default Badge;

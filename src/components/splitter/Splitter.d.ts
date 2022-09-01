@@ -78,7 +78,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [Splitter](https://www.primefaces.org/primevue/showcase/#/splitter)
+ * - [Splitter](https://www.primefaces.org/primevue/splitter)
  *
  */
 export default Splitter;

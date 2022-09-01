@@ -48,11 +48,11 @@ declare module '@vue/runtime-core' {
  *
  * Helper API:
  *
- * - [MenuItem](https://www.primefaces.org/primevue/showcase/#/menumodel)
+ * - [MenuItem](https://www.primefaces.org/primevue/menumodel)
  *
  * Demos:
  *
- * - [Breadcrumb](https://www.primefaces.org/primevue/showcase/#/breadcrumb)
+ * - [Breadcrumb](https://www.primefaces.org/primevue/breadcrumb)
  *
  */
 export default Breadcrumb;

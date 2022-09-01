@@ -21,7 +21,7 @@ export interface AccordionTabCloseEvent extends AccordionTabOpenEvent { }
 /**
  * @extends AccordionTabOpenEvent
  */
- export interface AccordionClickEvent extends AccordionTabOpenEvent { }
+export interface AccordionClickEvent extends AccordionTabOpenEvent { }
 
 export interface AccordionProps {
     /**
@@ -102,7 +102,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [Accordion](https://www.primefaces.org/primevue/showcase/#/accordion)
+ * - [Accordion](https://www.primefaces.org/primevue/accordion)
  *
  */
 export default Accordion;

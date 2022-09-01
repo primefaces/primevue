@@ -134,7 +134,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [Paginator](https://www.primefaces.org/primevue/showcase/#/paginator)
+ * - [Paginator](https://www.primefaces.org/primevue/paginator)
  *
  */
 export default Paginator;

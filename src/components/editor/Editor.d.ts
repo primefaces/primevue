@@ -129,7 +129,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [Editor](https://www.primefaces.org/primevue/showcase/#/editor)
+ * - [Editor](https://www.primefaces.org/primevue/editor)
  *
  */
 export default Editor;

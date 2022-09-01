@@ -37,7 +37,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [Textarea](https://www.primefaces.org/primevue/showcase/#/textarea)
+ * - [Textarea](https://www.primefaces.org/primevue/textarea)
  *
  */
 export default Textarea;

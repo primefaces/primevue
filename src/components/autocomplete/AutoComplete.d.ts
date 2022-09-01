@@ -446,7 +446,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [AutoComplete](https://www.primefaces.org/primevue/showcase/#/autocomplete)
+ * - [AutoComplete](https://www.primefaces.org/primevue/autocomplete)
  *
  */
 export default AutoComplete;

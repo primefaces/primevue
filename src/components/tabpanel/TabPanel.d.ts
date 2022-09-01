@@ -68,7 +68,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [TabPanel](https://www.primefaces.org/primevue/showcase/#/tabpanel)
+ * - [TabPanel](https://www.primefaces.org/primevue/tabpanel)
  *
  */
 export default TabPanel;

@@ -87,7 +87,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [Sidebar](https://www.primefaces.org/primevue/showcase/#/sidebar)
+ * - [Sidebar](https://www.primefaces.org/primevue/sidebar)
  *
  */
 export default Sidebar;
