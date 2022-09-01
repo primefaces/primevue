@@ -127,7 +127,7 @@ import SplitterPanel from 'primevue/splitterpanel';
 </code></pre>
 
         <h5>Steps</h5>
-        <p>Step factor is 1px by default and can be customized with <i>step</i> option.</p>
+        <p>Step factor is 5px by default and can be customized with <i>step</i> option.</p>
 <pre v-code><code>
 &lt;Splitter :step="10"&gt;
 	&lt;SplitterPanel&gt;
@@ -209,7 +209,7 @@ import SplitterPanel from 'primevue/splitterpanel';
                     <tr>
                         <td>step</td>
                         <td>number</td>
-                        <td>1</td>
+                        <td>5</td>
                         <td>Step factor to increment/decrement the size of the panels while pressing the arrow keys.</td>
                     </tr>
 				</tbody>

@@ -26,9 +26,9 @@ const SplitterProps = [
     {
         name: "step",
         type: "number",
-        default: "1",
+        default: "5",
         description: "Step factor to increment/decrement the size of the panels while pressing the arrow keys."
-    },
+    }
 ];
 
 const SplitterEvents = [
