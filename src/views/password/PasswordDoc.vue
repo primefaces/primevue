@@ -168,6 +168,12 @@ import Password from 'primevue/password';
                         <td>Placeholder text for the input.</td>
                     </tr>
                     <tr>
+                        <td>required</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>When present, it specifies that an input field must be filled out before submitting the form.</td>
+                    </tr>
+                    <tr>
                         <td>inputId</td>
                         <td>string</td>
                         <td>null</td>
