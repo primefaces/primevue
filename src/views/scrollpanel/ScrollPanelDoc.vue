@@ -73,7 +73,7 @@ import ScrollPanel from 'primevue/scrollpanel';
                     <tr>
                         <td>step</td>
                         <td>number</td>
-                        <td>1</td>
+                        <td>5</td>
                         <td>Step factor to scroll the content while pressing the arrow keys.</td>
                     </tr>
 				</tbody>
