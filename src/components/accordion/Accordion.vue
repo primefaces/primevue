@@ -61,7 +61,6 @@ export default {
     },
     data() {
         return {
-            id: UniqueComponentId(),
             d_activeIndex: this.activeIndex
         }
     },
@@ -69,9 +68,6 @@ export default {
         activeIndex(newValue) {
             this.d_activeIndex = newValue;
         }
-    },
-    mounted() {
-        this.id = this.$attrs.id || this.id;
     },
     methods: {
         isAccordionTab(child) {
@@ -240,6 +236,9 @@ export default {
 
                 return tabs;
             }, []);
+        },
+        id() {
+            return this.$attrs.id || UniqueComponentId();
         }
     },
     directives: {

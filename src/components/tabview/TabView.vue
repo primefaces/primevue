@@ -67,7 +67,6 @@ export default {
     },
     data() {
         return {
-            id: UniqueComponentId(),
             d_activeIndex: this.activeIndex,
             focusedTabIndex: -1,
             isPrevButtonDisabled: true,
@@ -82,8 +81,6 @@ export default {
         }
     },
     mounted() {
-        this.id = this.$attrs.id || this.id;
-
         this.updateInkBar();
     },
     updated() {
@@ -304,6 +301,9 @@ export default {
         },
         nextButtonAriaLabel() {
             return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.next : undefined;
+        },
+        id() {
+            return this.$attrs.id || UniqueComponentId();
         }
     },
     directives: {

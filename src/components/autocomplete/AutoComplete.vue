@@ -201,7 +201,6 @@ export default {
     dirty: false,
     data() {
         return {
-            id: UniqueComponentId(),
             focused: false,
             focusedOptionIndex: -1,
             focusedMultipleOptionIndex: -1,
@@ -221,8 +220,6 @@ export default {
         }
     },
     mounted() {
-        this.id = this.$attrs.id || this.id;
-
         this.autoUpdateModel();
     },
     updated() {
@@ -907,6 +904,9 @@ export default {
         },
         selectedMessageText() {
             return this.hasSelectedOption ? this.selectionMessageText.replaceAll('{0}', this.multiple ? this.modelValue.length : '1') : this.emptySelectionMessageText;
+        },
+        id() {
+            return this.$attrs.id || UniqueComponentId();
         },
         focusedOptionId() {
             return this.focusedOptionIndex !== -1 ? `${this.id}_${this.focusedOptionIndex}` : null;
