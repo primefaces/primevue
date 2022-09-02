@@ -3,6 +3,8 @@
 </template>
 
 <script>
+import DomHandler from '../utils/DomHandler';
+
 export default {
     props: {
         value: null,
@@ -14,7 +16,7 @@ export default {
         }
     },
     updated() {
-        if (this.$el.offsetParent && this.autoResize) {
+        if (DomHandler.isVisible(this.$el) && this.$el.offsetParent.tagName !== 'BODY' && this.autoResize) {
             this.resize();
         }
     },
