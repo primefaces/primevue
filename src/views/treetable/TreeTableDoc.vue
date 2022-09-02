@@ -1231,25 +1231,6 @@ export default {
 }
 </CodeHighlight>
 
-<CodeHighlight lang="css">
-.sm-visible {
-    display: none;
-}
-
-@media screen and (max-width: 40em) {
-    ::v-deep {
-        .sm-invisible {
-            display: none;
-        }
-
-        .sm-visible {
-            display: inline;
-            margin-right: .5rem;
-        }
-    }
-}
-</CodeHighlight>
-
 				<h5>Properties</h5>
                 <p>Any property such as style and class are passed to the underlying root element. Following is the additional property to configure the component.</p>
 				<div class="doc-tablewrapper">

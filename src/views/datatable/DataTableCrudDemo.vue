@@ -432,7 +432,7 @@ export default {
 }
 
 @media screen and (max-width: 960px) {
-	::v-deep .p-toolbar {
+	:deep(.p-toolbar) {
 		flex-wrap: wrap;
 
 		.p-button {
@@ -597,7 +597,7 @@ export default {
 }
 
 @media screen and (max-width: 960px) {
-	::v-deep .p-toolbar {
+	:deep(.p-toolbar) {
 		flex-wrap: wrap;
 
 		.p-button {

@@ -340,7 +340,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-::v-deep .dock-demo {
+:deep(.dock-demo) {
     .dock-window {
         width: 100%;
         height: 450px;

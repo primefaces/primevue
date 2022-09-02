@@ -68,11 +68,11 @@ export default {
 </script>
 
 <style scoped lang="scss">
-::v-deep b {
+:deep(b) {
     display: block
 }
 
-::v-deep .p-card-body {
+:deep(.p-card-body) {
     padding: 2rem;
 }
 </style>
