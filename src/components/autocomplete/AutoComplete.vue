@@ -135,13 +135,34 @@ export default {
             type: Boolean,
             default: false
         },
-        inputId: String,
-        inputStyle: null,
-        inputClass: null,
-        inputProps: null,
-        panelStyle: null,
-        panelClass: null,
-        panelProps: null,
+        inputId: {
+            type: String,
+            default: null
+        },
+        inputStyle: {
+            type: null,
+            default: null
+        },
+        inputClass: {
+            type: String,
+            default: null
+        },
+        inputProps: {
+            type: null,
+            default: null
+        },
+        panelStyle: {
+            type: null,
+            default: null
+        },
+        panelClass: {
+            type: String,
+            default: null
+        },
+        panelProps: {
+            type: null,
+            default: null
+        },
         loadingIcon: {
             type: String,
             default: 'pi pi-spinner'

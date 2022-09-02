@@ -107,19 +107,55 @@ export default {
             default: null
         },
 		editable: Boolean,
-		placeholder: String,
-		disabled: Boolean,
+		placeholder: {
+            type: String,
+            default: null
+        },
+		disabled: {
+            type: Boolean,
+            default: false
+        },
         dataKey: null,
-        showClear: Boolean,
-        inputId: String,
-        inputStyle: null,
-        inputClass: null,
-        inputProps: null,
-        panelStyle: null,
-        panelClass: null,
-        panelProps: null,
-        filterInputProps: null,
-        clearIconProps: null,
+        showClear: {
+            type: Boolean,
+            default: false
+        },
+        inputId: {
+            type: String,
+            default: null
+        },
+        inputClass: {
+            type: String,
+            default: null
+        },
+        inputStyle: {
+            type: null,
+            default: null
+        },
+        inputProps: {
+            type: null,
+            default: null
+        },
+        panelClass: {
+            type: String,
+            default: null
+        },
+        panelStyle: {
+            type: null,
+            default: null
+        },
+        panelProps: {
+            type: null,
+            default: null
+        },
+        filterInputProps: {
+            type: null,
+            default: null
+        },
+        clearIconProps: {
+            type: null,
+            default: null
+        },
         appendTo: {
             type: String,
             default: 'body'

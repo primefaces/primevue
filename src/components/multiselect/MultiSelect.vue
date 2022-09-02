@@ -130,13 +130,34 @@ export default {
 		},
 		placeholder: String,
 		disabled: Boolean,
-        inputId: String,
-        inputProps: null,
-        panelStyle: null,
-        panelClass: null,
-        panelProps: null,
-        filterInputProps: null,
-        closeButtonProps: null,
+        inputId: {
+            type: String,
+            default: null
+        },
+        inputProps: {
+            type: null,
+            default: null
+        },
+        panelClass: {
+            type: String,
+            default: null
+        },
+        panelStyle: {
+            type: null,
+            default: null
+        },
+        panelProps: {
+            type: null,
+            default: null
+        },
+        filterInputProps: {
+            type: null,
+            default: null
+        },
+        closeButtonProps: {
+            type: null,
+            default: null
+        },
         dataKey: null,
         filter: Boolean,
         filterPlaceholder: String,

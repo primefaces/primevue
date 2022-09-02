@@ -119,12 +119,30 @@ export default {
             type: String,
             default: null
         },
-        inputId: null,
-        inputClass: null,
-        inputStyle: null,
-        inputProps: null,
-        incrementButtonProps: null,
-        decrementButtonProps: null,
+        inputId: {
+            type: String,
+            default: null
+        },
+        inputClass: {
+            type: String,
+            default: null
+        },
+        inputStyle: {
+            type: null,
+            default: null
+        },
+        inputProps: {
+            type: null,
+            default: null
+        },
+        incrementButtonProps: {
+            type: null,
+            default: null
+        },
+        decrementButtonProps: {
+            type: null,
+            default: null
+        },
         'aria-labelledby': {
             type: String,
 			default: null

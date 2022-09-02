@@ -91,14 +91,38 @@ export default {
             type: Boolean,
             required: false
         },
-        inputId: null,
-        inputClass: null,
-        inputStyle: null,
-        inputProps: null,
-        panelId: null,
-        panelClass: null,
-        panelStyle: null,
-        panelProps: null,
+        inputId: {
+            type: String,
+            default: null
+        },
+        inputClass: {
+            type: String,
+            default: null
+        },
+        inputStyle: {
+            type: null,
+            default: null
+        },
+        inputProps: {
+            type: null,
+            default: null
+        },
+        panelId: {
+            type: String,
+            default: null
+        },
+        panelClass: {
+            type: String,
+            default: null
+        },
+        panelStyle: {
+            type: null,
+            default: null
+        },
+        panelProps: {
+            type: null,
+            default: null
+        },
         'aria-labelledby': {
             type: String,
 			default: null

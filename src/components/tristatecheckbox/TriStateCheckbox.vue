@@ -17,8 +17,14 @@ export default {
     emits: ['click', 'update:modelValue', 'change', 'keydown', 'focus', 'blur'],
     props: {
         modelValue: null,
-        inputId: null,
-        inputProps: null,
+        inputId: {
+            type: String,
+            default: null
+        },
+        inputProps: {
+            type: null,
+            default: null
+        },
         disabled: {
 			type: Boolean,
 			default: false
