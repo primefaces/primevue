@@ -91,11 +91,11 @@ export default {
 }
 
 @media screen and (max-width: 40em) {
-    .sm-invisible {
+    :deep(.sm-invisible) {
         display: none;
     }
 
-    .sm-visible {
+    :deep(.sm-visible) {
         display: inline;
         margin-right: .5rem;
     }
@@ -133,11 +133,11 @@ export default {
 }
 
 @media screen and (max-width: 40em) {
-    .sm-invisible {
+    :deep(.sm-invisible) {
         display: none;
     }
 
-    .sm-visible {
+    :deep(.sm-visible) {
         display: inline;
         margin-right: .5rem;
     }
