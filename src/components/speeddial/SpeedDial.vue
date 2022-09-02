@@ -6,7 +6,7 @@
             </slot>
             <ul ref="list" class="p-speeddial-list" role="menu">
                 <li v-for="(item, index) of model" :key="index" class="p-speeddial-item" :style="getItemStyle(index)" role="none">
-                    <template v-if="!$slots.item && !$scopedSlots.item">
+                    <template v-if="!$scopedSlots.item">
                         <a :href="item.url || '#'" role="menuitem" :class="['p-speeddial-action', { 'p-disabled': item.disabled }]" :target="item.target"
                             v-tooltip:[tooltipOptions]="{value: item.label, disabled: !tooltipOptions}" @click="onItemClick($event, item)" v-ripple>
                             <span v-if="item.icon" :class="['p-speeddial-action-icon', item.icon]"></span>
