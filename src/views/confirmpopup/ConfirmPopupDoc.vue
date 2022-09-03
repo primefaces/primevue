@@ -284,7 +284,7 @@ export default {
                         <td>Container element.</td>
                     </tr>
                     <tr>
-                        <td>p-confirm-content</td>
+                        <td>p-confirm-popup-content</td>
                         <td>Content element.</td>
                     </tr>
                     <tr>
