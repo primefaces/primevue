@@ -1,3 +1,4 @@
+import { InputHTMLAttributes } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export interface RadioButtonProps {
@@ -32,7 +33,7 @@ export interface RadioButtonProps {
     /**
      * Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.
      */
-    inputProps?: HTMLInputElement | undefined;
+    inputProps?: InputHTMLAttributes | undefined;
     /**
      * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
      */
@@ -78,7 +79,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [RadioButton](https://www.primefaces.org/primevue/showcase/#/radiobutton)
+ * - [RadioButton](https://www.primefaces.org/primevue/radiobutton)
  *
  */
 export default RadioButton;

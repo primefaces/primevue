@@ -218,18 +218,60 @@ export default {
 				</tr>
 				</thead>
 				<tbody>
-				<tr>
-					<td>header</td>
-					<td>string</td>
-					<td>null</td>
-					<td>Orientation of tab headers.</td>
-				</tr>
-				<tr>
-					<td>disabled</td>
-					<td>boolean</td>
-					<td>false</td>
-					<td>Whether the tab is disabled.</td>
-				</tr>
+                    <tr>
+                        <td>header</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Orientation of tab headers.</td>
+                    </tr>
+                    <tr>
+                        <td>headerStyle</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Inline style of the tab header.</td>
+                    </tr>
+                    <tr>
+                        <td>headerClass</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Style class of the tab header.</td>
+                    </tr>
+                    <tr>
+                        <td>headerProps</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td>Uses to pass all properties of the HTMLDivElement to the tab header.</td>
+                    </tr>
+                    <tr>
+                        <td>headerActionProps</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td>Uses to pass all properties of the HTMLAnchorElement to the focusable anchor element inside the tab header.</td>
+                    </tr>
+                    <tr>
+                        <td>contentStyle</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Inline style of the tab content.</td>
+                    </tr>
+                    <tr>
+                        <td>contentClass</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Style class of the tab content.</td>
+                    </tr>
+                    <tr>
+                        <td>contentProps</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td>Uses to pass all properties of the HTMLDivElement to the tab content.</td>
+                    </tr>
+                    <tr>
+                        <td>disabled</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>Whether the tab is disabled.</td>
+                    </tr>
 				</tbody>
 			</table>
 		</div>
@@ -277,6 +319,18 @@ export default {
                         <td>pi-chevron-down</td>
                         <td>Icon of an expanded tab.</td>
                     </tr>
+                    <tr>
+                        <td>tabindex</td>
+                        <td>number</td>
+                        <td>0</td>
+                        <td>Index of the element in tabbing order.</td>
+                    </tr>
+                    <tr>
+                        <td>selectOnFocus</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>When enabled, the focused tab is activated.</td>
+                    </tr>
 				</tbody>
 			</table>
 		</div>
@@ -305,6 +359,13 @@ export default {
                             event.index: Closed tab index
                         </td>
                         <td>Callback to invoke when an active tab is collapsed by clicking on the header.</td>
+                    </tr>
+                    <tr>
+                        <td>tab-click</td>
+                        <td>event.originalEvent: Browser event  <br/>
+                            event.index: Index of the clicked tab
+                        </td>
+                        <td>Callback to invoke when an active tab is clicked.</td>
                     </tr>
 				</tbody>
 			</table>
@@ -336,6 +397,78 @@ export default {
 				</tbody>
 			</table>
 		</div>
+
+        <h5>Accessibility</h5>
+        <h6>Screen Reader</h6>
+        <p>
+            Accordion header elements have a <i>button</i> role and use <i>aria-controls</i> to define the id of the content section along with <i>aria-expanded</i> for the visibility state. The value to read a header element defaults
+            to the value of the <i>header</i> property and can be customized by defining an <i>aria-label</i> or <i>aria-labelledby</i> via the <i>headerActionProps</i> property.
+        </p>
+        <p>
+            The content uses <i>region</i> role, defines an id that matches the <i>aria-controls</i> of the header and <i>aria-labelledby</i> referring to the id of the header.
+        </p>
+
+        <h6>Header Keyboard Support</h6>
+        <div className="doc-tablewrapper">
+            <table className="doc-table">
+                <thead>
+                    <tr>
+                        <th>Key</th>
+                        <th>Function</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <i>tab</i>
+                        </td>
+                        <td>Moves focus to the next the focusable element in the page tab sequence.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>shift</i> + <i>tab</i>
+                        </td>
+                        <td>Moves focus to the previous the focusable element in the page tab sequence.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>enter</i>
+                        </td>
+                        <td>Toggles the visibility of the content.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>space</i>
+                        </td>
+                        <td>Toggles the visibility of the content.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>down arrow</i>
+                        </td>
+                        <td>Moves focus to the next header. If focus is on the last header, moves focus to the first header.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>up arrow</i>
+                        </td>
+                        <td>Moves focus to the previous header. If focus is on the first header, moves focus to the last header.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>home</i>
+                        </td>
+                        <td>Moves focus to the first header.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>end</i>
+                        </td>
+                        <td>Moves focus to the last header.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
 		<h5>Dependencies</h5>
 		<p>None.</p>
@@ -442,15 +575,15 @@ export default {
             active: 0,
             tabs: [
                 {
-                    title: "Header I", 
+                    title: "Header I",
                     content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
                 },
                 {
-                    title: "Header II", 
+                    title: "Header II",
                     content: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi."
                 },
                 {
-                    title: "Header III", 
+                    title: "Header III",
                     content: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus."
                 }
             ]
@@ -572,15 +705,15 @@ export default {
         const active = ref(0);
         const tabs = ref([
             {
-                title: "Header I", 
+                title: "Header I",
                 content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
             },
             {
-                title: "Header II", 
+                title: "Header II",
                 content: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi."
             },
             {
-                title: "Header III", 
+                title: "Header III",
                 content: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus."
             }
         ]);
@@ -702,15 +835,15 @@ export default {
                 const active = ref(0);
                 const tabs = ref([
                     {
-                        title: "Header I", 
+                        title: "Header I",
                         content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
                     },
                     {
-                        title: "Header II", 
+                        title: "Header II",
                         content: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi."
                     },
                     {
-                        title: "Header III", 
+                        title: "Header III",
                         content: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus."
                     }
                 ]);

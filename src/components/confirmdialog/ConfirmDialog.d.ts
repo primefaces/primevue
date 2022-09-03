@@ -1,4 +1,6 @@
+import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ConfirmationOptions } from '../confirmationoptions';
 
 export interface ConfirmDialogBreakpoints {
     /**
@@ -32,6 +34,13 @@ export interface ConfirmDialogProps {
 }
 
 export interface ConfirmDialogSlots {
+    /**
+     * Custom message template.
+     * @param {Object} scope - message slot's params.
+     */
+    message: (scope: {
+        message: ConfirmationOptions;
+    }) => VNode[];
 }
 
 export declare type ConfirmDialogEmits = {
@@ -56,7 +65,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [ConfirmDialog](https://www.primefaces.org/primevue/showcase/#/confirmdialog)
+ * - [ConfirmDialog](https://www.primefaces.org/primevue/confirmdialog)
  *
  */
 export default ConfirmDialog;

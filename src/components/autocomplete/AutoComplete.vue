@@ -95,7 +95,7 @@ export default {
             type: String,
             default: 'blank'
         },
-        autoHighlight: { // TODO: Deprecated since v3.16.0
+        autoHighlight: { // TODO: Deprecated since v3.16.0. Use selectOnFocus property instead.
             type: Boolean,
             default: false
         },
@@ -135,13 +135,34 @@ export default {
             type: Boolean,
             default: false
         },
-        inputId: String,
-        inputStyle: null,
-        inputClass: null,
-        inputProps: null,
-        panelStyle: null,
-        panelClass: null,
-        panelProps: null,
+        inputId: {
+            type: String,
+            default: null
+        },
+        inputStyle: {
+            type: null,
+            default: null
+        },
+        inputClass: {
+            type: String,
+            default: null
+        },
+        inputProps: {
+            type: null,
+            default: null
+        },
+        panelStyle: {
+            type: null,
+            default: null
+        },
+        panelClass: {
+            type: String,
+            default: null
+        },
+        panelProps: {
+            type: null,
+            default: null
+        },
         loadingIcon: {
             type: String,
             default: 'pi pi-spinner'
@@ -153,6 +174,10 @@ export default {
         autoOptionFocus: {
             type: Boolean,
             default: true
+        },
+        selectOnFocus: {
+            type: Boolean,
+            default: false
         },
         searchLocale: {
             type: String,
@@ -193,12 +218,10 @@ export default {
     overlay: null,
     virtualScroller: null,
     searchTimeout: null,
-    selectOnFocus: false,
     focusOnHover: false,
     dirty: false,
     data() {
         return {
-            id: UniqueComponentId(),
             focused: false,
             focusedOptionIndex: -1,
             focusedMultipleOptionIndex: -1,
@@ -218,8 +241,6 @@ export default {
         }
     },
     mounted() {
-        this.id = this.$attrs.id || this.id;
-
         this.autoUpdateModel();
     },
     updated() {
@@ -275,7 +296,7 @@ export default {
             this.overlayVisible = true;
             this.focusedOptionIndex = this.focusedOptionIndex !== -1 ? this.focusedOptionIndex : (this.autoOptionFocus ? this.findFirstFocusedOptionIndex() : -1);
 
-            isFocus && this.$refs.focusInput.focus();
+            isFocus && DomHandler.focus(this.$refs.focusInput);
         },
         hide(isFocus) {
             const _hide = () => {
@@ -284,7 +305,7 @@ export default {
                 this.overlayVisible = false;
                 this.focusedOptionIndex = -1;
 
-                isFocus && this.$refs.focusInput.focus();
+                isFocus && DomHandler.focus(this.$refs.focusInput);
             }
 
             setTimeout(() => { _hide() }, 0); // For ScreenReaders
@@ -443,7 +464,7 @@ export default {
             }
 
             if (!this.overlay || !this.overlay.contains(event.target)) {
-                this.$refs.focusInput.focus();
+                DomHandler.focus(this.$refs.focusInput);
             }
         },
         onDropdownClick(event) {
@@ -453,7 +474,7 @@ export default {
                 this.hide(true);
             }
             else {
-                this.$refs.focusInput.focus();
+                DomHandler.focus(this.$refs.focusInput);
                 query = this.$refs.focusInput.value;
 
                 if (this.dropdownMode === 'blank')
@@ -464,7 +485,7 @@ export default {
 
             this.$emit('dropdown-click', { originalEvent: event, query });
         },
-        onOptionSelect(event, option) {
+        onOptionSelect(event, option, isHide = true) {
             const value = this.getOptionValue(option);
 
             if (this.multiple) {
@@ -480,7 +501,7 @@ export default {
 
             this.$emit('item-select', { originalEvent: event, value: option });
 
-            this.hide(true);
+            isHide && this.hide(true);
         },
         onOptionMouseMove(event, index) {
             if (this.focusOnHover) {
@@ -541,7 +562,7 @@ export default {
 
             if (this.multiple) {
                 if (ObjectUtils.isEmpty(target.value) && this.hasSelectedOption) {
-                    this.$refs.multiContainer.focus();
+                    DomHandler.focus(this.$refs.multiContainer);
                     this.focusedMultipleOptionIndex = this.modelValue.length;
                 }
                 else {
@@ -622,7 +643,7 @@ export default {
 
             if (this.focusedMultipleOptionIndex > (this.modelValue.length - 1)) {
                 this.focusedMultipleOptionIndex = -1;
-                this.$refs.focusInput.focus();
+                DomHandler.focus(this.$refs.focusInput);
             }
         },
         onBackspaceKeyOnMultiple(event) {
@@ -738,14 +759,14 @@ export default {
             return this.visibleOptions.findIndex(option => this.isValidOption(option));
         },
         findLastOptionIndex() {
-            return this.visibleOptions.findLastIndex(option => this.isValidOption(option));
+            return ObjectUtils.findLastIndex(this.visibleOptions, option => this.isValidOption(option));
         },
         findNextOptionIndex(index) {
             const matchedOptionIndex = index < (this.visibleOptions.length - 1) ? this.visibleOptions.slice(index + 1).findIndex(option => this.isValidOption(option)) : -1;
             return matchedOptionIndex > -1 ? matchedOptionIndex + index + 1 : index;
         },
         findPrevOptionIndex(index) {
-            const matchedOptionIndex = index > 0 ? this.visibleOptions.slice(0, index).findLastIndex(option => this.isValidOption(option)) : -1;
+            const matchedOptionIndex = index > 0 ? ObjectUtils.findLastIndex(this.visibleOptions.slice(0, index), option => this.isValidOption(option)) : -1;
             return matchedOptionIndex > -1 ? matchedOptionIndex : index;
         },
         findSelectedOptionIndex() {
@@ -780,7 +801,7 @@ export default {
             this.updateModel(event, value);
             this.$emit('item-unselect', { originalEvent: event, value: removedOption });
             this.dirty = true;
-            this.$refs.focusInput.focus();
+            DomHandler.focus(this.$refs.focusInput);
         },
         changeFocusedOptionIndex(event, index) {
             if (this.focusedOptionIndex !== index) {
@@ -788,7 +809,7 @@ export default {
                 this.scrollInView();
 
                 if (this.selectOnFocus || this.autoHighlight) {
-                    this.updateModel(event, this.getOptionValue(this.visibleOptions[index]));
+                    this.onOptionSelect(event, this.visibleOptions[index], false);
                 }
             }
         },
@@ -807,8 +828,7 @@ export default {
         autoUpdateModel() {
             if ((this.selectOnFocus || this.autoHighlight) && this.autoOptionFocus && !this.hasSelectedOption) {
                 this.focusedOptionIndex = this.findFirstFocusedOptionIndex();
-                const value = this.getOptionValue(this.visibleOptions[this.focusedOptionIndex]);
-                this.updateModel(null, this.multiple ? [value] : value);
+                this.onOptionSelect(null, this.visibleOptions[this.focusedOptionIndex], false);
             }
         },
         updateModel(event, value) {
@@ -905,6 +925,9 @@ export default {
         },
         selectedMessageText() {
             return this.hasSelectedOption ? this.selectionMessageText.replaceAll('{0}', this.multiple ? this.modelValue.length : '1') : this.emptySelectionMessageText;
+        },
+        id() {
+            return this.$attrs.id || UniqueComponentId();
         },
         focusedOptionId() {
             return this.focusedOptionIndex !== -1 ? `${this.id}_${this.focusedOptionIndex}` : null;

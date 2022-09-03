@@ -1,8 +1,8 @@
 <template>
     <div :class="containerClass">
         <PInputText ref="input" :id="inputId" :type="inputType" :class="inputClass" :style="inputStyle" :value="modelValue" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel"
-            :aria-controls="(panelProps&&panelProps.id)||panelId||panelUniqueId" :aria-expanded="overlayVisible" :aria-haspopup="true" :placeholder="placeholder"
-            @input="onInput" @focus="onFocus" @blur="onBlur" @keyup="onKeyUp" v-bind="inputProps" />
+            :aria-controls="(panelProps&&panelProps.id)||panelId||panelUniqueId" :aria-expanded="overlayVisible" :aria-haspopup="true" :placeholder="placeholder" :required="required"
+            @input="onInput" @focus="onFocus" @blur="onBlur" @keyup="onKeyUp" @invalid="onInvalid" v-bind="inputProps" />
         <i v-if="toggleMask" :class="toggleIconClass" @click="onMaskToggle" />
         <span class="p-hidden-accessible" aria-live="polite">
             {{infoText}}
@@ -32,7 +32,7 @@ import Portal from 'primevue/portal';
 
 export default {
     name: 'Password',
-    emits: ['update:modelValue', 'change', 'focus', 'blur'],
+    emits: ['update:modelValue', 'change', 'focus', 'blur', 'invalid'],
     props: {
         modelValue: String,
         promptLabel: {
@@ -87,14 +87,42 @@ export default {
             type: String,
             default: null
         },
-        inputId: null,
-        inputClass: null,
-        inputStyle: null,
-        inputProps: null,
-        panelId: null,
-        panelClass: null,
-        panelStyle: null,
-        panelProps: null,
+        required: {
+            type: Boolean,
+            required: false
+        },
+        inputId: {
+            type: String,
+            default: null
+        },
+        inputClass: {
+            type: String,
+            default: null
+        },
+        inputStyle: {
+            type: null,
+            default: null
+        },
+        inputProps: {
+            type: null,
+            default: null
+        },
+        panelId: {
+            type: String,
+            default: null
+        },
+        panelClass: {
+            type: String,
+            default: null
+        },
+        panelStyle: {
+            type: null,
+            default: null
+        },
+        panelProps: {
+            type: null,
+            default: null
+        },
         'aria-labelledby': {
             type: String,
 			default: null
@@ -240,6 +268,9 @@ export default {
                     this.overlayVisible = true;
                 }
             }
+        },
+        onInvalid(event) {
+            this.$emit('invalid', event);
         },
         bindScrollListener() {
             if (!this.scrollHandler) {

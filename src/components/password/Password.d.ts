@@ -1,4 +1,4 @@
-import { VNode, InputHTMLAttributes } from 'vue';
+import { VNode, InputHTMLAttributes, HTMLAttributes } from 'vue';
 import { ClassComponent, GlobalComponentConstructor, Nullable } from '../ts-helpers';
 
 type PasswordAppendToType = 'body' | 'self' | string | undefined | HTMLElement;
@@ -68,6 +68,11 @@ export interface PasswordProps extends InputHTMLAttributes {
      */
     placeholder?: string | undefined;
     /**
+     * When present, it specifies that an input field must be filled out before submitting the form.
+     * Default value is false.
+     */
+    required?: boolean | undefined;
+    /**
      * Identifier of the underlying input element.
      */
     inputId?: string | undefined;
@@ -82,7 +87,7 @@ export interface PasswordProps extends InputHTMLAttributes {
     /**
      * Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.
      */
-    inputProps?: HTMLInputElement | undefined;
+    inputProps?: InputHTMLAttributes | undefined;
     /**
      * Identifier of the underlying overlay panel element.
      */
@@ -98,7 +103,7 @@ export interface PasswordProps extends InputHTMLAttributes {
     /**
      * Uses to pass all properties of the HTMLDivElement to the overlay panel inside the component.
      */
-    panelProps?: HTMLDivElement | undefined;
+    panelProps?: HTMLAttributes | undefined;
     /**
      * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
      */
@@ -146,7 +151,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [Password](https://www.primefaces.org/primevue/showcase/#/password)
+ * - [Password](https://www.primefaces.org/primevue/password)
  *
  */
 export default Password;

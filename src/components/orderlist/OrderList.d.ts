@@ -133,7 +133,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [OrderList](https://www.primefaces.org/primevue/showcase/#/orderlist)
+ * - [OrderList](https://www.primefaces.org/primevue/orderlist)
  *
  */
 export default OrderList;

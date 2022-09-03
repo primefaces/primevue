@@ -3955,6 +3955,12 @@
   transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
   background: #191919;
 }
+.p-splitter .p-splitter-gutter:focus {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: inset 0 0 0 0.1rem white;
+  border-radius: 3px;
+}
 .p-splitter .p-splitter-gutter .p-splitter-gutter-handle {
   background: #4b4b4b;
 }

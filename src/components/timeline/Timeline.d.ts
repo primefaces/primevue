@@ -107,7 +107,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [Timeline](https://www.primefaces.org/primevue/showcase/#/timeline)
+ * - [Timeline](https://www.primefaces.org/primevue/timeline)
  *
  */
 export default Timeline;

@@ -115,7 +115,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [SelectButton](https://www.primefaces.org/primevue/showcase/#/selectbutton)
+ * - [SelectButton](https://www.primefaces.org/primevue/selectbutton)
  *
  */
 export default SelectButton;

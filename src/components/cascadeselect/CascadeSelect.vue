@@ -56,13 +56,34 @@ export default {
         placeholder: String,
 		disabled: Boolean,
         dataKey: null,
-        inputId: null,
-        inputStyle: null,
-        inputClass: null,
-        inputProps: null,
-        panelStyle: null,
-        panelClass: null,
-        panelProps: null,
+        inputId: {
+            type: String,
+            default: null
+        },
+        inputClass: {
+            type: String,
+            default: null
+        },
+        inputStyle: {
+            type: null,
+            default: null
+        },
+        inputProps: {
+            type: null,
+            default: null
+        },
+        panelClass: {
+            type: String,
+            default: null
+        },
+        panelStyle: {
+            type: null,
+            default: null
+        },
+        panelProps: {
+            type: null,
+            default: null
+        },
         appendTo: {
             type: String,
             default: 'body'
@@ -78,6 +99,10 @@ export default {
         autoOptionFocus: {
             type: Boolean,
             default: true
+        },
+        selectOnFocus: {
+            type: Boolean,
+            default: false
         },
         searchLocale: {
             type: String,
@@ -122,11 +147,9 @@ export default {
     overlay: null,
     searchTimeout: null,
     searchValue: null,
-    selectOnFocus: false,
     focusOnHover: false,
     data() {
         return {
-            id: UniqueComponentId(),
             focused: false,
             focusedOptionInfo: { index: -1, level: 0, parentKey: '' },
             activeOptionPath: [],
@@ -140,7 +163,7 @@ export default {
         }
     },
     mounted() {
-        this.id = this.$attrs.id || this.id;
+        this.autoUpdateModel();
     },
     beforeUnmount() {
         this.unbindOutsideClickListener();
@@ -185,7 +208,7 @@ export default {
         show(isFocus) {
             this.$emit('before-show');
             this.overlayVisible = true;
-            this.activeOptionPath = this.findOptionPathByValue(this.modelValue);
+            this.activeOptionPath = this.hasSelectedOption ? this.findOptionPathByValue(this.modelValue) : this.activeOptionPath;
 
             if (this.hasSelectedOption && ObjectUtils.isNotEmpty(this.activeOptionPath)) {
                 const processedOption = this.activeOptionPath[this.activeOptionPath.length - 1];
@@ -195,7 +218,7 @@ export default {
                 this.focusedOptionInfo = { index: (this.autoOptionFocus ? this.findFirstFocusedOptionIndex() : -1), level: 0, parentKey: '' };
             }
 
-            isFocus && this.$refs.focusInput.focus();
+            isFocus && DomHandler.focus(this.$refs.focusInput);
         },
         hide(isFocus) {
             const _hide = () => {
@@ -204,7 +227,7 @@ export default {
                 this.activeOptionPath = [];
                 this.focusedOptionInfo = { index: -1, level: 0, parentKey: '' };
 
-                isFocus && this.$refs.focusInput.focus();
+                isFocus && DomHandler.focus(this.$refs.focusInput);
             }
 
             setTimeout(() => { _hide() }, 0); // For ScreenReaders
@@ -224,6 +247,8 @@ export default {
                 event.preventDefault();
                 return;
             }
+
+            const metaKey = event.metaKey || event.ctrlKey;
 
             switch (event.code) {
                 case 'ArrowDown':
@@ -275,7 +300,7 @@ export default {
                     break;
 
                 default:
-                    if (ObjectUtils.isPrintableCharacter(event.key)) {
+                    if (!metaKey && ObjectUtils.isPrintableCharacter(event.key)) {
                         !this.overlayVisible && this.show();
                         this.searchOptions(event, event.key);
                     }
@@ -284,7 +309,10 @@ export default {
             }
         },
         onOptionChange(event) {
-            const { originalEvent, processedOption, isFocus } = event;
+            const { originalEvent, processedOption, isFocus, isHide } = event;
+
+            if (ObjectUtils.isEmpty(processedOption)) return;
+
             const { index, level, parentKey, children } = processedOption;
             const grouped = ObjectUtils.isNotEmpty(children);
 
@@ -294,15 +322,15 @@ export default {
             this.focusedOptionInfo = { index, level, parentKey };
             this.activeOptionPath = activeOptionPath;
 
-            grouped ? this.onOptionGroupSelect(originalEvent, processedOption) : this.onOptionSelect(originalEvent, processedOption);
-            isFocus && this.$refs.focusInput.focus();
+            grouped ? this.onOptionGroupSelect(originalEvent, processedOption) : this.onOptionSelect(originalEvent, processedOption, isHide);
+            isFocus && DomHandler.focus(this.$refs.focusInput);
         },
-        onOptionSelect(event, processedOption) {
+        onOptionSelect(event, processedOption, isHide = true) {
             const value = this.getOptionValue(processedOption.option);
 
             this.activeOptionPath.forEach(p => p.selected = true);
             this.updateModel(event, value);
-            this.hide(true);
+            isHide && this.hide(true);
         },
         onOptionGroupSelect(event, processedOption) {
             this.dirty = true;
@@ -315,7 +343,7 @@ export default {
 
             if (!this.overlay || !this.overlay.contains(event.target)) {
                 this.overlayVisible ? this.hide() : this.show();
-                this.$refs.focusInput.focus();
+                DomHandler.focus(this.$refs.focusInput);
             }
 
             this.$emit('click', event);
@@ -547,14 +575,14 @@ export default {
             return this.visibleOptions.findIndex(processedOption => this.isValidOption(processedOption));
         },
         findLastOptionIndex() {
-            return this.visibleOptions.findLastIndex(processedOption => this.isValidOption(processedOption));
+            return ObjectUtils.findLastIndex(this.visibleOptions, processedOption => this.isValidOption(processedOption));
         },
         findNextOptionIndex(index) {
             const matchedOptionIndex = index < (this.visibleOptions.length - 1) ? this.visibleOptions.slice(index + 1).findIndex(processedOption => this.isValidOption(processedOption)) : -1;
             return matchedOptionIndex > -1 ? matchedOptionIndex + index + 1 : index;
         },
         findPrevOptionIndex(index) {
-            const matchedOptionIndex = index > 0 ? this.visibleOptions.slice(0, index).findLastIndex(processedOption => this.isValidOption(processedOption)) : -1;
+            const matchedOptionIndex = index > 0 ? ObjectUtils.findLastIndex(this.visibleOptions.slice(0, index), processedOption => this.isValidOption(processedOption)) : -1;
             return matchedOptionIndex > -1 ? matchedOptionIndex : index;
         },
         findSelectedOptionIndex() {
@@ -632,7 +660,7 @@ export default {
                 this.scrollInView();
 
                 if (this.selectOnFocus) {
-                    this.updateModel(event, this.getOptionValue(this.visibleOptions[index]));
+                    this.onOptionChange({ originalEvent: event, processedOption: this.visibleOptions[index], isHide: false });
                 }
             }
         },
@@ -646,8 +674,9 @@ export default {
         autoUpdateModel() {
             if (this.selectOnFocus && this.autoOptionFocus && !this.hasSelectedOption) {
                 this.focusedOptionInfo.index = this.findFirstFocusedOptionIndex();
-                const value = this.getOptionValue(this.visibleOptions[this.focusedOptionInfo.index]);
-                this.updateModel(null, value);
+                this.onOptionChange({ processedOption: this.visibleOptions[this.focusedOptionInfo.index], isHide: false });
+
+                !this.overlayVisible && (this.focusedOptionInfo = { index: -1, level: 0, parentKey: '' });
             }
         },
         updateModel(event, value) {
@@ -711,7 +740,7 @@ export default {
 
             if (this.hasSelectedOption) {
                 const activeOptionPath = this.findOptionPathByValue(this.modelValue);
-                const processedOption = activeOptionPath.length ? activeOptionPath[activeOptionPath.length - 1] : null;
+                const processedOption = ObjectUtils.isNotEmpty(activeOptionPath) ? activeOptionPath[activeOptionPath.length - 1] : null;
 
                 return processedOption ? this.getOptionLabel(processedOption.option) : label;
             }
@@ -748,6 +777,9 @@ export default {
         },
         selectedMessageText() {
             return this.hasSelectedOption ? this.selectionMessageText.replaceAll('{0}', '1') : this.emptySelectionMessageText;
+        },
+        id() {
+            return this.$attrs.id || UniqueComponentId();
         },
         focusedOptionId() {
             return this.focusedOptionInfo.index !== -1 ? `${this.id}${ObjectUtils.isNotEmpty(this.focusedOptionInfo.parentKey) ? '_' + this.focusedOptionInfo.parentKey : ''}_${this.focusedOptionInfo.index}` : null;

@@ -126,6 +126,20 @@ import SplitterPanel from 'primevue/splitterpanel';
 
 </code></pre>
 
+        <h5>Steps</h5>
+        <p>Step factor is 5px by default and can be customized with <i>step</i> option.</p>
+<pre v-code><code>
+&lt;Splitter :step="10"&gt;
+	&lt;SplitterPanel&gt;
+		Panel 1
+	&lt;/SplitterPanel&gt;
+	&lt;SplitterPanel&gt;
+		Panel 2
+	&lt;/SplitterPanel&gt;
+&lt;/Splitter&gt;
+
+</code></pre>
+
 		<h5>Properties of SplitterPanel</h5>
 		<p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
 		<div class="doc-tablewrapper">
@@ -191,6 +205,12 @@ import SplitterPanel from 'primevue/splitterpanel';
                         <td>string</td>
                         <td>session</td>
                         <td>Defines where a stateful splitter keeps its state, valid values are "session" for sessionStorage and "local" for localStorage.</td>
+                    </tr>
+                    <tr>
+                        <td>step</td>
+                        <td>number</td>
+                        <td>5</td>
+                        <td>Step factor to increment/decrement the size of the panels while pressing the arrow keys.</td>
                     </tr>
 				</tbody>
 			</table>
@@ -259,6 +279,46 @@ import SplitterPanel from 'primevue/splitterpanel';
 				</tbody>
 			</table>
 		</div>
+
+        <h5>Accessibility</h5>
+    <DevelopmentSection>
+        <h6>Screen Reader</h6>
+        <p>Splitter bar defines <i>separator</i> as the role with <i>aria-orientation</i> set to either horizontal or vertical.</p>
+
+        <h6>Keyboard Support</h6>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Key</th>
+                        <th>Function</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><i>tab</i></td>
+                        <td>Moves focus through the splitter bar.</td>
+                    </tr>
+                    <tr>
+                        <td><i>down arrow</i></td>
+                        <td>Moves a vertical splitter down.</td>
+                    </tr>
+                    <tr>
+                        <td><i>up arrow</i></td>
+                        <td>Moves a vertical splitter up.</td>
+                    </tr>
+                    <tr>
+                        <td><i>left arrow</i></td>
+                        <td>Moves a horizontal splitter to the left.</td>
+                    </tr>
+                    <tr>
+                        <td><i>right arrow</i></td>
+                        <td>Moves a horizontal splitter to the right.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </DevelopmentSection>
 
 		<h5>Dependencies</h5>
 		<p>None.</p>

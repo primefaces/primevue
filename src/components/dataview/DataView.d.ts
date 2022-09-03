@@ -128,7 +128,7 @@ export interface DataViewSlots {
      * Custom footer template.
      */
     footer: () => VNode[];
-     /**
+    /**
      * Custom empty template.
      */
     empty: () => VNode[];
@@ -136,7 +136,7 @@ export interface DataViewSlots {
      * Custom paginator start template.
      */
     paginatorstart: () => VNode[];
-     /**
+    /**
      * Custom paginator end template.
      */
     paginatorend: () => VNode[];
@@ -176,7 +176,7 @@ export declare type DataViewEmits = {
      * @param {number} value - New value.
      */
     'update:first': (value: number) => void;
-     /**
+    /**
      * Emitted when the rows changes.
      * @param {number} value - New value.
      */
@@ -206,7 +206,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [DataView](https://www.primefaces.org/primevue/showcase/#/dataview)
+ * - [DataView](https://www.primefaces.org/primevue/dataview)
  *
  */
 export default DataView;

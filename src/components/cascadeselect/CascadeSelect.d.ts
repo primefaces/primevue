@@ -1,4 +1,4 @@
-import { VNode } from 'vue';
+import { HTMLAttributes, InputHTMLAttributes, VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 type CascadeSelectOptionLabelType = string | ((data: any) => string) | undefined;
@@ -88,7 +88,7 @@ export interface CascadeSelectProps {
     /**
      * Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.
      */
-    inputProps?: HTMLInputElement | undefined;
+    inputProps?: InputHTMLAttributes | undefined;
     /**
      * Inline style of the overlay panel.
      */
@@ -100,7 +100,7 @@ export interface CascadeSelectProps {
     /**
      * Uses to pass all properties of the HTMLDivElement to the overlay panel inside the component.
      */
-    panelProps?: HTMLDivElement | undefined;
+    panelProps?: HTMLAttributes | undefined;
     /**
      * A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are 'body' for document body and 'self' for the element itself.
      * @see CascadeSelectAppendToType
@@ -121,6 +121,11 @@ export interface CascadeSelectProps {
      * Default value is true.
      */
     autoOptionFocus?: boolean | undefined;
+    /**
+     * When enabled, the focused option is selected/opened.
+     * Default value is false.
+     */
+    selectOnFocus?: boolean | undefined;
     /**
      * Locale to use in searching. The default locale is the host environment's current locale.
      */
@@ -258,7 +263,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [CascadeSelect](https://www.primefaces.org/primevue/showcase/#/cascadeselect)
+ * - [CascadeSelect](https://www.primefaces.org/primevue/cascadeselect)
  *
  */
 export default CascadeSelect;

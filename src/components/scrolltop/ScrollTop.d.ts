@@ -46,7 +46,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [ScrollTop](https://www.primefaces.org/primevue/showcase/#/scrolltop)
+ * - [ScrollTop](https://www.primefaces.org/primevue/scrolltop)
  *
  */
 export default ScrollTop;

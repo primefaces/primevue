@@ -60,7 +60,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [Avatar](https://www.primefaces.org/primevue/showcase/#/avatar)
+ * - [Avatar](https://www.primefaces.org/primevue/avatar)
  *
  */
 export default Avatar;

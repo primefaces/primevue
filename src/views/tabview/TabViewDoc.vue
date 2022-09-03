@@ -217,6 +217,48 @@ export default {
                         <td>Orientation of tab headers.</td>
                     </tr>
                     <tr>
+                        <td>headerStyle</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Inline style of the tab header.</td>
+                    </tr>
+                    <tr>
+                        <td>headerClass</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Style class of the tab header.</td>
+                    </tr>
+                    <tr>
+                        <td>headerProps</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td>Uses to pass all properties of the HTMLLiElement to the tab header.</td>
+                    </tr>
+                    <tr>
+                        <td>headerActionProps</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td>Uses to pass all properties of the HTMLAnchorElement to the focusable anchor element inside the tab header.</td>
+                    </tr>
+                    <tr>
+                        <td>contentStyle</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Inline style of the tab content.</td>
+                    </tr>
+                    <tr>
+                        <td>contentClass</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Style class of the tab content.</td>
+                    </tr>
+                    <tr>
+                        <td>contentProps</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td>Uses to pass all properties of the HTMLDivElement to the tab content.</td>
+                    </tr>
+                    <tr>
                         <td>disabled</td>
                         <td>boolean</td>
                         <td>null</td>
@@ -256,6 +298,30 @@ export default {
                         <td>boolean</td>
                         <td>false</td>
                         <td>When enabled displays buttons at each side of the tab headers to scroll the tab list.</td>
+                    </tr>
+                    <tr>
+                        <td>tabindex</td>
+                        <td>number</td>
+                        <td>0</td>
+                        <td>Index of the element in tabbing order.</td>
+                    </tr>
+                    <tr>
+                        <td>selectOnFocus</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>When enabled, the focused tab is activated.</td>
+                    </tr>
+                    <tr>
+                        <td>previousButtonProps</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td>Uses to pass all properties of the HTMLButtonElement to the previous button.</td>
+                    </tr>
+                    <tr>
+                        <td>nextButtonProps</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td>Uses to pass all properties of the HTMLButtonElement to the next button.</td>
                     </tr>
 				</tbody>
 			</table>
@@ -324,6 +390,78 @@ export default {
 				</tbody>
 			</table>
 		</div>
+
+        <h5>Accessibility</h5>
+        <h6>Screen Reader</h6>
+        <p>
+            TabView container is defined with the <i>tablist</i> role, as any attribute is passed to the container element <i>aria-labelledby</i> can be optionally used to specify an element to describe the TabView. Each tab header
+            has a <i>tab</i> role along with <i>aria-selected</i> state attribute and <i>aria-controls</i> to refer to the corresponding tab content element. The content element of each tab has <i>tabpanel</i> role, an id to match the
+            <i>aria-controls</i> of the header and <i>aria-labelledby</i> reference to the header as the accessible name.
+        </p>
+
+        <h6>Tab Header Keyboard Support</h6>
+        <div className="doc-tablewrapper">
+            <table className="doc-table">
+                <thead>
+                    <tr>
+                        <th>Key</th>
+                        <th>Function</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <i>tab</i>
+                        </td>
+                        <td>Moves focus through the header.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>enter</i>
+                        </td>
+                        <td>Activates the focused tab header.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>space</i>
+                        </td>
+                        <td>Activates the focused tab header.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>right arrow</i>
+                        </td>
+                        <td>Moves focus to the next header. If focus is on the last header, moves focus to the first header.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>left arrow</i>
+                        </td>
+                        <td>Moves focus to the previous header. If focus is on the first header, moves focus to the last header.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>home</i>
+                        </td>
+                        <td>Moves focus to the last header.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>end</i>
+                        </td>
+                        <td>Moves focus to the first header.</td>
+                    </tr>
+                    <tr>
+                        <td><i>pageUp</i></td>
+                        <td>Moves scroll position to first header.</td>
+                    </tr>
+                    <tr>
+                        <td><i>pageDown</i></td>
+                        <td>Moves scroll position to last header.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
 		<h5>Dependencies</h5>
 		<p>None.</p>
@@ -818,7 +956,7 @@ export default {
         .tabview-custom span {
             margin: 0 .5rem;
         }
-        
+
 
         .p-tabview p {
             line-height: 1.5;

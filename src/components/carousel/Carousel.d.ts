@@ -96,7 +96,7 @@ export interface CarouselSlots {
      * Custom header template.
      */
     header: () => VNode[];
-     /**
+    /**
       * Custom footer template.
       */
     footer: () => VNode[];
@@ -124,7 +124,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [Carousel](https://www.primefaces.org/primevue/showcase/#/carousel)
+ * - [Carousel](https://www.primefaces.org/primevue/carousel)
  *
  */
 export default Carousel;

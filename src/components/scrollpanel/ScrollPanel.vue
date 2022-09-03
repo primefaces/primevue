@@ -1,20 +1,26 @@
 <template>
-    <div class="p-scrollpanel p-component">
-        <div class="p-scrollpanel-wrapper">
-            <div ref="content" class="p-scrollpanel-content" @scroll="moveBar" @mouseenter="moveBar">
+    <div class="p-scrollpanel p-component" role="scrollbar" :aria-orientation="orientation" :aria-valuenow="orientation === 'vertical' ? lastScrollTop : lastScrollLeft" :aria-controls="id + '_scrollpanel'">
+        <div class="p-scrollpanel-wrapper" :id="id + '_scrollpanel'">
+            <div ref="content" class="p-scrollpanel-content" @scroll="onScroll" @mouseenter="moveBar">
                 <slot></slot>
             </div>
         </div>
-        <div ref="xBar" class="p-scrollpanel-bar p-scrollpanel-bar-x" @mousedown="onXBarMouseDown"></div>
-        <div ref="yBar" class="p-scrollpanel-bar p-scrollpanel-bar-y" @mousedown="onYBarMouseDown"></div>
+        <div ref="xBar" class="p-scrollpanel-bar p-scrollpanel-bar-x" tabindex="0" @mousedown="onXBarMouseDown" @keydown="onKeyDown($event)" @keyup="onKeyUp" @focus="onFocus" @blur="onBlur"></div>
+        <div ref="yBar" class="p-scrollpanel-bar p-scrollpanel-bar-y" tabindex="0" @mousedown="onYBarMouseDown" @keydown="onKeyDown($event)" @keyup="onKeyUp" @focus="onFocus"></div>
     </div>
 </template>
 
 <script>
-import {DomHandler} from 'primevue/utils';
+import {DomHandler,UniqueComponentId} from 'primevue/utils';
 
 export default {
     name: 'ScrollPanel',
+    props: {
+        step: {
+            type: Number,
+            default: 5
+        }
+    },
     initialized: false,
     documentResizeListener: null,
     documentMouseMoveListener: null,
@@ -26,6 +32,16 @@ export default {
     isYBarClicked: false,
     lastPageX: null,
     lastPageY: null,
+    timer: null,
+    outsideClickListener: null,
+    data() {
+        return {
+            id: UniqueComponentId(),
+            orientation: 'vertical',
+            lastScrollTop: 0,
+            lastScrollLeft: 0
+        }
+    },
     mounted() {
         if (this.$el.offsetParent) {
             this.initialize();
@@ -55,7 +71,7 @@ export default {
             pureContainerHeight = DomHandler.getHeight(this.$el) - parseInt(xBarStyles['height'], 10);
 
             if (containerStyles['max-height'] !== "none" && pureContainerHeight === 0) {
-                if(this.$refs.content.offsetHeight + parseInt(xBarStyles['height'], 10) > parseInt(containerStyles['max-height'], 10)) {
+                if (this.$refs.content.offsetHeight + parseInt(xBarStyles['height'], 10) > parseInt(containerStyles['max-height'], 10)) {
                     this.$el.style.height = containerStyles['max-height'];
                 }
                 else {
@@ -98,6 +114,7 @@ export default {
         },
         onYBarMouseDown(e) {
             this.isYBarClicked = true;
+            this.$refs.yBar.focus();
             this.lastPageY = e.pageY;
             DomHandler.addClass(this.$refs.yBar, 'p-scrollpanel-grabbed');
             DomHandler.addClass(document.body, 'p-scrollpanel-grabbed');
@@ -107,12 +124,96 @@ export default {
         },
         onXBarMouseDown(e) {
             this.isXBarClicked = true;
+            this.$refs.xBar.focus();
             this.lastPageX = e.pageX;
             DomHandler.addClass(this.$refs.xBar, 'p-scrollpanel-grabbed');
             DomHandler.addClass(document.body, 'p-scrollpanel-grabbed');
 
             this.bindDocumentMouseListeners();
             e.preventDefault();
+        },
+        onScroll(event) {
+            if (this.lastScrollLeft !== event.target.scrollLeft) {
+                this.lastScrollLeft = event.target.scrollLeft;
+                this.orientation = 'horizontal';
+            }
+            else if (this.lastScrollTop !== event.target.scrollTop) {
+                this.lastScrollTop = event.target.scrollTop;
+                this.orientation = 'vertical';
+            }
+
+            this.moveBar();
+        },
+        onKeyDown(event) {
+            if (this.orientation === 'vertical') {
+                switch(event.code) {
+                    case 'ArrowDown': {
+                        this.setTimer('scrollTop', this.step);
+                        event.preventDefault();
+                        break;
+                    }
+
+                    case 'ArrowUp': {
+                        this.setTimer('scrollTop', this.step * -1);
+                        event.preventDefault();
+                        break;
+                    }
+
+                    case 'ArrowLeft':
+                    case 'ArrowRight': {
+                        event.preventDefault();
+                        break;
+                    }
+
+                    default:
+                        //no op
+                    break;
+                }
+            }
+
+            else if (this.orientation === 'horizontal') {
+                switch(event.code) {
+                    case 'ArrowRight': {
+                        this.setTimer('scrollLeft', this.step);
+                        event.preventDefault();
+                        break;
+                    }
+
+                    case 'ArrowLeft': {
+                        this.setTimer('scrollLeft', this.step * -1);
+                        event.preventDefault();
+                        break;
+                    }
+
+                    case 'ArrowDown':
+                    case 'ArrowUp': {
+                        event.preventDefault();
+                        break;
+                    }
+
+                    default:
+                        //no op
+                    break;
+                }
+            }
+        },
+        onKeyUp() {
+            this.clearTimer();
+        },
+        repeat(bar, step) {
+            this.$refs.content[bar] += step;
+            this.moveBar();
+        },
+        setTimer(bar, step) {
+            this.clearTimer();
+            this.timer = setTimeout(() => {
+                this.repeat(bar, step);
+            }, 40);
+        },
+        clearTimer() {
+            if (this.timer) {
+                clearTimeout(this.timer);
+            }
         },
         onDocumentMouseMove(e) {
             if (this.isXBarClicked) {
@@ -142,6 +243,19 @@ export default {
                 this.$refs.content.scrollTop += deltaY / this.scrollYRatio;
             });
         },
+        onFocus(event) {
+            if (this.$refs.xBar.isSameNode(event.target)) {
+                this.orientation = 'horizontal';
+            }
+            else if (this.$refs.yBar.isSameNode(event.target)) {
+                this.orientation = 'vertical';
+            }
+        },
+        onBlur() {
+            if (this.orientation === 'horizontal') {
+                this.orientation = 'vertical';
+            }
+        },
         onDocumentMouseUp() {
             DomHandler.removeClass(this.$refs.yBar, 'p-scrollpanel-grabbed');
             DomHandler.removeClass(this.$refs.xBar, 'p-scrollpanel-grabbed');
@@ -161,7 +275,10 @@ export default {
         scrollTop(scrollTop) {
             let scrollableHeight = this.$refs.content.scrollHeight - this.$refs.content.clientHeight;
             scrollTop = scrollTop > scrollableHeight ? scrollableHeight : scrollTop > 0 ? scrollTop : 0;
-            this.$refs.contentscrollTop = scrollTop;
+            this.$refs.content.scrollTop = scrollTop;
+        },
+        timeoutFrame(fn) {
+            setTimeout(fn, 0);
         },
         bindDocumentMouseListeners() {
 			if (!this.documentMouseMoveListener) {

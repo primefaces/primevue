@@ -210,6 +210,12 @@ const MultiSelectProps = [
         description: "Whether to focus on the first visible or selected element when the overlay panel is shown."
     },
     {
+        name: "autoFilterFocus",
+        type: "boolean",
+        default: "false",
+        description: "Whether to focus on the filter element when the overlay panel is shown."
+    },
+    {
         name: "filterMessage",
         type: "string",
         default: "{0} results are available",

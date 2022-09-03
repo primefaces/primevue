@@ -65,7 +65,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [TabMenu](https://www.primefaces.org/primevue/showcase/#/tabmenu)
+ * - [TabMenu](https://www.primefaces.org/primevue/tabmenu)
  *
  */
 export default TabMenu;

@@ -1,5 +1,5 @@
 <template>
-    <div class="p-toolbar p-component" role="toolbar">
+    <div class="p-toolbar p-component" role="toolbar" :aria-labelledby="ariaLabelledby">
         <div class="p-toolbar-group-left">
             <slot name="start"></slot>
         </div>
@@ -11,7 +11,13 @@
 
 <script>
 export default {
-    name: 'Toolbar'
+    name: 'Toolbar',
+    props: {
+        'aria-labelledby': {
+            type: String,
+            default: null
+        }
+    }
 }
 </script>
 

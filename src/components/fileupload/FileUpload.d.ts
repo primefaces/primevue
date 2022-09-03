@@ -268,7 +268,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [FileUpload](https://www.primefaces.org/primevue/showcase/#/fileupload)
+ * - [FileUpload](https://www.primefaces.org/primevue/fileupload)
  *
  */
 export default FileUpload;

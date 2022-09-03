@@ -1,4 +1,4 @@
-import {UniqueComponentId,DomHandler,ConnectedOverlayScrollHandler,ZIndexUtils} from 'primevue/utils';
+import {UniqueComponentId,DomHandler,ObjectUtils,ConnectedOverlayScrollHandler,ZIndexUtils} from 'primevue/utils';
 
 function bindEvents(el) {
     const modifiers = el.$_ptooltipModifiers;
@@ -300,13 +300,14 @@ const Tooltip = {
             target.$_ptooltipFitContent = true;
         }
         else if (typeof options.value === 'object' && options.value) {
-            if (options.value.value === undefined || options.value.value === null || options.value.value.trim() === '') return;
+            if (ObjectUtils.isEmpty(options.value.value)) return;
             else {
+                /* eslint-disable */
                 target.$_ptooltipValue = options.value.value;
-                target.$_ptooltipDisabled = options.value.disabled || false;
-                target.$_ptooltipEscape = options.value.escape || false;
+                target.$_ptooltipDisabled = !!options.value.disabled === options.value.disabled ? options.value.disabled : false;
+                target.$_ptooltipEscape = !!options.value.escape === options.value.escape ? options.value.escape : false;
                 target.$_ptooltipClass = options.value.class;
-                target.$_ptooltipFitContent = options.value.fitContent || true;
+                target.$_ptooltipFitContent = !!options.value.fitContent === options.value.fitContent ? options.value.fitContent : true;
             }
         }
 
@@ -337,13 +338,14 @@ const Tooltip = {
             target.$_ptooltipClass = null;
         }
         else if (typeof options.value === 'object' && options.value) {
-            if (options.value.value === undefined || options.value.value === null || options.value.value.trim() === '') return;
+            if (ObjectUtils.isEmpty(options.value.value)) return;
             else {
+                /* eslint-disable */
                 target.$_ptooltipValue = options.value.value;
-                target.$_ptooltipDisabled = options.value.disabled || false;
-                target.$_ptooltipEscape = options.value.escape || false;
+                target.$_ptooltipDisabled = !!options.value.disabled === options.value.disabled ? options.value.disabled : false;
+                target.$_ptooltipEscape = !!options.value.escape === options.value.escape ? options.value.escape : false;
                 target.$_ptooltipClass = options.value.class;
-                target.$_ptooltipFitContent = options.value.fitContent || true;
+                target.$_ptooltipFitContent = !!options.value.fitContent === options.value.fitContent ? options.value.fitContent : true;
             }
         }
     }

@@ -329,6 +329,12 @@ export default {
                         <td>Whether to focus on the first visible or selected element when the overlay panel is shown.</td>
                     </tr>
                     <tr>
+                        <td>selectOnFocus</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>When enabled, the focused option is selected.</td>
+                    </tr>
+                    <tr>
                         <td>searchLocale</td>
                         <td>string</td>
                         <td>undefined</td>

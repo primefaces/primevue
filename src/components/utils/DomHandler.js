@@ -495,8 +495,16 @@ export default  {
         (element)[methodName].apply(element, args);
     },
 
+    isExist(element) {
+        return element !== null && typeof element !== 'undefined' && element.nodeName && element.parentNode;
+    },
+
     isClient() {
         return !!(typeof window !== 'undefined' && window.document && window.document.createElement);
+    },
+
+    focus(el, options) {
+        el && document.activeElement !== el && el.focus(options);
     },
 
     getFocusableElements(element, selector = '') {

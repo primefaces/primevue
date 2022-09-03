@@ -84,6 +84,12 @@ const PasswordProps = [
         description: "Placeholder text for the input."
     },
     {
+        name: "required",
+        type: "boolean",
+        default: "false",
+        description: "When present, it specifies that an input field must be filled out before submitting the form."
+    },
+    {
         name: "inputId",
         type: "string",
         default: "null",

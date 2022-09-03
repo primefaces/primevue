@@ -48,13 +48,25 @@ export default {
             type: String,
             default: null
         },
-        inputId: null,
-        inputClass: null,
-        inputStyle: null,
-        inputProps: null,
         disabled: {
             type: Boolean,
             default: false
+        },
+        inputId: {
+            type: String,
+            default: null
+        },
+        inputClass: {
+            type: String,
+            default: null
+        },
+        inputStyle: {
+            type: null,
+            default: null
+        },
+        inputProps: {
+            type: null,
+            default: null
         },
         'aria-labelledby': {
             type: String,

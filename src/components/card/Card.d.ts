@@ -44,7 +44,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [Card](https://www.primefaces.org/primevue/showcase/#/card)
+ * - [Card](https://www.primefaces.org/primevue/card)
  *
  */
 export default Card;

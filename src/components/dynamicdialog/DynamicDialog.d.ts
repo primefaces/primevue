@@ -20,7 +20,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [DynamicDialog](https://www.primefaces.org/primevue/showcase/#/dynamicdialog)
+ * - [DynamicDialog](https://www.primefaces.org/primevue/dynamicdialog)
  *
  */
 export default DynamicDialog;

@@ -28,6 +28,18 @@ const AccordionProps = [
         type: "string",
         default: "pi-chevron-down",
         description: "Icon of a expanded tab."
+    },
+    {
+        name: "tabindex",
+        type: "number",
+        default: "0",
+        description: "Index of the element in tabbing order."
+    },
+    {
+        name: "selectOnFocus",
+        type: "boolean",
+        default: "false",
+        description: "When enabled, the focused tab is activated."
     }
 ];
 
@@ -61,6 +73,22 @@ const AccordionEvents = [
                 name: "index",
                 type: "number",
                 description: "Closed tab index"
+            }
+        ]
+    },
+    {
+        name: "tab-click",
+        description: "Callback to invoke when an active tab is clicked.",
+        arguments: [
+            {
+                name: "originalEvent",
+                type: "object",
+                description: "Original event"
+            },
+            {
+                name: "index",
+                type: "number",
+                description: "Index of the clicked tab"
             }
         ]
     }

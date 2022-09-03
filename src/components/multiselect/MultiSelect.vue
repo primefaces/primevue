@@ -44,7 +44,7 @@
                             </div>
                         </div>
                         <div v-if="filter" class="p-multiselect-filter-container">
-                            <input type="text" ref="filterInput" :value="filterValue" @vnode-updated="onFilterUpdated" class="p-multiselect-filter p-inputtext p-component" :placeholder="filterPlaceholder"
+                            <input ref="filterInput" type="text" :value="filterValue" @vnode-updated="onFilterUpdated" class="p-multiselect-filter p-inputtext p-component" :placeholder="filterPlaceholder"
                                 role="searchbox" autocomplete="off" :aria-owns="id + '_list'" :aria-activedescendant="focusedOptionId"
                                 @keydown="onFilterKeyDown" @blur="onFilterBlur" @input="onFilterChange" v-bind="filterInputProps"/>
                             <span class="p-multiselect-filter-icon pi pi-search"></span>
@@ -130,13 +130,34 @@ export default {
 		},
 		placeholder: String,
 		disabled: Boolean,
-        inputId: String,
-        inputProps: null,
-        panelStyle: null,
-        panelClass: null,
-        panelProps: null,
-        filterInputProps: null,
-        closeButtonProps: null,
+        inputId: {
+            type: String,
+            default: null
+        },
+        inputProps: {
+            type: null,
+            default: null
+        },
+        panelClass: {
+            type: String,
+            default: null
+        },
+        panelStyle: {
+            type: null,
+            default: null
+        },
+        panelProps: {
+            type: null,
+            default: null
+        },
+        filterInputProps: {
+            type: null,
+            default: null
+        },
+        closeButtonProps: {
+            type: null,
+            default: null
+        },
         dataKey: null,
         filter: Boolean,
         filterPlaceholder: String,
@@ -197,6 +218,10 @@ export default {
             type: Boolean,
             default: true
         },
+        autoFilterFocus: {
+            type: Boolean,
+            default: false
+        },
         filterMessage: {
             type: String,
             default: null
@@ -243,7 +268,6 @@ export default {
     focusOnHover: false,
     data() {
         return {
-            id: UniqueComponentId(),
             focused: false,
             focusedOptionIndex: -1,
             headerCheckboxFocused: false,
@@ -257,8 +281,6 @@ export default {
         }
     },
     mounted() {
-        this.id = this.$attrs.id || this.id;
-
         this.autoUpdateModel();
     },
     beforeUnmount() {
@@ -312,7 +334,7 @@ export default {
             this.overlayVisible = true;
             this.focusedOptionIndex = this.focusedOptionIndex !== -1 ? this.focusedOptionIndex : (this.autoOptionFocus ? this.findFirstFocusedOptionIndex() : -1);
 
-            isFocus && this.$refs.focusInput.focus();
+            isFocus && DomHandler.focus(this.$refs.focusInput);
         },
         hide(isFocus) {
             this.$emit('before-hide');
@@ -321,7 +343,7 @@ export default {
             this.searchValue = '';
 
             this.resetFilterOnHide && (this.filterValue = null);
-            isFocus && this.$refs.focusInput.focus();
+            isFocus && DomHandler.focus(this.$refs.focusInput);
         },
         onFocus(event) {
             this.focused = true;
@@ -336,6 +358,8 @@ export default {
             this.$emit('blur', event);
         },
         onKeyDown(event) {
+            const metaKey = event.metaKey || event.ctrlKey;
+
             switch (event.code) {
                 case 'ArrowDown':
                     this.onArrowDownKey(event);
@@ -380,7 +404,7 @@ export default {
                     break;
 
                 default:
-                    if (event.code === 'KeyA' && (event.metaKey || event.ctrlKey)) {
+                    if (event.code === 'KeyA' && metaKey) {
                         const value = this.visibleOptions.filter(option => this.isValidOption(option)).map(option => this.getOptionValue(option));
                         this.updateModel(event, value);
 
@@ -388,7 +412,7 @@ export default {
                         break;
                     }
 
-                    if (ObjectUtils.isPrintableCharacter(event.key)) {
+                    if (!metaKey && ObjectUtils.isPrintableCharacter(event.key)) {
                         !this.overlayVisible && this.show();
                         this.searchOptions(event);
                         event.preventDefault();
@@ -411,14 +435,14 @@ export default {
 
             if (relatedTarget === this.$refs.focusInput) {
                 const firstFocusableEl = DomHandler.getFirstFocusableElement(this.overlay, ':not(.p-hidden-focusable)');
-                firstFocusableEl && firstFocusableEl.focus();
+                DomHandler.focus(firstFocusableEl);
             }
             else {
-                this.$refs.focusInput.focus();
+                DomHandler.focus(this.$refs.focusInput);
             }
         },
         onLastHiddenFocus() {
-            this.$refs.firstHiddenFocusableElementOnOverlay.focus();
+            DomHandler.focus(this.$refs.firstHiddenFocusableElementOnOverlay);
         },
         onCloseClick() {
             this.hide(true);
@@ -443,7 +467,7 @@ export default {
                 value = [...(this.modelValue || []), this.getOptionValue(option)];
 
             this.updateModel(event, value);
-            isFocus && this.$refs.focusInput.focus();
+            isFocus && DomHandler.focus(this.$refs.focusInput);
             index !== -1 && (this.focusedOptionIndex = index);
         },
         onOptionMouseMove(event, index) {
@@ -644,7 +668,7 @@ export default {
         onTabKey(event, pressedInInputText = false) {
             if (!pressedInInputText) {
                 if (this.overlayVisible && this.hasFocusableElements()) {
-                    this.$refs.firstHiddenFocusableElementOnOverlay.focus();
+                    DomHandler.focus(this.$refs.firstHiddenFocusableElementOnOverlay);
 
                     event.preventDefault();
                 }
@@ -664,6 +688,8 @@ export default {
             ZIndexUtils.set('overlay', el, this.$primevue.config.zIndex.overlay);
             this.alignOverlay();
             this.scrollInView();
+
+            this.autoFilterFocus && DomHandler.focus(this.$refs.filterInput);
         },
         onOverlayAfterEnter() {
             this.bindOutsideClickListener();
@@ -744,7 +770,8 @@ export default {
             return !(this.$el.isSameNode(event.target) || this.$el.contains(event.target) || (this.overlay && this.overlay.contains(event.target)));
         },
         getLabelByValue(value) {
-            const matchedOption = this.visibleOptions.find(option => !this.isOptionGroup(option) && ObjectUtils.equals(this.getOptionValue(option), value, this.equalityKey));
+            const options = this.optionGroupLabel ? this.flatOptions(this.options) : (this.options || []);
+            const matchedOption = options.find(option => !this.isOptionGroup(option) && ObjectUtils.equals(this.getOptionValue(option), value, this.equalityKey));
             return matchedOption ? this.getOptionLabel(matchedOption): null;
         },
         getSelectedItemsLabel() {
@@ -795,28 +822,28 @@ export default {
             return this.visibleOptions.findIndex(option => this.isValidOption(option));
         },
         findLastOptionIndex() {
-            return this.visibleOptions.findLastIndex(option => this.isValidOption(option));
+            return ObjectUtils.findLastIndex(this.visibleOptions, option => this.isValidOption(option));
         },
         findNextOptionIndex(index) {
             const matchedOptionIndex = index < (this.visibleOptions.length - 1) ? this.visibleOptions.slice(index + 1).findIndex(option => this.isValidOption(option)) : -1;
             return matchedOptionIndex > -1 ? matchedOptionIndex + index + 1 : index;
         },
         findPrevOptionIndex(index) {
-            const matchedOptionIndex = index > 0 ? this.visibleOptions.slice(0, index).findLastIndex(option => this.isValidOption(option)) : -1;
+            const matchedOptionIndex = index > 0 ? ObjectUtils.findLastIndex(this.visibleOptions.slice(0, index), option => this.isValidOption(option)) : -1;
             return matchedOptionIndex > -1 ? matchedOptionIndex : index;
         },
         findFirstSelectedOptionIndex() {
             return this.hasSelectedOption ? this.visibleOptions.findIndex(option => this.isValidSelectedOption(option)) : -1;
         },
         findLastSelectedOptionIndex() {
-            return this.hasSelectedOption ? this.visibleOptions.findLastIndex(option => this.isValidSelectedOption(option)) : -1;
+            return this.hasSelectedOption ? ObjectUtils.findLastIndex(this.visibleOptions, option => this.isValidSelectedOption(option)) : -1;
         },
         findNextSelectedOptionIndex(index) {
             const matchedOptionIndex = this.hasSelectedOption && index < (this.visibleOptions.length - 1) ? this.visibleOptions.slice(index + 1).findIndex(option => this.isValidSelectedOption(option)) : -1;
             return matchedOptionIndex > -1 ? matchedOptionIndex + index + 1 : -1;
         },
         findPrevSelectedOptionIndex(index) {
-            const matchedOptionIndex = this.hasSelectedOption && index > 0 ? this.visibleOptions.slice(0, index).findLastIndex(option => this.isValidSelectedOption(option)) : -1;
+            const matchedOptionIndex = this.hasSelectedOption && index > 0 ? ObjectUtils.findLastIndex(this.visibleOptions.slice(0, index), option => this.isValidSelectedOption(option)) : -1;
             return matchedOptionIndex > -1 ? matchedOptionIndex : -1;
         },
         findNearestSelectedOptionIndex(index, firstCheckUp = false) {
@@ -1017,6 +1044,9 @@ export default {
         },
         selectedMessageText() {
             return this.hasSelectedOption ? this.selectionMessageText.replaceAll('{0}', this.modelValue.length) : this.emptySelectionMessageText;
+        },
+        id() {
+            return this.$attrs.id || UniqueComponentId();
         },
         focusedOptionId() {
             return this.focusedOptionIndex !== -1 ? `${this.id}_${this.focusedOptionIndex}` : null;

@@ -1,4 +1,4 @@
-import { VNode } from 'vue';
+import { InputHTMLAttributes, VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 import { VirtualScrollerProps, VirtualScrollerItemOptions } from '../virtualscroller';
 
@@ -111,7 +111,7 @@ export interface ListboxProps {
     /**
      * Uses to pass all properties of the HTMLInputElement to the filter input inside the component.
      */
-    filterInputProps?: HTMLInputElement | undefined;
+    filterInputProps?: InputHTMLAttributes | undefined;
     /**
      * Whether to use the virtualScroller feature. The properties of VirtualScroller component can be used like an object in it.
      * @see VirtualScroller.VirtualScrollerProps
@@ -122,6 +122,11 @@ export interface ListboxProps {
      * Default value is true.
      */
     autoOptionFocus?: boolean | undefined;
+    /**
+     * When enabled, the focused option is selected.
+     * Default value is false.
+     */
+    selectOnFocus?: boolean | undefined;
     /**
      * Text to be displayed in hidden accessible field when filtering returns any results. Defaults to value from PrimeVue locale configuration.
      * Default value is '{0} results are available'.
@@ -305,7 +310,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [Listbox](https://www.primefaces.org/primevue/showcase/#/listbox)
+ * - [Listbox](https://www.primefaces.org/primevue/listbox)
  *
  */
 export default Listbox;

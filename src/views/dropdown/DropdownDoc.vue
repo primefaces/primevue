@@ -313,6 +313,12 @@ export default {
                         <td>Icon to display in loading state.</td>
                     </tr>
                     <tr>
+                        <td>resetFilterOnHide</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>Clears the filter value when hiding the dropdown.</td>
+                    </tr>
+                    <tr>
                         <td>virtualScrollerOptions</td>
                         <td>object</td>
                         <td>null</td>
@@ -323,6 +329,18 @@ export default {
                         <td>boolean</td>
                         <td>true</td>
                         <td>Whether to focus on the first visible or selected element when the overlay panel is shown.</td>
+                    </tr>
+                    <tr>
+                        <td>autoFilterFocus</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>Whether to focus on the filter element when the overlay panel is shown.</td>
+                    </tr>
+                    <tr>
+                        <td>selectOnFocus</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>When enabled, the focused option is selected.</td>
                     </tr>
                     <tr>
                         <td>filterMessage</td>

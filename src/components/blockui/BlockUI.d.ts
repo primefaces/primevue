@@ -54,7 +54,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [BlockUI](https://www.primefaces.org/primevue/showcase/#/blockui)
+ * - [BlockUI](https://www.primefaces.org/primevue/blockui)
  *
  */
 export default BlockUI;

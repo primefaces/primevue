@@ -13,10 +13,18 @@ const ConfirmDialogProps = [
     }
 ];
 
+const ConfirmDialogSlots = [
+    {
+        name: "message",
+        description: "Custom content for the component."
+    }
+];
+
 module.exports = {
     confirmdialog: {
         name: "ConfirmDialog",
         description: "ConfirmDialog uses a Dialog UI that is integrated with the Confirmation API.",
-        props: ConfirmDialogProps
+        props: ConfirmDialogProps,
+        slots: ConfirmDialogSlots
     }
 };

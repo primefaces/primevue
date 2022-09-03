@@ -6,8 +6,8 @@
             </slot>
             <div class="p-panel-icons">
                 <slot name="icons"></slot>
-                <button v-if="toggleable" class="p-panel-header-icon p-panel-toggler p-link" @click="toggle" type="button"
-                    :id="ariaId +  '_header'" :aria-controls="ariaId + '_content'" :aria-expanded="!d_collapsed" v-ripple>
+                <button type="button" role="button" v-if="toggleable" class="p-panel-header-icon p-panel-toggler p-link" :id="ariaId + '_header'" :aria-label="toggleButtonProps||header" :aria-controls="ariaId + '_content'" :aria-expanded="!d_collapsed"
+                    @click="toggle" @keydown="onKeyDown" v-ripple>
                     <span :class="{'pi pi-minus': !d_collapsed, 'pi pi-plus': d_collapsed}"></span>
                 </button>
             </div>
@@ -32,7 +32,8 @@ export default {
     props: {
         header: String,
         toggleable: Boolean,
-        collapsed: Boolean
+        collapsed: Boolean,
+        toggleButtonProps: String
     },
     data() {
         return {
@@ -52,6 +53,12 @@ export default {
                 originalEvent: event,
                 value: this.d_collapsed
             });
+        },
+        onKeyDown(event) {
+            if (event.code === 'Enter' || event.code === 'Space') {
+                this.toggle(event);
+                event.preventDefault();
+            }
         }
     },
     computed: {

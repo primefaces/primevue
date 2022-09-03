@@ -62,18 +62,22 @@ export default {
 			type: String,
 			default: '400px'
 		},
-		placeholder: String,
-		disabled: Boolean,
-        tabindex: String,
+		placeholder: {
+            type: String,
+            default: null
+        },
+		disabled: {
+            type: Boolean,
+            default: false
+        },
+        tabindex: {
+            type: Number,
+            default: null
+        },
         selectionMode: {
             type: String,
             default: 'single'
         },
-        panelClass: {
-            type: String,
-            default: null
-        },
-        panelProps: null,
         appendTo: {
             type: String,
             default: 'body'
@@ -90,10 +94,30 @@ export default {
             type: Boolean,
             default: true
         },
-        inputId: String,
-        inputClass: String,
-        inputStyle: null,
-        inputProps: null,
+        inputId: {
+            type: String,
+            default: null
+        },
+        inputClass: {
+            type: String,
+            default: null
+        },
+        inputStyle: {
+            type: null,
+            default: null
+        },
+        inputProps: {
+            type: null,
+            default: null
+        },
+        panelClass: {
+            type: String,
+            default: null
+        },
+        panelProps: {
+            type: null,
+            default: null
+        },
         'aria-labelledby': {
             type: String,
 			default: null

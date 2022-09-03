@@ -1,3 +1,4 @@
+import { ButtonHTMLAttributes, InputHTMLAttributes } from 'vue';
 import { ClassComponent, GlobalComponentConstructor, Nullable } from '../ts-helpers';
 
 type InputNumberButtonLayoutType = 'stacked' | 'horizontal' | 'vertical' | undefined;
@@ -160,15 +161,15 @@ export interface InputNumberProps {
     /**
      * Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.
      */
-    inputProps?: HTMLInputElement | undefined;
+    inputProps?: InputHTMLAttributes | undefined;
     /**
      * Uses to pass all properties of the HTMLButtonElement to increment button inside the component.
      */
-    incrementButtonProps?: HTMLButtonElement | undefined;
+    incrementButtonProps?: ButtonHTMLAttributes | undefined;
     /**
      * Uses to pass all properties of the HTMLButtonElement to decrement button inside the component.
      */
-    decrementButtonProps?: HTMLButtonElement | undefined;
+    decrementButtonProps?: ButtonHTMLAttributes | undefined;
     /**
      * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
      */
@@ -230,7 +231,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [InputNumber](https://www.primefaces.org/primevue/showcase/#/inputnumber)
+ * - [InputNumber](https://www.primefaces.org/primevue/inputnumber)
  *
  */
 export default InputNumber;

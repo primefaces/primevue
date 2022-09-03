@@ -94,6 +94,21 @@ export default {
 
 </code></pre>
 
+        <h5>Templating</h5>
+        <p>Templating allows customizing the content where the message instance is available as the implicit variable.</p>
+<pre v-code><code><template v-pre>
+&lt;ConfirmPopup group="demo">
+    &lt;template #message="slotProps"&gt;
+        &lt;div class="flex p-4"&gt;
+            &lt;i :class="slotProps.message.icon" style="font-size: 1.5rem"&gt;&lt;/i&gt;
+            &lt;p class="pl-2"&gt;{{slotProps.message.message}}&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/template&gt;
+&lt;/ConfirmPopup&gt;
+
+</template>
+</code></pre>
+
         <h5>Responsive</h5>
         <p>ConfirmDialog width can be adjusted per screen size with the <i>breakpoints</i> option. In example below, default width is set to 50vw and below 961px, width would be 75vw and finally below 641px width becomes
         100%. The value of <i>breakpoints</i> should be an object literal whose keys are the maximum screen sizes and values are the widths per screen.</p>
@@ -263,6 +278,24 @@ export default {
 			</table>
 		</div>
 
+        <h5>Slots</h5>
+		<div class="doc-tablewrapper">
+			<table class="doc-table">
+				<thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Parameters</th>
+                    </tr>
+				</thead>
+				<tbody>
+                    <tr>
+                        <td>message</td>
+                        <td>-</td>
+                    </tr>
+				</tbody>
+			</table>
+		</div>
+
 		<h5>Styling</h5>
 		<p>ConfirmDialog inherits all the classes from the Dialog component, visit <router-link to="/dialog">dialog</router-link> for more information.</p>
 		<div class="doc-tablewrapper">
@@ -299,12 +332,23 @@ export default {
     <div>
         <Toast />
         <ConfirmDialog></ConfirmDialog>
+        <ConfirmDialog group="templating">
+                <template #message="slotProps">
+                    <div class="flex p-4">
+                        <i :class="slotProps.message.icon" style="font-size: 1.5rem"></i>
+                        <p class="pl-2">{{slotProps.message.message}}</p>
+                    </div>
+                </template>
+        </ConfirmDialog>
         <ConfirmDialog group="positionDialog"></ConfirmDialog>
 
         <div class="card">
             <h5>Basic</h5>
             <Button @click="confirm1()" icon="pi pi-check" label="Confirm" class="mr-2"></Button>
             <Button @click="confirm2()" icon="pi pi-times" label="Delete"></Button>
+
+            <h5>Templating</h5>
+                <Button @click="showTemplate()" icon="pi pi-check" label="Terms and Conditions" class="mr-2"></Button>
 
             <h5>Position</h5>
             <div class="grid flex-column">
@@ -371,6 +415,22 @@ export default {
                     this.$toast.add({severity:'error', summary:'Rejected', detail:'You have rejected', life: 3000});
                 }
             });
+        },
+        showTemplate() {
+            this.$confirm.require({
+                group: 'templating',
+                header: 'Terms and Conditions',
+                message: 'Do you accept that?',
+                icon: 'pi pi-question-circle',
+                acceptIcon: 'pi pi-check',
+                rejectIcon: 'pi pi-times',
+                accept: () => {
+                    this.$toast.add({severity:'info', summary:'Confirmed', detail:'You have accepted', life: 3000});
+                },
+                reject: () => {
+                    this.$toast.add({severity:'error', summary:'Rejected', detail:'You have rejected', life: 3000});
+                }
+            });
         }
     }
 }
@@ -384,12 +444,23 @@ export default {
     <div>
         <Toast />
         <ConfirmDialog></ConfirmDialog>
+        <ConfirmDialog group="templating">
+                <template #message="slotProps">
+                    <div class="flex p-4">
+                        <i :class="slotProps.message.icon" style="font-size: 1.5rem"></i>
+                        <p class="pl-2">{{slotProps.message.message}}</p>
+                    </div>
+                </template>
+        </ConfirmDialog>
         <ConfirmDialog group="positionDialog"></ConfirmDialog>
 
         <div class="card">
             <h5>Basic</h5>
             <Button @click="confirm1()" icon="pi pi-check" label="Confirm" class="mr-2"></Button>
             <Button @click="confirm2()" icon="pi pi-times" label="Delete"></Button>
+
+            <h5>Templating</h5>
+                <Button @click="showTemplate()" icon="pi pi-check" label="Terms and Conditions" class="mr-2"></Button>
 
             <h5>Position</h5>
             <div class="grid flex-column">
@@ -467,7 +538,24 @@ export default defineComponent({
             });
         }
 
-        return { confirm1, confirm2, confirmPosition };
+        const showTemplate = () => {
+            confirm.require({
+                group: 'templating',
+                header: 'Terms and Conditions',
+                message: 'Do you accept that?',
+                icon: 'pi pi-question-circle',
+                acceptIcon: 'pi pi-check',
+                rejectIcon: 'pi pi-times',
+                accept: () => {
+                    this.$toast.add({severity:'info', summary:'Confirmed', detail:'You have accepted', life: 3000});
+                },
+                reject: () => {
+                    this.$toast.add({severity:'error', summary:'Rejected', detail:'You have rejected', life: 3000});
+                }
+            });
+        }
+
+        return { confirm1, confirm2, confirmPosition, showTemplate };
     }
 });
 <\\/script>
@@ -482,12 +570,23 @@ export default defineComponent({
                     content: `<div id="app">
             <p-toast></p-toast>
             <p-confirmdialog></p-confirmdialog>
+            <p-confirmdialog group="templating">
+                <template #message="slotProps">
+                    <div class="flex p-4">
+                        <i :class="slotProps.message.icon" style="font-size: 1.5rem"></i>
+                        <p class="pl-2">{{slotProps.message.message}}</p>
+                    </div>
+                </template>
+            </p-confirmdialog>
             <p-confirmdialog group="positionDialog"></p-confirmdialog>
 
             <div class="card">
                 <h5>Basic</h5>
                 <p-button @click="confirm1()" icon="pi pi-check" label="Confirm" class="mr-2"></p-button>
                 <p-button @click="confirm2()" icon="pi pi-times" label="Delete"></p-button>
+
+                <h5>Templating</h5>
+                <p-button @click="showTemplate()" icon="pi pi-check" label="Terms and Conditions" class="mr-2"></p-button>
 
                 <h5>Position</h5>
                 <div class="grid flex-column">
@@ -564,7 +663,24 @@ export default defineComponent({
                     });
                 }
 
-                return { confirm1, confirm2, confirmPosition };
+                const showTemplate = () => {
+                    confirm.require({
+                        group: 'templating',
+                        header: 'Terms and Conditions',
+                        message: 'Do you accept that?',
+                        icon: 'pi pi-question-circle',
+                        acceptIcon: 'pi pi-check',
+                        rejectIcon: 'pi pi-times',
+                        accept: () => {
+                            this.$toast.add({severity:'info',         summary:'Confirmed', detail:'You have accepted',         life: 3000});
+                        },
+                        reject: () => {
+                            this.$toast.add({severity:'error',         summary:'Rejected', detail:'You have rejected',         life: 3000});
+                        }
+                    });
+                }
+
+                return { confirm1, confirm2, confirmPosition, showTemplate };
             },
             components: {
                 "p-confirmdialog": primevue.confirmdialog,
