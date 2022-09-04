@@ -100,6 +100,10 @@ export default {
         this.infoText = this.promptText;
         this.mediumCheckRegExp = new RegExp(this.mediumRegex);
         this.strongCheckRegExp = new RegExp(this.strongRegex);
+        if(this.value){
+            this.d_value = this.value;
+            this.setPasswordMeter()
+        }
     },
     beforeDestroy() {
         this.restoreAppend();
@@ -180,9 +184,34 @@ export default {
         onKeyUp(event) {
             if (this.feedback) {
                 let value = event.target.value;
-                let label = null;
-                let meter = null;
-                switch (this.testStrength(value)) {
+
+                const {meter,label}  = this.checkPasswordStrength(value);
+
+                this.meter = meter;
+                this.infoText = label;
+                if (!this.overlayVisible) {
+                    this.overlayVisible = true;
+                }
+            }
+
+            this.$emit('keyup', event);
+        },
+        setPasswordMeter() {
+            if(!this.feedback) return;
+
+            const {meter,label}  = this.checkPasswordStrength(this.d_value);
+
+            this.meter = meter;
+            this.infoText = label;
+
+            if (!this.overlayVisible) {
+                this.overlayVisible = true;
+            }
+        },
+        checkPasswordStrength(value) {
+            let label = null;
+            let meter = null;
+            switch (this.testStrength(value)) {
                     case 1:
                         label = this.weakText;
                         meter = {
@@ -208,15 +237,9 @@ export default {
                         label = this.promptText;
                         meter = null;
                         break;
-                }
-                this.meter = meter;
-                this.infoText = label;
-                if (!this.overlayVisible) {
-                    this.overlayVisible = true;
-                }
             }
 
-            this.$emit('keyup', event);
+            return { label, meter };
         },
         bindScrollListener() {
             if (!this.scrollHandler) {
