@@ -102,7 +102,6 @@ export default {
         this.strongCheckRegExp = new RegExp(this.strongRegex);
         if(this.value){
             this.d_value = this.value;
-            this.setPasswordMeter()
         }
     },
     beforeDestroy() {
@@ -170,6 +169,7 @@ export default {
         onFocus(event) {
             this.focused = true;
             if (this.feedback) {
+                this.setPasswordMeter()
                 this.overlayVisible = true;
             }
             this.$emit('focus', event);
@@ -197,7 +197,7 @@ export default {
             this.$emit('keyup', event);
         },
         setPasswordMeter() {
-            if(!this.feedback) return;
+            if(!this.feedback || !this.d_value) return;
 
             const {meter,label}  = this.checkPasswordStrength(this.d_value);
 
