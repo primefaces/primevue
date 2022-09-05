@@ -205,6 +205,7 @@ export default {
         onFocus(event) {
             this.focused = true;
             if (this.feedback) {
+                this.setPasswordMeter(this.modelValue)
                 this.overlayVisible = true;
             }
 
@@ -212,6 +213,7 @@ export default {
         },
         onBlur(event) {
             this.focused = false;
+
             if (this.feedback) {
                 this.overlayVisible = false;
             }
@@ -221,39 +223,8 @@ export default {
         onKeyUp(event) {
             if (this.feedback) {
                 const value = event.target.value;
-                let label = null;
-                let meter = null;
 
-                switch (this.testStrength(value)) {
-                    case 1:
-                        label = this.weakText;
-                        meter = {
-                            strength: 'weak',
-                            width: '33.33%'
-                        };
-                        break;
-
-                    case 2:
-                        label = this.mediumText;
-                        meter = {
-                            strength: 'medium',
-                            width: '66.66%'
-                        };
-                        break;
-
-                    case 3:
-                        label = this.strongText;
-                        meter = {
-                            strength: 'strong',
-                            width: '100%'
-                        };
-                        break;
-
-                    default:
-                        label = this.promptText;
-                        meter = null;
-                        break;
-                }
+                const {meter,label}  = this.checkPasswordStrength(value);
 
                 this.meter = meter;
                 this.infoText = label;
@@ -268,6 +239,49 @@ export default {
                     this.overlayVisible = true;
                 }
             }
+        },
+        setPasswordMeter() {
+            if(!this.feedback || !this.modelValue) return;
+
+            const {meter,label}  = this.checkPasswordStrength(this.modelValue);
+            this.meter = meter;
+            this.infoText = label;
+            if (!this.overlayVisible) {
+                this.overlayVisible = true;
+            }
+        },
+        checkPasswordStrength(value) {
+            let label = null;
+            let meter = null;
+            switch (this.testStrength(value)) {
+                    case 1:
+                        label = this.weakText;
+                        meter = {
+                            strength: 'weak',
+                            width: '33.33%'
+                        };
+                        break;
+                    case 2:
+                        label = this.mediumText;
+                        meter = {
+                            strength: 'medium',
+                            width: '66.66%'
+                        };
+                        break;
+                    case 3:
+                        label = this.strongText;
+                        meter = {
+                            strength: 'strong',
+                            width: '100%'
+                        };
+                        break;
+                    default:
+                        label = this.promptText;
+                        meter = null;
+                        break;
+                }
+
+            return { label, meter };
         },
         onInvalid(event) {
             this.$emit('invalid', event);
