@@ -213,7 +213,6 @@ export default {
             }
         },
         setPasswordMeter() {
-            debugger
             if(!this.feedback || !this.modelValue) return;
 
             const {meter,label}  = this.checkPasswordStrength(this.modelValue);
