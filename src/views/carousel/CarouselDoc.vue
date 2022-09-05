@@ -219,13 +219,13 @@ data() {
                         <td>showNavigators</td>
                         <td>boolean</td>
                         <td>true</td>
-                        <td>Navigator buttons display control.</td>
+                        <td>Whether to display navigation buttons in container.</td>
                     </tr>
                     <tr>
                         <td>showIndicators</td>
                         <td>boolean</td>
                         <td>true</td>
-                        <td>Indicators display control.</td>
+                        <td>Whether to display indicator container.</td>
                     </tr>
 				</tbody>
 			</table>

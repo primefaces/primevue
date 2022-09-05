@@ -76,12 +76,12 @@ export interface CarouselProps {
      */
 	autoplayInterval?: number | undefined;
     /**
-     * Navigator buttons display control.
+     * Whether to display navigation buttons in container.
      * Default value is true.
      */
     showNavigators?: boolean | undefined;
     /**
-     * Indicators display control.
+     * Whether to display indicator container.
      * Default value is true.
      */
      showIndicators?: boolean | undefined;
