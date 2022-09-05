@@ -215,6 +215,18 @@ data() {
                         <td>null</td>
                         <td>Style class of the indicator items.</td>
                     </tr>
+                    <tr>
+                        <td>showNavigators</td>
+                        <td>boolean</td>
+                        <td>true</td>
+                        <td>Whether to display navigation buttons in container.</td>
+                    </tr>
+                    <tr>
+                        <td>showIndicators</td>
+                        <td>boolean</td>
+                        <td>true</td>
+                        <td>Whether to display indicator container.</td>
+                    </tr>
 				</tbody>
 			</table>
 		</div>

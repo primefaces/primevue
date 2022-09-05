@@ -70,6 +70,18 @@ const CarouselProps = [
         type: "string",
         default: "null",
         description: "Style class of the indicator items."
+    },
+    {
+        name: "showNavigators",
+        type: "boolean",
+        default: "true",
+        description: "Whether to display navigation buttons in container."
+    },
+    {
+        name: "showIndicators",
+        type: "boolean",
+        default: "true",
+        description: "Whether to display indicator container."
     }
 ];
 

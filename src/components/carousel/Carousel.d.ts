@@ -75,6 +75,16 @@ export interface CarouselProps {
      * Default value is 0.
      */
 	autoplayInterval?: number | undefined;
+    /**
+     * Whether to display navigation buttons in container.
+     * Default value is true.
+     */
+    showNavigators?: boolean | undefined;
+    /**
+     * Whether to display indicator container.
+     * Default value is true.
+     */
+     showIndicators?: boolean | undefined;
 }
 
 export interface CarouselSlots {

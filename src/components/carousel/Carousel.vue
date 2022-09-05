@@ -5,7 +5,7 @@
 		</div>
 		<div :class="contentClasses">
 			<div :class="containerClasses">
-				<button :class="['p-carousel-prev p-link', {'p-disabled': backwardIsDisabled}]" :disabled="backwardIsDisabled" @click="navBackward" type="button" v-ripple>
+				<button v-if="showNavigators" :class="['p-carousel-prev p-link', {'p-disabled': backwardIsDisabled}]" :disabled="backwardIsDisabled" @click="navBackward" type="button" v-ripple>
 					<span :class="['p-carousel-prev-icon pi', {'pi-chevron-left': !isVertical(),'pi-chevron-up': isVertical()}]"></span>
 				</button>
 
@@ -36,11 +36,11 @@
 					</div>
 				</div>
 
-				<button :class="['p-carousel-next p-link', {'p-disabled': forwardIsDisabled}]" :disabled="forwardIsDisabled" @click="navForward" type="button" v-ripple>
+				<button v-if="showNavigators" :class="['p-carousel-next p-link', {'p-disabled': forwardIsDisabled}]" :disabled="forwardIsDisabled" @click="navForward" type="button" v-ripple>
 					<span :class="['p-carousel-prev-icon pi', {'pi-chevron-right': !isVertical(),'pi-chevron-down': isVertical()}]"></span>
 				</button>
 			</div>
-			<ul v-if="totalIndicators >= 0" :class="indicatorsContentClasses">
+			<ul v-if="totalIndicators >= 0 && showIndicators" :class="indicatorsContentClasses">
 				<li v-for="(indicator, i) of totalIndicators" :key="'p-carousel-indicator-' + i.toString()" :class="['p-carousel-indicator', {'p-highlight': d_page === i}]">
 					<button class="p-link" @click="onIndicatorClick($event, i)" type="button" />
 				</li>
@@ -93,7 +93,15 @@ export default {
 		autoplayInterval: {
 			type: Number,
 			default:0
-		}
+		},
+        showNavigators: {
+            type: Boolean,
+            default: true
+        },
+        showIndicators: {
+            type: Boolean,
+            default: true
+        },
 	},
 	data() {
 		return {
