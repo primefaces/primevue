@@ -101,7 +101,7 @@ export default {
         showIndicators: {
             type: Boolean,
             default: true
-        },
+        }
 	},
 	data() {
 		return {

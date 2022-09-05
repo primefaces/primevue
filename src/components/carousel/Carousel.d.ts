@@ -84,7 +84,7 @@ export interface CarouselProps {
      * Whether to display indicator container.
      * Default value is true.
      */
-     showIndicators?: boolean | undefined;
+    showIndicators?: boolean | undefined;
 }
 
 export interface CarouselSlots {
