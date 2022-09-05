@@ -1,12 +1,14 @@
 <template>
-    <div class="p-scrollpanel p-component" role="scrollbar" :aria-orientation="orientation" :aria-valuenow="orientation === 'vertical' ? lastScrollTop : lastScrollLeft" :aria-controls="id + '_scrollpanel'">
-        <div class="p-scrollpanel-wrapper" :id="id + '_scrollpanel'">
+    <div class="p-scrollpanel p-component">
+        <div class="p-scrollpanel-wrapper">
             <div ref="content" class="p-scrollpanel-content" @scroll="onScroll" @mouseenter="moveBar">
                 <slot></slot>
             </div>
         </div>
-        <div ref="xBar" class="p-scrollpanel-bar p-scrollpanel-bar-x" tabindex="0" @mousedown="onXBarMouseDown" @keydown="onKeyDown($event)" @keyup="onKeyUp" @focus="onFocus" @blur="onBlur"></div>
-        <div ref="yBar" class="p-scrollpanel-bar p-scrollpanel-bar-y" tabindex="0" @mousedown="onYBarMouseDown" @keydown="onKeyDown($event)" @keyup="onKeyUp" @focus="onFocus"></div>
+        <div ref="xBar" class="p-scrollpanel-bar p-scrollpanel-bar-x" tabindex="0" role="scrollbar" aria-orientation="horizontal" :aria-valuenow="lastScrollLeft"
+            @mousedown="onXBarMouseDown" @keydown="onKeyDown($event)" @keyup="onKeyUp" @focus="onFocus" @blur="onBlur"></div>
+        <div ref="yBar" class="p-scrollpanel-bar p-scrollpanel-bar-y" tabindex="0" role="scrollbar" aria-orientation="vertical" :aria-valuenow="lastScrollTop"
+            @mousedown="onYBarMouseDown" @keydown="onKeyDown($event)" @keyup="onKeyUp" @focus="onFocus"></div>
     </div>
 </template>
 
