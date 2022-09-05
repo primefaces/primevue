@@ -200,12 +200,13 @@ export default {
             return level;
         },
         onInput(event)  {
-            this.$emit('update:modelValue', event.target.value)
+            this.$emit('update:modelValue', event.target.value);
         },
         onFocus(event) {
             this.focused = true;
+
             if (this.feedback) {
-                this.setPasswordMeter(this.modelValue)
+                this.setPasswordMeter(this.modelValue);
                 this.overlayVisible = true;
             }
 
@@ -223,14 +224,12 @@ export default {
         onKeyUp(event) {
             if (this.feedback) {
                 const value = event.target.value;
-
-                const {meter,label}  = this.checkPasswordStrength(value);
+                const { meter, label }  = this.checkPasswordStrength(value);
 
                 this.meter = meter;
                 this.infoText = label;
 
-                //escape
-                if (event.which === 27) {
+                if (event.code === 'Escape') {
                     this.overlayVisible && (this.overlayVisible = false);
                     return;
                 }
@@ -241,11 +240,13 @@ export default {
             }
         },
         setPasswordMeter() {
-            if(!this.feedback || !this.modelValue) return;
+            if (!this.modelValue) return;
 
-            const {meter,label}  = this.checkPasswordStrength(this.modelValue);
+            const { meter, label } = this.checkPasswordStrength(this.modelValue);
+
             this.meter = meter;
             this.infoText = label;
+
             if (!this.overlayVisible) {
                 this.overlayVisible = true;
             }
@@ -253,33 +254,37 @@ export default {
         checkPasswordStrength(value) {
             let label = null;
             let meter = null;
+
             switch (this.testStrength(value)) {
-                    case 1:
-                        label = this.weakText;
-                        meter = {
-                            strength: 'weak',
-                            width: '33.33%'
-                        };
-                        break;
-                    case 2:
-                        label = this.mediumText;
-                        meter = {
-                            strength: 'medium',
-                            width: '66.66%'
-                        };
-                        break;
-                    case 3:
-                        label = this.strongText;
-                        meter = {
-                            strength: 'strong',
-                            width: '100%'
-                        };
-                        break;
-                    default:
-                        label = this.promptText;
-                        meter = null;
-                        break;
-                }
+                case 1:
+                    label = this.weakText;
+                    meter = {
+                        strength: 'weak',
+                        width: '33.33%'
+                    };
+                    break;
+
+                case 2:
+                    label = this.mediumText;
+                    meter = {
+                        strength: 'medium',
+                        width: '66.66%'
+                    };
+                    break;
+
+                case 3:
+                    label = this.strongText;
+                    meter = {
+                        strength: 'strong',
+                        width: '100%'
+                    };
+                    break;
+
+                default:
+                    label = this.promptText;
+                    meter = null;
+                    break;
+            }
 
             return { label, meter };
         },
@@ -309,6 +314,7 @@ export default {
                         this.overlayVisible = false;
                     }
                 };
+
                 window.addEventListener('resize', this.resizeListener);
             }
         },
