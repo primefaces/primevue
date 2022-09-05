@@ -2,7 +2,7 @@
     <span ref="container" :id="id" :class="containerClass">
         <input :ref="inputRef" v-if="!inline" type="text" role="combobox" :id="inputId" :class="['p-inputtext p-component', inputClass]" :style="inputStyle" :placeholder="placeholder"
             aria-autocomplete="none" aria-haspopup="dialog" :aria-expanded="overlayVisible" :aria-controls="panelId" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel" inputmode="none"
-            @input="onInput" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" :disabled="disabled" :readonly="!manualInput" :tabindex="0" v-bind="inputProps">
+            :disabled="disabled" :readonly="!manualInput" :tabindex="0" @input="onInput" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" v-bind="inputProps">
         <CalendarButton v-if="showIcon" :icon="icon" class="p-datepicker-trigger" :disabled="disabled" @click="onButtonClick" type="button" :aria-label="$primevue.config.locale.chooseDate" aria-haspopup="dialog" :aria-expanded="overlayVisible" :aria-controls="panelId"/>
         <Portal :appendTo="appendTo" :disabled="inline">
             <transition name="p-connected-overlay" @enter="onOverlayEnter($event)" @after-enter="onOverlayEnterComplete" @after-leave="onOverlayAfterLeave" @leave="onOverlayLeave">
