@@ -48,6 +48,9 @@ export default {
                 },
                 reject: () => {
                     //callback to execute when user rejects the action
+                },
+                onHide: () => {
+                    //callback to execute when user hide the action
                 }
             });
         },
@@ -74,6 +77,9 @@ export default defineComponent({
             },
             reject: () => {
                 //callback to execute when user rejects the action
+            },
+            onHide: () => {
+                    //callback to execute when user hide the action
             }
         });
     }
@@ -384,6 +390,9 @@ export default {
                 },
                 reject: () => {
                     this.$toast.add({severity:'error', summary:'Rejected', detail:'You have rejected', life: 3000});
+                },
+                onHide: () => {
+                    this.$toast.add({severity:'error', summary:'Hide', detail:'You have hidden', life: 3000});
                 }
             });
         },
@@ -398,6 +407,9 @@ export default {
                 },
                 reject: () => {
                     this.$toast.add({severity:'error', summary:'Rejected', detail:'You have rejected', life: 3000});
+                },
+                onHide: () => {
+                    this.$toast.add({severity:'error', summary:'Hide', detail:'You have hidden', life: 3000});
                 }
             });
         },
@@ -413,6 +425,9 @@ export default {
                 },
                 reject: () => {
                     this.$toast.add({severity:'error', summary:'Rejected', detail:'You have rejected', life: 3000});
+                },
+                onHide: () => {
+                    this.$toast.add({severity:'error', summary:'Hide', detail:'You have hidden', life: 3000});
                 }
             });
         },
@@ -429,6 +444,9 @@ export default {
                 },
                 reject: () => {
                     this.$toast.add({severity:'error', summary:'Rejected', detail:'You have rejected', life: 3000});
+                },
+                onHide: () => {
+                    this.$toast.add({severity:'error', summary:'Hide', detail:'You have hidden', life: 3000});
                 }
             });
         }
@@ -503,6 +521,9 @@ export default defineComponent({
                 },
                 reject: () => {
                     toast.add({severity:'error', summary:'Rejected', detail:'You have rejected', life: 3000});
+                },
+                onHide: () => {
+                    this.$toast.add({severity:'error', summary:'Hide', detail:'You have hidden', life: 3000});
                 }
             });
         }
@@ -518,6 +539,9 @@ export default defineComponent({
                 },
                 reject: () => {
                     toast.add({severity:'error', summary:'Rejected', detail:'You have rejected', life: 3000});
+                },
+                onHide: () => {
+                    this.$toast.add({severity:'error', summary:'Hide', detail:'You have hidden', life: 3000});
                 }
             });
         }
@@ -534,6 +558,9 @@ export default defineComponent({
                 },
                 reject: () => {
                     toast.add({severity:'error', summary:'Rejected', detail:'You have rejected', life: 3000});
+                },
+                onHide: () => {
+                    this.$toast.add({severity:'error', summary:'Hide', detail:'You have hidden', life: 3000});
                 }
             });
         }
@@ -551,6 +578,9 @@ export default defineComponent({
                 },
                 reject: () => {
                     this.$toast.add({severity:'error', summary:'Rejected', detail:'You have rejected', life: 3000});
+                },
+                onHide: () => {
+                    this.$toast.add({severity:'error', summary:'Hide', detail:'You have hidden', life: 3000});
                 }
             });
         }
@@ -628,6 +658,9 @@ export default defineComponent({
                         },
                         reject: () => {
                             toast.add({severity:'error', summary:'Rejected', detail:'You have rejected', life: 3000});
+                        },
+                        onHide: () => {
+                            this.$toast.add({severity:'error', summary:'Hide', detail:'You have hidden', life: 3000});
                         }
                     });
                 }
@@ -643,6 +676,9 @@ export default defineComponent({
                         },
                         reject: () => {
                             toast.add({severity:'error', summary:'Rejected', detail:'You have rejected', life: 3000});
+                        },
+                        onHide: () => {
+                            this.$toast.add({severity:'error', summary:'Hide', detail:'You have hidden', life: 3000});
                         }
                     });
                 }
@@ -659,6 +695,9 @@ export default defineComponent({
                         },
                         reject: () => {
                             toast.add({severity:'error', summary:'Rejected', detail:'You have rejected', life: 3000});
+                        },
+                        onHide: () => {
+                            this.$toast.add({severity:'error', summary:'Hide', detail:'You have hidden', life: 3000});
                         }
                     });
                 }
@@ -676,6 +715,9 @@ export default defineComponent({
                         },
                         reject: () => {
                             this.$toast.add({severity:'error',         summary:'Rejected', detail:'You have rejected',         life: 3000});
+                        },
+                        onHide: () => {
+                            this.$toast.add({severity:'error', summary:'Hide', detail:'You have hidden', life: 3000});
                         }
                     });
                 }

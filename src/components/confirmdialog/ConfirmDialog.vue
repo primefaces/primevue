@@ -1,6 +1,5 @@
 <template>
-    <CDialog v-model:visible="visible" :modal="true" :header="header" :blockScroll="blockScroll" :position="position" class="p-confirm-dialog"
-        :breakpoints="breakpoints" :closeOnEscape="closeOnEscape">
+    <CDialog v-model:visible="visible" :modal="true" :header="header" :blockScroll="blockScroll" :position="position" class="p-confirm-dialog" :breakpoints="breakpoints" :closeOnEscape="closeOnEscape" @update:visible="onHide">
         <template v-if="!$slots.message">
             <i :class="iconClass" />
             <span class="p-confirm-dialog-message">{{ message }}</span>
@@ -69,6 +68,13 @@ export default {
         reject() {
             if (this.confirmation.reject) {
                 this.confirmation.reject();
+            }
+
+            this.visible = false;
+        },
+        onHide() {
+            if (this.confirmation.onHide) {
+                this.confirmation.onHide();
             }
 
             this.visible = false;
