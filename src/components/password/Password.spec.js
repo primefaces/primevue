@@ -1,65 +1,67 @@
-import { mount } from '@vue/test-utils'
-import Password from './Password.vue'
-import { config } from '@vue/test-utils' //2.0.0-beta.5
+import { mount } from "@vue/test-utils";
+import Password from "./Password.vue";
+import { config } from "@vue/test-utils"; //2.0.0-beta.5
 
 config.global.mocks = {
     $primevue: {
         config: {
-            'z-index': 5,
-            inputStyle: 'filled',
+            "z-index": 5,
+            inputStyle: "filled",
             ripple: false,
-            locale: {}
-        }
-    }
-}
-describe('Password.vue', () => {
-    let wrapper
-    const event = { target: { value: 'P' } }
+            locale: {},
+        },
+    },
+};
+describe("Password.vue", () => {
+    let wrapper;
+    const event = { target: { value: "P" } };
 
     beforeEach(async () => {
         wrapper = mount(Password, {
             global: {
                 stubs: {
-                    teleport: true
-                }
+                    teleport: true,
+                },
             },
             props: {
-                modelValue: null
-            }
-        })
+                modelValue: null,
+            },
+        });
 
-        await wrapper.vm.onFocus()
-    })
+        await wrapper.vm.onFocus();
+    });
 
-    it('should exist', () => {
-        expect(wrapper.find('.p-password.p-component').exists()).toBe(true)
-        expect(wrapper.find('.p-password-panel').exists()).toBe(true)
-    })
+    it("should exist", () => {
+        expect(wrapper.find(".p-password.p-component").exists()).toBe(true);
+        expect(wrapper.find(".p-password-panel").exists()).toBe(true);
+    });
 
-    it('should update modelValue', async () => {
-        await wrapper.vm.onInput(event)
+    it("should update modelValue", async () => {
+        await wrapper.vm.onInput(event);
 
-        expect(wrapper.emitted()['update:modelValue'][0]).toEqual(['P'])
-    })
+        expect(wrapper.emitted()["update:modelValue"][0]).toEqual(["P"]);
+    });
 
-    it('should meter update', async () => {
-        expect(wrapper.find('.p-password-info').text()).toBe('')
+    it("should meter update", async () => {
+        expect(wrapper.find(".p-password-info").text()).toBe("");
 
-        await wrapper.vm.onKeyUp(event)
+        await wrapper.vm.onKeyUp(event);
 
-        expect(wrapper.find('.p-password-info').text()).toBe('')
+        expect(wrapper.find(".p-password-info").text()).toBe("");
 
-        expect(wrapper.find('.p-password-strength').classes()).toContain('weak')
-    })
+        expect(wrapper.find(".p-password-strength").classes()).toContain(
+            "weak"
+        );
+    });
 
-    it('should toggle mask', async () => {
-        await wrapper.setProps({ toggleMask: true })
+    it("should toggle mask", async () => {
+        await wrapper.setProps({ toggleMask: true });
 
-        expect(wrapper.find('.pi.pi-eye').exists()).toBe(true)
+        expect(wrapper.find(".pi.pi-eye").exists()).toBe(true);
 
-        await wrapper.vm.onMaskToggle()
+        await wrapper.vm.onMaskToggle();
 
-        expect(wrapper.find('.pi.pi-eye').exists()).toBe(false)
-        expect(wrapper.find('.pi.pi-eye-slash').exists()).toBe(true)
-    })
-})
+        expect(wrapper.find(".pi.pi-eye").exists()).toBe(false);
+        expect(wrapper.find(".pi.pi-eye-slash").exists()).toBe(true);
+    });
+});
