@@ -1,9 +1,0 @@
-{
-  "main": "./inputnumber.cjs.js",
-  "module": "./inputnumber.esm.js",
-  "unpkg": "./inputnumber.min.js",
-  "types": "./InputNumber.d.ts",
-  "browser": {
-    "./sfc": "./InputNumber.vue"
-  }
-}

@@ -1,5 +1,0 @@
-{
-    "main": "./dynamicdialogeventbus.cjs.js",
-    "module": "./dynamicdialogeventbus.esm.js",
-    "unpkg": "./dynamicdialogeventbus.min.js"
-}

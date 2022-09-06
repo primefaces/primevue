@@ -1,9 +1,0 @@
-{
-  "main": "./slider.cjs.js",
-  "module": "./slider.esm.js",
-  "unpkg": "./slider.min.js",
-  "types": "./Slider.d.ts",
-  "browser": {
-    "./sfc": "./Slider.vue"
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "main": "./scrollpanel.cjs.js",
-  "module": "./scrollpanel.esm.js",
-  "unpkg": "./scrollpanel.min.js",
-  "types": "./ScrollPanel.d.ts",
-  "browser": {
-    "./sfc": "./ScrollPanel.vue"
-  }
-}

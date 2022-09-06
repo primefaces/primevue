@@ -1,9 +1,0 @@
-{
-  "main": "./panel.cjs.js",
-  "module": "./panel.esm.js",
-  "unpkg": "./panel.min.js",
-  "types": "./Panel.d.ts",
-  "browser": {
-    "./sfc": "./Panel.vue"
-  }
-}

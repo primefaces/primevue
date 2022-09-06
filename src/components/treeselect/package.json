@@ -1,9 +1,0 @@
-{
-    "main": "./treeselect.cjs.js",
-    "module": "./treeselect.esm.js",
-    "unpkg": "./treeselect.min.js",
-    "types": "./TreeSelect.d.ts",
-    "browser": {
-      "./sfc": "./TreeSelect.vue"
-    }
-  }

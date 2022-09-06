@@ -1,42 +1,8 @@
-.DS_Store
 node_modules
-/dist
-/resources
-/components
-package-lock.json
-
-# misc
-/.sass-cache
-/connect.lock
-/coverage
-/libpeerconnection.log
-npm-debug.log
-testem.log
-/typings
-
-# local env files
-.env.local
-.env.*.local
-
-# Log files
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# Editor directories and files
-.idea
-.vscode
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw*
-
-# Themes
-public/themes/soho-light/
-public/themes/soho-dark/
-public/themes/viva-light/
-public/themes/viva-dark/
-public/themes/mira/
-public/themes/nano/
-
+*.log*
+.nuxt
+.nitro
+.cache
+.output
+.env
+dist
