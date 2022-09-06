@@ -1,7 +1,7 @@
 <template>
   <div class="layout-wrapper" :class="containerClass">
       <app-news v-if="$appState.newsActive" />
-      <!-- <app-topbar @menubutton-click="onMenuButtonClick" /> -->
+      <app-topbar @menubutton-click="onMenuButtonClick" /> 
       <app-menu :active="sidebarActive" />
       <app-configurator  />
       <div :class="['layout-mask', {'layout-mask-active': sidebarActive}]" @click="onMaskClick"></div>
@@ -37,13 +37,14 @@ export default {
           this.$toast.add({severity: 'warn', summary: 'Limited Functionality', detail: 'Although PrimeVue supports IE11, ThemeSwitcher in this application cannot be not fully supported by your browser. Please use a modern browser for the best experience of the showcase.'});
       }
   },
- /*  watch: {
+  watch: {
       $route: {
           immediate: true,
           handler(to) {
-               if(!process.client || typeof window === 'undefined') {
+               // Todo: Check this again
+              if(!process.client || typeof window === 'undefined') {
                 return 
-               }
+              }
 
                window['gtag']('config', 'UA-93461466-1', {
                       'page_path': '/primevue' + to.path
@@ -54,7 +55,7 @@ export default {
               this.$toast.removeAllGroups();
           }
       }
-  }, */
+  }, 
   methods: {
       onMenuButtonClick() {
           if (this.sidebarActive) {

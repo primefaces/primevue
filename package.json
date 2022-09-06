@@ -10,6 +10,7 @@
   "devDependencies": {
     "nuxt": "3.0.0-rc.9",
     "primeflex": "^3.2.1",
+    "chart.js": "3.3.2",
     "primeicons": "^5.0.0",
     "prismjs": "^1.29.0",
     "sass": "^1.45.0",

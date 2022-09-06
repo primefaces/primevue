@@ -1,8 +1,5 @@
 <template>
-    <NuxtLayout>
-        <h5>hello</h5>
-    </NuxtLayout>
-<!--     <div :class="landingClass">
+    <div :class="landingClass">
         <div class="landing-intro">
             <AppNews v-if="$appState.newsActive" />
             <HeaderSection @theme-toggle="onThemeToggle" />
@@ -16,102 +13,102 @@
         <UsersSection />
         <FeaturesSection />
         <FooterSection />
-    </div> -->
-    
+    </div> 
 </template>
 
-<!-- <script>
-import EventBus from './AppEventBus';
-import HeaderSection from './views/landing/HeaderSection';
-import HeroSection from './views/landing/HeroSection';
-import ComponentSection from './views/landing/ComponentSection';
-import ThemeSection from './views/landing/ThemeSection';
-import BlockSection from './views/landing/BlockSection';
-import DesignerSection from './views/landing/DesignerSection';
-import TemplateSection from './views/landing/TemplateSection';
-import UsersSection from './views/landing/UsersSection';
-import FeaturesSection from './views/landing/FeaturesSection';
-import FooterSection from './views/landing/FooterSection';
-import AppNews from './AppNews';
+<script>
+import EventBus from '@/layouts/AppEventBus';
+import HeaderSection from './landing/HeaderSection';
+import HeroSection from './landing/HeroSection';
+import ComponentSection from './landing/ComponentSection';
+import ThemeSection from './landing/ThemeSection';
+import BlockSection from './landing/BlockSection';
+import DesignerSection from './landing/DesignerSection';
+import TemplateSection from './landing/TemplateSection';
+import UsersSection from './landing/UsersSection';
+import FeaturesSection from './landing/FeaturesSection';
+import FooterSection from './landing/FooterSection';
+import AppNews from '@/layouts/AppNews';
 
 export default {
-    props: {
-        theme: {
-            type: String,
-            default: null
-        }
-    },
-    data() {
-        return {
-            tableTheme: 'lara-light-blue'
-        }
-    },
-    themeChangeListener: null,
-    mounted() {
-        let afId = this.$route.query['af_id'];
-        if (afId) {
-            let today = new Date();
-            let expire = new Date();
-            expire.setTime(today.getTime() + 3600000*24*7);
-            document.cookie = 'primeaffiliateid=' + afId + ';expires=' + expire.toUTCString() + ';path=/; domain:primefaces.org';
-        }
+  props: {
+      theme: {
+          type: String,
+          default: null
+      }
+  },
+  data() {
+      return {
+          tableTheme: 'lara-light-blue'
+      }
+  },
+  themeChangeListener: null,
+  mounted() {
+      let afId = this.$route.query['af_id'];
+      if (afId) {
+          let today = new Date();
+          let expire = new Date();
+          expire.setTime(today.getTime() + 3600000*24*7);
+          document.cookie = 'primeaffiliateid=' + afId + ';expires=' + expire.toUTCString() + ';path=/; domain:primefaces.org';
+      }
 
-        this.replaceTableTheme(this.$appState.darkTheme ? 'lara-dark-blue': 'lara-light-blue');        
-    },
-    methods: {
-        onThemeToggle() {
-            const newTheme = this.$appState.darkTheme ? 'lara-light-blue' : 'lara-dark-blue';
-            const newTableTheme =  this.$appState.darkTheme ? this.tableTheme.replace('dark', 'light') : this.tableTheme.replace('light', 'dark');
+      this.replaceTableTheme(this.$appState.darkTheme ? 'lara-dark-blue': 'lara-light-blue');        
+  },
+  methods: {
+      onThemeToggle() {
+          const newTheme = this.$appState.darkTheme ? 'lara-light-blue' : 'lara-dark-blue';
+          const newTableTheme =  this.$appState.darkTheme ? this.tableTheme.replace('dark', 'light') : this.tableTheme.replace('light', 'dark');
 
-            EventBus.emit('theme-change', { theme: newTheme, dark: !this.$appState.darkTheme });
-            this.replaceTableTheme(newTableTheme);
-        },
-        onTableThemeChange(value) {
-            this.replaceTableTheme(value);
-        },
-        replaceTableTheme(newTheme) {
-            const elementId = 'home-table-link';
-            const linkElement = document.getElementById(elementId);
-            const tableThemeTokens = linkElement.getAttribute('href').split('/');
-            const currentTableTheme = tableThemeTokens[tableThemeTokens.length - 2];
-            
-            if (currentTableTheme !== newTheme) {
-                const newThemeUrl = linkElement.getAttribute('href').replace(currentTableTheme, newTheme);
+          EventBus.emit('theme-change', { theme: newTheme, dark: !this.$appState.darkTheme });
+          this.replaceTableTheme(newTableTheme);
+      },
+      onTableThemeChange(value) {
+          this.replaceTableTheme(value);
+      },
+      replaceTableTheme(newTheme) {
+        debugger
+          const elementId = 'home-table-link';
+          const linkElement = document.getElementById(elementId);
+          const tableThemeTokens = linkElement?.getAttribute('href').split('/') || null;
+          const currentTableTheme = tableThemeTokens ? tableThemeTokens[tableThemeTokens.length - 2] : null;
+          
+          if (currentTableTheme !== newTheme && tableThemeTokens) {
+              const newThemeUrl = linkElement.getAttribute('href').replace(currentTableTheme, newTheme);
 
-                const cloneLinkElement = linkElement.cloneNode(true);
-                cloneLinkElement.setAttribute('id', elementId + '-clone');
-                cloneLinkElement.setAttribute('href', newThemeUrl);
-                cloneLinkElement.addEventListener('load', () => {
-                    linkElement.remove();
-                    cloneLinkElement.setAttribute('id', elementId);
-                });
-                linkElement.parentNode.insertBefore(cloneLinkElement, linkElement.nextSibling);
+              const cloneLinkElement = linkElement.cloneNode(true);
+              cloneLinkElement.setAttribute('id', elementId + '-clone');
+              cloneLinkElement.setAttribute('href', newThemeUrl);
+              cloneLinkElement.addEventListener('load', () => {
+                  linkElement.remove();
+                  cloneLinkElement.setAttribute('id', elementId);
+              });
+              linkElement.parentNode.insertBefore(cloneLinkElement, linkElement.nextSibling);
 
-                this.tableTheme = newTheme;
-            }
-        }
-    },
-    computed: {
-        landingClass() {
-            return ['landing', {'landing-dark': this.$appState.darkTheme, 'landing-light': !this.$appState.darkTheme, 'landing-news-active': this.$appState.newsActive}];
-        }
-    },
-    components: {
-        HeaderSection,
-        HeroSection,
-        ComponentSection,
-        ThemeSection,
-        BlockSection,
-        DesignerSection,
-        TemplateSection,
-        UsersSection,
-        FeaturesSection,
-        FooterSection,
-        AppNews
-    }
+              this.tableTheme = newTheme;
+          }
+      }
+  },
+  computed: {
+      landingClass() {
+          return ['landing', {'landing-dark': this.$appState.darkTheme, 'landing-light': !this.$appState.darkTheme, 'landing-news-active': this.$appState.newsActive}];
+      }
+  },
+  components: {
+      HeaderSection,
+      HeroSection,
+      ComponentSection,
+      ThemeSection,
+      BlockSection,
+      DesignerSection,
+      TemplateSection,
+      UsersSection,
+      FeaturesSection,
+      FooterSection,
+      AppNews
+  }
 }
-</script> -->
+</script> 
 
 <style lang="scss">
-@import './assets/styles/landing/landing.scss';
+@import '@/assets/styles/landing/landing.scss';
 </style>

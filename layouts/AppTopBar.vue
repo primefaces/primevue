@@ -3,9 +3,9 @@
         <a class="menu-button" @click="$emit('menubutton-click')">
             <i class="pi pi-bars"></i>
         </a>
-        <div class="app-theme" v-tooltip.bottom="$appState.theme">
+        <!-- <div class="app-theme" v-tooltip.bottom="$appState.theme">
             <img :src="'demo/images/themes/' + logoMap[$appState.theme]" />
-        </div>
+        </div> -->
         <ul ref="topbarMenu" class="topbar-menu">
             <li class="topbar-submenu">
                 <a tabindex="0" @click="toggleMenu($event, 0)">
@@ -83,21 +83,21 @@
                 <transition name="p-connected-overlay" @enter="onMenuEnter">
                     <ul v-show="activeMenuIndex === 1">
                         <li class="topbar-submenu-header">FREE ADMIN TEMPLATE</li>
-                        <li><a href="https://www.primefaces.org/sakai-vue"><img src="./assets/images/layouts/themeswitcher-sakai.svg" alt="Sakai" /><span>Sakai</span></a></li>
+                        <li><a href="https://www.primefaces.org/sakai-vue"><img src="@/assets/images/layouts/themeswitcher-sakai.svg" alt="Sakai" /><span>Sakai</span></a></li>
                         <li class="topbar-submenu-header">PREMIUM ADMIN TEMPLATES</li>
-                        <li><a href="https://www.primefaces.org/layouts/atlantis-vue"><img src="./assets/images/layouts/themeswitcher-atlantis.svg" alt="Atlantis" /><span>Atlantis</span></a></li>
-                        <li><a href="https://www.primefaces.org/layouts/freya-vue"><img src="./assets/images/layouts/themeswitcher-freya.png" alt="Freya" /><span>Freya</span></a></li>
-                        <li><a href="https://www.primefaces.org/layouts/diamond-vue"><img src="./assets/images/layouts/themeswitcher-diamond.png" alt="Diamond" /><span>Diamond</span></a></li>
-                        <li><a href="https://www.primefaces.org/layouts/verona-vue"><img src="./assets/images/layouts/themeswitcher-verona.png" alt="Verona" /><span>Verona</span></a></li>
-                        <li><a href="https://www.primefaces.org/layouts/poseidon-vue"><img src="./assets/images/layouts/themeswitcher-poseidon.svg" alt="Poseidon" /><span>Poseidon</span></a></li>
-                        <li><a href="https://www.primefaces.org/layouts/sapphire-vue"><img src="./assets/images/layouts/themeswitcher-sapphire.png" alt="Sapphire" /><span>Sapphire</span><span class="theme-badge material">material</span></a></li>
-                        <li><a href="https://www.primefaces.org/layouts/serenity-vue"><img src="./assets/images/layouts/themeswitcher-serenity.png" alt="Serenity" /><span>Serenity</span><span class="theme-badge material">material</span></a></li>
-                        <li><a href="https://www.primefaces.org/layouts/ultima-vue"><img src="./assets/images/layouts/themeswitcher-ultima.png" alt="Ultima" /><span>Ultima</span><span class="theme-badge material">material</span></a></li>
-                        <li><a href="https://www.primefaces.org/layouts/avalon-vue"><img src="./assets/images/layouts/themeswitcher-avalon.png" alt="Avalon" /><span>Avalon</span><span class="theme-badge bootstrap">bootstrap</span></a></li>
-                        <li><a href="https://www.primefaces.org/layouts/babylon-vue"><img src="./assets/images/layouts/themeswitcher-babylon.png" alt="Babylon" /><span>Babylon</span></a></li>
-                        <li><a href="https://www.primefaces.org/layouts/apollo-vue"><img src="./assets/images/layouts/themeswitcher-apollo.png" alt="Apollo" /><span>Apollo</span><span class="theme-badge darkmode">dark mode</span></a></li>
-                        <li><a href="https://www.primefaces.org/layouts/roma-vue"><img src="./assets/images/layouts/themeswitcher-roma.jpg" alt="Roma" /><span>Roma</span></a></li>
-                        <li><a href="https://www.primefaces.org/layouts/prestige-vue"><img src="./assets/images/layouts/themeswitcher-prestige.png" alt="Prestige" /><span>Prestige</span></a></li>
+                        <li><a href="https://www.primefaces.org/layouts/atlantis-vue"><img src="@/assets/images/layouts/themeswitcher-atlantis.svg" alt="Atlantis" /><span>Atlantis</span></a></li>
+                        <li><a href="https://www.primefaces.org/layouts/freya-vue"><img src="@/assets/images/layouts/themeswitcher-freya.png" alt="Freya" /><span>Freya</span></a></li>
+                        <li><a href="https://www.primefaces.org/layouts/diamond-vue"><img src="@/assets/images/layouts/themeswitcher-diamond.png" alt="Diamond" /><span>Diamond</span></a></li>
+                        <li><a href="https://www.primefaces.org/layouts/verona-vue"><img src="@/assets/images/layouts/themeswitcher-verona.png" alt="Verona" /><span>Verona</span></a></li>
+                        <li><a href="https://www.primefaces.org/layouts/poseidon-vue"><img src="@/assets/images/layouts/themeswitcher-poseidon.svg" alt="Poseidon" /><span>Poseidon</span></a></li>
+                        <li><a href="https://www.primefaces.org/layouts/sapphire-vue"><img src="@/assets/images/layouts/themeswitcher-sapphire.png" alt="Sapphire" /><span>Sapphire</span><span class="theme-badge material">material</span></a></li>
+                        <li><a href="https://www.primefaces.org/layouts/serenity-vue"><img src="@/assets/images/layouts/themeswitcher-serenity.png" alt="Serenity" /><span>Serenity</span><span class="theme-badge material">material</span></a></li>
+                        <li><a href="https://www.primefaces.org/layouts/ultima-vue"><img src="@/assets/images/layouts/themeswitcher-ultima.png" alt="Ultima" /><span>Ultima</span><span class="theme-badge material">material</span></a></li>
+                        <li><a href="https://www.primefaces.org/layouts/avalon-vue"><img src="@/assets/images/layouts/themeswitcher-avalon.png" alt="Avalon" /><span>Avalon</span><span class="theme-badge bootstrap">bootstrap</span></a></li>
+                        <li><a href="https://www.primefaces.org/layouts/babylon-vue"><img src="@/assets/images/layouts/themeswitcher-babylon.png" alt="Babylon" /><span>Babylon</span></a></li>
+                        <li><a href="https://www.primefaces.org/layouts/apollo-vue"><img src="@/assets/images/layouts/themeswitcher-apollo.png" alt="Apollo" /><span>Apollo</span><span class="theme-badge darkmode">dark mode</span></a></li>
+                        <li><a href="https://www.primefaces.org/layouts/roma-vue"><img src="@/assets/images/layouts/themeswitcher-roma.jpg" alt="Roma" /><span>Roma</span></a></li>
+                        <li><a href="https://www.primefaces.org/layouts/prestige-vue"><img src="@/assets/images/layouts/themeswitcher-prestige.png" alt="Prestige" /><span>Prestige</span></a></li>
                     </ul>
                 </transition>
             </li>
