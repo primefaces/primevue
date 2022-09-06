@@ -872,59 +872,59 @@ export default {
         <div class="p-fluid grid formgrid">
             <div class="field col-12 md:col-4">
                 <label for="basic">Basic</label>
-                <Calendar id="basic" v-model="date1" autocomplete="off" />
+                <Calendar inputId="basic" v-model="date1" autocomplete="off" />
             </div>
             <div class="field col-12 md:col-4">
                 <label for="dateformat">DateFormat</label>
-                <Calendar id="dateformat" v-model="date2"  dateFormat="mm-dd-yy" />
+                <Calendar inputId="dateformat" v-model="date2" dateFormat="mm-dd-yy" />
             </div>
             <div class="field col-12 md:col-4">
                 <label for="icon">Icon</label>
-                <Calendar id="icon" v-model="date3" :showIcon="true" />
+                <Calendar inputId="icon" v-model="date3" :showIcon="true" />
             </div>
             <div class="field col-12 md:col-4">
                 <label for="minmax">MinMax</label>
-                <Calendar id="minmax" v-model="date4" :minDate="minDate" :maxDate="maxDate" :manualInput="false" />
+                <Calendar inputId="minmax" v-model="date4" :minDate="minDate" :maxDate="maxDate" :manualInput="false" />
             </div>
             <div class="field col-12 md:col-4">
                 <label for="disableddays">Disabled Days</label>
-                <Calendar id="disableddays" v-model="date5" :disabledDates="invalidDates" :disabledDays="[0,6]" :manualInput="false" />
+                <Calendar inputId="disableddays" v-model="date5" :disabledDates="invalidDates" :disabledDays="[0,6]" :manualInput="false" />
             </div>
             <div class="field col-12 md:col-4">
                 <label for="multiple">Multiple</label>
-                <Calendar id="multiple" v-model="dates1" selectionMode="multiple" :manualInput="false" />
+                <Calendar inputId="multiple" v-model="dates1" selectionMode="multiple" :manualInput="false" />
             </div>
             <div class="field col-12 md:col-4">
                 <label for="range">Range</label>
-                <Calendar id="range" v-model="dates2" selectionMode="range" :manualInput="false" />
+                <Calendar inputId="range" v-model="dates2" selectionMode="range" :manualInput="false" />
             </div>
             <div class="field col-12 md:col-4">
                 <label for="buttonbar">Button Bar</label>
-                <Calendar id="buttonbar" v-model="date6" :showButtonBar="true" />
+                <Calendar inputId="buttonbar" v-model="date6" :showButtonBar="true" />
             </div>
             <div class="field col-12 md:col-4">
                 <label for="time24">Time / 24h</label>
-                <Calendar id="time24" v-model="date7" :showTime="true" :showSeconds="true" />
+                <Calendar inputId="time24" v-model="date7" :showTime="true" :showSeconds="true" />
             </div>
             <div class="field col-12 md:col-4">
                 <label for="time12">Time / 12h</label>
-                <Calendar id="time12" v-model="date8" :timeOnly="true" hourFormat="12" />
+                <Calendar inputId="time12" v-model="date8" :timeOnly="true" hourFormat="12" />
             </div>
             <div class="field col-12 md:col-4">
                 <label for="monthpicker">Month Picker</label>
-                <Calendar id="monthpicker" v-model="date9" view="month" dateFormat="mm/yy" />
+                <Calendar inputId="monthpicker" v-model="date9" view="month" dateFormat="mm/yy" />
             </div>
             <div class="field col-12 md:col-4">
                 <label for="yearpicker">Year Picker</label>
-                <Calendar id="yearpicker" v-model="date10" view="year" dateFormat="yy"/>
+                <Calendar inputId="yearpicker" v-model="date10" view="year" dateFormat="yy"/>
             </div>
             <div class="field col-12 md:col-4">
                 <label for="multiplemonths">Multiple Months</label>
-                <Calendar id="multiplemonths" v-model="date11" :numberOfMonths="3" :responsiveOptions="responsiveOptions" />
+                <Calendar inputId="multiplemonths" v-model="date11" :numberOfMonths="3" :responsiveOptions="responsiveOptions" />
             </div>
             <div class="field col-12 md:col-4">
                 <label for="datetemplate">Date Template</label>
-                <Calendar id="datetemplate" v-model="date12">
+                <Calendar inputId="datetemplate" v-model="date12">
                     <template #date="slotProps">
                         <strong v-if="slotProps.date.day > 10 && slotProps.date.day < 15" class="special-day">{{slotProps.date.day}}</strong>
                         <template v-else>{{slotProps.date.day}}</template>
@@ -933,7 +933,7 @@ export default {
             </div>
             <div class="field col-12 md:col-4">
                 <label for="touchUI">TouchUI</label>
-                <Calendar id="touchUI" v-model="date13" :touchUI="true" />
+                <Calendar inputId="touchUI" v-model="date13" :touchUI="true" />
             </div>
         </div>
 
@@ -1015,59 +1015,59 @@ export default {
         <div class="p-fluid grid formgrid">
             <div class="field col-12 md:col-4">
                 <label for="basic">Basic</label>
-                <Calendar id="basic" v-model="date1" autocomplete="off" />
+                <Calendar inputId="basic" v-model="date1" autocomplete="off" />
             </div>
             <div class="field col-12 md:col-4">
                 <label for="dateformat">DateFormat</label>
-                <Calendar id="dateformat" v-model="date2"  dateFormat="mm-dd-yy" />
+                <Calendar inputId="dateformat" v-model="date2" dateFormat="mm-dd-yy" />
             </div>
             <div class="field col-12 md:col-4">
                 <label for="icon">Icon</label>
-                <Calendar id="icon" v-model="date3" :showIcon="true" />
+                <Calendar inputId="icon" v-model="date3" :showIcon="true" />
             </div>
             <div class="field col-12 md:col-4">
                 <label for="minmax">MinMax</label>
-                <Calendar id="minmax" v-model="date4" :minDate="minDate" :maxDate="maxDate" :manualInput="false" />
+                <Calendar inputId="minmax" v-model="date4" :minDate="minDate" :maxDate="maxDate" :manualInput="false" />
             </div>
             <div class="field col-12 md:col-4">
                 <label for="disableddays">Disabled Days</label>
-                <Calendar id="disableddays" v-model="date5" :disabledDates="invalidDates" :disabledDays="[0,6]" :manualInput="false" />
+                <Calendar inputId="disableddays" v-model="date5" :disabledDates="invalidDates" :disabledDays="[0,6]" :manualInput="false" />
             </div>
             <div class="field col-12 md:col-4">
                 <label for="multiple">Multiple</label>
-                <Calendar id="multiple" v-model="dates1" selectionMode="multiple" :manualInput="false" />
+                <Calendar inputId="multiple" v-model="dates1" selectionMode="multiple" :manualInput="false" />
             </div>
             <div class="field col-12 md:col-4">
                 <label for="range">Range</label>
-                <Calendar id="range" v-model="dates2" selectionMode="range" :manualInput="false" />
+                <Calendar inputId="range" v-model="dates2" selectionMode="range" :manualInput="false" />
             </div>
             <div class="field col-12 md:col-4">
                 <label for="buttonbar">Button Bar</label>
-                <Calendar id="buttonbar" v-model="date6" :showButtonBar="true" />
+                <Calendar inputId="buttonbar" v-model="date6" :showButtonBar="true" />
             </div>
             <div class="field col-12 md:col-4">
                 <label for="time24">Time / 24h</label>
-                <Calendar id="time24" v-model="date7" :showTime="true" :showSeconds="true" />
+                <Calendar inputId="time24" v-model="date7" :showTime="true" :showSeconds="true" />
             </div>
             <div class="field col-12 md:col-4">
                 <label for="time12">Time / 12h</label>
-                <Calendar id="time12" v-model="date8" :timeOnly="true" hourFormat="12" />
+                <Calendar inputId="time12" v-model="date8" :timeOnly="true" hourFormat="12" />
             </div>
             <div class="field col-12 md:col-4">
                 <label for="monthpicker">Month Picker</label>
-                <Calendar id="monthpicker" v-model="date9" view="month" dateFormat="mm/yy"  />
+                <Calendar inputId="monthpicker" v-model="date9" view="month" dateFormat="mm/yy"  />
             </div>
             <div class="field col-12 md:col-4">
                 <label for="yearpicker">Year Picker</label>
-                <Calendar id="yearpicker" v-model="date10" view="year" dateFormat="yy"/>
+                <Calendar inputId="yearpicker" v-model="date10" view="year" dateFormat="yy"/>
             </div>
             <div class="field col-12 md:col-4">
                 <label for="multiplemonths">Multiple Months</label>
-                <Calendar id="multiplemonths" v-model="date11" :numberOfMonths="3" :responsiveOptions="responsiveOptions" />
+                <Calendar inputId="multiplemonths" v-model="date11" :numberOfMonths="3" :responsiveOptions="responsiveOptions" />
             </div>
             <div class="field col-12 md:col-4">
                 <label for="datetemplate">Date Template</label>
-                <Calendar id="datetemplate" v-model="date12">
+                <Calendar inputId="datetemplate" v-model="date12">
                     <template #date="slotProps">
                         <strong v-if="slotProps.date.day > 10 && slotProps.date.day < 15" class="special-day">{{slotProps.date.day}}</strong>
                         <template v-else>{{slotProps.date.day}}</template>
@@ -1076,7 +1076,7 @@ export default {
             </div>
             <div class="field col-12 md:col-4">
                 <label for="touchUI">TouchUI</label>
-                <Calendar id="touchUI" v-model="date13" :touchUI="true" />
+                <Calendar inputId="touchUI" v-model="date13" :touchUI="true" />
             </div>
         </div>
 
@@ -1158,59 +1158,59 @@ export default {
             <div class="p-fluid grid formgrid">
                 <div class="field col-12 md:col-4">
                     <label for="basic">Basic</label>
-                    <p-calendar id="basic" v-model="date1" autocomplete="off"></p-calendar>
+                    <p-calendar input-id="basic" v-model="date1" autocomplete="off"></p-calendar>
                 </div>
                 <div class="field col-12 md:col-4">
                     <label for="dateformat">DateFormat</label>
-                    <p-calendar id="dateformat" v-model="date2" date-format="mm-dd-yy"></p-calendar>
+                    <p-calendar input-id="dateformat" v-model="date2" date-format="mm-dd-yy"></p-calendar>
                 </div>
                 <div class="field col-12 md:col-4">
                     <label for="icon">Icon</label>
-                    <p-calendar id="icon" v-model="date3" :show-icon="true"></p-calendar>
+                    <p-calendar input-id="icon" v-model="date3" :show-icon="true"></p-calendar>
                 </div>
                 <div class="field col-12 md:col-4">
                     <label for="minmax">MinMax</label>
-                    <p-calendar id="minmax" v-model="date4" :min-date="minDate" :max-date="maxDate" :manual-input="false"></p-calendar>
+                    <p-calendar input-id="minmax" v-model="date4" :min-date="minDate" :max-date="maxDate" :manual-input="false"></p-calendar>
                 </div>
                 <div class="field col-12 md:col-4">
                     <label for="disableddays">Disabled Days</label>
-                    <p-calendar id="disableddays" v-model="date5" :disabled-dates="invalidDates" :disabled-days="[0,6]" :manual-input="false"></p-calendar>
+                    <p-calendar input-id="disableddays" v-model="date5" :disabled-dates="invalidDates" :disabled-days="[0,6]" :manual-input="false"></p-calendar>
                 </div>
                 <div class="field col-12 md:col-4">
                     <label for="multiple">Multiple</label>
-                    <p-calendar id="multiple" v-model="dates1" selection-mode="multiple" :manual-input="false"></p-calendar>
+                    <p-calendar input-id="multiple" v-model="dates1" selection-mode="multiple" :manual-input="false"></p-calendar>
                 </div>
                 <div class="field col-12 md:col-4">
                     <label for="range">Range</label>
-                    <p-calendar id="range" v-model="dates2" selection-mode="range" :manual-input="false"></p-calendar>
+                    <p-calendar input-id="range" v-model="dates2" selection-mode="range" :manual-input="false"></p-calendar>
                 </div>
                 <div class="field col-12 md:col-4">
                     <label for="buttonbar">Button Bar</label>
-                    <p-calendar id="buttonbar" v-model="date6" :show-button-bar="true"></p-calendar>
+                    <p-calendar input-id="buttonbar" v-model="date6" :show-button-bar="true"></p-calendar>
                 </div>
                 <div class="field col-12 md:col-4">
                     <label for="time24">Time / 24h</label>
-                    <p-calendar id="time24" v-model="date7" :show-time="true" :show-seconds="true"></p-calendar>
+                    <p-calendar input-id="time24" v-model="date7" :show-time="true" :show-seconds="true"></p-calendar>
                 </div>
                 <div class="field col-12 md:col-4">
                     <label for="time12">Time / 12h</label>
-                    <p-calendar id="time12" v-model="date8" :time-only="true" hour-format="12"></p-calendar>
+                    <p-calendar input-id="time12" v-model="date8" :time-only="true" hour-format="12"></p-calendar>
                 </div>
                 <div class="field col-12 md:col-4">
                     <label for="monthpicker">Month Picker</label>
-                    <p-calendar id="monthpicker" v-model="date9" view="month" date-format="mm/yy"></p-calendar>
+                    <p-calendar input-id="monthpicker" v-model="date9" view="month" date-format="mm/yy"></p-calendar>
                 </div>
                 <div class="field col-12 md:col-4">
                     <label for="yearpicker">Year Picker</label>
-                    <p-calendar id="yearpicker" v-model="date10" view="year" date-format="yy"></p-calendar>
+                    <p-calendar input-id="yearpicker" v-model="date10" view="year" date-format="yy"></p-calendar>
                 </div>
                 <div class="field col-12 md:col-4">
                     <label for="multiplemonths">Multiple Months</label>
-                    <p-calendar id="multiplemonths" v-model="date11" :number-of-months="3" :responsive-options="responsiveOptions"></p-calendar>
+                    <p-calendar input-id="multiplemonths" v-model="date11" :number-of-months="3" :responsive-options="responsiveOptions"></p-calendar>
                 </div>
                 <div class="field col-12 md:col-4">
                     <label for="datetemplate">Date Template</label>
-                    <p-calendar id="datetemplate" v-model="date12">
+                    <p-calendar input-id="datetemplate" v-model="date12">
                         <template #date="slotProps">
                             <strong v-if="slotProps.date.day > 10 && slotProps.date.day < 15" class="special-day">{{slotProps.date.day}}</strong>
                             <template v-else>{{slotProps.date.day}}</template>
@@ -1219,7 +1219,7 @@ export default {
                 </div>
                 <div class="field col-12 md:col-4">
                     <label for="touchUI">TouchUI</label>
-                    <p-calendar id="touchUI" v-model="date13" :touch-u-i="true"></p-calendar>
+                    <p-calendar input-id="touchUI" v-model="date13" :touch-u-i="true"></p-calendar>
                 </div>
             </div>
 

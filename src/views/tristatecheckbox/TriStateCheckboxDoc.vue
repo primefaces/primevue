@@ -157,8 +157,8 @@ export default {
 <template>
     <div>
         <div class="field-checkbox m-0">
-            <TriStateCheckbox v-model="value" />
-            <label>{{value == null ? 'null' : value}}</label>
+            <TriStateCheckbox inputId="checkbox" v-model="value" />
+            <label for="checkbox">{{value == null ? 'null' : value}}</label>
         </div>
     </div>
 </template>
@@ -180,8 +180,8 @@ export default {
 <template>
     <div>
         <div class="field-checkbox m-0">
-            <TriStateCheckbox v-model="value" />
-            <label>{{value == null ? 'null' : value}}</label>
+            <TriStateCheckbox inputId="checkbox" v-model="value" />
+            <label for="checkbox">{{value == null ? 'null' : value}}</label>
         </div>
     </div>
 </template>
@@ -204,8 +204,8 @@ export default {
                     imports: `<script src="https://unpkg.com/primevue@^3/tristatecheckbox/tristatecheckbox.min.js"><\\/script>`,
 					content: `<div id="app">
             <div class="field-checkbox m-0">
-                <p-tristatecheckbox v-model="value"></p-tristatecheckbox>
-                <label>{{value == null ? 'null' : value}}</label>
+                <p-tristatecheckbox input-id="checkbox" v-model="value"></p-tristatecheckbox>
+                <label for="checkbox">{{value == null ? 'null' : value}}</label>
             </div>
         </div>
 

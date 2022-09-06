@@ -11,8 +11,8 @@
         <div class="content-section implementation">
             <div class="card">
                 <div class="field-checkbox m-0">
-                    <TriStateCheckbox v-model="value" />
-                    <label>{{value == null ? 'null' : value}}</label>
+                    <TriStateCheckbox inputId="checkbox" v-model="value" />
+                    <label for="checkbox">{{value == null ? 'null' : value}}</label>
                 </div>
             </div>
         </div>

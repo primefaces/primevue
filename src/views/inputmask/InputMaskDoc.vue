@@ -175,32 +175,32 @@ export default {
         <div class="p-fluid formgrid grid">
             <div class="field col-12 md:col-4">
                 <label for="basic">Basic</label>
-                <InputMask mask="99-999999" v-model="val1" placeholder="99-999999" />
+                <InputMask id="basic" mask="99-999999" v-model="val1" placeholder="99-999999" />
             </div>
 
             <div class="field col-12 md:col-4">
                 <label for="ssn">SSN</label>
-                <InputMask mask="999-99-9999" v-model="val2" placeholder="999-99-9999" />
+                <InputMask id="ssn" mask="999-99-9999" v-model="val2" placeholder="999-99-9999" />
             </div>
 
             <div class="field col-12 md:col-4">
                 <label for="date">Date</label>
-                <InputMask mask="99/99/9999" v-model="val3" placeholder="99/99/9999" slotChar="mm/dd/yyyy" />
+                <InputMask id="date" mask="99/99/9999" v-model="val3" placeholder="99/99/9999" slotChar="mm/dd/yyyy" />
             </div>
 
             <div class="field col-12 md:col-4">
-                <label for="Phone">Phone</label>
-                <InputMask mask="(999) 999-9999" v-model="val4" placeholder="(999) 999-9999" />
+                <label for="phone">Phone</label>
+                <InputMask id="phone" mask="(999) 999-9999" v-model="val4" placeholder="(999) 999-9999" />
             </div>
 
             <div class="field col-12 md:col-4">
                 <label for="phoneext">Phone Ext</label>
-                <InputMask mask="(999) 999-9999? x99999" v-model="val5" placeholder="(999) 999-9999? x99999"/>
+                <InputMask id=phoneext mask="(999) 999-9999? x99999" v-model="val5" placeholder="(999) 999-9999? x99999"/>
             </div>
 
             <div class="field col-12 md:col-4">
                 <label for="serial">Serial</label>
-                <InputMask mask="a*-999-a999" v-model="val6" placeholder="a*-999-a999" />
+                <InputMask id="serial" mask="a*-999-a999" v-model="val6" placeholder="a*-999-a999" />
             </div>
         </div>
     </div>
@@ -230,32 +230,32 @@ export default {
         <div class="p-fluid formgrid grid">
             <div class="field col-12 md:col-4">
                 <label for="basic">Basic</label>
-                <InputMask mask="99-999999" v-model="val1" placeholder="99-999999" />
+                <InputMask id="basic" mask="99-999999" v-model="val1" placeholder="99-999999" />
             </div>
 
             <div class="field col-12 md:col-4">
                 <label for="ssn">SSN</label>
-                <InputMask mask="999-99-9999" v-model="val2" placeholder="999-99-9999" />
+                <InputMask id="ssn" mask="999-99-9999" v-model="val2" placeholder="999-99-9999" />
             </div>
 
             <div class="field col-12 md:col-4">
                 <label for="date">Date</label>
-                <InputMask mask="99/99/9999" v-model="val3" placeholder="99/99/9999" slotChar="mm/dd/yyyy" />
+                <InputMask id="date" mask="99/99/9999" v-model="val3" placeholder="99/99/9999" slotChar="mm/dd/yyyy" />
             </div>
 
             <div class="field col-12 md:col-4">
-                <label for="Phone">Phone</label>
-                <InputMask mask="(999) 999-9999" v-model="val4" placeholder="(999) 999-9999" />
+                <label for="phone">Phone</label>
+                <InputMask id="phone" mask="(999) 999-9999" v-model="val4" placeholder="(999) 999-9999" />
             </div>
 
             <div class="field col-12 md:col-4">
                 <label for="phoneext">Phone Ext</label>
-                <InputMask mask="(999) 999-9999? x99999" v-model="val5" placeholder="(999) 999-9999? x99999"/>
+                <InputMask id="phoneext" mask="(999) 999-9999? x99999" v-model="val5" placeholder="(999) 999-9999? x99999"/>
             </div>
 
             <div class="field col-12 md:col-4">
                 <label for="serial">Serial</label>
-                <InputMask mask="a*-999-a999" v-model="val6" placeholder="a*-999-a999" />
+                <InputMask id="serial" mask="a*-999-a999" v-model="val6" placeholder="a*-999-a999" />
             </div>
         </div>
     </div>
@@ -286,32 +286,32 @@ export default {
             <div class="p-fluid formgrid grid">
                 <div class="field col-12 md:col-4">
                     <label for="basic">Basic</label>
-                    <p-inputmask mask="99-999999" v-model="val1" placeholder="99-999999"></p-inputmask>
+                    <p-inputmask id="basic" mask="99-999999" v-model="val1" placeholder="99-999999"></p-inputmask>
                 </div>
 
                 <div class="field col-12 md:col-4">
                     <label for="ssn">SSN</label>
-                    <p-inputmask mask="999-99-9999" v-model="val2" placeholder="999-99-9999"></p-inputmask>
+                    <p-inputmask id="ssn" mask="999-99-9999" v-model="val2" placeholder="999-99-9999"></p-inputmask>
                 </div>
 
                 <div class="field col-12 md:col-4">
                     <label for="date">Date</label>
-                    <p-inputmask mask="99/99/9999" v-model="val3" placeholder="99/99/9999" slot-char="mm/dd/yyyy"></p-inputmask>
+                    <p-inputmask id="date" mask="99/99/9999" v-model="val3" placeholder="99/99/9999" slot-char="mm/dd/yyyy"></p-inputmask>
                 </div>
 
                 <div class="field col-12 md:col-4">
-                    <label for="Phone">Phone</label>
-                    <p-inputmask mask="(999) 999-9999" v-model="val4" placeholder="(999) 999-9999"></p-inputmask>
+                    <label for="phone">Phone</label>
+                    <p-inputmask id="phone" mask="(999) 999-9999" v-model="val4" placeholder="(999) 999-9999"></p-inputmask>
                 </div>
 
                 <div class="field col-12 md:col-4">
                     <label for="phoneext">Phone Ext</label>
-                    <p-inputmask mask="(999) 999-9999? x99999" v-model="val5" placeholder="(999) 999-9999? x99999"></p-inputmask>
+                    <p-inputmask id="phoneext" mask="(999) 999-9999? x99999" v-model="val5" placeholder="(999) 999-9999? x99999"></p-inputmask>
                 </div>
 
                 <div class="field col-12 md:col-4">
                     <label for="serial">Serial</label>
-                    <p-inputmask mask="a*-999-a999" v-model="val6" placeholder="a*-999-a999"></p-inputmask>
+                    <p-inputmask id="serial" mask="a*-999-a999" v-model="val6" placeholder="a*-999-a999"></p-inputmask>
                 </div>
             </div>
         </div>
