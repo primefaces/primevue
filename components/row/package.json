@@ -1,0 +1,9 @@
+{
+  "main": "./row.cjs.js",
+  "module": "./row.esm.js",
+  "unpkg": "./row.min.js",
+  "types": "./Row.d.ts",
+  "browser": {
+    "./sfc": "./Row.vue"
+  }
+}

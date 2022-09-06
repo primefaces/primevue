@@ -1,0 +1,9 @@
+{
+  "main": "./tree.cjs.js",
+  "module": "./tree.esm.js",
+  "unpkg": "./tree.min.js",
+  "types": "./Tree.d.ts",
+  "browser": {
+    "./sfc": "./Tree.vue"
+  }
+}

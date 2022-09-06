@@ -1,0 +1,9 @@
+{
+  "main": "./inplace.cjs.js",
+  "module": "./inplace.esm.js",
+  "unpkg": "./inplace.min.js",
+  "types": "./Inplace.d.ts",
+  "browser": {
+    "./sfc": "./Inplace.vue"
+  }
+}

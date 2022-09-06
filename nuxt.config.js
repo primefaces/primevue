@@ -4,6 +4,13 @@ const path = require('path');
 export default defineNuxtConfig({
   typescript: false,
   components: true,
+  css: [
+    '@/assets/styles/primevue.css',
+    '/node_modules/primeflex/primeflex.css',
+    '/node_modules/primeicons/primeicons.css',
+    '/node_modules/prismjs/themes/prism-coy.css',
+    '@/assets/styles/flags.css'
+  ],
   vite: {
       resolve: {
         alias: {

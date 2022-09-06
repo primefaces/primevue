@@ -1,0 +1,9 @@
+{
+  "main": "./message.cjs.js",
+  "module": "./message.esm.js",
+  "unpkg": "./message.min.js",
+  "types": "./Message.d.ts",
+  "browser": {
+    "./sfc": "./Message.vue"
+  }
+}

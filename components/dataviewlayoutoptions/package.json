@@ -1,0 +1,9 @@
+{
+  "main": "./dataviewlayoutoptions.cjs.js",
+  "module": "./dataviewlayoutoptions.esm.js",
+  "unpkg": "./dataviewlayoutoptions.min.js",
+  "types": "./DataViewLayoutOptions.d.ts",
+  "browser": {
+    "./sfc": "./DataViewLayoutOptions.vue"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "main": "./editor.cjs.js",
+  "module": "./editor.esm.js",
+  "unpkg": "./editor.min.js",
+  "types": "./Editor.d.ts",
+  "browser": {
+    "./sfc": "./Editor.vue"
+  }
+}

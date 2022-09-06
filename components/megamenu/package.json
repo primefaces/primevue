@@ -1,0 +1,9 @@
+{
+  "main": "./megamenu.cjs.js",
+  "module": "./megamenu.esm.js",
+  "unpkg": "./megamenu.min.js",
+  "types": "./MegaMenu.d.ts",
+  "browser": {
+    "./sfc": "./MegaMenu.vue"
+  }
+}

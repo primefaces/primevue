@@ -1,0 +1,9 @@
+{
+  "main": "./accordion.cjs.js",
+  "module": "./accordion.esm.js",
+  "unpkg": "./accordion.min.js",
+  "types": "./Accordion.d.ts",
+  "browser": {
+    "./sfc": "./Accordion.vue"
+  }
+}

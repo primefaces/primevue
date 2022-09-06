@@ -1,0 +1,9 @@
+{
+  "main": "./cascadeselect.cjs.js",
+  "module": "./cascadeselect.esm.js",
+  "unpkg": "./cascadeselect.min.js",
+  "types": "./CascadeSelect.d.ts",
+  "browser": {
+    "./sfc": "./CascadeSelect.vue"
+  }
+}

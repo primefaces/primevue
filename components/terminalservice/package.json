@@ -1,0 +1,6 @@
+{
+  "main": "./terminalservice.cjs.js",
+  "module": "./terminalservice.esm.js",
+  "unpkg": "./terminalservice.min.js",
+  "types": "./TerminalService.d.ts"
+}
