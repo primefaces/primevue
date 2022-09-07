@@ -27,5 +27,7 @@ jobs:
         cache: 'npm'
 
     - name: Build
-      run: npm run build-check
+      run: |
+        npm install
+        npm run build-check
 
