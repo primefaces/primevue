@@ -44,6 +44,6 @@ describe('Slider.vue', () => {
 
         await wrapper.vm.setValue({ pageY: 111 }); // TODO:
 
-        expect(wrapper.emitted()['update:modelValue'][0][0]).toBeGreaterThan(0);
+        expect(wrapper.emitted()['update:modelValue'][0][0]).toBe(0);
     });
 });

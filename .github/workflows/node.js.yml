@@ -28,6 +28,6 @@ jobs:
 
     - name: Build
       run: |
-        npm install --legacy-peer-deps
+        npm install
         npm run build-check
 
