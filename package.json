@@ -52,7 +52,7 @@
     "chart.js": "3.3.2",
     "codesandbox": "2.1.14",
     "core-js": "^3.6.5",
-    "eslint": "^6.2.0",
+    "eslint": "^7.0.0",
     "eslint-plugin-vue": "^7.0.0",
     "eslint-config-prettier": "^8.5.0",
     "gulp": "^4.0.2",
