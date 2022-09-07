@@ -23,7 +23,7 @@
                 <Rating :modelValue="8" :disabled="true" :stars="10" name="disabled" />
 
                 <h5>Custom Icons</h5>
-                <Rating v-model="val3"  on-icon="pi pi-heart" off-icon="pi pi-heart-fill" :stars="5" name="primeIcons" cancel-icon="pi pi-times"/>
+                <Rating v-model="val3" on-icon="pi pi-heart" off-icon="pi pi-heart-fill" :stars="5" name="primeIcons" cancel-icon="pi pi-times" />
 
                 <h5>Templating</h5>
                 <Rating v-model="val4" name="templating">
@@ -54,11 +54,10 @@ export default {
             val2: 3,
             val3: 2,
             val4: 2
-        }
+        };
     },
     components: {
-        'RatingDoc': RatingDoc
-    },
-}
+        RatingDoc: RatingDoc
+    }
+};
 </script>
-

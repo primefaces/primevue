@@ -52,7 +52,7 @@ import Rating from 'primevue/rating';
 </template>
 </code></pre>
 
-		<h5>Properties</h5>
+        <h5>Properties</h5>
         <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
         <div class="doc-tablewrapper">
             <table class="doc-table">
@@ -119,9 +119,9 @@ import Rating from 'primevue/rating';
                         <td>pi pi-ban</td>
                         <td>Can be used to add different cancel icon</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
         <h5>Events</h5>
         <div class="doc-tablewrapper">
@@ -383,8 +383,7 @@ export default {
 `
                 }
             }
-        }
+        };
     }
-}
+};
 </script>
-

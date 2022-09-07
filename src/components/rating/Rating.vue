@@ -1,37 +1,32 @@
 <template>
-    <div ref="rating"  :class="containerClass">
-        <template v-if="cancel" >
-            <template v-if="!$slots.cancel">
-                <span :class="cancelIconClasses()" @click="onCancelClick" @keydown="onKeyDown">
-                    <span class="p-hidden-accessible">
-                        <input type="radio" value="0" :name="name" :checked="modelValue === 0" :disabled="disabled" :readonly="readonly" :aria-label="$primevue.config.locale.clear" @focus="onFocus($event, 0)" @blur="onBlur" @keydown="onKeyDown($event, 0)">
-                    </span>
+    <div ref="rating" :class="containerClass">
+        <template v-if="cancel">
+            <span :class="cancelIconClasses()" @click="onCancelClick" @keydown="onKeyDown">
+                <component v-if="$slots.cancel" :is="$slots.cancel" />
+                <span class="p-hidden-accessible">
+                    <input
+                        type="radio"
+                        value="0"
+                        :name="name"
+                        :checked="modelValue === 0"
+                        :disabled="disabled"
+                        :readonly="readonly"
+                        :aria-label="$primevue.config.locale.clear"
+                        @focus="onFocus($event, 0)"
+                        @blur="onBlur"
+                        @keydown="onKeyDown($event, 0)"
+                    />
                 </span>
-            </template>
-            <span :class="cancelIconClasses()" v-else @click="onCancelClick" @keydown="onKeyDown">
-            <component :is="$slots.cancel" />
-            <span class="p-hidden-accessible">
-                        <input type="radio" value="0" :name="name" :checked="modelValue === 0" :disabled="disabled" :readonly="readonly" :aria-label="$primevue.config.locale.clear" @focus="onFocus($event, 0)" @blur="onBlur" @keydown="onKeyDown($event, 0)">
-                    </span>
             </span>
         </template>
         <template :key="i" v-for="i in stars">
-        <template v-if="!$slots.onIcon && !$slots.offIcon">
-            <span :class="iconClasses(i)" @click="onStarClick($event,i)">
+            <span :class="iconClasses(i)" @click="onStarClick($event, i)">
+                <component v-if="hasIconSlot && i <= modelValue" :is="$slots.onIcon" :index="i" />
+                <component v-if="hasIconSlot && i > modelValue" :is="$slots.offIcon" :index="i" />
                 <span class="p-hidden-accessible">
-                    <input type="radio" :value="i" :name="name" :checked="modelValue === i" :disabled="disabled" :readonly="readonly" :aria-label="ariaLabelTemplate(i)" @focus="onFocus($event, i)" @blur="onBlur" @keydown="onKeyDown($event,i)">
+                    <input type="radio" :value="i" :name="name" :checked="modelValue === i" :disabled="disabled" :readonly="readonly" :aria-label="ariaLabelTemplate(i)" @focus="onFocus($event, i)" @blur="onBlur" @keydown="onKeyDown($event, i)" />
                 </span>
             </span>
-        </template>
-            <template v-else>
-                <span :class="iconClasses(i)" @click="onStarClick($event,i)">
-                <component v-if="i <= modelValue"  :is="$slots.onIcon" :index="i"></component>
-                <component v-else  :is="$slots.offIcon" :index="i"></component>
-                <span class="p-hidden-accessible">
-                    <input type="radio" :value="i" :name="name" :checked="modelValue === i" :disabled="disabled" :readonly="readonly" :aria-label="ariaLabelTemplate(i)" @focus="onFocus($event, i)" @blur="onBlur" @keydown="onKeyDown($event,i)">
-                </span>
-            </span>
-            </template>
         </template>
     </div>
 </template>
@@ -76,13 +71,13 @@ export default {
         cancelIcon: {
             type: String,
             default: 'pi pi-ban'
-        },
+        }
     },
     data() {
         return {
             focusIndex: null,
             outsideClickListener: null,
-            keyboardEvent: false,
+            keyboardEvent: false
         };
     },
     mounted() {
@@ -92,44 +87,40 @@ export default {
         this.unbindOutsideClickListener();
     },
     methods: {
-        onStarClick (event, value) {
+        onStarClick(event, value) {
             if (!this.readonly && !this.disabled && !this.keyboardEvent) {
                 this.updateModel(event, value);
                 window.setTimeout(() => {
                     this.focusIndex = value;
                 }, 1);
             }
-            this.keyboardEvent = false
+            this.keyboardEvent = false;
         },
         onKeyDown(event, value) {
-        this.keyboardEvent = true
-        if (event.code === 'Space') {
-            this.updateModel(event, value);
-        }
-        if (event.code === 'Tab') {
-            this.focusIndex = null;
-        }
+            this.keyboardEvent = true;
+            if (event.code === 'Space') {
+                this.updateModel(event, value);
+            }
+            if (event.code === 'Tab') {
+                this.focusIndex = null;
+            }
         },
         onFocus(event, index) {
             if (!this.readonly) {
-                if(this.modelValue === null && this.focusIndex === null && index === this.stars) {
+                if (this.modelValue === null && this.focusIndex === null && index === this.stars) {
                     this.focusIndex = this.cancel ? 0 : 1;
                     this.updateModel(event, this.focusIndex);
-                }
-                else if(this.modelValue === 0 && this.focusIndex === 0 && index === this.stars - 1) {
-                    this.focusIndex = index + 1
+                } else if (this.modelValue === 0 && this.focusIndex === 0 && index === this.stars - 1) {
+                    this.focusIndex = index + 1;
                     this.updateModel(event, this.focusIndex);
-                }
-                else if (this.modelValue === null && this.focusIndex === null) {
+                } else if (this.modelValue === null && this.focusIndex === null) {
                     this.focusIndex = this.cancel ? 0 : 1;
                     this.updateModel(event, this.focusIndex);
-                }
-                else if (this.modelValue !== null && this.focusIndex === null) {
+                } else if (this.modelValue !== null && this.focusIndex === null) {
                     this.focusIndex = this.modelValue;
                     this.updateModel(event, this.modelValue);
-                }
-                else {
-                    this.focusIndex = index
+                } else {
+                    this.focusIndex = index;
                     this.updateModel(event, index);
                 }
 
@@ -145,8 +136,7 @@ export default {
                     this.focusIndex = 0;
                 }, 1);
                 this.updateModel(event, null);
-                this.$emit('cancel')
-
+                this.$emit('cancel');
             }
         },
         updateModel(event, value) {
@@ -160,40 +150,40 @@ export default {
             return index === 1 ? this.$primevue.config.locale.aria.star : this.$primevue.config.locale.aria.stars.replace(/{star}/g, index);
         },
         iconClasses(i) {
-            const iconOn = i > this.modelValue && !this.hasIconSlot() ? this.onIcon : null
-            const iconOff = i <= this.modelValue && !this.hasIconSlot() ? this.offIcon: null
+            const iconOn = i > this.modelValue && !this.hasIconSlot() ? this.onIcon : null;
+            const iconOff = i <= this.modelValue && !this.hasIconSlot() ? this.offIcon : null;
 
-            return ['p-rating-icon', iconOn, iconOff, {'p-focus': i === this.focusIndex}]
+            return ['p-rating-icon', iconOn, iconOff, { 'p-focus': i === this.focusIndex }];
         },
         cancelIconClasses() {
-            const focusOnCancel = this.focusIndex === 0 && (this.modelValue === 0 || this.modelValue === null)
+            const focusOnCancel = this.focusIndex === 0 && (this.modelValue === 0 || this.modelValue === null);
 
-            if(this.$slots.cancel) {
-                return ['p-rating-icon', {'p-focus': focusOnCancel}]
+            if (this.$slots.cancel) {
+                return ['p-rating-icon', { 'p-focus': focusOnCancel }];
             }
 
-            return ['p-rating-icon p-rating-cancel', this.cancelIcon, {'p-focus': focusOnCancel }]
+            return ['p-rating-icon p-rating-cancel', this.cancelIcon, { 'p-focus': focusOnCancel }];
         },
         hasIconSlot() {
-            return this.$slots.onIcon && this.$slots.offIcon
+            return this.$slots.onIcon && this.$slots.offIcon;
         },
         bindOutsideClickListener() {
-                this.outsideClickListener = (event) => {
-                    if (this.focusIndex !== null && this.isOutsideRatingClicked(event)) {
-                        this.focusIndex = null;
-                    }
-                };
-                document.addEventListener('click', this.outsideClickListener);
+            this.outsideClickListener = (event) => {
+                if (this.focusIndex !== null && this.isOutsideRatingClicked(event)) {
+                    this.focusIndex = null;
+                }
+            };
+            document.addEventListener('click', this.outsideClickListener);
         },
         unbindOutsideClickListener() {
-                document.removeEventListener('click', this.outsideClickListener);
-                this.outsideClickListener = null;
+            document.removeEventListener('click', this.outsideClickListener);
+            this.outsideClickListener = null;
         },
         isOutsideRatingClicked(event) {
-            const ratingRef = this.$refs.rating
+            const ratingRef = this.$refs.rating;
 
             return !(ratingRef.isSameNode(event.target) || ratingRef.contains(event.target));
-        },
+        }
     },
     computed: {
         containerClass() {
@@ -204,9 +194,9 @@ export default {
                     'p-disabled': this.disabled
                 }
             ];
-        },
-    },
-}
+        }
+    }
+};
 </script>
 
 <style>
