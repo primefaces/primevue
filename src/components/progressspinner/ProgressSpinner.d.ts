@@ -38,7 +38,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [ProgressSpinner](https://www.primefaces.org/primevue/showcase/#/progressspinner)
+ * - [ProgressSpinner](https://www.primefaces.org/primevue/progressspinner)
  *
  */
 export default ProgressSpinner;

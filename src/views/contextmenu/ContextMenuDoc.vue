@@ -1,13 +1,13 @@
 <template>
-	<AppDoc name="ContextMenuDemo" :sources="sources" github="contextmenu/ContextMenuDemo.vue">
+    <AppDoc name="ContextMenuDemo" :sources="sources" github="contextmenu/ContextMenuDemo.vue">
         <h5>Import via Module</h5>
-<pre v-code.script><code>
+        <pre v-code.script><code>
 import ContextMenu from 'primevue/contextmenu';
 
 </code></pre>
 
-		<h5>Import via CDN</h5>
-<pre v-code><code>
+        <h5>Import via CDN</h5>
+        <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/contextmenu/contextmenu.min.js"&gt;&lt;/script&gt;
 
@@ -16,10 +16,10 @@ import ContextMenu from 'primevue/contextmenu';
         <h5>MenuModel</h5>
         <p>ContextMenu uses the common MenuModel API to define the items, visit <router-link to="/menumodel">MenuModel API</router-link> for details.</p>
 
-		<h5>Getting Started</h5>
-		<p>ContextMenu requires a collection of menuitems as its model.</p>
+        <h5>Getting Started</h5>
+        <p>ContextMenu requires a collection of menuitems as its model.</p>
 
-<pre v-code.script><code>
+        <pre v-code.script><code>
 export default {
     data() {
         return {
@@ -161,7 +161,7 @@ export default {
 
         <h5>Document Menu</h5>
         <p>Setting global property attaches the context menu to the document.</p>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;ContextMenu :global="true" :model="items" /&gt;
 
 </code></pre>
@@ -169,13 +169,13 @@ export default {
         <h5>Element Menu</h5>
         <p>ContextMenu is attached to a custom element manually using the reference and calling the <i>show(event)</i> method.</p>
 
-<pre v-code><code>
+        <pre v-code><code>
 &lt;img alt="logo" src="demo/images/nature/nature3.jpg" @contextmenu="onImageRightClick"&gt;
 &lt;ContextMenu ref="menu" :model="items" /&gt;
 
 </code></pre>
 
-<pre v-code.script><code>
+        <pre v-code.script><code>
 export default {
     data() {
         return {
@@ -191,9 +191,9 @@ export default {
 
 </code></pre>
 
-		<h5>Templating</h5>
-		<p>ContextMenu offers content customization with the <i>item</i> template that receives the menuitem instance from the model as a parameter.</p>
-<pre v-code><code><template v-pre>
+        <h5>Templating</h5>
+        <p>ContextMenu offers content customization with the <i>item</i> template that receives the menuitem instance from the model as a parameter.</p>
+        <pre v-code><code><template v-pre>
 &lt;ContextMenu :model="items"&gt;
     &lt;template #item="{item}"&gt;
         &lt;a :href="item.url"&gt;{{item.label}}&lt;/a&gt;
@@ -202,8 +202,8 @@ export default {
 </template>
 </code></pre>
 
-<p><i>router-link</i> with route configuration can also be used within templating for further customization.</p>
-<pre v-code><code><template v-pre>
+        <p><i>router-link</i> with route configuration can also be used within templating for further customization.</p>
+        <pre v-code><code><template v-pre>
 &lt;ContextMenu :model="items"&gt;
     &lt;template #item="{item}"&gt;
         &lt;router-link :to="item.to" custom v-slot="{href, route, navigate, isActive, isExactActive}"&gt;
@@ -216,17 +216,17 @@ export default {
 
         <h5>Properties</h5>
         <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Type</th>
                         <th>Default</th>
                         <th>Description</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>model</td>
                         <td>array</td>
@@ -263,21 +263,21 @@ export default {
                         <td>true</td>
                         <td>Whether to apply 'router-link-active-exact' class if route exactly matches the item path.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
-		<h5>Methods</h5>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <h5>Methods</h5>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Parameters</th>
                         <th>Description</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>toggle</td>
                         <td>event: Browser event</td>
@@ -293,39 +293,39 @@ export default {
                         <td>-</td>
                         <td>Hides the menu.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
-		<h5>Slots</h5>
-			<div class="doc-tablewrapper">
-				<table class="doc-table">
-					<thead>
-						<tr>
-							<th>Name</th>
-							<th>Parameters</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>item</td>
-							<td>item: Menuitem instance</td>
-						</tr>
-					</tbody>
-				</table>
-		</div>
+        <h5>Slots</h5>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Parameters</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>item</td>
+                        <td>item: Menuitem instance</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-		<h5>Styling</h5>
-		<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <h5>Styling</h5>
+        <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Element</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>p-contextmenu</td>
                         <td>Container element.</td>
@@ -338,7 +338,7 @@ export default {
                         <td>p-menuitem</td>
                         <td>Menuitem element.</td>
                     </tr>
-					<tr>
+                    <tr>
                         <td>p-menuitem-active</td>
                         <td>Active menuitem element.</td>
                     </tr>
@@ -354,12 +354,12 @@ export default {
                         <td>p-submenu-icon</td>
                         <td>Arrow icon of a submenu.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
-		<h5>Dependencies</h5>
-		<p>None.</p>
+        <h5>Dependencies</h5>
+        <p>None.</p>
     </AppDoc>
 </template>
 
@@ -368,9 +368,9 @@ export default {
     data() {
         return {
             sources: {
-				'options-api': {
-					tabName: 'Options API Source',
-					content: `
+                'options-api': {
+                    tabName: 'Options API Source',
+                    content: `
 		<template>
 		<div>
 			<img alt="logo" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" @contextmenu="onImageRightClick" aria-haspopup="true">
@@ -523,10 +523,10 @@ export default {
 		}
 		<\\/script>
 		`
-					},
-				'composition-api': {
-					tabName: 'Composition API Source',
-					content: `
+                },
+                'composition-api': {
+                    tabName: 'Composition API Source',
+                    content: `
 	<template>
 	<div>
 		<img alt="logo" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" @contextmenu="onImageRightClick" aria-haspopup="true">
@@ -677,12 +677,12 @@ export default {
 	}
 	<\\/script>
 	`
-				},
-				'browser-source': {
-					tabName: 'Browser Source',
-					imports: `<script src="https://unpkg.com/vue-router@4.0.0/dist/vue-router.global.js"><\\/script>
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/vue-router@4.0.0/dist/vue-router.global.js"><\\/script>
 			<script src="https://unpkg.com/primevue@^3/contextmenu/contextmenu.min.js"><\\/script>`,
-					content: `<div id="app">
+                    content: `<div id="app">
 			<img alt="logo" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" @contextmenu="onImageRightClick" aria-haspopup="true">
 			<p-contextmenu ref="menu" :model="items"></p-contextmenu>
 		</div>
@@ -845,9 +845,9 @@ export default {
             .mount("#app");
 		<\\/script>
 	`
-				}
-			}
-        }
+                }
+            }
+        };
     }
-}
+};
 </script>

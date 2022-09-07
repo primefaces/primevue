@@ -25,6 +25,10 @@ export interface PanelProps {
      * Defines the initial state of panel content.
      */
     collapsed?: boolean;
+    /**
+     * Uses to pass the custom value to read for the button inside the component.
+     */
+    toggleButtonProps?: string | undefined;
 }
 
 export interface PanelSlots {
@@ -69,7 +73,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [Panel](https://www.primefaces.org/primevue/showcase/#/panel)
+ * - [Panel](https://www.primefaces.org/primevue/panel)
  *
  */
 export default Panel;

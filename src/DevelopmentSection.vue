@@ -4,14 +4,14 @@
 </template>
 
 <script>
-    export default {
-        data() {
-            return {
-                isProduction: null
-            }
-        },
-        mounted() {
-            this.isProduction = process.env.NODE_ENV === 'production';
-        }
+export default {
+    data() {
+        return {
+            isProduction: null
+        };
+    },
+    mounted() {
+        this.isProduction = process.env.NODE_ENV === 'production';
     }
+};
 </script>

@@ -22,6 +22,12 @@ const SplitterProps = [
         type: "string",
         default: "storage",
         description: 'Defines where a stateful splitter keeps its state, valid values are "session" for sessionStorage and "local" for localStorage.'
+    },
+    {
+        name: "step",
+        type: "number",
+        default: "5",
+        description: "Step factor to increment/decrement the size of the panels while pressing the arrow keys."
     }
 ];
 

@@ -1,30 +1,37 @@
 <template>
     <div class="p-panelmenu p-component">
         <template v-for="(item, index) of model" :key="label(item) + '_' + index">
-            <div v-if="visible(item)"  :class="getPanelClass(item)" :style="item.style">
+            <div v-if="visible(item)" :class="getPanelClass(item)" :style="item.style">
                 <div :class="getHeaderClass(item)" :style="item.style">
                     <template v-if="!$slots.item">
-                        <router-link v-if="item.to && !disabled(item)" :to="item.to" custom v-slot="{navigate, href, isActive, isExactActive}">
-                            <a :href="href" :class="getHeaderLinkClass(item, {isActive, isExactActive})" @click="onItemClick($event, item, navigate)" role="treeitem">
+                        <router-link v-if="item.to && !disabled(item)" :to="item.to" custom v-slot="{ navigate, href, isActive, isExactActive }">
+                            <a :href="href" :class="getHeaderLinkClass(item, { isActive, isExactActive })" @click="onItemClick($event, item, navigate)" role="treeitem">
                                 <span v-if="item.icon" :class="getPanelIcon(item)"></span>
-                                <span class="p-menuitem-text">{{label(item)}}</span>
+                                <span class="p-menuitem-text">{{ label(item) }}</span>
                             </a>
                         </router-link>
-                        <a v-else :href="item.url" :class="getHeaderLinkClass(item)" @click="onItemClick($event, item)" @keydown="onItemKeydown($event, item)" :tabindex="disabled(item) ? null : '0'"
-                            :aria-expanded="isActive(item)" :id="ariaId +'_header_' + index" :aria-controls="ariaId +'_content_' + index">
+                        <a
+                            v-else
+                            :href="item.url"
+                            :class="getHeaderLinkClass(item)"
+                            @click="onItemClick($event, item)"
+                            @keydown="onItemKeydown($event, item)"
+                            :tabindex="disabled(item) ? null : '0'"
+                            :aria-expanded="isActive(item)"
+                            :id="ariaId + '_header_' + index"
+                            :aria-controls="ariaId + '_content_' + index"
+                        >
                             <span v-if="item.items" :class="getPanelToggleIcon(item)"></span>
                             <span v-if="item.icon" :class="getPanelIcon(item)"></span>
-                            <span class="p-menuitem-text">{{label(item)}}</span>
+                            <span class="p-menuitem-text">{{ label(item) }}</span>
                         </a>
                     </template>
                     <component v-else :is="$slots.item" :item="item"></component>
                 </div>
                 <transition name="p-toggleable-content">
-                    <div class="p-toggleable-content" v-show="isActive(item)"
-                        role="region" :id="ariaId +'_content_' + index" :aria-labelledby="ariaId +'_header_' + index">
+                    <div class="p-toggleable-content" v-show="isActive(item)" role="region" :id="ariaId + '_content_' + index" :aria-labelledby="ariaId + '_header_' + index">
                         <div class="p-panelmenu-content" v-if="item.items">
-                            <PanelMenuSub :model="item.items" class="p-panelmenu-root-submenu" :template="$slots.item"
-                                :expandedKeys="expandedKeys" @item-toggle="updateExpandedKeys" :exact="exact" />
+                            <PanelMenuSub :model="item.items" class="p-panelmenu-root-submenu" :template="$slots.item" :expandedKeys="expandedKeys" @item-toggle="updateExpandedKeys" :exact="exact" />
                         </div>
                     </div>
                 </transition>
@@ -35,13 +42,13 @@
 
 <script>
 import PanelMenuSub from './PanelMenuSub.vue';
-import {UniqueComponentId} from 'primevue/utils';
+import { UniqueComponentId } from 'primevue/utils';
 
 export default {
     name: 'PanelMenu',
     emits: ['update:expandedKeys'],
     props: {
-		model: {
+        model: {
             type: Array,
             default: null
         },
@@ -57,7 +64,7 @@ export default {
     data() {
         return {
             activeItem: null
-        }
+        };
     },
     methods: {
         onItemClick(event, item, navigate) {
@@ -77,12 +84,10 @@ export default {
                 });
             }
 
-            if (this.activeItem && this.activeItem === item)
-                this.activeItem = null;
-            else
-                this.activeItem = item;
+            if (this.activeItem && this.activeItem === item) this.activeItem = null;
+            else this.activeItem = item;
 
-            this.updateExpandedKeys({item: item, expanded: this.activeItem != null});
+            this.updateExpandedKeys({ item: item, expanded: this.activeItem != null });
 
             if (item.to && navigate) {
                 navigate(event);
@@ -96,12 +101,10 @@ export default {
         updateExpandedKeys(event) {
             if (this.expandedKeys) {
                 let item = event.item;
-                let _keys = {...this.expandedKeys};
+                let _keys = { ...this.expandedKeys };
 
-                if (event.expanded)
-                    _keys[item.key] = true;
-                else
-                    delete _keys[item.key];
+                if (event.expanded) _keys[item.key] = true;
+                else delete _keys[item.key];
 
                 this.$emit('update:expandedKeys', _keys);
             }
@@ -111,42 +114,45 @@ export default {
         },
         getPanelToggleIcon(item) {
             const active = this.isActive(item);
-            return ['p-panelmenu-icon pi', {'pi-chevron-right': !active,' pi-chevron-down': active}];
+            return ['p-panelmenu-icon pi', { 'pi-chevron-right': !active, ' pi-chevron-down': active }];
         },
         getPanelIcon(item) {
             return ['p-menuitem-icon', item.icon];
         },
         getHeaderLinkClass(item, routerProps) {
-            return ['p-panelmenu-header-link', {
-                'router-link-active': routerProps && routerProps.isActive,
-                'router-link-active-exact': this.exact && routerProps && routerProps.isExactActive
-            }];
+            return [
+                'p-panelmenu-header-link',
+                {
+                    'router-link-active': routerProps && routerProps.isActive,
+                    'router-link-active-exact': this.exact && routerProps && routerProps.isExactActive
+                }
+            ];
         },
         isActive(item) {
             return this.expandedKeys ? this.expandedKeys[item.key] : item === this.activeItem;
         },
         getHeaderClass(item) {
-            return ['p-component p-panelmenu-header', {'p-highlight': this.isActive(item), 'p-disabled': this.disabled(item)}];
+            return ['p-component p-panelmenu-header', { 'p-highlight': this.isActive(item), 'p-disabled': this.disabled(item) }];
         },
         visible(item) {
-            return (typeof item.visible === 'function' ? item.visible() : item.visible !== false);
+            return typeof item.visible === 'function' ? item.visible() : item.visible !== false;
         },
         disabled(item) {
-            return (typeof item.disabled === 'function' ? item.disabled() : item.disabled);
+            return typeof item.disabled === 'function' ? item.disabled() : item.disabled;
         },
         label(item) {
-            return (typeof item.label === 'function' ? item.label() : item.label);
+            return typeof item.label === 'function' ? item.label() : item.label;
         }
     },
     components: {
-        'PanelMenuSub': PanelMenuSub
+        PanelMenuSub: PanelMenuSub
     },
     computed: {
         ariaId() {
             return UniqueComponentId();
         }
     }
-}
+};
 </script>
 
 <style>

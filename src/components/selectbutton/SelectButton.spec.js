@@ -55,3 +55,4 @@ describe("multiple select", () => {
         expect(wrapper.findAll(".p-highlight").length).toBe(3);
     });
 });
+

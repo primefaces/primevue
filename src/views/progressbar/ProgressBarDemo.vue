@@ -17,11 +17,11 @@
                 <ProgressBar :value="value2" :showValue="false" />
 
                 <h5>Indeterminate</h5>
-                <ProgressBar mode="indeterminate" style="height: .5em" />
+                <ProgressBar mode="indeterminate" style="height: 0.5em" />
             </div>
         </div>
 
-        <ProgressBarDoc/>
+        <ProgressBarDoc />
     </div>
 </template>
 
@@ -33,7 +33,7 @@ export default {
         return {
             value1: 0,
             value2: 50
-        }
+        };
     },
     interval: null,
     methods: {
@@ -58,7 +58,7 @@ export default {
         this.endProgress();
     },
     components: {
-        'ProgressBarDoc': ProgressBarDoc
+        ProgressBarDoc: ProgressBarDoc
     }
-}
+};
 </script>

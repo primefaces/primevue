@@ -1,21 +1,21 @@
 <template>
-	<AppDoc name="OrganizationChartDemo" :sources="sources" github="organizationchart/OrganizationChartDemo.vue">
+    <AppDoc name="OrganizationChartDemo" :sources="sources" github="organizationchart/OrganizationChartDemo.vue">
         <h5>Import via Module</h5>
-<pre v-code.script><code>
+        <pre v-code.script><code>
 import OrganizationChart from 'primevue/organizationchart';
 
 </code></pre>
 
         <h5>Import via CDN</h5>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/organizationchart/organizationchart.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-		<h5>Getting Started</h5>
-		<p>OrganizationChart requires an OrganizationChartNode instance as its root value and at least one template to display node content where node instance is passed via slotProps.</p>
-<pre v-code><code><template v-pre>
+        <h5>Getting Started</h5>
+        <p>OrganizationChart requires an OrganizationChartNode instance as its root value and at least one template to display node content where node instance is passed via slotProps.</p>
+        <pre v-code><code><template v-pre>
  &lt;OrganizationChart :value="data"&gt;
     &lt;template #default="slotProps"&gt;
         &lt;span&gt;&#123;&#123;slotProps.node.data.label&#125;&#125;&lt;/span&gt;
@@ -24,7 +24,7 @@ import OrganizationChart from 'primevue/organizationchart';
 </template>
 </code></pre>
 
-<pre v-code.script><code>
+        <pre v-code.script><code>
 export default {
     data() {
         return {
@@ -128,13 +128,12 @@ export default {
         </div>
 
         <h5>Collapsible Nodes</h5>
-        <p>All nodes are expanded by default however they can be expanded and collapsed when <i>collapsible</i> is enabled. The optional <i>collapsedKeys</i> property defines the keys
-            that are collapsed, this property is two-way binding enabled so that user changes or programmatic changes are reflected to the UI.
+        <p>
+            All nodes are expanded by default however they can be expanded and collapsed when <i>collapsible</i> is enabled. The optional <i>collapsedKeys</i> property defines the keys that are collapsed, this property is two-way binding enabled so
+            that user changes or programmatic changes are reflected to the UI.
         </p>
-        <p>Example below displays the root of chart in previous example as collapsed. Notice that the collapsedKeys is a map whose key is the
-            key of the node and value is true.
-        </p>
-<pre v-code><code><template v-pre>
+        <p>Example below displays the root of chart in previous example as collapsed. Notice that the collapsedKeys is a map whose key is the key of the node and value is true.</p>
+        <pre v-code><code><template v-pre>
  &lt;OrganizationChart :value="data" :collapsible="true" :collapsedKeys="collapsedKeys"&gt;
     &lt;template #default="slotProps"&gt;
         &lt;span&gt;&#123;&#123;slotProps.node.data.label&#125;&#125;&lt;/span&gt;
@@ -143,7 +142,7 @@ export default {
 </template>
 </code></pre>
 
-<pre v-code.script><code>
+        <pre v-code.script><code>
 export default {
     data() {
         return {
@@ -190,10 +189,12 @@ export default {
 
 </code></pre>
 
-		<h5>Selection</h5>
-		<p>Selection is enabled by defining the <i>selectionMode</i> to either "single" or "multiple" and specifying the <i>selectionKeys</i> with the v-model directive. Note that
-        selection on a particular node can be disabled if the <i>selectable</i> is false on the node instance.</p>
-<pre v-code><code><template v-pre>
+        <h5>Selection</h5>
+        <p>
+            Selection is enabled by defining the <i>selectionMode</i> to either "single" or "multiple" and specifying the <i>selectionKeys</i> with the v-model directive. Note that selection on a particular node can be disabled if the
+            <i>selectable</i> is false on the node instance.
+        </p>
+        <pre v-code><code><template v-pre>
  &lt;OrganizationChart :value="data" selecionMode="single" v-model:selectionKeys="selectionKeys"&gt;
     &lt;template #default="slotProps"&gt;
         &lt;span&gt;&#123;&#123;slotProps.node.data.label&#125;&#125;&lt;/span&gt;
@@ -202,7 +203,7 @@ export default {
 </template>
 </code></pre>
 
-<pre v-code.script><code>
+        <pre v-code.script><code>
 export default {
     data() {
         return {
@@ -250,7 +251,7 @@ export default {
         <h5>Templating</h5>
         <p>The <i>type</i> property of an OrganizationChartNode is used to map a template to a node. If it is undefined, the default template is used.</p>
 
-<pre v-code><code><template v-pre>
+        <pre v-code><code><template v-pre>
 &lt;OrganizationChart :value="data"&gt;
     &lt;template #person="slotProps"&gt;
         &lt;div class="node-header ui-corner-top"&gt;&#123;&#123;slotProps.node.data.label&#125;&#125;&lt;/div&gt;
@@ -266,7 +267,7 @@ export default {
 </template>
 </code></pre>
 
-<pre v-code.script><code>
+        <pre v-code.script><code>
 export default {
     data() {
         return {
@@ -356,19 +357,19 @@ export default {
 
 </code></pre>
 
-		<h5>Properties</h5>
+        <h5>Properties</h5>
         <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Type</th>
                         <th>Default</th>
                         <th>Description</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>value</td>
                         <td>any</td>
@@ -399,21 +400,21 @@ export default {
                         <td>null</td>
                         <td>A map instance of key-value pairs to represented the collapsed nodes.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
-		<h5>Events</h5>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <h5>Events</h5>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Parameters</th>
                         <th>Description</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>node-select</td>
                         <td>node: Node instance</td>
@@ -434,21 +435,21 @@ export default {
                         <td>node: Node instance</td>
                         <td>Callback to invoke when a node is collapsed.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
-		<h5>Styling</h5>
-		<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <h5>Styling</h5>
+        <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Element</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>p-organizationchart</td>
                         <td>Container element.</td>
@@ -477,12 +478,12 @@ export default {
                         <td>p-organizationchart-line-top</td>
                         <td>Top side line of a node connector.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
-		<h5>Dependencies</h5>
-		<p>None.</p>
+        <h5>Dependencies</h5>
+        <p>None.</p>
     </AppDoc>
 </template>
 
@@ -1150,7 +1151,7 @@ export default {
             </style>`
                 }
             }
-        }
+        };
     }
-}
+};
 </script>

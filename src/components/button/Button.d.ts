@@ -26,6 +26,10 @@ export interface ButtonProps extends ButtonHTMLAttributes {
      */
     iconPos?: ButtonIconPosType;
     /**
+     * Style class of the icon.
+     */
+    iconClass?: string | undefined;
+    /**
      * Value of the badge.
      */
     badge?: string | undefined;
@@ -68,7 +72,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [Button](https://www.primefaces.org/primevue/showcase/#/button)
+ * - [Button](https://www.primefaces.org/primevue/button)
  *
  */
 export default Button;

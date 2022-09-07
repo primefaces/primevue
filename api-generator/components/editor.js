@@ -28,6 +28,12 @@ const EditorProps = [
         type: "any",
         default: "null",
         description: "Inline style of the container."
+    },
+    {
+        name: 'modules',
+        type: 'object',
+        default: 'null',
+        description: 'Modules configuration, see <a href="http://quilljs.com/docs/modules/">here</a> for available options.'
     }
 ];
 
@@ -96,6 +102,17 @@ const EditorEvents = [
                 name: "event.instance",
                 type: "object",
                 description: "Text editor instance."
+            }
+        ]
+    },
+    {
+        name: 'load',
+        description: 'Callback to invoke when the quill modules are loaded.',
+        arguments: [
+            {
+                name: 'event.instance',
+                type: 'any',
+                description: 'Quill instance'
             }
         ]
     }

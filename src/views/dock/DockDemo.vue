@@ -67,11 +67,10 @@
                     <Tree :value="nodes" />
                 </Dialog>
 
-                <Galleria v-model:visible="displayPhotos" :value="images" :responsiveOptions="responsiveOptions" :numVisible="2" containerStyle="width: 400px"
-                    :circular="true" :fullScreen="true" :showThumbnails="false" :showItemNavigators="true">
+                <Galleria v-model:visible="displayPhotos" :value="images" :responsiveOptions="responsiveOptions" :numVisible="2" containerStyle="width: 400px" :circular="true" :fullScreen="true" :showThumbnails="false" :showItemNavigators="true">
                     <template #item="slotProps">
                         <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%" />
-                    </template>    
+                    </template>
                 </Galleria>
             </div>
         </div>
@@ -98,46 +97,46 @@ export default {
             dockItems: [
                 {
                     label: 'Finder',
-                    icon: "demo/images/dock/finder.svg",
+                    icon: 'demo/images/dock/finder.svg',
                     command: () => {
                         this.displayFinder = true;
                     }
                 },
                 {
                     label: 'Terminal',
-                    icon: "demo/images/dock/terminal.svg",
+                    icon: 'demo/images/dock/terminal.svg',
                     command: () => {
                         this.displayTerminal = true;
                     }
                 },
                 {
                     label: 'App Store',
-                    icon: "demo/images/dock/appstore.svg",
+                    icon: 'demo/images/dock/appstore.svg',
                     command: () => {
                         this.$toast.add({ severity: 'error', summary: 'An unexpected error occurred while signing in.', detail: 'UNTRUSTED_CERT_TITLE', group: 'tc', life: 3000 });
                     }
                 },
                 {
                     label: 'Safari',
-                    icon: "demo/images/dock/safari.svg",
+                    icon: 'demo/images/dock/safari.svg',
                     command: () => {
                         this.$toast.add({ severity: 'warn', summary: 'Safari has stopped working', group: 'tc', life: 3000 });
                     }
                 },
                 {
                     label: 'Photos',
-                    icon: "demo/images/dock/photos.svg",
+                    icon: 'demo/images/dock/photos.svg',
                     command: () => {
                         this.displayPhotos = true;
                     }
                 },
                 {
                     label: 'GitHub',
-                    icon: "demo/images/dock/github.svg",
+                    icon: 'demo/images/dock/github.svg'
                 },
                 {
                     label: 'Trash',
-                    icon: "demo/images/dock/trash.png",
+                    icon: 'demo/images/dock/trash.png',
                     command: () => {
                         this.$toast.add({ severity: 'info', summary: 'Empty Trash', life: 3000 });
                     }
@@ -145,20 +144,20 @@ export default {
             ],
             dockBasicItems: [
                 {
-                    label: "Finder",
-                    icon: "demo/images/dock/finder.svg"
+                    label: 'Finder',
+                    icon: 'demo/images/dock/finder.svg'
                 },
                 {
-                    label: "App Store",
-                    icon: "demo/images/dock/appstore.svg"
+                    label: 'App Store',
+                    icon: 'demo/images/dock/appstore.svg'
                 },
                 {
-                    label: "Photos",
-                    icon: "demo/images/dock/photos.svg"
+                    label: 'Photos',
+                    icon: 'demo/images/dock/photos.svg'
                 },
                 {
-                    label: "Trash",
-                    icon: "demo/images/dock/trash.png"
+                    label: 'Trash',
+                    icon: 'demo/images/dock/trash.png'
                 }
             ],
             menubarItems: [
@@ -180,8 +179,7 @@ export default {
                                 {
                                     label: 'Video',
                                     icon: 'pi pi-fw pi-video'
-                                },
-
+                                }
                             ]
                         },
                         {
@@ -215,8 +213,7 @@ export default {
                         {
                             label: 'Justify',
                             icon: 'pi pi-fw pi-align-justify'
-                        },
-
+                        }
                     ]
                 },
                 {
@@ -224,13 +221,11 @@ export default {
                     items: [
                         {
                             label: 'New',
-                            icon: 'pi pi-fw pi-user-plus',
-
+                            icon: 'pi pi-fw pi-user-plus'
                         },
                         {
                             label: 'Delete',
-                            icon: 'pi pi-fw pi-user-minus',
-
+                            icon: 'pi pi-fw pi-user-minus'
                         },
                         {
                             label: 'Search',
@@ -301,7 +296,7 @@ export default {
                     numVisible: 1
                 }
             ]
-        }
+        };
     },
     nodeService: null,
     photoService: null,
@@ -310,8 +305,8 @@ export default {
         this.photoService = new PhotoService();
     },
     mounted() {
-        this.photoService.getImages().then(data => this.images = data);
-        this.nodeService.getTreeNodes().then(data => this.nodes = data);
+        this.photoService.getImages().then((data) => (this.images = data));
+        this.nodeService.getTreeNodes().then((data) => (this.nodes = data));
         TerminalService.on('command', this.commandHandler);
     },
     beforeUnmount() {
@@ -330,30 +325,30 @@ export default {
             let argsIndex = text.indexOf(' ');
             let command = argsIndex !== -1 ? text.substring(0, argsIndex) : text;
 
-            switch(command) {
-                case "date":
+            switch (command) {
+                case 'date':
                     response = 'Today is ' + new Date().toDateString();
                     break;
 
-                case "greet":
+                case 'greet':
                     response = 'Hola ' + text.substring(argsIndex + 1);
                     break;
 
-                case "random":
+                case 'random':
                     response = Math.floor(Math.random() * 100);
                     break;
 
                 default:
-                    response = "Unknown command: " + command;
+                    response = 'Unknown command: ' + command;
             }
 
             TerminalService.emit('response', response);
         }
     },
     components: {
-        'DockDoc': DockDoc
+        DockDoc: DockDoc
     }
-}
+};
 </script>
 
 <style scoped lang="scss">
@@ -383,11 +378,11 @@ export default {
         }
 
         .p-menuitem-link {
-            padding: 0.5rem .75rem;
+            padding: 0.5rem 0.75rem;
         }
 
         .p-menubar-root-list > .p-menuitem > .p-menuitem-link {
-            padding: 0.5rem .75rem;
+            padding: 0.5rem 0.75rem;
 
             > .p-submenu-icon {
                 display: none;
@@ -395,8 +390,9 @@ export default {
         }
 
         .p-menubar-end {
-            span, i {
-                padding: 0 .75rem;
+            span,
+            i {
+                padding: 0 0.75rem;
             }
         }
 

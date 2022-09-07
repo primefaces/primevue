@@ -1,5 +1,5 @@
 <template>
-    <textarea :class="['p-inputtextarea p-inputtext p-component', {'p-filled': filled, 'p-inputtextarea-resizable ': autoResize}]" :value="modelValue" @input="onInput"></textarea>
+    <textarea :class="['p-inputtextarea p-inputtext p-component', { 'p-filled': filled, 'p-inputtextarea-resizable ': autoResize }]" :value="modelValue" @input="onInput"></textarea>
 </template>
 
 <script>
@@ -27,11 +27,10 @@ export default {
             this.$el.style.height = `calc(${style.borderTopWidth} + ${style.borderBottomWidth} + ${this.$el.scrollHeight}px)`;
 
             if (parseFloat(this.$el.style.height) >= parseFloat(this.$el.style.maxHeight)) {
-                this.$el.style.overflowY = "scroll";
+                this.$el.style.overflowY = 'scroll';
                 this.$el.style.height = this.$el.style.maxHeight;
-            }
-            else {
-                this.$el.style.overflow = "hidden";
+            } else {
+                this.$el.style.overflow = 'hidden';
             }
         },
         onInput(event) {
@@ -44,10 +43,10 @@ export default {
     },
     computed: {
         filled() {
-            return (this.modelValue != null && this.modelValue.toString().length > 0)
+            return this.modelValue != null && this.modelValue.toString().length > 0;
         }
     }
-}
+};
 </script>
 
 <style>

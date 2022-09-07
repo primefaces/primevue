@@ -57,7 +57,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [TriStateCheckbox](https://www.primefaces.org/primevue/showcase/#/tristatecheckbox)
+ * - [TriStateCheckbox](https://www.primefaces.org/primevue/tristatecheckbox)
  *
  */
 export default TriStateCheckbox;

@@ -31,12 +31,12 @@
                 <h5>Dynamic Values, Preselection, Value Binding and Disabled Option</h5>
                 <div v-for="category of categories" :key="category.key" class="field-radiobutton">
                     <RadioButton :inputId="category.key" name="category" :value="category.name" v-model="selectedCategory" :disabled="category.key === 'R'" />
-                    <label :for="category.key">{{category.name}}</label>
+                    <label :for="category.key">{{ category.name }}</label>
                 </div>
             </div>
         </div>
 
-        <RadioButtonDoc/>
+        <RadioButtonDoc />
     </div>
 </template>
 
@@ -47,15 +47,20 @@ export default {
     data() {
         return {
             city: null,
-            categories: [{name: 'Accounting', key: 'A'}, {name: 'Marketing', key: 'M'}, {name: 'Production', key: 'P'}, {name: 'Research', key: 'R'}],
+            categories: [
+                { name: 'Accounting', key: 'A' },
+                { name: 'Marketing', key: 'M' },
+                { name: 'Production', key: 'P' },
+                { name: 'Research', key: 'R' }
+            ],
             selectedCategory: null
-        }
+        };
     },
     created() {
         this.selectedCategory = this.categories[1].name;
     },
     components: {
-        'RadioButtonDoc': RadioButtonDoc
+        RadioButtonDoc: RadioButtonDoc
     }
-}
+};
 </script>

@@ -41,11 +41,11 @@
                     </div>
                     <div class="field col-12 md:col-4">
                         <h5 class="mt-3">Size</h5>
-                        <Knob v-model="value8" :size="200"/>
+                        <Knob v-model="value8" :size="200" />
                     </div>
                     <div class="field col-12 md:col-4">
                         <h5 class="mt-3">Color</h5>
-                        <Knob v-model="value9" valueColor="SlateGray" rangeColor="MediumTurquoise"  />
+                        <Knob v-model="value9" valueColor="SlateGray" rangeColor="MediumTurquoise" />
                     </div>
                 </div>
             </div>
@@ -77,10 +77,10 @@ export default {
             value8: 60,
             value9: 50,
             value10: 0
-        }
+        };
     },
     components: {
-        'KnobDoc': KnobDoc
+        KnobDoc: KnobDoc
     }
-}
+};
 </script>

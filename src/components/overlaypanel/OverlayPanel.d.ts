@@ -114,7 +114,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [OverlayPanel](https://www.primefaces.org/primevue/showcase/#/overlaypanel)
+ * - [OverlayPanel](https://www.primefaces.org/primevue/overlaypanel)
  *
  */
 export default OverlayPanel;

@@ -45,3 +45,4 @@ describe("Dialog.vue", () => {
         expect(wrapper.find(".p-dialog-footer").exists()).toBe(false);
     });
 });
+

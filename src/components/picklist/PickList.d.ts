@@ -136,7 +136,7 @@ export interface PickListSlots {
      * Custom source controls start template.
      */
     sourcecontrolsstart: () => VNode[];
-     /**
+    /**
      * Custom source controls end template.
      */
     sourcecontrolsend: () => VNode[];
@@ -215,7 +215,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [PickList](https://www.primefaces.org/primevue/showcase/#/picklist)
+ * - [PickList](https://www.primefaces.org/primevue/picklist)
  *
  */
 export default PickList;

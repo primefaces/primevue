@@ -10,18 +10,15 @@
 
         <div class="content-section implementation">
             <div class="card">
-                <div style="height: 800px">
-                    Scroll down to lazy load an image and the DataTable which initiates a query that is not executed on initial page load to speed up load performance.
-                </div>
+                <div style="height: 800px">Scroll down to lazy load an image and the DataTable which initiates a query that is not executed on initial page load to speed up load performance.</div>
 
-                <DeferredContent @load="onImageLoad">
+                <!-- <DeferredContent @load="onImageLoad">
                     <img src="demo/images/nature/nature4.jpg" alt="Nature"/>
-                </DeferredContent>
+                </DeferredContent> -->
 
-                <div style="height: 500px">
-                </div>
+                <div style="height: 500px"></div>
 
-                <DeferredContent @load="onDataLoad">
+                <DeferredContent @load="onDataLoad" role="region" aria-live="polite" aria-label="Content loaded after page scrolled down">
                     <DataTable :value="products" responsiveLayout="scroll">
                         <Column field="code" header="Code"></Column>
                         <Column field="name" header="Name"></Column>
@@ -44,7 +41,7 @@ export default {
     data() {
         return {
             products: null
-        }
+        };
     },
     productService: null,
     created() {
@@ -52,15 +49,15 @@ export default {
     },
     methods: {
         onImageLoad() {
-            this.$toast.add({severity: 'success', summary: 'Image Initialized', detail: 'Scroll down to load the datatable'});
+            this.$toast.add({ severity: 'success', summary: 'Image Initialized', detail: 'Scroll down to load the datatable' });
         },
         onDataLoad() {
-            this.productService.getProductsSmall().then(data => this.products = data);
-            this.$toast.add({severity: 'success', summary: 'Data Initialized', detail: 'Render Completed'});
+            this.productService.getProductsSmall().then((data) => (this.products = data));
+            this.$toast.add({ severity: 'success', summary: 'Data Initialized', detail: 'Render Completed' });
         }
     },
     components: {
-        'DeferredContentDoc': DeferredContentDoc
+        DeferredContentDoc: DeferredContentDoc
     }
-}
+};
 </script>

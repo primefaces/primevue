@@ -1,6 +1,5 @@
 <template>
-	<RPPDropdown :modelValue="rows" :options="rowsOptions" optionLabel="label" optionValue="value"
-        @update:modelValue="onChange($event)" class="p-paginator-rpp-options" :disabled="disabled"></RPPDropdown>
+    <RPPDropdown :modelValue="rows" :options="rowsOptions" optionLabel="label" optionValue="value" @update:modelValue="onChange($event)" class="p-paginator-rpp-options" :disabled="disabled"></RPPDropdown>
 </template>
 
 <script>
@@ -24,15 +23,15 @@ export default {
         rowsOptions() {
             let opts = [];
             if (this.options) {
-                for(let i= 0; i < this.options.length; i++) {
-                    opts.push({label: String(this.options[i]), value: this.options[i]})
+                for (let i = 0; i < this.options.length; i++) {
+                    opts.push({ label: String(this.options[i]), value: this.options[i] });
                 }
             }
             return opts;
         }
     },
     components: {
-        'RPPDropdown': Dropdown
+        RPPDropdown: Dropdown
     }
-}
+};
 </script>

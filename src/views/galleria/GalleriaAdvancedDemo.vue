@@ -9,24 +9,35 @@
 
         <div class="content-section implementation">
             <div class="card">
-                <Galleria ref="galleria" :value="images" v-model:activeIndex="activeIndex" :numVisible="5" containerStyle="max-width: 640px" :containerClass="galleriaClass"
-                    :showThumbnails="showThumbnails" :showItemNavigators="true" :showItemNavigatorsOnHover="true"
-                    :circular="true" :autoPlay="true" :transitionInterval="3000">
+                <Galleria
+                    ref="galleria"
+                    :value="images"
+                    v-model:activeIndex="activeIndex"
+                    :numVisible="5"
+                    containerStyle="max-width: 640px"
+                    :containerClass="galleriaClass"
+                    :showThumbnails="showThumbnails"
+                    :showItemNavigators="true"
+                    :showItemNavigatorsOnHover="true"
+                    :circular="true"
+                    :autoPlay="true"
+                    :transitionInterval="3000"
+                >
                     <template #item="slotProps">
-                        <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" :style="[{'width': !fullScreen ? '100%' : '', 'display': !fullScreen ? 'block' : ''}]" />
+                        <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" :style="[{ width: !fullScreen ? '100%' : '', display: !fullScreen ? 'block' : '' }]" />
                     </template>
                     <template #thumbnail="slotProps">
                         <div class="grid grid-nogutter justify-content-center">
-                            <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block;" />
+                            <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block" />
                         </div>
                     </template>
                     <template #footer>
                         <div class="custom-galleria-footer">
                             <Button icon="pi pi-list" @click="onThumbnailButtonClick" />
                             <span v-if="images" class="title-container">
-                                <span>{{activeIndex + 1}}/{{images.length}}</span>
-                                <span class="title">{{images[activeIndex].title}}</span>
-                                <span>{{images[activeIndex].alt}}</span>
+                                <span>{{ activeIndex + 1 }}/{{ images.length }}</span>
+                                <span class="title">{{ images[activeIndex].title }}</span>
+                                <span>{{ images[activeIndex].alt }}</span>
                             </span>
                             <Button :icon="fullScreenIcon" @click="toggleFullScreen" class="fullscreen-button" />
                         </div>
@@ -38,7 +49,7 @@
         <div class="content-section documentation">
             <TabView>
                 <TabPanel header="Source">
-<pre v-code><code><template v-pre>
+                    <pre v-code><code><template v-pre>
 &lt;Galleria ref="galleria" :value="images" v-model:activeIndex="activeIndex" :numVisible="5" containerStyle="max-width: 640px" :containerClass="galleriaClass"
     :showThumbnails="showThumbnails" :showItemNavigators="true" :showItemNavigatorsOnHover="true"
     :circular="true" :autoPlay="true" :transitionInterval="3000"&gt;
@@ -65,7 +76,7 @@
 </template>
 </code></pre>
 
-<pre v-code.script><code>
+                    <pre v-code.script><code>
 import PhotoService from '../../service/PhotoService';
 
 export default {
@@ -154,7 +165,7 @@ export default {
 
 </code></pre>
 
-<pre v-code.css><code>
+                    <pre v-code.css><code>
 ::v-deep(.custom-galleria) {
     &.fullscreen {
         display: flex;
@@ -223,7 +234,6 @@ export default {
     </div>
 </template>
 
-
 <script>
 import PhotoService from '../../service/PhotoService';
 
@@ -234,14 +244,14 @@ export default {
             activeIndex: 0,
             showThumbnails: false,
             fullScreen: false
-        }
+        };
     },
     galleriaService: null,
-	created() {
-		this.galleriaService = new PhotoService();
-	},
-	mounted() {
-        this.galleriaService.getImages().then(data => this.images = data);
+    created() {
+        this.galleriaService = new PhotoService();
+    },
+    mounted() {
+        this.galleriaService.getImages().then((data) => (this.images = data));
         this.bindDocumentListeners();
     },
     methods: {
@@ -251,8 +261,7 @@ export default {
         toggleFullScreen() {
             if (this.fullScreen) {
                 this.closeFullScreen();
-            }
-            else {
+            } else {
                 this.openFullScreen();
             }
         },
@@ -263,53 +272,50 @@ export default {
             let elem = this.$refs.galleria.$el;
             if (elem.requestFullscreen) {
                 elem.requestFullscreen();
-            }
-            else if (elem.mozRequestFullScreen) { /* Firefox */
+            } else if (elem.mozRequestFullScreen) {
+                /* Firefox */
                 elem.mozRequestFullScreen();
-            }
-            else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+            } else if (elem.webkitRequestFullscreen) {
+                /* Chrome, Safari & Opera */
                 elem.webkitRequestFullscreen();
-            }
-            else if (elem.msRequestFullscreen) { /* IE/Edge */
+            } else if (elem.msRequestFullscreen) {
+                /* IE/Edge */
                 elem.msRequestFullscreen();
             }
         },
         closeFullScreen() {
             if (document.exitFullscreen) {
                 document.exitFullscreen();
-            }
-            else if (document.mozCancelFullScreen) {
+            } else if (document.mozCancelFullScreen) {
                 document.mozCancelFullScreen();
-            }
-            else if (document.webkitExitFullscreen) {
+            } else if (document.webkitExitFullscreen) {
                 document.webkitExitFullscreen();
-            }
-            else if (document.msExitFullscreen) {
+            } else if (document.msExitFullscreen) {
                 document.msExitFullscreen();
             }
         },
         bindDocumentListeners() {
-            document.addEventListener("fullscreenchange", this.onFullScreenChange);
-            document.addEventListener("mozfullscreenchange", this.onFullScreenChange);
-            document.addEventListener("webkitfullscreenchange", this.onFullScreenChange);
-            document.addEventListener("msfullscreenchange", this.onFullScreenChange);
+            document.addEventListener('fullscreenchange', this.onFullScreenChange);
+            document.addEventListener('mozfullscreenchange', this.onFullScreenChange);
+            document.addEventListener('webkitfullscreenchange', this.onFullScreenChange);
+            document.addEventListener('msfullscreenchange', this.onFullScreenChange);
         },
         unbindDocumentListeners() {
-            document.removeEventListener("fullscreenchange", this.onFullScreenChange);
-            document.removeEventListener("mozfullscreenchange", this.onFullScreenChange);
-            document.removeEventListener("webkitfullscreenchange", this.onFullScreenChange);
-            document.removeEventListener("msfullscreenchange", this.onFullScreenChange);
+            document.removeEventListener('fullscreenchange', this.onFullScreenChange);
+            document.removeEventListener('mozfullscreenchange', this.onFullScreenChange);
+            document.removeEventListener('webkitfullscreenchange', this.onFullScreenChange);
+            document.removeEventListener('msfullscreenchange', this.onFullScreenChange);
         }
     },
     computed: {
         galleriaClass() {
-            return ['custom-galleria', {'fullscreen': this.fullScreen}];
+            return ['custom-galleria', { fullscreen: this.fullScreen }];
         },
         fullScreenIcon() {
             return `pi ${this.fullScreen ? 'pi-window-minimize' : 'pi-window-maximize'}`;
         }
     }
-}
+};
 </script>
 
 <style lang="scss" scoped>
@@ -342,7 +348,7 @@ export default {
     .custom-galleria-footer {
         display: flex;
         align-items: center;
-        background-color: rgba(0, 0, 0, .9);
+        background-color: rgba(0, 0, 0, 0.9);
         color: #ffffff;
 
         > button {
@@ -350,7 +356,7 @@ export default {
             color: #ffffff;
             border: 0 none;
             border-radius: 0;
-            margin: .2rem 0;
+            margin: 0.2rem 0;
 
             &.fullscreen-button {
                 margin-left: auto;
@@ -364,8 +370,8 @@ export default {
 
     .title-container {
         > span {
-            font-size: .9rem;
-            padding-left: .829rem;
+            font-size: 0.9rem;
+            padding-left: 0.829rem;
 
             &.title {
                 font-weight: bold;

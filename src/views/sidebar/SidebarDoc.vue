@@ -1,21 +1,21 @@
 <template>
-	<AppDoc name="SidebarDemo" :sources="sources" github="sidebar/SidebarDemo.vue" >
-		<h5>Import via Module</h5>
-<pre v-code.script><code>
+    <AppDoc name="SidebarDemo" :sources="sources" github="sidebar/SidebarDemo.vue">
+        <h5>Import via Module</h5>
+        <pre v-code.script><code>
 import Sidebar from 'primevue/sidebar';
 
 </code></pre>
 
-		<h5>Import via CDN</h5>
-<pre v-code><code>
+        <h5>Import via CDN</h5>
+        <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/sidebar/sidebar.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-		<h5>Getting Started</h5>
-		<p>Sidebar is used as a container and visibility is controlled with the <i>visible</i> property that requires a v-model two-way binding.</p>
-<pre v-code><code>
+        <h5>Getting Started</h5>
+        <p>Sidebar is used as a container and visibility is controlled with the <i>visible</i> property that requires a v-model two-way binding.</p>
+        <pre v-code><code>
 &lt;Sidebar v-model:visible="visibleLeft"&gt;
 	Content
 &lt;/Sidebar&gt;
@@ -24,46 +24,45 @@ import Sidebar from 'primevue/sidebar';
 
 </code></pre>
 
-		<h5>Position</h5>
-		<p>Sidebar can either be located on the left (default), right, top or bottom of the screen depending on the <i>position</i> property.</p>
-<pre v-code><code>
+        <h5>Position</h5>
+        <p>Sidebar can either be located on the left (default), right, top or bottom of the screen depending on the <i>position</i> property.</p>
+        <pre v-code><code>
 &lt;Sidebar v-model:visible="visibleRight" position="right"&gt;
 	Content
 &lt;/Sidebar&gt;
 
 </code></pre>
 
-		<h5>Size</h5>
-		<p>Sidebar size can be changed using a fixed value or using one of the three predefined ones.</p>
-<pre v-code><code>
+        <h5>Size</h5>
+        <p>Sidebar size can be changed using a fixed value or using one of the three predefined ones.</p>
+        <pre v-code><code>
 &lt;Sidebar v-model:visible="visibleLeft" class="p-sidebar-sm"&gt;&lt;/Sidebar&gt;
 &lt;Sidebar v-model:visible="visibleLeft" class="p-sidebar-md"&gt;&lt;/Sidebar&gt;
 &lt;Sidebar v-model:visible="visibleLeft" class="p-sidebar-lg"&gt;&lt;/Sidebar&gt;
 
 </code></pre>
 
-		<h5>Full Screen</h5>
-		<p>Full screen mode allows the sidebar to cover whole screen.</p>
-<pre v-code><code>
+        <h5>Full Screen</h5>
+        <p>Full screen mode allows the sidebar to cover whole screen.</p>
+        <pre v-code><code>
 &lt;Sidebar v-model:visible="visibleFull" position="full"&gt;
 	Content
 &lt;/Sidebar&gt;
 
 </code></pre>
 
-
-		<h5>Properties</h5>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <h5>Properties</h5>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Type</th>
                         <th>Default</th>
                         <th>Description</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>visible</td>
                         <td>boolean</td>
@@ -112,129 +111,129 @@ import Sidebar from 'primevue/sidebar';
                         <td>close</td>
                         <td>Aria label of the close icon.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
-		<h5>Events</h5>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
-				<tr>
-					<th>Name</th>
-					<th>Parameters</th>
-					<th>Description</th>
-				</tr>
-				</thead>
-				<tbody>
-				<tr>
-					<td>hide</td>
-					<td>-</td>
-					<td>Callback to invoke when sidebar gets hidden.</td>
-				</tr>
-				<tr>
-					<td>show</td>
-					<td>-</td>
-					<td>Callback to invoke when sidebar gets shown.</td>
-				</tr>
-				</tbody>
-			</table>
-		</div>
-
-		<h5>Slots</h5>
-		<div class="doc-tablewrapper">
+        <h5>Events</h5>
+        <div class="doc-tablewrapper">
             <table class="doc-table">
-				<thead>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Parameters</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>hide</td>
+                        <td>-</td>
+                        <td>Callback to invoke when sidebar gets hidden.</td>
+                    </tr>
+                    <tr>
+                        <td>show</td>
+                        <td>-</td>
+                        <td>Callback to invoke when sidebar gets shown.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h5>Slots</h5>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Parameters</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>header</td>
                         <td>-</td>
                     </tr>
-				</tbody>
-			</table>
+                </tbody>
+            </table>
         </div>
 
-		<h5>Styling</h5>
-		<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
-				<tr>
-					<th>Name</th>
-					<th>Element</th>
-				</tr>
-				</thead>
-				<tbody>
-				<tr>
-					<td>p-sidebar</td>
-					<td>Container element</td>
-				</tr>
-				<tr>
-					<td>p-sidebar-left</td>
-					<td>Container element of left sidebar.</td>
-				</tr>
-				<tr>
-					<td>p-sidebar-right</td>
-					<td>Container element of right sidebar.</td>
-				</tr>
-				<tr>
-					<td>p-sidebar-top</td>
-					<td>Container element of top sidebar.</td>
-				</tr>
-				<tr>
-					<td>p-sidebar-bottom</td>
-					<td>Container element of bottom sidebar.</td>
-				</tr>
-				<tr>
-					<td>p-sidebar-full</td>
-					<td>Container element of a full screen sidebar.</td>
-				</tr>
-				<tr>
-					<td>p-sidebar-active</td>
-					<td>Container element when sidebar is visible.</td>
-				</tr>
-				<tr>
-					<td>p-sidebar-close</td>
-					<td>Close anchor element.</td>
-				</tr>
-				<tr>
-					<td>p-sidebar-sm</td>
-					<td>Small sized sidebar.</td>
-				</tr>
-				<tr>
-					<td>p-sidebar-md</td>
-					<td>Medium sized sidebar.</td>
-				</tr>
-				<tr>
-					<td>p-sidebar-lg</td>
-					<td>Large sized sidebar.</td>
-				</tr>
-				<tr>
-					<td>p-sidebar-mask</td>
-					<td>Modal layer of the sidebar.</td>
-				</tr>
-				</tbody>
-			</table>
-		</div>
+        <h5>Styling</h5>
+        <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Element</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>p-sidebar</td>
+                        <td>Container element</td>
+                    </tr>
+                    <tr>
+                        <td>p-sidebar-left</td>
+                        <td>Container element of left sidebar.</td>
+                    </tr>
+                    <tr>
+                        <td>p-sidebar-right</td>
+                        <td>Container element of right sidebar.</td>
+                    </tr>
+                    <tr>
+                        <td>p-sidebar-top</td>
+                        <td>Container element of top sidebar.</td>
+                    </tr>
+                    <tr>
+                        <td>p-sidebar-bottom</td>
+                        <td>Container element of bottom sidebar.</td>
+                    </tr>
+                    <tr>
+                        <td>p-sidebar-full</td>
+                        <td>Container element of a full screen sidebar.</td>
+                    </tr>
+                    <tr>
+                        <td>p-sidebar-active</td>
+                        <td>Container element when sidebar is visible.</td>
+                    </tr>
+                    <tr>
+                        <td>p-sidebar-close</td>
+                        <td>Close anchor element.</td>
+                    </tr>
+                    <tr>
+                        <td>p-sidebar-sm</td>
+                        <td>Small sized sidebar.</td>
+                    </tr>
+                    <tr>
+                        <td>p-sidebar-md</td>
+                        <td>Medium sized sidebar.</td>
+                    </tr>
+                    <tr>
+                        <td>p-sidebar-lg</td>
+                        <td>Large sized sidebar.</td>
+                    </tr>
+                    <tr>
+                        <td>p-sidebar-mask</td>
+                        <td>Modal layer of the sidebar.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-		<h5>Dependencies</h5>
-		<p>None.</p>
-	</AppDoc>
+        <h5>Dependencies</h5>
+        <p>None.</p>
+    </AppDoc>
 </template>
 
 <script>
 export default {
-	data() {
-		return {
-			sources: {
-				'options-api': {
-					tabName: 'Options API Source',
-					content: `
+    data() {
+        return {
+            sources: {
+                'options-api': {
+                    tabName: 'Options API Source',
+                    content: `
 <template>
     <div>
         <Button icon="pi pi-arrow-right" @click="visibleLeft = true" class="mr-2" />
@@ -279,10 +278,10 @@ export default {
 }
 <\\/script>
 `
-				},
-				'composition-api': {
-					tabName: 'Composition API Source',
-					content: `
+                },
+                'composition-api': {
+                    tabName: 'Composition API Source',
+                    content: `
 <template>
     <div>
         <Button icon="pi pi-arrow-right" @click="visibleLeft = true" class="mr-2" />
@@ -329,11 +328,11 @@ export default {
 }
 <\\/script>
 `
-				},
-				'browser-source': {
-					tabName: 'Browser Source',
-					imports: `<script src="https://unpkg.com/primevue@^3/sidebar/sidebar.min.js"><\\/script>`,
-					content: `<div id="app">
+                },
+                'browser-source': {
+                    tabName: 'Browser Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/sidebar/sidebar.min.js"><\\/script>`,
+                    content: `<div id="app">
 			<p-button icon="pi pi-arrow-right" @click="visibleLeft = true" class="mr-2"></p-button>
 			<p-button icon="pi pi-arrow-left" @click="visibleRight = true" class="mr-2"></p-button>
 			<p-button icon="pi pi-arrow-down" @click="visibleTop = true" class="mr-2"></p-button>
@@ -385,9 +384,9 @@ export default {
             .mount("#app");
 		<\\/script>
 `
-				}
-			}
-		}
-	}
-}
+                }
+            }
+        };
+    }
+};
 </script>

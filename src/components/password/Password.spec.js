@@ -65,3 +65,4 @@ describe("Password.vue", () => {
         expect(wrapper.find(".pi.pi-eye-slash").exists()).toBe(true);
     });
 });
+

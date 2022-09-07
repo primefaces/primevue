@@ -59,7 +59,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [Inplace](https://www.primefaces.org/primevue/showcase/#/inplace)
+ * - [Inplace](https://www.primefaces.org/primevue/inplace)
  *
  */
 export default Inplace;

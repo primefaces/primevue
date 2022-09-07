@@ -1,9 +1,9 @@
 <template>
     <div role="progressbar" :class="containerClass" aria-valuemin="0" :aria-valuenow="value" aria-valuemax="100">
         <div v-if="determinate" class="p-progressbar-value p-progressbar-value-animate" :style="progressStyle">
-          <div v-if="(value != null && value !== 0) && showValue" class="p-progressbar-label">
-              <slot>{{value + '%'}}</slot>
-          </div>
+            <div v-if="value != null && value !== 0 && showValue" class="p-progressbar-label">
+                <slot>{{ value + '%' }}</slot>
+            </div>
         </div>
         <div v-if="indeterminate" class="p-progressbar-indeterminate-container">
             <div class="p-progressbar-value p-progressbar-value-animate"></div>
@@ -51,7 +51,7 @@ export default {
             return this.mode === 'determinate';
         }
     }
-}
+};
 </script>
 
 <style>
@@ -81,15 +81,15 @@ export default {
 }
 
 .p-progressbar-indeterminate .p-progressbar-value::before {
-      content: '';
-      position: absolute;
-      background-color: inherit;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      will-change: left, right;
-      -webkit-animation: p-progressbar-indeterminate-anim 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
-              animation: p-progressbar-indeterminate-anim 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
+    content: '';
+    position: absolute;
+    background-color: inherit;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    will-change: left, right;
+    -webkit-animation: p-progressbar-indeterminate-anim 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
+    animation: p-progressbar-indeterminate-anim 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
 }
 
 .p-progressbar-indeterminate .p-progressbar-value::after {
@@ -101,54 +101,66 @@ export default {
     bottom: 0;
     will-change: left, right;
     -webkit-animation: p-progressbar-indeterminate-anim-short 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
-            animation: p-progressbar-indeterminate-anim-short 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+    animation: p-progressbar-indeterminate-anim-short 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
     -webkit-animation-delay: 1.15s;
-            animation-delay: 1.15s;
+    animation-delay: 1.15s;
 }
 
 @-webkit-keyframes p-progressbar-indeterminate-anim {
-  0% {
-    left: -35%;
-    right: 100%; }
-  60% {
-    left: 100%;
-    right: -90%; }
-  100% {
-    left: 100%;
-    right: -90%; }
+    0% {
+        left: -35%;
+        right: 100%;
+    }
+    60% {
+        left: 100%;
+        right: -90%;
+    }
+    100% {
+        left: 100%;
+        right: -90%;
+    }
 }
 @keyframes p-progressbar-indeterminate-anim {
-  0% {
-    left: -35%;
-    right: 100%; }
-  60% {
-    left: 100%;
-    right: -90%; }
-  100% {
-    left: 100%;
-    right: -90%; }
+    0% {
+        left: -35%;
+        right: 100%;
+    }
+    60% {
+        left: 100%;
+        right: -90%;
+    }
+    100% {
+        left: 100%;
+        right: -90%;
+    }
 }
 
 @-webkit-keyframes p-progressbar-indeterminate-anim-short {
-  0% {
-    left: -200%;
-    right: 100%; }
-  60% {
-    left: 107%;
-    right: -8%; }
-  100% {
-    left: 107%;
-    right: -8%; }
+    0% {
+        left: -200%;
+        right: 100%;
+    }
+    60% {
+        left: 107%;
+        right: -8%;
+    }
+    100% {
+        left: 107%;
+        right: -8%;
+    }
 }
 @keyframes p-progressbar-indeterminate-anim-short {
-  0% {
-    left: -200%;
-    right: 100%; }
-  60% {
-    left: 107%;
-    right: -8%; }
-  100% {
-    left: 107%;
-    right: -8%; }
+    0% {
+        left: -200%;
+        right: 100%;
+    }
+    60% {
+        left: 107%;
+        right: -8%;
+    }
+    100% {
+        left: 107%;
+        right: -8%;
+    }
 }
 </style>

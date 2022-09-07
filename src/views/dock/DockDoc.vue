@@ -1,13 +1,13 @@
 <template>
     <AppDoc name="DockDemo" :sources="sources" github="dock/DockDemo.vue" :service="['NodeService', 'PhotoService']" :data="['treenodes', 'photos']">
         <h5>Import via Module</h5>
-<pre v-code.script><code>
+        <pre v-code.script><code>
 import Dock from 'primevue/dock';
 
 </code></pre>
 
         <h5>Import via CDN</h5>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/slider/slider.min.js"&gt;&lt;/script&gt;
 
@@ -16,12 +16,12 @@ import Dock from 'primevue/dock';
         <h5>Getting Started</h5>
         <p>Dock is a navigation component consisting of menuitems. It has a collection of additional options defined by the <i>model</i> property.</p>
 
-<pre v-code><code>
+        <pre v-code><code>
 &lt;Dock :model="items" /&gt;
 
 </code></pre>
 
-<pre v-code.script><code><template>
+        <pre v-code.script><code><template>
     export default {
         data() {
             return {
@@ -135,7 +135,7 @@ import Dock from 'primevue/dock';
 
         <h5>Slots</h5>
         <div class="doc-tablewrapper">
-            <table class=doc-table>
+            <table class="doc-table">
                 <thead>
                     <tr>
                         <th>Name</th>
@@ -157,7 +157,6 @@ import Dock from 'primevue/dock';
 
         <h5>Dependencies</h5>
         <p>None.</p>
-
     </AppDoc>
 </template>
 
@@ -1463,7 +1462,7 @@ export default {
 `
                 }
             }
-        }
+        };
     }
-}
+};
 </script>

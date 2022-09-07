@@ -1,32 +1,32 @@
 <template>
-	<AppDoc name="MessageDemo" :sources="sources" github="message/MessageDemo.vue">
+    <AppDoc name="MessageDemo" :sources="sources" github="message/MessageDemo.vue">
         <h5>Import via Module</h5>
-<pre v-code.script><code>
+        <pre v-code.script><code>
 import Message from 'primevue/message';
 
 </code></pre>
 
         <h5>Import via CDN</h5>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-		<h5>Getting Started</h5>
-		<p>Message component requires a content to display.</p>
-<pre v-code><code>
+        <h5>Getting Started</h5>
+        <p>Message component requires a content to display.</p>
+        <pre v-code><code>
 &lt;Message&gt;Welcome to PrimeVue&lt;/Message&gt;
 
 </code></pre>
 
         <p>Multiple messages can be displayed using the standard v-for directive.</p>
 
-<pre v-code><code><template v-pre>
+        <pre v-code><code><template v-pre>
 &lt;Message v-for="msg of messages" :severity="msg.severity" :key="msg.content"&gt;{{msg.content}}&lt;/Message&gt;
 </template>
 </code></pre>
 
-<pre v-code.script><code>
+        <pre v-code.script><code>
 data() {
 	return {
 		messages: [
@@ -39,57 +39,58 @@ data() {
 
 </code></pre>
 
-		<h5>Severities</h5>
-		<p>There are four possible values for the severity of a message. Default one is "info".</p>
+        <h5>Severities</h5>
+        <p>There are four possible values for the severity of a message. Default one is "info".</p>
 
-		<ul>
-			<li>success</li>
-			<li>info</li>
-			<li>warn</li>
-			<li>error</li>
-		</ul>
+        <ul>
+            <li>success</li>
+            <li>info</li>
+            <li>warn</li>
+            <li>error</li>
+        </ul>
 
-		<h5>Closable</h5>
-		<p>Messages are closable by default resulting in a close icon being displayed on top right corner. In order to disable closable messages, set <i>closable</i> to false.</p>
-<pre v-code><code>
+        <h5>Closable</h5>
+        <p>Messages are closable by default resulting in a close icon being displayed on top right corner. In order to disable closable messages, set <i>closable</i> to false.</p>
+        <pre v-code><code>
 &lt;Message severity="success" :closable="false"&gt;Order Submitted&lt;/Message&gt;
 
 </code></pre>
 
-		<h5>Sticky</h5>
-		<p>Messages are sticky by default, if you require them to be cleared automatically, disable <i>sticky</i> property and optionally configure the <i>life</i> property to specify how long the message
-        should be displayed which is 3000 ms by default.</p>
-<pre v-code><code>
+        <h5>Sticky</h5>
+        <p>
+            Messages are sticky by default, if you require them to be cleared automatically, disable <i>sticky</i> property and optionally configure the <i>life</i> property to specify how long the message should be displayed which is 3000 ms by
+            default.
+        </p>
+        <pre v-code><code>
 &lt;Message severity="warn" :life="5000" :sticky="false"&gt;This message will hide in 5 seconds.&lt;/Message&gt;
 
 </code></pre>
 
-		<h5>Inline Message Component</h5>
-<pre v-code.script><code>
+        <h5>Inline Message Component</h5>
+        <pre v-code.script><code>
 import InlineMessage from 'primevue/inlinemessage';
 
 </code></pre>
 
-		<p>InlineMessage component is useful in cases where a single message needs to be displayed related to an element such as forms. It has one property, <i>severity</i> of the message.</p>
-<pre v-code><code>
+        <p>InlineMessage component is useful in cases where a single message needs to be displayed related to an element such as forms. It has one property, <i>severity</i> of the message.</p>
+        <pre v-code><code>
 &lt;InputText placeholder="Username" class="p-invalid" /&gt;
 &lt;InlineMessage&gt;Field is required&lt;/InlineMessage&gt;
 
 </code></pre>
 
-
-		<h5>Properties of Message</h5>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <h5>Properties of Message</h5>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Type</th>
                         <th>Default</th>
                         <th>Description</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>severity</td>
                         <td>string</td>
@@ -120,43 +121,43 @@ import InlineMessage from 'primevue/inlinemessage';
                         <td>null</td>
                         <td>Display a custom icon for the message.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
         <h5>Properties of InlineMessage</h5>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Type</th>
                         <th>Default</th>
                         <th>Description</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>severity</td>
                         <td>string</td>
                         <td>error</td>
                         <td>Severity level of the message.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
         <h5>Events of Message</h5>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Parameters</th>
                         <th>Description</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>close</td>
                         <td>event: Browser event</td>
@@ -166,19 +167,19 @@ import InlineMessage from 'primevue/inlinemessage';
             </table>
         </div>
 
-		<h5>Styling</h5>
-		<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
+        <h5>Styling</h5>
+        <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
 
         <strong>Message</strong>
         <div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Element</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>p-message</td>
                         <td>Container element.</td>
@@ -211,20 +212,20 @@ import InlineMessage from 'primevue/inlinemessage';
                         <td>p-message-text</td>
                         <td>Content of a message.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
         <strong>InlineMessage</strong>
         <div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Element</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>p-inline-message</td>
                         <td>Container element.</td>
@@ -253,12 +254,12 @@ import InlineMessage from 'primevue/inlinemessage';
                         <td>p-inline-message-text</td>
                         <td>Content of a message.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
-		<h5>Dependencies</h5>
-		<p>None.</p>
+        <h5>Dependencies</h5>
+        <p>None.</p>
     </AppDoc>
 </template>
 
@@ -519,7 +520,7 @@ button.p-button {
         </style>`
                 }
             }
-        }
+        };
     }
-}
+};
 </script>

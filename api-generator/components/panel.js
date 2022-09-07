@@ -16,6 +16,12 @@ const PanelProps = [
         type: "boolean",
         default: "null",
         description: "Defines the initial state of panel content."
+    },
+    {
+        name: "toggleButtonProps",
+        type: "string",
+        default: "null",
+        description: "Uses to pass the custom value to read for the anchor inside the component."
     }
 ];
 

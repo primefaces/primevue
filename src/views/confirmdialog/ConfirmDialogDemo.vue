@@ -14,7 +14,7 @@
                 <template #message="slotProps">
                     <div class="flex p-4">
                         <i :class="slotProps.message.icon" style="font-size: 1.5rem"></i>
-                        <p class="pl-2">{{slotProps.message.message}}</p>
+                        <p class="pl-2">{{ slotProps.message.message }}</p>
                     </div>
                 </template>
             </ConfirmDialog>
@@ -63,10 +63,10 @@ export default {
                 header: 'Confirmation',
                 icon: 'pi pi-exclamation-triangle',
                 accept: () => {
-                    this.$toast.add({severity:'info', summary:'Confirmed', detail:'You have accepted', life: 3000});
+                    this.$toast.add({ severity: 'info', summary: 'Confirmed', detail: 'You have accepted', life: 3000 });
                 },
                 reject: () => {
-                    this.$toast.add({severity:'error', summary:'Rejected', detail:'You have rejected', life: 3000});
+                    this.$toast.add({ severity: 'error', summary: 'Rejected', detail: 'You have rejected', life: 3000 });
                 }
             });
         },
@@ -77,10 +77,10 @@ export default {
                 icon: 'pi pi-info-circle',
                 acceptClass: 'p-button-danger',
                 accept: () => {
-                    this.$toast.add({severity:'info', summary:'Confirmed', detail:'Record deleted', life: 3000});
+                    this.$toast.add({ severity: 'info', summary: 'Confirmed', detail: 'Record deleted', life: 3000 });
                 },
                 reject: () => {
-                    this.$toast.add({severity:'error', summary:'Rejected', detail:'You have rejected', life: 3000});
+                    this.$toast.add({ severity: 'error', summary: 'Rejected', detail: 'You have rejected', life: 3000 });
                 }
             });
         },
@@ -92,10 +92,10 @@ export default {
                 icon: 'pi pi-info-circle',
                 position: position,
                 accept: () => {
-                    this.$toast.add({severity:'info', summary:'Confirmed', detail:'Record deleted', life: 3000});
+                    this.$toast.add({ severity: 'info', summary: 'Confirmed', detail: 'Record deleted', life: 3000 });
                 },
                 reject: () => {
-                    this.$toast.add({severity:'error', summary:'Rejected', detail:'You have rejected', life: 3000});
+                    this.$toast.add({ severity: 'error', summary: 'Rejected', detail: 'You have rejected', life: 3000 });
                 }
             });
         },
@@ -108,16 +108,16 @@ export default {
                 acceptIcon: 'pi pi-check',
                 rejectIcon: 'pi pi-times',
                 accept: () => {
-                    this.$toast.add({severity:'info', summary:'Confirmed', detail:'You have accepted', life: 3000});
+                    this.$toast.add({ severity: 'info', summary: 'Confirmed', detail: 'You have accepted', life: 3000 });
                 },
                 reject: () => {
-                    this.$toast.add({severity:'error', summary:'Rejected', detail:'You have rejected', life: 3000});
+                    this.$toast.add({ severity: 'error', summary: 'Rejected', detail: 'You have rejected', life: 3000 });
                 }
             });
         }
     },
     components: {
-        'ConfirmDialogDoc': ConfirmDialogDoc
+        ConfirmDialogDoc: ConfirmDialogDoc
     }
-}
+};
 </script>

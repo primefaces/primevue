@@ -61,3 +61,4 @@ describe("Rating.vue", () => {
         expect(wrapper.find(".p-rating-cancel").exists()).toBe(false);
     });
 });
+

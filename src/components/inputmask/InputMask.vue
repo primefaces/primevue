@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import {DomHandler} from 'primevue/utils';
+import { DomHandler } from 'primevue/utils';
 
 export default {
     name: 'InputMask',
@@ -33,10 +33,8 @@ export default {
     },
     methods: {
         onInput(event) {
-            if (this.androidChrome)
-                this.handleAndroidInput(event);
-            else
-                this.handleInputChange(event);
+            if (this.androidChrome) this.handleAndroidInput(event);
+            else this.handleInputChange(event);
 
             this.$emit('update:modelValue', event.target.value);
         },
@@ -59,14 +57,14 @@ export default {
                     return;
                 }
                 this.writeBuffer();
-                if (pos === this.mask.replace("?", "").length) {
+                if (pos === this.mask.replace('?', '').length) {
                     this.caret(0, pos);
                 } else {
                     this.caret(pos);
                 }
             }, 10);
 
-            this.$emit('focus', event)
+            this.$emit('focus', event);
         },
         onBlur(event) {
             this.focus = false;
@@ -99,7 +97,6 @@ export default {
                 begin = pos.begin;
                 end = pos.end;
 
-
                 if (end - begin === 0) {
                     begin = k !== 46 ? this.seekPrev(begin) : (end = this.seekNext(begin - 1));
                     end = k === 46 ? this.seekNext(end) : end;
@@ -110,10 +107,12 @@ export default {
                 this.updateModel(event);
 
                 event.preventDefault();
-            } else if (k === 13) { // enter
+            } else if (k === 13) {
+                // enter
                 this.$el.blur();
                 this.updateModel(event);
-            } else if (k === 27) { // escape
+            } else if (k === 27) {
+                // escape
                 this.$el.value = this.focusText;
                 this.caret(0, this.checkVal());
                 this.updateModel(event);
@@ -134,7 +133,8 @@ export default {
                 next,
                 completed;
 
-            if (event.ctrlKey || event.altKey || event.metaKey || k < 32) {//Ignore
+            if (event.ctrlKey || event.altKey || event.metaKey || k < 32) {
+                //Ignore
                 return;
             } else if (k && k !== 13) {
                 if (pos.end - pos.begin !== 0) {
@@ -178,7 +178,7 @@ export default {
 
             this.$emit('keypress', event);
         },
-        onPaste(event)  {
+        onPaste(event) {
             this.handleInputChange(event);
 
             this.$emit('paste', event);
@@ -192,24 +192,21 @@ export default {
 
             if (typeof first === 'number') {
                 begin = first;
-                end = (typeof last === 'number') ? last : begin;
+                end = typeof last === 'number' ? last : begin;
                 if (this.$el.setSelectionRange) {
                     this.$el.setSelectionRange(begin, end);
-                }
-                else if (this.$el['createTextRange']) {
+                } else if (this.$el['createTextRange']) {
                     range = this.$el['createTextRange']();
                     range.collapse(true);
                     range.moveEnd('character', end);
                     range.moveStart('character', begin);
                     range.select();
                 }
-            }
-            else {
+            } else {
                 if (this.$el.setSelectionRange) {
                     begin = this.$el.selectionStart;
                     end = this.$el.selectionEnd;
-                }
-                else if (document['selection'] && document['selection'].createRange) {
+                } else if (document['selection'] && document['selection'].createRange) {
                     range = document['selection'].createRange();
                     begin = 0 - range.duplicate().moveStart('character', -100000);
                     end = begin + range.text.length;
@@ -285,17 +282,14 @@ export default {
             if (this.oldVal && this.oldVal.length && this.oldVal.length > curVal.length) {
                 // a deletion or backspace happened
                 this.checkVal(true);
-                while (pos.begin > 0 && !this.tests[pos.begin - 1])
-                    pos.begin--;
+                while (pos.begin > 0 && !this.tests[pos.begin - 1]) pos.begin--;
                 if (pos.begin === 0) {
-                    while (pos.begin < this.firstNonMaskPos && !this.tests[pos.begin])
-                        pos.begin++;
+                    while (pos.begin < this.firstNonMaskPos && !this.tests[pos.begin]) pos.begin++;
                 }
                 this.caret(pos.begin, pos.begin);
             } else {
                 this.checkVal(true);
-                while (pos.begin < this.len && !this.tests[pos.begin])
-                    pos.begin++;
+                while (pos.begin < this.len && !this.tests[pos.begin]) pos.begin++;
 
                 this.caret(pos.begin, pos.begin);
             }
@@ -365,7 +359,7 @@ export default {
                 this.writeBuffer();
                 this.$el.value = this.$el.value.substring(0, lastMatch + 1);
             }
-            return (this.partialPosition ? i : this.firstNonMaskPos);
+            return this.partialPosition ? i : this.firstNonMaskPos;
         },
         handleInputChange(event) {
             if (this.readonly) {
@@ -393,15 +387,14 @@ export default {
         },
         updateModel(e) {
             let val = this.unmask ? this.getUnmaskedValue() : e.target.value;
-            this.$emit('update:modelValue', (this.defaultBuffer !== val) ? val : '');
+            this.$emit('update:modelValue', this.defaultBuffer !== val ? val : '');
         },
         updateValue(updateModel = true) {
             if (this.$el) {
                 if (this.modelValue == null) {
                     this.$el.value = '';
                     updateModel && this.$emit('update:modelValue', '');
-                }
-                else {
+                } else {
                     this.$el.value = this.modelValue;
                     this.checkVal();
 
@@ -412,7 +405,7 @@ export default {
 
                             if (updateModel) {
                                 let val = this.unmask ? this.getUnmaskedValue() : this.$el.value;
-                                this.$emit('update:modelValue', (this.defaultBuffer !== val) ? val : '');
+                                this.$emit('update:modelValue', this.defaultBuffer !== val ? val : '');
                             }
                         }
                     }, 10);
@@ -422,9 +415,7 @@ export default {
             }
         },
         isValueUpdated() {
-            return this.unmask ?
-                        (this.modelValue != this.getUnmaskedValue()) :
-                        (this.defaultBuffer !== this.$el.value && this.$el.value !== this.modelValue);
+            return this.unmask ? this.modelValue != this.getUnmaskedValue() : this.defaultBuffer !== this.$el.value && this.$el.value !== this.modelValue;
         }
     },
     mounted() {
@@ -433,8 +424,8 @@ export default {
         this.len = this.mask.length;
         this.firstNonMaskPos = null;
         this.defs = {
-            '9': '[0-9]',
-            'a': '[A-Za-z]',
+            9: '[0-9]',
+            a: '[A-Za-z]',
             '*': '[A-Za-z0-9]'
         };
 
@@ -447,8 +438,7 @@ export default {
             if (c === '?') {
                 this.len--;
                 this.partialPosition = i;
-            }
-            else if (this.defs[c]) {
+            } else if (this.defs[c]) {
                 this.tests.push(new RegExp(this.defs[c]));
                 if (this.firstNonMaskPos === null) {
                     this.firstNonMaskPos = this.tests.length - 1;
@@ -456,8 +446,7 @@ export default {
                 if (i < this.partialPosition) {
                     this.lastRequiredNonMaskPos = this.tests.length - 1;
                 }
-            }
-            else {
+            } else {
                 this.tests.push(null);
             }
         }
@@ -466,10 +455,8 @@ export default {
         for (let i = 0; i < maskTokens.length; i++) {
             let c = maskTokens[i];
             if (c !== '?') {
-                if (this.defs[c])
-                    this.buffer.push(this.getPlaceholder(i));
-                else
-                    this.buffer.push(c);
+                if (this.defs[c]) this.buffer.push(this.getPlaceholder(i));
+                else this.buffer.push(c);
             }
         }
         this.defaultBuffer = this.buffer.join('');
@@ -482,13 +469,16 @@ export default {
     },
     computed: {
         filled() {
-            return (this.modelValue != null && this.modelValue.toString().length > 0)
+            return this.modelValue != null && this.modelValue.toString().length > 0;
         },
         inputClass() {
-            return ['p-inputmask p-inputtext p-component', {
-                'p-filled': this.filled
-            }];
-        },
+            return [
+                'p-inputmask p-inputtext p-component',
+                {
+                    'p-filled': this.filled
+                }
+            ];
+        }
     }
-}
+};
 </script>

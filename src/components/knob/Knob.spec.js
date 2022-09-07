@@ -1,4 +1,4 @@
-import { mount } from  '@vue/test-utils';
+import { mount } from '@vue/test-utils';
 import Knob from './Knob.vue';
 
 describe('Knob.vue', () => {

@@ -37,7 +37,7 @@ describe("MultiSelect.vue", () => {
     it("should chip work", async () => {
         await wrapper.setProps({
             display: "chip",
-            modelValue: [wrapper.vm.options[0]],
+            modelValue: [wrapper.vm.options[0]] ,
         });
 
         expect(wrapper.find(".p-multiselect-token").exists()).toBe(true);

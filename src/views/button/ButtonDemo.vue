@@ -110,7 +110,7 @@
 
                 <h5>Loading</h5>
                 <Button type="button" label="Search" icon="pi pi-search" :loading="loading[0]" @click="load(0)" />
-                <Button type="button" label="Search" icon="pi pi-search" iconPos="right" :loading="loading[1]" @click="load(1)"  />
+                <Button type="button" label="Search" icon="pi pi-search" iconPos="right" :loading="loading[1]" @click="load(1)" />
                 <Button type="button" icon="pi pi-search" :loading="loading[2]" @click="load(2)" />
                 <Button type="button" label="Search" :loading="loading[3]" @click="load(3)" />
 
@@ -123,8 +123,8 @@
 
                 <h5>Sizes</h5>
                 <div class="sizes">
-                    <Button label="Small" icon="pi pi-check" class="p-button-sm"  />
-                    <Button label="Normal" icon="pi pi-check" class="p-button"  />
+                    <Button label="Small" icon="pi pi-check" class="p-button-sm" />
+                    <Button label="Normal" icon="pi pi-check" class="p-button" />
                     <Button label="Large" icon="pi pi-check" class="p-button-lg" />
                 </div>
 
@@ -166,34 +166,34 @@
             </div>
         </div>
 
-        <ButtonDoc/>
+        <ButtonDoc />
     </div>
 </template>
 
 <script>
-import ButtonDoc from './ButtonDoc'
+import ButtonDoc from './ButtonDoc';
 
 export default {
     data() {
         return {
             loading: [false, false, false]
-        }
+        };
     },
     methods: {
         load(index) {
             this.loading[index] = true;
-            setTimeout(() => this.loading[index] = false, 1000);
+            setTimeout(() => (this.loading[index] = false), 1000);
         }
     },
-	components: {
-		'ButtonDoc': ButtonDoc
+    components: {
+        ButtonDoc: ButtonDoc
     }
-}
+};
 </script>
 
 <style lang="scss" scoped>
 .p-button {
-    margin-right: .5rem;
+    margin-right: 0.5rem;
 }
 
 .p-buttonset {
@@ -204,7 +204,7 @@ export default {
 
 .sizes {
     .button {
-        margin-bottom: .5rem;
+        margin-bottom: 0.5rem;
         display: block;
 
         &:last-child {
@@ -355,7 +355,7 @@ export default {
 
 @media screen and (max-width: 960px) {
     .p-button {
-        margin-bottom: .5rem;
+        margin-bottom: 0.5rem;
 
         &:not(.p-button-icon-only) {
             display: flex;

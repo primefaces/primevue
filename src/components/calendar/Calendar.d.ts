@@ -394,7 +394,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [Calendar](https://www.primefaces.org/primevue/showcase/#/calendar)
+ * - [Calendar](https://www.primefaces.org/primevue/calendar)
  *
  */
 export default Calendar;

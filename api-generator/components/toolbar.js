@@ -1,3 +1,12 @@
+const ToolbarProps = [
+    {
+        name: "aria-labelledby",
+        type: "string",
+        default: "null",
+        description: "Defines a string value that labels an interactive element."
+    }
+];
+
 const ToolbarSlots = [
     {
         name: "start",
@@ -13,6 +22,7 @@ module.exports = {
     toolbar: {
         name: "Toolbar",
         description: "Toolbar is a grouping component for buttons and other content.",
+        props: ToolbarProps,
         slots: ToolbarSlots
     }
 };

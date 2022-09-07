@@ -55,7 +55,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [Divider](https://www.primefaces.org/primevue/showcase/#/divider)
+ * - [Divider](https://www.primefaces.org/primevue/divider)
  *
  */
 export default Divider;

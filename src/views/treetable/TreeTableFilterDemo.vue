@@ -27,12 +27,12 @@
                     </Column>
                     <Column field="size" header="Size">
                         <template #filter>
-                            <InputText type="text" v-model="filters1['size']" class="p-column-filter" placeholder="Filter by size"/>
+                            <InputText type="text" v-model="filters1['size']" class="p-column-filter" placeholder="Filter by size" />
                         </template>
                     </Column>
                     <Column field="type" header="Type">
                         <template #filter>
-                            <InputText type="text" v-model="filters1['type']" class="p-column-filter" placeholder="Filter by type"/>
+                            <InputText type="text" v-model="filters1['type']" class="p-column-filter" placeholder="Filter by type" />
                         </template>
                     </Column>
                 </TreeTable>
@@ -371,21 +371,23 @@ export default {
         </style>`
                 }
             }
-        }
+        };
     },
     nodeService: null,
     created() {
         this.nodeService = new NodeService();
     },
     mounted() {
-        this.nodeService.getTreeTableNodes().then(data => this.nodes = data);
+        this.nodeService.getTreeTableNodes().then((data) => (this.nodes = data));
     }
-}
+};
 </script>
 
 <style scoped lang="scss">
 .p-filter-column {
-    .p-multiselect, .p-dropdown, .p-inputtext {
+    .p-multiselect,
+    .p-dropdown,
+    .p-inputtext {
         width: 100%;
     }
 }

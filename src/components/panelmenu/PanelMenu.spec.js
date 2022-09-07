@@ -21,12 +21,12 @@ describe('PanelMenu', () => {
                             {
                                 key: '2_0',
                                 label: 'New',
-                                icon: 'pi pi-fw pi-user-plus',
+                                icon: 'pi pi-fw pi-user-plus'
                             },
                             {
                                 key: '2_1',
                                 label: 'Delete',
-                                icon: 'pi pi-fw pi-user-minus',
+                                icon: 'pi pi-fw pi-user-minus'
                             },
                             {
                                 key: '2_2',
@@ -76,10 +76,10 @@ describe('PanelMenu', () => {
     });
 
     it('should update expandedKeys', async () => {
-        await wrapper.setProps({ expandedKeys: {'2': true} });
+        await wrapper.setProps({ expandedKeys: { 2: true } });
 
         await wrapper.vm.onItemClick({}, wrapper.vm.model[0].items[2]);
 
-        expect(wrapper.emitted()['update:expandedKeys'][0]).toEqual([{ '2': true, '2_2': true }]);
+        expect(wrapper.emitted()['update:expandedKeys'][0]).toEqual([{ 2: true, '2_2': true }]);
     });
 });

@@ -1,12 +1,11 @@
-import {UniqueComponentId,DomHandler,ConnectedOverlayScrollHandler,ZIndexUtils} from 'primevue/utils';
+import { UniqueComponentId, DomHandler, ObjectUtils, ConnectedOverlayScrollHandler, ZIndexUtils } from 'primevue/utils';
 
 function bindEvents(el) {
     const modifiers = el.$_ptooltipModifiers;
     if (modifiers.focus) {
         el.addEventListener('focus', onFocus);
         el.addEventListener('blur', onBlur);
-    }
-    else {
+    } else {
         el.addEventListener('mouseenter', onMouseEnter);
         el.addEventListener('mouseleave', onMouseLeave);
         el.addEventListener('click', onClick);
@@ -18,8 +17,7 @@ function unbindEvents(el) {
     if (modifiers.focus) {
         el.removeEventListener('focus', onFocus);
         el.removeEventListener('blur', onBlur);
-    }
-    else {
+    } else {
         el.removeEventListener('mouseenter', onMouseEnter);
         el.removeEventListener('mouseleave', onMouseLeave);
         el.removeEventListener('click', onClick);
@@ -28,7 +26,7 @@ function unbindEvents(el) {
 
 function bindScrollListener(el) {
     if (!el.$_ptooltipScrollHandler) {
-        el.$_ptooltipScrollHandler = new ConnectedOverlayScrollHandler(el, function() {
+        el.$_ptooltipScrollHandler = new ConnectedOverlayScrollHandler(el, function () {
             hide(el);
         });
     }
@@ -105,11 +103,9 @@ function create(el) {
     let tooltipText = document.createElement('div');
     tooltipText.className = 'p-tooltip-text';
 
-
     if (el.$_ptooltipEscape) {
         tooltipText.innerHTML = el.$_ptooltipValue;
-    }
-    else {
+    } else {
         tooltipText.innerHTML = '';
         tooltipText.appendChild(document.createTextNode(el.$_ptooltipValue));
     }
@@ -149,8 +145,7 @@ function align(el) {
                 alignTop(el);
             }
         }
-    }
-    else if (modifiers.left) {
+    } else if (modifiers.left) {
         alignLeft(el);
         if (isOutOfBounds(el)) {
             alignRight(el);
@@ -167,8 +162,7 @@ function align(el) {
                 }
             }
         }
-    }
-    else if (modifiers.bottom) {
+    } else if (modifiers.bottom) {
         alignBottom(el);
         if (isOutOfBounds(el)) {
             alignTop(el);
@@ -177,8 +171,7 @@ function align(el) {
                 alignBottom(el);
             }
         }
-    }
-    else {
+    } else {
         alignRight(el);
         if (isOutOfBounds(el)) {
             alignLeft(el);
@@ -203,7 +196,7 @@ function getHostOffset(el) {
     let targetLeft = offset.left + DomHandler.getWindowScrollLeft();
     let targetTop = offset.top + DomHandler.getWindowScrollTop();
 
-    return {left: targetLeft, top: targetTop};
+    return { left: targetLeft, top: targetTop };
 }
 
 function alignRight(el) {
@@ -250,7 +243,7 @@ function preAlign(el, position) {
     let tooltipElement = getTooltipElement(el);
     tooltipElement.style.left = -999 + 'px';
     tooltipElement.style.top = -999 + 'px';
-    tooltipElement.className = `p-tooltip p-component p-tooltip-${position} ${el.$_ptooltipClass||''}`;
+    tooltipElement.className = `p-tooltip p-component p-tooltip-${position} ${el.$_ptooltipClass || ''}`;
 }
 
 function isOutOfBounds(el) {
@@ -262,11 +255,11 @@ function isOutOfBounds(el) {
     let height = DomHandler.getOuterHeight(tooltipElement);
     let viewport = DomHandler.getViewport();
 
-    return (targetLeft + width > viewport.width) || (targetLeft < 0) || (targetTop < 0) || (targetTop + height > viewport.height);
+    return targetLeft + width > viewport.width || targetLeft < 0 || targetTop < 0 || targetTop + height > viewport.height;
 }
 
 function getTarget(el) {
-    return DomHandler.hasClass(el, 'p-inputwrapper') ? DomHandler.findSingle(el, 'input'): el;
+    return DomHandler.hasClass(el, 'p-inputwrapper') ? DomHandler.findSingle(el, 'input') : el;
 }
 
 function getModifiers(options) {
@@ -298,9 +291,8 @@ const Tooltip = {
             target.$_ptooltipEscape = false;
             target.$_ptooltipClass = null;
             target.$_ptooltipFitContent = true;
-        }
-        else if (typeof options.value === 'object' && options.value) {
-            if (options.value.value === undefined || options.value.value === null || options.value.value.trim() === '') return;
+        } else if (typeof options.value === 'object' && options.value) {
+            if (ObjectUtils.isEmpty(options.value.value)) return;
             else {
                 /* eslint-disable */
                 target.$_ptooltipValue = options.value.value;
@@ -336,9 +328,8 @@ const Tooltip = {
             target.$_ptooltipDisabled = false;
             target.$_ptooltipEscape = false;
             target.$_ptooltipClass = null;
-        }
-        else if (typeof options.value === 'object' && options.value) {
-            if (options.value.value === undefined || options.value.value === null || options.value.value.trim() === '') return;
+        } else if (typeof options.value === 'object' && options.value) {
+            if (ObjectUtils.isEmpty(options.value.value)) return;
             else {
                 /* eslint-disable */
                 target.$_ptooltipValue = options.value.value;

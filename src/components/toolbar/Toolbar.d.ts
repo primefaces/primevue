@@ -2,6 +2,10 @@ import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export interface ToolbarProps {
+    /**
+     * Defines a string value that labels an interactive element.
+     */
+    "aria-labelledby"?: string | undefined;
 }
 
 export interface ToolbarSlots {
@@ -32,7 +36,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [Toolbar](https://www.primefaces.org/primevue/showcase/#/toolbar)
+ * - [Toolbar](https://www.primefaces.org/primevue/toolbar)
  *
  */
 export default Toolbar;

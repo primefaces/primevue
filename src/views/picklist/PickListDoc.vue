@@ -1,22 +1,21 @@
 <template>
-	<AppDoc name="PickListDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="picklist/PickListDemo.vue" >
+    <AppDoc name="PickListDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="picklist/PickListDemo.vue">
         <h5>Import via Module</h5>
-<pre v-code.script><code>
+        <pre v-code.script><code>
 import PickList from 'primevue/picklist';
 
 </code></pre>
 
         <h5>Import via CDN</h5>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/picklist/picklist.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-		<h5>Getting Started</h5>
-        <p>PickList requires a multidimensional array as its value bound with the v-model directive and a template for its content
-            that gets the <i>item</i> instance and the <i>index</i> via slotProps.</p>
-<pre v-code><code><template v-pre>
+        <h5>Getting Started</h5>
+        <p>PickList requires a multidimensional array as its value bound with the v-model directive and a template for its content that gets the <i>item</i> instance and the <i>index</i> via slotProps.</p>
+        <pre v-code><code><template v-pre>
 &lt;PickList v-model="cars" dataKey="vin"&gt;
     &lt;template #item="slotProps"&gt;
         &lt;div class="p-caritem"&gt;
@@ -32,10 +31,11 @@ import PickList from 'primevue/picklist';
 </code></pre>
 
         <h5>Templates</h5>
-        <p>In addition to the mandatory "item" template, picklist provides "sourceheader" and "targetheader" slots to define content
-        at header sections. Similarly custom content can be placed before and after the button controls for each section can be templates. View
-        the slots section for more information.</p>
-<pre v-code><code><template v-pre>
+        <p>
+            In addition to the mandatory "item" template, picklist provides "sourceheader" and "targetheader" slots to define content at header sections. Similarly custom content can be placed before and after the button controls for each section can
+            be templates. View the slots section for more information.
+        </p>
+        <pre v-code><code><template v-pre>
 &lt;PickList v-model="cars" dataKey="vin"&gt;
     &lt;template #sourceheader&gt;
         Available
@@ -57,11 +57,12 @@ import PickList from 'primevue/picklist';
 </code></pre>
 
         <h5>Selection</h5>
-        <p>In case you need to access the selected items in the list, define a binding to the <i>selection</i> property with the v-model directive so that
-        it gets updated when the user makes a selection. Since it is two-way binding enabled, your changes to the selection will be reflected as well.  Note that
-        this is optional and only necessary when you need to access the selection.</p>
+        <p>
+            In case you need to access the selected items in the list, define a binding to the <i>selection</i> property with the v-model directive so that it gets updated when the user makes a selection. Since it is two-way binding enabled, your
+            changes to the selection will be reflected as well. Note that this is optional and only necessary when you need to access the selection.
+        </p>
 
-<pre v-code><code><template v-pre>
+        <pre v-code><code><template v-pre>
 &lt;PickList v-model="cars" dataKey="vin" v-model:selection="selection"&gt;
     &lt;template #item="slotProps"&gt;
         &lt;div class="p-caritem"&gt;
@@ -79,19 +80,19 @@ import PickList from 'primevue/picklist';
         <h5>DataKey</h5>
         <p>It is recommended to provide the name of the field that uniquely identifies the a record in the data via the <i>dataKey</i> property for better performance.</p>
 
-		<h5>Properties</h5>
+        <h5>Properties</h5>
         <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Type</th>
                         <th>Default</th>
                         <th>Description</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>modelValue</td>
                         <td>array</td>
@@ -108,10 +109,11 @@ import PickList from 'primevue/picklist';
                         <td>metaKeySelection</td>
                         <td>boolean</td>
                         <td>true</td>
-                        <td>Defines whether metaKey is requred or not for the selection. <br/>
-                            When true metaKey needs to be pressed to select or unselect an item and <br/>
-                            when set to false selection of each item
-                            can be toggled individually. On touch enabled devices, metaKeySelection is turned off automatically.</td>
+                        <td>
+                            Defines whether metaKey is requred or not for the selection. <br />
+                            When true metaKey needs to be pressed to select or unselect an item and <br />
+                            when set to false selection of each item can be toggled individually. On touch enabled devices, metaKeySelection is turned off automatically.
+                        </td>
                     </tr>
                     <tr>
                         <td>dataKey</td>
@@ -155,24 +157,25 @@ import PickList from 'primevue/picklist';
                         <td>true</td>
                         <td>Whether to show buttons of target list.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
-		<h5>Events</h5>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <h5>Events</h5>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Parameters</th>
                         <th>Description</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>reorder</td>
-                        <td>event.originalEvent: browser event <br />
+                        <td>
+                            event.originalEvent: browser event <br />
                             event.value: Ordered list <br />
                             event.direction: Direction of the change; "up", "down", "bottom", "top" <br />
                             event.listIndex: Index of the list that is ordered, 0 represents the source and 1 represents the target list.
@@ -181,60 +184,68 @@ import PickList from 'primevue/picklist';
                     </tr>
                     <tr>
                         <td>move-to-target</td>
-                        <td>event.originalEvent: browser event <br />
+                        <td>
+                            event.originalEvent: browser event <br />
                             event.items: Moved items
                         </td>
                         <td>Callback to invoke when one or more items are moved to the target list.</td>
                     </tr>
                     <tr>
                         <td>move-all-to-target</td>
-                        <td>event.originalEvent: browser event <br />
+                        <td>
+                            event.originalEvent: browser event <br />
                             event.items: Moved items
                         </td>
                         <td>Callback to invoke when all items are moved to the target list.</td>
                     </tr>
                     <tr>
                         <td>move-to-source</td>
-                        <td>event.originalEvent: browser event <br />
+                        <td>
+                            event.originalEvent: browser event <br />
                             event.items: Moved items
                         </td>
                         <td>Callback to invoke when one or more items are moved to the source list.</td>
                     </tr>
                     <tr>
                         <td>move-all-to-source</td>
-                        <td>event.originalEvent: browser event <br />
+                        <td>
+                            event.originalEvent: browser event <br />
                             event.items: Moved items
                         </td>
                         <td>Callback to invoke when all items are moved to the source list.</td>
                     </tr>
                     <tr>
                         <td>selection-change</td>
-                        <td>event.originalEvent: browser event <br />
-                            event.value: Selected item</td>
+                        <td>
+                            event.originalEvent: browser event <br />
+                            event.value: Selected item
+                        </td>
                         <td>Callback to invoke when one or more items are moved to the other list.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
         <h5>Slots</h5>
-		<div class="doc-tablewrapper">
+        <div class="doc-tablewrapper">
             <table class="doc-table">
-				<thead>
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Parameters</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>header</td>
                         <td>-</td>
                     </tr>
                     <tr>
                         <td>item</td>
-                        <td>item: Item of the component<br />
-                            index: Index of the item</td>
+                        <td>
+                            item: Item of the component<br />
+                            index: Index of the item
+                        </td>
                     </tr>
                     <tr>
                         <td>sourceheader</td>
@@ -248,7 +259,7 @@ import PickList from 'primevue/picklist';
                         <td>sourcecontrolsstart</td>
                         <td>-</td>
                     </tr>
-                     <tr>
+                    <tr>
                         <td>sourcecontrolsend</td>
                         <td>-</td>
                     </tr>
@@ -268,21 +279,21 @@ import PickList from 'primevue/picklist';
                         <td>targetcontrolsend</td>
                         <td>-</td>
                     </tr>
-				</tbody>
-			</table>
+                </tbody>
+            </table>
         </div>
 
-		<h5>Styling</h5>
-		<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <h5>Styling</h5>
+        <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Element</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>p-picklist</td>
                         <td>Container element.</td>
@@ -312,11 +323,11 @@ import PickList from 'primevue/picklist';
                         <td>An item in the list.</td>
                     </tr>
                 </tbody>
-			</table>
-		</div>
+            </table>
+        </div>
 
-		<h5>Dependencies</h5>
-		<p>None.</p>
+        <h5>Dependencies</h5>
+        <p>None.</p>
     </AppDoc>
 </template>
 
@@ -639,7 +650,7 @@ export default {
 </style>`
                 }
             }
-        }
+        };
     }
-}
+};
 </script>

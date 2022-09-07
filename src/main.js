@@ -1,5 +1,5 @@
-import {createApp} from 'vue';
-import {reactive} from 'vue';
+import { createApp } from 'vue';
+import { reactive } from 'vue';
 import router from './router';
 import AppWrapper from './AppWrapper.vue';
 import PrimeVue from './components/config/PrimeVue';
@@ -126,9 +126,9 @@ router.beforeEach(function (to, from, next) {
 
 const app = createApp(AppWrapper);
 
-app.config.globalProperties.$appState = reactive({theme: 'lara-light-blue', darkTheme: false, codeSandbox: false, sourceType: 'options-api', newsActive: process.env.NODE_ENV === 'production', announcement: {}});
+app.config.globalProperties.$appState = reactive({ theme: 'lara-light-blue', darkTheme: false, codeSandbox: false, sourceType: 'options-api', newsActive: process.env.NODE_ENV === 'production', announcement: {} });
 
-app.use(PrimeVue, {ripple: true});
+app.use(PrimeVue, { ripple: true });
 app.use(ToastService);
 app.use(ConfirmationService);
 app.use(DialogService);

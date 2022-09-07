@@ -1,25 +1,25 @@
 <template>
-	<AppDoc name="DropdownDemo" :sources="sources" github="dropdown/DropdownDemo.vue">
+    <AppDoc name="DropdownDemo" :sources="sources" github="dropdown/DropdownDemo.vue">
         <h5>Import via Module</h5>
-<pre v-code.script><code>
+        <pre v-code.script><code>
 import Dropdown from 'primevue/dropdown';
 
 </code></pre>
 
         <h5>Import via CDN</h5>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-		<h5>Getting Started</h5>
-		<p>Dropdown requires a value to bind and a collection of arbitrary objects along with the <i>optionLabel</i> property to specify the label property of the option.</p>
-<pre v-code><code>
+        <h5>Getting Started</h5>
+        <p>Dropdown requires a value to bind and a collection of arbitrary objects along with the <i>optionLabel</i> property to specify the label property of the option.</p>
+        <pre v-code><code>
 &lt;Dropdown v-model="selectedCity" :options="cities" optionLabel="name" placeholder="Select a City" /&gt;
 
 </code></pre>
 
-<pre v-code.script><code>
+        <pre v-code.script><code>
 data() {
 	return {
 		selectedCity: null,
@@ -35,12 +35,12 @@ data() {
 
 </code></pre>
 
-		<h5>Placeholder</h5>
-		<p>Common pattern is providing an empty option as the placeholder when using native selects, however Dropdown has built-in support using the placeholder option so it is suggested to use it instead of creating an empty option.</p>
+        <h5>Placeholder</h5>
+        <p>Common pattern is providing an empty option as the placeholder when using native selects, however Dropdown has built-in support using the placeholder option so it is suggested to use it instead of creating an empty option.</p>
 
         <h5>Grouping</h5>
-		<p>Options groups are specified with the <i>optionGroupLabel</i> and <i>optionGroupChildren</i> properties.</p>
-<pre v-code.script><code>
+        <p>Options groups are specified with the <i>optionGroupLabel</i> and <i>optionGroupChildren</i> properties.</p>
+        <pre v-code.script><code>
 export default {
     data() {
         return {
@@ -77,27 +77,30 @@ export default {
 }
 </code></pre>
 
-<pre v-code><code><template v-pre>
+        <pre v-code><code><template v-pre>
 &lt;Dropdown v-model="selectedGroupedCity" :options="groupedCities"
         optionLabel="label" optionGroupLabel="label" optionGroupChildren="items"&gt;
 &lt;/Dropdown&gt;
 </template>
 </code></pre>
 
-		<h5>Filtering</h5>
-		<p>Filtering allows searching items in the list using an input field at the header. In order to use filtering, enable <i>filter</i> property. By default,
-        optionLabel is used when searching and <i>filterFields</i> can be used to customize the fields being utilized. Furthermore, <i>filterMatchMode</i> is available
-        to define the search algorithm. Valid values are "contains" (default), "startsWith" and "endsWith".</p>
+        <h5>Filtering</h5>
+        <p>
+            Filtering allows searching items in the list using an input field at the header. In order to use filtering, enable <i>filter</i> property. By default, optionLabel is used when searching and <i>filterFields</i> can be used to customize the
+            fields being utilized. Furthermore, <i>filterMatchMode</i> is available to define the search algorithm. Valid values are "contains" (default), "startsWith" and "endsWith".
+        </p>
 
-<pre v-code><code>
+        <pre v-code><code>
 &lt;Dropdown v-model="selectedCar" :options="cars" optionLabel="brand" placeholder="Select a Car" :filter="true" filterPlaceholder="Find Car"/&gt;
 
 </code></pre>
 
-		<h5>Templating</h5>
-		<p>Label of an option is used as the display text of an item by default, for custom content support define an <i>option</i> template that gets the option instance as a parameter.
-        In addition <i>value</i>, <i>optiongroup</i>, <i>header</i>, <i>footer</i>, <i>emptyfilter</i> and <i>empty</i> slots are provided for further customization.</p>
-<pre v-code><code><template v-pre>
+        <h5>Templating</h5>
+        <p>
+            Label of an option is used as the display text of an item by default, for custom content support define an <i>option</i> template that gets the option instance as a parameter. In addition <i>value</i>, <i>optiongroup</i>, <i>header</i>,
+            <i>footer</i>, <i>emptyfilter</i> and <i>empty</i> slots are provided for further customization.
+        </p>
+        <pre v-code><code><template v-pre>
 &lt;Dropdown v-model="selectedCar" :options="cars" optionLabel="brand" :filter="true" placeholder="Select a Car" :showClear="true"&gt;
     &lt;template #value="slotProps"&gt;
         &lt;div class="p-dropdown-car-value" v-if="slotProps.value"&gt;
@@ -118,19 +121,19 @@ export default {
 </template>
 </code></pre>
 
-		<h5>Properties</h5>
+        <h5>Properties</h5>
         <p>Any property of HTMLDivElement are passed to the main container element. Following are the additional properties to configure the component.</p>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Type</th>
                         <th>Default</th>
                         <th>Description</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>modelValue</td>
                         <td>any</td>
@@ -297,8 +300,7 @@ export default {
                         <td>appendTo</td>
                         <td>string</td>
                         <td>body</td>
-                        <td>A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are "body" for document body
-                        and "self" for the element itself.</td>
+                        <td>A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are "body" for document body and "self" for the element itself.</td>
                     </tr>
                     <tr>
                         <td>loading</td>
@@ -313,6 +315,12 @@ export default {
                         <td>Icon to display in loading state.</td>
                     </tr>
                     <tr>
+                        <td>resetFilterOnHide</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>Clears the filter value when hiding the dropdown.</td>
+                    </tr>
+                    <tr>
                         <td>virtualScrollerOptions</td>
                         <td>object</td>
                         <td>null</td>
@@ -323,6 +331,18 @@ export default {
                         <td>boolean</td>
                         <td>true</td>
                         <td>Whether to focus on the first visible or selected element when the overlay panel is shown.</td>
+                    </tr>
+                    <tr>
+                        <td>autoFilterFocus</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>Whether to focus on the filter element when the overlay panel is shown.</td>
+                    </tr>
+                    <tr>
+                        <td>selectOnFocus</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>When enabled, the focused option is selected.</td>
                     </tr>
                     <tr>
                         <td>filterMessage</td>
@@ -372,25 +392,27 @@ export default {
                         <td>null</td>
                         <td>Establishes relationships between the component and label(s) where its value should be one or more element IDs.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
-		<h5>Events</h5>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <h5>Events</h5>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Parameters</th>
                         <th>Description</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>change</td>
-                        <td>event.originalEvent: Original event <br />
-                            event.value: Selected option value </td>
+                        <td>
+                            event.originalEvent: Original event <br />
+                            event.value: Selected option value
+                        </td>
                         <td>Callback to invoke on value change.</td>
                     </tr>
                     <tr>
@@ -425,25 +447,27 @@ export default {
                     </tr>
                     <tr>
                         <td>filter</td>
-                        <td>event.originalEvent: Original event <br />
-                            event.value: Filter value </td>
+                        <td>
+                            event.originalEvent: Original event <br />
+                            event.value: Filter value
+                        </td>
                         <td>Callback to invoke on filter input.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
         <h5>Methods</h5>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Parameters</th>
                         <th>Description</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>show</td>
                         <td>isFocus: Decides whether to focus on the component. Default value is false.</td>
@@ -454,24 +478,26 @@ export default {
                         <td>isFocus: Decides whether to focus on the component. Default value is false.</td>
                         <td>Hides the overlay.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
         <h5>Slots</h5>
-		<div class="doc-tablewrapper">
+        <div class="doc-tablewrapper">
             <table class="doc-table">
-				<thead>
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Parameters</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>value</td>
-                        <td>value: Value of the component <br />
-                            placeholder: Placeholder prop value</td>
+                        <td>
+                            value: Value of the component <br />
+                            placeholder: Placeholder prop value
+                        </td>
                     </tr>
                     <tr>
                         <td>indicator</td>
@@ -479,23 +505,31 @@ export default {
                     </tr>
                     <tr>
                         <td>header</td>
-                        <td>value: Value of the component <br />
-                            options: Displayed options</td>
+                        <td>
+                            value: Value of the component <br />
+                            options: Displayed options
+                        </td>
                     </tr>
                     <tr>
                         <td>footer</td>
-                        <td>value: Value of the component <br />
-                            options: Displayed options</td>
+                        <td>
+                            value: Value of the component <br />
+                            options: Displayed options
+                        </td>
                     </tr>
                     <tr>
                         <td>option</td>
-                        <td>option: Option instance <br />
-                            index: Index of the option</td>
+                        <td>
+                            option: Option instance <br />
+                            index: Index of the option
+                        </td>
                     </tr>
                     <tr>
                         <td>optiongroup</td>
-                        <td>option: OptionGroup instance <br />
-                            index: Index of the option group</td>
+                        <td>
+                            option: OptionGroup instance <br />
+                            index: Index of the option group
+                        </td>
                     </tr>
                     <tr>
                         <td>emptyfilter</td>
@@ -507,30 +541,32 @@ export default {
                     </tr>
                     <tr>
                         <td>content</td>
-                        <td>items: An array of objects to display for virtualscroller<br />
+                        <td>
+                            items: An array of objects to display for virtualscroller<br />
                             styleClass: Style class of the component<br />
                             contentRef: Referance of the content<br />
-                            getItemOptions: Options of the items</td>
+                            getItemOptions: Options of the items
+                        </td>
                     </tr>
                     <tr>
                         <td>loader</td>
                         <td>options: Options of the loader items for virtualscroller</td>
                     </tr>
-				</tbody>
-			</table>
+                </tbody>
+            </table>
         </div>
 
-		<h5>Styling</h5>
-		<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <h5>Styling</h5>
+        <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Element</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>p-dropdown</td>
                         <td>Container element.</td>
@@ -571,20 +607,24 @@ export default {
                         <td>p-overlay-open</td>
                         <td>Container element when overlay is visible.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
         <h5>Accessibility</h5>
         <h6>Screen Reader</h6>
-        <p>Value to describe the component can either be provided with <i>aria-labelledby</i> or <i>aria-label</i> props. The dropdown element has a <i>combobox</i> role
-        in addition to <i>aria-haspopup</i> and <i>aria-expanded</i> attributes. If the editable option is enabled <i>aria-autocomplete</i> is also added.
-        The relation between the combobox and the popup is created with <i>aria-controls</i> and <i>aria-activedescendant</i> attribute is used
-        to instruct screen reader which option to read during keyboard navigation within the popup list.</p>
-        <p>The popup list has an id that refers to the <i>aria-controls</i> attribute of the <i>combobox</i> element and uses <i>listbox</i> as the role. Each list item has an <i>option</i> role, an id to match the <i>aria-activedescendant</i> of the input element along with <i>aria-label</i>, <i>aria-selected</i> and <i>aria-disabled</i> attributes.</p>
+        <p>
+            Value to describe the component can either be provided with <i>aria-labelledby</i> or <i>aria-label</i> props. The dropdown element has a <i>combobox</i> role in addition to <i>aria-haspopup</i> and <i>aria-expanded</i> attributes. If the
+            editable option is enabled <i>aria-autocomplete</i> is also added. The relation between the combobox and the popup is created with <i>aria-controls</i> and <i>aria-activedescendant</i> attribute is used to instruct screen reader which
+            option to read during keyboard navigation within the popup list.
+        </p>
+        <p>
+            The popup list has an id that refers to the <i>aria-controls</i> attribute of the <i>combobox</i> element and uses <i>listbox</i> as the role. Each list item has an <i>option</i> role, an id to match the <i>aria-activedescendant</i> of
+            the input element along with <i>aria-label</i>, <i>aria-selected</i> and <i>aria-disabled</i> attributes.
+        </p>
 
         <p>If filtering is enabled, <i>filterInputProps</i> can be defined to give <i>aria-*</i> props to the filter input element.</p>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;span id="dd1"&gt;Options&lt;/span&gt;
 &lt;Dropdown aria-labelledby="dd1" /&gt;
 
@@ -754,8 +794,8 @@ export default {
             </table>
         </div>
 
-		<h5>Dependencies</h5>
-		<p>None.</p>
+        <h5>Dependencies</h5>
+        <p>None.</p>
     </AppDoc>
 </template>
 
@@ -1250,7 +1290,7 @@ export default {
         </style>`
                 }
             }
-        }
+        };
     }
-}
+};
 </script>

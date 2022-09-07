@@ -57,7 +57,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [Skeleton](https://www.primefaces.org/primevue/showcase/#/skeleton)
+ * - [Skeleton](https://www.primefaces.org/primevue/skeleton)
  *
  */
 export default Skeleton;

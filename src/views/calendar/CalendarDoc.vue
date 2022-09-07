@@ -1,13 +1,13 @@
 <template>
-	<AppDoc name="CalendarDemo" :sources="sources" github="calendar/CalendarDemo.vue">
+    <AppDoc name="CalendarDemo" :sources="sources" github="calendar/CalendarDemo.vue">
         <h5>Import via Module</h5>
-<pre v-code.script><code>
+        <pre v-code.script><code>
 import Calendar from 'primevue/calendar';
 
 </code></pre>
 
         <h5>Import via CDN</h5>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/calendar/calendar.min.js"&gt;&lt;/script&gt;
 
@@ -16,12 +16,12 @@ import Calendar from 'primevue/calendar';
         <h5>Getting Started</h5>
         <p>Two-way value binding is defined using the standard v-model directive referencing to a Date property.</p>
 
-<pre v-code><code>
+        <pre v-code><code>
 &lt;Calendar v-model="value" /&gt;
 
 </code></pre>
 
-<pre v-code.script><code>
+        <pre v-code.script><code>
 export default {
     data() {
         return {
@@ -34,18 +34,18 @@ export default {
 
         <h5>Popup and Inline</h5>
         <p>Calendar is displayed in a popup by default and <i>inline</i> property needs to be enabled for inline mode.</p>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;Calendar v-model="value" :inline="true" /&gt;
 
 </code></pre>
 
         <h5>Selection Mode</h5>
-        <p>By default calendar allows selecting one date only whereas multiple dates can be selected by setting <i>selectionMode</i> to multiple. In this
-        case calendar updates the value with an array of dates where optionally number of selectable dates can be restricted with maxDateCount property.
-        Third alternative is the range mode that allows selecting a range based on an array of two values where first value is the start date and second value
-        is the end date.</p>
+        <p>
+            By default calendar allows selecting one date only whereas multiple dates can be selected by setting <i>selectionMode</i> to multiple. In this case calendar updates the value with an array of dates where optionally number of selectable
+            dates can be restricted with maxDateCount property. Third alternative is the range mode that allows selecting a range based on an array of two values where first value is the start date and second value is the end date.
+        </p>
 
-<pre v-code><code>
+        <pre v-code><code>
 &lt;Calendar v-model="value" selectionMode="single || multiple || range" /&gt;
 
 </code></pre>
@@ -53,7 +53,7 @@ export default {
         <h5>DateFormat</h5>
         <p>Default date format is mm/dd/yy, to customize this use <i>dateFormat</i> property or define it at <router-link to="/locale">PrimeVue Locale</router-link> globally. Note that standalone property overrides the value in locale settings.</p>
 
-<pre v-code><code>
+        <pre v-code><code>
 &lt;Calendar v-model="value" dateFormat="dd.mm.yy" /&gt;
 
 </code></pre>
@@ -73,17 +73,15 @@ export default {
             <li>y - year (two digit)</li>
             <li>yy - year (four digit)</li>
             <li>@ - Unix timestamp (ms since 01/01/1970)</li>
-            <li> ! - Windows ticks (100ns since 01/01/0001)</li>
+            <li>! - Windows ticks (100ns since 01/01/0001)</li>
             <li>'...' - literal text</li>
             <li>'' - single quote</li>
             <li>anything else - literal text</li>
         </ul>
 
         <h5>Time</h5>
-        <p>TimePicker is enabled with <i>showTime</i> property and 24 (default) or 12 hour mode is configured using <i>hourFormat</i> option. If you
-            need to use the time picker as standalone, use the <i>timeOnly</i> property.
-        </p>
-<pre v-code><code>
+        <p>TimePicker is enabled with <i>showTime</i> property and 24 (default) or 12 hour mode is configured using <i>hourFormat</i> option. If you need to use the time picker as standalone, use the <i>timeOnly</i> property.</p>
+        <pre v-code><code>
 &lt;Calendar v-model="value" :showTime="true" /&gt;
 &lt;Calendar v-model="value" :showTime="true" hourFormat="12" /&gt;
 &lt;Calendar v-model="value" :showTime="true" :timeOnly="true" /&gt;
@@ -91,29 +89,28 @@ export default {
 </code></pre>
 
         <h5>Date Restriction</h5>
-        <p>To disable entering dates manually, set <i>manualInput</i> to false and to restrict selectable dates with the <i>minDate</i>
-            and <i>maxDate</i> options.</p>
-<pre v-code><code>
+        <p>To disable entering dates manually, set <i>manualInput</i> to false and to restrict selectable dates with the <i>minDate</i> and <i>maxDate</i> options.</p>
+        <pre v-code><code>
 &lt;Calendar v-model="value" :minDate="minDateValue" maxDate="maxDateValue" /&gt;
 
 </code></pre>
 
         <p>To disable specific dates or days, restrict selectable dates use <i>disabledDates</i> and/or <i>disabledDays</i> options.</p>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;Calendar v-model="value" :disabledDates="invalidDates" :disabledDays="[0,6]" /&gt;
 
 </code></pre>
 
         <h5>Button Bar</h5>
         <p>Button bar displays today and clear buttons and enabled using <i>showButtonBar</i> property.</p>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;Calendar v-model="value" :showButtonBar="true" /&gt;
 
 </code></pre>
 
         <h5>Multiple Months</h5>
         <p>Displaying multiple months is enabled by setting <i>numberOfMonths</i> property to a value greater than 1.</p>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;Calendar v-model="value" :numberOfMonths="3" /&gt;
 
 </code></pre>
@@ -124,7 +121,7 @@ export default {
         <h5>Custom Content</h5>
         <p>Calendar UI accepts custom content using header and footer templates.</p>
 
-<pre v-code><code>
+        <pre v-code><code>
 &lt;Calendar v-model="value"&gt;
     &lt;template #header&gt;Header Content&lt;/template&gt;
     &lt;template #footer&gt;Footer Content&lt;/template&gt;
@@ -132,11 +129,12 @@ export default {
 
 </code></pre>
 
-        <p>In addition, cell contents can be templated using a template named "date". This is a handy feature to highlight specific dates. Note that the date property of the slot props
-        passed to the template is not a date instance but a metadata object to represent a Date with "day", "month" and "year" properties. Example below
-        changes the background color of dates between 10th and 15th of each month.</p>
+        <p>
+            In addition, cell contents can be templated using a template named "date". This is a handy feature to highlight specific dates. Note that the date property of the slot props passed to the template is not a date instance but a metadata
+            object to represent a Date with "day", "month" and "year" properties. Example below changes the background color of dates between 10th and 15th of each month.
+        </p>
 
-<pre v-code><code><template v-pre>
+        <pre v-code><code><template v-pre>
 &lt;Calendar v-model="value"&gt;
     &lt;template #date="slotProps"&gt;
         &lt;strong v-if="slotProps.date.day &gt; 10 && slotProps.date.day &lt; 15" class="special-day"&gt;{{slotProps.date.day}}&lt;/strong&gt;
@@ -146,7 +144,7 @@ export default {
 </template>
 </code></pre>
 
-<pre v-code.css><code>
+        <pre v-code.css><code>
 .special-day {
     text-decoration: line-through;
 }
@@ -155,21 +153,21 @@ export default {
 
         <h5>Month Picker</h5>
         <p>Month picker is used to select month and year only without the date, set <i>view</i> mode as "month" to activate month picker.</p>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;Calendar v-model="value" view="month" dateFormat="mm/yy" /&gt;
 
 </code></pre>
 
         <h5>Year Picker</h5>
         <p>Similar to the month picker, year picker can be used to select years only. Set <i>view</i> to "year" to display the year picker.</p>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;Calendar v-model="value" view="year" dateFormat="yy" /&gt;
 
 </code></pre>
 
         <h5>Touch UI</h5>
         <p>Touch UI mode displays the calendar overlay at the center of the screen as optimized for touch devices.</p>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;Calendar v-model="value" :touchUI="true" /&gt;
 
 </code></pre>
@@ -179,12 +177,12 @@ export default {
         <div class="doc-tablewrapper">
             <table class="doc-table">
                 <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Type</th>
-                    <th>Default</th>
-                    <th>Description</th>
-                </tr>
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Default</th>
+                        <th>Description</th>
+                    </tr>
                 </thead>
                 <tbody>
                     <tr>
@@ -275,20 +273,30 @@ export default {
                         <td style="text-decoration: line-through">monthNavigator</td>
                         <td>boolean</td>
                         <td>false</td>
-                        <td>Whether the month should be rendered as a dropdown instead of text. <br /> <br />  <b> Deprecated: </b> Navigator is always on</td>
+                        <td>
+                            Whether the month should be rendered as a dropdown instead of text. <br />
+                            <br />
+                            <b> Deprecated: </b> Navigator is always on
+                        </td>
                     </tr>
                     <tr>
                         <td style="text-decoration: line-through">yearNavigator</td>
                         <td>boolean</td>
                         <td>false</td>
-                        <td>Whether the year should be rendered as a dropdown instead of text. <br /> <br /> <b> Deprecated: </b> Navigator is always on.</td>
+                        <td>
+                            Whether the year should be rendered as a dropdown instead of text. <br />
+                            <br />
+                            <b> Deprecated: </b> Navigator is always on.
+                        </td>
                     </tr>
                     <tr>
                         <td style="text-decoration: line-through">yearRange</td>
                         <td>string</td>
                         <td>null</td>
-                        <td>The range of years displayed in the year drop-down in (nnnn:nnnn) format such as (2000:2020). <br><br>
-                        <b> Deprecated: </b> Years are based on decades by default.</td>
+                        <td>
+                            The range of years displayed in the year drop-down in (nnnn:nnnn) format such as (2000:2020). <br /><br />
+                            <b> Deprecated: </b> Years are based on decades by default.
+                        </td>
                     </tr>
                     <tr>
                         <td>minDate</td>
@@ -426,8 +434,7 @@ export default {
                         <td>appendTo</td>
                         <td>string</td>
                         <td>body</td>
-                        <td>A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are "body" for document body
-                        and "self" for the element itself.</td>
+                        <td>A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are "body" for document body and "self" for the element itself.</td>
                     </tr>
                     <tr>
                         <td>disabled</td>
@@ -543,14 +550,16 @@ export default {
                     </tr>
                     <tr>
                         <td>month-change</td>
-                        <td>event.month: New month <br />
+                        <td>
+                            event.month: New month <br />
                             event.year: New year
                         </td>
                         <td>Callback to invoke when a month is changed using the navigators.</td>
                     </tr>
                     <tr>
                         <td>year-change</td>
-                        <td>event.month: New month <br />
+                        <td>
+                            event.month: New month <br />
                             event.year: New year
                         </td>
                         <td>Callback to invoke when a year is changed using the navigators.</td>
@@ -562,7 +571,8 @@ export default {
                     </tr>
                     <tr>
                         <td>blur</td>
-                        <td>event.originalEvent: Blur event <br />
+                        <td>
+                            event.originalEvent: Blur event <br />
                             event.value: Input value
                         </td>
                         <td>Callback to invoke on blur of input field.</td>
@@ -577,15 +587,15 @@ export default {
         </div>
 
         <h5>Slots</h5>
-		<div class="doc-tablewrapper">
+        <div class="doc-tablewrapper">
             <table class="doc-table">
-				<thead>
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Parameters</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>header</td>
                         <td>-</td>
@@ -600,11 +610,10 @@ export default {
                     </tr>
                     <tr>
                         <td>decade</td>
-                        <td>years: An array containing the start and and year of a decade
-                        to display at header of the year picker</td>
+                        <td>years: An array containing the start and and year of a decade to display at header of the year picker</td>
                     </tr>
-				</tbody>
-			</table>
+                </tbody>
+            </table>
         </div>
 
         <h5>Styling</h5>
@@ -672,23 +681,34 @@ export default {
 
         <h5>Accessibility</h5>
         <h6>Screen Reader</h6>
-        <p>Value to describe the component can either be provided via <i>label</i> tag combined with <i>inputId</i> prop or using <i>aria-labelledby</i>, <i>aria-label</i> props. The input element has <i>combobox</i> role
-        in addition to <i>aria-autocomplete</i> as "none", <i>aria-haspopup</i> as "dialog" and <i>aria-expanded</i> attributes. The relation between the input and the popup is created with <i>aria-controls</i> attribute that refers to the id of the popup.</p>
-        <p>The optional calendar button requires includes <i>aria-haspopup</i>, <i>aria-expanded</i> for states along with <i>aria-controls</i> to define the relation between the popup and the button. The value to read is retrieved from the <i>chooseDate</i>
-        key of the aria property from the <router-link to="/locale">locale</router-link> API. This label is also used for the <i>aria-label</i> of the popup as well. When there is a value selected, it is formatted and appended to the label to be able to notify users
-        about the current value.</p>
+        <p>
+            Value to describe the component can either be provided via <i>label</i> tag combined with <i>inputId</i> prop or using <i>aria-labelledby</i>, <i>aria-label</i> props. The input element has <i>combobox</i> role in addition to
+            <i>aria-autocomplete</i> as "none", <i>aria-haspopup</i> as "dialog" and <i>aria-expanded</i> attributes. The relation between the input and the popup is created with <i>aria-controls</i> attribute that refers to the id of the popup.
+        </p>
+        <p>
+            The optional calendar button requires includes <i>aria-haspopup</i>, <i>aria-expanded</i> for states along with <i>aria-controls</i> to define the relation between the popup and the button. The value to read is retrieved from the
+            <i>chooseDate</i> key of the aria property from the <router-link to="/locale">locale</router-link> API. This label is also used for the <i>aria-label</i> of the popup as well. When there is a value selected, it is formatted and appended
+            to the label to be able to notify users about the current value.
+        </p>
 
-        <p>Popup has a <i>dialog</i> role along with <i>aria-modal</i> and <i>aria-label</i>. The navigation buttons at the header has an <i>aria-label</i> retrieved from the <i>prevYear</i>, <i>nextYear</i>, <i>prevMonth</i>, <i>nextMonth</i>,
-        <i>prevDecade</i> and <i>nextDecade</i> keys of the locale aria API. Similarly month picker button uses the <i>chooseMonth</i> and year picker button uses the <i>chooseYear</i> keys.</p>
+        <p>
+            Popup has a <i>dialog</i> role along with <i>aria-modal</i> and <i>aria-label</i>. The navigation buttons at the header has an <i>aria-label</i> retrieved from the <i>prevYear</i>, <i>nextYear</i>, <i>prevMonth</i>, <i>nextMonth</i>,
+            <i>prevDecade</i> and <i>nextDecade</i> keys of the locale aria API. Similarly month picker button uses the <i>chooseMonth</i> and year picker button uses the <i>chooseYear</i> keys.
+        </p>
 
-        <p>Main date table uses <i>grid</i> role that contains th elements with <i>col</i> as the scope along with <i>abbr</i> tag resolving to the full name of the month. Each date cell has an <i>aria-label</i> referring to the full date value.
-        Buttons at the footer utilize their readable labels as <i>aria-label</i> as well. Selected date also receives the <i>aria-selected</i> attribute.</p>
+        <p>
+            Main date table uses <i>grid</i> role that contains th elements with <i>col</i> as the scope along with <i>abbr</i> tag resolving to the full name of the month. Each date cell has an <i>aria-label</i> referring to the full date value.
+            Buttons at the footer utilize their readable labels as <i>aria-label</i> as well. Selected date also receives the <i>aria-selected</i> attribute.
+        </p>
 
-        <p>Timepicker spinner buttons get their labels for <i>aria-label</i> from the aria locale API using the <i>prevHour</i>, <i>nextHour</i>, <i>prevMinute</i>, <i>nextMinute</i>, <i>prevSecond</i>, <i>nextSecond</i>, <i>am</i> and <i>pm</i> keys.</p>
+        <p>
+            Timepicker spinner buttons get their labels for <i>aria-label</i> from the aria locale API using the <i>prevHour</i>, <i>nextHour</i>, <i>prevMinute</i>, <i>nextMinute</i>, <i>prevSecond</i>, <i>nextSecond</i>, <i>am</i> and
+            <i>pm</i> keys.
+        </p>
 
         <p>Calendar also includes a hidden section that is only available to screen readers with <i>aria-live</i> as "polite". This element is updated when the selected date changes to instruct the user about the current date selected.</p>
 
-<pre v-code><code>
+        <pre v-code><code>
 &lt;label for="date1"&gt;Date&lt;/label&gt;
 &lt;Calendar inputId="date1" /&gt;
 
@@ -853,8 +873,8 @@ export default {
             </table>
         </div>
 
-		<h5>Dependencies</h5>
-		<p>None.</p>
+        <h5>Dependencies</h5>
+        <p>None.</p>
     </AppDoc>
 </template>
 
@@ -872,59 +892,59 @@ export default {
         <div class="p-fluid grid formgrid">
             <div class="field col-12 md:col-4">
                 <label for="basic">Basic</label>
-                <Calendar id="basic" v-model="date1" autocomplete="off" />
+                <Calendar inputId="basic" v-model="date1" autocomplete="off" />
             </div>
             <div class="field col-12 md:col-4">
                 <label for="dateformat">DateFormat</label>
-                <Calendar id="dateformat" v-model="date2"  dateFormat="mm-dd-yy" />
+                <Calendar inputId="dateformat" v-model="date2" dateFormat="mm-dd-yy" />
             </div>
             <div class="field col-12 md:col-4">
                 <label for="icon">Icon</label>
-                <Calendar id="icon" v-model="date3" :showIcon="true" />
+                <Calendar inputId="icon" v-model="date3" :showIcon="true" />
             </div>
             <div class="field col-12 md:col-4">
                 <label for="minmax">MinMax</label>
-                <Calendar id="minmax" v-model="date4" :minDate="minDate" :maxDate="maxDate" :manualInput="false" />
+                <Calendar inputId="minmax" v-model="date4" :minDate="minDate" :maxDate="maxDate" :manualInput="false" />
             </div>
             <div class="field col-12 md:col-4">
                 <label for="disableddays">Disabled Days</label>
-                <Calendar id="disableddays" v-model="date5" :disabledDates="invalidDates" :disabledDays="[0,6]" :manualInput="false" />
+                <Calendar inputId="disableddays" v-model="date5" :disabledDates="invalidDates" :disabledDays="[0,6]" :manualInput="false" />
             </div>
             <div class="field col-12 md:col-4">
                 <label for="multiple">Multiple</label>
-                <Calendar id="multiple" v-model="dates1" selectionMode="multiple" :manualInput="false" />
+                <Calendar inputId="multiple" v-model="dates1" selectionMode="multiple" :manualInput="false" />
             </div>
             <div class="field col-12 md:col-4">
                 <label for="range">Range</label>
-                <Calendar id="range" v-model="dates2" selectionMode="range" :manualInput="false" />
+                <Calendar inputId="range" v-model="dates2" selectionMode="range" :manualInput="false" />
             </div>
             <div class="field col-12 md:col-4">
                 <label for="buttonbar">Button Bar</label>
-                <Calendar id="buttonbar" v-model="date6" :showButtonBar="true" />
+                <Calendar inputId="buttonbar" v-model="date6" :showButtonBar="true" />
             </div>
             <div class="field col-12 md:col-4">
                 <label for="time24">Time / 24h</label>
-                <Calendar id="time24" v-model="date7" :showTime="true" :showSeconds="true" />
+                <Calendar inputId="time24" v-model="date7" :showTime="true" :showSeconds="true" />
             </div>
             <div class="field col-12 md:col-4">
                 <label for="time12">Time / 12h</label>
-                <Calendar id="time12" v-model="date8" :timeOnly="true" hourFormat="12" />
+                <Calendar inputId="time12" v-model="date8" :timeOnly="true" hourFormat="12" />
             </div>
             <div class="field col-12 md:col-4">
                 <label for="monthpicker">Month Picker</label>
-                <Calendar id="monthpicker" v-model="date9" view="month" dateFormat="mm/yy" />
+                <Calendar inputId="monthpicker" v-model="date9" view="month" dateFormat="mm/yy" />
             </div>
             <div class="field col-12 md:col-4">
                 <label for="yearpicker">Year Picker</label>
-                <Calendar id="yearpicker" v-model="date10" view="year" dateFormat="yy"/>
+                <Calendar inputId="yearpicker" v-model="date10" view="year" dateFormat="yy"/>
             </div>
             <div class="field col-12 md:col-4">
                 <label for="multiplemonths">Multiple Months</label>
-                <Calendar id="multiplemonths" v-model="date11" :numberOfMonths="3" :responsiveOptions="responsiveOptions" />
+                <Calendar inputId="multiplemonths" v-model="date11" :numberOfMonths="3" :responsiveOptions="responsiveOptions" />
             </div>
             <div class="field col-12 md:col-4">
                 <label for="datetemplate">Date Template</label>
-                <Calendar id="datetemplate" v-model="date12">
+                <Calendar inputId="datetemplate" v-model="date12">
                     <template #date="slotProps">
                         <strong v-if="slotProps.date.day > 10 && slotProps.date.day < 15" class="special-day">{{slotProps.date.day}}</strong>
                         <template v-else>{{slotProps.date.day}}</template>
@@ -933,7 +953,7 @@ export default {
             </div>
             <div class="field col-12 md:col-4">
                 <label for="touchUI">TouchUI</label>
-                <Calendar id="touchUI" v-model="date13" :touchUI="true" />
+                <Calendar inputId="touchUI" v-model="date13" :touchUI="true" />
             </div>
         </div>
 
@@ -1015,59 +1035,59 @@ export default {
         <div class="p-fluid grid formgrid">
             <div class="field col-12 md:col-4">
                 <label for="basic">Basic</label>
-                <Calendar id="basic" v-model="date1" autocomplete="off" />
+                <Calendar inputId="basic" v-model="date1" autocomplete="off" />
             </div>
             <div class="field col-12 md:col-4">
                 <label for="dateformat">DateFormat</label>
-                <Calendar id="dateformat" v-model="date2"  dateFormat="mm-dd-yy" />
+                <Calendar inputId="dateformat" v-model="date2" dateFormat="mm-dd-yy" />
             </div>
             <div class="field col-12 md:col-4">
                 <label for="icon">Icon</label>
-                <Calendar id="icon" v-model="date3" :showIcon="true" />
+                <Calendar inputId="icon" v-model="date3" :showIcon="true" />
             </div>
             <div class="field col-12 md:col-4">
                 <label for="minmax">MinMax</label>
-                <Calendar id="minmax" v-model="date4" :minDate="minDate" :maxDate="maxDate" :manualInput="false" />
+                <Calendar inputId="minmax" v-model="date4" :minDate="minDate" :maxDate="maxDate" :manualInput="false" />
             </div>
             <div class="field col-12 md:col-4">
                 <label for="disableddays">Disabled Days</label>
-                <Calendar id="disableddays" v-model="date5" :disabledDates="invalidDates" :disabledDays="[0,6]" :manualInput="false" />
+                <Calendar inputId="disableddays" v-model="date5" :disabledDates="invalidDates" :disabledDays="[0,6]" :manualInput="false" />
             </div>
             <div class="field col-12 md:col-4">
                 <label for="multiple">Multiple</label>
-                <Calendar id="multiple" v-model="dates1" selectionMode="multiple" :manualInput="false" />
+                <Calendar inputId="multiple" v-model="dates1" selectionMode="multiple" :manualInput="false" />
             </div>
             <div class="field col-12 md:col-4">
                 <label for="range">Range</label>
-                <Calendar id="range" v-model="dates2" selectionMode="range" :manualInput="false" />
+                <Calendar inputId="range" v-model="dates2" selectionMode="range" :manualInput="false" />
             </div>
             <div class="field col-12 md:col-4">
                 <label for="buttonbar">Button Bar</label>
-                <Calendar id="buttonbar" v-model="date6" :showButtonBar="true" />
+                <Calendar inputId="buttonbar" v-model="date6" :showButtonBar="true" />
             </div>
             <div class="field col-12 md:col-4">
                 <label for="time24">Time / 24h</label>
-                <Calendar id="time24" v-model="date7" :showTime="true" :showSeconds="true" />
+                <Calendar inputId="time24" v-model="date7" :showTime="true" :showSeconds="true" />
             </div>
             <div class="field col-12 md:col-4">
                 <label for="time12">Time / 12h</label>
-                <Calendar id="time12" v-model="date8" :timeOnly="true" hourFormat="12" />
+                <Calendar inputId="time12" v-model="date8" :timeOnly="true" hourFormat="12" />
             </div>
             <div class="field col-12 md:col-4">
                 <label for="monthpicker">Month Picker</label>
-                <Calendar id="monthpicker" v-model="date9" view="month" dateFormat="mm/yy"  />
+                <Calendar inputId="monthpicker" v-model="date9" view="month" dateFormat="mm/yy"  />
             </div>
             <div class="field col-12 md:col-4">
                 <label for="yearpicker">Year Picker</label>
-                <Calendar id="yearpicker" v-model="date10" view="year" dateFormat="yy"/>
+                <Calendar inputId="yearpicker" v-model="date10" view="year" dateFormat="yy"/>
             </div>
             <div class="field col-12 md:col-4">
                 <label for="multiplemonths">Multiple Months</label>
-                <Calendar id="multiplemonths" v-model="date11" :numberOfMonths="3" :responsiveOptions="responsiveOptions" />
+                <Calendar inputId="multiplemonths" v-model="date11" :numberOfMonths="3" :responsiveOptions="responsiveOptions" />
             </div>
             <div class="field col-12 md:col-4">
                 <label for="datetemplate">Date Template</label>
-                <Calendar id="datetemplate" v-model="date12">
+                <Calendar inputId="datetemplate" v-model="date12">
                     <template #date="slotProps">
                         <strong v-if="slotProps.date.day > 10 && slotProps.date.day < 15" class="special-day">{{slotProps.date.day}}</strong>
                         <template v-else>{{slotProps.date.day}}</template>
@@ -1076,7 +1096,7 @@ export default {
             </div>
             <div class="field col-12 md:col-4">
                 <label for="touchUI">TouchUI</label>
-                <Calendar id="touchUI" v-model="date13" :touchUI="true" />
+                <Calendar inputId="touchUI" v-model="date13" :touchUI="true" />
             </div>
         </div>
 
@@ -1158,59 +1178,59 @@ export default {
             <div class="p-fluid grid formgrid">
                 <div class="field col-12 md:col-4">
                     <label for="basic">Basic</label>
-                    <p-calendar id="basic" v-model="date1" autocomplete="off"></p-calendar>
+                    <p-calendar input-id="basic" v-model="date1" autocomplete="off"></p-calendar>
                 </div>
                 <div class="field col-12 md:col-4">
                     <label for="dateformat">DateFormat</label>
-                    <p-calendar id="dateformat" v-model="date2" date-format="mm-dd-yy"></p-calendar>
+                    <p-calendar input-id="dateformat" v-model="date2" date-format="mm-dd-yy"></p-calendar>
                 </div>
                 <div class="field col-12 md:col-4">
                     <label for="icon">Icon</label>
-                    <p-calendar id="icon" v-model="date3" :show-icon="true"></p-calendar>
+                    <p-calendar input-id="icon" v-model="date3" :show-icon="true"></p-calendar>
                 </div>
                 <div class="field col-12 md:col-4">
                     <label for="minmax">MinMax</label>
-                    <p-calendar id="minmax" v-model="date4" :min-date="minDate" :max-date="maxDate" :manual-input="false"></p-calendar>
+                    <p-calendar input-id="minmax" v-model="date4" :min-date="minDate" :max-date="maxDate" :manual-input="false"></p-calendar>
                 </div>
                 <div class="field col-12 md:col-4">
                     <label for="disableddays">Disabled Days</label>
-                    <p-calendar id="disableddays" v-model="date5" :disabled-dates="invalidDates" :disabled-days="[0,6]" :manual-input="false"></p-calendar>
+                    <p-calendar input-id="disableddays" v-model="date5" :disabled-dates="invalidDates" :disabled-days="[0,6]" :manual-input="false"></p-calendar>
                 </div>
                 <div class="field col-12 md:col-4">
                     <label for="multiple">Multiple</label>
-                    <p-calendar id="multiple" v-model="dates1" selection-mode="multiple" :manual-input="false"></p-calendar>
+                    <p-calendar input-id="multiple" v-model="dates1" selection-mode="multiple" :manual-input="false"></p-calendar>
                 </div>
                 <div class="field col-12 md:col-4">
                     <label for="range">Range</label>
-                    <p-calendar id="range" v-model="dates2" selection-mode="range" :manual-input="false"></p-calendar>
+                    <p-calendar input-id="range" v-model="dates2" selection-mode="range" :manual-input="false"></p-calendar>
                 </div>
                 <div class="field col-12 md:col-4">
                     <label for="buttonbar">Button Bar</label>
-                    <p-calendar id="buttonbar" v-model="date6" :show-button-bar="true"></p-calendar>
+                    <p-calendar input-id="buttonbar" v-model="date6" :show-button-bar="true"></p-calendar>
                 </div>
                 <div class="field col-12 md:col-4">
                     <label for="time24">Time / 24h</label>
-                    <p-calendar id="time24" v-model="date7" :show-time="true" :show-seconds="true"></p-calendar>
+                    <p-calendar input-id="time24" v-model="date7" :show-time="true" :show-seconds="true"></p-calendar>
                 </div>
                 <div class="field col-12 md:col-4">
                     <label for="time12">Time / 12h</label>
-                    <p-calendar id="time12" v-model="date8" :time-only="true" hour-format="12"></p-calendar>
+                    <p-calendar input-id="time12" v-model="date8" :time-only="true" hour-format="12"></p-calendar>
                 </div>
                 <div class="field col-12 md:col-4">
                     <label for="monthpicker">Month Picker</label>
-                    <p-calendar id="monthpicker" v-model="date9" view="month" date-format="mm/yy"></p-calendar>
+                    <p-calendar input-id="monthpicker" v-model="date9" view="month" date-format="mm/yy"></p-calendar>
                 </div>
                 <div class="field col-12 md:col-4">
                     <label for="yearpicker">Year Picker</label>
-                    <p-calendar id="yearpicker" v-model="date10" view="year" date-format="yy"></p-calendar>
+                    <p-calendar input-id="yearpicker" v-model="date10" view="year" date-format="yy"></p-calendar>
                 </div>
                 <div class="field col-12 md:col-4">
                     <label for="multiplemonths">Multiple Months</label>
-                    <p-calendar id="multiplemonths" v-model="date11" :number-of-months="3" :responsive-options="responsiveOptions"></p-calendar>
+                    <p-calendar input-id="multiplemonths" v-model="date11" :number-of-months="3" :responsive-options="responsiveOptions"></p-calendar>
                 </div>
                 <div class="field col-12 md:col-4">
                     <label for="datetemplate">Date Template</label>
-                    <p-calendar id="datetemplate" v-model="date12">
+                    <p-calendar input-id="datetemplate" v-model="date12">
                         <template #date="slotProps">
                             <strong v-if="slotProps.date.day > 10 && slotProps.date.day < 15" class="special-day">{{slotProps.date.day}}</strong>
                             <template v-else>{{slotProps.date.day}}</template>
@@ -1219,7 +1239,7 @@ export default {
                 </div>
                 <div class="field col-12 md:col-4">
                     <label for="touchUI">TouchUI</label>
-                    <p-calendar id="touchUI" v-model="date13" :touch-u-i="true"></p-calendar>
+                    <p-calendar input-id="touchUI" v-model="date13" :touch-u-i="true"></p-calendar>
                 </div>
             </div>
 
@@ -1300,7 +1320,7 @@ export default {
 `
                 }
             }
-        }
+        };
     }
-}
+};
 </script>

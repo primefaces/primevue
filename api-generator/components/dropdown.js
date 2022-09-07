@@ -180,6 +180,12 @@ const DropdownProps = [
         description: "Icon to display in loading state."
     },
     {
+        name: "resetFilterOnHide",
+        type: "boolean",
+        default: "false",
+        description: "Clears the filter value when hiding the dropdown."
+    },
+    {
         name: "virtualScrollerOptions",
         type: "object",
         default: "null",
@@ -190,6 +196,18 @@ const DropdownProps = [
         type: "boolean",
         default: "true",
         description: "Whether to focus on the first visible or selected element when the overlay panel is shown."
+    },
+    {
+        name: "autoFilterFocus",
+        type: "boolean",
+        default: "false",
+        description: "Whether to focus on the filter element when the overlay panel is shown."
+    },
+    {
+        name: "selectOnFocus",
+        type: "boolean",
+        default: "false",
+        description: "When enabled, the focused option is selected."
     },
     {
         name: "filterMessage",

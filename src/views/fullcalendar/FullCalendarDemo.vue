@@ -13,7 +13,7 @@
             </div>
         </div>
 
-        <FullCalendarDoc/>
+        <FullCalendarDoc />
     </div>
 </template>
 
@@ -28,16 +28,16 @@ export default {
     data() {
         return {
             options: {
-                plugins:[dayGridPlugin, timeGridPlugin, interactionPlugin],
-                initialDate : '2019-01-01',
+                plugins: [dayGridPlugin, timeGridPlugin, interactionPlugin],
+                initialDate: '2019-01-01',
                 headerToolbar: {
                     left: 'prev,next today',
                     center: 'title',
                     right: 'dayGridMonth,timeGridWeek,timeGridDay'
                 },
                 editable: true,
-                selectable:true, 
-                selectMirror: true, 
+                selectable: true,
+                selectMirror: true,
                 dayMaxEvents: true
             },
             events: null
@@ -48,12 +48,12 @@ export default {
         this.eventService = new EventService();
     },
     mounted() {
-        this.eventService.getEvents().then(data => this.events = data);
+        this.eventService.getEvents().then((data) => (this.events = data));
     },
     components: {
-        'FullCalendarDoc': FullCalendarDoc
+        FullCalendarDoc: FullCalendarDoc
     }
-}
+};
 </script>
 
 <style scoped>

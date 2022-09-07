@@ -95,16 +95,17 @@ describe("TriStateCheckbox.vue", () => {
             "pi-times"
         );
 
-        await wrapper.setProps({ modelValue: true });
+        await wrapper.setProps({  modelValue: true  });
 
         expect(wrapper.find(".p-checkbox-icon").classes()).toContain(
             "pi-check"
         );
 
-        await wrapper.setProps({ modelValue: false });
+        await wrapper.setProps({  modelValue: false  });
 
         expect(wrapper.find(".p-checkbox-icon").classes()).toContain(
             "pi-times"
         );
     });
 });
+

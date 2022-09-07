@@ -103,7 +103,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [Chart](https://www.primefaces.org/primevue/showcase/#/chart)
+ * - [Chart](https://www.primefaces.org/primevue/chart)
  *
  */
 export default Chart;

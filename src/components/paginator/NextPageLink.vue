@@ -1,7 +1,7 @@
 <template>
-	<button :class="containerClass" type="button" v-ripple>
-		<span class="p-paginator-icon pi pi-angle-right"></span>
-	</button>
+    <button :class="containerClass" type="button" v-ripple>
+        <span class="p-paginator-icon pi pi-angle-right"></span>
+    </button>
 </template>
 
 <script>
@@ -11,13 +11,16 @@ export default {
     name: 'NextPageLink',
     computed: {
         containerClass() {
-            return ['p-paginator-next p-paginator-element p-link', {
-                'p-disabled': this.$attrs.disabled
-            }];
+            return [
+                'p-paginator-next p-paginator-element p-link',
+                {
+                    'p-disabled': this.$attrs.disabled
+                }
+            ];
         }
     },
     directives: {
-        'ripple': Ripple
+        ripple: Ripple
     }
-}
+};
 </script>

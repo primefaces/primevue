@@ -41,7 +41,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [ConfirmPopup](https://www.primefaces.org/primevue/showcase/#/confirmpopup)
+ * - [ConfirmPopup](https://www.primefaces.org/primevue/confirmpopup)
  *
  */
 export default ConfirmPopup;

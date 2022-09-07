@@ -1,14 +1,14 @@
 <template>
-	<div>
-		<div class="content-section introduction">
-			<div class="feature-intro">
-				<h1>DataTable <span>Templating</span></h1>
-				<p>Custom content at header, body and footer sections are supported via templating.</p>
-			</div>
+    <div>
+        <div class="content-section introduction">
+            <div class="feature-intro">
+                <h1>DataTable <span>Templating</span></h1>
+                <p>Custom content at header, body and footer sections are supported via templating.</p>
+            </div>
             <AppDemoActions />
-		</div>
+        </div>
 
-		<div class="content-section implementation">
+        <div class="content-section implementation">
             <div class="card">
                 <DataTable :value="products" responsiveLayout="scroll">
                     <template #header>
@@ -25,7 +25,7 @@
                     </Column>
                     <Column field="price" header="Price">
                         <template #body="slotProps">
-                            {{formatCurrency(slotProps.data.price)}}
+                            {{ formatCurrency(slotProps.data.price) }}
                         </template>
                     </Column>
                     <Column field="rating" header="Reviews">
@@ -35,19 +35,16 @@
                     </Column>
                     <Column header="Status">
                         <template #body="slotProps">
-                            <span :class="'product-badge status-' + slotProps.data.inventoryStatus.toLowerCase()">{{slotProps.data.inventoryStatus}}</span>
+                            <span :class="'product-badge status-' + slotProps.data.inventoryStatus.toLowerCase()">{{ slotProps.data.inventoryStatus }}</span>
                         </template>
                     </Column>
-                    <template #footer>
-                        In total there are {{products ? products.length : 0 }} products.
-                    </template>
+                    <template #footer> In total there are {{ products ? products.length : 0 }} products. </template>
                 </DataTable>
             </div>
-		</div>
+        </div>
 
         <AppDoc name="DataTableTemplatingDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="datatable/DataTableTemplatingDemo.vue" />
-
-	</div>
+    </div>
 </template>
 
 <script>
@@ -299,21 +296,21 @@ export default {
 `
                 }
             }
-        }
+        };
     },
     productService: null,
     created() {
         this.productService = new ProductService();
     },
     mounted() {
-        this.productService.getProductsSmall().then(data => this.products = data);
+        this.productService.getProductsSmall().then((data) => (this.products = data));
     },
     methods: {
         formatCurrency(value) {
-            return value.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
+            return value.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
         }
     }
-}
+};
 </script>
 
 <style lang="scss" scoped>
@@ -325,6 +322,6 @@ export default {
 
 .product-image {
     width: 100px;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 </style>

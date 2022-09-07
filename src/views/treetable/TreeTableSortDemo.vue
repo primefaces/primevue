@@ -36,7 +36,7 @@
                 </TreeTable>
             </div>
         </div>
-        
+
         <AppDoc name="TreeTableSortDemo" :sources="sources" :service="['NodeService']" :data="['treetablenodes']" github="treetable/TreeTableSortDemo.vue" />
     </div>
 </template>
@@ -217,14 +217,14 @@ export default {
 `
                 }
             }
-        }
+        };
     },
     nodeService: null,
     created() {
         this.nodeService = new NodeService();
     },
     mounted() {
-        this.nodeService.getTreeTableNodes().then(data => this.nodes = data);
+        this.nodeService.getTreeTableNodes().then((data) => (this.nodes = data));
     }
-}
+};
 </script>

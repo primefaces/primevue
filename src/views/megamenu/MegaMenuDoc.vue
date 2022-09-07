@@ -1,13 +1,13 @@
 <template>
-	<AppDoc name="MegaMenuDemo" :sources="sources" github="megamenu/MegaMenuDemo.vue">
+    <AppDoc name="MegaMenuDemo" :sources="sources" github="megamenu/MegaMenuDemo.vue">
         <h5>Import via Module</h5>
-<pre v-code.script><code>
+        <pre v-code.script><code>
 import MegaMenu from 'primevue/megamenu';
 
 </code></pre>
 
         <h5>Import via CDN</h5>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/megamenu/megamenu.min.js"&gt;&lt;/script&gt;
 
@@ -15,12 +15,12 @@ import MegaMenu from 'primevue/megamenu';
 
         <h5>MenuModel</h5>
         <p>MegaMenu uses the common MenuModel API to define the items of the model, visit <router-link to="/menumodel">MenuModel API</router-link> for details.</p>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;MegaMenu :model="items" /&gt;
 
 </code></pre>
 
-<pre v-code.script><code>
+        <pre v-code.script><code>
 export default {
     data() {
         return {
@@ -144,14 +144,14 @@ export default {
 
         <h5>Orientation</h5>
         <p>Default orientation is "horizontal" with "vertical" as the alternative.</p>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;MegaMenu :model="items" orientation="vertical" /&gt;
 
 </code></pre>
 
         <h5>Templating</h5>
         <p>Two slots named "start" and "end" are provided to embed content before or after the items. In additon MegaMenu, offers item customization with the <i>item</i> template that receives the menuitem instance from the model as a parameter.</p>
-<pre v-code><code><template v-pre>
+        <pre v-code><code><template v-pre>
 &lt;MegaMenu :model="items"&gt;
     &lt;template #start&gt;
         Before
@@ -166,8 +166,8 @@ export default {
 </template>
 </code></pre>
 
-<p><i>router-link</i> with route configuration can also be used within templating for further customization.</p>
-<pre v-code><code><template v-pre>
+        <p><i>router-link</i> with route configuration can also be used within templating for further customization.</p>
+        <pre v-code><code><template v-pre>
 &lt;MegaMenu :model="items"&gt;
     &lt;template #item="{item}"&gt;
         &lt;router-link :to="item.to" custom v-slot="{href, route, navigate, isActive, isExactActive}"&gt;
@@ -180,17 +180,17 @@ export default {
 
         <h5>Properties</h5>
         <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Type</th>
                         <th>Default</th>
                         <th>Description</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>model</td>
                         <td>array</td>
@@ -209,20 +209,20 @@ export default {
                         <td>true</td>
                         <td>Whether to apply 'router-link-active-exact' class if route exactly matches the item path.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
         <h5>Slots</h5>
-		<div class="doc-tablewrapper">
+        <div class="doc-tablewrapper">
             <table class="doc-table">
                 <thead>
                     <tr>
                         <th>Name</th>
                         <th>Parameters</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>item</td>
                         <td>item: Menuitem instance</td>
@@ -235,21 +235,21 @@ export default {
                         <td>end</td>
                         <td>-</td>
                     </tr>
-				</tbody>
-			</table>
+                </tbody>
+            </table>
         </div>
 
-		<h5>Styling</h5>
-		<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <h5>Styling</h5>
+        <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Element</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>p-megamenu</td>
                         <td>Container element.</td>
@@ -298,12 +298,12 @@ export default {
                         <td>p-megamenu-custom</td>
                         <td>Container of the default slot.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
-		<h5>Dependencies</h5>
-		<p>None.</p>
+        <h5>Dependencies</h5>
+        <p>None.</p>
     </AppDoc>
 </template>
 
@@ -736,7 +736,7 @@ export default {
 `
                 }
             }
-        }
+        };
     }
-}
+};
 </script>

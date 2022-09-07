@@ -1,9 +1,8 @@
 <template>
-	<AppDoc name="ToastDemo" :sources="sources" github="toast/ToastDemo.vue" >
+    <AppDoc name="ToastDemo" :sources="sources" github="toast/ToastDemo.vue">
         <h5>ToastService</h5>
-        <p>Toast messages are dynamically created using a <i>ToastService</i> that needs to be installed globally before the application
-            instance is created.</p>
-<pre v-code.script><code>
+        <p>Toast messages are dynamically created using a <i>ToastService</i> that needs to be installed globally before the application instance is created.</p>
+        <pre v-code.script><code>
 import {createApp} from 'vue';
 import ToastService from 'primevue/toastservice';
 
@@ -12,24 +11,26 @@ app.use(ToastService);
 
 </code></pre>
 
-		<h5>Import via Module</h5>
-<pre v-code.script><code>
+        <h5>Import via Module</h5>
+        <pre v-code.script><code>
 import Toast from 'primevue/toast';
 
 </code></pre>
 
         <h5>Import via CDN</h5>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/toast/toast.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-		<h5>Getting Started</h5>
-        <p>Ideal location of a Toast is the main application template so that it can be used by any component within the application. A single message is represented by the Message interface in PrimeVue that defines various properties such as severity,
-			summary and detail.</p>
+        <h5>Getting Started</h5>
+        <p>
+            Ideal location of a Toast is the main application template so that it can be used by any component within the application. A single message is represented by the Message interface in PrimeVue that defines various properties such as
+            severity, summary and detail.
+        </p>
 
-<pre v-code><code>
+        <pre v-code><code>
 &lt;template&gt;
     &lt;Toast /&gt;
 &lt;template&gt;
@@ -38,7 +39,7 @@ import Toast from 'primevue/toast';
 
         <h5>Options API</h5>
         <p><i>$toast</i> is available as a property in the application instance.</p>
-<pre v-code.script><code>
+        <pre v-code.script><code>
 export default {
     mounted() {
         this.$toast.add({severity:'success', summary: 'Success Message', detail:'Order submitted', life: 3000});
@@ -49,7 +50,7 @@ export default {
 
         <h5>Composition API</h5>
         <p>The toast instance can be injected with the <i>useToast</i> function.</p>
-<pre v-code.script><code>
+        <pre v-code.script><code>
 import { defineComponent } from "vue";
 import { useToast } from "primevue/usetoast";
 
@@ -62,18 +63,18 @@ export default defineComponent({
 
 </code></pre>
 
-		<h5>Message API</h5>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <h5>Message API</h5>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Type</th>
                         <th>Default</th>
                         <th>Description</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>severity</td>
                         <td>string</td>
@@ -122,21 +123,21 @@ export default defineComponent({
                         <td>null</td>
                         <td>Style class of the content.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
         <h5>MessageService API</h5>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Parameters</th>
                         <th>Description</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>add</td>
                         <td>message: Message instance</td>
@@ -152,25 +153,25 @@ export default defineComponent({
                         <td>-</td>
                         <td>Clears all the messages.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
-		<h5>Severities</h5>
-		<p>There are four possible values for the severity of a message. Info is the default.</p>
+        <h5>Severities</h5>
+        <p>There are four possible values for the severity of a message. Info is the default.</p>
 
-		<ul>
-			<li>success</li>
-			<li>info</li>
-			<li>warn</li>
-			<li>error</li>
-		</ul>
+        <ul>
+            <li>success</li>
+            <li>info</li>
+            <li>warn</li>
+            <li>error</li>
+        </ul>
 
-		<h5>Position</h5>
-		<p>There are four positions available for the toast container defined by the <i>position</i> property that defaults to "top-right". Other
-			valid values are "top-left", "top-center", "bottom-left", "bottom-center", "bottom-right" and "center".
-		</p>
-<pre v-code><code>
+        <h5>Position</h5>
+        <p>
+            There are four positions available for the toast container defined by the <i>position</i> property that defaults to "top-right". Other valid values are "top-left", "top-center", "bottom-left", "bottom-center", "bottom-right" and "center".
+        </p>
+        <pre v-code><code>
 &lt;Toast /&gt;
 &lt;Toast position="top-left" /&gt;
 &lt;Toast position="top-center" /&gt;
@@ -183,28 +184,26 @@ export default defineComponent({
 </code></pre>
 
         <h5>Groups</h5>
-        <p>A message can be targeted to a specific Toast component if their group properties match. Messages without a group
-            are forwarded to the default Toast component that does not have a group defined.
-        </p>
+        <p>A message can be targeted to a specific Toast component if their group properties match. Messages without a group are forwarded to the default Toast component that does not have a group defined.</p>
 
-<pre v-code><code>
+        <pre v-code><code>
 &lt;Toast /&gt;
 &lt;Toast position="mykey" /&gt;
 
 </code></pre>
 
-<pre v-code.script><code>
+        <pre v-code.script><code>
 this.$toast.add({severity:'success', summary: 'Default Message'});
 this.$toast.add({severity:'success', summary: 'Specific Message', group: 'mykey'});
 
 </code></pre>
 
-		<h5>Clearing Messages</h5>
-		<p><i>removeGroup(group)</i> clears the messages for a specific Toast whereas <i>removeAllGroups()</i> method clears all messages.</p>
+        <h5>Clearing Messages</h5>
+        <p><i>removeGroup(group)</i> clears the messages for a specific Toast whereas <i>removeAllGroups()</i> method clears all messages.</p>
 
         <h5>Templating</h5>
         <p>Templating allows customizing the content where the message instance is available as the implicit variable.</p>
-<pre v-code><code><template v-pre>
+        <pre v-code><code><template v-pre>
 &lt;Toast position="bottom-center" group="bc"&gt;
     &lt;template #message="slotProps"&gt;
         &lt;div class="flex flex-column"&gt;
@@ -229,15 +228,18 @@ this.$toast.add({severity:'success', summary: 'Specific Message', group: 'mykey'
 </code></pre>
 
         <h5>Responsive</h5>
-        <p>Toast styling can be adjusted per screen size with the <i>breakpoints</i> option. The value of <i>breakpoints</i> should be an object literal whose keys are the maximum screen sizes and values are the styles per screen. In example below, width of the toast messages cover the whole page on screens whose widths is smaller than 921px.</p>
-<pre v-code><code>
+        <p>
+            Toast styling can be adjusted per screen size with the <i>breakpoints</i> option. The value of <i>breakpoints</i> should be an object literal whose keys are the maximum screen sizes and values are the styles per screen. In example below,
+            width of the toast messages cover the whole page on screens whose widths is smaller than 921px.
+        </p>
+        <pre v-code><code>
 &lt;Toast :breakpoints="&#123;'920px': &#123;width: '100%', right: '0', left: '0'&#125;&#125;"&gt;&lt;/Toast&gt;
 
 </code></pre>
 
         <h5>Constants</h5>
         <p>ToastSeverity constants API is provided to easily choose a severity of the message with typescript.</p>
-<pre v-code.script><code>
+        <pre v-code.script><code>
 import {ToastSeverity} from 'primevue/api';
 
 export default {
@@ -250,18 +252,18 @@ export default {
 
 </code></pre>
 
-		<h5>Properties</h5>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <h5>Properties</h5>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Type</th>
                         <th>Default</th>
                         <th>Description</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>group</td>
                         <td>string</td>
@@ -292,39 +294,39 @@ export default {
                         <td>null</td>
                         <td>Object literal to define styles per screen size.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
         <h5>Slots</h5>
-		<div class="doc-tablewrapper">
+        <div class="doc-tablewrapper">
             <table class="doc-table">
-				<thead>
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Parameters</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>message</td>
                         <td>-</td>
                     </tr>
-				</tbody>
-			</table>
+                </tbody>
+            </table>
         </div>
 
-		<h5>Styling</h5>
-		<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <h5>Styling</h5>
+        <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Element</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>p-toast</td>
                         <td>Main container element.</td>
@@ -353,12 +355,12 @@ export default {
                         <td>p-toast-detail</td>
                         <td>Detail of the message.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
-		<h5>Dependencies</h5>
-		<p>None.</p>
+        <h5>Dependencies</h5>
+        <p>None.</p>
     </AppDoc>
 </template>
 
@@ -749,7 +751,7 @@ button {
         `
                 }
             }
-        }
+        };
     }
-}
+};
 </script>

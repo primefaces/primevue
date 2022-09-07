@@ -1,6 +1,6 @@
-import vue from 'rollup-plugin-vue';
 import postcss from 'rollup-plugin-postcss';
 import { terser } from 'rollup-plugin-terser';
+import vue from 'rollup-plugin-vue';
 
 const fs = require('fs-extra');
 const path = require('path');
@@ -36,23 +36,23 @@ let coreDependencies = {
     'primevue/tree': 'primevue.tree',
     'primevue/menu': 'primevue.menu',
     'primevue/tieredmenu': 'primevue.tieredmenu'
-}
+};
 
 let globalDependencies = {
-    'vue': 'Vue',
+    vue: 'Vue',
     '@fullcalendar/core': 'FullCalendar',
     ...coreDependencies
-}
+};
 
 function addEntry(folder, inFile, outFile) {
-    let useCorePlugin = Object.keys(coreDependencies).some(d => d.replace('primevue/', '') === outFile);
+    let useCorePlugin = Object.keys(coreDependencies).some((d) => d.replace('primevue/', '') === outFile);
 
     entries.push({
         input: 'src/components/' + folder + '/' + inFile,
         output: [
             {
                 format: 'cjs',
-                file: 'dist/' + folder + '/' + outFile + '.cjs.js',
+                file: 'dist/' + folder + '/' + outFile + '.cjs.js'
             },
             {
                 format: 'esm',
@@ -65,11 +65,7 @@ function addEntry(folder, inFile, outFile) {
                 globals: globalDependencies
             }
         ],
-        plugins: [
-            vue(),
-            postcss(),
-            useCorePlugin && corePlugin()
-        ]
+        plugins: [vue(), postcss(), useCorePlugin && corePlugin()]
     });
 
     entries.push({
@@ -90,12 +86,7 @@ function addEntry(folder, inFile, outFile) {
                 globals: globalDependencies
             }
         ],
-        plugins: [
-            vue(),
-            postcss(),
-            terser(),
-            useCorePlugin && corePlugin()
-        ]
+        plugins: [vue(), postcss(), terser(), useCorePlugin && corePlugin()]
     });
 }
 
@@ -104,10 +95,10 @@ function corePlugin() {
         name: 'corePlugin',
         generateBundle(outputOptions, bundle) {
             if (outputOptions.format === 'iife') {
-                Object.keys(bundle).forEach(id => {
+                Object.keys(bundle).forEach((id) => {
                     const chunk = bundle[id];
                     const name = id.replace('.min.js', '').replace('.js', '');
-                    const filePath = `./dist/core/core${id.indexOf('.min.js') > 0 ? '.min.js': '.js'}`;
+                    const filePath = `./dist/core/core${id.indexOf('.min.js') > 0 ? '.min.js' : '.js'}`;
 
                     core[filePath] ? (core[filePath][name] = chunk.code) : (core[filePath] = { [`${name}`]: chunk.code });
                 });
@@ -132,24 +123,25 @@ function addCore() {
                         return val;
                     }, '');
 
-                    fs.outputFile(path.resolve(__dirname, filePath), code, {}, function(err) {
+                    fs.outputFile(path.resolve(__dirname, filePath), code, {}, function (err) {
                         if (err) {
+                            // eslint-disable-next-line no-console
                             return console.error(err);
                         }
                     });
                 });
             }
         }
-    ]
+    ];
 }
 
 function addSFC() {
     fs.readdirSync(path.resolve(__dirname, './src/components/'), { withFileTypes: true })
-        .filter(dir => dir.isDirectory())
+        .filter((dir) => dir.isDirectory())
         .forEach(({ name: folderName }) => {
-            fs.readdirSync(path.resolve(__dirname, './src/components/' + folderName)).forEach(file => {
+            fs.readdirSync(path.resolve(__dirname, './src/components/' + folderName)).forEach((file) => {
                 let name = file.split(/(.vue)$|(.js)$/)[0].toLowerCase();
-                if (/\.vue$/.test(file) && (name === folderName)) {
+                if (/\.vue$/.test(file) && name === folderName) {
                     addEntry(folderName, file, name);
                 }
             });

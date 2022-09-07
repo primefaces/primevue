@@ -1,13 +1,15 @@
 <template>
     <div>
         <div class="content-section introduction">
-			<div class="feature-intro">
-				<h1>TreeTable <span>Column Resize</span></h1>
-				<p>Columns can be resized using drag drop by setting the resizableColumns to true. There are two resize modes; "fit" and "expand". Fit is the default one and the overall table width does not change when a column is resized.
-                    In "expand" mode, table width also changes along with the column width.</p>
-			</div>
+            <div class="feature-intro">
+                <h1>TreeTable <span>Column Resize</span></h1>
+                <p>
+                    Columns can be resized using drag drop by setting the resizableColumns to true. There are two resize modes; "fit" and "expand". Fit is the default one and the overall table width does not change when a column is resized. In
+                    "expand" mode, table width also changes along with the column width.
+                </p>
+            </div>
             <AppDemoActions />
-		</div>
+        </div>
 
         <div class="content-section implementation">
             <div class="card">
@@ -30,7 +32,6 @@
         </div>
 
         <AppDoc name="TreeTableColResizeDemo" :sources="sources" :service="['NodeService']" :data="['treetablenodes']" github="treetable/TreeTableColResizeDemo.vue" />
-                
     </div>
 </template>
 
@@ -183,14 +184,14 @@ export default {
 `
                 }
             }
-        }
+        };
     },
     nodeService: null,
     created() {
         this.nodeService = new NodeService();
     },
     mounted() {
-        this.nodeService.getTreeTableNodes().then(data => this.nodes = data);
+        this.nodeService.getTreeTableNodes().then((data) => (this.nodes = data));
     }
-}
+};
 </script>

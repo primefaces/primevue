@@ -108,7 +108,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [Checkbox](https://www.primefaces.org/primevue/showcase/#/checkbox)
+ * - [Checkbox](https://www.primefaces.org/primevue/checkbox)
  *
  */
 export default Checkbox;

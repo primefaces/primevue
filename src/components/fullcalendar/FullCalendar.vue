@@ -4,7 +4,7 @@
 
 <script>
 import '@fullcalendar/core/vdom'; // vite support
-import {Calendar} from '@fullcalendar/core';
+import { Calendar } from '@fullcalendar/core';
 
 export default {
     name: 'FullCalendar',
@@ -46,8 +46,8 @@ export default {
     },
     methods: {
         initialize() {
-            let defaultConfig = {themeSystem: 'standard'};
-            let config = this.options ? {...this.options, ...defaultConfig} : defaultConfig;
+            let defaultConfig = { themeSystem: 'standard' };
+            let config = this.options ? { ...this.options, ...defaultConfig } : defaultConfig;
             this.calendar = new Calendar(this.$el, config);
             this.calendar.render();
 
@@ -57,8 +57,7 @@ export default {
             }
         }
     }
-}
+};
 </script>
 
-<style>
-</style>
+<style></style>

@@ -29,7 +29,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [ColumnGroup](https://www.primefaces.org/primevue/showcase/#/datatable/colgroup)
+ * - [ColumnGroup](https://www.primefaces.org/primevue/datatable/colgroup)
  *
  */
 export default ColumnGroup;

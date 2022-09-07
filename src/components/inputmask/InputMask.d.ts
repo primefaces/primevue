@@ -74,7 +74,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [InputMask](https://www.primefaces.org/primevue/showcase/#/inputmask)
+ * - [InputMask](https://www.primefaces.org/primevue/inputmask)
  *
  */
 export default InputMask;
