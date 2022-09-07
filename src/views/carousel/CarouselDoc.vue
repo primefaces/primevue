@@ -1,21 +1,21 @@
 <template>
-	<AppDoc name="CarouselDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="carousel/CarouselDemo.vue">
+    <AppDoc name="CarouselDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="carousel/CarouselDemo.vue">
         <h5>Import via Module</h5>
-<pre v-code.script><code>
+        <pre v-code.script><code>
 import Carousel from 'primevue/carousel';
 
 </code></pre>
 
         <h5>Import via CDN</h5>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/carousel/carousel.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-		<h5>Getting Started</h5>
-		<p>Carousel requires a collection of items as its value along with a template to render each item.</p>
-<pre v-code><code>
+        <h5>Getting Started</h5>
+        <p>Carousel requires a collection of items as its value along with a template to render each item.</p>
+        <pre v-code><code>
 &lt;Carousel :value="cars"&gt;
     &lt;template #item="slotProps"&gt;
 	&lt;/template&gt;
@@ -23,9 +23,9 @@ import Carousel from 'primevue/carousel';
 
 </code></pre>
 
-		<h5>Items per page and Scroll Items</h5>
-		<p>Number of items per page is defined using the <i>numVisible</i> property whereas number of items to scroll is defined with the <i>numScroll</i> property.</p>
-<pre v-code><code>
+        <h5>Items per page and Scroll Items</h5>
+        <p>Number of items per page is defined using the <i>numVisible</i> property whereas number of items to scroll is defined with the <i>numScroll</i> property.</p>
+        <pre v-code><code>
 &lt;Carousel :value="cars" :numVisible="3" :numScroll="1"&gt;
 	&lt;template #item="slotProps"&gt;
 	&lt;/template&gt;
@@ -33,10 +33,9 @@ import Carousel from 'primevue/carousel';
 
 </code></pre>
 
-		<h5>Responsive</h5>
-		<p>For responsive design, <i>numVisible</i> and <i>numScroll</i> can be defined using the <i>responsiveOptions</i> property that should be an array of
-			objects whose breakpoint defines the max-width to apply the settings.</p>
-<pre v-code><code><template v-pre>
+        <h5>Responsive</h5>
+        <p>For responsive design, <i>numVisible</i> and <i>numScroll</i> can be defined using the <i>responsiveOptions</i> property that should be an array of objects whose breakpoint defines the max-width to apply the settings.</p>
+        <pre v-code><code><template v-pre>
 &lt;Carousel :value="cars" :numVisible="4" :numScroll="3" :responsiveOptions="responsiveOptions"&gt;
 	&lt;template #header&gt;
 		&lt;h2&gt;Basic&lt;/h2&gt;
@@ -63,7 +62,7 @@ import Carousel from 'primevue/carousel';
 &lt;/Carousel&gt;
 </template>
 </code></pre>
-<pre v-code.script><code>
+        <pre v-code.script><code>
 data() {
 	return {
 		responsiveOptions: [
@@ -88,10 +87,10 @@ data() {
 
 </code></pre>
 
-		<h5>Header and Footer</h5>
-		<p>Custom content projection is available using the <i>item</i>, <i>header</i> and <i>footer</i> templates.</p>
+        <h5>Header and Footer</h5>
+        <p>Custom content projection is available using the <i>item</i>, <i>header</i> and <i>footer</i> templates.</p>
 
-<pre v-code><code>
+        <pre v-code><code>
 &lt;Carousel :value="cars" :numVisible="3" :numScroll="1" :responsiveOptions="responsiveOptions"&gt;
 	&lt;template #header&gt;
 		&lt;h2&gt;Custom Header&lt;/h2&gt;
@@ -106,9 +105,9 @@ data() {
 
 </code></pre>
 
-		<h5>Orientation</h5>
-		<p>Default layout of the Carousel is horizontal, other possible option is the vertical mode that is configured with the <i>orientation</i> property.</p>
-<pre v-code><code>
+        <h5>Orientation</h5>
+        <p>Default layout of the Carousel is horizontal, other possible option is the vertical mode that is configured with the <i>orientation</i> property.</p>
+        <pre v-code><code>
 &lt;Carousel :value="cars" :numVisible="1" :numScroll="1" orientation="vertical" verticalViewPortHeight="330px" :responsiveOptions="responsiveOptions"&gt;
 	&lt;template #item="slotProps"&gt;
 		Content
@@ -117,9 +116,9 @@ data() {
 
 </code></pre>
 
-		<h5>AutoPlay and Circular</h5>
-		<p>When <i>autoplayInterval</i> is defined in milliseconds, items are scrolled automatically. In addition, for infinite scrolling <i>circular</i> property needs to be enabled. Note that in autoplay mode, circular is enabled by default.</p>
-<pre v-code><code>
+        <h5>AutoPlay and Circular</h5>
+        <p>When <i>autoplayInterval</i> is defined in milliseconds, items are scrolled automatically. In addition, for infinite scrolling <i>circular</i> property needs to be enabled. Note that in autoplay mode, circular is enabled by default.</p>
+        <pre v-code><code>
 &lt;Carousel :value="cars" :numVisible="3" :numScroll="1" :circular="true" :autoplayInterval="3000"&gt;
 	&lt;template #header&gt;
 		&lt;h2&gt;Circular, AutoPlay&lt;/h2&gt;
@@ -131,10 +130,10 @@ data() {
 
 </code></pre>
 
-		<h5>Properties</h5>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <h5>Properties</h5>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Type</th>
@@ -215,42 +214,56 @@ data() {
                         <td>null</td>
                         <td>Style class of the indicator items.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                    <tr>
+                        <td>showNavigators</td>
+                        <td>boolean</td>
+                        <td>true</td>
+                        <td>Whether to display navigation buttons in container.</td>
+                    </tr>
+                    <tr>
+                        <td>showIndicators</td>
+                        <td>boolean</td>
+                        <td>true</td>
+                        <td>Whether to display indicator container.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
         <h5>Slots</h5>
-		<div class="doc-tablewrapper">
+        <div class="doc-tablewrapper">
             <table class="doc-table">
-				<thead>
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Parameters</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>header</td>
                         <td>-</td>
                     </tr>
                     <tr>
                         <td>item</td>
-                        <td>data: Data of the component<br />
-                            index: Index of the item</td>
+                        <td>
+                            data: Data of the component<br />
+                            index: Index of the item
+                        </td>
                     </tr>
                     <tr>
                         <td>footer</td>
                         <td>-</td>
                     </tr>
-				</tbody>
-			</table>
+                </tbody>
+            </table>
         </div>
 
-		<h5>Styling</h5>
-		<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <h5>Styling</h5>
+        <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Element</th>
@@ -289,12 +302,12 @@ data() {
                         <td>p-carousel-indicator</td>
                         <td>Indicator element.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
-		<h5>Dependencies</h5>
-		<p>None.</p>
+        <h5>Dependencies</h5>
+        <p>None.</p>
     </AppDoc>
 </template>
 
@@ -731,7 +744,7 @@ export default {
 `
                 }
             }
-        }
+        };
     }
-}
+};
 </script>

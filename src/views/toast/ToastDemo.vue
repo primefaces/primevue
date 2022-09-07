@@ -1,4 +1,4 @@
- <template>
+<template>
     <div>
         <div class="content-section introduction">
             <div class="feature-intro">
@@ -14,8 +14,8 @@
                     <div class="flex flex-column">
                         <div class="text-center">
                             <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
-                            <h4>{{slotProps.message.summary}}</h4>
-                            <p>{{slotProps.message.detail}}</p>
+                            <h4>{{ slotProps.message.summary }}</h4>
+                            <p>{{ slotProps.message.detail }}</p>
                         </div>
                         <div class="grid p-fluid">
                             <div class="col-6">
@@ -50,11 +50,10 @@
 
                 <h5>Template</h5>
                 <Button @click="showTemplate" label="Confirm" />
-
             </div>
         </div>
 
-        <ToastDoc/>
+        <ToastDoc />
     </div>
 </template>
 
@@ -64,41 +63,41 @@ import ToastDoc from './ToastDoc';
 export default {
     data() {
         return {
-            messages: [],
-        }
+            messages: []
+        };
     },
     methods: {
         showSuccess() {
-            this.$toast.add({severity:'success', summary: 'Success Message', detail:'Message Content', life: 3000});
+            this.$toast.add({ severity: 'success', summary: 'Success Message', detail: 'Message Content', life: 3000 });
         },
         showInfo() {
-            this.$toast.add({severity:'info', summary: 'Info Message', detail:'Message Content', life: 3000});
+            this.$toast.add({ severity: 'info', summary: 'Info Message', detail: 'Message Content', life: 3000 });
         },
         showWarn() {
-            this.$toast.add({severity:'warn', summary: 'Warn Message', detail:'Message Content', life: 3000});
+            this.$toast.add({ severity: 'warn', summary: 'Warn Message', detail: 'Message Content', life: 3000 });
         },
         showError() {
-            this.$toast.add({severity:'error', summary: 'Error Message', detail:'Message Content', life: 3000});
+            this.$toast.add({ severity: 'error', summary: 'Error Message', detail: 'Message Content', life: 3000 });
         },
         showTopLeft() {
-            this.$toast.add({severity: 'info', summary: 'Info Message', detail: 'Message Content', group: 'tl', life: 3000});
+            this.$toast.add({ severity: 'info', summary: 'Info Message', detail: 'Message Content', group: 'tl', life: 3000 });
         },
         showBottomLeft() {
-            this.$toast.add({severity:'warn', summary: 'Warn Message', detail:'Message Content', group: 'bl', life: 3000});
+            this.$toast.add({ severity: 'warn', summary: 'Warn Message', detail: 'Message Content', group: 'bl', life: 3000 });
         },
         showBottomRight() {
-            this.$toast.add({severity:'success', summary: 'Success Message', detail:'Message Content', group: 'br', life: 3000});
+            this.$toast.add({ severity: 'success', summary: 'Success Message', detail: 'Message Content', group: 'br', life: 3000 });
         },
         showSticky() {
-            this.$toast.add({severity: 'info', summary: 'Sticky Message', detail: 'Message Content'});
+            this.$toast.add({ severity: 'info', summary: 'Sticky Message', detail: 'Message Content' });
         },
         showMultiple() {
-            this.$toast.add({severity:'info', summary:'Message 1', detail:'Message 1 Content', life: 3000});
-            this.$toast.add({severity:'info', summary:'Message 2', detail:'Message 2 Content', life: 3000});
-            this.$toast.add({severity:'info', summary:'Message 3', detail:'Message 3 Content', life: 3000});
+            this.$toast.add({ severity: 'info', summary: 'Message 1', detail: 'Message 1 Content', life: 3000 });
+            this.$toast.add({ severity: 'info', summary: 'Message 2', detail: 'Message 2 Content', life: 3000 });
+            this.$toast.add({ severity: 'info', summary: 'Message 3', detail: 'Message 3 Content', life: 3000 });
         },
         showTemplate() {
-            this.$toast.add({severity: 'warn', summary: 'Are you sure?', detail: 'Proceed to confirm', group: 'bc'});
+            this.$toast.add({ severity: 'warn', summary: 'Are you sure?', detail: 'Proceed to confirm', group: 'bc' });
         },
         onConfirm() {
             this.$toast.removeGroup('bc');
@@ -111,21 +110,21 @@ export default {
         }
     },
     components: {
-        'ToastDoc': ToastDoc
+        ToastDoc: ToastDoc
     }
-}
+};
 </script>
 
 <style lang="scss" scoped>
 button {
     min-width: 10rem;
-    margin-right: .5rem;
+    margin-right: 0.5rem;
 }
 
 @media screen and (max-width: 960px) {
     button {
         width: 100%;
-        margin-bottom: .5rem;
+        margin-bottom: 0.5rem;
     }
 }
 </style>

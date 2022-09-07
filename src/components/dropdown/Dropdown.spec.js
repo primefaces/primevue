@@ -4,7 +4,7 @@ import PrimeVue from '@/components/config/PrimeVue';
 import Dropdown from '@/components/dropdown/Dropdown.vue';
 
 describe('Dropdown.vue', () => {
-    let wrapper; 
+    let wrapper;
 
     beforeEach(async () => {
         wrapper = mount(Dropdown, {
@@ -26,13 +26,13 @@ describe('Dropdown.vue', () => {
         expect(wrapper.find('.p-focus').exists()).toBe(true);
         expect(wrapper.find('.p-inputwrapper-filled').exists()).toBe(false);
         expect(wrapper.find('.p-inputwrapper-focus').exists()).toBe(true);
-    })
+    });
 });
 
 describe('option checks', () => {
     let wrapper;
 
-    beforeEach(async() => {
+    beforeEach(async () => {
         wrapper = mount(Dropdown, {
             global: {
                 plugins: [PrimeVue],
@@ -42,11 +42,11 @@ describe('option checks', () => {
             },
             props: {
                 options: [
-                    {name: 'New York', code: 'NY'},
-                    {name: 'Rome', code: 'RM'},
-                    {name: 'London', code: 'LDN'},
-                    {name: 'Istanbul', code: 'IST'},
-                    {name: 'Paris', code: 'PRS'}
+                    { name: 'New York', code: 'NY' },
+                    { name: 'Rome', code: 'RM' },
+                    { name: 'London', code: 'LDN' },
+                    { name: 'Istanbul', code: 'IST' },
+                    { name: 'Paris', code: 'PRS' }
                 ],
                 optionLabel: 'name',
                 optionValue: 'code',
@@ -69,7 +69,7 @@ describe('option checks', () => {
 describe('editable checks', () => {
     let wrapper;
 
-    beforeEach(async() => {
+    beforeEach(async () => {
         wrapper = mount(Dropdown, {
             global: {
                 plugins: [PrimeVue],
@@ -79,11 +79,11 @@ describe('editable checks', () => {
             },
             props: {
                 options: [
-                    {name: 'New York', code: 'NY'},
-                    {name: 'Rome', code: 'RM'},
-                    {name: 'London', code: 'LDN'},
-                    {name: 'Istanbul', code: 'IST'},
-                    {name: 'Paris', code: 'PRS'}
+                    { name: 'New York', code: 'NY' },
+                    { name: 'Rome', code: 'RM' },
+                    { name: 'London', code: 'LDN' },
+                    { name: 'Istanbul', code: 'IST' },
+                    { name: 'Paris', code: 'PRS' }
                 ],
                 optionLabel: 'name',
                 optionValue: 'code',
@@ -104,7 +104,7 @@ describe('editable checks', () => {
 describe('option groups checks', () => {
     let wrapper;
 
-    beforeEach(async() => {
+    beforeEach(async () => {
         wrapper = mount(Dropdown, {
             global: {
                 plugins: [PrimeVue],
@@ -115,30 +115,33 @@ describe('option groups checks', () => {
             props: {
                 options: [
                     {
-                        label: 'Germany', code: 'DE',
+                        label: 'Germany',
+                        code: 'DE',
                         items: [
-                            {label: 'Berlin', value: 'Berlin'},
-                            {label: 'Frankfurt', value: 'Frankfurt'},
-                            {label: 'Hamburg', value: 'Hamburg'},
-                            {label: 'Munich', value: 'Munich'}
+                            { label: 'Berlin', value: 'Berlin' },
+                            { label: 'Frankfurt', value: 'Frankfurt' },
+                            { label: 'Hamburg', value: 'Hamburg' },
+                            { label: 'Munich', value: 'Munich' }
                         ]
                     },
                     {
-                        label: 'USA', code: 'US',
+                        label: 'USA',
+                        code: 'US',
                         items: [
-                            {label: 'Chicago', value: 'Chicago'},
-                            {label: 'Los Angeles', value: 'Los Angeles'},
-                            {label: 'New York', value: 'New York'},
-                            {label: 'San Francisco', value: 'San Francisco'}
+                            { label: 'Chicago', value: 'Chicago' },
+                            { label: 'Los Angeles', value: 'Los Angeles' },
+                            { label: 'New York', value: 'New York' },
+                            { label: 'San Francisco', value: 'San Francisco' }
                         ]
                     },
                     {
-                        label: 'Japan', code: 'JP',
+                        label: 'Japan',
+                        code: 'JP',
                         items: [
-                            {label: 'Kyoto', value: 'Kyoto'},
-                            {label: 'Osaka', value: 'Osaka'},
-                            {label: 'Tokyo', value: 'Tokyo'},
-                            {label: 'Yokohama', value: 'Yokohama'}
+                            { label: 'Kyoto', value: 'Kyoto' },
+                            { label: 'Osaka', value: 'Osaka' },
+                            { label: 'Tokyo', value: 'Tokyo' },
+                            { label: 'Yokohama', value: 'Yokohama' }
                         ]
                     }
                 ],
@@ -160,7 +163,7 @@ describe('option groups checks', () => {
 describe('templating checks', () => {
     let wrapper;
 
-    beforeEach(async() => {
+    beforeEach(async () => {
         wrapper = mount(Dropdown, {
             global: {
                 plugins: [PrimeVue],
@@ -169,21 +172,22 @@ describe('templating checks', () => {
                 }
             },
             slots: {
-                header: h('span', {class: 'header-slot'}, 'Header slot'),
-                footer: h('span', {class: 'footer-slot'}, 'Footer slot'),
-                option: h('span', {class: 'option-slot'}, 'Option slot'),
-                optiongroup: h('span', {class: 'optiongroup-slot'}, 'OptionGroup slot'),
-                emptyfilter: h('span', {class: 'emptyfilter-slot'}, 'Empty filter slot')
+                header: h('span', { class: 'header-slot' }, 'Header slot'),
+                footer: h('span', { class: 'footer-slot' }, 'Footer slot'),
+                option: h('span', { class: 'option-slot' }, 'Option slot'),
+                optiongroup: h('span', { class: 'optiongroup-slot' }, 'OptionGroup slot'),
+                emptyfilter: h('span', { class: 'emptyfilter-slot' }, 'Empty filter slot')
             },
             props: {
                 options: [
                     {
-                        label: 'Germany', code: 'DE',
+                        label: 'Germany',
+                        code: 'DE',
                         items: [
-                            {label: 'Berlin', value: 'Berlin'},
-                            {label: 'Frankfurt', value: 'Frankfurt'},
-                            {label: 'Hamburg', value: 'Hamburg'},
-                            {label: 'Munich', value: 'Munich'}
+                            { label: 'Berlin', value: 'Berlin' },
+                            { label: 'Frankfurt', value: 'Frankfurt' },
+                            { label: 'Hamburg', value: 'Hamburg' },
+                            { label: 'Munich', value: 'Munich' }
                         ]
                     }
                 ],
@@ -211,7 +215,7 @@ describe('templating checks', () => {
 describe('empty templating checks', () => {
     let wrapper;
 
-    beforeEach(async() => {
+    beforeEach(async () => {
         wrapper = mount(Dropdown, {
             global: {
                 plugins: [PrimeVue],
@@ -241,7 +245,7 @@ describe('empty templating checks', () => {
 describe('loader checks', () => {
     let wrapper;
 
-    beforeEach(async() => {
+    beforeEach(async () => {
         wrapper = mount(Dropdown, {
             global: {
                 plugins: [PrimeVue],
@@ -253,11 +257,11 @@ describe('loader checks', () => {
                 loading: true,
                 loadingIcon: 'pi pi-discord',
                 options: [
-                    {name: 'New York', code: 'NY'},
-                    {name: 'Rome', code: 'RM'},
-                    {name: 'London', code: 'LDN'},
-                    {name: 'Istanbul', code: 'IST'},
-                    {name: 'Paris', code: 'PRS'}
+                    { name: 'New York', code: 'NY' },
+                    { name: 'Rome', code: 'RM' },
+                    { name: 'London', code: 'LDN' },
+                    { name: 'Istanbul', code: 'IST' },
+                    { name: 'Paris', code: 'PRS' }
                 ],
                 optionLabel: 'name',
                 optionValue: 'code',
@@ -280,7 +284,7 @@ describe('loader checks', () => {
 describe('filter checks', () => {
     let wrapper;
 
-    beforeEach(async() => {
+    beforeEach(async () => {
         wrapper = mount(Dropdown, {
             global: {
                 plugins: [PrimeVue],
@@ -291,16 +295,16 @@ describe('filter checks', () => {
             props: {
                 filter: true,
                 options: [
-                    {name: 'Australia', code: 'AU'},
-                    {name: 'Brazil', code: 'BR'},
-                    {name: 'China', code: 'CN'},
-                    {name: 'Egypt', code: 'EG'},
-                    {name: 'France', code: 'FR'},
-                    {name: 'Germany', code: 'DE'},
-                    {name: 'India', code: 'IN'},
-                    {name: 'Japan', code: 'JP'},
-                    {name: 'Spain', code: 'ES'},
-                    {name: 'United States', code: 'US'}
+                    { name: 'Australia', code: 'AU' },
+                    { name: 'Brazil', code: 'BR' },
+                    { name: 'China', code: 'CN' },
+                    { name: 'Egypt', code: 'EG' },
+                    { name: 'France', code: 'FR' },
+                    { name: 'Germany', code: 'DE' },
+                    { name: 'India', code: 'IN' },
+                    { name: 'Japan', code: 'JP' },
+                    { name: 'Spain', code: 'ES' },
+                    { name: 'United States', code: 'US' }
                 ],
                 optionLabel: 'name'
             }
@@ -313,15 +317,15 @@ describe('filter checks', () => {
         const filterInput = wrapper.find('.p-dropdown-filter');
         expect(filterInput.exists()).toBe(true);
 
-        const event = {'target':{'value':'c'}};
+        const event = { target: { value: 'c' } };
         const onFilterChange = jest.spyOn(wrapper.vm, 'onFilterChange');
 
         wrapper.vm.onFilterChange(event);
         await wrapper.vm.$nextTick();
-        
+
         expect(onFilterChange).toHaveBeenCalled();
 
-        await wrapper.setData({filterValue: 'c'});
+        await wrapper.setData({ filterValue: 'c' });
 
         expect(wrapper.findAll('.p-dropdown-item').length).toBe(2);
     });

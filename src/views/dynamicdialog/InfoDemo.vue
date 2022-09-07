@@ -1,6 +1,8 @@
 <template>
     <div>
-        <p>There are <strong>{{totalProducts}}</strong> products in total in this list.</p>
+        <p>
+            There are <strong>{{ totalProducts }}</strong> products in total in this list.
+        </p>
         <div class="flex justify-content-end">
             <Button type="button" label="Close" @click="closeDialog"></Button>
         </div>
@@ -13,7 +15,7 @@ export default {
     data() {
         return {
             totalProducts: 0
-        }
+        };
     },
     mounted() {
         this.totalProducts = this.dialogRef.data.totalProducts;
@@ -23,5 +25,5 @@ export default {
             this.dialogRef.close();
         }
     }
-}
+};
 </script>

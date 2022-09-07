@@ -36,7 +36,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [SplitterPanel](https://www.primefaces.org/primevue/showcase/#/splitter)
+ * - [SplitterPanel](https://www.primefaces.org/primevue/splitter)
  *
  */
 export default SplitterPanel;

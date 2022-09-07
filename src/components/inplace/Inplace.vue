@@ -1,6 +1,6 @@
 <template>
     <div :class="containerClass">
-        <div :class="displayClass" :tabindex="$attrs.tabindex||'0'" v-if="!d_active" @click="open" @keydown.enter="open">
+        <div :class="displayClass" :tabindex="$attrs.tabindex || '0'" v-if="!d_active" @click="open" @keydown.enter="open">
             <slot name="display"></slot>
         </div>
         <div class="p-inplace-content" v-else>
@@ -38,7 +38,7 @@ export default {
     data() {
         return {
             d_active: this.active
-        }
+        };
     },
     methods: {
         open(event) {
@@ -58,16 +58,16 @@ export default {
     },
     computed: {
         containerClass() {
-            return ['p-inplace p-component', {'p-inplace-closable': this.closable}];
+            return ['p-inplace p-component', { 'p-inplace-closable': this.closable }];
         },
         displayClass() {
-            return ['p-inplace-display', {'p-disabled': this.disabled}];
+            return ['p-inplace-display', { 'p-disabled': this.disabled }];
         }
     },
     components: {
-        'IPButton': Button
+        IPButton: Button
     }
-}
+};
 </script>
 
 <style>

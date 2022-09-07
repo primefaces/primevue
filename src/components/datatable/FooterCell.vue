@@ -1,13 +1,12 @@
 <template>
-    <td :style="containerStyle" :class="containerClass" role="cell"
-        :colspan="columnProp('colspan')" :rowspan="columnProp('rowspan')">
-        <component :is="column.children.footer" :column="column" v-if="column.children && column.children.footer"/>
-        {{columnProp('footer')}}
+    <td :style="containerStyle" :class="containerClass" role="cell" :colspan="columnProp('colspan')" :rowspan="columnProp('rowspan')">
+        <component :is="column.children.footer" :column="column" v-if="column.children && column.children.footer" />
+        {{ columnProp('footer') }}
     </td>
 </template>
 
 <script>
-import {DomHandler,ObjectUtils} from 'primevue/utils';
+import { DomHandler, ObjectUtils } from 'primevue/utils';
 
 export default {
     name: 'FooterCell',
@@ -20,7 +19,7 @@ export default {
     data() {
         return {
             styleObject: {}
-        }
+        };
     },
     mounted() {
         if (this.columnProp('frozen')) {
@@ -46,8 +45,7 @@ export default {
                         right = DomHandler.getOuterWidth(next) + parseFloat(next.style.left);
                     }
                     this.styleObject.right = right + 'px';
-                }
-                else {
+                } else {
                     let left = 0;
                     let prev = this.$el.previousElementSibling;
                     if (prev) {
@@ -60,16 +58,20 @@ export default {
     },
     computed: {
         containerClass() {
-            return [this.columnProp('footerClass'), this.columnProp('class'), {
-                'p-frozen-column': this.columnProp('frozen')
-            }];
+            return [
+                this.columnProp('footerClass'),
+                this.columnProp('class'),
+                {
+                    'p-frozen-column': this.columnProp('frozen')
+                }
+            ];
         },
         containerStyle() {
             let bodyStyle = this.columnProp('footerStyle');
             let columnStyle = this.columnProp('style');
 
-            return this.columnProp('frozen') ? [columnStyle, bodyStyle, this.styleObject]: [columnStyle, bodyStyle];
+            return this.columnProp('frozen') ? [columnStyle, bodyStyle, this.styleObject] : [columnStyle, bodyStyle];
         }
     }
-}
+};
 </script>

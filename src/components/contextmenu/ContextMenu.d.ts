@@ -88,11 +88,11 @@ declare module '@vue/runtime-core' {
  *
  * Helper API:
  *
- * - [MenuItem](https://www.primefaces.org/primevue/showcase/#/menumodel)
+ * - [MenuItem](https://www.primefaces.org/primevue/menumodel)
  *
  * Demos:
  *
- * - [ContextMenu](https://www.primefaces.org/primevue/showcase/#/contextmenu)
+ * - [ContextMenu](https://www.primefaces.org/primevue/contextmenu)
  *
  */
 export default ContextMenu;

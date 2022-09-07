@@ -41,8 +41,8 @@
 import BadgeDoc from './BadgeDoc';
 
 export default {
-	components: {
-		'BadgeDoc': BadgeDoc
-	}
-}
+    components: {
+        BadgeDoc: BadgeDoc
+    }
+};
 </script>

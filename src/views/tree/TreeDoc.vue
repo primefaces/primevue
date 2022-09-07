@@ -1,19 +1,19 @@
 <template>
-	<AppDoc name="TreeDemo" :sources="sources" :service="['NodeService']" :data="['treenodes']" github="tree/TreeDemo.vue">
+    <AppDoc name="TreeDemo" :sources="sources" :service="['NodeService']" :data="['treenodes']" github="tree/TreeDemo.vue">
         <h5>Import via Module</h5>
-<pre v-code.script><code>
+        <pre v-code.script><code>
 import Tree from 'primevue/tree';
 
 </code></pre>
 
         <h5>Import via CDN</h5>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-		<h5>Getting Started</h5>
-		<p>Tree component requires an array of TreeNode objects as its <i>value</i>.</p>
+        <h5>Getting Started</h5>
+        <p>Tree component requires an array of TreeNode objects as its <i>value</i>.</p>
 
         <h5>TreeNode API utilized by the Tree</h5>
         <div class="doc-tablewrapper">
@@ -104,12 +104,12 @@ import Tree from 'primevue/tree';
         </div>
 
         <p>Example below loads the tree nodes from a remote datasource via a service called NodeService.</p>
-<pre v-code><code><template v-pre>
+        <pre v-code><code><template v-pre>
 &lt;Tree :value="nodes"&gt;&lt;/Tree&gt;
 </template>
 </code></pre>
 
-<pre v-code.script><code>
+        <pre v-code.script><code>
 import NodeService from '../../service/NodeService';
 
 export default {
@@ -129,7 +129,7 @@ export default {
 
 </code></pre>
 
-<pre v-code.script><code>
+        <pre v-code.script><code>
 export default class NodeService {
 
     getTreeNodes() {
@@ -142,7 +142,7 @@ export default class NodeService {
 </code></pre>
 
         <p>The json response sample would be as following.</p>
-<pre v-code.script><code>
+        <pre v-code.script><code>
 {
     "root": [
         {
@@ -201,12 +201,13 @@ export default class NodeService {
 </code></pre>
 
         <h5>Programmatic Control</h5>
-        <p>Tree state can be controlled programmatically with the <i>expandedKeys</i> property that defines the keys
-            that are expanded. This property is a Map instance whose key is the key of a node and value is a boolean. Note that <i>expandedKeys</i> also supports two-way binding with the v-model directive.
+        <p>
+            Tree state can be controlled programmatically with the <i>expandedKeys</i> property that defines the keys that are expanded. This property is a Map instance whose key is the key of a node and value is a boolean. Note that
+            <i>expandedKeys</i> also supports two-way binding with the v-model directive.
         </p>
 
         <p>Example below expands and collapses all nodes with buttons.</p>
-<pre v-code><code><template v-pre>
+        <pre v-code><code><template v-pre>
 &lt;div&gt;
     &lt;Button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll" /&gt;
     &lt;Button type="button" icon="pi pi-minus" label="Collapse All" @click="collapseAll" /&gt;
@@ -215,7 +216,7 @@ export default class NodeService {
 </template>
 </code></pre>
 
-<pre v-code.script><code>
+        <pre v-code.script><code>
 import NodeService from '../../service/NodeService';
 
 export default {
@@ -257,7 +258,7 @@ export default {
 </code></pre>
 
         <p>To display some nodes as expanded by default, simply add their keys to the map.</p>
-<pre v-code.script><code>
+        <pre v-code.script><code>
 import NodeService from '../../service/NodeService';
 
 export default {
@@ -283,13 +284,17 @@ export default {
 </code></pre>
 
         <h5>Selection</h5>
-        <p>Tree supports <b>single</b>, <b>multiple</b> and <b>checkbox</b> selection modes. Define the <i>selectionKeys</i> with the v-model directive and the <i>selectionMode</i> properties to enable the selection.
-        By default in multiple selection mode, metaKey is necessary to add to existing selections however this can be configured with <i>metaKeySelection</i> property. Note that
-        in touch enabled devices, Tree does not require metaKey. In addition selection on a particular node can be disabled if the <i>selectable</i> is false on the node instance.</p>
+        <p>
+            Tree supports <b>single</b>, <b>multiple</b> and <b>checkbox</b> selection modes. Define the <i>selectionKeys</i> with the v-model directive and the <i>selectionMode</i> properties to enable the selection. By default in multiple selection
+            mode, metaKey is necessary to add to existing selections however this can be configured with <i>metaKeySelection</i> property. Note that in touch enabled devices, Tree does not require metaKey. In addition selection on a particular node
+            can be disabled if the <i>selectable</i> is false on the node instance.
+        </p>
 
-        <p>Similarly to the <i>expandedKeys</i>, <i>selectionKeys</i> is a Map instance whose key is the key of a node and value is a boolean in "single" and "multiple" cases. On the other hand
-        in "checkbox" mode, instead of a boolean, value should be an object that has "checked" and "partialChecked" properties to represent the checked state of a node.</p>
-<pre v-code><code><template v-pre>
+        <p>
+            Similarly to the <i>expandedKeys</i>, <i>selectionKeys</i> is a Map instance whose key is the key of a node and value is a boolean in "single" and "multiple" cases. On the other hand in "checkbox" mode, instead of a boolean, value should
+            be an object that has "checked" and "partialChecked" properties to represent the checked state of a node.
+        </p>
+        <pre v-code><code><template v-pre>
 &lt;h3&gt;Single Selection&lt;/h3&gt;
 &lt;Tree :value="nodes" selectionMode="single" v-model:selectionKeys="selectedKey1"&gt;&lt;/Tree&gt;
 
@@ -308,7 +313,7 @@ export default {
 </template>
 </code></pre>
 
-<pre v-code.script><code>
+        <pre v-code.script><code>
 import NodeService from '../../service/NodeService';
 
 export default {
@@ -342,7 +347,7 @@ export default {
 </code></pre>
 
         <p>To display some nodes as selected by default, simply add their keys to the map.</p>
-<pre v-code.script><code>
+        <pre v-code.script><code>
 import NodeService from '../../service/NodeService';
 
 export default {
@@ -380,17 +385,17 @@ export default {
 </code></pre>
 
         <h5>Lazy</h5>
-        <p>Lazy Loading is handy to deal with huge datasets. Idea is instead of loading the whole tree, load child nodes on demand
-            using expand expand. The important part is setting <i>leaf</i> to true on a node instance so that even without children,
-            tree would render an expand icon. Example below uses an in memory collection to mimic a lazy loading scenario with timeouts.
+        <p>
+            Lazy Loading is handy to deal with huge datasets. Idea is instead of loading the whole tree, load child nodes on demand using expand expand. The important part is setting <i>leaf</i> to true on a node instance so that even without
+            children, tree would render an expand icon. Example below uses an in memory collection to mimic a lazy loading scenario with timeouts.
         </p>
 
-<pre v-code><code><template v-pre>
+        <pre v-code><code><template v-pre>
 &lt;Tree :value="nodes" @node-expand="onNodeExpand" :loading="loading"&gt;&lt;/Tree&gt;
 </template>
 </code></pre>
 
-<pre v-code.script><code>
+        <pre v-code.script><code>
 import NodeService from '../../service/NodeService';
 
 export default {
@@ -459,9 +464,8 @@ export default {
 </code></pre>
 
         <h5>Templating</h5>
-        <p>The <i>type</i> property of a TreeNode is used to map a template to a node to create the node label. If it is undefined and no default template is available,
-        label of the node is used.</p>
-<pre v-code><code><template v-pre>
+        <p>The <i>type</i> property of a TreeNode is used to map a template to a node to create the node label. If it is undefined and no default template is available, label of the node is used.</p>
+        <pre v-code><code><template v-pre>
 &lt;Tree :value="nodes"&gt;
     &lt;template #default="slotProps"&gt;
         &lt;b&gt;&#123;&#123;slotProps.node.label&#125;&#125;&lt;/b&gt;
@@ -473,7 +477,7 @@ export default {
 </template>
 </code></pre>
 
-<pre v-code.script><code>
+        <pre v-code.script><code>
 export default {
     data() {
         return {
@@ -505,18 +509,20 @@ export default {
 
 </code></pre>
 
-                <h5>Scrolling</h5>
-                <p>Scrolling is used to preserve space as content of the tree is dynamic and enabled by <i>scrollHeight</i> property.</p>
-<pre v-code><code><template v-pre>
+        <h5>Scrolling</h5>
+        <p>Scrolling is used to preserve space as content of the tree is dynamic and enabled by <i>scrollHeight</i> property.</p>
+        <pre v-code><code><template v-pre>
 &lt;Tree :value="nodes1" scrollHeight="200px"&gt;&lt;/Tree&gt;
 </template>
 </code></pre>
 
-                <h5>Flex Scroll</h5>
-                <p>In cases where viewport should adjust itself according to the table parent's height instead of a fixed viewport height, set <i>scrollHeight</i> option as <b>flex</b>. In example below,
-                table is inside a Dialog where viewport size dynamically responds to the dialog size changes such as maximizing.</p>
+        <h5>Flex Scroll</h5>
+        <p>
+            In cases where viewport should adjust itself according to the table parent's height instead of a fixed viewport height, set <i>scrollHeight</i> option as <b>flex</b>. In example below, table is inside a Dialog where viewport size
+            dynamically responds to the dialog size changes such as maximizing.
+        </p>
 
-<pre v-code><code><template v-pre>
+        <pre v-code><code><template v-pre>
 &lt;Button type="button" icon="pi pi-external-link" label="View" @click="dialogVisible = true"&gt;&lt;/Button&gt;
 
 &lt;Dialog header="Flex Scroll" v-model:visible="dialogVisible" :style="{width: '50vw'}" maximizable
@@ -530,13 +536,17 @@ export default {
 </code></pre>
 
         <h5>Filtering</h5>
-        <p>Filtering is enabled by setting the <i>filter</i> property to true, by default label property of a node
-        is used to compare against the value in the text field, in order to customize which field(s) should be used during search, define the <i>filterBy</i> property as a comma separated list.</p>
+        <p>
+            Filtering is enabled by setting the <i>filter</i> property to true, by default label property of a node is used to compare against the value in the text field, in order to customize which field(s) should be used during search, define the
+            <i>filterBy</i> property as a comma separated list.
+        </p>
 
-        <p>In addition <i>filterMode</i> specifies the filtering strategy. In <b>lenient</b> mode when the query matches a node, children of the node are not searched further as all descendants of the node are included. On the other hand,
-        in <b>strict</b> mode when the query matches a node, filtering continues on all descendants.</p>
+        <p>
+            In addition <i>filterMode</i> specifies the filtering strategy. In <b>lenient</b> mode when the query matches a node, children of the node are not searched further as all descendants of the node are included. On the other hand, in
+            <b>strict</b> mode when the query matches a node, filtering continues on all descendants.
+        </p>
 
-<pre v-code><code><template v-pre>
+        <pre v-code><code><template v-pre>
 &lt;h3&gt;Lenient Filter&lt;/h3&gt;
 &lt;Tree :value="nodes" :filter="true" filterMode="lenient"&gt;&lt;/Tree&gt;
 
@@ -545,7 +555,7 @@ export default {
 </template>
 </code></pre>
 
-<pre v-code.script><code>
+        <pre v-code.script><code>
 import NodeService from '../../service/NodeService';
 
 export default {
@@ -587,19 +597,19 @@ export default {
 
 </code></pre>
 
-		<h5>Properties</h5>
+        <h5>Properties</h5>
         <p>Any property such as style and class are passed to the underlying root element. Following is the additional property to configure the component.</p>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Type</th>
                         <th>Default</th>
                         <th>Description</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>value</td>
                         <td>array</td>
@@ -628,8 +638,10 @@ export default {
                         <td>metaKeySelection</td>
                         <td>boolean</td>
                         <td>true</td>
-                        <td>Defines how multiple items can be selected, when true metaKey needs to be pressed to select or unselect an item and when set to false selection of each item
-                            can be toggled individually. On touch enabled devices, metaKeySelection is turned off automatically.</td>
+                        <td>
+                            Defines how multiple items can be selected, when true metaKey needs to be pressed to select or unselect an item and when set to false selection of each item can be toggled individually. On touch enabled devices,
+                            metaKeySelection is turned off automatically.
+                        </td>
                     </tr>
                     <tr>
                         <td>loading</td>
@@ -679,21 +691,21 @@ export default {
                         <td>null</td>
                         <td>Height of the scroll viewport in fixed units or the "flex" keyword for a dynamic size.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
-		<h5>Events</h5>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <h5>Events</h5>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Parameters</th>
                         <th>Description</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>node-select</td>
                         <td>node: Node instance</td>
@@ -714,21 +726,21 @@ export default {
                         <td>node: Node instance</td>
                         <td>Callback to invoke when a node is collapsed.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
-		<h5>Styling</h5>
-		<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <h5>Styling</h5>
+        <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Element</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>p-tree</td>
                         <td>Main container element</td>
@@ -769,12 +781,12 @@ export default {
                         <td>p-treenode-children</td>
                         <td>Container element for node children</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
-		<h5>Dependencies</h5>
-		<p>None.</p>
+        <h5>Dependencies</h5>
+        <p>None.</p>
     </AppDoc>
 </template>
 
@@ -975,7 +987,7 @@ export default {
         </style>`
                 }
             }
-        }
+        };
     }
-}
+};
 </script>

@@ -11,7 +11,7 @@
 
 <script>
 import GalleriaContent from './GalleriaContent.vue';
-import {DomHandler,ZIndexUtils} from 'primevue/utils';
+import { DomHandler, ZIndexUtils } from 'primevue/utils';
 import Portal from 'primevue/portal';
 
 export default {
@@ -23,7 +23,7 @@ export default {
             type: String,
             default: null
         },
-		value: {
+        value: {
             type: Array,
             default: null
         },
@@ -40,9 +40,9 @@ export default {
             default: false
         },
         numVisible: {
-			type: Number,
-			default: 3
-		},
+            type: Number,
+            default: 3
+        },
         responsiveOptions: {
             type: Array,
             default: null
@@ -72,21 +72,21 @@ export default {
             default: false
         },
         transitionInterval: {
-			type: Number,
-			default: 4000
-		},
+            type: Number,
+            default: 4000
+        },
         showThumbnails: {
             type: Boolean,
             default: true
         },
         thumbnailsPosition: {
-			type: String,
-			default: "bottom"
-		},
+            type: String,
+            default: 'bottom'
+        },
         verticalThumbnailViewPortHeight: {
-			type: String,
-			default: "300px"
-		},
+            type: String,
+            default: '300px'
+        },
         showIndicators: {
             type: Boolean,
             default: false
@@ -96,12 +96,12 @@ export default {
             default: false
         },
         indicatorsPosition: {
-			type: String,
-			default: "bottom"
-		},
+            type: String,
+            default: 'bottom'
+        },
         baseZIndex: {
-			type: Number,
-			default: 0
+            type: Number,
+            default: 0
         },
         maskClass: {
             type: String,
@@ -115,7 +115,7 @@ export default {
     data() {
         return {
             containerVisible: this.visible
-        }
+        };
     },
     updated() {
         if (this.fullScreen && this.visible) {
@@ -166,17 +166,21 @@ export default {
     },
     computed: {
         maskContentClass() {
-            return ['p-galleria-mask p-component-overlay p-component-overlay-enter', this.maskClass, {
-                'p-input-filled': this.$primevue.config.inputStyle === 'filled',
-                'p-ripple-disabled': this.$primevue.config.ripple === false
-            }];
+            return [
+                'p-galleria-mask p-component-overlay p-component-overlay-enter',
+                this.maskClass,
+                {
+                    'p-input-filled': this.$primevue.config.inputStyle === 'filled',
+                    'p-ripple-disabled': this.$primevue.config.ripple === false
+                }
+            ];
         }
     },
     components: {
-        'GalleriaContent': GalleriaContent,
-        'Portal': Portal
+        GalleriaContent: GalleriaContent,
+        Portal: Portal
     }
-}
+};
 </script>
 
 <style>
@@ -200,7 +204,7 @@ export default {
 .p-galleria-item-nav {
     position: absolute;
     top: 50%;
-    margin-top: -.5rem;
+    margin-top: -0.5rem;
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -230,7 +234,7 @@ export default {
 .p-galleria-item-nav-onhover .p-galleria-item-nav {
     pointer-events: none;
     opacity: 0;
-    transition: opacity .2s ease-in-out;
+    transition: opacity 0.2s ease-in-out;
 }
 
 .p-galleria-item-nav-onhover .p-galleria-item-wrapper:hover .p-galleria-item-nav {
@@ -295,12 +299,12 @@ export default {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    opacity: .5;
+    opacity: 0.5;
 }
 
 .p-galleria-thumbnail-item:hover {
     opacity: 1;
-    transition: opacity .3s;
+    transition: opacity 0.3s;
 }
 
 .p-galleria-thumbnail-item-current {
@@ -432,7 +436,7 @@ export default {
 .p-galleria-mask .p-galleria-item-nav {
     position: fixed;
     top: 50%;
-    margin-top: -.5rem;
+    margin-top: -0.5rem;
 }
 
 /* Animation */
@@ -441,7 +445,7 @@ export default {
 }
 
 .p-galleria-leave-active {
-    transition: all 150ms cubic-bezier(0.4, 0.0, 0.2, 1);
+    transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .p-galleria-enter-from,

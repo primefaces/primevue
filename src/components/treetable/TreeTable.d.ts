@@ -461,7 +461,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [TreeTable](https://www.primefaces.org/primevue/showcase/#/treetable)
+ * - [TreeTable](https://www.primefaces.org/primevue/treetable)
  *
  */
 export default TreeTable;

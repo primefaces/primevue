@@ -45,7 +45,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [ProgressBar](https://www.primefaces.org/primevue/showcase/#/progressbar)
+ * - [ProgressBar](https://www.primefaces.org/primevue/progressbar)
  *
  */
 export default ProgressBar;

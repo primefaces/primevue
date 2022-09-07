@@ -2,7 +2,7 @@
     <span :class="containerClass" v-bind="$attrs">
         <span :class="iconClass" v-if="icon"></span>
         <slot>
-            <span class="p-tag-value">{{value}}</span>
+            <span class="p-tag-value">{{ value }}</span>
         </slot>
     </span>
 </template>
@@ -18,19 +18,22 @@ export default {
     },
     computed: {
         containerClass() {
-            return ['p-tag p-component', {
-                'p-tag-info': this.severity === 'info',
-                'p-tag-success': this.severity === 'success',
-                'p-tag-warning': this.severity === 'warning',
-                'p-tag-danger': this.severity === 'danger',
-                'p-tag-rounded': this.rounded
-            }];
+            return [
+                'p-tag p-component',
+                {
+                    'p-tag-info': this.severity === 'info',
+                    'p-tag-success': this.severity === 'success',
+                    'p-tag-warning': this.severity === 'warning',
+                    'p-tag-danger': this.severity === 'danger',
+                    'p-tag-rounded': this.rounded
+                }
+            ];
         },
         iconClass() {
             return ['p-tag-icon', this.icon];
         }
     }
-}
+};
 </script>
 
 <style>

@@ -53,9 +53,9 @@ import ChipDoc from './ChipDoc';
 
 export default {
     components: {
-        'ChipDoc': ChipDoc
+        ChipDoc: ChipDoc
     }
-}
+};
 </script>
 
 <style lang="scss" scoped>

@@ -17,7 +17,7 @@
                 <TreeSelect v-model="selectedNodes1" :options="nodes" selectionMode="multiple" :metaKeySelection="false" placeholder="Select Items"></TreeSelect>
 
                 <h5>Checkbox</h5>
-                <TreeSelect v-model="selectedNodes2" :options="nodes" display="chip" selectionMode="checkbox"  placeholder="Select Items"></TreeSelect>
+                <TreeSelect v-model="selectedNodes2" :options="nodes" display="chip" selectionMode="checkbox" placeholder="Select Items"></TreeSelect>
             </div>
         </div>
 
@@ -36,24 +36,24 @@ export default {
             selectedNode: null,
             selectedNodes1: null,
             selectedNodes2: null
-        }
+        };
     },
     nodeService: null,
     created() {
         this.nodeService = new NodeService();
     },
     mounted() {
-        this.nodeService.getTreeNodes().then(data => this.nodes = data);
+        this.nodeService.getTreeNodes().then((data) => (this.nodes = data));
     },
     components: {
-        'TreeSelectDoc': TreeSelectDoc
+        TreeSelectDoc: TreeSelectDoc
     }
-}
+};
 </script>
 
 <style scoped>
 .p-treeselect {
-    width:20rem;
+    width: 20rem;
 }
 
 @media screen and (max-width: 640px) {

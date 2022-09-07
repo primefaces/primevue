@@ -13,9 +13,9 @@
                 <h5>Scroll</h5>
                 <p>Built-in responsiveness using the <b>responsiveLayout</b> property set to scroll.</p>
                 <TreeTable :value="nodes" responsiveLayout="scroll">
-                    <Column field="name" header="Name" :expander="true" style="min-width:200px"></Column>
-                    <Column field="size" header="Size" style="min-width:200px"></Column>
-                    <Column field="type" header="Type" style="min-width:200px"></Column>
+                    <Column field="name" header="Name" :expander="true" style="min-width: 200px"></Column>
+                    <Column field="size" header="Size" style="min-width: 200px"></Column>
+                    <Column field="type" header="Type" style="min-width: 200px"></Column>
                 </TreeTable>
             </div>
 
@@ -25,9 +25,9 @@
                 <TreeTable :value="nodes">
                     <Column field="name" header="Name" :expander="true">
                         <template #body="slotProps">
-                            {{slotProps.node.data.name}}
-                            <span class="sm-visible">{{slotProps.node.data.size}}</span>
-                            <span class="sm-visible">{{slotProps.node.data.type}}</span>
+                            {{ slotProps.node.data.name }}
+                            <span class="sm-visible">{{ slotProps.node.data.size }}</span>
+                            <span class="sm-visible">{{ slotProps.node.data.type }}</span>
                         </template>
                     </Column>
                     <Column field="size" header="Size" headerClass="sm-invisible" bodyClass="sm-invisible"></Column>
@@ -261,16 +261,16 @@ export default {
         </style>`
                 }
             }
-        }
+        };
     },
     nodeService: null,
     created() {
         this.nodeService = new NodeService();
     },
     mounted() {
-        this.nodeService.getTreeTableNodes().then(data => this.nodes = data);
+        this.nodeService.getTreeTableNodes().then((data) => (this.nodes = data));
     }
-}
+};
 </script>
 
 <style scoped lang="scss">
@@ -285,7 +285,7 @@ export default {
 
     ::v-deep(.sm-visible) {
         display: inline;
-        margin-right: .5rem;
+        margin-right: 0.5rem;
     }
 }
 </style>

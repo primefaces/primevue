@@ -10,7 +10,6 @@
 
         <div class="content-section implementation">
             <div class="card">
-
                 <h5>Numerals</h5>
                 <div class="p-fluid grid formgrid">
                     <div class="field col-12 md:col-3">
@@ -40,7 +39,7 @@
                     </div>
                     <div class="field col-12 md:col-3">
                         <label for="locale-german">German Locale</label>
-                        <InputNumber inputId="locale-german" v-model="value7" mode="decimal" locale="de-DE" :minFractionDigits="2"/>
+                        <InputNumber inputId="locale-german" v-model="value7" mode="decimal" locale="de-DE" :minFractionDigits="2" />
                     </div>
                     <div class="field col-12 md:col-3">
                         <label for="locale-indian">Indian Locale</label>
@@ -96,8 +95,19 @@
                     </div>
                     <div class="field col-12 md:col-3">
                         <label for="horizontal">Horizontal with Step</label>
-                        <InputNumber inputId="horizontal" v-model="value18" showButtons buttonLayout="horizontal" :step="0.25"
-                            decrementButtonClass="p-button-danger" incrementButtonClass="p-button-success" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus" mode="currency" currency="EUR" />
+                        <InputNumber
+                            inputId="horizontal"
+                            v-model="value18"
+                            showButtons
+                            buttonLayout="horizontal"
+                            :step="0.25"
+                            decrementButtonClass="p-button-danger"
+                            incrementButtonClass="p-button-success"
+                            incrementButtonIcon="pi pi-plus"
+                            decrementButtonIcon="pi pi-minus"
+                            mode="currency"
+                            currency="EUR"
+                        />
                     </div>
                     <div class="field col-12 md:col-3">
                         <label for="minmax-buttons">Min-Max Boundaries</label>
@@ -107,8 +117,18 @@
 
                 <div class="field col-12 md:col-3">
                     <label for="vertical" style="display: block">Vertical</label>
-                    <InputNumber inputId="vertical" v-model="value19" mode="decimal" showButtons buttonLayout="vertical" style="width:4rem"
-                        decrementButtonClass="p-button-secondary" incrementButtonClass="p-button-secondary" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus" />
+                    <InputNumber
+                        inputId="vertical"
+                        v-model="value19"
+                        mode="decimal"
+                        showButtons
+                        buttonLayout="vertical"
+                        style="width: 4rem"
+                        decrementButtonClass="p-button-secondary"
+                        incrementButtonClass="p-button-secondary"
+                        incrementButtonIcon="pi pi-plus"
+                        decrementButtonIcon="pi pi-minus"
+                    />
                 </div>
             </div>
         </div>
@@ -140,13 +160,13 @@ export default {
             value15: 10,
             value16: 20,
             value17: 20,
-            value18: 10.50,
+            value18: 10.5,
             value19: 25,
             value20: 50
-        }
+        };
     },
-	components: {
-		'InputNumberDoc': InputNumberDoc
-	}
-}
+    components: {
+        InputNumberDoc: InputNumberDoc
+    }
+};
 </script>

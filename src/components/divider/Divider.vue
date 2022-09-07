@@ -1,5 +1,5 @@
 <template>
-    <div :class="containerClass" role="separator">
+    <div :class="containerClass" role="separator" :aria-orientation="layout">
         <div class="p-divider-content" v-if="$slots.default">
             <slot></slot>
         </div>
@@ -25,17 +25,20 @@ export default {
     },
     computed: {
         containerClass() {
-            return ['p-divider p-component', 'p-divider-' + this.layout, 'p-divider-' + this.type,
-                {'p-divider-left': this.layout === 'horizontal' && (!this.align || this.align === 'left')},
-                {'p-divider-center': this.layout === 'horizontal' && this.align === 'center'},
-                {'p-divider-right': this.layout === 'horizontal' && this.align === 'right'},
-                {'p-divider-top': this.layout === 'vertical' && (this.align === 'top')},
-                {'p-divider-center': this.layout === 'vertical' && (!this.align || this.align === 'center')},
-                {'p-divider-bottom': this.layout === 'vertical' && this.align === 'bottom'}
+            return [
+                'p-divider p-component',
+                'p-divider-' + this.layout,
+                'p-divider-' + this.type,
+                { 'p-divider-left': this.layout === 'horizontal' && (!this.align || this.align === 'left') },
+                { 'p-divider-center': this.layout === 'horizontal' && this.align === 'center' },
+                { 'p-divider-right': this.layout === 'horizontal' && this.align === 'right' },
+                { 'p-divider-top': this.layout === 'vertical' && this.align === 'top' },
+                { 'p-divider-center': this.layout === 'vertical' && (!this.align || this.align === 'center') },
+                { 'p-divider-bottom': this.layout === 'vertical' && this.align === 'bottom' }
             ];
         }
     }
-}
+};
 </script>
 
 <style>
@@ -52,7 +55,7 @@ export default {
     top: 50%;
     left: 0;
     width: 100%;
-    content: "";
+    content: '';
 }
 
 .p-divider-horizontal.p-divider-left {
@@ -85,7 +88,7 @@ export default {
     top: 0;
     left: 50%;
     height: 100%;
-    content: "";
+    content: '';
 }
 
 .p-divider-vertical.p-divider-top {

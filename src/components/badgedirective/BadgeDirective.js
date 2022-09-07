@@ -1,5 +1,5 @@
-import {DomHandler} from 'primevue/utils';
-import {UniqueComponentId} from 'primevue/utils';
+import { DomHandler } from 'primevue/utils';
+import { UniqueComponentId } from 'primevue/utils';
 
 const BadgeDirective = {
     beforeMount(el, options) {
@@ -13,15 +13,14 @@ const BadgeDirective = {
         for (let modifier in options.modifiers) {
             DomHandler.addClass(badge, 'p-badge-' + modifier);
         }
-        
+
         if (options.value != null) {
             badge.appendChild(document.createTextNode(options.value));
-            
+
             if (String(options.value).length === 1) {
                 DomHandler.addClass(badge, 'p-badge-no-gutter');
             }
-        }
-        else {
+        } else {
             DomHandler.addClass(badge, 'p-badge-dot');
         }
 
@@ -39,12 +38,9 @@ const BadgeDirective = {
                     DomHandler.removeClass(badge, 'p-badge-dot');
                 }
 
-                if (String(options.value).length === 1)
-                    DomHandler.addClass(badge, 'p-badge-no-gutter');
-                else
-                    DomHandler.removeClass(badge, 'p-badge-no-gutter');
-            }
-            else if (!options.value && !DomHandler.hasClass(badge, 'p-badge-dot')) {
+                if (String(options.value).length === 1) DomHandler.addClass(badge, 'p-badge-no-gutter');
+                else DomHandler.removeClass(badge, 'p-badge-no-gutter');
+            } else if (!options.value && !DomHandler.hasClass(badge, 'p-badge-dot')) {
                 DomHandler.addClass(badge, 'p-badge-dot');
             }
 

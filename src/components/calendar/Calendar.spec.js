@@ -18,7 +18,7 @@ describe('Calendar.vue', () => {
             }
         });
     });
-    it('should exist', async() => {
+    it('should exist', async () => {
         expect(wrapper.find('.p-calendar.p-component').exists()).toBe(true);
         expect(wrapper.find('.p-inputtext').exists()).toBe(true);
 
@@ -35,19 +35,19 @@ describe('Calendar.vue', () => {
     it('should select a date', async () => {
         await wrapper.setProps({ inline: true });
 
-        const event = {day: 8, month: 2, year: 2022, today: false, selectable: true};
+        const event = { day: 8, month: 2, year: 2022, today: false, selectable: true };
 
         const onDateSelect = jest.spyOn(wrapper.vm, 'onDateSelect');
 
-        await wrapper.vm.onDateSelect({currentTarget: {focus: () => {}}}, event);
-        expect(onDateSelect).toHaveBeenCalled()
+        await wrapper.vm.onDateSelect({ currentTarget: { focus: () => {} } }, event);
+        expect(onDateSelect).toHaveBeenCalled();
     });
     it('should calculate the correct view date when in range mode', async () => {
         const dateOne = new Date();
         const dateTwo = new Date();
-        dateTwo.setFullYear(dateOne.getFullYear(), dateOne.getMonth(), dateOne.getDate() + 1)
-        await wrapper.setProps({ selectionMode: 'range',  showTime: true, modelValue: [dateOne, dateTwo]  });
+        dateTwo.setFullYear(dateOne.getFullYear(), dateOne.getMonth(), dateOne.getDate() + 1);
+        await wrapper.setProps({ selectionMode: 'range', showTime: true, modelValue: [dateOne, dateTwo] });
 
-        expect(wrapper.vm.viewDate).toEqual(dateTwo)
+        expect(wrapper.vm.viewDate).toEqual(dateTwo);
     });
 });

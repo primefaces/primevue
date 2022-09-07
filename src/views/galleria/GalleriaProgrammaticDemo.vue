@@ -9,9 +9,9 @@
 
         <div class="content-section implementation">
             <div class="card">
-                <div style="padding: .5rem 0">
+                <div style="padding: 0.5rem 0">
                     <Button icon="pi pi-minus" @click="prev" class="p-button-secondary" />
-                    <Button icon="pi pi-plus" @click="next" class="p-button-secondary" style="margin-left: .5rem" />
+                    <Button icon="pi pi-plus" @click="next" class="p-button-secondary" style="margin-left: 0.5rem" />
                 </div>
 
                 <Galleria :value="images" v-model:activeIndex="activeIndex" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px">
@@ -28,7 +28,7 @@
         <div class="content-section documentation">
             <TabView>
                 <TabPanel header="Source">
-<pre v-code><code><template v-pre>
+                    <pre v-code><code><template v-pre>
 &lt;div style="padding: .5rem 0"&gt;
     &lt;Button icon="pi pi-minus" @click="prev" class="p-button-secondary" /&gt;
     &lt;Button icon="pi pi-plus" @click="next" class="p-button-secondary" style="margin-left: .5rem" /&gt;
@@ -45,7 +45,7 @@
 </template>
 </code></pre>
 
-<pre v-code.script><code>
+                    <pre v-code.script><code>
 import PhotoService from '../../service/PhotoService';
 
 export default {
@@ -101,8 +101,8 @@ export default {
         return {
             images: null,
             activeIndex: 2,
-			responsiveOptions: [
-				{
+            responsiveOptions: [
+                {
                     breakpoint: '1024px',
                     numVisible: 5
                 },
@@ -114,23 +114,23 @@ export default {
                     breakpoint: '560px',
                     numVisible: 1
                 }
-			]
-        }
+            ]
+        };
     },
     galleriaService: null,
-	created() {
-		this.galleriaService = new PhotoService();
-	},
-	mounted() {
-		this.galleriaService.getImages().then(data => this.images = data);
+    created() {
+        this.galleriaService = new PhotoService();
+    },
+    mounted() {
+        this.galleriaService.getImages().then((data) => (this.images = data));
     },
     methods: {
         next() {
-            this.activeIndex = (this.activeIndex === this.images.length - 1) ? 0 : this.activeIndex + 1;
+            this.activeIndex = this.activeIndex === this.images.length - 1 ? 0 : this.activeIndex + 1;
         },
         prev() {
-            this.activeIndex = (this.activeIndex === 0) ? 0 : this.images.length - 1;
+            this.activeIndex = this.activeIndex === 0 ? 0 : this.images.length - 1;
         }
     }
-}
+};
 </script>

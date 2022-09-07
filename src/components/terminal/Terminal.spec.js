@@ -21,13 +21,13 @@ describe('Terminal.vue', () => {
                     let argsIndex = text.indexOf(' ');
                     let command = argsIndex !== -1 ? text.substring(0, argsIndex) : text;
 
-                    switch(command) {
-                        case "d":
+                    switch (command) {
+                        case 'd':
                             response = 'Valid command';
                             break;
 
                         default:
-                            response = "Unknown command: " + command;
+                            response = 'Unknown command: ' + command;
                     }
 
                     TerminalService.emit('response', response);
@@ -67,13 +67,13 @@ describe('Terminal.vue', () => {
                     let argsIndex = text.indexOf(' ');
                     let command = argsIndex !== -1 ? text.substring(0, argsIndex) : text;
 
-                    switch(command) {
-                        case "d":
+                    switch (command) {
+                        case 'd':
                             response = 'Valid command';
                             break;
 
                         default:
-                            response = "Unknown command: " + command;
+                            response = 'Unknown command: ' + command;
                     }
 
                     TerminalService.emit('response', response);

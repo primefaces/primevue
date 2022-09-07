@@ -1,21 +1,21 @@
 <template>
-	<AppDoc name="DividerDemo" :sources="sources" github="divider/DividerDemo.vue">
+    <AppDoc name="DividerDemo" :sources="sources" github="divider/DividerDemo.vue">
         <h5>Import via Module</h5>
-<pre v-code.script><code>
+        <pre v-code.script><code>
 import Divider from 'primevue/divider';
 
 </code></pre>
 
         <h5>Import via CDN</h5>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/divider/divider.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-		<h5>Getting Started</h5>
-		<p>Divider has two orientations defined with the <i>layout</i> property, default is "horizontal" and the alternative is "vertical".</p>
-<pre v-code><code>
+        <h5>Getting Started</h5>
+        <p>Divider has two orientations defined with the <i>layout</i> property, default is "horizontal" and the alternative is "vertical".</p>
+        <pre v-code><code>
 &lt;div&gt;Content 1&lt;/div&gt;
 &lt;Divider /&gt;
 &lt;div&gt;Content 2&lt;/div&gt;
@@ -24,7 +24,7 @@ import Divider from 'primevue/divider';
 
         <h5>Border Style</h5>
         <p>Style of the border is configured with the <i>type</i> property and supports 3 values; default is "solid" and other possibilities are "dashed" and "dotted".</p>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;div&gt;Content 1&lt;/div&gt;
 &lt;Divider type="dashed"/&gt;
 &lt;div&gt;Content 2&lt;/div&gt;
@@ -33,7 +33,7 @@ import Divider from 'primevue/divider';
 
         <h5>Vertical Divider</h5>
         <p>Vertical divider is enabled by setting the <i>layout</i> property as "vertical".</p>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;div class="flex"&gt;
     &lt;div&gt;Content 1&lt;/div&gt;
     &lt;Divider layout="vertical" /&gt;
@@ -45,11 +45,11 @@ import Divider from 'primevue/divider';
 </code></pre>
 
         <h5>Content</h5>
-        <p>Any content placed inside is rendered within the boundaries of the divider. In addition, location 
-            of the content is configured with the <i>align</i> property. In horizontal layout, alignment options
-            are "left", "center" and "right" whereas vertical mode supports "top", "center" and "bottom".
+        <p>
+            Any content placed inside is rendered within the boundaries of the divider. In addition, location of the content is configured with the <i>align</i> property. In horizontal layout, alignment options are "left", "center" and "right"
+            whereas vertical mode supports "top", "center" and "bottom".
         </p>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;div&gt;Content 1&lt;/div&gt;
 
 &lt;Divider align="left"&gt;
@@ -75,25 +75,24 @@ import Divider from 'primevue/divider';
 
 </code></pre>
 
-		<h5>Properties</h5>
+        <h5>Properties</h5>
         <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Type</th>
                         <th>Default</th>
                         <th>Description</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>align</td>
                         <td>string</td>
                         <td>null</td>
-                        <td>Alignment of the content, options are "left", "center", "right" for horizontal layout 
-                            and "top", "center", "bottom" for vertical.</td>
+                        <td>Alignment of the content, options are "left", "center", "right" for horizontal layout and "top", "center", "bottom" for vertical.</td>
                     </tr>
                     <tr>
                         <td>layout</td>
@@ -107,21 +106,21 @@ import Divider from 'primevue/divider';
                         <td>solid</td>
                         <td>Border style type, default is "solid" and other options are "dashed" and "dotted".</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
-		<h5>Styling</h5>
-		<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <h5>Styling</h5>
+        <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Element</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>p-divider</td>
                         <td>Container element.</td>
@@ -166,12 +165,21 @@ import Divider from 'primevue/divider';
                         <td>p-divider-top</td>
                         <td>Container element with content aligned to top.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
-		<h5>Dependencies</h5>
-		<p>None.</p>
+        <h5>Accessibility</h5>
+        <DevelopmentSection>
+            <h6>Screen Reader</h6>
+            <p>Divider uses a <i>separator</i> role with <i>aria-orientation</i> set to either "horizontal" or "vertical".</p>
+
+            <h5>Keyboard Support</h5>
+            <p>Component does not include any interactive elements.</p>
+        </DevelopmentSection>
+
+        <h5>Dependencies</h5>
+        <p>None.</p>
     </AppDoc>
 </template>
 
@@ -643,7 +651,7 @@ export default {
 `
                 }
             }
-        }
+        };
     }
-}
+};
 </script>

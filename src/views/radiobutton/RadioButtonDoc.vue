@@ -1,26 +1,26 @@
 <template>
-	<AppDoc name="RadioButtonDemo" :sources="sources" github="radiobutton/RadioButtonDemo.vue" >
+    <AppDoc name="RadioButtonDemo" :sources="sources" github="radiobutton/RadioButtonDemo.vue">
         <h5>Import via Module</h5>
-<pre v-code.script><code>
+        <pre v-code.script><code>
 import RadioButton from 'primevue/radiobutton';
 
 </code></pre>
 
         <h5>Import via CDN</h5>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/radiobutton/radiobutton.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-		<h5>Getting Started</h5>
-		<p>Two-way value binding is defined using the standard v-model directive.</p>
-<pre v-code><code>
+        <h5>Getting Started</h5>
+        <p>Two-way value binding is defined using the standard v-model directive.</p>
+        <pre v-code><code>
 &lt;RadioButton name="city" value="Chicago" v-model="city" /&gt;
 &lt;RadioButton name="city" value="Los Angeles" v-model="city" /&gt;
 
 </code></pre>
-<pre v-code.script><code>
+        <pre v-code.script><code>
 export default {
 	data() {
 		return {
@@ -30,8 +30,8 @@ export default {
 }
 
 </code></pre>
-				<p>As model is two-way binding enabled, giving a default value to the model is enough to display a radio button as checked by default.</p>
-<pre v-code.script><code>
+        <p>As model is two-way binding enabled, giving a default value to the model is enough to display a radio button as checked by default.</p>
+        <pre v-code.script><code>
 export default {
 	data() {
 		return {
@@ -42,19 +42,19 @@ export default {
 
 </code></pre>
 
-		<h5>Properties</h5>
+        <h5>Properties</h5>
         <p>Any valid attribute is passed to the root element implicitly, extended properties are as follows;</p>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Type</th>
                         <th>Default</th>
                         <th>Description</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>value</td>
                         <td>any</td>
@@ -103,11 +103,11 @@ export default {
                         <td>null</td>
                         <td>Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
-		<h5>Events</h5>
+        <h5>Events</h5>
         <p>Any valid event such as focus and blur.</p>
         <div class="doc-tablewrapper">
             <table class="doc-table">
@@ -133,17 +133,17 @@ export default {
             </table>
         </div>
 
-		<h5>Styling</h5>
-		<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <h5>Styling</h5>
+        <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Element</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>p-radiobutton</td>
                         <td>Container element</td>
@@ -156,15 +156,18 @@ export default {
                         <td>p-radiobutton-icon</td>
                         <td>Icon element.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
         <h5>Accessibility</h5>
         <h6>Screen Reader</h6>
-        <p>RadioButton component uses a hidden native radio button element internally that is only visible to screen readers. Value to describe the component can either be provided via <i>label</i> tag combined with <i>id</i> prop or using <i>aria-labelledby</i>, <i>aria-label</i> props.</p>
+        <p>
+            RadioButton component uses a hidden native radio button element internally that is only visible to screen readers. Value to describe the component can either be provided via <i>label</i> tag combined with <i>id</i> prop or using
+            <i>aria-labelledby</i>, <i>aria-label</i> props.
+        </p>
 
-<pre v-code><code>
+        <pre v-code><code>
 &lt;label for="rb1"&gt;One&lt;/label&gt;
 &lt;RadioButton inputId="rb1" /&gt;
 
@@ -215,8 +218,8 @@ export default {
             </table>
         </div>
 
-		<h5>Dependencies</h5>
-		<p>None.</p>
+        <h5>Dependencies</h5>
+        <p>None.</p>
     </AppDoc>
 </template>
 
@@ -385,7 +388,7 @@ export default {
 `
                 }
             }
-        }
+        };
     }
-}
+};
 </script>

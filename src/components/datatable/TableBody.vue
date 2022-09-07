@@ -10,19 +10,52 @@
                         <component :is="templates['groupheader']" :data="rowData" :index="getRowIndex(index)" />
                     </td>
                 </tr>
-                <tr :class="getRowClass(rowData)" :style="rowStyle" :key="getRowKey(rowData, getRowIndex(index))"
-                    v-if="expandableRowGroups ? isRowGroupExpanded(rowData): true"
-                    @click="onRowClick($event, rowData, getRowIndex(index))" @dblclick="onRowDblClick($event, rowData, getRowIndex(index))" @contextmenu="onRowRightClick($event, rowData, getRowIndex(index))" @touchend="onRowTouchEnd($event)" @keydown="onRowKeyDown($event, rowData, getRowIndex(index))" :tabindex="selectionMode || contextMenu ? '0' : null"
-                    @mousedown="onRowMouseDown($event)" @dragstart="onRowDragStart($event, getRowIndex(index))" @dragover="onRowDragOver($event, getRowIndex(index))" @dragleave="onRowDragLeave($event)" @dragend="onRowDragEnd($event)" @drop="onRowDrop($event)" role="row">
-                    <template v-for="(col,i) of columns" :key="columnProp(col,'columnKey')||columnProp(col,'field')||i">
-                        <DTBodyCell v-if="shouldRenderBodyCell(value, col, getRowIndex(index))" :rowData="rowData" :column="col" :rowIndex="getRowIndex(index)" :index="i" :selected="isSelected(rowData)"
-                            :rowTogglerIcon="columnProp(col,'expander') ? rowTogglerIcon(rowData): null" :frozenRow="frozenRow"
+                <tr
+                    :class="getRowClass(rowData)"
+                    :style="rowStyle"
+                    :key="getRowKey(rowData, getRowIndex(index))"
+                    v-if="expandableRowGroups ? isRowGroupExpanded(rowData) : true"
+                    @click="onRowClick($event, rowData, getRowIndex(index))"
+                    @dblclick="onRowDblClick($event, rowData, getRowIndex(index))"
+                    @contextmenu="onRowRightClick($event, rowData, getRowIndex(index))"
+                    @touchend="onRowTouchEnd($event)"
+                    @keydown="onRowKeyDown($event, rowData, getRowIndex(index))"
+                    :tabindex="selectionMode || contextMenu ? '0' : null"
+                    @mousedown="onRowMouseDown($event)"
+                    @dragstart="onRowDragStart($event, getRowIndex(index))"
+                    @dragover="onRowDragOver($event, getRowIndex(index))"
+                    @dragleave="onRowDragLeave($event)"
+                    @dragend="onRowDragEnd($event)"
+                    @drop="onRowDrop($event)"
+                    role="row"
+                >
+                    <template v-for="(col, i) of columns" :key="columnProp(col, 'columnKey') || columnProp(col, 'field') || i">
+                        <DTBodyCell
+                            v-if="shouldRenderBodyCell(value, col, getRowIndex(index))"
+                            :rowData="rowData"
+                            :column="col"
+                            :rowIndex="getRowIndex(index)"
+                            :index="i"
+                            :selected="isSelected(rowData)"
+                            :rowTogglerIcon="columnProp(col, 'expander') ? rowTogglerIcon(rowData) : null"
+                            :frozenRow="frozenRow"
                             :rowspan="rowGroupMode === 'rowspan' ? calculateRowGroupSize(value, col, getRowIndex(index)) : null"
-                            :editMode="editMode" :editing="editMode === 'row' && isRowEditing(rowData)" :responsiveLayout="responsiveLayout"
-                            @radio-change="onRadioChange($event)" @checkbox-change="onCheckboxChange($event)" @row-toggle="onRowToggle($event)"
-                            @cell-edit-init="onCellEditInit($event)" @cell-edit-complete="onCellEditComplete($event)" @cell-edit-cancel="onCellEditCancel($event)"
-                            @row-edit-init="onRowEditInit($event)" @row-edit-save="onRowEditSave($event)" @row-edit-cancel="onRowEditCancel($event)"
-                            :editingMeta="editingMeta" @editing-meta-change="onEditingMetaChange" :virtualScrollerContentProps="virtualScrollerContentProps"/>
+                            :editMode="editMode"
+                            :editing="editMode === 'row' && isRowEditing(rowData)"
+                            :responsiveLayout="responsiveLayout"
+                            @radio-change="onRadioChange($event)"
+                            @checkbox-change="onCheckboxChange($event)"
+                            @row-toggle="onRowToggle($event)"
+                            @cell-edit-init="onCellEditInit($event)"
+                            @cell-edit-complete="onCellEditComplete($event)"
+                            @cell-edit-cancel="onCellEditCancel($event)"
+                            @row-edit-init="onRowEditInit($event)"
+                            @row-edit-save="onRowEditSave($event)"
+                            @row-edit-cancel="onRowEditCancel($event)"
+                            :editingMeta="editingMeta"
+                            @editing-meta-change="onEditingMetaChange"
+                            :virtualScrollerContentProps="virtualScrollerContentProps"
+                        />
                     </template>
                 </tr>
                 <tr class="p-datatable-row-expansion" v-if="templates['expansion'] && expandedRows && isRowExpanded(rowData)" :key="getRowKey(rowData, getRowIndex(index)) + '_expansion'" role="row">
@@ -44,15 +77,35 @@
 </template>
 
 <script>
-import {ObjectUtils,DomHandler} from 'primevue/utils';
+import { ObjectUtils, DomHandler } from 'primevue/utils';
 import BodyCell from './BodyCell.vue';
 
 export default {
     name: 'TableBody',
-    emits: ['rowgroup-toggle', 'row-click', 'row-dblclick', 'row-rightclick', 'row-touchend', 'row-keydown', 'row-mousedown',
-        'row-dragstart', 'row-dragover', 'row-dragleave', 'row-dragend', 'row-drop', 'row-toggle',
-        'radio-change', 'checkbox-change', 'cell-edit-init', 'cell-edit-complete', 'cell-edit-cancel',
-        'row-edit-init', 'row-edit-save', 'row-edit-cancel', 'editing-meta-change'],
+    emits: [
+        'rowgroup-toggle',
+        'row-click',
+        'row-dblclick',
+        'row-rightclick',
+        'row-touchend',
+        'row-keydown',
+        'row-mousedown',
+        'row-dragstart',
+        'row-dragover',
+        'row-dragleave',
+        'row-dragend',
+        'row-drop',
+        'row-toggle',
+        'radio-change',
+        'checkbox-change',
+        'cell-edit-init',
+        'cell-edit-complete',
+        'cell-edit-cancel',
+        'row-edit-init',
+        'row-edit-save',
+        'row-edit-cancel',
+        'editing-meta-change'
+    ],
     props: {
         value: {
             type: Array,
@@ -75,7 +128,7 @@ export default {
             default: null
         },
         groupRowsBy: {
-            type: [Array,String],
+            type: [Array, String],
             default: null
         },
         expandableRowGroups: {
@@ -107,7 +160,7 @@ export default {
             default: null
         },
         selection: {
-            type: [Array,Object],
+            type: [Array, Object],
             default: null
         },
         selectionKeys: {
@@ -207,7 +260,7 @@ export default {
     data() {
         return {
             rowGroupHeaderStyleObject: {}
-        }
+        };
     },
     methods: {
         columnProp(col, prop) {
@@ -219,13 +272,12 @@ export default {
             if (prevRowData) {
                 let previousRowFieldData = ObjectUtils.resolveFieldData(prevRowData, this.groupRowsBy);
                 return currentRowFieldData !== previousRowFieldData;
-            }
-            else {
+            } else {
                 return true;
             }
         },
         getRowKey(rowData, index) {
-            return this.dataKey ? ObjectUtils.resolveFieldData(rowData, this.dataKey): index;
+            return this.dataKey ? ObjectUtils.resolveFieldData(rowData, this.dataKey) : index;
         },
         getRowIndex(index) {
             const getItemOptions = this.getVirtualScrollerProp('getItemOptions');
@@ -234,7 +286,7 @@ export default {
         getRowClass(rowData) {
             let rowStyleClass = [];
             if (this.selectionMode) {
-                 rowStyleClass.push('p-selectable-row');
+                rowStyleClass.push('p-selectable-row');
             }
 
             if (this.selection) {
@@ -262,15 +314,13 @@ export default {
         shouldRenderRowGroupFooter(value, rowData, i) {
             if (this.expandableRowGroups && !this.isRowGroupExpanded(rowData)) {
                 return false;
-            }
-            else {
+            } else {
                 let currentRowFieldData = ObjectUtils.resolveFieldData(rowData, this.groupRowsBy);
                 let nextRowData = value[i + 1];
                 if (nextRowData) {
                     let nextRowFieldData = ObjectUtils.resolveFieldData(nextRowData, this.groupRowsBy);
                     return currentRowFieldData !== nextRowFieldData;
-                }
-                else {
+                } else {
                     return true;
                 }
             }
@@ -279,25 +329,21 @@ export default {
             if (this.rowGroupMode) {
                 if (this.rowGroupMode === 'subheader') {
                     return this.groupRowsBy !== this.columnProp(column, 'field');
-                }
-                else if (this.rowGroupMode === 'rowspan') {
+                } else if (this.rowGroupMode === 'rowspan') {
                     if (this.isGrouped(column)) {
                         let prevRowData = value[i - 1];
                         if (prevRowData) {
                             let currentRowFieldData = ObjectUtils.resolveFieldData(value[i], this.columnProp(column, 'field'));
                             let previousRowFieldData = ObjectUtils.resolveFieldData(prevRowData, this.columnProp(column, 'field'));
                             return currentRowFieldData !== previousRowFieldData;
-                        }
-                        else {
+                        } else {
                             return true;
                         }
-                    }
-                    else {
+                    } else {
                         return true;
                     }
                 }
-            }
-            else {
+            } else {
                 return !this.columnProp(column, 'hidden');
             }
         },
@@ -312,15 +358,13 @@ export default {
                     let nextRowData = value[++index];
                     if (nextRowData) {
                         nextRowFieldData = ObjectUtils.resolveFieldData(nextRowData, this.columnProp(column, 'field'));
-                    }
-                    else {
+                    } else {
                         break;
                     }
                 }
 
                 return groupRowSpan === 1 ? null : groupRowSpan;
-            }
-            else {
+            } else {
                 return null;
             }
         },
@@ -334,31 +378,24 @@ export default {
         },
         isGrouped(column) {
             if (this.groupRowsBy && this.columnProp(column, 'field')) {
-                if (Array.isArray(this.groupRowsBy))
-                    return this.groupRowsBy.indexOf(column.props.field) > -1;
-                else
-                    return this.groupRowsBy === column.props.field;
-            }
-            else {
+                if (Array.isArray(this.groupRowsBy)) return this.groupRowsBy.indexOf(column.props.field) > -1;
+                else return this.groupRowsBy === column.props.field;
+            } else {
                 return false;
             }
         },
         isRowEditing(rowData) {
             if (rowData && this.editingRows) {
-                if (this.dataKey)
-                    return this.editingRowKeys ? this.editingRowKeys[ObjectUtils.resolveFieldData(rowData, this.dataKey)] !== undefined : false;
-                else
-                    return this.findIndex(rowData, this.editingRows) > -1;
+                if (this.dataKey) return this.editingRowKeys ? this.editingRowKeys[ObjectUtils.resolveFieldData(rowData, this.dataKey)] !== undefined : false;
+                else return this.findIndex(rowData, this.editingRows) > -1;
             }
 
             return false;
         },
         isRowExpanded(rowData) {
             if (rowData && this.expandedRows) {
-                if (this.dataKey)
-                    return this.expandedRowKeys ? this.expandedRowKeys[ObjectUtils.resolveFieldData(rowData, this.dataKey)] !== undefined : false;
-                else
-                    return this.findIndex(rowData, this.expandedRows) > -1;
+                if (this.dataKey) return this.expandedRowKeys ? this.expandedRowKeys[ObjectUtils.resolveFieldData(rowData, this.dataKey)] !== undefined : false;
+                else return this.findIndex(rowData, this.expandedRows) > -1;
             }
 
             return false;
@@ -374,12 +411,9 @@ export default {
             if (rowData && this.selection) {
                 if (this.dataKey) {
                     return this.selectionKeys ? this.selectionKeys[ObjectUtils.resolveFieldData(rowData, this.dataKey)] !== undefined : false;
-                }
-                else {
-                    if (this.selection instanceof Array)
-                        return this.findIndexInSelection(rowData) > -1;
-                    else
-                        return this.equals(rowData, this.selection);
+                } else {
+                    if (this.selection instanceof Array) return this.findIndexInSelection(rowData) > -1;
+                    else return this.equals(rowData, this.selection);
                 }
             }
 
@@ -409,34 +443,34 @@ export default {
             return index;
         },
         equals(data1, data2) {
-            return this.compareSelectionBy === 'equals' ? (data1 === data2) : ObjectUtils.equals(data1, data2, this.dataKey);
+            return this.compareSelectionBy === 'equals' ? data1 === data2 : ObjectUtils.equals(data1, data2, this.dataKey);
         },
         onRowGroupToggle(event, data) {
-            this.$emit('rowgroup-toggle', {originalEvent: event, data: data});
+            this.$emit('rowgroup-toggle', { originalEvent: event, data: data });
         },
         onRowClick(event, rowData, rowIndex) {
-            this.$emit('row-click', {originalEvent: event, data: rowData, index: rowIndex});
+            this.$emit('row-click', { originalEvent: event, data: rowData, index: rowIndex });
         },
         onRowDblClick(event, rowData, rowIndex) {
-            this.$emit('row-dblclick', {originalEvent: event, data: rowData, index: rowIndex});
+            this.$emit('row-dblclick', { originalEvent: event, data: rowData, index: rowIndex });
         },
         onRowRightClick(event, rowData, rowIndex) {
-            this.$emit('row-rightclick', {originalEvent: event, data: rowData, index: rowIndex});
+            this.$emit('row-rightclick', { originalEvent: event, data: rowData, index: rowIndex });
         },
         onRowTouchEnd(event) {
             this.$emit('row-touchend', event);
         },
         onRowKeyDown(event, rowData, rowIndex) {
-            this.$emit('row-keydown', {originalEvent: event, data: rowData, index: rowIndex});
+            this.$emit('row-keydown', { originalEvent: event, data: rowData, index: rowIndex });
         },
         onRowMouseDown(event) {
             this.$emit('row-mousedown', event);
         },
         onRowDragStart(event, rowIndex) {
-            this.$emit('row-dragstart', {originalEvent: event, index: rowIndex});
+            this.$emit('row-dragstart', { originalEvent: event, index: rowIndex });
         },
         onRowDragOver(event, rowIndex) {
-            this.$emit('row-dragover', {originalEvent: event, index: rowIndex});
+            this.$emit('row-dragover', { originalEvent: event, index: rowIndex });
         },
         onRowDragLeave(event) {
             this.$emit('row-dragleave', event);
@@ -482,7 +516,7 @@ export default {
         },
         updateFrozenRowGroupHeaderStickyPosition() {
             let tableHeaderHeight = DomHandler.getOuterHeight(this.$el.previousElementSibling);
-            this.rowGroupHeaderStyleObject.top = tableHeaderHeight + 'px'
+            this.rowGroupHeaderStyleObject.top = tableHeaderHeight + 'px';
         },
         updateVirtualScrollerPosition() {
             const tableHeaderHeight = DomHandler.getOuterHeight(this.$el.previousElementSibling);
@@ -502,15 +536,15 @@ export default {
         columnsLength() {
             let hiddenColLength = 0;
 
-            this.columns.forEach(column => {
-                if(this.columnProp(column, 'hidden')) hiddenColLength++;
+            this.columns.forEach((column) => {
+                if (this.columnProp(column, 'hidden')) hiddenColLength++;
             });
 
             return this.columns ? this.columns.length - hiddenColLength : 0;
         },
         rowGroupHeaderStyle() {
             if (this.scrollable) {
-                return {top: this.rowGroupHeaderStyleObject.top};
+                return { top: this.rowGroupHeaderStyleObject.top };
             }
 
             return null;
@@ -520,7 +554,7 @@ export default {
         }
     },
     components: {
-        'DTBodyCell': BodyCell
+        DTBodyCell: BodyCell
     }
-}
+};
 </script>

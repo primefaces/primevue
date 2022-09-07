@@ -225,7 +225,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [TreeSelect](https://www.primefaces.org/primevue/showcase/#/treeselect)
+ * - [TreeSelect](https://www.primefaces.org/primevue/treeselect)
  *
  */
 export default TreeSelect;

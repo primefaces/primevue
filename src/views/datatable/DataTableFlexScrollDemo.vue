@@ -1,11 +1,11 @@
 <template>
-	<div>
+    <div>
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>DataTable <span>Flex Scroll</span></h1>
             </div>
             <AppDemoActions />
-		</div>
+        </div>
         <div class="content-section implementation">
             <div class="card" style="height: calc(100vh - 143px)">
                 <DataTable :value="customers" :scrollable="true" scrollHeight="flex">
@@ -17,8 +17,8 @@
             </div>
         </div>
 
-        <AppDoc name="DataTableFlexScrollDemo" :sources="sources" :service="['CustomerService']" :data="['customers-large']" github="datatable/DataTableFlexScrollDemo.vue" />    
-	</div>
+        <AppDoc name="DataTableFlexScrollDemo" :sources="sources" :service="['CustomerService']" :data="['customers-large']" github="datatable/DataTableFlexScrollDemo.vue" />
+    </div>
 </template>
 
 <script>
@@ -139,14 +139,14 @@ export default {
 `
                 }
             }
-        }
+        };
     },
     customerService: null,
     created() {
         this.customerService = new CustomerService();
     },
     mounted() {
-        this.customerService.getCustomersLarge().then(data => this.customers = data);
+        this.customerService.getCustomersLarge().then((data) => (this.customers = data));
     }
-}
+};
 </script>

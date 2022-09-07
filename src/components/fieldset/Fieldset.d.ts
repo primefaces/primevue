@@ -25,6 +25,10 @@ export interface FieldsetProps {
      * Defines the default visibility state of the content.
      */
     collapsed?: boolean | undefined;
+    /**
+     * Uses to pass the custom value to read for the anchor inside the component.
+     */
+    toggleButtonProps?: string | undefined;
 }
 
 export interface FieldsetSlots {
@@ -65,7 +69,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [Fieldset](https://www.primefaces.org/primevue/showcase/#/fieldset)
+ * - [Fieldset](https://www.primefaces.org/primevue/fieldset)
  *
  */
 export default Fieldset;

@@ -21,12 +21,12 @@ describe('TriStateCheckbox.vue', () => {
 
         expect(wrapper.emitted()['update:modelValue'][0]).toEqual([true]);
 
-        await wrapper.setProps({modelValue: true});
+        await wrapper.setProps({ modelValue: true });
         await wrapper.vm.onClick({});
 
         expect(wrapper.emitted()['update:modelValue'][1]).toEqual([false]);
 
-        await wrapper.setProps({modelValue: false});
+        await wrapper.setProps({ modelValue: false });
         await wrapper.vm.onClick({});
 
         expect(wrapper.emitted()['update:modelValue'][2]).toEqual([null]);
@@ -36,11 +36,11 @@ describe('TriStateCheckbox.vue', () => {
         expect(wrapper.find('.p-checkbox-icon').classes()).not.toContain('pi-check');
         expect(wrapper.find('.p-checkbox-icon').classes()).not.toContain('pi-times');
 
-        await wrapper.setProps({modelValue: true});
+        await wrapper.setProps({ modelValue: true });
 
         expect(wrapper.find('.p-checkbox-icon').classes()).toContain('pi-check');
 
-        await wrapper.setProps({modelValue: false});
+        await wrapper.setProps({ modelValue: false });
 
         expect(wrapper.find('.p-checkbox-icon').classes()).toContain('pi-times');
     });

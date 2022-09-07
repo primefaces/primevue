@@ -72,11 +72,11 @@ declare module '@vue/runtime-core' {
  *
  * Helper API:
  *
- * - [MenuItem](https://www.primefaces.org/primevue/showcase/#/menumodel)
+ * - [MenuItem](https://www.primefaces.org/primevue/menumodel)
  *
  * Demos:
  *
- * - [SplitButton](https://www.primefaces.org/primevue/showcase/#/splitbutton)
+ * - [SplitButton](https://www.primefaces.org/primevue/splitbutton)
  *
  */
 export default SplitButton;

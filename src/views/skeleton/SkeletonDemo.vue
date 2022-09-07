@@ -138,7 +138,6 @@
                     </Column>
                 </DataTable>
             </div>
-
         </div>
 
         <SkeletonDoc />
@@ -152,12 +151,12 @@ export default {
     data() {
         return {
             products: new Array(4)
-        }
+        };
     },
     components: {
-        'SkeletonDoc': SkeletonDoc
+        SkeletonDoc: SkeletonDoc
     }
-}
+};
 </script>
 
 <style lang="scss" scoped>

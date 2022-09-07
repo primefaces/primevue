@@ -32,7 +32,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [DeferredContent](https://www.primefaces.org/primevue/showcase/#/deferredcontent)
+ * - [DeferredContent](https://www.primefaces.org/primevue/deferredcontent)
  *
  */
 export default DeferredContent;

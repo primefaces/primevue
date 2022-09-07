@@ -1,25 +1,34 @@
 <template>
     <ul ref="element" :class="containerClass" role="'menubar' : 'menu'" aria-orientation="horizontal">
         <template v-for="(item, i) of model" :key="label(item) + i.toString()">
-            <li :class="getItemClass(item)" :style="item.style" v-if="visible(item) && !item.separator"
-                @mouseenter="onItemMouseEnter($event, item)" role="none">
+            <li :class="getItemClass(item)" :style="item.style" v-if="visible(item) && !item.separator" @mouseenter="onItemMouseEnter($event, item)" role="none">
                 <template v-if="!template">
-                    <router-link v-if="item.to && !disabled(item)" :to="item.to" custom v-slot="{navigate, href, isActive, isExactActive}">
-                        <a :href="href" @click="onItemClick($event, item, navigate)" :class="linkClass(item, {isActive, isExactActive})" v-ripple @keydown="onItemKeyDown($event, item)" role="menuitem">
+                    <router-link v-if="item.to && !disabled(item)" :to="item.to" custom v-slot="{ navigate, href, isActive, isExactActive }">
+                        <a :href="href" @click="onItemClick($event, item, navigate)" :class="linkClass(item, { isActive, isExactActive })" v-ripple @keydown="onItemKeyDown($event, item)" role="menuitem">
                             <span :class="['p-menuitem-icon', item.icon]" v-if="item.icon"></span>
-                            <span class="p-menuitem-text">{{label(item)}}</span>
+                            <span class="p-menuitem-text">{{ label(item) }}</span>
                         </a>
                     </router-link>
-                    <a v-else :href="item.url" :class="linkClass(item)" :target="item.target" :aria-haspopup="item.items != null" :aria-expanded="item === activeItem"
-                        @click="onItemClick($event, item)" @keydown="onItemKeyDown($event, item)" role="menuitem" :tabindex="disabled(item) ? null : '0'" v-ripple>
+                    <a
+                        v-else
+                        :href="item.url"
+                        :class="linkClass(item)"
+                        :target="item.target"
+                        :aria-haspopup="item.items != null"
+                        :aria-expanded="item === activeItem"
+                        @click="onItemClick($event, item)"
+                        @keydown="onItemKeyDown($event, item)"
+                        role="menuitem"
+                        :tabindex="disabled(item) ? null : '0'"
+                        v-ripple
+                    >
                         <span :class="['p-menuitem-icon', item.icon]" v-if="item.icon"></span>
-                        <span class="p-menuitem-text">{{label(item)}}</span>
+                        <span class="p-menuitem-text">{{ label(item) }}</span>
                         <span class="p-submenu-icon pi pi-angle-right" v-if="item.items"></span>
                     </a>
                 </template>
                 <component v-else :is="template" :item="item"></component>
-                <TieredMenuSub :model="item.items" v-if="visible(item) && item.items" :key="label(item) + '_sub_'" :template="template"
-                    @leaf-click="onLeafClick" @keydown-item="onChildItemKeyDown" :parentActive="item === activeItem" :exact="exact" />
+                <TieredMenuSub :model="item.items" v-if="visible(item) && item.items" :key="label(item) + '_sub_'" :template="template" @leaf-click="onLeafClick" @keydown-item="onChildItemKeyDown" :parentActive="item === activeItem" :exact="exact" />
             </li>
             <li :class="['p-menu-separator', item.class]" :style="item.style" v-if="visible(item) && item.separator" :key="'separator' + i.toString()" role="separator"></li>
         </template>
@@ -27,7 +36,7 @@
 </template>
 
 <script>
-import {DomHandler} from 'primevue/utils';
+import { DomHandler } from 'primevue/utils';
 import Ripple from 'primevue/ripple';
 
 export default {
@@ -70,7 +79,7 @@ export default {
     data() {
         return {
             activeItem: null
-        }
+        };
     },
     updated() {
         if (this.root && this.activeItem) {
@@ -91,8 +100,7 @@ export default {
                 if (this.activeItem || this.popup) {
                     this.activeItem = item;
                 }
-            }
-            else {
+            } else {
                 this.activeItem = item;
             }
         },
@@ -110,10 +118,8 @@ export default {
             }
 
             if (item.items) {
-                if (this.activeItem && item === this.activeItem)
-                    this.activeItem = null;
-                else
-                    this.activeItem = item;
+                if (this.activeItem && item === this.activeItem) this.activeItem = null;
+                else this.activeItem = item;
             }
 
             if (!item.items) {
@@ -140,7 +146,7 @@ export default {
                     }
 
                     event.preventDefault();
-                break;
+                    break;
 
                 //up
                 case 38:
@@ -150,7 +156,7 @@ export default {
                     }
 
                     event.preventDefault();
-                break;
+                    break;
 
                 //right
                 case 39:
@@ -163,10 +169,10 @@ export default {
                     }
 
                     event.preventDefault();
-                break;
+                    break;
 
                 default:
-                break;
+                    break;
             }
 
             this.$emit('keydown-item', {
@@ -184,32 +190,33 @@ export default {
         findNextItem(item) {
             let nextItem = item.nextElementSibling;
 
-            if (nextItem)
-                return DomHandler.hasClass(nextItem, 'p-disabled') || !DomHandler.hasClass(nextItem, 'p-menuitem') ? this.findNextItem(nextItem) : nextItem;
-            else
-                return null;
+            if (nextItem) return DomHandler.hasClass(nextItem, 'p-disabled') || !DomHandler.hasClass(nextItem, 'p-menuitem') ? this.findNextItem(nextItem) : nextItem;
+            else return null;
         },
         findPrevItem(item) {
             let prevItem = item.previousElementSibling;
 
-            if (prevItem)
-                return DomHandler.hasClass(prevItem, 'p-disabled') || !DomHandler.hasClass(prevItem, 'p-menuitem') ? this.findPrevItem(prevItem) : prevItem;
-            else
-                return null;
+            if (prevItem) return DomHandler.hasClass(prevItem, 'p-disabled') || !DomHandler.hasClass(prevItem, 'p-menuitem') ? this.findPrevItem(prevItem) : prevItem;
+            else return null;
         },
         getItemClass(item) {
             return [
-                'p-menuitem', item.class, {
+                'p-menuitem',
+                item.class,
+                {
                     'p-menuitem-active': this.activeItem === item
                 }
-            ]
+            ];
         },
         linkClass(item, routerProps) {
-            return ['p-menuitem-link', {
-                'p-disabled': this.disabled(item),
-                'router-link-active': routerProps && routerProps.isActive,
-                'router-link-active-exact': this.exact && routerProps && routerProps.isExactActive
-            }];
+            return [
+                'p-menuitem-link',
+                {
+                    'p-disabled': this.disabled(item),
+                    'router-link-active': routerProps && routerProps.isActive,
+                    'router-link-active-exact': this.exact && routerProps && routerProps.isExactActive
+                }
+            ];
         },
         bindDocumentClickListener() {
             if (!this.documentClickListener) {
@@ -230,22 +237,22 @@ export default {
             }
         },
         visible(item) {
-            return (typeof item.visible === 'function' ? item.visible() : item.visible !== false);
+            return typeof item.visible === 'function' ? item.visible() : item.visible !== false;
         },
         disabled(item) {
-            return (typeof item.disabled === 'function' ? item.disabled() : item.disabled);
+            return typeof item.disabled === 'function' ? item.disabled() : item.disabled;
         },
         label(item) {
-            return (typeof item.label === 'function' ? item.label() : item.label);
+            return typeof item.label === 'function' ? item.label() : item.label;
         }
     },
     computed: {
         containerClass() {
-            return {'p-submenu-list': !this.root};
+            return { 'p-submenu-list': !this.root };
         }
     },
     directives: {
-        'ripple': Ripple
+        ripple: Ripple
     }
-}
+};
 </script>

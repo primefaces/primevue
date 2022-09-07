@@ -1,28 +1,28 @@
 <template>
-	<AppDoc name="ChipsDemo" :sources="sources" github="chips/ChipsDemo.vue">
+    <AppDoc name="ChipsDemo" :sources="sources" github="chips/ChipsDemo.vue">
         <h5>Import via Module</h5>
-<pre v-code.script><code>
+        <pre v-code.script><code>
 import Chips from 'primevue/chips';
 
 </code></pre>
 
         <h5>Import via CDN</h5>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/chips/chips.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-		<h5>Getting Started</h5>
-		<p>An array as the value can be bound using the standard v-model directive.</p>
-<pre v-code><code>
+        <h5>Getting Started</h5>
+        <p>An array as the value can be bound using the standard v-model directive.</p>
+        <pre v-code><code>
 &lt;Chips v-model="value" /&gt;
 
 </code></pre>
 
-		<h5>Custom Content</h5>
-		<p>A chip is customized using the <i>chip</i> template where the chip value is passed to the slotProps with the value property.</p>
-<pre v-code><code><template v-pre>
+        <h5>Custom Content</h5>
+        <p>A chip is customized using the <i>chip</i> template where the chip value is passed to the slotProps with the value property.</p>
+        <pre v-code><code><template v-pre>
 &lt;Chips v-model="value"&gt;
 	&lt;template #chip="slotProps"&gt;
 		&lt;div&gt;
@@ -34,19 +34,19 @@ import Chips from 'primevue/chips';
 </template>
 </code></pre>
 
-		<h5>Properties</h5>
+        <h5>Properties</h5>
         <p>Any property such as name and placeholder are passed to the underlying input element. Following are the additional properties to configure the component.</p>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Type</th>
                         <th>Default</th>
                         <th>Description</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>modelValue</td>
                         <td>array</td>
@@ -113,67 +113,71 @@ import Chips from 'primevue/chips';
                         <td>null</td>
                         <td>Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
-		<h5>Events</h5>
+        <h5>Events</h5>
         <p>Any valid event such as focus, blur and input are passed to the underlying input element. Following are the additional events to configure the component.</p>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Parameters</th>
                         <th>Description</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>add</td>
-                        <td>originalEvent: Browser event <br/>
-                            value: Added item value</td>
+                        <td>
+                            originalEvent: Browser event <br />
+                            value: Added item value
+                        </td>
                         <td>Callback to invoke when a chip is added.</td>
                     </tr>
                     <tr>
                         <td>remove</td>
-                        <td>originalEvent: Browser event <br/>
-                            value: Removed item value</td>
+                        <td>
+                            originalEvent: Browser event <br />
+                            value: Removed item value
+                        </td>
                         <td>Callback to invoke when a chip is removed.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
         <h5>Slots</h5>
-		<div class="doc-tablewrapper">
+        <div class="doc-tablewrapper">
             <table class="doc-table">
-				<thead>
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Parameters</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>chip</td>
                         <td>value: Value of the component</td>
                     </tr>
-				</tbody>
-			</table>
+                </tbody>
+            </table>
         </div>
 
-		<h5>Styling</h5>
-		<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <h5>Styling</h5>
+        <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Element</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>p-chips</td>
                         <td>Container element</td>
@@ -194,16 +198,18 @@ import Chips from 'primevue/chips';
                         <td>p-chips-input-token</td>
                         <td>Container of input element.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
         <h5>Accessibility</h5>
         <h6>Screen Reader</h6>
-        <p>Value to describe the component can either be provided via <i>label</i> tag combined with <i>inputId</i> prop or using <i>aria-labelledby</i>, <i>aria-label</i> props.
-        Chip list uses <i>listbox</i> role with <i>aria-orientation</i> set to horizontal whereas each chip has the <i>option</i> role with <i>aria-label</i> set to the label of the chip.</p>
+        <p>
+            Value to describe the component can either be provided via <i>label</i> tag combined with <i>inputId</i> prop or using <i>aria-labelledby</i>, <i>aria-label</i> props. Chip list uses <i>listbox</i> role with <i>aria-orientation</i> set to
+            horizontal whereas each chip has the <i>option</i> role with <i>aria-label</i> set to the label of the chip.
+        </p>
 
-<pre v-code><code>
+        <pre v-code><code>
 &lt;label for="chips1"&gt;Tags&lt;/label&gt;
 &lt;Chips inputId="chips1" /&gt;
 
@@ -270,9 +276,8 @@ import Chips from 'primevue/chips';
             </table>
         </div>
 
-
-		<h5>Dependencies</h5>
-		<p>None.</p>
+        <h5>Dependencies</h5>
+        <p>None.</p>
     </AppDoc>
 </template>
 
@@ -409,7 +414,7 @@ export default {
 `
                 }
             }
-        }
+        };
     }
-}
+};
 </script>

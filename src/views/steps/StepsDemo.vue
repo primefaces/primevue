@@ -13,7 +13,7 @@
                 <Steps :model="items" :readonly="true" />
             </div>
 
-            <router-view v-slot="{Component}" :formData="formObject" @prev-page="prevPage($event)" @next-page="nextPage($event)" @complete="complete">
+            <router-view v-slot="{ Component }" :formData="formObject" @prev-page="prevPage($event)" @next-page="nextPage($event)" @complete="complete">
                 <keep-alive>
                     <component :is="Component" />
                 </keep-alive>
@@ -30,27 +30,29 @@ import StepsDoc from './StepsDoc';
 export default {
     data() {
         return {
-            items: [{
-                label: 'Personal',
-                to: '/steps'
-            },
-            {
-                label: 'Seat',
-                to: '/steps/seat'
-            },
-            {
-                label: 'Payment',
-                to: '/steps/payment'
-            },
-            {
-                label: 'Confirmation',
-                to: '/steps/confirmation'
-            }],
+            items: [
+                {
+                    label: 'Personal',
+                    to: '/steps'
+                },
+                {
+                    label: 'Seat',
+                    to: '/steps/seat'
+                },
+                {
+                    label: 'Payment',
+                    to: '/steps/payment'
+                },
+                {
+                    label: 'Confirmation',
+                    to: '/steps/confirmation'
+                }
+            ],
             formObject: {}
-        }
+        };
     },
     components: {
-        'StepsDoc': StepsDoc
+        StepsDoc: StepsDoc
     },
     methods: {
         nextPage(event) {
@@ -64,10 +66,10 @@ export default {
             this.$router.push(this.items[event.pageIndex - 1].to);
         },
         complete() {
-            this.$toast.add({severity:'success', summary:'Order submitted', detail: 'Dear, ' + this.formObject.firstname + ' ' + this.formObject.lastname + ' your order completed.'});
+            this.$toast.add({ severity: 'success', summary: 'Order submitted', detail: 'Dear, ' + this.formObject.firstname + ' ' + this.formObject.lastname + ' your order completed.' });
         }
     }
-}
+};
 </script>
 
 <style scoped lang="scss">

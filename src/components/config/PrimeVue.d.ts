@@ -24,6 +24,8 @@ interface PrimeVueLocaleAriaOptions {
     selectAll?: string;
     unselectAll?: string;
     close?: string;
+    previous?: string;
+    next?: string;
 }
 
 interface PrimeVueLocaleOptions {

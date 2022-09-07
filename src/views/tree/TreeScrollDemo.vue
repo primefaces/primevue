@@ -15,12 +15,13 @@
                 <Tree :value="nodes1" scrollHeight="200px"></Tree>
 
                 <h5>Flex Scroll</h5>
-                <p>Flex scroll feature makes the scrollable viewport section dynamic so that it can grow or shrink relative to the parent size of the tree. Click the button below
-                to display maximizable Dialog where data viewport adjusts itself according to the size changes.</p>
+                <p>
+                    Flex scroll feature makes the scrollable viewport section dynamic so that it can grow or shrink relative to the parent size of the tree. Click the button below to display maximizable Dialog where data viewport adjusts itself
+                    according to the size changes.
+                </p>
                 <Button type="button" icon="pi pi-external-link" label="View" @click="dialogVisible = true"></Button>
 
-                <Dialog header="Flex Scroll" v-model:visible="dialogVisible" :style="{width: '50vw'}" maximizable
-                    :contentStyle="{height: '300px'}" class="p-fluid">
+                <Dialog header="Flex Scroll" v-model:visible="dialogVisible" :style="{ width: '50vw' }" maximizable :contentStyle="{ height: '300px' }" class="p-fluid">
                     <Tree :value="nodes2" scrollHeight="flex"></Tree>
                     <template #footer>
                         <Button type="button" icon="pi pi-check" @click="dialogVisible = false" class="p-button-text"></Button>
@@ -252,15 +253,15 @@ export default {
         <\\/script>`
                 }
             }
-        }
+        };
     },
     nodeService: null,
     created() {
         this.nodeService = new NodeService();
     },
     mounted() {
-        this.nodeService.getTreeNodes().then(data => this.nodes1 = data);
-        this.nodes2 = Array.from({length: 100}).map((_,i) => this.createNode(i, 2));
+        this.nodeService.getTreeNodes().then((data) => (this.nodes1 = data));
+        this.nodes2 = Array.from({ length: 100 }).map((_, i) => this.createNode(i, 2));
     },
     methods: {
         createNode(i, children) {
@@ -270,23 +271,23 @@ export default {
                 data: 'Node ' + i,
                 expandedIcon: 'pi pi-folder-open',
                 collapsedIcon: 'pi pi-folder',
-                children: Array.from({length: children}).map((_,j) => {
+                children: Array.from({ length: children }).map((_, j) => {
                     return {
-                        label: 'Node ' + i + '.' + j, 
-                        data: 'Node ' + i + '.' + j, 
+                        label: 'Node ' + i + '.' + j,
+                        data: 'Node ' + i + '.' + j,
                         icon: 'pi pi-file'
-                    }
+                    };
                 })
             };
 
             return node;
         }
     }
-}
+};
 </script>
 
 <style scoped>
 button {
-    margin-right: .5rem;
+    margin-right: 0.5rem;
 }
 </style>

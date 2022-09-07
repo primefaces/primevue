@@ -2,7 +2,7 @@
     <div class="content-section documentation">
         <AppDoc name="DataTableDemo" :sources="sources" :service="['CustomerService']" :data="['customers-large']" github="datatable/DataTableDemo.vue">
             <h5>Import via Module</h5>
-			<pre v-code.script><code>
+            <pre v-code.script><code>
 import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
 import ColumnGroup from 'primevue/columngroup';     //optional for column grouping
@@ -11,7 +11,7 @@ import Row from 'primevue/row';                     //optional for row
 </code></pre>
 
             <h5>Import via CDN</h5>
-<pre v-code><code>
+            <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/datatable/datatable.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/column/column.min.js"&gt;&lt;/script&gt;
@@ -21,8 +21,10 @@ import Row from 'primevue/row';                     //optional for row
 </code></pre>
 
             <h5>Getting Started</h5>
-            <p>DataTable requires a value as an array of objects and columns defined with Column component. Throughout the samples, a car interface having vin, brand, year and color properties is used to define an object to be displayed by the datatable.
-                Cars are loaded by a CarService that connects to a server to fetch the cars with a fetch API. Note that this is only for demo purposes, DataTable does not have any restrictions on how the data is provided.</p>
+            <p>
+                DataTable requires a value as an array of objects and columns defined with Column component. Throughout the samples, a car interface having vin, brand, year and color properties is used to define an object to be displayed by the
+                datatable. Cars are loaded by a CarService that connects to a server to fetch the cars with a fetch API. Note that this is only for demo purposes, DataTable does not have any restrictions on how the data is provided.
+            </p>
 
             <pre v-code.script><code>
 export default class CarService {
@@ -62,7 +64,7 @@ export default class CarService {
 </code></pre>
 
             <p>Following sample datatable has 4 columns and retrieves the data from a service on mount.</p>
-<pre v-code><code><template v-pre>
+            <pre v-code><code><template v-pre>
 &lt;DataTable :value="cars"&gt;
     &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
     &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
@@ -72,7 +74,7 @@ export default class CarService {
 </template>
 </code></pre>
 
-<pre v-code.script><code>
+            <pre v-code.script><code>
 import CarService from '../../service/CarService';
 
 export default {
@@ -94,14 +96,14 @@ export default {
 
             <h5>Dynamic Columns</h5>
             <p>Column components can be dynamically generated using a v-for as well.</p>
-<pre v-code><code><template v-pre>
+            <pre v-code><code><template v-pre>
 &lt;DataTable :value="cars"&gt;
     &lt;Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field"&gt;&lt;/Column&gt;
 &lt;/DataTable&gt;
 </template>
 </code></pre>
 
-<pre v-code.script><code>
+            <pre v-code.script><code>
 import CarService from '../../service/CarService';
 
 export default {
@@ -404,27 +406,29 @@ export default {
             </div>
 
             <h5>Column Slots</h5>
-			<div class="doc-tablewrapper">
+            <div class="doc-tablewrapper">
                 <table class="doc-table">
-					<thead>
+                    <thead>
                         <tr>
                             <th>Name</th>
                             <th>Parameters</th>
                         </tr>
-					</thead>
-					<tbody>
+                    </thead>
+                    <tbody>
                         <tr>
                             <td>header</td>
                             <td>column: Column node</td>
                         </tr>
                         <tr>
                             <td>body</td>
-                            <td>data: Row data <br />
+                            <td>
+                                data: Row data <br />
                                 column: Column node <br />
                                 field: Column field <br />
                                 index: Row index <br />
                                 frozenRow: Is row frozen<br />
-                                editorInitCallback: Callback function</td>
+                                editorInitCallback: Callback function
+                            </td>
                         </tr>
                         <tr>
                             <td>footer</td>
@@ -432,65 +436,85 @@ export default {
                         </tr>
                         <tr>
                             <td>editor</td>
-                            <td>data: Row data <br />
+                            <td>
+                                data: Row data <br />
                                 column: Column node <br />
                                 field: Column field <br />
                                 index: Row index <br />
                                 frozenRow: Is row frozen <br />
                                 editorSaveCallback: Callback function <br />
-                                editorCancelCallback: Callback function</td>
+                                editorCancelCallback: Callback function
+                            </td>
                         </tr>
                         <tr>
                             <td>filter</td>
-                            <td>field: Column field <br />
+                            <td>
+                                field: Column field <br />
                                 filterModel: {value,matchMode} Filter metadata <br />
-                                filterCallback: Callback function</td>
+                                filterCallback: Callback function
+                            </td>
                         </tr>
                         <tr>
                             <td>filterheader</td>
-                            <td>field: Column field <br />
+                            <td>
+                                field: Column field <br />
                                 filterModel: {value,matchMode} Filter metadata <br />
-                                filterCallback: Callback function</td>
+                                filterCallback: Callback function
+                            </td>
                         </tr>
                         <tr>
                             <td>filterfooter</td>
-                            <td>field: Column field <br />
+                            <td>
+                                field: Column field <br />
                                 filterModel: {value,matchMode} Filter metadata <br />
-                                filterCallback: Callback function</td>
+                                filterCallback: Callback function
+                            </td>
                         </tr>
                         <tr>
                             <td>filterclear</td>
-                            <td>field: Column field <br />
+                            <td>
+                                field: Column field <br />
                                 filterModel: {value,matchMode} Filter metadata <br />
-                                filterCallback: Callback function</td>
+                                filterCallback: Callback function
+                            </td>
                         </tr>
                         <tr>
                             <td>filterapply</td>
-                            <td>field: Column field <br />
+                            <td>
+                                field: Column field <br />
                                 filterModel: {value,matchMode} Filter metadata <br />
-                                filterCallback: Callback function</td>
+                                filterCallback: Callback function
+                            </td>
                         </tr>
                         <tr>
                             <td>loading</td>
-                            <td>data: Row data <br />
+                            <td>
+                                data: Row data <br />
                                 column: Column node <br />
                                 field: Column field <br />
                                 index: Row index <br />
                                 frozenRow: Is row frozen <br />
-                                loadingOptions: Loading options.</td>
+                                loadingOptions: Loading options.
+                            </td>
                         </tr>
-					</tbody>
-				</table>
+                    </tbody>
+                </table>
             </div>
 
             <h5>Auto Layout</h5>
-            <p>Default table-layout is fixed meaning the cell widths do not depend on their content. If you require cells to scale based on their contents set <i>autoLayout</i> property to true. Note that Scrollable and/or Resizable tables do not support auto layout due to technical limitations.</p>
+            <p>
+                Default table-layout is fixed meaning the cell widths do not depend on their content. If you require cells to scale based on their contents set <i>autoLayout</i> property to true. Note that Scrollable and/or Resizable tables do not
+                support auto layout due to technical limitations.
+            </p>
 
             <h5>Templating</h5>
-            <p>Field data of a corresponding row is displayed as the cell content by default, this can be customized using a <i>body</i> template where current row data and column properties are passed via the slot props.
-                On the other hand, <i>header</i> and <i>footer</i> sections of a column can either be defined with the properties or the templates. Similarly DataTable itself also provides header and footer properties along with the templates for the main header and footer of the table.</p>
+            <p>
+                Field data of a corresponding row is displayed as the cell content by default, this can be customized using a <i>body</i> template where current row data and column properties are passed via the slot props. On the other hand,
+                <i>header</i> and <i>footer</i> sections of a column can either be defined with the properties or the templates. Similarly DataTable itself also provides header and footer properties along with the templates for the main header and
+                footer of the table.
+            </p>
 
-                <pre v-code><code><template v-pre>
+            <pre v-code><code><template v-pre>
 &lt;DataTable :value="cars"&gt;
     &lt;template #header&gt;
         &lt;div&gt;
@@ -523,10 +547,9 @@ export default {
 </code></pre>
 
             <h5>Sizes</h5>
-            <p>In addition to the regular table, a smal and a large version are available with different paddings. For a table
-            with smaller paddings use <i>p-datatable-sm</i> class and for a larger one use <i>p-datatable-lg</i>.</p>
+            <p>In addition to the regular table, a smal and a large version are available with different paddings. For a table with smaller paddings use <i>p-datatable-sm</i> class and for a larger one use <i>p-datatable-lg</i>.</p>
 
-<pre v-code><code><template v-pre>
+            <pre v-code><code><template v-pre>
 &lt;DataTable :value="cars" class="p-datatable-sm"&gt;
     &lt;template #header&gt;
         Small Table
@@ -561,7 +584,7 @@ export default {
 
             <h5>Column Grouping</h5>
             <p>Columns can be grouped at header and footer sections by defining a ColumnGroup with nested rows and columns.</p>
-<pre v-code><code><template v-pre>
+            <pre v-code><code><template v-pre>
 &lt;DataTable :value="sales"&gt;
     &lt;ColumnGroup type="header"&gt;
         &lt;Row&gt;
@@ -596,11 +619,12 @@ export default {
 </code></pre>
 
             <h5>Pagination</h5>
-            <p>Pagination is enabled by setting <i>paginator</i> property to true and defining the <i>rows</i> property defines the number of rows per page.
-                See the <router-link to="/paginator">Paginator</router-link> for the available customization options such as paginator templates, page links,
-                rows per page options and more which can be passed through the DataTable.</p>
+            <p>
+                Pagination is enabled by setting <i>paginator</i> property to true and defining the <i>rows</i> property defines the number of rows per page. See the <router-link to="/paginator">Paginator</router-link> for the available customization
+                options such as paginator templates, page links, rows per page options and more which can be passed through the DataTable.
+            </p>
 
-<pre v-code><code><template v-pre>
+            <pre v-code><code><template v-pre>
 &lt;DataTable :value="cars" :paginator="true" :rows="10"&gt;
     &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
     &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
@@ -611,7 +635,7 @@ export default {
 </code></pre>
 
             <p><i>paginatorstart</i> and <i>paginatorend</i> templates are available to specify custom content at the left and right side.</p>
-<pre v-code><code><template v-pre>
+            <pre v-code><code><template v-pre>
 &lt;DataTable :value="cars" :paginator="true" :rows="10"&gt;
     &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
     &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
@@ -627,10 +651,11 @@ export default {
 </template>
 </code></pre>
 
-            <p>Paginator can also be programmed programmatically using a binding to the <i>first</i> property that defines the index of the
-            first element to display. For example setting first to zero will reset the paginator to the very first page. This property
-            also supports v-model in case you'd like your binding to be updated whenever the user changes the page.</p>
-<pre v-code><code><template v-pre>
+            <p>
+                Paginator can also be programmed programmatically using a binding to the <i>first</i> property that defines the index of the first element to display. For example setting first to zero will reset the paginator to the very first page.
+                This property also supports v-model in case you'd like your binding to be updated whenever the user changes the page.
+            </p>
+            <pre v-code><code><template v-pre>
 &lt;DataTable :value="cars" :paginator="true" :rows="10" :first="firstRecordIndex"&gt;
     &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
     &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
@@ -641,10 +666,9 @@ export default {
 </code></pre>
 
             <h5>Sorting</h5>
-            <p>Enabling <i>sortable</i> property at column component would be enough to make a column sortable.
-            The property to use when sorting is the <i>field</i> by default and can be customized using the <i>sortField</i>.</p>
+            <p>Enabling <i>sortable</i> property at column component would be enough to make a column sortable. The property to use when sorting is the <i>field</i> by default and can be customized using the <i>sortField</i>.</p>
 
-<pre v-code><code><template v-pre>
+            <pre v-code><code><template v-pre>
 &lt;DataTable :value="cars"&gt;
     &lt;Column field="vin" header="Vin" :sortable="true"&gt;&lt;/Column&gt;
     &lt;Column field="year" header="Year" :sortable="true"&gt;&lt;/Column&gt;
@@ -655,7 +679,7 @@ export default {
 </code></pre>
 
             <p>By default sorting is executed on the clicked column only. To enable multiple field sorting, set <i>sortMode</i> property to "multiple" and use metakey when clicking on another column.</p>
-<pre v-code><code><template v-pre>
+            <pre v-code><code><template v-pre>
 &lt;DataTable :value="cars" sortMode="multiple"&gt;
     &lt;Column field="vin" header="Vin" :sortable="true"&gt;&lt;/Column&gt;
     &lt;Column field="year" header="Year" :sortable="true"&gt;&lt;/Column&gt;
@@ -665,9 +689,11 @@ export default {
 </template>
 </code></pre>
 
-            <p>In case you'd like to display the table as sorted per a single column by default on mount or programmatically apply sort, use <i>sortField</i> and <i>sortOrder</i> properties. These
-            two properties also support the v-model directive to get updated when the user applies sort a column.</p>
-<pre v-code><code><template v-pre>
+            <p>
+                In case you'd like to display the table as sorted per a single column by default on mount or programmatically apply sort, use <i>sortField</i> and <i>sortOrder</i> properties. These two properties also support the v-model directive to
+                get updated when the user applies sort a column.
+            </p>
+            <pre v-code><code><template v-pre>
 &lt;DataTable :value="cars" sortField="year" :sortOrder="1"&gt;
     &lt;Column field="vin" header="Vin" :sortable="true"&gt;&lt;/Column&gt;
     &lt;Column field="year" header="Year" :sortable="true"&gt;&lt;/Column&gt;
@@ -685,7 +711,7 @@ export default {
 </code></pre>
 
             <p>In multiple mode, use the <i>multiSortMeta</i> property and bind an array of SortMeta objects instead.</p>
-<pre v-code><code><template v-pre>
+            <pre v-code><code><template v-pre>
 &lt;DataTable :value="cars" sortMode="multiple" :multiSortMeta="multiSortMeta"&gt;
     &lt;Column field="vin" header="Vin" :sortable="true"&gt;&lt;/Column&gt;
     &lt;Column field="year" header="Year" :sortable="true"&gt;&lt;/Column&gt;
@@ -695,7 +721,7 @@ export default {
 </template>
 </code></pre>
 
-<pre v-code.script><code>
+            <pre v-code.script><code>
 data() {
     return {
         multiSortMeta: [
@@ -708,13 +734,14 @@ data() {
 </code></pre>
 
             <h5>Filtering</h5>
-            <p>DataTable has advanced filtering capabilities that does the heavy lifting while providing flexible customization. Filtering has two layout alternatives defined with the <i>filterDisplay</i>.
-            In <b>row</b> setting, filter elements are displayed in a separate row at the header section whereas
-            in <i>menu</i> mode filter elements are displayed inside an overlay. Filter metadata is specified using the <i>filters</i> as a v-model and UI elements for the filtering
-            are placed inside the filter template. The template filter gets a <i>filterModel</i> and <i>filterCallback</i>,
-            use filterModel.value to populate the filter with your own form components and call the filterCallback with the event of your choice like @input, @change, @click.</p>
+            <p>
+                DataTable has advanced filtering capabilities that does the heavy lifting while providing flexible customization. Filtering has two layout alternatives defined with the <i>filterDisplay</i>. In <b>row</b> setting, filter elements are
+                displayed in a separate row at the header section whereas in <i>menu</i> mode filter elements are displayed inside an overlay. Filter metadata is specified using the <i>filters</i> as a v-model and UI elements for the filtering are
+                placed inside the filter template. The template filter gets a <i>filterModel</i> and <i>filterCallback</i>, use filterModel.value to populate the filter with your own form components and call the filterCallback with the event of your
+                choice like @input, @change, @click.
+            </p>
 
-<pre v-code.script><code>
+            <pre v-code.script><code>
 import CustomerService from '../../service/CustomerService';
 import {FilterMatchMode} from 'primevue/api';
 
@@ -739,7 +766,7 @@ export default {
             <h6>Filter Row</h6>
             <p>Input field is displayed in a separate header row.</p>
 
-<pre v-code><code><template v-pre>
+            <pre v-code><code><template v-pre>
 &lt;DataTable :value="customers1"
                     dataKey="id" v-model:filters="filters" filterDisplay="row" :loading="loading"&gt;
     &lt;Column field="name" header="Name"&gt;
@@ -754,7 +781,7 @@ export default {
             <h6>Filter Menu</h6>
             <p>Input field is displayed in an overlay.</p>
 
-<pre v-code><code><template v-pre>
+            <pre v-code><code><template v-pre>
 &lt;DataTable :value="customers1"
                     dataKey="id" v-model:filters="filters" filterDisplay="menu" :loading="loading"&gt;
     &lt;Column field="name" header="Name"&gt;
@@ -767,10 +794,9 @@ export default {
 </code></pre>
 
             <h6>Multiple Constraints</h6>
-            <p>In "menu" display, it is possible to add more constraints to a same filter. In this case, metadata could be an array of constraints. The operator
-            defines whether all or any of the constraints should match.</p>
+            <p>In "menu" display, it is possible to add more constraints to a same filter. In this case, metadata could be an array of constraints. The operator defines whether all or any of the constraints should match.</p>
 
-<pre v-code.script><code>
+            <pre v-code.script><code>
 data() {
     return {
         customers: null,
@@ -783,7 +809,7 @@ data() {
 
             <h6>Populate Filters</h6>
             <p>Providing a filters with predefined values would be enough to display the table as filtered by default. This approach can also be used to clear filters progammatically.</p>
-<pre v-code.script><code>
+            <pre v-code.script><code>
 data() {
     return {
         customers: null,
@@ -800,7 +826,7 @@ data() {
             <h6>Match Modes</h6>
             <p>Depending on the <i>dataType</i> of the column, suitable match modes are displayed. Default configuration is available at <i>PrimeVue.filterMatchModeOptions</i> which can be used to customize the modes globally for all tables.</p>
 
-                <pre v-code.script><code>
+            <pre v-code.script><code>
 import {createApp} from 'vue';
 import PrimeVue from 'primevue/config';
 import FilterMatchMode from 'primevue/api',
@@ -835,7 +861,7 @@ app.use(PrimeVue, {
 </code></pre>
 
             <p>If you need to override the match modes for a particular column use the <i>filterMatchModeOptions</i> property and provide an array with label-value pairs.</p>
-<pre v-code><code><template v-pre>
+            <pre v-code><code><template v-pre>
 &lt;Column field="name" header="Name" :filterMatchModeOptions="matchModes"&gt;
     &lt;template #filter="{filterModel,filterCallback}"&gt;
         &lt;InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" :placeholder="`Search by name - ${filterModel.matchMode}`"/&gt;
@@ -844,7 +870,7 @@ app.use(PrimeVue, {
 </template>
 </code></pre>
 
-                <pre v-code.script><code>
+            <pre v-code.script><code>
 matchModes: [
     {label: 'Starts With', value: FilterMatchMode.STARTS_WITH},
     {label: 'Contains', value: FilterMatchMode.CONTAINS},
@@ -853,13 +879,13 @@ matchModes: [
 
             <h6>Custom Filter</h6>
             <p>Custom filtering is implemented using the <i>FilterService</i>, first register your filter and add it to your <i>filterMatchModeOptions</i>.</p>
-<pre v-code.script><code>
+            <pre v-code.script><code>
 import {FilterService} from 'primevue/api';
 
 FilterService.register('myfilter', (a,b) => a === b);
 </code></pre>
 
-<pre v-code.script><code>
+            <pre v-code.script><code>
 matchModes: [
     {label: 'My Filter', "myfilter"},
     {label: 'Starts With', value: FilterMatchMode.STARTS_WITH},
@@ -870,7 +896,7 @@ matchModes: [
             <h6>Filter Slots</h6>
             <p>Filter menu overlay can be customized even further with various templates including <i>filterheader</i>, <i>filterfooter</i>, <i>filterclear</i>, <i>filterapply</i>. Example here changes the buttons and adds a footer.</p>
 
-<pre v-code><code><template v-pre>
+            <pre v-code><code><template v-pre>
 &lt;Column header="Country" filterField="country.name"&gt;
     &lt;template #filter="{filterModel}"&gt;
         &lt;InputText type="text" v-model="filterModel.value" class="p-column-filter" placeholder="Search by country"/&gt;
@@ -888,17 +914,17 @@ matchModes: [
 </template>
 </code></pre>
 
-
             <h5>Selection</h5>
-            <p>DataTable provides single and multiple selection modes on click of a row. Selected rows are bound to the <i>selection</i> property and updated using the v-model directive.
-                Alternatively column based selection can be done using radio buttons or checkboxes using <i>selectionMode</i> of a particular column. In addition row-select and row-unselect
-                events are provided as optional callbacks.</p>
+            <p>
+                DataTable provides single and multiple selection modes on click of a row. Selected rows are bound to the <i>selection</i> property and updated using the v-model directive. Alternatively column based selection can be done using radio
+                buttons or checkboxes using <i>selectionMode</i> of a particular column. In addition row-select and row-unselect events are provided as optional callbacks.
+            </p>
 
             <p>The <i>dataKey</i> property identifies a unique value of a row in the dataset, it is not mandatory however being able to define it increases the performance of the table signifantly.</p>
 
             <p>In single mode, selection binding is an object reference.</p>
 
-<pre v-code><code><template v-pre>
+            <pre v-code><code><template v-pre>
 &lt;DataTable :value="cars" v-model:selection="selectedCar" selectionMode="single" dataKey="vin"&gt;
     &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
     &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
@@ -908,8 +934,11 @@ matchModes: [
 </template>
 </code></pre>
 
-            <p>In multiple mode, selection binding should be an array and multiple items can either be selected using metaKey or toggled individually depending on the value of <i>metaKeySelection</i> property value which is true by default. On touch enabled devices metaKeySelection is turned off automatically. Additionally ShiftKey is supported for range selection.</p>
-<pre v-code><code><template v-pre>
+            <p>
+                In multiple mode, selection binding should be an array and multiple items can either be selected using metaKey or toggled individually depending on the value of <i>metaKeySelection</i> property value which is true by default. On touch
+                enabled devices metaKeySelection is turned off automatically. Additionally ShiftKey is supported for range selection.
+            </p>
+            <pre v-code><code><template v-pre>
 &lt;DataTable :value="cars" v-model:selection="selectedCars" selectionMode="multiple" dataKey="vin"&gt;
     &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
     &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
@@ -919,8 +948,11 @@ matchModes: [
 </template>
 </code></pre>
 
-            <p>If you prefer a radioButton or a checkbox instead of a row click, use the <i>selectionMode</i> of a column instead. Following datatable displays a checkbox at the first column of each row and automatically adds a header checkbox to toggle selection of all rows.</p>
-<pre v-code><code><template v-pre>
+            <p>
+                If you prefer a radioButton or a checkbox instead of a row click, use the <i>selectionMode</i> of a column instead. Following datatable displays a checkbox at the first column of each row and automatically adds a header checkbox to
+                toggle selection of all rows.
+            </p>
+            <pre v-code><code><template v-pre>
 &lt;DataTable :value="cars" v-model:selection="selectedCars" dataKey="vin"&gt;
     &lt;Column selectionMode="multiple"&gt;&lt;/Column&gt;
     &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
@@ -933,7 +965,7 @@ matchModes: [
 
             <h5>Scrolling</h5>
             <p>DataTable supports both horizontal and vertical scrolling as well as frozen columns and rows. Scrollable DataTable is enabled using <i>scrollable</i> property and <i>scrollHeight</i> to define the viewport height.</p>
-<pre v-code><code><template v-pre>
+            <pre v-code><code><template v-pre>
 &lt;DataTable :value="cars" :scrollable="true" scrollHeight="400px"&gt;
     &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
     &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
@@ -951,14 +983,17 @@ matchModes: [
                 <li>In vertical scrolling only, use <i>flex</i> to disable grow and shrink while defining a initial width. When horizontal scrolling is enabled, this is not required as columns do not grow or shrink in horizontal scrolling.</li>
             </ul>
 
-<pre v-code><code><template v-pre>
+            <pre v-code><code><template v-pre>
 &lt;Column field="vin" header="Vin" style="flex: 0 0 4rem"&gt;&lt;/Column&gt;
 </template>
 </code></pre>
 
             <h6>Flex Scroll</h6>
-            <p>In cases where viewport should adjust itself according to the table parent's height instead of a fixed viewport height, set scrollHeight option as flex. In example below, table is inside a Dialog where viewport size dynamically responds to the dialog size changes such as maximizing.</p>
-<pre v-code><code><template v-pre>
+            <p>
+                In cases where viewport should adjust itself according to the table parent's height instead of a fixed viewport height, set scrollHeight option as flex. In example below, table is inside a Dialog where viewport size dynamically
+                responds to the dialog size changes such as maximizing.
+            </p>
+            <pre v-code><code><template v-pre>
 &lt;Button label="Show" icon="pi pi-external-link" @click="openDialog" /&gt;
 &lt;Dialog header="Flex Scroll" v-model:visible="dialogVisible" :style="{width: '50vw'}" :maximizable="true" :modal="true" :contentStyle="{height: '300px'}"&gt;
     &lt;DataTable :value="cars" :scrollable="true" scrollHeight="flex"&gt;
@@ -977,7 +1012,7 @@ matchModes: [
 
             <h6>Full Page Scroll</h6>
             <p>FlexScroll can also be used for cases where scrollable viewport should be responsive with respect to the window size. See the <router-link to="/datatable/flexscroll">full page</router-link> demo for an example.</p>
-<pre v-code><code><template v-pre>
+            <pre v-code><code><template v-pre>
 &lt;div style="height: calc(100vh - 143px)"&gt;
     &lt;DataTable :value="cars" :scrollable="true" scrollHeight="flex"&gt;
         &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
@@ -991,7 +1026,7 @@ matchModes: [
 
             <h6>Horizontal Scrolling</h6>
             <p>For horizontal scrolling, it is required to set <i>scrollDirection</i> to "horizontal" and give fixed widths to columns.</p>
-<pre v-code><code><template v-pre>
+            <pre v-code><code><template v-pre>
 &lt;DataTable :value="customers" :scrollable="true"  scrollDirection="horizontal"&gt;
     &lt;Column field="id" header="Id" footer="Id" :style="{width:'200px'}"&gt;&lt;/Column&gt;
     &lt;Column field="name" header="Name" footer="Name" :style="{width:'200px'}"&gt;&lt;/Column&gt;
@@ -1008,7 +1043,7 @@ matchModes: [
 
             <h6>Horizontal and Vertical Scrolling</h6>
             <p>Set <i>scrollDirection</i> to "both" and give fixed widths to columns to scroll both ways.</p>
-<pre v-code><code><template v-pre>
+            <pre v-code><code><template v-pre>
 &lt;DataTable :value="customers" :scrollable="true" scrollHeight="400px" scrollDirection="both"&gt;
     &lt;Column field="id" header="Id" footer="Id" :style="{width:'200px'}"&gt;&lt;/Column&gt;
     &lt;Column field="name" header="Name" footer="Name" :style="{width:'200px'}"&gt;&lt;/Column&gt;
@@ -1026,7 +1061,7 @@ matchModes: [
             <h6>Frozen Rows</h6>
             <p>Frozen rows are used to fix certain rows while scrolling, this data is defined with the <i>frozenValue</i> property.</p>
 
-<pre v-code><code><template v-pre>
+            <pre v-code><code><template v-pre>
 &lt;DataTable :value="customers" :frozenValue="lockedCustomers" :scrollable="true" scrollHeight="400px"&gt;
     &lt;Column field="name" header="Name"&gt;&lt;/Column&gt;
     &lt;Column field="country.name" header="Country"&gt;&lt;/Column&gt;
@@ -1037,10 +1072,9 @@ matchModes: [
 </code></pre>
 
             <h6>Frozen Columns</h6>
-            <p>Certain columns can be frozen by using the <i>frozen</i> property of the column component. In addition <i>alignFrozen</i> is available to define whether the column should
-            be fixed on the left or right.</p>
+            <p>Certain columns can be frozen by using the <i>frozen</i> property of the column component. In addition <i>alignFrozen</i> is available to define whether the column should be fixed on the left or right.</p>
 
-<pre v-code><code><template v-pre>
+            <pre v-code><code><template v-pre>
 &lt;DataTable :value="customers" :scrollable="true" scrollHeight="400px" scrollDirection="both"&gt;
     &lt;Column field="name" header="Name" :style="{width:'200px'}" frozen&gt;&lt;/Column&gt;
     &lt;Column field="id" header="Id" :style="{width:'100px'}" :frozen="idFrozen"&gt;&lt;/Column&gt;
@@ -1057,23 +1091,32 @@ matchModes: [
 </code></pre>
 
             <h6>Scrollable RowGroup</h6>
-            <p>Row groups with subheaders have exclusive support for filtering, when the table scrolls the subheaders stay fixed as long as their
-            data are still displayed. No additional configuration is required to enable this feature. View the <router-link to="/datatable/rowgroup">Row Group</router-link> demo for an example.</p>
+            <p>
+                Row groups with subheaders have exclusive support for filtering, when the table scrolls the subheaders stay fixed as long as their data are still displayed. No additional configuration is required to enable this feature. View the
+                <router-link to="/datatable/rowgroup">Row Group</router-link> demo for an example.
+            </p>
 
             <h5>Lazy Loading</h5>
-            <p>Lazy mode is handy to deal with large datasets, instead of loading the entire data, small chunks of data is loaded by invoking corresponding callbacks such as paging and sorting.
-                It is also important to assign the logical number of rows to totalRecords by doing a projection query for paginator configuration so that paginator displays the UI accordingly.</p>
+            <p>
+                Lazy mode is handy to deal with large datasets, instead of loading the entire data, small chunks of data is loaded by invoking corresponding callbacks such as paging and sorting. It is also important to assign the logical number of
+                rows to totalRecords by doing a projection query for paginator configuration so that paginator displays the UI accordingly.
+            </p>
 
-            <p>Lazy loading is implemented by handling <i>page</i>, <i>sort</i>, <i>filter</i> events by making a remote query using the information
-            passed to these events such as first offset, number of rows, sort field for ordering and filters. Note that, in lazy filtering totalRecords should also be updated to align the data with the paginator.</p>
+            <p>
+                Lazy loading is implemented by handling <i>page</i>, <i>sort</i>, <i>filter</i> events by making a remote query using the information passed to these events such as first offset, number of rows, sort field for ordering and filters.
+                Note that, in lazy filtering totalRecords should also be updated to align the data with the paginator.
+            </p>
 
             <p>Visit the <router-link to="/datatable/lazy">lazy loading</router-link> demo for an example with a remote datasource.</p>
 
             <h5>Row Expansion</h5>
-            <p>Rows can be expanded to display additional content using the <i>expandedRows</i> property with the v-model directive accompanied by a template named "expansion". <i>row-expand</i> and <i>row-collapse</i> are optional callbacks that are invoked when a row is expanded or toggled.</p>
+            <p>
+                Rows can be expanded to display additional content using the <i>expandedRows</i> property with the v-model directive accompanied by a template named "expansion". <i>row-expand</i> and <i>row-collapse</i> are optional callbacks that
+                are invoked when a row is expanded or toggled.
+            </p>
 
             <p>The <i>dataKey</i> property identifies a unique value of a row in the dataset, it is not mandatory in row expansion functionality however being able to define it increases the performance of the table significantly.</p>
-<pre v-code><code><template v-pre>
+            <pre v-code><code><template v-pre>
 &lt;DataTable :value="cars" v-model:expandedRows="expandedRows" dataKey="vin"
     @row-expand="onRowExpand" @row-collapse="onRowCollapse"&gt;
     &lt;template #header&gt;
@@ -1105,7 +1148,7 @@ matchModes: [
 </template>
 </code></pre>
 
-<pre v-code.script><code>
+            <pre v-code.script><code>
 import CarService from '../../service/CarService';
 
 export default {
@@ -1143,15 +1186,15 @@ export default {
 </code></pre>
 
             <h5>InCell Editing</h5>
-            <p>In cell editing provides a rapid and user friendly way to manipulate the data. The datatable provides a flexible API
-                so that the editing behavior is implemented by the page author whether it utilizes v-model or vuex.
+            <p>In cell editing provides a rapid and user friendly way to manipulate the data. The datatable provides a flexible API so that the editing behavior is implemented by the page author whether it utilizes v-model or vuex.</p>
+
+            <p>
+                Individual cell editing is configured by setting the <i>editMode</i> to <b>cell</b>, defining editors with the <b>editor</b> template along with the <i>@cell-edit-complete</i> event. The content of the editor defines how the editing
+                is implemented. The editor template receives a clone of the row data and using <i>@cell-edit-complete</i> event the new value can be updated to the model or cancelled. This also provides flexibility to apply conditional logic such as
+                implementing validations.
             </p>
 
-            <p>Individual cell editing is configured by setting the <i>editMode</i> to <b>cell</b>, defining editors with the <b>editor</b> template along with the <i>@cell-edit-complete</i> event. The content of the
-            editor defines how the editing is implemented. The editor template receives a clone of the row data and using <i>@cell-edit-complete</i> event the new value can be updated to the model or cancelled.
-            This also provides flexibility to apply conditional logic such as implementing validations.</p>
-
-<pre v-code><code><template v-pre>
+            <pre v-code><code><template v-pre>
 &lt;h5&gt;Cell Editing&lt;/h5&gt;
 &lt;DataTable :value="cars" editMode="cell" @cell-edit-complete="onCellEditComplete"&gt;
     &lt;Column field="vin" header="Vin"&gt;
@@ -1185,7 +1228,7 @@ export default {
 </template>
 </code></pre>
 
-<pre v-code.script><code>
+            <pre v-code.script><code>
 import CarService from '../../service/CarService';
 import Vue from 'vue';
 
@@ -1248,10 +1291,12 @@ export default {
 
 </code></pre>
 
-            <p>Row Editing is specified by setting <i>editMode</i> as <b>row</b>, defining <i>editingRows</i> with the v-model directive to hold the reference of the editing rows,
-            adding a row editor column to provide the editing controls and implementing <i>@row-edit-save</i> to update the original row data. Note that
-            since <i>editingRows</i> is two-way binding enabled, you may use it to initially display one or more rows in editing more or programmatically toggle row editing.</p>
-<pre v-code><code><template v-pre>
+            <p>
+                Row Editing is specified by setting <i>editMode</i> as <b>row</b>, defining <i>editingRows</i> with the v-model directive to hold the reference of the editing rows, adding a row editor column to provide the editing controls and
+                implementing <i>@row-edit-save</i> to update the original row data. Note that since <i>editingRows</i> is two-way binding enabled, you may use it to initially display one or more rows in editing more or programmatically toggle row
+                editing.
+            </p>
+            <pre v-code><code><template v-pre>
 &lt;h3&gt;Row Editing&lt;/h3&gt;
 &lt;DataTable :value="cars" editMode="row" dataKey="vin" v-model:editingRows="editingRows" @row-edit-save="onRowEditSave"&gt;
     &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
@@ -1275,7 +1320,7 @@ export default {
 </template>
 </code></pre>
 
-<pre v-code.script><code>
+            <pre v-code.script><code>
 import CarService from '../../service/CarService';
 import Vue from 'vue';
 
@@ -1305,9 +1350,11 @@ export default {
 </code></pre>
 
             <h5>Column Resize</h5>
-            <p>Columns can be resized using drag drop by setting the <i>resizableColumns</i> to true. There are two resize modes; "fit" and "expand". Fit is the default one and the overall table width does not change when a column is resized.
-                In "expand" mode, table width also changes along with the column width. <i>column-resize-end</i> is a callback that passes the resized column header and delta change as a parameter.</p>
-<pre v-code><code><template v-pre>
+            <p>
+                Columns can be resized using drag drop by setting the <i>resizableColumns</i> to true. There are two resize modes; "fit" and "expand". Fit is the default one and the overall table width does not change when a column is resized. In
+                "expand" mode, table width also changes along with the column width. <i>column-resize-end</i> is a callback that passes the resized column header and delta change as a parameter.
+            </p>
+            <pre v-code><code><template v-pre>
 &lt;DataTable :value="cars" :resizableColumns="true" columnResizeMode="fit | expand"&gt;
     &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
     &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
@@ -1318,7 +1365,7 @@ export default {
 </code></pre>
 
             <p>It is important to note that when you need to change column widths, since table width is 100%, giving fixed pixel widths does not work well as browsers scale them, instead give percentage widths.</p>
-<pre v-code><code><template v-pre>
+            <pre v-code><code><template v-pre>
 &lt;DataTable :value="cars" :resizableColumns="true" columnResizeMode="fit | expand"&gt;
     &lt;Column field="vin" header="Vin" headerStyle="width: 20%"&gt;&lt;/Column&gt;
     &lt;Column field="year" header="Year" headerStyle="width: 40%"&gt;&lt;/Column&gt;
@@ -1329,9 +1376,11 @@ export default {
 </code></pre>
 
             <h5>Column Reorder</h5>
-            <p>Columns can be reordered using drag drop by setting the <i>reorderableColumns</i> to true. <i>column-reorder</i> is a callback that is invoked when a column is reordered. DataTable keeps the column order state internally using keys that identifies a column using the field property. If the column has no field, use columnKey instead as
-            it is mandatory for columns to have unique keys when reordering is enabled.</p>
-<pre v-code><code><template v-pre>
+            <p>
+                Columns can be reordered using drag drop by setting the <i>reorderableColumns</i> to true. <i>column-reorder</i> is a callback that is invoked when a column is reordered. DataTable keeps the column order state internally using keys
+                that identifies a column using the field property. If the column has no field, use columnKey instead as it is mandatory for columns to have unique keys when reordering is enabled.
+            </p>
+            <pre v-code><code><template v-pre>
 &lt;DataTable :value="cars" :reorderableColumns="true"&gt;
     &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
     &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
@@ -1342,8 +1391,11 @@ export default {
 </code></pre>
 
             <h5>Row Reorder</h5>
-            <p>Data can be reordered using drag drop by adding a reorder column that will display an icon as a drag handle along with the <i>row-reorder</i> event which is <b>mandatory</b> to update the new order. Note that the reorder icon can be customized using <i>rowReorderIcon</i> of the column component.</p>
-<pre v-code><code><template v-pre>
+            <p>
+                Data can be reordered using drag drop by adding a reorder column that will display an icon as a drag handle along with the <i>row-reorder</i> event which is <b>mandatory</b> to update the new order. Note that the reorder icon can be
+                customized using <i>rowReorderIcon</i> of the column component.
+            </p>
+            <pre v-code><code><template v-pre>
 &lt;DataTable :value="cars" @row-reorder="onRowReorder"&gt;
     &lt;Column :rowReorder="true" headerStyle="width: 3em" /&gt;
     &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
@@ -1354,7 +1406,7 @@ export default {
 </template>
 </code></pre>
 
-<pre v-code.script><code>
+            <pre v-code.script><code>
 import CarService from '../../service/CarService';
 
 export default {
@@ -1381,13 +1433,15 @@ export default {
 </code></pre>
 
             <h5>Row Group</h5>
-            <p>Row Grouping comes in two modes, in "subheader" mode rows are grouped by a header row along with an optional group footer. In addition, the groups can be made
-                toggleable by enabling <i>expandableRowGroups</i> as true. On the other hand, the "rowspan" mode uses rowspans instead of a header to group rows. <i>groupRowsBy</i>
-                property defines the field to use in row grouping. Multiple row grouping is available in "rowspan" mode by specifying the <i>groupRowsBy</i> as an array of fields.</p>
+            <p>
+                Row Grouping comes in two modes, in "subheader" mode rows are grouped by a header row along with an optional group footer. In addition, the groups can be made toggleable by enabling <i>expandableRowGroups</i> as true. On the other
+                hand, the "rowspan" mode uses rowspans instead of a header to group rows. <i>groupRowsBy</i> property defines the field to use in row grouping. Multiple row grouping is available in "rowspan" mode by specifying the
+                <i>groupRowsBy</i> as an array of fields.
+            </p>
 
             <p>Example below demonstrates the all grouping alternatives. Note that data needs to be sorted for grouping which can also be done by the table itself by speficying the sort properties.</p>
 
-<pre v-code><code><template v-pre>
+            <pre v-code><code><template v-pre>
 &lt;h3&gt;Subheader Grouping&lt;/h3&gt;
 &lt;DataTable :value="cars" rowGroupMode="subheader" groupRowsBy="brand"
     sortMode="single" sortField="brand" :sortOrder="1"&gt;
@@ -1441,7 +1495,7 @@ export default {
 </template>
 </code></pre>
 
-<pre v-code.script><code>
+            <pre v-code.script><code>
 import CarService from '../../service/CarService';
 
 export default {
@@ -1485,7 +1539,7 @@ export default {
 
             <h5>Data Export</h5>
             <p>DataTable can export its data in CSV format using <i>exportCSV()</i> method.</p>
-<pre v-code><code><template v-pre>
+            <pre v-code><code><template v-pre>
 &lt;DataTable :value="cars" ref="dt"&gt;
     &lt;template #header&gt;
         &lt;div style="text-align: left"&gt;
@@ -1500,7 +1554,7 @@ export default {
 </template>
 </code></pre>
 
-<pre v-code.script><code>
+            <pre v-code.script><code>
 import CarService from '../../service/CarService';
 
 export default {
@@ -1526,11 +1580,12 @@ export default {
 </code></pre>
 
             <h5>TableState</h5>
-            <p>Stateful table allows keeping the state such as page, sort and filtering either at local storage or session storage so that when the page is visited again, table would render the data using its last settings.
-                Enabling state is easy as defining a unique <i>stateKey</i>, the storage to keep the state is defined with the <i>stateStorage</i> property that accepts session for sessionStorage and local for localStorage.
-                Currently following features are supported by TableState; paging, sorting, filtering, column resizing, column reordering, row expansion, row group expansion and row selection.
+            <p>
+                Stateful table allows keeping the state such as page, sort and filtering either at local storage or session storage so that when the page is visited again, table would render the data using its last settings. Enabling state is easy as
+                defining a unique <i>stateKey</i>, the storage to keep the state is defined with the <i>stateStorage</i> property that accepts session for sessionStorage and local for localStorage. Currently following features are supported by
+                TableState; paging, sorting, filtering, column resizing, column reordering, row expansion, row group expansion and row selection.
             </p>
-<pre v-code><code><template v-pre>
+            <pre v-code><code><template v-pre>
 &lt;DataTable :value="cars" :paginator="true" :rows="10" v-model:filters="filters"
     stateStorage="session" stateKey="dt-state-demo-session"
     v-model:selection="selectedCar" selectionMode="single" dataKey="vin"&gt;
@@ -1574,7 +1629,7 @@ export default {
 </template>
 </code></pre>
 
-<pre v-code.script><code>
+            <pre v-code.script><code>
 import CarService from '../../service/CarService';
 
 export default {
@@ -1620,7 +1675,7 @@ export default {
 
             <h5>ContextMenu</h5>
             <p>DataTable provides exclusive integration with the ContextMenu component using, <i>contextMenu</i>, <i>contextMenuSelection</i> property along with the <i>row-contextmenu</i> event.</p>
-<pre v-code><code><template v-pre>
+            <pre v-code><code><template v-pre>
 &lt;DataTable :value="cars" contextMenu v-model:contextMenuSelection="selectedCar" @row-contextmenu="onRowContextMenu"&gt;
     &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
     &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
@@ -1632,7 +1687,7 @@ export default {
 </template>
 </code></pre>
 
-<pre v-code.script><code>
+            <pre v-code.script><code>
 import CarService from '../../service/CarService';
 
 export default {
@@ -1672,7 +1727,7 @@ export default {
 
             <h5>Empty Message</h5>
             <p>When there is no data, you may use the <i>empty</i> template to display a message.</p>
-<pre v-code><code><template v-pre>
+            <pre v-code><code><template v-pre>
 &lt;DataTable :value="cars"&gt;
     &lt;template #empty&gt;
         No records found
@@ -1686,9 +1741,11 @@ export default {
 </code></pre>
 
             <h5>Loading</h5>
-            <p>A loading status indicator can be displayed when the <i>loading</i> property is enabled. The icon is customized through <i>loadingIcon</i> property. Additionally
-            an option loading template is available to render as the body until the data is loaded.</p>
-<pre v-code><code><template v-pre>
+            <p>
+                A loading status indicator can be displayed when the <i>loading</i> property is enabled. The icon is customized through <i>loadingIcon</i> property. Additionally an option loading template is available to render as the body until the
+                data is loaded.
+            </p>
+            <pre v-code><code><template v-pre>
 &lt;DataTable :value="cars" :loading="loading"&gt;
      &lt;template #loading&gt;
         Loading records, please wait...
@@ -1701,7 +1758,7 @@ export default {
 </template>
 </code></pre>
 
-<pre v-code.script><code>
+            <pre v-code.script><code>
 import CarService from '../../service/CarService';
 
 export default {
@@ -1728,15 +1785,19 @@ export default {
 
 </code></pre>
 
-           <h5>Responsive</h5>
-           <p>DataTable responsive layout can be achieved in two ways; first approach is displaying a horizontal scrollbar for smaller screens
-                and second one is defining a breakpoint to display the cells of a row as stacked. Scrollable tables use the scroll layout approach internally and do not require additional configuration.</p>
+            <h5>Responsive</h5>
+            <p>
+                DataTable responsive layout can be achieved in two ways; first approach is displaying a horizontal scrollbar for smaller screens and second one is defining a breakpoint to display the cells of a row as stacked. Scrollable tables use
+                the scroll layout approach internally and do not require additional configuration.
+            </p>
 
             <h6>Scroll Layout</h6>
-            <p>Set <i>responsiveLayout</i> to scroll to enabled this layout. Note that, when scroll mode is enabled table-layout automatically switches to auto from fixed
-            as a result table widths are likely to differ and resizable columns are not supported. Read more about <a href="https://www.w3schools.com/cssref/pr_tab_table-layout.asp">table-layout</a> for more details.</p>
+            <p>
+                Set <i>responsiveLayout</i> to scroll to enabled this layout. Note that, when scroll mode is enabled table-layout automatically switches to auto from fixed as a result table widths are likely to differ and resizable columns are not
+                supported. Read more about <a href="https://www.w3schools.com/cssref/pr_tab_table-layout.asp">table-layout</a> for more details.
+            </p>
 
-<pre v-code><code><template v-pre>
+            <pre v-code><code><template v-pre>
 &lt;DataTable :value="products" responsiveLayout="scroll"&gt;
 
 &lt;/DataTable&gt;
@@ -1745,7 +1806,7 @@ export default {
 
             <h6>Stack Layout</h6>
             <p>In stack layout, columns are displayed as stacked after a certain breakpoint. Default is '960px'.</p>
-<pre v-code><code><template v-pre>
+            <pre v-code><code><template v-pre>
 &lt;DataTable :value="products" responsiveLayout="stack" breakpoint="640px"&gt;
 
 &lt;/DataTable&gt;
@@ -1753,9 +1814,11 @@ export default {
 </code></pre>
 
             <h5>Row and Cell Styling</h5>
-            <p>Certain rows or cells can easily be styled based on conditions. Cell styling is implemented with templating whereas row styling utilizes the <i>rowClass</i> property which takes the
-            row data as a parameter and returns the style class as a string.</p>
-<pre v-code><code><template v-pre>
+            <p>
+                Certain rows or cells can easily be styled based on conditions. Cell styling is implemented with templating whereas row styling utilizes the <i>rowClass</i> property which takes the row data as a parameter and returns the style class
+                as a string.
+            </p>
+            <pre v-code><code><template v-pre>
 &lt;DataTable :value="cars" :rowClass="rowClass"&gt;
     &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
     &lt;Column field="year" header="Year" bodyStyle="padding: 0"&gt;
@@ -1771,7 +1834,7 @@ export default {
 </template>
 </code></pre>
 
-<pre v-code.script><code>
+            <pre v-code.script><code>
 import CarService from '../../service/CarService';
 
 export default {
@@ -1797,7 +1860,7 @@ export default {
 
 </code></pre>
 
-<pre v-code.css><code>
+            <pre v-code.css><code>
 .year-cell {
     padding: 0.429em 0.857rem;
 
@@ -1879,7 +1942,10 @@ export default {
                         <tr>
                             <td>paginatorTemplate</td>
                             <td>string</td>
-                            <td>FirstPageLink PrevPageLink PageLinks <br /> NextPageLink LastPageLink RowsPerPageDropdown</td>
+                            <td>
+                                FirstPageLink PrevPageLink PageLinks <br />
+                                NextPageLink LastPageLink RowsPerPageDropdown
+                            </td>
                             <td>Template of the paginator. See the <router-link to="/paginator">Paginator</router-link> for all available options.</td>
                         </tr>
                         <tr>
@@ -1988,16 +2054,20 @@ export default {
                             <td>compareSelectionBy</td>
                             <td>string</td>
                             <td>deepEquals</td>
-                            <td>Algorithm to define if a row is selected, valid values are "equals" that compares by reference and <br/> "deepEquals" that compares all fields.</td>
+                            <td>
+                                Algorithm to define if a row is selected, valid values are "equals" that compares by reference and <br />
+                                "deepEquals" that compares all fields.
+                            </td>
                         </tr>
                         <tr>
                             <td>metaKeySelection</td>
                             <td>boolean</td>
                             <td>true</td>
-                            <td>Defines whether metaKey is requred or not for the selection. <br/>
-                                When true metaKey needs to be pressed to select or unselect an item and <br/>
-                                when set to false selection of each item
-                                can be toggled individually. On touch enabled devices, metaKeySelection is turned off automatically.</td>
+                            <td>
+                                Defines whether metaKey is requred or not for the selection. <br />
+                                When true metaKey needs to be pressed to select or unselect an item and <br />
+                                when set to false selection of each item can be toggled individually. On touch enabled devices, metaKeySelection is turned off automatically.
+                            </td>
                         </tr>
                         <tr>
                             <td>contextMenu</td>
@@ -2029,7 +2099,7 @@ export default {
                             <td>download</td>
                             <td>Name of the exported file.</td>
                         </tr>
-                         <tr>
+                        <tr>
                             <td>exportFunction</td>
                             <td>function</td>
                             <td>download</td>
@@ -2051,7 +2121,10 @@ export default {
                             <td>columnResizeMode</td>
                             <td>string</td>
                             <td>fit</td>
-                            <td>Defines whether the overall table width should change on column resize, <br/> valid values are "fit" and "expand".</td>
+                            <td>
+                                Defines whether the overall table width should change on column resize, <br />
+                                valid values are "fit" and "expand".
+                            </td>
                         </tr>
                         <tr>
                             <td>reorderableColumns</td>
@@ -2159,8 +2232,10 @@ export default {
                             <td>virtualScrollerOptions</td>
                             <td>object</td>
                             <td>null</td>
-                            <td>Whether to use the virtualScroller feature. The properties of <router-link to="/virtualscroller">VirtualScroller</router-link> component can be used like an object in it.
-                            <br /><b>Note:</b> Currently only vertical orientation mode is supported.</td>
+                            <td>
+                                Whether to use the virtualScroller feature. The properties of <router-link to="/virtualscroller">VirtualScroller</router-link> component can be used like an object in it. <br /><b>Note:</b> Currently only vertical
+                                orientation mode is supported.
+                            </td>
                         </tr>
                         <tr>
                             <td>frozenValue</td>
@@ -2221,11 +2296,12 @@ export default {
                     <tbody>
                         <tr>
                             <td>page</td>
-                            <td>event.originalEvent: Browser event <br >
-                                event.page: New page number <br/>
-                                event.pageCount: Total page count <br/>
-                                event.first: Index of first record <br/>
-                                event.rows: Number of rows to display in new page <br/>
+                            <td>
+                                event.originalEvent: Browser event <br />
+                                event.page: New page number <br />
+                                event.pageCount: Total page count <br />
+                                event.first: Index of first record <br />
+                                event.rows: Number of rows to display in new page <br />
                                 event.sortField: Field to sort against <br />
                                 event.sortOrder: Sort order as integer <br />
                                 event.multiSortMeta: MultiSort metadata <br />
@@ -2236,9 +2312,10 @@ export default {
                         </tr>
                         <tr>
                             <td>sort</td>
-                            <td>event.originalEvent: Browser event <br >
-                                event.first: Index of first record <br/>
-                                event.rows: Number of rows to display in new page <br/>
+                            <td>
+                                event.originalEvent: Browser event <br />
+                                event.first: Index of first record <br />
+                                event.rows: Number of rows to display in new page <br />
                                 event.sortField: Field to sort against <br />
                                 event.sortOrder: Sort order as integer <br />
                                 event.multiSortMeta: MultiSort metadata <br />
@@ -2249,9 +2326,10 @@ export default {
                         </tr>
                         <tr>
                             <td>filter</td>
-                            <td>event.originalEvent: Browser event <br >
-                                event.first: Index of first record <br/>
-                                event.rows: Number of rows to display in new page <br/>
+                            <td>
+                                event.originalEvent: Browser event <br />
+                                event.first: Index of first record <br />
+                                event.rows: Number of rows to display in new page <br />
                                 event.sortField: Field to sort against <br />
                                 event.sortOrder: Sort order as integer <br />
                                 event.multiSortMeta: MultiSort metadata <br />
@@ -2267,45 +2345,57 @@ export default {
                         </tr>
                         <tr>
                             <td>row-click</td>
-                            <td>event.originalEvent: Browser event. <br />
+                            <td>
+                                event.originalEvent: Browser event. <br />
                                 event.data: Selected row data. <br />
-                                event.index: Row index.</td>
+                                event.index: Row index.
+                            </td>
                             <td>Callback to invoke when a row is clicked.</td>
                         </tr>
-                         <tr>
+                        <tr>
                             <td>row-dblclick</td>
-                            <td>event.originalEvent: Browser event. <br />
+                            <td>
+                                event.originalEvent: Browser event. <br />
                                 event.data: Selected row data. <br />
-                                event.index: Row index.</td>
+                                event.index: Row index.
+                            </td>
                             <td>Callback to invoke when a row is double clicked.</td>
                         </tr>
                         <tr>
                             <td>row-contextmenu</td>
-                            <td>event.originalEvent: Browser event. <br />
+                            <td>
+                                event.originalEvent: Browser event. <br />
                                 event.data: Selected row data. <br />
-                                event.index: Row index.</td>
+                                event.index: Row index.
+                            </td>
                             <td>Callback to invoke when a row is selected with a ContextMenu.</td>
                         </tr>
                         <tr>
                             <td>row-select</td>
-                            <td>event.originalEvent: Browser event. <br />
+                            <td>
+                                event.originalEvent: Browser event. <br />
                                 event.data: Selected row data. <br />
                                 event.index: Row index. <br />
-                                event.type: Type of the selection, valid values are "row", "radio" or "checkbox".</td>
+                                event.type: Type of the selection, valid values are "row", "radio" or "checkbox".
+                            </td>
                             <td>Callback to invoke when a row is selected.</td>
                         </tr>
                         <tr>
                             <td>row-unselect</td>
-                            <td>event.originalEvent: Browser event. <br />
+                            <td>
+                                event.originalEvent: Browser event. <br />
                                 event.data: Unselected row data. <br />
                                 event.index: Row index. <br />
-                                event.type: Type of the selection, valid values are "row", "radio" or "checkbox".</td>
+                                event.type: Type of the selection, valid values are "row", "radio" or "checkbox".
+                            </td>
                             <td>Callback to invoke when a row is unselected.</td>
                         </tr>
                         <tr>
                             <td>row-select-all</td>
-                            <td>event.originalEvent: Browser event. <br />
-                                event.data: Selected dataset</td>
+                            <td>
+                                event.originalEvent: Browser event. <br />
+                                event.data: Selected dataset
+                            </td>
                             <td>Fired when header checkbox is checked.</td>
                         </tr>
                         <tr>
@@ -2315,108 +2405,135 @@ export default {
                         </tr>
                         <tr>
                             <td>column-resize-end</td>
-                            <td>event.element: DOM element of the resized column.<br />
-                                event.delta: Change in column width</td>
+                            <td>
+                                event.element: DOM element of the resized column.<br />
+                                event.delta: Change in column width
+                            </td>
                             <td>Callback to invoke when a column is resized.</td>
                         </tr>
                         <tr>
                             <td>column-reorder</td>
-                            <td>event.originalEvent: Browser event<br />
+                            <td>
+                                event.originalEvent: Browser event<br />
                                 event.dragIndex: Index of the dragged column<br />
-                                event.dropIndex: Index of the dropped column</td>
+                                event.dropIndex: Index of the dropped column
+                            </td>
                             <td>Callback to invoke when a column is reordered.</td>
                         </tr>
                         <tr>
                             <td>row-reorder</td>
-                            <td>event.originalEvent: Browser event<br />
+                            <td>
+                                event.originalEvent: Browser event<br />
                                 event.dragIndex: Index of the dragged row<br />
                                 event.dropIndex: Index of the dropped row<br />
-                                value: Reordered value</td>
+                                value: Reordered value
+                            </td>
                             <td>Callback to invoke when a row is reordered.</td>
                         </tr>
                         <tr>
                             <td>row-expand</td>
-                            <td>event.originalEvent: Browser event<br />
-                                event.data: Expanded row data.</td>
+                            <td>
+                                event.originalEvent: Browser event<br />
+                                event.data: Expanded row data.
+                            </td>
                             <td>Callback to invoke when a row is expanded.</td>
                         </tr>
                         <tr>
                             <td>row-collapse</td>
-                            <td>event.originalEvent: Browser event<br />
-                                event.data: Collapsed row data.</td>
+                            <td>
+                                event.originalEvent: Browser event<br />
+                                event.data: Collapsed row data.
+                            </td>
                             <td>Callback to invoke when a row is collapsed.</td>
                         </tr>
                         <tr>
                             <td>rowgroup-expand</td>
-                            <td>event.originalEvent: Browser event<br />
-                                event.data: Expanded group value.</td>
+                            <td>
+                                event.originalEvent: Browser event<br />
+                                event.data: Expanded group value.
+                            </td>
                             <td>Callback to invoke when a row group is expanded.</td>
                         </tr>
                         <tr>
                             <td>rowgroup-collapse</td>
-                            <td>event.originalEvent: Browser event<br />
-                                event.data: Collapsed group value.</td>
+                            <td>
+                                event.originalEvent: Browser event<br />
+                                event.data: Collapsed group value.
+                            </td>
                             <td>Callback to invoke when a row group is collapsed.</td>
                         </tr>
                         <tr>
                             <td>cell-edit-init</td>
-                            <td>event.originalEvent: Browser event<br />
+                            <td>
+                                event.originalEvent: Browser event<br />
                                 event.data: Row data to edit. <br />
                                 event.field: Field name of the row data. <br />
-                                event.index: Index of the row data to edit. <br /></td>
+                                event.index: Index of the row data to edit. <br />
+                            </td>
                             <td>Callback to invoke when cell edit is initiated.</td>
                         </tr>
                         <tr>
                             <td>cell-edit-complete</td>
-                            <td>event.originalEvent: Browser event<br />
+                            <td>
+                                event.originalEvent: Browser event<br />
                                 event.data: Row data to edit. <br />
                                 event.newData: New row data after editing. <br />
                                 event.value: Field value of row data to edit. <br />
                                 event.newValue: Field value of new row data after editing. <br />
                                 event.field: Field name of the row data. <br />
                                 event.index: Index of the row data to edit. <br />
-                                event.type: Type of completion such as "enter", "outside" or "tab". <br /></td>
+                                event.type: Type of completion such as "enter", "outside" or "tab". <br />
+                            </td>
                             <td>Callback to invoke when cell edit is completed.</td>
                         </tr>
                         <tr>
                             <td>cell-edit-cancel</td>
-                            <td>event.originalEvent: Browser event<br />
+                            <td>
+                                event.originalEvent: Browser event<br />
                                 event.data: Row data to edit. <br />
                                 event.field: Field name of the row data. <br />
-                                event.index: Index of the row data to edit. <br /></td>
+                                event.index: Index of the row data to edit. <br />
+                            </td>
                             <td>Callback to invoke when cell edit is cancelled with escape key.</td>
                         </tr>
                         <tr>
                             <td>row-edit-init</td>
-                            <td>event.originalEvent: Browser event<br />
+                            <td>
+                                event.originalEvent: Browser event<br />
                                 event.data: Row data to edit. <br />
                                 event.newData: New row data after editing. <br />
                                 event.field: Field name of the row data. <br />
-                                event.index: Index of the row data to edit. <br /></td>
+                                event.index: Index of the row data to edit. <br />
+                            </td>
                             <td>Callback to invoke when row edit is initiated.</td>
                         </tr>
                         <tr>
                             <td>row-edit-save</td>
-                            <td>event.originalEvent: Browser event<br />
+                            <td>
+                                event.originalEvent: Browser event<br />
                                 event.data: Row data to edit. <br />
                                 event.newData: New row data after editing. <br />
                                 event.field: Field name of the row data. <br />
-                                event.index: Index of the row data to edit. <br /></td>
+                                event.index: Index of the row data to edit. <br />
+                            </td>
                             <td>Callback to invoke when row edit is saved.</td>
                         </tr>
                         <tr>
                             <td>row-edit-cancel</td>
-                            <td>event.originalEvent: Browser event<br />
+                            <td>
+                                event.originalEvent: Browser event<br />
                                 event.data: Row data to edit. <br />
                                 event.newData: New row data after editing. <br />
                                 event.field: Field name of the row data. <br />
-                                event.index: Index of the row data to edit. <br /></td>
+                                event.index: Index of the row data to edit. <br />
+                            </td>
                             <td>Callback to invoke when row edit is cancelled.</td>
                         </tr>
                         <tr>
                             <td>state-save</td>
-                            <td>event.first: Index of first record <br/>
-                                event.rows: Number of rows to display in new page <br/>
+                            <td>
+                                event.first: Index of first record <br />
+                                event.rows: Number of rows to display in new page <br />
                                 event.sortField: Field to sort against <br />
                                 event.sortOrder: Sort order as integer <br />
                                 event.multiSortMeta: MultiSort metadata <br />
@@ -2433,8 +2550,9 @@ export default {
                         </tr>
                         <tr>
                             <td>state-restore</td>
-                            <td>event.first: Index of first record <br/>
-                                event.rows: Number of rows to display in new page <br/>
+                            <td>
+                                event.first: Index of first record <br />
+                                event.rows: Number of rows to display in new page <br />
                                 event.sortField: Field to sort against <br />
                                 event.sortOrder: Sort order as integer <br />
                                 event.multiSortMeta: MultiSort metadata <br />
@@ -2474,15 +2592,15 @@ export default {
             </div>
 
             <h5>Slots</h5>
-			<div class="doc-tablewrapper">
+            <div class="doc-tablewrapper">
                 <table class="doc-table">
-					<thead>
+                    <thead>
                         <tr>
                             <th>Name</th>
                             <th>Parameters</th>
                         </tr>
-					</thead>
-					<tbody>
+                    </thead>
+                    <tbody>
                         <tr>
                             <td>header</td>
                             <td>column: Column node</td>
@@ -2501,18 +2619,24 @@ export default {
                         </tr>
                         <tr>
                             <td>groupheader</td>
-                            <td>data: Row data <br />
-                            index: Row index</td>
+                            <td>
+                                data: Row data <br />
+                                index: Row index
+                            </td>
                         </tr>
                         <tr>
                             <td>groupfooter</td>
-                            <td>data: Row data <br />
-                            index: Row index</td>
+                            <td>
+                                data: Row data <br />
+                                index: Row index
+                            </td>
                         </tr>
                         <tr>
                             <td>expansion</td>
-                            <td>data: Row data <br />
-                            index: Row index</td>
+                            <td>
+                                data: Row data <br />
+                                index: Row index
+                            </td>
                         </tr>
                         <tr>
                             <td>empty</td>
@@ -2522,8 +2646,8 @@ export default {
                             <td>loading</td>
                             <td>-</td>
                         </tr>
-					</tbody>
-				</table>
+                    </tbody>
+                </table>
             </div>
 
             <h5>Styling</h5>
@@ -2562,15 +2686,15 @@ export default {
                             <td>p-datatable-table</td>
                             <td>Table element.</td>
                         </tr>
-                         <tr>
+                        <tr>
                             <td>p-datatable-thead</td>
                             <td>Table thead element.</td>
                         </tr>
-                         <tr>
+                        <tr>
                             <td>p-datatable-tbody</td>
                             <td>Table tbody element.</td>
                         </tr>
-                         <tr>
+                        <tr>
                             <td>p-datatable-tfoot</td>
                             <td>Table tfoot element.</td>
                         </tr>
@@ -2582,7 +2706,7 @@ export default {
                             <td>p-sortable-column</td>
                             <td>Sortable column header.</td>
                         </tr>
-                         <tr>
+                        <tr>
                             <td>p-frozen-column</td>
                             <td>Frozen column header.</td>
                         </tr>
@@ -2625,7 +2749,7 @@ export default {
             <h5>Dependencies</h5>
             <p>None.</p>
         </AppDoc>
-	</div>
+    </div>
 </template>
 
 <script>
@@ -3388,7 +3512,7 @@ img {
     </style>`
                 }
             }
-        }
+        };
     }
-}
+};
 </script>

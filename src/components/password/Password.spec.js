@@ -4,7 +4,7 @@ import Password from './Password.vue';
 
 describe('Password.vue', () => {
     let wrapper;
-    const event = { target: {value: 'P'}};
+    const event = { target: { value: 'P' } };
 
     beforeEach(async () => {
         wrapper = mount(Password, {

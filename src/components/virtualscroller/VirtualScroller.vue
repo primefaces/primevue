@@ -1,9 +1,23 @@
 <template>
     <template v-if="!disabled">
         <div :ref="elementRef" :class="containerClass" :tabindex="tabindex" :style="style" @scroll="onScroll">
-            <slot name="content" :styleClass="contentClass" :items="loadedItems" :getItemOptions="getOptions" :loading="d_loading" :getLoaderOptions="getLoaderOptions" :itemSize="itemSize"
-                :rows="loadedRows" :columns="loadedColumns" :contentRef="contentRef" :spacerStyle="spacerStyle" :contentStyle="contentStyle"
-                :vertical="isVertical()" :horizontal="isHorizontal()" :both="isBoth()">
+            <slot
+                name="content"
+                :styleClass="contentClass"
+                :items="loadedItems"
+                :getItemOptions="getOptions"
+                :loading="d_loading"
+                :getLoaderOptions="getLoaderOptions"
+                :itemSize="itemSize"
+                :rows="loadedRows"
+                :columns="loadedColumns"
+                :contentRef="contentRef"
+                :spacerStyle="spacerStyle"
+                :contentStyle="contentStyle"
+                :vertical="isVertical()"
+                :horizontal="isHorizontal()"
+                :both="isBoth()"
+            >
                 <div :ref="contentRef" :class="contentClass" :style="contentStyle">
                     <template v-for="(item, index) of loadedItems" :key="index">
                         <slot name="item" :item="item" :options="getOptions(index)"></slot>
@@ -43,7 +57,7 @@ export default {
             default: null
         },
         itemSize: {
-            type: [Number,Array],
+            type: [Number, Array],
             default: 0
         },
         scrollHeight: null,
@@ -104,7 +118,7 @@ export default {
             loaderArr: [],
             spacerStyle: {},
             contentStyle: {}
-        }
+        };
     },
     element: null,
     content: null,
@@ -156,16 +170,15 @@ export default {
             const { numToleratedItems } = this.calculateNumItems();
             const itemSize = this.itemSize;
             const calculateFirst = (_index = 0, _numT) => (_index <= _numT ? 0 : _index);
-            const calculateCoord = (_first, _size) => (_first * _size);
+            const calculateCoord = (_first, _size) => _first * _size;
             const scrollTo = (left = 0, top = 0) => this.scrollTo({ left, top, behavior });
 
             if (both) {
                 const newFirst = { rows: calculateFirst(index[0], numToleratedItems[0]), cols: calculateFirst(index[1], numToleratedItems[1]) };
                 if (newFirst.rows !== first.rows || newFirst.cols !== first.cols) {
-                    scrollTo(calculateCoord(newFirst.cols, itemSize[1]), calculateCoord(newFirst.rows, itemSize[0]))
+                    scrollTo(calculateCoord(newFirst.cols, itemSize[1]), calculateCoord(newFirst.rows, itemSize[0]));
                 }
-            }
-            else {
+            } else {
                 const newFirst = calculateFirst(index, numToleratedItems);
                 if (newFirst !== first) {
                     horizontal ? scrollTo(calculateCoord(newFirst, itemSize), 0) : scrollTo(0, calculateCoord(newFirst, itemSize));
@@ -185,36 +198,30 @@ export default {
                     if (both) {
                         if (viewport.first.rows - first.rows > index[0]) {
                             scrollTo(viewport.first.cols * this.itemSize[1], (viewport.first.rows - 1) * this.itemSize[0]);
-                        }
-                        else if (viewport.first.cols - first.cols > index[1]) {
+                        } else if (viewport.first.cols - first.cols > index[1]) {
                             scrollTo((viewport.first.cols - 1) * this.itemSize[1], viewport.first.rows * this.itemSize[0]);
                         }
-                    }
-                    else {
+                    } else {
                         if (viewport.first - first > index) {
                             const pos = (viewport.first - 1) * this.itemSize;
                             horizontal ? scrollTo(pos, 0) : scrollTo(0, pos);
                         }
                     }
-                }
-                else if (isToEnd) {
+                } else if (isToEnd) {
                     if (both) {
                         if (viewport.last.rows - first.rows <= index[0] + 1) {
                             scrollTo(viewport.first.cols * this.itemSize[1], (viewport.first.rows + 1) * this.itemSize[0]);
-                        }
-                        else if (viewport.last.cols - first.cols <= index[1] + 1) {
+                        } else if (viewport.last.cols - first.cols <= index[1] + 1) {
                             scrollTo((viewport.first.cols + 1) * this.itemSize[1], viewport.first.rows * this.itemSize[0]);
                         }
-                    }
-                    else {
+                    } else {
                         if (viewport.last - first <= index + 1) {
                             const pos = (viewport.first + 1) * this.itemSize;
                             horizontal ? scrollTo(pos, 0) : scrollTo(0, pos);
                         }
                     }
                 }
-            }
-            else {
+            } else {
                 this.scrollToIndex(index, behavior);
             }
         },
@@ -233,8 +240,7 @@ export default {
                 if (both) {
                     firstInViewport = { rows: calculateFirstInViewport(scrollTop, this.itemSize[0]), cols: calculateFirstInViewport(scrollLeft, this.itemSize[1]) };
                     lastInViewport = { rows: firstInViewport.rows + this.numItemsInViewport.rows, cols: firstInViewport.cols + this.numItemsInViewport.cols };
-                }
-                else {
+                } else {
                     const scrollPos = horizontal ? scrollLeft : scrollTop;
                     firstInViewport = calculateFirstInViewport(scrollPos, this.itemSize);
                     lastInViewport = firstInViewport + this.numItemsInViewport;
@@ -259,13 +265,11 @@ export default {
             const contentHeight = this.element ? this.element.offsetHeight - contentPos.top : 0;
             const calculateNumItemsInViewport = (_contentSize, _itemSize) => Math.ceil(_contentSize / (_itemSize || _contentSize));
             const calculateNumToleratedItems = (_numItems) => Math.ceil(_numItems / 2);
-            const numItemsInViewport = both ?
-                { rows: calculateNumItemsInViewport(contentHeight, itemSize[0]), cols: calculateNumItemsInViewport(contentWidth, itemSize[1]) } :
-                calculateNumItemsInViewport((horizontal ? contentWidth : contentHeight), itemSize);
+            const numItemsInViewport = both
+                ? { rows: calculateNumItemsInViewport(contentHeight, itemSize[0]), cols: calculateNumItemsInViewport(contentWidth, itemSize[1]) }
+                : calculateNumItemsInViewport(horizontal ? contentWidth : contentHeight, itemSize);
 
-            const numToleratedItems = this.d_numToleratedItems || (both ?
-                [calculateNumToleratedItems(numItemsInViewport.rows), calculateNumToleratedItems(numItemsInViewport.cols)] :
-                calculateNumToleratedItems(numItemsInViewport));
+            const numToleratedItems = this.d_numToleratedItems || (both ? [calculateNumToleratedItems(numItemsInViewport.rows), calculateNumToleratedItems(numItemsInViewport.cols)] : calculateNumToleratedItems(numItemsInViewport));
 
             return { numItemsInViewport, numToleratedItems };
         },
@@ -273,10 +277,10 @@ export default {
             const both = this.isBoth();
             const first = this.first;
             const { numItemsInViewport, numToleratedItems } = this.calculateNumItems();
-            const calculateLast = (_first, _num, _numT, _isCols) => this.getLast(_first + _num + ((_first < _numT ? 2 : 3) * _numT), _isCols);
-            const last = both ?
-                { rows: calculateLast(first.rows, numItemsInViewport.rows, numToleratedItems[0]), cols: calculateLast(first.cols, numItemsInViewport.cols, numToleratedItems[1], true) } :
-                calculateLast(first, numItemsInViewport, numToleratedItems);
+            const calculateLast = (_first, _num, _numT, _isCols) => this.getLast(_first + _num + (_first < _numT ? 2 : 3) * _numT, _isCols);
+            const last = both
+                ? { rows: calculateLast(first.rows, numItemsInViewport.rows, numToleratedItems[0]), cols: calculateLast(first.cols, numItemsInViewport.cols, numToleratedItems[1], true) }
+                : calculateLast(first, numItemsInViewport, numToleratedItems);
 
             this.last = last;
             this.numItemsInViewport = numItemsInViewport;
@@ -284,9 +288,7 @@ export default {
             this.$emit('update:numToleratedItems', this.d_numToleratedItems);
 
             if (this.showLoader) {
-                this.loaderArr = both ?
-                    Array.from({ length: numItemsInViewport.rows }).map(() => Array.from({ length: numItemsInViewport.cols })) :
-                    Array.from({ length: numItemsInViewport });
+                this.loaderArr = both ? Array.from({ length: numItemsInViewport.rows }).map(() => Array.from({ length: numItemsInViewport.cols })) : Array.from({ length: numItemsInViewport });
             }
 
             if (this.lazy) {
@@ -295,7 +297,7 @@ export default {
         },
         getLast(last = 0, isCols) {
             if (this.items) {
-                return Math.min((isCols ? (this.columns || this.items[0]).length : this.items.length), last);
+                return Math.min(isCols ? (this.columns || this.items[0]).length : this.items.length, last);
             }
 
             return 0;
@@ -318,15 +320,14 @@ export default {
                 const both = this.isBoth();
                 const horizontal = this.isHorizontal();
                 const parentElement = this.element.parentElement;
-                const width = this.scrollWidth || `${(this.element.offsetWidth || parentElement.offsetWidth)}px`;
-                const height = this.scrollHeight || `${(this.element.offsetHeight || parentElement.offsetHeight)}px`;
-                const setProp = (_name, _value) => this.element.style[_name] = _value;
+                const width = this.scrollWidth || `${this.element.offsetWidth || parentElement.offsetWidth}px`;
+                const height = this.scrollHeight || `${this.element.offsetHeight || parentElement.offsetHeight}px`;
+                const setProp = (_name, _value) => (this.element.style[_name] = _value);
 
                 if (both || horizontal) {
                     setProp('height', height);
                     setProp('width', width);
-                }
-                else {
+                } else {
                     setProp('height', height);
                 }
             }
@@ -338,14 +339,13 @@ export default {
                 const both = this.isBoth();
                 const horizontal = this.isHorizontal();
                 const contentPos = this.getContentPosition();
-                const setProp = (_name, _value, _size, _cpos = 0) => this.spacerStyle = { ...this.spacerStyle, ...{ [`${_name}`]: (((_value || []).length * _size) + _cpos) + 'px' } };
+                const setProp = (_name, _value, _size, _cpos = 0) => (this.spacerStyle = { ...this.spacerStyle, ...{ [`${_name}`]: (_value || []).length * _size + _cpos + 'px' } });
 
                 if (both) {
                     setProp('height', items, this.itemSize[0], contentPos.y);
-                    setProp('width', (this.columns || items[1]), this.itemSize[1], contentPos.x);
-                }
-                else {
-                    horizontal ? setProp('width', (this.columns || items), this.itemSize, contentPos.x) : setProp('height', items, this.itemSize, contentPos.y);
+                    setProp('width', this.columns || items[1], this.itemSize[1], contentPos.x);
+                } else {
+                    horizontal ? setProp('width', this.columns || items, this.itemSize, contentPos.x) : setProp('height', items, this.itemSize, contentPos.y);
                 }
             }
         },
@@ -354,15 +354,14 @@ export default {
                 const both = this.isBoth();
                 const horizontal = this.isHorizontal();
                 const first = pos ? pos.first : this.first;
-                const calculateTranslateVal = (_first, _size) => (_first * _size);
+                const calculateTranslateVal = (_first, _size) => _first * _size;
                 const setTransform = (_x = 0, _y = 0) => {
                     this.contentStyle = { ...this.contentStyle, ...{ transform: `translate3d(${_x}px, ${_y}px, 0)` } };
                 };
 
                 if (both) {
                     setTransform(calculateTranslateVal(first.cols, this.itemSize[1]), calculateTranslateVal(first.rows, this.itemSize[0]));
-                }
-                else {
+                } else {
                     const translateVal = calculateTranslateVal(first, this.itemSize);
                     horizontal ? setTransform(translateVal, 0) : setTransform(0, translateVal);
                 }
@@ -373,24 +372,20 @@ export default {
             const both = this.isBoth();
             const horizontal = this.isHorizontal();
             const contentPos = this.getContentPosition();
-            const calculateScrollPos = (_pos, _cpos) => _pos ? (_pos > _cpos ? _pos - _cpos : _pos) : 0;
+            const calculateScrollPos = (_pos, _cpos) => (_pos ? (_pos > _cpos ? _pos - _cpos : _pos) : 0);
             const calculateCurrentIndex = (_pos, _size) => Math.floor(_pos / (_size || _pos));
             const calculateTriggerIndex = (_currentIndex, _first, _last, _num, _numT, _isScrollDownOrRight) => {
-                return (_currentIndex <= _numT ? _numT : (_isScrollDownOrRight ? (_last - _num - _numT) : (_first + _numT - 1)))
+                return _currentIndex <= _numT ? _numT : _isScrollDownOrRight ? _last - _num - _numT : _first + _numT - 1;
             };
             const calculateFirst = (_currentIndex, _triggerIndex, _first, _last, _num, _numT, _isScrollDownOrRight) => {
-                if (_currentIndex <= _numT)
-                    return 0;
-                else
-                    return Math.max(0, _isScrollDownOrRight ?
-                            (_currentIndex < _triggerIndex ? _first : _currentIndex - _numT) :
-                            (_currentIndex > _triggerIndex ? _first : _currentIndex - (2 * _numT)));
+                if (_currentIndex <= _numT) return 0;
+                else return Math.max(0, _isScrollDownOrRight ? (_currentIndex < _triggerIndex ? _first : _currentIndex - _numT) : _currentIndex > _triggerIndex ? _first : _currentIndex - 2 * _numT);
             };
             const calculateLast = (_currentIndex, _first, _last, _num, _numT, _isCols) => {
-                let lastValue = _first + _num + (2 * _numT);
+                let lastValue = _first + _num + 2 * _numT;
 
                 if (_currentIndex >= _numT) {
-                    lastValue += (_numT + 1);
+                    lastValue += _numT + 1;
                 }
 
                 return this.getLast(lastValue, _isCols);
@@ -422,10 +417,9 @@ export default {
                     cols: calculateLast(currentIndex.cols, newFirst.cols, this.last.cols, this.numItemsInViewport.cols, this.d_numToleratedItems[1], true)
                 };
 
-                isRangeChanged = (newFirst.rows !== this.first.rows || newLast.rows !== this.last.rows) || (newFirst.cols !== this.first.cols || newLast.cols !== this.last.cols);
+                isRangeChanged = newFirst.rows !== this.first.rows || newLast.rows !== this.last.rows || newFirst.cols !== this.first.cols || newLast.cols !== this.last.cols;
                 newScrollPos = { top: scrollTop, left: scrollLeft };
-            }
-            else {
+            } else {
                 const scrollPos = horizontal ? scrollLeft : scrollTop;
                 const isScrollDownOrRight = this.lastScrollPos <= scrollPos;
                 const currentIndex = calculateCurrentIndex(scrollPos, this.itemSize);
@@ -442,7 +436,7 @@ export default {
                 last: newLast,
                 isRangeChanged,
                 scrollPos: newScrollPos
-            }
+            };
         },
         onScrollChange(event) {
             const { first, last, isRangeChanged, scrollPos } = this.onScrollPositionChange(event);
@@ -483,8 +477,7 @@ export default {
                         this.d_loading = false;
                     }
                 }, this.delay);
-            }
-            else {
+            } else {
                 this.onScrollChange(event);
             }
         },
@@ -495,7 +488,7 @@ export default {
                 index,
                 count,
                 first: index === 0,
-                last: index === (count - 1),
+                last: index === count - 1,
                 even: index % 2 === 0,
                 odd: index % 2 !== 0
             };
@@ -506,11 +499,11 @@ export default {
                 index,
                 count,
                 first: index === 0,
-                last: index === (count - 1),
+                last: index === count - 1,
                 even: index % 2 === 0,
                 odd: index % 2 !== 0,
                 ...extOptions
-            }
+            };
         },
         elementRef(el) {
             this.element = el;
@@ -521,31 +514,38 @@ export default {
     },
     computed: {
         containerClass() {
-            return ['p-virtualscroller', {
-                'p-both-scroll': this.isBoth(),
-                'p-horizontal-scroll': this.isHorizontal()
-            }, this.class];
+            return [
+                'p-virtualscroller',
+                {
+                    'p-both-scroll': this.isBoth(),
+                    'p-horizontal-scroll': this.isHorizontal()
+                },
+                this.class
+            ];
         },
         contentClass() {
-            return ['p-virtualscroller-content', {
-                'p-virtualscroller-loading': this.d_loading
-            }];
+            return [
+                'p-virtualscroller-content',
+                {
+                    'p-virtualscroller-loading': this.d_loading
+                }
+            ];
         },
         loaderClass() {
-            return ['p-virtualscroller-loader', {
-                'p-component-overlay': !this.$slots.loader
-            }];
+            return [
+                'p-virtualscroller-loader',
+                {
+                    'p-component-overlay': !this.$slots.loader
+                }
+            ];
         },
         loadedItems() {
             const items = this.items;
             if (items && !this.d_loading) {
                 if (this.isBoth()) {
-                    return items.slice(this.first.rows, this.last.rows).map(item => this.columns ? item : item.slice(this.first.cols, this.last.cols));
-                }
-                else if (this.isHorizontal() && this.columns)
-                    return items;
-                else
-                    return items.slice(this.first, this.last);
+                    return items.slice(this.first.rows, this.last.rows).map((item) => (this.columns ? item : item.slice(this.first.cols, this.last.cols)));
+                } else if (this.isHorizontal() && this.columns) return items;
+                else return items.slice(this.first, this.last);
             }
 
             return [];
@@ -559,16 +559,14 @@ export default {
                 const horizontal = this.isHorizontal();
 
                 if (both || horizontal) {
-                    return this.d_loading && this.loaderDisabled ?
-                    (both ? this.loaderArr[0] : this.loaderArr):
-                    this.columns.slice((both ? this.first.cols : this.first), (both ? this.last.cols : this.last));
+                    return this.d_loading && this.loaderDisabled ? (both ? this.loaderArr[0] : this.loaderArr) : this.columns.slice(both ? this.first.cols : this.first, both ? this.last.cols : this.last);
                 }
             }
 
             return this.columns;
         }
     }
-}
+};
 </script>
 
 <style>

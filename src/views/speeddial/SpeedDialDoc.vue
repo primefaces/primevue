@@ -1,28 +1,30 @@
 <template>
     <AppDoc name="SpeedDialDemo" :sources="sources" github="speeddial/SpeedDialDemo.vue">
         <h5>Import via Module</h5>
-<pre v-code.script><code>
+        <pre v-code.script><code>
 import SpeedDial from 'primevue/speeddial';
 
 </code></pre>
 
         <h5>Import via CDN</h5>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/speeddial/speeddial.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
         <h5>Getting Started</h5>
-        <p>When pressed, a floating action button can display multiple primary actions that can be performed on a page. It has a collection of additional options defined by the <i>model</i> property.
-        SpeedDial's position is calculated according to the container element with the position type style.</p>
+        <p>
+            When pressed, a floating action button can display multiple primary actions that can be performed on a page. It has a collection of additional options defined by the <i>model</i> property. SpeedDial's position is calculated according to
+            the container element with the position type style.
+        </p>
 
-<pre v-code><code>
+        <pre v-code><code>
 &lt;SpeedDial :model="items" /&gt;
 
 </code></pre>
 
-<pre v-code.script><code>
+        <pre v-code.script><code>
 items: [
     {
         label: 'Add',
@@ -70,7 +72,10 @@ items: [
         <p>SpeedDial has 4 types; <i>linear</i>, <i>circle</i>, <i>semi-circle</i> and <i>quarter-circle</i>.</p>
 
         <h5>Direction</h5>
-        <p>Specifies the opening direction of actions. For the <strong>linear</strong> and <strong>semi-circle</strong> types; <i>up</i>, <i>down</i>, <i>left</i> and <i>right</i>. For the <strong>quarter-circle</strong> type; <i>up-left</i>, <i>up-right</i>, <i>down-left</i> and <i>down-right</i>.</p>
+        <p>
+            Specifies the opening direction of actions. For the <strong>linear</strong> and <strong>semi-circle</strong> types; <i>up</i>, <i>down</i>, <i>left</i> and <i>right</i>. For the <strong>quarter-circle</strong> type; <i>up-left</i>,
+            <i>up-right</i>, <i>down-left</i> and <i>down-right</i>.
+        </p>
 
         <h5>Properties</h5>
         <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
@@ -920,9 +925,9 @@ export default {
         </style>
 
 `
-                },
+                }
             }
-        }
+        };
     }
-}
+};
 </script>

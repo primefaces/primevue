@@ -21,7 +21,7 @@ describe('ToggleButton', () => {
 
     it('should have onIcon', async () => {
         await wrapper.setProps({ modelValue: true });
-        
+
         expect(wrapper.find('span.pi-check').exists()).toBe(true);
     });
 

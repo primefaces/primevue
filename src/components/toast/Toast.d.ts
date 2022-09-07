@@ -120,7 +120,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [Toast](https://www.primefaces.org/primevue/showcase/#/toast)
+ * - [Toast](https://www.primefaces.org/primevue/toast)
  *
  */
 export default Toast;

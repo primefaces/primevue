@@ -103,7 +103,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [Knob](https://www.primefaces.org/primevue/showcase/#/knob)
+ * - [Knob](https://www.primefaces.org/primevue/knob)
  *
  */
 export default Knob;

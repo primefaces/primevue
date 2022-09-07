@@ -1,24 +1,26 @@
 <template>
     <AppDoc name="VirtualScrollerDemo" :sources="sources" github="virtualscroller/VirtualScrollerDemo.vue">
         <h5>Imports</h5>
-<pre v-code.script><code>
+        <pre v-code.script><code>
 import VirtualScroller from 'primevue/virtualscroller';
 
 </code></pre>
 
         <h5>Import via CDN</h5>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
         <h5>Getting Started</h5>
-        <p>VirtualScroller is used to display huge data. It periodically adds special elements defined according to the scroll's position to the DOM.
-            The <i>item</i> and <i>itemSize</i> properties and <i>item</i> template are required on component. In addition, an initial array is required based on the total number of items to display.<br />
-            VirtualScroller automatically calculates how many items will be displayed in the view according to <i>itemSize</i> using a specified scroll height. Its scroll height can be adjusted with <i>scrollHeight</i>
-            property or height property of CSS.</p>
+        <p>
+            VirtualScroller is used to display huge data. It periodically adds special elements defined according to the scroll's position to the DOM. The <i>item</i> and <i>itemSize</i> properties and <i>item</i> template are required on component.
+            In addition, an initial array is required based on the total number of items to display.<br />
+            VirtualScroller automatically calculates how many items will be displayed in the view according to <i>itemSize</i> using a specified scroll height. Its scroll height can be adjusted with <i>scrollHeight</i> property or height property of
+            CSS.
+        </p>
 
-<pre v-code><code><template v-pre>
+        <pre v-code><code><template v-pre>
 &lt;VirtualScroller :items="basicItems" :itemSize="50"&gt;
     &lt;template v-slot:item="{ item, options }"&gt;
         &lt;div :class="['scroll-item p-2', {'odd': options.odd}]" style="height: 50px"&gt;{{ item }}&lt;/div&gt;
@@ -27,7 +29,7 @@ import VirtualScroller from 'primevue/virtualscroller';
 </template>
 </code></pre>
 
-<pre v-code.script><code>
+        <pre v-code.script><code>
 export default {
     data() {
         return {
@@ -42,10 +44,9 @@ export default {
 </code></pre>
 
         <h5>Loader</h5>
-        <p>VirtualScroller has a special loader. It can be activated with the <i>showLoader</i> property.
-            In addition, <i>loader</i> template can be used to add custom loaders to item elements.</p>
+        <p>VirtualScroller has a special loader. It can be activated with the <i>showLoader</i> property. In addition, <i>loader</i> template can be used to add custom loaders to item elements.</p>
 
-<pre v-code><code><template v-pre>
+        <pre v-code><code><template v-pre>
 &lt;VirtualScroller :items="basicItems" :itemSize="50" showLoader :delay="250"&gt;
     &lt;template v-slot:item="{ item, options }"&gt;
         &lt;div :class="['scroll-item p-2', {'odd': options.odd}]" style="height: 50px"&gt;{{ item }}&lt;/div&gt;
@@ -62,7 +63,7 @@ export default {
         <h5>Lazy</h5>
         <p>Lazy mode is handy to deal with large datasets, instead of loading the entire data, small chunks of data is loaded by invoking <i>lazy-load</i> event.</p>
 
-<pre v-code><code><template v-pre>
+        <pre v-code><code><template v-pre>
 &lt;VirtualScroller :items="lazyItems" :itemSize="50" showLoader :delay="250" :loading="lazyLoading" :lazy=true @lazy-load="onLazyLoad"&gt;
     &lt;template v-slot:item="{ item, options }"&gt;
         &lt;div :class="['scroll-item p-2', {'odd': options.odd}]" style="height: 50px"&gt;{{ item }}&lt;/div&gt;
@@ -71,7 +72,7 @@ export default {
 </template>
 </code></pre>
 
-<pre v-code.script><code>
+        <pre v-code.script><code>
 export default {
     data() {
         return {
@@ -174,9 +175,11 @@ export default {
                         <td>numToleratedItems</td>
                         <td>number</td>
                         <td>null</td>
-                        <td>Determines how many additional elements to add to the DOM outside of the view. <br />
+                        <td>
+                            Determines how many additional elements to add to the DOM outside of the view. <br />
                             According to the scrolls made up and down, extra items are added in a certain algorithm in the form of multiples of this number. <br />
-                            Default value is half the number of items shown in the view.</td>
+                            Default value is half the number of items shown in the view.
+                        </td>
                     </tr>
                     <tr>
                         <td>delay</td>
@@ -248,14 +251,16 @@ export default {
                     </tr>
                     <tr>
                         <td>scroll-index-change</td>
-                        <td>event.first: First index of the new data range to be loaded.<br/>
+                        <td>
+                            event.first: First index of the new data range to be loaded.<br />
                             event.last: Last index of the new data range to be loaded.
                         </td>
                         <td>Callback to invoke when scroll position and item's range in view changes.</td>
                     </tr>
                     <tr>
                         <td>lazy-load</td>
-                        <td>event.first: First index of the new data range to be loaded.<br/>
+                        <td>
+                            event.first: First index of the new data range to be loaded.<br />
                             event.last: Last index of the new data range to be loaded.
                         </td>
                         <td>Callback to invoke in lazy mode to load new data.</td>
@@ -322,26 +327,29 @@ export default {
                 <tbody>
                     <tr>
                         <td>content</td>
-                        <td>items: An array of objects to display.<br />
+                        <td>
+                            items: An array of objects to display.<br />
                             styleClass: Style class of the component<br />
                             contentRef: Referance of the content<br />
-                            getItemOptions: Options of the items<br/>
+                            getItemOptions: Options of the items<br />
                             loading: Whether the data is loaded<br />
                             getLoaderOptions: Loader options of the items while the data is loading.<br />
-                            itemSize: The height/width of item according to orientation.<br/>
+                            itemSize: The height/width of item according to orientation.<br />
                             rows: The number of the rendered rows.<br />
                             columns: The number of the rendered columns.<br />
-                            spacerStyle: The style of spacer element.<br/>
+                            spacerStyle: The style of spacer element.<br />
                             contentStyle: The style of content element.<br />
                             vertical: Whether the orientation is vertical.<br />
-                            horizontal: Whether the orientation is horizontal.<br/>
+                            horizontal: Whether the orientation is horizontal.<br />
                             both: Whether the orientation is both.<br />
-                            </td>
+                        </td>
                     </tr>
                     <tr>
                         <td>item</td>
-                        <td>item: Item instance<br />
-                            options: Options of the item instance</td>
+                        <td>
+                            item: Item instance<br />
+                            options: Options of the item instance
+                        </td>
                     </tr>
                     <tr>
                         <td>loader</td>
@@ -380,7 +388,6 @@ export default {
 
         <h5>Dependencies</h5>
         <p>None.</p>
-
     </AppDoc>
 </template>
 
@@ -1084,7 +1091,7 @@ export default {
 `
                 }
             }
-        }
+        };
     }
-}
+};
 </script>

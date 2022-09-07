@@ -59,7 +59,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [Message](https://www.primefaces.org/primevue/showcase/#/message)
+ * - [Message](https://www.primefaces.org/primevue/message)
  *
  */
 export default Message;

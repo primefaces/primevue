@@ -1,5 +1,5 @@
 <template>
-	<JTPInput :modelValue="page" @update:modelValue="onChange($event)" class="p-paginator-page-input" :disabled="disabled"></JTPInput>
+    <JTPInput :modelValue="page" @update:modelValue="onChange($event)" class="p-paginator-page-input" :disabled="disabled"></JTPInput>
 </template>
 
 <script>
@@ -20,7 +20,7 @@ export default {
         }
     },
     components: {
-        'JTPInput': InputNumber
+        JTPInput: InputNumber
     }
-}
+};
 </script>

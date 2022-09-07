@@ -14,7 +14,7 @@
             </div>
         </div>
 
-        <DoughnutChartDoc/>
+        <DoughnutChartDoc />
     </div>
 </template>
 
@@ -26,38 +26,28 @@ export default {
     themeChangeListener: null,
     mounted() {
         this.themeChangeListener = (event) => {
-            if (event.dark)
-                this.chartOptions = this.getDarkTheme();
-            else
-                this.chartOptions = this.getLightTheme();
-        }
-        EventBus.on('theme-change', this.themeChangeListener );
+            if (event.dark) this.chartOptions = this.getDarkTheme();
+            else this.chartOptions = this.getLightTheme();
+        };
+        EventBus.on('theme-change', this.themeChangeListener);
     },
     beforeUnmount() {
-        EventBus.off('change-theme', this.themeChangeListener );
+        EventBus.off('change-theme', this.themeChangeListener);
     },
     data() {
         return {
             chartData: {
-                labels: ['A','B','C'],
+                labels: ['A', 'B', 'C'],
                 datasets: [
                     {
                         data: [300, 50, 100],
-                        backgroundColor: [
-                            "#FF6384",
-                            "#36A2EB",
-                            "#FFCE56"
-                        ],
-                        hoverBackgroundColor: [
-                            "#FF6384",
-                            "#36A2EB",
-                            "#FFCE56"
-                        ]
+                        backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
+                        hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56']
                     }
                 ]
             },
             chartOptions: this.isDarkTheme() ? this.getDarkTheme() : this.getLightTheme()
-        }
+        };
     },
     methods: {
         isDarkTheme() {
@@ -72,7 +62,7 @@ export default {
                         }
                     }
                 }
-            }
+            };
         },
         getDarkTheme() {
             return {
@@ -83,11 +73,11 @@ export default {
                         }
                     }
                 }
-            }
+            };
         }
     },
     components: {
-        'DoughnutChartDoc': DoughnutChartDoc
+        DoughnutChartDoc: DoughnutChartDoc
     }
-}
+};
 </script>

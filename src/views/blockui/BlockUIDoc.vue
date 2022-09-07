@@ -1,23 +1,24 @@
 <template>
-	<AppDoc name="BlockUIDemo" :sources="sources" github="blockui/BlockUIDemo.vue">
+    <AppDoc name="BlockUIDemo" :sources="sources" github="blockui/BlockUIDemo.vue">
         <h5>Import via Module</h5>
-<pre v-code.script><code>
+        <pre v-code.script><code>
 import BlockUI from 'primevue/blockui';
 
 </code></pre>
 
         <h5>Import via CDN</h5>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/blockui/blockui.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-		<h5>Getting Started</h5>
-		<p>BlockUI is controlled using the <i>blocked</i> property, by default target element to block is the child component. In example below, panel gets blocked
-            with a mask when blockedPanel is enabled and gets unblock when the bound variable is set to false.
+        <h5>Getting Started</h5>
+        <p>
+            BlockUI is controlled using the <i>blocked</i> property, by default target element to block is the child component. In example below, panel gets blocked with a mask when blockedPanel is enabled and gets unblock when the bound variable is
+            set to false.
         </p>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;BlockUI :blocked="blockedPanel"&gt;
     &lt;Panel header="Header"&gt;
         Panel Content
@@ -26,7 +27,7 @@ import BlockUI from 'primevue/blockui';
 
 </code></pre>
 
-<pre v-code.script><code>
+        <pre v-code.script><code>
 export default {
     data() {
         return {
@@ -48,24 +49,24 @@ export default {
         <h5>Full Screen</h5>
         <p>In full screen mode, instead of a particular element, the whole document gets blocked. Set <i>fullScreen</i> as true in order to enable this functionality.</p>
 
-<pre v-code><code>
+        <pre v-code><code>
 &lt;BlockUI :blocked="blockedDocument" :fullScreen="true"&gt;&lt;/BlockUI&gt;
 
 </code></pre>
 
         <h5>Properties</h5>
         <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Type</th>
                         <th>Default</th>
                         <th>Description</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>blocked</td>
                         <td>array</td>
@@ -78,7 +79,7 @@ export default {
                         <td>null</td>
                         <td>When enabled, the whole document gets blocked.</td>
                     </tr>
-                     <tr>
+                    <tr>
                         <td>baseZIndex</td>
                         <td>number</td>
                         <td>0</td>
@@ -90,46 +91,46 @@ export default {
                         <td>true</td>
                         <td>Whether to automatically manage layering.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
         <h5>Events</h5>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
-				<tr>
-					<th>Name</th>
-					<th>Parameters</th>
-					<th>Description</th>
-				</tr>
-				</thead>
-				<tbody>
-				<tr>
-					<td>block</td>
-					<td>-</td>
-					<td>Fired when the element gets blocked.</td>
-				</tr>
-				<tr>
-					<td>unblock</td>
-					<td>-</td>
-					<td>Fired when the element gets unblocked.</td>
-				</tr>
-				</tbody>
-			</table>
-		</div>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Parameters</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>block</td>
+                        <td>-</td>
+                        <td>Fired when the element gets blocked.</td>
+                    </tr>
+                    <tr>
+                        <td>unblock</td>
+                        <td>-</td>
+                        <td>Fired when the element gets unblocked.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-		<h5>Styling</h5>
-		<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <h5>Styling</h5>
+        <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Element</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>p-blockui</td>
                         <td>Mask element.</td>
@@ -139,11 +140,11 @@ export default {
                         <td>Mask element in full screen mode.</td>
                     </tr>
                 </tbody>
-			</table>
-		</div>
+            </table>
+        </div>
 
-		<h5>Dependencies</h5>
-		<p>None.</p>
+        <h5>Dependencies</h5>
+        <p>None.</p>
     </AppDoc>
 </template>
 
@@ -348,7 +349,7 @@ button {
 `
                 }
             }
-        }
-    }  
-}
+        };
+    }
+};
 </script>

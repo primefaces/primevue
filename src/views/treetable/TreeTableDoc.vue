@@ -1,22 +1,22 @@
 <template>
-	<AppDoc name="TreeTableDemo" :sources="sources" :service="['NodeService']" :data="['treetablenodes']" github="treetable/TreeTableDemo.vue" >
+    <AppDoc name="TreeTableDemo" :sources="sources" :service="['NodeService']" :data="['treetablenodes']" github="treetable/TreeTableDemo.vue">
         <h5>Import via Module</h5>
-<pre v-code.script><code>
+        <pre v-code.script><code>
 import TreeTable from 'primevue/treetable';
 import Column from 'primevue/column';
 
 </code></pre>
 
         <h5>Import via CDN</h5>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/treetable/treetable.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/column/column.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-		<h5>Getting Started</h5>
-		<p>Tree component requires an array of TreeNode objects as its <i>value</i> and columns defined with Column component.</p>
+        <h5>Getting Started</h5>
+        <p>Tree component requires an array of TreeNode objects as its <i>value</i> and columns defined with Column component.</p>
 
         <h5>TreeNode API utilized by the TreeTable</h5>
         <div class="doc-tablewrapper">
@@ -71,7 +71,7 @@ import Column from 'primevue/column';
         </div>
 
         <p>Example below loads the nodes from a remote datasource via a service called NodeService.</p>
-<pre v-code><code><template v-pre>
+        <pre v-code><code><template v-pre>
 &lt;TreeTable :value="nodes"&gt;
     &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column&gt;
     &lt;Column field="size" header="Size"&gt;&lt;/Column&gt;
@@ -80,7 +80,7 @@ import Column from 'primevue/column';
 </template>
 </code></pre>
 
-<pre v-code.script><code>
+        <pre v-code.script><code>
 import NodeService from '../../service/NodeService';
 
 export default {
@@ -100,7 +100,7 @@ export default {
 
 </code></pre>
 
-<pre v-code.script><code>
+        <pre v-code.script><code>
 export default class NodeService {
 
     getTreeTableNodes() {
@@ -114,8 +114,8 @@ export default class NodeService {
 
         <p>The json response sample would be as following.</p>
 
-<div style="height: 400px; overflow: auto">
-<pre v-code.script><code>
+        <div style="height: 400px; overflow: auto">
+            <pre v-code.script><code>
 {
     "root":
     [
@@ -471,12 +471,12 @@ export default class NodeService {
 }
 
 </code></pre>
-</div>
+        </div>
 
         <h5>Dynamic Columns</h5>
         <p>Column components can be dynamically generated using a v-for as well.</p>
 
-<pre v-code><code><template v-pre>
+        <pre v-code><code><template v-pre>
 &lt;TreeTable :value="nodes"&gt;
     &lt;Column v-for="col of columns" :key="col.field"
         :field="col.field" :header="col.header" :expander="col.expander"&gt;&lt;/Column&gt;
@@ -484,7 +484,7 @@ export default class NodeService {
 </template>
 </code></pre>
 
-<pre v-code.script><code>
+        <pre v-code.script><code>
 import NodeService from '../../service/NodeService';
 
 export default {
@@ -636,12 +636,13 @@ export default {
         </div>
 
         <h5>Programmatic Control</h5>
-        <p>Tree state can be controlled programmatically with the <i>expandedKeys</i> property that defines the keys
-            that are expanded. This property is a Map instance whose key is the key of a node and value is a boolean. Note that <i>expandedKeys</i> also supports two-way binding with the v-model directive.
+        <p>
+            Tree state can be controlled programmatically with the <i>expandedKeys</i> property that defines the keys that are expanded. This property is a Map instance whose key is the key of a node and value is a boolean. Note that
+            <i>expandedKeys</i> also supports two-way binding with the v-model directive.
         </p>
 
         <p>Example below expands and collapses all nodes with buttons.</p>
-<pre v-code><code><template v-pre>
+        <pre v-code><code><template v-pre>
 &lt;div style="margin-bottom: 1em"&gt;
     &lt;Button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll" /&gt;
     &lt;Button type="button" icon="pi pi-minus" label="Collapse All" @click="collapseAll" /&gt;
@@ -654,7 +655,7 @@ export default {
 </template>
 </code></pre>
 
-<pre v-code.script><code>
+        <pre v-code.script><code>
 import NodeService from '../../service/NodeService';
 
 export default {
@@ -697,7 +698,7 @@ export default {
 </code></pre>
 
         <p>To display some nodes as expanded by default, simply add their keys to the map.</p>
-<pre v-code.script><code>
+        <pre v-code.script><code>
 import NodeService from '../../service/NodeService';
 
 export default {
@@ -723,8 +724,11 @@ export default {
 </code></pre>
 
         <h5>Templating</h5>
-        <p>Field data of a corresponding node is displayed as the cell content by default, this can be customized using a <i>body</i> template where current node data and column properties are passed via the slot props.
-            On the other hand, <i>header</i> and <i>footer</i> sections of a column can either be defined with the properties or the templates. Similarly TreeTable itself also provides header and footer properties along with the templates for the main header and footer of the table.</p>
+        <p>
+            Field data of a corresponding node is displayed as the cell content by default, this can be customized using a <i>body</i> template where current node data and column properties are passed via the slot props. On the other hand,
+            <i>header</i> and <i>footer</i> sections of a column can either be defined with the properties or the templates. Similarly TreeTable itself also provides header and footer properties along with the templates for the main header and footer
+            of the table.
+        </p>
 
         <pre v-code><code><template v-pre>
 &lt;TreeTable :value="nodes"&gt;
@@ -753,10 +757,9 @@ export default {
 </code></pre>
 
         <h5>Sizes</h5>
-        <p>In addition to the regular table, a smal and a large version are available with different paddings. For a table
-        with smaller paddings use <i>p-treetable-sm</i> class and for a larger one use <i>p-treetable-lg</i>.</p>
+        <p>In addition to the regular table, a smal and a large version are available with different paddings. For a table with smaller paddings use <i>p-treetable-sm</i> class and for a larger one use <i>p-treetable-lg</i>.</p>
 
-<pre v-code><code><template v-pre>
+        <pre v-code><code><template v-pre>
 &lt;TreeTable :value="nodes" class="p-treetable-sm"&gt;
     &lt;template #header&gt;
         Small Table
@@ -787,11 +790,12 @@ export default {
 </code></pre>
 
         <h5>Pagination</h5>
-        <p>Pagination is enabled by setting <i>paginator</i> property to true and defining the <i>rows</i> property defines the number of rows per page.
-            See the <router-link to="/paginator">Paginator</router-link> for the available customization options such as paginator templates, page links,
-            rows per page options and more which can be passed through the TreeTable.</p>
+        <p>
+            Pagination is enabled by setting <i>paginator</i> property to true and defining the <i>rows</i> property defines the number of rows per page. See the <router-link to="/paginator">Paginator</router-link> for the available customization
+            options such as paginator templates, page links, rows per page options and more which can be passed through the TreeTable.
+        </p>
 
-<pre v-code><code><template v-pre>
+        <pre v-code><code><template v-pre>
 &lt;TreeTable :value="nodes" :paginator="true" :rows="10"&gt;
     &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column&gt;
     &lt;Column field="size" header="Size"&gt;&lt;/Column&gt;
@@ -801,7 +805,7 @@ export default {
 </code></pre>
 
         <p><i>paginatorstart</i> and <i>paginatorend</i> templates are available to specify custom content at the left and right side.</p>
-<pre v-code><code><template v-pre>
+        <pre v-code><code><template v-pre>
 &lt;TreeTable :value="nodes" :paginator="true" :rows="10"&gt;
     &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column&gt;
     &lt;Column field="size" header="Size"&gt;&lt;/Column&gt;
@@ -816,10 +820,11 @@ export default {
 </template>
 </code></pre>
 
-        <p>Paginator can also be programmed programmatically using a binding to the <i>first</i> property that defines the index of the
-        first element to display. For example setting first to zero will reset the paginator to the very first page. This property
-        also supports the v-model directive in case you'd like your binding to be updated whenever the user changes the page.</p>
-<pre v-code><code><template v-pre>
+        <p>
+            Paginator can also be programmed programmatically using a binding to the <i>first</i> property that defines the index of the first element to display. For example setting first to zero will reset the paginator to the very first page. This
+            property also supports the v-model directive in case you'd like your binding to be updated whenever the user changes the page.
+        </p>
+        <pre v-code><code><template v-pre>
 &lt;TreeTable :value="nodes" :paginator="true" :rows="10" :first="firstRecordIndex"&gt;
     &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column&gt;
     &lt;Column field="size" header="Size"&gt;&lt;/Column&gt;
@@ -829,10 +834,9 @@ export default {
 </code></pre>
 
         <h5>Sorting</h5>
-        <p>Enabling <i>sortable</i> property at column component would be enough to make a column sortable.
-        The property to use when sorting is the <i>field</i> by default and can be customized using the <i>sortField</i>.</p>
+        <p>Enabling <i>sortable</i> property at column component would be enough to make a column sortable. The property to use when sorting is the <i>field</i> by default and can be customized using the <i>sortField</i>.</p>
 
-<pre v-code><code><template v-pre>
+        <pre v-code><code><template v-pre>
 &lt;TreeTable :value="nodes" sortMode="single"&gt;
     &lt;Column field="name" header="Name" :expander="true" :sortable="true"&gt;&lt;/Column&gt;
     &lt;Column field="size" header="Size" :sortable="true"&gt;&lt;/Column&gt;
@@ -842,7 +846,7 @@ export default {
 </code></pre>
 
         <p>By default sorting is executed on the clicked column only. To enable multiple field sorting, set <i>sortMode</i> property to "multiple" and use metakey when clicking on another column.</p>
-<pre v-code><code><template v-pre>
+        <pre v-code><code><template v-pre>
 &lt;TreeTable :value="nodes" sortMode="multiple"&gt;
     &lt;Column field="name" header="Name" :expander="true" :sortable="true"&gt;&lt;/Column&gt;
     &lt;Column field="size" header="Size" :sortable="true"&gt;&lt;/Column&gt;
@@ -851,9 +855,11 @@ export default {
 </template>
 </code></pre>
 
-        <p>In case you'd like to display the table as sorted per a single column by default on mount or programmatically apply sort, use <i>sortField</i> and <i>sortOrder</i> properties. These
-        two properties also support the v-model directive to get updated when the user applies sort a column.</p>
-<pre v-code><code><template v-pre>
+        <p>
+            In case you'd like to display the table as sorted per a single column by default on mount or programmatically apply sort, use <i>sortField</i> and <i>sortOrder</i> properties. These two properties also support the v-model directive to get
+            updated when the user applies sort a column.
+        </p>
+        <pre v-code><code><template v-pre>
 &lt;TreeTable :value="nodes" sortField="size" :sortOrder="1""&gt;
     &lt;Column field="name" header="Name" :expander="true" :sortable="true"&gt;&lt;/Column&gt;
     &lt;Column field="size" header="Size" :sortable="true"&gt;&lt;/Column&gt;
@@ -869,7 +875,7 @@ export default {
 </code></pre>
 
         <p>In multiple mode, use the <i>multiSortMeta</i> property and bind an array of SortMeta objects instead.</p>
-<pre v-code><code><template v-pre>
+        <pre v-code><code><template v-pre>
 &lt;TreeTable :value="nodes" sortMode="multiple" :multiSortMeta="multiSortMeta"&gt;
     &lt;Column field="name" header="Name" :expander="true" :sortable="true"&gt;&lt;/Column&gt;
     &lt;Column field="size" header="Size" :sortable="true"&gt;&lt;/Column&gt;
@@ -878,7 +884,7 @@ export default {
 </template>
 </code></pre>
 
-<pre v-code.script><code>
+        <pre v-code.script><code>
 data() {
     return {
         multiSortMeta: [
@@ -891,15 +897,18 @@ data() {
 </code></pre>
 
         <h5>Filtering</h5>
-        <p>Filtering is enabled by defining a filter template per column to populate the <i>filters</i> property of the TreeTable. The <i>filters</i>
-        property should be an key-value object where keys are the field name and the value is the filter value. The filter template receives the column properties
-        via the slotProps and accepts any form element as the filter element. Default match mode is "startsWith" and this can be configured per column using the <i>filterMatchMode</i> property that also accepts
-        "contains", "endsWith", "equals", "notEquals" and "in" as available modes.</p>
+        <p>
+            Filtering is enabled by defining a filter template per column to populate the <i>filters</i> property of the TreeTable. The <i>filters</i> property should be an key-value object where keys are the field name and the value is the filter
+            value. The filter template receives the column properties via the slotProps and accepts any form element as the filter element. Default match mode is "startsWith" and this can be configured per column using the
+            <i>filterMatchMode</i> property that also accepts "contains", "endsWith", "equals", "notEquals" and "in" as available modes.
+        </p>
         <p>Optionally a global filter is available to search against all the fields, in this case the special <i>global</i> keyword should be the property to be populated.</p>
 
-        <p>In addition <i>filterMode</i> specifies the filtering strategy. In <b>lenient</b> mode when the query matches a node, children of the node are not searched further as all descendants of the node are included. On the other hand,
-         in <b>strict</b> mode when the query matches a node, filtering continues on all descendants.</p>
-<pre v-code><code><template v-pre>
+        <p>
+            In addition <i>filterMode</i> specifies the filtering strategy. In <b>lenient</b> mode when the query matches a node, children of the node are not searched further as all descendants of the node are included. On the other hand, in
+            <b>strict</b> mode when the query matches a node, filtering continues on all descendants.
+        </p>
+        <pre v-code><code><template v-pre>
 &lt;TreeTable :value="nodes" :filters="filters" filterMode="lenient"&gt;
     &lt;template #header&gt;
         &lt;div style="text-align: right"&gt;
@@ -926,7 +935,7 @@ data() {
 </template>
 </code></pre>
 
-<pre v-code.script><code>
+        <pre v-code.script><code>
 import NodeService from '../../service/NodeService';
 
 export default {
@@ -948,13 +957,17 @@ export default {
 </code></pre>
 
         <h5>Selection</h5>
-        <p>Tree supports <b>single</b>, <b>multiple</b> and <b>checkbox</b> selection modes. Define the <i>selectionKeys</i> with the v-model operator and the <i>selectionMode</i> properties to enable the selection.
-        By default in multiple selection mode, metaKey is necessary to add to existing selections however this can be configured with <i>metaKeySelection</i> property. Note that
-        in touch enabled devices, Tree does not require metaKey. In addition selection on a particular node can be disabled if the <i>selectable</i> is false on the node instance.</p>
+        <p>
+            Tree supports <b>single</b>, <b>multiple</b> and <b>checkbox</b> selection modes. Define the <i>selectionKeys</i> with the v-model operator and the <i>selectionMode</i> properties to enable the selection. By default in multiple selection
+            mode, metaKey is necessary to add to existing selections however this can be configured with <i>metaKeySelection</i> property. Note that in touch enabled devices, Tree does not require metaKey. In addition selection on a particular node
+            can be disabled if the <i>selectable</i> is false on the node instance.
+        </p>
 
-        <p>Similarly to the <i>expandedKeys</i>, <i>selectionKeys</i> is a Map instance whose key is the key of a node and value is a boolean in "single" and "multiple" cases. On the other hand
-        in "checkbox" mode, instead of a boolean, value should be an object that has "checked" and "partialChecked" properties to represent the checked state of a node.</p>
-<pre v-code><code><template v-pre>
+        <p>
+            Similarly to the <i>expandedKeys</i>, <i>selectionKeys</i> is a Map instance whose key is the key of a node and value is a boolean in "single" and "multiple" cases. On the other hand in "checkbox" mode, instead of a boolean, value should
+            be an object that has "checked" and "partialChecked" properties to represent the checked state of a node.
+        </p>
+        <pre v-code><code><template v-pre>
 &lt;TreeTable :value="nodes" selectionMode="multiple" v-model:selectionKeys="selectedKeys1"&gt;
     &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column&gt;
     &lt;Column field="size" header="Size"&gt;&lt;/Column&gt;
@@ -985,7 +998,7 @@ export default {
 </template>
 </code></pre>
 
-<pre v-code.script><code>
+        <pre v-code.script><code>
 import NodeService from '../../service/NodeService';
 
 export default {
@@ -1019,7 +1032,7 @@ export default {
 </code></pre>
 
         <p>To display some nodes as selected by default, simply add their keys to the map.</p>
-<pre v-code.script><code>
+        <pre v-code.script><code>
 import NodeService from '../../service/NodeService';
 
 export default {
@@ -1056,9 +1069,9 @@ export default {
 
 </code></pre>
 
-            <h5>Scrolling</h5>
-            <p>TreeTable supports both horizontal and vertical scrolling with support for frozen columns. Scrollable TreeTable is enabled using <i>scrollable</i> property and <i>scrollHeight</i> to define the viewport height.</p>
-<pre v-code><code><template v-pre>
+        <h5>Scrolling</h5>
+        <p>TreeTable supports both horizontal and vertical scrolling with support for frozen columns. Scrollable TreeTable is enabled using <i>scrollable</i> property and <i>scrollHeight</i> to define the viewport height.</p>
+        <pre v-code><code><template v-pre>
 &lt;TreeTable :value="nodes" style="margin-bottom: 2rem" :scrollable="true" scrollHeight="400px"&gt;
     &lt;Column field="name" header="Name" :expander="true" style="min-width:200px"&gt;&lt;/Column&gt;
     &lt;Column field="size" header="Size" style="min-width:200px"&gt;&lt;/Column&gt;
@@ -1067,23 +1080,25 @@ export default {
 </template>
 </code></pre>
 
-            <h5>Column Widths of a Scrollable TreeTable</h5>
-            <p>Scrollable treetable uses flex layout so there are a couple of rules to consider when adjusting the widths of columns.</p>
-            <ul>
-                <li>Use <i>min-width</i> in vertical scrolling only so that when there is enough space columns may grow and for smaller screens a horizontal scrollbar is displayed to provide responsive design.</li>
-                <li>When horizontal scrolling is enabled, prefer <i>width</i> instead of <i>min-width</i>.</li>
-                <li>In vertical scrolling only, use <i>flex</i> to disable grow and shrink while defining a initial width. When horizontal scrolling is enabled, this is not required as columns do not grow or shrink in horizontal scrolling.</li>
-            </ul>
+        <h5>Column Widths of a Scrollable TreeTable</h5>
+        <p>Scrollable treetable uses flex layout so there are a couple of rules to consider when adjusting the widths of columns.</p>
+        <ul>
+            <li>Use <i>min-width</i> in vertical scrolling only so that when there is enough space columns may grow and for smaller screens a horizontal scrollbar is displayed to provide responsive design.</li>
+            <li>When horizontal scrolling is enabled, prefer <i>width</i> instead of <i>min-width</i>.</li>
+            <li>In vertical scrolling only, use <i>flex</i> to disable grow and shrink while defining a initial width. When horizontal scrolling is enabled, this is not required as columns do not grow or shrink in horizontal scrolling.</li>
+        </ul>
 
-<pre v-code><code><template v-pre>
+        <pre v-code><code><template v-pre>
 &lt;Column field="vin" header="Vin" style="flex: 0 0 4rem"&gt;&lt;/Column&gt;
 </template>
 </code></pre>
 
-            <h6>Flex Scroll</h6>
-            <p>In cases where viewport should adjust itself according to the table parent's height instead of a fixed viewport height, set scrollHeight option as flex. In example below, table is inside a Dialog where viewport size dynamically responds to the dialog size changes such as maximizing.
-            FlexScroll can also be used for cases where scrollable viewport should be responsive with respect to the window size for full page scroll.</p>
-<pre v-code><code><template v-pre>
+        <h6>Flex Scroll</h6>
+        <p>
+            In cases where viewport should adjust itself according to the table parent's height instead of a fixed viewport height, set scrollHeight option as flex. In example below, table is inside a Dialog where viewport size dynamically responds
+            to the dialog size changes such as maximizing. FlexScroll can also be used for cases where scrollable viewport should be responsive with respect to the window size for full page scroll.
+        </p>
+        <pre v-code><code><template v-pre>
 &lt;Button label="Show" icon="pi pi-external-link" @click="openDialog" /&gt;
 &lt;Dialog header="Flex Scroll" v-model:visible="dialogVisible" :style="{width: '50vw'}" :maximizable="true" :modal="true" :contentStyle="{height: '300px'}"&gt;
     &lt;TreeTable :value="nodes" :scrollable="true" scrollHeight="flex"&gt;
@@ -1099,9 +1114,9 @@ export default {
 </template>
 </code></pre>
 
-            <h6>Horizontal Scrolling</h6>
-            <p>For horizontal scrolling, it is required to set <i>scrollDirection</i> to "horizontal" and give fixed widths to columns.</p>
-<pre v-code><code><template v-pre>
+        <h6>Horizontal Scrolling</h6>
+        <p>For horizontal scrolling, it is required to set <i>scrollDirection</i> to "horizontal" and give fixed widths to columns.</p>
+        <pre v-code><code><template v-pre>
 &lt;TreeTable :value="nodes" :scrollable="true" scrollDirection="horizontal"&gt;
     &lt;Column field="name" header="Name" :expander="true" style="width:200px"&gt;&lt;/Column&gt;
     &lt;Column field="size" header="Size" style="width:200px"&gt;&lt;/Column&gt;
@@ -1110,9 +1125,9 @@ export default {
 </template>
 </code></pre>
 
-            <h6>Horizontal and Vertical Scrolling</h6>
-            <p>Set <i>scrollDirection</i> to "both" and give fixed widths to columns to scroll both ways.</p>
-<pre v-code><code><template v-pre>
+        <h6>Horizontal and Vertical Scrolling</h6>
+        <p>Set <i>scrollDirection</i> to "both" and give fixed widths to columns to scroll both ways.</p>
+        <pre v-code><code><template v-pre>
 &lt;TreeTable :value="customers" :scrollable="true" scrollHeight="400px" scrollDirection="both"&gt;
     &lt;Column field="name" header="Name" :expander="true" style="width:200px"&gt;&lt;/Column&gt;
     &lt;Column field="size" header="Size" style="width:200px"&gt;&lt;/Column&gt;
@@ -1121,11 +1136,10 @@ export default {
 </template>
 </code></pre>
 
-            <h6>Frozen Columns</h6>
-            <p>Certain columns can be frozen by using the <i>frozen</i> property of the column component. In addition <i>alignFrozen</i> is available to define whether the column should
-            be fixed on the left or right.</p>
+        <h6>Frozen Columns</h6>
+        <p>Certain columns can be frozen by using the <i>frozen</i> property of the column component. In addition <i>alignFrozen</i> is available to define whether the column should be fixed on the left or right.</p>
 
-<pre v-code><code><template v-pre>
+        <pre v-code><code><template v-pre>
 &lt;TreeTable :value="customers" :scrollable="true" scrollHeight="400px" scrollDirection="both"&gt;
     &lt;Column field="name" header="Name" :expander="true" style="width:200px" frozen&gt;&lt;/Column&gt;
     &lt;Column field="size" header="Size" style="width:200px"&gt;&lt;/Column&gt;
@@ -1135,19 +1149,21 @@ export default {
 </code></pre>
 
         <h5>Lazy</h5>
-        <p>Lazy Loading is handy to deal with huge datasets. Idea is instead of loading the whole tree, load nodes on demand when necessary.
-            The important part when lazy loading nodes is setting <i>leaf</i> to true on a node instance so that even without children,
-            tree would render an expand icon. Example below uses an in memory collection to mimic a lazy loading scenario with timeouts.
+        <p>
+            Lazy Loading is handy to deal with huge datasets. Idea is instead of loading the whole tree, load nodes on demand when necessary. The important part when lazy loading nodes is setting <i>leaf</i> to true on a node instance so that even
+            without children, tree would render an expand icon. Example below uses an in memory collection to mimic a lazy loading scenario with timeouts.
         </p>
 
-        <p>In addition lazy loading of root level nodes is implemented by handling pagination and sorting using <i>page</i> and <i>sort</i> events by making a remote query using the information
-        passed to the events such as first offset, number of rows and sort field for ordering. Filtering is handled differently as filter elements are defined using templates, use
-        the event you prefer on your form elements such as input, change, blur to make a remote call by passing the filters property to update the displayed data. Note that,
-        in lazy filtering, totalRecords should also be updated to align the data with the paginator.</p>.
+        <p>
+            In addition lazy loading of root level nodes is implemented by handling pagination and sorting using <i>page</i> and <i>sort</i> events by making a remote query using the information passed to the events such as first offset, number of
+            rows and sort field for ordering. Filtering is handled differently as filter elements are defined using templates, use the event you prefer on your form elements such as input, change, blur to make a remote call by passing the filters
+            property to update the displayed data. Note that, in lazy filtering, totalRecords should also be updated to align the data with the paginator.
+        </p>
+        .
 
-        <p> Example below uses an in memory collection to mimic a lazy loading scenario with timeouts.</p>
+        <p>Example below uses an in memory collection to mimic a lazy loading scenario with timeouts.</p>
 
-<pre v-code><code><template v-pre>
+        <pre v-code><code><template v-pre>
 &lt;TreeTable :value="nodes" :lazy="true" :paginator="true" :rows="rows" :loading="loading"
     @node-expand="onExpand" @page="onPage" :totalRecords="totalRecords"&gt;
     &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column&gt;
@@ -1157,7 +1173,7 @@ export default {
 </template>
 </code></pre>
 
-<pre v-code.script><code>
+        <pre v-code.script><code>
 export default {
     data() {
         return {
@@ -1248,9 +1264,11 @@ export default {
 </code></pre>
 
         <h5>Column Resize</h5>
-        <p>Columns can be resized using drag drop by setting the <i>resizableColumns</i> to true. There are two resize modes; "fit" and "expand". Fit is the default one and the overall table width does not change when a column is resized.
-            In "expand" mode, table width also changes along with the column width. <i>column-resize-end</i> is a callback that passes the resized column header and delta change as a parameter.</p>
-<pre v-code><code><template v-pre>
+        <p>
+            Columns can be resized using drag drop by setting the <i>resizableColumns</i> to true. There are two resize modes; "fit" and "expand". Fit is the default one and the overall table width does not change when a column is resized. In
+            "expand" mode, table width also changes along with the column width. <i>column-resize-end</i> is a callback that passes the resized column header and delta change as a parameter.
+        </p>
+        <pre v-code><code><template v-pre>
 &lt;h3&gt;Fit Mode&lt;/h3&gt;
 &lt;TreeTable :value="nodes" :resizableColumns="true" columnResizeMode="fit"&gt;
     &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column&gt;
@@ -1268,7 +1286,7 @@ export default {
 </code></pre>
 
         <p>It is important to note that when you need to change column widths, since table width is 100%, giving fixed pixel widths does not work well as browsers scale them, instead give percentage widths.</p>
-<pre v-code><code><template v-pre>
+        <pre v-code><code><template v-pre>
 &lt;TreeTable :value="nodes" :resizableColumns="true"&gt;
     &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column headerStyle="width: 20%"&gt;
     &lt;Column field="size" header="Size" headerStyle="width: 40%"&gt;&lt;/Column&gt;
@@ -1279,7 +1297,7 @@ export default {
 
         <h5>Responsive</h5>
         <p>TreeTable display can be optimized according to screen sizes using the built-in <i>responsiveLayout</i> property. Currently only available option is "scroll" that displays a horizontal scrollbar for small devices.</p>
-<pre v-code><code><template v-pre>
+        <pre v-code><code><template v-pre>
 &lt;TreeTable :value="nodes" responsiveLayout="scroll"&gt;
     &lt;Column field="name" header="Name" :expander="true" style="min-width:200px"&gt;&lt;/Column&gt;
     &lt;Column field="size" header="Size" style="min-width:200px"&gt;&lt;/Column&gt;
@@ -1288,19 +1306,19 @@ export default {
 </template>
 </code></pre>
 
-		<h5>Properties</h5>
+        <h5>Properties</h5>
         <p>Any property such as style and class are passed to the underlying root element. Following is the additional property to configure the component.</p>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Type</th>
                         <th>Default</th>
                         <th>Description</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>value</td>
                         <td>array</td>
@@ -1329,8 +1347,10 @@ export default {
                         <td>metaKeySelection</td>
                         <td>boolean</td>
                         <td>true</td>
-                        <td>Defines how multiple items can be selected, when true metaKey needs to be pressed to select or unselect an item and when set to false selection of each item
-                            can be toggled individually. On touch enabled devices, metaKeySelection is turned off automatically.</td>
+                        <td>
+                            Defines how multiple items can be selected, when true metaKey needs to be pressed to select or unselect an item and when set to false selection of each item can be toggled individually. On touch enabled devices,
+                            metaKeySelection is turned off automatically.
+                        </td>
                     </tr>
                     <tr>
                         <td>rows</td>
@@ -1350,7 +1370,7 @@ export default {
                         <td>null</td>
                         <td>Number of total records, defaults to length of value when not defined.</td>
                     </tr>
-                     <tr>
+                    <tr>
                         <td>paginator</td>
                         <td>boolean</td>
                         <td>false</td>
@@ -1371,7 +1391,10 @@ export default {
                     <tr>
                         <td>paginatorTemplate</td>
                         <td>string</td>
-                        <td>FirstPageLink PrevPageLink PageLinks <br /> NextPageLink LastPageLink RowsPerPageDropdown</td>
+                        <td>
+                            FirstPageLink PrevPageLink PageLinks <br />
+                            NextPageLink LastPageLink RowsPerPageDropdown
+                        </td>
                         <td>Template of the paginator. See the <router-link to="/paginator">Paginator</router-link> for all available options.</td>
                     </tr>
                     <tr>
@@ -1426,7 +1449,7 @@ export default {
                         <td>sortField</td>
                         <td>string</td>
                         <td>null</td>
-                       <td>Property name or a getter function of a row data used for sorting by default.</td>
+                        <td>Property name or a getter function of a row data used for sorting by default.</td>
                     </tr>
                     <tr>
                         <td>sortOrder</td>
@@ -1486,7 +1509,10 @@ export default {
                         <td>columnResizeMode</td>
                         <td>string</td>
                         <td>fit</td>
-                        <td>Defines whether the overall table width should change on column resize, <br/> valid values are "fit" and "expand".</td>
+                        <td>
+                            Defines whether the overall table width should change on column resize, <br />
+                            valid values are "fit" and "expand".
+                        </td>
                     </tr>
                     <tr>
                         <td>indentation</td>
@@ -1524,28 +1550,29 @@ export default {
                         <td>stack</td>
                         <td>Defines the responsive mode, currently only option is scroll..</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
-		<h5>Events</h5>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <h5>Events</h5>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Parameters</th>
                         <th>Description</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>page</td>
-                        <td>event.originalEvent: Browser event <br >
-                            event.page: New page number <br/>
-                            event.pageCount: Total page count <br/>
-                            event.first: Index of first record <br/>
-                            event.rows: Number of rows to display in new page <br/>
+                        <td>
+                            event.originalEvent: Browser event <br />
+                            event.page: New page number <br />
+                            event.pageCount: Total page count <br />
+                            event.first: Index of first record <br />
+                            event.rows: Number of rows to display in new page <br />
                             event.sortField: Field to sort against <br />
                             event.sortOrder: Sort order as integer <br />
                             event.multiSortMeta: MultiSort metadata <br />
@@ -1556,9 +1583,10 @@ export default {
                     </tr>
                     <tr>
                         <td>sort</td>
-                        <td>event.originalEvent: Browser event <br >
-                            event.first: Index of first record <br/>
-                            event.rows: Number of rows to display in new page <br/>
+                        <td>
+                            event.originalEvent: Browser event <br />
+                            event.first: Index of first record <br />
+                            event.rows: Number of rows to display in new page <br />
                             event.sortField: Field to sort against <br />
                             event.sortOrder: Sort order as integer <br />
                             event.multiSortMeta: MultiSort metadata <br />
@@ -1569,9 +1597,10 @@ export default {
                     </tr>
                     <tr>
                         <td>filter</td>
-                        <td>event.originalEvent: Browser event <br >
-                            event.first: Index of first record <br/>
-                            event.rows: Number of rows to display in new page <br/>
+                        <td>
+                            event.originalEvent: Browser event <br />
+                            event.first: Index of first record <br />
+                            event.rows: Number of rows to display in new page <br />
                             event.sortField: Field to sort against <br />
                             event.sortOrder: Sort order as integer <br />
                             event.multiSortMeta: MultiSort metadata <br />
@@ -1603,24 +1632,26 @@ export default {
                     </tr>
                     <tr>
                         <td>column-resize-end</td>
-                        <td>event.element: DOM element of the resized column.<br />
-                            event.delta: Change in column width</td>
+                        <td>
+                            event.element: DOM element of the resized column.<br />
+                            event.delta: Change in column width
+                        </td>
                         <td>Callback to invoke when a column is resized.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
         <h5>Slots</h5>
-		<div class="doc-tablewrapper">
+        <div class="doc-tablewrapper">
             <table class="doc-table">
-				<thead>
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Parameters</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>header</td>
                         <td>-</td>
@@ -1641,21 +1672,21 @@ export default {
                         <td>footer</td>
                         <td>-</td>
                     </tr>
-				</tbody>
-			</table>
+                </tbody>
+            </table>
         </div>
 
-		<h5>Styling</h5>
-		<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <h5>Styling</h5>
+        <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Element</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>p-treetable</td>
                         <td>Container element.</td>
@@ -1680,15 +1711,15 @@ export default {
                         <td>p-treetable-table</td>
                         <td>Table element.</td>
                     </tr>
-                        <tr>
+                    <tr>
                         <td>p-treetable-thead</td>
                         <td>Table thead element.</td>
                     </tr>
-                        <tr>
+                    <tr>
                         <td>p-treetable-tbody</td>
                         <td>Table tbody element.</td>
                     </tr>
-                        <tr>
+                    <tr>
                         <td>p-treetable-tfoot</td>
                         <td>Table tfoot element.</td>
                     </tr>
@@ -1712,12 +1743,12 @@ export default {
                         <td>p-treetable-emptymessage</td>
                         <td>Cell containing the empty message.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
-		<h5>Dependencies</h5>
-		<p>None.</p>
+        <h5>Dependencies</h5>
+        <p>None.</p>
     </AppDoc>
 </template>
 
@@ -1994,7 +2025,7 @@ button {
         </style>`
                 }
             }
-        }
+        };
     }
-}
+};
 </script>

@@ -1,14 +1,14 @@
 <template>
-	<div>
-		<div class="content-section introduction">
-			<div class="feature-intro">
-				<h1>DataTable <span>VirtualScroll</span></h1>
-				<p>VirtualScroller is a performant approach to handle huge data efficiently.</p>
-			</div>
+    <div>
+        <div class="content-section introduction">
+            <div class="feature-intro">
+                <h1>DataTable <span>VirtualScroll</span></h1>
+                <p>VirtualScroller is a performant approach to handle huge data efficiently.</p>
+            </div>
             <AppDemoActions />
-		</div>
+        </div>
 
-		<div class="content-section implementation">
+        <div class="content-section implementation">
             <div class="card">
                 <h5>Preloaded Data (100000 Rows)</h5>
                 <DataTable :value="cars" scrollable scrollHeight="400px" :virtualScrollerOptions="{ itemSize: 46 }">
@@ -24,42 +24,42 @@
                 <DataTable :value="virtualCars" scrollable scrollHeight="400px" :virtualScrollerOptions="{ lazy: true, onLazyLoad: loadCarsLazy, itemSize: 46, delay: 200, showLoader: true, loading: lazyLoading, numToleratedItems: 10 }">
                     <Column field="id" header="Id" style="min-width: '200px'">
                         <template #loading>
-                            <div class="flex align-items-center" :style="{height: '17px', 'flex-grow': '1', overflow: 'hidden'}">
+                            <div class="flex align-items-center" :style="{ height: '17px', 'flex-grow': '1', overflow: 'hidden' }">
                                 <Skeleton width="60%" height="1rem" />
                             </div>
                         </template>
                     </Column>
                     <Column field="vin" header="Vin" style="min-width: '200px'">
                         <template #loading>
-                            <div class="flex align-items-center" :style="{height: '17px', 'flex-grow': '1', overflow: 'hidden'}">
+                            <div class="flex align-items-center" :style="{ height: '17px', 'flex-grow': '1', overflow: 'hidden' }">
                                 <Skeleton width="40%" height="1rem" />
                             </div>
                         </template>
                     </Column>
                     <Column field="year" header="Year" style="min-width: '200px'">
                         <template #loading>
-                            <div class="flex align-items-center" :style="{height: '17px', 'flex-grow': '1', overflow: 'hidden'}">
+                            <div class="flex align-items-center" :style="{ height: '17px', 'flex-grow': '1', overflow: 'hidden' }">
                                 <Skeleton width="30%" height="1rem" />
                             </div>
                         </template>
                     </Column>
                     <Column field="brand" header="Brand" style="min-width: '200px'">
                         <template #loading>
-                            <div class="flex align-items-center" :style="{height: '17px', 'flex-grow': '1', overflow: 'hidden'}">
+                            <div class="flex align-items-center" :style="{ height: '17px', 'flex-grow': '1', overflow: 'hidden' }">
                                 <Skeleton width="40%" height="1rem" />
                             </div>
                         </template>
                     </Column>
                     <Column field="color" header="Color" style="min-width: '200px'">
                         <template #loading>
-                            <div class="flex align-items-center" :style="{height: '17px', 'flex-grow': '1', overflow: 'hidden'}">
+                            <div class="flex align-items-center" :style="{ height: '17px', 'flex-grow': '1', overflow: 'hidden' }">
                                 <Skeleton width="60%" height="1rem" />
                             </div>
                         </template>
                     </Column>
                 </DataTable>
             </div>
-		</div>
+        </div>
 
         <AppDoc name="DataTableVirtualScrollDemo" :sources="sources" :service="['CarService']" github="datatable/DataTableVirtualScrollDemo.vue" />
     </div>
@@ -397,7 +397,7 @@ export default {
 `
                 }
             }
-        }
+        };
     },
     carService: null,
     loadLazyTimeout: null,
@@ -431,5 +431,5 @@ export default {
             }, Math.random() * 1000 + 250);
         }
     }
-}
+};
 </script>

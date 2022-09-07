@@ -1,20 +1,20 @@
 <template>
     <AppDoc name="PaginatorDemo" :sources="sources" github="paginator/PaginatorDemo.vue">
         <h5>Import via Module</h5>
-<pre v-code.script><code>
+        <pre v-code.script><code>
 import Paginator from 'primevue/paginator';
 
 </code></pre>
 
         <h5>Import via CDN</h5>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
         <h5>Getting Started</h5>
         <p><i>rows</i> and <i>totalRecords</i> are the required properties of the Paginator.</p>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;Paginator :rows="10" :totalRecords="totalItemsCount"&gt;&lt;/Paginator&gt;
 
 </code></pre>
@@ -22,35 +22,36 @@ import Paginator from 'primevue/paginator';
         <h5>Start Index</h5>
         <p><i>first</i> property defines the index of the first item displayed by the paginator.</p>
 
-<pre v-code><code>
+        <pre v-code><code>
 &lt;Paginator :first="offset" :rows="10" :totalRecords="totalItemsCount"&gt;&lt;/Paginator&gt;
 
 </code></pre>
 
         <p>Use the v-model directive to enable two-way binding, this is useful in cases where you need to programmatically control the paginator.</p>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;Paginator v-model:first="offset" :rows="10" :totalRecords="totalItemsCount"&gt;&lt;/Paginator&gt;
 
 </code></pre>
 
         <h5>Rows Per Page</h5>
         <p>Number of items per page can be changed by the user using a dropdown with the <i>rowsPerPageOptions</i> property which accepts an array of possible values.</p>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;Paginator v-model:first="offset" :rows="rows" :totalRecords="totalItemsCount" :rowsPerPageOptions="[10,20,30]"&gt;&lt;/Paginator&gt;
 
 </code></pre>
 
         <p>As <i>rows</i> also change when the dropdown changes, use the optional v-model directive if you need two-way binding.</p>
 
-<pre v-code><code>
+        <pre v-code><code>
 &lt;Paginator v-model:first="offset" v-model:rows="rows" :totalRecords="totalItemsCount" :rowsPerPageOptions="[10,20,30]"&gt;&lt;/Paginator&gt;
 
 </code></pre>
 
         <h5>Template</h5>
-        <p>Paginator elements can be customized using the template property using the predefined keys, default value is
-        "FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown". Here are the available elements that
-        can be placed inside a paginator in any order.</p>
+        <p>
+            Paginator elements can be customized using the template property using the predefined keys, default value is "FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown". Here are the available elements that can be
+            placed inside a paginator in any order.
+        </p>
 
         <ul>
             <li>FirstPageLink</li>
@@ -65,9 +66,7 @@ import Paginator from 'primevue/paginator';
         </ul>
 
         <h5>CurrentPageReport</h5>
-        <p>Current page report item in the template displays information about the pagination state. Default value is (&#123;currentPage&#125; of &#123;totalPages&#125;)
-            whereas available placeholders are the following;
-        </p>
+        <p>Current page report item in the template displays information about the pagination state. Default value is (&#123;currentPage&#125; of &#123;totalPages&#125;) whereas available placeholders are the following;</p>
         <ul>
             <li>&#123;currentPage&#125;</li>
             <li>&#123;totalPages&#125;</li>
@@ -78,10 +77,8 @@ import Paginator from 'primevue/paginator';
         </ul>
 
         <h5>Custom Content</h5>
-        <p>There are two templates available named <i>start</i> and <i>end</i> to add custom content to these locations. Both templates get
-            a state object as a slot property to provide the current page, first index and the rows.
-        </p>
-<pre v-code><code><template v-pre>
+        <p>There are two templates available named <i>start</i> and <i>end</i> to add custom content to these locations. Both templates get a state object as a slot property to provide the current page, first index and the rows.</p>
+        <pre v-code><code><template v-pre>
 &lt;Paginator v-model:first="offset" :rows="10" :totalRecords="totalItemsCount"&gt;
     &lt;template #start="slotProps"&gt;
         Page: &#123;&#123;slotProps.state.page&#125;&#125;
@@ -97,12 +94,12 @@ import Paginator from 'primevue/paginator';
 
         <h5>Page Change Event</h5>
         <p>Paginator provides only one event called <i>page</i> that passes all the information about the change event.</p>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;Paginator :rows="10" :totalRecords="totalItemsCount" @page="onPage($event)"&gt;&lt;/Paginator&gt;
 
 </code></pre>
 
-<pre v-code.script><code>
+        <pre v-code.script><code>
 onPage(event) {
     //event.page: New page number
     //event.first: Index of first record
@@ -164,9 +161,7 @@ onPage(event) {
                         <td>currentPageReportTemplate</td>
                         <td>string</td>
                         <td>(&#123;currentPage&#125; of &#123;totalPages&#125;)</td>
-                        <td>Template of the current page report element. Available placeholders are
-                            &#123;currentPage&#125;,&#123;totalPages&#125;,&#123;rows&#125;,&#123;first&#125;,&#123;last&#125; and &#123;totalRecords&#125;
-                        </td>
+                        <td>Template of the current page report element. Available placeholders are &#123;currentPage&#125;,&#123;totalPages&#125;,&#123;rows&#125;,&#123;first&#125;,&#123;last&#125; and &#123;totalRecords&#125;</td>
                     </tr>
                     <tr>
                         <td>alwaysShow</td>
@@ -182,18 +177,19 @@ onPage(event) {
         <div class="doc-tablewrapper">
             <table class="doc-table">
                 <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Parameters</th>
-                    <th>Description</th>
-                </tr>
+                    <tr>
+                        <th>Name</th>
+                        <th>Parameters</th>
+                        <th>Description</th>
+                    </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>page</td>
-                        <td>event.page: New page number <br/>
-                            event.first: Index of first record <br/>
-                            event.rows: Number of rows to display in new page <br/>
+                        <td>
+                            event.page: New page number <br />
+                            event.first: Index of first record <br />
+                            event.rows: Number of rows to display in new page <br />
                             event.pageCount: Total number of pages
                         </td>
                         <td>Callback to invoke when page changes, the event object contains information about the new state.</td>
@@ -203,15 +199,15 @@ onPage(event) {
         </div>
 
         <h5>Slots</h5>
-		<div class="doc-tablewrapper">
+        <div class="doc-tablewrapper">
             <table class="doc-table">
-				<thead>
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Parameters</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>start</td>
                         <td>state: State of the paginator</td>
@@ -220,8 +216,8 @@ onPage(event) {
                         <td>end</td>
                         <td>state: State of the paginator</td>
                     </tr>
-				</tbody>
-			</table>
+                </tbody>
+            </table>
         </div>
 
         <h5>Styling</h5>
@@ -434,7 +430,7 @@ export default {
         </style>`
                 }
             }
-        }
+        };
     }
-}
+};
 </script>

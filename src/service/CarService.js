@@ -1,5 +1,4 @@
 export default class CarService {
-
     brands = ['Vapid', 'Carson', 'Kitano', 'Dabver', 'Ibex', 'Morello', 'Akira', 'Titan', 'Dover', 'Norma'];
 
     colors = ['Black', 'White', 'Red', 'Blue', 'Silver', 'Green', 'Yellow'];
@@ -11,12 +10,12 @@ export default class CarService {
             brand: this.generateBrand(),
             color: this.generateColor(),
             year: this.generateYear()
-        }
+        };
     }
 
     generateVin() {
-        let text = "";
-        let possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        let text = '';
+        let possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 
         for (let i = 0; i < 5; i++) {
             text += possible.charAt(Math.floor(Math.random() * possible.length));

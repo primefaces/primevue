@@ -13,14 +13,14 @@ export default {
     data() {
         return {
             storageKey: 'primevue'
-        }
+        };
     },
     created() {
         this.newsService = new NewsService();
     },
     mounted() {
         this.newsActivate = () => {
-            this.newsService.fetchNews().then(data => {
+            this.newsService.fetchNews().then((data) => {
                 this.$appState.announcement = data;
 
                 const itemString = localStorage.getItem(this.storageKey);
@@ -28,10 +28,8 @@ export default {
                     const item = JSON.parse(itemString);
                     if (item.hiddenNews && item.hiddenNews !== data.id) {
                         this.$appState.newsActive = true;
-                    }
-                    else this.$appState.newsActive = false;
-                }
-                else {
+                    } else this.$appState.newsActive = false;
+                } else {
                     this.$appState.newsActive = true;
                 }
             });
@@ -50,7 +48,7 @@ export default {
                 cloneLinkElement.setAttribute('id', elementId);
             });
             linkElement.parentNode.insertBefore(cloneLinkElement, linkElement.nextSibling);
-        
+
             this.$appState.theme = event.theme;
             this.$appState.darkTheme = event.dark;
         };
@@ -62,5 +60,5 @@ export default {
         EventBus.off('theme-change', this.themeChangeListener);
         EventBus.off('news-activate', this.newsActivate);
     }
-}
+};
 </script>

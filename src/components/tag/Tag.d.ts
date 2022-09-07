@@ -47,7 +47,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [Tag](https://www.primefaces.org/primevue/showcase/#/tag)
+ * - [Tag](https://www.primefaces.org/primevue/tag)
  *
  */
 export default Tag;

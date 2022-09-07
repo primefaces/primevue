@@ -49,11 +49,11 @@ export default {
             type: String,
             default: null
         },
-		disabled: {
+        disabled: {
             type: Boolean,
             default: false
         },
-		readonly: {
+        readonly: {
             type: Boolean,
             default: false
         },
@@ -222,7 +222,7 @@ export default {
 .p-rating:not(.p-disabled) .p-rating-icon.p-focus {
     outline: 0 none;
     outline-offset: 0;
-    box-shadow: 0 0 0 0.2rem #BFDBFE;
-    border-color: #3B82F6;
+    box-shadow: 0 0 0 0.2rem #bfdbfe;
+    border-color: #3b82f6;
 }
 </style>

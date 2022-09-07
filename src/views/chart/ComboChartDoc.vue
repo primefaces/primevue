@@ -1,15 +1,15 @@
 <template>
-	<AppDoc name="ChartDemo" :sources="sources" :dependencies="{'chart.js': '3.3.2'}" component="Chart" github="chart/ComboChartDemo.vue"/>
+    <AppDoc name="ChartDemo" :sources="sources" :dependencies="{ 'chart.js': '3.3.2' }" component="Chart" github="chart/ComboChartDemo.vue" />
 </template>
 
 <script>
 export default {
-	data() {
-		return {
-			sources: {
-				'options-api': {
-					tabName: 'Options API Source',
-					content: `
+    data() {
+        return {
+            sources: {
+                'options-api': {
+                    tabName: 'Options API Source',
+                    content: `
 <template>
     <div>
         <Chart type="bar" :data="chartData" :options="chartOptions" />
@@ -74,11 +74,10 @@ export default {
     }
 }
 <\\/script>`
-
-				},
-				'composition-api': {
-					tabName: 'Composition API Source',
-					content: `
+                },
+                'composition-api': {
+                    tabName: 'Composition API Source',
+                    content: `
 <template>
     <div>
         <Chart type="bar" :data="chartData" :options="chartOptions" />
@@ -146,10 +145,9 @@ export default {
     }
 }
 <\\/script>`
-
-				}
-			}
-		}
-	}
-}
+                }
+            }
+        };
+    }
+};
 </script>

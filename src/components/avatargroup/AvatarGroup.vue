@@ -7,7 +7,7 @@
 <script>
 export default {
     name: 'AvatarGroup'
-}
+};
 </script>
 
 <style>

@@ -85,7 +85,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [Rating](https://www.primefaces.org/primevue/showcase/#/rating)
+ * - [Rating](https://www.primefaces.org/primevue/rating)
  *
  */
 export default Rating;

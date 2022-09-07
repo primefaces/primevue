@@ -47,8 +47,7 @@
 
             <div class="card">
                 <h5>Events</h5>
-                <TreeTable :value="nodes" selectionMode="single" v-model:selectionKeys="selectedKey2"
-                    @node-select="onNodeSelect" @node-unselect="onNodeUnselect">
+                <TreeTable :value="nodes" selectionMode="single" v-model:selectionKeys="selectedKey2" @node-select="onNodeSelect" @node-unselect="onNodeUnselect">
                     <Column field="name" header="Name" :expander="true"></Column>
                     <Column field="size" header="Size"></Column>
                     <Column field="type" header="Type"></Column>
@@ -347,22 +346,22 @@ export default {
 `
                 }
             }
-        }
+        };
     },
     nodeService: null,
     created() {
         this.nodeService = new NodeService();
     },
     mounted() {
-        this.nodeService.getTreeTableNodes().then(data => this.nodes = data);
+        this.nodeService.getTreeTableNodes().then((data) => (this.nodes = data));
     },
     methods: {
         onNodeSelect(node) {
-            this.$toast.add({severity:'success', summary: 'Node Selected', detail: node.data.name, life: 3000});
+            this.$toast.add({ severity: 'success', summary: 'Node Selected', detail: node.data.name, life: 3000 });
         },
         onNodeUnselect(node) {
-            this.$toast.add({severity:'success', summary: 'Node Unselected', detail: node.data.name, life: 3000});
+            this.$toast.add({ severity: 'success', summary: 'Node Unselected', detail: node.data.name, life: 3000 });
         }
     }
-}
+};
 </script>

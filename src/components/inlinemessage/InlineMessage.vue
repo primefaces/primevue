@@ -18,7 +18,7 @@ export default {
     data() {
         return {
             visible: true
-        }
+        };
     },
     mounted() {
         if (!this.sticky) {
@@ -29,18 +29,21 @@ export default {
     },
     computed: {
         containerClass() {
-            return ['p-inline-message p-component p-inline-message-' + this.severity, {'p-inline-message-icon-only': !this.$slots.default}];
+            return ['p-inline-message p-component p-inline-message-' + this.severity, { 'p-inline-message-icon-only': !this.$slots.default }];
         },
         iconClass() {
-            return ['p-inline-message-icon pi', {
-                'pi-info-circle': this.severity === 'info',
-                'pi-check': this.severity === 'success',
-                'pi-exclamation-triangle': this.severity === 'warn',
-                'pi-times-circle': this.severity === 'error'
-            }];
+            return [
+                'p-inline-message-icon pi',
+                {
+                    'pi-info-circle': this.severity === 'info',
+                    'pi-check': this.severity === 'success',
+                    'pi-exclamation-triangle': this.severity === 'warn',
+                    'pi-times-circle': this.severity === 'error'
+                }
+            ];
         }
     }
-}
+};
 </script>
 
 <style>
