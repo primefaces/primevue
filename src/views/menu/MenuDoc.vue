@@ -1,13 +1,13 @@
 <template>
-	<AppDoc name="MenuDemo" :sources="sources" github="menu/MenuDemo.vue">
+    <AppDoc name="MenuDemo" :sources="sources" github="menu/MenuDemo.vue">
         <h5>Import via Module</h5>
-<pre v-code.script><code>
+        <pre v-code.script><code>
 import Menu from 'primevue/menu';
 
 </code></pre>
 
         <h5>Import via CDN</h5>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
@@ -15,14 +15,14 @@ import Menu from 'primevue/menu';
         <h5>MenuModel</h5>
         <p>Menu uses the common MenuModel API to define the items, visit <router-link to="/menumodel">MenuModel API</router-link> for details.</p>
 
-		<h5>Getting Started</h5>
-		<p>Menu requires a collection of menuitems as its model.</p>
-<pre v-code><code>
+        <h5>Getting Started</h5>
+        <p>Menu requires a collection of menuitems as its model.</p>
+        <pre v-code><code>
 &lt;Menu :model="items" /&gt;
 
 </code></pre>
 
-<pre v-code.script><code>
+        <pre v-code.script><code>
 export default {
 	data() {
 		return {
@@ -60,7 +60,7 @@ export default {
 
         <h5>SubMenus</h5>
         <p>Menu supports one level of nesting via subitems of an item.</p>
-<pre v-code.script><code>
+        <pre v-code.script><code>
 const items: [
     {
         label: 'Options',
@@ -79,13 +79,13 @@ const items: [
         <h5>Popup Mode</h5>
         <p>Menu is inline by default whereas popup mode is supported by enabling popup property and calling toggle method with an event of the target.</p>
 
-<pre v-code><code>
+        <pre v-code><code>
 &lt;Button type="button" label="Toggle" @click="toggle" /&gt;
 &lt;Menu ref="menu" :model="items" :popup="true" /&gt;
 
 </code></pre>
 
-<pre v-code.script><code>
+        <pre v-code.script><code>
 toggle(event) {
     this.$refs.menu.toggle(event);
 }
@@ -94,7 +94,7 @@ toggle(event) {
 
         <h5>Templating</h5>
         <p>Menu offers content customization with the <i>item</i> template that receives the menuitem instance from the model as a parameter.</p>
-<pre v-code><code><template v-pre>
+        <pre v-code><code><template v-pre>
 &lt;Menu :model="items"&gt;
     &lt;template #item="{item}"&gt;
         &lt;a :href="item.url"&gt;{{item.label}}&lt;/a&gt;
@@ -104,7 +104,7 @@ toggle(event) {
 </code></pre>
 
         <p><i>router-link</i> with route configuration can also be used within templating for further customization.</p>
-<pre v-code><code><template v-pre>
+        <pre v-code><code><template v-pre>
 &lt;Menu :model="items"&gt;
     &lt;template #item="{item}"&gt;
         &lt;router-link :to="item.to" custom v-slot="{href, route, navigate, isActive, isExactActive}"&gt;
@@ -117,17 +117,17 @@ toggle(event) {
 
         <h5>Properties</h5>
         <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Type</th>
                         <th>Default</th>
                         <th>Description</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>model</td>
                         <td>array</td>
@@ -164,21 +164,21 @@ toggle(event) {
                         <td>true</td>
                         <td>Whether to apply 'router-link-active-exact' class if route exactly matches the item path.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
         <h5>Events</h5>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Parameters</th>
                         <th>Description</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>show</td>
                         <td>-</td>
@@ -189,21 +189,21 @@ toggle(event) {
                         <td>-</td>
                         <td>Callback to invoke when the overlay is hidden.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
-		<h5>Methods</h5>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <h5>Methods</h5>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Parameters</th>
                         <th>Description</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>toggle</td>
                         <td>event: Browser event</td>
@@ -219,39 +219,39 @@ toggle(event) {
                         <td>-</td>
                         <td>Hides the overlay.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
         <h5>Slots</h5>
-		<div class="doc-tablewrapper">
+        <div class="doc-tablewrapper">
             <table class="doc-table">
-				<thead>
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Parameters</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>item</td>
                         <td>item: Menuitem instance</td>
                     </tr>
-				</tbody>
-			</table>
+                </tbody>
+            </table>
         </div>
 
-		<h5>Styling</h5>
-		<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <h5>Styling</h5>
+        <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Element</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>p-menu</td>
                         <td>Container element.</td>
@@ -272,12 +272,12 @@ toggle(event) {
                         <td>p-menuitem-icon</td>
                         <td>Icon of a menuitem.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
-		<h5>Dependencies</h5>
-		<p>None.</p>
+        <h5>Dependencies</h5>
+        <p>None.</p>
     </AppDoc>
 </template>
 
@@ -517,7 +517,7 @@ export default {
 `
                 }
             }
-        }
+        };
     }
-}
+};
 </script>

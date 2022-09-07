@@ -3,7 +3,7 @@
         <button type="button" class="p-treetable-toggler p-link" @click="toggle" v-if="columnProp('expander')" :style="togglerStyle" tabindex="-1" v-ripple>
             <i :class="togglerIcon"></i>
         </button>
-        <div :class="['p-checkbox p-treetable-checkbox p-component', {'p-checkbox-focused': checkboxFocused}]" @click="toggleCheckbox" v-if="checkboxSelectionMode && columnProp('expander')" role="checkbox" :aria-checked="checked">
+        <div :class="['p-checkbox p-treetable-checkbox p-component', { 'p-checkbox-focused': checkboxFocused }]" @click="toggleCheckbox" v-if="checkboxSelectionMode && columnProp('expander')" role="checkbox" :aria-checked="checked">
             <div class="p-hidden-accessible">
                 <input type="checkbox" @focus="onCheckboxFocus" @blur="onCheckboxBlur" />
             </div>
@@ -12,17 +12,19 @@
             </div>
         </div>
         <component :is="column.children.body" :node="node" :column="column" v-if="column.children && column.children.body" />
-        <template v-else><span>{{resolveFieldData(node.data, columnProp('field'))}}</span></template>
+        <template v-else
+            ><span>{{ resolveFieldData(node.data, columnProp('field')) }}</span></template
+        >
     </td>
 </template>
 
 <script>
-import {DomHandler,ObjectUtils} from 'primevue/utils';
-import Ripple from 'primevue/ripple'
+import { DomHandler, ObjectUtils } from 'primevue/utils';
+import Ripple from 'primevue/ripple';
 
 export default {
     name: 'BodyCell',
-    emits: ['node-toggle','checkbox-toggle'],
+    emits: ['node-toggle', 'checkbox-toggle'],
     props: {
         node: {
             type: Object,
@@ -65,7 +67,7 @@ export default {
         return {
             styleObject: {},
             checkboxFocused: false
-        }
+        };
     },
     mounted() {
         if (this.columnProp('frozen')) {
@@ -94,8 +96,7 @@ export default {
                         right = DomHandler.getOuterWidth(next) + parseFloat(next.style.right || 0);
                     }
                     this.styleObject.right = right + 'px';
-                }
-                else {
+                } else {
                     let left = 0;
                     let prev = this.$el.previousElementSibling;
                     if (prev) {
@@ -120,15 +121,19 @@ export default {
     },
     computed: {
         containerClass() {
-            return [this.columnProp('bodyClass'), this.columnProp('class'), {
-                'p-frozen-column': this.columnProp('frozen')
-            }];
+            return [
+                this.columnProp('bodyClass'),
+                this.columnProp('class'),
+                {
+                    'p-frozen-column': this.columnProp('frozen')
+                }
+            ];
         },
         containerStyle() {
             let bodyStyle = this.columnProp('bodyStyle');
             let columnStyle = this.columnProp('style');
 
-            return this.columnProp('frozen') ? [columnStyle, bodyStyle, this.styleObject]: [columnStyle, bodyStyle];
+            return this.columnProp('frozen') ? [columnStyle, bodyStyle, this.styleObject] : [columnStyle, bodyStyle];
         },
         togglerStyle() {
             return {
@@ -137,20 +142,20 @@ export default {
             };
         },
         togglerIcon() {
-            return ['p-treetable-toggler-icon pi', {'pi-chevron-right': !this.expanded, 'pi-chevron-down': this.expanded}];
+            return ['p-treetable-toggler-icon pi', { 'pi-chevron-right': !this.expanded, 'pi-chevron-down': this.expanded }];
         },
         checkboxSelectionMode() {
             return this.selectionMode === 'checkbox';
         },
         checkboxClass() {
-            return ['p-checkbox-box', {'p-highlight': this.checked, 'p-focus': this.checkboxFocused, 'p-indeterminate': this.partialChecked}];
+            return ['p-checkbox-box', { 'p-highlight': this.checked, 'p-focus': this.checkboxFocused, 'p-indeterminate': this.partialChecked }];
         },
         checkboxIcon() {
-            return ['p-checkbox-icon', {'pi pi-check': this.checked, 'pi pi-minus': this.partialChecked}];
+            return ['p-checkbox-icon', { 'pi pi-check': this.checked, 'pi pi-minus': this.partialChecked }];
         }
     },
     directives: {
-        'ripple': Ripple
+        ripple: Ripple
     }
-}
+};
 </script>

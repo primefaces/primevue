@@ -1,6 +1,6 @@
 <template>
-    <div :class="['p-radiobutton p-component', {'p-radiobutton-focused': focused}]" @click="onClick" tabindex="0" @focus="onFocus($event)" @blur="onBlur($event)" @keydown.space.prevent="onClick">
-        <div ref="box" :class="['p-radiobutton-box p-component', {'p-highlight': checked, 'p-disabled': $attrs.disabled, 'p-focus': focused}]" role="radio" :aria-checked="checked">
+    <div :class="['p-radiobutton p-component', { 'p-radiobutton-focused': focused }]" @click="onClick" tabindex="0" @focus="onFocus($event)" @blur="onBlur($event)" @keydown.space.prevent="onClick">
+        <div ref="box" :class="['p-radiobutton-box p-component', { 'p-highlight': checked, 'p-disabled': $attrs.disabled, 'p-focus': focused }]" role="radio" :aria-checked="checked">
             <div class="p-radiobutton-icon"></div>
         </div>
     </div>
@@ -12,7 +12,7 @@ export default {
     inheritAttrs: false,
     emits: ['change'],
     props: {
-		value: null,
+        value: null,
         checked: null
     },
     data() {
@@ -38,5 +38,5 @@ export default {
             this.focused = false;
         }
     }
-}
+};
 </script>

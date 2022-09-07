@@ -6,7 +6,7 @@
 
             <h5>Getting Started</h5>
             <p>Locale values are stored in the global configuration that becomes accessible after installing the PrimeVue.</p>
-<pre v-code.script><code>
+            <pre v-code.script><code>
 import {createApp} from 'vue';
 import PrimeVue from 'primevue/config';
 const app = createApp(App);
@@ -16,7 +16,7 @@ app.use(PrimeVue);
 </code></pre>
 
             <p>Second parameter of the <i>use</i> function can be used to initiate the locale during PrimeVue installation.</p>
-<pre v-code.script><code>
+            <pre v-code.script><code>
 app.use(PrimeVue, {
     locale: {
         accept: 'Aceptar',
@@ -27,11 +27,10 @@ app.use(PrimeVue, {
 
 </code></pre>
 
-            <p>The locale configuration is reactive so that any changes are instantly reflected in the UI. Suppose you are doing a multi language
-                application and need to change the language dynamically.</p>
+            <p>The locale configuration is reactive so that any changes are instantly reflected in the UI. Suppose you are doing a multi language application and need to change the language dynamically.</p>
 
             <h6>Options API</h6>
-<pre v-code.script><code>
+            <pre v-code.script><code>
 export default {
     methods: {
         changeToSpanish() {
@@ -44,7 +43,7 @@ export default {
 </code></pre>
 
             <h6>Composition API</h6>
-<pre v-code.script><code>
+            <pre v-code.script><code>
 import { defineComponent, onMounted } from "vue";
 import { usePrimeVue } from "primevue/config";
 
@@ -64,10 +63,8 @@ export default defineComponent({
 
 </code></pre>
 
-
-
             <h5>Locale Options</h5>
-<pre v-code.script><code>
+            <pre v-code.script><code>
 locale: {
     startsWith: 'Starts with',
     contains: 'Contains',
@@ -151,9 +148,7 @@ locale: {
 </template>
 
 <script>
-export default {
-
-}
+export default {};
 </script>
 
 <style scoped>

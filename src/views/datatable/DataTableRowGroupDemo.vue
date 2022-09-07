@@ -1,43 +1,42 @@
 <template>
-	<div>
-		<div class="content-section introduction">
-			<div class="feature-intro">
-				<h1>DataTable <span>Row Group</span></h1>
-				<p>Rows can either be grouped by a separate grouping row or using rowspan.</p>
-			</div>
+    <div>
+        <div class="content-section introduction">
+            <div class="feature-intro">
+                <h1>DataTable <span>Row Group</span></h1>
+                <p>Rows can either be grouped by a separate grouping row or using rowspan.</p>
+            </div>
             <AppDemoActions />
-		</div>
+        </div>
 
-		<div class="content-section implementation">
+        <div class="content-section implementation">
             <div class="card">
                 <h5>Subheader Grouping</h5>
                 <p>Group customers by their representative.</p>
-                <DataTable :value="customers" rowGroupMode="subheader" groupRowsBy="representative.name"
-                    sortMode="single" sortField="representative.name" :sortOrder="1" scrollable scrollHeight="400px">
+                <DataTable :value="customers" rowGroupMode="subheader" groupRowsBy="representative.name" sortMode="single" sortField="representative.name" :sortOrder="1" scrollable scrollHeight="400px">
                     <Column field="representative.name" header="Representative"></Column>
-                    <Column field="name" header="Name" style="min-width:200px"></Column>
-                    <Column field="country" header="Country" style="min-width:200px">
+                    <Column field="name" header="Name" style="min-width: 200px"></Column>
+                    <Column field="country" header="Country" style="min-width: 200px">
                         <template #body="slotProps">
                             <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.data.country.code" width="30" />
-                            <span class="image-text">{{slotProps.data.country.name}}</span>
+                            <span class="image-text">{{ slotProps.data.country.name }}</span>
                         </template>
                     </Column>
-                    <Column field="company" header="Company" style="min-width:200px"></Column>
-                    <Column field="status" header="Status" style="min-width:200px">
+                    <Column field="company" header="Company" style="min-width: 200px"></Column>
+                    <Column field="status" header="Status" style="min-width: 200px">
                         <template #body="slotProps">
-                            <span :class="'customer-badge status-' + slotProps.data.status">{{slotProps.data.status}}</span>
+                            <span :class="'customer-badge status-' + slotProps.data.status">{{ slotProps.data.status }}</span>
                         </template>
                     </Column>
-                    <Column field="date" header="Date" style="min-width:200px"></Column>
+                    <Column field="date" header="Date" style="min-width: 200px"></Column>
                     <template #groupheader="slotProps">
                         <img :alt="slotProps.data.representative.name" :src="'demo/images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" />
-                        <span class="image-text">{{slotProps.data.representative.name}}</span>
+                        <span class="image-text">{{ slotProps.data.representative.name }}</span>
                     </template>
                     <template #groupfooter="slotProps">
                         <td style="min-width: 80%">
                             <div style="text-align: right; width: 100%">Total Customers</div>
                         </td>
-                        <td style="width: 20%">{{calculateCustomerTotal(slotProps.data.representative.name)}}</td>
+                        <td style="width: 20%">{{ calculateCustomerTotal(slotProps.data.representative.name) }}</td>
                     </template>
                 </DataTable>
             </div>
@@ -45,72 +44,79 @@
             <div class="card">
                 <h5>Expandable Row Groups</h5>
                 <p>Group customers by their representative.</p>
-                <DataTable :value="customers" rowGroupMode="subheader" groupRowsBy="representative.name"
-                    sortMode="single" sortField="representative.name" :sortOrder="1" responsiveLayout="scroll"
-                    :expandableRowGroups="true" v-model:expandedRowGroups="expandedRowGroups"
-                    @rowgroup-expand="onRowGroupExpand" @rowgroup-collapse="onRowGroupCollapse">
+                <DataTable
+                    :value="customers"
+                    rowGroupMode="subheader"
+                    groupRowsBy="representative.name"
+                    sortMode="single"
+                    sortField="representative.name"
+                    :sortOrder="1"
+                    responsiveLayout="scroll"
+                    :expandableRowGroups="true"
+                    v-model:expandedRowGroups="expandedRowGroups"
+                    @rowgroup-expand="onRowGroupExpand"
+                    @rowgroup-collapse="onRowGroupCollapse"
+                >
                     <Column field="representative.name" header="Representative"></Column>
                     <Column field="name" header="Name"></Column>
                     <Column field="country" header="Country">
                         <template #body="slotProps">
                             <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.data.country.code" width="30" />
-                            <span class="image-text">{{slotProps.data.country.name}}</span>
+                            <span class="image-text">{{ slotProps.data.country.name }}</span>
                         </template>
                     </Column>
                     <Column field="company" header="Company"></Column>
                     <Column field="status" header="Status">
                         <template #body="slotProps">
-                            <span :class="'customer-badge status-' + slotProps.data.status">{{slotProps.data.status}}</span>
+                            <span :class="'customer-badge status-' + slotProps.data.status">{{ slotProps.data.status }}</span>
                         </template>
                     </Column>
                     <Column field="date" header="Date"></Column>
                     <template #groupheader="slotProps">
                         <img :alt="slotProps.data.representative.name" :src="'demo/images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" />
-                        <span class="image-text">{{slotProps.data.representative.name}}</span>
+                        <span class="image-text">{{ slotProps.data.representative.name }}</span>
                     </template>
                     <template #groupfooter="slotProps">
                         <td colspan="4" style="text-align: right">Total Customers</td>
-                        <td>{{calculateCustomerTotal(slotProps.data.representative.name)}}</td>
+                        <td>{{ calculateCustomerTotal(slotProps.data.representative.name) }}</td>
                     </template>
                 </DataTable>
             </div>
 
             <div class="card">
                 <h5>RowSpan Grouping</h5>
-                <DataTable :value="customers" rowGroupMode="rowspan"  groupRowsBy="representative.name"
-                    sortMode="single" sortField="representative.name" :sortOrder="1" responsiveLayout="scroll">
+                <DataTable :value="customers" rowGroupMode="rowspan" groupRowsBy="representative.name" sortMode="single" sortField="representative.name" :sortOrder="1" responsiveLayout="scroll">
                     <Column header="#" headerStyle="width:3em">
                         <template #body="slotProps">
-                            {{slotProps.index}}
+                            {{ slotProps.index }}
                         </template>
                     </Column>
                     <Column field="representative.name" header="Representative">
                         <template #body="slotProps">
                             <img :alt="slotProps.data.representative.name" :src="'demo/images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" />
-                            <span class="image-text">{{slotProps.data.representative.name}}</span>
+                            <span class="image-text">{{ slotProps.data.representative.name }}</span>
                         </template>
                     </Column>
                     <Column field="name" header="Name"></Column>
                     <Column field="country" header="Country">
                         <template #body="slotProps">
                             <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.data.country.code" width="30" />
-                            <span class="image-text">{{slotProps.data.country.name}}</span>
+                            <span class="image-text">{{ slotProps.data.country.name }}</span>
                         </template>
                     </Column>
                     <Column field="company" header="Company"></Column>
                     <Column field="status" header="Status">
                         <template #body="slotProps">
-                            <span :class="'customer-badge status-' + slotProps.data.status">{{slotProps.data.status}}</span>
+                            <span :class="'customer-badge status-' + slotProps.data.status">{{ slotProps.data.status }}</span>
                         </template>
                     </Column>
                     <Column field="date" header="Date"></Column>
                 </DataTable>
             </div>
-		</div>
+        </div>
 
         <AppDoc name="DataTableRowGroupDemo" :sources="sources" :service="['CustomerService']" :data="['customers-medium']" github="datatable/DataTableRowGroupDemo.vue" />
-
-	</div>
+    </div>
 </template>
 
 <script>
@@ -626,21 +632,21 @@ export default {
 `
                 }
             }
-        }
+        };
     },
     customerService: null,
     created() {
         this.customerService = new CustomerService();
     },
     mounted() {
-        this.customerService.getCustomersMedium().then(data => this.customers = data);
+        this.customerService.getCustomersMedium().then((data) => (this.customers = data));
     },
     methods: {
         onRowGroupExpand(event) {
-            this.$toast.add({severity: 'info', summary: 'Row Group Expanded', detail: 'Value: ' + event.data, life: 3000});
+            this.$toast.add({ severity: 'info', summary: 'Row Group Expanded', detail: 'Value: ' + event.data, life: 3000 });
         },
         onRowGroupCollapse(event) {
-            this.$toast.add({severity: 'success', summary: 'Row Group Collapsed', detail: 'Value: ' + event.data, life: 3000});
+            this.$toast.add({ severity: 'success', summary: 'Row Group Collapsed', detail: 'Value: ' + event.data, life: 3000 });
         },
         calculateCustomerTotal(name) {
             let total = 0;
@@ -656,7 +662,7 @@ export default {
             return total;
         }
     }
-}
+};
 </script>
 
 <style lang="scss" scoped>
@@ -671,7 +677,7 @@ export default {
 
     .p-row-toggler {
         vertical-align: middle;
-        margin-right: .25rem;
+        margin-right: 0.25rem;
     }
 }
 </style>

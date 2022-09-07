@@ -4,7 +4,7 @@ import AccordionTab from '@/components/accordiontab/AccordionTab.vue';
 
 describe('Accordion.vue', () => {
     let wrapper;
-    
+
     beforeEach(() => {
         wrapper = mount(Accordion, {
             global: {
@@ -39,7 +39,7 @@ describe('Accordion.vue', () => {
         expect(wrapper.findAll('.p-accordion-tab').length).toBe(3);
     });
 
-    it('should activeIndex change', async() => {
+    it('should activeIndex change', async () => {
         await wrapper.setProps({ activeIndex: 1 });
 
         const allTabs = wrapper.findAll('.p-accordion-tab');

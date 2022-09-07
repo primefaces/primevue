@@ -21,8 +21,7 @@
             <div class="card">
                 <h5>Dynamic Columns</h5>
                 <TreeTable :value="nodes">
-                    <Column v-for="col of columns" :key="col.field"
-                        :field="col.field" :header="col.header" :expander="col.expander"></Column>
+                    <Column v-for="col of columns" :key="col.field" :field="col.field" :header="col.header" :expander="col.expander"></Column>
                 </TreeTable>
             </div>
 
@@ -54,20 +53,20 @@ export default {
             nodes: null,
             columns: null,
             expandedKeys: {}
-        }
+        };
     },
     nodeService: null,
     created() {
         this.nodeService = new NodeService();
 
         this.columns = [
-            {field: 'name', header: 'Vin', expander: true},
-            {field: 'size', header: 'Size'},
-            {field: 'type', header: 'Type'}
+            { field: 'name', header: 'Vin', expander: true },
+            { field: 'size', header: 'Size' },
+            { field: 'type', header: 'Type' }
         ];
     },
     mounted() {
-        this.nodeService.getTreeTableNodes().then(data => this.nodes = data);
+        this.nodeService.getTreeTableNodes().then((data) => (this.nodes = data));
     },
     methods: {
         expandAll() {
@@ -75,7 +74,7 @@ export default {
                 this.expandNode(node);
             }
 
-            this.expandedKeys = {...this.expandedKeys};
+            this.expandedKeys = { ...this.expandedKeys };
         },
         collapseAll() {
             this.expandedKeys = {};
@@ -91,13 +90,13 @@ export default {
         }
     },
     components: {
-        'TreeTableDoc': TreeTableDoc
+        TreeTableDoc: TreeTableDoc
     }
-}
+};
 </script>
 
 <style scoped>
 button {
-    margin-right: .5rem;
+    margin-right: 0.5rem;
 }
 </style>

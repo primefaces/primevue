@@ -1,11 +1,23 @@
 <template>
     <div :class="containerClass" @click="onClick($event)">
         <div class="p-hidden-accessible">
-            <input :id="inputId" ref="input" type="checkbox" :checked="modelValue === true" :tabindex="tabindex" :disabled="disabled" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel"
-                @keydown="onKeyDown($event)" @focus="onFocus($event)" @blur="onBlur($event)" v-bind="inputProps" >
+            <input
+                :id="inputId"
+                ref="input"
+                type="checkbox"
+                :checked="modelValue === true"
+                :tabindex="tabindex"
+                :disabled="disabled"
+                :aria-labelledby="ariaLabelledby"
+                :aria-label="ariaLabel"
+                @keydown="onKeyDown($event)"
+                @focus="onFocus($event)"
+                @blur="onBlur($event)"
+                v-bind="inputProps"
+            />
         </div>
-        <span class="p-sr-only" aria-live="polite">{{ariaValueLabel}}</span>
-        <div ref="box" :class="['p-checkbox-box', {'p-highlight': (modelValue != null), 'p-disabled': disabled, 'p-focus': focused}]" >
+        <span class="p-sr-only" aria-live="polite">{{ ariaValueLabel }}</span>
+        <div ref="box" :class="['p-checkbox-box', { 'p-highlight': modelValue != null, 'p-disabled': disabled, 'p-focus': focused }]">
             <span :class="['p-checkbox-icon', icon]"></span>
         </div>
     </div>
@@ -26,8 +38,8 @@ export default {
             default: null
         },
         disabled: {
-			type: Boolean,
-			default: false
+            type: Boolean,
+            default: false
         },
         tabindex: {
             type: Number,
@@ -55,15 +67,15 @@ export default {
                 switch (this.modelValue) {
                     case true:
                         newValue = false;
-                    break;
+                        break;
 
                     case false:
                         newValue = null;
-                    break;
+                        break;
 
                     case null:
                         newValue = true;
-                    break;
+                        break;
                 }
 
                 this.$emit('update:modelValue', newValue);
@@ -97,30 +109,32 @@ export default {
             switch (this.modelValue) {
                 case true:
                     icon = 'pi pi-check';
-                break;
+                    break;
 
                 case false:
                     icon = 'pi pi-times';
-                break;
+                    break;
 
                 case null:
                     icon = null;
-                break;
+                    break;
             }
 
             return icon;
         },
         containerClass() {
             return [
-                'p-checkbox p-component', {
+                'p-checkbox p-component',
+                {
                     'p-checkbox-checked': this.modelValue === true,
                     'p-checkbox-disabled': this.disabled,
                     'p-checkbox-focused': this.focused
-            }];
+                }
+            ];
         },
         ariaValueLabel() {
-            return this.modelValue ? this.$primevue.config.locale.aria.trueLabel : (this.modelValue === false ? this.$primevue.config.locale.aria.falseLabel : this.$primevue.config.locale.aria.nullLabel);
+            return this.modelValue ? this.$primevue.config.locale.aria.trueLabel : this.modelValue === false ? this.$primevue.config.locale.aria.falseLabel : this.$primevue.config.locale.aria.nullLabel;
         }
     }
-}
+};
 </script>

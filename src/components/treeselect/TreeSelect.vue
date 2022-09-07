@@ -1,21 +1,38 @@
 <template>
     <div ref="container" :class="containerClass" @click="onClick">
         <div class="p-hidden-accessible">
-            <input ref="focusInput" type="text" role="combobox" :id="inputId" :class="inputClass" :style="inputStyle" readonly :disabled="disabled" :tabindex="!disabled ? tabindex : -1"
-                :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel" aria-haspopup="tree" :aria-expanded="overlayVisible" :aria-controls="listId"
-                @focus="onFocus($event)" @blur="onBlur($event)" @keydown="onKeyDown($event)" v-bind="inputProps" />
+            <input
+                ref="focusInput"
+                type="text"
+                role="combobox"
+                :id="inputId"
+                :class="inputClass"
+                :style="inputStyle"
+                readonly
+                :disabled="disabled"
+                :tabindex="!disabled ? tabindex : -1"
+                :aria-labelledby="ariaLabelledby"
+                :aria-label="ariaLabel"
+                aria-haspopup="tree"
+                :aria-expanded="overlayVisible"
+                :aria-controls="listId"
+                @focus="onFocus($event)"
+                @blur="onBlur($event)"
+                @keydown="onKeyDown($event)"
+                v-bind="inputProps"
+            />
         </div>
         <div class="p-treeselect-label-container">
             <div :class="labelClass">
                 <slot name="value" :value="selectedNodes" :placeholder="placeholder">
                     <template v-if="display === 'comma'">
-                        {{label || 'empty'}}
+                        {{ label || 'empty' }}
                     </template>
                     <template v-else-if="display === 'chip'">
                         <div v-for="node of selectedNodes" class="p-treeselect-token" :key="node.key">
-                            <span class="p-treeselect-token-label">{{node.label}}</span>
+                            <span class="p-treeselect-token-label">{{ node.label }}</span>
                         </div>
-                        <template v-if="emptyValue">{{placeholder || 'empty'}}</template>
+                        <template v-if="emptyValue">{{ placeholder || 'empty' }}</template>
                     </template>
                 </slot>
             </div>
@@ -29,13 +46,24 @@
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
                 <div :ref="overlayRef" v-if="overlayVisible" @click="onOverlayClick" :class="panelStyleClass" v-bind="panelProps">
                     <slot name="header" :value="modelValue" :options="options"></slot>
-                    <div class="p-treeselect-items-wrapper" :style="{'max-height': scrollHeight}">
-                        <TSTree :id="listId" :value="options" :selectionMode="selectionMode" @update:selectionKeys="onSelectionChange" :selectionKeys="modelValue"
-                            :expandedKeys="expandedKeys" @update:expandedKeys="onNodeToggle" :metaKeySelection="metaKeySelection"
-                            @node-expand="$emit('node-expand', $event)" @node-collapse="$emit('node-collapse', $event)"
-                            @node-select="onNodeSelect" @node-unselect="onNodeUnselect" :level="0" />
+                    <div class="p-treeselect-items-wrapper" :style="{ 'max-height': scrollHeight }">
+                        <TSTree
+                            :id="listId"
+                            :value="options"
+                            :selectionMode="selectionMode"
+                            @update:selectionKeys="onSelectionChange"
+                            :selectionKeys="modelValue"
+                            :expandedKeys="expandedKeys"
+                            @update:expandedKeys="onNodeToggle"
+                            :metaKeySelection="metaKeySelection"
+                            @node-expand="$emit('node-expand', $event)"
+                            @node-collapse="$emit('node-collapse', $event)"
+                            @node-select="onNodeSelect"
+                            @node-unselect="onNodeUnselect"
+                            :level="0"
+                        />
                         <div v-if="emptyOptions" class="p-treeselect-empty-message">
-                            <slot name="empty">{{emptyMessageText}}</slot>
+                            <slot name="empty">{{ emptyMessageText }}</slot>
                         </div>
                     </div>
                     <slot name="footer" :value="modelValue" :options="options"></slot>
@@ -46,7 +74,7 @@
 </template>
 
 <script>
-import {ConnectedOverlayScrollHandler,DomHandler,ZIndexUtils,UniqueComponentId} from 'primevue/utils';
+import { ConnectedOverlayScrollHandler, DomHandler, ZIndexUtils, UniqueComponentId } from 'primevue/utils';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Tree from 'primevue/tree';
 import Ripple from 'primevue/ripple';
@@ -58,15 +86,15 @@ export default {
     props: {
         modelValue: null,
         options: Array,
-		scrollHeight: {
-			type: String,
-			default: '400px'
-		},
-		placeholder: {
+        scrollHeight: {
+            type: String,
+            default: '400px'
+        },
+        placeholder: {
             type: String,
             default: null
         },
-		disabled: {
+        disabled: {
             type: Boolean,
             default: false
         },
@@ -120,7 +148,7 @@ export default {
         },
         'aria-labelledby': {
             type: String,
-			default: null
+            default: null
         },
         'aria-label': {
             type: String,
@@ -129,7 +157,7 @@ export default {
     },
     watch: {
         modelValue: {
-            handler: function() {
+            handler: function () {
                 if (!this.selfChange) {
                     this.updateTreeState();
                 }
@@ -190,10 +218,8 @@ export default {
         },
         onClick(event) {
             if (!this.disabled && (!this.overlay || !this.overlay.contains(event.target)) && !DomHandler.hasClass(event.target, 'p-treeselect-close')) {
-                if (this.overlayVisible)
-                    this.hide();
-                else
-                    this.show();
+                if (this.overlayVisible) this.hide();
+                else this.show();
 
                 this.$refs.focusInput.focus();
             }
@@ -217,33 +243,30 @@ export default {
             this.expandedKeys = keys;
         },
         onKeyDown(event) {
-            switch(event.code) {
+            switch (event.code) {
                 case 'Down':
                 case 'ArrowDown':
                     if (this.overlayVisible) {
                         if (DomHandler.findSingle(this.overlay, '.p-highlight')) {
                             DomHandler.findSingle(this.overlay, '.p-highlight').focus();
-                        }
-                        else DomHandler.findSingle(this.overlay, '.p-treenode').children[0].focus();
-                    }
-                    else {
+                        } else DomHandler.findSingle(this.overlay, '.p-treenode').children[0].focus();
+                    } else {
                         this.show();
                     }
 
                     event.preventDefault();
-                break;
+                    break;
 
                 case 'Space':
                 case 'Enter':
                     if (this.overlayVisible) {
                         this.hide();
-                    }
-                    else {
+                    } else {
                         this.show();
                     }
 
                     event.preventDefault();
-                break;
+                    break;
 
                 case 'Escape':
                 case 'Tab':
@@ -251,10 +274,10 @@ export default {
                         this.hide();
                         event.preventDefault();
                     }
-                break;
+                    break;
 
                 default:
-                break;
+                    break;
             }
         },
         onOverlayEnter(el) {
@@ -279,8 +302,7 @@ export default {
         alignOverlay() {
             if (this.appendTo === 'self') {
                 DomHandler.relativePosition(this.overlay, this.$el);
-            }
-            else {
+            } else {
                 this.overlay.style.minWidth = DomHandler.getOuterWidth(this.$el) + 'px';
                 DomHandler.absolutePosition(this.overlay, this.$el);
             }
@@ -357,8 +379,7 @@ export default {
                         this.findSelectedNodes(childNode, keys, selectedNodes);
                     }
                 }
-            }
-            else {
+            } else {
                 for (let childNode of this.options) {
                     this.findSelectedNodes(childNode, keys, selectedNodes);
                 }
@@ -368,7 +389,7 @@ export default {
             return this.selectionMode === 'checkbox' ? keys[node.key] && keys[node.key].checked : keys[node.key];
         },
         updateTreeState() {
-            let keys = {...this.modelValue};
+            let keys = { ...this.modelValue };
             this.expandedKeys = {};
             if (keys && this.options) {
                 this.updateTreeBranchState(null, null, keys);
@@ -387,8 +408,7 @@ export default {
                         this.updateTreeBranchState(childNode, path, keys);
                     }
                 }
-            }
-            else {
+            } else {
                 for (let childNode of this.options) {
                     this.updateTreeBranchState(childNode, [], keys);
                 }
@@ -433,15 +453,19 @@ export default {
             ];
         },
         panelStyleClass() {
-            return ['p-treeselect-panel p-component', this.panelClass, {
-                'p-input-filled': this.$primevue.config.inputStyle === 'filled',
-                'p-ripple-disabled': this.$primevue.config.ripple === false
-            }];
+            return [
+                'p-treeselect-panel p-component',
+                this.panelClass,
+                {
+                    'p-input-filled': this.$primevue.config.inputStyle === 'filled',
+                    'p-ripple-disabled': this.$primevue.config.ripple === false
+                }
+            ];
         },
         selectedNodes() {
             let selectedNodes = [];
             if (this.modelValue && this.options) {
-                let keys = {...this.modelValue};
+                let keys = { ...this.modelValue };
                 this.findSelectedNodes(null, keys, selectedNodes);
             }
 
@@ -449,7 +473,7 @@ export default {
         },
         label() {
             let value = this.selectedNodes;
-            return value.length ? value.map(node => node.label).join(', '): this.placeholder;
+            return value.length ? value.map((node) => node.label).join(', ') : this.placeholder;
         },
         emptyMessageText() {
             return this.emptyMessage || this.$primevue.config.locale.emptyMessage;
@@ -465,13 +489,13 @@ export default {
         }
     },
     components: {
-        'TSTree': Tree,
-        'Portal': Portal
+        TSTree: Tree,
+        Portal: Portal
     },
     directives: {
-        'ripple': Ripple
+        ripple: Ripple
     }
-}
+};
 </script>
 
 <style>
@@ -495,7 +519,7 @@ export default {
     cursor: pointer;
 }
 
-.p-treeselect-label  {
+.p-treeselect-label {
     display: block;
     white-space: nowrap;
     cursor: pointer;

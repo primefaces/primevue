@@ -3,7 +3,7 @@ import Skeleton from './Skeleton.vue';
 
 describe('Skeleton.vue', () => {
     let wrapper;
-    
+
     beforeEach(() => {
         wrapper = mount(Skeleton);
     });

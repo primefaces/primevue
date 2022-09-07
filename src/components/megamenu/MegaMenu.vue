@@ -4,41 +4,51 @@
             <slot name="start"></slot>
         </div>
         <ul class="p-megamenu-root-list" role="menubar">
-            <template v-for="(category,index) of model" :key="label(category) + '_' + index">
-                <li v-if="visible(category)"  :class="getCategoryClass(category)" :style="category.style"
-                    @mouseenter="onCategoryMouseEnter($event, category)" role="none">
+            <template v-for="(category, index) of model" :key="label(category) + '_' + index">
+                <li v-if="visible(category)" :class="getCategoryClass(category)" :style="category.style" @mouseenter="onCategoryMouseEnter($event, category)" role="none">
                     <template v-if="!$slots.item">
-                        <router-link v-if="category.to && !disabled(category)" :to="category.to" custom v-slot="{navigate, href, isActive, isExactActive}">
-                            <a :href="href" :class="linkClass(category, {isActive, isExactActive})" @click="onCategoryClick($event, category, navigate)" @keydown="onCategoryKeydown($event, category)" role="menuitem" v-ripple>
+                        <router-link v-if="category.to && !disabled(category)" :to="category.to" custom v-slot="{ navigate, href, isActive, isExactActive }">
+                            <a :href="href" :class="linkClass(category, { isActive, isExactActive })" @click="onCategoryClick($event, category, navigate)" @keydown="onCategoryKeydown($event, category)" role="menuitem" v-ripple>
                                 <span v-if="category.icon" :class="getCategoryIcon(category)"></span>
-                                <span class="p-menuitem-text">{{label(category)}}</span>
+                                <span class="p-menuitem-text">{{ label(category) }}</span>
                             </a>
                         </router-link>
-                        <a v-else :href="category.url" :class="linkClass(category)" :target="category.target" @click="onCategoryClick($event, category)" @keydown="onCategoryKeydown($event, category)"
-                            role="menuitem" :aria-haspopup="category.items != null" :aria-expanded="category === activeItem" :tabindex="disabled(category) ? null : '0'" v-ripple>
+                        <a
+                            v-else
+                            :href="category.url"
+                            :class="linkClass(category)"
+                            :target="category.target"
+                            @click="onCategoryClick($event, category)"
+                            @keydown="onCategoryKeydown($event, category)"
+                            role="menuitem"
+                            :aria-haspopup="category.items != null"
+                            :aria-expanded="category === activeItem"
+                            :tabindex="disabled(category) ? null : '0'"
+                            v-ripple
+                        >
                             <span v-if="category.icon" :class="getCategoryIcon(category)"></span>
-                            <span class="p-menuitem-text">{{label(category)}}</span>
+                            <span class="p-menuitem-text">{{ label(category) }}</span>
                             <span v-if="category.items" :class="getCategorySubMenuIcon()"></span>
                         </a>
                     </template>
                     <component v-else :is="$slots.item" :item="category"></component>
                     <div class="p-megamenu-panel" v-if="category.items">
                         <div class="p-megamenu-grid">
-                            <div v-for="(column,columnIndex) of category.items" :key="label(category) + '_column_' + columnIndex" :class="getColumnClassName(category)">
-                                <ul v-for="(submenu,submenuIndex) of column" class="p-megamenu-submenu" :key="submenu.label + '_submenu_' + submenuIndex" role="menu">
-                                    <li :class="getSubmenuHeaderClass(submenu)" :style="submenu.style" role="presentation">{{submenu.label}}</li>
+                            <div v-for="(column, columnIndex) of category.items" :key="label(category) + '_column_' + columnIndex" :class="getColumnClassName(category)">
+                                <ul v-for="(submenu, submenuIndex) of column" class="p-megamenu-submenu" :key="submenu.label + '_submenu_' + submenuIndex" role="menu">
+                                    <li :class="getSubmenuHeaderClass(submenu)" :style="submenu.style" role="presentation">{{ submenu.label }}</li>
                                     <template v-for="(item, i) of submenu.items" :key="label(item) + i.toString()">
                                         <li role="none" :class="getSubmenuItemClass(item)" :style="item.style" v-if="visible(item) && !item.separator">
                                             <template v-if="!$slots.item">
-                                                <router-link v-if="item.to && !disabled(item)" :to="item.to" custom v-slot="{navigate, href, isActive, isExactActive}">
-                                                    <a :href="href" :class="linkClass(item, {isActive, isExactActive})" @click="onLeafClick($event, item, navigate)" role="menuitem" v-ripple>
+                                                <router-link v-if="item.to && !disabled(item)" :to="item.to" custom v-slot="{ navigate, href, isActive, isExactActive }">
+                                                    <a :href="href" :class="linkClass(item, { isActive, isExactActive })" @click="onLeafClick($event, item, navigate)" role="menuitem" v-ripple>
                                                         <span v-if="item.icon" :class="['p-menuitem-icon', item.icon]"></span>
-                                                        <span class="p-menuitem-text">{{label(item)}}</span>
+                                                        <span class="p-menuitem-text">{{ label(item) }}</span>
                                                     </a>
                                                 </router-link>
                                                 <a v-else :href="item.url" :class="linkClass(item)" :target="item.target" @click="onLeafClick($event, item)" role="menuitem" :tabindex="disabled(item) ? null : '0'" v-ripple>
                                                     <span v-if="item.icon" :class="['p-menuitem-icon', item.icon]"></span>
-                                                    <span class="p-menuitem-text">{{label(item)}}</span>
+                                                    <span class="p-menuitem-text">{{ label(item) }}</span>
                                                     <span :class="getSubmenuIcon()" v-if="item.items"></span>
                                                 </a>
                                             </template>
@@ -60,13 +70,13 @@
 </template>
 
 <script>
-import {DomHandler} from 'primevue/utils';
+import { DomHandler } from 'primevue/utils';
 import Ripple from 'primevue/ripple';
 
 export default {
     name: 'MegaMenu',
     props: {
-		model: {
+        model: {
             type: Array,
             default: null
         },
@@ -83,7 +93,7 @@ export default {
     data() {
         return {
             activeItem: null
-        }
+        };
     },
     beforeUnmount() {
         this.unbindDocumentClickListener();
@@ -135,8 +145,7 @@ export default {
                 if (this.activeItem && this.activeItem === category) {
                     this.activeItem = null;
                     this.unbindDocumentClickListener();
-                }
-                else {
+                } else {
                     this.activeItem = category;
                     this.bindDocumentClickListener();
                 }
@@ -149,49 +158,41 @@ export default {
         onCategoryKeydown(event, category) {
             let listItem = event.currentTarget.parentElement;
 
-            switch(event.which) {
+            switch (event.which) {
                 //down
                 case 40:
-                    if (this.horizontal)
-                        this.expandMenu(category);
-                    else
-                        this.navigateToNextItem(listItem);
+                    if (this.horizontal) this.expandMenu(category);
+                    else this.navigateToNextItem(listItem);
 
                     event.preventDefault();
-                break;
+                    break;
 
                 //up
                 case 38:
-                    if (this.vertical)
-                        this.navigateToPrevItem(listItem);
-                    else if (category.items && category === this.activeItem)
-                        this.collapseMenu();
+                    if (this.vertical) this.navigateToPrevItem(listItem);
+                    else if (category.items && category === this.activeItem) this.collapseMenu();
 
                     event.preventDefault();
-                break;
+                    break;
 
                 //right
                 case 39:
-                    if (this.horizontal)
-                        this.navigateToNextItem(listItem);
-                    else
-                        this.expandMenu(category);
+                    if (this.horizontal) this.navigateToNextItem(listItem);
+                    else this.expandMenu(category);
 
-                    event.preventDefault()
-                break;
+                    event.preventDefault();
+                    break;
 
                 //left
                 case 37:
-                    if (this.horizontal)
-                        this.navigateToPrevItem(listItem);
-                    else if (category.items && category === this.activeItem)
-                        this.collapseMenu();
+                    if (this.horizontal) this.navigateToPrevItem(listItem);
+                    else if (category.items && category === this.activeItem) this.collapseMenu();
 
                     event.preventDefault();
-                break;
+                    break;
 
                 default:
-                break;
+                    break;
             }
         },
         expandMenu(item) {
@@ -205,18 +206,14 @@ export default {
         findNextItem(item) {
             let nextItem = item.nextElementSibling;
 
-            if (nextItem)
-                return DomHandler.hasClass(nextItem, 'p-disabled') || !DomHandler.hasClass(nextItem, 'p-menuitem') ? this.findNextItem(nextItem) : nextItem;
-            else
-                return null;
+            if (nextItem) return DomHandler.hasClass(nextItem, 'p-disabled') || !DomHandler.hasClass(nextItem, 'p-menuitem') ? this.findNextItem(nextItem) : nextItem;
+            else return null;
         },
         findPrevItem(item) {
             let prevItem = item.previousElementSibling;
 
-            if (prevItem)
-                return DomHandler.hasClass(prevItem, 'p-disabled') || !DomHandler.hasClass(prevItem, 'p-menuitem') ? this.findPrevItem(prevItem) : prevItem;
-            else
-                return null;
+            if (prevItem) return DomHandler.hasClass(prevItem, 'p-disabled') || !DomHandler.hasClass(prevItem, 'p-menuitem') ? this.findPrevItem(prevItem) : prevItem;
+            else return null;
         },
         navigateToNextItem(listItem) {
             var nextItem = this.findNextItem(listItem);
@@ -231,59 +228,69 @@ export default {
             }
         },
         getCategoryClass(category) {
-            return ['p-menuitem', {
-                'p-menuitem-active': category === this.activeItem
-            }, category.class];
+            return [
+                'p-menuitem',
+                {
+                    'p-menuitem-active': category === this.activeItem
+                },
+                category.class
+            ];
         },
         getCategorySubMenuIcon() {
-            return ['p-submenu-icon pi', {
-                'pi-angle-down': this.horizontal,
-                'pi-angle-right': this.vertical
-            }];
+            return [
+                'p-submenu-icon pi',
+                {
+                    'pi-angle-down': this.horizontal,
+                    'pi-angle-right': this.vertical
+                }
+            ];
         },
         getCategoryIcon(category) {
             return ['p-menuitem-icon', category.icon];
         },
         getColumnClassName(category) {
-            let length = category.items ? category.items.length: 0;
+            let length = category.items ? category.items.length : 0;
             let columnClass;
 
-            switch(length) {
+            switch (length) {
                 case 2:
-                    columnClass= 'p-megamenu-col-6';
-                break;
+                    columnClass = 'p-megamenu-col-6';
+                    break;
 
                 case 3:
-                    columnClass= 'p-megamenu-col-4';
-                break;
+                    columnClass = 'p-megamenu-col-4';
+                    break;
 
                 case 4:
-                    columnClass= 'p-megamenu-col-3';
-                break;
+                    columnClass = 'p-megamenu-col-3';
+                    break;
 
                 case 6:
-                    columnClass= 'p-megamenu-col-2';
-                break;
+                    columnClass = 'p-megamenu-col-2';
+                    break;
 
                 default:
-                    columnClass= 'p-megamenu-col-12';
-                break;
+                    columnClass = 'p-megamenu-col-12';
+                    break;
             }
 
             return columnClass;
         },
         getSubmenuHeaderClass(submenu) {
-            return ['p-megamenu-submenu-header', submenu.class, {'p-disabled': this.disabled(submenu)}];
+            return ['p-megamenu-submenu-header', submenu.class, { 'p-disabled': this.disabled(submenu) }];
         },
         getSubmenuItemClass(item) {
             return ['p-menuitem', item.class];
         },
         linkClass(item, routerProps) {
-            return ['p-menuitem-link', {
-                'p-disabled': this.disabled(item),
-                'router-link-active': routerProps && routerProps.isActive,
-                'router-link-active-exact': this.exact && routerProps && routerProps.isExactActive
-            }];
+            return [
+                'p-menuitem-link',
+                {
+                    'p-disabled': this.disabled(item),
+                    'router-link-active': routerProps && routerProps.isActive,
+                    'router-link-active-exact': this.exact && routerProps && routerProps.isExactActive
+                }
+            ];
         },
         bindDocumentClickListener() {
             if (!this.documentClickListener) {
@@ -304,21 +311,24 @@ export default {
             }
         },
         visible(item) {
-            return (typeof item.visible === 'function' ? item.visible() : item.visible !== false);
+            return typeof item.visible === 'function' ? item.visible() : item.visible !== false;
         },
         disabled(item) {
-            return (typeof item.disabled === 'function' ? item.disabled() : item.disabled);
+            return typeof item.disabled === 'function' ? item.disabled() : item.disabled;
         },
         label(item) {
-            return (typeof item.disabled === 'function' ? item.label() : item.label);
+            return typeof item.disabled === 'function' ? item.label() : item.label;
         }
     },
     computed: {
         containerClass() {
-            return ['p-megamenu p-component', {
-                'p-megamenu-horizontal': this.horizontal,
-                'p-megamenu-vertical': this.vertical
-            }];
+            return [
+                'p-megamenu p-component',
+                {
+                    'p-megamenu-horizontal': this.horizontal,
+                    'p-megamenu-vertical': this.vertical
+                }
+            ];
         },
         horizontal() {
             return this.orientation === 'horizontal';
@@ -328,9 +338,9 @@ export default {
         }
     },
     directives: {
-        'ripple': Ripple
+        ripple: Ripple
     }
-}
+};
 </script>
 
 <style>
@@ -394,7 +404,6 @@ export default {
 .p-megamenu-vertical .p-megamenu-root-list > .p-menuitem > .p-menuitem-link > .p-submenu-icon {
     margin-left: auto;
 }
-
 
 .p-megamenu-grid {
     display: flex;

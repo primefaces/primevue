@@ -2,13 +2,24 @@
     <div :class="containerClass">
         <div class="p-panel-header">
             <slot name="header">
-                <span class="p-panel-title" v-if="header" :id="ariaId + '_header'">{{header}}</span>
+                <span class="p-panel-title" v-if="header" :id="ariaId + '_header'">{{ header }}</span>
             </slot>
             <div class="p-panel-icons">
                 <slot name="icons"></slot>
-                <button type="button" role="button" v-if="toggleable" class="p-panel-header-icon p-panel-toggler p-link" :id="ariaId + '_header'" :aria-label="toggleButtonProps||header" :aria-controls="ariaId + '_content'" :aria-expanded="!d_collapsed"
-                    @click="toggle" @keydown="onKeyDown" v-ripple>
-                    <span :class="{'pi pi-minus': !d_collapsed, 'pi pi-plus': d_collapsed}"></span>
+                <button
+                    type="button"
+                    role="button"
+                    v-if="toggleable"
+                    class="p-panel-header-icon p-panel-toggler p-link"
+                    :id="ariaId + '_header'"
+                    :aria-label="toggleButtonProps || header"
+                    :aria-controls="ariaId + '_content'"
+                    :aria-expanded="!d_collapsed"
+                    @click="toggle"
+                    @keydown="onKeyDown"
+                    v-ripple
+                >
+                    <span :class="{ 'pi pi-minus': !d_collapsed, 'pi pi-plus': d_collapsed }"></span>
                 </button>
             </div>
         </div>
@@ -23,7 +34,7 @@
 </template>
 
 <script>
-import {UniqueComponentId} from 'primevue/utils';
+import { UniqueComponentId } from 'primevue/utils';
 import Ripple from 'primevue/ripple';
 
 export default {
@@ -38,7 +49,7 @@ export default {
     data() {
         return {
             d_collapsed: this.collapsed
-        }
+        };
     },
     watch: {
         collapsed(newValue) {
@@ -66,13 +77,13 @@ export default {
             return UniqueComponentId();
         },
         containerClass() {
-            return ['p-panel p-component', {'p-panel-toggleable': this.toggleable}];
+            return ['p-panel p-component', { 'p-panel-toggleable': this.toggleable }];
         }
     },
     directives: {
-        'ripple': Ripple
+        ripple: Ripple
     }
-}
+};
 </script>
 
 <style>

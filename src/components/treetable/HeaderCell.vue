@@ -1,20 +1,19 @@
 <template>
-    <th :style="[containerStyle]" :class="containerClass" @click="onClick" @keydown="onKeyDown"
-        :tabindex="columnProp('sortable') ? '0' : null"  :aria-sort="ariaSort">
+    <th :style="[containerStyle]" :class="containerClass" @click="onClick" @keydown="onKeyDown" :tabindex="columnProp('sortable') ? '0' : null" :aria-sort="ariaSort">
         <span class="p-column-resizer" @mousedown="onResizeStart" v-if="resizableColumns && !columnProp('frozen')"></span>
         <component :is="column.children.header" :column="column" v-if="column.children && column.children.header" />
-        <span class="p-column-title" v-if="columnProp('header')">{{columnProp('header')}}</span>
+        <span class="p-column-title" v-if="columnProp('header')">{{ columnProp('header') }}</span>
         <span v-if="columnProp('sortable')" :class="sortableColumnIcon"></span>
-        <span v-if="isMultiSorted()" class="p-sortable-column-badge">{{getMultiSortMetaIndex() + 1}}</span>
+        <span v-if="isMultiSorted()" class="p-sortable-column-badge">{{ getMultiSortMetaIndex() + 1 }}</span>
     </th>
 </template>
 
 <script>
-import {DomHandler,ObjectUtils} from 'primevue/utils';
+import { DomHandler, ObjectUtils } from 'primevue/utils';
 
 export default {
     name: 'HeaderCell',
-    emits: ['column-click','column-resizestart'],
+    emits: ['column-click', 'column-resizestart'],
     props: {
         column: {
             type: Object,
@@ -44,7 +43,7 @@ export default {
     data() {
         return {
             styleObject: {}
-        }
+        };
     },
     mounted() {
         if (this.columnProp('frozen')) {
@@ -70,8 +69,7 @@ export default {
                         right = DomHandler.getOuterWidth(next) + parseFloat(next.style.right || 0);
                     }
                     this.styleObject.right = right + 'px';
-                }
-                else {
+                } else {
                     let left = 0;
                     let prev = this.$el.previousElementSibling;
                     if (prev) {
@@ -89,11 +87,11 @@ export default {
             }
         },
         onClick(event) {
-            this.$emit('column-click', {originalEvent: event, column: this.column});
+            this.$emit('column-click', { originalEvent: event, column: this.column });
         },
         onKeyDown(event) {
             if (event.which === 13 && event.currentTarget.nodeName === 'TH' && DomHandler.hasClass(event.currentTarget, 'p-sortable-column')) {
-                this.$emit('column-click', {originalEvent: event, column: this.column});
+                this.$emit('column-click', { originalEvent: event, column: this.column });
             }
         },
         onResizeStart(event) {
@@ -113,26 +111,30 @@ export default {
             return index;
         },
         isMultiSorted() {
-            return this.columnProp('sortable') && this.getMultiSortMetaIndex() > -1
+            return this.columnProp('sortable') && this.getMultiSortMetaIndex() > -1;
         },
         isColumnSorted() {
-            return this.sortMode === 'single' ? (this.sortField && (this.sortField === this.columnProp('field') || this.sortField === this.columnProp('sortField'))) : this.isMultiSorted();
+            return this.sortMode === 'single' ? this.sortField && (this.sortField === this.columnProp('field') || this.sortField === this.columnProp('sortField')) : this.isMultiSorted();
         }
     },
     computed: {
         containerClass() {
-            return [this.columnProp('headerClass'), this.columnProp('class'), {
-                'p-sortable-column': this.columnProp('sortable'),
-                'p-resizable-column': this.resizableColumns,
-                'p-highlight': this.isColumnSorted(),
-                'p-frozen-column': this.columnProp('frozen')
-            }];
+            return [
+                this.columnProp('headerClass'),
+                this.columnProp('class'),
+                {
+                    'p-sortable-column': this.columnProp('sortable'),
+                    'p-resizable-column': this.resizableColumns,
+                    'p-highlight': this.isColumnSorted(),
+                    'p-frozen-column': this.columnProp('frozen')
+                }
+            ];
         },
         containerStyle() {
             let headerStyle = this.columnProp('headerStyle');
             let columnStyle = this.columnProp('style');
 
-            return this.columnProp('frozen') ? [columnStyle, headerStyle, this.styleObject]: [columnStyle, headerStyle];
+            return this.columnProp('frozen') ? [columnStyle, headerStyle, this.styleObject] : [columnStyle, headerStyle];
         },
         sortableColumnIcon() {
             let sorted = false;
@@ -140,9 +142,8 @@ export default {
 
             if (this.sortMode === 'single') {
                 sorted = this.sortField && (this.sortField === this.columnProp('field') || this.sortField === this.columnProp('sortField'));
-                sortOrder = sorted ? this.sortOrder: 0;
-            }
-            else if (this.sortMode === 'multiple') {
+                sortOrder = sorted ? this.sortOrder : 0;
+            } else if (this.sortMode === 'multiple') {
                 let metaIndex = this.getMultiSortMetaIndex();
                 if (metaIndex > -1) {
                     sorted = true;
@@ -151,7 +152,8 @@ export default {
             }
 
             return [
-                'p-sortable-column-icon pi pi-fw', {
+                'p-sortable-column-icon pi pi-fw',
+                {
                     'pi-sort-alt': !sorted,
                     'pi-sort-amount-up-alt': sorted && sortOrder > 0,
                     'pi-sort-amount-down': sorted && sortOrder < 0
@@ -161,17 +163,13 @@ export default {
         ariaSort() {
             if (this.columnProp('sortable')) {
                 const sortIcon = this.sortableColumnIcon;
-                if (sortIcon[1]['pi-sort-amount-down'])
-                    return 'descending';
-                else if (sortIcon[1]['pi-sort-amount-up-alt'])
-                    return 'ascending';
-                else
-                    return 'none';
-            }
-            else {
+                if (sortIcon[1]['pi-sort-amount-down']) return 'descending';
+                else if (sortIcon[1]['pi-sort-amount-up-alt']) return 'ascending';
+                else return 'none';
+            } else {
                 return null;
             }
-        },
+        }
     }
-}
+};
 </script>

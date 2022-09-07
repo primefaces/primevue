@@ -10,7 +10,6 @@
 
         <div class="content-section implementation">
             <div class="card">
-
                 <h5>Addons</h5>
                 <div class="grid p-fluid">
                     <div class="col-12 md:col-4">
@@ -59,23 +58,23 @@
                 <div class="grid p-fluid">
                     <div class="col-12 md:col-4">
                         <div class="p-inputgroup">
-                            <Button label="Search"/>
-                            <InputText placeholder="Keyword"/>
+                            <Button label="Search" />
+                            <InputText placeholder="Keyword" />
                         </div>
                     </div>
 
                     <div class="col-12 md:col-4">
                         <div class="p-inputgroup">
-                            <InputText placeholder="Keyword"/>
-                            <Button icon="pi pi-search" class="p-button-warning"/>
+                            <InputText placeholder="Keyword" />
+                            <Button icon="pi pi-search" class="p-button-warning" />
                         </div>
                     </div>
 
                     <div class="col-12 md:col-4">
                         <div class="p-inputgroup">
-                            <Button icon="pi pi-check" class="p-button-success"/>
-                            <InputText placeholder="Vote"/>
-                            <Button icon="pi pi-times" class="p-button-danger"/>
+                            <Button icon="pi pi-check" class="p-button-success" />
+                            <InputText placeholder="Vote" />
+                            <Button icon="pi pi-times" class="p-button-danger" />
                         </div>
                     </div>
                 </div>
@@ -87,13 +86,13 @@
                             <span class="p-inputgroup-addon">
                                 <Checkbox v-model="checked1" :binary="true" />
                             </span>
-                            <InputText placeholder="Username"/>
+                            <InputText placeholder="Username" />
                         </div>
                     </div>
 
                     <div class="col-12 md:col-12">
                         <div class="p-inputgroup">
-                            <InputText placeholder="Price"/>
+                            <InputText placeholder="Price" />
                             <span class="p-inputgroup-addon">
                                 <RadioButton name="rb1" value="rb1" v-model="radioValue1" />
                             </span>
@@ -105,7 +104,7 @@
                             <span class="p-inputgroup-addon">
                                 <Checkbox v-model="checked2" :binary="true" />
                             </span>
-                            <InputText placeholder="Website"/>
+                            <InputText placeholder="Website" />
                             <span class="p-inputgroup-addon">
                                 <RadioButton name="rb2" value="rb2" v-model="radioValue2" />
                             </span>
@@ -115,7 +114,7 @@
             </div>
         </div>
 
-        <InputGroupDoc/>
+        <InputGroupDoc />
     </div>
 </template>
 
@@ -129,10 +128,10 @@ export default {
             checked2: false,
             radioValue1: '',
             radioValue2: ''
-        }
+        };
     },
     components: {
-        'InputGroupDoc': InputGroupDoc
+        InputGroupDoc: InputGroupDoc
     }
-}
+};
 </script>

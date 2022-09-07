@@ -11,22 +11,20 @@
         <div class="content-section implementation">
             <div class="card">
                 <OrderList v-model="products" listStyle="height:auto" dataKey="id">
-                    <template #header>
-                        List of Products
-                    </template>
+                    <template #header> List of Products </template>
                     <template #item="slotProps">
                         <div class="product-item">
                             <div class="image-container">
                                 <img :src="'demo/images/product/' + slotProps.item.image" :alt="slotProps.item.name" />
                             </div>
                             <div class="product-list-detail">
-                                <h6 class="mb-2">{{slotProps.item.name}}</h6>
+                                <h6 class="mb-2">{{ slotProps.item.name }}</h6>
                                 <i class="pi pi-tag product-category-icon"></i>
-                                <span class="product-category">{{slotProps.item.category}}</span>
+                                <span class="product-category">{{ slotProps.item.category }}</span>
                             </div>
                             <div class="product-list-action">
-                                <h6 class="mb-2">${{slotProps.item.price}}</h6>
-                                <span :class="'product-badge status-'+slotProps.item.inventoryStatus.toLowerCase()">{{slotProps.item.inventoryStatus}}</span>
+                                <h6 class="mb-2">${{ slotProps.item.price }}</h6>
+                                <span :class="'product-badge status-' + slotProps.item.inventoryStatus.toLowerCase()">{{ slotProps.item.inventoryStatus }}</span>
                             </div>
                         </div>
                     </template>
@@ -46,54 +44,54 @@ export default {
     data() {
         return {
             products: null
-        }
+        };
     },
     productService: null,
     created() {
         this.productService = new ProductService();
     },
     mounted() {
-        this.productService.getProductsSmall().then(data => this.products = data);
+        this.productService.getProductsSmall().then((data) => (this.products = data));
     },
     components: {
-        'OrderListDoc': OrderListDoc
+        OrderListDoc: OrderListDoc
     }
-}
+};
 </script>
 
 <style lang="scss" scoped>
 .product-item {
-	display: flex;
-	align-items: center;
-	padding: .5rem;
-	width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    width: 100%;
 
-	img {
-		width: 75px;
+    img {
+        width: 75px;
         box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
         margin-right: 1rem;
-	}
+    }
 
-	.product-list-detail {
-		flex: 1 1 0;
-	}
+    .product-list-detail {
+        flex: 1 1 0;
+    }
 
-	.product-list-action {
-		display: flex;
+    .product-list-action {
+        display: flex;
         flex-direction: column;
         align-items: flex-end;
     }
 
     .product-category-icon {
         vertical-align: middle;
-        margin-right: .5rem;
-        font-size: .875rem;
+        margin-right: 0.5rem;
+        font-size: 0.875rem;
     }
 
     .product-category {
         vertical-align: middle;
         line-height: 1;
-        font-size: .875rem;
+        font-size: 0.875rem;
     }
 }
 

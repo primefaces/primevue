@@ -30,21 +30,21 @@ export default {
             let argsIndex = text.indexOf(' ');
             let command = argsIndex !== -1 ? text.substring(0, argsIndex) : text;
 
-            switch(command) {
-                case "date":
+            switch (command) {
+                case 'date':
                     response = 'Today is ' + new Date().toDateString();
                     break;
 
-                case "greet":
+                case 'greet':
                     response = 'Hola ' + text.substring(argsIndex + 1);
                     break;
 
-                case "random":
+                case 'random':
                     response = Math.floor(Math.random() * 100);
                     break;
 
                 default:
-                    response = "Unknown command: " + command;
+                    response = 'Unknown command: ' + command;
             }
 
             TerminalService.emit('response', response);
@@ -57,9 +57,9 @@ export default {
         TerminalService.off('command', this.commandHandler);
     },
     components: {
-        'TerminalDoc': TerminalDoc
-	}
-}
+        TerminalDoc: TerminalDoc
+    }
+};
 </script>
 
 <style lang="scss" scoped>
@@ -72,15 +72,15 @@ p {
     color: #ffffff;
 
     .p-terminal-command {
-        color: #80CBC4;
+        color: #80cbc4;
     }
 
     .p-terminal-prompt {
-        color: #FFD54F;
+        color: #ffd54f;
     }
 
     .p-terminal-response {
-        color: #9FA8DA;
+        color: #9fa8da;
     }
 }
 </style>

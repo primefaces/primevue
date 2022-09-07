@@ -18,10 +18,10 @@ describe('Chips.vue', () => {
         expect(wrapper.find('li.p-chips-input-token').exists()).toBe(true);
     });
 
-    it('should add item', async() => {
+    it('should add item', async () => {
         const addItem = jest.spyOn(wrapper.vm, 'addItem');
-        
-        await wrapper.vm.addItem({},'PrimeVue', false);
+
+        await wrapper.vm.addItem({}, 'PrimeVue', false);
 
         await wrapper.setProps({ modelValue: ['PrimeVue'] });
 

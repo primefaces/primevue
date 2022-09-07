@@ -28,6 +28,6 @@ describe('Panel.vue', () => {
 
         await wrapper.vm.toggle({});
 
-        expect(wrapper.emitted().toggle[0]).toEqual([{originalEvent: {}, value: true}]);
+        expect(wrapper.emitted().toggle[0]).toEqual([{ originalEvent: {}, value: true }]);
     });
 });

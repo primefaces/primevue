@@ -1,14 +1,14 @@
 <template>
     <div :class="containerClass">
-        <span :class="['p-rating-icon p-rating-cancel pi pi-ban', {'p-focus': focusIndex === 0}]" v-if="cancel" @click="onCancelClick" @keydown="onKeyDown">
+        <span :class="['p-rating-icon p-rating-cancel pi pi-ban', { 'p-focus': focusIndex === 0 }]" v-if="cancel" @click="onCancelClick" @keydown="onKeyDown">
             <span class="p-hidden-accessible" v-if="cancel">
-                <input type="radio" value="0" :name="name" :checked="modelValue === 0" :disabled="disabled" :readonly="readonly" :aria-label="$primevue.config.locale.clear" @focus="onFocus($event, 0)" @blur="onBlur" @keydown="onKeyDown($event, 0)">
+                <input type="radio" value="0" :name="name" :checked="modelValue === 0" :disabled="disabled" :readonly="readonly" :aria-label="$primevue.config.locale.clear" @focus="onFocus($event, 0)" @blur="onBlur" @keydown="onKeyDown($event, 0)" />
             </span>
         </span>
         <template :key="i" v-for="i in stars">
-            <span :class="['p-rating-icon', {'pi pi-star': (i > modelValue), 'pi pi-star-fill': (i <= modelValue), 'p-focus': i === focusIndex}]" @click="onStarClick($event,i)">
+            <span :class="['p-rating-icon', { 'pi pi-star': i > modelValue, 'pi pi-star-fill': i <= modelValue, 'p-focus': i === focusIndex }]" @click="onStarClick($event, i)">
                 <span class="p-hidden-accessible">
-                    <input type="radio" :value="i" :name="name" :checked="modelValue === i" :disabled="disabled" :readonly="readonly" :aria-label="ariaLabelTemplate(i)" @focus="onFocus($event, i)" @blur="onBlur" @keydown="onKeyDown($event,i)">
+                    <input type="radio" :value="i" :name="name" :checked="modelValue === i" :disabled="disabled" :readonly="readonly" :aria-label="ariaLabelTemplate(i)" @focus="onFocus($event, i)" @blur="onBlur" @keydown="onKeyDown($event, i)" />
                 </span>
             </span>
         </template>
@@ -28,11 +28,11 @@ export default {
             type: String,
             default: null
         },
-		disabled: {
+        disabled: {
             type: Boolean,
             default: false
         },
-		readonly: {
+        readonly: {
             type: Boolean,
             default: false
         },
@@ -68,13 +68,11 @@ export default {
         onFocus(event, index) {
             if (!this.readonly) {
                 if (this.modelValue === null && this.focusIndex === null) {
-                    this.cancel ? this.focusIndex = 0 : this.focusIndex = 1;
-                }
-                else if (this.modelValue !== null && this.focusIndex === null) {
+                    this.cancel ? (this.focusIndex = 0) : (this.focusIndex = 1);
+                } else if (this.modelValue !== null && this.focusIndex === null) {
                     this.focusIndex = this.modelValue;
                     this.updateModel(event, this.modelValue);
-                }
-                else {
+                } else {
                     this.focusIndex = index;
                     this.updateModel(event, index);
                 }
@@ -112,7 +110,7 @@ export default {
             ];
         }
     }
-}
+};
 </script>
 
 <style>
@@ -127,7 +125,7 @@ export default {
 .p-rating:not(.p-disabled) .p-rating-icon.p-focus {
     outline: 0 none;
     outline-offset: 0;
-    box-shadow: 0 0 0 0.2rem #BFDBFE;
-    border-color: #3B82F6;
+    box-shadow: 0 0 0 0.2rem #bfdbfe;
+    border-color: #3b82f6;
 }
 </style>

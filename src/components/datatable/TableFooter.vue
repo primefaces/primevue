@@ -1,14 +1,14 @@
 <template>
     <tfoot class="p-datatable-tfoot" v-if="hasFooter" role="rowgroup">
         <tr v-if="!columnGroup" role="row">
-            <template v-for="(col,i) of columns" :key="columnProp(col,'columnKey')||columnProp(col,'field')||i" >
-                <DTFooterCell :column="col" v-if="!columnProp(col,'hidden')"/>
+            <template v-for="(col, i) of columns" :key="columnProp(col, 'columnKey') || columnProp(col, 'field') || i">
+                <DTFooterCell :column="col" v-if="!columnProp(col, 'hidden')" />
             </template>
         </tr>
         <template v-else>
-            <tr v-for="(row,i) of getFooterRows()" :key="i" role="row">
-                <template v-for="(col,j) of getFooterColumns(row)" :key="columnProp(col,'columnKey')||columnProp(col,'field')||j">
-                    <DTFooterCell :column="col" v-if="!columnProp(col,'hidden')"/>
+            <tr v-for="(row, i) of getFooterRows()" :key="i" role="row">
+                <template v-for="(col, j) of getFooterColumns(row)" :key="columnProp(col, 'columnKey') || columnProp(col, 'field') || j">
+                    <DTFooterCell :column="col" v-if="!columnProp(col, 'hidden')" />
                 </template>
             </tr>
         </template>
@@ -17,7 +17,7 @@
 
 <script>
 import FooterCell from './FooterCell.vue';
-import {ObjectUtils} from 'primevue/utils';
+import { ObjectUtils } from 'primevue/utils';
 
 export default {
     name: 'TableFooter',
@@ -29,7 +29,7 @@ export default {
         columns: {
             type: null,
             default: null
-        },
+        }
     },
     methods: {
         columnProp(col, prop) {
@@ -43,8 +43,7 @@ export default {
                 for (let child of columnGroup.children.default()) {
                     if (child.type.name === 'Row') {
                         rows.push(child);
-                    }
-                    else if (child.children && child.children instanceof Array) {
+                    } else if (child.children && child.children instanceof Array) {
                         rows = child.children;
                     }
                 }
@@ -52,15 +51,13 @@ export default {
                 return rows;
             }
         },
-        getFooterColumns(row){
+        getFooterColumns(row) {
             let cols = [];
 
             if (row.children && row.children.default) {
-                row.children.default().forEach(child => {
-                    if (child.children && child.children instanceof Array)
-                        cols = [...cols, ...child.children];
-                    else if (child.type.name === 'Column')
-                        cols.push(child);
+                row.children.default().forEach((child) => {
+                    if (child.children && child.children instanceof Array) cols = [...cols, ...child.children];
+                    else if (child.type.name === 'Column') cols.push(child);
                 });
 
                 return cols;
@@ -73,8 +70,7 @@ export default {
 
             if (this.columnGroup) {
                 hasFooter = true;
-            }
-            else if (this.columns) {
+            } else if (this.columns) {
                 for (let col of this.columns) {
                     if (this.columnProp(col, 'footer') || (col.children && col.children.footer)) {
                         hasFooter = true;
@@ -87,7 +83,7 @@ export default {
         }
     },
     components: {
-        'DTFooterCell': FooterCell
+        DTFooterCell: FooterCell
     }
-}
+};
 </script>

@@ -3,7 +3,6 @@ node_modules
 /dist
 /resources
 /components
-package-lock.json
 
 # misc
 /.sass-cache
@@ -25,7 +24,6 @@ yarn-error.log*
 
 # Editor directories and files
 .idea
-.vscode
 *.suo
 *.ntvs*
 *.njsproj

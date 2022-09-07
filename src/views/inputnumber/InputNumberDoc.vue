@@ -1,41 +1,44 @@
 <template>
-	<AppDoc name="InputNumberDemo" :sources="sources" github="inputnumber/InputNumberDemo.vue">
+    <AppDoc name="InputNumberDemo" :sources="sources" github="inputnumber/InputNumberDemo.vue">
         <h5>Import via Module</h5>
-<pre v-code.script><code>
+        <pre v-code.script><code>
 import InputNumber from 'primevue/inputnumber';
 
 </code></pre>
 
         <h5>Import via CDN</h5>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-<h5>Getting Started</h5>
+        <h5>Getting Started</h5>
         <p>InputNumber is used with the standard v-model directive. Component always provides a number type although formatting on the input is a string.</p>
 
-<pre v-code><code>
+        <pre v-code><code>
 &lt;InputNumber v-model="value" /&gt;
 
 </code></pre>
 
         <h5>Decimal Mode</h5>
         <p>Format is defined using the <i>mode</i> property, "decimal" is the default value allowing only integers when there is no other configuration.</p>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;InputNumber v-model="value" mode="decimal" /&gt;
 
 </code></pre>
 
         <p>Fractions are configured with the <i>minFractionDigits</i> property. Optionally <i>maxFractionDigits</i> can be used to defined a boundary for the maximum digits.</p>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;InputNumber v-model="value1" mode="decimal" :minFractionDigits="2" /&gt;
 &lt;InputNumber v-model="value2" mode="decimal" :minFractionDigits="2" :maxFractionDigits="2" /&gt;
 
 </code></pre>
 
-        <p><i>locale</i> option is available to set the localization information such as grouping and decimal symbols where default value is the browser locale. Locales are defined per <a href="https://tools.ietf.org/html/rfc5646">BCP Language Tag</a>.</p>
-<pre v-code><code>
+        <p>
+            <i>locale</i> option is available to set the localization information such as grouping and decimal symbols where default value is the browser locale. Locales are defined per
+            <a href="https://tools.ietf.org/html/rfc5646">BCP Language Tag</a>.
+        </p>
+        <pre v-code><code>
 User Locale
 &lt;InputNumber v-model="value1" mode="decimal" :minFractionDigits="2" /&gt;
 
@@ -51,9 +54,8 @@ Indian Locale
 </code></pre>
 
         <h5>Currency</h5>
-        <p>Currency formatting is specified by setting the <i>mode</i> option to currency and <i>currency</i> property. In addition <i>currencyDisplay</i> option
-        allows how the currency is displayed, valid values are "symbol" (default) or "code".</p>
-<pre v-code><code>
+        <p>Currency formatting is specified by setting the <i>mode</i> option to currency and <i>currency</i> property. In addition <i>currencyDisplay</i> option allows how the currency is displayed, valid values are "symbol" (default) or "code".</p>
+        <pre v-code><code>
 United States
 &lt;InputNumber v-model="value1" mode="currency" currency="USD" locale="en-US" /&gt;
 
@@ -70,7 +72,7 @@ Japan
 
         <h5>Prefix and Suffix</h5>
         <p>Custom texts e.g. units can be placed before or after the input section with the <i>prefix</i> and <i>suffix</i> properties.</p>
-<pre v-code><code>
+        <pre v-code><code>
 Mile
 &lt;InputNumber v-model="value1" suffix=" mi" /&gt;
 
@@ -86,9 +88,11 @@ Temperature
 </code></pre>
 
         <h5>Buttons</h5>
-        <p>Spinner buttons is enabled using the <i>showButtons</i> options and layout is defined with the <i>buttonLayout</i>. Default value is "stacked" whereas
-        "horizontal" and "stacked" are alternatives. Note that even there are no buttons, up and down arrow keys can be used to spin the values with keyboard.</p>
-<pre v-code><code>
+        <p>
+            Spinner buttons is enabled using the <i>showButtons</i> options and layout is defined with the <i>buttonLayout</i>. Default value is "stacked" whereas "horizontal" and "stacked" are alternatives. Note that even there are no buttons, up
+            and down arrow keys can be used to spin the values with keyboard.
+        </p>
+        <pre v-code><code>
 Stacked
 &lt;InputNumber v-model="value1" showButtons mode="currency" currency="USD" /&gt;
 
@@ -104,22 +108,20 @@ Vertical
 
         <h5>Step</h5>
         <p>Step factor is 1 by default and can be customized with <i>step</i> option.</p>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;InputNumber v-model="value" :step="0.25" /&gt;
 
 </code></pre>
 
-
         <h5>Min and Max Boundaries</h5>
         <p>Value to be entered can be restricted by configuring the <i>min</i> and <i>max</i> options.</p>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;InputNumber v-model="value" :min="0" :max="100" /&gt;
 
 </code></pre>
 
-
-		<h5>Properties</h5>
-		<p>InputNumber passes any valid attribute to the underlying input element.</p>
+        <h5>Properties</h5>
+        <p>InputNumber passes any valid attribute to the underlying input element.</p>
         <div class="doc-tablewrapper">
             <table class="doc-table">
                 <thead>
@@ -189,8 +191,9 @@ Vertical
                         <td>localeMatcher</td>
                         <td>string</td>
                         <td>best fit</td>
-                        <td>The locale matching algorithm to use. Possible values are "lookup" and "best fit"; the default is "best fit".
-                            See <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_negotiation">Locale Negotation</a> for details.
+                        <td>
+                            The locale matching algorithm to use. Possible values are "lookup" and "best fit"; the default is "best fit". See
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_negotiation">Locale Negotation</a> for details.
                         </td>
                     </tr>
                     <tr>
@@ -215,16 +218,19 @@ Vertical
                         <td>currency</td>
                         <td>string</td>
                         <td>null</td>
-                        <td>The currency to use in currency formatting. Possible values are the <a href="https://www.currency-iso.org/en/home/tables/table-a1.html">ISO 4217 currency codes</a>,
-                            such as "USD" for the US dollar, "EUR" for the euro, or "CNY" for the Chinese RMB.
-                            There is no default value; if the style is "currency", the currency property must be provided.</td>
+                        <td>
+                            The currency to use in currency formatting. Possible values are the <a href="https://www.currency-iso.org/en/home/tables/table-a1.html">ISO 4217 currency codes</a>, such as "USD" for the US dollar, "EUR" for the euro, or
+                            "CNY" for the Chinese RMB. There is no default value; if the style is "currency", the currency property must be provided.
+                        </td>
                     </tr>
                     <tr>
                         <td>currencyDisplay</td>
                         <td>string</td>
                         <td>symbol</td>
-                        <td>How to display the currency in currency formatting. Possible values are "symbol" to use a localized currency symbol such as €,
-                            "code" to use the ISO currency code, "name" to use a localized currency name such as "dollar"; the default is "symbol".</td>
+                        <td>
+                            How to display the currency in currency formatting. Possible values are "symbol" to use a localized currency symbol such as €, "code" to use the ISO currency code, "name" to use a localized currency name such as "dollar";
+                            the default is "symbol".
+                        </td>
                     </tr>
                     <tr>
                         <td>useGrouping</td>
@@ -236,17 +242,20 @@ Vertical
                         <td>minFractionDigits</td>
                         <td>number</td>
                         <td>null</td>
-                        <td>The minimum number of fraction digits to use. Possible values are from 0 to 20; the default for plain number and percent formatting is 0; the default for currency formatting is the number of
-                            minor unit digits provided by the <a href="https://www.currency-iso.org/en/home/tables/table-a1.html">ISO 4217 currency code list</a> (2 if the list doesn't provide that information).</td>
+                        <td>
+                            The minimum number of fraction digits to use. Possible values are from 0 to 20; the default for plain number and percent formatting is 0; the default for currency formatting is the number of minor unit digits provided by
+                            the <a href="https://www.currency-iso.org/en/home/tables/table-a1.html">ISO 4217 currency code list</a> (2 if the list doesn't provide that information).
+                        </td>
                     </tr>
                     <tr>
                         <td>maxFractionDigits</td>
                         <td>number</td>
                         <td>null</td>
-                        <td>The maximum number of fraction digits to use. Possible values are from 0 to 20; the default for plain
-                            number formatting is the larger of minimumFractionDigits and 3; the default for currency formatting
-                            is the larger of minimumFractionDigits and the number of minor unit digits provided by the <a href="https://www.currency-iso.org/en/home/tables/table-a1.html">ISO 4217 currency code list</a>
-                            (2 if the list doesn't provide that information).</td>
+                        <td>
+                            The maximum number of fraction digits to use. Possible values are from 0 to 20; the default for plain number formatting is the larger of minimumFractionDigits and 3; the default for currency formatting is the larger of
+                            minimumFractionDigits and the number of minor unit digits provided by the <a href="https://www.currency-iso.org/en/home/tables/table-a1.html">ISO 4217 currency code list</a> (2 if the list doesn't provide that
+                            information).
+                        </td>
                     </tr>
                     <tr>
                         <td>min</td>
@@ -331,24 +340,24 @@ Vertical
         </div>
 
         <h5>Methods</h5>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Parameters</th>
                         <th>Description</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>getFormatter</td>
                         <td>-</td>
                         <td>Returns Intl.NumberFormat object.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
         <h5>Events</h5>
         <p>Any valid event such as focus and blur are passed to the underlying input element. Following are the additional events to configure the component.</p>
@@ -364,8 +373,10 @@ Vertical
                 <tbody>
                     <tr>
                         <td>input</td>
-                        <td>event.originalEvent: Browser event <br />
-                            event.value: New value</td>
+                        <td>
+                            event.originalEvent: Browser event <br />
+                            event.value: New value
+                        </td>
                         <td>Callback to invoke when the value is entered.</td>
                     </tr>
                     <tr>
@@ -375,7 +386,8 @@ Vertical
                     </tr>
                     <tr>
                         <td>blur</td>
-                        <td>event.originalEvent: Blur event <br />
+                        <td>
+                            event.originalEvent: Blur event <br />
                             event.value: Input value
                         </td>
                         <td>Callback to invoke on blur of input field.</td>
@@ -384,17 +396,17 @@ Vertical
             </table>
         </div>
 
-		<h5>Styling</h5>
-		<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <h5>Styling</h5>
+        <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Element</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>p-inputnumber</td>
                         <td>Container element</td>
@@ -431,16 +443,18 @@ Vertical
                         <td>p-inputnumber-button-icon</td>
                         <td>Button icon</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
         <h5>Accessibility</h5>
         <h6>Screen Reader</h6>
-        <p>Value to describe the component can either be provided via <i>label</i> tag combined with <i>inputId</i> prop or using <i>aria-labelledby</i>, <i>aria-label</i> props.
-        The input element uses <i>spinbutton</i> role in addition to the <i>aria-valuemin</i>, <i>aria-valuemax</i> and <i>aria-valuenow</i> attributes.</p>
+        <p>
+            Value to describe the component can either be provided via <i>label</i> tag combined with <i>inputId</i> prop or using <i>aria-labelledby</i>, <i>aria-label</i> props. The input element uses <i>spinbutton</i> role in addition to the
+            <i>aria-valuemin</i>, <i>aria-valuemax</i> and <i>aria-valuenow</i> attributes.
+        </p>
 
-<pre v-code><code>
+        <pre v-code><code>
 &lt;label for="price"&gt;Price&lt;/label&gt;
 &lt;InputNumber inputId="price" /&gt;
 
@@ -485,8 +499,8 @@ Vertical
             </table>
         </div>
 
-		<h5>Dependencies</h5>
-		<p>None.</p>
+        <h5>Dependencies</h5>
+        <p>None.</p>
     </AppDoc>
 </template>
 
@@ -496,7 +510,7 @@ export default {
         return {
             sources: {
                 'options-api': {
-                    tabName : 'Options API Source',
+                    tabName: 'Options API Source',
                     content: `
 <template>
     <div>
@@ -633,7 +647,7 @@ export default {
 `
                 },
                 'composition-api': {
-                    tabName : 'Composition API Source',
+                    tabName: 'Composition API Source',
                     content: `
 <template>
     <div>
@@ -917,7 +931,7 @@ export default {
 `
                 }
             }
-        }
+        };
     }
-}
+};
 </script>

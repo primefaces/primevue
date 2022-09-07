@@ -1,8 +1,15 @@
 <template>
-    <div :class="['p-checkbox p-component', {'p-checkbox-focused': focused, 'p-disabled': $attrs.disabled}]" @click="onClick" @keydown.space.prevent="onClick">
-        <div ref="box" :class="['p-checkbox-box p-component', {'p-highlight': checked, 'p-disabled': $attrs.disabled, 'p-focus': focused}]"
-            role="checkbox" :aria-checked="checked" :tabindex="$attrs.disabled ? null : '0'" @focus="onFocus($event)" @blur="onBlur($event)">
-            <span :class="['p-checkbox-icon', {'pi pi-check': checked}]"></span>
+    <div :class="['p-checkbox p-component', { 'p-checkbox-focused': focused, 'p-disabled': $attrs.disabled }]" @click="onClick" @keydown.space.prevent="onClick">
+        <div
+            ref="box"
+            :class="['p-checkbox-box p-component', { 'p-highlight': checked, 'p-disabled': $attrs.disabled, 'p-focus': focused }]"
+            role="checkbox"
+            :aria-checked="checked"
+            :tabindex="$attrs.disabled ? null : '0'"
+            @focus="onFocus($event)"
+            @blur="onBlur($event)"
+        >
+            <span :class="['p-checkbox-icon', { 'pi pi-check': checked }]"></span>
         </div>
     </div>
 </template>
@@ -37,5 +44,5 @@ export default {
             this.focused = false;
         }
     }
-}
+};
 </script>

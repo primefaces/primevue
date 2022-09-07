@@ -11,9 +11,7 @@
         <div class="content-section implementation">
             <div class="card">
                 <TreeTable :value="nodes">
-                    <template #header>
-                        FileSystem
-                    </template>
+                    <template #header> FileSystem </template>
                     <Column field="name" header="Name" :expander="true"></Column>
                     <Column field="size" header="Size"></Column>
                     <Column field="type" header="Type"></Column>
@@ -22,12 +20,12 @@
                             <Button type="button" icon="pi pi-cog"></Button>
                         </template>
                         <template #body>
-                            <Button type="button" icon="pi pi-search" class="p-button-success" style="margin-right: .5em"></Button>
+                            <Button type="button" icon="pi pi-search" class="p-button-success" style="margin-right: 0.5em"></Button>
                             <Button type="button" icon="pi pi-pencil" class="p-button-warning"></Button>
                         </template>
                     </Column>
                     <template #footer>
-                        <div style="text-align:left">
+                        <div style="text-align: left">
                             <Button icon="pi pi-refresh" />
                         </div>
                     </template>
@@ -36,7 +34,6 @@
         </div>
 
         <AppDoc name="TreeTableTemplatingDemo" :sources="sources" :service="['NodeService']" :data="['treetablenodes']" github="treetable/TreeTableTemplatingDemo.vue" />
-            
     </div>
 </template>
 
@@ -205,14 +202,14 @@ export default {
 `
                 }
             }
-        }
+        };
     },
     nodeService: null,
     created() {
         this.nodeService = new NodeService();
     },
     mounted() {
-        this.nodeService.getTreeTableNodes().then(data => this.nodes = data);
+        this.nodeService.getTreeTableNodes().then((data) => (this.nodes = data));
     }
-}
+};
 </script>

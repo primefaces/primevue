@@ -1,21 +1,39 @@
 <template>
     <div :class="containerClass">
-        <PInputText ref="input" :id="inputId" :type="inputType" :class="inputClass" :style="inputStyle" :value="modelValue" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel"
-            :aria-controls="(panelProps&&panelProps.id)||panelId||panelUniqueId" :aria-expanded="overlayVisible" :aria-haspopup="true" :placeholder="placeholder" :required="required"
-            @input="onInput" @focus="onFocus" @blur="onBlur" @keyup="onKeyUp" @invalid="onInvalid" v-bind="inputProps" />
+        <PInputText
+            ref="input"
+            :id="inputId"
+            :type="inputType"
+            :class="inputClass"
+            :style="inputStyle"
+            :value="modelValue"
+            :aria-labelledby="ariaLabelledby"
+            :aria-label="ariaLabel"
+            :aria-controls="(panelProps && panelProps.id) || panelId || panelUniqueId"
+            :aria-expanded="overlayVisible"
+            :aria-haspopup="true"
+            :placeholder="placeholder"
+            :required="required"
+            @input="onInput"
+            @focus="onFocus"
+            @blur="onBlur"
+            @keyup="onKeyUp"
+            @invalid="onInvalid"
+            v-bind="inputProps"
+        />
         <i v-if="toggleMask" :class="toggleIconClass" @click="onMaskToggle" />
         <span class="p-hidden-accessible" aria-live="polite">
-            {{infoText}}
+            {{ infoText }}
         </span>
         <Portal :appendTo="appendTo">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
-                <div :ref="overlayRef" :id="panelId||panelUniqueId" :class="panelStyleClass" :style="panelStyle" v-if="overlayVisible" @click="onOverlayClick" v-bind="panelProps">
+                <div :ref="overlayRef" :id="panelId || panelUniqueId" :class="panelStyleClass" :style="panelStyle" v-if="overlayVisible" @click="onOverlayClick" v-bind="panelProps">
                     <slot name="header"></slot>
                     <slot name="content">
                         <div class="p-password-meter">
-                            <div :class="strengthClass" :style="{'width': meter ? meter.width : ''}"></div>
+                            <div :class="strengthClass" :style="{ width: meter ? meter.width : '' }"></div>
                         </div>
-                        <div class="p-password-info">{{infoText}}</div>
+                        <div class="p-password-info">{{ infoText }}</div>
                     </slot>
                     <slot name="footer"></slot>
                 </div>
@@ -25,7 +43,7 @@
 </template>
 
 <script>
-import {ConnectedOverlayScrollHandler,DomHandler,ZIndexUtils,UniqueComponentId} from 'primevue/utils';
+import { ConnectedOverlayScrollHandler, DomHandler, ZIndexUtils, UniqueComponentId } from 'primevue/utils';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import InputText from 'primevue/inputtext';
 import Portal from 'primevue/portal';
@@ -125,7 +143,7 @@ export default {
         },
         'aria-labelledby': {
             type: String,
-			default: null
+            default: null
         },
         'aria-label': {
             type: String,
@@ -181,8 +199,7 @@ export default {
         alignOverlay() {
             if (this.appendTo === 'self') {
                 DomHandler.relativePosition(this.overlay, this.$refs.input.$el);
-            }
-            else {
+            } else {
                 this.overlay.style.minWidth = DomHandler.getOuterWidth(this.$refs.input.$el) + 'px';
                 DomHandler.absolutePosition(this.overlay, this.$refs.input.$el);
             }
@@ -190,16 +207,13 @@ export default {
         testStrength(str) {
             let level = 0;
 
-            if (this.strongCheckRegExp.test(str))
-                level = 3;
-            else if (this.mediumCheckRegExp.test(str))
-                level = 2;
-            else if (str.length)
-                level = 1;
+            if (this.strongCheckRegExp.test(str)) level = 3;
+            else if (this.mediumCheckRegExp.test(str)) level = 2;
+            else if (str.length) level = 1;
 
             return level;
         },
-        onInput(event)  {
+        onInput(event) {
             this.$emit('update:modelValue', event.target.value);
         },
         onFocus(event) {
@@ -224,7 +238,7 @@ export default {
         onKeyUp(event) {
             if (this.feedback) {
                 const value = event.target.value;
-                const { meter, label }  = this.checkPasswordStrength(value);
+                const { meter, label } = this.checkPasswordStrength(value);
 
                 this.meter = meter;
                 this.infoText = label;
@@ -339,22 +353,32 @@ export default {
     },
     computed: {
         containerClass() {
-            return ['p-password p-component p-inputwrapper', {
-                'p-inputwrapper-filled': this.filled,
-                'p-inputwrapper-focus': this.focused,
-                'p-input-icon-right': this.toggleMask
-            }];
+            return [
+                'p-password p-component p-inputwrapper',
+                {
+                    'p-inputwrapper-filled': this.filled,
+                    'p-inputwrapper-focus': this.focused,
+                    'p-input-icon-right': this.toggleMask
+                }
+            ];
         },
         inputFieldClass() {
-            return ['p-password-input', {
-                'p-disabled': this.disabled
-            }];
+            return [
+                'p-password-input',
+                {
+                    'p-disabled': this.disabled
+                }
+            ];
         },
         panelStyleClass() {
-            return ['p-password-panel p-component', this.panelClass, {
-                'p-input-filled': this.$primevue.config.inputStyle === 'filled',
-                'p-ripple-disabled': this.$primevue.config.ripple === false
-            }];
+            return [
+                'p-password-panel p-component',
+                this.panelClass,
+                {
+                    'p-input-filled': this.$primevue.config.inputStyle === 'filled',
+                    'p-ripple-disabled': this.$primevue.config.ripple === false
+                }
+            ];
         },
         toggleIconClass() {
             return this.unmasked ? this.hideIcon : this.showIcon;
@@ -366,7 +390,7 @@ export default {
             return this.unmasked ? 'text' : 'password';
         },
         filled() {
-            return (this.modelValue != null && this.modelValue.toString().length > 0)
+            return this.modelValue != null && this.modelValue.toString().length > 0;
         },
         weakText() {
             return this.weakLabel || this.$primevue.config.locale.weak;
@@ -385,10 +409,10 @@ export default {
         }
     },
     components: {
-        'PInputText': InputText,
-        'Portal': Portal
+        PInputText: InputText,
+        Portal: Portal
     }
-}
+};
 </script>
 
 <style>

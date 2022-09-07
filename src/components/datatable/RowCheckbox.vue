@@ -1,8 +1,16 @@
 <template>
-    <div :class="['p-checkbox p-component', {'p-checkbox-focused': focused}]" @click.stop.prevent="onClick">
-        <div ref="box" :class="['p-checkbox-box p-component', {'p-highlight': checked, 'p-disabled': $attrs.disabled, 'p-focus': focused}]"
-            role="checkbox" :aria-checked="checked" :tabindex="$attrs.disabled ? null : '0'" @keydown.space.prevent="onClick" @focus="onFocus($event)" @blur="onBlur($event)">
-            <span :class="['p-checkbox-icon', {'pi pi-check': checked}]"></span>
+    <div :class="['p-checkbox p-component', { 'p-checkbox-focused': focused }]" @click.stop.prevent="onClick">
+        <div
+            ref="box"
+            :class="['p-checkbox-box p-component', { 'p-highlight': checked, 'p-disabled': $attrs.disabled, 'p-focus': focused }]"
+            role="checkbox"
+            :aria-checked="checked"
+            :tabindex="$attrs.disabled ? null : '0'"
+            @keydown.space.prevent="onClick"
+            @focus="onFocus($event)"
+            @blur="onBlur($event)"
+        >
+            <span :class="['p-checkbox-icon', { 'pi pi-check': checked }]"></span>
         </div>
     </div>
 </template>
@@ -13,7 +21,7 @@ export default {
     inheritAttrs: false,
     emits: ['change'],
     props: {
-		value: null,
+        value: null,
         checked: null
     },
     data() {
@@ -38,5 +46,5 @@ export default {
             this.focused = false;
         }
     }
-}
+};
 </script>

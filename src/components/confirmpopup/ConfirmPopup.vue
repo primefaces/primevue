@@ -5,12 +5,12 @@
                 <template v-if="!$slots.message">
                     <div class="p-confirm-popup-content">
                         <i :class="iconClass" />
-                        <span class="p-confirm-popup-message">{{confirmation.message}}</span>
+                        <span class="p-confirm-popup-message">{{ confirmation.message }}</span>
                     </div>
                 </template>
                 <component v-else :is="$slots.message" :message="confirmation"></component>
                 <div class="p-confirm-popup-footer">
-                    <CPButton :label="rejectLabel" :icon="rejectIcon" :class="rejectClass" @click="reject()"/>
+                    <CPButton :label="rejectLabel" :icon="rejectIcon" :class="rejectClass" @click="reject()" />
                     <CPButton :label="acceptLabel" :icon="acceptIcon" :class="acceptClass" @click="accept()" autofocus />
                 </div>
             </div>
@@ -20,7 +20,7 @@
 
 <script>
 import ConfirmationEventBus from 'primevue/confirmationeventbus';
-import {ConnectedOverlayScrollHandler,DomHandler,ZIndexUtils} from 'primevue/utils';
+import { ConnectedOverlayScrollHandler, DomHandler, ZIndexUtils } from 'primevue/utils';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Button from 'primevue/button';
 import Portal from 'primevue/portal';
@@ -35,7 +35,7 @@ export default {
         return {
             visible: false,
             confirmation: null
-        }
+        };
     },
     target: null,
     outsideClickListener: null,
@@ -83,7 +83,7 @@ export default {
         this.confirmation = null;
     },
     methods: {
-         accept() {
+        accept() {
             if (this.confirmation.accept) {
                 this.confirmation.accept();
             }
@@ -193,10 +193,13 @@ export default {
     },
     computed: {
         containerClass() {
-            return ['p-confirm-popup p-component', {
-                'p-input-filled': this.$primevue.config.inputStyle === 'filled',
-                'p-ripple-disabled': this.$primevue.config.ripple === false
-            }];
+            return [
+                'p-confirm-popup p-component',
+                {
+                    'p-input-filled': this.$primevue.config.inputStyle === 'filled',
+                    'p-ripple-disabled': this.$primevue.config.ripple === false
+                }
+            ];
         },
         message() {
             return this.confirmation ? this.confirmation.message : null;
@@ -205,10 +208,10 @@ export default {
             return ['p-confirm-popup-icon', this.confirmation ? this.confirmation.icon : null];
         },
         acceptLabel() {
-            return this.confirmation ? (this.confirmation.acceptLabel || this.$primevue.config.locale.accept) : null;
+            return this.confirmation ? this.confirmation.acceptLabel || this.$primevue.config.locale.accept : null;
         },
         rejectLabel() {
-            return this.confirmation ? (this.confirmation.rejectLabel || this.$primevue.config.locale.reject) : null;
+            return this.confirmation ? this.confirmation.rejectLabel || this.$primevue.config.locale.reject : null;
         },
         acceptIcon() {
             return this.confirmation ? this.confirmation.acceptIcon : null;
@@ -220,14 +223,14 @@ export default {
             return ['p-confirm-popup-accept p-button-sm', this.confirmation ? this.confirmation.acceptClass : null];
         },
         rejectClass() {
-            return ['p-confirm-popup-reject p-button-sm', this.confirmation ? (this.confirmation.rejectClass || 'p-button-text') : null];
+            return ['p-confirm-popup-reject p-button-sm', this.confirmation ? this.confirmation.rejectClass || 'p-button-text' : null];
         }
     },
     components: {
-        'CPButton': Button,
-        'Portal': Portal
+        CPButton: Button,
+        Portal: Portal
     }
-}
+};
 </script>
 
 <style>
@@ -254,34 +257,36 @@ export default {
 }
 
 .p-confirm-popup-enter-active {
-    transition: transform .12s cubic-bezier(0, 0, 0.2, 1), opacity .12s cubic-bezier(0, 0, 0.2, 1);
+    transition: transform 0.12s cubic-bezier(0, 0, 0.2, 1), opacity 0.12s cubic-bezier(0, 0, 0.2, 1);
 }
 
 .p-confirm-popup-leave-active {
-    transition: opacity .1s linear;
+    transition: opacity 0.1s linear;
 }
 
-.p-confirm-popup:after, .p-confirm-popup:before {
-	bottom: 100%;
-	left: calc(var(--overlayArrowLeft, 0) + 1.25rem);
-	content: " ";
-	height: 0;
-	width: 0;
-	position: absolute;
-	pointer-events: none;
+.p-confirm-popup:after,
+.p-confirm-popup:before {
+    bottom: 100%;
+    left: calc(var(--overlayArrowLeft, 0) + 1.25rem);
+    content: ' ';
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
 }
 
 .p-confirm-popup:after {
-	border-width: 8px;
-	margin-left: -8px;
+    border-width: 8px;
+    margin-left: -8px;
 }
 
 .p-confirm-popup:before {
-	border-width: 10px;
-	margin-left: -10px;
+    border-width: 10px;
+    margin-left: -10px;
 }
 
-.p-confirm-popup-flipped:after, .p-confirm-popup-flipped:before {
+.p-confirm-popup-flipped:after,
+.p-confirm-popup-flipped:before {
     bottom: auto;
     top: 100%;
 }
@@ -291,7 +296,7 @@ export default {
 }
 
 .p-confirm-popup.p-confirm-popup-flipped:before {
-    border-bottom-color: transparent
+    border-bottom-color: transparent;
 }
 
 .p-confirm-popup .p-confirm-popup-content {

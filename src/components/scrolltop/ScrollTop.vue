@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import {DomHandler,ZIndexUtils} from 'primevue/utils';
+import { DomHandler, ZIndexUtils } from 'primevue/utils';
 
 export default {
     name: 'ScrollTop',
@@ -16,7 +16,7 @@ export default {
     data() {
         return {
             visible: false
-        }
+        };
     },
     props: {
         target: {
@@ -37,16 +37,12 @@ export default {
         }
     },
     mounted() {
-        if (this.target === 'window')
-            this.bindDocumentScrollListener();
-        else if (this.target === 'parent')
-            this.bindParentScrollListener();
+        if (this.target === 'window') this.bindDocumentScrollListener();
+        else if (this.target === 'parent') this.bindParentScrollListener();
     },
     beforeUnmount() {
-        if (this.target === 'window')
-            this.unbindDocumentScrollListener();
-        else if (this.target === 'parent')
-            this.unbindParentScrollListener();
+        if (this.target === 'window') this.unbindDocumentScrollListener();
+        else if (this.target === 'parent') this.unbindParentScrollListener();
 
         if (this.container) {
             ZIndexUtils.clear(this.container);
@@ -62,10 +58,8 @@ export default {
             });
         },
         checkVisibility(scrollY) {
-            if (scrollY > this.threshold)
-                this.visible = true;
-            else
-                this.visible = false;
+            if (scrollY > this.threshold) this.visible = true;
+            else this.visible = false;
         },
         bindParentScrollListener() {
             this.scrollListener = () => {
@@ -105,13 +99,13 @@ export default {
     },
     computed: {
         containerClass() {
-            return ['p-scrolltop p-link p-component', {'p-scrolltop-sticky': this.target !== 'window'}];
+            return ['p-scrolltop p-link p-component', { 'p-scrolltop-sticky': this.target !== 'window' }];
         },
         iconClass() {
             return ['p-scrolltop-icon', this.icon];
         }
     }
-}
+};
 </script>
 
 <style>
@@ -137,7 +131,7 @@ export default {
 }
 
 .p-scrolltop-enter-active {
-    transition: opacity .15s;
+    transition: opacity 0.15s;
 }
 
 .p-scrolltop.p-scrolltop-leave-to {
@@ -145,6 +139,6 @@ export default {
 }
 
 .p-scrolltop-leave-active {
-    transition: opacity .15s;
+    transition: opacity 0.15s;
 }
 </style>

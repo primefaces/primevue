@@ -1,7 +1,7 @@
 <template>
     <AppDoc name="StyleClassDemo" :sources="sources" github="styleclass/StyleClassDemo.vue">
         <h5>Import via Module</h5>
-<pre v-code.script><code>
+        <pre v-code.script><code>
 import StyleClass from 'primevue/styleclass';
 
 app.directive('styleclass', StyleClass);
@@ -9,7 +9,7 @@ app.directive('styleclass', StyleClass);
 </code></pre>
 
         <h5>Import via CDN</h5>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/styleclass/styleclass.min.js"&gt;&lt;/script&gt;
 
@@ -19,14 +19,14 @@ app.directive('styleclass', StyleClass);
         <p>StyleClass has two modes, <i>toggleClass</i> to simply add-remove a class and enter/leave animations.</p>
 
         <p><b>ToggleClass</b></p>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;Button label="Toggle p-disabled" v-styleclass="{ selector: '@next', toggleClass: 'p-disabled' }" /&gt;
 &lt;InputText class="block mt-3" /&gt;
 
 </code></pre>
 
         <p><b>Enter/Leave Animation</b></p>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;Button label="Show" class="mr-2" v-styleclass="{ selector: '.box', enterClass: 'hidden', enterActiveClass: 'my-fadein' }" /&gt;
 &lt;Button label="Hide" v-styleclass="{ selector: '.box', leaveActiveClass: 'my-fadeout', leaveToClass: 'hidden' }" /&gt;
 &lt;div class="box hidden"&gt;Content&lt;/div&gt;
@@ -325,7 +325,7 @@ export default {
 `
                 }
             }
-        }
+        };
     }
-}
+};
 </script>

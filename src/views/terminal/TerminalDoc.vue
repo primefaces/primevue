@@ -1,29 +1,29 @@
 <template>
-	<AppDoc name="TerminalDemo" :sources="sources" github="terminal/TerminalDemo.vue" >
+    <AppDoc name="TerminalDemo" :sources="sources" github="terminal/TerminalDemo.vue">
         <h5>Import via Module</h5>
-<pre v-code.script><code>
+        <pre v-code.script><code>
 import Terminal from 'primevue/terminal';
 import TerminalService from 'primevue/terminalservice';
 
 </code></pre>
 
         <h5>Import via CDN</h5>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/terminal/terminal.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-		<h5>Getting Started</h5>
-		<p>Commands are processed using an EventBus implementation called TerminalService.
-            Import this service into your component and subscribe to the <i>command</i> event to process the commands by
-                sending replies with the <i>response</i> event.</p>
-<pre v-code><code>
+        <h5>Getting Started</h5>
+        <p>
+            Commands are processed using an EventBus implementation called TerminalService. Import this service into your component and subscribe to the <i>command</i> event to process the commands by sending replies with the <i>response</i> event.
+        </p>
+        <pre v-code><code>
 &lt;Terminal welcomeMessage="Welcome to PrimeVue" prompt="primevue $" /&gt;
 
 </code></pre>
 
-<pre v-code.script><code>
+        <pre v-code.script><code>
 import TerminalService from 'primevue/terminalservice';
 
 export default {
@@ -65,17 +65,17 @@ export default {
 
         <h5>Properties</h5>
         <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Type</th>
                         <th>Default</th>
                         <th>Description</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>welcomeMessage</td>
                         <td>string</td>
@@ -88,22 +88,22 @@ export default {
                         <td>null</td>
                         <td>Prompt text for each command.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
-		<h5>Styling</h5>
-		<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <h5>Styling</h5>
+        <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Element</th>
                     </tr>
-				</thead>
-				<tbody>
-                     <tr>
+                </thead>
+                <tbody>
+                    <tr>
                         <td>p-terminal</td>
                         <td>Container element.</td>
                     </tr>
@@ -115,7 +115,7 @@ export default {
                         <td>p-terminal-prompt</td>
                         <td>Prompt text.</td>
                     </tr>
-                     <tr>
+                    <tr>
                         <td>p-terminal-response</td>
                         <td>Command response.</td>
                     </tr>
@@ -124,11 +124,11 @@ export default {
                         <td>Input element to enter commands.</td>
                     </tr>
                 </tbody>
-			</table>
-		</div>
+            </table>
+        </div>
 
-		<h5>Dependencies</h5>
-		<p>None.</p>
+        <h5>Dependencies</h5>
+        <p>None.</p>
     </AppDoc>
 </template>
 
@@ -371,7 +371,7 @@ p {
 `
                 }
             }
-        }
+        };
     }
-}
+};
 </script>

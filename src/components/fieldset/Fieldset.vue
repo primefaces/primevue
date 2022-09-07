@@ -1,14 +1,13 @@
 <template>
-    <fieldset :class="['p-fieldset p-component', {'p-fieldset-toggleable': toggleable}]">
+    <fieldset :class="['p-fieldset p-component', { 'p-fieldset-toggleable': toggleable }]">
         <legend class="p-fieldset-legend">
             <slot name="legend" v-if="!toggleable">
-                <span class="p-fieldset-legend-text" :id="ariaId + '_header'">{{legend}}</span>
+                <span class="p-fieldset-legend-text" :id="ariaId + '_header'">{{ legend }}</span>
             </slot>
-            <a tabindex="0" v-if="toggleable" role="button" :id="ariaId +  '_header'" :aria-controls="ariaId + '_content'" :aria-expanded="!d_collapsed" :aria-label="toggleButtonProps||legend"
-                @click="toggle" @keydown="onKeyDown" v-ripple>
+            <a tabindex="0" v-if="toggleable" role="button" :id="ariaId + '_header'" :aria-controls="ariaId + '_content'" :aria-expanded="!d_collapsed" :aria-label="toggleButtonProps || legend" @click="toggle" @keydown="onKeyDown" v-ripple>
                 <span :class="iconClass"></span>
                 <slot name="legend">
-                    <span class="p-fieldset-legend-text">{{legend}}</span>
+                    <span class="p-fieldset-legend-text">{{ legend }}</span>
                 </slot>
             </a>
         </legend>
@@ -23,7 +22,7 @@
 </template>
 
 <script>
-import {UniqueComponentId} from 'primevue/utils';
+import { UniqueComponentId } from 'primevue/utils';
 import Ripple from 'primevue/ripple';
 
 export default {
@@ -38,7 +37,7 @@ export default {
     data() {
         return {
             d_collapsed: this.collapsed
-        }
+        };
     },
     watch: {
         collapsed(newValue) {
@@ -61,21 +60,24 @@ export default {
             }
         }
     },
-	computed: {
-		iconClass() {
-			return ['p-fieldset-toggler pi ', {
-				'pi-minus': !this.d_collapsed,
-				'pi-plus': this.d_collapsed
-			}]
+    computed: {
+        iconClass() {
+            return [
+                'p-fieldset-toggler pi ',
+                {
+                    'pi-minus': !this.d_collapsed,
+                    'pi-plus': this.d_collapsed
+                }
+            ];
         },
         ariaId() {
             return UniqueComponentId();
         }
     },
     directives: {
-        'ripple': Ripple
+        ripple: Ripple
     }
-}
+};
 </script>
 
 <style>

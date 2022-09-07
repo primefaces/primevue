@@ -1,26 +1,26 @@
 <template>
-	<AppDoc name="ColorPickerDemo" :sources="sources" :extFiles="extFiles" github="colorpicker/ColorPickerDemo.vue">
+    <AppDoc name="ColorPickerDemo" :sources="sources" :extFiles="extFiles" github="colorpicker/ColorPickerDemo.vue">
         <h5>Import via Module</h5>
-<pre v-code.script><code>
+        <pre v-code.script><code>
 import ColorPicker from 'primevue/colorpicker';
 
 </code></pre>
 
         <h5>Import via CDN</h5>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/colorpicker/colorpicker.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-		<h5>Getting Started</h5>
-		<p>A model can be bound using the standard v-model directive. Default color format to use in value binding is "hex" and other possible values are "rgb" and "hsb".</p>
-<pre v-code><code>
+        <h5>Getting Started</h5>
+        <p>A model can be bound using the standard v-model directive. Default color format to use in value binding is "hex" and other possible values are "rgb" and "hsb".</p>
+        <pre v-code><code>
 &lt;ColorPicker v-model="color" /&gt;
 
 </code></pre>
 
-<pre v-code.script><code>
+        <pre v-code.script><code>
 export default {
     data() {
         return {
@@ -33,7 +33,7 @@ export default {
 
         <h5>Inline and Overlay</h5>
         <p>ColorPicker is displayed as an overlay with a preview option by default where second alternative is the inline mode.</p>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;ColorPicker v-model="color" :inline="true" /&gt;
 
 </code></pre>
@@ -109,8 +109,7 @@ export default {
                         <td>appendTo</td>
                         <td>string</td>
                         <td>body</td>
-                        <td>A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are "body" for document body
-                        and "self" for the element itself.</td>
+                        <td>A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are "body" for document body and "self" for the element itself.</td>
                     </tr>
                 </tbody>
             </table>
@@ -129,7 +128,8 @@ export default {
                 <tbody>
                     <tr>
                         <td>change</td>
-                        <td>event.originalEvent: Browser event <br >
+                        <td>
+                            event.originalEvent: Browser event <br />
                             event.value: Selected color
                         </td>
                         <td>Callback to invoke when a color is selected.</td>
@@ -168,7 +168,7 @@ export default {
                         <td>Container element in overlay mode.</td>
                     </tr>
                     <tr>
-                        <td>p-colorpicker-preview </td>
+                        <td>p-colorpicker-preview</td>
                         <td>Preview input in overlay mode.</td>
                     </tr>
                     <tr>
@@ -205,8 +205,10 @@ export default {
 
         <h5>Accessibility</h5>
         <h6>Screen Reader</h6>
-        <p>Specification does not cover a color picker <a href="https://github.com/w3c/aria/issues/930">yet</a> and using a semantic native color picker is not consistent across browsers so currently component is not compatible with screen readers.
-        In the upcoming versions, text fields will be introduced below the slider section to be able to pick a color using accessible text boxes in hsl, rgba and hex formats.</p>
+        <p>
+            Specification does not cover a color picker <a href="https://github.com/w3c/aria/issues/930">yet</a> and using a semantic native color picker is not consistent across browsers so currently component is not compatible with screen readers.
+            In the upcoming versions, text fields will be introduced below the slider section to be able to pick a color using accessible text boxes in hsl, rgba and hex formats.
+        </p>
 
         <h6>Closed State Keyboard Support of Popup ColorPicker</h6>
         <div class="doc-tablewrapper">
@@ -297,9 +299,8 @@ export default {
             </table>
         </div>
 
-
-		<h5>Dependencies</h5>
-		<p>None.</p>
+        <h5>Dependencies</h5>
+        <p>None.</p>
     </AppDoc>
 </template>
 
@@ -465,7 +466,7 @@ export default {
 }
                 `
             }
-        }
+        };
     }
-}
+};
 </script>

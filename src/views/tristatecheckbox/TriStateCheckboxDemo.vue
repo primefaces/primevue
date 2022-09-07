@@ -12,12 +12,12 @@
             <div class="card">
                 <div class="field-checkbox m-0">
                     <TriStateCheckbox inputId="checkbox" v-model="value" />
-                    <label for="checkbox">{{value == null ? 'null' : value}}</label>
+                    <label for="checkbox">{{ value == null ? 'null' : value }}</label>
                 </div>
             </div>
         </div>
 
-        <TriStateCheckboxDoc/>
+        <TriStateCheckboxDoc />
     </div>
 </template>
 
@@ -28,10 +28,10 @@ export default {
     data() {
         return {
             value: null
-        }
+        };
     },
     components: {
-        'TriStateCheckboxDoc': TriStateCheckboxDoc
+        TriStateCheckboxDoc: TriStateCheckboxDoc
     }
-}
+};
 </script>

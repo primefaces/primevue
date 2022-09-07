@@ -33,7 +33,7 @@
                 <Button type="button" label="Save" icon="pi pi-check" v-tooltip="'Click to proceed'" />
 
                 <h5>Custom Class</h5>
-                <InputText type="text" placeholder="Custom Class" v-tooltip.right="{value:'Invalid username', class: 'custom-error'}" />
+                <InputText type="text" placeholder="Custom Class" v-tooltip.right="{ value: 'Invalid username', class: 'custom-error' }" />
             </div>
         </div>
 
@@ -45,10 +45,10 @@
 import TooltipDoc from './TooltipDoc';
 
 export default {
-	components: {
-		'TooltipDoc': TooltipDoc
-	}
-}
+    components: {
+        TooltipDoc: TooltipDoc
+    }
+};
 </script>
 
 <style>

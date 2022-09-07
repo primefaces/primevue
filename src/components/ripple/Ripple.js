@@ -1,4 +1,4 @@
-import {DomHandler} from 'primevue/utils';
+import { DomHandler } from 'primevue/utils';
 
 function bindEvents(el) {
     el.addEventListener('mousedown', onMouseDown);
@@ -11,7 +11,7 @@ function unbindEvents(el) {
 function create(el) {
     let ink = document.createElement('span');
     ink.className = 'p-ink';
-    ink.setAttribute("role", "presentation");
+    ink.setAttribute('role', 'presentation');
     el.appendChild(ink);
 
     ink.addEventListener('animationend', onAnimationEnd);

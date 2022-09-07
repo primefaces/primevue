@@ -13,7 +13,7 @@
                 <h5>Input</h5>
                 <Inplace :closable="true">
                     <template #display>
-                        {{text || 'Click to Edit'}}
+                        {{ text || 'Click to Edit' }}
                     </template>
                     <template #content>
                         <InputText v-model="text" autoFocus />
@@ -24,7 +24,7 @@
                 <Inplace>
                     <template #display>
                         <span class="pi pi-search" style="vertical-align: middle"></span>
-                        <span style="margin-left:.5rem; vertical-align: middle">View Picture</span>
+                        <span style="margin-left: 0.5rem; vertical-align: middle">View Picture</span>
                     </template>
                     <template #content>
                         <img src="demo/images/nature/nature1.jpg" />
@@ -33,9 +33,7 @@
 
                 <h5>Lazy Data</h5>
                 <Inplace @open="loadData">
-                    <template #display>
-                        View Data
-                    </template>
+                    <template #display> View Data </template>
                     <template #content>
                         <DataTable :value="products">
                             <Column field="code" header="Code"></Column>
@@ -61,7 +59,7 @@ export default {
         return {
             text: null,
             products: null
-        }
+        };
     },
     productService: null,
     created() {
@@ -69,11 +67,11 @@ export default {
     },
     methods: {
         loadData() {
-            this.productService.getProductsSmall().then(data => this.products = data);
+            this.productService.getProductsSmall().then((data) => (this.products = data));
         }
     },
     components: {
-        'InplaceDoc': InplaceDoc
+        InplaceDoc: InplaceDoc
     }
-}
+};
 </script>

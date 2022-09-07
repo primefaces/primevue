@@ -30,7 +30,7 @@
                     </div>
                     <div class="field col-12 md:col-4">
                         <label for="disableddays">Disabled Days</label>
-                        <Calendar inputId="disableddays" v-model="date5" :disabledDates="invalidDates" :disabledDays="[0,6]" :manualInput="false" />
+                        <Calendar inputId="disableddays" v-model="date5" :disabledDates="invalidDates" :disabledDays="[0, 6]" :manualInput="false" />
                     </div>
                     <div class="field col-12 md:col-4">
                         <label for="multiple">Multiple</label>
@@ -58,7 +58,7 @@
                     </div>
                     <div class="field col-12 md:col-4">
                         <label for="yearpicker">Year Picker</label>
-                        <Calendar inputId="yearpicker" v-model="date10" view="year" dateFormat="yy"/>
+                        <Calendar inputId="yearpicker" v-model="date10" view="year" dateFormat="yy" />
                     </div>
                     <div class="field col-12 md:col-4">
                         <label for="multiplemonths">Multiple Months</label>
@@ -68,8 +68,8 @@
                         <label for="datetemplate">Date Template</label>
                         <Calendar inputId="datetemplate" v-model="date12">
                             <template #date="slotProps">
-                                <strong v-if="slotProps.date.day > 10 && slotProps.date.day < 15" class="special-day">{{slotProps.date.day}}</strong>
-                                <template v-else>{{slotProps.date.day}}</template>
+                                <strong v-if="slotProps.date.day > 10 && slotProps.date.day < 15" class="special-day">{{ slotProps.date.day }}</strong>
+                                <template v-else>{{ slotProps.date.day }}</template>
                             </template>
                         </Calendar>
                     </div>
@@ -89,17 +89,17 @@
 </template>
 
 <script>
-import CalendarDoc from './CalendarDoc'
+import CalendarDoc from './CalendarDoc';
 
 export default {
     created() {
         let today = new Date();
         let month = today.getMonth();
         let year = today.getFullYear();
-        let prevMonth = (month === 0) ? 11 : month -1;
-        let prevYear = (prevMonth === 11) ? year - 1 : year;
-        let nextMonth = (month === 11) ? 0 : month + 1;
-        let nextYear = (nextMonth === 0) ? year + 1 : year;
+        let prevMonth = month === 0 ? 11 : month - 1;
+        let prevYear = prevMonth === 11 ? year - 1 : year;
+        let nextMonth = month === 11 ? 0 : month + 1;
+        let nextYear = nextMonth === 0 ? year + 1 : year;
         this.minDate = new Date();
         this.minDate.setMonth(prevMonth);
         this.minDate.setFullYear(prevYear);
@@ -109,7 +109,7 @@ export default {
 
         let invalidDate = new Date();
         invalidDate.setDate(today.getDate() - 1);
-        this.invalidDates = [today,invalidDate];
+        this.invalidDates = [today, invalidDate];
     },
     data() {
         return {
@@ -134,20 +134,20 @@ export default {
             invalidDates: null,
             responsiveOptions: [
                 {
-					breakpoint: '1400px',
-					numMonths: 2
-				},
-				{
-					breakpoint: '1200px',
-					numMonths: 1
-				}
-			]
-        }
+                    breakpoint: '1400px',
+                    numMonths: 2
+                },
+                {
+                    breakpoint: '1200px',
+                    numMonths: 1
+                }
+            ]
+        };
     },
-	components: {
-		'CalendarDoc': CalendarDoc
+    components: {
+        CalendarDoc: CalendarDoc
     }
-}
+};
 </script>
 
 <style scoped>

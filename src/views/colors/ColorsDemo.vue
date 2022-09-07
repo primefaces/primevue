@@ -3,11 +3,11 @@
         <div class="content-section documentation">
             <h1>Colors</h1>
             <p>Each PrimeVue theme exports its own color palette.</p>
-        
+
             <h5>Getting Started</h5>
             <p>Colors are exported as CSS variables and used with the standard <i>var</i> syntax such as <i>var(--text-color)</i>.</p>
 
-<pre v-code><code>
+            <pre v-code><code>
 &lt;span :style="{color:var(--text-color)}"&gt;&lt;/span&gt;
 
 </code></pre>
@@ -72,14 +72,11 @@
 
 </code></pre>
 
-            <div class="card"> 
+            <div class="card">
                 <div class="flex flex-wrap">
                     <div v-for="color of colors" :key="color" class="color-stack mr-6 mb-6">
                         <template v-for="shade of shades" :key="shade">
-                            <div v-if="shade !== 0" class="color-box"
-                                :style="{backgroundColor:`var(--${color}-${shade})`, color: (shade > 500 ? '#fff': '#000')}">
-                                {{color}}-{{shade}}
-                            </div>
+                            <div v-if="shade !== 0" class="color-box" :style="{ backgroundColor: `var(--${color}-${shade})`, color: shade > 500 ? '#fff' : '#000' }">{{ color }}-{{ shade }}</div>
                         </template>
                     </div>
                 </div>
@@ -89,10 +86,7 @@
             <p>In addition, a theme brings a special palette called surfaces that can be used as the base when designing the surface layers and separators.</p>
             <div class="card">
                 <div class="color-stack">
-                    <div v-for="shade in shades" :key="shade" class="color-box" 
-                        :style="{backgroundColor:`var(--surface-${shade})`, color: $appState.darkTheme ? '#fff':  (shade > 500 ? '#fff': '#000')}">
-                        surface-{{shade}}
-                    </div>
+                    <div v-for="shade in shades" :key="shade" class="color-box" :style="{ backgroundColor: `var(--surface-${shade})`, color: $appState.darkTheme ? '#fff' : shade > 500 ? '#fff' : '#000' }">surface-{{ shade }}</div>
                 </div>
             </div>
 
@@ -143,9 +137,9 @@ export default {
         return {
             colors: ['blue', 'green', 'yellow', 'cyan', 'pink', 'indigo', 'teal', 'orange', 'bluegray', 'purple', 'red', 'gray', 'primary'],
             shades: [0, 50, 100, 200, 300, 400, 500, 600, 700, 800, 900]
-        }
+        };
     }
-}
+};
 </script>
 
 <style lang="scss" scoped>

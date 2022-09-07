@@ -32,7 +32,7 @@ describe('ProgressBar.vue', () => {
     });
 
     it('should be indeterminated', async () => {
-        await wrapper.setProps({ mode: 'indeterminate'});
+        await wrapper.setProps({ mode: 'indeterminate' });
 
         expect(wrapper.find('.p-progressbar-indeterminate-container').exists()).toBe(true);
     });

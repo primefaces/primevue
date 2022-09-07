@@ -4,8 +4,8 @@
             <template v-if="!template">
                 <span :class="iconClass"></span>
                 <div class="p-toast-message-text">
-                    <span class="p-toast-summary">{{message.summary}}</span>
-                    <div class="p-toast-detail">{{message.detail}}</div>
+                    <span class="p-toast-summary">{{ message.summary }}</span>
+                    <div class="p-toast-detail">{{ message.detail }}</div>
                 </div>
             </template>
             <component v-else :is="template" :message="message"></component>
@@ -31,7 +31,7 @@ export default {
         if (this.message.life) {
             this.closeTimeout = setTimeout(() => {
                 this.close();
-            }, this.message.life)
+            }, this.message.life);
         }
     },
     beforeUnmount() {
@@ -54,24 +54,31 @@ export default {
     },
     computed: {
         containerClass() {
-            return ['p-toast-message', this.message.styleClass, {
-                'p-toast-message-info': this.message.severity === 'info',
-                'p-toast-message-warn': this.message.severity === 'warn',
-                'p-toast-message-error': this.message.severity === 'error',
-                'p-toast-message-success': this.message.severity === 'success'
-            }];
+            return [
+                'p-toast-message',
+                this.message.styleClass,
+                {
+                    'p-toast-message-info': this.message.severity === 'info',
+                    'p-toast-message-warn': this.message.severity === 'warn',
+                    'p-toast-message-error': this.message.severity === 'error',
+                    'p-toast-message-success': this.message.severity === 'success'
+                }
+            ];
         },
         iconClass() {
-            return ['p-toast-message-icon pi', {
-                'pi-info-circle': this.message.severity === 'info',
-                'pi-exclamation-triangle': this.message.severity === 'warn',
-                'pi-times': this.message.severity === 'error',
-                'pi-check': this.message.severity === 'success'
-            }];
+            return [
+                'p-toast-message-icon pi',
+                {
+                    'pi-info-circle': this.message.severity === 'info',
+                    'pi-exclamation-triangle': this.message.severity === 'warn',
+                    'pi-times': this.message.severity === 'error',
+                    'pi-check': this.message.severity === 'success'
+                }
+            ];
         }
     },
     directives: {
-        'ripple': Ripple
+        ripple: Ripple
     }
-}
+};
 </script>

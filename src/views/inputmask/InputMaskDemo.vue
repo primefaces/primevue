@@ -33,7 +33,7 @@
 
                     <div class="field col-12 md:col-4">
                         <label for="phoneext">Phone Ext</label>
-                        <InputMask id="phoneext" mask="(999) 999-9999? x99999" v-model="val5" placeholder="(999) 999-9999? x99999"/>
+                        <InputMask id="phoneext" mask="(999) 999-9999? x99999" v-model="val5" placeholder="(999) 999-9999? x99999" />
                     </div>
 
                     <div class="field col-12 md:col-4">
@@ -60,14 +60,12 @@ export default {
             val4: null,
             val5: null,
             val6: null
-        }
+        };
     },
-	components: {
-		'InputMaskDoc': InputMaskDoc
-	}
-}
+    components: {
+        InputMaskDoc: InputMaskDoc
+    }
+};
 </script>
 
-<style>
-
-</style>
+<style></style>

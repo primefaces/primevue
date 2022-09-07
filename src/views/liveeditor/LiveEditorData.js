@@ -1,5 +1,5 @@
 const services = {
-    'CountryService': `
+    CountryService: `
 export default class CountryService {
 
     getCountries() {
@@ -8,7 +8,7 @@ export default class CountryService {
     }
 }
     `,
-    'CustomerService': `
+    CustomerService: `
 export default class CustomerService {
 
     getCustomersSmall() {
@@ -37,7 +37,7 @@ export default class CustomerService {
     }
 }
     `,
-    'EventService': `
+    EventService: `
 export default class EventService {
 
     getEvents() {
@@ -46,7 +46,7 @@ export default class EventService {
     }
 }
     `,
-    'NodeService': `
+    NodeService: `
 export default class NodeService {
 
     getTreeTableNodes() {
@@ -60,7 +60,7 @@ export default class NodeService {
     }
 }
     `,
-    'PhotoService': `
+    PhotoService: `
 export default class PhotoService {
 
     getImages() {
@@ -69,7 +69,7 @@ export default class PhotoService {
     }
 }
 `,
-    'ProductService': `
+    ProductService: `
 export default class ProductService {
 
     getProductsSmall() {
@@ -86,7 +86,7 @@ export default class ProductService {
 }
 
     `,
-    'CarService': `
+    CarService: `
 export default class CarService {
 
     brands = ['Vapid', 'Carson', 'Kitano', 'Dabver', 'Ibex', 'Morello', 'Akira', 'Titan', 'Dover', 'Norma'];
@@ -128,10 +128,10 @@ export default class CarService {
 }
 
     `
-}
+};
 
 const data = {
-    'countries': `
+    countries: `
 {
     "data": [
         {"name": "Afghanistan", "code": "AF"},
@@ -380,7 +380,7 @@ const data = {
     ]
 }
     `,
-    'events': `
+    events: `
 {
     "data": [
         {"id": 1,"title": "All Day Event","start": "2017-02-01"},
@@ -398,7 +398,7 @@ const data = {
     ]
 }
     `,
-    'photos': `
+    photos: `
 {
     "data":[
         {"itemImageSrc": "images/galleria/galleria1.jpg","thumbnailImageSrc": "images/galleria/galleria1s.jpg","alt": "Description for Image 1","title": "Title 1"},
@@ -419,7 +419,7 @@ const data = {
     ]
 }
     `,
-    'treenodes': `
+    treenodes: `
 {
     "root": [
         {"key":"0","label":"Documents","data":"Documents Folder","icon":"pi pi-fw pi-inbox","children": [{"key": "0-0","label": "Work","data": "Work Folder","icon": "pi pi-fw pi-cog","children": [{ "key": "0-0-0", "label": "Expenses.doc", "icon": "pi pi-fw pi-file", "data": "Expenses Document" }, { "key": "0-0-1", "label": "Resume.doc", "icon": "pi pi-fw pi-file", "data": "Resume Document" }]},{"key": "0-1","label": "Home","data": "Home Folder","icon": "pi pi-fw pi-home","children": [{ "key": "0-1-0", "label": "Invoices.txt", "icon": "pi pi-fw pi-file", "data": "Invoices for this month" }]}]},
@@ -428,7 +428,7 @@ const data = {
     ]
 }
     `,
-    'treetablenodes': `
+    treetablenodes: `
 {
     "root":[
         {"key":"0","data":{"name":"Applications","size":"100kb","type":"Folder"},"children":[{"key":"0-0","data":{"name":"Vue","size":"25kb","type":"Folder"},"children":[{"key":"0-0-0","data":{"name":"vue.app","size":"10kb","type":"Application"}},{"key":"0-0-1","data":{"name":"native.app","size":"10kb","type":"Application"}},{"key":"0-0-2","data":{"name":"mobile.app","size":"5kb","type":"Application"}}]},{"key":"0-1","data":{"name":"editor.app","size":"25kb","type":"Application"}},{"key":"0-2","data":{"name":"settings.app","size":"50kb","type":"Application"}}]},
@@ -5643,7 +5643,7 @@ const data = {
     ]
 }
     `,
-    'products': `
+    products: `
 {
     "data": [
         {"id": "1000","code": "f230fh0g3","name": "Bamboo Watch","description": "Product Description","image": "bamboo-watch.jpg","price": 65,"category": "Accessories","quantity": 24,"inventoryStatus": "INSTOCK","rating": 5},
@@ -5747,6 +5747,6 @@ const data = {
     ]
 }
     `
-}
+};
 
 export { services, data };

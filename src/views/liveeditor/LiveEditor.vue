@@ -1,6 +1,6 @@
 <template>
     <span v-if="showEditor" class="flex justify-content-end">
-        <SplitButton :model="items" label="Edit in CodeSandbox" class="liveEditorSplitButton" @click="openDefaultCSB" v-show="false"/>
+        <SplitButton :model="items" label="Edit in CodeSandbox" class="liveEditorSplitButton" @click="openDefaultCSB" v-show="false" />
     </span>
 </template>
 
@@ -16,11 +16,26 @@ export default {
             sandbox_id: null,
             showCodeHighlight: false,
             items: [
-                {label: "Options API", command: () => { this.postSandboxParameters('options-api') }},
-                {label: "Composition API", command: () => { this.postSandboxParameters('composition-api') }},
-                {label: "Browser Source", command: () => { this.postSandboxParameters('browser-source') }}
+                {
+                    label: 'Options API',
+                    command: () => {
+                        this.postSandboxParameters('options-api');
+                    }
+                },
+                {
+                    label: 'Composition API',
+                    command: () => {
+                        this.postSandboxParameters('composition-api');
+                    }
+                },
+                {
+                    label: 'Browser Source',
+                    command: () => {
+                        this.postSandboxParameters('browser-source');
+                    }
+                }
             ]
-        }
+        };
     },
     props: {
         name: {
@@ -69,21 +84,27 @@ export default {
     methods: {
         postSandboxParameters(sourceType) {
             fetch('https://codesandbox.io/api/v1/sandboxes/define?json=1', {
-                method: "POST",
+                method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Accept': 'application/json'
+                    Accept: 'application/json'
                 },
                 body: JSON.stringify(this.getSandboxParameters(sourceType))
             })
-            .then(response => response.json())
-            .then(data => window.open(`https://codesandbox.io/s/${data.sandbox_id}`, '_blank'))
-            .catch(() => this.showCodeHighlight = true );
+                .then((response) => response.json())
+                .then((data) => window.open(`https://codesandbox.io/s/${data.sandbox_id}`, '_blank'))
+                .catch(() => (this.showCodeHighlight = true));
         },
 
         createSandboxParameters(sourceType, nameWithExt, files, extDependencies) {
             /* eslint-disable */
-            let extFiles = this.extFiles ? (this.extFiles[sourceType] ? {...this.extFiles[sourceType]} : Object.keys(this.extFiles).filter(k => !sourceTypes.includes(k)).reduce((result, current) => (result[current] = this.extFiles[current]) && result, {})) : {};
+            let extFiles = this.extFiles
+                ? this.extFiles[sourceType]
+                    ? { ...this.extFiles[sourceType] }
+                    : Object.keys(this.extFiles)
+                          .filter((k) => !sourceTypes.includes(k))
+                          .reduce((result, current) => (result[current] = this.extFiles[current]) && result, {})
+                : {};
             Object.entries(extFiles).forEach(([key, value]) => extFiles[key].content && (extFiles[key].content = value.content.replaceAll('<\\/script>', '<\/script>')));
 
             let extIndexCSS = extFiles['index.css'] || '';
@@ -298,7 +319,7 @@ export default {
     }
     ${extIndexCSS}
     `
-};
+            };
 
             if (sourceType === 'browser-source') {
                 return {
@@ -306,7 +327,7 @@ export default {
                         'index.css': defaultCss,
                         ...files
                     }
-                }
+                };
             }
 
             return {
@@ -316,10 +337,10 @@ export default {
                             main: `src/demo/${nameWithExt}`,
                             dependencies: {
                                 ...extDependencies,
-                                'vue': dependencies['vue'],
-                                'primevue': '^3.16.2',
-                                'primeflex': dependencies['primeflex'],
-                                'primeicons': dependencies['primeicons'],
+                                vue: dependencies['vue'],
+                                primevue: '^3.16.2',
+                                primeflex: dependencies['primeflex'],
+                                primeicons: dependencies['primeicons'],
                                 '@babel/cli': dependencies['@babel/cli'],
                                 'core-js': dependencies['core-js'],
                                 'vue-router': dependencies['vue-router']
@@ -329,7 +350,7 @@ export default {
                                 '@vue/cli-plugin-eslint': dependencies['@vue/cli-plugin-eslint'],
                                 '@vue/cli-service': dependencies['@vue/cli-service'],
                                 '@vue/compiler-sfc': dependencies['@vue/compiler-sfc'],
-                                'eslint': dependencies['eslint'],
+                                eslint: dependencies['eslint'],
                                 'eslint-plugin-vue': dependencies['eslint-plugin-vue']
                             }
                         }
@@ -360,7 +381,7 @@ export default {
                     ...files,
                     ...extFiles
                 }
-            }
+            };
         },
 
         getSandboxParameters(sourceType) {
@@ -373,22 +394,25 @@ export default {
             let content = this.sources[sourceType].content.replaceAll('<\\/script>', '<\/script>');
             let imports = this.sources[sourceType].imports ? this.sources[sourceType].imports.replaceAll('<\\/script>', '<\/script>') : '';
             let pages = this.extPages ? this.extPages : '';
-            let _files = {}, element = '';
+            let _files = {},
+                element = '';
 
             if (this.service) {
-                let dataArr = [], serviceArr = [], path = '';
+                let dataArr = [],
+                    serviceArr = [],
+                    path = '';
 
-                this.service.forEach(el => {
-                    serviceArr.push(el.split(','))
-                })
+                this.service.forEach((el) => {
+                    serviceArr.push(el.split(','));
+                });
 
                 if (this.data) {
-                    this.data.forEach(el => {
-                        dataArr.push(el.split(','))
-                    })
+                    this.data.forEach((el) => {
+                        dataArr.push(el.split(','));
+                    });
 
                     if (dataArr) {
-                        dataArr.forEach(el => {
+                        dataArr.forEach((el) => {
                             let _path = `${el}.json`;
                             path = sourceType === 'browser-source' ? _path : `public/demo/data/${_path}`;
 
@@ -399,16 +423,14 @@ export default {
                     }
                 }
 
-                serviceArr.forEach(serv => {
+                serviceArr.forEach((serv) => {
                     path = sourceType === 'browser-source' ? `${serv}.js` : `src/service/${serv}.js`;
-                    let _content = sourceType === 'browser-source' ?
-                                `${services[serv].replaceAll('export default class', 'class').replaceAll('demo/data/', './')}` :
-                                `${services[serv]}`;
+                    let _content = sourceType === 'browser-source' ? `${services[serv].replaceAll('export default class', 'class').replaceAll('demo/data/', './')}` : `${services[serv]}`;
 
                     _files[path] = {
                         content: _content
-                    }
-                })
+                    };
+                });
             }
 
             if (sourceType === 'browser-source') {
@@ -438,36 +460,35 @@ export default {
     <body>${content}
     </body>
 </html>`
-                }
-            }
-            else {
+                };
+            } else {
                 element += `import ${name} from "./${name}.vue"`;
 
                 if (this.component) {
-                    extImport += `import ${this.component} from 'primevue/${this.component.toLowerCase()}';`
+                    extImport += `import ${this.component} from 'primevue/${this.component.toLowerCase()}';`;
                     extElement += `app.component('${this.component}', ${this.component});`;
                 }
 
                 if (pages) {
-                    let routes = [], routeImports = '';
+                    let routes = [],
+                        routeImports = '';
 
                     pages.forEach((page, i) => {
                         _files[`src/components/${page.tabName}.vue`] = {
-                            'content': `${page.content.replace('<\\/script>', '<\/script>')}`
-                        }
+                            content: `${page.content.replace('<\\/script>', '<\/script>')}`
+                        };
 
                         let route = '';
 
                         routeImports += `import ${page.tabName} from './components/${page.tabName}.vue';
     `;
 
-                        if(i === 0) {
+                        if (i === 0) {
                             route += `{
         path: "/",
         component: ${page.tabName}
     }`;
-                        }
-                        else {
+                        } else {
                             route += `{
         path: "/${page.tabName.slice(0, -4).toLowerCase()}",
         component: ${page.tabName}
@@ -475,10 +496,10 @@ export default {
                         }
 
                         routes.push(route);
-                    })
+                    });
 
                     _files['src/router.js'] = {
-                        'content': `import { createRouter, createWebHistory } from "vue-router";
+                        content: `import { createRouter, createWebHistory } from "vue-router";
 ${routeImports}
 export const router = createRouter({
     history: createWebHistory(),
@@ -487,9 +508,8 @@ export const router = createRouter({
     ]
 });
 `
-                    }
-                }
-                else {
+                    };
+                } else {
                     _files[`src/router.js`] = {
                         content: `import { createRouter, createWebHistory } from "vue-router";
     ${element}
@@ -498,7 +518,7 @@ export const router = createRouter({
     history: createWebHistory(),
     routes: [{ path: "/", component: ${name} }]
 });`
-                    }
+                    };
                 }
 
                 _files['src/main.js'] = {
@@ -714,7 +734,7 @@ ${extElement}
 
 app.mount("#app");
 `
-                }
+                };
 
                 _files['public/index.html'] = {
                     content: `<!DOCTYPE html>
@@ -730,12 +750,12 @@ app.mount("#app");
 </body>
 </html>
 `
-                }
+                };
 
                 _files[`src/${name}${extension}`] = {
                     content: `${content}
 `
-                }
+                };
             }
 
             return this.createSandboxParameters(sourceType, `${name}${extension}`, _files, extDependencies);
@@ -753,5 +773,5 @@ app.mount("#app");
             return this.$appState.sourceType;
         }
     }
-}
+};
 </script>

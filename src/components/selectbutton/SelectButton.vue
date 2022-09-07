@@ -1,16 +1,29 @@
 <template>
     <div ref="container" :class="containerClass" role="group" :aria-labelledby="ariaLabelledby">
-        <div v-for="(option, i) of options" :key="getOptionRenderKey(option)" :tabindex="i === focusedIndex ? '0' : '-1'" :aria-label="getOptionLabel(option)" :role="multiple ? 'checkbox' : 'radio'" :aria-checked="isSelected(option)" :aria-disabled="optionDisabled"
-            :class="getButtonClass(option, i)" @click="onOptionSelect($event, option, i)" @keydown="onKeydown($event, option, i)" @focus="onFocus($event)" @blur="onBlur($event, option)" v-ripple>
+        <div
+            v-for="(option, i) of options"
+            :key="getOptionRenderKey(option)"
+            :tabindex="i === focusedIndex ? '0' : '-1'"
+            :aria-label="getOptionLabel(option)"
+            :role="multiple ? 'checkbox' : 'radio'"
+            :aria-checked="isSelected(option)"
+            :aria-disabled="optionDisabled"
+            :class="getButtonClass(option, i)"
+            @click="onOptionSelect($event, option, i)"
+            @keydown="onKeydown($event, option, i)"
+            @focus="onFocus($event)"
+            @blur="onBlur($event, option)"
+            v-ripple
+        >
             <slot name="option" :option="option" :index="i">
-                <span class="p-button-label">{{getOptionLabel(option)}}</span>
+                <span class="p-button-label">{{ getOptionLabel(option) }}</span>
             </slot>
         </div>
     </div>
 </template>
 
 <script>
-import {ObjectUtils,DomHandler} from 'primevue/utils';
+import { ObjectUtils, DomHandler } from 'primevue/utils';
 import Ripple from 'primevue/ripple';
 
 export default {
@@ -22,7 +35,7 @@ export default {
         optionLabel: null,
         optionValue: null,
         optionDisabled: null,
-		multiple: Boolean,
+        multiple: Boolean,
         unselectable: {
             type: Boolean,
             default: true
@@ -31,13 +44,13 @@ export default {
         dataKey: null,
         'aria-labelledby': {
             type: String,
-			default: null
+            default: null
         }
     },
     data() {
         return {
             focusedIndex: 0
-        }
+        };
     },
     mounted() {
         this.defaultTabIndexes();
@@ -79,18 +92,15 @@ export default {
             let newValue;
 
             if (this.multiple) {
-                if (selected)
-                    newValue = this.modelValue.filter(val => !ObjectUtils.equals(val, optionValue, this.equalityKey));
-                else
-                    newValue = this.modelValue ? [...this.modelValue, optionValue]: [optionValue];
-            }
-            else {
+                if (selected) newValue = this.modelValue.filter((val) => !ObjectUtils.equals(val, optionValue, this.equalityKey));
+                else newValue = this.modelValue ? [...this.modelValue, optionValue] : [optionValue];
+            } else {
                 newValue = selected ? null : optionValue;
             }
 
             this.focusedIndex = index;
             this.$emit('update:modelValue', newValue);
-            this.$emit('change', {event: event, value: newValue});
+            this.$emit('change', { event: event, value: newValue });
         },
         isSelected(option) {
             let selected = false;
@@ -105,8 +115,7 @@ export default {
                         }
                     }
                 }
-            }
-            else {
+            } else {
                 selected = ObjectUtils.equals(this.modelValue, optionValue, this.equalityKey);
             }
 
@@ -133,24 +142,22 @@ export default {
                     event.preventDefault();
                     break;
                 }
-                
+
                 default:
                     //no op
-                break;
+                    break;
             }
         },
         changeTabIndexes(event, direction) {
             let firstTabableChild, index;
             for (let i = 0; i <= this.$refs.container.children.length - 1; i++) {
-                if (this.$refs.container.children[i].getAttribute('tabindex') === '0')
-                    firstTabableChild = {elem: this.$refs.container.children[i], index: i};
+                if (this.$refs.container.children[i].getAttribute('tabindex') === '0') firstTabableChild = { elem: this.$refs.container.children[i], index: i };
             }
 
             if (direction === 'prev') {
                 if (firstTabableChild.index === 0) index = this.$refs.container.children.length - 1;
                 else index = firstTabableChild.index - 1;
-            }
-            else {
+            } else {
                 if (firstTabableChild.index === this.$refs.container.children.length - 1) index = 0;
                 else index = firstTabableChild.index + 1;
             }
@@ -168,24 +175,30 @@ export default {
             this.$emit('blur', event, option);
         },
         getButtonClass(option) {
-            return ['p-button p-component', {
-                'p-highlight': this.isSelected(option),
-                'p-disabled': this.isOptionDisabled(option)
-            }];
+            return [
+                'p-button p-component',
+                {
+                    'p-highlight': this.isSelected(option),
+                    'p-disabled': this.isOptionDisabled(option)
+                }
+            ];
         }
     },
-	computed: {
+    computed: {
         containerClass() {
-            return ['p-selectbutton p-buttonset p-component', {
-                'p-disabled': this.disabled
-            }];
+            return [
+                'p-selectbutton p-buttonset p-component',
+                {
+                    'p-disabled': this.disabled
+                }
+            ];
         },
         equalityKey() {
             return this.optionValue ? null : this.dataKey;
         }
     },
     directives: {
-        'ripple': Ripple
+        ripple: Ripple
     }
-}
+};
 </script>

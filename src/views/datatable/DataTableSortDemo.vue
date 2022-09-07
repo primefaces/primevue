@@ -1,14 +1,14 @@
 <template>
-	<div>
-		<div class="content-section introduction">
-			<div class="feature-intro">
-				<h1>DataTable <span>Sort</span></h1>
-				<p>Enabling sortable property on a column is enough to make a column sortable. Multiple column sorting is enabled using sortMode property and used with metaKey.</p>
-			</div>
+    <div>
+        <div class="content-section introduction">
+            <div class="feature-intro">
+                <h1>DataTable <span>Sort</span></h1>
+                <p>Enabling sortable property on a column is enough to make a column sortable. Multiple column sorting is enabled using sortMode property and used with metaKey.</p>
+            </div>
             <AppDemoActions />
-		</div>
+        </div>
 
-		<div class="content-section implementation">
+        <div class="content-section implementation">
             <div class="card">
                 <h5>Single Column</h5>
                 <DataTable :value="products" responsiveLayout="scroll">
@@ -18,7 +18,7 @@
                     <Column field="quantity" header="Quantity" :sortable="true"></Column>
                     <Column field="price" header="Price" :sortable="true">
                         <template #body="slotProps">
-                            {{formatCurrency(slotProps.data.price)}}
+                            {{ formatCurrency(slotProps.data.price) }}
                         </template>
                     </Column>
                 </DataTable>
@@ -34,7 +34,7 @@
                     <Column field="quantity" header="Quantity" :sortable="true"></Column>
                     <Column field="price" header="Price" :sortable="true">
                         <template #body="slotProps">
-                            {{formatCurrency(slotProps.data.price)}}
+                            {{ formatCurrency(slotProps.data.price) }}
                         </template>
                     </Column>
                 </DataTable>
@@ -49,7 +49,7 @@
                     <Column field="quantity" header="Quantity" :sortable="true"></Column>
                     <Column field="price" header="Price" :sortable="true">
                         <template #body="slotProps">
-                            {{formatCurrency(slotProps.data.price)}}
+                            {{ formatCurrency(slotProps.data.price) }}
                         </template>
                     </Column>
                 </DataTable>
@@ -64,16 +64,15 @@
                     <Column field="quantity" header="Quantity" :sortable="true"></Column>
                     <Column field="price" header="Price" :sortable="true">
                         <template #body="slotProps">
-                            {{formatCurrency(slotProps.data.price)}}
+                            {{ formatCurrency(slotProps.data.price) }}
                         </template>
                     </Column>
                 </DataTable>
             </div>
-		</div>
+        </div>
 
         <AppDoc name="DataTableSortDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="datatable/DataTableSortDemo.vue" />
-
-	</div>
+    </div>
 </template>
 
 <script>
@@ -364,19 +363,19 @@ export default {
 `
                 }
             }
-        }
+        };
     },
     productService: null,
     created() {
         this.productService = new ProductService();
     },
     mounted() {
-        this.productService.getProductsSmall().then(data => this.products = data);
+        this.productService.getProductsSmall().then((data) => (this.products = data));
     },
     methods: {
         formatCurrency(value) {
-            return value.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
+            return value.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
         }
     }
-}
+};
 </script>

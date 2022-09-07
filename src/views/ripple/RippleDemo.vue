@@ -25,10 +25,10 @@
 import RippleDoc from './RippleDoc';
 
 export default {
-	components: {
-		'RippleDoc': RippleDoc
-	}
-}
+    components: {
+        RippleDoc: RippleDoc
+    }
+};
 </script>
 
 <style lang="scss" scoped>

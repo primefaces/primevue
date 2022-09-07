@@ -1,14 +1,14 @@
 <template>
-	<AppDoc name="ChartDemo" :sources="sources" :dependencies="{'chart.js': '3.3.2'}" component="Chart" github="chart/BarChartDemo.vue"/>
+    <AppDoc name="ChartDemo" :sources="sources" :dependencies="{ 'chart.js': '3.3.2' }" component="Chart" github="chart/BarChartDemo.vue" />
 </template>
 
 <script>
 export default {
-	data() {
-		return {
-			sources: {
+    data() {
+        return {
+            sources: {
                 'options-api': {
-					tabName: 'Options API Source',
+                    tabName: 'Options API Source',
                     content: `
 <template>
     <div>
@@ -228,10 +228,9 @@ export default {
     }
 }
 <\\/script>`
-
                 },
-				'composition-api': {
-					tabName: 'Composition API Source',
+                'composition-api': {
+                    tabName: 'Composition API Source',
                     content: `
 <template>
     <div>
@@ -471,7 +470,7 @@ export default {
 `
                 }
             }
-		}
-	}
-}
+        };
+    }
+};
 </script>

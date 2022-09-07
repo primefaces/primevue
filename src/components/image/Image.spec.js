@@ -18,7 +18,7 @@ describe('Image.vue', () => {
         expect(wrapper.find('.p-image.p-component img').attributes().src).toBe('demo/images/galleria/galleria1.jpg');
     });
 
-    it('should preview', async() => {
+    it('should preview', async () => {
         const wrapper = mount(Image, {
             global: {
                 stubs: {
@@ -35,12 +35,12 @@ describe('Image.vue', () => {
         expect(wrapper.find('.p-image-preview-indicator').exists()).toBe(true);
         expect(wrapper.find('.p-image-mask').exists()).toBe(false);
 
-        await wrapper.setData({ maskVisible: true});
+        await wrapper.setData({ maskVisible: true });
 
         expect(wrapper.find('.p-image-mask').exists()).toBe(true);
         expect(wrapper.find('.p-image-toolbar').exists()).toBe(true);
 
-        await wrapper.setData({ maskVisible: false});
+        await wrapper.setData({ maskVisible: false });
 
         expect(wrapper.find('.p-image-mask').exists()).toBe(false);
     });

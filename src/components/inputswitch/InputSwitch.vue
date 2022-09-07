@@ -1,8 +1,22 @@
 <template>
     <div :class="containerClass" @click="onClick($event)">
         <div class="p-hidden-accessible">
-            <input :id="inputId" ref="input" type="checkbox" role="switch" :class="inputClass" :style="inputStyle" :checked="checked" :disabled="disabled" :aria-checked="checked" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel"
-                @focus="onFocus($event)" @blur="onBlur($event)" v-bind="inputProps">
+            <input
+                :id="inputId"
+                ref="input"
+                type="checkbox"
+                role="switch"
+                :class="inputClass"
+                :style="inputStyle"
+                :checked="checked"
+                :disabled="disabled"
+                :aria-checked="checked"
+                :aria-labelledby="ariaLabelledby"
+                :aria-label="ariaLabel"
+                @focus="onFocus($event)"
+                @blur="onBlur($event)"
+                v-bind="inputProps"
+            />
         </div>
         <span class="p-inputswitch-slider"></span>
     </div>
@@ -47,7 +61,7 @@ export default {
         },
         'aria-labelledby': {
             type: String,
-			default: null
+            default: null
         },
         'aria-label': {
             type: String,
@@ -57,7 +71,7 @@ export default {
     data() {
         return {
             focused: false
-        }
+        };
     },
     methods: {
         onClick(event) {
@@ -86,7 +100,7 @@ export default {
                 'p-inputswitch p-component',
                 {
                     'p-inputswitch-checked': this.checked,
-					'p-disabled': this.disabled,
+                    'p-disabled': this.disabled,
                     'p-focus': this.focused
                 }
             ];
@@ -95,7 +109,7 @@ export default {
             return this.modelValue === this.trueValue;
         }
     }
-}
+};
 </script>
 
 <style>
@@ -115,7 +129,7 @@ export default {
 
 .p-inputswitch-slider:before {
     position: absolute;
-    content: "";
+    content: '';
     top: 50%;
 }
 </style>

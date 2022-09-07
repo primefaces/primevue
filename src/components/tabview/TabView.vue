@@ -1,32 +1,67 @@
 <template>
     <div :class="contentClasses">
         <div class="p-tabview-nav-container">
-            <button v-if="scrollable && !isPrevButtonDisabled" ref="prevBtn" type="button" class="p-tabview-nav-prev p-tabview-nav-btn p-link"
-                :tabindex="tabindex" :aria-label="prevButtonAriaLabel" @click="onPrevButtonClick" v-bind="previousButtonProps" v-ripple>
-				<span class="pi pi-chevron-left" aria-hidden="true"></span>
-			</button>
+            <button
+                v-if="scrollable && !isPrevButtonDisabled"
+                ref="prevBtn"
+                type="button"
+                class="p-tabview-nav-prev p-tabview-nav-btn p-link"
+                :tabindex="tabindex"
+                :aria-label="prevButtonAriaLabel"
+                @click="onPrevButtonClick"
+                v-bind="previousButtonProps"
+                v-ripple
+            >
+                <span class="pi pi-chevron-left" aria-hidden="true"></span>
+            </button>
             <div ref="content" class="p-tabview-nav-content" @scroll="onScroll">
                 <ul ref="nav" class="p-tabview-nav" role="tablist">
-                    <li v-for="(tab, i) of tabs" :key="getKey(tab,i)" :style="getTabProp(tab, 'headerStyle')" :class="getTabHeaderClass(tab, i)" role="presentation" :data-index="i" v-bind="getTabProp(tab, 'headerProps')">
-                        <a :id="getTabHeaderActionId(i)" class="p-tabview-nav-link p-tabview-header-action" :tabindex="getTabProp(tab, 'disabled') || !isTabActive(i) ? -1 : tabindex"
-                            role="tab" :aria-disabled="getTabProp(tab, 'disabled')" :aria-selected="isTabActive(i)" :aria-controls="getTabContentId(i)"
-                            @click="onTabClick($event, tab, i)" @keydown="onTabKeyDown($event, tab, i)" v-bind="getTabProp(tab, 'headerActionProps')" v-ripple>
-                            <span class="p-tabview-title" v-if="tab.props && tab.props.header">{{tab.props.header}}</span>
+                    <li v-for="(tab, i) of tabs" :key="getKey(tab, i)" :style="getTabProp(tab, 'headerStyle')" :class="getTabHeaderClass(tab, i)" role="presentation" :data-index="i" v-bind="getTabProp(tab, 'headerProps')">
+                        <a
+                            :id="getTabHeaderActionId(i)"
+                            class="p-tabview-nav-link p-tabview-header-action"
+                            :tabindex="getTabProp(tab, 'disabled') || !isTabActive(i) ? -1 : tabindex"
+                            role="tab"
+                            :aria-disabled="getTabProp(tab, 'disabled')"
+                            :aria-selected="isTabActive(i)"
+                            :aria-controls="getTabContentId(i)"
+                            @click="onTabClick($event, tab, i)"
+                            @keydown="onTabKeyDown($event, tab, i)"
+                            v-bind="getTabProp(tab, 'headerActionProps')"
+                            v-ripple
+                        >
+                            <span class="p-tabview-title" v-if="tab.props && tab.props.header">{{ tab.props.header }}</span>
                             <component :is="tab.children.header" v-if="tab.children && tab.children.header"></component>
                         </a>
                     </li>
                     <li ref="inkbar" class="p-tabview-ink-bar" role="presentation" aria-hidden="true"></li>
                 </ul>
             </div>
-            <button v-if="scrollable && !isNextButtonDisabled" ref="nextBtn" type="button" class="p-tabview-nav-next p-tabview-nav-btn p-link"
-                :tabindex="tabindex" :aria-label="nextButtonAriaLabel" @click="onNextButtonClick" v-bind="nextButtonProps" v-ripple>
-				<span class="pi pi-chevron-right" aria-hidden="true"></span>
-			</button>
+            <button
+                v-if="scrollable && !isNextButtonDisabled"
+                ref="nextBtn"
+                type="button"
+                class="p-tabview-nav-next p-tabview-nav-btn p-link"
+                :tabindex="tabindex"
+                :aria-label="nextButtonAriaLabel"
+                @click="onNextButtonClick"
+                v-bind="nextButtonProps"
+                v-ripple
+            >
+                <span class="pi pi-chevron-right" aria-hidden="true"></span>
+            </button>
         </div>
         <div class="p-tabview-panels">
-            <template v-for="(tab, i) of tabs" :key="getKey(tab,i)">
-                <div v-if="lazy ? isTabActive(i) : true" v-show="lazy ? true: isTabActive(i)" :style="getTabProp(tab, 'contentStyle')" :class="getTabContentClass(tab)"
-                    role="tabpanel" :aria-labelledby="getTabHeaderActionId(i)" v-bind="getTabProp(tab, 'contentProps')">
+            <template v-for="(tab, i) of tabs" :key="getKey(tab, i)">
+                <div
+                    v-if="lazy ? isTabActive(i) : true"
+                    v-show="lazy ? true : isTabActive(i)"
+                    :style="getTabProp(tab, 'contentStyle')"
+                    :class="getTabContentClass(tab)"
+                    role="tabpanel"
+                    :aria-labelledby="getTabHeaderActionId(i)"
+                    v-bind="getTabProp(tab, 'contentProps')"
+                >
                     <component :is="tab"></component>
                 </div>
             </template>
@@ -35,7 +70,7 @@
 </template>
 
 <script>
-import {UniqueComponentId,DomHandler} from 'primevue/utils';
+import { UniqueComponentId, DomHandler } from 'primevue/utils';
 import Ripple from 'primevue/ripple';
 
 export default {
@@ -71,7 +106,7 @@ export default {
             focusedTabIndex: -1,
             isPrevButtonDisabled: true,
             isNextButtonDisabled: false
-        }
+        };
     },
     watch: {
         activeIndex(newValue) {
@@ -203,12 +238,20 @@ export default {
         findNextHeaderAction(tabElement, selfCheck = false) {
             const headerElement = selfCheck ? tabElement : tabElement.nextElementSibling;
 
-            return headerElement ? (DomHandler.hasClass(headerElement, 'p-disabled') || DomHandler.hasClass(headerElement, 'p-tabview-ink-bar') ? this.findNextHeaderAction(headerElement) : DomHandler.findSingle(headerElement, '.p-tabview-header-action')) : null;
+            return headerElement
+                ? DomHandler.hasClass(headerElement, 'p-disabled') || DomHandler.hasClass(headerElement, 'p-tabview-ink-bar')
+                    ? this.findNextHeaderAction(headerElement)
+                    : DomHandler.findSingle(headerElement, '.p-tabview-header-action')
+                : null;
         },
         findPrevHeaderAction(tabElement, selfCheck = false) {
             const headerElement = selfCheck ? tabElement : tabElement.previousElementSibling;
 
-            return headerElement ? (DomHandler.hasClass(headerElement, 'p-disabled') || DomHandler.hasClass(headerElement, 'p-tabview-ink-bar') ? this.findPrevHeaderAction(headerElement) : DomHandler.findSingle(headerElement, '.p-tabview-header-action')) : null;
+            return headerElement
+                ? DomHandler.hasClass(headerElement, 'p-disabled') || DomHandler.hasClass(headerElement, 'p-tabview-ink-bar')
+                    ? this.findPrevHeaderAction(headerElement)
+                    : DomHandler.findSingle(headerElement, '.p-tabview-header-action')
+                : null;
         },
         findFirstHeaderAction() {
             return this.findNextHeaderAction(this.$refs.nav.firstElementChild, true);
@@ -249,7 +292,7 @@ export default {
         updateInkBar() {
             let tabHeader = this.$refs.nav.children[this.d_activeIndex];
             this.$refs.inkbar.style.width = DomHandler.getWidth(tabHeader) + 'px';
-            this.$refs.inkbar.style.left =  DomHandler.getOffset(tabHeader).left - DomHandler.getOffset(this.$refs.nav).left + 'px';
+            this.$refs.inkbar.style.left = DomHandler.getOffset(tabHeader).left - DomHandler.getOffset(this.$refs.nav).left + 'px';
         },
         updateButtonState() {
             const content = this.$refs.content;
@@ -262,13 +305,17 @@ export default {
         getVisibleButtonWidths() {
             const { prevBtn, nextBtn } = this.$refs;
 
-            return [prevBtn, nextBtn].reduce((acc, el) => el ? acc + DomHandler.getWidth(el) : acc, 0);
+            return [prevBtn, nextBtn].reduce((acc, el) => (el ? acc + DomHandler.getWidth(el) : acc), 0);
         },
         getTabHeaderClass(tab, i) {
-            return ['p-tabview-header', this.getTabProp(tab, 'headerClass'), {
-                'p-highlight': (this.d_activeIndex === i),
-                'p-disabled': this.getTabProp(tab, 'disabled')
-            }];
+            return [
+                'p-tabview-header',
+                this.getTabProp(tab, 'headerClass'),
+                {
+                    'p-highlight': this.d_activeIndex === i,
+                    'p-disabled': this.getTabProp(tab, 'disabled')
+                }
+            ];
         },
         getTabContentClass(tab) {
             return ['p-tabview-panel', this.getTabProp(tab, 'contentClass')];
@@ -276,17 +323,19 @@ export default {
     },
     computed: {
         contentClasses() {
-			return ['p-tabview p-component', {
-                'p-tabview-scrollable': this.scrollable
-            }];
-		},
+            return [
+                'p-tabview p-component',
+                {
+                    'p-tabview-scrollable': this.scrollable
+                }
+            ];
+        },
         tabs() {
             return this.$slots.default().reduce((tabs, child) => {
                 if (this.isTabPanel(child)) {
                     tabs.push(child);
-                }
-                else if (child.children && child.children instanceof Array) {
-                    child.children.forEach(nestedChild => {
+                } else if (child.children && child.children instanceof Array) {
+                    child.children.forEach((nestedChild) => {
                         if (this.isTabPanel(nestedChild)) {
                             tabs.push(nestedChild);
                         }
@@ -307,9 +356,9 @@ export default {
         }
     },
     directives: {
-        'ripple': Ripple
+        ripple: Ripple
     }
-}
+};
 </script>
 
 <style>

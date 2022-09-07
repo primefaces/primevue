@@ -1,73 +1,67 @@
 <template>
     <AppDoc name="InputMaskDemo" :sources="sources" github="inputmask/InputMaskDemo.vue">
         <h5>Import via Module</h5>
-<pre v-code.script><code>
+        <pre v-code.script><code>
 import InputMask from 'primevue/inputmask';
 
 </code></pre>
 
         <h5>Import via CDN</h5>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/inputmask/inputmask.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-		<h5>Getting Started</h5>
-		<p>A model can be bound using the standard v-model directive.</p>
-<pre v-code><code>
+        <h5>Getting Started</h5>
+        <p>A model can be bound using the standard v-model directive.</p>
+        <pre v-code><code>
 &lt;InputMask v-model="value" mask="99-999999" /&gt;
 
 </code></pre>
 
-		<h5>Mask</h5>
+        <h5>Mask</h5>
         <p>Mask format can be a combination of the the following built-in definitions.</p>
 
         <ul>
-            <li>
-                a - Alpha character (A-Z,a-z)
-            </li>
-            <li>
-                9 - Numeric character (0-9)
-            </li>
-            <li>
-                * - Alpha numberic character (A-Z,a-z,0-9)
-            </li>
+            <li>a - Alpha character (A-Z,a-z)</li>
+            <li>9 - Numeric character (0-9)</li>
+            <li>* - Alpha numberic character (A-Z,a-z,0-9)</li>
         </ul>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;InputMask v-model="value" mask="a*-999-a999" /&gt;
 
 </code></pre>
 
         <h5>SlotChar</h5>
         <p>Underscore is the default placeholder for a mask and this can be customized using <i>slotChart</i> option.</p>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;InputMask v-model="value" mask="99/99/9999" slotChar="mm/dd/yyyy" /&gt;
 
 </code></pre>
         <h5>Optional Values</h5>
-        <p>If the input does not complete the mask definition, it is cleared by default.
-            Use <i>autoClear</i> property to control this behavior. In addition, certain part of
-            a mask can be made optional by using ? symbol where anything after the question
-            mark becomes optional.</p>
-<pre v-code><code>
+        <p>
+            If the input does not complete the mask definition, it is cleared by default. Use <i>autoClear</i> property to control this behavior. In addition, certain part of a mask can be made optional by using ? symbol where anything after the
+            question mark becomes optional.
+        </p>
+        <pre v-code><code>
 &lt;InputMask v-model="value" mask="(999) 999-9999? x99999" /&gt;
 
 </code></pre>
 
-		<h5>Properties</h5>
-		<p>InputText passes any valid attribute to the underlying input element. In addition;</p>
+        <h5>Properties</h5>
+        <p>InputText passes any valid attribute to the underlying input element. In addition;</p>
         <div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Type</th>
                         <th>Default</th>
                         <th>Description</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>modelValue</td>
                         <td>any</td>
@@ -98,37 +92,40 @@ import InputMask from 'primevue/inputmask';
                         <td>false</td>
                         <td>Defines if model sets the raw unmasked value to bound value or the formatted mask value.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
         <h5>Events</h5>
         <p>Any valid event such as focus, blur and input are passed to the underlying input element.</p>
 
-		<h5>Styling</h5>
-		<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <h5>Styling</h5>
+        <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Element</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>p-inputmask p-inputtext</td>
                         <td>Input element</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
         <h5>Accessibility</h5>
         <h6>Screen Reader</h6>
-        <p>InputMask component renders a native input element that implicitly includes any passed prop. Value to describe the component can either be provided via <i>label</i> tag combined with <i>id</i> prop or using <i>aria-labelledby</i>, <i>aria-label</i> props.</p>
+        <p>
+            InputMask component renders a native input element that implicitly includes any passed prop. Value to describe the component can either be provided via <i>label</i> tag combined with <i>id</i> prop or using <i>aria-labelledby</i>,
+            <i>aria-label</i> props.
+        </p>
 
-<pre v-code><code>
+        <pre v-code><code>
 &lt;label for="date"&gt;Date&lt;/label&gt;
 &lt;InputMask id="date" /&gt;
 
@@ -157,8 +154,8 @@ import InputMask from 'primevue/inputmask';
             </table>
         </div>
 
-		<h5>Dependencies</h5>
-		<p>None.</p>
+        <h5>Dependencies</h5>
+        <p>None.</p>
     </AppDoc>
 </template>
 
@@ -342,7 +339,7 @@ export default {
 `
                 }
             }
-        }
+        };
     }
-}
+};
 </script>

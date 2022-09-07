@@ -10,17 +10,17 @@
         <div class="content-section implementation">
             <div class="card">
                 <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px">
-                    <template #item="{item}">
-                        <img :src="item.itemImageSrc" :alt="item.alt" style="width: 100%; display: block;" />
+                    <template #item="{ item }">
+                        <img :src="item.itemImageSrc" :alt="item.alt" style="width: 100%; display: block" />
                     </template>
-                    <template #thumbnail="{item}">
+                    <template #thumbnail="{ item }">
                         <div class="grid grid-nogutter justify-content-center">
-                            <img :src="item.thumbnailImageSrc" :alt="item.alt" style="display: block;" />
+                            <img :src="item.thumbnailImageSrc" :alt="item.alt" style="display: block" />
                         </div>
                     </template>
-                    <template #caption="{item}">
-                        <h4 style="margin-bottom: .5rem;">{{item.title}}</h4>
-                        <p>{{item.alt}}</p>
+                    <template #caption="{ item }">
+                        <h4 style="margin-bottom: 0.5rem">{{ item.title }}</h4>
+                        <p>{{ item.alt }}</p>
                     </template>
                 </Galleria>
             </div>
@@ -29,7 +29,7 @@
         <div class="content-section documentation">
             <TabView>
                 <TabPanel header="Source">
-<pre v-code><code><template v-pre>
+                    <pre v-code><code><template v-pre>
 &lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px"&gt;
     &lt;template #item="{item}"&gt;
         &lt;img :src="item.itemImageSrc" :alt="item.alt" style="width: 100%; display: block;" /&gt;
@@ -47,7 +47,7 @@
 </template>
 </code></pre>
 
-<pre v-code.script><code>
+                    <pre v-code.script><code>
 import PhotoService from '../../service/PhotoService';
 
 export default {
@@ -93,8 +93,8 @@ export default {
     data() {
         return {
             images: null,
-			responsiveOptions: [
-				{
+            responsiveOptions: [
+                {
                     breakpoint: '1024px',
                     numVisible: 5
                 },
@@ -106,15 +106,15 @@ export default {
                     breakpoint: '560px',
                     numVisible: 1
                 }
-			]
-        }
+            ]
+        };
     },
     galleriaService: null,
-	created() {
-		this.galleriaService = new PhotoService();
-	},
-	mounted() {
-		this.galleriaService.getImages().then(data => this.images = data);
+    created() {
+        this.galleriaService = new PhotoService();
+    },
+    mounted() {
+        this.galleriaService.getImages().then((data) => (this.images = data));
     }
-}
+};
 </script>

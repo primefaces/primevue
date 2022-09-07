@@ -1,23 +1,23 @@
 <template>
-	<div class="content-section documentation">
-		<TabView>
-			<TabPanel header="Documentation">
-				<h5>Import via Module</h5>
-<pre v-code.script><code>
+    <div class="content-section documentation">
+        <TabView>
+            <TabPanel header="Documentation">
+                <h5>Import via Module</h5>
+                <pre v-code.script><code>
 import Galleria from 'primevue/galleria';
 
 </code></pre>
 
                 <h5>Import via CDN</h5>
-<pre v-code><code>
+                <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/galleria/galleria.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-				<h5>Getting Started</h5>
-				<p>Galleria requires item template and a value as an array of objects.</p>
-<pre v-code><code>
+                <h5>Getting Started</h5>
+                <p>Galleria requires item template and a value as an array of objects.</p>
+                <pre v-code><code>
 &lt;Galleria :value="images"&gt;
     &lt;template #item="slotProps"&gt;
         &lt;img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" /&gt;
@@ -27,8 +27,8 @@ import Galleria from 'primevue/galleria';
 </code></pre>
 
                 <p>For the rest of the documentation, sample data below would be return from an example service e.g. PhotoService.</p>
-<div style="overflow: auto; height: 400px">
-<pre v-code.script><code>
+                <div style="overflow: auto; height: 400px">
+                    <pre v-code.script><code>
 {
     "data":[
         {
@@ -125,9 +125,9 @@ import Galleria from 'primevue/galleria';
 }
 
 </code></pre>
-</div>
+                </div>
 
-<pre v-code.script><code>
+                <pre v-code.script><code>
 export default class PhotoService {
 
 	getImages() {
@@ -138,7 +138,7 @@ export default class PhotoService {
 
 </code></pre>
 
-<pre v-code.script><code>
+                <pre v-code.script><code>
 export default {
     data() {
         return {
@@ -156,10 +156,10 @@ export default {
 
 </code></pre>
 
-				<h5>Items per page</h5>
+                <h5>Items per page</h5>
                 <p>Number of items per page is defined using the <i>numVisible</i> property.</p>
 
-<pre v-code><code>
+                <pre v-code><code>
 &lt;Galleria :value="images" :numVisible="5"&gt;
     &lt;template #item="slotProps"&gt;
         &lt;img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%" /&gt;
@@ -171,11 +171,10 @@ export default {
 
 </code></pre>
 
-				<h5>Responsive</h5>
-                <p>For responsive design, <i>numVisible</i> can be defined using the <i>responsiveOptions</i> property which references an array of
-                objects whose breakpoint defines the max-width to apply the settings.</p>
+                <h5>Responsive</h5>
+                <p>For responsive design, <i>numVisible</i> can be defined using the <i>responsiveOptions</i> property which references an array of objects whose breakpoint defines the max-width to apply the settings.</p>
 
-<pre v-code><code>
+                <pre v-code><code>
 &lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5"&gt;
     &lt;template #item="slotProps"&gt;
         &lt;img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%" /&gt;
@@ -187,7 +186,7 @@ export default {
 
 </code></pre>
 
-<pre v-code.script><code>
+                <pre v-code.script><code>
 responsiveOptions: [
     {
         breakpoint: '1024px',
@@ -205,9 +204,9 @@ responsiveOptions: [
 
 </code></pre>
 
-				<h5>Header and Footer</h5>
+                <h5>Header and Footer</h5>
                 <p>Custom content projection is available using the <i>header</i> and <i>footer</i> properties.</p>
-<pre v-code><code>
+                <pre v-code><code>
 &lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px"&gt;
     &lt;template #header&gt;
         &lt;h1&gt;Header&lt;/h1&gt;
@@ -223,9 +222,11 @@ responsiveOptions: [
 </code></pre>
 
                 <h5>Indicators</h5>
-                <p>Indicators allow quick navigation between the items. Set <i>showIndicators</i> to display indicators which can be customized further
-                with the <i>changeItemOnIndicatorHover</i>, <i>showIndicatorsOnItem</i> and <i>indicatorsPosition</i> properties.</p>
-<pre v-code><code>
+                <p>
+                    Indicators allow quick navigation between the items. Set <i>showIndicators</i> to display indicators which can be customized further with the <i>changeItemOnIndicatorHover</i>, <i>showIndicatorsOnItem</i> and
+                    <i>indicatorsPosition</i> properties.
+                </p>
+                <pre v-code><code>
 &lt;Galleria :value="images" :showIndicators="true"&gt;
     &lt;template #item="slotProps"&gt;
         &lt;img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" /&gt;
@@ -234,19 +235,19 @@ responsiveOptions: [
 
 </code></pre>
 
-				<h5>Properties</h5>
+                <h5>Properties</h5>
                 <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
-				<div class="doc-tablewrapper">
-					<table class="doc-table">
-						<thead>
+                <div class="doc-tablewrapper">
+                    <table class="doc-table">
+                        <thead>
                             <tr>
                                 <th>Name</th>
                                 <th>Type</th>
                                 <th>Default</th>
                                 <th>Description</th>
                             </tr>
-						</thead>
-						<tbody>
+                        </thead>
+                        <tbody>
                             <tr>
                                 <td>id</td>
                                 <td>string</td>
@@ -393,7 +394,7 @@ responsiveOptions: [
                             </tr>
                         </tbody>
                     </table>
-				</div>
+                </div>
 
                 <h5>Slots</h5>
                 <div class="doc-tablewrapper">
@@ -433,17 +434,17 @@ responsiveOptions: [
                     </table>
                 </div>
 
-				<h5>Styling</h5>
-				<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
-				<div class="doc-tablewrapper">
-					<table class="doc-table">
-						<thead>
+                <h5>Styling</h5>
+                <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
+                <div class="doc-tablewrapper">
+                    <table class="doc-table">
+                        <thead>
                             <tr>
                                 <th>Name</th>
                                 <th>Element</th>
                             </tr>
-						</thead>
-						<tbody>
+                        </thead>
+                        <tbody>
                             <tr>
                                 <td>p-galleria</td>
                                 <td>Container element.</td>
@@ -482,17 +483,17 @@ responsiveOptions: [
                             </tr>
                         </tbody>
                     </table>
-				</div>
+                </div>
 
-				<h5>Dependencies</h5>
-				<p>None.</p>
-			</TabPanel>
+                <h5>Dependencies</h5>
+                <p>None.</p>
+            </TabPanel>
 
-			<TabPanel header="Source">
-				<a href="https://github.com/primefaces/primevue/tree/master/src/views/galleria" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
-					<span>View on GitHub</span>
-				</a>
-<pre v-code><code><template v-pre>
+            <TabPanel header="Source">
+                <a href="https://github.com/primefaces/primevue/tree/master/src/views/galleria" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
+                    <span>View on GitHub</span>
+                </a>
+                <pre v-code><code><template v-pre>
 &lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px"&gt;
     &lt;template #item="slotProps"&gt;
         &lt;img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%" /&gt;
@@ -504,7 +505,7 @@ responsiveOptions: [
 </template>
 </code></pre>
 
-<pre v-code.script><code>
+                <pre v-code.script><code>
 import PhotoService from '../../service/PhotoService';
 
 export default {
@@ -537,8 +538,7 @@ export default {
 }
 
 </code></pre>
-
-			</TabPanel>
-		</TabView>
-	</div>
+            </TabPanel>
+        </TabView>
+    </div>
 </template>

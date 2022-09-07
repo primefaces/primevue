@@ -1,21 +1,21 @@
 <template>
-	<AppDoc name="ImageDemo" :sources="sources" github="image/ImageDemo.vue">
+    <AppDoc name="ImageDemo" :sources="sources" github="image/ImageDemo.vue">
         <h5>Import via Module</h5>
-<pre v-code.script><code>
+        <pre v-code.script><code>
 import Image from 'primevue/image';
 
 </code></pre>
 
         <h5>Import via CDN</h5>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/image/image.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-		<h5>Getting Started</h5>
-		<p>Image is used as the native <i>img</i> element and supports all properties that the native element has.</p>
-<pre v-code><code>
+        <h5>Getting Started</h5>
+        <p>Image is used as the native <i>img</i> element and supports all properties that the native element has.</p>
+        <pre v-code><code>
 &lt;Image src="image1.png" alt="Image Text" /&gt;
 
 </code></pre>
@@ -25,7 +25,7 @@ import Image from 'primevue/image';
 
         <h5>Indicator Templating</h5>
         <p>An eye icon is displayed by default when the image is hovered in preview mode. Use the <i>indicator</i> template for custom content.</p>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;Image src="image1.png" alt="Image Text"&gt;
     &lt;template #indicator&gt;
         Preview Content
@@ -34,19 +34,19 @@ import Image from 'primevue/image';
 
 </code></pre>
 
-		<h5>Properties</h5>
-		<p>Image passes any valid attribute to the underlying img element, additional attribute is the following.</p>
+        <h5>Properties</h5>
+        <p>Image passes any valid attribute to the underlying img element, additional attribute is the following.</p>
         <div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Type</th>
                         <th>Default</th>
                         <th>Description</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>preview</td>
                         <td>boolean</td>
@@ -65,22 +65,22 @@ import Image from 'primevue/image';
                         <td>null</td>
                         <td>Style class of the image element.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
         <h5>Events</h5>
         <p>Any valid event like click and mouseover are passed to the underlying input element. Events below are the additional ones related to the preview functionality.</p>
         <div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Parameters</th>
                         <th>Description</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>show</td>
                         <td>-</td>
@@ -96,39 +96,39 @@ import Image from 'primevue/image';
                         <td>-</td>
                         <td>Triggered when an error occurs while loading an image file.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
         <h5>Slots</h5>
-		<div class="doc-tablewrapper">
+        <div class="doc-tablewrapper">
             <table class="doc-table">
-				<thead>
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Parameters</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>indicator</td>
                         <td>-</td>
                     </tr>
-				</tbody>
-			</table>
+                </tbody>
+            </table>
         </div>
 
-		<h5>Styling</h5>
-		<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <h5>Styling</h5>
+        <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Element</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>p-image</td>
                         <td>Container element.</td>
@@ -161,24 +161,23 @@ import Image from 'primevue/image';
                         <td>p-image-preview</td>
                         <td>Image element inside the preview overlay.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
-		<h5>Dependencies</h5>
-		<p>None.</p>
+        <h5>Dependencies</h5>
+        <p>None.</p>
     </AppDoc>
 </template>
 
 <script>
-
 export default {
     data() {
         return {
             sources: {
                 'options-api': {
                     tabName: 'Options API Source',
-                    content:`
+                    content: `
 <template>
     <div>
         <h5>Basic</h5>
@@ -197,7 +196,7 @@ export default {
                 },
                 'composition-api': {
                     tabName: 'Composition API Source',
-                    content:`
+                    content: `
 <template>
     <div>
         <h5>Basic</h5>
@@ -216,7 +215,7 @@ export default {
                 'browser-source': {
                     tabName: 'Browser Source',
                     imports: `<script src="https://unpkg.com/primevue@^3/image/image.min.js"><\\/script>`,
-                    content:`<div id="app">
+                    content: `<div id="app">
             <h5>Basic</h5>
             <p-image src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" alt="Image" width="250"></p-image>
 
@@ -239,7 +238,7 @@ export default {
         <\\/script>`
                 }
             }
-        }
+        };
     }
-}
+};
 </script>

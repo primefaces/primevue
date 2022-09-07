@@ -1,23 +1,42 @@
 <template>
     <div :class="containerClass">
-        <div class="p-fluid p-column-filter-element" v-if="display === 'row'" >
+        <div class="p-fluid p-column-filter-element" v-if="display === 'row'">
             <component :is="filterElement" :field="field" :filterModel="filters[field]" :filterCallback="filterCallback" />
         </div>
-        <button ref="icon" v-if="showMenuButton" type="button" class="p-column-filter-menu-button p-link" aria-haspopup="true" :aria-expanded="overlayVisible"
-            :class="{'p-column-filter-menu-button-open': overlayVisible, 'p-column-filter-menu-button-active': hasFilter()}"
-            @click="toggleMenu()" @keydown="onToggleButtonKeyDown($event)"><span class="pi pi-filter-icon pi-filter"></span></button>
-        <button v-if="showClearButton && display === 'row'" :class="{'p-hidden-space': !hasRowFilter()}" type="button" class="p-column-filter-clear-button p-link" @click="clearFilter()"><span class="pi pi-filter-slash"></span></button>
+        <button
+            ref="icon"
+            v-if="showMenuButton"
+            type="button"
+            class="p-column-filter-menu-button p-link"
+            aria-haspopup="true"
+            :aria-expanded="overlayVisible"
+            :class="{ 'p-column-filter-menu-button-open': overlayVisible, 'p-column-filter-menu-button-active': hasFilter() }"
+            @click="toggleMenu()"
+            @keydown="onToggleButtonKeyDown($event)"
+        >
+            <span class="pi pi-filter-icon pi-filter"></span>
+        </button>
+        <button v-if="showClearButton && display === 'row'" :class="{ 'p-hidden-space': !hasRowFilter() }" type="button" class="p-column-filter-clear-button p-link" @click="clearFilter()"><span class="pi pi-filter-slash"></span></button>
         <Portal>
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
                 <div :ref="overlayRef" :class="overlayClass" v-if="overlayVisible" @keydown.escape="onEscape" @click="onContentClick" @mousedown="onContentMouseDown">
                     <component :is="filterHeaderTemplate" :field="field" :filterModel="filters[field]" :filterCallback="filterCallback" />
                     <template v-if="display === 'row'">
                         <ul class="p-column-filter-row-items">
-                            <li class="p-column-filter-row-item" v-for="(matchMode,i) of matchModes" :key="matchMode.label"
-                                @click="onRowMatchModeChange(matchMode.value)" @keydown="onRowMatchModeKeyDown($event)" @keydown.enter.prevent="onRowMatchModeChange(matchMode.value)"
-                                :class="{'p-highlight': isRowMatchModeSelected(matchMode.value)}" :tabindex="i === 0 ? '0' : null">{{matchMode.label}}</li>
+                            <li
+                                class="p-column-filter-row-item"
+                                v-for="(matchMode, i) of matchModes"
+                                :key="matchMode.label"
+                                @click="onRowMatchModeChange(matchMode.value)"
+                                @keydown="onRowMatchModeKeyDown($event)"
+                                @keydown.enter.prevent="onRowMatchModeChange(matchMode.value)"
+                                :class="{ 'p-highlight': isRowMatchModeSelected(matchMode.value) }"
+                                :tabindex="i === 0 ? '0' : null"
+                            >
+                                {{ matchMode.label }}
+                            </li>
                             <li class="p-column-filter-separator"></li>
-                            <li class="p-column-filter-row-item" @click="clearFilter()" @keydown="onRowMatchModeKeyDown($event)" @keydown.enter="onRowClearItemClick()">{{noFilterLabel}}</li>
+                            <li class="p-column-filter-row-item" @click="clearFilter()" @keydown="onRowMatchModeKeyDown($event)" @keydown.enter="onRowClearItemClick()">{{ noFilterLabel }}</li>
                         </ul>
                     </template>
                     <template v-else>
@@ -25,12 +44,26 @@
                             <CFDropdown :options="operatorOptions" :modelValue="operator" @update:modelValue="onOperatorChange($event)" class="p-column-filter-operator-dropdown" optionLabel="label" optionValue="value"></CFDropdown>
                         </div>
                         <div class="p-column-filter-constraints">
-                            <div v-for="(fieldConstraint,i) of fieldConstraints" :key="i" class="p-column-filter-constraint">
-                                <CFDropdown v-if="isShowMatchModes" :options="matchModes" :modelValue="fieldConstraint.matchMode" optionLabel="label" optionValue="value"
-                                    @update:modelValue="onMenuMatchModeChange($event, i)" class="p-column-filter-matchmode-dropdown"></CFDropdown>
+                            <div v-for="(fieldConstraint, i) of fieldConstraints" :key="i" class="p-column-filter-constraint">
+                                <CFDropdown
+                                    v-if="isShowMatchModes"
+                                    :options="matchModes"
+                                    :modelValue="fieldConstraint.matchMode"
+                                    optionLabel="label"
+                                    optionValue="value"
+                                    @update:modelValue="onMenuMatchModeChange($event, i)"
+                                    class="p-column-filter-matchmode-dropdown"
+                                ></CFDropdown>
                                 <component v-if="display === 'menu'" :is="filterElement" :field="field" :filterModel="fieldConstraint" :filterCallback="filterCallback" />
                                 <div>
-                                    <CFButton v-if="showRemoveIcon" type="button" icon="pi pi-trash" class="p-column-filter-remove-button p-button-text p-button-danger p-button-sm" @click="removeConstraint(i)" :label="removeRuleButtonLabel"></CFButton>
+                                    <CFButton
+                                        v-if="showRemoveIcon"
+                                        type="button"
+                                        icon="pi pi-trash"
+                                        class="p-column-filter-remove-button p-button-text p-button-danger p-button-sm"
+                                        @click="removeConstraint(i)"
+                                        :label="removeRuleButtonLabel"
+                                    ></CFButton>
                                 </div>
                             </div>
                         </div>
@@ -54,16 +87,16 @@
 </template>
 
 <script>
-import {DomHandler,ConnectedOverlayScrollHandler,ZIndexUtils} from 'primevue/utils';
+import { DomHandler, ConnectedOverlayScrollHandler, ZIndexUtils } from 'primevue/utils';
 import OverlayEventBus from 'primevue/overlayeventbus';
-import {FilterOperator} from 'primevue/api';
+import { FilterOperator } from 'primevue/api';
 import Dropdown from 'primevue/dropdown';
 import Button from 'primevue/button';
 import Portal from 'primevue/portal';
 
 export default {
     name: 'ColumnFilter',
-    emits: ['filter-change','filter-apply','operator-change','matchmode-change','constraint-add','constraint-remove','filter-clear','apply-click'],
+    emits: ['filter-change', 'filter-apply', 'operator-change', 'matchmode-change', 'constraint-add', 'constraint-remove', 'filter-clear', 'apply-click'],
     props: {
         field: {
             type: String,
@@ -140,7 +173,7 @@ export default {
             overlayVisible: false,
             defaultMatchMode: null,
             defaultOperator: null
-        }
+        };
     },
     overlay: null,
     selfClick: false,
@@ -162,21 +195,19 @@ export default {
             if (fieldFilters.operator) {
                 this.defaultMatchMode = fieldFilters.constraints[0].matchMode;
                 this.defaultOperator = fieldFilters.operator;
-            }
-            else {
+            } else {
                 this.defaultMatchMode = this.filters[this.field].matchMode;
             }
         }
     },
     methods: {
         clearFilter() {
-            let _filters = {...this.filters};
+            let _filters = { ...this.filters };
             if (_filters[this.field].operator) {
                 _filters[this.field].constraints.splice(1);
                 _filters[this.field].operator = this.defaultOperator;
-                _filters[this.field].constraints[0] = {value: null, matchMode: this.defaultMatchMode};
-            }
-            else {
+                _filters[this.field].constraints[0] = { value: null, matchMode: this.defaultMatchMode };
+            } else {
                 _filters[this.field].value = null;
                 _filters[this.field].matchMode = this.defaultMatchMode;
             }
@@ -187,7 +218,7 @@ export default {
             this.hide();
         },
         applyFilter() {
-            this.$emit('apply-click', {field: this.field, constraints: this.filters[this.field]});
+            this.$emit('apply-click', { field: this.field, constraints: this.filters[this.field] });
             this.$emit('filter-apply');
             this.hide();
         },
@@ -195,10 +226,8 @@ export default {
             if (this.filtersStore) {
                 let fieldFilter = this.filtersStore[this.field];
                 if (fieldFilter) {
-                    if (fieldFilter.operator)
-                        return !this.isFilterBlank(fieldFilter.constraints[0].value);
-                    else
-                        return !this.isFilterBlank(fieldFilter.value);
+                    if (fieldFilter.operator) return !this.isFilterBlank(fieldFilter.constraints[0].value);
+                    else return !this.isFilterBlank(fieldFilter.value);
                 }
             }
 
@@ -209,10 +238,8 @@ export default {
         },
         isFilterBlank(filter) {
             if (filter !== null && filter !== undefined) {
-                if ((typeof filter === 'string' && filter.trim().length == 0) || (filter instanceof Array && filter.length == 0))
-                    return true;
-                else
-                    return false;
+                if ((typeof filter === 'string' && filter.trim().length == 0) || (filter instanceof Array && filter.length == 0)) return true;
+                else return false;
             }
             return true;
         },
@@ -220,11 +247,11 @@ export default {
             this.overlayVisible = !this.overlayVisible;
         },
         onToggleButtonKeyDown(event) {
-            switch(event.key) {
+            switch (event.key) {
                 case 'Escape':
                 case 'Tab':
                     this.overlayVisible = false;
-                break;
+                    break;
 
                 case 'ArrowDown':
                     if (this.overlayVisible) {
@@ -233,12 +260,11 @@ export default {
                             focusable[0].focus();
                         }
                         event.preventDefault();
-                    }
-                    else if (event.altKey) {
+                    } else if (event.altKey) {
                         this.overlayVisible = true;
                         event.preventDefault();
                     }
-                break;
+                    break;
             }
         },
         onEscape() {
@@ -248,9 +274,9 @@ export default {
             }
         },
         onRowMatchModeChange(matchMode) {
-            let _filters = {...this.filters};
+            let _filters = { ...this.filters };
             _filters[this.field].matchMode = matchMode;
-            this.$emit('matchmode-change', {field: this.field, matchMode: matchMode});
+            this.$emit('matchmode-change', { field: this.field, matchMode: matchMode });
             this.$emit('filter-change', _filters);
             this.$emit('filter-apply');
             this.hide();
@@ -258,7 +284,7 @@ export default {
         onRowMatchModeKeyDown(event) {
             let item = event.target;
 
-            switch(event.key) {
+            switch (event.key) {
                 case 'ArrowDown':
                     var nextItem = this.findNextItem(item);
                     if (nextItem) {
@@ -268,7 +294,7 @@ export default {
                     }
 
                     event.preventDefault();
-                break;
+                    break;
 
                 case 'ArrowUp':
                     var prevItem = this.findPrevItem(item);
@@ -279,36 +305,36 @@ export default {
                     }
 
                     event.preventDefault();
-                break;
+                    break;
             }
         },
         isRowMatchModeSelected(matchMode) {
-            return (this.filters[this.field]).matchMode === matchMode;
+            return this.filters[this.field].matchMode === matchMode;
         },
         onOperatorChange(value) {
-            let _filters = {...this.filters};
+            let _filters = { ...this.filters };
             _filters[this.field].operator = value;
             this.$emit('filter-change', _filters);
 
-            this.$emit('operator-change', {field: this.field, operator: value});
+            this.$emit('operator-change', { field: this.field, operator: value });
             if (!this.showApplyButton) {
                 this.$emit('filter-apply');
             }
         },
         onMenuMatchModeChange(value, index) {
-            let _filters = {...this.filters};
+            let _filters = { ...this.filters };
             _filters[this.field].constraints[index].matchMode = value;
-            this.$emit('matchmode-change', {field: this.field, matchMode: value, index: index});
+            this.$emit('matchmode-change', { field: this.field, matchMode: value, index: index });
 
             if (!this.showApplyButton) {
                 this.$emit('filter-apply');
             }
         },
         addConstraint() {
-            let _filters = {...this.filters};
-            let newConstraint = {value: null, matchMode: this.defaultMatchMode};
+            let _filters = { ...this.filters };
+            let newConstraint = { value: null, matchMode: this.defaultMatchMode };
             _filters[this.field].constraints.push(newConstraint);
-            this.$emit('constraint-add', {field: this.field, constraing: newConstraint});
+            this.$emit('constraint-add', { field: this.field, constraing: newConstraint });
             this.$emit('filter-change', _filters);
 
             if (!this.showApplyButton) {
@@ -316,9 +342,9 @@ export default {
             }
         },
         removeConstraint(index) {
-            let _filters = {...this.filters};
+            let _filters = { ...this.filters };
             let removedConstraint = _filters[this.field].constraints.splice(index, 1);
-            this.$emit('constraint-remove', {field: this.field, constraing: removedConstraint});
+            this.$emit('constraint-remove', { field: this.field, constraing: removedConstraint });
             this.$emit('filter-change', _filters);
 
             if (!this.showApplyButton) {
@@ -331,18 +357,14 @@ export default {
         findNextItem(item) {
             let nextItem = item.nextElementSibling;
 
-            if (nextItem)
-                return DomHandler.hasClass(nextItem, 'p-column-filter-separator')  ? this.findNextItem(nextItem) : nextItem;
-            else
-                return item.parentElement.firstElementChild;
+            if (nextItem) return DomHandler.hasClass(nextItem, 'p-column-filter-separator') ? this.findNextItem(nextItem) : nextItem;
+            else return item.parentElement.firstElementChild;
         },
         findPrevItem(item) {
             let prevItem = item.previousElementSibling;
 
-            if (prevItem)
-                DomHandler.hasClass(prevItem, 'p-column-filter-separator')  ? this.findPrevItem(prevItem) : prevItem;
-            else
-                return item.parentElement.lastElementChild;
+            if (prevItem) DomHandler.hasClass(prevItem, 'p-column-filter-separator') ? this.findPrevItem(prevItem) : prevItem;
+            else return item.parentElement.lastElementChild;
         },
         hide() {
             this.overlayVisible = false;
@@ -372,7 +394,7 @@ export default {
                 if (!this.isOutsideClicked(e.target)) {
                     this.selfClick = true;
                 }
-            }
+            };
             OverlayEventBus.on('overlay-click', this.overlayEventListener);
         },
         onOverlayLeave() {
@@ -451,35 +473,43 @@ export default {
     },
     computed: {
         containerClass() {
-            return ['p-column-filter p-fluid', {
-                'p-column-filter-row': this.display === 'row',
-                'p-column-filter-menu': this.display === 'menu'
-            }];
+            return [
+                'p-column-filter p-fluid',
+                {
+                    'p-column-filter-row': this.display === 'row',
+                    'p-column-filter-menu': this.display === 'menu'
+                }
+            ];
         },
         overlayClass() {
-            return [this.filterMenuClass, {
-                'p-column-filter-overlay p-component p-fluid': true,
-                'p-column-filter-overlay-menu': this.display === 'menu',
-                'p-input-filled': this.$primevue.config.inputStyle === 'filled',
-                'p-ripple-disabled': this.$primevue.config.ripple === false
-            }];
+            return [
+                this.filterMenuClass,
+                {
+                    'p-column-filter-overlay p-component p-fluid': true,
+                    'p-column-filter-overlay-menu': this.display === 'menu',
+                    'p-input-filled': this.$primevue.config.inputStyle === 'filled',
+                    'p-ripple-disabled': this.$primevue.config.ripple === false
+                }
+            ];
         },
         showMenuButton() {
-            return this.showMenu && (this.display === 'row' ? this.type !== 'boolean': true);
+            return this.showMenu && (this.display === 'row' ? this.type !== 'boolean' : true);
         },
         matchModes() {
-            return this.matchModeOptions ||
-                this.$primevue.config.filterMatchModeOptions[this.type].map(key => {
-                    return {label: this.$primevue.config.locale[key], value: key}
-                });
+            return (
+                this.matchModeOptions ||
+                this.$primevue.config.filterMatchModeOptions[this.type].map((key) => {
+                    return { label: this.$primevue.config.locale[key], value: key };
+                })
+            );
         },
         isShowMatchModes() {
             return this.type !== 'boolean' && this.showMatchModes && this.matchModes;
         },
         operatorOptions() {
             return [
-                {label: this.$primevue.config.locale.matchAll, value: FilterOperator.AND},
-                {label: this.$primevue.config.locale.matchAny, value: FilterOperator.OR}
+                { label: this.$primevue.config.locale.matchAll, value: FilterOperator.AND },
+                { label: this.$primevue.config.locale.matchAny, value: FilterOperator.OR }
             ];
         },
         noFilterLabel() {
@@ -504,7 +534,7 @@ export default {
             return this.$primevue.config.locale.addRule;
         },
         isShowAddConstraint() {
-            return this.showAddButton && this.filters[this.field].operator && (this.fieldConstraints && this.fieldConstraints.length < this.maxConstraints);
+            return this.showAddButton && this.filters[this.field].operator && this.fieldConstraints && this.fieldConstraints.length < this.maxConstraints;
         },
         clearButtonLabel() {
             return this.$primevue.config.locale.clear;
@@ -514,9 +544,9 @@ export default {
         }
     },
     components: {
-        'CFDropdown': Dropdown,
-        'CFButton': Button,
-        'Portal': Portal
+        CFDropdown: Dropdown,
+        CFButton: Button,
+        Portal: Portal
     }
-}
+};
 </script>

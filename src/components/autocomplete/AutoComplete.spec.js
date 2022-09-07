@@ -20,12 +20,12 @@ describe('AutoComplete.vue', () => {
             data() {
                 return {
                     countries: [
-                        {"name": "Afghanistan", "code": "AF"},
-                        {"name": "Bahrain", "code": "BH"},
-                        {"name": "Chile", "code": "CL"},
-                        {"name": "Denmark", "code": "DK"}
+                        { name: 'Afghanistan', code: 'AF' },
+                        { name: 'Bahrain', code: 'BH' },
+                        { name: 'Chile', code: 'CL' },
+                        { name: 'Denmark', code: 'DK' }
                     ]
-                }
+                };
             }
         });
 
@@ -38,18 +38,16 @@ describe('AutoComplete.vue', () => {
     });
 
     it('search copmlete', async () => {
-        const event = {'target': { 'value': 'b' }};
+        const event = { target: { value: 'b' } };
 
         wrapper.vm.onInput(event);
         await wrapper.vm.$nextTick();
 
-        wrapper.vm.search(event , event.target.value, 'input');
+        wrapper.vm.search(event, event.target.value, 'input');
         await wrapper.vm.$nextTick();
 
         await wrapper.setProps({
-            suggestions: [
-                {"name": "Bahrain", "code": "BH"}
-            ]
+            suggestions: [{ name: 'Bahrain', code: 'BH' }]
         });
 
         expect(wrapper.find('.p-autocomplete-items').exists()).toBe(true);
