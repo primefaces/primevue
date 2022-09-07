@@ -17,7 +17,7 @@
     "format-check": "prettier --check \"src/**/*.{js,vue}\"",
     "format": "prettier --write \"src/**/*.{js,vue}\"",
     "lint": "vue-cli-service lint",
-    "test:unit": "vue-cli-service test:unit"
+    "test:unit": "vue-cli-service test:unit --max-warnings=0"
   },
   "keywords": [
     "primevue",
