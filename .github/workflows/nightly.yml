@@ -28,5 +28,5 @@ jobs:
 
     - name: Build
       run: |
-        npm install
+        npm install --legacy-peer-deps
         npm run build-lib
