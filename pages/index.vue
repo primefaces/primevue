@@ -66,7 +66,6 @@ export default {
           this.replaceTableTheme(value);
       },
       replaceTableTheme(newTheme) {
-        debugger
           const elementId = 'home-table-link';
           const linkElement = document.getElementById(elementId);
           const tableThemeTokens = linkElement?.getAttribute('href').split('/') || null;

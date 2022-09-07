@@ -37,7 +37,7 @@ export default {
           this.$toast.add({severity: 'warn', summary: 'Limited Functionality', detail: 'Although PrimeVue supports IE11, ThemeSwitcher in this application cannot be not fully supported by your browser. Please use a modern browser for the best experience of the showcase.'});
       }
   },
-  watch: {
+/*   watch: {
       $route: {
           immediate: true,
           handler(to) {
@@ -55,7 +55,7 @@ export default {
               this.$toast.removeAllGroups();
           }
       }
-  }, 
+  },  */
   methods: {
       onMenuButtonClick() {
           if (this.sidebarActive) {

@@ -2,8 +2,10 @@ import { defineNuxtConfig } from 'nuxt'
 const path = require('path');
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
+  ssr: true,
   typescript: false,
   components: true,
+
   css: [
     '@/assets/styles/primevue.css',
     '/node_modules/primeflex/primeflex.css',
@@ -11,6 +13,22 @@ export default defineNuxtConfig({
     '/node_modules/prismjs/themes/prism-coy.css',
     '@/assets/styles/flags.css'
   ],
+  app: {
+    head: {
+      link: [
+        {
+          id: 'theme-link',
+          rel: 'stylesheet',
+          href: 'themes/lara-light-blue/theme.css'
+        },
+        {
+          id: 'home-table-link',
+          rel: 'stylesheet',
+          href:  'styles/landing/themes/lara-light-blue/theme.css'
+        }
+      ]
+    },
+  },
   vite: {
       resolve: {
         alias: {
