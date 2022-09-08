@@ -1,15 +1,15 @@
 <template>
     <div :class="containerClass">
-        <div v-if="cancel" :class="['p-rating-item p-rating-cancel-item', { 'p-focus': focusedOptionIndex === 0 }]" @click="onOptionClick">
+        <div v-if="cancel" :class="['p-rating-item p-rating-cancel-item', { 'p-focus': focusedOptionIndex === 0 }]" @click="onOptionClick($event, 0)">
             <span class="p-hidden-accessible">
-                <input type="radio" value="0" :name="name" :checked="modelValue === 0" :disabled="disabled" :readonly="readonly" :aria-label="cancelAriaLabel()" @focus="onFocus($event, 0)" @blur="onBlur" @change="onChange($event, value)" />
+                <input type="radio" value="0" :name="name" :checked="modelValue === 0" :disabled="disabled" :readonly="readonly" :aria-label="cancelAriaLabel()" @focus="onFocus($event, 0)" @blur="onBlur" @change="onChange($event, 0)" />
             </span>
             <slot name="cancel" :value="0">
                 <span :class="cancelIconClass" />
             </slot>
         </div>
         <template v-for="value in stars" :key="value">
-            <div :class="['p-rating-item', { 'p-rating-item-active': value <= modelValue, 'p-focus': value === focusedOptionIndex }]" @click="onOptionClick">
+            <div :class="['p-rating-item', { 'p-rating-item-active': value <= modelValue, 'p-focus': value === focusedOptionIndex }]" @click="onOptionClick($event, value)">
                 <span class="p-hidden-accessible">
                     <input
                         type="radio"
@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import { DomHandler, ObjectUtils, UniqueComponentId } from 'primevue/utils';
+import { DomHandler, UniqueComponentId } from 'primevue/utils';
 
 export default {
     name: 'Rating',
@@ -81,15 +81,16 @@ export default {
         };
     },
     methods: {
-        onOptionClick(event) {
+        onOptionClick(event, value) {
             if (!this.readonly && !this.disabled) {
+                this.onOptionSelect(event, value);
                 const firstFocusableEl = DomHandler.getFirstFocusableElement(event.currentTarget);
 
                 firstFocusableEl && DomHandler.focus(firstFocusableEl);
             }
         },
         onFocus(event, value) {
-            this.onOptionSelect(event, value);
+            this.focusedOptionIndex = value;
             this.$emit('focus', event);
         },
         onBlur(event) {
@@ -97,16 +98,11 @@ export default {
             this.$emit('blur', event);
         },
         onChange(event, value) {
-            if (ObjectUtils.isEmpty(this.modelValue) && this.focusedOptionIndex !== -1) {
-                this.updateModel(event, value || null);
-            }
+            this.onOptionSelect(event, value);
         },
         onOptionSelect(event, value) {
             this.focusedOptionIndex = value;
-
-            if (ObjectUtils.isNotEmpty(this.modelValue)) {
-                this.updateModel(event, value || null);
-            }
+            this.updateModel(event, value || null);
         },
         updateModel(event, value) {
             this.$emit('update:modelValue', value);
