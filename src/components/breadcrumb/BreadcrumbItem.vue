@@ -1,7 +1,7 @@
 <template>
-    <li :class="containerClass(item)" v-if="visible()">
+    <li v-if="visible()" :class="containerClass(item)">
         <template v-if="!template">
-            <router-link v-if="item.to" :to="item.to" custom v-slot="{ navigate, href, isActive, isExactActive }">
+            <router-link v-if="item.to" v-slot="{ navigate, href, isActive, isExactActive }" :to="item.to" custom>
                 <a :href="href" :class="linkClass({ isActive, isExactActive })" @click="onClick($event, navigate)">
                     <span v-if="item.icon" :class="iconClass"></span>
                     <span v-if="item.label" class="p-menuitem-text">{{ label() }}</span>

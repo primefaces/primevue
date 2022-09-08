@@ -29,7 +29,7 @@
                 <h5>Advanced with Templating and Filtering</h5>
                 <MultiSelect v-model="selectedCountries" :options="countries" optionLabel="name" placeholder="Select Countries" :filter="true" class="multiselect-custom">
                     <template #value="slotProps">
-                        <div class="country-item country-item-value" v-for="option of slotProps.value" :key="option.code">
+                        <div v-for="option of slotProps.value" :key="option.code" class="country-item country-item-value">
                             <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + option.code.toLowerCase()" />
                             <div>{{ option.name }}</div>
                         </div>

@@ -4,7 +4,7 @@
             <PVSButton type="button" class="p-splitbutton-defaultbutton" v-bind="$attrs" :icon="icon" :label="label" @click="onDefaultButtonClick" />
         </slot>
         <PVSButton type="button" class="p-splitbutton-menubutton" icon="pi pi-chevron-down" @click="onDropdownButtonClick" :disabled="$attrs.disabled" aria-haspopup="true" :aria-controls="ariaId + '_overlay'" />
-        <PVSMenu :id="ariaId + '_overlay'" ref="menu" :model="model" :popup="true" :autoZIndex="autoZIndex" :baseZIndex="baseZIndex" :appendTo="appendTo" />
+        <PVSMenu ref="menu" :id="ariaId + '_overlay'" :model="model" :popup="true" :autoZIndex="autoZIndex" :baseZIndex="baseZIndex" :appendTo="appendTo" />
     </div>
 </template>
 

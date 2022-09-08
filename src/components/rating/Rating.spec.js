@@ -1,6 +1,17 @@
-import { mount } from '@vue/test-utils';
+import { config, mount } from '@vue/test-utils';
 import Rating from './Rating.vue';
 
+config.global.mocks = {
+    $primevue: {
+        config: {
+            locale: {
+                aria: {
+                    stars: '5'
+                }
+            }
+        }
+    }
+};
 describe('Rating.vue', () => {
     let wrapper;
 

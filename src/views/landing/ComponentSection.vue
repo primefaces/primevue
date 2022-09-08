@@ -30,7 +30,7 @@
                     <Chart type="line" :data="chartData" :options="chartOptions" />
                 </div>
                 <div class="box p-4 mb-5">
-                    <TabMenu :model="items" v-model:activeIndex="activeTabIndex" />
+                    <TabMenu v-model:activeIndex="activeTabIndex" :model="items" />
                 </div>
                 <div class="box p-4">
                     <ul class="list-none p-0 m-0">
@@ -88,7 +88,7 @@
                     <div class="flex align-items-center">
                         <Chip label="Vue" class="mr-2 font-medium" removable />
                         <span class="font-medium">Typescript</span>
-                        <InputSwitch class="ml-auto" v-model="switchValue"></InputSwitch>
+                        <InputSwitch v-model="switchValue" class="ml-auto"></InputSwitch>
                     </div>
                     <div class="mt-5">
                         <SelectButton v-model="selectButtonValue" :options="selectButtonOptions" optionLabel="name" />

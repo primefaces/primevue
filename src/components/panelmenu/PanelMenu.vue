@@ -4,7 +4,7 @@
             <div v-if="visible(item)" :class="getPanelClass(item)" :style="item.style">
                 <div :class="getHeaderClass(item)" :style="item.style">
                     <template v-if="!$slots.item">
-                        <router-link v-if="item.to && !disabled(item)" :to="item.to" custom v-slot="{ navigate, href, isActive, isExactActive }">
+                        <router-link v-if="item.to && !disabled(item)" v-slot="{ navigate, href, isActive, isExactActive }" :to="item.to" custom>
                             <a :href="href" :class="getHeaderLinkClass(item, { isActive, isExactActive })" @click="onItemClick($event, item, navigate)" role="treeitem">
                                 <span v-if="item.icon" :class="getPanelIcon(item)"></span>
                                 <span class="p-menuitem-text">{{ label(item) }}</span>
@@ -12,13 +12,13 @@
                         </router-link>
                         <a
                             v-else
+                            :id="ariaId + '_header_' + index"
                             :href="item.url"
                             :class="getHeaderLinkClass(item)"
                             @click="onItemClick($event, item)"
                             @keydown="onItemKeydown($event, item)"
                             :tabindex="disabled(item) ? null : '0'"
                             :aria-expanded="isActive(item)"
-                            :id="ariaId + '_header_' + index"
                             :aria-controls="ariaId + '_content_' + index"
                         >
                             <span v-if="item.items" :class="getPanelToggleIcon(item)"></span>
@@ -29,8 +29,8 @@
                     <component v-else :is="$slots.item" :item="item"></component>
                 </div>
                 <transition name="p-toggleable-content">
-                    <div class="p-toggleable-content" v-show="isActive(item)" role="region" :id="ariaId + '_content_' + index" :aria-labelledby="ariaId + '_header_' + index">
-                        <div class="p-panelmenu-content" v-if="item.items">
+                    <div v-show="isActive(item)" :id="ariaId + '_content_' + index" class="p-toggleable-content" role="region" :aria-labelledby="ariaId + '_header_' + index">
+                        <div v-if="item.items" class="p-panelmenu-content">
                             <PanelMenuSub :model="item.items" class="p-panelmenu-root-submenu" :template="$slots.item" :expandedKeys="expandedKeys" @item-toggle="updateExpandedKeys" :exact="exact" />
                         </div>
                     </div>
@@ -74,6 +74,7 @@ export default {
 
             if (this.disabled(item)) {
                 event.preventDefault();
+
                 return;
             }
 
@@ -114,6 +115,7 @@ export default {
         },
         getPanelToggleIcon(item) {
             const active = this.isActive(item);
+
             return ['p-panelmenu-icon pi', { 'pi-chevron-right': !active, ' pi-chevron-down': active }];
         },
         getPanelIcon(item) {
@@ -144,13 +146,13 @@ export default {
             return typeof item.label === 'function' ? item.label() : item.label;
         }
     },
-    components: {
-        PanelMenuSub: PanelMenuSub
-    },
     computed: {
         ariaId() {
             return UniqueComponentId();
         }
+    },
+    components: {
+        PanelMenuSub: PanelMenuSub
     }
 };
 </script>

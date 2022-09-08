@@ -12,11 +12,11 @@
             <div class="card">
                 <h5>Session Storage</h5>
                 <DataTable
+                    v-model:filters="filters1"
+                    v-model:selection="selectedCustomer1"
                     :value="customers"
                     :paginator="true"
                     :rows="10"
-                    v-model:filters="filters1"
-                    v-model:selection="selectedCustomer1"
                     selectionMode="single"
                     dataKey="id"
                     stateStorage="session"
@@ -31,7 +31,7 @@
                     </template>
                     <Column field="name" header="Name" :sortable="true" style="width: 25%">
                         <template #filter>
-                            <InputText type="text" v-model="filters1['name']" class="p-column-filter" placeholder="Search by name" />
+                            <InputText v-model="filters1['name']" type="text" class="p-column-filter" placeholder="Search by name" />
                         </template>
                     </Column>
                     <Column header="Country" :sortable="true" sortField="country.name" filterField="country.name" filterMatchMode="contains" style="width: 25%">
@@ -40,7 +40,7 @@
                             <span class="image-text">{{ slotProps.data.country.name }}</span>
                         </template>
                         <template #filter>
-                            <InputText type="text" v-model="filters1['country.name']" class="p-column-filter" placeholder="Search by country" />
+                            <InputText v-model="filters1['country.name']" type="text" class="p-column-filter" placeholder="Search by country" />
                         </template>
                     </Column>
                     <Column header="Representative" :sortable="true" sortField="representative.name" filterField="representative.name" filterMatchMode="in" style="width: 25%">
@@ -78,11 +78,11 @@
             <div class="card">
                 <h5>Local Storage</h5>
                 <DataTable
+                    v-model:filters="filters2"
+                    v-model:selection="selectedCustomer2"
                     :value="customers"
                     :paginator="true"
                     :rows="10"
-                    v-model:filters="filters2"
-                    v-model:selection="selectedCustomer2"
                     selectionMode="single"
                     dataKey="id"
                     stateStorage="local"
@@ -97,7 +97,7 @@
                     </template>
                     <Column field="name" header="Name" :sortable="true" style="width: 25%">
                         <template #filter>
-                            <InputText type="text" v-model="filters2['name']" class="p-column-filter" placeholder="Search by name" />
+                            <InputText v-model="filters2['name']" type="text" class="p-column-filter" placeholder="Search by name" />
                         </template>
                     </Column>
                     <Column header="Country" :sortable="true" sortField="country.name" filterField="country.name" filterMatchMode="contains" style="width: 25%">
@@ -106,7 +106,7 @@
                             <span class="image-text">{{ slotProps.data.country.name }}</span>
                         </template>
                         <template #filter>
-                            <InputText type="text" v-model="filters2['country.name']" class="p-column-filter" placeholder="Search by country" />
+                            <InputText v-model="filters2['country.name']" type="text" class="p-column-filter" placeholder="Search by country" />
                         </template>
                     </Column>
                     <Column header="Representative" :sortable="true" sortField="representative.name" filterField="representative.name" filterMatchMode="in" style="width: 25%">

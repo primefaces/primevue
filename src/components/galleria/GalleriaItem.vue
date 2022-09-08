@@ -1,17 +1,17 @@
 <template>
     <div class="p-galleria-item-wrapper">
         <div class="p-galleria-item-container">
-            <button v-if="showItemNavigators" type="button" :class="navBackwardClass" @click="navBackward($event)" :disabled="isNavBackwardDisabled()" v-ripple>
+            <button v-if="showItemNavigators" v-ripple type="button" :class="navBackwardClass" @click="navBackward($event)" :disabled="isNavBackwardDisabled()">
                 <span class="p-galleria-item-prev-icon pi pi-chevron-left"></span>
             </button>
             <div class="p-galleria-item">
-                <component :is="templates.item" :item="activeItem" v-if="templates.item" />
+                <component v-if="templates.item" :is="templates.item" :item="activeItem" />
             </div>
-            <button v-if="showItemNavigators" type="button" :class="navForwardClass" @click="navForward($event)" :disabled="isNavForwardDisabled()" v-ripple>
+            <button v-if="showItemNavigators" v-ripple type="button" :class="navForwardClass" @click="navForward($event)" :disabled="isNavForwardDisabled()">
                 <span class="p-galleria-item-next-icon pi pi-chevron-right"></span>
             </button>
-            <div class="p-galleria-caption" v-if="templates['caption']">
-                <component :is="templates.caption" :item="activeItem" v-if="templates.caption" />
+            <div v-if="templates['caption']" class="p-galleria-caption">
+                <component v-if="templates.caption" :is="templates.caption" :item="activeItem" />
             </div>
         </div>
         <ul v-if="showIndicators" class="p-galleria-indicators p-reset">
@@ -24,8 +24,8 @@
                 @keydown.enter="onIndicatorKeyDown(index)"
                 :class="['p-galleria-indicator', { 'p-highlight': isIndicatorItemActive(index) }]"
             >
-                <button type="button" tabindex="-1" class="p-link" v-if="!templates['indicator']"></button>
-                <component :is="templates.indicator" :index="index" v-if="templates.indicator" />
+                <button v-if="!templates['indicator']" type="button" tabindex="-1" class="p-link"></button>
+                <component v-if="templates.indicator" :is="templates.indicator" :index="index" />
             </li>
         </ul>
     </div>

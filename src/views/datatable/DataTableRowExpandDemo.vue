@@ -10,7 +10,7 @@
 
         <div class="content-section implementation">
             <div class="card">
-                <DataTable :value="products" v-model:expandedRows="expandedRows" dataKey="id" @row-expand="onRowExpand" @row-collapse="onRowCollapse" responsiveLayout="scroll">
+                <DataTable v-model:expandedRows="expandedRows" :value="products" dataKey="id" @row-expand="onRowExpand" @row-collapse="onRowCollapse" responsiveLayout="scroll">
                     <template #header>
                         <div class="table-header-container">
                             <Button icon="pi pi-plus" label="Expand All" @click="expandAll" class="mr-2" />

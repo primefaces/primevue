@@ -1,12 +1,12 @@
 <template>
     <template v-for="(instance, key) in instanceMap" :key="key">
-        <DDialog :_instance="instance" v-bind="instance.options.props" v-model:visible="instance.visible" @hide="onDialogHide(instance)" @after-hide="onDialogAfterHide">
-            <template #header v-if="instance.options.templates && instance.options.templates.header">
-                <component :is="header" v-for="(header, index) in getTemplateItems(instance.options.templates.header)" :key="index + '_header'"></component>
+        <DDialog v-model:visible="instance.visible" :_instance="instance" v-bind="instance.options.props" @hide="onDialogHide(instance)" @after-hide="onDialogAfterHide">
+            <template v-if="instance.options.templates && instance.options.templates.header" #header>
+                <component v-for="(header, index) in getTemplateItems(instance.options.templates.header)" :is="header" :key="index + '_header'"></component>
             </template>
             <component :is="instance.content"></component>
-            <template #footer v-if="instance.options.templates && instance.options.templates.footer">
-                <component :is="footer" v-for="(footer, index) in getTemplateItems(instance.options.templates.footer)" :key="index + '_footer'"></component>
+            <template v-if="instance.options.templates && instance.options.templates.footer" #footer>
+                <component v-for="(footer, index) in getTemplateItems(instance.options.templates.footer)" :is="footer" :key="index + '_footer'"></component>
             </template>
         </DDialog>
     </template>

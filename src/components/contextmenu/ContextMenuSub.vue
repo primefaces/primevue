@@ -1,36 +1,36 @@
 <template>
     <transition name="p-contextmenusub" @enter="onEnter">
-        <ul ref="container" :class="containerClass" role="menu" v-if="root ? true : parentActive">
+        <ul v-if="root ? true : parentActive" ref="container" :class="containerClass" role="menu">
             <template v-for="(item, i) of model" :key="label(item) + i.toString()">
-                <li role="none" :class="getItemClass(item)" :style="item.style" v-if="visible(item) && !item.separator" @mouseenter="onItemMouseEnter($event, item)">
+                <li v-if="visible(item) && !item.separator" role="none" :class="getItemClass(item)" :style="item.style" @mouseenter="onItemMouseEnter($event, item)">
                     <template v-if="!template">
-                        <router-link v-if="item.to && !disabled(item)" :to="item.to" custom v-slot="{ navigate, href, isActive, isExactActive }">
-                            <a :href="href" @click="onItemClick($event, item, navigate)" :class="linkClass(item, { isActive, isExactActive })" v-ripple role="menuitem">
-                                <span :class="['p-menuitem-icon', item.icon]" v-if="item.icon"></span>
+                        <router-link v-if="item.to && !disabled(item)" v-slot="{ navigate, href, isActive, isExactActive }" :to="item.to" custom>
+                            <a v-ripple :href="href" @click="onItemClick($event, item, navigate)" :class="linkClass(item, { isActive, isExactActive })" role="menuitem">
+                                <span v-if="item.icon" :class="['p-menuitem-icon', item.icon]"></span>
                                 <span class="p-menuitem-text">{{ label(item) }}</span>
                             </a>
                         </router-link>
                         <a
                             v-else
+                            v-ripple
                             :href="item.url"
                             :class="linkClass(item)"
                             :target="item.target"
                             @click="onItemClick($event, item)"
-                            v-ripple
                             :aria-haspopup="item.items != null"
                             :aria-expanded="item === activeItem"
                             role="menuitem"
                             :tabindex="disabled(item) ? null : '0'"
                         >
-                            <span :class="['p-menuitem-icon', item.icon]" v-if="item.icon"></span>
+                            <span v-if="item.icon" :class="['p-menuitem-icon', item.icon]"></span>
                             <span class="p-menuitem-text">{{ label(item) }}</span>
-                            <span class="p-submenu-icon pi pi-angle-right" v-if="item.items"></span>
+                            <span v-if="item.items" class="p-submenu-icon pi pi-angle-right"></span>
                         </a>
                     </template>
                     <component v-else :is="template" :item="item"></component>
-                    <ContextMenuSub :model="item.items" v-if="visible(item) && item.items" :key="label(item) + '_sub_'" :template="template" @leaf-click="onLeafClick" :parentActive="item === activeItem" :exact="exact" />
+                    <ContextMenuSub v-if="visible(item) && item.items" :key="label(item) + '_sub_'" :model="item.items" :template="template" @leaf-click="onLeafClick" :parentActive="item === activeItem" :exact="exact" />
                 </li>
-                <li :class="['p-menu-separator', item.class]" :style="item.style" v-if="visible(item) && item.separator" :key="'separator' + i.toString()" role="separator"></li>
+                <li v-if="visible(item) && item.separator" :key="'separator' + i.toString()" :class="['p-menu-separator', item.class]" :style="item.style" role="separator"></li>
             </template>
         </ul>
     </transition>
@@ -65,6 +65,11 @@ export default {
             default: true
         }
     },
+    data() {
+        return {
+            activeItem: null
+        };
+    },
     watch: {
         parentActive(newValue) {
             if (!newValue) {
@@ -72,15 +77,11 @@ export default {
             }
         }
     },
-    data() {
-        return {
-            activeItem: null
-        };
-    },
     methods: {
         onItemMouseEnter(event, item) {
             if (this.disabled(item)) {
                 event.preventDefault();
+
                 return;
             }
 
@@ -89,6 +90,7 @@ export default {
         onItemClick(event, item, navigate) {
             if (this.disabled(item)) {
                 event.preventDefault();
+
                 return;
             }
 

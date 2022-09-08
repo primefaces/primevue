@@ -1,6 +1,6 @@
 import { HTMLAttributes, InputHTMLAttributes, VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
-import { VirtualScrollerProps, VirtualScrollerItemOptions } from '../virtualscroller';
+import { VirtualScrollerItemOptions, VirtualScrollerProps } from '../virtualscroller';
 
 type DropdownOptionLabelType = string | ((data: any) => string) | undefined;
 
@@ -109,6 +109,10 @@ export interface DropdownProps {
      * When present, it specifies that the component should be disabled.
      */
     disabled?: boolean | undefined;
+    /**
+     * When present, it specifies that the element is required.
+     */
+    required?: boolean | undefined;
     /**
      * A property to uniquely identify an option.
      */
@@ -224,11 +228,11 @@ export interface DropdownProps {
     /**
      * Defines a string value that labels an interactive element.
      */
-    "aria-label"?: string | undefined;
+    'aria-label'?: string | undefined;
     /**
      * Identifier of the underlying input element.
      */
-    "aria-labelledby"?: string | undefined;
+    'aria-labelledby'?: string | undefined;
 }
 
 export interface DropdownSlots {
@@ -361,17 +365,17 @@ export declare type DropdownEmits = {
      * Callback to invoke on value change.
      * @param {DropdownChangeEvent} event - Custom change event.
      */
-    'change': (event: DropdownChangeEvent) => void;
+    change: (event: DropdownChangeEvent) => void;
     /**
      * Callback to invoke when the component receives focus.
      * @param {Event} event - Browser event.
      */
-    'focus': (event: Event) => void;
+    focus: (event: Event) => void;
     /**
      * Callback to invoke when the component loses focus.
      * @param {Event} event - Browser event.
      */
-    'blur': (event: Event) => void;
+    blur: (event: Event) => void;
     /**
      * Callback to invoke before the overlay is shown.
      */
@@ -383,17 +387,17 @@ export declare type DropdownEmits = {
     /**
      * Callback to invoke when the overlay is shown.
      */
-    'show': () => void;
+    show: () => void;
     /**
      * Callback to invoke when the overlay is hidden.
      */
-    'hide': () => void;
+    hide: () => void;
     /**
      * Callback to invoke on filter input.
      * @param {DropdownFilterEvent} event - Custom filter event.
      */
-    'filter': (event: DropdownFilterEvent) => void;
-}
+    filter: (event: DropdownFilterEvent) => void;
+};
 
 declare class Dropdown extends ClassComponent<DropdownProps, DropdownSlots, DropdownEmits> {
     /**
@@ -414,7 +418,7 @@ declare class Dropdown extends ClassComponent<DropdownProps, DropdownSlots, Drop
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        Dropdown: GlobalComponentConstructor<Dropdown>
+        Dropdown: GlobalComponentConstructor<Dropdown>;
     }
 }
 

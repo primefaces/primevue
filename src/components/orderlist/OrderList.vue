@@ -9,15 +9,15 @@
             <slot name="controlsend"></slot>
         </div>
         <div class="p-orderlist-list-container">
-            <div class="p-orderlist-header" v-if="$slots.header">
+            <div v-if="$slots.header" class="p-orderlist-header">
                 <slot name="header"></slot>
             </div>
             <transition-group ref="list" name="p-orderlist-flip" tag="ul" class="p-orderlist-list" :style="listStyle" role="listbox" aria-multiselectable="multiple">
                 <template v-for="(item, i) of modelValue" :key="getItemKey(item, i)">
                     <li
+                        v-ripple
                         tabindex="0"
                         :class="['p-orderlist-item', { 'p-highlight': isSelected(item) }]"
-                        v-ripple
                         @click="onItemClick($event, item, i)"
                         @keydown="onItemKeyDown($event, item, i)"
                         @touchend="onItemTouchEnd"
@@ -114,6 +114,7 @@ export default {
                     if (selectedItemIndex !== 0) {
                         let movedItem = value[selectedItemIndex];
                         let temp = value[selectedItemIndex - 1];
+
                         value[selectedItemIndex - 1] = movedItem;
                         value[selectedItemIndex] = temp;
                     } else {
@@ -140,6 +141,7 @@ export default {
 
                     if (selectedItemIndex !== 0) {
                         let movedItem = value.splice(selectedItemIndex, 1)[0];
+
                         value.unshift(movedItem);
                     } else {
                         break;
@@ -166,6 +168,7 @@ export default {
                     if (selectedItemIndex !== value.length - 1) {
                         let movedItem = value[selectedItemIndex];
                         let temp = value[selectedItemIndex + 1];
+
                         value[selectedItemIndex + 1] = movedItem;
                         value[selectedItemIndex] = temp;
                     } else {
@@ -192,6 +195,7 @@ export default {
 
                     if (selectedItemIndex !== value.length - 1) {
                         let movedItem = value.splice(selectedItemIndex, 1)[0];
+
                         value.push(movedItem);
                     } else {
                         break;
@@ -247,6 +251,7 @@ export default {
                 //down
                 case 40:
                     var nextItem = this.findNextItem(listItem);
+
                     if (nextItem) {
                         nextItem.focus();
                     }
@@ -257,6 +262,7 @@ export default {
                 //up
                 case 38:
                     var prevItem = this.findPrevItem(listItem);
+
                     if (prevItem) {
                         prevItem.focus();
                     }

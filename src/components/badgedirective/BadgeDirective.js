@@ -4,9 +4,11 @@ import { UniqueComponentId } from 'primevue/utils';
 const BadgeDirective = {
     beforeMount(el, options) {
         const id = UniqueComponentId() + '_badge';
+
         el.$_pbadgeId = id;
 
         let badge = document.createElement('span');
+
         badge.id = id;
         badge.className = 'p-badge p-component';
 

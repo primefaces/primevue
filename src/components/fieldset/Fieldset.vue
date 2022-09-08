@@ -1,10 +1,10 @@
 <template>
     <fieldset :class="['p-fieldset p-component', { 'p-fieldset-toggleable': toggleable }]">
         <legend class="p-fieldset-legend">
-            <slot name="legend" v-if="!toggleable">
-                <span class="p-fieldset-legend-text" :id="ariaId + '_header'">{{ legend }}</span>
+            <slot v-if="!toggleable" name="legend">
+                <span :id="ariaId + '_header'" class="p-fieldset-legend-text">{{ legend }}</span>
             </slot>
-            <a tabindex="0" v-if="toggleable" role="button" :id="ariaId + '_header'" :aria-controls="ariaId + '_content'" :aria-expanded="!d_collapsed" :aria-label="toggleButtonProps || legend" @click="toggle" @keydown="onKeyDown" v-ripple>
+            <a v-if="toggleable" :id="ariaId + '_header'" v-ripple tabindex="0" role="button" :aria-controls="ariaId + '_content'" :aria-expanded="!d_collapsed" :aria-label="toggleButtonProps || legend" @click="toggle" @keydown="onKeyDown">
                 <span :class="iconClass"></span>
                 <slot name="legend">
                     <span class="p-fieldset-legend-text">{{ legend }}</span>
@@ -12,7 +12,7 @@
             </a>
         </legend>
         <transition name="p-toggleable-content">
-            <div class="p-toggleable-content" v-show="!d_collapsed" role="region" :id="ariaId + '_content'" :aria-labelledby="ariaId + '_header'">
+            <div v-show="!d_collapsed" :id="ariaId + '_content'" class="p-toggleable-content" role="region" :aria-labelledby="ariaId + '_header'">
                 <div class="p-fieldset-content">
                     <slot></slot>
                 </div>

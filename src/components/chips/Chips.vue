@@ -33,8 +33,8 @@
             <li class="p-chips-input-token" role="option">
                 <input
                     ref="input"
-                    type="text"
                     :id="inputId"
+                    type="text"
                     :class="inputClass"
                     :style="inputStyle"
                     :disabled="disabled || maxedOut"
@@ -135,9 +135,11 @@ export default {
         onBlur(event) {
             this.focused = false;
             this.focusedIndex = null;
+
             if (this.addOnBlur) {
                 this.addItem(event, event.target.value, false);
             }
+
             this.$emit('blur', event);
         },
         onKeyDown(event) {
@@ -150,18 +152,21 @@ export default {
                             this.removeItem(event, this.focusedIndex);
                         } else this.removeItem(event, this.modelValue.length - 1);
                     }
+
                     break;
 
                 case 'Enter':
                     if (inputValue && inputValue.trim().length && !this.maxedOut) {
                         this.addItem(event, inputValue, true);
                     }
+
                     break;
 
                 case 'ArrowLeft':
                     if (inputValue.length === 0 && this.modelValue && this.modelValue.length > 0) {
                         this.$refs.container.focus();
                     }
+
                     break;
 
                 case 'ArrowRight':
@@ -174,15 +179,18 @@ export default {
                             this.addItem(event, inputValue, true);
                         }
                     }
+
                     break;
             }
         },
         onPaste(event) {
             if (this.separator) {
                 let pastedData = (event.clipboardData || window['clipboardData']).getData('Text');
+
                 if (pastedData) {
                     let value = this.modelValue || [];
                     let pastedValues = pastedData.split(this.separator);
+
                     pastedValues = pastedValues.filter((val) => this.allowDuplicate || value.indexOf(val) === -1);
                     value = [...value, ...pastedValues];
                     this.updateModel(event, value, true);
@@ -251,6 +259,7 @@ export default {
         addItem(event, item, preventDefault) {
             if (item && item.trim().length) {
                 let value = this.modelValue ? [...this.modelValue] : [];
+
                 if (this.allowDuplicate || value.indexOf(item) === -1) {
                     value.push(item);
                     this.updateModel(event, value, preventDefault);
@@ -264,6 +273,7 @@ export default {
 
             let values = [...this.modelValue];
             const removedItem = values.splice(index, 1);
+
             this.focusedIndex = null;
             this.$refs.input.focus();
             this.$emit('update:modelValue', values);

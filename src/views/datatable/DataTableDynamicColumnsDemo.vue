@@ -11,7 +11,7 @@
         <div class="content-section implementation">
             <div class="card">
                 <DataTable :value="products" responsiveLayout="scroll">
-                    <Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field"></Column>
+                    <Column v-for="col of columns" :key="col.field" :field="col.field" :header="col.header"></Column>
                 </DataTable>
             </div>
         </div>

@@ -1,6 +1,6 @@
 <template>
     <span v-if="showEditor" class="flex justify-content-end">
-        <SplitButton :model="items" label="Edit in CodeSandbox" class="liveEditorSplitButton" @click="openDefaultCSB" v-show="false" />
+        <SplitButton v-show="false" :model="items" label="Edit in CodeSandbox" class="liveEditorSplitButton" @click="openDefaultCSB" />
     </span>
 </template>
 
@@ -11,32 +11,6 @@ import { services, data } from './LiveEditorData';
 const sourceTypes = ['options-api', 'composition-api', 'browser-source'];
 
 export default {
-    data() {
-        return {
-            sandbox_id: null,
-            showCodeHighlight: false,
-            items: [
-                {
-                    label: 'Options API',
-                    command: () => {
-                        this.postSandboxParameters('options-api');
-                    }
-                },
-                {
-                    label: 'Composition API',
-                    command: () => {
-                        this.postSandboxParameters('composition-api');
-                    }
-                },
-                {
-                    label: 'Browser Source',
-                    command: () => {
-                        this.postSandboxParameters('browser-source');
-                    }
-                }
-            ]
-        };
-    },
     props: {
         name: {
             type: String,
@@ -71,11 +45,38 @@ export default {
             default: null
         }
     },
+    data() {
+        return {
+            sandbox_id: null,
+            showCodeHighlight: false,
+            items: [
+                {
+                    label: 'Options API',
+                    command: () => {
+                        this.postSandboxParameters('options-api');
+                    }
+                },
+                {
+                    label: 'Composition API',
+                    command: () => {
+                        this.postSandboxParameters('composition-api');
+                    }
+                },
+                {
+                    label: 'Browser Source',
+                    command: () => {
+                        this.postSandboxParameters('browser-source');
+                    }
+                }
+            ]
+        };
+    },
     runDemoListener: null,
     mounted() {
         this.runDemoListener = (type) => {
             this.postSandboxParameters(type);
         };
+
         EventBus.on('run-demo', this.runDemoListener);
     },
     beforeUnmount() {

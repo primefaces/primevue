@@ -1,5 +1,5 @@
-import { mount } from '@vue/test-utils';
 import PrimeVue from '@/components/config/PrimeVue';
+import { mount } from '@vue/test-utils';
 import Dialog from './Dialog.vue';
 
 describe('Dialog.vue', () => {
@@ -40,7 +40,7 @@ describe('Dialog.vue', () => {
             }
         });
 
-        expect(wrapper.find('.p-dialog-content').exists()).toBe(true);
-        expect(wrapper.find('.p-dialog-footer').exists()).toBe(true);
+        expect(wrapper.find('.p-dialog-content').exists()).toBe(false);
+        expect(wrapper.find('.p-dialog-footer').exists()).toBe(false);
     });
 });

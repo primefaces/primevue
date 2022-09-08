@@ -8,6 +8,7 @@ export default class ConnectedOverlayScrollHandler {
 
     bindScrollListener() {
         this.scrollableParents = DomHandler.getScrollableParents(this.element);
+
         for (let i = 0; i < this.scrollableParents.length; i++) {
             this.scrollableParents[i].addEventListener('scroll', this.listener);
         }

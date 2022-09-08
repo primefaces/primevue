@@ -32,15 +32,6 @@ export default {
             sidebarActive: false
         };
     },
-    mounted() {
-        if (this.isOutdatedIE()) {
-            this.$toast.add({
-                severity: 'warn',
-                summary: 'Limited Functionality',
-                detail: 'Although PrimeVue supports IE11, ThemeSwitcher in this application cannot be not fully supported by your browser. Please use a modern browser for the best experience of the showcase.'
-            });
-        }
-    },
     watch: {
         $route: {
             immediate: true,
@@ -53,6 +44,15 @@ export default {
                 DomHandler.removeClass(document.body, 'blocked-scroll');
                 this.$toast.removeAllGroups();
             }
+        }
+    },
+    mounted() {
+        if (this.isOutdatedIE()) {
+            this.$toast.add({
+                severity: 'warn',
+                summary: 'Limited Functionality',
+                detail: 'Although PrimeVue supports IE11, ThemeSwitcher in this application cannot be not fully supported by your browser. Please use a modern browser for the best experience of the showcase.'
+            });
         }
     },
     methods: {
@@ -90,6 +90,7 @@ export default {
         },
         isOutdatedIE() {
             let ua = window.navigator.userAgent;
+
             if (ua.indexOf('MSIE ') > 0 || ua.indexOf('Trident/') > 0) {
                 return true;
             }

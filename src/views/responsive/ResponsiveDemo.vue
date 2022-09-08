@@ -50,7 +50,7 @@
 
                         <h5>Float Label</h5>
                         <span class="p-float-label">
-                            <InputText id="username" type="text" v-model="floatValue" />
+                            <InputText id="username" v-model="floatValue" type="text" />
                             <label for="username">Username</label>
                         </span>
 
@@ -58,10 +58,10 @@
                         <Textarea placeholder="Your Message" :autoResize="true" rows="3" cols="30" />
 
                         <h5>AutoComplete</h5>
-                        <AutoComplete placeholder="Search" id="dd" :dropdown="true" :multiple="true" v-model="selectedAutoValue" :suggestions="autoFilteredValue" @complete="searchCountry($event)" field="name" />
+                        <AutoComplete id="dd" v-model="selectedAutoValue" placeholder="Search" :dropdown="true" :multiple="true" :suggestions="autoFilteredValue" @complete="searchCountry($event)" field="name" />
 
                         <h5>Calendar</h5>
-                        <Calendar :showIcon="true" :showButtonBar="true" v-model="calendarValue"></Calendar>
+                        <Calendar v-model="calendarValue" :showIcon="true" :showButtonBar="true"></Calendar>
 
                         <h5>Spinner</h5>
                         <InputNumber v-model="inputNumberValue" showButtons mode="decimal"></InputNumber>
@@ -89,19 +89,19 @@
                         <div class="grid">
                             <div class="col-12 md:col-4">
                                 <div class="field-radiobutton">
-                                    <RadioButton id="option1" name="option" value="Option 1" v-model="radioValue" />
+                                    <RadioButton id="option1" v-model="radioValue" name="option" value="Option 1" />
                                     <label for="option1">Option 1</label>
                                 </div>
                             </div>
                             <div class="col-12 md:col-4">
                                 <div class="field-radiobutton">
-                                    <RadioButton id="option2" name="option" value="Option 2" v-model="radioValue" />
+                                    <RadioButton id="option2" v-model="radioValue" name="option" value="Option 2" />
                                     <label for="option2">Option 2</label>
                                 </div>
                             </div>
                             <div class="col-12 md:col-4">
                                 <div class="field-radiobutton">
-                                    <RadioButton id="option3" name="option" value="Option 3" v-model="radioValue" />
+                                    <RadioButton id="option3" v-model="radioValue" name="option" value="Option 3" />
                                     <label for="option3">Option 3</label>
                                 </div>
                             </div>
@@ -111,19 +111,19 @@
                         <div class="grid">
                             <div class="col-12 md:col-4">
                                 <div class="field-checkbox">
-                                    <Checkbox id="checkOption1" name="option" value="Option 1" v-model="checkboxValue" />
+                                    <Checkbox id="checkOption1" v-model="checkboxValue" name="option" value="Option 1" />
                                     <label for="checkOption1">Option 1</label>
                                 </div>
                             </div>
                             <div class="col-12 md:col-4">
                                 <div class="field-checkbox">
-                                    <Checkbox id="checkOption2" name="option" value="Option 2" v-model="checkboxValue" />
+                                    <Checkbox id="checkOption2" v-model="checkboxValue" name="option" value="Option 2" />
                                     <label for="checkOption2">Option 2</label>
                                 </div>
                             </div>
                             <div class="col-12 md:col-4">
                                 <div class="field-checkbox">
-                                    <Checkbox id="checkOption3" name="option" value="Option 3" v-model="checkboxValue" />
+                                    <Checkbox id="checkOption3" v-model="checkboxValue" name="option" value="Option 3" />
                                     <label for="checkOption3">Option 3</label>
                                 </div>
                             </div>
@@ -262,12 +262,12 @@
                 <div class="col-12">
                     <div class="card">
                         <DataTable
+                            v-model:selection="selectedCustomers"
                             :value="customers"
                             :paginator="true"
                             :rows="10"
                             dataKey="id"
                             :rowHover="true"
-                            v-model:selection="selectedCustomers"
                             :filters="filters"
                             paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown"
                             :rowsPerPageOptions="[10, 25, 50]"
@@ -390,7 +390,7 @@
                         <h5>Overlay Panel</h5>
                         <Button type="button" label="Choose" @click="toggle" icon="pi pi-search" />
                         <OverlayPanel ref="op" appendTo="body" :showCloseIcon="true" style="width: 450px" :breakpoints="{ '960px': '75vw' }">
-                            <DataTable :value="products" v-model:selection="selectedProduct" selectionMode="single" :paginator="true" :rows="5" @row-select="onProductSelect">
+                            <DataTable v-model:selection="selectedProduct" :value="products" selectionMode="single" :paginator="true" :rows="5" @row-select="onProductSelect">
                                 <Column field="name" header="Name" sortable></Column>
                                 <Column header="Image">
                                     <template #body="slotProps">
@@ -409,7 +409,7 @@
                 <div class="col-12 md:col-3">
                     <div class="card p-fluid">
                         <h5>Dialog</h5>
-                        <Dialog header="Dialog" v-model:visible="display" :style="{ width: '50vw' }" :breakpoints="{ '960px': '75vw' }" :modal="true">
+                        <Dialog v-model:visible="display" header="Dialog" :style="{ width: '50vw' }" :breakpoints="{ '960px': '75vw' }" :modal="true">
                             <p>
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
                                 commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim

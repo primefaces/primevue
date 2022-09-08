@@ -1,6 +1,6 @@
 <template>
     <transition name="p-scrolltop" appear @enter="onEnter" @after-leave="onAfterLeave">
-        <button :ref="containerRef" :class="containerClass" v-if="visible" @click="onClick" type="button">
+        <button v-if="visible" :ref="containerRef" :class="containerClass" @click="onClick" type="button">
             <span :class="iconClass"></span>
         </button>
     </transition>
@@ -13,11 +13,6 @@ export default {
     name: 'ScrollTop',
     scrollListener: null,
     container: null,
-    data() {
-        return {
-            visible: false
-        };
-    },
     props: {
         target: {
             type: String,
@@ -36,6 +31,11 @@ export default {
             default: 'smooth'
         }
     },
+    data() {
+        return {
+            visible: false
+        };
+    },
     mounted() {
         if (this.target === 'window') this.bindDocumentScrollListener();
         else if (this.target === 'parent') this.bindParentScrollListener();
@@ -52,6 +52,7 @@ export default {
     methods: {
         onClick() {
             let scrollElement = this.target === 'window' ? window : this.$el.parentElement;
+
             scrollElement.scroll({
                 top: 0,
                 behavior: this.behavior

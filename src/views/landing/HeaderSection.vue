@@ -86,6 +86,7 @@ export default {
                     this.checkSticky();
                 };
             }
+
             window.addEventListener('scroll', this.scrollListener);
         },
         unbindScrollListener() {

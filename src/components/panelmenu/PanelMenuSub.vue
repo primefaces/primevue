@@ -1,9 +1,9 @@
 <template>
     <ul class="p-submenu-list" role="tree">
         <template v-for="(item, i) of model" :key="label(item) + i.toString()">
-            <li role="none" :class="getItemClass(item)" :style="item.style" v-if="visible(item) && !item.separator">
+            <li v-if="visible(item) && !item.separator" role="none" :class="getItemClass(item)" :style="item.style">
                 <template v-if="!template">
-                    <router-link v-if="item.to && !disabled(item)" :to="item.to" custom v-slot="{ navigate, href, isActive: isRouterActive, isExactActive }">
+                    <router-link v-if="item.to && !disabled(item)" v-slot="{ navigate, href, isActive: isRouterActive, isExactActive }" :to="item.to" custom>
                         <a :href="href" :class="linkClass(item, { isActive: isRouterActive, isExactActive })" @click="onItemClick($event, item, navigate)" role="treeitem" :aria-expanded="isActive(item)">
                             <span :class="['p-menuitem-icon', item.icon]"></span>
                             <span class="p-menuitem-text">{{ label(item) }}</span>
@@ -20,19 +20,19 @@
                         :aria-expanded="isActive(item)"
                         :tabindex="disabled(item) ? null : '0'"
                     >
-                        <span :class="getSubmenuIcon(item)" v-if="item.items"></span>
+                        <span v-if="item.items" :class="getSubmenuIcon(item)"></span>
                         <span :class="['p-menuitem-icon', item.icon]"></span>
                         <span class="p-menuitem-text">{{ label(item) }}</span>
                     </a>
                 </template>
                 <component v-else :is="template" :item="item"></component>
                 <transition name="p-toggleable-content">
-                    <div class="p-toggleable-content" v-show="isActive(item)">
-                        <PanelMenuSub :model="item.items" v-if="visible(item) && item.items" :key="label(item) + '_sub_'" :template="template" :expandedKeys="expandedKeys" @item-toggle="$emit('item-toggle', $event)" :exact="exact" />
+                    <div v-show="isActive(item)" class="p-toggleable-content">
+                        <PanelMenuSub v-if="visible(item) && item.items" :key="label(item) + '_sub_'" :model="item.items" :template="template" :expandedKeys="expandedKeys" @item-toggle="$emit('item-toggle', $event)" :exact="exact" />
                     </div>
                 </transition>
             </li>
-            <li :class="['p-menu-separator', item.class]" :style="item.style" v-if="visible(item) && item.separator" :key="'separator' + i.toString()"></li>
+            <li v-if="visible(item) && item.separator" :key="'separator' + i.toString()" :class="['p-menu-separator', item.class]" :style="item.style"></li>
         </template>
     </ul>
 </template>
@@ -72,6 +72,7 @@ export default {
 
             if (this.disabled(item)) {
                 event.preventDefault();
+
                 return;
             }
 
@@ -114,6 +115,7 @@ export default {
         },
         getSubmenuIcon(item) {
             const active = this.isActive(item);
+
             return ['p-panelmenu-icon pi pi-fw', { 'pi-angle-right': !active, 'pi-angle-down': active }];
         },
         visible(item) {

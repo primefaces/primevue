@@ -29,15 +29,6 @@
 export default {
     name: 'Knob',
     emits: ['update:modelValue', 'change'],
-    data() {
-        return {
-            radius: 40,
-            midX: 50,
-            midY: 50,
-            minRadians: (4 * Math.PI) / 3,
-            maxRadians: -Math.PI / 3
-        };
-    },
     props: {
         modelValue: {
             type: Number,
@@ -104,21 +95,33 @@ export default {
             default: null
         }
     },
+    data() {
+        return {
+            radius: 40,
+            midX: 50,
+            midY: 50,
+            minRadians: (4 * Math.PI) / 3,
+            maxRadians: -Math.PI / 3
+        };
+    },
     methods: {
         updateValue(offsetX, offsetY) {
             let dx = offsetX - this.size / 2;
             let dy = this.size / 2 - offsetY;
             let angle = Math.atan2(dy, dx);
             let start = -Math.PI / 2 - Math.PI / 6;
+
             this.updateModel(angle, start);
         },
         updateModel(angle, start) {
             let mappedValue;
+
             if (angle > this.maxRadians) mappedValue = this.mapRange(angle, this.minRadians, this.maxRadians, this.min, this.max);
             else if (angle < start) mappedValue = this.mapRange(angle + 2 * Math.PI, this.minRadians, this.maxRadians, this.min, this.max);
             else return;
 
             let newValue = Math.round((mappedValue - this.min) / this.step) * this.step + this.min;
+
             this.$emit('update:modelValue', newValue);
             this.$emit('change', newValue);
         },
@@ -175,6 +178,7 @@ export default {
                 const touch = event.targetTouches.item(0);
                 const offsetX = touch.clientX - rect.left;
                 const offsetY = touch.clientY - rect.top;
+
                 this.updateValue(offsetX, offsetY);
             }
         },
@@ -182,6 +186,7 @@ export default {
             if (!this.disabled && !this.readonly) {
                 switch (event.code) {
                     case 'ArrowRight':
+
                     case 'ArrowUp': {
                         event.preventDefault();
                         this.updateModelValue(this.modelValue + 1);
@@ -189,6 +194,7 @@ export default {
                     }
 
                     case 'ArrowLeft':
+
                     case 'ArrowDown': {
                         event.preventDefault();
                         this.updateModelValue(this.modelValue - 1);

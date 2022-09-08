@@ -94,7 +94,7 @@
                         <div class="p-inputgroup">
                             <InputText placeholder="Price" />
                             <span class="p-inputgroup-addon">
-                                <RadioButton name="rb1" value="rb1" v-model="radioValue1" />
+                                <RadioButton v-model="radioValue1" name="rb1" value="rb1" />
                             </span>
                         </div>
                     </div>
@@ -106,7 +106,7 @@
                             </span>
                             <InputText placeholder="Website" />
                             <span class="p-inputgroup-addon">
-                                <RadioButton name="rb2" value="rb2" v-model="radioValue2" />
+                                <RadioButton v-model="radioValue2" name="rb2" value="rb2" />
                             </span>
                         </div>
                     </div>

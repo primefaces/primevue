@@ -1,6 +1,6 @@
 <template>
-    <div :id="id" v-if="$attrs.value && $attrs.value.length > 0" :class="galleriaClass" :style="$attrs.containerStyle">
-        <button v-if="$attrs.fullScreen" type="button" class="p-galleria-close p-link" @click="$emit('mask-hide')" v-ripple>
+    <div v-if="$attrs.value && $attrs.value.length > 0" :id="id" :class="galleriaClass" :style="$attrs.containerStyle">
+        <button v-if="$attrs.fullScreen" v-ripple type="button" class="p-galleria-close p-link" @click="$emit('mask-hide')">
             <span class="p-galleria-close-icon pi pi-times"></span>
         </button>
         <div v-if="$attrs.templates && $attrs.templates['header']" class="p-galleria-header">
@@ -8,24 +8,25 @@
         </div>
         <div class="p-galleria-content">
             <GalleriaItem
-                :value="$attrs.value"
                 v-model:activeIndex="activeIndex"
+                v-model:slideShowActive="slideShowActive"
+                :value="$attrs.value"
                 :circular="$attrs.circular"
                 :templates="$attrs.templates"
                 :showIndicators="$attrs.showIndicators"
                 :changeItemOnIndicatorHover="$attrs.changeItemOnIndicatorHover"
                 :showItemNavigators="$attrs.showItemNavigators"
                 :autoPlay="$attrs.autoPlay"
-                v-model:slideShowActive="slideShowActive"
                 @start-slideshow="startSlideShow"
                 @stop-slideshow="stopSlideShow"
             />
 
             <GalleriaThumbnails
                 v-if="$attrs.showThumbnails"
+                v-model:activeIndex="activeIndex"
+                v-model:slideShowActive="slideShowActive"
                 :containerId="id"
                 :value="$attrs.value"
-                v-model:activeIndex="activeIndex"
                 :templates="$attrs.templates"
                 :numVisible="numVisible"
                 :responsiveOptions="$attrs.responsiveOptions"
@@ -33,7 +34,6 @@
                 :isVertical="isVertical()"
                 :contentHeight="$attrs.verticalThumbnailViewPortHeight"
                 :showThumbnailNavigators="$attrs.showThumbnailNavigators"
-                v-model:slideShowActive="slideShowActive"
                 @stop-slideshow="stopSlideShow"
             />
         </div>
@@ -91,6 +91,7 @@ export default {
         startSlideShow() {
             this.interval = setInterval(() => {
                 let activeIndex = this.$attrs.circular && this.$attrs.value.length - 1 === this.activeIndex ? 0 : this.activeIndex + 1;
+
                 this.activeIndex = activeIndex;
             }, this.$attrs.transitionInterval);
 

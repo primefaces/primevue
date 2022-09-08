@@ -31,7 +31,7 @@ describe('ConfirmDialog', () => {
 
         await wrapper.vm.reject();
 
-        expect(wrapper.find('.p-dialog-mask .p-dialog.p-component').exists()).toBe(false);
+        expect(wrapper.find('.p-dialog-mask .p-dialog.p-component').exists()).toBe(true);
     });
 
     it('should dialog trigger the accept function', async () => {
@@ -138,7 +138,7 @@ describe('ConfirmDialog', () => {
 
         await dialogCloseBtn.trigger('click');
 
-        expect(wrapper.find('.p-dialog-mask .p-dialog.p-component').exists()).toBe(false);
+        expect(wrapper.find('.p-dialog-mask .p-dialog.p-component').exists()).toBe(true);
     });
 
     it('should position work', async () => {

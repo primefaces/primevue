@@ -10,7 +10,7 @@
         </div>
         <div class="p-terminal-prompt-container">
             <span class="p-terminal-prompt">{{ prompt }}</span>
-            <input ref="input" type="text" v-model="commandText" class="p-terminal-input" autocomplete="off" @keydown="onKeydown" />
+            <input ref="input" v-model="commandText" type="text" class="p-terminal-input" autocomplete="off" @keydown="onKeydown" />
         </div>
     </div>
 </template>

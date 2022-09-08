@@ -31,6 +31,7 @@ export default {
             const item = {
                 hiddenNews: this.$appState.announcement.id
             };
+
             localStorage.setItem(this.storageKey, JSON.stringify(item));
         }
     }

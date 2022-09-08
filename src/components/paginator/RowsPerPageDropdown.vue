@@ -22,11 +22,13 @@ export default {
     computed: {
         rowsOptions() {
             let opts = [];
+
             if (this.options) {
                 for (let i = 0; i < this.options.length; i++) {
                     opts.push({ label: String(this.options[i]), value: this.options[i] });
                 }
             }
+
             return opts;
         }
     },

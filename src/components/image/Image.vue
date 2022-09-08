@@ -1,13 +1,13 @@
 <template>
     <span :class="containerClass" :style="style">
         <img v-bind="$attrs" :style="imageStyle" :class="imageClass" @error="onError" />
-        <div class="p-image-preview-indicator" v-if="preview" @click="onImageClick">
+        <div v-if="preview" class="p-image-preview-indicator" @click="onImageClick">
             <slot name="indicator">
                 <i class="p-image-preview-icon pi pi-eye"></i>
             </slot>
         </div>
         <Portal>
-            <div :ref="maskRef" :class="maskClass" v-if="maskVisible" @click="onMaskClick">
+            <div v-if="maskVisible" :ref="maskRef" :class="maskClass" @click="onMaskClick">
                 <div class="p-image-toolbar">
                     <button class="p-image-action p-link" @click="rotateRight" type="button">
                         <i class="pi pi-refresh"></i>

@@ -28,7 +28,7 @@
                 <Button label="Show" icon="pi pi-external-link" @click="openDialog" />
             </div>
 
-            <Dialog header="Flex Scroll" v-model:visible="dialogVisible" :style="{ width: '75vw' }" :maximizable="true" :modal="true" :contentStyle="{ height: '300px' }">
+            <Dialog v-model:visible="dialogVisible" header="Flex Scroll" :style="{ width: '75vw' }" :maximizable="true" :modal="true" :contentStyle="{ height: '300px' }">
                 <TreeTable :value="nodes" :scrollable="true" scrollHeight="flex">
                     <Column field="name" header="Name" :expander="true" style="min-width: 200px"></Column>
                     <Column field="size" header="Size" style="min-width: 200px"></Column>

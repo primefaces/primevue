@@ -4,13 +4,13 @@
             <button
                 v-if="scrollable && !isPrevButtonDisabled"
                 ref="prevBtn"
+                v-ripple
                 type="button"
                 class="p-tabview-nav-prev p-tabview-nav-btn p-link"
                 :tabindex="tabindex"
                 :aria-label="prevButtonAriaLabel"
                 @click="onPrevButtonClick"
                 v-bind="previousButtonProps"
-                v-ripple
             >
                 <span class="pi pi-chevron-left" aria-hidden="true"></span>
             </button>
@@ -19,6 +19,7 @@
                     <li v-for="(tab, i) of tabs" :key="getKey(tab, i)" :style="getTabProp(tab, 'headerStyle')" :class="getTabHeaderClass(tab, i)" role="presentation" :data-index="i" v-bind="getTabProp(tab, 'headerProps')">
                         <a
                             :id="getTabHeaderActionId(i)"
+                            v-ripple
                             class="p-tabview-nav-link p-tabview-header-action"
                             :tabindex="getTabProp(tab, 'disabled') || !isTabActive(i) ? -1 : tabindex"
                             role="tab"
@@ -28,10 +29,9 @@
                             @click="onTabClick($event, tab, i)"
                             @keydown="onTabKeyDown($event, tab, i)"
                             v-bind="getTabProp(tab, 'headerActionProps')"
-                            v-ripple
                         >
-                            <span class="p-tabview-title" v-if="tab.props && tab.props.header">{{ tab.props.header }}</span>
-                            <component :is="tab.children.header" v-if="tab.children && tab.children.header"></component>
+                            <span v-if="tab.props && tab.props.header" class="p-tabview-title">{{ tab.props.header }}</span>
+                            <component v-if="tab.children && tab.children.header" :is="tab.children.header"></component>
                         </a>
                     </li>
                     <li ref="inkbar" class="p-tabview-ink-bar" role="presentation" aria-hidden="true"></li>
@@ -40,13 +40,13 @@
             <button
                 v-if="scrollable && !isNextButtonDisabled"
                 ref="nextBtn"
+                v-ripple
                 type="button"
                 class="p-tabview-nav-next p-tabview-nav-btn p-link"
                 :tabindex="tabindex"
                 :aria-label="nextButtonAriaLabel"
                 @click="onNextButtonClick"
                 v-bind="nextButtonProps"
-                v-ripple
             >
                 <span class="pi pi-chevron-right" aria-hidden="true"></span>
             </button>
@@ -149,6 +149,7 @@ export default {
             const content = this.$refs.content;
             const width = DomHandler.getWidth(content) - this.getVisibleButtonWidths();
             const pos = content.scrollLeft - width;
+
             content.scrollLeft = pos <= 0 ? 0 : pos;
         },
         onNextButtonClick() {
@@ -291,6 +292,7 @@ export default {
         },
         updateInkBar() {
             let tabHeader = this.$refs.nav.children[this.d_activeIndex];
+
             this.$refs.inkbar.style.width = DomHandler.getWidth(tabHeader) + 'px';
             this.$refs.inkbar.style.left = DomHandler.getOffset(tabHeader).left - DomHandler.getOffset(this.$refs.nav).left + 'px';
         },

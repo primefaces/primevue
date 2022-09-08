@@ -3,6 +3,7 @@
         <div
             v-for="(option, i) of options"
             :key="getOptionRenderKey(option)"
+            v-ripple
             :tabindex="i === focusedIndex ? '0' : '-1'"
             :aria-label="getOptionLabel(option)"
             :role="multiple ? 'checkbox' : 'radio'"
@@ -13,7 +14,6 @@
             @keydown="onKeydown($event, option, i)"
             @focus="onFocus($event)"
             @blur="onBlur($event, option)"
-            v-ripple
         >
             <slot name="option" :option="option" :index="i">
                 <span class="p-button-label">{{ getOptionLabel(option) }}</span>
@@ -84,6 +84,7 @@ export default {
             }
 
             let selected = this.isSelected(option);
+
             if (selected && !this.unselectable) {
                 return;
             }
@@ -130,6 +131,7 @@ export default {
                 }
 
                 case 'ArrowDown':
+
                 case 'ArrowRight': {
                     this.changeTabIndexes(event, 'next');
                     event.preventDefault();
@@ -137,6 +139,7 @@ export default {
                 }
 
                 case 'ArrowUp':
+
                 case 'ArrowLeft': {
                     this.changeTabIndexes(event, 'prev');
                     event.preventDefault();
@@ -150,6 +153,7 @@ export default {
         },
         changeTabIndexes(event, direction) {
             let firstTabableChild, index;
+
             for (let i = 0; i <= this.$refs.container.children.length - 1; i++) {
                 if (this.$refs.container.children[i].getAttribute('tabindex') === '0') firstTabableChild = { elem: this.$refs.container.children[i], index: i };
             }
@@ -172,6 +176,7 @@ export default {
             if (event.target && event.relatedTarget && event.target.parentElement !== event.relatedTarget.parentElement) {
                 this.defaultTabIndexes();
             }
+
             this.$emit('blur', event, option);
         },
         getButtonClass(option) {

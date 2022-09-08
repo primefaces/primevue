@@ -233,6 +233,7 @@ export default {
         },
         getProccessedOptionLabel(processedOption) {
             const grouped = this.isProccessedOptionGroup(processedOption);
+
             return grouped ? this.getOptionGroupLabel(processedOption.option, processedOption.level) : this.getOptionLabel(processedOption.option);
         },
         isProccessedOptionGroup(processedOption) {
@@ -245,6 +246,7 @@ export default {
 
             if (this.hasSelectedOption && ObjectUtils.isNotEmpty(this.activeOptionPath)) {
                 const processedOption = this.activeOptionPath[this.activeOptionPath.length - 1];
+
                 this.focusedOptionInfo = { index: this.autoOptionFocus ? processedOption.index : -1, level: processedOption.level, parentKey: processedOption.parentKey };
             } else {
                 this.focusedOptionInfo = { index: this.autoOptionFocus ? this.findFirstFocusedOptionIndex() : -1, level: 0, parentKey: '' };
@@ -279,6 +281,7 @@ export default {
         onKeyDown(event) {
             if (this.disabled || this.loading) {
                 event.preventDefault();
+
                 return;
             }
 
@@ -351,6 +354,7 @@ export default {
             const grouped = ObjectUtils.isNotEmpty(children);
 
             const activeOptionPath = this.activeOptionPath.filter((p) => p.parentKey !== parentKey);
+
             activeOptionPath.push(processedOption);
 
             this.focusedOptionInfo = { index, level, parentKey };
@@ -411,6 +415,7 @@ export default {
                 if (this.focusedOptionInfo.index !== -1) {
                     const processedOption = this.visibleOptions[this.focusedOptionInfo.index];
                     const grouped = this.isProccessedOptionGroup(processedOption);
+
                     !grouped && this.onOptionChange({ originalEvent: event, processedOption });
                 }
 
@@ -548,6 +553,7 @@ export default {
                         this.hide();
                     }
                 };
+
                 document.addEventListener('click', this.outsideClickListener);
             }
         },
@@ -580,6 +586,7 @@ export default {
                         this.hide();
                     }
                 };
+
                 window.addEventListener('resize', this.resizeListener);
             }
         },
@@ -609,10 +616,12 @@ export default {
         },
         findNextOptionIndex(index) {
             const matchedOptionIndex = index < this.visibleOptions.length - 1 ? this.visibleOptions.slice(index + 1).findIndex((processedOption) => this.isValidOption(processedOption)) : -1;
+
             return matchedOptionIndex > -1 ? matchedOptionIndex + index + 1 : index;
         },
         findPrevOptionIndex(index) {
             const matchedOptionIndex = index > 0 ? ObjectUtils.findLastIndex(this.visibleOptions.slice(0, index), (processedOption) => this.isValidOption(processedOption)) : -1;
+
             return matchedOptionIndex > -1 ? matchedOptionIndex : index;
         },
         findSelectedOptionIndex() {
@@ -620,10 +629,12 @@ export default {
         },
         findFirstFocusedOptionIndex() {
             const selectedIndex = this.findSelectedOptionIndex();
+
             return selectedIndex < 0 ? this.findFirstOptionIndex() : selectedIndex;
         },
         findLastFocusedOptionIndex() {
             const selectedIndex = this.findSelectedOptionIndex();
+
             return selectedIndex < 0 ? this.findLastOptionIndex() : selectedIndex;
         },
         findOptionPathByValue(value, processedOptions, level = 0) {
@@ -640,6 +651,7 @@ export default {
                 }
 
                 const matchedOptions = this.findOptionPathByValue(value, processedOption.children, level + 1);
+
                 if (matchedOptions) {
                     matchedOptions.unshift(processedOption);
 
@@ -696,6 +708,7 @@ export default {
         scrollInView(index = -1) {
             const id = index !== -1 ? `${this.id}_${index}` : this.focusedOptionId;
             const element = DomHandler.findSingle(this.list, `li[id="${id}"]`);
+
             if (element) {
                 element.scrollIntoView && element.scrollIntoView({ block: 'nearest', inline: 'start' });
             }
@@ -792,6 +805,7 @@ export default {
         },
         visibleOptions() {
             const processedOption = this.activeOptionPath.find((p) => p.key === this.focusedOptionInfo.parentKey);
+
             return processedOption ? processedOption.children : this.processedOptions;
         },
         equalityKey() {

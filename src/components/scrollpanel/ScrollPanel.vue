@@ -180,6 +180,7 @@ export default {
                     }
 
                     case 'ArrowLeft':
+
                     case 'ArrowRight': {
                         event.preventDefault();
                         break;
@@ -204,6 +205,7 @@ export default {
                     }
 
                     case 'ArrowDown':
+
                     case 'ArrowUp': {
                         event.preventDefault();
                         break;
@@ -245,6 +247,7 @@ export default {
         },
         onMouseMoveForXBar(e) {
             let deltaX = e.pageX - this.lastPageX;
+
             this.lastPageX = e.pageX;
 
             this.frame = this.requestAnimationFrame(() => {
@@ -253,6 +256,7 @@ export default {
         },
         onMouseMoveForYBar(e) {
             let deltaY = e.pageY - this.lastPageY;
+
             this.lastPageY = e.pageY;
 
             this.frame = this.requestAnimationFrame(() => {
@@ -282,6 +286,7 @@ export default {
         },
         requestAnimationFrame(f) {
             let frame = window.requestAnimationFrame || this.timeoutFrame;
+
             return frame(f);
         },
         refresh() {
@@ -289,6 +294,7 @@ export default {
         },
         scrollTop(scrollTop) {
             let scrollableHeight = this.$refs.content.scrollHeight - this.$refs.content.clientHeight;
+
             scrollTop = scrollTop > scrollableHeight ? scrollableHeight : scrollTop > 0 ? scrollTop : 0;
             this.$refs.content.scrollTop = scrollTop;
         },

@@ -117,6 +117,7 @@ export default {
     methods: {
         updateDomData() {
             let rect = this.$el.getBoundingClientRect();
+
             this.initX = rect.left + DomHandler.getWindowScrollLeft();
             this.initY = rect.top + DomHandler.getWindowScrollTop();
             this.barWidth = this.$el.offsetWidth;
@@ -126,17 +127,21 @@ export default {
             let handleValue;
             let pageX = event.touches ? event.touches[0].pageX : event.pageX;
             let pageY = event.touches ? event.touches[0].pageY : event.pageY;
+
             if (this.orientation === 'horizontal') handleValue = ((pageX - this.initX) * 100) / this.barWidth;
             else handleValue = ((this.initY + this.barHeight - pageY) * 100) / this.barHeight;
             let newValue = (this.max - this.min) * (handleValue / 100) + this.min;
+
             if (this.step) {
                 const oldValue = this.range ? this.modelValue[this.handleIndex] : this.modelValue;
                 const diff = newValue - oldValue;
+
                 if (diff < 0) newValue = oldValue + Math.ceil(newValue / this.step - oldValue / this.step) * this.step;
                 else if (diff > 0) newValue = oldValue + Math.floor(newValue / this.step - oldValue / this.step) * this.step;
             } else {
                 newValue = Math.floor(newValue);
             }
+
             this.updateModel(event, newValue);
         },
         updateModel(event, value) {
@@ -156,6 +161,7 @@ export default {
                     modelValue[1] = modelValue[1] || this.max;
                 } else {
                     let minValue = this.modelValue ? this.modelValue[0] : this.min;
+
                     if (newValue > this.max) newValue = this.max;
                     else if (newValue <= minValue) newValue = minValue;
 
@@ -206,6 +212,7 @@ export default {
             if (this.disabled) {
                 return;
             }
+
             if (!DomHandler.hasClass(event.target, 'p-slider-handle')) {
                 this.updateDomData();
                 this.setValue(event);
@@ -217,6 +224,7 @@ export default {
         },
         onKeyDown(event, index) {
             this.handleIndex = index;
+
             switch (event.code) {
                 case 'ArrowDown':
                 case 'ArrowLeft':
@@ -256,6 +264,7 @@ export default {
         },
         decrementValue(event, index, pageKey = false) {
             let newValue;
+
             if (this.range) {
                 if (this.step) newValue = this.modelValue[index] - this.step;
                 else newValue = this.modelValue[index] - 1;
@@ -264,11 +273,13 @@ export default {
                 else if (!this.step && pageKey) newValue = this.modelValue - 10;
                 else newValue = this.modelValue - 1;
             }
+
             this.updateModel(event, newValue);
             event.preventDefault();
         },
         incrementValue(event, index, pageKey = false) {
             let newValue;
+
             if (this.range) {
                 if (this.step) newValue = this.modelValue[index] + this.step;
                 else newValue = this.modelValue[index] + 1;
@@ -277,6 +288,7 @@ export default {
                 else if (!this.step && pageKey) newValue = this.modelValue + 10;
                 else newValue = this.modelValue + 1;
             }
+
             this.updateModel(event, newValue);
             event.preventDefault();
         },
@@ -285,6 +297,7 @@ export default {
                 this.dragListener = this.onDrag.bind(this);
                 document.addEventListener('mousemove', this.dragListener);
             }
+
             if (!this.dragEndListener) {
                 this.dragEndListener = this.onDragEnd.bind(this);
                 document.addEventListener('mouseup', this.dragEndListener);
@@ -295,6 +308,7 @@ export default {
                 document.removeEventListener('mousemove', this.dragListener);
                 this.dragListener = null;
             }
+
             if (this.dragEndListener) {
                 document.removeEventListener('mouseup', this.dragEndListener);
                 this.dragEndListener = null;

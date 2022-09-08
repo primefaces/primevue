@@ -13,27 +13,27 @@
                 <h5>Positions</h5>
                 <div class="grid p-fluid">
                     <div class="col-12 md:col-3">
-                        <InputText type="text" placeholder="Right" v-tooltip.right="'Enter your username'" />
+                        <InputText v-tooltip.right="'Enter your username'" type="text" placeholder="Right" />
                     </div>
                     <div class="col-12 md:col-3">
-                        <InputText type="text" placeholder="Top" v-tooltip.top="'Enter your username'" />
+                        <InputText v-tooltip.top="'Enter your username'" type="text" placeholder="Top" />
                     </div>
                     <div class="col-12 md:col-3">
-                        <InputText type="text" placeholder="Bottom" v-tooltip.bottom="'Enter your username'" />
+                        <InputText v-tooltip.bottom="'Enter your username'" type="text" placeholder="Bottom" />
                     </div>
                     <div class="col-12 md:col-3">
-                        <InputText type="text" placeholder="Left" v-tooltip.left="'Enter your username'" />
+                        <InputText v-tooltip.left="'Enter your username'" type="text" placeholder="Left" />
                     </div>
                 </div>
 
                 <h5>Focus and Blur</h5>
-                <InputText type="text" placeholder="Focus" v-tooltip.bottom.focus="'Enter your username'" />
+                <InputText v-tooltip.bottom.focus="'Enter your username'" type="text" placeholder="Focus" />
 
                 <h5>Button</h5>
-                <Button type="button" label="Save" icon="pi pi-check" v-tooltip="'Click to proceed'" />
+                <Button v-tooltip="'Click to proceed'" type="button" label="Save" icon="pi pi-check" />
 
                 <h5>Custom Class</h5>
-                <InputText type="text" placeholder="Custom Class" v-tooltip.right="{ value: 'Invalid username', class: 'custom-error' }" />
+                <InputText v-tooltip.right="{ value: 'Invalid username', class: 'custom-error' }" type="text" placeholder="Custom Class" />
             </div>
         </div>
 

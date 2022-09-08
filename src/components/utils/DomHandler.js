@@ -5,8 +5,10 @@ export default {
             let style = getComputedStyle(el);
 
             width += parseFloat(style.paddingLeft) + parseFloat(style.paddingRight);
+
             return width;
         }
+
         return 0;
     },
 
@@ -16,18 +18,22 @@ export default {
             let style = getComputedStyle(el);
 
             width -= parseFloat(style.paddingLeft) + parseFloat(style.paddingRight);
+
             return width;
         }
+
         return 0;
     },
 
     getWindowScrollTop() {
         let doc = document.documentElement;
+
         return (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
     },
 
     getWindowScrollLeft() {
         let doc = document.documentElement;
+
         return (window.pageXOffset || doc.scrollLeft) - (doc.clientLeft || 0);
     },
 
@@ -37,11 +43,13 @@ export default {
 
             if (margin) {
                 let style = getComputedStyle(el);
+
                 width += parseFloat(style.marginLeft) + parseFloat(style.marginRight);
             }
 
             return width;
         }
+
         return 0;
     },
 
@@ -51,11 +59,13 @@ export default {
 
             if (margin) {
                 let style = getComputedStyle(el);
+
                 height += parseFloat(style.marginTop) + parseFloat(style.marginBottom);
             }
 
             return height;
         }
+
         return 0;
     },
 
@@ -65,11 +75,13 @@ export default {
 
             if (margin) {
                 let style = getComputedStyle(el);
+
                 height += parseFloat(style.marginTop) + parseFloat(style.marginBottom);
             }
 
             return height;
         }
+
         return 0;
     },
 
@@ -104,11 +116,13 @@ export default {
         if (element) {
             let children = element.parentNode.childNodes;
             let num = 0;
+
             for (let i = 0; i < children.length; i++) {
                 if (children[i] === element) return num;
                 if (children[i].nodeType === 1) num++;
             }
         }
+
         return -1;
     },
 
@@ -116,11 +130,13 @@ export default {
         if (element && className) {
             if (element.classList) {
                 let styles = className.split(' ');
+
                 for (let i = 0; i < styles.length; i++) {
                     element.classList.add(styles[i]);
                 }
             } else {
                 let styles = className.split(' ');
+
                 for (let i = 0; i < styles.length; i++) {
                     element.className += ' ' + styles[i];
                 }
@@ -159,6 +175,7 @@ export default {
         if (element) {
             return element.querySelector(selector);
         }
+
         return null;
     },
 
@@ -171,6 +188,7 @@ export default {
 
             return height;
         }
+
         return 0;
     },
 
@@ -183,6 +201,7 @@ export default {
 
             return width;
         }
+
         return 0;
     },
 
@@ -230,6 +249,7 @@ export default {
             if (targetOffset.top + targetHeight + elementDimensions.height > viewport.height) {
                 top = -1 * elementDimensions.height;
                 element.style.transformOrigin = 'bottom';
+
                 if (targetOffset.top + top < 0) {
                     top = -1 * targetOffset.top;
                 }
@@ -264,17 +284,22 @@ export default {
         if (element) {
             let parents = this.getParents(element);
             const overflowRegex = /(auto|scroll)/;
+
             const overflowCheck = (node) => {
                 let styleDeclaration = window['getComputedStyle'](node, null);
+
                 return overflowRegex.test(styleDeclaration.getPropertyValue('overflow')) || overflowRegex.test(styleDeclaration.getPropertyValue('overflowX')) || overflowRegex.test(styleDeclaration.getPropertyValue('overflowY'));
             };
 
             for (let parent of parents) {
                 let scrollSelectors = parent.nodeType === 1 && parent.dataset['scrollselectors'];
+
                 if (scrollSelectors) {
                     let selectors = scrollSelectors.split(',');
+
                     for (let selector of selectors) {
                         let el = this.findSingle(parent, selector);
+
                         if (el && overflowCheck(el)) {
                             scrollableParents.push(el);
                         }
@@ -295,11 +320,13 @@ export default {
             element.style.visibility = 'hidden';
             element.style.display = 'block';
             let elementHeight = element.offsetHeight;
+
             element.style.display = 'none';
             element.style.visibility = 'visible';
 
             return elementHeight;
         }
+
         return 0;
     },
 
@@ -308,17 +335,20 @@ export default {
             element.style.visibility = 'hidden';
             element.style.display = 'block';
             let elementWidth = element.offsetWidth;
+
             element.style.display = 'none';
             element.style.visibility = 'visible';
 
             return elementWidth;
         }
+
         return 0;
     },
 
     getHiddenElementDimensions(element) {
         if (element) {
             let dimensions = {};
+
             element.style.visibility = 'hidden';
             element.style.display = 'block';
             dimensions.width = element.offsetWidth;
@@ -328,6 +358,7 @@ export default {
 
             return dimensions;
         }
+
         return 0;
     },
 
@@ -337,6 +368,7 @@ export default {
 
             let last = +new Date();
             let opacity = 0;
+
             let tick = function () {
                 opacity = +element.style.opacity + (new Date().getTime() - last) / duration;
                 element.style.opacity = opacity;
@@ -420,10 +452,12 @@ export default {
         if (this.calculatedScrollbarWidth != null) return this.calculatedScrollbarWidth;
 
         let scrollDiv = document.createElement('div');
+
         scrollDiv.className = 'p-scrollbar-measure';
         document.body.appendChild(scrollDiv);
 
         let scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
+
         document.body.removeChild(scrollDiv);
 
         this.calculatedScrollbarWidth = scrollbarWidth;
@@ -434,6 +468,7 @@ export default {
     getBrowser() {
         if (!this.browser) {
             let matched = this.resolveUserAgent();
+
             this.browser = {};
 
             if (matched.browser) {
@@ -494,6 +529,7 @@ export default {
         );
 
         let visibleFocusableElements = [];
+
         for (let focusableElement of focusableElements) {
             if (getComputedStyle(focusableElement).display != 'none' && getComputedStyle(focusableElement).visibility != 'hidden') visibleFocusableElements.push(focusableElement);
         }
@@ -503,6 +539,7 @@ export default {
 
     getFirstFocusableElement(element, selector) {
         const focusableElements = this.getFocusableElements(element, selector);
+
         return focusableElements.length > 0 ? focusableElements[0] : null;
     },
 
@@ -555,6 +592,7 @@ export default {
             navigator.msSaveOrOpenBlob(blob, filename + '.csv');
         } else {
             let link = document.createElement('a');
+
             if (link.download !== undefined) {
                 link.setAttribute('href', URL.createObjectURL(blob));
                 link.setAttribute('download', filename + '.csv');

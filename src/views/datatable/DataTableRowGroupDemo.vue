@@ -45,6 +45,7 @@
                 <h5>Expandable Row Groups</h5>
                 <p>Group customers by their representative.</p>
                 <DataTable
+                    v-model:expandedRowGroups="expandedRowGroups"
                     :value="customers"
                     rowGroupMode="subheader"
                     groupRowsBy="representative.name"
@@ -53,7 +54,6 @@
                     :sortOrder="1"
                     responsiveLayout="scroll"
                     :expandableRowGroups="true"
-                    v-model:expandedRowGroups="expandedRowGroups"
                     @rowgroup-expand="onRowGroupExpand"
                     @rowgroup-collapse="onRowGroupCollapse"
                 >

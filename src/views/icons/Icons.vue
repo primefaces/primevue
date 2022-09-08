@@ -94,7 +94,7 @@ export default {
             <InputText v-model="filter" class="icon-filter" placeholder="Search an icon" />
 
             <div class="grid icons-list">
-                <div class="col-12 md:col-2 icon" v-for="icon of filteredIcons" :key="icon.properties.name">
+                <div v-for="icon of filteredIcons" :key="icon.properties.name" class="col-12 md:col-2 icon">
                     <i :class="'pi pi-' + icon.properties.name"></i>
                     <div>pi-{{ icon.properties.name }}</div>
                 </div>
@@ -119,8 +119,10 @@ export default {
                 let data = icons.filter((value) => {
                     return value.icon.tags.indexOf('deprecate') === -1;
                 });
+
                 data.sort((icon1, icon2) => {
                     if (icon1.properties.name < icon2.properties.name) return -1;
+                    // eslint-disable-next-line no-dupe-else-if
                     else if (icon1.properties.name < icon2.properties.name) return 1;
                     else return 0;
                 });

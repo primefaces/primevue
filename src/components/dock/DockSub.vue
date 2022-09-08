@@ -1,35 +1,35 @@
 <template>
     <div class="p-dock-list-container">
         <ul ref="list" class="p-dock-list" role="menu" @mouseleave="onListMouseLeave">
-            <li v-for="(item, index) of model" :class="itemClass(index)" :key="index" role="none" @mouseenter="onItemMouseEnter(index)">
+            <li v-for="(item, index) of model" :key="index" :class="itemClass(index)" role="none" @mouseenter="onItemMouseEnter(index)">
                 <template v-if="!templates['item']">
-                    <router-link v-if="item.to && !disabled(item)" :to="item.to" custom v-slot="{ navigate, href, isActive, isExactActive }">
+                    <router-link v-if="item.to && !disabled(item)" v-slot="{ navigate, href, isActive, isExactActive }" :to="item.to" custom>
                         <a
+                            v-tooltip:[tooltipOptions]="{ value: item.label, disabled: !tooltipOptions }"
                             :href="href"
                             role="menuitem"
                             :class="linkClass(item, { isActive, isExactActive })"
                             :target="item.target"
-                            v-tooltip:[tooltipOptions]="{ value: item.label, disabled: !tooltipOptions }"
                             @click="onItemClick($event, item, navigate)"
                         >
                             <template v-if="!templates['icon']">
-                                <span :class="['p-dock-action-icon', item.icon]" v-ripple></span>
+                                <span v-ripple :class="['p-dock-action-icon', item.icon]"></span>
                             </template>
                             <component v-else :is="templates['icon']" :item="item"></component>
                         </a>
                     </router-link>
                     <a
                         v-else
+                        v-tooltip:[tooltipOptions]="{ value: item.label, disabled: !tooltipOptions }"
                         :href="item.url"
                         role="menuitem"
                         :class="linkClass(item)"
                         :target="item.target"
-                        v-tooltip:[tooltipOptions]="{ value: item.label, disabled: !tooltipOptions }"
                         @click="onItemClick($event, item)"
                         :tabindex="disabled(item) ? null : '0'"
                     >
                         <template v-if="!templates['icon']">
-                            <span :class="['p-dock-action-icon', item.icon]" v-ripple></span>
+                            <span v-ripple :class="['p-dock-action-icon', item.icon]"></span>
                         </template>
                         <component v-else :is="templates['icon']" :item="item"></component>
                     </a>
@@ -76,6 +76,7 @@ export default {
         onItemClick(event, item, navigate) {
             if (this.disabled(item)) {
                 event.preventDefault();
+
                 return;
             }
 

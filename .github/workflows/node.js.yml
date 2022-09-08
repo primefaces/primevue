@@ -28,6 +28,5 @@ jobs:
 
     - name: Build
       run: |
-        npm install --legacy-peer-deps
-        npm run build-check
-
+        npm install
+        npm run build:check

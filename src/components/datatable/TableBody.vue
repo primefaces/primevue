@@ -2,19 +2,19 @@
     <tbody :ref="bodyRef" class="p-datatable-tbody" role="rowgroup" :style="bodyStyle">
         <template v-if="!empty">
             <template v-for="(rowData, index) of value" :key="getRowKey(rowData, getRowIndex(index)) + '_subheader'">
-                <tr class="p-rowgroup-header" :style="rowGroupHeaderStyle" v-if="templates['groupheader'] && rowGroupMode === 'subheader' && shouldRenderRowGroupHeader(value, rowData, getRowIndex(index))" role="row">
+                <tr v-if="templates['groupheader'] && rowGroupMode === 'subheader' && shouldRenderRowGroupHeader(value, rowData, getRowIndex(index))" class="p-rowgroup-header" :style="rowGroupHeaderStyle" role="row">
                     <td :colspan="columnsLength - 1">
-                        <button class="p-row-toggler p-link" @click="onRowGroupToggle($event, rowData)" v-if="expandableRowGroups" type="button">
+                        <button v-if="expandableRowGroups" class="p-row-toggler p-link" @click="onRowGroupToggle($event, rowData)" type="button">
                             <span :class="rowGroupTogglerIcon(rowData)"></span>
                         </button>
                         <component :is="templates['groupheader']" :data="rowData" :index="getRowIndex(index)" />
                     </td>
                 </tr>
                 <tr
+                    v-if="expandableRowGroups ? isRowGroupExpanded(rowData) : true"
+                    :key="getRowKey(rowData, getRowIndex(index))"
                     :class="getRowClass(rowData)"
                     :style="rowStyle"
-                    :key="getRowKey(rowData, getRowIndex(index))"
-                    v-if="expandableRowGroups ? isRowGroupExpanded(rowData) : true"
                     @click="onRowClick($event, rowData, getRowIndex(index))"
                     @dblclick="onRowDblClick($event, rowData, getRowIndex(index))"
                     @contextmenu="onRowRightClick($event, rowData, getRowIndex(index))"
@@ -58,19 +58,19 @@
                         />
                     </template>
                 </tr>
-                <tr class="p-datatable-row-expansion" v-if="templates['expansion'] && expandedRows && isRowExpanded(rowData)" :key="getRowKey(rowData, getRowIndex(index)) + '_expansion'" role="row">
+                <tr v-if="templates['expansion'] && expandedRows && isRowExpanded(rowData)" :key="getRowKey(rowData, getRowIndex(index)) + '_expansion'" class="p-datatable-row-expansion" role="row">
                     <td :colspan="columnsLength">
                         <component :is="templates['expansion']" :data="rowData" :index="getRowIndex(index)" />
                     </td>
                 </tr>
-                <tr class="p-rowgroup-footer" v-if="templates['groupfooter'] && rowGroupMode === 'subheader' && shouldRenderRowGroupFooter(value, rowData, getRowIndex(index))" :key="getRowKey(rowData, getRowIndex(index)) + '_subfooter'" role="row">
+                <tr v-if="templates['groupfooter'] && rowGroupMode === 'subheader' && shouldRenderRowGroupFooter(value, rowData, getRowIndex(index))" :key="getRowKey(rowData, getRowIndex(index)) + '_subfooter'" class="p-rowgroup-footer" role="row">
                     <component :is="templates['groupfooter']" :data="rowData" :index="getRowIndex(index)" />
                 </tr>
             </template>
         </template>
         <tr v-else class="p-datatable-emptymessage" role="row">
             <td :colspan="columnsLength">
-                <component :is="templates.empty" v-if="templates.empty" />
+                <component v-if="templates.empty" :is="templates.empty" />
             </td>
         </tr>
     </tbody>
@@ -228,6 +228,11 @@ export default {
             default: false
         }
     },
+    data() {
+        return {
+            rowGroupHeaderStyleObject: {}
+        };
+    },
     watch: {
         virtualScrollerContentProps(newValue, oldValue) {
             if (!this.isVirtualScrollerDisabled && this.getVirtualScrollerProp('vertical') && this.getVirtualScrollerProp('itemSize', oldValue) !== this.getVirtualScrollerProp('itemSize', newValue)) {
@@ -257,11 +262,6 @@ export default {
             this.updateFrozenRowGroupHeaderStickyPosition();
         }
     },
-    data() {
-        return {
-            rowGroupHeaderStyleObject: {}
-        };
-    },
     methods: {
         columnProp(col, prop) {
             return ObjectUtils.getVNodeProp(col, prop);
@@ -269,8 +269,10 @@ export default {
         shouldRenderRowGroupHeader(value, rowData, i) {
             let currentRowFieldData = ObjectUtils.resolveFieldData(rowData, this.groupRowsBy);
             let prevRowData = value[i - 1];
+
             if (prevRowData) {
                 let previousRowFieldData = ObjectUtils.resolveFieldData(prevRowData, this.groupRowsBy);
+
                 return currentRowFieldData !== previousRowFieldData;
             } else {
                 return true;
@@ -281,10 +283,12 @@ export default {
         },
         getRowIndex(index) {
             const getItemOptions = this.getVirtualScrollerProp('getItemOptions');
+
             return getItemOptions ? getItemOptions(index).index : index;
         },
         getRowClass(rowData) {
             let rowStyleClass = [];
+
             if (this.selectionMode) {
                 rowStyleClass.push('p-selectable-row');
             }
@@ -317,8 +321,10 @@ export default {
             } else {
                 let currentRowFieldData = ObjectUtils.resolveFieldData(rowData, this.groupRowsBy);
                 let nextRowData = value[i + 1];
+
                 if (nextRowData) {
                     let nextRowFieldData = ObjectUtils.resolveFieldData(nextRowData, this.groupRowsBy);
+
                     return currentRowFieldData !== nextRowFieldData;
                 } else {
                     return true;
@@ -332,9 +338,11 @@ export default {
                 } else if (this.rowGroupMode === 'rowspan') {
                     if (this.isGrouped(column)) {
                         let prevRowData = value[i - 1];
+
                         if (prevRowData) {
                             let currentRowFieldData = ObjectUtils.resolveFieldData(value[i], this.columnProp(column, 'field'));
                             let previousRowFieldData = ObjectUtils.resolveFieldData(prevRowData, this.columnProp(column, 'field'));
+
                             return currentRowFieldData !== previousRowFieldData;
                         } else {
                             return true;
@@ -356,6 +364,7 @@ export default {
                 while (currentRowFieldData === nextRowFieldData) {
                     groupRowSpan++;
                     let nextRowData = value[++index];
+
                     if (nextRowData) {
                         nextRowFieldData = ObjectUtils.resolveFieldData(nextRowData, this.columnProp(column, 'field'));
                     } else {
@@ -370,10 +379,12 @@ export default {
         },
         rowTogglerIcon(rowData) {
             const icon = this.isRowExpanded(rowData) ? this.expandedRowIcon : this.collapsedRowIcon;
+
             return ['p-row-toggler-icon pi', icon];
         },
         rowGroupTogglerIcon(rowData) {
             const icon = this.isRowGroupExpanded(rowData) ? this.expandedRowIcon : this.collapsedRowIcon;
+
             return ['p-row-toggler-icon pi', icon];
         },
         isGrouped(column) {
@@ -403,8 +414,10 @@ export default {
         isRowGroupExpanded(rowData) {
             if (this.expandableRowGroups && this.expandedRowGroups) {
                 let groupFieldValue = ObjectUtils.resolveFieldData(rowData, this.groupRowsBy);
+
                 return this.expandedRowGroups.indexOf(groupFieldValue) > -1;
             }
+
             return false;
         },
         isSelected(rowData) {
@@ -431,6 +444,7 @@ export default {
         },
         findIndex(rowData, collection) {
             let index = -1;
+
             if (collection && collection.length) {
                 for (let i = 0; i < collection.length; i++) {
                     if (this.equals(rowData, collection[i])) {
@@ -516,19 +530,23 @@ export default {
         },
         updateFrozenRowGroupHeaderStickyPosition() {
             let tableHeaderHeight = DomHandler.getOuterHeight(this.$el.previousElementSibling);
+
             this.rowGroupHeaderStyleObject.top = tableHeaderHeight + 'px';
         },
         updateVirtualScrollerPosition() {
             const tableHeaderHeight = DomHandler.getOuterHeight(this.$el.previousElementSibling);
+
             this.$el.style.top = (this.$el.style.top || 0) + tableHeaderHeight + 'px';
         },
         getVirtualScrollerProp(option, options) {
             options = options || this.virtualScrollerContentProps;
+
             return options ? options[option] : null;
         },
         bodyRef(el) {
             // For VirtualScroller
             const contentRef = this.getVirtualScrollerProp('contentRef');
+
             contentRef && contentRef(el);
         }
     },

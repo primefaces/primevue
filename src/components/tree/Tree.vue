@@ -5,8 +5,8 @@
                 <i :class="loadingIconClass" />
             </div>
         </template>
-        <div class="p-tree-filter-container" v-if="filter">
-            <input type="text" autocomplete="off" class="p-tree-filter p-inputtext p-component" :placeholder="filterPlaceholder" @keydown="onFilterKeydown" v-model="filterValue" />
+        <div v-if="filter" class="p-tree-filter-container">
+            <input v-model="filterValue" type="text" autocomplete="off" class="p-tree-filter p-inputtext p-component" :placeholder="filterPlaceholder" @keydown="onFilterKeydown" />
             <span class="p-tree-filter-icon pi pi-search"></span>
         </div>
         <div class="p-tree-wrapper" :style="{ maxHeight: scrollHeight }">
@@ -217,11 +217,15 @@ export default {
         findFilteredNodes(node, paramsWithoutNode) {
             if (node) {
                 let matched = false;
+
                 if (node.children) {
                     let childNodes = [...node.children];
+
                     node.children = [];
+
                     for (let childNode of childNodes) {
                         let copyChildNode = { ...childNode };
+
                         if (this.isFilterMatched(copyChildNode, paramsWithoutNode)) {
                             matched = true;
                             node.children.push(copyChildNode);
@@ -236,8 +240,10 @@ export default {
         },
         isFilterMatched(node, { searchFields, filterText, strict }) {
             let matched = false;
+
             for (let field of searchFields) {
                 let fieldValue = String(ObjectUtils.resolveFieldData(node, field)).toLocaleLowerCase(this.filterLocale);
+
                 if (fieldValue.indexOf(filterText) > -1) {
                     matched = true;
                 }

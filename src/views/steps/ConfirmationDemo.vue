@@ -52,6 +52,7 @@
 
 <script>
 export default {
+    emits: ['prev-page', 'complete'],
     props: {
         formData: Object
     },

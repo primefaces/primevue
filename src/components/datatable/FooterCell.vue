@@ -1,6 +1,6 @@
 <template>
     <td :style="containerStyle" :class="containerClass" role="cell" :colspan="columnProp('colspan')" :rowspan="columnProp('rowspan')">
-        <component :is="column.children.footer" :column="column" v-if="column.children && column.children.footer" />
+        <component v-if="column.children && column.children.footer" :is="column.children.footer" :column="column" />
         {{ columnProp('footer') }}
     </td>
 </template>
@@ -38,19 +38,24 @@ export default {
         updateStickyPosition() {
             if (this.columnProp('frozen')) {
                 let align = this.columnProp('alignFrozen');
+
                 if (align === 'right') {
                     let right = 0;
                     let next = this.$el.nextElementSibling;
+
                     if (next) {
                         right = DomHandler.getOuterWidth(next) + parseFloat(next.style.left);
                     }
+
                     this.styleObject.right = right + 'px';
                 } else {
                     let left = 0;
                     let prev = this.$el.previousElementSibling;
+
                     if (prev) {
                         left = DomHandler.getOuterWidth(prev) + parseFloat(prev.style.left);
                     }
+
                     this.styleObject.left = left + 'px';
                 }
             }

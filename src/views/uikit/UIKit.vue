@@ -144,7 +144,7 @@
                                     </li>
                                 </ul>
                                 <hr class="mb-3 mx-0 border-top-1 border-none surface-border mt-auto" />
-                                <a href="https://www.primefaces.org/store/uikit.xhtml" v-ripple class="bg-blue-500 text-white hover:bg-blue-400 p-3 w-full border-round text-center transition-colors transition-duration-300 font-bold p-ripple"
+                                <a v-ripple href="https://www.primefaces.org/store/uikit.xhtml" class="bg-blue-500 text-white hover:bg-blue-400 p-3 w-full border-round text-center transition-colors transition-duration-300 font-bold p-ripple"
                                     >Buy Now</a
                                 >
                             </div>
@@ -184,7 +184,7 @@
                                     </li>
                                 </ul>
                                 <hr class="mb-3 mx-0 border-top-1 border-none surface-border" />
-                                <a href="https://www.primefaces.org/store/uikit.xhtml" v-ripple class="bg-purple-500 text-white hover:bg-purple-400 p-3 w-full border-round text-center transition-colors transition-duration-300 font-bold p-ripple"
+                                <a v-ripple href="https://www.primefaces.org/store/uikit.xhtml" class="bg-purple-500 text-white hover:bg-purple-400 p-3 w-full border-round text-center transition-colors transition-duration-300 font-bold p-ripple"
                                     >Buy Now</a
                                 >
                             </div>
@@ -224,7 +224,7 @@
                                     </li>
                                 </ul>
                                 <hr class="mb-3 mx-0 border-top-1 border-none surface-border" />
-                                <a href="mailto:contact@primetek.com.tr" v-ripple class="bg-bluegray-500 text-white hover:bg-bluegray-400 p-3 w-full border-round text-center transition-colors transition-duration-300 font-bold p-ripple">Contact Us</a>
+                                <a v-ripple href="mailto:contact@primetek.com.tr" class="bg-bluegray-500 text-white hover:bg-bluegray-400 p-3 w-full border-round text-center transition-colors transition-duration-300 font-bold p-ripple">Contact Us</a>
                             </div>
                         </div>
                     </div>

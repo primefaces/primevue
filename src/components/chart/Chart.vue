@@ -23,15 +23,6 @@ export default {
         }
     },
     chart: null,
-    mounted() {
-        this.initChart();
-    },
-    beforeUnmount() {
-        if (this.chart) {
-            this.chart.destroy();
-            this.chart = null;
-        }
-    },
     watch: {
         /*
          * Use deep watch to enable triggering watch for changes within structure
@@ -48,6 +39,15 @@ export default {
         },
         options() {
             this.reinit();
+        }
+    },
+    mounted() {
+        this.initChart();
+    },
+    beforeUnmount() {
+        if (this.chart) {
+            this.chart.destroy();
+            this.chart = null;
         }
     },
     methods: {

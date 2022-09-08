@@ -12,6 +12,7 @@ function bind(el, binding) {
             else leave(target, binding);
         }
     };
+
     el.addEventListener('click', el.$_pstyleclass_clicklistener);
 }
 
@@ -38,15 +39,18 @@ function enter(target, el, binding) {
             }
 
             DomHandler.addClass(target, binding.value.enterActiveClass);
+
             if (binding.value.enterClass) {
                 DomHandler.removeClass(target, binding.value.enterClass);
             }
 
             target.$p_styleclass_enterlistener = () => {
                 DomHandler.removeClass(target, binding.value.enterActiveClass);
+
                 if (binding.value.enterToClass) {
                     DomHandler.addClass(target, binding.value.enterToClass);
                 }
+
                 target.removeEventListener('animationend', target.$p_styleclass_enterlistener);
 
                 if (binding.value.enterActiveClass === 'slidedown') {
@@ -78,15 +82,18 @@ function leave(target, binding) {
         if (!target.$_pstyleclass_animating) {
             target.$_pstyleclass_animating = true;
             DomHandler.addClass(target, binding.value.leaveActiveClass);
+
             if (binding.value.leaveClass) {
                 DomHandler.removeClass(target, binding.value.leaveClass);
             }
 
             target.$p_styleclass_leavelistener = () => {
                 DomHandler.removeClass(target, binding.value.leaveActiveClass);
+
                 if (binding.value.leaveToClass) {
                     DomHandler.addClass(target, binding.value.leaveToClass);
                 }
+
                 target.removeEventListener('animationend', target.$p_styleclass_leavelistener);
                 target.$_pstyleclass_animating = false;
             };

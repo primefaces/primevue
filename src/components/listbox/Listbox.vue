@@ -6,9 +6,9 @@
             <div class="p-listbox-filter-container">
                 <input
                     ref="filterInput"
+                    v-model="filterValue"
                     type="text"
                     class="p-listbox-filter p-inputtext p-component"
-                    v-model="filterValue"
                     :placeholder="filterPlaceholder"
                     role="searchbox"
                     autocomplete="off"
@@ -51,8 +51,8 @@
                             </li>
                             <li
                                 v-else
-                                v-ripple
                                 :id="id + '_' + getOptionIndex(i, getItemOptions)"
+                                v-ripple
                                 :style="{ height: itemSize ? itemSize + 'px' : undefined }"
                                 :class="['p-listbox-item', { 'p-highlight': isSelected(option), 'p-focus': focusedOptionIndex === getOptionIndex(i, getItemOptions), 'p-disabled': isOptionDisabled(option) }]"
                                 role="option"
@@ -225,6 +225,7 @@ export default {
             DomHandler.focus(this.list);
 
             const firstFocusableEl = DomHandler.getFirstFocusableElement(this.$el, ':not(.p-hidden-focusable)');
+
             this.$refs.lastHiddenFocusableElement.tabIndex = ObjectUtils.isEmpty(firstFocusableEl) ? -1 : undefined;
             this.$refs.firstHiddenFocusableElement.tabIndex = -1;
         },
@@ -233,6 +234,7 @@ export default {
 
             if (relatedTarget === this.list) {
                 const firstFocusableEl = DomHandler.getFirstFocusableElement(this.$el, ':not(.p-hidden-focusable)');
+
                 DomHandler.focus(firstFocusableEl);
                 this.$refs.firstHiddenFocusableElement.tabIndex = undefined;
             } else {
@@ -302,6 +304,7 @@ export default {
                 default:
                     if (this.multiple && event.code === 'KeyA' && metaKey) {
                         const value = this.visibleOptions.filter((option) => this.isValidOption(option)).map((option) => this.getOptionValue(option));
+
                         this.updateModel(event, value);
 
                         event.preventDefault();
@@ -486,6 +489,7 @@ export default {
             if (pressedInInputText) {
                 const target = event.currentTarget;
                 const len = target.value.length;
+
                 target.setSelectionRange(len, len);
                 this.focusedOptionIndex = -1;
             } else {
@@ -546,10 +550,12 @@ export default {
         },
         findNextOptionIndex(index) {
             const matchedOptionIndex = index < this.visibleOptions.length - 1 ? this.visibleOptions.slice(index + 1).findIndex((option) => this.isValidOption(option)) : -1;
+
             return matchedOptionIndex > -1 ? matchedOptionIndex + index + 1 : index;
         },
         findPrevOptionIndex(index) {
             const matchedOptionIndex = index > 0 ? ObjectUtils.findLastIndex(this.visibleOptions.slice(0, index), (option) => this.isValidOption(option)) : -1;
+
             return matchedOptionIndex > -1 ? matchedOptionIndex : index;
         },
         findFirstSelectedOptionIndex() {
@@ -560,10 +566,12 @@ export default {
         },
         findNextSelectedOptionIndex(index) {
             const matchedOptionIndex = this.hasSelectedOption && index < this.visibleOptions.length - 1 ? this.visibleOptions.slice(index + 1).findIndex((option) => this.isValidSelectedOption(option)) : -1;
+
             return matchedOptionIndex > -1 ? matchedOptionIndex + index + 1 : -1;
         },
         findPrevSelectedOptionIndex(index) {
             const matchedOptionIndex = this.hasSelectedOption && index > 0 ? ObjectUtils.findLastIndex(this.visibleOptions.slice(0, index), (option) => this.isValidSelectedOption(option)) : -1;
+
             return matchedOptionIndex > -1 ? matchedOptionIndex : -1;
         },
         findNearestSelectedOptionIndex(index, firstCheckUp = false) {
@@ -583,16 +591,19 @@ export default {
         },
         findFirstFocusedOptionIndex() {
             const selectedIndex = this.findFirstSelectedOptionIndex();
+
             return selectedIndex < 0 ? this.findFirstOptionIndex() : selectedIndex;
         },
         findLastFocusedOptionIndex() {
             const selectedIndex = this.findLastSelectedOptionIndex();
+
             return selectedIndex < 0 ? this.findLastOptionIndex() : selectedIndex;
         },
         searchOptions(event, char) {
             this.searchValue = (this.searchValue || '') + char;
 
             let optionIndex = -1;
+
             if (this.focusedOptionIndex !== -1) {
                 optionIndex = this.visibleOptions.slice(this.focusedOptionIndex).findIndex((option) => this.isOptionMatched(option));
                 optionIndex = optionIndex === -1 ? this.visibleOptions.slice(0, this.focusedOptionIndex).findIndex((option) => this.isOptionMatched(option)) : optionIndex + this.focusedOptionIndex;
@@ -633,6 +644,7 @@ export default {
         scrollInView(index = -1) {
             const id = index !== -1 ? `${this.id}_${index}` : this.focusedOptionId;
             const element = DomHandler.findSingle(this.list, `li[id="${id}"]`);
+
             if (element) {
                 element.scrollIntoView && element.scrollIntoView({ block: 'nearest', inline: 'nearest' });
             } else if (!this.virtualScrollerDisabled) {
@@ -654,6 +666,7 @@ export default {
                 result.push({ optionGroup: option, group: true, index });
 
                 const optionGroupChildren = this.getOptionGroupChildren(option);
+
                 optionGroupChildren && optionGroupChildren.forEach((o) => result.push(o));
 
                 return result;

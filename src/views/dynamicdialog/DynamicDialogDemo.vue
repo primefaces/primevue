@@ -51,6 +51,7 @@ export default {
                 },
                 onClose: (options) => {
                     const data = options.data;
+
                     if (data) {
                         const buttonType = data.buttonType;
                         const summary_and_detail = buttonType ? { summary: 'No Product Selected', detail: `Pressed '${buttonType}' button` } : { summary: 'Product Selected', detail: data.name };

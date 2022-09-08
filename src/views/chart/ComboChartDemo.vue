@@ -24,20 +24,6 @@ import EventBus from '@/AppEventBus';
 
 export default {
     themeChangeListener: null,
-    mounted() {
-        this.themeChangeListener = (event) => {
-            if (event.dark) this.applyDarkTheme();
-            else this.applyLightTheme();
-        };
-        EventBus.on('theme-change', this.themeChangeListener);
-
-        if (this.isDarkTheme()) {
-            this.applyDarkTheme();
-        }
-    },
-    beforeUnmount() {
-        EventBus.off('change-theme', this.themeChangeListener);
-    },
     data() {
         return {
             chartData: {
@@ -69,6 +55,21 @@ export default {
             },
             chartOptions: this.isDarkTheme() ? this.applyDarkTheme() : this.applyLightTheme()
         };
+    },
+    mounted() {
+        this.themeChangeListener = (event) => {
+            if (event.dark) this.applyDarkTheme();
+            else this.applyLightTheme();
+        };
+
+        EventBus.on('theme-change', this.themeChangeListener);
+
+        if (this.isDarkTheme()) {
+            this.applyDarkTheme();
+        }
+    },
+    beforeUnmount() {
+        EventBus.off('change-theme', this.themeChangeListener);
     },
     methods: {
         isDarkTheme() {

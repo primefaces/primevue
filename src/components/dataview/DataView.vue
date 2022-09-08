@@ -1,6 +1,6 @@
 <template>
     <div :class="containerClass">
-        <div class="p-dataview-header" v-if="$slots.header">
+        <div v-if="$slots.header" class="p-dataview-header">
             <slot name="header"></slot>
         </div>
         <DVPaginator
@@ -16,10 +16,10 @@
             :alwaysShow="alwaysShowPaginator"
             @page="onPage($event)"
         >
-            <template #start v-if="$slots.paginatorstart">
+            <template v-if="$slots.paginatorstart" #start>
                 <slot name="paginatorstart"></slot>
             </template>
-            <template #end v-if="$slots.paginatorend">
+            <template v-if="$slots.paginatorend" #end>
                 <slot name="paginatorend"></slot>
             </template>
         </DVPaginator>
@@ -49,14 +49,14 @@
             :alwaysShow="alwaysShowPaginator"
             @page="onPage($event)"
         >
-            <template #start v-if="$slots.paginatorstart">
+            <template v-if="$slots.paginatorstart" #start>
                 <slot name="paginatorstart"></slot>
             </template>
-            <template #end v-if="$slots.paginatorend">
+            <template v-if="$slots.paginatorend" #end>
                 <slot name="paginatorend"></slot>
             </template>
         </DVPaginator>
-        <div class="p-dataview-footer" v-if="$slots.footer">
+        <div v-if="$slots.footer" class="p-dataview-footer">
             <slot name="footer"></slot>
         </div>
     </div>
@@ -227,6 +227,7 @@ export default {
 
                 if (this.paginator) {
                     const first = this.lazy ? 0 : this.d_first;
+
                     return data.slice(first, first + this.d_rows);
                 } else {
                     return data;

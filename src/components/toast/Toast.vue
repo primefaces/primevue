@@ -77,6 +77,7 @@ export default {
         },
         remove(message) {
             let index = -1;
+
             for (let i = 0; i < this.messages.length; i++) {
                 if (this.messages[i] === message) {
                     index = i;
@@ -118,11 +119,14 @@ export default {
                 document.head.appendChild(this.styleElement);
 
                 let innerHTML = '';
+
                 for (let breakpoint in this.breakpoints) {
                     let breakpointStyle = '';
+
                     for (let styleProp in this.breakpoints[breakpoint]) {
                         breakpointStyle += styleProp + ':' + this.breakpoints[breakpoint][styleProp] + '!important;';
                     }
+
                     innerHTML += `
                         @media screen and (max-width: ${breakpoint}) {
                             .p-toast[${this.attributeSelector}] {
@@ -142,10 +146,6 @@ export default {
             }
         }
     },
-    components: {
-        ToastMessage: ToastMessage,
-        Portal: Portal
-    },
     computed: {
         containerClass() {
             return [
@@ -159,6 +159,10 @@ export default {
         attributeSelector() {
             return UniqueComponentId();
         }
+    },
+    components: {
+        ToastMessage: ToastMessage,
+        Portal: Portal
     }
 };
 </script>

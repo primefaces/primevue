@@ -10,7 +10,7 @@
 
         <div class="content-section implementation">
             <div class="card">
-                <DataTable :value="products" contextMenu v-model:contextMenuSelection="selectedProduct" @row-contextmenu="onRowContextMenu" responsiveLayout="scroll">
+                <DataTable v-model:contextMenuSelection="selectedProduct" :value="products" contextMenu @row-contextmenu="onRowContextMenu" responsiveLayout="scroll">
                     <Column field="code" header="Code"></Column>
                     <Column field="name" header="Name"></Column>
                     <Column field="category" header="Category"></Column>
@@ -22,7 +22,7 @@
                 </DataTable>
             </div>
 
-            <ContextMenu :model="menuModel" ref="cm" />
+            <ContextMenu ref="cm" :model="menuModel" />
         </div>
 
         <AppDoc name="DataTableContextMenuDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="datatable/DataTableContextMenuDemo.vue" />

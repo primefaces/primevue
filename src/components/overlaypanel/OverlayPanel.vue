@@ -1,11 +1,11 @@
 <template>
     <Portal :appendTo="appendTo">
         <transition name="p-overlaypanel" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave">
-            <div :class="containerClass" v-if="visible" :ref="containerRef" v-bind="$attrs" @click="onOverlayClick">
+            <div v-if="visible" :ref="containerRef" :class="containerClass" v-bind="$attrs" @click="onOverlayClick">
                 <div class="p-overlaypanel-content" @click="onContentClick" @mousedown="onContentClick">
                     <slot></slot>
                 </div>
-                <button class="p-overlaypanel-close p-link" @click="hide" v-if="showCloseIcon" :aria-label="ariaCloseLabel" type="button" v-ripple>
+                <button v-if="showCloseIcon" v-ripple class="p-overlaypanel-close p-link" @click="hide" :aria-label="ariaCloseLabel" type="button">
                     <span class="p-overlaypanel-close-icon pi pi-times"></span>
                 </button>
             </div>
@@ -88,6 +88,7 @@ export default {
             this.scrollHandler.destroy();
             this.scrollHandler = null;
         }
+
         this.destroyStyle();
         this.unbindResizeListener();
         this.target = null;
@@ -127,6 +128,7 @@ export default {
         onEnter(el) {
             this.container.setAttribute(this.attributeSelector, '');
             this.alignOverlay();
+
             if (this.dismissable) {
                 this.bindOutsideClickListener();
             }
@@ -170,6 +172,7 @@ export default {
             if (containerOffset.left < targetOffset.left) {
                 arrowLeft = targetOffset.left - containerOffset.left;
             }
+
             this.container.style.setProperty('--overlayArrowLeft', `${arrowLeft}px`);
 
             if (containerOffset.top < targetOffset.top) {
@@ -182,8 +185,10 @@ export default {
                     if (this.visible && !this.selfClick && !this.isTargetClicked(event)) {
                         this.visible = false;
                     }
+
                     this.selfClick = false;
                 };
+
                 document.addEventListener('click', this.outsideClickListener);
             }
         },
@@ -217,6 +222,7 @@ export default {
                         this.visible = false;
                     }
                 };
+
                 window.addEventListener('resize', this.resizeListener);
             }
         },
@@ -239,6 +245,7 @@ export default {
                 document.head.appendChild(this.styleElement);
 
                 let innerHTML = '';
+
                 for (let breakpoint in this.breakpoints) {
                     innerHTML += `
                         @media screen and (max-width: ${breakpoint}) {

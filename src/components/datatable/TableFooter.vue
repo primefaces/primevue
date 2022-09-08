@@ -1,14 +1,14 @@
 <template>
-    <tfoot class="p-datatable-tfoot" v-if="hasFooter" role="rowgroup">
+    <tfoot v-if="hasFooter" class="p-datatable-tfoot" role="rowgroup">
         <tr v-if="!columnGroup" role="row">
             <template v-for="(col, i) of columns" :key="columnProp(col, 'columnKey') || columnProp(col, 'field') || i">
-                <DTFooterCell :column="col" v-if="!columnProp(col, 'hidden')" />
+                <DTFooterCell v-if="!columnProp(col, 'hidden')" :column="col" />
             </template>
         </tr>
         <template v-else>
             <tr v-for="(row, i) of getFooterRows()" :key="i" role="row">
                 <template v-for="(col, j) of getFooterColumns(row)" :key="columnProp(col, 'columnKey') || columnProp(col, 'field') || j">
-                    <DTFooterCell :column="col" v-if="!columnProp(col, 'hidden')" />
+                    <DTFooterCell v-if="!columnProp(col, 'hidden')" :column="col" />
                 </template>
             </tr>
         </template>
@@ -39,6 +39,7 @@ export default {
             let rows = [];
 
             let columnGroup = this.columnGroup;
+
             if (columnGroup.children && columnGroup.children.default) {
                 for (let child of columnGroup.children.default()) {
                     if (child.type.name === 'Row') {

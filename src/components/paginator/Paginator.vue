@@ -1,6 +1,6 @@
 <template>
-    <div class="p-paginator p-component" v-if="alwaysShow ? true : pageLinks && pageLinks.length > 1">
-        <div class="p-paginator-left-content" v-if="$slots.start">
+    <div v-if="alwaysShow ? true : pageLinks && pageLinks.length > 1" class="p-paginator p-component">
+        <div v-if="$slots.start" class="p-paginator-left-content">
             <slot name="start" :state="currentState"></slot>
         </div>
         <template v-for="item of templateItems" :key="item">
@@ -14,7 +14,7 @@
             <JumpToPageDropdown v-else-if="item === 'JumpToPageDropdown'" :page="page" :pageCount="pageCount" @page-change="changePage($event)" :disabled="empty" />
             <JumpToPageInput v-else-if="item === 'JumpToPageInput'" :page="currentPage" @page-change="changePage($event)" :disabled="empty" />
         </template>
-        <div class="p-paginator-right-content" v-if="$slots.end">
+        <div v-if="$slots.end" class="p-paginator-right-content">
             <slot name="end" :state="currentState"></slot>
         </div>
     </div>
@@ -139,9 +139,11 @@ export default {
     computed: {
         templateItems() {
             let keys = [];
+
             this.template.split(' ').map((value) => {
                 keys.push(value.trim());
             });
+
             return keys;
         },
         page() {
@@ -166,6 +168,7 @@ export default {
 
             //check when approaching to last page
             const delta = this.pageLinkSize - (end - start + 1);
+
             start = Math.max(0, start - delta);
 
             return [start, end];

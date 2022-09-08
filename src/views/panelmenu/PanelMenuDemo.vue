@@ -18,7 +18,7 @@
                     <Button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll" class="mr-2" />
                     <Button type="button" icon="pi pi-minus" label="Collapse All" @click="collapseAll" />
                 </div>
-                <PanelMenu :model="items" v-model:expandedKeys="expandedKeys" />
+                <PanelMenu v-model:expandedKeys="expandedKeys" :model="items" />
             </div>
         </div>
 

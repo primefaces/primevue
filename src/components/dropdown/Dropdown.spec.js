@@ -315,6 +315,7 @@ describe('filter checks', () => {
 
     it('should make filtering', async () => {
         const filterInput = wrapper.find('.p-dropdown-filter');
+
         expect(filterInput.exists()).toBe(true);
 
         const event = { target: { value: 'c' } };

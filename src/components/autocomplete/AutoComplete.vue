@@ -101,8 +101,8 @@
                                     </li>
                                     <li
                                         v-else
-                                        v-ripple
                                         :id="id + '_' + getOptionIndex(i, getItemOptions)"
+                                        v-ripple
                                         :style="{ height: itemSize ? itemSize + 'px' : undefined }"
                                         :class="['p-autocomplete-item', { 'p-highlight': isSelected(option), 'p-focus': focusedOptionIndex === getOptionIndex(i, getItemOptions), 'p-disabled': isOptionDisabled(option) }]"
                                         role="option"
@@ -473,6 +473,7 @@ export default {
             }
 
             let query = event.target.value;
+
             if (!this.multiple) {
                 this.updateModel(event, query);
             }
@@ -632,6 +633,7 @@ export default {
         },
         onArrowLeftKey(event) {
             const target = event.currentTarget;
+
             this.focusedOptionIndex = -1;
 
             if (this.multiple) {
@@ -657,6 +659,7 @@ export default {
         onEndKey(event) {
             const target = event.currentTarget;
             const len = target.value.length;
+
             target.setSelectionRange(len, len);
             this.focusedOptionIndex = -1;
 
@@ -747,6 +750,7 @@ export default {
         },
         alignOverlay() {
             let target = this.multiple ? this.$refs.multiContainer : this.$refs.focusInput;
+
             if (this.appendTo === 'self') {
                 DomHandler.relativePosition(this.overlay, target);
             } else {
@@ -761,6 +765,7 @@ export default {
                         this.hide();
                     }
                 };
+
                 document.addEventListener('click', this.outsideClickListener);
             }
         },
@@ -793,6 +798,7 @@ export default {
                         this.hide();
                     }
                 };
+
                 window.addEventListener('resize', this.resizeListener);
             }
         },
@@ -832,10 +838,12 @@ export default {
         },
         findNextOptionIndex(index) {
             const matchedOptionIndex = index < this.visibleOptions.length - 1 ? this.visibleOptions.slice(index + 1).findIndex((option) => this.isValidOption(option)) : -1;
+
             return matchedOptionIndex > -1 ? matchedOptionIndex + index + 1 : index;
         },
         findPrevOptionIndex(index) {
             const matchedOptionIndex = index > 0 ? ObjectUtils.findLastIndex(this.visibleOptions.slice(0, index), (option) => this.isValidOption(option)) : -1;
+
             return matchedOptionIndex > -1 ? matchedOptionIndex : index;
         },
         findSelectedOptionIndex() {
@@ -843,10 +851,12 @@ export default {
         },
         findFirstFocusedOptionIndex() {
             const selectedIndex = this.findSelectedOptionIndex();
+
             return selectedIndex < 0 ? this.findFirstOptionIndex() : selectedIndex;
         },
         findLastFocusedOptionIndex() {
             const selectedIndex = this.findSelectedOptionIndex();
+
             return selectedIndex < 0 ? this.findLastOptionIndex() : selectedIndex;
         },
         search(event, query, source) {
@@ -885,6 +895,7 @@ export default {
         scrollInView(index = -1) {
             const id = index !== -1 ? `${this.id}_${index}` : this.focusedOptionId;
             const element = DomHandler.findSingle(this.list, `li[id="${id}"]`);
+
             if (element) {
                 element.scrollIntoView && element.scrollIntoView({ block: 'nearest', inline: 'start' });
             } else if (!this.virtualScrollerDisabled) {
@@ -908,6 +919,7 @@ export default {
                 result.push({ optionGroup: option, group: true, index });
 
                 const optionGroupChildren = this.getOptionGroupChildren(option);
+
                 optionGroupChildren && optionGroupChildren.forEach((o) => result.push(o));
 
                 return result;
@@ -971,6 +983,7 @@ export default {
             if (this.modelValue) {
                 if (typeof this.modelValue === 'object') {
                     const label = this.getOptionLabel(this.modelValue);
+
                     return label != null ? label : this.modelValue;
                 } else {
                     return this.modelValue;

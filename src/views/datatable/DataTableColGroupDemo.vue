@@ -399,6 +399,7 @@ export default {
     computed: {
         lastYearTotal() {
             let total = 0;
+
             for (let sale of this.sales) {
                 total += sale.lastYearProfit;
             }
@@ -407,6 +408,7 @@ export default {
         },
         thisYearTotal() {
             let total = 0;
+
             for (let sale of this.sales) {
                 total += sale.thisYearProfit;
             }

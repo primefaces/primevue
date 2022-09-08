@@ -35,6 +35,7 @@ describe('Splitter.vue', () => {
     it('should mousedown', async () => {
         const gutter = wrapper.find('.p-splitter-gutter-handle').element;
         const siblings = wrapper.findAll('.p-splitter-panel');
+
         await wrapper.vm.onGutterMouseDown({ currentTarget: { gutter, previousElementSibling: siblings[0].element, nextElementSibling: siblings[1].element }, pageX: 123 }, 0);
 
         expect(wrapper.find('.p-splitter').classes()).toContain('p-splitter-resizing');

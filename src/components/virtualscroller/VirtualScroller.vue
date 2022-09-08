@@ -24,8 +24,8 @@
                     </template>
                 </div>
             </slot>
-            <div class="p-virtualscroller-spacer" :style="spacerStyle" v-if="showSpacer"></div>
-            <div :class="loaderClass" v-if="!loaderDisabled && showLoader && d_loading">
+            <div v-if="showSpacer" class="p-virtualscroller-spacer" :style="spacerStyle"></div>
+            <div v-if="!loaderDisabled && showLoader && d_loading" :class="loaderClass">
                 <template v-if="$slots && $slots.loader">
                     <template v-for="(_, index) of loaderArr" :key="index">
                         <slot name="loader" :options="getLoaderOptions(index, isBoth() && { numCols: d_numItemsInViewport.cols })"></slot>
@@ -124,11 +124,6 @@ export default {
     content: null,
     lastScrollPos: null,
     scrollTimeout: null,
-    mounted() {
-        this.init();
-
-        this.lastScrollPos = this.isBoth() ? { top: 0, left: 0 } : 0;
-    },
     watch: {
         numToleratedItems(newValue) {
             this.d_numToleratedItems = newValue;
@@ -144,6 +139,11 @@ export default {
         orientation() {
             this.lastScrollPos = this.isBoth() ? { top: 0, left: 0 } : 0;
         }
+    },
+    mounted() {
+        this.init();
+
+        this.lastScrollPos = this.isBoth() ? { top: 0, left: 0 } : 0;
     },
     methods: {
         init() {
@@ -175,11 +175,13 @@ export default {
 
             if (both) {
                 const newFirst = { rows: calculateFirst(index[0], numToleratedItems[0]), cols: calculateFirst(index[1], numToleratedItems[1]) };
+
                 if (newFirst.rows !== first.rows || newFirst.cols !== first.cols) {
                     scrollTo(calculateCoord(newFirst.cols, itemSize[1]), calculateCoord(newFirst.rows, itemSize[0]));
                 }
             } else {
                 const newFirst = calculateFirst(index, numToleratedItems);
+
                 if (newFirst !== first) {
                     horizontal ? scrollTo(calculateCoord(newFirst, itemSize), 0) : scrollTo(0, calculateCoord(newFirst, itemSize));
                 }
@@ -204,6 +206,7 @@ export default {
                     } else {
                         if (viewport.first - first > index) {
                             const pos = (viewport.first - 1) * this.itemSize;
+
                             horizontal ? scrollTo(pos, 0) : scrollTo(0, pos);
                         }
                     }
@@ -217,6 +220,7 @@ export default {
                     } else {
                         if (viewport.last - first <= index + 1) {
                             const pos = (viewport.first + 1) * this.itemSize;
+
                             horizontal ? scrollTo(pos, 0) : scrollTo(0, pos);
                         }
                     }
@@ -242,6 +246,7 @@ export default {
                     lastInViewport = { rows: firstInViewport.rows + this.numItemsInViewport.rows, cols: firstInViewport.cols + this.numItemsInViewport.cols };
                 } else {
                     const scrollPos = horizontal ? scrollLeft : scrollTop;
+
                     firstInViewport = calculateFirstInViewport(scrollPos, this.itemSize);
                     lastInViewport = firstInViewport + this.numItemsInViewport;
                 }
@@ -355,6 +360,7 @@ export default {
                 const horizontal = this.isHorizontal();
                 const first = pos ? pos.first : this.first;
                 const calculateTranslateVal = (_first, _size) => _first * _size;
+
                 const setTransform = (_x = 0, _y = 0) => {
                     this.contentStyle = { ...this.contentStyle, ...{ transform: `translate3d(${_x}px, ${_y}px, 0)` } };
                 };
@@ -363,6 +369,7 @@ export default {
                     setTransform(calculateTranslateVal(first.cols, this.itemSize[1]), calculateTranslateVal(first.rows, this.itemSize[0]));
                 } else {
                     const translateVal = calculateTranslateVal(first, this.itemSize);
+
                     horizontal ? setTransform(translateVal, 0) : setTransform(0, translateVal);
                 }
             }
@@ -374,13 +381,16 @@ export default {
             const contentPos = this.getContentPosition();
             const calculateScrollPos = (_pos, _cpos) => (_pos ? (_pos > _cpos ? _pos - _cpos : _pos) : 0);
             const calculateCurrentIndex = (_pos, _size) => Math.floor(_pos / (_size || _pos));
+
             const calculateTriggerIndex = (_currentIndex, _first, _last, _num, _numT, _isScrollDownOrRight) => {
                 return _currentIndex <= _numT ? _numT : _isScrollDownOrRight ? _last - _num - _numT : _first + _numT - 1;
             };
+
             const calculateFirst = (_currentIndex, _triggerIndex, _first, _last, _num, _numT, _isScrollDownOrRight) => {
                 if (_currentIndex <= _numT) return 0;
                 else return Math.max(0, _isScrollDownOrRight ? (_currentIndex < _triggerIndex ? _first : _currentIndex - _numT) : _currentIndex > _triggerIndex ? _first : _currentIndex - 2 * _numT);
             };
+
             const calculateLast = (_currentIndex, _first, _last, _num, _numT, _isCols) => {
                 let lastValue = _first + _num + 2 * _numT;
 
@@ -467,6 +477,7 @@ export default {
 
                 if (!this.d_loading && this.showLoader) {
                     const { isRangeChanged: changed } = this.onScrollPositionChange(event);
+
                     changed && (this.d_loading = true);
                 }
 
@@ -484,6 +495,7 @@ export default {
         getOptions(renderedIndex) {
             const count = (this.items || []).length;
             const index = this.isBoth() ? this.first.rows + renderedIndex : this.first + renderedIndex;
+
             return {
                 index,
                 count,
@@ -495,6 +507,7 @@ export default {
         },
         getLoaderOptions(index, extOptions) {
             let count = this.loaderArr.length;
+
             return {
                 index,
                 count,
@@ -541,6 +554,7 @@ export default {
         },
         loadedItems() {
             const items = this.items;
+
             if (items && !this.d_loading) {
                 if (this.isBoth()) {
                     return items.slice(this.first.rows, this.last.rows).map((item) => (this.columns ? item : item.slice(this.first.cols, this.last.cols)));

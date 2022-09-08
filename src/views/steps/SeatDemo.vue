@@ -7,15 +7,15 @@
                 <div class="p-fluid formgrid grid">
                     <div class="field col-12 md:col-6">
                         <label for="class">Class</label>
-                        <Dropdown inputId="class" v-model="selectedClass" :options="classes" @change="setWagons($event)" optionLabel="name" placeholder="Select a Class" />
+                        <Dropdown v-model="selectedClass" inputId="class" :options="classes" @change="setWagons($event)" optionLabel="name" placeholder="Select a Class" />
                     </div>
                     <div class="field col-12 md:col-6">
                         <label for="lastname">Wagon</label>
-                        <Dropdown inputId="wagon" v-model="selectedWagon" :options="wagons" @change="setSeats($event)" optionLabel="wagon" placeholder="Select a Wagon" />
+                        <Dropdown v-model="selectedWagon" inputId="wagon" :options="wagons" @change="setSeats($event)" optionLabel="wagon" placeholder="Select a Wagon" />
                     </div>
                     <div class="field col-12">
                         <label for="seat">Seat</label>
-                        <Dropdown inputId="seat" v-model="selectedSeat" :options="seats" optionLabel="seat" placeholder="Select a Seat" />
+                        <Dropdown v-model="selectedSeat" inputId="seat" :options="seats" optionLabel="seat" placeholder="Select a Seat" />
                     </div>
                 </div>
             </template>
@@ -31,6 +31,7 @@
 
 <script>
 export default {
+    emits: ['next-page', 'prev-page'],
     data() {
         return {
             selectedClass: '',
@@ -50,6 +51,7 @@ export default {
             if (this.selectedClass && event.value) {
                 this.wagons = [];
                 this.seats = [];
+
                 for (let i = 1; i < 3 * event.value.factor; i++) {
                     this.wagons.push({ wagon: i + event.value.code, type: event.value.name, factor: event.value.factor });
                 }
@@ -58,6 +60,7 @@ export default {
         setSeats(event) {
             if (this.selectedWagon && event.value) {
                 this.seats = [];
+
                 for (let i = 1; i < 10 * event.value.factor; i++) {
                     this.seats.push({ seat: i, type: event.value.type });
                 }

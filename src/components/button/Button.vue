@@ -1,5 +1,5 @@
 <template>
-    <button :class="buttonClass" type="button" :aria-label="defaultAriaLabel" v-ripple :disabled="disabled">
+    <button v-ripple :class="buttonClass" type="button" :aria-label="defaultAriaLabel" :disabled="disabled">
         <slot>
             <span v-if="loading && !icon" :class="iconStyleClass"></span>
             <span v-if="icon" :class="iconStyleClass"></span>

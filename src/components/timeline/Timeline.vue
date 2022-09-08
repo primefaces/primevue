@@ -8,7 +8,7 @@
                 <slot name="marker" :item="item" :index="index">
                     <div class="p-timeline-event-marker"></div>
                 </slot>
-                <slot name="connector" v-if="index !== value.length - 1" :item="item" :index="index">
+                <slot v-if="index !== value.length - 1" name="connector" :item="item" :index="index">
                     <div class="p-timeline-event-connector"></div>
                 </slot>
             </div>

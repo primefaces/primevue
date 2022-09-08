@@ -230,6 +230,7 @@ describe('DataTable.vue', () => {
             computed: {
                 lastYearTotal() {
                     let total = 0;
+
                     for (let sale of this.sales) {
                         total += sale.lastYearProfit;
                     }
@@ -238,6 +239,7 @@ describe('DataTable.vue', () => {
                 },
                 thisYearTotal() {
                     let total = 0;
+
                     for (let sale of this.sales) {
                         total += sale.thisYearProfit;
                     }

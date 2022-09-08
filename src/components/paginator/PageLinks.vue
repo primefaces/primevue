@@ -1,6 +1,6 @@
 <template>
     <span class="p-paginator-pages">
-        <button v-for="pageLink of value" :key="pageLink" :class="['p-paginator-page p-paginator-element p-link', { 'p-highlight': pageLink - 1 === page }]" type="button" @click="onPageLinkClick($event, pageLink)" v-ripple>{{ pageLink }}</button>
+        <button v-for="pageLink of value" :key="pageLink" v-ripple :class="['p-paginator-page p-paginator-element p-link', { 'p-highlight': pageLink - 1 === page }]" type="button" @click="onPageLinkClick($event, pageLink)">{{ pageLink }}</button>
     </span>
 </template>
 <script>

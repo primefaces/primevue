@@ -110,6 +110,7 @@ describe('CascadeSelect.vue', () => {
         expect(wrapper.findAll('.p-cascadeselect-item-text')[0].text()).toBe('Australia');
 
         const firstGroup = wrapper.findAll('.p-cascadeselect-item-content')[0];
+
         await firstGroup.trigger('click');
 
         expect(wrapper.find('.p-cascadeselect-panel.p-cascadeselect-sublist').exists()).toBe(true);

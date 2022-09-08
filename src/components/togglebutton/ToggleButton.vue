@@ -1,10 +1,10 @@
 <template>
-    <div :class="buttonClass" @click="onClick($event)" v-ripple>
+    <div v-ripple :class="buttonClass" @click="onClick($event)">
         <span class="p-hidden-accessible">
             <input
+                :id="inputId"
                 type="checkbox"
                 role="switch"
-                :id="inputId"
                 :class="inputClass"
                 :style="inputStyle"
                 :checked="modelValue"

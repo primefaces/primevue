@@ -10,6 +10,7 @@ function unbindEvents(el) {
 
 function create(el) {
     let ink = document.createElement('span');
+
     ink.className = 'p-ink';
     ink.setAttribute('role', 'presentation');
     el.appendChild(ink);
@@ -19,6 +20,7 @@ function create(el) {
 
 function remove(el) {
     let ink = getInk(el);
+
     if (ink) {
         unbindEvents(el);
         ink.removeEventListener('animationend', onAnimationEnd);
@@ -29,13 +31,16 @@ function remove(el) {
 function onMouseDown(event) {
     let target = event.currentTarget;
     let ink = getInk(target);
+
     if (!ink || getComputedStyle(ink, null).display === 'none') {
         return;
     }
 
     DomHandler.removeClass(ink, 'p-ink-active');
+
     if (!DomHandler.getHeight(ink) && !DomHandler.getWidth(ink)) {
         let d = Math.max(DomHandler.getOuterWidth(target), DomHandler.getOuterHeight(target));
+
         ink.style.height = d + 'px';
         ink.style.width = d + 'px';
     }
@@ -59,6 +64,7 @@ function getInk(el) {
             return el.children[i];
         }
     }
+
     return null;
 }
 

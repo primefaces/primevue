@@ -12,31 +12,31 @@
             <div class="card">
                 <h5>Basic</h5>
                 <div class="field-checkbox">
-                    <Checkbox inputId="binary" v-model="checked" :binary="true" />
+                    <Checkbox v-model="checked" inputId="binary" :binary="true" />
                     <label for="binary">Remember Me</label>
                 </div>
 
                 <h5>Multiple</h5>
                 <div class="field-checkbox">
-                    <Checkbox inputId="city1" name="city" value="Chicago" v-model="cities" />
+                    <Checkbox v-model="cities" inputId="city1" name="city" value="Chicago" />
                     <label for="city1">Chicago</label>
                 </div>
                 <div class="field-checkbox">
-                    <Checkbox inputId="city2" name="city" value="Los Angeles" v-model="cities" />
+                    <Checkbox v-model="cities" inputId="city2" name="city" value="Los Angeles" />
                     <label for="city2">Los Angeles</label>
                 </div>
                 <div class="field-checkbox">
-                    <Checkbox inputId="city3" name="city" value="New York" v-model="cities" />
+                    <Checkbox v-model="cities" inputId="city3" name="city" value="New York" />
                     <label for="city3">New York</label>
                 </div>
                 <div class="field-checkbox">
-                    <Checkbox inputId="city4" name="city" value="San Francisco" v-model="cities" />
+                    <Checkbox v-model="cities" inputId="city4" name="city" value="San Francisco" />
                     <label for="city4">San Francisco</label>
                 </div>
 
                 <h5>Dynamic Values, Preselection, Value Binding and Disabled Option</h5>
                 <div v-for="category of categories" :key="category.key" class="field-checkbox">
-                    <Checkbox :inputId="category.key" name="category" :value="category.name" v-model="selectedCategories" :disabled="category.key === 'R'" />
+                    <Checkbox v-model="selectedCategories" :inputId="category.key" name="category" :value="category.name" :disabled="category.key === 'R'" />
                     <label :for="category.key">{{ category.name }}</label>
                 </div>
             </div>

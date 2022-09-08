@@ -23,15 +23,15 @@
                         <span class="font-semibold block mt-4 mb-3">Size</span>
                         <div class="flex align-items-center">
                             <div class="flex align-items-center">
-                                <RadioButton id="size-small" value="small" name="sizevalue" v-model="size" />
+                                <RadioButton id="size-small" v-model="size" value="small" name="sizevalue" />
                                 <label for="size-small" class="ml-2 font-medium">Small</label>
                             </div>
                             <div class="flex align-items-center ml-4">
-                                <RadioButton id="size-normal" value="normal" name="sizevalue" v-model="size" />
+                                <RadioButton id="size-normal" v-model="size" value="normal" name="sizevalue" />
                                 <label for="size-normal" class="ml-2 font-medium">Normal</label>
                             </div>
                             <div class="flex align-items-center ml-4">
-                                <RadioButton id="size-large" value="large" name="sizevalue" v-model="size" />
+                                <RadioButton id="size-large" v-model="size" value="large" name="sizevalue" />
                                 <label for="size-large" class="ml-2 font-medium">Large</label>
                             </div>
                         </div>
@@ -54,7 +54,7 @@
                         </a>
                     </div>
                 </div>
-                <div :class="editorclass" style="border-radius: '10px'" :ref="editorRef">
+                <div :ref="editorRef" :class="editorclass" style="border-radius: '10px'">
                     <div class="p-fluid formgrid grid">
                         <div class="field col-12 xl:col-6">
                             <label for="username" class="font-semibold mb-3 p-component">Username</label>
@@ -92,11 +92,11 @@
                             <span class="font-semibold mb-2 block mb-3 mt-5 p-component">Checkboxes</span>
                             <div class="flex flex-column xl:flex-row xl:align-items-center">
                                 <div class="flex align-items-center">
-                                    <Checkbox id="cb1" :value="value1" name="cbvalue" v-model="values" />
+                                    <Checkbox id="cb1" v-model="values" :value="value1" name="cbvalue" />
                                     <label for="cb1" class="ml-2 font-medium p-component white-space-nowrap">Option 1</label>
                                 </div>
                                 <div class="flex align-items-center mt-3 xl:mt-0 xl:ml-4">
-                                    <Checkbox id="cb2" :value="value2" name="cbvalue" v-model="values" />
+                                    <Checkbox id="cb2" v-model="values" :value="value2" name="cbvalue" />
                                     <label for="cb2" class="ml-2 font-medium p-component white-space-nowrap">Option 2</label>
                                 </div>
                             </div>

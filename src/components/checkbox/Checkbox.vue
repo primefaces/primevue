@@ -2,8 +2,8 @@
     <div :class="containerClass" @click="onClick($event)">
         <div class="p-hidden-accessible">
             <input
-                :id="inputId"
                 ref="input"
+                :id="inputId"
                 type="checkbox"
                 :value="value"
                 :class="inputClass"

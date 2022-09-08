@@ -2,7 +2,7 @@
     <Portal v-if="fullScreen">
         <div v-if="containerVisible" :ref="maskRef" :class="maskContentClass">
             <transition name="p-galleria" @before-enter="onBeforeEnter" @enter="onEnter" @before-leave="onBeforeLeave" @after-leave="onAfterLeave" appear>
-                <GalleriaContent :ref="containerRef" v-if="visible" v-bind="$props" @mask-hide="maskHide" :templates="$slots" @activeitem-change="onActiveItemChange" />
+                <GalleriaContent v-if="visible" :ref="containerRef" v-bind="$props" @mask-hide="maskHide" :templates="$slots" @activeitem-change="onActiveItemChange" />
             </transition>
         </div>
     </Portal>
@@ -128,6 +128,7 @@ export default {
         }
 
         this.mask = null;
+
         if (this.container) {
             ZIndexUtils.clear(this.container);
             this.container = null;

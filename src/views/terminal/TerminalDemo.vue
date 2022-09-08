@@ -24,6 +24,12 @@ import TerminalDoc from './TerminalDoc';
 import TerminalService from 'primevue/terminalservice';
 
 export default {
+    mounted() {
+        TerminalService.on('command', this.commandHandler);
+    },
+    beforeUnmount() {
+        TerminalService.off('command', this.commandHandler);
+    },
     methods: {
         commandHandler(text) {
             let response;
@@ -49,12 +55,6 @@ export default {
 
             TerminalService.emit('response', response);
         }
-    },
-    mounted() {
-        TerminalService.on('command', this.commandHandler);
-    },
-    beforeUnmount() {
-        TerminalService.off('command', this.commandHandler);
     },
     components: {
         TerminalDoc: TerminalDoc

@@ -3,10 +3,10 @@
         <template v-for="(panel, i) of panels" :key="i" class="p-splitter-panel">
             <component :is="panel" tabindex="-1"></component>
             <div
+                v-if="i !== panels.length - 1"
                 class="p-splitter-gutter"
                 role="separator"
                 tabindex="0"
-                v-if="i !== panels.length - 1"
                 :style="gutterStyle"
                 :aria-orientation="layout"
                 :aria-valuenow="prevSize"
@@ -74,6 +74,7 @@ export default {
     mounted() {
         if (this.panels && this.panels.length) {
             let initialized = false;
+
             if (this.isStateful()) {
                 initialized = this.restoreState();
             }
@@ -85,6 +86,7 @@ export default {
                 this.panels.map((panel, i) => {
                     let panelInitialSize = panel.props && panel.props.size ? panel.props.size : null;
                     let panelSize = panelInitialSize || 100 / this.panels.length;
+
                     _panelSizes[i] = panelSize;
                     children[i].style.flexBasis = 'calc(' + panelSize + '% - ' + (this.panels.length - 1) * this.gutterSize + 'px)';
                 });
@@ -128,6 +130,7 @@ export default {
         },
         onResize(event, step, isKeyDown) {
             let newPos, newPrevPanelSize, newNextPanelSize;
+
             if (isKeyDown) {
                 if (this.horizontal) {
                     newPrevPanelSize = (100 * (this.prevPanelSize + step)) / this.size;
@@ -254,6 +257,7 @@ export default {
                     this.onResizeEnd(event);
                     this.unbindMouseListeners();
                 };
+
                 document.addEventListener('mouseup', this.mouseUpListener);
             }
         },
@@ -268,16 +272,19 @@ export default {
                     this.resizeEnd(event);
                     this.unbindTouchListeners();
                 };
+
                 document.addEventListener('touchend', this.touchEndListener);
             }
         },
         validateResize(newPrevPanelSize, newNextPanelSize) {
             let prevPanelMinSize = ObjectUtils.getVNodeProp(this.panels[0], 'minSize');
+
             if (this.panels[0].props && prevPanelMinSize && prevPanelMinSize > newPrevPanelSize) {
                 return false;
             }
 
             let newPanelMinSize = ObjectUtils.getVNodeProp(this.panels[1], 'minSize');
+
             if (this.panels[1].props && newPanelMinSize && newPanelMinSize > newNextPanelSize) {
                 return false;
             }
@@ -342,6 +349,7 @@ export default {
             if (stateString) {
                 this.panelSizes = JSON.parse(stateString);
                 let children = [...this.$el.children].filter((child) => DomHandler.hasClass(child, 'p-splitter-panel'));
+
                 children.forEach((child, i) => {
                     child.style.flexBasis = 'calc(' + this.panelSizes[i] + '% - ' + (this.panels.length - 1) * this.gutterSize + 'px)';
                 });
@@ -358,6 +366,7 @@ export default {
         },
         panels() {
             const panels = [];
+
             this.$slots.default().forEach((child) => {
                 if (this.isSplitterPanel(child)) {
                     panels.push(child);
@@ -369,6 +378,7 @@ export default {
                     });
                 }
             });
+
             return panels;
         },
         gutterStyle() {

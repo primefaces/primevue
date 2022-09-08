@@ -19,7 +19,7 @@
                 </span>
             </span>
         </template>
-        <template :key="i" v-for="i in stars">
+        <template v-for="i in stars" :key="i">
             <span :class="iconClasses(i)" @click="onStarClick($event, i)">
                 <component v-if="hasIconSlot && i <= modelValue" :is="$slots.onIcon" :index="i" />
                 <component v-if="hasIconSlot && i > modelValue" :is="$slots.offIcon" :index="i" />
@@ -94,13 +94,16 @@ export default {
                     this.focusIndex = value;
                 }, 1);
             }
+
             this.keyboardEvent = false;
         },
         onKeyDown(event, value) {
             this.keyboardEvent = true;
+
             if (event.code === 'Space') {
                 this.updateModel(event, value);
             }
+
             if (event.code === 'Tab') {
                 this.focusIndex = null;
             }
@@ -173,6 +176,7 @@ export default {
                     this.focusIndex = null;
                 }
             };
+
             document.addEventListener('click', this.outsideClickListener);
         },
         unbindOutsideClickListener() {
