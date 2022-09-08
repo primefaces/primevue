@@ -182,6 +182,12 @@ export default {
                         <td>Callback to execute when action is rejected.</td>
                     </tr>
                     <tr>
+                        <td>onHide</td>
+                        <td>Function</td>
+                        <td>null</td>
+                        <td>Callback to execute when dialog is hidden.</td>
+                    </tr>
+                    <tr>
                         <td>acceptLabel</td>
                         <td>string</td>
                         <td>null</td>
