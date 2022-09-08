@@ -1,5 +1,50 @@
 # Changelog
 
+## [3.17.0](https://github.com/primefaces/primevue/tree/3.17.0) (2022-09-08)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.16.2...3.17.0)
+
+**Implemented New Features and Enhancements:**
+
+- Add prettier to standardize formatting [\#2939](https://github.com/primefaces/primevue/issues/2939)
+- Carousel: Navigators and indicators control props  [\#2928](https://github.com/primefaces/primevue/issues/2928)
+- Password | missing `required` property [\#2921](https://github.com/primefaces/primevue/issues/2921)
+- Improve ScrollPanel implementation for Accessibility [\#2920](https://github.com/primefaces/primevue/issues/2920)
+- Improve focus method to Components [\#2918](https://github.com/primefaces/primevue/issues/2918)
+- Add `autoFilterFocus` property to Dropdown and MultiSelect [\#2916](https://github.com/primefaces/primevue/issues/2916)
+- Improve Splitter implementation for Accessibility [\#2913](https://github.com/primefaces/primevue/issues/2913)
+- New `iconClass` property for Button component [\#2911](https://github.com/primefaces/primevue/issues/2911)
+- Improve Toolbar implementation for Accessibility [\#2909](https://github.com/primefaces/primevue/issues/2909)
+- Improve Panel implementation for Accessibility [\#2908](https://github.com/primefaces/primevue/issues/2908)
+- Improve Fieldset implementation for Accessibility [\#2907](https://github.com/primefaces/primevue/issues/2907)
+- Improve Divider implementation for Accessibility  [\#2906](https://github.com/primefaces/primevue/issues/2906)
+- Improve Deferred Content implementation for Accessibility  [\#2905](https://github.com/primefaces/primevue/issues/2905)
+- Improve Card implementation for Accessibility [\#2904](https://github.com/primefaces/primevue/issues/2904)
+- Add `selectOnFocus` property to Overlay components [\#2902](https://github.com/primefaces/primevue/issues/2902)
+- Improve TabView implementation for Accessibility [\#2896](https://github.com/primefaces/primevue/issues/2896)
+- Improve Accordion implementation for Accessibility [\#2895](https://github.com/primefaces/primevue/issues/2895)
+- Dropdown: Prevent show of overlay when pressing meta key [\#2886](https://github.com/primefaces/primevue/issues/2886)
+- ConfirmDialog : Add support for "Message" slot template, similar to ConfirmPopup [\#2884](https://github.com/primefaces/primevue/issues/2884)
+- Add resetFilterOnHide property to Dropdown [\#2846](https://github.com/primefaces/primevue/issues/2846)
+- Add icon templating to Rating [\#2834](https://github.com/primefaces/primevue/issues/2834)
+- Add `modules` property to Editor [\#2498](https://github.com/primefaces/primevue/issues/2498)
+
+**Fixed bugs:**
+
+- Calendar | input disabled does not work [\#2935](https://github.com/primefaces/primevue/issues/2935)
+- Update for props typing in .vue files [\#2926](https://github.com/primefaces/primevue/issues/2926)
+- Textarea: resize height when window resized if autoResize is true [\#2919](https://github.com/primefaces/primevue/issues/2919)
+- Tooltip: add type/empty check for its value [\#2903](https://github.com/primefaces/primevue/issues/2903)
+- MultiSelect: filtering causes labels of currently selected values to display "null" [\#2901](https://github.com/primefaces/primevue/issues/2901)
+- The type of inputProps prop requires every possible attribute for HTMLInputElement type [\#2891](https://github.com/primefaces/primevue/issues/2891)
+- SpeedDial: Cannot use Scoped Slot to customize items [\#2889](https://github.com/primefaces/primevue/issues/2889)
+- Password: When its value is dynamically set, the strength indicator is not updated [\#2885](https://github.com/primefaces/primevue/issues/2885)
+- AutoComplete: setTimeout\(\) in hide-function sometimes causes NULL-Pointer Exception [\#2881](https://github.com/primefaces/primevue/issues/2881)
+- Password: Unable to add invalid event listener after 3.16 [\#2880](https://github.com/primefaces/primevue/issues/2880)
+- Editor Quill: SSR error document is not defined [\#2842](https://github.com/primefaces/primevue/issues/2842)
+- ConfirmDialog  won't the reject event be triggered when closing things?  [\#2821](https://github.com/primefaces/primevue/issues/2821)
+- Calendar: inline calendar force scroll into viewport when disabledDates changed  [\#2803](https://github.com/primefaces/primevue/issues/2803)
+
 ## [3.16.2](https://github.com/primefaces/primevue/tree/3.16.2) (2022-08-23)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.16.1...3.16.2)
