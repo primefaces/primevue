@@ -1,5 +1,5 @@
 <template>
-    <CDialog v-model:visible="visible" :modal="true" :header="header" :blockScroll="blockScroll" :position="position" class="p-confirm-dialog" :breakpoints="breakpoints" :closeOnEscape="closeOnEscape">
+    <CDialog v-model:visible="visible" :modal="true" :header="header" :blockScroll="blockScroll" :position="position" class="p-confirm-dialog" :breakpoints="breakpoints" :closeOnEscape="closeOnEscape" @update:visible="onHide">
         <template v-if="!$slots.message">
             <i :class="iconClass" />
             <span class="p-confirm-dialog-message">{{ message }}</span>
@@ -13,9 +13,9 @@
 </template>
 
 <script>
+import Button from 'primevue/button';
 import ConfirmationEventBus from 'primevue/confirmationeventbus';
 import Dialog from 'primevue/dialog';
-import Button from 'primevue/button';
 
 export default {
     name: 'ConfirmDialog',
@@ -69,6 +69,13 @@ export default {
         reject() {
             if (this.confirmation.reject) {
                 this.confirmation.reject();
+            }
+
+            this.visible = false;
+        },
+        onHide() {
+            if (this.confirmation.onHide) {
+                this.confirmation.onHide();
             }
 
             this.visible = false;
