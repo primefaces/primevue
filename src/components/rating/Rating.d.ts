@@ -55,7 +55,32 @@ export interface RatingProps {
     cancelIcon?: string | undefined;
 }
 
-export interface RatingSlots {}
+export interface RatingSlots {
+    /**
+     * Custom cancel icon template.
+     */
+    cancelicon: () => VNode[];
+    /**
+     * Custom on icon template.
+     * @param {Object} scope - on icon slot's params.
+     */
+    onicon: (scope: {
+        /**
+         * Item value
+         */
+        value: number;
+    }) => VNode[];
+    /**
+     * Custom off icon template.
+     * @param {Object} scope - off icon slot's params.
+     */
+    officon: (scope: {
+        /**
+         * Item value
+         */
+        value: number;
+    }) => VNode[];
+}
 
 export declare type RatingEmits = {
     /**
@@ -68,6 +93,16 @@ export declare type RatingEmits = {
      * @param {RatingChangeEvent} event - Custom change event.
      */
     change: (event: RatingChangeEvent) => void;
+    /**
+     * Callback to invoke when the component receives focus.
+     * @param {Event} event - Browser event.
+     */
+    focus: (event: Event) => void;
+    /**
+     * Callback to invoke when the component loses focus.
+     * @param {Event} event - Browser event.
+     */
+    blur: (event: Event) => void;
 };
 
 declare class Rating extends ClassComponent<RatingProps, RatingSlots, RatingEmits> {}

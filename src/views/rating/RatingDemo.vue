@@ -27,7 +27,7 @@
 
                 <h5>Templating</h5>
                 <Rating v-model="val4">
-                    <template #cancel>
+                    <template #cancelicon>
                         <img src="demo/images/rating/cancel.png" class="cursor-pointer" height="24" width="24" />
                     </template>
                     <template #onicon>

@@ -65,6 +65,43 @@ const RatingEvents = [
                 description: 'Selected option value'
             }
         ]
+    },
+    {
+        name: 'focus',
+        description: 'Callback to invoke when component receives focus.',
+        arguments: [
+            {
+                name: 'event',
+                type: 'object',
+                description: 'Browser event'
+            }
+        ]
+    },
+    {
+        name: 'blur',
+        description: 'Callback to invoke when component loses focus.',
+        arguments: [
+            {
+                name: 'event',
+                type: 'object',
+                description: 'Browser event'
+            }
+        ]
+    }
+];
+
+const RatingSlots = [
+    {
+        name: 'cancelicon',
+        description: 'Custom cancel icon template.'
+    },
+    {
+        name: 'onicon',
+        description: 'Custom on icon template.'
+    },
+    {
+        name: 'officon',
+        description: 'Custom off icon template.'
     }
 ];
 
@@ -73,6 +110,7 @@ module.exports = {
         name: 'rating',
         description: 'Rating component is a star based selection input.',
         props: RatingProps,
-        events: RatingEvents
+        events: RatingEvents,
+        slots: RatingSlots
     }
 };

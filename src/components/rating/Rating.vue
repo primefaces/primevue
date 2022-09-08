@@ -4,7 +4,7 @@
             <span class="p-hidden-accessible">
                 <input type="radio" value="0" :name="name" :checked="modelValue === 0" :disabled="disabled" :readonly="readonly" :aria-label="cancelAriaLabel()" @focus="onFocus($event, 0)" @blur="onBlur" @change="onChange($event, 0)" />
             </span>
-            <slot name="cancel" :value="0">
+            <slot name="cancelicon">
                 <span :class="cancelIconClass" />
             </slot>
         </div>
