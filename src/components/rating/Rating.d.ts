@@ -52,11 +52,10 @@ export interface RatingProps {
      * Can be used to add different cancel icon.
      * Default value is pi pi-ban.
      */
-     cancelIcon?: string | undefined;
+    cancelIcon?: string | undefined;
 }
 
-export interface RatingSlots {
-}
+export interface RatingSlots {}
 
 export declare type RatingEmits = {
     /**
@@ -68,14 +67,14 @@ export declare type RatingEmits = {
      * Callback to invoke when a suggestion is selected.
      * @param {RatingChangeEvent} event - Custom change event.
      */
-    'change': (event: RatingChangeEvent) => void;
-}
+    change: (event: RatingChangeEvent) => void;
+};
 
-declare class Rating extends ClassComponent<RatingProps, RatingSlots, RatingEmits> { }
+declare class Rating extends ClassComponent<RatingProps, RatingSlots, RatingEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        Rating: GlobalComponentConstructor<Rating>
+        Rating: GlobalComponentConstructor<Rating>;
     }
 }
 

@@ -26,17 +26,15 @@ export interface ScrollTopProps {
     behavior?: string | undefined;
 }
 
-export interface ScrollTopSlots {
-}
+export interface ScrollTopSlots {}
 
-export declare type ScrollTopEmits = {
-}
+export declare type ScrollTopEmits = {};
 
-declare class ScrollTop extends ClassComponent<ScrollTopProps, ScrollTopSlots, ScrollTopEmits> { }
+declare class ScrollTop extends ClassComponent<ScrollTopProps, ScrollTopSlots, ScrollTopEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        ScrollTop: GlobalComponentConstructor<ScrollTop>
+        ScrollTop: GlobalComponentConstructor<ScrollTop>;
     }
 }
 

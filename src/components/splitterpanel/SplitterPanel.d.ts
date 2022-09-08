@@ -19,14 +19,13 @@ export interface SplitterPanelSlots {
     default: () => VNode[];
 }
 
-export declare type SplitterPanelEmits = {
-}
+export declare type SplitterPanelEmits = {};
 
-declare class SplitterPanel extends ClassComponent<SplitterPanelProps, SplitterPanelSlots, SplitterPanelEmits> { }
+declare class SplitterPanel extends ClassComponent<SplitterPanelProps, SplitterPanelSlots, SplitterPanelEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        SplitterPanel: GlobalComponentConstructor<SplitterPanel>
+        SplitterPanel: GlobalComponentConstructor<SplitterPanel>;
     }
 }
 

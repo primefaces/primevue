@@ -33,18 +33,18 @@ export declare type BlockUIEmits = {
     /**
      * Fired when the element gets blocked.
      */
-    'block': () => void;
+    block: () => void;
     /**
      * Fired when the element gets unblocked.
      */
-    'unblock': () => void;
-}
+    unblock: () => void;
+};
 
-declare class BlockUI extends ClassComponent<BlockUIProps, BlockUISlots, BlockUIEmits> { }
+declare class BlockUI extends ClassComponent<BlockUIProps, BlockUISlots, BlockUIEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        BlockUI: GlobalComponentConstructor<BlockUI>
+        BlockUI: GlobalComponentConstructor<BlockUI>;
     }
 }
 

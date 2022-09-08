@@ -78,14 +78,13 @@ export interface DockSlots {
     }) => VNode[];
 }
 
-export declare type DockEmits = {
-}
+export declare type DockEmits = {};
 
-declare class Dock extends ClassComponent<DockProps, DockSlots, DockEmits> { }
+declare class Dock extends ClassComponent<DockProps, DockSlots, DockEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        Dock: GlobalComponentConstructor<Dock>
+        Dock: GlobalComponentConstructor<Dock>;
     }
 }
 

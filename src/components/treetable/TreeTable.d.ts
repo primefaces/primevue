@@ -404,18 +404,18 @@ export declare type TreeTableEmits = {
     /**
      * Callback to invoke on pagination. Sort and Filter information is also available for lazy loading implementation.
      * @param {TreeTablePageEvent} event - Custom page event.
-    */
-    'page': (event: TreeTablePageEvent) => void;
+     */
+    page: (event: TreeTablePageEvent) => void;
     /**
      * Callback to invoke on sort. Page and Filter information is also available for lazy loading implementation.
      * @param {TreeTableSortEvent} event - Custom sort event.
      */
-    'sort': (event: TreeTableSortEvent) => void;
+    sort: (event: TreeTableSortEvent) => void;
     /**
      * Event to emit after filtering, not triggered in lazy mode.
      * @param {TreeTableFilterEvent} event - Custom filter event.
      */
-    'filter': (event: TreeTableFilterEvent) => void;
+    filter: (event: TreeTableFilterEvent) => void;
     /**
      * Callback to invoke when a node is selected.
      * @param {TreeNode} node - Node instance.
@@ -441,13 +441,13 @@ export declare type TreeTableEmits = {
      * @param {Event} event - Browser event.
      */
     'column-resize-end': (event: Event) => void;
-}
+};
 
-declare class TreeTable extends ClassComponent<TreeTableProps, TreeTableSlots, TreeTableEmits> { }
+declare class TreeTable extends ClassComponent<TreeTableProps, TreeTableSlots, TreeTableEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        TreeTable: GlobalComponentConstructor<TreeTable>
+        TreeTable: GlobalComponentConstructor<TreeTable>;
     }
 }
 

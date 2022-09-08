@@ -19,14 +19,13 @@ export interface InlineMessageSlots {
     default: () => VNode[];
 }
 
-export declare type InlineMessageEmits = {
-}
+export declare type InlineMessageEmits = {};
 
-declare class InlineMessage extends ClassComponent<InlineMessageProps, InlineMessageSlots, InlineMessageEmits> { }
+declare class InlineMessage extends ClassComponent<InlineMessageProps, InlineMessageSlots, InlineMessageEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        InlineMessage: GlobalComponentConstructor<InlineMessage>
+        InlineMessage: GlobalComponentConstructor<InlineMessage>;
     }
 }
 

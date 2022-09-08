@@ -185,14 +185,14 @@ export declare type DataViewEmits = {
      * Callback to invoke when page changes, the event object contains information about the new state.
      * @param {DataViewPageEvent} event - Custom page event.
      */
-    'page': (event: DataViewPageEvent) => void;
-}
+    page: (event: DataViewPageEvent) => void;
+};
 
-declare class DataView extends ClassComponent<DataViewProps, DataViewSlots, DataViewEmits> { }
+declare class DataView extends ClassComponent<DataViewProps, DataViewSlots, DataViewEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        DataView: GlobalComponentConstructor<DataView>
+        DataView: GlobalComponentConstructor<DataView>;
     }
 }
 

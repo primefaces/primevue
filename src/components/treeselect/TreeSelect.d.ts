@@ -79,7 +79,7 @@ export interface TreeSelectProps {
      */
     inputStyle?: any | undefined;
     /**
-     * 
+     *
      */
     inputProps?: object | undefined;
     /**
@@ -87,8 +87,8 @@ export interface TreeSelectProps {
      */
     'aria-labelledby'?: string | undefined;
     /**
-      * Establishes a string value that labels the component.
-      */
+     * Establishes a string value that labels the component.
+     */
     'aria-label'?: string | undefined;
 }
 
@@ -155,7 +155,7 @@ export declare type TreeSelectEmits = {
      * Callback to invoke on value change.
      * @param {*} value - Selected node keys
      */
-    'change': (value: string[]) => void;
+    change: (value: string[]) => void;
     /**
      * Callback to invoke before the overlay is shown.
      */
@@ -167,11 +167,11 @@ export declare type TreeSelectEmits = {
     /**
      * Callback to invoke when the overlay is shown.
      */
-    'show': () => void;
+    show: () => void;
     /**
      * Callback to invoke when the overlay is hidden.
      */
-    'hide': () => void;
+    hide: () => void;
     /**
      * Callback to invoke when a node is selected.
      * @param {TreeNode} node - Node instance.
@@ -192,7 +192,7 @@ export declare type TreeSelectEmits = {
      * @param {TreeNode} node - Node instance.
      */
     'node-collapse': (node: TreeNode) => void;
-}
+};
 
 declare class TreeSelect extends ClassComponent<TreeSelectProps, TreeSelectSlots, TreeSelectEmits> {
     /**
@@ -211,7 +211,7 @@ declare class TreeSelect extends ClassComponent<TreeSelectProps, TreeSelectSlots
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        TreeSelect: GlobalComponentConstructor<TreeSelect>
+        TreeSelect: GlobalComponentConstructor<TreeSelect>;
     }
 }
 

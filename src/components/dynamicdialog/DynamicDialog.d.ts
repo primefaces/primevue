@@ -2,15 +2,15 @@ import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export interface DynamicDialogProps {}
 
-export declare type DynamicDialogEmits = {}
+export declare type DynamicDialogEmits = {};
 
 export interface DynamicDialogSlots {}
 
-declare class DynamicDialog extends ClassComponent<DynamicDialogProps, DynamicDialogSlots, DynamicDialogEmits> { }
+declare class DynamicDialog extends ClassComponent<DynamicDialogProps, DynamicDialogSlots, DynamicDialogEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        DynamicDialog: GlobalComponentConstructor<DynamicDialog>
+        DynamicDialog: GlobalComponentConstructor<DynamicDialog>;
     }
 }
 

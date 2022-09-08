@@ -52,14 +52,14 @@ export declare type FieldsetEmits = {
      * Callback to invoke when a tab gets expanded or collapsed.
      * @param {FieldsetToggleEvent} event - Custom toggle event.
      */
-    'toggle': (event: FieldsetToggleEvent) => void;
-}
+    toggle: (event: FieldsetToggleEvent) => void;
+};
 
-declare class Fieldset extends ClassComponent<FieldsetProps, FieldsetSlots, FieldsetEmits> { }
+declare class Fieldset extends ClassComponent<FieldsetProps, FieldsetSlots, FieldsetEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        Fieldset: GlobalComponentConstructor<Fieldset>
+        Fieldset: GlobalComponentConstructor<Fieldset>;
     }
 }
 

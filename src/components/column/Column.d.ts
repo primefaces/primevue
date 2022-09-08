@@ -464,14 +464,13 @@ export interface ColumnSlots {
     }) => VNode[];
 }
 
-export declare type ColumnEmits = {
-}
+export declare type ColumnEmits = {};
 
-declare class Column extends ClassComponent<ColumnProps, ColumnSlots, ColumnEmits> { }
+declare class Column extends ClassComponent<ColumnProps, ColumnSlots, ColumnEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        Column: GlobalComponentConstructor<Column>
+        Column: GlobalComponentConstructor<Column>;
     }
 }
 

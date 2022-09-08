@@ -15,7 +15,7 @@ export interface TabViewChangeEvent {
 /**
  * @extends TabViewChangeEvent
  */
-export interface TabViewClickEvent extends TabViewChangeEvent { }
+export interface TabViewClickEvent extends TabViewChangeEvent {}
 
 export interface TabViewProps {
     /**
@@ -71,13 +71,13 @@ export declare type TabViewEmits = {
      * @param {TabViewClickEvent} event - Custom tab click event.
      */
     'tab-click': (event: TabViewClickEvent) => void;
-}
+};
 
-declare class TabView extends ClassComponent<TabViewProps, TabViewSlots, TabViewEmits> { }
+declare class TabView extends ClassComponent<TabViewProps, TabViewSlots, TabViewEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        TabView: GlobalComponentConstructor<TabView>
+        TabView: GlobalComponentConstructor<TabView>;
     }
 }
 

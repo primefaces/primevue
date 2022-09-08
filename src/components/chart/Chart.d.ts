@@ -44,21 +44,20 @@ export interface ChartProps {
     height?: number | undefined;
 }
 
-export interface ChartSlots {
-}
+export interface ChartSlots {}
 
 export declare type ChartEmits = {
     /**
      * Callback to invoke when a tab gets expanded.
      * @param {ChartSelectEvent} event - Custom select event.
      */
-    'select': (event: ChartSelectEvent) => void;
+    select: (event: ChartSelectEvent) => void;
     /**
      * Callback to invoke when chart is loaded.
      * @param {*} chart - Chart instance.
      */
-    'loaded': (chart: any) => void;
-}
+    loaded: (chart: any) => void;
+};
 
 declare class Chart extends ClassComponent<ChartProps, ChartSlots, ChartEmits> {
     /**
@@ -89,7 +88,7 @@ declare class Chart extends ClassComponent<ChartProps, ChartSlots, ChartEmits> {
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        Chart: GlobalComponentConstructor<Chart>
+        Chart: GlobalComponentConstructor<Chart>;
     }
 }
 

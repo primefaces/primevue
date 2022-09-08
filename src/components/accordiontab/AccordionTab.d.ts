@@ -51,13 +51,13 @@ export interface AccordionTabSlots {
     header: () => VNode[];
 }
 
-export declare type AccordionTabEmits = { }
+export declare type AccordionTabEmits = {};
 
-declare class AccordionTab extends ClassComponent<AccordionTabProps, AccordionTabSlots, AccordionTabEmits> { }
+declare class AccordionTab extends ClassComponent<AccordionTabProps, AccordionTabSlots, AccordionTabEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        AccordionTab: GlobalComponentConstructor<AccordionTab>
+        AccordionTab: GlobalComponentConstructor<AccordionTab>;
     }
 }
 

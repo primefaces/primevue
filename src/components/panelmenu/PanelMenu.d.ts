@@ -41,13 +41,13 @@ export declare type PanelMenuEmits = {
      * @param {*} value - New value.
      */
     'update:expandedKeys': (value: any) => void;
-}
+};
 
-declare class PanelMenu extends ClassComponent<PanelMenuProps, PanelMenuSlots, PanelMenuEmits> { }
+declare class PanelMenu extends ClassComponent<PanelMenuProps, PanelMenuSlots, PanelMenuEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        PanelMenu: GlobalComponentConstructor<PanelMenu>
+        PanelMenu: GlobalComponentConstructor<PanelMenu>;
     }
 }
 

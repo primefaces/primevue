@@ -29,14 +29,13 @@ export interface BadgeSlots {
     default: () => VNode[];
 }
 
-export declare type BadgeEmits = {
-}
+export declare type BadgeEmits = {};
 
-declare class Badge extends ClassComponent<BadgeProps, BadgeSlots, BadgeEmits> { }
+declare class Badge extends ClassComponent<BadgeProps, BadgeSlots, BadgeEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        Badge: GlobalComponentConstructor<Badge>
+        Badge: GlobalComponentConstructor<Badge>;
     }
 }
 

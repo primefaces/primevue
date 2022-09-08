@@ -36,14 +36,13 @@ export interface StepsSlots {
     }) => VNode[];
 }
 
-export declare type StepsEmits = {
-}
+export declare type StepsEmits = {};
 
-declare class Steps extends ClassComponent<StepsProps, StepsSlots, StepsEmits> { }
+declare class Steps extends ClassComponent<StepsProps, StepsSlots, StepsEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        Steps: GlobalComponentConstructor<Steps>
+        Steps: GlobalComponentConstructor<Steps>;
     }
 }
 

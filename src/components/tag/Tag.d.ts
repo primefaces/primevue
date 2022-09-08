@@ -30,14 +30,13 @@ export interface TagSlots {
     default: () => VNode[];
 }
 
-export declare type TagEmits = {
-}
+export declare type TagEmits = {};
 
-declare class Tag extends ClassComponent<TagProps, TagSlots, TagEmits> { }
+declare class Tag extends ClassComponent<TagProps, TagSlots, TagEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        Tag: GlobalComponentConstructor<Tag>
+        Tag: GlobalComponentConstructor<Tag>;
     }
 }
 

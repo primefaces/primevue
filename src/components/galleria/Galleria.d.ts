@@ -188,13 +188,13 @@ export declare type GalleriaEmits = {
      * @param {boolean} value - New value.
      */
     'update:visible': (value: boolean) => void;
-}
+};
 
-declare class Galleria extends ClassComponent<GalleriaProps, GalleriaSlots, GalleriaEmits> { }
+declare class Galleria extends ClassComponent<GalleriaProps, GalleriaSlots, GalleriaEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        Galleria: GlobalComponentConstructor<Galleria>
+        Galleria: GlobalComponentConstructor<Galleria>;
     }
 }
 

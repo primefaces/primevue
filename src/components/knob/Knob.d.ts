@@ -64,17 +64,16 @@ export interface KnobProps {
      */
     tabindex?: number | undefined;
     /**
-       * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
-       */
+     * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
+     */
     'aria-labelledby'?: string | undefined;
     /**
-       * Used to define a string that labels the element.
-       */
+     * Used to define a string that labels the element.
+     */
     'aria-label'?: string | undefined;
 }
 
-export interface KnobSlots {
-}
+export interface KnobSlots {}
 
 export declare type KnobEmits = {
     /**
@@ -86,14 +85,14 @@ export declare type KnobEmits = {
      * Callback to invoke when the value changes.
      * @param {number} value - New value
      */
-    'change': (value: number) => void;
-}
+    change: (value: number) => void;
+};
 
-declare class Knob extends ClassComponent<KnobProps, KnobSlots, KnobEmits> { }
+declare class Knob extends ClassComponent<KnobProps, KnobSlots, KnobEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        Knob: GlobalComponentConstructor<Knob>
+        Knob: GlobalComponentConstructor<Knob>;
     }
 }
 

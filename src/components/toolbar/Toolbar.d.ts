@@ -5,7 +5,7 @@ export interface ToolbarProps {
     /**
      * Defines a string value that labels an interactive element.
      */
-    "aria-labelledby"?: string | undefined;
+    'aria-labelledby'?: string | undefined;
 }
 
 export interface ToolbarSlots {
@@ -19,14 +19,13 @@ export interface ToolbarSlots {
     end: () => VNode[];
 }
 
-export declare type ToolbarEmits = {
-}
+export declare type ToolbarEmits = {};
 
-declare class Toolbar extends ClassComponent<ToolbarProps, ToolbarSlots, ToolbarEmits> { }
+declare class Toolbar extends ClassComponent<ToolbarProps, ToolbarSlots, ToolbarEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        Toolbar: GlobalComponentConstructor<Toolbar>
+        Toolbar: GlobalComponentConstructor<Toolbar>;
     }
 }
 

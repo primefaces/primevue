@@ -144,7 +144,7 @@ export interface PrimeIconsOptions {
     readonly ENVELOPE: string;
     readonly EURO: string;
     readonly EXCLAMATION_CIRCLE: string;
-    readonly EXCLAMATION_TRIANGLE : string;
+    readonly EXCLAMATION_TRIANGLE: string;
     readonly EXTERNAL_LINK: string;
     readonly EYE: string;
     readonly EYE_SLASH: string;

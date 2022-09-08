@@ -66,8 +66,7 @@ export interface ToggleButtonProps {
     'aria-label'?: string | undefined;
 }
 
-export interface ToggleButtonSlots {
-}
+export interface ToggleButtonSlots {}
 
 export declare type ToggleButtonEmits = {
     /**
@@ -79,24 +78,24 @@ export declare type ToggleButtonEmits = {
      * Callback to invoke on value change.
      * @param {Event} event - Browser event.
      */
-    'change': (event: Event) => void;
+    change: (event: Event) => void;
     /**
      * Callback to invoke when the component receives focus.
      * @param {Event} event - Browser event.
      */
-    'focus': (event: Event) => void;
+    focus: (event: Event) => void;
     /**
      * Callback to invoke when the component loses focus.
      * @param {Event} event - Browser event.
      */
-    'blur': (event: Event) => void;
-}
+    blur: (event: Event) => void;
+};
 
-declare class ToggleButton extends ClassComponent<ToggleButtonProps, ToggleButtonSlots, ToggleButtonEmits> { }
+declare class ToggleButton extends ClassComponent<ToggleButtonProps, ToggleButtonSlots, ToggleButtonEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        ToggleButton: GlobalComponentConstructor<ToggleButton>
+        ToggleButton: GlobalComponentConstructor<ToggleButton>;
     }
 }
 

@@ -27,54 +27,54 @@ export interface CarouselProps {
      * Index of the first item.
      * Default value is 0.
      */
-	page?: number | undefined;
+    page?: number | undefined;
     /**
      * Number of items per page.
      * Default value is 1.
      */
-	numVisible?: number | undefined;
+    numVisible?: number | undefined;
     /**
      * Number of items to scroll.
      * Default value is 1.
      */
-	numScroll?: number | undefined;
+    numScroll?: number | undefined;
     /**
      * An array of options for responsive design.
      * @see CarouselResponsiveOptions
      */
-	responsiveOptions?: CarouselResponsiveOptions[] | undefined;
+    responsiveOptions?: CarouselResponsiveOptions[] | undefined;
     /**
      * Specifies the layout of the component, valid values are 'horizontal' and 'vertical'.
      * @see CarouselOrientationType
      * Default value is 'horizontal'.
      */
-	orientation?: CarouselOrientationType;
+    orientation?: CarouselOrientationType;
     /**
      * Height of the viewport in vertical layout.
      * Default value is '300px'.
      */
-	verticalViewPortHeight?: string | undefined;
+    verticalViewPortHeight?: string | undefined;
     /**
      * Style class of the viewport container.
      */
-	containerClass?: any;
+    containerClass?: any;
     /**
      * Style class of main content.
      */
-	contentClass?: any;
+    contentClass?: any;
     /**
      * Style class of the indicator items.
      */
-	indicatorsContentClass?: any;
+    indicatorsContentClass?: any;
     /**
      * Defines if scrolling would be infinite.
      */
-	circular?: boolean | undefined;
+    circular?: boolean | undefined;
     /**
      * Time in milliseconds to scroll items automatically.
      * Default value is 0.
      */
-	autoplayInterval?: number | undefined;
+    autoplayInterval?: number | undefined;
     /**
      * Whether to display navigation buttons in container.
      * Default value is true.
@@ -102,13 +102,13 @@ export interface CarouselSlots {
          */
         index: number;
     }) => VNode[];
-	/**
+    /**
      * Custom header template.
      */
     header: () => VNode[];
     /**
-      * Custom footer template.
-      */
+     * Custom footer template.
+     */
     footer: () => VNode[];
 }
 
@@ -118,13 +118,13 @@ export declare type CarouselEmits = {
      * @param {number} value - New page value.
      */
     'update:page': (value: number) => void;
-}
+};
 
-declare class Carousel extends ClassComponent<CarouselProps, CarouselSlots, CarouselEmits> { }
+declare class Carousel extends ClassComponent<CarouselProps, CarouselSlots, CarouselEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        Carousel: GlobalComponentConstructor<Carousel>
+        Carousel: GlobalComponentConstructor<Carousel>;
     }
 }
 

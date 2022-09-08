@@ -13,8 +13,8 @@ export declare class DomHandler {
     static getOuterWidth(el: HTMLElement, margin: boolean): number;
     static getOuterHeight(el: HTMLElement, margin: boolean): number;
     static getClientHeight(el: HTMLElement, margin: boolean): number;
-    static getViewport(): { width: number; height: number; };
-    static getOffset(el: HTMLElement): { top: any; left: any; };
+    static getViewport(): { width: number; height: number };
+    static getOffset(el: HTMLElement): { top: any; left: any };
     static index(el: HTMLElement): number;
     static addMultipleClasses(el: HTMLElement, className: string): void;
     static addClass(el: HTMLElement, className: string): void;
@@ -30,7 +30,7 @@ export declare class DomHandler {
     static getScrollableParents(el: HTMLElement): any[];
     static getHiddenElementOuterHeight(el: HTMLElement): number;
     static getHiddenElementOuterWidth(el: HTMLElement): number;
-    static getHiddenElementDimensions(el: HTMLElement): { width?: number; height?: number; };
+    static getHiddenElementDimensions(el: HTMLElement): { width?: number; height?: number };
     static fadeIn(el: HTMLElement, duration: number): void;
     static fadeOut(el: HTMLElement, duration: number): void;
     static getUserAgent(): string;
@@ -39,7 +39,7 @@ export declare class DomHandler {
     static clearSelection(): void;
     static calculateScrollbarWidth(): number;
     static getBrowser(): object;
-    static resolveUserAgent(): { browser: string; version: string; };
+    static resolveUserAgent(): { browser: string; version: string };
     static isVisible(el: HTMLElement): boolean;
     static invokeElementMethod(el: HTMLElement, methodName: string, args: any): void;
     static isExist(el: HTMLElement): boolean;
@@ -84,4 +84,4 @@ export declare function EventBus(): {
     on(type: string, fn: any): void;
     emit(type: string, evt?: any): void;
     off(type: string, fn: any): void;
-}
+};

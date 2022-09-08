@@ -40,8 +40,7 @@ export interface InputSwitchProps {
     'aria-label'?: string | undefined;
 }
 
-export interface InputSwitchSlots {
-}
+export interface InputSwitchSlots {}
 
 export declare type InputSwitchEmits = {
     /**
@@ -53,24 +52,24 @@ export declare type InputSwitchEmits = {
      * Callback to invoke on click.
      * @param {Event} event - Browser event.
      */
-    'click': (event: Event) => void;
+    click: (event: Event) => void;
     /**
      * Callback to invoke on value change.
      * @param {Event} event - Browser event.
      */
-    'change': (event: Event) => void;
+    change: (event: Event) => void;
     /**
      * Callback to invoke on value change.
      * @param {boolean} value - New value.
      */
-    'input': (value: boolean) => void;
-}
+    input: (value: boolean) => void;
+};
 
-declare class InputSwitch extends ClassComponent<InputSwitchProps, InputSwitchSlots, InputSwitchEmits> { }
+declare class InputSwitch extends ClassComponent<InputSwitchProps, InputSwitchSlots, InputSwitchEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        InputSwitch: GlobalComponentConstructor<InputSwitch>
+        InputSwitch: GlobalComponentConstructor<InputSwitch>;
     }
 }
 

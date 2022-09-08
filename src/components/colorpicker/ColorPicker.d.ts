@@ -65,8 +65,7 @@ export interface ColorPickerProps {
     appendTo?: ColorPickerAppendToType;
 }
 
-export interface ColorPickerSlots {
-}
+export interface ColorPickerSlots {}
 
 export declare type ColorPickerEmits = {
     /**
@@ -75,25 +74,25 @@ export declare type ColorPickerEmits = {
      */
     'update:modelValue': (value: any) => void;
     /**
-      * Callback to invoke when a chip is added.
-      * @param {ColorPickerChangeEvent} event - Custom add event.
-      */
-    'change': (event: ColorPickerChangeEvent) => void;
+     * Callback to invoke when a chip is added.
+     * @param {ColorPickerChangeEvent} event - Custom add event.
+     */
+    change: (event: ColorPickerChangeEvent) => void;
     /**
      * Callback to invoke when input is cleared by the user.
      */
-    'show': () => void;
+    show: () => void;
     /**
      * Callback to invoke when input is cleared by the user.
      */
-    'hide': () => void;
-}
+    hide: () => void;
+};
 
-declare class ColorPicker extends ClassComponent<ColorPickerProps, ColorPickerSlots, ColorPickerEmits> { }
+declare class ColorPicker extends ClassComponent<ColorPickerProps, ColorPickerSlots, ColorPickerEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        ColorPicker: GlobalComponentConstructor<ColorPicker>
+        ColorPicker: GlobalComponentConstructor<ColorPicker>;
     }
 }
 

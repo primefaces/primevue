@@ -16,14 +16,13 @@ export interface ScrollPanelSlots {
     default: () => VNode[];
 }
 
-export declare type ScrollPanelEmits = {
-}
+export declare type ScrollPanelEmits = {};
 
-declare class ScrollPanel extends ClassComponent<ScrollPanelProps, ScrollPanelSlots, ScrollPanelEmits> { }
+declare class ScrollPanel extends ClassComponent<ScrollPanelProps, ScrollPanelSlots, ScrollPanelEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        ScrollPanel: GlobalComponentConstructor<ScrollPanel>
+        ScrollPanel: GlobalComponentConstructor<ScrollPanel>;
     }
 }
 

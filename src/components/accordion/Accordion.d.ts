@@ -16,12 +16,12 @@ export interface AccordionTabOpenEvent {
 /**
  * @extends {AccordionTabOpenEvent}
  */
-export interface AccordionTabCloseEvent extends AccordionTabOpenEvent { }
+export interface AccordionTabCloseEvent extends AccordionTabOpenEvent {}
 
 /**
  * @extends AccordionTabOpenEvent
  */
-export interface AccordionClickEvent extends AccordionTabOpenEvent { }
+export interface AccordionClickEvent extends AccordionTabOpenEvent {}
 
 export interface AccordionProps {
     /**
@@ -82,13 +82,13 @@ export declare type AccordionEmits = {
      * @param {AccordionClickEvent} event - Custom tab click event.
      */
     'tab-click': (event: AccordionClickEvent) => void;
-}
+};
 
-declare class Accordion extends ClassComponent<AccordionProps, AccordionSlots, AccordionEmits> { }
+declare class Accordion extends ClassComponent<AccordionProps, AccordionSlots, AccordionEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        Accordion: GlobalComponentConstructor<Accordion>
+        Accordion: GlobalComponentConstructor<Accordion>;
     }
 }
 

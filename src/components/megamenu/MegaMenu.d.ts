@@ -43,14 +43,13 @@ export interface MegaMenuSlots {
     }) => VNode[];
 }
 
-export declare type MegaMenuEmits = {
-}
+export declare type MegaMenuEmits = {};
 
-declare class MegaMenu extends ClassComponent<MegaMenuProps, MegaMenuSlots, MegaMenuEmits> { }
+declare class MegaMenu extends ClassComponent<MegaMenuProps, MegaMenuSlots, MegaMenuEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        MegaMenu: GlobalComponentConstructor<MegaMenu>
+        MegaMenu: GlobalComponentConstructor<MegaMenu>;
     }
 }
 

@@ -25,7 +25,7 @@ export interface CascadeSelectChangeEvent {
 /**
  * @extends CascadeSelectChangeEvent
  */
-export interface CascadeSelectGroupChangeEvent extends CascadeSelectChangeEvent { }
+export interface CascadeSelectGroupChangeEvent extends CascadeSelectChangeEvent {}
 
 export interface CascadeSelectProps {
     /**
@@ -210,22 +210,22 @@ export declare type CascadeSelectEmits = {
      * Callback to invoke on value change.
      * @param { CascadeSelectChangeEvent } event - Custom change event.
      */
-    'change': (event: CascadeSelectChangeEvent) => void;
+    change: (event: CascadeSelectChangeEvent) => void;
     /**
      * Callback to invoke when the component receives focus.
      * @param {Event} event - Browser event.
      */
-    'focus': (event: Event) => void;
+    focus: (event: Event) => void;
     /**
      * Callback to invoke when the component loses focus.
      * @param {Event} event - Browser event.
      */
-    'blur': (event: Event) => void;
+    blur: (event: Event) => void;
     /**
      * Callback to invoke on click.
      * @param { Event } event - Browser event.
      */
-    'click': (event: Event) => void;
+    click: (event: Event) => void;
     /**
      * Callback to invoke when a group changes.
      * @param { CascadeSelectGroupChangeEvent } event - Custom change event.
@@ -242,18 +242,18 @@ export declare type CascadeSelectEmits = {
     /**
      * Callback to invoke when the overlay is shown.
      */
-    'show': () => void;
+    show: () => void;
     /**
      * Callback to invoke when the overlay is hidden.
      */
-    'hide': () => void;
-}
+    hide: () => void;
+};
 
-declare class CascadeSelect extends ClassComponent<CascadeSelectProps, CascadeSelectSlots, CascadeSelectEmits> { }
+declare class CascadeSelect extends ClassComponent<CascadeSelectProps, CascadeSelectSlots, CascadeSelectEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        CascadeSelect: GlobalComponentConstructor<CascadeSelect>
+        CascadeSelect: GlobalComponentConstructor<CascadeSelect>;
     }
 }
 
