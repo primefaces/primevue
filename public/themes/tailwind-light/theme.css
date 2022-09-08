@@ -4010,6 +4010,12 @@
 }
 .p-splitter .p-splitter-gutter .p-splitter-gutter-handle {
   background: #e5e7eb;
+  transition: none;
+}
+.p-splitter .p-splitter-gutter .p-splitter-gutter-handle:focus {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: 0 0 0 1px #6366F1;
 }
 .p-splitter .p-splitter-gutter-resizing {
   background: #e5e7eb;
