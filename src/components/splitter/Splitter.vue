@@ -6,18 +6,13 @@
                 v-if="i !== panels.length - 1"
                 class="p-splitter-gutter"
                 role="separator"
-                tabindex="0"
-                :style="gutterStyle"
-                :aria-orientation="layout"
-                :aria-valuenow="prevSize"
+                tabindex="-1"
                 @mousedown="onGutterMouseDown($event, i)"
                 @touchstart="onGutterTouchStart($event, i)"
                 @touchmove="onGutterTouchMove($event, i)"
                 @touchend="onGutterTouchEnd($event, i)"
-                @keyup="onGutterKeyUp"
-                @keydown="onGutterKeyDown($event, i)"
             >
-                <div class="p-splitter-gutter-handle"></div>
+                <div class="p-splitter-gutter-handle" tabindex="0" :style="gutterStyle" :aria-orientation="layout" :aria-valuenow="prevSize" @keyup="onGutterKeyUp" @keydown="onGutterKeyDown($event, i)"></div>
             </div>
         </template>
     </div>
@@ -105,7 +100,7 @@ export default {
             return child.type.name === 'SplitterPanel';
         },
         onResizeStart(event, index, isKeyDown) {
-            this.gutterElement = event.currentTarget || event.target;
+            this.gutterElement = event.currentTarget || event.target.parentElement;
             this.size = this.horizontal ? DomHandler.getWidth(this.$el) : DomHandler.getHeight(this.$el);
 
             if (!isKeyDown) {
