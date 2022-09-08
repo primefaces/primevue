@@ -23,18 +23,18 @@
                 <Rating :modelValue="8" :disabled="true" :stars="10" />
 
                 <h5>Custom Icons</h5>
-                <Rating v-model="val3" on-icon="pi pi-heart" off-icon="pi pi-heart-fill" :stars="5" cancel-icon="pi pi-times" />
+                <Rating v-model="val3" :stars="5" onIcon="pi pi-heart-fill" offIcon="pi pi-heart" cancelIcon="pi pi-times" />
 
                 <h5>Templating</h5>
                 <Rating v-model="val4">
                     <template #cancel>
                         <img src="demo/images/rating/cancel.png" class="cursor-pointer" height="24" width="24" />
                     </template>
-                    <template #onIcon>
-                        <img src="demo/images/rating/custom-asset-2.png" height="24" width="24" class="cursor-pointer" />
+                    <template #onicon>
+                        <img src="demo/images/rating/custom-onicon.png" height="24" width="24" class="cursor-pointer" />
                     </template>
-                    <template #offIcon>
-                        <img src="demo/images/rating/custom-asset.png" height="24" width="24" class="cursor-pointer" />
+                    <template #officon>
+                        <img src="demo/images/rating/custom-officon.png" height="24" width="24" class="cursor-pointer" />
                     </template>
                 </Rating>
             </div>
