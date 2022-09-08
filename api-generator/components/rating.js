@@ -33,19 +33,19 @@ const RatingProps = [
         name: 'onIcon',
         type: 'string',
         default: 'pi pi-star',
-        description: 'Can be used to add different icon.'
+        description: 'Icon for the on state.'
     },
     {
         name: 'offIcon',
         type: 'string',
         default: 'pi pi-star-fill',
-        description: 'Can be used to add different icon.'
+        description: 'Icon for the off state.'
     },
     {
         name: 'cancelIcon',
         type: 'string',
         default: 'pi pi-ban',
-        description: 'Can be used to add different cancel icon.'
+        description: 'Icon for the cancelable state.'
     }
 ];
 

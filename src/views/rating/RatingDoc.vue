@@ -37,17 +37,17 @@ import Rating from 'primevue/rating';
         <h5>Templating</h5>
         <p>Templating allows customizing the content where the icon instance is available as the implicit variable.</p>
         <pre v-code><code><template v-pre>
-        &lt;Rating :modelValue="3">
-            &lt;template #cancel&gt;
-                &lt;img src="demo/images/rating/cancel.png" class="cursor-pointer" height="24" width="24"&gt;
-            &lt;/template&gt;
-            &lt;template #onIcon&gt;
-                &lt;img src="demo/images/rating/custom-asset-2.png" height="24" width="24" class="ml-2 cursor-pointer"&gt;
-            &lt;/template&gt;
-            &lt;template #offIcon&gt;
-                &lt;img src="demo/images/rating/custom-asset.png" height="24" width="24" class="ml-2 cursor-pointer"&gt;
-            &lt;/template&gt;
-        &lt;/Rating&gt;
+&lt;Rating :modelValue="3">
+    &lt;template #cancel&gt;
+        &lt;img src="demo/images/rating/cancel.png" class="cursor-pointer" height="24" width="24"&gt;
+    &lt;/template&gt;
+    &lt;template #onicon&gt;
+        &lt;img src="demo/images/rating/custom-asset-2.png" height="24" width="24" class="ml-2 cursor-pointer"&gt;
+    &lt;/template&gt;
+    &lt;template #officon&gt;
+        &lt;img src="demo/images/rating/custom-asset.png" height="24" width="24" class="ml-2 cursor-pointer"&gt;
+    &lt;/template&gt;
+&lt;/Rating&gt;
 
 </template>
 </code></pre>
@@ -99,19 +99,19 @@ import Rating from 'primevue/rating';
                         <td>onIcon</td>
                         <td>string</td>
                         <td>pi pi-star</td>
-                        <td>Can be used to add different icon</td>
+                        <td>Icon for the on state.</td>
                     </tr>
                     <tr>
                         <td>offIcon</td>
                         <td>string</td>
                         <td>pi pi-star-fill</td>
-                        <td>Can be used to add different icon</td>
+                        <td>Icon for the off state.</td>
                     </tr>
                     <tr>
                         <td>cancelIcon</td>
                         <td>string</td>
                         <td>pi pi-ban</td>
-                        <td>Can be used to add different cancel icon</td>
+                        <td>Icon for the cancelable state.</td>
                     </tr>
                 </tbody>
             </table>
