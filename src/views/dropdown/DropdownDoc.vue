@@ -231,6 +231,12 @@ export default {
                         <td>When present, it specifies that the component should be disabled.</td>
                     </tr>
                     <tr>
+                        <td>required</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>When present, it specifies that the element is required.</td>
+                    </tr>
+                    <tr>
                         <td>dataKey</td>
                         <td>string</td>
                         <td>null</td>
