@@ -3930,6 +3930,12 @@
 .p-scrollpanel .p-scrollpanel-bar {
   background: #f3f2f1;
   border: 0 none;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+.p-scrollpanel .p-scrollpanel-bar:focus {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: inset 0 0 0 1px #605e5c;
 }
 
 .p-splitter {

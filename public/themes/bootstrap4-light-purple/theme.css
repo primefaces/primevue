@@ -3967,6 +3967,12 @@
 .p-scrollpanel .p-scrollpanel-bar {
   background: #efefef;
   border: 0 none;
+  transition: background-color 0.15s, border-color 0.15s, box-shadow 0.15s;
+}
+.p-scrollpanel .p-scrollpanel-bar:focus {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: 0 0 0 0.2rem rgba(136, 60, 174, 0.5);
 }
 
 .p-splitter {
