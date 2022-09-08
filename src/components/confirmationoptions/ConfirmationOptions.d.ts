@@ -42,7 +42,7 @@ export interface ConfirmationOptions {
     /**
      * Callback to execute when dialog is hidden.
      */
-     onHide?: () => void;
+    onHide?: () => void;
     /**
      * Label of the accept button. Defaults to PrimeVue Locale configuration.
      */
