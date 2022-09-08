@@ -11,7 +11,6 @@
             :placeholder="placeholder"
             :tabindex="!disabled ? tabindex : -1"
             :disabled="disabled"
-            :required="required"
             autocomplete="off"
             role="combobox"
             :aria-label="ariaLabel"
@@ -137,12 +136,12 @@
 </template>
 
 <script>
-import { FilterService } from 'primevue/api';
+import { ConnectedOverlayScrollHandler, ObjectUtils, DomHandler, ZIndexUtils, UniqueComponentId } from 'primevue/utils';
 import OverlayEventBus from 'primevue/overlayeventbus';
-import Portal from 'primevue/portal';
+import { FilterService } from 'primevue/api';
 import Ripple from 'primevue/ripple';
-import { ConnectedOverlayScrollHandler, DomHandler, ObjectUtils, UniqueComponentId, ZIndexUtils } from 'primevue/utils';
 import VirtualScroller from 'primevue/virtualscroller';
+import Portal from 'primevue/portal';
 
 export default {
     name: 'Dropdown',
@@ -176,10 +175,6 @@ export default {
             default: null
         },
         disabled: {
-            type: Boolean,
-            default: false
-        },
-        required: {
             type: Boolean,
             default: false
         },
