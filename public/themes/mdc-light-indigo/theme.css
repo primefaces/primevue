@@ -6938,7 +6938,7 @@
 }
 
 .p-scrollpanel .p-scrollpanel-bar:focus {
-  box-shadow: 0 0 1px 3px rgba(255, 64, 129, 0.2);
+  box-shadow: 0 0 1px 4px rgba(255, 64, 129, 0.2);
 }
 
 .p-selectbutton .p-button:focus {
@@ -7040,7 +7040,7 @@
   transform: scale(0.7);
 }
 .p-splitter .p-splitter-gutter .p-splitter-gutter-handle:focus {
-  box-shadow: 0 0 1px 10px rgba(255, 64, 129, 0.2);
+  box-shadow: 0 0 1px 6px rgba(255, 64, 129, 0.2);
 }
 .p-splitter .p-splitter-gutter.p-splitter-gutter-resizing .p-splitter-gutter-handle {
   transform: scale(1);
