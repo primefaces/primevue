@@ -123,6 +123,11 @@ export interface ListboxProps {
      */
     autoOptionFocus?: boolean | undefined;
     /**
+     * When enabled, the focused option is selected.
+     * Default value is false.
+     */
+    selectOnFocus?: boolean | undefined;
+    /**
      * Text to be displayed in hidden accessible field when filtering returns any results. Defaults to value from PrimeVue locale configuration.
      * Default value is '{0} results are available'.
      */
@@ -305,7 +310,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [Listbox](https://www.primefaces.org/primevue/showcase/#/listbox)
+ * - [Listbox](https://www.primefaces.org/primevue/listbox)
  *
  */
 export default Listbox;

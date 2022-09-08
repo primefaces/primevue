@@ -1,21 +1,21 @@
 <template>
-	<AppDoc name="PasswordDemo" :sources="sources" github="password/PasswordDemo.vue">
+    <AppDoc name="PasswordDemo" :sources="sources" github="password/PasswordDemo.vue">
         <h5>Import via Module</h5>
-<pre v-code.script><code>
+        <pre v-code.script><code>
 import Password from 'primevue/password';
 
 </code></pre>
 
         <h5>Import via CDN</h5>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/password/password.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-		<h5>Getting Started</h5>
-		<p>A model can be bound using the standard v-model directive.</p>
-<pre v-code><code>
+        <h5>Getting Started</h5>
+        <p>A model can be bound using the standard v-model directive.</p>
+        <pre v-code><code>
 &lt;Password v-model="value" /&gt;
 
 </code></pre>
@@ -44,7 +44,7 @@ import Password from 'primevue/password';
 
         <h5>Templating</h5>
         <p>3 slots are included to customize the overlay. These are <i>header</i>, <i>content</i> and <i>footer</i>. Note that content overrides the default meter.</p>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;Password v-model="value4"&gt;
     &lt;template #header&gt;
         &lt;h6&gt;Pick a password&lt;/h6&gt;
@@ -63,19 +63,19 @@ import Password from 'primevue/password';
 
 </code></pre>
 
-		<h5>Properties</h5>
-		<p>Any property such as name and placeholder are passed to the underlying input element. Following are the additional properties to configure the component.</p>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <h5>Properties</h5>
+        <p>Any property such as name and placeholder are passed to the underlying input element. Following are the additional properties to configure the component.</p>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Type</th>
                         <th>Default</th>
                         <th>Description</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>modelValue</td>
                         <td>any</td>
@@ -140,8 +140,7 @@ import Password from 'primevue/password';
                         <td>appendTo</td>
                         <td>string</td>
                         <td>body</td>
-                        <td>A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are "body" for document body
-                        and "self" for the element itself.</td>
+                        <td>A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are "body" for document body and "self" for the element itself.</td>
                     </tr>
                     <tr>
                         <td>hideIcon</td>
@@ -166,6 +165,12 @@ import Password from 'primevue/password';
                         <td>string</td>
                         <td>null</td>
                         <td>Placeholder text for the input.</td>
+                    </tr>
+                    <tr>
+                        <td>required</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>When present, it specifies that an input field must be filled out before submitting the form.</td>
                     </tr>
                     <tr>
                         <td>inputId</td>
@@ -215,23 +220,23 @@ import Password from 'primevue/password';
                         <td>null</td>
                         <td>Uses to pass all properties of the HTMLDivElement to the overlay panel inside the component.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
         <h5>Events</h5>
         <p>Any valid event such as focus, blur and input are passed to the underlying input element.</p>
 
         <h5>Slots</h5>
-		<div class="doc-tablewrapper">
+        <div class="doc-tablewrapper">
             <table class="doc-table">
-				<thead>
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Parameters</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>header</td>
                         <td>-</td>
@@ -244,43 +249,45 @@ import Password from 'primevue/password';
                         <td>footer</td>
                         <td>-</td>
                     </tr>
-				</tbody>
-			</table>
+                </tbody>
+            </table>
         </div>
 
-		<h5>Styling</h5>
-		<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <h5>Styling</h5>
+        <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Element</th>
                     </tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>p-password-panel</td>
-						<td>Container of password panel</td>
-					</tr>
-					<tr>
-						<td>p-password-meter</td>
-						<td>Meter element of password strength</td>
-					</tr>
-					<tr>
-						<td>p-password-info</td>
-						<td>Text to display strength</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>p-password-panel</td>
+                        <td>Container of password panel</td>
+                    </tr>
+                    <tr>
+                        <td>p-password-meter</td>
+                        <td>Meter element of password strength</td>
+                    </tr>
+                    <tr>
+                        <td>p-password-info</td>
+                        <td>Text to display strength</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
         <h5>Accessibility</h5>
         <h6>Screen Reader</h6>
-        <p>Value to describe the component can either be provided via <i>label</i> tag combined with <i>id</i> prop or using <i>aria-labelledby</i>, <i>aria-label</i> props. Screen reader
-        is notified about the changes to the strength of the password using a section that has <i>aria-live</i> while typing.</p>
+        <p>
+            Value to describe the component can either be provided via <i>label</i> tag combined with <i>id</i> prop or using <i>aria-labelledby</i>, <i>aria-label</i> props. Screen reader is notified about the changes to the strength of the password
+            using a section that has <i>aria-live</i> while typing.
+        </p>
 
-<pre v-code><code>
+        <pre v-code><code>
 &lt;label for="pwd1"&gt;Password&lt;/label&gt;
 &lt;Password inputId="pwd1" /&gt;
 
@@ -313,8 +320,8 @@ import Password from 'primevue/password';
             </table>
         </div>
 
-		<h5>Dependencies</h5>
-		<p>None.</p>
+        <h5>Dependencies</h5>
+        <p>None.</p>
     </AppDoc>
 </template>
 
@@ -497,7 +504,7 @@ export default {
 `
                 }
             }
-        }
+        };
     }
-}
+};
 </script>

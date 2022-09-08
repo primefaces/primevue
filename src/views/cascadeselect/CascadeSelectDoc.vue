@@ -1,30 +1,31 @@
 <template>
-	<AppDoc name="CascadeSelectDemo" :sources="sources" github="cascadeselect/CascadeSelectDemo.vue">
+    <AppDoc name="CascadeSelectDemo" :sources="sources" github="cascadeselect/CascadeSelectDemo.vue">
         <h5>Import via Module</h5>
-<pre v-code.script><code>
+        <pre v-code.script><code>
 import CascadeSelect from 'primevue/cascadeselect';
 
 </code></pre>
 
         <h5>Import via CDN</h5>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/cascadeselect/cascadeselect.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-		<h5>Getting Started</h5>
-		<p>CascadeSelect requires a value to bind and a collection of arbitrary objects with a nested hierarchy. <i>optionGroupLabel</i>
-            is used for the text of a category and <i>optionGroupChildren</i> is to define the children of the category. Note that order of the <i>optionGroupChildren</i>
-            matters and it should correspond to the data hierarchy.</p>
+        <h5>Getting Started</h5>
+        <p>
+            CascadeSelect requires a value to bind and a collection of arbitrary objects with a nested hierarchy. <i>optionGroupLabel</i> is used for the text of a category and <i>optionGroupChildren</i> is to define the children of the category.
+            Note that order of the <i>optionGroupChildren</i> matters and it should correspond to the data hierarchy.
+        </p>
 
-<pre v-code><code>
+        <pre v-code><code>
 &lt;CascadeSelect v-model="selectedCity" :options="countries" optionLabel="cname" optionGroupLabel="name"
                         :optionGroupChildren="['states', 'cities']" style="minWidth: 14rem" &gt;
 
 </code></pre>
 
-<pre v-code.script><code>
+        <pre v-code.script><code>
 data() &#123;
     return &#123;
         selectedCity: null,
@@ -112,7 +113,7 @@ data() &#123;
         <h5>Templating</h5>
         <p>Content of an item can be customized with the <i>option</i> template.</p>
 
-<pre v-code><code><template v-pre>
+        <pre v-code><code><template v-pre>
 &lt;CascadeSelect v-model="selectedCity" :options="countries" optionLabel="cname" optionGroupLabel="name"
         :optionGroupChildren="['states', 'cities']" style="minWidth: 14rem"&gt;
     &lt;template #option="slotProps"&gt;
@@ -127,19 +128,19 @@ data() &#123;
 </template>
 </code></pre>
 
-		<h5>Properties</h5>
+        <h5>Properties</h5>
         <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Type</th>
                         <th>Default</th>
                         <th>Description</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>modelValue</td>
                         <td>any</td>
@@ -246,8 +247,7 @@ data() &#123;
                         <td>appendTo</td>
                         <td>string</td>
                         <td>body</td>
-                        <td>A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are "body" for document body
-                        and "self" for the element itself.</td>
+                        <td>A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are "body" for document body and "self" for the element itself.</td>
                     </tr>
                     <tr>
                         <td>loading</td>
@@ -266,6 +266,12 @@ data() &#123;
                         <td>boolean</td>
                         <td>true</td>
                         <td>Whether to focus on the first visible or selected element when the overlay panel is shown.</td>
+                    </tr>
+                    <tr>
+                        <td>selectOnFocus</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>When enabled, the focused option is selected/opened.</td>
                     </tr>
                     <tr>
                         <td>searchLocale</td>
@@ -321,25 +327,27 @@ data() &#123;
                         <td>null</td>
                         <td>Establishes relationships between the component and label(s) where its value should be one or more element IDs.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
-		<h5>Events</h5>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <h5>Events</h5>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Parameters</th>
                         <th>Description</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>change</td>
-                        <td>event.originalEvent: Original event <br />
-                            event.value: Selected option value </td>
+                        <td>
+                            event.originalEvent: Original event <br />
+                            event.value: Selected option value
+                        </td>
                         <td>Callback to invoke on value change.</td>
                     </tr>
                     <tr>
@@ -359,8 +367,10 @@ data() &#123;
                     </tr>
                     <tr>
                         <td>group-change</td>
-                        <td>event.originalEvent: Original event <br />
-                            event.value: Selected option group </td>
+                        <td>
+                            event.originalEvent: Original event <br />
+                            event.value: Selected option group
+                        </td>
                         <td>Callback to invoke when a group changes.</td>
                     </tr>
                     <tr>
@@ -383,24 +393,26 @@ data() &#123;
                         <td>-</td>
                         <td>Callback to invoke when the overlay is hidden.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
         <h5>Slots</h5>
-		<div class="doc-tablewrapper">
+        <div class="doc-tablewrapper">
             <table class="doc-table">
-				<thead>
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Parameters</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>value</td>
-                        <td>value: Value of the component <br />
-                            placeholder: Placeholder text to show</td>
+                        <td>
+                            value: Value of the component <br />
+                            placeholder: Placeholder text to show
+                        </td>
                     </tr>
                     <tr>
                         <td>option</td>
@@ -410,21 +422,21 @@ data() &#123;
                         <td>indicator</td>
                         <td>-</td>
                     </tr>
-				</tbody>
-			</table>
+                </tbody>
+            </table>
         </div>
 
-		<h5>Styling</h5>
-		<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <h5>Styling</h5>
+        <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Element</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>p-cascadeselect</td>
                         <td>Container element.</td>
@@ -457,18 +469,22 @@ data() &#123;
                         <td>p-overlay-open</td>
                         <td>Container element when overlay is visible.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
         <h5>Accessibility</h5>
         <h6>Screen Reader</h6>
-        <p>Value to describe the component can either be provided with <i>aria-labelledby</i> or <i>aria-label</i> props. The cascadeselect element has a <i>combobox</i> role
-        in addition to <i>aria-haspopup</i> and <i>aria-expanded</i> attributes. The relation between the combobox and the popup is created with <i>aria-controls</i> that refers to the id of the popup.</p>
-        <p>The popup list has an id that refers to the <i>aria-controls</i> attribute of the <i>combobox</i> element and uses <i>tree</i> as the role. Each list item has a <i>treeitem</i> role along with <i>aria-label</i>, <i>aria-selected</i> and <i>aria-expanded</i> attributes. The container
-        element of a treenode has the <i>group</i> role. The <i>aria-setsize</i>, <i>aria-posinset</i> and <i>aria-level</i> attributes are calculated implicitly and added to each treeitem.</p>
+        <p>
+            Value to describe the component can either be provided with <i>aria-labelledby</i> or <i>aria-label</i> props. The cascadeselect element has a <i>combobox</i> role in addition to <i>aria-haspopup</i> and <i>aria-expanded</i> attributes.
+            The relation between the combobox and the popup is created with <i>aria-controls</i> that refers to the id of the popup.
+        </p>
+        <p>
+            The popup list has an id that refers to the <i>aria-controls</i> attribute of the <i>combobox</i> element and uses <i>tree</i> as the role. Each list item has a <i>treeitem</i> role along with <i>aria-label</i>, <i>aria-selected</i> and
+            <i>aria-expanded</i> attributes. The container element of a treenode has the <i>group</i> role. The <i>aria-setsize</i>, <i>aria-posinset</i> and <i>aria-level</i> attributes are calculated implicitly and added to each treeitem.
+        </p>
 
-<pre v-code><code>
+        <pre v-code><code>
 &lt;span id="dd1"&gt;Options&lt;/span&gt;
 &lt;CascadeSelect aria-labelledby="dd1" /&gt;
 
@@ -580,8 +596,8 @@ data() &#123;
             </table>
         </div>
 
-		<h5>Dependencies</h5>
-		<p>None.</p>
+        <h5>Dependencies</h5>
+        <p>None.</p>
     </AppDoc>
 </template>
 
@@ -967,7 +983,7 @@ img {
 `
                 }
             }
-        }
+        };
     }
-}
+};
 </script>

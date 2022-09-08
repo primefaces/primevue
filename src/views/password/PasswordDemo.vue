@@ -38,7 +38,7 @@
             </div>
         </div>
 
-        <PasswordDoc/>
+        <PasswordDoc />
     </div>
 </template>
 
@@ -52,16 +52,16 @@ export default {
             value2: null,
             value3: null,
             value4: null
-        }
+        };
     },
     components: {
-        'PasswordDoc': PasswordDoc
+        PasswordDoc: PasswordDoc
     }
-}
+};
 </script>
 
 <style lang="scss" scoped>
 ::v-deep(.p-password input) {
-    width: 15rem
+    width: 15rem;
 }
 </style>

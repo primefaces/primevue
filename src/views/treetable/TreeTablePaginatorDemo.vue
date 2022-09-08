@@ -188,11 +188,11 @@ export default {
 `
                 }
             }
-        }
+        };
     },
     created() {
         let files = [];
-        for(let i = 0; i < 50; i++) {
+        for (let i = 0; i < 50; i++) {
             let node = {
                 key: i,
                 data: {
@@ -217,5 +217,5 @@ export default {
 
         this.nodes = files;
     }
-}
+};
 </script>

@@ -32,7 +32,7 @@ describe('Slider.vue', () => {
 
         await wrapper.vm.updateDomData();
 
-        await wrapper.vm.setValue({ pageX: 60 }); // TODO: 
+        await wrapper.vm.setValue({ pageX: 60 }); // TODO:
 
         expect(wrapper.emitted()['update:modelValue'][0][0]).toBeGreaterThan(0);
     });

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <ChartDoc/>
+        <ChartDoc />
     </div>
 </template>
 
@@ -9,7 +9,7 @@ import ChartDoc from './ChartDoc';
 
 export default {
     components: {
-        'ChartDoc': ChartDoc
+        ChartDoc: ChartDoc
     }
-}
+};
 </script>

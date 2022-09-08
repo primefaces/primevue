@@ -166,11 +166,11 @@ declare module '@vue/runtime-core' {
  *
  * Helper API:
  *
- * - [MenuItem](https://www.primefaces.org/primevue/showcase/#/menumodel)
+ * - [MenuItem](https://www.primefaces.org/primevue/menumodel)
  *
  * Demos:
  *
- * - [SpeedDial](https://www.primefaces.org/primevue/showcase/#/speeddial)
+ * - [SpeedDial](https://www.primefaces.org/primevue/speeddial)
  *
  */
 export default SpeedDial;

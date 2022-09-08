@@ -1,12 +1,8 @@
 <template>
     <div class="stepsdemo-content">
         <Card>
-            <template v-slot:title>
-                Payment Information
-            </template>
-            <template v-slot:subtitle>
-                Enter your card details
-            </template>
+            <template v-slot:title> Payment Information </template>
+            <template v-slot:subtitle> Enter your card details </template>
             <template v-slot:content>
                 <div class="p-fluid formgrid grid">
                     <div class="field col-12">
@@ -43,22 +39,22 @@
 
 <script>
 export default {
-    data () {
+    data() {
         return {
-            cardholderName:'',
-            cardholderNumber:'',
-            date:'',
-            cvv:'',
-            remember:false
-        }
+            cardholderName: '',
+            cardholderNumber: '',
+            date: '',
+            cvv: '',
+            remember: false
+        };
     },
     methods: {
         nextPage() {
-            this.$emit('next-page', {formData: {cardholderName: this.cardholderName, cardholderNumber: this.cardholderNumber, date: this.date, cvv: this.cvv}, pageIndex: 2});
+            this.$emit('next-page', { formData: { cardholderName: this.cardholderName, cardholderNumber: this.cardholderNumber, date: this.date, cvv: this.cvv }, pageIndex: 2 });
         },
         prevPage() {
-            this.$emit('prev-page', {pageIndex: 2});
+            this.$emit('prev-page', { pageIndex: 2 });
         }
     }
-}
+};
 </script>

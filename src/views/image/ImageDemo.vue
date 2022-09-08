@@ -26,12 +26,10 @@
 import ImageDoc from './ImageDoc';
 
 export default {
-	components: {
-		'ImageDoc': ImageDoc
+    components: {
+        ImageDoc: ImageDoc
     }
-}
+};
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

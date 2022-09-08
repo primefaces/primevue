@@ -59,7 +59,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [Image](https://www.primefaces.org/primevue/showcase/#/image)
+ * - [Image](https://www.primefaces.org/primevue/image)
  *
  */
 export default Image;

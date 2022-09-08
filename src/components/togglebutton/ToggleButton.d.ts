@@ -106,7 +106,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [ToggleButton](https://www.primefaces.org/primevue/showcase/#/togglebutton)
+ * - [ToggleButton](https://www.primefaces.org/primevue/togglebutton)
  *
  */
 export default ToggleButton;

@@ -12,15 +12,15 @@
                 <div>
                     <h4>Component Scale</h4>
                     <div class="config-scale">
-                        <Button icon="pi pi-minus" @click="decrementScale()" class="p-button-text" :disabled="scale === scales[0]"/>
-                        <i class="pi pi-circle-fill" v-for="s of scales" :class="{'scale-active': s === scale}" :key="s"/>
-                        <Button icon="pi pi-plus"  @click="incrementScale()" class="p-button-text" :disabled="scale === scales[scales.length - 1]" />
+                        <Button icon="pi pi-minus" @click="decrementScale()" class="p-button-text" :disabled="scale === scales[0]" />
+                        <i class="pi pi-circle-fill" v-for="s of scales" :class="{ 'scale-active': s === scale }" :key="s" />
+                        <Button icon="pi pi-plus" @click="incrementScale()" class="p-button-text" :disabled="scale === scales[scales.length - 1]" />
                     </div>
 
                     <AppInputStyleSwitch />
 
                     <h4>Ripple Effect</h4>
-                    <InputSwitch :modelValue="rippleActive" @update:modelValue="onRippleChange"  />
+                    <InputSwitch :modelValue="rippleActive" @update:modelValue="onRippleChange" />
 
                     <h4>Free Themes</h4>
                     <p>Built-in component themes created by the <a href="https://www.primefaces.org/designer/primevue">PrimeVue Theme Designer</a>.</p>
@@ -85,7 +85,7 @@
                     <div class="grid free-themes">
                         <div class="col-3">
                             <button class="p-link" type="button" @click="changeTheme($event, 'mdc-light-indigo')">
-                                <img src="demo/images/themes/md-light-indigo.svg" alt="Material Compact Light Indigo"/>
+                                <img src="demo/images/themes/md-light-indigo.svg" alt="Material Compact Light Indigo" />
                             </button>
                             <span>Indigo</span>
                         </div>
@@ -113,7 +113,7 @@
                     <div class="grid free-themes">
                         <div class="col-3">
                             <button class="p-link" type="button" @click="changeTheme($event, 'tailwind-light')">
-                                <img src="demo/images/themes/tailwind-light.png" alt="Tailwind Light"/>
+                                <img src="demo/images/themes/tailwind-light.png" alt="Tailwind Light" />
                             </button>
                             <span>Tailwind Light</span>
                         </div>
@@ -123,7 +123,7 @@
                     <div class="grid free-themes">
                         <div class="col-3">
                             <button class="p-link" type="button" @click="changeTheme($event, 'fluent-light')">
-                                <img src="demo/images/themes/fluent-light.png" alt="Fluent Light"/>
+                                <img src="demo/images/themes/fluent-light.png" alt="Fluent Light" />
                             </button>
                             <span>Fluent Light</span>
                         </div>
@@ -303,72 +303,72 @@
                     <div class="grid premium-themes">
                         <div class="col-12 md:col-6">
                             <a href="https://www.primefaces.org/sakai-vue">
-                                <img alt="Ultima" src="./assets/images/layouts/sakai-vue.jpg">
+                                <img alt="Ultima" src="./assets/images/layouts/sakai-vue.jpg" />
                             </a>
                         </div>
                         <div class="col-12 md:col-6">
                             <a href="https://www.primefaces.org/layouts/atlantis-vue">
-                                <img alt="Atlantis" src="./assets/images/layouts/atlantis-vue.jpg">
+                                <img alt="Atlantis" src="./assets/images/layouts/atlantis-vue.jpg" />
                             </a>
                         </div>
                         <div class="col-12 md:col-6">
                             <a href="https://www.primefaces.org/layouts/freya-vue">
-                                <img alt="Freya" src="./assets/images/layouts/freya-vue.png">
+                                <img alt="Freya" src="./assets/images/layouts/freya-vue.png" />
                             </a>
                         </div>
                         <div class="col-12 md:col-6">
                             <a href="https://www.primefaces.org/layouts/ultima-vue">
-                                <img alt="Ultima" src="./assets/images/layouts/ultima-vue.jpg">
+                                <img alt="Ultima" src="./assets/images/layouts/ultima-vue.jpg" />
                             </a>
                         </div>
                         <div class="col-12 md:col-6">
                             <a href="https://www.primefaces.org/layouts/diamond-vue">
-                                <img alt="Diamond" src="./assets/images/layouts/diamond-vue.jpg">
+                                <img alt="Diamond" src="./assets/images/layouts/diamond-vue.jpg" />
                             </a>
                         </div>
                         <div class="col-12 md:col-6">
                             <a href="https://www.primefaces.org/layouts/verona-vue">
-                                <img alt="Verona" src="./assets/images/layouts/verona-vue.jpg">
+                                <img alt="Verona" src="./assets/images/layouts/verona-vue.jpg" />
                             </a>
                         </div>
                         <div class="col-12 md:col-6">
                             <a href="https://www.primefaces.org/layouts/poseidon-vue">
-                                <img alt="Poseidon" src="./assets/images/layouts/poseidon-vue.jpg">
+                                <img alt="Poseidon" src="./assets/images/layouts/poseidon-vue.jpg" />
                             </a>
                         </div>
                         <div class="col-12 md:col-6">
                             <a href="https://www.primefaces.org/layouts/sapphire-vue">
-                                <img alt="Sapphire" src="./assets/images/layouts/sapphire-vue.jpg">
+                                <img alt="Sapphire" src="./assets/images/layouts/sapphire-vue.jpg" />
                             </a>
                         </div>
                         <div class="col-12 md:col-6">
                             <a href="https://www.primefaces.org/layouts/serenity-vue">
-                                <img alt="Serenity" src="./assets/images/layouts/serenity-vue.jpg">
+                                <img alt="Serenity" src="./assets/images/layouts/serenity-vue.jpg" />
                             </a>
                         </div>
                         <div class="col-12 md:col-6">
                             <a href="https://www.primefaces.org/layouts/babylon-vue">
-                                <img alt="Babylon" src="./assets/images/layouts/babylon-vue.jpg">
+                                <img alt="Babylon" src="./assets/images/layouts/babylon-vue.jpg" />
                             </a>
                         </div>
                         <div class="col-12 md:col-6">
                             <a href="https://www.primefaces.org/layouts/avalon-vue">
-                                <img alt="Avalon" src="./assets/images/layouts/avalon-vue.jpg">
+                                <img alt="Avalon" src="./assets/images/layouts/avalon-vue.jpg" />
                             </a>
                         </div>
                         <div class="col-12 md:col-6">
                             <a href="https://www.primefaces.org/layouts/apollo-vue">
-                                <img alt="Apollo" src="./assets/images/layouts/apollo-vue.jpg">
+                                <img alt="Apollo" src="./assets/images/layouts/apollo-vue.jpg" />
                             </a>
                         </div>
                         <div class="col-12 md:col-6">
                             <a href="https://www.primefaces.org/layouts/roma-vue">
-                                <img alt="Roma" src="./assets/images/layouts/roma-vue.jpg">
+                                <img alt="Roma" src="./assets/images/layouts/roma-vue.jpg" />
                             </a>
                         </div>
                         <div class="col-12 md:col-6">
                             <a href="https://www.primefaces.org/layouts/prestige-vue">
-                                <img alt="Prestige" src="./assets/images/layouts/prestige-vue.jpg">
+                                <img alt="Prestige" src="./assets/images/layouts/prestige-vue.jpg" />
                             </a>
                         </div>
                     </div>
@@ -389,8 +389,8 @@ export default {
         return {
             active: false,
             scale: 14,
-            scales: [12,13,14,15,16]
-        }
+            scales: [12, 13, 14, 15, 16]
+        };
     },
     outsideClickListener: null,
     themeChangeListener: null,
@@ -407,10 +407,8 @@ export default {
     },
     mounted() {
         this.themeChangeListener = (event) => {
-            if (event.theme === 'nano')
-                this.scale = 12;
-            else
-                this.scale = 14;
+            if (event.theme === 'nano') this.scale = 12;
+            else this.scale = 14;
 
             this.applyScale();
         };
@@ -422,10 +420,8 @@ export default {
             this.active = !this.active;
             event.preventDefault();
 
-            if (this.active)
-                this.bindOutsideClickListener();
-            else
-                this.unbindOutsideClickListener();
+            if (this.active) this.bindOutsideClickListener();
+            else this.unbindOutsideClickListener();
         },
         hideConfigurator(event) {
             this.active = false;
@@ -472,11 +468,11 @@ export default {
     },
     computed: {
         containerClass() {
-            return ['layout-config', {'layout-config-active': this.active}];
+            return ['layout-config', { 'layout-config-active': this.active }];
         },
         rippleActive() {
             return this.$primevue.config.ripple;
         }
     }
-}
+};
 </script>

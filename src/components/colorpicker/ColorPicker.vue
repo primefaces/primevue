@@ -1,19 +1,16 @@
 <template>
     <div ref="container" :class="containerClass">
-        <input ref="input" type="text" :class="inputClass" readonly="readonly" :tabindex="tabindex" :disabled="disabled"
-            @click="onInputClick" @keydown="onInputKeydown" v-if="!inline"/>
+        <input ref="input" type="text" :class="inputClass" readonly="readonly" :tabindex="tabindex" :disabled="disabled" @click="onInputClick" @keydown="onInputKeydown" v-if="!inline" />
         <Portal :appendTo="appendTo" :disabled="inline">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
                 <div :ref="pickerRef" :class="pickerClass" v-if="inline ? true : overlayVisible" @click="onOverlayClick">
                     <div class="p-colorpicker-content">
-                        <div :ref="colorSelectorRef" class="p-colorpicker-color-selector" @mousedown="onColorMousedown($event)"
-                            @touchstart="onColorDragStart($event)" @touchmove="onDrag($event)" @touchend="onDragEnd()">
+                        <div :ref="colorSelectorRef" class="p-colorpicker-color-selector" @mousedown="onColorMousedown($event)" @touchstart="onColorDragStart($event)" @touchmove="onDrag($event)" @touchend="onDragEnd()">
                             <div class="p-colorpicker-color">
                                 <div :ref="colorHandleRef" class="p-colorpicker-color-handle"></div>
                             </div>
                         </div>
-                        <div :ref="hueViewRef" class="p-colorpicker-hue" @mousedown="onHueMousedown($event)"
-                            @touchstart="onHueDragStart($event)" @touchmove="onDrag($event)" @touchend="onDragEnd()">
+                        <div :ref="hueViewRef" class="p-colorpicker-hue" @mousedown="onHueMousedown($event)" @touchstart="onHueDragStart($event)" @touchmove="onDrag($event)" @touchend="onDragEnd()">
                             <div :ref="hueHandleRef" class="p-colorpicker-hue-handle"></div>
                         </div>
                     </div>
@@ -24,7 +21,7 @@
 </template>
 
 <script>
-import {ConnectedOverlayScrollHandler,DomHandler,ZIndexUtils} from 'primevue/utils';
+import { ConnectedOverlayScrollHandler, DomHandler, ZIndexUtils } from 'primevue/utils';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
 
@@ -114,10 +111,8 @@ export default {
             handler(newValue) {
                 this.hsbValue = this.toHSB(newValue);
 
-                if (this.selfUpdate)
-                    this.selfUpdate = false;
-                else
-                    this.updateUI();
+                if (this.selfUpdate) this.selfUpdate = false;
+                else this.updateUI();
             }
         }
     },
@@ -126,8 +121,8 @@ export default {
             let rect = this.colorSelector.getBoundingClientRect();
             let top = rect.top + (window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0);
             let left = rect.left + document.body.scrollLeft;
-            let saturation = Math.floor(100 * (Math.max(0, Math.min(150, ((event.pageX || event.changedTouches[0].pageX)- left)))) / 150);
-            let brightness = Math.floor(100 * (150 - Math.max(0, Math.min(150, ((event.pageY || event.changedTouches[0].pageY) - top)))) / 150);
+            let saturation = Math.floor((100 * Math.max(0, Math.min(150, (event.pageX || event.changedTouches[0].pageX) - left))) / 150);
+            let brightness = Math.floor((100 * (150 - Math.max(0, Math.min(150, (event.pageY || event.changedTouches[0].pageY) - top)))) / 150);
             this.hsbValue = this.validateHSB({
                 h: this.hsbValue.h,
                 s: saturation,
@@ -138,12 +133,12 @@ export default {
             this.updateColorHandle();
             this.updateInput();
             this.updateModel();
-            this.$emit('change', {event: event, value: this.modelValue});
+            this.$emit('change', { event: event, value: this.modelValue });
         },
         pickHue(event) {
             let top = this.hueView.getBoundingClientRect().top + (window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0);
             this.hsbValue = this.validateHSB({
-                h: Math.floor(360 * (150 - Math.max(0, Math.min(150, ((event.pageY || event.changedTouches[0].pageY) - top)))) / 150),
+                h: Math.floor((360 * (150 - Math.max(0, Math.min(150, (event.pageY || event.changedTouches[0].pageY) - top)))) / 150),
                 s: 100,
                 b: 100
             });
@@ -153,25 +148,25 @@ export default {
             this.updateHue();
             this.updateModel();
             this.updateInput();
-            this.$emit('change', {event: event, value: this.modelValue});
+            this.$emit('change', { event: event, value: this.modelValue });
         },
         updateModel() {
-            switch(this.format) {
+            switch (this.format) {
                 case 'hex':
                     this.$emit('update:modelValue', this.HSBtoHEX(this.hsbValue));
-                break;
+                    break;
 
                 case 'rgb':
                     this.$emit('update:modelValue', this.HSBtoRGB(this.hsbValue));
-                break;
+                    break;
 
                 case 'hsb':
                     this.$emit('update:modelValue', this.hsbValue);
-                break;
+                    break;
 
                 default:
                     //NoOp
-                break;
+                    break;
             }
         },
         updateColorSelector() {
@@ -186,13 +181,13 @@ export default {
         },
         updateColorHandle() {
             if (this.colorHandle) {
-                this.colorHandle.style.left = Math.floor(150 * this.hsbValue.s / 100) + 'px';
-                this.colorHandle.style.top = Math.floor(150 * (100 - this.hsbValue.b) / 100) + 'px';
+                this.colorHandle.style.left = Math.floor((150 * this.hsbValue.s) / 100) + 'px';
+                this.colorHandle.style.top = Math.floor((150 * (100 - this.hsbValue.b)) / 100) + 'px';
             }
         },
         updateHue() {
             if (this.hueHandle) {
-                this.hueHandle.style.top = Math.floor(150 - (150 * this.hsbValue.h / 360)) + 'px';
+                this.hueHandle.style.top = Math.floor(150 - (150 * this.hsbValue.h) / 360) + 'px';
             }
         },
         updateInput() {
@@ -224,7 +219,7 @@ export default {
             var len = 6 - hex.length;
             if (len > 0) {
                 var o = [];
-                for (var i=0; i<len; i++) {
+                for (var i = 0; i < len; i++) {
                     o.push('0');
                 }
                 o.push(hex);
@@ -233,8 +228,8 @@ export default {
             return hex;
         },
         HEXtoRGB(hex) {
-            let hexValue = parseInt(((hex.indexOf('#') > -1) ? hex.substring(1) : hex), 16);
-            return {r: hexValue >> 16, g: (hexValue & 0x00FF00) >> 8, b: (hexValue & 0x0000FF)};
+            let hexValue = parseInt(hex.indexOf('#') > -1 ? hex.substring(1) : hex, 16);
+            return { r: hexValue >> 16, g: (hexValue & 0x00ff00) >> 8, b: hexValue & 0x0000ff };
         },
         HEXtoHSB(hex) {
             return this.RGBtoHSB(this.HEXtoRGB(hex));
@@ -249,7 +244,7 @@ export default {
             var max = Math.max(rgb.r, rgb.g, rgb.b);
             var delta = max - min;
             hsb.b = max;
-            hsb.s = max !== 0 ? 255 * delta / max : 0;
+            hsb.s = max !== 0 ? (255 * delta) / max : 0;
             if (hsb.s !== 0) {
                 if (rgb.r === max) {
                     hsb.h = (rgb.g - rgb.b) / delta;
@@ -265,45 +260,64 @@ export default {
             if (hsb.h < 0) {
                 hsb.h += 360;
             }
-            hsb.s *= 100/255;
-            hsb.b *= 100/255;
+            hsb.s *= 100 / 255;
+            hsb.b *= 100 / 255;
             return hsb;
         },
         HSBtoRGB(hsb) {
             var rgb = {
-                r: null, g: null, b: null
+                r: null,
+                g: null,
+                b: null
             };
             var h = Math.round(hsb.h);
-            var s = Math.round(hsb.s*255/100);
-            var v = Math.round(hsb.b*255/100);
+            var s = Math.round((hsb.s * 255) / 100);
+            var v = Math.round((hsb.b * 255) / 100);
             if (s === 0) {
                 rgb = {
                     r: v,
                     g: v,
                     b: v
+                };
+            } else {
+                var t1 = v;
+                var t2 = ((255 - s) * v) / 255;
+                var t3 = ((t1 - t2) * (h % 60)) / 60;
+                if (h === 360) h = 0;
+                if (h < 60) {
+                    rgb.r = t1;
+                    rgb.b = t2;
+                    rgb.g = t2 + t3;
+                } else if (h < 120) {
+                    rgb.g = t1;
+                    rgb.b = t2;
+                    rgb.r = t1 - t3;
+                } else if (h < 180) {
+                    rgb.g = t1;
+                    rgb.r = t2;
+                    rgb.b = t2 + t3;
+                } else if (h < 240) {
+                    rgb.b = t1;
+                    rgb.r = t2;
+                    rgb.g = t1 - t3;
+                } else if (h < 300) {
+                    rgb.b = t1;
+                    rgb.g = t2;
+                    rgb.r = t2 + t3;
+                } else if (h < 360) {
+                    rgb.r = t1;
+                    rgb.g = t2;
+                    rgb.b = t1 - t3;
+                } else {
+                    rgb.r = 0;
+                    rgb.g = 0;
+                    rgb.b = 0;
                 }
             }
-            else {
-                var t1 = v;
-                var t2 = (255-s)*v/255;
-                var t3 = (t1-t2)*(h%60)/60;
-                if (h===360) h = 0;
-                if (h<60) {rgb.r=t1;	rgb.b=t2; rgb.g=t2+t3}
-                else if (h<120) {rgb.g=t1; rgb.b=t2;	rgb.r=t1-t3}
-                else if (h<180) {rgb.g=t1; rgb.r=t2;	rgb.b=t2+t3}
-                else if (h<240) {rgb.b=t1; rgb.r=t2;	rgb.g=t1-t3}
-                else if (h<300) {rgb.b=t1; rgb.g=t2;	rgb.r=t2+t3}
-                else if (h<360) {rgb.r=t1; rgb.g=t2;	rgb.b=t1-t3}
-                else {rgb.r=0; rgb.g=0;	rgb.b=0}
-            }
-            return {r:Math.round(rgb.r), g:Math.round(rgb.g), b:Math.round(rgb.b)};
+            return { r: Math.round(rgb.r), g: Math.round(rgb.g), b: Math.round(rgb.b) };
         },
         RGBtoHEX(rgb) {
-            var hex = [
-                rgb.r.toString(16),
-                rgb.g.toString(16),
-                rgb.b.toString(16)
-            ];
+            var hex = [rgb.r.toString(16), rgb.g.toString(16), rgb.b.toString(16)];
 
             for (var key in hex) {
                 if (hex[key].length === 1) {
@@ -323,21 +337,20 @@ export default {
                 switch (this.format) {
                     case 'hex':
                         hsb = this.HEXtoHSB(value);
-                    break;
+                        break;
 
                     case 'rgb':
                         hsb = this.RGBtoHSB(value);
-                    break;
+                        break;
 
                     case 'hsb':
                         hsb = value;
-                    break;
+                        break;
 
                     default:
                         break;
                 }
-            }
-            else {
+            } else {
                 hsb = this.HEXtoHSB(this.defaultColor);
             }
 
@@ -369,10 +382,8 @@ export default {
             }
         },
         alignOverlay() {
-            if (this.appendTo === 'self')
-                DomHandler.relativePosition(this.picker, this.$refs.input);
-            else
-                DomHandler.absolutePosition(this.picker, this.$refs.input);
+            if (this.appendTo === 'self') DomHandler.relativePosition(this.picker, this.$refs.input);
+            else DomHandler.absolutePosition(this.picker, this.$refs.input);
         },
         onInputClick() {
             if (this.disabled) {
@@ -382,22 +393,22 @@ export default {
             this.overlayVisible = !this.overlayVisible;
         },
         onInputKeydown(event) {
-            switch(event.which) {
+            switch (event.which) {
                 //space
                 case 32:
                     this.overlayVisible = !this.overlayVisible;
                     event.preventDefault();
-                break;
+                    break;
 
                 //escape and tab
                 case 27:
                 case 9:
                     this.overlayVisible = false;
-                break;
+                    break;
 
                 default:
                     //NoOp
-                break;
+                    break;
             }
         },
         onColorMousedown(event) {
@@ -536,7 +547,7 @@ export default {
             }
         },
         pickerRef(el) {
-            this.picker = el
+            this.picker = el;
         },
         colorSelectorRef(el) {
             this.colorSelector = el;
@@ -566,23 +577,28 @@ export default {
     },
     computed: {
         containerClass() {
-            return ['p-colorpicker p-component', {'p-colorpicker-overlay': !this.inline}];
+            return ['p-colorpicker p-component', { 'p-colorpicker-overlay': !this.inline }];
         },
         inputClass() {
-            return ['p-colorpicker-preview p-inputtext', {'p-disabled': this.disabled}];
+            return ['p-colorpicker-preview p-inputtext', { 'p-disabled': this.disabled }];
         },
         pickerClass() {
-            return ['p-colorpicker-panel', this.panelClass, {
-                'p-colorpicker-overlay-panel': !this.inline, 'p-disabled': this.disabled,
-                'p-input-filled': this.$primevue.config.inputStyle === 'filled',
-                'p-ripple-disabled': this.$primevue.config.ripple === false
-            }];
+            return [
+                'p-colorpicker-panel',
+                this.panelClass,
+                {
+                    'p-colorpicker-overlay-panel': !this.inline,
+                    'p-disabled': this.disabled,
+                    'p-input-filled': this.$primevue.config.inputStyle === 'filled',
+                    'p-ripple-disabled': this.$primevue.config.ripple === false
+                }
+            ];
         }
     },
     components: {
-        'Portal': Portal
+        Portal: Portal
     }
-}
+};
 </script>
 
 <style>
@@ -627,22 +643,22 @@ export default {
 }
 
 .p-colorpicker-panel .p-colorpicker-color {
-     width: 150px;
-     height: 150px;
+    width: 150px;
+    height: 150px;
 }
 
 .p-colorpicker-panel .p-colorpicker-color-handle {
-     position: absolute;
-     top: 0px;
-     left: 150px;
-     border-radius: 100%;
-     width: 10px;
-     height: 10px;
-     border-width: 1px;
-     border-style: solid;
-     margin: -5px 0 0 -5px;
-     cursor: pointer;
-     opacity: .85;
+    position: absolute;
+    top: 0px;
+    left: 150px;
+    border-radius: 100%;
+    width: 10px;
+    height: 10px;
+    border-width: 1px;
+    border-style: solid;
+    margin: -5px 0 0 -5px;
+    cursor: pointer;
+    opacity: 0.85;
 }
 
 .p-colorpicker-panel .p-colorpicker-hue {
@@ -651,20 +667,20 @@ export default {
     top: 8px;
     left: 167px;
     position: absolute;
-    opacity: .85;
+    opacity: 0.85;
 }
 
 .p-colorpicker-panel .p-colorpicker-hue-handle {
-     position: absolute;
-     top: 150px;
-     left: 0px;
-     width: 21px;
-     margin-left: -2px;
-     margin-top: -5px;
-     height: 10px;
-     border-width: 2px;
-     border-style: solid;
-     opacity: .85;
-     cursor: pointer;
+    position: absolute;
+    top: 150px;
+    left: 0px;
+    width: 21px;
+    margin-left: -2px;
+    margin-top: -5px;
+    height: 10px;
+    border-width: 2px;
+    border-style: solid;
+    opacity: 0.85;
+    cursor: pointer;
 }
 </style>

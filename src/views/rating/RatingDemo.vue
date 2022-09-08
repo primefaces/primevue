@@ -10,7 +10,7 @@
 
         <div class="content-section implementation">
             <div class="card">
-                <h5>Basic {{val1}}</h5>
+                <h5>Basic {{ val1 }}</h5>
                 <Rating v-model="val1" name="basic" />
 
                 <h5>Without Cancel</h5>
@@ -24,7 +24,7 @@
             </div>
         </div>
 
-        <RatingDoc/>
+        <RatingDoc />
     </div>
 </template>
 
@@ -35,11 +35,11 @@ export default {
     data() {
         return {
             val1: null,
-            val2: 3,
-        }
+            val2: 3
+        };
     },
     components: {
-        'RatingDoc': RatingDoc
+        RatingDoc: RatingDoc
     }
-}
+};
 </script>

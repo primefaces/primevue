@@ -57,11 +57,11 @@ declare module '@vue/runtime-core' {
  *
  * Helper API:
  *
- * - [MenuItem](https://www.primefaces.org/primevue/showcase/#/menumodel)
+ * - [MenuItem](https://www.primefaces.org/primevue/menumodel)
  *
  * Demos:
  *
- * - [PanelMenu](https://www.primefaces.org/primevue/showcase/#/panelmenu)
+ * - [PanelMenu](https://www.primefaces.org/primevue/panelmenu)
  *
  */
 export default PanelMenu;

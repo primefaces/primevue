@@ -11,9 +11,7 @@
         <div class="content-section implementation">
             <div class="card">
                 <TreeTable :value="nodes" class="p-treetable-sm" style="margin-bottom: 2rem">
-                    <template #header>
-                        Small Table
-                    </template>
+                    <template #header> Small Table </template>
                     <Column field="name" header="Name" :expander="true"></Column>
                     <Column field="size" header="Size"></Column>
                     <Column field="type" header="Type"></Column>
@@ -22,9 +20,7 @@
 
             <div class="card">
                 <TreeTable :value="nodes" style="margin-bottom: 2rem">
-                    <template #header>
-                        Normal Table
-                    </template>
+                    <template #header> Normal Table </template>
                     <Column field="name" header="Name" :expander="true"></Column>
                     <Column field="size" header="Size"></Column>
                     <Column field="type" header="Type"></Column>
@@ -32,10 +28,8 @@
             </div>
 
             <div class="card">
-                <TreeTable :value="nodes" class="p-treetable-lg" >
-                    <template #header>
-                        Large Table
-                    </template>
+                <TreeTable :value="nodes" class="p-treetable-lg">
+                    <template #header> Large Table </template>
                     <Column field="name" header="Name" :expander="true"></Column>
                     <Column field="size" header="Size"></Column>
                     <Column field="type" header="Type"></Column>
@@ -241,14 +235,14 @@ export default {
 `
                 }
             }
-        }
+        };
     },
     nodeService: null,
     created() {
         this.nodeService = new NodeService();
     },
     mounted() {
-        this.nodeService.getTreeTableNodes().then(data => this.nodes = data);
+        this.nodeService.getTreeTableNodes().then((data) => (this.nodes = data));
     }
-}
+};
 </script>

@@ -30,38 +30,38 @@
                     <Chart type="line" :data="chartData" :options="chartOptions" />
                 </div>
                 <div class="box p-4 mb-5">
-                    <TabMenu :model="items" v-model:activeIndex="activeTabIndex"/>
+                    <TabMenu :model="items" v-model:activeIndex="activeTabIndex" />
                 </div>
                 <div class="box p-4">
                     <ul class="list-none p-0 m-0">
                         <li class="flex align-items-center mb-3">
                             <img src="demo/images/landing/avatar-1.svg" alt="avatar 1" class="w-2rem h-2rem mr-3" />
                             <span class="font-medium">Darrel Steward</span>
-                            <ProgressBar :value="pbValue1" :showValue="false" class="w-10rem ml-auto mr-3" style="height: .5rem" />
+                            <ProgressBar :value="pbValue1" :showValue="false" class="w-10rem ml-auto mr-3" style="height: 0.5rem" />
                             <span class="text-secondary font-medium">15%</span>
                         </li>
                         <li class="flex align-items-center mb-3">
                             <img src="demo/images/landing/avatar-2.svg" alt="avatar 2" class="w-2rem h-2rem mr-3" />
                             <span class="font-medium">Albert Flores</span>
-                            <ProgressBar :value="pbValue3" :showValue="false" class="w-10rem ml-auto mr-3" style="height: .5rem" />
+                            <ProgressBar :value="pbValue3" :showValue="false" class="w-10rem ml-auto mr-3" style="height: 0.5rem" />
                             <span class="text-secondary font-medium">85%</span>
                         </li>
                         <li class="flex align-items-center mb-3">
                             <img src="demo/images/landing/avatar-3.svg" alt="avatar 3" class="w-2rem h-2rem mr-3" />
                             <span class="font-medium">Kathryn Murphy</span>
-                            <ProgressBar :value="pbValue3" :showValue="false" class="w-10rem ml-auto mr-3" style="height: .5rem" />
+                            <ProgressBar :value="pbValue3" :showValue="false" class="w-10rem ml-auto mr-3" style="height: 0.5rem" />
                             <span class="text-secondary font-medium">50%</span>
                         </li>
                         <li class="flex align-items-center mb-3">
                             <img src="demo/images/landing/avatar-4.svg" alt="avatar 4" class="w-2rem h-2rem mr-3" />
                             <span class="font-medium">Cody Fisher</span>
-                            <ProgressBar :value="pbValue4" :showValue="false" class="w-10rem ml-auto mr-3" style="height: .5rem" />
+                            <ProgressBar :value="pbValue4" :showValue="false" class="w-10rem ml-auto mr-3" style="height: 0.5rem" />
                             <span class="text-secondary font-medium">75%</span>
                         </li>
                         <li class="flex align-items-center mb-3">
                             <img src="demo/images/landing/avatar-5.svg" alt="avatar 5" class="w-2rem h-2rem mr-3" />
                             <span class="font-medium">Brandon Atkinson</span>
-                            <ProgressBar :value="pbValue5" :showValue="false" class="w-10rem ml-auto mr-3" style="height: .5rem" />
+                            <ProgressBar :value="pbValue5" :showValue="false" class="w-10rem ml-auto mr-3" style="height: 0.5rem" />
                             <span class="text-secondary font-medium">60%</span>
                         </li>
                     </ul>
@@ -69,8 +69,8 @@
             </div>
             <div class="flex flex-column justify-content-start px-3 z-1">
                 <div class="box p-4 mb-5">
-                    <div class="surface-card mb-4 w-20rem text-center p-5" style="border-radius:'10px'">
-                        <img src="demo/images/landing/watch.png" alt="Watch"/>
+                    <div class="surface-card mb-4 w-20rem text-center p-5" style="border-radius: '10px'">
+                        <img src="demo/images/landing/watch.png" alt="Watch" />
                     </div>
                     <div class="flex align-items-center mb-4">
                         <div class="flex flex-column">
@@ -98,7 +98,7 @@
             <div class="flex flex-column px-3 py-5 z-1">
                 <div class="box p-4 mb-5">
                     <div class="flex justify-content-center">
-                        <Slider v-model="rangeValues" range class="w-20rem"/>
+                        <Slider v-model="rangeValues" range class="w-20rem" />
                     </div>
                 </div>
                 <div class="box p-4 mb-5">
@@ -113,7 +113,7 @@
                             </div>
                         </li>
                         <li class="flex">
-                            <a class="flex align-items-center p-3 w-full hover:surface-hover transition-colors transition-duration-150 cursor-pointer" style="border-radius:'10px'">
+                            <a class="flex align-items-center p-3 w-full hover:surface-hover transition-colors transition-duration-150 cursor-pointer" style="border-radius: '10px'">
                                 <i class="pi pi-home text-xl mr-3"></i>
                                 <span class="flex flex-column">
                                     <span class="font-bold mb-1">Dashboard</span>
@@ -122,7 +122,7 @@
                             </a>
                         </li>
                         <li class="flex">
-                            <a class="flex align-items-center p-3 w-full hover:surface-hover transition-colors transition-duration-150 cursor-pointer" style="border-radius:'10px'">
+                            <a class="flex align-items-center p-3 w-full hover:surface-hover transition-colors transition-duration-150 cursor-pointer" style="border-radius: '10px'">
                                 <i class="pi pi-envelope text-xl mr-3"></i>
                                 <span class="flex flex-column">
                                     <span class="font-bold mb-1">Inbox</span>
@@ -132,7 +132,7 @@
                             </a>
                         </li>
                         <li class="flex">
-                            <a class="flex align-items-center p-3 w-full hover:surface-hover transition-colors transition-duration-150 cursor-pointer" style="border-radius:'10px'">
+                            <a class="flex align-items-center p-3 w-full hover:surface-hover transition-colors transition-duration-150 cursor-pointer" style="border-radius: '10px'">
                                 <i class="pi pi-cog text-xl mr-3"></i>
                                 <span class="flex flex-column">
                                     <span class="font-bold mb-1">Profile</span>
@@ -168,7 +168,7 @@ export default {
                         data: [40, 59, 40, 50, 56, 40, 70],
                         fill: true,
                         borderColor: '#03C4E8',
-                        tension: .4,
+                        tension: 0.4,
                         backgroundColor: 'rgba(3, 196, 232, .2)'
                     }
                 ]
@@ -185,7 +185,7 @@ export default {
                             display: false
                         },
                         min: 0,
-                        max: 100,
+                        max: 100
                     },
                     x: {
                         ticks: {
@@ -207,28 +207,28 @@ export default {
             dateValue: null,
             rangeValues: [20, 80],
             items: [
-                {label: 'Home', icon: 'pi pi-fw pi-home'},
-                {label: 'Calendar', icon: 'pi pi-fw pi-calendar'},
-                {label: 'Settings', icon: 'pi pi-fw pi-cog'}
+                { label: 'Home', icon: 'pi pi-fw pi-home' },
+                { label: 'Calendar', icon: 'pi pi-fw pi-calendar' },
+                { label: 'Settings', icon: 'pi pi-fw pi-cog' }
             ],
             selectButtonOptions: [
-                {name: 'Prime', value: 1},
-                {name: 'Vue', value: 2},
-                {name: 'Themes', value: 3}
+                { name: 'Prime', value: 1 },
+                { name: 'Vue', value: 2 },
+                { name: 'Themes', value: 3 }
             ]
-        }
+        };
     },
     nodeService: null,
     created() {
         this.nodeService = new NodeService();
     },
     mounted() {
-        this.nodeService.getTreeNodes().then(data => this.nodes = data);
+        this.nodeService.getTreeNodes().then((data) => (this.nodes = data));
     },
     methods: {
         setCategory(category) {
             this.category = category;
         }
     }
-}
+};
 </script>

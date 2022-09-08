@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import {UniqueComponentId,DomHandler,ConnectedOverlayScrollHandler,ZIndexUtils} from 'primevue/utils';
+import { UniqueComponentId, DomHandler, ConnectedOverlayScrollHandler, ZIndexUtils } from 'primevue/utils';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Ripple from 'primevue/ripple';
 import Portal from 'primevue/portal';
@@ -24,18 +24,18 @@ export default {
     inheritAttrs: false,
     emits: ['show', 'hide'],
     props: {
-		dismissable: {
-			type: Boolean,
-			default: true
-		},
-		showCloseIcon: {
-			type: Boolean,
-			default: false
-		},
+        dismissable: {
+            type: Boolean,
+            default: true
+        },
+        showCloseIcon: {
+            type: Boolean,
+            default: false
+        },
         appendTo: {
-			type: String,
-			default: 'body'
-		},
+            type: String,
+            default: 'body'
+        },
         baseZIndex: {
             type: Number,
             default: 0
@@ -56,7 +56,7 @@ export default {
     data() {
         return {
             visible: false
-        }
+        };
     },
     watch: {
         dismissable: {
@@ -110,10 +110,8 @@ export default {
     },
     methods: {
         toggle(event, target) {
-            if (this.visible)
-                this.hide();
-            else
-                this.show(event, target);
+            if (this.visible) this.hide();
+            else this.show(event, target);
         },
         show(event, target) {
             this.visible = true;
@@ -229,16 +227,16 @@ export default {
             }
         },
         isTargetClicked(event) {
-            return (this.eventTarget && (this.eventTarget === event.target || this.eventTarget.contains(event.target)));
+            return this.eventTarget && (this.eventTarget === event.target || this.eventTarget.contains(event.target));
         },
         containerRef(el) {
             this.container = el;
         },
         createStyle() {
-			if (!this.styleElement) {
-				this.styleElement = document.createElement('style');
-				this.styleElement.type = 'text/css';
-				document.head.appendChild(this.styleElement);
+            if (!this.styleElement) {
+                this.styleElement = document.createElement('style');
+                this.styleElement.type = 'text/css';
+                document.head.appendChild(this.styleElement);
 
                 let innerHTML = '';
                 for (let breakpoint in this.breakpoints) {
@@ -248,12 +246,12 @@ export default {
                                 width: ${this.breakpoints[breakpoint]} !important;
                             }
                         }
-                    `
+                    `;
                 }
 
                 this.styleElement.innerHTML = innerHTML;
-			}
-		},
+            }
+        },
         destroyStyle() {
             if (this.styleElement) {
                 document.head.removeChild(this.styleElement);
@@ -269,22 +267,25 @@ export default {
     },
     computed: {
         containerClass() {
-            return ['p-overlaypanel p-component', {
-                'p-input-filled': this.$primevue.config.inputStyle === 'filled',
-                'p-ripple-disabled': this.$primevue.config.ripple === false
-            }];
+            return [
+                'p-overlaypanel p-component',
+                {
+                    'p-input-filled': this.$primevue.config.inputStyle === 'filled',
+                    'p-ripple-disabled': this.$primevue.config.ripple === false
+                }
+            ];
         },
         attributeSelector() {
             return UniqueComponentId();
         }
     },
     directives: {
-        'ripple': Ripple
+        ripple: Ripple
     },
     components: {
-        'Portal': Portal
+        Portal: Portal
     }
-}
+};
 </script>
 
 <style>
@@ -319,34 +320,36 @@ export default {
 }
 
 .p-overlaypanel-enter-active {
-    transition: transform .12s cubic-bezier(0, 0, 0.2, 1), opacity .12s cubic-bezier(0, 0, 0.2, 1);
+    transition: transform 0.12s cubic-bezier(0, 0, 0.2, 1), opacity 0.12s cubic-bezier(0, 0, 0.2, 1);
 }
 
 .p-overlaypanel-leave-active {
-    transition: opacity .1s linear;
+    transition: opacity 0.1s linear;
 }
 
-.p-overlaypanel:after, .p-overlaypanel:before {
-	bottom: 100%;
-	left: calc(var(--overlayArrowLeft, 0) + 1.25rem);
-	content: " ";
-	height: 0;
-	width: 0;
-	position: absolute;
-	pointer-events: none;
+.p-overlaypanel:after,
+.p-overlaypanel:before {
+    bottom: 100%;
+    left: calc(var(--overlayArrowLeft, 0) + 1.25rem);
+    content: ' ';
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
 }
 
 .p-overlaypanel:after {
-	border-width: 8px;
-	margin-left: -8px;
+    border-width: 8px;
+    margin-left: -8px;
 }
 
 .p-overlaypanel:before {
-	border-width: 10px;
-	margin-left: -10px;
+    border-width: 10px;
+    margin-left: -10px;
 }
 
-.p-overlaypanel-flipped:after, .p-overlaypanel-flipped:before {
+.p-overlaypanel-flipped:after,
+.p-overlaypanel-flipped:before {
     bottom: auto;
     top: 100%;
 }
@@ -356,6 +359,6 @@ export default {
 }
 
 .p-overlaypanel.p-overlaypanel-flipped:before {
-    border-bottom-color: transparent
+    border-bottom-color: transparent;
 }
 </style>

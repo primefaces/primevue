@@ -33,19 +33,20 @@ export default {
     },
     computed: {
         containerClass() {
-            return ['p-skeleton p-component', {
-                'p-skeleton-circle': this.shape === 'circle',
-                'p-skeleton-none': this.animation === 'none'
-            }];
+            return [
+                'p-skeleton p-component',
+                {
+                    'p-skeleton-circle': this.shape === 'circle',
+                    'p-skeleton-none': this.animation === 'none'
+                }
+            ];
         },
         containerStyle() {
-            if (this.size)
-                return {width: this.size, height: this.size, borderRadius: this.borderRadius};
-            else
-                return {width: this.width, height: this.height, borderRadius: this.borderRadius};
+            if (this.size) return { width: this.size, height: this.size, borderRadius: this.borderRadius };
+            else return { width: this.width, height: this.height, borderRadius: this.borderRadius };
         }
     }
-}
+};
 </script>
 
 <style>
@@ -55,7 +56,7 @@ export default {
 }
 
 .p-skeleton::after {
-    content: "";
+    content: '';
     animation: p-skeleton-animation 1.2s infinite;
     height: 100%;
     left: 0;
@@ -71,7 +72,7 @@ export default {
 }
 
 .p-skeleton-none::after {
-   animation: none;
+    animation: none;
 }
 
 @keyframes p-skeleton-animation {

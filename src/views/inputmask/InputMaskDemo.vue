@@ -13,32 +13,32 @@
                 <div class="p-fluid formgrid grid">
                     <div class="field col-12 md:col-4">
                         <label for="basic">Basic</label>
-                        <InputMask mask="99-999999" v-model="val1" placeholder="99-999999" />
+                        <InputMask id="basic" mask="99-999999" v-model="val1" placeholder="99-999999" />
                     </div>
 
                     <div class="field col-12 md:col-4">
                         <label for="ssn">SSN</label>
-                        <InputMask mask="999-99-9999" v-model="val2" placeholder="999-99-9999" />
+                        <InputMask id="ssn" mask="999-99-9999" v-model="val2" placeholder="999-99-9999" />
                     </div>
 
                     <div class="field col-12 md:col-4">
                         <label for="date">Date</label>
-                        <InputMask mask="99/99/9999" v-model="val3" placeholder="99/99/9999" slotChar="mm/dd/yyyy" />
+                        <InputMask id="date" mask="99/99/9999" v-model="val3" placeholder="99/99/9999" slotChar="mm/dd/yyyy" />
                     </div>
 
                     <div class="field col-12 md:col-4">
-                        <label for="Phone">Phone</label>
-                        <InputMask mask="(999) 999-9999" v-model="val4" placeholder="(999) 999-9999" />
+                        <label for="phone">Phone</label>
+                        <InputMask date="phone" mask="(999) 999-9999" v-model="val4" placeholder="(999) 999-9999" />
                     </div>
 
                     <div class="field col-12 md:col-4">
                         <label for="phoneext">Phone Ext</label>
-                        <InputMask mask="(999) 999-9999? x99999" v-model="val5" placeholder="(999) 999-9999? x99999"/>
+                        <InputMask id="phoneext" mask="(999) 999-9999? x99999" v-model="val5" placeholder="(999) 999-9999? x99999" />
                     </div>
 
                     <div class="field col-12 md:col-4">
                         <label for="serial">Serial</label>
-                        <InputMask mask="a*-999-a999" v-model="val6" placeholder="a*-999-a999" />
+                        <InputMask id="serial" mask="a*-999-a999" v-model="val6" placeholder="a*-999-a999" />
                     </div>
                 </div>
             </div>
@@ -60,14 +60,12 @@ export default {
             val4: null,
             val5: null,
             val6: null
-        }
+        };
     },
-	components: {
-		'InputMaskDoc': InputMaskDoc
-	}
-}
+    components: {
+        InputMaskDoc: InputMaskDoc
+    }
+};
 </script>
 
-<style>
-
-</style>
+<style></style>

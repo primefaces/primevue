@@ -25,7 +25,7 @@
             </div>
         </div>
 
-        <FileUploadDoc/>
+        <FileUploadDoc />
     </div>
 </template>
 
@@ -35,13 +35,13 @@ import FileUploadDoc from './FileUploadDoc';
 export default {
     methods: {
         onUpload() {
-            this.$toast.add({severity: 'info', summary: 'Success', detail: 'File Uploaded', life: 3000});
+            this.$toast.add({ severity: 'info', summary: 'Success', detail: 'File Uploaded', life: 3000 });
         }
     },
     components: {
-        'FileUploadDoc': FileUploadDoc
+        FileUploadDoc: FileUploadDoc
     }
-}
+};
 </script>
 
 <style lang="scss" scoped>

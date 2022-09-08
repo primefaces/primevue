@@ -23,7 +23,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [DataTable](https://www.primefaces.org/primevue/showcase/#/datatable/colgroup)
+ * - [DataTable](https://www.primefaces.org/primevue/datatable/colgroup)
  *
  */
 export default Row;

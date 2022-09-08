@@ -319,7 +319,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [VirtualScroller](https://www.primefaces.org/primevue/showcase/#/virtualscroller)
+ * - [VirtualScroller](https://www.primefaces.org/primevue/virtualscroller)
  *
  */
 export default VirtualScroller;

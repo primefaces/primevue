@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import {ConnectedOverlayScrollHandler,DomHandler,ZIndexUtils} from 'primevue/utils';
+import { ConnectedOverlayScrollHandler, DomHandler, ZIndexUtils } from 'primevue/utils';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
 import TieredMenuSub from './TieredMenuSub.vue';
@@ -22,7 +22,7 @@ export default {
             type: Boolean,
             default: false
         },
-		model: {
+        model: {
             type: Array,
             default: null
         },
@@ -77,10 +77,8 @@ export default {
             this.hide();
         },
         toggle(event) {
-            if (this.visible)
-                this.hide();
-            else
-                this.show(event);
+            if (this.visible) this.hide();
+            else this.show(event);
         },
         show(event) {
             this.visible = true;
@@ -181,18 +179,21 @@ export default {
     },
     computed: {
         containerClass() {
-            return ['p-tieredmenu p-component', {
-                'p-tieredmenu-overlay': this.popup,
-                'p-input-filled': this.$primevue.config.inputStyle === 'filled',
-                'p-ripple-disabled': this.$primevue.config.ripple === false
-            }];
+            return [
+                'p-tieredmenu p-component',
+                {
+                    'p-tieredmenu-overlay': this.popup,
+                    'p-input-filled': this.$primevue.config.inputStyle === 'filled',
+                    'p-ripple-disabled': this.$primevue.config.ripple === false
+                }
+            ];
         }
     },
     components: {
-        'TieredMenuSub': TieredMenuSub,
-        'Portal': Portal
+        TieredMenuSub: TieredMenuSub,
+        Portal: Portal
     }
-}
+};
 </script>
 
 <style>

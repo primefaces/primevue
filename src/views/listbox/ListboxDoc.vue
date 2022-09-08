@@ -1,26 +1,26 @@
 <template>
-	<AppDoc name="ListboxDemo" :sources="sources" github="listbox/ListboxDemo.vue">
+    <AppDoc name="ListboxDemo" :sources="sources" github="listbox/ListboxDemo.vue">
         <h5>Import via Module</h5>
-<pre v-code.script><code>
+        <pre v-code.script><code>
 import Listbox from 'primevue/listbox';
 
 </code></pre>
 
         <h5>Import via CDN</h5>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/listbox/listbox.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-		<h5>Getting Started</h5>
-		<p>Listbox requires a value to bind and a collection of arbitrary objects along with the <i>optionLabel</i> property to specify the label property of the option.</p>
-<pre v-code><code>
+        <h5>Getting Started</h5>
+        <p>Listbox requires a value to bind and a collection of arbitrary objects along with the <i>optionLabel</i> property to specify the label property of the option.</p>
+        <pre v-code><code>
 &lt;Listbox v-model="selectedCity" :options="cities" optionLabel="name" /&gt;
 
 </code></pre>
 
-<pre v-code.script><code>
+        <pre v-code.script><code>
 data() {
 	return {
 		selectedCity: null,
@@ -36,18 +36,19 @@ data() {
 
 </code></pre>
 
-		<h5>Selection</h5>
-		<p>Listbox allows selection of either single or multiple items. In single case, model should be a single object reference whereas in multiple case should be an array. Multiple items can either be selected
-			using metaKey or toggled individually depending on the value of <i>metaKeySelection</i> property value which is true by default. On touch enabled
-			devices metaKeySelection is turned off automatically.</p>
-<pre v-code><code>
+        <h5>Selection</h5>
+        <p>
+            Listbox allows selection of either single or multiple items. In single case, model should be a single object reference whereas in multiple case should be an array. Multiple items can either be selected using metaKey or toggled
+            individually depending on the value of <i>metaKeySelection</i> property value which is true by default. On touch enabled devices metaKeySelection is turned off automatically.
+        </p>
+        <pre v-code><code>
 &lt;Listbox v-model="selectedCity" :options="cities" optionLabel="name" :multiple="true"/&gt;
 
 </code></pre>
 
         <h5>Grouping</h5>
-		<p>Options groups are specified with the <i>optionGroupLabel</i> and <i>optionGroupChildren</i> properties.</p>
-<pre v-code.script><code>
+        <p>Options groups are specified with the <i>optionGroupLabel</i> and <i>optionGroupChildren</i> properties.</p>
+        <pre v-code.script><code>
 export default {
     data() {
         return {
@@ -84,26 +85,29 @@ export default {
 }
 </code></pre>
 
-<pre v-code><code><template v-pre>
+        <pre v-code><code><template v-pre>
 &lt;Listbox v-model="selectedGroupedCity" :options="groupedCities"
         optionLabel="label" optionGroupLabel="label" optionGroupChildren="items"&gt;
 &lt;/Listbox&gt;
 </template>
 </code></pre>
 
-		<h5>Filter</h5>
-		<p>Filtering allows searching items in the list using an input field at the header. In order to use filtering, enable <i>filter</i> property. By default,
-        optionLabel is used when searching and <i>filterFields</i> can be used to customize the fields being utilized. Furthermore, <i>filterMatchMode</i> is available
-        to define the search algorithm. Valid values are "contains" (default), "startsWith" and "endsWith".</p>
-<pre v-code><code>
+        <h5>Filter</h5>
+        <p>
+            Filtering allows searching items in the list using an input field at the header. In order to use filtering, enable <i>filter</i> property. By default, optionLabel is used when searching and <i>filterFields</i> can be used to customize the
+            fields being utilized. Furthermore, <i>filterMatchMode</i> is available to define the search algorithm. Valid values are "contains" (default), "startsWith" and "endsWith".
+        </p>
+        <pre v-code><code>
 &lt;Listbox v-model="selectedCity" :options="cities" optionLabel="name" :filter="true"/&gt;
 
 </code></pre>
 
         <h5>Templating</h5>
-		<p>Label of an option is used as the display text of an item by default, for custom content support define an <i>option</i> template that gets the option instance as a parameter.
-        In addition <i>optiongroup</i>, <i>header</i>, <i>footer</i>, <i>emptyfilter</i> and <i>empty</i> slots are provided for further customization.</p>
-<pre v-code><code><template v-pre>
+        <p>
+            Label of an option is used as the display text of an item by default, for custom content support define an <i>option</i> template that gets the option instance as a parameter. In addition <i>optiongroup</i>, <i>header</i>, <i>footer</i>,
+            <i>emptyfilter</i> and <i>empty</i> slots are provided for further customization.
+        </p>
+        <pre v-code><code><template v-pre>
 &lt;Listbox v-model="selectedCars" :options="cars" :multiple="true" :filter="true" optionLabel="brand" listStyle="max-height:250px" style="width:15em"&gt;
     &lt;template #option="slotProps"&gt;
 		&lt;div&gt;
@@ -115,19 +119,19 @@ export default {
 </template>
 </code></pre>
 
-		<h5>Properties</h5>
+        <h5>Properties</h5>
         <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Type</th>
                         <th>Default</th>
                         <th>Description</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>modelValue</td>
                         <td>any</td>
@@ -198,8 +202,10 @@ export default {
                         <td>metaKeySelection</td>
                         <td>boolean</td>
                         <td>true</td>
-                        <td>Defines how multiple items can be selected, when true metaKey needs to be pressed to select or unselect an item and when set to false selection of each item
-                            can be toggled individually. On touch enabled devices, metaKeySelection is turned off automatically.</td>
+                        <td>
+                            Defines how multiple items can be selected, when true metaKey needs to be pressed to select or unselect an item and when set to false selection of each item can be toggled individually. On touch enabled devices,
+                            metaKeySelection is turned off automatically.
+                        </td>
                     </tr>
                     <tr>
                         <td>filter</td>
@@ -250,6 +256,12 @@ export default {
                         <td>Whether to focus on the first visible or selected element.</td>
                     </tr>
                     <tr>
+                        <td>selectOnFocus</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>When enabled, the focused option is selected.</td>
+                    </tr>
+                    <tr>
                         <td>filterMessage</td>
                         <td>string</td>
                         <td>{0} results are available</td>
@@ -297,25 +309,27 @@ export default {
                         <td>null</td>
                         <td>Establishes relationships between the component and label(s) where its value should be one or more element IDs.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
-		<h5>Events</h5>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <h5>Events</h5>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Parameters</th>
                         <th>Description</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>change</td>
-                        <td>event.originalEvent: Original event <br />
-                            event.value: Selected option value </td>
+                        <td>
+                            event.originalEvent: Original event <br />
+                            event.value: Selected option value
+                        </td>
                         <td>Callback to invoke on value change.</td>
                     </tr>
                     <tr>
@@ -330,43 +344,53 @@ export default {
                     </tr>
                     <tr>
                         <td>filter</td>
-                        <td>event.originalEvent: Original event <br />
-                            event.value: Filter value </td>
+                        <td>
+                            event.originalEvent: Original event <br />
+                            event.value: Filter value
+                        </td>
                         <td>Callback to invoke on filter input.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
         <h5>Slots</h5>
-		<div class="doc-tablewrapper">
+        <div class="doc-tablewrapper">
             <table class="doc-table">
-				<thead>
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Parameters</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>option</td>
-                        <td>option: Option instance <br />
-                            index: Index of the option</td>
+                        <td>
+                            option: Option instance <br />
+                            index: Index of the option
+                        </td>
                     </tr>
                     <tr>
                         <td>optiongroup</td>
-                        <td>option: OptionGroup instance <br />
-                            index: Index of the option group</td>
+                        <td>
+                            option: OptionGroup instance <br />
+                            index: Index of the option group
+                        </td>
                     </tr>
                     <tr>
                         <td>header</td>
-                        <td>value: Value of the component <br />
-                            options: Displayed options</td>
+                        <td>
+                            value: Value of the component <br />
+                            options: Displayed options
+                        </td>
                     </tr>
                     <tr>
                         <td>footer</td>
-                        <td>value: Value of the component <br />
-                            options: Displayed options</td>
+                        <td>
+                            value: Value of the component <br />
+                            options: Displayed options
+                        </td>
                     </tr>
                     <tr>
                         <td>emptyfilter</td>
@@ -378,30 +402,32 @@ export default {
                     </tr>
                     <tr>
                         <td>content</td>
-                        <td>items: An array of objects to display for virtualscroller<br />
+                        <td>
+                            items: An array of objects to display for virtualscroller<br />
                             styleClass: Style class of the component<br />
                             contentRef: Referance of the content<br />
-                            getItemOptions: Options of the items</td>
+                            getItemOptions: Options of the items
+                        </td>
                     </tr>
                     <tr>
                         <td>loader</td>
                         <td>options: Options of the loader items for virtualscroller</td>
                     </tr>
-				</tbody>
-			</table>
+                </tbody>
+            </table>
         </div>
 
-		<h5>Styling</h5>
-		<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <h5>Styling</h5>
+        <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Element</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>p-listbox</td>
                         <td>Main container element.</td>
@@ -422,16 +448,18 @@ export default {
                         <td>p-listbox-item</td>
                         <td>An item in the list element.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
         <h5>Accessibility</h5>
         <h6>Screen Reader</h6>
-        <p>Value to describe the component can be provided  <i>aria-labelledby</i> or <i>aria-label</i> props. The list element has a <i>listbox</i> role with the <i>aria-multiselectable</i> attribute that sets to true when multiple selection is enabled.
-        Each list item has an <i>option</i> role with <i>aria-selected</i> and <i>aria-disabled</i> as their attributes.</p>
+        <p>
+            Value to describe the component can be provided <i>aria-labelledby</i> or <i>aria-label</i> props. The list element has a <i>listbox</i> role with the <i>aria-multiselectable</i> attribute that sets to true when multiple selection is
+            enabled. Each list item has an <i>option</i> role with <i>aria-selected</i> and <i>aria-disabled</i> as their attributes.
+        </p>
         <p>If filtering is enabled, <i>filterInputProps</i> can be defined to give <i>aria-*</i> props to the input element. Alternatively <i>filterPlaceholder</i> is usually utilized by the screen readers as well.</p>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;span id="lb"&gt;Options&lt;/span&gt;
 &lt;ListBox aria-labelledby="lb" /&gt;
 
@@ -567,8 +595,8 @@ export default {
             </table>
         </div>
 
-		<h5>Dependencies</h5>
-		<p>None.</p>
+        <h5>Dependencies</h5>
+        <p>None.</p>
     </AppDoc>
 </template>
 
@@ -875,7 +903,7 @@ export default {
 `
                 }
             }
-        }
+        };
     }
-}
+};
 </script>

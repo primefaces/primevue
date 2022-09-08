@@ -5,14 +5,14 @@ import TabPanel from '@/components/tabpanel/TabPanel.vue';
 describe('TabPanel.vue', () => {
     let wrapper;
 
-    window.HTMLElement.prototype.scrollIntoView = function() {};
+    window.HTMLElement.prototype.scrollIntoView = function () {};
 
     beforeEach(() => {
         wrapper = mount(TabView, {
             global: {
                 components: {
                     TabPanel
-                }    
+                }
             },
             slots: {
                 default: `
@@ -53,7 +53,7 @@ describe('dynamic tabs', () => {
             global: {
                 components: {
                     TabPanel
-                }    
+                }
             },
             slots: {
                 default: `

@@ -23,7 +23,7 @@ export default {
     data() {
         return {
             instanceMap: {}
-        }
+        };
     },
     openListener: null,
     closeListener: null,
@@ -43,7 +43,7 @@ export default {
 
             if (currentInstance) {
                 currentInstance.visible = false;
-                currentInstance.options.onClose && currentInstance.options.onClose({ data: params,  type: 'config-close' });
+                currentInstance.options.onClose && currentInstance.options.onClose({ data: params, type: 'config-close' });
 
                 this.currentInstance = currentInstance;
             }
@@ -61,7 +61,7 @@ export default {
             !this.currentInstance && instance.options.onClose && instance.options.onClose({ type: 'dialog-close' });
         },
         onDialogAfterHide() {
-            this.currentInstance && (delete this.currentInstance);
+            this.currentInstance && delete this.currentInstance;
             this.currentInstance = null;
         },
         getTemplateItems(template) {
@@ -69,7 +69,7 @@ export default {
         }
     },
     components: {
-        'DDialog': Dialog
+        DDialog: Dialog
     }
-}
+};
 </script>

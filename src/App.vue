@@ -3,11 +3,11 @@
         <app-news v-if="$appState.newsActive" />
         <app-topbar @menubutton-click="onMenuButtonClick" />
         <app-menu :active="sidebarActive" />
-        <app-configurator  />
-        <div :class="['layout-mask', {'layout-mask-active': sidebarActive}]" @click="onMaskClick"></div>
+        <app-configurator />
+        <div :class="['layout-mask', { 'layout-mask-active': sidebarActive }]" @click="onMaskClick"></div>
         <div class="layout-content">
             <div class="layout-content-inner">
-                <router-view/>
+                <router-view />
                 <app-footer />
             </div>
         </div>
@@ -30,11 +30,15 @@ export default {
     data() {
         return {
             sidebarActive: false
-        }
+        };
     },
     mounted() {
         if (this.isOutdatedIE()) {
-            this.$toast.add({severity: 'warn', summary: 'Limited Functionality', detail: 'Although PrimeVue supports IE11, ThemeSwitcher in this application cannot be not fully supported by your browser. Please use a modern browser for the best experience of the showcase.'});
+            this.$toast.add({
+                severity: 'warn',
+                summary: 'Limited Functionality',
+                detail: 'Although PrimeVue supports IE11, ThemeSwitcher in this application cannot be not fully supported by your browser. Please use a modern browser for the best experience of the showcase.'
+            });
         }
     },
     watch: {
@@ -42,7 +46,7 @@ export default {
             immediate: true,
             handler(to) {
                 window['gtag']('config', 'UA-93461466-1', {
-                        'page_path': '/primevue' + to.path
+                    page_path: '/primevue' + to.path
                 });
 
                 this.sidebarActive = false;
@@ -56,8 +60,7 @@ export default {
             if (this.sidebarActive) {
                 this.sidebarActive = false;
                 DomHandler.removeClass(document.body, 'blocked-scroll');
-            }
-            else {
+            } else {
                 this.sidebarActive = true;
                 DomHandler.addClass(document.body, 'blocked-scroll');
             }
@@ -73,23 +76,17 @@ export default {
         },
         addClass(element, className) {
             if (!this.hasClass(element, className)) {
-                if (element.classList)
-                    element.classList.add(className);
-                else
-                    element.className += ' ' + className;
+                if (element.classList) element.classList.add(className);
+                else element.className += ' ' + className;
             }
         },
         removeClass(element, className) {
-            if (element.classList)
-                element.classList.remove(className);
-            else
-                element.className = element.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+            if (element.classList) element.classList.remove(className);
+            else element.className = element.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
         },
         hasClass(element, className) {
-            if (element.classList)
-                return element.classList.contains(className);
-            else
-                return new RegExp('(^| )' + className + '( |$)', 'gi').test(element.className);
+            if (element.classList) return element.classList.contains(className);
+            else return new RegExp('(^| )' + className + '( |$)', 'gi').test(element.className);
         },
         isOutdatedIE() {
             let ua = window.navigator.userAgent;
@@ -105,13 +102,15 @@ export default {
     },
     computed: {
         containerClass() {
-            return [{
-                'layout-news-active': this.$appState.newsActive,
-                'p-input-filled': this.$primevue.config.inputStyle === 'filled',
-                'p-ripple-disabled': this.$primevue.config.ripple === false,
-                'layout-wrapper-dark': this.$appState.darkTheme,
-                'layout-wrapper-light': !this.$appState.darkTheme
-            }];
+            return [
+                {
+                    'layout-news-active': this.$appState.newsActive,
+                    'p-input-filled': this.$primevue.config.inputStyle === 'filled',
+                    'p-ripple-disabled': this.$primevue.config.ripple === false,
+                    'layout-wrapper-dark': this.$appState.darkTheme,
+                    'layout-wrapper-light': !this.$appState.darkTheme
+                }
+            ];
         }
     },
     components: {
@@ -121,7 +120,7 @@ export default {
         'app-configurator': AppConfigurator,
         'app-news': AppNews
     }
-}
+};
 </script>
 
 <style lang="scss">

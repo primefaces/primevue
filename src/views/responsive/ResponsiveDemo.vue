@@ -50,7 +50,7 @@
 
                         <h5>Float Label</h5>
                         <span class="p-float-label">
-                            <InputText id="username" type="text" v-model="floatValue"/>
+                            <InputText id="username" type="text" v-model="floatValue" />
                             <label for="username">Username</label>
                         </span>
 
@@ -58,7 +58,7 @@
                         <Textarea placeholder="Your Message" :autoResize="true" rows="3" cols="30" />
 
                         <h5>AutoComplete</h5>
-                        <AutoComplete placeholder="Search" id="dd" :dropdown="true" :multiple="true" v-model="selectedAutoValue" :suggestions="autoFilteredValue" @complete="searchCountry($event)" field="name"/>
+                        <AutoComplete placeholder="Search" id="dd" :dropdown="true" :multiple="true" v-model="selectedAutoValue" :suggestions="autoFilteredValue" @complete="searchCountry($event)" field="name" />
 
                         <h5>Calendar</h5>
                         <Calendar :showIcon="true" :showButtonBar="true" v-model="calendarValue"></Calendar>
@@ -67,7 +67,7 @@
                         <InputNumber v-model="inputNumberValue" showButtons mode="decimal"></InputNumber>
 
                         <h5>Chips</h5>
-                        <Chips v-model="chipsValue"/>
+                        <Chips v-model="chipsValue" />
                     </div>
 
                     <div class="card">
@@ -76,7 +76,7 @@
                         <Slider v-model="sliderValue" />
 
                         <h5>Rating</h5>
-                        <Rating v-model="ratingValue"/>
+                        <Rating v-model="ratingValue" />
 
                         <h5>Input Switch</h5>
                         <InputSwitch v-model="switchValue" />
@@ -132,7 +132,7 @@
 
                     <div class="card p-fluid">
                         <h5>Listbox</h5>
-                        <Listbox v-model="listboxValue" :options="listboxValues" optionLabel="name" :filter="true"/>
+                        <Listbox v-model="listboxValue" :options="listboxValues" optionLabel="name" :filter="true" />
 
                         <h5>Dropdown</h5>
                         <Dropdown v-model="dropdownValue" :options="dropdownValues" optionLabel="name" placeholder="Select" />
@@ -143,13 +143,13 @@
 
                     <div class="card p-fluid">
                         <h5>ToggleButton</h5>
-                        <ToggleButton v-model="toggleValue" onLabel="Yes" offLabel="No"/>
+                        <ToggleButton v-model="toggleValue" onLabel="Yes" offLabel="No" />
 
                         <h5>SelectButton</h5>
                         <SelectButton v-model="selectButtonValue1" :options="selectButtonValues1" optionLabel="name" />
 
                         <h5>SelectButton - Multiple</h5>
-                        <SelectButton v-model="selectButtonValue2" :options="selectButtonValues2" optionLabel="name" :multiple="true"/>
+                        <SelectButton v-model="selectButtonValue2" :options="selectButtonValues2" optionLabel="name" :multiple="true" />
                     </div>
                 </div>
 
@@ -161,7 +161,7 @@
                         <Button label="Submit" icon="pi pi-check" class="mr-2 mb-2" />
                         <Button label="Submit" icon="pi pi-check" iconPos="right" class="mr-2 mb-2" />
                         <Button label="Disabled" disabled="disabled" class="mr-2 mb-2" />
-                    
+
                         <h5>Severities</h5>
                         <Button label="Primary" class="mr-2 mb-2" />
                         <Button label="Secondary" class="p-button-secondary mr-2 mb-2" />
@@ -261,10 +261,19 @@
 
                 <div class="col-12">
                     <div class="card">
-                        <DataTable :value="customers" :paginator="true" :rows="10"
-                            dataKey="id" :rowHover="true" v-model:selection="selectedCustomers" :filters="filters"
-                            paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" :rowsPerPageOptions="[10,25,50]"
-                            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" responsiveLayout="scroll">
+                        <DataTable
+                            :value="customers"
+                            :paginator="true"
+                            :rows="10"
+                            dataKey="id"
+                            :rowHover="true"
+                            v-model:selection="selectedCustomers"
+                            :filters="filters"
+                            paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown"
+                            :rowsPerPageOptions="[10, 25, 50]"
+                            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+                            responsiveLayout="scroll"
+                        >
                             <template #header>
                                 <div class="flex flex-column md:flex-row md:justify-content-between md:align-items-center">
                                     DataTable
@@ -274,29 +283,27 @@
                                     </span>
                                 </div>
                             </template>
-                            <template #empty>
-                                No customers found.
-                            </template>
+                            <template #empty> No customers found. </template>
                             <Column selectionMode="multiple" headerStyle="width: 3rem"></Column>
-                            <Column field="name" header="Name" :sortable="true" style="min-width:16rem">
+                            <Column field="name" header="Name" :sortable="true" style="min-width: 16rem">
                                 <template #body="slotProps">
-                                    {{slotProps.data.name}}
+                                    {{ slotProps.data.name }}
                                 </template>
                             </Column>
-                            <Column header="Country" :sortable="true" sortField="country.name" filterField="country.name" filterMatchMode="contains" style="min-width:16rem">
+                            <Column header="Country" :sortable="true" sortField="country.name" filterField="country.name" filterMatchMode="contains" style="min-width: 16rem">
                                 <template #body="slotProps">
                                     <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.data.country.code" width="30" class="mr-2" />
-                                    <span class="image-text">{{slotProps.data.country.name}}</span>
+                                    <span class="image-text">{{ slotProps.data.country.name }}</span>
                                 </template>
                             </Column>
-                            <Column field="status" header="Status" :sortable="true" filterMatchMode="equals" style="min-width:16rem">
+                            <Column field="status" header="Status" :sortable="true" filterMatchMode="equals" style="min-width: 16rem">
                                 <template #body="slotProps">
-                                    <span :class="'customer-badge status-' + slotProps.data.status">{{slotProps.data.status}}</span>
+                                    <span :class="'customer-badge status-' + slotProps.data.status">{{ slotProps.data.status }}</span>
                                 </template>
                             </Column>
-                            <Column field="activity" header="Activity" :sortable="true" filterMatchMode="gte" style="min-width:16rem">
+                            <Column field="activity" header="Activity" :sortable="true" filterMatchMode="gte" style="min-width: 16rem">
                                 <template #body="slotProps">
-                                    <ProgressBar :value="slotProps.data.activity" :showValue="false" style="width: 100px"/>
+                                    <ProgressBar :value="slotProps.data.activity" :showValue="false" style="width: 100px" />
                                 </template>
                             </Column>
                         </DataTable>
@@ -307,22 +314,25 @@
                         <h5>AccordionPanel</h5>
                         <Accordion :multiple="true" :activeIndex="[0]">
                             <AccordionTab header="Header I">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                                    commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+                                    anim id est laborum.
+                                </p>
                             </AccordionTab>
                             <AccordionTab header="Header II">
-                                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque
-                                    ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia
-                                    voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
-                                    Consectetur, adipisci velit, sed quia non numquam eius modi.</p>
+                                <p>
+                                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
+                                    explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non
+                                    numquam eius modi.
+                                </p>
                             </AccordionTab>
                             <AccordionTab header="Header III">
-                                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores
-                                    et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.
-                                    Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit
-                                    quo minus.</p>
+                                <p>
+                                    At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique
+                                    sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
+                                    impedit quo minus.
+                                </p>
                             </AccordionTab>
                         </Accordion>
                     </div>
@@ -330,21 +340,25 @@
                         <h5>TabView</h5>
                         <TabView>
                             <TabPanel header="Header I">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></TabPanel>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                                    commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+                                    anim id est laborum.
+                                </p></TabPanel
+                            >
                             <TabPanel header="Header II">
-                                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque
-                                    ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia
-                                    voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
-                                    Consectetur, adipisci velit, sed quia non numquam eius modi.</p>
+                                <p>
+                                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
+                                    explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non
+                                    numquam eius modi.
+                                </p>
                             </TabPanel>
                             <TabPanel header="Header III">
-                                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores
-                                    et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.
-                                    Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit
-                                    quo minus.</p>
+                                <p>
+                                    At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique
+                                    sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
+                                    impedit quo minus.
+                                </p>
                             </TabPanel>
                         </TabView>
                     </div>
@@ -353,19 +367,21 @@
                     <div class="card">
                         <h5>Panel</h5>
                         <Panel header="Header" :toggleable="true">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                                commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
+                                id est laborum.
+                            </p>
                         </Panel>
                     </div>
                     <div class="card">
                         <h5>Fieldset</h5>
                         <Fieldset legend="Legend" :toggleable="true">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                                commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
+                                id est laborum.
+                            </p>
                         </Fieldset>
                     </div>
                 </div>
@@ -373,7 +389,7 @@
                     <div class="card p-fluid">
                         <h5>Overlay Panel</h5>
                         <Button type="button" label="Choose" @click="toggle" icon="pi pi-search" />
-                        <OverlayPanel ref="op" appendTo="body" :showCloseIcon="true" style="width: 450px" :breakpoints="{'960px':'75vw'}">
+                        <OverlayPanel ref="op" appendTo="body" :showCloseIcon="true" style="width: 450px" :breakpoints="{ '960px': '75vw' }">
                             <DataTable :value="products" v-model:selection="selectedProduct" selectionMode="single" :paginator="true" :rows="5" @row-select="onProductSelect">
                                 <Column field="name" header="Name" sortable></Column>
                                 <Column header="Image">
@@ -383,7 +399,7 @@
                                 </Column>
                                 <Column field="price" header="Price" sortable>
                                     <template #body="slotProps">
-                                        {{formatCurrency(slotProps.data.price)}}
+                                        {{ formatCurrency(slotProps.data.price) }}
                                     </template>
                                 </Column>
                             </DataTable>
@@ -393,18 +409,17 @@
                 <div class="col-12 md:col-3">
                     <div class="card p-fluid">
                         <h5>Dialog</h5>
-                        <Dialog header="Dialog" v-model:visible="display" :style="{width: '50vw'}" :breakpoints="{'960px':'75vw'}" :modal="true">
+                        <Dialog header="Dialog" v-model:visible="display" :style="{ width: '50vw' }" :breakpoints="{ '960px': '75vw' }" :modal="true">
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-                                in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                                commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
+                                id est laborum.
                             </p>
                             <template #footer>
-                                <Button label="Dismiss" @click="close" icon="pi pi-check" class="p-button-text"/>
+                                <Button label="Dismiss" @click="close" icon="pi pi-check" class="p-button-text" />
                             </template>
                         </Dialog>
-                        <Button label="Show" icon="pi pi-external-link" @click="open" class="p-button-secondary"/>
+                        <Button label="Show" icon="pi pi-external-link" @click="open" class="p-button-secondary" />
                     </div>
                 </div>
                 <div class="col-12 md:col-3">
@@ -447,7 +462,7 @@
                         <h5>Overlay Menu</h5>
 
                         <Menu ref="menu" :model="menuitems" :popup="true" />
-                        <Button type="button" label="Options" icon="pi pi-angle-down" @click="toggleMenu" style="width: auto"/>
+                        <Button type="button" label="Options" icon="pi pi-angle-down" @click="toggleMenu" style="width: auto" />
                     </div>
 
                     <div class="card" @contextmenu="onContextRightClick">
@@ -482,7 +497,7 @@
                         <h5>Timeline</h5>
                         <Timeline :value="timelineEvents" align="alternate">
                             <template #content="slotProps">
-                                {{slotProps.item.status}}
+                                {{ slotProps.item.status }}
                             </template>
                         </Timeline>
                     </div>
@@ -491,7 +506,7 @@
                 <div class="col-12 lg:col-8">
                     <div class="card">
                         <h5>Inline Message</h5>
-                        <div class="formgroup-inline" style="margin-bottom:.5rem">
+                        <div class="formgroup-inline" style="margin-bottom: 0.5rem">
                             <label for="username1" class="p-sr-only">Username</label>
                             <InputText id="username1" type="text" placeholder="Username" class="p-invalid mr-2" />
                             <InlineMessage>Username is required</InlineMessage>
@@ -517,8 +532,7 @@
             </div>
         </div>
 
-        <AppDoc name="ResponsiveDemo" :sources="sources" :service="['CustomerService', 'CountryService', 'ProductService']" 
-            :data="['customers-large', 'countries', 'products-small']" github="responsive/ResponsiveDemo.vue" />
+        <AppDoc name="ResponsiveDemo" :sources="sources" :service="['CustomerService', 'CountryService', 'ProductService']" :data="['customers-large', 'countries', 'products-small']" github="responsive/ResponsiveDemo.vue" />
     </div>
 </template>
 
@@ -527,7 +541,7 @@ import { FilterMatchMode, FilterOperator } from 'primevue/api';
 import CustomerService from '../../service/CustomerService';
 import CountryService from '../../service/CountryService';
 import ProductService from '../../service/ProductService';
-    
+
 export default {
     data() {
         return {
@@ -551,186 +565,181 @@ export default {
             switchValue: false,
             display: false,
             listboxValues: [
-                {name: 'New York', code: 'NY'},
-                {name: 'Rome', code: 'RM'},
-                {name: 'London', code: 'LDN'},
-                {name: 'Istanbul', code: 'IST'},
-                {name: 'Paris', code: 'PRS'}
+                { name: 'New York', code: 'NY' },
+                { name: 'Rome', code: 'RM' },
+                { name: 'London', code: 'LDN' },
+                { name: 'Istanbul', code: 'IST' },
+                { name: 'Paris', code: 'PRS' }
             ],
             listboxValue: null,
             dropdownValues: [
-                {name: 'New York', code: 'NY'},
-                {name: 'Rome', code: 'RM'},
-                {name: 'London', code: 'LDN'},
-                {name: 'Istanbul', code: 'IST'},
-                {name: 'Paris', code: 'PRS'}
+                { name: 'New York', code: 'NY' },
+                { name: 'Rome', code: 'RM' },
+                { name: 'London', code: 'LDN' },
+                { name: 'Istanbul', code: 'IST' },
+                { name: 'Paris', code: 'PRS' }
             ],
             dropdownValue: null,
             multiselectValue: null,
             multiselectValues: [
-                {name: 'Australia', code: 'AU'},
-                {name: 'Brazil', code: 'BR'},
-                {name: 'China', code: 'CN'},
-                {name: 'Egypt', code: 'EG'},
-                {name: 'France', code: 'FR'},
-                {name: 'Germany', code: 'DE'},
-                {name: 'India', code: 'IN'},
-                {name: 'Japan', code: 'JP'},
-                {name: 'Spain', code: 'ES'},
-                {name: 'United States', code: 'US'}
+                { name: 'Australia', code: 'AU' },
+                { name: 'Brazil', code: 'BR' },
+                { name: 'China', code: 'CN' },
+                { name: 'Egypt', code: 'EG' },
+                { name: 'France', code: 'FR' },
+                { name: 'Germany', code: 'DE' },
+                { name: 'India', code: 'IN' },
+                { name: 'Japan', code: 'JP' },
+                { name: 'Spain', code: 'ES' },
+                { name: 'United States', code: 'US' }
             ],
             toggleValue: false,
             selectButtonValues1: [
-                {name: 'Option 1', code: 'O1'},
-                {name: 'Option 2', code: 'O2'},
-                {name: 'Option 3', code: 'O3'},
+                { name: 'Option 1', code: 'O1' },
+                { name: 'Option 2', code: 'O2' },
+                { name: 'Option 3', code: 'O3' }
             ],
             selectButtonValue1: null,
             selectButtonValues2: [
-                {name: 'Option 1', code: 'O1'},
-                {name: 'Option 2', code: 'O2'},
-                {name: 'Option 3', code: 'O3'},
+                { name: 'Option 1', code: 'O1' },
+                { name: 'Option 2', code: 'O2' },
+                { name: 'Option 3', code: 'O3' }
             ],
             selectButtonValue2: null,
-			tieredMenuItems: [
-				{
-					label:'Customers',
-					icon:'pi pi-fw pi-table',
-					items:[
-						{
-							label:'New',
-							icon:'pi pi-fw pi-user-plus',
-							items:[
-								{
-									label:'Customer',
-									icon:'pi pi-fw pi-plus'
-								},
-								{
-									label:'Duplicate',
-									icon:'pi pi-fw pi-copy'
-								},
-
-							]
-						},
-						{
-							label:'Edit',
-							icon:'pi pi-fw pi-user-edit'
-						}
-					]
-				},
-				{
-					label:'Orders',
-					icon:'pi pi-fw pi-shopping-cart',
-					items:[
-						{
-							label:'View',
-							icon:'pi pi-fw pi-list'
-						},
-						{
-							label:'Search',
-							icon:'pi pi-fw pi-search'
-						},
-
-					]
-				},
-				{
-					label:'Shipments',
-					icon:'pi pi-fw pi-envelope',
-					items:[
-						{
-							label:'Tracker',
-							icon:'pi pi-fw pi-compass'
-
-						},
-						{
-							label:'Map',
-							icon:'pi pi-fw pi-map-marker'
-
-						},
-						{
-							label:'Manage',
-							icon:'pi pi-fw pi-pencil'
-						}
-					]
-				},
-				{
-					label:'Profile',
-					icon:'pi pi-fw pi-user',
-					items:[
-						{
-							label:'Settings',
-							icon:'pi pi-fw pi-cog'
-						},
-						{
-							label:'Billing',
-							icon:'pi pi-fw pi-file'
-						}
-					]
-				},
-				{
-					separator:true
-				},
-				{
-					label:'Quit',
-					icon:'pi pi-fw pi-sign-out'
-				}
-			],
-			menuitems: [
-				{
-					label:'Customers',
-					items:[
-						{
-							label:'New',
-							icon:'pi pi-fw pi-plus',
-						},
-						{
-							label:'Edit',
-							icon:'pi pi-fw pi-user-edit'
-						}
-					]
-				},
-				{
-					label:'Orders',
-					items:[
-						{
-							label:'View',
-							icon:'pi pi-fw pi-list'
-						},
-						{
-							label:'Search',
-							icon:'pi pi-fw pi-search'
-						},
-
-					]
-				}
-			],
-			contextMenuItems: [
-				{
-					label: 'Save',
-					icon: 'pi pi-save'
-				},
-				{
-					label: 'Update',
-					icon: 'pi pi-refresh'
-				},
-				{
-					label: 'Delete',
-					icon: 'pi pi-trash'
-				},
-				{
-					separator: true
-				},
-				{
-					label: 'Options',
-					icon: 'pi pi-cog'
-				},
+            tieredMenuItems: [
+                {
+                    label: 'Customers',
+                    icon: 'pi pi-fw pi-table',
+                    items: [
+                        {
+                            label: 'New',
+                            icon: 'pi pi-fw pi-user-plus',
+                            items: [
+                                {
+                                    label: 'Customer',
+                                    icon: 'pi pi-fw pi-plus'
+                                },
+                                {
+                                    label: 'Duplicate',
+                                    icon: 'pi pi-fw pi-copy'
+                                }
+                            ]
+                        },
+                        {
+                            label: 'Edit',
+                            icon: 'pi pi-fw pi-user-edit'
+                        }
+                    ]
+                },
+                {
+                    label: 'Orders',
+                    icon: 'pi pi-fw pi-shopping-cart',
+                    items: [
+                        {
+                            label: 'View',
+                            icon: 'pi pi-fw pi-list'
+                        },
+                        {
+                            label: 'Search',
+                            icon: 'pi pi-fw pi-search'
+                        }
+                    ]
+                },
+                {
+                    label: 'Shipments',
+                    icon: 'pi pi-fw pi-envelope',
+                    items: [
+                        {
+                            label: 'Tracker',
+                            icon: 'pi pi-fw pi-compass'
+                        },
+                        {
+                            label: 'Map',
+                            icon: 'pi pi-fw pi-map-marker'
+                        },
+                        {
+                            label: 'Manage',
+                            icon: 'pi pi-fw pi-pencil'
+                        }
+                    ]
+                },
+                {
+                    label: 'Profile',
+                    icon: 'pi pi-fw pi-user',
+                    items: [
+                        {
+                            label: 'Settings',
+                            icon: 'pi pi-fw pi-cog'
+                        },
+                        {
+                            label: 'Billing',
+                            icon: 'pi pi-fw pi-file'
+                        }
+                    ]
+                },
+                {
+                    separator: true
+                },
+                {
+                    label: 'Quit',
+                    icon: 'pi pi-fw pi-sign-out'
+                }
+            ],
+            menuitems: [
+                {
+                    label: 'Customers',
+                    items: [
+                        {
+                            label: 'New',
+                            icon: 'pi pi-fw pi-plus'
+                        },
+                        {
+                            label: 'Edit',
+                            icon: 'pi pi-fw pi-user-edit'
+                        }
+                    ]
+                },
+                {
+                    label: 'Orders',
+                    items: [
+                        {
+                            label: 'View',
+                            icon: 'pi pi-fw pi-list'
+                        },
+                        {
+                            label: 'Search',
+                            icon: 'pi pi-fw pi-search'
+                        }
+                    ]
+                }
+            ],
+            contextMenuItems: [
+                {
+                    label: 'Save',
+                    icon: 'pi pi-save'
+                },
+                {
+                    label: 'Update',
+                    icon: 'pi pi-refresh'
+                },
+                {
+                    label: 'Delete',
+                    icon: 'pi pi-trash'
+                },
+                {
+                    separator: true
+                },
+                {
+                    label: 'Options',
+                    icon: 'pi pi-cog'
+                }
             ],
             message: [],
             timelineEvents: [
-                {status: 'Ordered', date: '15/10/2020 10:30', icon: 'pi pi-shopping-cart', color: '#9C27B0', image: 'game-controller.jpg'},
-                {status: 'Processing', date: '15/10/2020 14:00', icon: 'pi pi-cog', color: '#673AB7'},
-                {status: 'Shipped', date: '15/10/2020 16:15', icon: 'pi pi-shopping-cart', color: '#FF9800'},
-                {status: 'Delivered', date: '16/10/2020 10:00', icon: 'pi pi-check', color: '#607D8B'}
+                { status: 'Ordered', date: '15/10/2020 10:30', icon: 'pi pi-shopping-cart', color: '#9C27B0', image: 'game-controller.jpg' },
+                { status: 'Processing', date: '15/10/2020 14:00', icon: 'pi pi-cog', color: '#673AB7' },
+                { status: 'Shipped', date: '15/10/2020 16:15', icon: 'pi pi-shopping-cart', color: '#FF9800' },
+                { status: 'Delivered', date: '16/10/2020 10:00', icon: 'pi pi-check', color: '#607D8B' }
             ],
             sources: {
                 'options-api': {
@@ -3510,7 +3519,7 @@ export default {
 `
                 }
             }
-        }
+        };
     },
     countryService: null,
     created() {
@@ -3520,13 +3529,13 @@ export default {
         this.initFilters();
     },
     mounted() {
-        this.countryService.getCountries().then(data => this.autoValue = data);
-        this.customerService.getCustomersLarge().then(data => this.customers = data);
-        this.productService.getProductsSmall().then(data => this.products = data);
+        this.countryService.getCountries().then((data) => (this.autoValue = data));
+        this.customerService.getCustomersLarge().then((data) => (this.customers = data));
+        this.productService.getProductsSmall().then((data) => (this.products = data));
     },
     methods: {
         toggleMenu(event) {
-			this.$refs.menu.toggle(event);
+            this.$refs.menu.toggle(event);
         },
         onContextRightClick(event) {
             this.$refs.contextMenu.show(event);
@@ -3535,8 +3544,7 @@ export default {
             setTimeout(() => {
                 if (!event.query.trim().length) {
                     this.autoFilteredValue = [...this.autoValue];
-                }
-                else {
+                } else {
                     this.autoFilteredValue = this.autoValue.filter((country) => {
                         return country.name.toLowerCase().startsWith(event.query.toLowerCase());
                     });
@@ -3544,19 +3552,19 @@ export default {
             }, 250);
         },
         addMessage(severity) {
-            this.message = [{severity: severity, content: 'Message Detail'}]
+            this.message = [{ severity: severity, content: 'Message Detail' }];
         },
         showToast(severity) {
-            this.$toast.add({severity: severity, summary: 'Message Summary', detail:'Message Detail', life: 3000});
+            this.$toast.add({ severity: severity, summary: 'Message Summary', detail: 'Message Detail', life: 3000 });
         },
         open() {
-			this.display = true;
-		},
-		close() {
-			this.display = false;
+            this.display = true;
+        },
+        close() {
+            this.display = false;
         },
         toggle(event) {
-			this.$refs.op.toggle(event);
+            this.$refs.op.toggle(event);
         },
         confirmWithPopup(event) {
             this.$confirm.require({
@@ -3565,10 +3573,10 @@ export default {
                 message: 'Are you sure you want to proceed?',
                 icon: 'pi pi-exclamation-triangle',
                 accept: () => {
-                    this.$toast.add({severity:'info', summary:'Confirmed', detail:'You have accepted', life: 3000});
+                    this.$toast.add({ severity: 'info', summary: 'Confirmed', detail: 'You have accepted', life: 3000 });
                 },
                 reject: () => {
-                    this.$toast.add({severity:'info', summary:'Rejected', detail:'You have rejected', life: 3000});
+                    this.$toast.add({ severity: 'info', summary: 'Rejected', detail: 'You have rejected', life: 3000 });
                 }
             });
         },
@@ -3579,35 +3587,35 @@ export default {
                 message: 'Are you sure you want to proceed?',
                 icon: 'pi pi-exclamation-triangle',
                 accept: () => {
-                    this.$toast.add({severity:'info', summary:'Confirmed', detail:'You have accepted', life: 3000});
+                    this.$toast.add({ severity: 'info', summary: 'Confirmed', detail: 'You have accepted', life: 3000 });
                 },
                 reject: () => {
-                    this.$toast.add({severity:'info', summary:'Rejected', detail:'You have rejected', life: 3000});
+                    this.$toast.add({ severity: 'info', summary: 'Rejected', detail: 'You have rejected', life: 3000 });
                 }
             });
         },
         formatCurrency(value) {
-            return value.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
+            return value.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
         },
         onProductSelect(event) {
             this.$refs.op.hide();
-            this.$toast.add({severity:'info', summary: 'Product Selected', detail: event.data.name, life: 3000});
+            this.$toast.add({ severity: 'info', summary: 'Product Selected', detail: event.data.name, life: 3000 });
         },
         initFilters() {
             this.filters = {
-                'global': {value: null, matchMode: FilterMatchMode.CONTAINS},
-                'name': {operator: FilterOperator.AND, constraints: [{value: null, matchMode: FilterMatchMode.STARTS_WITH}]},
-                'country.name': {operator: FilterOperator.AND, constraints: [{value: null, matchMode: FilterMatchMode.STARTS_WITH}]},
-                'representative': {value: null, matchMode: FilterMatchMode.IN},
-                'date': {operator: FilterOperator.AND, constraints: [{value: null, matchMode: FilterMatchMode.DATE_IS}]},
-                'balance': {operator: FilterOperator.AND, constraints: [{value: null, matchMode: FilterMatchMode.EQUALS}]},
-                'status': {operator: FilterOperator.OR, constraints: [{value: null, matchMode: FilterMatchMode.EQUALS}]},
-                'activity': {value: null, matchMode: FilterMatchMode.BETWEEN},
-                'verified': {value: null, matchMode: FilterMatchMode.EQUALS}
-            }
+                global: { value: null, matchMode: FilterMatchMode.CONTAINS },
+                name: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
+                'country.name': { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
+                representative: { value: null, matchMode: FilterMatchMode.IN },
+                date: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.DATE_IS }] },
+                balance: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.EQUALS }] },
+                status: { operator: FilterOperator.OR, constraints: [{ value: null, matchMode: FilterMatchMode.EQUALS }] },
+                activity: { value: null, matchMode: FilterMatchMode.BETWEEN },
+                verified: { value: null, matchMode: FilterMatchMode.EQUALS }
+            };
         }
     }
-}
+};
 </script>
 
 <style scoped lang="scss">
@@ -3621,47 +3629,47 @@ export default {
 
 .customer-badge {
     border-radius: 2px;
-    padding: .25em .5rem;
+    padding: 0.25em 0.5rem;
     text-transform: uppercase;
     font-weight: 700;
     font-size: 12px;
-    letter-spacing: .3px;
+    letter-spacing: 0.3px;
 
     &.status-qualified {
-        background-color: #C8E6C9;
+        background-color: #c8e6c9;
         color: #256029;
     }
 
     &.status-unqualified {
-        background-color: #FFCDD2;
-        color: #C63737;
+        background-color: #ffcdd2;
+        color: #c63737;
     }
 
     &.status-negotiation {
-        background-color: #FEEDAF;
-        color: #8A5340;
+        background-color: #feedaf;
+        color: #8a5340;
     }
 
     &.status-new {
-        background-color: #B3E5FC;
-        color: #23547B;
+        background-color: #b3e5fc;
+        color: #23547b;
     }
 
     &.status-renewal {
-        background-color: #ECCFFF;
+        background-color: #eccfff;
         color: #694382;
     }
 
     &.status-proposal {
-        background-color: #FFD8B2;
-        color: #805B36;
+        background-color: #ffd8b2;
+        color: #805b36;
     }
 }
 
 .product-image {
     width: 50px;
-    box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
-}    
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
 
 ::v-deep(.p-paginator) {
     .p-paginator-current {

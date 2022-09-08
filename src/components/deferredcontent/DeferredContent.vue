@@ -11,14 +11,12 @@ export default {
     data() {
         return {
             loaded: false
-        }
+        };
     },
     mounted() {
         if (!this.loaded) {
-            if (this.shouldLoad())
-                this.load();
-            else
-                this.bindScrollListener();
+            if (this.shouldLoad()) this.load();
+            else this.bindScrollListener();
         }
     },
     beforeUnmount() {
@@ -44,13 +42,12 @@ export default {
         shouldLoad() {
             if (this.loaded) {
                 return false;
-            }
-            else {
+            } else {
                 const rect = this.$refs.container.getBoundingClientRect();
                 const docElement = document.documentElement;
                 const winHeight = docElement.clientHeight;
 
-                return (winHeight >= rect.top);
+                return winHeight >= rect.top;
             }
         },
         load(event) {
@@ -58,5 +55,5 @@ export default {
             this.$emit('load', event);
         }
     }
-}
+};
 </script>

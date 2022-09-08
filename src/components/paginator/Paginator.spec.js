@@ -9,11 +9,11 @@ describe('Paginator.vue', () => {
             props: {
                 rows: 10,
                 totalRecords: 120,
-                rowsPerPageOptions: [10,20,30]
+                rowsPerPageOptions: [10, 20, 30]
             }
         });
     });
-    
+
     it('should exist', () => {
         expect(wrapper.find('.p-paginator.p-component').exists()).toBe(true);
         expect(wrapper.find('.p-paginator-icon.pi-angle-double-left').exists()).toBe(true);
@@ -37,7 +37,7 @@ describe('Paginator.vue', () => {
 
     it('should change row count', async () => {
         await wrapper.vm.onRowChange(20);
-        
+
         expect(wrapper.vm.d_rows).toBe(20);
         expect(wrapper.emitted()['update:rows'][0]).toEqual([20]);
         expect(wrapper.vm.pageCount).toBe(6);

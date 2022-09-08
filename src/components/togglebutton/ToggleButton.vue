@@ -1,11 +1,23 @@
 <template>
     <div :class="buttonClass" @click="onClick($event)" v-ripple>
         <span class="p-hidden-accessible">
-            <input type="checkbox" role="switch" :id="inputId" :class="inputClass" :style="inputStyle" :checked="modelValue" :value="modelValue" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel"
-                @focus="onFocus($event)" @blur="onBlur($event)" v-bind="inputProps">
+            <input
+                type="checkbox"
+                role="switch"
+                :id="inputId"
+                :class="inputClass"
+                :style="inputStyle"
+                :checked="modelValue"
+                :value="modelValue"
+                :aria-labelledby="ariaLabelledby"
+                :aria-label="ariaLabel"
+                @focus="onFocus($event)"
+                @blur="onBlur($event)"
+                v-bind="inputProps"
+            />
         </span>
         <span v-if="hasIcon" :class="iconClass"></span>
-        <span class="p-button-label">{{label}}</span>
+        <span class="p-button-label">{{ label }}</span>
     </div>
 </template>
 
@@ -17,8 +29,8 @@ export default {
     emits: ['update:modelValue', 'change', 'click', 'focus', 'blur'],
     props: {
         modelValue: Boolean,
-		onIcon: String,
-		offIcon: String,
+        onIcon: String,
+        offIcon: String,
         onLabel: {
             type: String,
             default: 'Yes'
@@ -39,13 +51,25 @@ export default {
             type: Number,
             default: null
         },
-        inputId: null,
-        inputClass: null,
-        inputStyle: null,
-        inputProps: null,
+        inputId: {
+            type: String,
+            default: null
+        },
+        inputClass: {
+            type: String,
+            default: null
+        },
+        inputStyle: {
+            type: null,
+            default: null
+        },
+        inputProps: {
+            type: null,
+            default: null
+        },
         'aria-labelledby': {
             type: String,
-			default: null
+            default: null
         },
         'aria-label': {
             type: String,
@@ -74,17 +98,17 @@ export default {
                 'p-button-icon-only': this.hasIcon && !this.hasLabel,
                 'p-disabled': this.disabled,
                 'p-highlight': this.modelValue === true
-            }
+            };
         },
         iconClass() {
             return [
-                this.modelValue ? this.onIcon: this.offIcon,
+                this.modelValue ? this.onIcon : this.offIcon,
                 'p-button-icon',
                 {
                     'p-button-icon-left': this.iconPos === 'left' && this.label,
                     'p-button-icon-right': this.iconPos === 'right' && this.label
                 }
-            ]
+            ];
         },
         hasLabel() {
             return this.onLabel && this.onLabel.length > 0 && this.offLabel && this.offLabel.length > 0;
@@ -93,11 +117,11 @@ export default {
             return this.onIcon && this.onIcon.length > 0 && this.offIcon && this.offIcon.length > 0;
         },
         label() {
-            return this.hasLabel ? (this.modelValue ? this.onLabel : this.offLabel): '&nbsp;';
+            return this.hasLabel ? (this.modelValue ? this.onLabel : this.offLabel) : '&nbsp;';
         }
     },
     directives: {
-        'ripple': Ripple
+        ripple: Ripple
     }
-}
+};
 </script>

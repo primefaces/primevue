@@ -203,6 +203,11 @@ export interface MultiSelectProps {
      */
     autoOptionFocus?: boolean | undefined;
     /**
+     * Whether to focus on the filter element when the overlay panel is shown.
+     * Default value is false.
+     */
+    autoFilterFocus?: boolean | undefined;
+    /**
      * Text to be displayed in hidden accessible field when filtering returns any results. Defaults to value from PrimeVue locale configuration.
      * Default value is '{0} results are available'.
      */
@@ -449,7 +454,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [MultiSelect](https://www.primefaces.org/primevue/showcase/#/multiselect)
+ * - [MultiSelect](https://www.primefaces.org/primevue/multiselect)
  *
  */
 export default MultiSelect;

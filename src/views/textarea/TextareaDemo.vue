@@ -21,12 +21,12 @@
             </div>
         </div>
 
-        <TextareaDoc/>
+        <TextareaDoc />
     </div>
 </template>
 
 <script>
-import TextareaDoc from './TextareaDoc'
+import TextareaDoc from './TextareaDoc';
 
 export default {
     data() {
@@ -34,10 +34,10 @@ export default {
             value1: '',
             value2: '',
             value3: ''
-        }
+        };
     },
     components: {
-        'TextareaDoc': TextareaDoc
+        TextareaDoc: TextareaDoc
     }
-}
+};
 </script>

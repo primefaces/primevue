@@ -95,11 +95,11 @@ declare module '@vue/runtime-core' {
  *
  * Helper API:
  *
- * - [MenuItem](https://www.primefaces.org/primevue/showcase/#/menumodel)
+ * - [MenuItem](https://www.primefaces.org/primevue/menumodel)
  *
  * Demos:
  *
- * - [Dock](https://www.primefaces.org/primevue/showcase/#/dock)
+ * - [Dock](https://www.primefaces.org/primevue/dock)
  *
  */
 export default Dock;

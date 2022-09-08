@@ -103,7 +103,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [ColorPicker](https://www.primefaces.org/primevue/showcase/#/colorpicker)
+ * - [ColorPicker](https://www.primefaces.org/primevue/colorpicker)
  *
  */
 export default ColorPicker;

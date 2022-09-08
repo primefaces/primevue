@@ -34,14 +34,14 @@ export default {
         return {
             nodes: null,
             expandedKeys: {}
-        }
+        };
     },
     nodeService: null,
     created() {
         this.nodeService = new NodeService();
     },
     mounted() {
-        this.nodeService.getTreeNodes().then(data => this.nodes = data);
+        this.nodeService.getTreeNodes().then((data) => (this.nodes = data));
     },
     methods: {
         expandAll() {
@@ -49,7 +49,7 @@ export default {
                 this.expandNode(node);
             }
 
-            this.expandedKeys = {...this.expandedKeys};
+            this.expandedKeys = { ...this.expandedKeys };
         },
         collapseAll() {
             this.expandedKeys = {};
@@ -65,13 +65,13 @@ export default {
         }
     },
     components: {
-        'TreeDoc': TreeDoc
+        TreeDoc: TreeDoc
     }
-}
+};
 </script>
 
 <style scoped>
 button {
-    margin-right: .5rem;
+    margin-right: 0.5rem;
 }
 </style>

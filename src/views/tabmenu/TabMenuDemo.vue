@@ -12,9 +12,9 @@
             <div class="card">
                 <h5>Default</h5>
                 <TabMenu :model="items" />
-                <router-view/>
+                <router-view />
             </div>
-            
+
             <div class="card">
                 <h5>Programmatic</h5>
                 <div class="py-2">
@@ -39,25 +39,25 @@ export default {
         return {
             active: 3,
             items: [
-                {label: 'Home', icon: 'pi pi-fw pi-home', to: '/tabmenu'},
-                {label: 'Calendar', icon: 'pi pi-fw pi-calendar', to: '/tabmenu/calendar'},
-                {label: 'Edit', icon: 'pi pi-fw pi-pencil', to: '/tabmenu/edit'},
-                {label: 'Documentation', icon: 'pi pi-fw pi-file', to: '/tabmenu/documentation'},
-                {label: 'Settings', icon: 'pi pi-fw pi-cog', to: '/tabmenu/settings'}
+                { label: 'Home', icon: 'pi pi-fw pi-home', to: '/tabmenu' },
+                { label: 'Calendar', icon: 'pi pi-fw pi-calendar', to: '/tabmenu/calendar' },
+                { label: 'Edit', icon: 'pi pi-fw pi-pencil', to: '/tabmenu/edit' },
+                { label: 'Documentation', icon: 'pi pi-fw pi-file', to: '/tabmenu/documentation' },
+                { label: 'Settings', icon: 'pi pi-fw pi-cog', to: '/tabmenu/settings' }
             ],
             items2: [
-                {label: 'Home', icon: 'pi pi-fw pi-home'},
-                {label: 'Calendar', icon: 'pi pi-fw pi-calendar'},
-                {label: 'Edit', icon: 'pi pi-fw pi-pencil'},
-                {label: 'Documentation', icon: 'pi pi-fw pi-file'},
-                {label: 'Settings', icon: 'pi pi-fw pi-cog'}
+                { label: 'Home', icon: 'pi pi-fw pi-home' },
+                { label: 'Calendar', icon: 'pi pi-fw pi-calendar' },
+                { label: 'Edit', icon: 'pi pi-fw pi-pencil' },
+                { label: 'Documentation', icon: 'pi pi-fw pi-file' },
+                { label: 'Settings', icon: 'pi pi-fw pi-cog' }
             ]
-        }
+        };
     },
     components: {
-        'TabMenuDoc': TabMenuDoc
-	}
-}
+        TabMenuDoc: TabMenuDoc
+    }
+};
 </script>
 
 <style scoped lang="scss">

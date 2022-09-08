@@ -19,13 +19,13 @@ export default {
     },
     computed: {
         containerClass() {
-            return ['p-splitter-panel', {'p-splitter-panel-nested': this.isNested}];
+            return ['p-splitter-panel', { 'p-splitter-panel-nested': this.isNested }];
         },
         isNested() {
-            return this.$slots.default().some(child => {
+            return this.$slots.default().some((child) => {
                 return child.type.name === 'Splitter';
             });
         }
     }
-}
+};
 </script>

@@ -23,8 +23,7 @@
                 <Tree :value="nodes" selectionMode="checkbox" v-model:selectionKeys="selectedKeys3"></Tree>
 
                 <h5>Events</h5>
-                <Tree :value="nodes" selectionMode="single" v-model:selectionKeys="selectedKey2" :metaKeySelection="false"
-                    @node-select="onNodeSelect" @node-unselect="onNodeUnselect"></Tree>
+                <Tree :value="nodes" selectionMode="single" v-model:selectionKeys="selectedKey2" :metaKeySelection="false" @node-select="onNodeSelect" @node-unselect="onNodeUnselect"></Tree>
             </div>
         </div>
 
@@ -224,28 +223,28 @@ export default {
         <\\/script>`
                 }
             }
-        }
+        };
     },
     nodeService: null,
     created() {
         this.nodeService = new NodeService();
     },
     mounted() {
-        this.nodeService.getTreeNodes().then(data => this.nodes = data);
+        this.nodeService.getTreeNodes().then((data) => (this.nodes = data));
     },
     methods: {
         onNodeSelect(node) {
-            this.$toast.add({severity:'success', summary: 'Node Selected', detail: node.label, life: 3000});
+            this.$toast.add({ severity: 'success', summary: 'Node Selected', detail: node.label, life: 3000 });
         },
         onNodeUnselect(node) {
-            this.$toast.add({severity:'success', summary: 'Node Unselected', detail: node.label, life: 3000});
+            this.$toast.add({ severity: 'success', summary: 'Node Unselected', detail: node.label, life: 3000 });
         }
     }
-}
+};
 </script>
 
 <style scoped>
 button {
-    margin-right: .5rem;
+    margin-right: 0.5rem;
 }
 </style>

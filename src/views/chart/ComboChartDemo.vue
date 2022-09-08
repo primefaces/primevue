@@ -10,11 +10,11 @@
 
         <div class="content-section implementation">
             <div class="card">
-                <Chart type="bar" :data="chartData" :options="chartOptions"/>
+                <Chart type="bar" :data="chartData" :options="chartOptions" />
             </div>
         </div>
 
-        <ComboChartDoc/>
+        <ComboChartDoc />
     </div>
 </template>
 
@@ -26,10 +26,8 @@ export default {
     themeChangeListener: null,
     mounted() {
         this.themeChangeListener = (event) => {
-            if (event.dark)
-                this.applyDarkTheme();
-            else
-                this.applyLightTheme();
+            if (event.dark) this.applyDarkTheme();
+            else this.applyLightTheme();
         };
         EventBus.on('theme-change', this.themeChangeListener);
 
@@ -44,53 +42,33 @@ export default {
         return {
             chartData: {
                 labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-                datasets: [{
-                    type: 'line',
-                    label: 'Dataset 1',
-                    borderColor: '#42A5F5',
-                    borderWidth: 2,
-                    fill: false,
-                    data: [
-                        50,
-                        25,
-                        12,
-                        48,
-                        56,
-                        76,
-                        42
-                    ]
-                }, {
-                    type: 'bar',
-                    label: 'Dataset 2',
-                    backgroundColor: '#66BB6A',
-                    data: [
-                        21,
-                        84,
-                        24,
-                        75,
-                        37,
-                        65,
-                        34
-                    ],
-                    borderColor: 'white',
-                    borderWidth: 2
-                }, {
-                    type: 'bar',
-                    label: 'Dataset 3',
-                    backgroundColor: '#FFA726',
-                    data: [
-                        41,
-                        52,
-                        24,
-                        74,
-                        23,
-                        21,
-                        32
-                    ]
-                }]
+                datasets: [
+                    {
+                        type: 'line',
+                        label: 'Dataset 1',
+                        borderColor: '#42A5F5',
+                        borderWidth: 2,
+                        fill: false,
+                        data: [50, 25, 12, 48, 56, 76, 42]
+                    },
+                    {
+                        type: 'bar',
+                        label: 'Dataset 2',
+                        backgroundColor: '#66BB6A',
+                        data: [21, 84, 24, 75, 37, 65, 34],
+                        borderColor: 'white',
+                        borderWidth: 2
+                    },
+                    {
+                        type: 'bar',
+                        label: 'Dataset 3',
+                        backgroundColor: '#FFA726',
+                        data: [41, 52, 24, 74, 23, 21, 32]
+                    }
+                ]
             },
             chartOptions: this.isDarkTheme() ? this.applyDarkTheme() : this.applyLightTheme()
-        }
+        };
     },
     methods: {
         isDarkTheme() {
@@ -123,7 +101,7 @@ export default {
                         }
                     }
                 }
-            }
+            };
         },
         applyDarkTheme() {
             this.chartOptions = {
@@ -156,7 +134,7 @@ export default {
         }
     },
     components: {
-        'ComboChartDoc': ComboChartDoc
+        ComboChartDoc: ComboChartDoc
     }
-}
+};
 </script>

@@ -65,7 +65,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [ConfirmDialog](https://www.primefaces.org/primevue/showcase/#/confirmdialog)
+ * - [ConfirmDialog](https://www.primefaces.org/primevue/confirmdialog)
  *
  */
 export default ConfirmDialog;

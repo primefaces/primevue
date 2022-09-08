@@ -36,13 +36,13 @@
 
                 <h5>Dynamic Values, Preselection, Value Binding and Disabled Option</h5>
                 <div v-for="category of categories" :key="category.key" class="field-checkbox">
-                    <Checkbox :inputId="category.key" name="category" :value="category.name" v-model="selectedCategories" :disabled="category.key === 'R'"/>
-                    <label :for="category.key">{{category.name}}</label>
+                    <Checkbox :inputId="category.key" name="category" :value="category.name" v-model="selectedCategories" :disabled="category.key === 'R'" />
+                    <label :for="category.key">{{ category.name }}</label>
                 </div>
             </div>
         </div>
 
-        <CheckboxDoc/>
+        <CheckboxDoc />
     </div>
 </template>
 
@@ -54,15 +54,20 @@ export default {
         return {
             checked: false,
             cities: [],
-            categories: [{name: 'Accounting', key: 'A'}, {name: 'Marketing', key: 'M'}, {name: 'Production', key: 'P'}, {name: 'Research', key: 'R'}],
+            categories: [
+                { name: 'Accounting', key: 'A' },
+                { name: 'Marketing', key: 'M' },
+                { name: 'Production', key: 'P' },
+                { name: 'Research', key: 'R' }
+            ],
             selectedCategories: []
-        }
+        };
     },
     created() {
-        this.selectedCategories = this.categories.slice(1,3);
+        this.selectedCategories = this.categories.slice(1, 3);
     },
     components: {
-        'CheckboxDoc': CheckboxDoc
+        CheckboxDoc: CheckboxDoc
     }
-}
+};
 </script>

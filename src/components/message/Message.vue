@@ -40,13 +40,13 @@ export default {
         icon: {
             type: String,
             default: null
-        },
+        }
     },
     timeout: null,
     data() {
         return {
             visible: true
-        }
+        };
     },
     mounted() {
         if (!this.sticky) {
@@ -66,18 +66,23 @@ export default {
             return 'p-message p-component p-message-' + this.severity;
         },
         iconClass() {
-            return ['p-message-icon pi', this.icon ? this.icon : {
-                'pi-info-circle': this.severity === 'info',
-                'pi-check': this.severity === 'success',
-                'pi-exclamation-triangle': this.severity === 'warn',
-                'pi-times-circle': this.severity === 'error'
-            }];
+            return [
+                'p-message-icon pi',
+                this.icon
+                    ? this.icon
+                    : {
+                          'pi-info-circle': this.severity === 'info',
+                          'pi-check': this.severity === 'success',
+                          'pi-exclamation-triangle': this.severity === 'warn',
+                          'pi-times-circle': this.severity === 'error'
+                      }
+            ];
         }
     },
     directives: {
-        'ripple': Ripple
+        ripple: Ripple
     }
-}
+};
 </script>
 
 <style>
@@ -103,7 +108,7 @@ export default {
 }
 
 .p-message-enter-active {
-    transition: opacity .3s;
+    transition: opacity 0.3s;
 }
 
 .p-message.p-message-leave-from {
@@ -118,7 +123,7 @@ export default {
 
 .p-message-leave-active {
     overflow: hidden;
-    transition: max-height .3s cubic-bezier(0, 1, 0, 1), opacity .3s, margin .15s;
+    transition: max-height 0.3s cubic-bezier(0, 1, 0, 1), opacity 0.3s, margin 0.15s;
 }
 
 .p-message-leave-active .p-message-close {

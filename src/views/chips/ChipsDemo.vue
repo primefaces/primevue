@@ -20,7 +20,7 @@
                 <Chips v-model="value3">
                     <template #chip="slotProps">
                         <div>
-                            <span>{{slotProps.value}} - (active) </span>
+                            <span>{{ slotProps.value }} - (active) </span>
                             <i class="pi pi-user-plus" style="font-size: 14px"></i>
                         </div>
                     </template>
@@ -41,10 +41,10 @@ export default {
             value1: null,
             value2: null,
             value3: null
-        }
+        };
     },
     components: {
-        'ChipsDoc': ChipsDoc
+        ChipsDoc: ChipsDoc
     }
-}
+};
 </script>

@@ -24,18 +24,12 @@ import BreadcrumbDoc from './BreadcrumbDoc';
 export default {
     data() {
         return {
-            home: {icon: 'pi pi-home', to: '/'},
-            items: [
-                {label: 'Computer'},
-                {label: 'Notebook'},
-                {label: 'Accessories'},
-                {label: 'Backpacks'},
-                {label: 'Item'}
-            ]
-        }
+            home: { icon: 'pi pi-home', to: '/' },
+            items: [{ label: 'Computer' }, { label: 'Notebook' }, { label: 'Accessories' }, { label: 'Backpacks' }, { label: 'Item' }]
+        };
     },
     components: {
-        'BreadcrumbDoc': BreadcrumbDoc
-	}
-}
+        BreadcrumbDoc: BreadcrumbDoc
+    }
+};
 </script>

@@ -1,29 +1,29 @@
 <template>
-	<AppDoc name="TreeSelectDemo" :sources="sources" github="treeselect/TreeSelectDemo.vue" :service="['NodeService']" :data="['treenodes']">
+    <AppDoc name="TreeSelectDemo" :sources="sources" github="treeselect/TreeSelectDemo.vue" :service="['NodeService']" :data="['treenodes']">
         <h5>Import via Module</h5>
-<pre v-code.script><code>
+        <pre v-code.script><code>
 import TreeSelect from 'primevue/treeselect';
 
 </code></pre>
 
         <h5>Import via CDN</h5>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/treeselect/treeselect.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
         <h5>Getting Started</h5>
-		<p>TreeSelect component requires an array of TreeNode objects as its <i>options</i> and keys of the nodes as its value.</p>
+        <p>TreeSelect component requires an array of TreeNode objects as its <i>options</i> and keys of the nodes as its value.</p>
 
-<pre v-code><code>
+        <pre v-code><code>
 &lt;TreeSelect v-model="selectedNodeKey" :options="nodes" placeholder="Select Item" /&gt;
 
 </code></pre>
 
         <p>In example below, nodes are retrieved from a remote data source.</p>
 
-<pre v-code.script><code>
+        <pre v-code.script><code>
 import NodeService from '../../service/NodeService';
 
 export default {
@@ -44,7 +44,7 @@ export default {
 
 </code></pre>
 
-<pre v-code.script><code>
+        <pre v-code.script><code>
 export default class NodeService {
 
     getTreeNodes() {
@@ -57,7 +57,7 @@ export default class NodeService {
 </code></pre>
 
         <p>The json response sample would be as following.</p>
-<pre v-code.script><code>
+        <pre v-code.script><code>
 {
     "root": [
         {
@@ -193,7 +193,7 @@ export default class NodeService {
 
         <h5>Selection Mode</h5>
         <p>TreeSelects offers "single", "multiple" and "checkbox" alternatives for the selection behavior that is defined by the <i>selectionMode</i> option.</p>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;TreeSelect v-model="selectedValue1" :options="nodes" selectionMode="single" placeholder="Select Item" /&gt;
 
 &lt;TreeSelect v-model="selectedValue2" :options="nodes" selectionMode="multiple" placeholder="Select Items" /&gt;
@@ -203,11 +203,12 @@ export default class NodeService {
 </code></pre>
 
         <h5>Value Format</h5>
-        <p>Value passed to and from the TreeSelect via the v-model directive should be a an object with key-value pairs where key is the node key and
-            value is a boolean to indicate selection. On the other hand
-        in "checkbox" mode, instead of a boolean, value should be an object that has "checked" and "partialChecked" properties to represent the checked state of a node. Best way to clarify it is prepopulating a TreeSelect with an existing value.</p>
+        <p>
+            Value passed to and from the TreeSelect via the v-model directive should be a an object with key-value pairs where key is the node key and value is a boolean to indicate selection. On the other hand in "checkbox" mode, instead of a
+            boolean, value should be an object that has "checked" and "partialChecked" properties to represent the checked state of a node. Best way to clarify it is prepopulating a TreeSelect with an existing value.
+        </p>
 
-<pre v-code.script><code>
+        <pre v-code.script><code>
 data() {
     return {
         selectedValue1: {'2-1': true},
@@ -220,15 +221,17 @@ data() {
 
         <h5>Chips Display</h5>
         <p>A comma separated list is used by default to display selected items whereas alternative chip mode is provided using the <i>display</i> property to visualize the items as tokens.</p>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;TreeSelect v-model="selectedValue" display="chip" :options="nodes" selectionMode="multiple" placeholder="Select Items" /&gt;
 
 </code></pre>
 
-		<h5>Templating</h5>
-		<p>Label of an option is used as the display text of an item by default, for custom content support define a <i>value</i> template that gets the selected nodes as a parameter.
-        In addition <i>header</i>, <i>footer</i> and <i>empty</i> slots are provided for further customization.</p>
-<pre v-code><code><template v-pre>
+        <h5>Templating</h5>
+        <p>
+            Label of an option is used as the display text of an item by default, for custom content support define a <i>value</i> template that gets the selected nodes as a parameter. In addition <i>header</i>, <i>footer</i> and <i>empty</i> slots
+            are provided for further customization.
+        </p>
+        <pre v-code><code><template v-pre>
 &lt;TreeSelect v-model="selectedNodes" :options="nodes" placeholder="Select Items"&gt;
 	&lt;template #value="{value}"&gt;
 		Custom Content
@@ -237,19 +240,19 @@ data() {
 </template>
 </code></pre>
 
-		<h5>Properties</h5>
+        <h5>Properties</h5>
         <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Type</th>
                         <th>Default</th>
                         <th>Description</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>modelValue</td>
                         <td>any</td>
@@ -296,8 +299,7 @@ data() {
                         <td>appendTo</td>
                         <td>string</td>
                         <td>body</td>
-                        <td>A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are "body" for document body
-                        and "self" for the element itself.</td>
+                        <td>A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are "body" for document body and "self" for the element itself.</td>
                     </tr>
                     <tr>
                         <td>emptyMessage</td>
@@ -315,8 +317,10 @@ data() {
                         <td>metaKeySelection</td>
                         <td>boolean</td>
                         <td>true</td>
-                        <td>Defines how multiple items can be selected, when true metaKey needs to be pressed to select or unselect an item and when set to false selection of each item
-                            can be toggled individually. On touch enabled devices, metaKeySelection is turned off automatically.</td>
+                        <td>
+                            Defines how multiple items can be selected, when true metaKey needs to be pressed to select or unselect an item and when set to false selection of each item can be toggled individually. On touch enabled devices,
+                            metaKeySelection is turned off automatically.
+                        </td>
                     </tr>
                     <tr>
                         <td>inputId</td>
@@ -342,11 +346,11 @@ data() {
                         <td>null</td>
                         <td>Style class of the overlay panel.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
-		<h5>Events</h5>
+        <h5>Events</h5>
         <div class="doc-tablewrapper">
             <table class="doc-table">
                 <thead>
@@ -407,16 +411,16 @@ data() {
         </div>
 
         <h5>Methods</h5>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Parameters</th>
                         <th>Description</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>show</td>
                         <td>-</td>
@@ -427,34 +431,40 @@ data() {
                         <td>-</td>
                         <td>Hides the overlay.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
         <h5>Slots</h5>
-		<div class="doc-tablewrapper">
+        <div class="doc-tablewrapper">
             <table class="doc-table">
-				<thead>
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Parameters</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>value</td>
-                        <td>value: Selected nodes <br />
-                            placeholder: Placeholder value</td>
+                        <td>
+                            value: Selected nodes <br />
+                            placeholder: Placeholder value
+                        </td>
                     </tr>
                     <tr>
                         <td>header</td>
-                        <td>value: Value of the component <br />
-                            options: TreeNode options</td>
+                        <td>
+                            value: Value of the component <br />
+                            options: TreeNode options
+                        </td>
                     </tr>
                     <tr>
                         <td>footer</td>
-                        <td>value: Value of the component <br />
-                            options: TreeNode options</td>
+                        <td>
+                            value: Value of the component <br />
+                            options: TreeNode options
+                        </td>
                     </tr>
                     <tr>
                         <td>empty</td>
@@ -464,21 +474,21 @@ data() {
                         <td>indicator</td>
                         <td>-</td>
                     </tr>
-				</tbody>
-			</table>
+                </tbody>
+            </table>
         </div>
 
-		<h5>Styling</h5>
-		<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <h5>Styling</h5>
+        <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Element</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>p-treeselect</td>
                         <td>Container element.</td>
@@ -503,20 +513,25 @@ data() {
                         <td>p-treeselect-items-wrapper</td>
                         <td>List container of items.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
         <h5>Accessibility</h5>
         <DevelopmentSection>
             <h6>Screen Reader</h6>
-            <p>Value to describe the component can either be provided with <i>aria-labelledby</i> or <i>aria-label</i> props. The treeselect element has a <i>combobox</i> role
-            in addition to <i>aria-haspopup</i> and <i>aria-expanded</i> attributes. The relation between the combobox and the popup is created with <i>aria-controls</i> that refers to the id of the popup.</p>
-            <p>The popup list has an id that refers to the <i>aria-controls</i> attribute of the <i>combobox</i> element and uses <i>tree</i> as the role. Each list item has a <i>treeitem</i> role along with <i>aria-label</i>, <i>aria-selected</i> and <i>aria-expanded</i> attributes. 
-            In checkbox selection, <i>aria-checked</i> is used instead of <i>aria-selected</i>. Checkbox and toggle icons are hidden from screen readers as their parent element with <i>treeitem</i> role and attributes are used instead for readers and keyboard support.
-            The container element of a treenode has the <i>group</i> role. The <i>aria-setsize</i>, <i>aria-posinset</i> and <i>aria-level</i> attributes are calculated implicitly and added to each treeitem.</p>
+            <p>
+                Value to describe the component can either be provided with <i>aria-labelledby</i> or <i>aria-label</i> props. The treeselect element has a <i>combobox</i> role in addition to <i>aria-haspopup</i> and <i>aria-expanded</i> attributes.
+                The relation between the combobox and the popup is created with <i>aria-controls</i> that refers to the id of the popup.
+            </p>
+            <p>
+                The popup list has an id that refers to the <i>aria-controls</i> attribute of the <i>combobox</i> element and uses <i>tree</i> as the role. Each list item has a <i>treeitem</i> role along with <i>aria-label</i>,
+                <i>aria-selected</i> and <i>aria-expanded</i> attributes. In checkbox selection, <i>aria-checked</i> is used instead of <i>aria-selected</i>. Checkbox and toggle icons are hidden from screen readers as their parent element with
+                <i>treeitem</i> role and attributes are used instead for readers and keyboard support. The container element of a treenode has the <i>group</i> role. The <i>aria-setsize</i>, <i>aria-posinset</i> and <i>aria-level</i> attributes are
+                calculated implicitly and added to each treeitem.
+            </p>
 
-<pre v-code><code>
+            <pre v-code><code>
 &lt;span id="dd1"&gt;Options&lt;/span&gt;
 &lt;TreeSelect aria-labelledby="dd1" /&gt;
 
@@ -601,8 +616,8 @@ data() {
             </div>
         </DevelopmentSection>
 
-		<h5>Dependencies</h5>
-		<p>None.</p>
+        <h5>Dependencies</h5>
+        <p>None.</p>
     </AppDoc>
 </template>
 
@@ -767,7 +782,7 @@ export default {
         </style>`
                 }
             }
-        }
+        };
     }
-}
+};
 </script>

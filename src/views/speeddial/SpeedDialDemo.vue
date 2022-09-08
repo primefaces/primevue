@@ -37,9 +37,9 @@
             <div class="card">
                 <h5>Tooltip</h5>
                 <div class="speeddial-tooltip-demo" :style="{ position: 'relative', height: '350px' }">
-                    <SpeedDial :model="items" direction="up" class="speeddial-right" buttonClass="p-button-danger" :tooltipOptions="{position: 'left'}" />
+                    <SpeedDial :model="items" direction="up" class="speeddial-right" buttonClass="p-button-danger" :tooltipOptions="{ position: 'left' }" />
 
-                    <SpeedDial :model="items" direction="up" class="speeddial-left" buttonClass="p-button-help" :tooltipOptions="{position: 'right'}" />
+                    <SpeedDial :model="items" direction="up" class="speeddial-left" buttonClass="p-button-help" :tooltipOptions="{ position: 'right' }" />
                 </div>
             </div>
 
@@ -101,16 +101,16 @@ export default {
                     label: 'Vue Website',
                     icon: 'pi pi-external-link',
                     command: () => {
-                        window.location.href = 'https://vuejs.org/'
+                        window.location.href = 'https://vuejs.org/';
                     }
                 }
             ]
-        }
+        };
     },
     components: {
-        'SpeedDialDoc': SpeedDialDoc
+        SpeedDialDoc: SpeedDialDoc
     }
-}
+};
 </script>
 
 <style lang="scss" scoped>

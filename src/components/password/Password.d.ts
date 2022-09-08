@@ -68,6 +68,11 @@ export interface PasswordProps extends InputHTMLAttributes {
      */
     placeholder?: string | undefined;
     /**
+     * When present, it specifies that an input field must be filled out before submitting the form.
+     * Default value is false.
+     */
+    required?: boolean | undefined;
+    /**
      * Identifier of the underlying input element.
      */
     inputId?: string | undefined;
@@ -146,7 +151,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [Password](https://www.primefaces.org/primevue/showcase/#/password)
+ * - [Password](https://www.primefaces.org/primevue/password)
  *
  */
 export default Password;

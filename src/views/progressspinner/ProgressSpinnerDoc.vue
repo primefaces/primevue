@@ -1,28 +1,28 @@
 <template>
-	<AppDoc name="ProgressSpinnerDemo" :sources="sources" github="progressspinner/ProgressSpinnerDemo.vue">
+    <AppDoc name="ProgressSpinnerDemo" :sources="sources" github="progressspinner/ProgressSpinnerDemo.vue">
         <h5>Import via Module</h5>
-<pre v-code.script><code>
+        <pre v-code.script><code>
 import ProgressSpinner from 'primevue/progressspinner';
 
 </code></pre>
 
         <h5>Import via CDN</h5>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/progressspinner/progressspinner.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-		<h5>Getting Started</h5>
-		<p>ProgressSpinner is defined using ProgressSpinner element.</p>
-<pre v-code><code><template v-pre>
+        <h5>Getting Started</h5>
+        <p>ProgressSpinner is defined using ProgressSpinner element.</p>
+        <pre v-code><code><template v-pre>
 &lt;ProgressSpinner /&gt;
 </template>
 </code></pre>
 
         <h5>Colors</h5>
         <p>Colors of the spinner can be changed by overriding the keyframes animation.</p>
-<pre v-code.css><code>
+        <pre v-code.css><code>
 @keyframes p-progress-spinner-color {
     100%,
     0% {
@@ -42,19 +42,19 @@ import ProgressSpinner from 'primevue/progressspinner';
 
 </code></pre>
 
-		<h5>Properties</h5>
+        <h5>Properties</h5>
         <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Type</th>
                         <th>Default</th>
                         <th>Description</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>strokeWidth</td>
                         <td>string</td>
@@ -73,21 +73,21 @@ import ProgressSpinner from 'primevue/progressspinner';
                         <td>2s</td>
                         <td>Duration of the rotate animation.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
-		<h5>Styling</h5>
-		<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <h5>Styling</h5>
+        <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Element</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>p-progress-spinner</td>
                         <td>Container element.</td>
@@ -100,12 +100,12 @@ import ProgressSpinner from 'primevue/progressspinner';
                         <td>p-progress-path</td>
                         <td>Circle element.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
-		<h5>Dependencies</h5>
-		<p>None.</p>
+        <h5>Dependencies</h5>
+        <p>None.</p>
     </AppDoc>
 </template>
 
@@ -113,7 +113,7 @@ import ProgressSpinner from 'primevue/progressspinner';
 export default {
     data() {
         return {
-           sources: {
+            sources: {
                 'options-api': {
                     tabName: 'Options API Source',
                     content: `
@@ -177,7 +177,7 @@ export default {
         <\\/script>`
                 }
             }
-        }
+        };
     }
-}
+};
 </script>

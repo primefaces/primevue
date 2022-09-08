@@ -25,7 +25,7 @@
             </Toolbar>
         </div>
 
-        <ToolbarDoc/>
+        <ToolbarDoc />
     </div>
 </template>
 <script>
@@ -47,20 +47,21 @@ export default {
                     label: 'Vue Website',
                     icon: 'pi pi-external-link',
                     command: () => {
-                        window.location.href = 'https://vuejs.org/'
+                        window.location.href = 'https://vuejs.org/';
                     }
                 },
-                {   label: 'Upload',
+                {
+                    label: 'Upload',
                     icon: 'pi pi-upload',
                     command: () => {
                         this.$router.push('fileupload');
                     }
                 }
             ]
-        }
+        };
     },
-	components: {
-		'ToolbarDoc': ToolbarDoc
+    components: {
+        ToolbarDoc: ToolbarDoc
     }
-}
+};
 </script>

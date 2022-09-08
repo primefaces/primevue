@@ -12,7 +12,7 @@ export default {
     props: {
         position: {
             type: String,
-            default: "bottom"
+            default: 'bottom'
         },
         model: null,
         class: null,
@@ -31,7 +31,7 @@ export default {
     components: {
         DockSub
     }
-}
+};
 </script>
 
 <style>
@@ -59,7 +59,7 @@ export default {
 }
 
 .p-dock-item {
-    transition: all .2s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     will-change: transform;
 }
 

@@ -13,7 +13,7 @@ export default {
                     close: (params) => {
                         DynamicDialogEventBus.emit('close', { instance, params });
                     }
-                }
+                };
 
                 DynamicDialogEventBus.emit('open', { instance });
 
@@ -25,4 +25,4 @@ export default {
         app.config.globalProperties.$dialog = DialogService;
         app.provide(PrimeVueDialogSymbol, DialogService);
     }
-}
+};

@@ -29,13 +29,10 @@ describe('SplitButton.vue', () => {
                         label: 'Vue Website',
                         icon: 'pi pi-external-link',
                         command: () => {
-                            window.location.href = 'https://vuejs.org/'
+                            window.location.href = 'https://vuejs.org/';
                         }
                     },
-                    {   label: 'Upload',
-                        icon: 'pi pi-upload',
-                        to: '/fileupload'
-                    }
+                    { label: 'Upload', icon: 'pi pi-upload', to: '/fileupload' }
                 ]
             }
         });

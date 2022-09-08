@@ -231,7 +231,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [InputNumber](https://www.primefaces.org/primevue/showcase/#/inputnumber)
+ * - [InputNumber](https://www.primefaces.org/primevue/inputnumber)
  *
  */
 export default InputNumber;

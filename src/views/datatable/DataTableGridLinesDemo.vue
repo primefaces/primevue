@@ -1,32 +1,28 @@
 <template>
-	<div>
-		<div class="content-section introduction">
-			<div class="feature-intro">
-				<h1>DataTable <span>GridLines</span></h1>
-				<p>Enabling <b>showGridlines</b> displays borders between cells. Note: Some themes may always display gridlines by design.</p>
-			</div>
+    <div>
+        <div class="content-section introduction">
+            <div class="feature-intro">
+                <h1>DataTable <span>GridLines</span></h1>
+                <p>Enabling <b>showGridlines</b> displays borders between cells. Note: Some themes may always display gridlines by design.</p>
+            </div>
             <AppDemoActions />
-		</div>
+        </div>
 
-		<div class="content-section implementation">
+        <div class="content-section implementation">
             <div class="card">
                 <DataTable :value="products" showGridlines responsiveLayout="scroll">
-                    <template #header>
-                        Header
-                    </template>
+                    <template #header> Header </template>
                     <Column field="code" header="Code"></Column>
                     <Column field="name" header="Name"></Column>
                     <Column field="category" header="Category"></Column>
                     <Column field="quantity" header="Quantity"></Column>
-                    <template #footer>
-                        Footer
-                    </template>
+                    <template #footer> Footer </template>
                 </DataTable>
             </div>
-		</div>
+        </div>
 
         <AppDoc name="DataTableGridLinesDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="datatable/DataTableGridLinesDemo.vue" />
-	</div>
+    </div>
 </template>
 
 <script>
@@ -163,14 +159,14 @@ export default {
 `
                 }
             }
-        }
+        };
     },
     productService: null,
     created() {
         this.productService = new ProductService();
     },
     mounted() {
-        this.productService.getProductsSmall().then(data => this.products = data);
+        this.productService.getProductsSmall().then((data) => (this.products = data));
     }
-}
+};
 </script>

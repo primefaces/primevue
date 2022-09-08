@@ -169,6 +169,10 @@ export interface DropdownProps {
      */
     loadingIcon?: string | undefined;
     /**
+     * Clears the filter value when hiding the dropdown.
+     */
+    resetFilterOnHide?: boolean;
+    /**
      * Whether to use the virtualScroller feature. The properties of VirtualScroller component can be used like an object in it.
      * @see VirtualScroller.VirtualScrollerProps
      */
@@ -178,6 +182,16 @@ export interface DropdownProps {
      * Default value is true.
      */
     autoOptionFocus?: boolean | undefined;
+    /**
+     * Whether to focus on the filter element when the overlay panel is shown.
+     * Default value is false.
+     */
+    autoFilterFocus?: boolean | undefined;
+    /**
+     * When enabled, the focused option is selected.
+     * Default value is false.
+     */
+    selectOnFocus?: boolean | undefined;
     /**
      * Text to be displayed in hidden accessible field when filtering returns any results. Defaults to value from PrimeVue locale configuration.
      * Default value is '{0} results are available'.
@@ -410,7 +424,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [Dropdown](https://www.primefaces.org/primevue/showcase/#/dropdown)
+ * - [Dropdown](https://www.primefaces.org/primevue/dropdown)
  *
  */
 export default Dropdown;

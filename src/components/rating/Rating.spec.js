@@ -17,7 +17,7 @@ describe('Rating.vue', () => {
         await wrapper.vm.updateModel({}, 5);
 
         expect(wrapper.emitted()['update:modelValue'][0]).toEqual([5]);
-        expect(wrapper.emitted()['change'][0]).toEqual([{originalEvent: {}, value: 5}]);
+        expect(wrapper.emitted()['change'][0]).toEqual([{ originalEvent: {}, value: 5 }]);
     });
 
     it('should click', async () => {

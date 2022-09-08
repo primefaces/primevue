@@ -1,12 +1,8 @@
 <template>
     <div class="stepsdemo-content">
         <Card>
-            <template v-slot:title>
-                Seat Information
-            </template>
-            <template v-slot:subtitle>
-                Choose your seat
-            </template>
+            <template v-slot:title> Seat Information </template>
+            <template v-slot:subtitle> Choose your seat </template>
             <template v-slot:content>
                 <div class="p-fluid formgrid grid">
                     <div class="field col-12 md:col-6">
@@ -35,19 +31,19 @@
 
 <script>
 export default {
-    data () {
+    data() {
         return {
             selectedClass: '',
             classes: [
-                {name: 'First Class', code: 'A', factor: 1},
-                {name: 'Second Class', code: 'B', factor: 2},
-                {name: 'Third Class', code: 'C', factor: 3}
+                { name: 'First Class', code: 'A', factor: 1 },
+                { name: 'Second Class', code: 'B', factor: 2 },
+                { name: 'Third Class', code: 'C', factor: 3 }
             ],
             wagons: [],
             selectedWagon: '',
             seats: [],
             selectedSeat: ''
-        }
+        };
     },
     methods: {
         setWagons(event) {
@@ -55,7 +51,7 @@ export default {
                 this.wagons = [];
                 this.seats = [];
                 for (let i = 1; i < 3 * event.value.factor; i++) {
-                    this.wagons.push({wagon: i + event.value.code, type: event.value.name, factor: event.value.factor});
+                    this.wagons.push({ wagon: i + event.value.code, type: event.value.name, factor: event.value.factor });
                 }
             }
         },
@@ -63,16 +59,16 @@ export default {
             if (this.selectedWagon && event.value) {
                 this.seats = [];
                 for (let i = 1; i < 10 * event.value.factor; i++) {
-                    this.seats.push({seat: i, type: event.value.type});
+                    this.seats.push({ seat: i, type: event.value.type });
                 }
             }
         },
         nextPage() {
-            this.$emit('next-page', {formData: {class: this.selectedClass.name, wagon: this.selectedWagon.wagon, seat: this.selectedSeat.seat}, pageIndex: 1});
+            this.$emit('next-page', { formData: { class: this.selectedClass.name, wagon: this.selectedWagon.wagon, seat: this.selectedSeat.seat }, pageIndex: 1 });
         },
         prevPage() {
-            this.$emit('prev-page', {pageIndex: 1});
+            this.$emit('prev-page', { pageIndex: 1 });
         }
     }
-}
+};
 </script>

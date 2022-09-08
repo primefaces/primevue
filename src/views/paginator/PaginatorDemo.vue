@@ -1,23 +1,22 @@
 <template>
-	<div>
-		<div class="content-section introduction">
-			<div class="feature-intro">
-				<h1>Paginator</h1>
-				<p>Paginator is a generic component to display content in paged format.</p>
-			</div>
+    <div>
+        <div class="content-section introduction">
+            <div class="feature-intro">
+                <h1>Paginator</h1>
+                <p>Paginator is a generic component to display content in paged format.</p>
+            </div>
             <AppDemoActions />
-		</div>
+        </div>
 
-		<div class="content-section implementation">
+        <div class="content-section implementation">
             <div class="card">
                 <h5>Basic</h5>
-                <Paginator :rows="10" :totalRecords="totalRecords" :rowsPerPageOptions="[10,20,30]"></Paginator>
+                <Paginator :rows="10" :totalRecords="totalRecords" :rowsPerPageOptions="[10, 20, 30]"></Paginator>
 
                 <h5>Custom</h5>
-                <Paginator v-model:first="first" :rows="1" :totalRecords="totalRecords2"
-                    template="FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink">
+                <Paginator v-model:first="first" :rows="1" :totalRecords="totalRecords2" template="FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink">
                     <template #start>
-                        <Button type="button" icon="pi pi-refresh" @click="reset()"/>
+                        <Button type="button" icon="pi pi-refresh" @click="reset()" />
                     </template>
                     <template #end>
                         <Button type="button" icon="pi pi-search" />
@@ -28,10 +27,10 @@
                     <img :src="'demo/images/nature/' + image + '.jpg'" />
                 </div>
             </div>
-		</div>
+        </div>
 
         <PaginatorDoc />
-	</div>
+    </div>
 </template>
 
 <script>
@@ -40,10 +39,10 @@ import PaginatorDoc from './PaginatorDoc';
 export default {
     data() {
         return {
-			first: 0,
+            first: 0,
             totalRecords: 120,
             totalRecords2: 12
-        }
+        };
     },
     methods: {
         reset() {
@@ -56,9 +55,9 @@ export default {
         }
     },
     components: {
-        'PaginatorDoc': PaginatorDoc
+        PaginatorDoc: PaginatorDoc
     }
-}
+};
 </script>
 
 <style scoped>

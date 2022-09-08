@@ -1,21 +1,21 @@
 <template>
-	<AppDoc name="ToolbarDemo" :sources="sources" github="toolbar/ToolbarDemo.vue" >
+    <AppDoc name="ToolbarDemo" :sources="sources" github="toolbar/ToolbarDemo.vue">
         <h5>Import via Module</h5>
-<pre v-code.script><code>
+        <pre v-code.script><code>
 import Toolbar from 'primevue/toolbar';
 
 </code></pre>
 
         <h5>Import via CDN</h5>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/toolbar/toolbar.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-		<h5>Getting Started</h5>
-		<p>Toolbar provides <i>start</i> and <i>end</i> templates to place content at these sections.</p>
-<pre v-code><code>
+        <h5>Getting Started</h5>
+        <p>Toolbar provides <i>start</i> and <i>end</i> templates to place content at these sections.</p>
+        <pre v-code><code>
 &lt;Toolbar&gt;
     &lt;template #start&gt;
         &lt;Button label="New" icon="pi pi-plus" class="mr-2" /&gt;
@@ -34,15 +34,15 @@ import Toolbar from 'primevue/toolbar';
 </code></pre>
 
         <h5>Slots</h5>
-		<div class="doc-tablewrapper">
+        <div class="doc-tablewrapper">
             <table class="doc-table">
-				<thead>
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Parameters</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>start</td>
                         <td>-</td>
@@ -51,39 +51,51 @@ import Toolbar from 'primevue/toolbar';
                         <td>end</td>
                         <td>-</td>
                     </tr>
-				</tbody>
-			</table>
+                </tbody>
+            </table>
         </div>
 
-		<h5>Styling</h5>
-		<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <h5>Styling</h5>
+        <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Element</th>
                     </tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>p-toolbar</td>
-						<td>Main container element.</td>
-					</tr>
-					<tr>
-						<td>p-toolbar-group-left</td>
-						<td>Left content container.</td>
-					</tr>
-					<tr>
-						<td>p-toolbar-group-right</td>
-						<td>Right content container.</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>p-toolbar</td>
+                        <td>Main container element.</td>
+                    </tr>
+                    <tr>
+                        <td>p-toolbar-group-left</td>
+                        <td>Left content container.</td>
+                    </tr>
+                    <tr>
+                        <td>p-toolbar-group-right</td>
+                        <td>Right content container.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-		<h5>Dependencies</h5>
-		<p>None.</p>
+        <h5>Accessibility</h5>
+        <DevelopmentSection>
+            <h6>Screen Reader</h6>
+            <p>
+                Toolbar uses <i>toolbar</i> role to the root element, <i>aria-orientation</i> is not included as it defaults to "horizontal". Any valid attribute is passed to the root element so you may add additional properties like
+                <i>aria-labelledby</i> to define the element if required.
+            </p>
+
+            <h5>Keyboard Support</h5>
+            <p>Component does not include any interactive elements. Arbitrary content can be placed with templating and elements like buttons inside should follow the page tab sequence.</p>
+        </DevelopmentSection>
+
+        <h5>Dependencies</h5>
+        <p>None.</p>
     </AppDoc>
 </template>
 
@@ -287,7 +299,7 @@ export default {
         </style>`
                 }
             }
-        }
+        };
     }
-}
+};
 </script>

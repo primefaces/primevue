@@ -27,7 +27,7 @@ export default {
     data() {
         return {
             mounted: false
-        }
+        };
     },
     mounted() {
         this.mounted = DomHandler.isClient();
@@ -37,5 +37,5 @@ export default {
             return this.disabled || this.appendTo === 'self';
         }
     }
-}
+};
 </script>

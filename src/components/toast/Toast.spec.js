@@ -10,7 +10,7 @@ describe('Toast.vue', () => {
                 mocks: {
                     $primevue: {
                         config: {
-                            'ripple': true
+                            ripple: true
                         }
                     }
                 },
@@ -20,10 +20,10 @@ describe('Toast.vue', () => {
             },
             data() {
                 return {
-                    messages: [{severity:'success', summary: 'Success Message', detail:'Message Content', life: 3000}]
-                }
+                    messages: [{ severity: 'success', summary: 'Success Message', detail: 'Message Content', life: 3000 }]
+                };
             }
-        })
+        });
     });
 
     it('should exist', () => {
@@ -46,7 +46,7 @@ describe('Toast.vue', () => {
     });
 
     it('should close toast', async () => {
-        await wrapper.vm.remove({severity:'success', summary: 'Success Message', detail:'Message Content', life: 3000});
+        await wrapper.vm.remove({ severity: 'success', summary: 'Success Message', detail: 'Message Content', life: 3000 });
 
         expect(wrapper.find('.p-toast-message').exists()).toBe(false);
     });
@@ -54,9 +54,9 @@ describe('Toast.vue', () => {
     it('should show multiple toast', async () => {
         await wrapper.setData({
             messages: [
-                {severity:'info', summary:'Message 1', detail:'Message 1 Content', life: 3000},
-                {severity:'info', summary:'Message 2', detail:'Message 2 Content', life: 3000},
-                {severity:'info', summary:'Message 3', detail:'Message 3 Content', life: 3000}
+                { severity: 'info', summary: 'Message 1', detail: 'Message 1 Content', life: 3000 },
+                { severity: 'info', summary: 'Message 2', detail: 'Message 2 Content', life: 3000 },
+                { severity: 'info', summary: 'Message 3', detail: 'Message 3 Content', life: 3000 }
             ]
         });
 
@@ -66,9 +66,9 @@ describe('Toast.vue', () => {
     it('should close multiple toast', async () => {
         await wrapper.setData({
             messages: [
-                {severity:'info', summary:'Message 1', detail:'Message 1 Content', life: 3000},
-                {severity:'info', summary:'Message 2', detail:'Message 2 Content', life: 3000},
-                {severity:'info', summary:'Message 3', detail:'Message 3 Content', life: 3000}
+                { severity: 'info', summary: 'Message 1', detail: 'Message 1 Content', life: 3000 },
+                { severity: 'info', summary: 'Message 2', detail: 'Message 2 Content', life: 3000 },
+                { severity: 'info', summary: 'Message 3', detail: 'Message 3 Content', life: 3000 }
             ]
         });
 

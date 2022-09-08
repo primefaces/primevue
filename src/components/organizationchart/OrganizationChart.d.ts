@@ -140,7 +140,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [OrganizationChart](https://www.primefaces.org/primevue/showcase/#/organizationchart)
+ * - [OrganizationChart](https://www.primefaces.org/primevue/organizationchart)
  *
  */
 export default OrganizationChart;

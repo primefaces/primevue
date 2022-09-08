@@ -12,7 +12,7 @@
             <div class="card">
                 <h5>Basic</h5>
                 <InputText type="text" v-model="value1" />
-                <span :style="{marginLeft: '.5em'}">{{value1}}</span>
+                <span :style="{ marginLeft: '.5em' }">{{ value1 }}</span>
 
                 <h5>Floating Label</h5>
                 <span class="p-float-label">
@@ -53,7 +53,7 @@
                 <div class="sizes">
                     <InputText type="text" class="p-inputtext-sm" placeholder="Small" />
                     <InputText type="text" placeholder="Normal" />
-                    <InputText type="text" class="p-inputtext-lg"  placeholder="Large" />
+                    <InputText type="text" class="p-inputtext-lg" placeholder="Large" />
                 </div>
             </div>
         </div>
@@ -73,19 +73,19 @@ export default {
             value3: null,
             value4: null,
             value5: 'PrimeVue'
-        }
+        };
     },
-	components: {
-		'InputTextDoc': InputTextDoc
+    components: {
+        InputTextDoc: InputTextDoc
     }
-}
+};
 </script>
 
 <style lang="scss" scoped>
 .sizes {
     .p-inputtext {
         display: block;
-        margin-bottom: .5rem;
+        margin-bottom: 0.5rem;
 
         &:last-child {
             margin-bottom: 0;

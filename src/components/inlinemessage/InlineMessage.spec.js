@@ -8,7 +8,7 @@ describe('InlineMessage.vue', () => {
                 default: 'Username is required'
             },
             props: {
-                severity: 'error',   
+                severity: 'error'
             }
         });
 

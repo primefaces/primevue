@@ -53,7 +53,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [Steps](https://www.primefaces.org/primevue/showcase/#/steps)
+ * - [Steps](https://www.primefaces.org/primevue/steps)
  *
  */
 export default Steps;

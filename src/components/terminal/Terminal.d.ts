@@ -35,7 +35,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [Terminal](https://www.primefaces.org/primevue/showcase/#/terminal)
+ * - [Terminal](https://www.primefaces.org/primevue/terminal)
  *
  */
 export default Terminal;

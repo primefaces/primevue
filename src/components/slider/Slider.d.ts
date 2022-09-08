@@ -97,7 +97,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [Slider](https://www.primefaces.org/primevue/showcase/#/slider)
+ * - [Slider](https://www.primefaces.org/primevue/slider)
  *
  */
 export default Slider;

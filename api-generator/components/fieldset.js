@@ -17,6 +17,12 @@ const FieldsetProps = [
         type: "boolean",
         default: "true",
         description: "Defines the default visibility state of the content."
+    },
+    {
+        name: "toggleButtonProps",
+        type: "string",
+        default: "null",
+        description: "Uses to pass the custom value to read for the anchor inside the component."
     }
 ];
 

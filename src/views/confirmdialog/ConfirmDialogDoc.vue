@@ -1,9 +1,8 @@
 <template>
-	<AppDoc name="ConfirmDialogDemo" :sources="sources" github="confirmdialog/ConfirmDialogDemo.vue">
+    <AppDoc name="ConfirmDialogDemo" :sources="sources" github="confirmdialog/ConfirmDialogDemo.vue">
         <h5>ConfirmationService</h5>
-        <p>ConfirmDialog is controlled via the <i>ConfirmationService</i> that needs to be installed globally before the application
-            instance is created.</p>
-<pre v-code.script><code>
+        <p>ConfirmDialog is controlled via the <i>ConfirmationService</i> that needs to be installed globally before the application instance is created.</p>
+        <pre v-code.script><code>
 import {createApp} from 'vue';
 import ConfirmationService from 'primevue/confirmationservice';
 
@@ -12,30 +11,32 @@ app.use(ConfirmationService);
 
 </code></pre>
 
-		<h5>Import via Module</h5>
-<pre v-code.script><code>
+        <h5>Import via Module</h5>
+        <pre v-code.script><code>
 import ConfirmDialog from 'primevue/confirmdialog';
 
 </code></pre>
 
         <h5>Import via CDN</h5>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/confirmdialog/confirmdialog.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-		<h5>Getting Started</h5>
-		<p>ConfirmDialog is displayed by calling the <i>require</i> method of the <i>$confirm</i> instance by passing the options to customize the Dialog. Suggested location of the Dialog is the main application component
-        where it can be shared by any component within the application.</p>
-<pre v-code><code>
+        <h5>Getting Started</h5>
+        <p>
+            ConfirmDialog is displayed by calling the <i>require</i> method of the <i>$confirm</i> instance by passing the options to customize the Dialog. Suggested location of the Dialog is the main application component where it can be shared by
+            any component within the application.
+        </p>
+        <pre v-code><code>
 &lt;ConfirmDialog&gt;&lt;/ConfirmDialog&gt;
 
 &lt;Button @click="delete()" icon="pi pi-check" label="Confirm"&gt;&lt;/Button&gt;
 
 </code></pre>
 
-<pre v-code.script><code>
+        <pre v-code.script><code>
 export default {
 	methods: {
         delete() {
@@ -61,7 +62,7 @@ export default {
 
         <h5>Composition API</h5>
         <p>The service can be injected with the <i>useConfirm</i> function.</p>
-<pre v-code.script><code>
+        <pre v-code.script><code>
 import { defineComponent } from "vue";
 import { useConfirm } from "primevue/useconfirm";
 
@@ -89,7 +90,7 @@ export default defineComponent({
 
         <h5>Close Confirmation</h5>
         <p>The dialog can also be hidden programmatically using the <i>close</i> method.</p>
-<pre v-code.script><code>
+        <pre v-code.script><code>
 export default {
 	methods: {
         discard() {
@@ -102,7 +103,7 @@ export default {
 
         <h5>Templating</h5>
         <p>Templating allows customizing the content where the message instance is available as the implicit variable.</p>
-<pre v-code><code><template v-pre>
+        <pre v-code><code><template v-pre>
 &lt;ConfirmPopup group="demo">
     &lt;template #message="slotProps"&gt;
         &lt;div class="flex p-4"&gt;
@@ -116,9 +117,11 @@ export default {
 </code></pre>
 
         <h5>Responsive</h5>
-        <p>ConfirmDialog width can be adjusted per screen size with the <i>breakpoints</i> option. In example below, default width is set to 50vw and below 961px, width would be 75vw and finally below 641px width becomes
-        100%. The value of <i>breakpoints</i> should be an object literal whose keys are the maximum screen sizes and values are the widths per screen.</p>
-<pre v-code><code>
+        <p>
+            ConfirmDialog width can be adjusted per screen size with the <i>breakpoints</i> option. In example below, default width is set to 50vw and below 961px, width would be 75vw and finally below 641px width becomes 100%. The value of
+            <i>breakpoints</i> should be an object literal whose keys are the maximum screen sizes and values are the widths per screen.
+        </p>
+        <pre v-code><code>
 &lt;ConfirmDialog :breakpoints="{'960px': '75vw', '640px': '100vw'}" :style="{width: '50vw'}"&gt;&lt;/ConfirmDialog&gt;
 
 </code></pre>
@@ -255,19 +258,19 @@ export default {
             </table>
         </div>
 
-		<h5>Properties</h5>
+        <h5>Properties</h5>
         <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Type</th>
                         <th>Default</th>
                         <th>Description</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>group</td>
                         <td>string</td>
@@ -280,49 +283,49 @@ export default {
                         <td>null</td>
                         <td>Object literal to define widths per screen size.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
         <h5>Slots</h5>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Parameters</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>message</td>
                         <td>-</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
-		<h5>Styling</h5>
-		<p>ConfirmDialog inherits all the classes from the Dialog component, visit <router-link to="/dialog">dialog</router-link> for more information.</p>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
-				<tr>
-					<th>Name</th>
-					<th>Element</th>
-				</tr>
-				</thead>
-				<tbody>
+        <h5>Styling</h5>
+        <p>ConfirmDialog inherits all the classes from the Dialog component, visit <router-link to="/dialog">dialog</router-link> for more information.</p>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Element</th>
+                    </tr>
+                </thead>
+                <tbody>
                     <tr>
                         <td>p-confirm-dialog</td>
                         <td>Container element.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
-		<h5>Dependencies</h5>
-		<p>None.</p>
+        <h5>Dependencies</h5>
+        <p>None.</p>
     </AppDoc>
 </template>
 
@@ -740,7 +743,7 @@ export default defineComponent({
 `
                 }
             }
-        }
+        };
     }
-}
+};
 </script>

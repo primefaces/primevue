@@ -13,7 +13,7 @@ describe('Chip.vue', () => {
             }
         });
     });
-    
+
     it('should exists', () => {
         expect(wrapper.find('.p-chip.p-component').exists()).toBe(true);
         expect(wrapper.find('.p-chip-icon').classes()).toContain('pi-primevue');
@@ -22,8 +22,8 @@ describe('Chip.vue', () => {
     });
 
     it('should close icon work', async () => {
-        await wrapper.find('.p-chip-remove-icon').trigger('click')
-        
+        await wrapper.find('.p-chip-remove-icon').trigger('click');
+
         expect(wrapper.find('.p-chip.p-component').exists()).toBe(false);
     });
 });

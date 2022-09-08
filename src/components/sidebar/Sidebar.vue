@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import {DomHandler,ZIndexUtils} from 'primevue/utils';
+import { DomHandler, ZIndexUtils } from 'primevue/utils';
 import Ripple from 'primevue/ripple';
 import Portal from 'primevue/portal';
 
@@ -153,29 +153,32 @@ export default {
     },
     computed: {
         containerClass() {
-            return ['p-sidebar p-component p-sidebar-' + this.position , {
-                'p-sidebar-active': this.visible,
-                'p-input-filled': this.$primevue.config.inputStyle === 'filled',
-                'p-ripple-disabled': this.$primevue.config.ripple === false
-            }];
+            return [
+                'p-sidebar p-component p-sidebar-' + this.position,
+                {
+                    'p-sidebar-active': this.visible,
+                    'p-input-filled': this.$primevue.config.inputStyle === 'filled',
+                    'p-ripple-disabled': this.$primevue.config.ripple === false
+                }
+            ];
         },
         fullScreen() {
             return this.position === 'full';
         }
     },
     directives: {
-        'ripple': Ripple
+        ripple: Ripple
     },
     components: {
-        'Portal': Portal
+        Portal: Portal
     }
-}
+};
 </script>
 
 <style>
 .p-sidebar {
     position: fixed;
-    transition: transform .3s;
+    transition: transform 0.3s;
     display: flex;
     flex-direction: column;
 }

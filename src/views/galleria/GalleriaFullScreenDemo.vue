@@ -10,13 +10,12 @@
         <div class="content-section implementation">
             <div class="card">
                 <h5>With Thumbnails</h5>
-                <Galleria :value="images" :responsiveOptions="responsiveOptions2" :numVisible="9" containerStyle="max-width: 50%"
-                    :circular="true" :fullScreen="true" :showItemNavigators="true" v-model:visible="displayBasic">
+                <Galleria :value="images" :responsiveOptions="responsiveOptions2" :numVisible="9" containerStyle="max-width: 50%" :circular="true" :fullScreen="true" :showItemNavigators="true" v-model:visible="displayBasic">
                     <template #item="slotProps">
-                        <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
+                        <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
                     </template>
                     <template #thumbnail="slotProps">
-                        <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block;" />
+                        <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block" />
                     </template>
                 </Galleria>
 
@@ -25,13 +24,12 @@
 
             <div class="card">
                 <h5>Without Thumbnails</h5>
-                <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="7" containerStyle="max-width: 850px"
-                    :circular="true" :fullScreen="true" :showItemNavigators="true" :showThumbnails="false" v-model:visible="displayBasic2">
+                <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="7" containerStyle="max-width: 850px" :circular="true" :fullScreen="true" :showItemNavigators="true" :showThumbnails="false" v-model:visible="displayBasic2">
                     <template #item="slotProps">
-                        <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
+                        <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
                     </template>
                     <template #thumbnail="slotProps">
-                        <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block;" />
+                        <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block" />
                     </template>
                 </Galleria>
 
@@ -40,19 +38,29 @@
 
             <div class="card">
                 <h5>Custom Content</h5>
-                <Galleria :value="images" v-model:activeIndex="activeIndex" :responsiveOptions="responsiveOptions" :numVisible="7" containerStyle="max-width: 850px"
-                    :circular="true" :fullScreen="true" :showItemNavigators="true" :showThumbnails="false" v-model:visible="displayCustom">
+                <Galleria
+                    :value="images"
+                    v-model:activeIndex="activeIndex"
+                    :responsiveOptions="responsiveOptions"
+                    :numVisible="7"
+                    containerStyle="max-width: 850px"
+                    :circular="true"
+                    :fullScreen="true"
+                    :showItemNavigators="true"
+                    :showThumbnails="false"
+                    v-model:visible="displayCustom"
+                >
                     <template #item="slotProps">
-                        <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
+                        <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
                     </template>
                     <template #thumbnail="slotProps">
-                        <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block;" />
+                        <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block" />
                     </template>
                 </Galleria>
 
-                <div v-if="images" class="grid" style="max-width: 400px;">
+                <div v-if="images" class="grid" style="max-width: 400px">
                     <div v-for="(image, index) of images" class="col-3" :key="index">
-                        <img :src="image.thumbnailImageSrc" :alt="image.alt" style="cursor: pointer" @click="imageClick(index)"/>
+                        <img :src="image.thumbnailImageSrc" :alt="image.alt" style="cursor: pointer" @click="imageClick(index)" />
                     </div>
                 </div>
             </div>
@@ -61,7 +69,7 @@
         <div class="content-section documentation">
             <TabView>
                 <TabPanel header="Source">
-<pre v-code><code><template v-pre>
+                    <pre v-code><code><template v-pre>
 &lt;h3&gt;With Thumbnails&lt;/h3&gt;
 &lt;Galleria :value="images" :responsiveOptions="responsiveOptions2" :numVisible="9" containerStyle="max-width: 50%"
     :circular="true" :fullScreen="true" :showItemNavigators="true" v-model:visible="displayBasic"&gt;
@@ -107,7 +115,7 @@
 </template>
 </code></pre>
 
-<pre v-code.script><code>
+                    <pre v-code.script><code>
 import PhotoService from '../../service/PhotoService';
 
 export default {
@@ -182,8 +190,8 @@ export default {
         return {
             images: null,
             activeIndex: 0,
-			responsiveOptions: [
-				{
+            responsiveOptions: [
+                {
                     breakpoint: '1024px',
                     numVisible: 5
                 },
@@ -217,14 +225,14 @@ export default {
             displayBasic: false,
             displayBasic2: false,
             displayCustom: false
-        }
+        };
     },
     galleriaService: null,
-	created() {
-		this.galleriaService = new PhotoService();
-	},
-	mounted() {
-		this.galleriaService.getImages().then(data => this.images = data);
+    created() {
+        this.galleriaService = new PhotoService();
+    },
+    mounted() {
+        this.galleriaService.getImages().then((data) => (this.images = data));
     },
     methods: {
         imageClick(index) {
@@ -232,5 +240,5 @@ export default {
             this.displayCustom = true;
         }
     }
-}
+};
 </script>

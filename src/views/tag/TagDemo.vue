@@ -41,8 +41,8 @@
 import TagDoc from './TagDoc';
 
 export default {
-	components: {
-		'TagDoc': TagDoc
-	}
-}
+    components: {
+        TagDoc: TagDoc
+    }
+};
 </script>

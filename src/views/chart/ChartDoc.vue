@@ -1,40 +1,45 @@
 <template>
-	<div class="content-section documentation">
+    <div class="content-section documentation">
         <h1>ChartModel</h1>
         <p>Chart components are based on <a href="https://www.chartjs.org/">Charts.js</a>, an open source HTML5 based charting library.</p>
 
         <h5>Getting Started</h5>
-        <p>Chart component is a wrapper around on <a href="https://www.chartjs.org/docs/3.3.2/">Chart.js 3.3.2+</a> so chart.js needs to be included in your project.
-        For a complete documentation and samples please refer to the <a href="https://www.chartjs.org/">chart.js website</a>.</p>
- <pre v-code.script><code>
+        <p>
+            Chart component is a wrapper around on <a href="https://www.chartjs.org/docs/3.3.2/">Chart.js 3.3.2+</a> so chart.js needs to be included in your project. For a complete documentation and samples please refer to the
+            <a href="https://www.chartjs.org/">chart.js website</a>.
+        </p>
+        <pre v-code.script><code>
 npm install chart.js --save
 
 </code></pre>
 
-		<h5>Import via Module</h5>
-<pre v-code.script><code>
+        <h5>Import via Module</h5>
+        <pre v-code.script><code>
 import Chart from 'primevue/chart';
 
 </code></pre>
 
         <h5>Import via CDN</h5>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/chart/chart.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-		<h5>Chart Types</h5>
-		<p>Chart type is defined using the <i>type</i> property. Currently there are 6 options available; <b>pie</b>, <b>doughnut</b>, <b>line</b>, <b>bar</b>, <b>radar</b> and <b>polarArea</b>.</p>
+        <h5>Chart Types</h5>
+        <p>Chart type is defined using the <i>type</i> property. Currently there are 6 options available; <b>pie</b>, <b>doughnut</b>, <b>line</b>, <b>bar</b>, <b>radar</b> and <b>polarArea</b>.</p>
 
-		<h5>Data</h5>
-		<p>Data of a chart is provided using a binding to the <i>data</i> property, each type has its own format of data. Here is an example of a line chart.  For more information refer to the <a href="https://www.chartjs.org/">charts.js</a> documentation.</p>
-<pre v-code><code>
+        <h5>Data</h5>
+        <p>
+            Data of a chart is provided using a binding to the <i>data</i> property, each type has its own format of data. Here is an example of a line chart. For more information refer to the
+            <a href="https://www.chartjs.org/">charts.js</a> documentation.
+        </p>
+        <pre v-code><code>
 &lt;Chart type="bar" :data="basicData" /&gt;
 
 </code></pre>
 
-<pre v-code.script><code>
+        <pre v-code.script><code>
 export default {
 	data() {
 		return {
@@ -59,15 +64,17 @@ export default {
 
 </code></pre>
 
-		<h5>Options</h5>
-		<p>While a series can be customized per dataset, general chart options are defined with options property.
-			Example below adds a title and customizes the legend position of the chart. For all available options refer to the <a href="https://www.chartjs.org/">charts.js</a> documentation.</p>
-<pre v-code><code>
+        <h5>Options</h5>
+        <p>
+            While a series can be customized per dataset, general chart options are defined with options property. Example below adds a title and customizes the legend position of the chart. For all available options refer to the
+            <a href="https://www.chartjs.org/">charts.js</a> documentation.
+        </p>
+        <pre v-code><code>
 &lt;Chart type="line" :data="data" :options="options" /&gt;
 
 </code></pre>
 
-<pre v-code.script><code>
+        <pre v-code.script><code>
 options: {
 	responsive: true,
 	hoverMode: 'index',
@@ -93,19 +100,19 @@ options: {
 
 </code></pre>
 
-		<h5>Properties</h5>
+        <h5>Properties</h5>
         <p>Any property as style and class are passed to the main container element. Following is the additional property to configure the component.</p>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Type</th>
                         <th>Default</th>
                         <th>Description</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>type</td>
                         <td>string</td>
@@ -142,21 +149,21 @@ options: {
                         <td>150</td>
                         <td>Height of the chart in non-responsive mode.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
-		<h5>Methods</h5>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <h5>Methods</h5>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Parameters</th>
                         <th>Description</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>refresh</td>
                         <td>-</td>
@@ -172,9 +179,9 @@ options: {
                         <td>-</td>
                         <td>Returns an HTML string of a legend for that chart. The legend is generated from the legendCallback in the options.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
         <h5>Events</h5>
         <div class="doc-tablewrapper">
@@ -190,10 +197,10 @@ options: {
                     <tr>
                         <td>select</td>
                         <td>
-                            event: original event<br>
-                            event.dataset: Selected dataset<br>
-                            event.element: Selected element<br>
-                            event.element._datasetIndex = Index of the dataset in data<br>
+                            event: original event<br />
+                            event.dataset: Selected dataset<br />
+                            event.element: Selected element<br />
+                            event.element._datasetIndex = Index of the dataset in data<br />
                             event.element._index = Index of the data in dataset
                         </td>
                         <td>Callback to invoke when a tab gets expanded.</td>
@@ -224,5 +231,5 @@ options: {
                 </tbody>
             </table>
         </div>
-	</div>
+    </div>
 </template>
