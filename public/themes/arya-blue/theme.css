@@ -1476,31 +1476,30 @@
   background: #2396f2;
 }
 
-.p-rating .p-rating-icon {
+.p-rating {
+  gap: 0.5rem;
+}
+.p-rating .p-rating-item .p-rating-icon {
   color: rgba(255, 255, 255, 0.87);
-  margin-left: 0.5rem;
   transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
   font-size: 1.143rem;
 }
-.p-rating .p-rating-icon.p-rating-cancel {
+.p-rating .p-rating-item .p-rating-icon.p-rating-cancel {
   color: #F48FB1;
 }
-.p-rating .p-rating-icon:first-child {
-  margin-left: 0;
-}
-.p-rating .p-rating-icon.pi-star-fill {
-  color: #64B5F6;
-}
-.p-rating:not(.p-disabled):not(.p-readonly) .p-rating-icon.p-focus {
+.p-rating .p-rating-item.p-focus {
   outline: 0 none;
   outline-offset: 0;
   box-shadow: 0 0 0 1px #93cbf9;
   border-color: #64B5F6;
 }
-.p-rating:not(.p-disabled):not(.p-readonly) .p-rating-icon:hover {
+.p-rating .p-rating-item.p-rating-item-active .p-rating-icon {
   color: #64B5F6;
 }
-.p-rating:not(.p-disabled):not(.p-readonly) .p-rating-icon.p-rating-cancel:hover {
+.p-rating:not(.p-disabled):not(.p-readonly) .p-rating-item:hover .p-rating-icon {
+  color: #64B5F6;
+}
+.p-rating:not(.p-disabled):not(.p-readonly) .p-rating-item:hover .p-rating-icon.p-rating-cancel {
   color: #F48FB1;
 }
 
@@ -3967,12 +3966,6 @@
 .p-splitter .p-splitter-gutter {
   transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
   background: rgba(255, 255, 255, 0.03);
-}
-.p-splitter .p-splitter-gutter:focus {
-  outline: 0 none;
-  outline-offset: 0;
-  box-shadow: inset 0 0 0 1px #93cbf9;
-  border-radius: 3px;
 }
 .p-splitter .p-splitter-gutter .p-splitter-gutter-handle {
   background: #383838;

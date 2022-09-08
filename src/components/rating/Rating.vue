@@ -1,47 +1,49 @@
 <template>
-    <div ref="rating" :class="containerClass">
-        <template v-if="cancel">
-            <span :class="cancelIconClasses()" @click="onCancelClick" @keydown="onKeyDown">
-                <component v-if="$slots.cancel" :is="$slots.cancel" />
+    <div :class="containerClass">
+        <div v-if="cancel" :class="['p-rating-item p-rating-cancel-item', { 'p-focus': focusedOptionIndex === 0 }]" @click="onOptionClick">
+            <span class="p-hidden-accessible">
+                <input type="radio" value="0" :name="name" :checked="modelValue === 0" :disabled="disabled" :readonly="readonly" :aria-label="cancelAriaLabel()" @focus="onFocus($event, 0)" @blur="onBlur" @change="onChange($event, value)" />
+            </span>
+            <slot name="cancel" :value="0">
+                <span :class="cancelIconClass" />
+            </slot>
+        </div>
+        <template v-for="value in stars" :key="value">
+            <div :class="['p-rating-item', { 'p-rating-item-active': value <= modelValue, 'p-focus': value === focusedOptionIndex }]" @click="onOptionClick">
                 <span class="p-hidden-accessible">
                     <input
                         type="radio"
-                        value="0"
+                        :value="value"
                         :name="name"
-                        :checked="modelValue === 0"
+                        :checked="modelValue === value"
                         :disabled="disabled"
                         :readonly="readonly"
-                        :aria-label="$primevue.config.locale.clear"
-                        @focus="onFocus($event, 0)"
+                        :aria-label="starAriaLabel(value)"
+                        @focus="onFocus($event, value)"
                         @blur="onBlur"
-                        @keydown="onKeyDown($event, 0)"
+                        @change="onChange($event, value)"
                     />
                 </span>
-            </span>
-        </template>
-        <template v-for="i in stars" :key="i">
-            <span :class="iconClasses(i)" @click="onStarClick($event, i)">
-                <component v-if="hasIconSlot && i <= modelValue" :is="$slots.onIcon" :index="i" />
-                <component v-if="hasIconSlot && i > modelValue" :is="$slots.offIcon" :index="i" />
-                <span class="p-hidden-accessible">
-                    <input type="radio" :value="i" :name="name" :checked="modelValue === i" :disabled="disabled" :readonly="readonly" :aria-label="ariaLabelTemplate(i)" @focus="onFocus($event, i)" @blur="onBlur" @keydown="onKeyDown($event, i)" />
-                </span>
-            </span>
+                <slot v-if="value <= modelValue" name="onicon" :value="value">
+                    <span :class="onIconClass" />
+                </slot>
+                <slot v-else name="officon" :value="value">
+                    <span :class="offIconClass" />
+                </slot>
+            </div>
         </template>
     </div>
 </template>
 
 <script>
+import { DomHandler, ObjectUtils, UniqueComponentId } from 'primevue/utils';
+
 export default {
     name: 'Rating',
-    emits: ['update:modelValue', 'change', 'focus', 'blur', 'cancel'],
+    emits: ['update:modelValue', 'change', 'focus', 'blur'],
     props: {
         modelValue: {
             type: Number,
-            default: null
-        },
-        name: {
-            type: String,
             default: null
         },
         disabled: {
@@ -62,11 +64,11 @@ export default {
         },
         onIcon: {
             type: String,
-            default: 'pi pi-star'
+            default: 'pi pi-star-fill'
         },
         offIcon: {
             type: String,
-            default: 'pi pi-star-fill'
+            default: 'pi pi-star'
         },
         cancelIcon: {
             type: String,
@@ -75,118 +77,46 @@ export default {
     },
     data() {
         return {
-            focusIndex: null,
-            outsideClickListener: null,
-            keyboardEvent: false
+            focusedOptionIndex: -1
         };
     },
-    mounted() {
-        this.bindOutsideClickListener();
-    },
-    beforeUnmount() {
-        this.unbindOutsideClickListener();
-    },
     methods: {
-        onStarClick(event, value) {
-            if (!this.readonly && !this.disabled && !this.keyboardEvent) {
-                this.updateModel(event, value);
-                window.setTimeout(() => {
-                    this.focusIndex = value;
-                }, 1);
-            }
+        onOptionClick(event) {
+            if (!this.readonly && !this.disabled) {
+                const firstFocusableEl = DomHandler.getFirstFocusableElement(event.currentTarget);
 
-            this.keyboardEvent = false;
-        },
-        onKeyDown(event, value) {
-            this.keyboardEvent = true;
-
-            if (event.code === 'Space') {
-                this.updateModel(event, value);
-            }
-
-            if (event.code === 'Tab') {
-                this.focusIndex = null;
+                firstFocusableEl && DomHandler.focus(firstFocusableEl);
             }
         },
-        onFocus(event, index) {
-            if (!this.readonly) {
-                if (this.modelValue === null && this.focusIndex === null && index === this.stars) {
-                    this.focusIndex = this.cancel ? 0 : 1;
-                    this.updateModel(event, this.focusIndex);
-                } else if (this.modelValue === 0 && this.focusIndex === 0 && index === this.stars - 1) {
-                    this.focusIndex = index + 1;
-                    this.updateModel(event, this.focusIndex);
-                } else if (this.modelValue === null && this.focusIndex === null) {
-                    this.focusIndex = this.cancel ? 0 : 1;
-                    this.updateModel(event, this.focusIndex);
-                } else if (this.modelValue !== null && this.focusIndex === null) {
-                    this.focusIndex = this.modelValue;
-                    this.updateModel(event, this.modelValue);
-                } else {
-                    this.focusIndex = index;
-                    this.updateModel(event, index);
-                }
-
-                this.$emit('focus', event);
-            }
+        onFocus(event, value) {
+            this.onOptionSelect(event, value);
+            this.$emit('focus', event);
         },
         onBlur(event) {
+            this.focusedOptionIndex = -1;
             this.$emit('blur', event);
         },
-        onCancelClick(event) {
-            if (!this.readonly && !this.disabled) {
-                window.setTimeout(() => {
-                    this.focusIndex = 0;
-                }, 1);
-                this.updateModel(event, null);
-                this.$emit('cancel');
+        onChange(event, value) {
+            if (ObjectUtils.isEmpty(this.modelValue) && this.focusedOptionIndex !== -1) {
+                this.updateModel(event, value || null);
+            }
+        },
+        onOptionSelect(event, value) {
+            this.focusedOptionIndex = value;
+
+            if (ObjectUtils.isNotEmpty(this.modelValue)) {
+                this.updateModel(event, value || null);
             }
         },
         updateModel(event, value) {
             this.$emit('update:modelValue', value);
-            this.$emit('change', {
-                originalEvent: event,
-                value: value
-            });
+            this.$emit('change', { originalEvent: event, value });
         },
-        ariaLabelTemplate(index) {
-            return index === 1 ? this.$primevue.config.locale.aria.star : this.$primevue.config.locale.aria.stars.replace(/{star}/g, index);
+        cancelAriaLabel() {
+            return this.$primevue.config.locale.clear;
         },
-        iconClasses(i) {
-            const iconOn = i > this.modelValue && !this.hasIconSlot() ? this.onIcon : null;
-            const iconOff = i <= this.modelValue && !this.hasIconSlot() ? this.offIcon : null;
-
-            return ['p-rating-icon', iconOn, iconOff, { 'p-focus': i === this.focusIndex }];
-        },
-        cancelIconClasses() {
-            const focusOnCancel = this.focusIndex === 0 && (this.modelValue === 0 || this.modelValue === null);
-
-            if (this.$slots.cancel) {
-                return ['p-rating-icon', { 'p-focus': focusOnCancel }];
-            }
-
-            return ['p-rating-icon p-rating-cancel', this.cancelIcon, { 'p-focus': focusOnCancel }];
-        },
-        hasIconSlot() {
-            return this.$slots.onIcon && this.$slots.offIcon;
-        },
-        bindOutsideClickListener() {
-            this.outsideClickListener = (event) => {
-                if (this.focusIndex !== null && this.isOutsideRatingClicked(event)) {
-                    this.focusIndex = null;
-                }
-            };
-
-            document.addEventListener('click', this.outsideClickListener);
-        },
-        unbindOutsideClickListener() {
-            document.removeEventListener('click', this.outsideClickListener);
-            this.outsideClickListener = null;
-        },
-        isOutsideRatingClicked(event) {
-            const ratingRef = this.$refs.rating;
-
-            return !(ratingRef.isSameNode(event.target) || ratingRef.contains(event.target));
+        starAriaLabel(value) {
+            return value === 1 ? this.$primevue.config.locale.aria.star : this.$primevue.config.locale.aria.stars.replace(/{star}/g, value);
         }
     },
     computed: {
@@ -198,25 +128,36 @@ export default {
                     'p-disabled': this.disabled
                 }
             ];
+        },
+        cancelIconClass() {
+            return ['p-rating-icon p-rating-cancel', this.cancelIcon];
+        },
+        onIconClass() {
+            return ['p-rating-icon', this.onIcon];
+        },
+        offIconClass() {
+            return ['p-rating-icon', this.offIcon];
+        },
+        name() {
+            return this.$attrs.name || UniqueComponentId();
         }
     }
 };
 </script>
 
 <style>
-.p-rating-icon {
+.p-rating {
+    display: flex;
+    align-items: center;
+}
+
+.p-rating-item {
+    display: inline-flex;
+    align-items: center;
     cursor: pointer;
-    display: inline-block;
 }
 
-.p-rating.p-rating-readonly .p-rating-icon {
+.p-rating.p-readonly .p-rating-item {
     cursor: default;
-}
-
-.p-rating:not(.p-disabled) .p-rating-icon.p-focus {
-    outline: 0 none;
-    outline-offset: 0;
-    box-shadow: 0 0 0 0.2rem #bfdbfe;
-    border-color: #3b82f6;
 }
 </style>
