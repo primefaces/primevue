@@ -4,7 +4,7 @@
             <template v-for="(item, index) of model" :key="item.to">
                 <li v-if="visible(item)" :class="getItemClass(item)" :style="item.style" role="tab" :aria-selected="isActive(item)" :aria-expanded="isActive(item)">
                     <template v-if="!$slots.item">
-                        <router-link :to="item.to" v-if="!isItemDisabled(item)" custom v-slot="{ navigate, href, isActive, isExactActive }">
+                        <router-link v-if="!isItemDisabled(item)" v-slot="{ navigate, href, isActive, isExactActive }" :to="item.to" custom>
                             <a :href="href" :class="linkClass({ isActive, isExactActive })" @click="onItemClick($event, item, navigate)" role="presentation">
                                 <span class="p-steps-number">{{ index + 1 }}</span>
                                 <span class="p-steps-title">{{ label(item) }}</span>
@@ -49,6 +49,7 @@ export default {
         onItemClick(event, item, navigate) {
             if (this.disabled(item) || this.readonly) {
                 event.preventDefault();
+
                 return;
             }
 

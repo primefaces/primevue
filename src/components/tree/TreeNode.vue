@@ -1,21 +1,21 @@
 <template>
     <li :class="containerClass" role="treeitem" :aria-label="label(node)" :aria-selected="selected" :aria-expanded="expanded" :aria-setsize="node.children ? node.children.length : 0" :aria-posinset="index + 1" :aria-level="level">
         <div :class="contentClass" tabindex="0" role="treeitem" :aria-expanded="expanded" @click="onClick" @keydown="onKeyDown" @touchend="onTouchEnd" :style="node.style">
-            <button type="button" class="p-tree-toggler p-link" @click="toggle" tabindex="-1" v-ripple>
+            <button v-ripple type="button" class="p-tree-toggler p-link" @click="toggle" tabindex="-1">
                 <span :class="toggleIcon"></span>
             </button>
-            <div class="p-checkbox p-component" v-if="checkboxMode">
+            <div v-if="checkboxMode" class="p-checkbox p-component">
                 <div :class="checkboxClass" role="checkbox" :aria-checked="checked">
                     <span :class="checkboxIcon"></span>
                 </div>
             </div>
             <span :class="icon"></span>
             <span class="p-treenode-label">
-                <component :is="templates[node.type] || templates['default']" :node="node" v-if="templates[node.type] || templates['default']" />
+                <component v-if="templates[node.type] || templates['default']" :is="templates[node.type] || templates['default']" :node="node" />
                 <template v-else>{{ label(node) }}</template>
             </span>
         </div>
-        <ul class="p-treenode-children" role="group" v-if="hasChildren && expanded">
+        <ul v-if="hasChildren && expanded" class="p-treenode-children" role="group">
             <TreeNode
                 v-for="childNode of node.children"
                 :key="childNode.key"
@@ -110,19 +110,23 @@ export default {
             switch (event.code) {
                 case 'ArrowDown':
                     var listElement = nodeElement.children[1];
+
                     if (listElement) {
                         this.focusNode(listElement.children[0]);
                     } else {
                         const nextNodeElement = nodeElement.nextElementSibling;
+
                         if (nextNodeElement) {
                             this.focusNode(nextNodeElement);
                         } else {
                             let nextSiblingAncestor = this.findNextSiblingOfAncestor(nodeElement);
+
                             if (nextSiblingAncestor) {
                                 this.focusNode(nextSiblingAncestor);
                             }
                         }
                     }
+
                     break;
 
                 case 'ArrowUp':
@@ -130,10 +134,12 @@ export default {
                         this.focusNode(this.findLastVisibleDescendant(nodeElement.previousElementSibling));
                     } else {
                         let parentNodeElement = this.getParentNodeElement(nodeElement);
+
                         if (parentNodeElement) {
                             this.focusNode(parentNodeElement);
                         }
                     }
+
                     break;
 
                 case 'ArrowRight':
@@ -208,6 +214,7 @@ export default {
         },
         findNextSiblingOfAncestor(nodeElement) {
             let parentNodeElement = this.getParentNodeElement(nodeElement);
+
             if (parentNodeElement) {
                 if (parentNodeElement.nextElementSibling) return parentNodeElement.nextElementSibling;
                 else return this.findNextSiblingOfAncestor(parentNodeElement);
@@ -217,6 +224,7 @@ export default {
         },
         findLastVisibleDescendant(nodeElement) {
             const childrenListElement = nodeElement.children[1];
+
             if (childrenListElement) {
                 const lastChildElement = childrenListElement.children[childrenListElement.children.length - 1];
 

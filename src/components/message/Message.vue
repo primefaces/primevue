@@ -1,12 +1,12 @@
 <template>
     <transition name="p-message" appear>
-        <div :class="containerClass" v-show="visible" role="alert">
+        <div v-show="visible" :class="containerClass" role="alert">
             <div class="p-message-wrapper">
                 <span :class="iconClass"></span>
                 <div class="p-message-text">
                     <slot></slot>
                 </div>
-                <button class="p-message-close p-link" @click="close($event)" v-if="closable" type="button" v-ripple>
+                <button v-if="closable" v-ripple class="p-message-close p-link" @click="close($event)" type="button">
                     <i class="p-message-close-icon pi pi-times"></i>
                 </button>
             </div>

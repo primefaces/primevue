@@ -50,6 +50,7 @@ export default {
             this.visible = false;
             this.confirmation = null;
         };
+
         ConfirmationEventBus.on('confirm', this.confirmListener);
         ConfirmationEventBus.on('close', this.closeListener);
     },

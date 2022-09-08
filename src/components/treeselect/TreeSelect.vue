@@ -3,9 +3,9 @@
         <div class="p-hidden-accessible">
             <input
                 ref="focusInput"
+                :id="inputId"
                 type="text"
                 role="combobox"
-                :id="inputId"
                 :class="inputClass"
                 :style="inputStyle"
                 readonly
@@ -29,7 +29,7 @@
                         {{ label || 'empty' }}
                     </template>
                     <template v-else-if="display === 'chip'">
-                        <div v-for="node of selectedNodes" class="p-treeselect-token" :key="node.key">
+                        <div v-for="node of selectedNodes" :key="node.key" class="p-treeselect-token">
                             <span class="p-treeselect-token-label">{{ node.label }}</span>
                         </div>
                         <template v-if="emptyValue">{{ placeholder || 'empty' }}</template>
@@ -44,7 +44,7 @@
         </div>
         <Portal :appendTo="appendTo">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
-                <div :ref="overlayRef" v-if="overlayVisible" @click="onOverlayClick" :class="panelStyleClass" v-bind="panelProps">
+                <div v-if="overlayVisible" :ref="overlayRef" @click="onOverlayClick" :class="panelStyleClass" v-bind="panelProps">
                     <slot name="header" :value="modelValue" :options="options"></slot>
                     <div class="p-treeselect-items-wrapper" :style="{ 'max-height': scrollHeight }">
                         <TSTree
@@ -155,12 +155,20 @@ export default {
             default: null
         }
     },
+    data() {
+        return {
+            focused: false,
+            overlayVisible: false,
+            expandedKeys: {}
+        };
+    },
     watch: {
         modelValue: {
             handler: function () {
                 if (!this.selfChange) {
                     this.updateTreeState();
                 }
+
                 this.selfChange = false;
             },
             immediate: true
@@ -168,13 +176,6 @@ export default {
         options() {
             this.updateTreeState();
         }
-    },
-    data() {
-        return {
-            focused: false,
-            overlayVisible: false,
-            expandedKeys: {}
-        };
     },
     outsideClickListener: null,
     resizeListener: null,
@@ -274,6 +275,7 @@ export default {
                         this.hide();
                         event.preventDefault();
                     }
+
                     break;
 
                 default:
@@ -314,6 +316,7 @@ export default {
                         this.hide();
                     }
                 };
+
                 document.addEventListener('click', this.outsideClickListener);
             }
         },
@@ -346,6 +349,7 @@ export default {
                         this.hide();
                     }
                 };
+
                 window.addEventListener('resize', this.resizeListener);
             }
         },
@@ -390,7 +394,9 @@ export default {
         },
         updateTreeState() {
             let keys = { ...this.modelValue };
+
             this.expandedKeys = {};
+
             if (keys && this.options) {
                 this.updateTreeBranchState(null, null, keys);
             }
@@ -424,6 +430,7 @@ export default {
         scrollValueInView() {
             if (this.overlay) {
                 let selectedItem = DomHandler.findSingle(this.overlay, 'li.p-highlight');
+
                 if (selectedItem) {
                     selectedItem.scrollIntoView({ block: 'nearest', inline: 'start' });
                 }
@@ -464,8 +471,10 @@ export default {
         },
         selectedNodes() {
             let selectedNodes = [];
+
             if (this.modelValue && this.options) {
                 let keys = { ...this.modelValue };
+
                 this.findSelectedNodes(null, keys, selectedNodes);
             }
 
@@ -473,6 +482,7 @@ export default {
         },
         label() {
             let value = this.selectedNodes;
+
             return value.length ? value.map((node) => node.label).join(', ') : this.placeholder;
         },
         emptyMessageText() {

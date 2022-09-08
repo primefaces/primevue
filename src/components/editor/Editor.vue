@@ -114,6 +114,9 @@ export default {
                 });
         }
     },
+    beforeUnmount() {
+        this.quill = null;
+    },
     methods: {
         renderValue(value) {
             if (this.quill) {
@@ -128,6 +131,7 @@ export default {
                 if (source === 'user') {
                     let html = this.$refs.editorElement.children[0].innerHTML;
                     let text = this.quill.getText().trim();
+
                     if (html === '<p><br></p>') {
                         html = '';
                     }
@@ -162,9 +166,6 @@ export default {
                 this.$emit('load', { instance: this.quill });
             }
         }
-    },
-    beforeUnmount() {
-        this.quill = null;
     }
 };
 </script>

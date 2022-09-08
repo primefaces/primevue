@@ -16,17 +16,17 @@ export default {
     props: {
         modelValue: String
     },
+    methods: {
+        changeLayout(layout) {
+            this.$emit('update:modelValue', layout);
+        }
+    },
     computed: {
         buttonListClass() {
             return ['p-button p-button-icon-only', { 'p-highlight': this.modelValue === 'list' }];
         },
         buttonGridClass() {
             return ['p-button p-button-icon-only', { 'p-highlight': this.modelValue === 'grid' }];
-        }
-    },
-    methods: {
-        changeLayout(layout) {
-            this.$emit('update:modelValue', layout);
         }
     }
 };

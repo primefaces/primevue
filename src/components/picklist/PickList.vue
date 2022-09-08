@@ -1,6 +1,6 @@
 <template>
     <div :class="containerClass">
-        <div class="p-picklist-buttons p-picklist-source-controls" v-if="showSourceControls">
+        <div v-if="showSourceControls" class="p-picklist-buttons p-picklist-source-controls">
             <slot name="sourcecontrolsstart"></slot>
             <PLButton type="button" icon="pi pi-angle-up" @click="moveUp($event, 0)"></PLButton>
             <PLButton type="button" icon="pi pi-angle-double-up" @click="moveTop($event, 0)"></PLButton>
@@ -9,15 +9,15 @@
             <slot name="sourcecontrolsend"></slot>
         </div>
         <div class="p-picklist-list-wrapper p-picklist-source-wrapper">
-            <div class="p-picklist-header" v-if="$slots.sourceheader">
+            <div v-if="$slots.sourceheader" class="p-picklist-header">
                 <slot name="sourceheader"></slot>
             </div>
             <transition-group ref="sourceList" name="p-picklist-flip" tag="ul" class="p-picklist-list p-picklist-source" :style="listStyle" role="listbox" aria-multiselectable="multiple">
                 <template v-for="(item, i) of sourceList" :key="getItemKey(item, i)">
                     <li
+                        v-ripple
                         tabindex="0"
                         :class="['p-picklist-item', { 'p-highlight': isSelected(item, 0) }]"
-                        v-ripple
                         @click="onItemClick($event, item, 0)"
                         @dblclick="onItemDblClick($event, item, 0)"
                         @keydown="onItemKeyDown($event, item, 0)"
@@ -39,15 +39,15 @@
             <slot name="movecontrolsend"></slot>
         </div>
         <div class="p-picklist-list-wrapper p-picklist-target-wrapper">
-            <div class="p-picklist-header" v-if="$slots.targetheader">
+            <div v-if="$slots.targetheader" class="p-picklist-header">
                 <slot name="targetheader"></slot>
             </div>
             <transition-group ref="targetList" name="p-picklist-flip" tag="ul" class="p-picklist-list p-picklist-target" :style="listStyle" role="listbox" aria-multiselectable="multiple">
                 <template v-for="(item, i) of targetList" :key="getItemKey(item, i)">
                     <li
+                        v-ripple
                         tabindex="0"
                         :class="['p-picklist-item', { 'p-highlight': isSelected(item, 1) }]"
-                        v-ripple
                         @click="onItemClick($event, item, 1)"
                         @dblclick="onItemDblClick($event, item, 1)"
                         @keydown="onItemKeyDown($event, item, 1)"
@@ -60,7 +60,7 @@
                 </template>
             </transition-group>
         </div>
-        <div class="p-picklist-buttons p-picklist-target-controls" v-if="showTargetControls">
+        <div v-if="showTargetControls" class="p-picklist-buttons p-picklist-target-controls">
             <slot name="targetcontrolsstart"></slot>
             <PLButton type="button" icon="pi pi-angle-up" @click="moveUp($event, 1)"></PLButton>
             <PLButton type="button" icon="pi pi-angle-double-up" @click="moveTop($event, 1)"></PLButton>
@@ -129,6 +129,11 @@ export default {
             d_selection: this.selection
         };
     },
+    watch: {
+        selection(newValue) {
+            this.d_selection = newValue;
+        }
+    },
     updated() {
         if (this.reorderDirection) {
             this.updateListScroll(this.$refs.sourceList.$el);
@@ -142,11 +147,6 @@ export default {
     mounted() {
         if (this.responsive) {
             this.createStyle();
-        }
-    },
-    watch: {
-        selection(newValue) {
-            this.d_selection = newValue;
         }
     },
     methods: {
@@ -168,6 +168,7 @@ export default {
                     if (selectedItemIndex !== 0) {
                         let movedItem = valueList[selectedItemIndex];
                         let temp = valueList[selectedItemIndex - 1];
+
                         valueList[selectedItemIndex - 1] = movedItem;
                         valueList[selectedItemIndex] = temp;
                     } else {
@@ -176,6 +177,7 @@ export default {
                 }
 
                 let value = [...this.modelValue];
+
                 value[listIndex] = valueList;
 
                 this.reorderDirection = 'up';
@@ -199,6 +201,7 @@ export default {
 
                     if (selectedItemIndex !== 0) {
                         let movedItem = valueList.splice(selectedItemIndex, 1)[0];
+
                         valueList.unshift(movedItem);
                     } else {
                         break;
@@ -206,6 +209,7 @@ export default {
                 }
 
                 let value = [...this.modelValue];
+
                 value[listIndex] = valueList;
 
                 this.reorderDirection = 'top';
@@ -230,6 +234,7 @@ export default {
                     if (selectedItemIndex !== valueList.length - 1) {
                         let movedItem = valueList[selectedItemIndex];
                         let temp = valueList[selectedItemIndex + 1];
+
                         valueList[selectedItemIndex + 1] = movedItem;
                         valueList[selectedItemIndex] = temp;
                     } else {
@@ -238,6 +243,7 @@ export default {
                 }
 
                 let value = [...this.modelValue];
+
                 value[listIndex] = valueList;
 
                 this.reorderDirection = 'down';
@@ -261,6 +267,7 @@ export default {
 
                     if (selectedItemIndex !== valueList.length - 1) {
                         let movedItem = valueList.splice(selectedItemIndex, 1)[0];
+
                         valueList.push(movedItem);
                     } else {
                         break;
@@ -268,6 +275,7 @@ export default {
                 }
 
                 let value = [...this.modelValue];
+
                 value[listIndex] = valueList;
 
                 this.reorderDirection = 'bottom';
@@ -295,6 +303,7 @@ export default {
                 }
 
                 let value = [...this.modelValue];
+
                 value[0] = sourceList;
                 value[1] = targetList;
                 this.$emit('update:modelValue', value);
@@ -326,6 +335,7 @@ export default {
                 sourceList = [];
 
                 let value = [...this.modelValue];
+
                 value[0] = sourceList;
                 value[1] = targetList;
                 this.$emit('update:modelValue', value);
@@ -353,6 +363,7 @@ export default {
                 }
 
                 let value = [...this.modelValue];
+
                 value[0] = sourceList;
                 value[1] = targetList;
                 this.$emit('update:modelValue', value);
@@ -384,6 +395,7 @@ export default {
                 targetList = [];
 
                 let value = [...this.modelValue];
+
                 value[0] = sourceList;
                 value[1] = targetList;
                 this.$emit('update:modelValue', value);
@@ -423,6 +435,7 @@ export default {
             }
 
             let newSelection = [...this.d_selection];
+
             newSelection[listIndex] = _selection;
             this.d_selection = newSelection;
 
@@ -446,6 +459,7 @@ export default {
                 //down
                 case 40:
                     var nextItem = this.findNextItem(listItem);
+
                     if (nextItem) {
                         nextItem.focus();
                     }
@@ -456,6 +470,7 @@ export default {
                 //up
                 case 38:
                     var prevItem = this.findPrevItem(listItem);
+
                     if (prevItem) {
                         prevItem.focus();
                     }

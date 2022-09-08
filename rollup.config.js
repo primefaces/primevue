@@ -118,6 +118,7 @@ function addCore() {
                 Object.entries(core).forEach(([filePath, value]) => {
                     const code = Object.keys(coreDependencies).reduce((val, d) => {
                         const name = d.replace('primevue/', '');
+
                         val += value[name] + '\n';
 
                         return val;
@@ -141,6 +142,7 @@ function addSFC() {
         .forEach(({ name: folderName }) => {
             fs.readdirSync(path.resolve(__dirname, './src/components/' + folderName)).forEach((file) => {
                 let name = file.split(/(.vue)$|(.js)$/)[0].toLowerCase();
+
                 if (/\.vue$/.test(file) && name === folderName) {
                     addEntry(folderName, file, name);
                 }

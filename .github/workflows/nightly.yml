@@ -29,4 +29,4 @@ jobs:
     - name: Build
       run: |
         npm install
-        npm run build-lib
+        npm run build:lib

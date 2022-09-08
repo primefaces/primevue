@@ -3,8 +3,8 @@
         <div class="p-hidden-accessible">
             <input
                 ref="input"
-                type="radio"
                 :id="inputId"
+                type="radio"
                 :class="inputClass"
                 :style="inputStyle"
                 :name="name"

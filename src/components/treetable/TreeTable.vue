@@ -1,11 +1,11 @@
 <template>
     <div :class="containerClass" data-scrollselectors=".p-treetable-scrollable-body">
-        <div class="p-treetable-loading" v-if="loading">
+        <div v-if="loading" class="p-treetable-loading">
             <div class="p-treetable-loading-overlay p-component-overlay">
                 <i :class="loadingIconClass"></i>
             </div>
         </div>
-        <div class="p-treetable-header" v-if="$slots.header">
+        <div v-if="$slots.header" class="p-treetable-header">
             <slot name="header"></slot>
         </div>
         <TTPaginator
@@ -21,10 +21,10 @@
             @page="onPage($event)"
             :alwaysShow="alwaysShowPaginator"
         >
-            <template #start v-if="$slots.paginatorstart">
+            <template v-if="$slots.paginatorstart" #start>
                 <slot name="paginatorstart"></slot>
             </template>
-            <template #end v-if="$slots.paginatorend">
+            <template v-if="$slots.paginatorend" #end>
                 <slot name="paginatorend"></slot>
             </template>
         </TTPaginator>
@@ -49,7 +49,7 @@
                     <tr v-if="hasColumnFilter()">
                         <template v-for="(col, i) of columns" :key="columnProp(col, 'columnKey') || columnProp(col, 'field') || i">
                             <th v-if="!columnProp(col, 'hidden')" :class="getFilterColumnHeaderClass(col)" :style="[columnProp(col, 'style'), columnProp(col, 'filterHeaderStyle')]">
-                                <component :is="col.children.filter" :column="col" v-if="col.children && col.children.filter" />
+                                <component v-if="col.children && col.children.filter" :is="col.children.filter" :column="col" />
                             </th>
                         </template>
                     </tr>
@@ -77,7 +77,7 @@
                         </td>
                     </tr>
                 </tbody>
-                <tfoot class="p-treetable-tfoot" v-if="hasFooter">
+                <tfoot v-if="hasFooter" class="p-treetable-tfoot">
                     <tr>
                         <template v-for="(col, i) of columns" :key="columnProp(col, 'columnKey') || columnProp(col, 'field') || i">
                             <TTFooterCell v-if="!columnProp(col, 'hidden')" :column="col"></TTFooterCell>
@@ -99,14 +99,14 @@
             @page="onPage($event)"
             :alwaysShow="alwaysShowPaginator"
         >
-            <template #start v-if="$slots.paginatorstart">
+            <template v-if="$slots.paginatorstart" #start>
                 <slot name="paginatorstart"></slot>
             </template>
-            <template #end v-if="$slots.paginatorend">
+            <template v-if="$slots.paginatorend" #end>
                 <slot name="paginatorend"></slot>
             </template>
         </TTPaginator>
-        <div class="p-treetable-footer" v-if="$slots.footer">
+        <div v-if="$slots.footer" class="p-treetable-footer">
             <slot name="footer"></slot>
         </div>
         <div ref="resizeHelper" class="p-column-resizer-helper p-highlight" style="display: none"></div>
@@ -436,6 +436,7 @@ export default {
             this.d_rows = event.rows;
 
             let pageEvent = this.createLazyLoadEvent(event);
+
             pageEvent.pageCount = event.pageCount;
             pageEvent.page = event.page;
 
@@ -490,6 +491,7 @@ export default {
                         this.resetPage();
                     } else if (this.sortMode === 'multiple') {
                         let metaKey = event.metaKey || event.ctrlKey;
+
                         if (!metaKey) {
                             this.d_multiSortMeta = this.d_multiSortMeta.filter((meta) => meta.field === columnField);
                         }
@@ -541,6 +543,7 @@ export default {
         },
         sortNodesMultiple(nodes) {
             let _nodes = [...nodes];
+
             _nodes.sort((node1, node2) => {
                 return this.multisortField(node1, node2, 0);
             });
@@ -616,6 +619,7 @@ export default {
                 }
 
                 let matches = localMatch;
+
                 if (this.hasGlobalFilter()) {
                     matches = localMatch && globalMatch;
                 }
@@ -626,6 +630,7 @@ export default {
             }
 
             let filterEvent = this.createLazyLoadEvent(event);
+
             filterEvent.filteredValue = filteredNodes;
             this.$emit('filter', filterEvent);
 
@@ -634,11 +639,15 @@ export default {
         findFilteredNodes(node, paramsWithoutNode) {
             if (node) {
                 let matched = false;
+
                 if (node.children) {
                     let childNodes = [...node.children];
+
                     node.children = [];
+
                     for (let childNode of childNodes) {
                         let copyChildNode = { ...childNode };
+
                         if (this.isFilterMatched(copyChildNode, paramsWithoutNode)) {
                             matched = true;
                             node.children.push(copyChildNode);
@@ -654,6 +663,7 @@ export default {
         isFilterMatched(node, { filterField, filterValue, filterConstraint, strict }) {
             let matched = false;
             let dataFieldValue = ObjectUtils.resolveFieldData(node.data, filterField);
+
             if (filterConstraint(dataFieldValue, filterValue, this.filterLocale)) {
                 matched = true;
             }
@@ -672,6 +682,7 @@ export default {
         },
         createLazyLoadEvent(event) {
             let filterMatchModes;
+
             if (this.hasFilters()) {
                 filterMatchModes = {};
                 this.columns.forEach((col) => {
@@ -694,6 +705,7 @@ export default {
         },
         onColumnResizeStart(event) {
             let containerLeft = DomHandler.getOffset(this.$el).left;
+
             this.resizeColumnElement = event.target.parentElement;
             this.columnResizing = true;
             this.lastResizeHelperX = event.pageX - containerLeft + this.$el.scrollLeft;
@@ -702,6 +714,7 @@ export default {
         },
         onColumnResize(event) {
             let containerLeft = DomHandler.getOffset(this.$el).left;
+
             DomHandler.addClass(this.$el, 'p-unselectable-text');
             this.$refs.resizeHelper.style.height = this.$el.offsetHeight + 'px';
             this.$refs.resizeHelper.style.top = 0 + 'px';
@@ -723,6 +736,7 @@ export default {
                     if (newColumnWidth > 15 && nextColumnWidth > 15) {
                         if (!this.scrollable) {
                             this.resizeColumnElement.style.width = newColumnWidth + 'px';
+
                             if (nextColumn) {
                                 nextColumn.style.width = nextColumnWidth + 'px';
                             }
@@ -752,13 +766,16 @@ export default {
         resizeTableCells(newColumnWidth, nextColumnWidth) {
             let colIndex = DomHandler.index(this.resizeColumnElement);
             let children = this.$refs.table.children;
+
             for (let child of children) {
                 for (let row of child.children) {
                     let resizeCell = row.children[colIndex];
+
                     resizeCell.style.flex = '0 0 ' + newColumnWidth + 'px';
 
                     if (this.columnResizeMode === 'fit') {
                         let nextCell = resizeCell.nextElementSibling;
+
                         if (nextCell) {
                             nextCell.style.flex = '0 0 ' + nextColumnWidth + 'px';
                         }
@@ -878,6 +895,7 @@ export default {
 
             if (this.paginator) {
                 const first = this.lazy ? 0 : this.d_first;
+
                 return data.slice(first, first + this.d_rows);
             } else {
                 return data;
@@ -885,6 +903,7 @@ export default {
         },
         empty() {
             const data = this.processedData;
+
             return !data || data.length === 0;
         },
         sorted() {
@@ -922,6 +941,7 @@ export default {
                 return this.totalRecords;
             } else {
                 const data = this.processedData;
+
                 return data ? data.length : 0;
             }
         },

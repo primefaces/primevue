@@ -2,11 +2,11 @@
     <div class="p-tabmenu p-component">
         <ul ref="nav" class="p-tabmenu-nav p-reset" role="tablist">
             <template v-for="(item, i) of model" :key="label(item) + '_' + i.toString()">
-                <router-link v-if="item.to && !disabled(item)" :to="item.to" custom v-slot="{ navigate, href, isActive, isExactActive }">
-                    <li :class="getRouteItemClass(item, isActive, isExactActive)" :style="item.style" v-if="visible(item)" role="tab">
+                <router-link v-if="item.to && !disabled(item)" v-slot="{ navigate, href, isActive, isExactActive }" :to="item.to" custom>
+                    <li v-if="visible(item)" :class="getRouteItemClass(item, isActive, isExactActive)" :style="item.style" role="tab">
                         <template v-if="!$slots.item">
-                            <a :href="href" class="p-menuitem-link" @click="onItemClick($event, item, i, navigate)" role="presentation" v-ripple>
-                                <span :class="getItemIcon(item)" v-if="item.icon"></span>
+                            <a v-ripple :href="href" class="p-menuitem-link" @click="onItemClick($event, item, i, navigate)" role="presentation">
+                                <span v-if="item.icon" :class="getItemIcon(item)"></span>
                                 <span class="p-menuitem-text">{{ label(item) }}</span>
                             </a>
                         </template>
@@ -15,8 +15,8 @@
                 </router-link>
                 <li v-else-if="visible(item)" :class="getItemClass(item, i)" role="tab">
                     <template v-if="!$slots.item">
-                        <a :href="item.url" class="p-menuitem-link" :target="item.target" @click="onItemClick($event, item, i)" role="presentation" :tabindex="disabled(item) ? null : '0'" v-ripple>
-                            <span :class="getItemIcon(item)" v-if="item.icon"></span>
+                        <a v-ripple :href="item.url" class="p-menuitem-link" :target="item.target" @click="onItemClick($event, item, i)" role="presentation" :tabindex="disabled(item) ? null : '0'">
+                            <span v-if="item.icon" :class="getItemIcon(item)"></span>
                             <span class="p-menuitem-text">{{ label(item) }}</span>
                         </a>
                     </template>
@@ -55,6 +55,14 @@ export default {
             d_activeIndex: this.activeIndex
         };
     },
+    watch: {
+        $route() {
+            this.timeout = setTimeout(() => this.updateInkBar(), 50);
+        },
+        activeIndex(newValue) {
+            this.d_activeIndex = newValue;
+        }
+    },
     mounted() {
         this.updateInkBar();
     },
@@ -64,18 +72,11 @@ export default {
     beforeUnmount() {
         clearTimeout(this.timeout);
     },
-    watch: {
-        $route() {
-            this.timeout = setTimeout(() => this.updateInkBar(), 50);
-        },
-        activeIndex(newValue) {
-            this.d_activeIndex = newValue;
-        }
-    },
     methods: {
         onItemClick(event, item, index, navigate) {
             if (this.disabled(item)) {
                 event.preventDefault();
+
                 return;
             }
 
@@ -135,8 +136,10 @@ export default {
         updateInkBar() {
             let tabs = this.$refs.nav.children;
             let inkHighlighted = false;
+
             for (let i = 0; i < tabs.length; i++) {
                 let tab = tabs[i];
+
                 if (DomHandler.hasClass(tab, 'p-highlight')) {
                     this.$refs.inkbar.style.width = DomHandler.getWidth(tab) + 'px';
                     this.$refs.inkbar.style.left = DomHandler.getOffset(tab).left - DomHandler.getOffset(this.$refs.nav).left + 'px';

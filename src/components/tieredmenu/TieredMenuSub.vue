@@ -1,16 +1,17 @@
 <template>
     <ul ref="element" :class="containerClass" role="'menubar' : 'menu'" aria-orientation="horizontal">
         <template v-for="(item, i) of model" :key="label(item) + i.toString()">
-            <li :class="getItemClass(item)" :style="item.style" v-if="visible(item) && !item.separator" @mouseenter="onItemMouseEnter($event, item)" role="none">
+            <li v-if="visible(item) && !item.separator" :class="getItemClass(item)" :style="item.style" @mouseenter="onItemMouseEnter($event, item)" role="none">
                 <template v-if="!template">
-                    <router-link v-if="item.to && !disabled(item)" :to="item.to" custom v-slot="{ navigate, href, isActive, isExactActive }">
-                        <a :href="href" @click="onItemClick($event, item, navigate)" :class="linkClass(item, { isActive, isExactActive })" v-ripple @keydown="onItemKeyDown($event, item)" role="menuitem">
-                            <span :class="['p-menuitem-icon', item.icon]" v-if="item.icon"></span>
+                    <router-link v-if="item.to && !disabled(item)" v-slot="{ navigate, href, isActive, isExactActive }" :to="item.to" custom>
+                        <a v-ripple :href="href" @click="onItemClick($event, item, navigate)" :class="linkClass(item, { isActive, isExactActive })" @keydown="onItemKeyDown($event, item)" role="menuitem">
+                            <span v-if="item.icon" :class="['p-menuitem-icon', item.icon]"></span>
                             <span class="p-menuitem-text">{{ label(item) }}</span>
                         </a>
                     </router-link>
                     <a
                         v-else
+                        v-ripple
                         :href="item.url"
                         :class="linkClass(item)"
                         :target="item.target"
@@ -20,17 +21,16 @@
                         @keydown="onItemKeyDown($event, item)"
                         role="menuitem"
                         :tabindex="disabled(item) ? null : '0'"
-                        v-ripple
                     >
-                        <span :class="['p-menuitem-icon', item.icon]" v-if="item.icon"></span>
+                        <span v-if="item.icon" :class="['p-menuitem-icon', item.icon]"></span>
                         <span class="p-menuitem-text">{{ label(item) }}</span>
-                        <span class="p-submenu-icon pi pi-angle-right" v-if="item.items"></span>
+                        <span v-if="item.items" class="p-submenu-icon pi pi-angle-right"></span>
                     </a>
                 </template>
                 <component v-else :is="template" :item="item"></component>
-                <TieredMenuSub :model="item.items" v-if="visible(item) && item.items" :key="label(item) + '_sub_'" :template="template" @leaf-click="onLeafClick" @keydown-item="onChildItemKeyDown" :parentActive="item === activeItem" :exact="exact" />
+                <TieredMenuSub v-if="visible(item) && item.items" :key="label(item) + '_sub_'" :model="item.items" :template="template" @leaf-click="onLeafClick" @keydown-item="onChildItemKeyDown" :parentActive="item === activeItem" :exact="exact" />
             </li>
-            <li :class="['p-menu-separator', item.class]" :style="item.style" v-if="visible(item) && item.separator" :key="'separator' + i.toString()" role="separator"></li>
+            <li v-if="visible(item) && item.separator" :key="'separator' + i.toString()" :class="['p-menu-separator', item.class]" :style="item.style" role="separator"></li>
         </template>
     </ul>
 </template>
@@ -69,17 +69,17 @@ export default {
         }
     },
     documentClickListener: null,
+    data() {
+        return {
+            activeItem: null
+        };
+    },
     watch: {
         parentActive(newValue) {
             if (!newValue) {
                 this.activeItem = null;
             }
         }
-    },
-    data() {
-        return {
-            activeItem: null
-        };
     },
     updated() {
         if (this.root && this.activeItem) {
@@ -93,6 +93,7 @@ export default {
         onItemMouseEnter(event, item) {
             if (this.disabled(item)) {
                 event.preventDefault();
+
                 return;
             }
 
@@ -107,6 +108,7 @@ export default {
         onItemClick(event, item, navigate) {
             if (this.disabled(item)) {
                 event.preventDefault();
+
                 return;
             }
 
@@ -141,6 +143,7 @@ export default {
                 //down
                 case 40:
                     var nextItem = this.findNextItem(listItem);
+
                     if (nextItem) {
                         nextItem.children[0].focus();
                     }
@@ -151,6 +154,7 @@ export default {
                 //up
                 case 38:
                     var prevItem = this.findPrevItem(listItem);
+
                     if (prevItem) {
                         prevItem.children[0].focus();
                     }

@@ -17,6 +17,7 @@ config.global.mocks = {
 let wrapper;
 const modelValues = [true, false, null];
 const emittedResults = [false, null, true];
+
 describe('TriStateCheckbox.vue', () => {
     beforeEach(() => {
         wrapper = mount(TriStateCheckbox);
@@ -53,6 +54,7 @@ describe('TriStateCheckbox.vue', () => {
         });
     it('When onClick method triggered some methods effect', () => {
         const mockUpdateModel = jest.fn();
+
         wrapper.vm.updateModel = mockUpdateModel;
 
         wrapper.vm.onClick('test');
@@ -70,6 +72,7 @@ describe('TriStateCheckbox.vue', () => {
 
     it('When event.code is equal Enter some methods should be triggered', async () => {
         const mockUpdateModel = jest.fn();
+
         wrapper.vm.updateModel = mockUpdateModel;
 
         wrapper.vm.onKeyDown({ code: 'Enter', preventDefault: () => {} });

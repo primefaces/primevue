@@ -7,19 +7,19 @@
                 <div class="p-fluid formgrid grid">
                     <div class="field col-12">
                         <label for="class">Card Holder Name</label>
-                        <InputText type="text" v-model="cardholderName" />
+                        <InputText v-model="cardholderName" type="text" />
                     </div>
                     <div class="field col-8">
                         <label id="number" for="lastname">Number</label>
-                        <InputMask id="number" mask="9999-9999-9999-9999" v-model="cardholderNumber" />
+                        <InputMask id="number" v-model="cardholderNumber" mask="9999-9999-9999-9999" />
                     </div>
                     <div class="field col-2">
                         <label id="date" for="date">Date</label>
-                        <InputMask id="date" mask="99/99" v-model="date" />
+                        <InputMask id="date" v-model="date" mask="99/99" />
                     </div>
                     <div class="field col-2">
                         <label for="cvv">CVV</label>
-                        <InputMask id="cvv" mask="999" v-model="cvv" />
+                        <InputMask id="cvv" v-model="cvv" mask="999" />
                     </div>
                     <div class="field-checkbox col-12">
                         <Checkbox id="remember" v-model="remember" :binary="true" />
@@ -39,6 +39,7 @@
 
 <script>
 export default {
+    emits: ['next-page', 'prev-page'],
     data() {
         return {
             cardholderName: '',

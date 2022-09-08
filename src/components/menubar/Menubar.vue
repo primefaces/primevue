@@ -1,13 +1,13 @@
 <template>
     <div :class="containerClass">
-        <div class="p-menubar-start" v-if="$slots.start">
+        <div v-if="$slots.start" class="p-menubar-start">
             <slot name="start"></slot>
         </div>
         <a ref="menubutton" tabindex="0" class="p-menubar-button" @click="toggle($event)">
             <i class="pi pi-bars" />
         </a>
         <MenubarSub ref="rootmenu" :model="model" :root="true" :mobileActive="mobileActive" @leaf-click="onLeafClick" :template="$slots.item" :exact="exact" />
-        <div class="p-menubar-end" v-if="$slots.end">
+        <div v-if="$slots.end" class="p-menubar-end">
             <slot name="end"></slot>
         </div>
     </div>
@@ -38,6 +38,7 @@ export default {
     beforeUnmount() {
         this.mobileActive = false;
         this.unbindOutsideClickListener();
+
         if (this.$refs.rootmenu && this.$refs.rootmenu.$el) {
             ZIndexUtils.clear(this.$refs.rootmenu.$el);
         }
@@ -62,6 +63,7 @@ export default {
                         this.mobileActive = false;
                     }
                 };
+
                 document.addEventListener('click', this.outsideClickListener);
             }
         },

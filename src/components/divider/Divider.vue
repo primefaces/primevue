@@ -1,6 +1,6 @@
 <template>
     <div :class="containerClass" role="separator" :aria-orientation="layout">
-        <div class="p-divider-content" v-if="$slots.default">
+        <div v-if="$slots.default" class="p-divider-content">
             <slot></slot>
         </div>
     </div>

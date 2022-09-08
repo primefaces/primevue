@@ -15,8 +15,8 @@
                     v-bind="getTabProp(tab, 'headerActionProps')"
                 >
                     <span :class="getTabHeaderIconClass(i)" aria-hidden="true"></span>
-                    <span class="p-accordion-header-text" v-if="tab.props && tab.props.header">{{ tab.props.header }}</span>
-                    <component :is="tab.children.header" v-if="tab.children && tab.children.header"></component>
+                    <span v-if="tab.props && tab.props.header" class="p-accordion-header-text">{{ tab.props.header }}</span>
+                    <component v-if="tab.children && tab.children.header" :is="tab.children.header"></component>
                 </a>
             </div>
             <transition name="p-toggleable-content">

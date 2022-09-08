@@ -1,9 +1,9 @@
 <template>
     <div ref="container" :class="containerClass">
-        <input ref="input" type="text" :class="inputClass" readonly="readonly" :tabindex="tabindex" :disabled="disabled" @click="onInputClick" @keydown="onInputKeydown" v-if="!inline" />
+        <input v-if="!inline" ref="input" type="text" :class="inputClass" readonly="readonly" :tabindex="tabindex" :disabled="disabled" @click="onInputClick" @keydown="onInputKeydown" />
         <Portal :appendTo="appendTo" :disabled="inline">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
-                <div :ref="pickerRef" :class="pickerClass" v-if="inline ? true : overlayVisible" @click="onOverlayClick">
+                <div v-if="inline ? true : overlayVisible" :ref="pickerRef" :class="pickerClass" @click="onOverlayClick">
                     <div class="p-colorpicker-content">
                         <div :ref="colorSelectorRef" class="p-colorpicker-color-selector" @mousedown="onColorMousedown($event)" @touchstart="onColorDragStart($event)" @touchmove="onDrag($event)" @touchend="onDragEnd()">
                             <div class="p-colorpicker-color">
@@ -86,6 +86,17 @@ export default {
     colorHandle: null,
     hueView: null,
     hueHandle: null,
+    watch: {
+        modelValue: {
+            immediate: true,
+            handler(newValue) {
+                this.hsbValue = this.toHSB(newValue);
+
+                if (this.selfUpdate) this.selfUpdate = false;
+                else this.updateUI();
+            }
+        }
+    },
     beforeUnmount() {
         this.unbindOutsideClickListener();
         this.unbindDragListeners();
@@ -105,17 +116,6 @@ export default {
     mounted() {
         this.updateUI();
     },
-    watch: {
-        modelValue: {
-            immediate: true,
-            handler(newValue) {
-                this.hsbValue = this.toHSB(newValue);
-
-                if (this.selfUpdate) this.selfUpdate = false;
-                else this.updateUI();
-            }
-        }
-    },
     methods: {
         pickColor(event) {
             let rect = this.colorSelector.getBoundingClientRect();
@@ -123,6 +123,7 @@ export default {
             let left = rect.left + document.body.scrollLeft;
             let saturation = Math.floor((100 * Math.max(0, Math.min(150, (event.pageX || event.changedTouches[0].pageX) - left))) / 150);
             let brightness = Math.floor((100 * (150 - Math.max(0, Math.min(150, (event.pageY || event.changedTouches[0].pageY) - top)))) / 150);
+
             this.hsbValue = this.validateHSB({
                 h: this.hsbValue.h,
                 s: saturation,
@@ -137,6 +138,7 @@ export default {
         },
         pickHue(event) {
             let top = this.hueView.getBoundingClientRect().top + (window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0);
+
             this.hsbValue = this.validateHSB({
                 h: Math.floor((360 * (150 - Math.max(0, Math.min(150, (event.pageY || event.changedTouches[0].pageY) - top)))) / 150),
                 s: 100,
@@ -176,6 +178,7 @@ export default {
                     s: 100,
                     b: 100
                 });
+
                 this.colorSelector.style.backgroundColor = '#' + this.HSBtoHEX(hsbValue);
             }
         },
@@ -217,18 +220,23 @@ export default {
         },
         validateHEX(hex) {
             var len = 6 - hex.length;
+
             if (len > 0) {
                 var o = [];
+
                 for (var i = 0; i < len; i++) {
                     o.push('0');
                 }
+
                 o.push(hex);
                 hex = o.join('');
             }
+
             return hex;
         },
         HEXtoRGB(hex) {
             let hexValue = parseInt(hex.indexOf('#') > -1 ? hex.substring(1) : hex, 16);
+
             return { r: hexValue >> 16, g: (hexValue & 0x00ff00) >> 8, b: hexValue & 0x0000ff };
         },
         HEXtoHSB(hex) {
@@ -243,8 +251,10 @@ export default {
             var min = Math.min(rgb.r, rgb.g, rgb.b);
             var max = Math.max(rgb.r, rgb.g, rgb.b);
             var delta = max - min;
+
             hsb.b = max;
             hsb.s = max !== 0 ? (255 * delta) / max : 0;
+
             if (hsb.s !== 0) {
                 if (rgb.r === max) {
                     hsb.h = (rgb.g - rgb.b) / delta;
@@ -256,12 +266,16 @@ export default {
             } else {
                 hsb.h = -1;
             }
+
             hsb.h *= 60;
+
             if (hsb.h < 0) {
                 hsb.h += 360;
             }
+
             hsb.s *= 100 / 255;
             hsb.b *= 100 / 255;
+
             return hsb;
         },
         HSBtoRGB(hsb) {
@@ -273,6 +287,7 @@ export default {
             var h = Math.round(hsb.h);
             var s = Math.round((hsb.s * 255) / 100);
             var v = Math.round((hsb.b * 255) / 100);
+
             if (s === 0) {
                 rgb = {
                     r: v,
@@ -283,7 +298,9 @@ export default {
                 var t1 = v;
                 var t2 = ((255 - s) * v) / 255;
                 var t3 = ((t1 - t2) * (h % 60)) / 60;
+
                 if (h === 360) h = 0;
+
                 if (h < 60) {
                     rgb.r = t1;
                     rgb.b = t2;
@@ -314,6 +331,7 @@ export default {
                     rgb.b = 0;
                 }
             }
+
             return { r: Math.round(rgb.r), g: Math.round(rgb.g), b: Math.round(rgb.b) };
         },
         RGBtoHEX(rgb) {
@@ -481,6 +499,7 @@ export default {
                         this.overlayVisible = false;
                     }
                 };
+
                 document.addEventListener('click', this.outsideClickListener);
             }
         },
@@ -513,6 +532,7 @@ export default {
                         this.overlayVisible = false;
                     }
                 };
+
                 window.addEventListener('resize', this.resizeListener);
             }
         },

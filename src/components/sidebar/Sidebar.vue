@@ -1,12 +1,12 @@
 <template>
     <Portal>
         <transition name="p-sidebar" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave" appear>
-            <div :class="containerClass" v-if="visible" :ref="containerRef" role="complementary" :aria-modal="modal" v-bind="$attrs">
+            <div v-if="visible" :ref="containerRef" :class="containerClass" role="complementary" :aria-modal="modal" v-bind="$attrs">
                 <div class="p-sidebar-header">
-                    <div class="p-sidebar-header-content" v-if="$slots.header">
+                    <div v-if="$slots.header" class="p-sidebar-header-content">
                         <slot name="header"></slot>
                     </div>
-                    <button class="p-sidebar-close p-sidebar-icon p-link" @click="hide" :aria-label="ariaCloseLabel" v-if="showCloseIcon" type="button" v-ripple>
+                    <button v-if="showCloseIcon" v-ripple class="p-sidebar-close p-sidebar-icon p-link" @click="hide" :aria-label="ariaCloseLabel" type="button">
                         <span class="p-sidebar-close-icon pi pi-times" />
                     </button>
                 </div>
@@ -25,8 +25,8 @@ import Portal from 'primevue/portal';
 
 export default {
     name: 'Sidebar',
-    emits: ['update:visible', 'show', 'hide'],
     inheritAttrs: false,
+    emits: ['update:visible', 'show', 'hide'],
     props: {
         visible: {
             type: Boolean,
@@ -70,6 +70,7 @@ export default {
         if (this.container && this.autoZIndex) {
             ZIndexUtils.clear(this.container);
         }
+
         this.container = null;
     },
     methods: {
@@ -82,7 +83,9 @@ export default {
             if (this.autoZIndex) {
                 ZIndexUtils.set('modal', el, this.baseZIndex || this.$primevue.config.zIndex.modal);
             }
+
             this.focus();
+
             if (this.modal && !this.fullScreen) {
                 this.enableModality();
             }
@@ -101,6 +104,7 @@ export default {
         },
         focus() {
             let focusable = DomHandler.findSingle(this.container, 'input,button');
+
             if (focusable) {
                 focusable.focus();
             }
@@ -110,9 +114,11 @@ export default {
                 this.mask = document.createElement('div');
                 this.mask.setAttribute('class', 'p-sidebar-mask p-component-overlay p-component-overlay-enter');
                 this.mask.style.zIndex = String(parseInt(this.container.style.zIndex, 10) - 1);
+
                 if (this.dismissable) {
                     this.bindMaskClickListener();
                 }
+
                 document.body.appendChild(this.mask);
                 DomHandler.addClass(document.body, 'p-overflow-hidden');
             }
@@ -130,6 +136,7 @@ export default {
                 this.maskClickListener = () => {
                     this.hide();
                 };
+
                 this.mask.addEventListener('click', this.maskClickListener);
             }
         },

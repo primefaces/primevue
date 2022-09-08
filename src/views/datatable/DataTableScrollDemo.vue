@@ -29,7 +29,7 @@
                 <Button label="Show" icon="pi pi-external-link" @click="openDialog" />
             </div>
 
-            <Dialog header="Flex Scroll" v-model:visible="dialogVisible" :style="{ width: '75vw' }" :maximizable="true" :modal="true" :contentStyle="{ height: '300px' }">
+            <Dialog v-model:visible="dialogVisible" header="Flex Scroll" :style="{ width: '75vw' }" :maximizable="true" :modal="true" :contentStyle="{ height: '300px' }">
                 <DataTable :value="customers1" :scrollable="true" scrollHeight="flex">
                     <Column field="name" header="Name" style="min-width: 200px"></Column>
                     <Column field="country.name" header="Country" style="min-width: 200px"></Column>

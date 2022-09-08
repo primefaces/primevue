@@ -1,11 +1,11 @@
 <template>
     <div :class="containerClass" data-scrollselectors=".p-datatable-wrapper">
         <slot></slot>
-        <div class="p-datatable-loading-overlay p-component-overlay" v-if="loading">
+        <div v-if="loading" class="p-datatable-loading-overlay p-component-overlay">
             <slot v-if="$slots.loading" name="loading"></slot>
             <i v-else :class="loadingIconClass"></i>
         </div>
-        <div class="p-datatable-header" v-if="$slots.header">
+        <div v-if="$slots.header" class="p-datatable-header">
             <slot name="header"></slot>
         </div>
         <DTPaginator
@@ -21,10 +21,10 @@
             @page="onPage($event)"
             :alwaysShow="alwaysShowPaginator"
         >
-            <template #start v-if="$slots.paginatorstart">
+            <template v-if="$slots.paginatorstart" #start>
                 <slot name="paginatorstart"></slot>
             </template>
-            <template #end v-if="$slots.paginatorend">
+            <template v-if="$slots.paginatorend" #end>
                 <slot name="paginatorend"></slot>
             </template>
         </DTPaginator>
@@ -61,8 +61,8 @@
                             @checkbox-change="toggleRowsWithCheckbox($event)"
                         />
                         <DTTableBody
-                            ref="frozenBodyRef"
                             v-if="frozenValue"
+                            ref="frozenBodyRef"
                             :value="frozenValue"
                             :frozenRow="true"
                             class="p-datatable-frozen-tbody"
@@ -188,19 +188,19 @@
             @page="onPage($event)"
             :alwaysShow="alwaysShowPaginator"
         >
-            <template #start v-if="$slots.paginatorstart">
+            <template v-if="$slots.paginatorstart" #start>
                 <slot name="paginatorstart"></slot>
             </template>
-            <template #end v-if="$slots.paginatorend">
+            <template v-if="$slots.paginatorend" #end>
                 <slot name="paginatorend"></slot>
             </template>
         </DTPaginator>
-        <div class="p-datatable-footer" v-if="$slots.footer">
+        <div v-if="$slots.footer" class="p-datatable-footer">
             <slot name="footer"></slot>
         </div>
         <div ref="resizeHelper" class="p-column-resizer-helper" style="display: none"></div>
-        <span ref="reorderIndicatorUp" class="pi pi-arrow-down p-datatable-reorder-indicator-up" style="position: absolute; display: none" v-if="reorderableColumns" />
-        <span ref="reorderIndicatorDown" class="pi pi-arrow-up p-datatable-reorder-indicator-down" style="position: absolute; display: none" v-if="reorderableColumns" />
+        <span v-if="reorderableColumns" ref="reorderIndicatorUp" class="pi pi-arrow-down p-datatable-reorder-indicator-up" style="position: absolute; display: none" />
+        <span v-if="reorderableColumns" ref="reorderIndicatorDown" class="pi pi-arrow-up p-datatable-reorder-indicator-down" style="position: absolute; display: none" />
     </div>
 </template>
 
@@ -632,6 +632,7 @@ export default {
             this.d_rows = event.rows;
 
             let pageEvent = this.createLazyLoadEvent(event);
+
             pageEvent.pageCount = event.pageCount;
             pageEvent.page = event.page;
 
@@ -675,6 +676,7 @@ export default {
                         this.resetPage();
                     } else if (this.sortMode === 'multiple') {
                         let metaKey = event.metaKey || event.ctrlKey;
+
                         if (!metaKey) {
                             this.d_multiSortMeta = this.d_multiSortMeta.filter((meta) => meta.field === columnField);
                         }
@@ -724,6 +726,7 @@ export default {
 
             if (this.groupRowsBy && (this.d_groupRowsSortMeta || (this.d_multiSortMeta.length && this.groupRowsBy === this.d_multiSortMeta[0].field))) {
                 const firstSortMeta = this.d_multiSortMeta[0];
+
                 !this.d_groupRowsSortMeta && (this.d_groupRowsSortMeta = firstSortMeta);
 
                 if (firstSortMeta.field !== this.d_groupRowsSortMeta.field) {
@@ -778,6 +781,7 @@ export default {
             this.clearEditingMetaData();
 
             let globalFilterFieldsArray;
+
             if (this.filters['global']) {
                 globalFilterFieldsArray = this.globalFilterFields || this.columns.map((col) => this.columnProp(col, 'filterField') || this.columnProp(col, 'field'));
             }
@@ -816,6 +820,7 @@ export default {
                 if (this.filters['global'] && !globalMatch && globalFilterFieldsArray) {
                     for (let j = 0; j < globalFilterFieldsArray.length; j++) {
                         let globalFilterField = globalFilterFieldsArray[j];
+
                         globalMatch = FilterService.filters[this.filters['global'].matchMode || FilterMatchMode.CONTAINS](ObjectUtils.resolveFieldData(data[i], globalFilterField), this.filters['global'].value, this.filterLocale);
 
                         if (globalMatch) {
@@ -825,6 +830,7 @@ export default {
                 }
 
                 let matches;
+
                 if (this.filters['global']) {
                     matches = localFiltered ? localFiltered && localMatch && globalMatch : globalMatch;
                 } else {
@@ -841,6 +847,7 @@ export default {
             }
 
             let filterEvent = this.createLazyLoadEvent();
+
             filterEvent.filteredValue = filteredValue;
             this.$emit('filter', filterEvent);
             this.$emit('value-change', filteredValue);
@@ -857,6 +864,7 @@ export default {
         },
         onRowClick(e) {
             const event = e.originalEvent;
+
             if (DomHandler.isClickable(event.target)) {
                 return;
             }
@@ -874,6 +882,7 @@ export default {
                 } else {
                     const selected = this.isSelected(rowData);
                     const metaSelection = this.rowTouched ? false : this.metaKeySelection;
+
                     this.anchorRowIndex = rowIndex;
                     this.rangeRowIndex = rowIndex;
 
@@ -886,6 +895,7 @@ export default {
                             } else {
                                 const selectionIndex = this.findIndexInSelection(rowData);
                                 const _selection = this.selection.filter((val, i) => i != selectionIndex);
+
                                 this.$emit('update:selection', _selection);
                             }
 
@@ -895,6 +905,7 @@ export default {
                                 this.$emit('update:selection', rowData);
                             } else if (this.isMultipleSelectionMode()) {
                                 let _selection = metaKey ? this.selection || [] : [];
+
                                 _selection = [..._selection, rowData];
                                 this.$emit('update:selection', _selection);
                             }
@@ -914,10 +925,12 @@ export default {
                             if (selected) {
                                 const selectionIndex = this.findIndexInSelection(rowData);
                                 const _selection = this.selection.filter((val, i) => i != selectionIndex);
+
                                 this.$emit('update:selection', _selection);
                                 this.$emit('row-unselect', { originalEvent: event, data: rowData, index: rowIndex, type: 'row' });
                             } else {
                                 const _selection = this.selection ? [...this.selection, rowData] : [rowData];
+
                                 this.$emit('update:selection', _selection);
                                 this.$emit('row-select', { originalEvent: event, data: rowData, index: rowIndex, type: 'row' });
                             }
@@ -930,6 +943,7 @@ export default {
         },
         onRowDblClick(e) {
             const event = e.originalEvent;
+
             if (DomHandler.isClickable(event.target)) {
                 return;
             }
@@ -958,6 +972,7 @@ export default {
                     //down arrow
                     case 40:
                         var nextRow = this.findNextSelectableRow(row);
+
                         if (nextRow) {
                             nextRow.focus();
                         }
@@ -968,6 +983,7 @@ export default {
                     //up arrow
                     case 38:
                         var prevRow = this.findPrevSelectableRow(row);
+
                         if (prevRow) {
                             prevRow.focus();
                         }
@@ -988,6 +1004,7 @@ export default {
         },
         findNextSelectableRow(row) {
             let nextRow = row.nextElementSibling;
+
             if (nextRow) {
                 if (DomHandler.hasClass(nextRow, 'p-selectable-row')) return nextRow;
                 else return this.findNextSelectableRow(nextRow);
@@ -997,6 +1014,7 @@ export default {
         },
         findPrevSelectableRow(row) {
             let prevRow = row.previousElementSibling;
+
             if (prevRow) {
                 if (DomHandler.hasClass(prevRow, 'p-selectable-row')) return prevRow;
                 else return this.findPrevSelectableRow(prevRow);
@@ -1021,10 +1039,12 @@ export default {
             if (this.isSelected(rowData)) {
                 const selectionIndex = this.findIndexInSelection(rowData);
                 const _selection = this.selection.filter((val, i) => i != selectionIndex);
+
                 this.$emit('update:selection', _selection);
                 this.$emit('row-unselect', { originalEvent: event.originalEvent, data: rowData, index: event.index, type: 'checkbox' });
             } else {
                 let _selection = this.selection ? [...this.selection] : [];
+
                 _selection = [..._selection, rowData];
                 this.$emit('update:selection', _selection);
                 this.$emit('row-select', { originalEvent: event.originalEvent, data: rowData, index: event.index, type: 'checkbox' });
@@ -1070,6 +1090,7 @@ export default {
         },
         findIndex(rowData, collection) {
             let index = -1;
+
             if (collection && collection.length) {
                 for (let i = 0; i < collection.length; i++) {
                     if (this.equals(rowData, collection[i])) {
@@ -1083,6 +1104,7 @@ export default {
         },
         updateSelectionKeys(selection) {
             this.d_selectionKeys = {};
+
             if (Array.isArray(selection)) {
                 for (let data of selection) {
                     this.d_selectionKeys[String(ObjectUtils.resolveFieldData(data, this.dataKey))] = 1;
@@ -1094,6 +1116,7 @@ export default {
         updateExpandedRowKeys(expandedRows) {
             if (expandedRows && expandedRows.length) {
                 this.d_expandedRowKeys = {};
+
                 for (let data of expandedRows) {
                     this.d_expandedRowKeys[String(ObjectUtils.resolveFieldData(data, this.dataKey))] = 1;
                 }
@@ -1104,6 +1127,7 @@ export default {
         updateEditingRowKeys(editingRows) {
             if (editingRows && editingRows.length) {
                 this.d_editingRowKeys = {};
+
                 for (let data of editingRows) {
                     this.d_editingRowKeys[String(ObjectUtils.resolveFieldData(data, this.dataKey))] = 1;
                 }
@@ -1135,8 +1159,10 @@ export default {
 
             const value = this.processedData;
             let _selection = [];
+
             for (let i = rangeStart; i <= rangeEnd; i++) {
                 let rangeRowData = value[i];
+
                 _selection.push(rangeRowData);
                 this.$emit('row-select', { originalEvent: event, data: rangeRowData, type: 'row' });
             }
@@ -1155,6 +1181,7 @@ export default {
 
             //headers
             let headerInitiated = false;
+
             for (let i = 0; i < this.columns.length; i++) {
                 let column = this.columns[i];
 
@@ -1171,8 +1198,10 @@ export default {
                 data.forEach((record) => {
                     csv += '\n';
                     let rowInitiated = false;
+
                     for (let i = 0; i < this.columns.length; i++) {
                         let column = this.columns[i];
+
                         if (this.columnProp(column, 'exportable') !== false && this.columnProp(column, 'field')) {
                             if (rowInitiated) csv += this.csvSeparator;
                             else rowInitiated = true;
@@ -1196,6 +1225,7 @@ export default {
 
             //footers
             let footerInitiated = false;
+
             for (let i = 0; i < this.columns.length; i++) {
                 let column = this.columns[i];
 
@@ -1217,6 +1247,7 @@ export default {
         },
         onColumnResizeStart(event) {
             let containerLeft = DomHandler.getOffset(this.$el).left;
+
             this.resizeColumnElement = event.target.parentElement;
             this.columnResizing = true;
             this.lastResizeHelperX = event.pageX - containerLeft + this.$el.scrollLeft;
@@ -1225,6 +1256,7 @@ export default {
         },
         onColumnResize(event) {
             let containerLeft = DomHandler.getOffset(this.$el).left;
+
             DomHandler.addClass(this.$el, 'p-unselectable-text');
             this.$refs.resizeHelper.style.height = this.$el.offsetHeight + 'px';
             this.$refs.resizeHelper.style.top = 0 + 'px';
@@ -1248,6 +1280,7 @@ export default {
                     }
                 } else if (this.columnResizeMode === 'expand') {
                     const tableWidth = this.$refs.table.offsetWidth + delta + 'px';
+
                     const updateTableWidth = (el) => {
                         !!el && (el.style.width = el.style.minWidth = tableWidth);
                     };
@@ -1285,15 +1318,18 @@ export default {
             let colIndex = DomHandler.index(this.resizeColumnElement);
             let widths = [];
             let headers = DomHandler.find(this.$refs.table, '.p-datatable-thead > tr > th');
+
             headers.forEach((header) => widths.push(DomHandler.getOuterWidth(header)));
 
             this.destroyStyleElement();
             this.createStyleElement();
 
             let innerHTML = '';
+
             widths.forEach((width, index) => {
                 let colWidth = index === colIndex ? newColumnWidth : nextColumnWidth && index === colIndex + 1 ? nextColumnWidth : width;
                 let style = this.scrollable ? `flex: 1 1 ${colWidth}px !important` : `width: ${colWidth}px !important`;
+
                 innerHTML += `
                     .p-datatable[${this.attributeSelector}] .p-datatable-thead > tr > th:nth-child(${index + 1}),
                     .p-datatable[${this.attributeSelector}] .p-datatable-tbody > tr > td:nth-child(${index + 1}),
@@ -1346,6 +1382,7 @@ export default {
         onColumnHeaderDragStart(event) {
             if (this.columnResizing) {
                 event.preventDefault();
+
                 return;
             }
 
@@ -1357,6 +1394,7 @@ export default {
         },
         onColumnHeaderDragOver(event) {
             let dropHeader = this.findParentHeader(event.target);
+
             if (this.reorderableColumns && this.draggedColumn && dropHeader) {
                 event.preventDefault();
                 let containerOffset = DomHandler.getOffset(this.$el);
@@ -1393,10 +1431,12 @@ export default {
         },
         onColumnHeaderDrop(event) {
             event.preventDefault();
+
             if (this.draggedColumn) {
                 let dragIndex = DomHandler.index(this.draggedColumn);
                 let dropIndex = DomHandler.index(this.findParentHeader(event.target));
                 let allowDrop = dragIndex !== dropIndex;
+
                 if (allowDrop && ((dropIndex - dragIndex === 1 && this.dropPosition === -1) || (dropIndex - dragIndex === -1 && this.dropPosition === 1))) {
                     allowDrop = false;
                 }
@@ -1424,10 +1464,12 @@ export default {
                 return element;
             } else {
                 let parent = element.parentElement;
+
                 while (parent.nodeName !== 'TH') {
                     parent = parent.parentElement;
                     if (!parent) break;
                 }
+
                 return parent;
             }
         },
@@ -1435,6 +1477,7 @@ export default {
             if (columns && columns.length) {
                 for (let i = 0; i < columns.length; i++) {
                     let column = columns[i];
+
                     if (this.columnProp(column, 'columnKey') === key || this.columnProp(column, 'field') === key) {
                         return column;
                     }
@@ -1450,6 +1493,7 @@ export default {
         onRowDragStart(e) {
             const event = e.originalEvent;
             const index = e.index;
+
             this.rowDragging = true;
             this.draggedRowIndex = index;
             event.dataTransfer.setData('text', 'b'); // For firefox
@@ -1485,6 +1529,7 @@ export default {
         onRowDragLeave(event) {
             let rowElement = event.currentTarget;
             let prevRowElement = rowElement.previousElementSibling;
+
             if (prevRowElement) {
                 DomHandler.removeClass(prevRowElement, 'p-datatable-dragpoint-bottom');
             }
@@ -1502,6 +1547,7 @@ export default {
             if (this.droppedRowIndex != null) {
                 let dropIndex = this.draggedRowIndex > this.droppedRowIndex ? this.droppedRowIndex : this.droppedRowIndex === 0 ? 0 : this.droppedRowIndex - 1;
                 let processedData = [...this.processedData];
+
                 ObjectUtils.reorderArray(processedData, this.draggedRowIndex, dropIndex);
 
                 this.$emit('row-reorder', {
@@ -1534,6 +1580,7 @@ export default {
                 if (expandedRowIndex == null) {
                     expandedRowIndex = this.findIndex(rowData, this.expandedRows);
                 }
+
                 _expandedRows.splice(expandedRowIndex, 1);
                 this.$emit('update:expandedRows', _expandedRows);
                 this.$emit('row-collapse', event);
@@ -1562,8 +1609,10 @@ export default {
         isRowGroupExpanded(rowData) {
             if (this.expandableRowGroups && this.expandedRowGroups) {
                 let groupFieldValue = ObjectUtils.resolveFieldData(rowData, this.groupRowsBy);
+
                 return this.expandedRowGroups.indexOf(groupFieldValue) > -1;
             }
+
             return false;
         },
         isStateful() {
@@ -1635,6 +1684,7 @@ export default {
             const storage = this.getStorage();
             const stateString = storage.getItem(this.stateKey);
             const dateFormat = /\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{3}Z/;
+
             const reviver = function (key, value) {
                 if (typeof value === 'string' && dateFormat.test(value)) {
                     return new Date(value);
@@ -1693,6 +1743,7 @@ export default {
         saveColumnWidths(state) {
             let widths = [];
             let headers = DomHandler.find(this.$el, '.p-datatable-thead > tr > th');
+
             headers.forEach((header) => widths.push(DomHandler.getOuterWidth(header)));
             state.columnWidths = widths.join(',');
 
@@ -1714,8 +1765,10 @@ export default {
                     this.createStyleElement();
 
                     let innerHTML = '';
+
                     widths.forEach((width, index) => {
                         let style = this.scrollable ? `flex: 1 1 ${width}px !important` : `width: ${width}px !important`;
+
                         innerHTML += `
                             .p-datatable[${this.attributeSelector}] .p-datatable-thead > tr > th:nth-child(${index + 1}),
                             .p-datatable[${this.attributeSelector}] .p-datatable-tbody > tr > td:nth-child(${index + 1}),
@@ -1740,18 +1793,21 @@ export default {
         },
         onRowEditInit(event) {
             let _editingRows = this.editingRows ? [...this.editingRows] : [];
+
             _editingRows.push(event.data);
             this.$emit('update:editingRows', _editingRows);
             this.$emit('row-edit-init', event);
         },
         onRowEditSave(event) {
             let _editingRows = [...this.editingRows];
+
             _editingRows.splice(this.findIndex(event.data, _editingRows), 1);
             this.$emit('update:editingRows', _editingRows);
             this.$emit('row-edit-save', event);
         },
         onRowEditCancel(event) {
             let _editingRows = [...this.editingRows];
+
             _editingRows.splice(this.findIndex(event.data, _editingRows), 1);
             this.$emit('update:editingRows', _editingRows);
             this.$emit('row-edit-cancel', event);
@@ -1766,6 +1822,7 @@ export default {
                 meta['fields'].push(field);
             } else if (meta) {
                 const fields = meta['fields'].filter((f) => f !== field);
+
                 !fields.length ? delete editingMeta[index] : (meta['fields'] = fields);
             }
 
@@ -1807,6 +1864,7 @@ export default {
         },
         cloneFilters() {
             let cloned = {};
+
             if (this.filters) {
                 Object.entries(this.filters).forEach(([prop, value]) => {
                     cloned[prop] = value.operator
@@ -1824,6 +1882,7 @@ export default {
         },
         updateReorderableColumns() {
             let columnOrder = [];
+
             this.columns.forEach((col) => columnOrder.push(this.columnProp(col, 'columnKey') || this.columnProp(col, 'field')));
             this.d_columnOrder = columnOrder;
         },
@@ -1887,6 +1946,7 @@ export default {
             if (!results) {
                 results = [];
             }
+
             if (children && children.length) {
                 children.forEach((child) => {
                     if (child.children instanceof Array) {
@@ -1896,6 +1956,7 @@ export default {
                     }
                 });
             }
+
             return results;
         },
         dataToRender(data) {
@@ -1903,6 +1964,7 @@ export default {
 
             if (_data && this.paginator) {
                 const first = this.lazy ? 0 : this.d_first;
+
                 return _data.slice(first, first + this.d_rows);
             }
 
@@ -1946,8 +2008,10 @@ export default {
 
             if (this.reorderableColumns && this.d_columnOrder) {
                 let orderedColumns = [];
+
                 for (let columnKey of this.d_columnOrder) {
                     let column = this.findColumnByKey(cols, columnKey);
+
                     if (column && !this.columnProp(column, 'hidden')) {
                         orderedColumns.push(column);
                     }
@@ -1960,6 +2024,7 @@ export default {
         },
         headerColumnGroup() {
             const children = this.getChildren();
+
             if (children) {
                 for (let child of children) {
                     if (child.type.name === 'ColumnGroup' && this.columnProp(child, 'type') === 'header') {
@@ -1972,6 +2037,7 @@ export default {
         },
         footerColumnGroup() {
             const children = this.getChildren();
+
             if (children) {
                 for (let child of children) {
                     if (child.type.name === 'ColumnGroup' && this.columnProp(child, 'type') === 'footer') {
@@ -2008,11 +2074,13 @@ export default {
                 return this.totalRecords;
             } else {
                 const data = this.processedData;
+
                 return data ? data.length : 0;
             }
         },
         empty() {
             const data = this.processedData;
+
             return !data || data.length === 0;
         },
         paginatorTop() {
@@ -2032,6 +2100,7 @@ export default {
                 return this.selectAll;
             } else {
                 const val = this.frozenValue ? [...this.frozenValue, ...this.processedData] : this.processedData;
+
                 return ObjectUtils.isNotEmpty(val) && this.selection && Array.isArray(this.selection) && val.every((v) => this.selection.some((s) => this.equals(s, v)));
             }
         },

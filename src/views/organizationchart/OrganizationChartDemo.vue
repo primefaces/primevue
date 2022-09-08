@@ -12,11 +12,11 @@
             <div class="card">
                 <h5>Advanced</h5>
                 <OrganizationChart
+                    v-model:selectionKeys="selection"
                     :value="data1"
                     :collapsible="true"
                     class="company"
                     selectionMode="single"
-                    v-model:selectionKeys="selection"
                     @node-select="onNodeSelect"
                     @node-unselect="onNodeUnselect"
                     @node-collapse="onNodeCollapse"

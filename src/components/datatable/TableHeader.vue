@@ -39,8 +39,8 @@
             </tr>
             <tr v-if="filterDisplay === 'row'" role="row">
                 <template v-for="(col, i) of columns" :key="columnProp(col, 'columnKey') || columnProp(col, 'field') || i">
-                    <th :style="getFilterColumnHeaderStyle(col)" :class="getFilterColumnHeaderClass(col)" v-if="!columnProp(col, 'hidden') && (rowGroupMode !== 'subheader' || groupRowsBy !== columnProp(col, 'field'))">
-                        <DTHeaderCheckbox :checked="allRowsSelected" @change="$emit('checkbox-change', $event)" :disabled="empty" v-if="columnProp(col, 'selectionMode') === 'multiple'" />
+                    <th v-if="!columnProp(col, 'hidden') && (rowGroupMode !== 'subheader' || groupRowsBy !== columnProp(col, 'field'))" :style="getFilterColumnHeaderStyle(col)" :class="getFilterColumnHeaderClass(col)">
+                        <DTHeaderCheckbox v-if="columnProp(col, 'selectionMode') === 'multiple'" :checked="allRowsSelected" @change="$emit('checkbox-change', $event)" :disabled="empty" />
                         <DTColumnFilter
                             v-if="col.children && col.children.filter"
                             :field="columnProp(col, 'filterField') || columnProp(col, 'field')"
@@ -222,6 +222,7 @@ export default {
             let rows = [];
 
             let columnGroup = this.columnGroup;
+
             if (columnGroup.children && columnGroup.children.default) {
                 for (let child of columnGroup.children.default()) {
                     if (child.type.name === 'Row') {

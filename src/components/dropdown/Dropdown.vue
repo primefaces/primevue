@@ -92,8 +92,8 @@
                                         </li>
                                         <li
                                             v-else
-                                            v-ripple
                                             :id="id + '_' + getOptionIndex(i, getItemOptions)"
+                                            v-ripple
                                             :style="{ height: itemSize ? itemSize + 'px' : undefined }"
                                             :class="['p-dropdown-item', { 'p-highlight': isSelected(option), 'p-focus': focusedOptionIndex === getOptionIndex(i, getItemOptions), 'p-disabled': isOptionDisabled(option) }]"
                                             role="option"
@@ -468,6 +468,7 @@ export default {
 
             this.searchValue = '';
             const matched = this.searchOptions(event, value);
+
             !matched && (this.focusedOptionIndex = -1);
 
             this.$emit('update:modelValue', value);
@@ -491,6 +492,7 @@ export default {
 
             if (relatedTarget === this.$refs.focusInput) {
                 const firstFocusableEl = DomHandler.getFirstFocusableElement(this.overlay, ':not(.p-hidden-focusable)');
+
                 DomHandler.focus(firstFocusableEl);
             } else {
                 DomHandler.focus(this.$refs.focusInput);
@@ -626,6 +628,7 @@ export default {
             if (pressedInInputText) {
                 const target = event.currentTarget;
                 const len = target.value.length;
+
                 target.setSelectionRange(len, len);
                 this.focusedOptionIndex = -1;
             } else {
@@ -724,6 +727,7 @@ export default {
                         this.hide();
                     }
                 };
+
                 document.addEventListener('click', this.outsideClickListener);
             }
         },
@@ -756,6 +760,7 @@ export default {
                         this.hide();
                     }
                 };
+
                 window.addEventListener('resize', this.resizeListener);
             }
         },
@@ -788,10 +793,12 @@ export default {
         },
         findNextOptionIndex(index) {
             const matchedOptionIndex = index < this.visibleOptions.length - 1 ? this.visibleOptions.slice(index + 1).findIndex((option) => this.isValidOption(option)) : -1;
+
             return matchedOptionIndex > -1 ? matchedOptionIndex + index + 1 : index;
         },
         findPrevOptionIndex(index) {
             const matchedOptionIndex = index > 0 ? ObjectUtils.findLastIndex(this.visibleOptions.slice(0, index), (option) => this.isValidOption(option)) : -1;
+
             return matchedOptionIndex > -1 ? matchedOptionIndex : index;
         },
         findSelectedOptionIndex() {
@@ -799,10 +806,12 @@ export default {
         },
         findFirstFocusedOptionIndex() {
             const selectedIndex = this.findSelectedOptionIndex();
+
             return selectedIndex < 0 ? this.findFirstOptionIndex() : selectedIndex;
         },
         findLastFocusedOptionIndex() {
             const selectedIndex = this.findSelectedOptionIndex();
+
             return selectedIndex < 0 ? this.findLastOptionIndex() : selectedIndex;
         },
         searchOptions(event, char) {
@@ -854,6 +863,7 @@ export default {
         scrollInView(index = -1) {
             const id = index !== -1 ? `${this.id}_${index}` : this.focusedOptionId;
             const element = DomHandler.findSingle(this.list, `li[id="${id}"]`);
+
             if (element) {
                 element.scrollIntoView && element.scrollIntoView({ block: 'nearest', inline: 'start' });
             } else if (!this.virtualScrollerDisabled) {
@@ -877,6 +887,7 @@ export default {
                 result.push({ optionGroup: option, group: true, index });
 
                 const optionGroupChildren = this.getOptionGroupChildren(option);
+
                 optionGroupChildren && optionGroupChildren.forEach((o) => result.push(o));
 
                 return result;
@@ -940,10 +951,12 @@ export default {
         },
         label() {
             const selectedOptionIndex = this.findSelectedOptionIndex();
+
             return selectedOptionIndex !== -1 ? this.getOptionLabel(this.visibleOptions[selectedOptionIndex]) : this.placeholder || 'p-emptylabel';
         },
         editableInputValue() {
             const selectedOptionIndex = this.findSelectedOptionIndex();
+
             return selectedOptionIndex !== -1 ? this.getOptionLabel(this.visibleOptions[selectedOptionIndex]) : this.modelValue || '';
         },
         equalityKey() {

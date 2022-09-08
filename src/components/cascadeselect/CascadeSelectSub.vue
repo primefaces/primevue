@@ -20,7 +20,7 @@
                 :aria-posinset="index + 1"
                 :aria-level="level + 1"
             >
-                <div class="p-cascadeselect-item-content" @click="onOptionClick($event, processedOption)" v-ripple>
+                <div v-ripple class="p-cascadeselect-item-content" @click="onOptionClick($event, processedOption)">
                     <component v-if="templates['option']" :is="templates['option']" :option="processedOption.option" />
                     <span v-else class="p-cascadeselect-item-text">{{ getOptionLabelToRender(processedOption) }}</span>
                     <span v-if="isOptionGroup(processedOption)" class="p-cascadeselect-group-icon pi pi-angle-right" aria-hidden="true"></span>

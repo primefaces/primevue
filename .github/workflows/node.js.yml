@@ -29,5 +29,4 @@ jobs:
     - name: Build
       run: |
         npm install
-        npm run build-check
-
+        npm run build:check

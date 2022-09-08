@@ -1,9 +1,9 @@
 <template>
     <td :style="containerStyle" :class="containerClass">
-        <button type="button" class="p-treetable-toggler p-link" @click="toggle" v-if="columnProp('expander')" :style="togglerStyle" tabindex="-1" v-ripple>
+        <button v-if="columnProp('expander')" v-ripple type="button" class="p-treetable-toggler p-link" @click="toggle" :style="togglerStyle" tabindex="-1">
             <i :class="togglerIcon"></i>
         </button>
-        <div :class="['p-checkbox p-treetable-checkbox p-component', { 'p-checkbox-focused': checkboxFocused }]" @click="toggleCheckbox" v-if="checkboxSelectionMode && columnProp('expander')" role="checkbox" :aria-checked="checked">
+        <div v-if="checkboxSelectionMode && columnProp('expander')" :class="['p-checkbox p-treetable-checkbox p-component', { 'p-checkbox-focused': checkboxFocused }]" @click="toggleCheckbox" role="checkbox" :aria-checked="checked">
             <div class="p-hidden-accessible">
                 <input type="checkbox" @focus="onCheckboxFocus" @blur="onCheckboxBlur" />
             </div>
@@ -11,7 +11,7 @@
                 <span :class="checkboxIcon"></span>
             </div>
         </div>
-        <component :is="column.children.body" :node="node" :column="column" v-if="column.children && column.children.body" />
+        <component v-if="column.children && column.children.body" :is="column.children.body" :node="node" :column="column" />
         <template v-else
             ><span>{{ resolveFieldData(node.data, columnProp('field')) }}</span></template
         >
@@ -89,19 +89,24 @@ export default {
         updateStickyPosition() {
             if (this.columnProp('frozen')) {
                 let align = this.columnProp('alignFrozen');
+
                 if (align === 'right') {
                     let right = 0;
                     let next = this.$el.nextElementSibling;
+
                     if (next) {
                         right = DomHandler.getOuterWidth(next) + parseFloat(next.style.right || 0);
                     }
+
                     this.styleObject.right = right + 'px';
                 } else {
                     let left = 0;
                     let prev = this.$el.previousElementSibling;
+
                     if (prev) {
                         left = DomHandler.getOuterWidth(prev) + parseFloat(prev.style.left || 0);
                     }
+
                     this.styleObject.left = left + 'px';
                 }
             }

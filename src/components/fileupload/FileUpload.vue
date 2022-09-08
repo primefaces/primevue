@@ -1,19 +1,19 @@
 <template>
-    <div class="p-fileupload p-fileupload-advanced p-component" v-if="isAdvanced">
+    <div v-if="isAdvanced" class="p-fileupload p-fileupload-advanced p-component">
         <div class="p-fileupload-buttonbar">
-            <span :class="advancedChooseButtonClass" :style="style" @click="choose" @keydown.enter="choose" @focus="onFocus" @blur="onBlur" v-ripple tabindex="0">
+            <span v-ripple :class="advancedChooseButtonClass" :style="style" @click="choose" @keydown.enter="choose" @focus="onFocus" @blur="onBlur" tabindex="0">
                 <input ref="fileInput" type="file" @change="onFileSelect" :multiple="multiple" :accept="accept" :disabled="chooseDisabled" />
                 <span :class="advancedChooseIconClass"></span>
                 <span class="p-button-label">{{ chooseButtonLabel }}</span>
             </span>
-            <FileUploadButton :label="uploadButtonLabel" :icon="uploadIcon" @click="upload" :disabled="uploadDisabled" v-if="showUploadButton" />
-            <FileUploadButton :label="cancelButtonLabel" :icon="cancelIcon" @click="clear" :disabled="cancelDisabled" v-if="showCancelButton" />
+            <FileUploadButton v-if="showUploadButton" :label="uploadButtonLabel" :icon="uploadIcon" @click="upload" :disabled="uploadDisabled" />
+            <FileUploadButton v-if="showCancelButton" :label="cancelButtonLabel" :icon="cancelIcon" @click="clear" :disabled="cancelDisabled" />
         </div>
         <div ref="content" class="p-fileupload-content" @dragenter="onDragEnter" @dragover="onDragOver" @dragleave="onDragLeave" @drop="onDrop">
-            <FileUploadProgressBar :value="progress" v-if="hasFiles" />
-            <FileUploadMessage v-for="msg of messages" severity="error" :key="msg" @close="onMessageClose">{{ msg }}</FileUploadMessage>
-            <div class="p-fileupload-files" v-if="hasFiles">
-                <div class="p-fileupload-row" v-for="(file, index) of files" :key="file.name + file.type + file.size">
+            <FileUploadProgressBar v-if="hasFiles" :value="progress" />
+            <FileUploadMessage v-for="msg of messages" :key="msg" severity="error" @close="onMessageClose">{{ msg }}</FileUploadMessage>
+            <div v-if="hasFiles" class="p-fileupload-files">
+                <div v-for="(file, index) of files" :key="file.name + file.type + file.size" class="p-fileupload-row">
                     <div>
                         <img v-if="isImage(file)" role="presentation" :alt="file.name" :src="file.objectURL" :width="previewWidth" />
                     </div>
@@ -24,17 +24,17 @@
                     </div>
                 </div>
             </div>
-            <div class="p-fileupload-empty" v-if="$slots.empty && !hasFiles">
+            <div v-if="$slots.empty && !hasFiles" class="p-fileupload-empty">
                 <slot name="empty"></slot>
             </div>
         </div>
     </div>
-    <div class="p-fileupload p-fileupload-basic p-component" v-else-if="isBasic">
-        <FileUploadMessage v-for="msg of messages" severity="error" :key="msg" @close="onMessageClose">{{ msg }}</FileUploadMessage>
-        <span :class="basicChooseButtonClass" :style="style" @mouseup="onBasicUploaderClick" @keydown.enter="choose" @focus="onFocus" @blur="onBlur" v-ripple tabindex="0">
+    <div v-else-if="isBasic" class="p-fileupload p-fileupload-basic p-component">
+        <FileUploadMessage v-for="msg of messages" :key="msg" severity="error" @close="onMessageClose">{{ msg }}</FileUploadMessage>
+        <span v-ripple :class="basicChooseButtonClass" :style="style" @mouseup="onBasicUploaderClick" @keydown.enter="choose" @focus="onFocus" @blur="onBlur" tabindex="0">
             <span :class="basicChooseButtonIconClass"></span>
             <span class="p-button-label">{{ basicChooseButtonLabel }}</span>
-            <input ref="fileInput" type="file" :accept="accept" :disabled="disabled" :multiple="multiple" @change="onFileSelect" @focus="onFocus" @blur="onBlur" v-if="!hasFiles" />
+            <input v-if="!hasFiles" ref="fileInput" type="file" :accept="accept" :disabled="disabled" :multiple="multiple" @change="onFileSelect" @focus="onFocus" @blur="onBlur" />
         </span>
     </div>
 </template>
@@ -159,18 +159,21 @@ export default {
         onFileSelect(event) {
             if (event.type !== 'drop' && this.isIE11() && this.duplicateIEEvent) {
                 this.duplicateIEEvent = false;
+
                 return;
             }
 
             this.messages = [];
             this.files = this.files || [];
             let files = event.dataTransfer ? event.dataTransfer.files : event.target.files;
+
             for (let file of files) {
                 if (!this.isFileSelected(file)) {
                     if (this.validate(file)) {
                         if (this.isImage(file)) {
                             file.objectURL = window.URL.createObjectURL(file);
                         }
+
                         this.files.push(file);
                     }
                 }
@@ -293,11 +296,13 @@ export default {
         validate(file) {
             if (this.accept && !this.isFileTypeValid(file)) {
                 this.messages.push(this.invalidFileTypeMessage.replace('{0}', file.name).replace('{1}', this.accept));
+
                 return false;
             }
 
             if (this.maxFileSize && file.size > this.maxFileSize) {
                 this.messages.push(this.invalidFileSizeMessage.replace('{0}', file.name).replace('{1}', this.formatSize(this.maxFileSize)));
+
                 return false;
             }
 
@@ -305,6 +310,7 @@ export default {
         },
         isFileTypeValid(file) {
             let acceptableTypes = this.accept.split(',').map((type) => type.trim());
+
             for (let type of acceptableTypes) {
                 let acceptable = this.isWildcard(type) ? this.getTypeClass(file.type) === this.getTypeClass(type) : file.type == type || this.getFileExtension(file).toLowerCase() === type.toLowerCase();
 
@@ -366,6 +372,7 @@ export default {
         remove(index) {
             this.clearInputElement();
             let removedFile = this.files.splice(index, 1)[0];
+
             this.files = [...this.files];
             this.$emit('remove', {
                 file: removedFile,
@@ -385,6 +392,7 @@ export default {
             if (bytes === 0) {
                 return '0 B';
             }
+
             let k = 1000,
                 dm = 3,
                 sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'],

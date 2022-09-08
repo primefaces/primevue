@@ -1,11 +1,11 @@
 <template>
     <div :class="containerClass">
-        <span :class="['p-rating-icon p-rating-cancel pi pi-ban', { 'p-focus': focusIndex === 0 }]" v-if="cancel" @click="onCancelClick" @keydown="onKeyDown">
-            <span class="p-hidden-accessible" v-if="cancel">
+        <span v-if="cancel" :class="['p-rating-icon p-rating-cancel pi pi-ban', { 'p-focus': focusIndex === 0 }]" @click="onCancelClick" @keydown="onKeyDown">
+            <span v-if="cancel" class="p-hidden-accessible">
                 <input type="radio" value="0" :name="name" :checked="modelValue === 0" :disabled="disabled" :readonly="readonly" :aria-label="$primevue.config.locale.clear" @focus="onFocus($event, 0)" @blur="onBlur" @keydown="onKeyDown($event, 0)" />
             </span>
         </span>
-        <template :key="i" v-for="i in stars">
+        <template v-for="i in stars" :key="i">
             <span :class="['p-rating-icon', { 'pi pi-star': i > modelValue, 'pi pi-star-fill': i <= modelValue, 'p-focus': i === focusIndex }]" @click="onStarClick($event, i)">
                 <span class="p-hidden-accessible">
                     <input type="radio" :value="i" :name="name" :checked="modelValue === i" :disabled="disabled" :readonly="readonly" :aria-label="ariaLabelTemplate(i)" @focus="onFocus($event, i)" @blur="onBlur" @keydown="onKeyDown($event, i)" />
@@ -61,6 +61,7 @@ export default {
             if (event.code === 'Space') {
                 this.updateModel(event, value);
             }
+
             if (event.code === 'Tab') {
                 this.focusIndex = null;
             }

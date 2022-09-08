@@ -27,7 +27,7 @@
         </span>
         <Portal :appendTo="appendTo">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
-                <div :ref="overlayRef" :id="panelId || panelUniqueId" :class="panelStyleClass" :style="panelStyle" v-if="overlayVisible" @click="onOverlayClick" v-bind="panelProps">
+                <div v-if="overlayVisible" :ref="overlayRef" :id="panelId || panelUniqueId" :class="panelStyleClass" :style="panelStyle" @click="onOverlayClick" v-bind="panelProps">
                     <slot name="header"></slot>
                     <slot name="content">
                         <div class="p-password-meter">
@@ -171,6 +171,7 @@ export default {
     },
     beforeUnmount() {
         this.unbindResizeListener();
+
         if (this.scrollHandler) {
             this.scrollHandler.destroy();
             this.scrollHandler = null;
@@ -245,6 +246,7 @@ export default {
 
                 if (event.code === 'Escape') {
                     this.overlayVisible && (this.overlayVisible = false);
+
                     return;
                 }
 

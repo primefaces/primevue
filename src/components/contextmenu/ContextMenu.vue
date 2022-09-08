@@ -1,7 +1,7 @@
 <template>
     <Portal :appendTo="appendTo">
         <transition name="p-contextmenu" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave">
-            <div :ref="containerRef" :class="containerClass" v-if="visible" v-bind="$attrs">
+            <div v-if="visible" :ref="containerRef" :class="containerClass" v-bind="$attrs">
                 <ContextMenuSub :model="model" :root="true" @leaf-click="onLeafClick" :template="$slots.item" :exact="exact" />
             </div>
         </transition>
@@ -62,6 +62,7 @@ export default {
         if (this.container && this.autoZIndex) {
             ZIndexUtils.clear(this.container);
         }
+
         this.container = null;
     },
     mounted() {
@@ -72,10 +73,12 @@ export default {
     methods: {
         itemClick(event) {
             const item = event.item;
+
             if (item.command) {
                 item.command(event);
                 event.originalEvent.preventDefault();
             }
+
             this.hide();
         },
         toggle(event) {
@@ -153,6 +156,7 @@ export default {
                         this.hide();
                     }
                 };
+
                 document.addEventListener('click', this.outsideClickListener);
             }
         },
@@ -169,6 +173,7 @@ export default {
                         this.hide();
                     }
                 };
+
                 window.addEventListener('resize', this.resizeListener);
             }
         },

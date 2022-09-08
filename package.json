@@ -9,14 +9,15 @@
     "license": "MIT",
     "scripts": {
         "serve": "vue-cli-service serve",
-        "build-app": "vue-cli-service build",
-        "build-lib": "NODE_ENV=production npm run build-package",
-        "build-package": "npm run build-check && rollup -c && node build-meta && node api-generator/build-api && gulp build-styles",
-        "build-check": "npm run lint && npm run format-check && npm run security-check && npm run test:unit",
-        "security-check": "npm audit --production --audit-level high",
-        "format-check": "prettier --check \"src/**/*.{js,vue}\"",
+        "build:app": "vue-cli-service build",
+        "build:lib": "npm run build:check && npm run build:package",
+        "build:package": "NODE_ENV=production rollup -c && node build-meta && node api-generator/build-api && gulp build-styles",
+        "build:check": "npm run test:unit && npm run lint && npm run format:check && npm run security:check",
+        "security:check": "npm audit --production --audit-level high",
         "format": "prettier --write \"src/**/*.{js,vue}\"",
+        "format:check": "prettier --check \"src/**/*.{js,vue}\"",
         "lint": "vue-cli-service lint",
+        "lint:fix": "vue-cli-service lint --fix",
         "test:unit": "vue-cli-service test:unit --max-warnings=0"
     },
     "keywords": [

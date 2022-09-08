@@ -2,6 +2,7 @@ import { UniqueComponentId, DomHandler, ObjectUtils, ConnectedOverlayScrollHandl
 
 function bindEvents(el) {
     const modifiers = el.$_ptooltipModifiers;
+
     if (modifiers.focus) {
         el.addEventListener('focus', onFocus);
         el.addEventListener('blur', onBlur);
@@ -14,6 +15,7 @@ function bindEvents(el) {
 
 function unbindEvents(el) {
     const modifiers = el.$_ptooltipModifiers;
+
     if (modifiers.focus) {
         el.removeEventListener('focus', onFocus);
         el.removeEventListener('blur', onBlur);
@@ -66,6 +68,7 @@ function show(el) {
     }
 
     let tooltipElement = create(el);
+
     align(el);
     DomHandler.fadeIn(tooltipElement, 250);
 
@@ -73,6 +76,7 @@ function show(el) {
         if (!DomHandler.isTouchDevice()) {
             hide(el);
         }
+
         this.removeEventListener('resize', onWindowResize);
     });
 
@@ -91,16 +95,20 @@ function getTooltipElement(el) {
 
 function create(el) {
     const id = UniqueComponentId() + '_tooltip';
+
     el.$_ptooltipId = id;
 
     let container = document.createElement('div');
+
     container.id = id;
 
     let tooltipArrow = document.createElement('div');
+
     tooltipArrow.className = 'p-tooltip-arrow';
     container.appendChild(tooltipArrow);
 
     let tooltipText = document.createElement('div');
+
     tooltipText.className = 'p-tooltip-text';
 
     if (el.$_ptooltipEscape) {
@@ -125,10 +133,12 @@ function create(el) {
 function remove(el) {
     if (el) {
         let tooltipElement = getTooltipElement(el);
+
         if (tooltipElement && tooltipElement.parentElement) {
             ZIndexUtils.clear(tooltipElement);
             document.body.removeChild(tooltipElement);
         }
+
         el.$_ptooltipId = null;
     }
 }
@@ -138,6 +148,7 @@ function align(el) {
 
     if (modifiers.top) {
         alignTop(el);
+
         if (isOutOfBounds(el)) {
             alignBottom(el);
 
@@ -147,6 +158,7 @@ function align(el) {
         }
     } else if (modifiers.left) {
         alignLeft(el);
+
         if (isOutOfBounds(el)) {
             alignRight(el);
 
@@ -164,6 +176,7 @@ function align(el) {
         }
     } else if (modifiers.bottom) {
         alignBottom(el);
+
         if (isOutOfBounds(el)) {
             alignTop(el);
 
@@ -173,6 +186,7 @@ function align(el) {
         }
     } else {
         alignRight(el);
+
         if (isOutOfBounds(el)) {
             alignLeft(el);
 
@@ -205,6 +219,7 @@ function alignRight(el) {
     let hostOffset = getHostOffset(el);
     let left = hostOffset.left + DomHandler.getOuterWidth(el);
     let top = hostOffset.top + (DomHandler.getOuterHeight(el) - DomHandler.getOuterHeight(tooltipElement)) / 2;
+
     tooltipElement.style.left = left + 'px';
     tooltipElement.style.top = top + 'px';
 }
@@ -215,6 +230,7 @@ function alignLeft(el) {
     let hostOffset = getHostOffset(el);
     let left = hostOffset.left - DomHandler.getOuterWidth(tooltipElement);
     let top = hostOffset.top + (DomHandler.getOuterHeight(el) - DomHandler.getOuterHeight(tooltipElement)) / 2;
+
     tooltipElement.style.left = left + 'px';
     tooltipElement.style.top = top + 'px';
 }
@@ -225,6 +241,7 @@ function alignTop(el) {
     let hostOffset = getHostOffset(el);
     let left = hostOffset.left + (DomHandler.getOuterWidth(el) - DomHandler.getOuterWidth(tooltipElement)) / 2;
     let top = hostOffset.top - DomHandler.getOuterHeight(tooltipElement);
+
     tooltipElement.style.left = left + 'px';
     tooltipElement.style.top = top + 'px';
 }
@@ -235,12 +252,14 @@ function alignBottom(el) {
     let hostOffset = getHostOffset(el);
     let left = hostOffset.left + (DomHandler.getOuterWidth(el) - DomHandler.getOuterWidth(tooltipElement)) / 2;
     let top = hostOffset.top + DomHandler.getOuterHeight(el);
+
     tooltipElement.style.left = left + 'px';
     tooltipElement.style.top = top + 'px';
 }
 
 function preAlign(el, position) {
     let tooltipElement = getTooltipElement(el);
+
     tooltipElement.style.left = -999 + 'px';
     tooltipElement.style.top = -999 + 'px';
     tooltipElement.className = `p-tooltip p-component p-tooltip-${position} ${el.$_ptooltipClass || ''}`;
@@ -272,6 +291,7 @@ function getModifiers(options) {
     if (options.arg && typeof options.arg === 'object') {
         return Object.entries(options.arg).reduce((acc, [key, val]) => {
             if (key === 'event' || key === 'position') acc[val] = true;
+
             return acc;
         }, {});
     }
@@ -282,6 +302,7 @@ function getModifiers(options) {
 const Tooltip = {
     beforeMount(el, options) {
         let target = getTarget(el);
+
         target.$_ptooltipModifiers = getModifiers(options);
 
         if (!options.value) return;

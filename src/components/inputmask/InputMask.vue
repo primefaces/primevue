@@ -31,6 +31,63 @@ export default {
             default: false
         }
     },
+    mounted() {
+        this.tests = [];
+        this.partialPosition = this.mask.length;
+        this.len = this.mask.length;
+        this.firstNonMaskPos = null;
+        this.defs = {
+            9: '[0-9]',
+            a: '[A-Za-z]',
+            '*': '[A-Za-z0-9]'
+        };
+
+        let ua = DomHandler.getUserAgent();
+
+        this.androidChrome = /chrome/i.test(ua) && /android/i.test(ua);
+
+        let maskTokens = this.mask.split('');
+
+        for (let i = 0; i < maskTokens.length; i++) {
+            let c = maskTokens[i];
+
+            if (c === '?') {
+                this.len--;
+                this.partialPosition = i;
+            } else if (this.defs[c]) {
+                this.tests.push(new RegExp(this.defs[c]));
+
+                if (this.firstNonMaskPos === null) {
+                    this.firstNonMaskPos = this.tests.length - 1;
+                }
+
+                if (i < this.partialPosition) {
+                    this.lastRequiredNonMaskPos = this.tests.length - 1;
+                }
+            } else {
+                this.tests.push(null);
+            }
+        }
+
+        this.buffer = [];
+
+        for (let i = 0; i < maskTokens.length; i++) {
+            let c = maskTokens[i];
+
+            if (c !== '?') {
+                if (this.defs[c]) this.buffer.push(this.getPlaceholder(i));
+                else this.buffer.push(c);
+            }
+        }
+
+        this.defaultBuffer = this.buffer.join('');
+        this.updateValue(false);
+    },
+    updated() {
+        if (this.isValueUpdated()) {
+            this.updateValue();
+        }
+    },
     methods: {
         onInput(event) {
             if (this.androidChrome) this.handleAndroidInput(event);
@@ -56,7 +113,9 @@ export default {
                 if (this.$el !== document.activeElement) {
                     return;
                 }
+
                 this.writeBuffer();
+
                 if (pos === this.mask.replace('?', '').length) {
                     this.caret(0, pos);
                 } else {
@@ -73,6 +132,7 @@ export default {
 
             if (this.$el.value !== this.focusText) {
                 let e = document.createEvent('HTMLEvents');
+
                 e.initEvent('change', true, false);
                 this.$el.dispatchEvent(e);
             }
@@ -89,6 +149,7 @@ export default {
                 begin,
                 end;
             let iPhone = /iphone/i.test(DomHandler.getUserAgent());
+
             this.oldVal = this.$el.value;
 
             //backspace, delete, and escape get special treatment
@@ -143,8 +204,10 @@ export default {
                 }
 
                 p = this.seekNext(pos.begin - 1);
+
                 if (p < this.len) {
                     c = String.fromCharCode(k);
+
                     if (this.tests[p].test(c)) {
                         this.shiftR(p);
 
@@ -162,11 +225,13 @@ export default {
                         } else {
                             this.caret(next);
                         }
+
                         if (pos.begin <= this.lastRequiredNonMaskPos) {
                             completed = this.isCompleted();
                         }
                     }
                 }
+
                 event.preventDefault();
             }
 
@@ -193,6 +258,7 @@ export default {
             if (typeof first === 'number') {
                 begin = first;
                 end = typeof last === 'number' ? last : begin;
+
                 if (this.$el.setSelectionRange) {
                     this.$el.setSelectionRange(begin, end);
                 } else if (this.$el['createTextRange']) {
@@ -228,14 +294,17 @@ export default {
             if (i < this.slotChar.length) {
                 return this.slotChar.charAt(i);
             }
+
             return this.slotChar.charAt(0);
         },
         seekNext(pos) {
             while (++pos < this.len && !this.tests[pos]);
+
             return pos;
         },
         seekPrev(pos) {
             while (--pos >= 0 && !this.tests[pos]);
+
             return pos;
         },
         shiftL(begin, end) {
@@ -257,6 +326,7 @@ export default {
                     j = this.seekNext(j);
                 }
             }
+
             this.writeBuffer();
             this.caret(Math.max(this.firstNonMaskPos, begin));
         },
@@ -268,6 +338,7 @@ export default {
                     j = this.seekNext(i);
                     t = this.buffer[i];
                     this.buffer[i] = c;
+
                     if (j < this.len && this.tests[j].test(t)) {
                         c = t;
                     } else {
@@ -279,13 +350,16 @@ export default {
         handleAndroidInput(event) {
             var curVal = this.$el.value;
             var pos = this.caret();
+
             if (this.oldVal && this.oldVal.length && this.oldVal.length > curVal.length) {
                 // a deletion or backspace happened
                 this.checkVal(true);
                 while (pos.begin > 0 && !this.tests[pos.begin - 1]) pos.begin--;
+
                 if (pos.begin === 0) {
                     while (pos.begin < this.firstNonMaskPos && !this.tests[pos.begin]) pos.begin++;
                 }
+
                 this.caret(pos.begin, pos.begin);
             } else {
                 this.checkVal(true);
@@ -300,6 +374,7 @@ export default {
         },
         clearBuffer(start, end) {
             let i;
+
             for (i = start; i < end && i < this.len; i++) {
                 if (this.tests[i]) {
                     this.buffer[i] = this.getPlaceholder(i);
@@ -321,14 +396,17 @@ export default {
             for (i = 0, pos = 0; i < this.len; i++) {
                 if (this.tests[i]) {
                     this.buffer[i] = this.getPlaceholder(i);
+
                     while (pos++ < test.length) {
                         c = test.charAt(pos - 1);
+
                         if (this.tests[i].test(c)) {
                             this.buffer[i] = c;
                             lastMatch = i;
                             break;
                         }
                     }
+
                     if (pos > test.length) {
                         this.clearBuffer(i + 1, this.len);
                         break;
@@ -337,11 +415,13 @@ export default {
                     if (this.buffer[i] === test.charAt(pos)) {
                         pos++;
                     }
+
                     if (i < this.partialPosition) {
                         lastMatch = i;
                     }
                 }
             }
+
             if (allow) {
                 this.writeBuffer();
             } else if (lastMatch + 1 < this.partialPosition) {
@@ -359,6 +439,7 @@ export default {
                 this.writeBuffer();
                 this.$el.value = this.$el.value.substring(0, lastMatch + 1);
             }
+
             return this.partialPosition ? i : this.firstNonMaskPos;
         },
         handleInputChange(event) {
@@ -367,6 +448,7 @@ export default {
             }
 
             var pos = this.checkVal(true);
+
             this.caret(pos);
             this.updateModel(event);
 
@@ -376,8 +458,10 @@ export default {
         },
         getUnmaskedValue() {
             let unmaskedBuffer = [];
+
             for (let i = 0; i < this.buffer.length; i++) {
                 let c = this.buffer[i];
+
                 if (this.tests[i] && c !== this.getPlaceholder(i)) {
                     unmaskedBuffer.push(c);
                 }
@@ -387,6 +471,7 @@ export default {
         },
         updateModel(e) {
             let val = this.unmask ? this.getUnmaskedValue() : e.target.value;
+
             this.$emit('update:modelValue', this.defaultBuffer !== val ? val : '');
         },
         updateValue(updateModel = true) {
@@ -405,6 +490,7 @@ export default {
 
                             if (updateModel) {
                                 let val = this.unmask ? this.getUnmaskedValue() : this.$el.value;
+
                                 this.$emit('update:modelValue', this.defaultBuffer !== val ? val : '');
                             }
                         }
@@ -416,55 +502,6 @@ export default {
         },
         isValueUpdated() {
             return this.unmask ? this.modelValue != this.getUnmaskedValue() : this.defaultBuffer !== this.$el.value && this.$el.value !== this.modelValue;
-        }
-    },
-    mounted() {
-        this.tests = [];
-        this.partialPosition = this.mask.length;
-        this.len = this.mask.length;
-        this.firstNonMaskPos = null;
-        this.defs = {
-            9: '[0-9]',
-            a: '[A-Za-z]',
-            '*': '[A-Za-z0-9]'
-        };
-
-        let ua = DomHandler.getUserAgent();
-        this.androidChrome = /chrome/i.test(ua) && /android/i.test(ua);
-
-        let maskTokens = this.mask.split('');
-        for (let i = 0; i < maskTokens.length; i++) {
-            let c = maskTokens[i];
-            if (c === '?') {
-                this.len--;
-                this.partialPosition = i;
-            } else if (this.defs[c]) {
-                this.tests.push(new RegExp(this.defs[c]));
-                if (this.firstNonMaskPos === null) {
-                    this.firstNonMaskPos = this.tests.length - 1;
-                }
-                if (i < this.partialPosition) {
-                    this.lastRequiredNonMaskPos = this.tests.length - 1;
-                }
-            } else {
-                this.tests.push(null);
-            }
-        }
-
-        this.buffer = [];
-        for (let i = 0; i < maskTokens.length; i++) {
-            let c = maskTokens[i];
-            if (c !== '?') {
-                if (this.defs[c]) this.buffer.push(this.getPlaceholder(i));
-                else this.buffer.push(c);
-            }
-        }
-        this.defaultBuffer = this.buffer.join('');
-        this.updateValue(false);
-    },
-    updated() {
-        if (this.isValueUpdated()) {
-            this.updateValue();
         }
     },
     computed: {

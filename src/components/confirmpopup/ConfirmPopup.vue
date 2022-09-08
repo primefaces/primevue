@@ -1,7 +1,7 @@
 <template>
     <Portal>
         <transition name="p-confirm-popup" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave">
-            <div :class="containerClass" v-if="visible" :ref="containerRef" v-bind="$attrs" @click="onOverlayClick">
+            <div v-if="visible" :ref="containerRef" :class="containerClass" v-bind="$attrs" @click="onOverlayClick">
                 <template v-if="!$slots.message">
                     <div class="p-confirm-popup-content">
                         <i :class="iconClass" />
@@ -56,10 +56,12 @@ export default {
                 this.visible = true;
             }
         };
+
         this.closeListener = () => {
             this.visible = false;
             this.confirmation = null;
         };
+
         ConfirmationEventBus.on('confirm', this.confirmListener);
         ConfirmationEventBus.on('close', this.closeListener);
     },
@@ -68,10 +70,12 @@ export default {
         ConfirmationEventBus.off('close', this.closeListener);
 
         this.unbindOutsideClickListener();
+
         if (this.scrollHandler) {
             this.scrollHandler.destroy();
             this.scrollHandler = null;
         }
+
         this.unbindResizeListener();
 
         if (this.container) {
@@ -122,6 +126,7 @@ export default {
             if (containerOffset.left < targetOffset.left) {
                 arrowLeft = targetOffset.left - containerOffset.left;
             }
+
             this.container.style.setProperty('--overlayArrowLeft', `${arrowLeft}px`);
 
             if (containerOffset.top < targetOffset.top) {
@@ -137,6 +142,7 @@ export default {
                         this.alignOverlay();
                     }
                 };
+
                 document.addEventListener('click', this.outsideClickListener);
             }
         },
@@ -169,6 +175,7 @@ export default {
                         this.visible = false;
                     }
                 };
+
                 window.addEventListener('resize', this.resizeListener);
             }
         },

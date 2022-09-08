@@ -11,6 +11,7 @@ export default {
                 ConfirmationEventBus.emit('close');
             }
         };
+
         app.config.globalProperties.$confirm = ConfirmationService;
         app.provide(PrimeVueConfirmSymbol, ConfirmationService);
     }

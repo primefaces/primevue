@@ -12,6 +12,7 @@ describe('InputText.vue', () => {
         expect(wrapper.find('.p-filled').exists()).toBe(true);
 
         const input = wrapper.find('input');
+
         expect(input.element.value).toEqual('PrimeVue');
     });
 

@@ -200,7 +200,7 @@
 
             <div class="flex align-items-center">
                 <label for="binary" class="mr-2">Remember Me</label>
-                <Checkbox id="binary" binary v-model="checked" />
+                <Checkbox id="binary" v-model="checked" binary />
             </div>
 
             <h5>Colors</h5>

@@ -14,6 +14,7 @@ export default {
                 ToastEventBus.emit('remove-all-groups');
             }
         };
+
         app.config.globalProperties.$toast = ToastService;
         app.provide(PrimeVueToastSymbol, ToastService);
     }

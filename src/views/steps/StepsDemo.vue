@@ -51,9 +51,6 @@ export default {
             formObject: {}
         };
     },
-    components: {
-        StepsDoc: StepsDoc
-    },
     methods: {
         nextPage(event) {
             for (let field in event.formData) {
@@ -68,6 +65,9 @@ export default {
         complete() {
             this.$toast.add({ severity: 'success', summary: 'Order submitted', detail: 'Dear, ' + this.formObject.firstname + ' ' + this.formObject.lastname + ' your order completed.' });
         }
+    },
+    components: {
+        StepsDoc: StepsDoc
     }
 };
 </script>

@@ -2,8 +2,8 @@
     <div :class="containerClass" @click="onClick($event)">
         <div class="p-hidden-accessible">
             <input
-                :id="inputId"
                 ref="input"
+                :id="inputId"
                 type="checkbox"
                 :checked="modelValue === true"
                 :tabindex="tabindex"
@@ -106,6 +106,7 @@ export default {
     computed: {
         icon() {
             let icon;
+
             switch (this.modelValue) {
                 case true:
                     icon = 'pi pi-check';

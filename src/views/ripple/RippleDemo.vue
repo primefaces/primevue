@@ -10,10 +10,10 @@
 
         <div class="content-section implementation">
             <div class="card-container flex">
-                <div class="card primary-box p-ripple" v-ripple>Default</div>
-                <div class="card styled-box-green p-ripple" v-ripple>Green</div>
-                <div class="card styled-box-orange p-ripple" v-ripple>Orange</div>
-                <div class="card styled-box-purple p-ripple" v-ripple>Purple</div>
+                <div v-ripple class="card primary-box p-ripple">Default</div>
+                <div v-ripple class="card styled-box-green p-ripple">Green</div>
+                <div v-ripple class="card styled-box-orange p-ripple">Orange</div>
+                <div v-ripple class="card styled-box-purple p-ripple">Purple</div>
             </div>
         </div>
 

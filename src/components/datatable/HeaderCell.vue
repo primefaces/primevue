@@ -15,13 +15,13 @@
         :rowspan="columnProp('rowspan')"
         :aria-sort="ariaSort"
     >
-        <span class="p-column-resizer" @mousedown="onResizeStart" v-if="resizableColumns && !columnProp('frozen')"></span>
+        <span v-if="resizableColumns && !columnProp('frozen')" class="p-column-resizer" @mousedown="onResizeStart"></span>
         <div class="p-column-header-content">
-            <component :is="column.children.header" :column="column" v-if="column.children && column.children.header" />
-            <span class="p-column-title" v-if="columnProp('header')">{{ columnProp('header') }}</span>
+            <component v-if="column.children && column.children.header" :is="column.children.header" :column="column" />
+            <span v-if="columnProp('header')" class="p-column-title">{{ columnProp('header') }}</span>
             <span v-if="columnProp('sortable')" :class="sortableColumnIcon"></span>
             <span v-if="isMultiSorted()" class="p-sortable-column-badge">{{ getBadgeValue() }}</span>
-            <DTHeaderCheckbox :checked="allRowsSelected" @change="onHeaderCheckboxChange" :disabled="empty" v-if="columnProp('selectionMode') === 'multiple' && filterDisplay !== 'row'" />
+            <DTHeaderCheckbox v-if="columnProp('selectionMode') === 'multiple' && filterDisplay !== 'row'" :checked="allRowsSelected" @change="onHeaderCheckboxChange" :disabled="empty" />
             <DTColumnFilter
                 v-if="filterDisplay === 'menu' && column.children && column.children.filter"
                 :field="columnProp('filterField') || columnProp('field')"
@@ -205,25 +205,32 @@ export default {
         updateStickyPosition() {
             if (this.columnProp('frozen')) {
                 let align = this.columnProp('alignFrozen');
+
                 if (align === 'right') {
                     let right = 0;
                     let next = this.$el.nextElementSibling;
+
                     if (next) {
                         right = DomHandler.getOuterWidth(next) + parseFloat(next.style.right || 0);
                     }
+
                     this.styleObject.right = right + 'px';
                 } else {
                     let left = 0;
                     let prev = this.$el.previousElementSibling;
+
                     if (prev) {
                         left = DomHandler.getOuterWidth(prev) + parseFloat(prev.style.left || 0);
                     }
+
                     this.styleObject.left = left + 'px';
                 }
 
                 let filterRow = this.$el.parentElement.nextElementSibling;
+
                 if (filterRow) {
                     let index = DomHandler.index(this.$el);
+
                     filterRow.children[index].style.left = this.styleObject.left;
                     filterRow.children[index].style.right = this.styleObject.right;
                 }
@@ -263,6 +270,7 @@ export default {
                 sortOrder = sorted ? this.sortOrder : 0;
             } else if (this.sortMode === 'multiple') {
                 let metaIndex = this.getMultiSortMetaIndex();
+
                 if (metaIndex > -1) {
                     sorted = true;
                     sortOrder = this.multiSortMeta[metaIndex].order;
@@ -281,6 +289,7 @@ export default {
         ariaSort() {
             if (this.columnProp('sortable')) {
                 const sortIcon = this.sortableColumnIcon;
+
                 if (sortIcon[1]['pi-sort-amount-down']) return 'descending';
                 else if (sortIcon[1]['pi-sort-amount-up-alt']) return 'ascending';
                 else return 'none';

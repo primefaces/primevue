@@ -29,7 +29,7 @@
                         {{ label || 'empty' }}
                     </template>
                     <template v-else-if="display === 'chip'">
-                        <div v-for="item of modelValue" class="p-multiselect-token" :key="getLabelByValue(item)">
+                        <div v-for="item of modelValue" :key="getLabelByValue(item)" class="p-multiselect-token">
                             <slot name="chip" :value="item">
                                 <span class="p-multiselect-token-label">{{ getLabelByValue(item) }}</span>
                             </slot>
@@ -81,7 +81,7 @@
                         <span v-if="filter" role="status" aria-live="polite" class="p-hidden-accessible">
                             {{ filterResultMessageText }}
                         </span>
-                        <button class="p-multiselect-close p-link" :aria-label="closeAriaLabel" @click="onCloseClick" type="button" v-ripple v-bind="closeButtonProps">
+                        <button v-ripple class="p-multiselect-close p-link" :aria-label="closeAriaLabel" @click="onCloseClick" type="button" v-bind="closeButtonProps">
                             <span class="p-multiselect-close-icon pi pi-times" />
                         </button>
                     </div>
@@ -95,8 +95,8 @@
                                         </li>
                                         <li
                                             v-else
-                                            v-ripple
                                             :id="id + '_' + getOptionIndex(i, getItemOptions)"
+                                            v-ripple
                                             :style="{ height: itemSize ? itemSize + 'px' : undefined }"
                                             :class="['p-multiselect-item', { 'p-highlight': isSelected(option), 'p-focus': focusedOptionIndex === getOptionIndex(i, getItemOptions), 'p-disabled': isOptionDisabled(option) }]"
                                             role="option"
@@ -446,6 +446,7 @@ export default {
                 default:
                     if (event.code === 'KeyA' && metaKey) {
                         const value = this.visibleOptions.filter((option) => this.isValidOption(option)).map((option) => this.getOptionValue(option));
+
                         this.updateModel(event, value);
 
                         event.preventDefault();
@@ -475,6 +476,7 @@ export default {
 
             if (relatedTarget === this.$refs.focusInput) {
                 const firstFocusableEl = DomHandler.getFirstFocusableElement(this.overlay, ':not(.p-hidden-focusable)');
+
                 DomHandler.focus(firstFocusableEl);
             } else {
                 DomHandler.focus(this.$refs.focusInput);
@@ -658,6 +660,7 @@ export default {
             if (pressedInInputText) {
                 const target = event.currentTarget;
                 const len = target.value.length;
+
                 target.setSelectionRange(len, len);
                 this.focusedOptionIndex = -1;
             } else {
@@ -757,6 +760,7 @@ export default {
                         this.hide();
                     }
                 };
+
                 document.addEventListener('click', this.outsideClickListener);
             }
         },
@@ -789,6 +793,7 @@ export default {
                         this.hide();
                     }
                 };
+
                 window.addEventListener('resize', this.resizeListener);
             }
         },
@@ -804,10 +809,12 @@ export default {
         getLabelByValue(value) {
             const options = this.optionGroupLabel ? this.flatOptions(this.options) : this.options || [];
             const matchedOption = options.find((option) => !this.isOptionGroup(option) && ObjectUtils.equals(this.getOptionValue(option), value, this.equalityKey));
+
             return matchedOption ? this.getOptionLabel(matchedOption) : null;
         },
         getSelectedItemsLabel() {
             let pattern = /{(.*?)}/;
+
             if (pattern.test(this.selectedItemsLabel)) {
                 return this.selectedItemsLabel.replace(this.selectedItemsLabel.match(pattern)[0], this.modelValue.length + '');
             }
@@ -847,6 +854,7 @@ export default {
         },
         isSelected(option) {
             const optionValue = this.getOptionValue(option);
+
             return (this.modelValue || []).some((value) => ObjectUtils.equals(value, optionValue, this.equalityKey));
         },
         findFirstOptionIndex() {
@@ -857,10 +865,12 @@ export default {
         },
         findNextOptionIndex(index) {
             const matchedOptionIndex = index < this.visibleOptions.length - 1 ? this.visibleOptions.slice(index + 1).findIndex((option) => this.isValidOption(option)) : -1;
+
             return matchedOptionIndex > -1 ? matchedOptionIndex + index + 1 : index;
         },
         findPrevOptionIndex(index) {
             const matchedOptionIndex = index > 0 ? ObjectUtils.findLastIndex(this.visibleOptions.slice(0, index), (option) => this.isValidOption(option)) : -1;
+
             return matchedOptionIndex > -1 ? matchedOptionIndex : index;
         },
         findFirstSelectedOptionIndex() {
@@ -871,10 +881,12 @@ export default {
         },
         findNextSelectedOptionIndex(index) {
             const matchedOptionIndex = this.hasSelectedOption && index < this.visibleOptions.length - 1 ? this.visibleOptions.slice(index + 1).findIndex((option) => this.isValidSelectedOption(option)) : -1;
+
             return matchedOptionIndex > -1 ? matchedOptionIndex + index + 1 : -1;
         },
         findPrevSelectedOptionIndex(index) {
             const matchedOptionIndex = this.hasSelectedOption && index > 0 ? ObjectUtils.findLastIndex(this.visibleOptions.slice(0, index), (option) => this.isValidSelectedOption(option)) : -1;
+
             return matchedOptionIndex > -1 ? matchedOptionIndex : -1;
         },
         findNearestSelectedOptionIndex(index, firstCheckUp = false) {
@@ -894,16 +906,19 @@ export default {
         },
         findFirstFocusedOptionIndex() {
             const selectedIndex = this.findFirstSelectedOptionIndex();
+
             return selectedIndex < 0 ? this.findFirstOptionIndex() : selectedIndex;
         },
         findLastFocusedOptionIndex() {
             const selectedIndex = this.findLastSelectedOptionIndex();
+
             return selectedIndex < 0 ? this.findLastOptionIndex() : selectedIndex;
         },
         searchOptions(event) {
             this.searchValue = (this.searchValue || '') + event.key;
 
             let optionIndex = -1;
+
             if (this.focusedOptionIndex !== -1) {
                 optionIndex = this.visibleOptions.slice(this.focusedOptionIndex).findIndex((option) => this.isOptionMatched(option));
                 optionIndex = optionIndex === -1 ? this.visibleOptions.slice(0, this.focusedOptionIndex).findIndex((option) => this.isOptionMatched(option)) : optionIndex + this.focusedOptionIndex;
@@ -913,6 +928,7 @@ export default {
 
             if (optionIndex === -1 && this.focusedOptionIndex === -1) {
                 const selectedIndex = this.findSelectedOptionIndex();
+
                 optionIndex = selectedIndex < 0 ? this.findFirstOptionIndex() : selectedIndex;
             }
 
@@ -938,6 +954,7 @@ export default {
         scrollInView(index = -1) {
             const id = index !== -1 ? `${this.id}_${index}` : this.focusedOptionId;
             const element = DomHandler.findSingle(this.list, `li[id="${id}"]`);
+
             if (element) {
                 element.scrollIntoView && element.scrollIntoView({ block: 'nearest', inline: 'nearest' });
             } else if (!this.virtualScrollerDisabled) {
@@ -948,6 +965,7 @@ export default {
             if (this.selectOnFocus && this.autoOptionFocus && !this.hasSelectedOption) {
                 this.focusedOptionIndex = this.findFirstFocusedOptionIndex();
                 const value = this.getOptionValue(this.visibleOptions[this.focusedOptionIndex]);
+
                 this.updateModel(null, [value]);
             }
         },
@@ -960,6 +978,7 @@ export default {
                 result.push({ optionGroup: option, group: true, index });
 
                 const optionGroupChildren = this.getOptionGroupChildren(option);
+
                 optionGroupChildren && optionGroupChildren.forEach((o) => result.push(o));
 
                 return result;
@@ -1035,6 +1054,7 @@ export default {
                     return this.getSelectedItemsLabel();
                 } else {
                     label = '';
+
                     for (let i = 0; i < this.modelValue.length; i++) {
                         if (i !== 0) {
                             label += ', ';

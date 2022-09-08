@@ -50,9 +50,11 @@ describe('ConfirmDialog', () => {
                         header: 'Confirmation',
                         icon: 'pi pi-exclamation-triangle',
                         accept: () => {
+                            // eslint-disable-next-line no-console
                             console.log('accept');
                         },
                         reject: () => {
+                            // eslint-disable-next-line no-console
                             console.log('reject');
                         }
                     }
@@ -87,9 +89,11 @@ describe('ConfirmDialog', () => {
                         header: 'Confirmation',
                         icon: 'pi pi-exclamation-triangle',
                         accept: () => {
+                            // eslint-disable-next-line no-console
                             console.log('accept');
                         },
                         reject: () => {
+                            // eslint-disable-next-line no-console
                             console.log('reject');
                         }
                     }

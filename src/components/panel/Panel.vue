@@ -2,29 +2,29 @@
     <div :class="containerClass">
         <div class="p-panel-header">
             <slot name="header">
-                <span class="p-panel-title" v-if="header" :id="ariaId + '_header'">{{ header }}</span>
+                <span v-if="header" :id="ariaId + '_header'" class="p-panel-title">{{ header }}</span>
             </slot>
             <div class="p-panel-icons">
                 <slot name="icons"></slot>
                 <button
+                    v-if="toggleable"
+                    :id="ariaId + '_header'"
+                    v-ripple
                     type="button"
                     role="button"
-                    v-if="toggleable"
                     class="p-panel-header-icon p-panel-toggler p-link"
-                    :id="ariaId + '_header'"
                     :aria-label="toggleButtonProps || header"
                     :aria-controls="ariaId + '_content'"
                     :aria-expanded="!d_collapsed"
                     @click="toggle"
                     @keydown="onKeyDown"
-                    v-ripple
                 >
                     <span :class="{ 'pi pi-minus': !d_collapsed, 'pi pi-plus': d_collapsed }"></span>
                 </button>
             </div>
         </div>
         <transition name="p-toggleable-content">
-            <div class="p-toggleable-content" v-show="!d_collapsed" role="region" :id="ariaId + '_content'" :aria-labelledby="ariaId + '_header'">
+            <div v-show="!d_collapsed" :id="ariaId + '_content'" class="p-toggleable-content" role="region" :aria-labelledby="ariaId + '_header'">
                 <div class="p-panel-content">
                     <slot></slot>
                 </div>

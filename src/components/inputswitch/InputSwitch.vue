@@ -2,8 +2,8 @@
     <div :class="containerClass" @click="onClick($event)">
         <div class="p-hidden-accessible">
             <input
-                :id="inputId"
                 ref="input"
+                :id="inputId"
                 type="checkbox"
                 role="switch"
                 :class="inputClass"
@@ -77,12 +77,14 @@ export default {
         onClick(event) {
             if (!this.disabled) {
                 const newValue = this.checked ? this.falseValue : this.trueValue;
+
                 this.$emit('click', event);
                 this.$emit('update:modelValue', newValue);
                 this.$emit('change', event);
                 this.$emit('input', newValue);
                 this.$refs.input.focus();
             }
+
             event.preventDefault();
         },
         onFocus(event) {

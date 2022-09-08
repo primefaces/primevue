@@ -1,7 +1,7 @@
 <template>
     <div class="p-galleria-thumbnail-wrapper">
         <div class="p-galleria-thumbnail-container">
-            <button v-if="showThumbnailNavigators" :class="navBackwardClass" @click="navBackward($event)" :disabled="isNavBackwardDisabled()" type="button" v-ripple>
+            <button v-if="showThumbnailNavigators" v-ripple :class="navBackwardClass" @click="navBackward($event)" :disabled="isNavBackwardDisabled()" type="button">
                 <span :class="navBackwardIconClass"></span>
             </button>
             <div class="p-galleria-thumbnail-items-container" :style="{ height: isVertical ? contentHeight : '' }">
@@ -20,12 +20,12 @@
                         ]"
                     >
                         <div class="p-galleria-thumbnail-item-content" :tabindex="isItemActive(index) ? 0 : null" @click="onItemClick(index)" @keydown.enter="onItemClick(index)">
-                            <component :is="templates.thumbnail" :item="item" v-if="templates.thumbnail" />
+                            <component v-if="templates.thumbnail" :is="templates.thumbnail" :item="item" />
                         </div>
                     </div>
                 </div>
             </div>
-            <button v-if="showThumbnailNavigators" :class="navForwardClass" @click="navForward($event)" :disabled="isNavForwardDisabled()" type="button" v-ripple>
+            <button v-if="showThumbnailNavigators" v-ripple :class="navForwardClass" @click="navForward($event)" :disabled="isNavForwardDisabled()" type="button">
                 <span :class="navForwardIconClass"></span>
             </button>
         </div>
@@ -195,11 +195,13 @@ export default {
 
             let prevItemIndex = this.d_activeIndex !== 0 ? this.d_activeIndex - 1 : 0;
             let diff = prevItemIndex + this.totalShiftedItems;
+
             if (this.d_numVisible - diff - 1 > this.getMedianItemIndex() && (-1 * this.totalShiftedItems !== 0 || this.circular)) {
                 this.step(1);
             }
 
             let activeIndex = this.circular && this.d_activeIndex === 0 ? this.value.length - 1 : prevItemIndex;
+
             this.$emit('update:activeIndex', activeIndex);
 
             if (e.cancelable) {
@@ -210,11 +212,13 @@ export default {
             this.stopSlideShow();
 
             let nextItemIndex = this.d_activeIndex + 1;
+
             if (nextItemIndex + this.totalShiftedItems > this.getMedianItemIndex() && (-1 * this.totalShiftedItems < this.getTotalPageNumber() - 1 || this.circular)) {
                 this.step(-1);
             }
 
             let activeIndex = this.circular && this.value.length - 1 === this.d_activeIndex ? 0 : nextItemIndex;
+
             this.$emit('update:activeIndex', activeIndex);
 
             if (e.cancelable) {
@@ -225,16 +229,20 @@ export default {
             this.stopSlideShow();
 
             let selectedItemIndex = index;
+
             if (selectedItemIndex !== this.d_activeIndex) {
                 const diff = selectedItemIndex + this.totalShiftedItems;
                 let dir = 0;
+
                 if (selectedItemIndex < this.d_activeIndex) {
                     dir = this.d_numVisible - diff - 1 - this.getMedianItemIndex();
+
                     if (dir > 0 && -1 * this.totalShiftedItems !== 0) {
                         this.step(dir);
                     }
                 } else {
                     dir = this.getMedianItemIndex() - diff;
+
                     if (dir < 0 && -1 * this.totalShiftedItems < this.getTotalPageNumber() - 1) {
                         this.step(dir);
                     }

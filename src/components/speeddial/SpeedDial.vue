@@ -7,13 +7,13 @@
             <li v-for="(item, index) of model" :key="index" class="p-speeddial-item" :style="getItemStyle(index)" role="none">
                 <template v-if="!$slots.item">
                     <a
+                        v-tooltip:[tooltipOptions]="{ value: item.label, disabled: !tooltipOptions }"
+                        v-ripple
                         :href="item.url || '#'"
                         role="menuitem"
                         :class="['p-speeddial-action', { 'p-disabled': item.disabled }]"
                         :target="item.target"
-                        v-tooltip:[tooltipOptions]="{ value: item.label, disabled: !tooltipOptions }"
                         @click="onItemClick($event, item)"
-                        v-ripple
                     >
                         <span v-if="item.icon" :class="['p-speeddial-action-icon', item.icon]"></span>
                     </a>
@@ -108,6 +108,7 @@ export default {
             if (button && firstItem) {
                 const wDiff = Math.abs(button.offsetWidth - firstItem.offsetWidth);
                 const hDiff = Math.abs(button.offsetHeight - firstItem.offsetHeight);
+
                 this.list.style.setProperty('--item-diff-x', `${wDiff / 2}px`);
                 this.list.style.setProperty('--item-diff-y', `${hDiff / 2}px`);
             }
@@ -171,6 +172,7 @@ export default {
                     const step = Math.PI / (length - 1);
                     const x = `calc(${radius * Math.cos(step * index)}px + var(--item-diff-x, 0px))`;
                     const y = `calc(${radius * Math.sin(step * index)}px + var(--item-diff-y, 0px))`;
+
                     if (direction === 'up') {
                         return { left: x, bottom: y };
                     } else if (direction === 'down') {
@@ -185,6 +187,7 @@ export default {
                     const step = Math.PI / (2 * (length - 1));
                     const x = `calc(${radius * Math.cos(step * index)}px + var(--item-diff-x, 0px))`;
                     const y = `calc(${radius * Math.sin(step * index)}px + var(--item-diff-y, 0px))`;
+
                     if (direction === 'up-left') {
                         return { right: x, bottom: y };
                     } else if (direction === 'up-right') {
@@ -217,6 +220,7 @@ export default {
 
                     this.isItemClicked = false;
                 };
+
                 document.addEventListener('click', this.documentClickListener);
             }
         },

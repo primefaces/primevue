@@ -29,20 +29,21 @@ export default {
         }
     },
     mask: null,
-    mounted() {
-        if (this.blocked) {
-            this.block();
-        }
-    },
     watch: {
         blocked(newValue) {
             if (newValue === true) this.block();
             else this.unblock();
         }
     },
+    mounted() {
+        if (this.blocked) {
+            this.block();
+        }
+    },
     methods: {
         block() {
             let styleClass = 'p-blockui p-component-overlay p-component-overlay-enter';
+
             if (this.fullScreen) {
                 styleClass += ' p-blockui-document';
                 this.mask = document.createElement('div');
@@ -70,6 +71,7 @@ export default {
         },
         removeMask() {
             ZIndexUtils.clear(this.mask);
+
             if (this.fullScreen) {
                 document.body.removeChild(this.mask);
                 DomHandler.removeClass(document.body, 'p-overflow-hidden');

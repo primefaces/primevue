@@ -17,7 +17,7 @@
                         </div>
                     </template>
                     <Column field="name" header="Name" :expander="true"></Column>
-                    <Column v-for="col of selectedColumns" :field="col.field" :header="col.header" :key="col.field"></Column>
+                    <Column v-for="col of selectedColumns" :key="col.field" :field="col.field" :header="col.header"></Column>
                 </TreeTable>
             </div>
         </div>

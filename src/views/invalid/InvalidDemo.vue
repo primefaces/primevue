@@ -12,7 +12,7 @@
             <div class="card">
                 <div class="p-fluid grid">
                     <div class="field col-12 md:col-4">
-                        <InputText id="inputtext" type="text" v-model="value1" placeholder="InputText" class="p-invalid" />
+                        <InputText id="inputtext" v-model="value1" type="text" placeholder="InputText" class="p-invalid" />
                     </div>
                     <div class="field col-12 md:col-4">
                         <AutoComplete v-model="value2" :suggestions="filteredCountries" @complete="searchCountry($event)" field="name" placeholder="AutoComplete" class="p-invalid" />

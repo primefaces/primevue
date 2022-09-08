@@ -11,13 +11,13 @@
         <div class="themes-main flex mt-7 justify-content-center pad-section" :style="{ backgroundImage: `url('demo/images/landing/wave-${$appState.darkTheme ? 'dark-alt' : 'light-alt'}.svg')`, backgroundSize: 'cover' }">
             <div class="box overflow-hidden z-1 p-5 table-container">
                 <DataTable
+                    v-model:selection="selectedCustomers"
+                    v-model:filters="filters"
                     :value="customers"
                     :paginator="true"
                     :rows="5"
                     dataKey="id"
                     :rowHover="true"
-                    v-model:selection="selectedCustomers"
-                    v-model:filters="filters"
                     filterDisplay="menu"
                     :loading="loading"
                     paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown"
@@ -126,6 +126,7 @@ export default {
     methods: {
         changeTheme(name, color) {
             let newTheme = name + '-' + (this.$appState.darkTheme ? 'dark' : 'light') + '-' + color;
+
             this.$emit('table-theme-change', newTheme);
         },
         formatDate(value) {

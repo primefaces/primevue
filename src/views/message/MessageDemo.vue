@@ -22,7 +22,7 @@
                 <h5>Dynamic</h5>
                 <Button label="Show" @click="addMessages()" />
                 <transition-group name="p-message" tag="div">
-                    <Message v-for="msg of messages" :severity="msg.severity" :key="msg.id">{{ msg.content }}</Message>
+                    <Message v-for="msg of messages" :key="msg.id" :severity="msg.severity">{{ msg.content }}</Message>
                 </transition-group>
 
                 <h5>Inline Messages</h5>

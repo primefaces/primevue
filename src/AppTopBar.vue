@@ -3,7 +3,7 @@
         <a class="menu-button" @click="$emit('menubutton-click')">
             <i class="pi pi-bars"></i>
         </a>
-        <div class="app-theme" v-tooltip.bottom="$appState.theme">
+        <div v-tooltip.bottom="$appState.theme" class="app-theme">
             <img :src="'demo/images/themes/' + logoMap[$appState.theme]" />
         </div>
         <ul ref="topbarMenu" class="topbar-menu">
@@ -243,13 +243,9 @@
 import EventBus from '@/AppEventBus';
 
 export default {
+    emits: ['menubutton-click'],
     outsideClickListener: null,
     darkDemoStyle: null,
-    watch: {
-        $route() {
-            this.activeMenuIndex = null;
-        }
-    },
     data() {
         return {
             activeMenuIndex: null,
@@ -306,6 +302,11 @@ export default {
             }
         };
     },
+    watch: {
+        $route() {
+            this.activeMenuIndex = null;
+        }
+    },
     scrollListener: null,
     container: null,
     mounted() {
@@ -338,6 +339,7 @@ export default {
                     };
                 }
             }
+
             window.addEventListener('scroll', this.scrollListener);
         },
         unbindScrollListener() {
@@ -354,6 +356,7 @@ export default {
                         this.unbindOutsideClickListener();
                     }
                 };
+
                 document.addEventListener('click', this.outsideClickListener);
             }
         },

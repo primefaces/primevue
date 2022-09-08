@@ -97,6 +97,7 @@ const PrimeVueSymbol = Symbol();
 
 export function usePrimeVue() {
     const PrimeVue = inject(PrimeVueSymbol);
+
     if (!PrimeVue) {
         throw new Error('PrimeVue is not installed!');
     }
@@ -110,6 +111,7 @@ export default {
         const PrimeVue = {
             config: reactive(configOptions)
         };
+
         app.config.globalProperties.$primevue = PrimeVue;
         app.provide(PrimeVueSymbol, PrimeVue);
     }

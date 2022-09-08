@@ -53,7 +53,7 @@
             <div class="dock-window dock-advanced">
                 <Dock :model="dockItems">
                     <template #item="{ item }">
-                        <a href="#" class="p-dock-action" v-tooltip.top="item.label" @click="onDockItemClick($event, item)">
+                        <a v-tooltip.top="item.label" href="#" class="p-dock-action" @click="onDockItemClick($event, item)">
                             <img :alt="item.label" :src="item.icon" style="width: 100%" />
                         </a>
                     </template>

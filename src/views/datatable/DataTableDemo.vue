@@ -11,14 +11,14 @@
         <div class="content-section implementation">
             <div class="card">
                 <DataTable
+                    v-model:selection="selectedCustomers"
+                    v-model:filters="filters"
                     :value="customers"
                     :paginator="true"
                     class="p-datatable-customers"
                     :rows="10"
                     dataKey="id"
                     :rowHover="true"
-                    v-model:selection="selectedCustomers"
-                    v-model:filters="filters"
                     filterDisplay="menu"
                     :loading="loading"
                     paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown"
@@ -44,7 +44,7 @@
                             {{ data.name }}
                         </template>
                         <template #filter="{ filterModel }">
-                            <InputText type="text" v-model="filterModel.value" class="p-column-filter" placeholder="Search by name" />
+                            <InputText v-model="filterModel.value" type="text" class="p-column-filter" placeholder="Search by name" />
                         </template>
                     </Column>
                     <Column field="country.name" header="Country" sortable filterMatchMode="contains" style="min-width: 14rem">
@@ -53,7 +53,7 @@
                             <span class="image-text">{{ data.country.name }}</span>
                         </template>
                         <template #filter="{ filterModel }">
-                            <InputText type="text" v-model="filterModel.value" class="p-column-filter" placeholder="Search by country" />
+                            <InputText v-model="filterModel.value" type="text" class="p-column-filter" placeholder="Search by country" />
                         </template>
                     </Column>
                     <Column header="Agent" sortable filterField="representative" sortField="representative.name" :showFilterMatchModes="false" :filterMenuStyle="{ width: '14rem' }" style="min-width: 14rem">

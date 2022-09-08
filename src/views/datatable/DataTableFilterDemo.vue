@@ -13,13 +13,13 @@
                 <h5>Filter Menu</h5>
                 <p>Filters are displayed in an overlay.</p>
                 <DataTable
+                    v-model:filters="filters1"
                     :value="customers1"
                     :paginator="true"
                     class="p-datatable-customers"
                     showGridlines
                     :rows="10"
                     dataKey="id"
-                    v-model:filters="filters1"
                     filterDisplay="menu"
                     :loading="loading1"
                     responsiveLayout="scroll"
@@ -41,7 +41,7 @@
                             {{ data.name }}
                         </template>
                         <template #filter="{ filterModel }">
-                            <InputText type="text" v-model="filterModel.value" class="p-column-filter" placeholder="Search by name" />
+                            <InputText v-model="filterModel.value" type="text" class="p-column-filter" placeholder="Search by name" />
                         </template>
                     </Column>
                     <Column header="Country" filterField="country.name" style="min-width: 12rem">
@@ -50,7 +50,7 @@
                             <span class="image-text">{{ data.country.name }}</span>
                         </template>
                         <template #filter="{ filterModel }">
-                            <InputText type="text" v-model="filterModel.value" class="p-column-filter" placeholder="Search by country" />
+                            <InputText v-model="filterModel.value" type="text" class="p-column-filter" placeholder="Search by country" />
                         </template>
                         <template #filterclear="{ filterCallback }">
                             <Button type="button" icon="pi pi-times" @click="filterCallback()" class="p-button-secondary"></Button>
@@ -102,7 +102,7 @@
                         <template #filter="{ filterModel }">
                             <Dropdown v-model="filterModel.value" :options="statuses" placeholder="Any" class="p-column-filter" :showClear="true">
                                 <template #value="slotProps">
-                                    <span :class="'customer-badge status-' + slotProps.value" v-if="slotProps.value">{{ slotProps.value }}</span>
+                                    <span v-if="slotProps.value" :class="'customer-badge status-' + slotProps.value">{{ slotProps.value }}</span>
                                     <span v-else>{{ slotProps.placeholder }}</span>
                                 </template>
                                 <template #option="slotProps">
@@ -138,12 +138,12 @@
                 <h5>Filter Row</h5>
                 <p>Filters are displayed inline within a separate row.</p>
                 <DataTable
+                    v-model:filters="filters2"
                     :value="customers2"
                     :paginator="true"
                     class="p-datatable-customers"
                     :rows="10"
                     dataKey="id"
-                    v-model:filters="filters2"
                     filterDisplay="row"
                     :loading="loading2"
                     responsiveLayout="scroll"
@@ -164,7 +164,7 @@
                             {{ data.name }}
                         </template>
                         <template #filter="{ filterModel, filterCallback }">
-                            <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" :placeholder="`Search by name - ${filterModel.matchMode}`" v-tooltip.top.focus="'Hit enter key to filter'" />
+                            <InputText v-model="filterModel.value" v-tooltip.top.focus="'Hit enter key to filter'" type="text" @keydown.enter="filterCallback()" class="p-column-filter" :placeholder="`Search by name - ${filterModel.matchMode}`" />
                         </template>
                     </Column>
                     <Column header="Country" filterField="country.name" style="min-width: 12rem">
@@ -173,7 +173,7 @@
                             <span class="image-text">{{ data.country.name }}</span>
                         </template>
                         <template #filter="{ filterModel, filterCallback }">
-                            <InputText type="text" v-model="filterModel.value" @input="filterCallback()" class="p-column-filter" placeholder="Search by country" v-tooltip.top.focus="'Filter as you type'" />
+                            <InputText v-model="filterModel.value" v-tooltip.top.focus="'Filter as you type'" type="text" @input="filterCallback()" class="p-column-filter" placeholder="Search by country" />
                         </template>
                     </Column>
                     <Column header="Agent" filterField="representative" :showFilterMenu="false" style="min-width: 14rem">
@@ -199,7 +199,7 @@
                         <template #filter="{ filterModel, filterCallback }">
                             <Dropdown v-model="filterModel.value" @change="filterCallback()" :options="statuses" placeholder="Any" class="p-column-filter" :showClear="true">
                                 <template #value="slotProps">
-                                    <span :class="'customer-badge status-' + slotProps.value" v-if="slotProps.value">{{ slotProps.value }}</span>
+                                    <span v-if="slotProps.value" :class="'customer-badge status-' + slotProps.value">{{ slotProps.value }}</span>
                                     <span v-else>{{ slotProps.placeholder }}</span>
                                 </template>
                                 <template #option="slotProps">

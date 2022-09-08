@@ -12,7 +12,7 @@
             <div class="card">
                 <DataTable :value="products" :reorderableColumns="true" @column-reorder="onColReorder" @row-reorder="onRowReorder" responsiveLayout="scroll">
                     <Column :rowReorder="true" headerStyle="width: 3rem" :reorderableColumn="false" />
-                    <Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field"></Column>
+                    <Column v-for="col of columns" :key="col.field" :field="col.field" :header="col.header"></Column>
                 </DataTable>
             </div>
         </div>

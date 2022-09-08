@@ -1,17 +1,17 @@
 <template>
     <Portal :appendTo="appendTo">
-        <div :ref="maskRef" :class="maskClass" v-if="containerVisible" @click="onMaskClick">
+        <div v-if="containerVisible" :ref="maskRef" :class="maskClass" @click="onMaskClick">
             <transition name="p-dialog" @before-enter="onBeforeEnter" @enter="onEnter" @before-leave="onBeforeLeave" @leave="onLeave" @after-leave="onAfterLeave" appear>
-                <div :ref="containerRef" :class="dialogClass" v-if="visible" v-bind="$attrs" role="dialog" :aria-labelledby="ariaLabelledById" :aria-modal="modal">
-                    <div class="p-dialog-header" v-if="showHeader" @mousedown="initDrag">
+                <div v-if="visible" :ref="containerRef" :class="dialogClass" v-bind="$attrs" role="dialog" :aria-labelledby="ariaLabelledById" :aria-modal="modal">
+                    <div v-if="showHeader" class="p-dialog-header" @mousedown="initDrag">
                         <slot name="header">
-                            <span :id="ariaLabelledById" class="p-dialog-title" v-if="header">{{ header }}</span>
+                            <span v-if="header" :id="ariaLabelledById" class="p-dialog-title">{{ header }}</span>
                         </slot>
                         <div class="p-dialog-header-icons">
-                            <button class="p-dialog-header-icon p-dialog-header-maximize p-link" @click="maximize" v-if="maximizable" type="button" tabindex="-1" v-ripple>
+                            <button v-if="maximizable" v-ripple class="p-dialog-header-icon p-dialog-header-maximize p-link" @click="maximize" type="button" tabindex="-1">
                                 <span :class="maximizeIconClass"></span>
                             </button>
-                            <button class="p-dialog-header-icon p-dialog-header-close p-link" @click="close" v-if="closable" :aria-label="ariaCloseLabel" type="button" v-ripple>
+                            <button v-if="closable" v-ripple class="p-dialog-header-icon p-dialog-header-close p-link" @click="close" :aria-label="ariaCloseLabel" type="button">
                                 <span class="p-dialog-header-close-icon pi pi-times"></span>
                             </button>
                         </div>
@@ -19,7 +19,7 @@
                     <div :class="contentStyleClass" :style="contentStyle">
                         <slot></slot>
                     </div>
-                    <div class="p-dialog-footer" v-if="footer || $slots.footer">
+                    <div v-if="footer || $slots.footer" class="p-dialog-footer">
                         <slot name="footer">{{ footer }}</slot>
                     </div>
                 </div>
@@ -135,6 +135,7 @@ export default {
         if (this.mask && this.autoZIndex) {
             ZIndexUtils.clear(this.mask);
         }
+
         this.container = null;
         this.mask = null;
     },
@@ -172,6 +173,7 @@ export default {
             if (this.autoZIndex) {
                 ZIndexUtils.clear(this.mask);
             }
+
             this.containerVisible = false;
             this.unbindDocumentState();
             this.unbindGlobalListeners();
@@ -184,6 +186,7 @@ export default {
         },
         focus() {
             let focusTarget = this.container.querySelector('[autofocus]');
+
             if (focusTarget) {
                 focusTarget.focus();
             }
@@ -216,11 +219,13 @@ export default {
             if (event.which === 9) {
                 event.preventDefault();
                 let focusableElements = DomHandler.getFocusableElements(this.container);
+
                 if (focusableElements && focusableElements.length > 0) {
                     if (!document.activeElement) {
                         focusableElements[0].focus();
                     } else {
                         let focusedIndex = focusableElements.indexOf(document.activeElement);
+
                         if (event.shiftKey) {
                             if (focusedIndex == -1 || focusedIndex === 0) focusableElements[focusableElements.length - 1].focus();
                             else focusableElements[focusedIndex - 1].focus();
@@ -265,6 +270,7 @@ export default {
                 document.head.appendChild(this.styleElement);
 
                 let innerHTML = '';
+
                 for (let breakpoint in this.breakpoints) {
                     innerHTML += `
                         @media screen and (max-width: ${breakpoint}) {
@@ -345,6 +351,7 @@ export default {
                     }
                 }
             };
+
             window.document.addEventListener('mousemove', this.documentDragListener);
         },
         unbindDocumentDragListener() {
@@ -362,6 +369,7 @@ export default {
                     this.$emit('dragend', event);
                 }
             };
+
             window.document.addEventListener('mouseup', this.documentDragEndListener);
         },
         unbindDocumentDragEndListener() {

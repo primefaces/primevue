@@ -1,19 +1,19 @@
 <template>
     <Portal :appendTo="appendTo" :disabled="!popup">
         <transition name="p-connected-overlay" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave">
-            <div :ref="containerRef" :class="containerClass" v-if="popup ? overlayVisible : true" v-bind="$attrs" @click="onOverlayClick">
+            <div v-if="popup ? overlayVisible : true" :ref="containerRef" :class="containerClass" v-bind="$attrs" @click="onOverlayClick">
                 <ul class="p-menu-list p-reset" role="menu">
                     <template v-for="(item, i) of model" :key="label(item) + i.toString()">
                         <template v-if="item.items && visible(item) && !item.separator">
-                            <li class="p-submenu-header" v-if="item.items">
+                            <li v-if="item.items" class="p-submenu-header">
                                 <slot name="item" :item="item">{{ label(item) }}</slot>
                             </li>
                             <template v-for="(child, j) of item.items" :key="child.label + i + j">
                                 <Menuitem v-if="visible(child) && !child.separator" :item="child" @click="itemClick" :template="$slots.item" :exact="exact" />
-                                <li v-else-if="visible(child) && child.separator" :class="['p-menu-separator', child.class]" :style="child.style" :key="'separator' + i + j" role="separator"></li>
+                                <li v-else-if="visible(child) && child.separator" :key="'separator' + i + j" :class="['p-menu-separator', child.class]" :style="child.style" role="separator"></li>
                             </template>
                         </template>
-                        <li v-else-if="visible(item) && item.separator" :class="['p-menu-separator', item.class]" :style="item.style" :key="'separator' + i.toString()" role="separator"></li>
+                        <li v-else-if="visible(item) && item.separator" :key="'separator' + i.toString()" :class="['p-menu-separator', item.class]" :style="item.style" role="separator"></li>
                         <Menuitem v-else :key="label(item) + i.toString()" :item="item" @click="itemClick" :template="$slots.item" :exact="exact" />
                     </template>
                 </ul>
@@ -30,8 +30,8 @@ import Portal from 'primevue/portal';
 
 export default {
     name: 'Menu',
-    emits: ['show', 'hide'],
     inheritAttrs: false,
+    emits: ['show', 'hide'],
     props: {
         popup: {
             type: Boolean,
@@ -76,16 +76,19 @@ export default {
             this.scrollHandler.destroy();
             this.scrollHandler = null;
         }
+
         this.target = null;
 
         if (this.container && this.autoZIndex) {
             ZIndexUtils.clear(this.container);
         }
+
         this.container = null;
     },
     methods: {
         itemClick(event) {
             const item = event.item;
+
             if (this.disabled(item)) {
                 return;
             }
@@ -146,6 +149,7 @@ export default {
                         this.hide();
                     }
                 };
+
                 document.addEventListener('click', this.outsideClickListener);
             }
         },
@@ -178,6 +182,7 @@ export default {
                         this.hide();
                     }
                 };
+
                 window.addEventListener('resize', this.resizeListener);
             }
         },

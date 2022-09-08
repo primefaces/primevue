@@ -74,9 +74,11 @@ describe('Carousel.vue', () => {
         expect(wrapper.findAll('.p-carousel-item').length).toBe(4);
 
         const firstItem = wrapper.findAll('.p-carousel-item')[0];
+
         expect(firstItem.classes()).toContain('p-carousel-item-active');
 
         const nextBtn = wrapper.find('.p-carousel-next');
+
         await nextBtn.trigger('click');
 
         expect(firstItem.classes()).not.toContain('p-carousel-item-active');

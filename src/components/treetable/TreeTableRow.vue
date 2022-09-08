@@ -109,6 +109,7 @@ export default {
                     //down arrow
                     case 40: {
                         const nextRow = rowElement.nextElementSibling;
+
                         if (nextRow) {
                             nextRow.focus();
                         }
@@ -120,6 +121,7 @@ export default {
                     //up arrow
                     case 38: {
                         const previousRow = rowElement.previousElementSibling;
+
                         if (previousRow) {
                             previousRow.focus();
                         }
@@ -130,11 +132,13 @@ export default {
 
                     //right-left arrows
                     case 37:
+
                     case 39: {
                         if (!this.leaf) {
                             this.$emit('node-toggle', this.node);
                             event.preventDefault();
                         }
+
                         break;
                     }
 

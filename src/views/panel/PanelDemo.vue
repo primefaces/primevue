@@ -23,7 +23,7 @@
                     <button class="p-panel-header-icon p-link mr-2" @click="toggle">
                         <span class="pi pi-cog"></span>
                     </button>
-                    <Menu id="config_menu" ref="menu" :model="items" :popup="true" />
+                    <Menu ref="menu" id="config_menu" :model="items" :popup="true" />
                 </template>
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo

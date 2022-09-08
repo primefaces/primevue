@@ -48,6 +48,7 @@ export default {
         initialize() {
             let defaultConfig = { themeSystem: 'standard' };
             let config = this.options ? { ...this.options, ...defaultConfig } : defaultConfig;
+
             this.calendar = new Calendar(this.$el, config);
             this.calendar.render();
 

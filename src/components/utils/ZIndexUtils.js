@@ -6,6 +6,7 @@ function handler() {
         let newZIndex = lastZIndex.value + (lastZIndex.key === key ? 0 : baseZIndex) + 1;
 
         zIndexes.push({ key, value: newZIndex });
+
         return newZIndex;
     };
 

@@ -1,11 +1,11 @@
 <template>
     <div :id="id" :class="['p-carousel p-component', { 'p-carousel-vertical': isVertical(), 'p-carousel-horizontal': !isVertical() }]">
-        <div class="p-carousel-header" v-if="$slots.header">
+        <div v-if="$slots.header" class="p-carousel-header">
             <slot name="header"></slot>
         </div>
         <div :class="contentClasses">
             <div :class="containerClasses">
-                <button v-if="showNavigators" :class="['p-carousel-prev p-link', { 'p-disabled': backwardIsDisabled }]" :disabled="backwardIsDisabled" @click="navBackward" type="button" v-ripple>
+                <button v-if="showNavigators" v-ripple :class="['p-carousel-prev p-link', { 'p-disabled': backwardIsDisabled }]" :disabled="backwardIsDisabled" @click="navBackward" type="button">
                     <span :class="['p-carousel-prev-icon pi', { 'pi-chevron-left': !isVertical(), 'pi-chevron-up': isVertical() }]"></span>
                 </button>
 
@@ -42,7 +42,7 @@
                     </div>
                 </div>
 
-                <button v-if="showNavigators" :class="['p-carousel-next p-link', { 'p-disabled': forwardIsDisabled }]" :disabled="forwardIsDisabled" @click="navForward" type="button" v-ripple>
+                <button v-if="showNavigators" v-ripple :class="['p-carousel-next p-link', { 'p-disabled': forwardIsDisabled }]" :disabled="forwardIsDisabled" @click="navForward" type="button">
                     <span :class="['p-carousel-prev-icon pi', { 'pi-chevron-right': !isVertical(), 'pi-chevron-down': isVertical() }]"></span>
                 </button>
             </div>
@@ -52,7 +52,7 @@
                 </li>
             </ul>
         </div>
-        <div class="p-carousel-footer" v-if="$slots.footer">
+        <div v-if="$slots.footer" class="p-carousel-footer">
             <slot name="footer"></slot>
         </div>
     </div>
@@ -145,6 +145,120 @@ export default {
             this.d_oldValue = oldValue;
         }
     },
+    mounted() {
+        let stateChanged = false;
+
+        this.createStyle();
+        this.calculatePosition();
+
+        if (this.responsiveOptions) {
+            this.bindDocumentListeners();
+        }
+
+        if (this.isCircular()) {
+            let totalShiftedItems = this.totalShiftedItems;
+
+            if (this.d_page === 0) {
+                totalShiftedItems = -1 * this.d_numVisible;
+            } else if (totalShiftedItems === 0) {
+                totalShiftedItems = -1 * this.value.length;
+
+                if (this.remainingItems > 0) {
+                    this.isRemainingItemsAdded = true;
+                }
+            }
+
+            if (totalShiftedItems !== this.totalShiftedItems) {
+                this.totalShiftedItems = totalShiftedItems;
+
+                stateChanged = true;
+            }
+        }
+
+        if (!stateChanged && this.isAutoplay()) {
+            this.startAutoplay();
+        }
+    },
+    updated() {
+        const isCircular = this.isCircular();
+        let stateChanged = false;
+        let totalShiftedItems = this.totalShiftedItems;
+
+        if (this.autoplayInterval) {
+            this.stopAutoplay();
+        }
+
+        if (this.d_oldNumScroll !== this.d_numScroll || this.d_oldNumVisible !== this.d_numVisible || this.d_oldValue.length !== this.value.length) {
+            this.remainingItems = (this.value.length - this.d_numVisible) % this.d_numScroll;
+
+            let page = this.d_page;
+
+            if (this.totalIndicators !== 0 && page >= this.totalIndicators) {
+                page = this.totalIndicators - 1;
+
+                this.$emit('update:page', page);
+                this.d_page = page;
+
+                stateChanged = true;
+            }
+
+            totalShiftedItems = page * this.d_numScroll * -1;
+
+            if (isCircular) {
+                totalShiftedItems -= this.d_numVisible;
+            }
+
+            if (page === this.totalIndicators - 1 && this.remainingItems > 0) {
+                totalShiftedItems += -1 * this.remainingItems + this.d_numScroll;
+                this.isRemainingItemsAdded = true;
+            } else {
+                this.isRemainingItemsAdded = false;
+            }
+
+            if (totalShiftedItems !== this.totalShiftedItems) {
+                this.totalShiftedItems = totalShiftedItems;
+
+                stateChanged = true;
+            }
+
+            this.d_oldNumScroll = this.d_numScroll;
+            this.d_oldNumVisible = this.d_numVisible;
+            this.d_oldValue = this.value;
+
+            this.$refs.itemsContainer.style.transform = this.isVertical() ? `translate3d(0, ${totalShiftedItems * (100 / this.d_numVisible)}%, 0)` : `translate3d(${totalShiftedItems * (100 / this.d_numVisible)}%, 0, 0)`;
+        }
+
+        if (isCircular) {
+            if (this.d_page === 0) {
+                totalShiftedItems = -1 * this.d_numVisible;
+            } else if (totalShiftedItems === 0) {
+                totalShiftedItems = -1 * this.value.length;
+
+                if (this.remainingItems > 0) {
+                    this.isRemainingItemsAdded = true;
+                }
+            }
+
+            if (totalShiftedItems !== this.totalShiftedItems) {
+                this.totalShiftedItems = totalShiftedItems;
+
+                stateChanged = true;
+            }
+        }
+
+        if (!stateChanged && this.isAutoplay()) {
+            this.startAutoplay();
+        }
+    },
+    beforeUnmount() {
+        if (this.responsiveOptions) {
+            this.unbindDocumentListeners();
+        }
+
+        if (this.autoplayInterval) {
+            this.stopAutoplay();
+        }
+    },
     methods: {
         step(dir, page) {
             let totalShiftedItems = this.totalShiftedItems;
@@ -160,12 +274,14 @@ export default {
                 this.isRemainingItemsAdded = false;
             } else {
                 totalShiftedItems += this.d_numScroll * dir;
+
                 if (this.isRemainingItemsAdded) {
                     totalShiftedItems += this.remainingItems - this.d_numScroll * dir;
                     this.isRemainingItemsAdded = false;
                 }
 
                 let originalShiftedItems = isCircular ? totalShiftedItems + this.d_numVisible : totalShiftedItems;
+
                 page = Math.abs(Math.floor(originalShiftedItems / this.d_numScroll));
             }
 
@@ -209,6 +325,7 @@ export default {
 
                 if (this.d_numScroll !== matchedResponsiveOptionsData.numScroll) {
                     let page = this.d_page;
+
                     page = parseInt((page * this.d_numScroll) / matchedResponsiveOptionsData.numScroll);
 
                     this.totalShiftedItems = matchedResponsiveOptionsData.numScroll * page * -1;
@@ -346,6 +463,7 @@ export default {
 
             if (this.responsiveOptions) {
                 let _responsiveOptions = [...this.responsiveOptions];
+
                 _responsiveOptions.sort((data1, data2) => {
                     const value1 = data1.breakpoint;
                     const value2 = data2.breakpoint;
@@ -389,115 +507,6 @@ export default {
         },
         lastIndex() {
             return this.firstIndex() + this.d_numVisible - 1;
-        }
-    },
-    mounted() {
-        let stateChanged = false;
-        this.createStyle();
-        this.calculatePosition();
-
-        if (this.responsiveOptions) {
-            this.bindDocumentListeners();
-        }
-
-        if (this.isCircular()) {
-            let totalShiftedItems = this.totalShiftedItems;
-
-            if (this.d_page === 0) {
-                totalShiftedItems = -1 * this.d_numVisible;
-            } else if (totalShiftedItems === 0) {
-                totalShiftedItems = -1 * this.value.length;
-                if (this.remainingItems > 0) {
-                    this.isRemainingItemsAdded = true;
-                }
-            }
-
-            if (totalShiftedItems !== this.totalShiftedItems) {
-                this.totalShiftedItems = totalShiftedItems;
-
-                stateChanged = true;
-            }
-        }
-
-        if (!stateChanged && this.isAutoplay()) {
-            this.startAutoplay();
-        }
-    },
-    updated() {
-        const isCircular = this.isCircular();
-        let stateChanged = false;
-        let totalShiftedItems = this.totalShiftedItems;
-
-        if (this.autoplayInterval) {
-            this.stopAutoplay();
-        }
-
-        if (this.d_oldNumScroll !== this.d_numScroll || this.d_oldNumVisible !== this.d_numVisible || this.d_oldValue.length !== this.value.length) {
-            this.remainingItems = (this.value.length - this.d_numVisible) % this.d_numScroll;
-
-            let page = this.d_page;
-            if (this.totalIndicators !== 0 && page >= this.totalIndicators) {
-                page = this.totalIndicators - 1;
-
-                this.$emit('update:page', page);
-                this.d_page = page;
-
-                stateChanged = true;
-            }
-
-            totalShiftedItems = page * this.d_numScroll * -1;
-            if (isCircular) {
-                totalShiftedItems -= this.d_numVisible;
-            }
-
-            if (page === this.totalIndicators - 1 && this.remainingItems > 0) {
-                totalShiftedItems += -1 * this.remainingItems + this.d_numScroll;
-                this.isRemainingItemsAdded = true;
-            } else {
-                this.isRemainingItemsAdded = false;
-            }
-
-            if (totalShiftedItems !== this.totalShiftedItems) {
-                this.totalShiftedItems = totalShiftedItems;
-
-                stateChanged = true;
-            }
-
-            this.d_oldNumScroll = this.d_numScroll;
-            this.d_oldNumVisible = this.d_numVisible;
-            this.d_oldValue = this.value;
-
-            this.$refs.itemsContainer.style.transform = this.isVertical() ? `translate3d(0, ${totalShiftedItems * (100 / this.d_numVisible)}%, 0)` : `translate3d(${totalShiftedItems * (100 / this.d_numVisible)}%, 0, 0)`;
-        }
-
-        if (isCircular) {
-            if (this.d_page === 0) {
-                totalShiftedItems = -1 * this.d_numVisible;
-            } else if (totalShiftedItems === 0) {
-                totalShiftedItems = -1 * this.value.length;
-                if (this.remainingItems > 0) {
-                    this.isRemainingItemsAdded = true;
-                }
-            }
-
-            if (totalShiftedItems !== this.totalShiftedItems) {
-                this.totalShiftedItems = totalShiftedItems;
-
-                stateChanged = true;
-            }
-        }
-
-        if (!stateChanged && this.isAutoplay()) {
-            this.startAutoplay();
-        }
-    },
-    beforeUnmount() {
-        if (this.responsiveOptions) {
-            this.unbindDocumentListeners();
-        }
-
-        if (this.autoplayInterval) {
-            this.stopAutoplay();
         }
     },
     computed: {

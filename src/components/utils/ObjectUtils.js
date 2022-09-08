@@ -18,6 +18,7 @@ export default {
                 length = a.length;
                 if (length != b.length) return false;
                 for (i = length; i-- !== 0; ) if (!this.deepEquals(a[i], b[i])) return false;
+
                 return true;
             }
 
@@ -25,15 +26,18 @@ export default {
 
             var dateA = a instanceof Date,
                 dateB = b instanceof Date;
+
             if (dateA != dateB) return false;
             if (dateA && dateB) return a.getTime() == b.getTime();
 
             var regexpA = a instanceof RegExp,
                 regexpB = b instanceof RegExp;
+
             if (regexpA != regexpB) return false;
             if (regexpA && regexpB) return a.toString() == b.toString();
 
             var keys = Object.keys(a);
+
             length = keys.length;
 
             if (length !== Object.keys(b).length) return false;
@@ -60,12 +64,15 @@ export default {
             } else {
                 let fields = field.split('.');
                 let value = data;
+
                 for (var i = 0, len = fields.length; i < len; ++i) {
                     if (value == null) {
                         return null;
                     }
+
                     value = value[fields[i]];
                 }
+
                 return value;
             }
         } else {
@@ -100,13 +107,16 @@ export default {
 
     reorderArray(value, from, to) {
         let target;
+
         if (value && from !== to) {
             if (to >= value.length) {
                 target = to - value.length;
+
                 while (target-- + 1) {
                     value.push(undefined);
                 }
             }
+
             value.splice(to, 0, value.splice(from, 1)[0]);
         }
     },
@@ -139,8 +149,10 @@ export default {
     insertIntoOrderedArray(item, index, arr, sourceArr) {
         if (arr.length > 0) {
             let injected = false;
+
             for (let i = 0; i < arr.length; i++) {
                 let currentItemIndex = this.findIndexInList(arr[i], sourceArr);
+
                 if (currentItemIndex > index) {
                     arr.splice(i, 0, item);
                     injected = true;
@@ -187,6 +199,7 @@ export default {
 
     getVNodeProp(vnode, prop) {
         let props = vnode.props;
+
         if (props) {
             let kebapProp = prop.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
             let propName = Object.prototype.hasOwnProperty.call(props, kebapProp) ? kebapProp : prop;

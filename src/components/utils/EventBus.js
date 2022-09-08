@@ -4,6 +4,7 @@ export default function primebus() {
     return {
         on(type, handler) {
             let handlers = allHandlers.get(type);
+
             if (!handlers) handlers = [handler];
             else handlers.push(handler);
 
@@ -12,6 +13,7 @@ export default function primebus() {
 
         off(type, handler) {
             let handlers = allHandlers.get(type);
+
             if (handlers) {
                 handlers.splice(handlers.indexOf(handler) >>> 0, 1);
             }
@@ -19,6 +21,7 @@ export default function primebus() {
 
         emit(type, evt) {
             let handlers = allHandlers.get(type);
+
             if (handlers) {
                 handlers.slice().map((handler) => {
                     handler(evt);
