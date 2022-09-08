@@ -112,7 +112,6 @@ export default {
         &lt;/div&gt;
     &lt;/template&gt;
 &lt;/ConfirmPopup&gt;
-
 </template>
 </code></pre>
 
