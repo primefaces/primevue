@@ -6,7 +6,7 @@
 
 <script>
 import EventBus from '@/AppEventBus';
-import { services, data } from './LiveEditorData';
+import { data, services } from './LiveEditorData';
 
 const sourceTypes = ['options-api', 'composition-api', 'browser-source'];
 
@@ -339,7 +339,7 @@ export default {
                             dependencies: {
                                 ...extDependencies,
                                 vue: dependencies['vue'],
-                                primevue: '^3.16.2',
+                                primevue: '^3.17.0',
                                 primeflex: dependencies['primeflex'],
                                 primeicons: dependencies['primeicons'],
                                 '@babel/cli': dependencies['@babel/cli'],
