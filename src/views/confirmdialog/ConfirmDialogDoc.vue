@@ -51,7 +51,7 @@ export default {
                     //callback to execute when user rejects the action
                 },
                 onHide: () => {
-                    //callback to execute when user hide the action
+                    //Callback to execute when dialog is hidden
                 }
             });
         },
@@ -80,7 +80,7 @@ export default defineComponent({
                 //callback to execute when user rejects the action
             },
             onHide: () => {
-                    //callback to execute when user hide the action
+                //Callback to execute when dialog is hidden
             }
         });
     }
