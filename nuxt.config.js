@@ -5,21 +5,13 @@ export default defineNuxtConfig({
   ssr: true,
   typescript: false,
   components: true,
-
-  css: [
-    '@/assets/styles/primevue.css',
-    '/node_modules/primeflex/primeflex.css',
-    '/node_modules/primeicons/primeicons.css',
-    '/node_modules/prismjs/themes/prism-coy.css',
-    '@/assets/styles/flags.css'
-  ],
   app: {
     head: {
       link: [
         {
           id: 'theme-link',
           rel: 'stylesheet',
-          href: 'themes/lara-light-blue/theme.css'
+          href: `public/themes/lara-light-blue/theme.css`
         },
         {
           id: 'home-table-link',
@@ -29,6 +21,13 @@ export default defineNuxtConfig({
       ]
     },
   },
+  css: [
+    '@/assets/styles/primevue.css',
+    '/node_modules/primeflex/primeflex.css',
+    '/node_modules/primeicons/primeicons.css',
+    '/node_modules/prismjs/themes/prism-coy.css',
+    '@/assets/styles/flags.css',
+  ],
   vite: {
       resolve: {
         alias: {
