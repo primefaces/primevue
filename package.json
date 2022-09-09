@@ -20,6 +20,8 @@
     "primeicons": "^5.0.0",
     "prismjs": "^1.29.0",
     "sass": "^1.45.0",
-    "sass-loader": "^8.0.2"
+    "sass-loader": "^8.0.2",
+    "@vuelidate/core": "^2.0.0-alpha.14",
+    "@vuelidate/validators": "^2.0.0-alpha.12"
   }
 }
