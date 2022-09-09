@@ -28,13 +28,13 @@
                 <h5>Templating</h5>
                 <Rating v-model="val4">
                     <template #cancelicon>
-                        <img src="demo/images/rating/cancel.png" @error="(e) => (e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png')" class="cursor-pointer" height="24" width="24" />
+                        <img src="demo/images/rating/cancel.png" class="cursor-pointer" height="24" width="24" />
                     </template>
                     <template #onicon>
-                        <img src="demo/images/rating/custom-onicon.png" @error="(e) => (e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png')" height="24" width="24" class="cursor-pointer" />
+                        <img src="demo/images/rating/custom-onicon.png" height="24" width="24" class="cursor-pointer" />
                     </template>
                     <template #officon>
-                        <img src="demo/images/rating/custom-officon.png" @error="(e) => (e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png')" height="24" width="24" class="cursor-pointer" />
+                        <img src="demo/images/rating/custom-officon.png" height="24" width="24" class="cursor-pointer" />
                     </template>
                 </Rating>
             </div>
