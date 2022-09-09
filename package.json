@@ -8,15 +8,15 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "nuxt": "3.0.0-rc.9",
     "@fullcalendar/core": "^5.7.2",
     "@fullcalendar/daygrid": "^5.7.2",
     "@fullcalendar/interaction": "^5.7.2",
     "@fullcalendar/timegrid": "^5.7.2",
     "@fullcalendar/vue3": "^5.7.2",
-    "quill": "^1.3.7",
-    "primeflex": "^3.2.1",
+    "@vitejs/plugin-vue-jsx": "^2.0.1",
     "chart.js": "3.3.2",
+    "nuxt": "3.0.0-rc.9",
+    "primeflex": "^3.2.1",
     "primeicons": "^5.0.0",
     "prismjs": "^1.29.0",
     "sass": "^1.45.0",

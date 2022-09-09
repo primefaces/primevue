@@ -99,6 +99,7 @@ import Galleria from '@/components/galleria/Galleria';
 import VirtualScroller from '@/components/virtualscroller/VirtualScroller';
 
 import AppDemoActions from '@/layouts/AppDemoActions'
+import AppDoc from '@/layouts/AppDocumentation'
 import CodeHighlight from '@/layouts/AppCodeHighlight';
 
 export default defineNuxtPlugin((nuxtApp) => {
@@ -209,4 +210,5 @@ nuxtApp.vueApp.component('Galleria', Galleria);
 nuxtApp.vueApp.component('VirtualScroller', VirtualScroller);
 
 nuxtApp.vueApp.component('AppDemoActions', AppDemoActions);
+nuxtApp.vueApp.component('AppDoc', AppDoc);
 }); 

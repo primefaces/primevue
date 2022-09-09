@@ -1,7 +1,7 @@
-<script>
+<script lang="jsx">
 import EventBus from './AppEventBus';
-import LiveEditor from './views/liveeditor/LiveEditor';
-import { services, data } from './views/liveeditor/LiveEditorData';
+import LiveEditor from '@/pages/liveeditor/LiveEditor';
+import { services, data } from '@/pages/liveeditor/LiveEditorData';
 
 export default {
     name: 'appdoc',

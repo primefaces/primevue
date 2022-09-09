@@ -433,6 +433,7 @@ export default {
             event.preventDefault();
         },
         changeTheme(event, theme, dark) {
+            console.log(event, theme, dark)
             EventBus.emit('theme-change', { theme: theme, dark: dark });
             event.preventDefault();
         },

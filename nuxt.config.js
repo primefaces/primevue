@@ -1,5 +1,6 @@
 import { defineNuxtConfig } from 'nuxt'
 const path = require('path');
+import vueJsx from '@vitejs/plugin-vue-jsx'
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
   ssr: true,
@@ -11,12 +12,12 @@ export default defineNuxtConfig({
         {
           id: 'theme-link',
           rel: 'stylesheet',
-          href: `public/themes/lara-light-blue/theme.css`
+          href: `./themes/lara-light-blue/theme.css`
         },
         {
           id: 'home-table-link',
           rel: 'stylesheet',
-          href:  'styles/landing/themes/lara-light-blue/theme.css'
+          href:  './styles/landing/themes/lara-light-blue/theme.css'
         }
       ]
     },
@@ -29,6 +30,7 @@ export default defineNuxtConfig({
     '@/assets/styles/flags.css',
   ],
   vite: {
+    plugins: [vueJsx()],
       resolve: {
         alias: {
             'primevue/ripple': path.resolve(__dirname, '/components/ripple/Ripple.js'),

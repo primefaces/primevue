@@ -11,10 +11,10 @@
               <app-footer />
           </div>
       </div>
-      <!-- <Toast />
+      <Toast />
       <Toast position="top-left" group="tl" />
       <Toast position="bottom-left" group="bl" />
-      <Toast position="bottom-right" group="br" /> -->
+      <Toast position="bottom-right" group="br" />
   </div>
 </template>
 

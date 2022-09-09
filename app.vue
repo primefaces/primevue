@@ -8,7 +8,7 @@
 <script>
 import EventBus from '@/layouts/AppEventBus';
 import NewsService from '@/service/NewsService';
-import './public/themes/lara-light-blue/theme.css'
+
 export default {
     themeChangeListener: null,
     newsActivate: null,
@@ -22,7 +22,6 @@ export default {
         this.newsService = new NewsService();
     },
     mounted() {
-        console.log(process.env)
         this.newsActivate = () => {
             this.newsService.fetchNews().then(data => {
                 this.$appState.announcement = data;
@@ -43,6 +42,7 @@ export default {
 
         this.themeChangeListener = (event) => {
             console.log(this.$appState.theme);
+
             const elementId = 'theme-link';
             const linkElement = document.getElementById(elementId);
             const cloneLinkElement = linkElement.cloneNode(true);
