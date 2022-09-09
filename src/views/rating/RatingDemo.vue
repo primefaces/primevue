@@ -28,13 +28,13 @@
                 <h5>Templating</h5>
                 <Rating v-model="val4">
                     <template #cancelicon>
-                        <img src="demo/images/rating/cancel.png" class="cursor-pointer" height="24" width="24" />
+                        <img src="demo/images/rating/cancel.png" height="24" width="24" />
                     </template>
                     <template #onicon>
-                        <img src="demo/images/rating/custom-onicon.png" height="24" width="24" class="cursor-pointer" />
+                        <img src="demo/images/rating/custom-onicon.png" height="24" width="24" />
                     </template>
                     <template #officon>
-                        <img src="demo/images/rating/custom-officon.png" height="24" width="24" class="cursor-pointer" />
+                        <img src="demo/images/rating/custom-officon.png" height="24" width="24" />
                     </template>
                 </Rating>
             </div>
