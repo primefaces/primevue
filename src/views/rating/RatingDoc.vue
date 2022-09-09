@@ -42,10 +42,10 @@ import Rating from 'primevue/rating';
         &lt;img src="demo/images/rating/cancel.png" class="cursor-pointer" height="24" width="24"&gt;
     &lt;/template&gt;
     &lt;template #onicon&gt;
-        &lt;img src="demo/images/rating/custom-onicon.png" height="24" width="24" class="ml-2 cursor-pointer"&gt;
+        &lt;img src="demo/images/rating/custom-onicon.png" height="24" width="24" class="cursor-pointer"&gt;
     &lt;/template&gt;
     &lt;template #officon&gt;
-        &lt;img src="demo/images/rating/custom-officon.png" height="24" width="24" class="ml-2 cursor-pointer"&gt;
+        &lt;img src="demo/images/rating/custom-officon.png" height="24" width="24" class="cursor-pointer"&gt;
     &lt;/template&gt;
 &lt;/Rating&gt;
 
@@ -291,10 +291,10 @@ export default {
                 <img src="demo/images/rating/cancel.png" @error="(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'" class="cursor-pointer" height="24" width="24"/>
             </template>
             <template #onicon>
-                <img src="demo/images/rating/custom-onicon.png" @error="(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'" height="24" width="24" class="ml-2 cursor-pointer"  />
+                <img src="demo/images/rating/custom-onicon.png" @error="(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'" height="24" width="24" class="cursor-pointer"  />
             </template>
             <template #officon>
-                <img src="demo/images/rating/custom-officon.png" @error="(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'" height="24" width="24" class="ml-2 cursor-pointer"  />
+                <img src="demo/images/rating/custom-officon.png" @error="(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'" height="24" width="24" class="cursor-pointer"  />
             </template>
         </Rating>
     </div>
@@ -341,10 +341,10 @@ export default {
                 <img src="demo/images/rating/cancel.png" @error="(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'" class="cursor-pointer" height="24" width="24"/>
             </template>
             <template #onicon>
-                <img src="demo/images/rating/custom-onicon.png" @error="(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'" height="24" width="24" class="ml-2 cursor-pointer"  />
+                <img src="demo/images/rating/custom-onicon.png" @error="(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'" height="24" width="24" class="cursor-pointer"  />
             </template>
             <template #officon>
-                <img src="demo/images/rating/custom-officon.png" @error="(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'" height="24" width="24" class="ml-2 cursor-pointer"  />
+                <img src="demo/images/rating/custom-officon.png" @error="(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'" height="24" width="24" class="cursor-pointer"  />
             </template>
         </Rating>
     </div>
@@ -392,10 +392,10 @@ export default {
                     <img src="demo/images/rating/cancel.png" @error="(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'" class="cursor-pointer" height="24" width="24"/>
                 </template>
                 <template #onicon>
-                    <img src="demo/images/rating/custom-onicon.png" @error="(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'" height="24" width="24" class="ml-2 cursor-pointer"  />
+                    <img src="demo/images/rating/custom-onicon.png" @error="(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'" height="24" width="24" class="cursor-pointer"  />
                 </template>
                 <template #officon>
-                    <img src="demo/images/rating/custom-officon.png" @error="(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'" height="24" width="24" class="ml-2 cursor-pointer"  />
+                    <img src="demo/images/rating/custom-officon.png" @error="(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'" height="24" width="24" class="cursor-pointer"  />
                 </template>
             </p-rating>
         </div>
