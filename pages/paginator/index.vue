@@ -24,7 +24,7 @@
                 </Paginator>
 
                 <div class="image-gallery">
-                    <img :src="'demo/images/nature/' + image + '.jpg'" />
+                    <img :src="'/demo/images/nature/' + image + '.jpg'" />
                 </div>
             </div>
         </div>

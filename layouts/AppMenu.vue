@@ -1,7 +1,7 @@
 <template>
     <div :class="['layout-sidebar', {'active': active}]">
         <nuxt-link to="/" class="logo">
-            <img :src="'demo/images/primevue-logo-' + `${$appState.darkTheme ? 'light' : 'dark'}` + '.svg'" alt="primevue logo"/>
+            <img :src="'/demo/images/primevue-logo-' + `${$appState.darkTheme ? 'light' : 'dark'}` + '.svg'" alt="primevue logo"/>
         </nuxt-link>
         <div class="layout-sidebar-filter p-fluid">
             <AutoComplete v-model="selectedRoute" :suggestions="filteredRoutes" @complete="searchRoute($event)" @item-select="onItemSelect($event)" scrollHeight="300px" placeholder="Search" 

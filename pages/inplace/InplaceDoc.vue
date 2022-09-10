@@ -23,7 +23,7 @@ import Inplace from 'primevue/inplace';
         &lt;span style="margin-left:.5rem; vertical-align: middle"&gt;View Picture&lt;/span&gt;
     &lt;/template&gt;
     &lt;template #content&gt;
-        &lt;img src="demo/images/nature/nature1.jpg" /&gt;
+        &lt;img src="/demo/images/nature/nature1.jpg" /&gt;
     &lt;/template&gt;
 &lt;/Inplace&gt;
 </template>

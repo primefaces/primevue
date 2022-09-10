@@ -8,7 +8,7 @@
             <div class="card mb-5" style="border-radius: 50px">
                 <div class="flex flex-column md:flex-row align-items-center gap-4 md:gap-8 mb-8">
                     <div class="w-full md:w-6">
-                        <img alt="PrimeVue Designer" src="images/uikit/uikit-figma.png" class="w-full" />
+                        <img alt="PrimeVue Designer" src="/images/uikit/uikit-figma.png" class="w-full" />
                     </div>
                     <div class="w-full md:w-6">
                         <div class="text-primary font-bold mb-2">UP-TO-DATE</div>
@@ -61,12 +61,12 @@
                         </ul>
                     </div>
                     <div class="w-full md:w-6">
-                        <img alt="PrimeVue Designer" src="images/uikit/uikit-system.png" class="w-full" />
+                        <img alt="PrimeVue Designer" src="/images/uikit/uikit-system.png" class="w-full" />
                     </div>
                 </div>
                 <div class="flex flex-column md:flex-row align-items-center gap-4 md:gap-8">
                     <div class="w-full md:w-6">
-                        <img alt="PrimeVue Designer" src="images/uikit/uikit-themes.png" class="w-full" />
+                        <img alt="PrimeVue Designer" src="/images/uikit/uikit-themes.png" class="w-full" />
                     </div>
                     <div class="w-full md:w-6">
                         <div class="text-primary font-bold mb-2">DARK MODE</div>
@@ -94,7 +94,7 @@
                     style="border-radius: 50px"
                 >
                     <span class="text-gray-900 text-4xl font-bold mb-5">Preview Light</span>
-                    <img alt="PrimeVue Designer" src="images/uikit/logo-figma-light.svg" class="w-4rem" />
+                    <img alt="PrimeVue Designer" src="/images/uikit/logo-figma-light.svg" class="w-4rem" />
                 </a>
                 <a
                     href="https://www.figma.com/file/LJBqVfMpK8xY6KR2KIc8RK/Preview-%7C-Dark-%7C-PrimeOne-2022-%7C-1.0.0?node-id=806%3A36648"
@@ -102,7 +102,7 @@
                     style="border-radius: 50px"
                 >
                     <span class="text-white text-4xl font-bold mb-5">Preview Dark</span>
-                    <img alt="PrimeVue Designer" src="images/uikit/logo-figma-dark.svg" class="w-4rem" />
+                    <img alt="PrimeVue Designer" src="/images/uikit/logo-figma-dark.svg" class="w-4rem" />
                 </a>
             </div>
 
@@ -289,7 +289,7 @@ export default {
     },
     computed: {
         coverImage() {
-            return this.$appState.darkTheme ? 'images/uikit/primeone-cover-dark.jpeg' : 'images/uikit/primeone-cover-light.jpeg';
+            return this.$appState.darkTheme ? '/images/uikit/primeone-cover-dark.jpeg' : '/images/uikit/primeone-cover-light.jpeg';
         }
     }
 };

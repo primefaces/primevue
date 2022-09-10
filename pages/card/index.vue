@@ -21,7 +21,7 @@
 
             <Card style="width: 25em">
                 <template #header>
-                    <img alt="user header" src="/demo/images/usercard.png" />
+                    <img alt="user header" src="//demo/images/usercard.png" />
                 </template>
                 <template #title> Advanced Card </template>
                 <template #subtitle> Card subtitle </template>

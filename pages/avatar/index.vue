@@ -67,9 +67,9 @@
                 <div class="col-12 md:col-4">
                     <div class="card">
                         <h5>Image</h5>
-                        <Avatar image="demo/images/avatar/amyelsner.png" class="mr-2" size="xlarge" shape="circle" />
-                        <Avatar image="demo/images/avatar/asiyajavayant.png" class="mr-2" size="large" shape="circle" />
-                        <Avatar image="demo/images/avatar/onyamalimba.png" class="mr-2" shape="circle" />
+                        <Avatar image="/demo/images/avatar/amyelsner.png" class="mr-2" size="xlarge" shape="circle" />
+                        <Avatar image="/demo/images/avatar/asiyajavayant.png" class="mr-2" size="large" shape="circle" />
+                        <Avatar image="/demo/images/avatar/onyamalimba.png" class="mr-2" shape="circle" />
                     </div>
                 </div>
 
@@ -77,11 +77,11 @@
                     <div class="card">
                         <h5>Avatar Group</h5>
                         <AvatarGroup class="mb-3">
-                            <Avatar image="demo/images/avatar/amyelsner.png" size="large" shape="circle" />
-                            <Avatar image="demo/images/avatar/asiyajavayant.png" size="large" shape="circle" />
-                            <Avatar image="demo/images/avatar/onyamalimba.png" size="large" shape="circle" />
-                            <Avatar image="demo/images/avatar/ionibowcher.png" size="large" shape="circle" />
-                            <Avatar image="demo/images/avatar/xuxuefeng.png" size="large" shape="circle" />
+                            <Avatar image="/demo/images/avatar/amyelsner.png" size="large" shape="circle" />
+                            <Avatar image="/demo/images/avatar/asiyajavayant.png" size="large" shape="circle" />
+                            <Avatar image="/demo/images/avatar/onyamalimba.png" size="large" shape="circle" />
+                            <Avatar image="/demo/images/avatar/ionibowcher.png" size="large" shape="circle" />
+                            <Avatar image="/demo/images/avatar/xuxuefeng.png" size="large" shape="circle" />
                             <Avatar label="+2" shape="circle" size="large" style="background-color: #9c27b0; color: #ffffff" />
                         </AvatarGroup>
                     </div>
@@ -90,7 +90,7 @@
                 <div class="col-12 md:col-4">
                     <div class="card">
                         <h5>Image - Badge</h5>
-                        <Avatar image="demo/images/organization/walter.jpg" size="xlarge" v-badge.danger="4" />
+                        <Avatar image="/demo/images/organization/walter.jpg" size="xlarge" v-badge.danger="4" />
                     </div>
                 </div>
             </div>

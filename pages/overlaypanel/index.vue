@@ -17,7 +17,7 @@
                         <Column field="name" header="Name" sortable style="width: 50%"></Column>
                         <Column header="Image" style="width: 20%">
                             <template #body="slotProps">
-                                <img :src="'demo/images/product/' + slotProps.data.image" :alt="slotProps.data.image" class="product-image" />
+                                <img :src="'/demo/images/product/' + slotProps.data.image" :alt="slotProps.data.image" class="product-image" />
                             </template>
                         </Column>
                         <Column field="price" header="Price" sortable style="width: 30%">

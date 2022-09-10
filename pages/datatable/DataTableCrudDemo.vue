@@ -50,7 +50,7 @@
                     <Column field="name" header="Name" :sortable="true" style="min-width: 16rem"></Column>
                     <Column header="Image">
                         <template #body="slotProps">
-                            <img :src="'demo/images/product/' + slotProps.data.image" :alt="slotProps.data.image" class="product-image" />
+                            <img :src="'/demo/images/product/' + slotProps.data.image" :alt="slotProps.data.image" class="product-image" />
                         </template>
                     </Column>
                     <Column field="price" header="Price" :sortable="true" style="min-width: 8rem">
@@ -79,7 +79,7 @@
             </div>
 
             <Dialog v-model:visible="productDialog" :style="{ width: '450px' }" header="Product Details" :modal="true" class="p-fluid">
-                <img :src="'demo/images/product/' + product.image" :alt="product.image" class="product-image" v-if="product.image" />
+                <img :src="'/demo/images/product/' + product.image" :alt="product.image" class="product-image" v-if="product.image" />
                 <div class="field">
                     <label for="name">Name</label>
                     <InputText id="name" v-model.trim="product.name" required="true" autofocus :class="{ 'p-invalid': submitted && !product.name }" />

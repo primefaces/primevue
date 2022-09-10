@@ -97,46 +97,46 @@ export default {
             dockItems: [
                 {
                     label: 'Finder',
-                    icon: 'demo/images/dock/finder.svg',
+                    icon: '/demo/images/dock/finder.svg',
                     command: () => {
                         this.displayFinder = true;
                     }
                 },
                 {
                     label: 'Terminal',
-                    icon: 'demo/images/dock/terminal.svg',
+                    icon: '/demo/images/dock/terminal.svg',
                     command: () => {
                         this.displayTerminal = true;
                     }
                 },
                 {
                     label: 'App Store',
-                    icon: 'demo/images/dock/appstore.svg',
+                    icon: '/demo/images/dock/appstore.svg',
                     command: () => {
                         this.$toast.add({ severity: 'error', summary: 'An unexpected error occurred while signing in.', detail: 'UNTRUSTED_CERT_TITLE', group: 'tc', life: 3000 });
                     }
                 },
                 {
                     label: 'Safari',
-                    icon: 'demo/images/dock/safari.svg',
+                    icon: '/demo/images/dock/safari.svg',
                     command: () => {
                         this.$toast.add({ severity: 'warn', summary: 'Safari has stopped working', group: 'tc', life: 3000 });
                     }
                 },
                 {
                     label: 'Photos',
-                    icon: 'demo/images/dock/photos.svg',
+                    icon: '/demo/images/dock/photos.svg',
                     command: () => {
                         this.displayPhotos = true;
                     }
                 },
                 {
                     label: 'GitHub',
-                    icon: 'demo/images/dock/github.svg'
+                    icon: '/demo/images/dock/github.svg'
                 },
                 {
                     label: 'Trash',
-                    icon: 'demo/images/dock/trash.png',
+                    icon: '/demo/images/dock/trash.png',
                     command: () => {
                         this.$toast.add({ severity: 'info', summary: 'Empty Trash', life: 3000 });
                     }
@@ -145,19 +145,19 @@ export default {
             dockBasicItems: [
                 {
                     label: 'Finder',
-                    icon: 'demo/images/dock/finder.svg'
+                    icon: '/demo/images/dock/finder.svg'
                 },
                 {
                     label: 'App Store',
-                    icon: 'demo/images/dock/appstore.svg'
+                    icon: '/demo/images/dock/appstore.svg'
                 },
                 {
                     label: 'Photos',
-                    icon: 'demo/images/dock/photos.svg'
+                    icon: '/demo/images/dock/photos.svg'
                 },
                 {
                     label: 'Trash',
-                    icon: 'demo/images/dock/trash.png'
+                    icon: '/demo/images/dock/trash.png'
                 }
             ],
             menubarItems: [

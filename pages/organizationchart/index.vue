@@ -25,7 +25,7 @@
                     <template #person="slotProps">
                         <div class="node-header ui-corner-top">{{ slotProps.node.data.label }}</div>
                         <div class="node-content">
-                            <img :src="'demo/images/organization/' + slotProps.node.data.avatar" width="32" />
+                            <img :src="'/demo/images/organization/' + slotProps.node.data.avatar" width="32" />
                             <div>{{ slotProps.node.data.name }}</div>
                         </div>
                     </template>

@@ -256,7 +256,7 @@ export default {
     &lt;template #person="slotProps"&gt;
         &lt;div class="node-header ui-corner-top"&gt;&#123;&#123;slotProps.node.data.label&#125;&#125;&lt;/div&gt;
         &lt;div class="node-content"&gt;
-            &lt;img :src="'demo/images/organization/' + slotProps.node.data.avatar" width="32"&gt;
+            &lt;img :src="'/demo/images/organization/' + slotProps.node.data.avatar" width="32"&gt;
             &lt;div&gt;&#123;&#123;slotProps.node.data.name&#125;&#125;&lt;/div&gt;
         &lt;/div&gt;
     &lt;/template&gt;

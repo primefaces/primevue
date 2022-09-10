@@ -170,7 +170,7 @@ export default {
         <p>ContextMenu is attached to a custom element manually using the reference and calling the <i>show(event)</i> method.</p>
 
         <pre v-code><code>
-&lt;img alt="logo" src="demo/images/nature/nature3.jpg" @contextmenu="onImageRightClick"&gt;
+&lt;img alt="logo" src="/demo/images/nature/nature3.jpg" @contextmenu="onImageRightClick"&gt;
 &lt;ContextMenu ref="menu" :model="items" /&gt;
 
 </code></pre>
