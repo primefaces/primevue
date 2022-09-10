@@ -791,7 +791,7 @@ export default {
 
         <h5>Pagination</h5>
         <p>
-            Pagination is enabled by setting <i>paginator</i> property to true and defining the <i>rows</i> property defines the number of rows per page. See the <router-link to="/paginator">Paginator</router-link> for the available customization
+            Pagination is enabled by setting <i>paginator</i> property to true and defining the <i>rows</i> property defines the number of rows per page. See the <nuxt-link to="/paginator">Paginator</nuxt-link> for the available customization
             options such as paginator templates, page links, rows per page options and more which can be passed through the TreeTable.
         </p>
 
@@ -1395,7 +1395,7 @@ export default {
                             FirstPageLink PrevPageLink PageLinks <br />
                             NextPageLink LastPageLink RowsPerPageDropdown
                         </td>
-                        <td>Template of the paginator. See the <router-link to="/paginator">Paginator</router-link> for all available options.</td>
+                        <td>Template of the paginator. See the <nuxt-link to="/paginator">Paginator</nuxt-link> for all available options.</td>
                     </tr>
                     <tr>
                         <td>pageLinkSize</td>
@@ -1677,7 +1677,7 @@ export default {
         </div>
 
         <h5>Styling</h5>
-        <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
+        <p>Following is the list of structural style classes, for theming classes visit <nuxt-link to="/theming">theming</nuxt-link> page.</p>
         <div class="doc-tablewrapper">
             <table class="doc-table">
                 <thead>

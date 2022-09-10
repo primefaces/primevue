@@ -71,7 +71,7 @@ import TriStateCheckbox from 'primevue/tristatecheckbox';
         <p>Any valid event such as focus and blur.</p>
 
         <h5>Styling</h5>
-        <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
+        <p>Following is the list of structural style classes, for theming classes visit <nuxt-link to="/theming">theming</nuxt-link> page.</p>
         <div class="doc-tablewrapper">
             <table class="doc-table">
                 <thead>
@@ -106,7 +106,7 @@ import TriStateCheckbox from 'primevue/tristatecheckbox';
         <p>
             TriStateCheckbox component uses an element with <i>checkbox</i> role. Value to describe the component can either be provided with <i>aria-labelledby</i> or <i>aria-label</i> props. Component adds an element with <i>aria-live</i> attribute
             that is only visible to screen readers to read the value displayed. Values to read are defined with the <i>trueLabel</i>, <i>falseLabel</i> and <i>nullLabel</i> keys of the <i>aria</i> property from the
-            <router-link to="/locale">locale</router-link> API. This is an example of a custom accessibility implementation as there is no one to one mapping between the component design and the WCAG specification.
+            <nuxt-link to="/locale">locale</nuxt-link> API. This is an example of a custom accessibility implementation as there is no one to one mapping between the component design and the WCAG specification.
         </p>
 
         <pre v-code><code>

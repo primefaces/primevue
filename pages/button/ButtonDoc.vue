@@ -94,7 +94,7 @@ import Button from 'primevue/button';
 </code></pre>
 
         <h5>Badges</h5>
-        <p>Badge is a small status indicator for a button. Refer to the <router-link to="/badge">badge</router-link> documentation for available styling options.</p>
+        <p>Badge is a small status indicator for a button. Refer to the <nuxt-link to="/badge">badge</nuxt-link> documentation for available styling options.</p>
 
         <pre v-code><code>
 &lt;Button type="button" label="Emails" badge="8" /&gt;
@@ -116,7 +116,7 @@ import Button from 'primevue/button';
         <h5>Sizes</h5>
         <p>
             2 more sizes are available in addition to a regular button, for a smaller input add <i>p-button-sm</i> and for a larger one, use <i>p-button-lg</i>. Note that these classes available to change the size of a particular button, for global
-            scaling see the <router-link to="/theming">theming</router-link> page.
+            scaling see the <nuxt-link to="/theming">theming</nuxt-link> page.
         </p>
         <pre v-code><code>
 &lt;Button label="Small" icon="pi pi-check" class="p-button-sm"  /&gt;
@@ -212,7 +212,7 @@ import Button from 'primevue/button';
         </div>
 
         <h5>Styling</h5>
-        <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
+        <p>Following is the list of structural style classes, for theming classes visit <nuxt-link to="/theming">theming</nuxt-link> page.</p>
         <div class="doc-tablewrapper">
             <table class="doc-table">
                 <thead>

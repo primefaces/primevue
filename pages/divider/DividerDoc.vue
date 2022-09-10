@@ -111,7 +111,7 @@ import Divider from 'primevue/divider';
         </div>
 
         <h5>Styling</h5>
-        <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
+        <p>Following is the list of structural style classes, for theming classes visit <nuxt-link to="/theming">theming</nuxt-link> page.</p>
         <div class="doc-tablewrapper">
             <table class="doc-table">
                 <thead>

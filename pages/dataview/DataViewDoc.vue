@@ -304,7 +304,7 @@ export default {
                         <td>paginatorTemplate</td>
                         <td>string</td>
                         <td>FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown</td>
-                        <td>Template of the paginator. See the <router-link to="/paginator">Paginator</router-link> for all available options.</td>
+                        <td>Template of the paginator. See the <nuxt-link to="/paginator">Paginator</nuxt-link> for all available options.</td>
                     </tr>
                     <tr>
                         <td>pageLinkSize</td>
@@ -426,7 +426,7 @@ export default {
         </div>
 
         <h5>Styling</h5>
-        <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
+        <p>Following is the list of structural style classes, for theming classes visit <nuxt-link to="/theming">theming</nuxt-link> page.</p>
         <div class="doc-tablewrapper">
             <table class="doc-table">
                 <thead>

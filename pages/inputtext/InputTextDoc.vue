@@ -53,7 +53,7 @@ import InputText from 'primevue/inputtext';
         <h5>Sizes</h5>
         <p>
             2 more sizes are available in addition to a regular input, for a smaller input add <i>p-inputtext-sm</i> and for a larger one, use <i>p-inputtext-lg</i>. Note that these classes are mainly be used to change the size of a particular field,
-            for global scaling see the <router-link to="/theming">theming</router-link> page.
+            for global scaling see the <nuxt-link to="/theming">theming</nuxt-link> page.
         </p>
         <pre v-code><code>
 &lt;InputText type="text" class="p-inputtext-sm" placeholder="Small" /&gt;
@@ -114,7 +114,7 @@ import InputText from 'primevue/inputtext';
         <p>Any valid event such as focus, blur and input are passed to the underlying input element.</p>
 
         <h5>Styling</h5>
-        <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
+        <p>Following is the list of structural style classes, for theming classes visit <nuxt-link to="/theming">theming</nuxt-link> page.</p>
         <div class="doc-tablewrapper">
             <table class="doc-table">
                 <thead>

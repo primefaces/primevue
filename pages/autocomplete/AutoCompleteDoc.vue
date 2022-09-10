@@ -325,7 +325,7 @@ export default {
                         <td>virtualScrollerOptions</td>
                         <td>object</td>
                         <td>null</td>
-                        <td>Whether to use the virtualScroller feature. The properties of <router-link to="/virtualscroller">VirtualScroller</router-link> component can be used like an object in it.</td>
+                        <td>Whether to use the virtualScroller feature. The properties of <nuxt-link to="/virtualscroller">VirtualScroller</nuxt-link> component can be used like an object in it.</td>
                     </tr>
                     <tr>
                         <td>autoOptionFocus</td>

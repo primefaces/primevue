@@ -14,7 +14,7 @@ import Steps from 'primevue/steps';
 </code></pre>
 
         <h5>MenuModel</h5>
-        <p>Steps uses the common MenuModel API to define the items, visit <router-link to="/menumodel">MenuModel API</router-link> for details.</p>
+        <p>Steps uses the common MenuModel API to define the items, visit <nuxt-link to="/menumodel">MenuModel API</nuxt-link> for details.</p>
 
         <h5>Getting Started</h5>
         <p>Steps is integrated with Vue Router and requires a collection of menuitems as its model.</p>
@@ -69,13 +69,13 @@ export default {
 </template>
 </code></pre>
 
-        <p><i>router-link</i> with route configuration can also be used within templating for further customization.</p>
+        <p><i>nuxt-link</i> with route configuration can also be used within templating for further customization.</p>
         <pre v-code><code><template v-pre>
 &lt;Steps :model="items"&gt;
     &lt;template #item="{item}"&gt;
-        &lt;router-link :to="item.to" custom v-slot="{href, route, navigate, isActive, isExactActive}"&gt;
+        &lt;nuxt-link :to="item.to" custom v-slot="{href, route, navigate, isActive, isExactActive}"&gt;
             &lt;a :href="href" @click="navigate" :class="{'active-link': isActive, 'active-link-exact": isExactActive}&gt;{{route.fullPath}}&lt;/a&gt;
-        &lt;/router-link&gt;
+        &lt;/nuxt-link&gt;
     &lt;/template&gt;
 &lt;/Steps&gt;
 </template>
@@ -116,7 +116,7 @@ export default {
                         <td>exact</td>
                         <td>boolean</td>
                         <td>true</td>
-                        <td>Whether to apply 'router-link-active-exact' class if route exactly matches the item path.</td>
+                        <td>Whether to apply 'nuxt-link-active-exact' class if route exactly matches the item path.</td>
                     </tr>
                 </tbody>
             </table>
@@ -141,7 +141,7 @@ export default {
         </div>
 
         <h5>Styling</h5>
-        <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
+        <p>Following is the list of structural style classes, for theming classes visit <nuxt-link to="/theming">theming</nuxt-link> page.</p>
         <div class="doc-tablewrapper">
             <table class="doc-table">
                 <thead>

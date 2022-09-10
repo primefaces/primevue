@@ -32,7 +32,7 @@
                             </div>
                         </div>
                     </div>
-                    <router-link to="/setup">
+                    <nuxt-link to="/setup">
                         <div class="hero-box w-10rem h-10rem md:w-12rem md:h-12rem animation logo hidden md:flex my-4 align-items-center justify-content-center">
                             <div class="hero-box-inner text-center">
                                 <img src="demo/images/landing/overview-icon.svg" alt="primevue main" />
@@ -41,7 +41,7 @@
                                 </div>
                             </div>
                         </div>
-                    </router-link>
+                    </nuxt-link>
                     <div class="hero-box w-10rem h-10rem md:w-12rem md:h-12rem animation flex ml-4 md:ml-0 align-items-center justify-content-center" @click="navigateTo('https://www.primefaces.org/primeflex')">
                         <div class="flex flex-column align-items-center">
                             <img src="demo/images/landing/css-icon.svg" alt="primevue icons" />
@@ -62,7 +62,7 @@
                             </div>
                         </div>
                     </div>
-                    <router-link to="/icons">
+                    <nuxt-link to="/icons">
                         <div class="hero-box w-10rem h-10rem md:w-12rem md:h-12rem animation flex ml-4 md:ml-0 md:mt-4 align-items-center justify-content-center">
                             <div class="flex flex-column align-items-center">
                                 <img src="demo/images/landing/icons-icon.svg" alt="primevue templates" />
@@ -72,7 +72,7 @@
                                 </div>
                             </div>
                         </div>
-                    </router-link>
+                    </nuxt-link>
                 </div>
             </div>
             <div class="hero-border-top hidden md:block"></div>

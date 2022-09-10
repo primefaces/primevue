@@ -111,7 +111,7 @@ import Rating from 'primevue/rating';
         </div>
 
         <h5>Styling</h5>
-        <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
+        <p>Following is the list of structural style classes, for theming classes visit <nuxt-link to="/theming">theming</nuxt-link> page.</p>
         <div class="doc-tablewrapper">
             <table class="doc-table">
                 <thead>
@@ -144,7 +144,7 @@ import Rating from 'primevue/rating';
         <h5>Accessibility</h5>
         <h6>Screen Reader</h6>
         <p>
-            Rating component internally uses radio buttons that are only visible to screen readers. The value to read for item is retrieved from the <router-link to="/locale">locale</router-link> API via <i>star</i> and <i>stars</i> of the
+            Rating component internally uses radio buttons that are only visible to screen readers. The value to read for item is retrieved from the <nuxt-link to="/locale">locale</nuxt-link> API via <i>star</i> and <i>stars</i> of the
             <i>aria</i> property.
         </p>
 

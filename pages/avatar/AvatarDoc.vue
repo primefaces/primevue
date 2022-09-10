@@ -51,7 +51,7 @@ import AvatarGroup from 'primevue/avatargroup';
 </code></pre>
 
         <h5>Badge</h5>
-        <p>A badge can be added to an Avatar with the <router-link to="/badge">Badge</router-link> directive.</p>
+        <p>A badge can be added to an Avatar with the <nuxt-link to="/badge">Badge</nuxt-link> directive.</p>
         <pre v-code><code>
 &lt;Avatar image="user.png" size="xlarge" v-badge.danger="4" /&gt;
 
@@ -137,7 +137,7 @@ import AvatarGroup from 'primevue/avatargroup';
         </div>
 
         <h5>Styling of Avatar</h5>
-        <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
+        <p>Following is the list of structural style classes, for theming classes visit <nuxt-link to="/theming">theming</nuxt-link> page.</p>
         <div class="doc-tablewrapper">
             <table class="doc-table">
                 <thead>

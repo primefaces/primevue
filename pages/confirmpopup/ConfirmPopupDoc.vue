@@ -164,13 +164,13 @@ export default {
                         <td>acceptLabel</td>
                         <td>string</td>
                         <td>null</td>
-                        <td>Label of the accept button. Defaults to PrimeVue <router-link to="/locale">Locale</router-link> configuration.</td>
+                        <td>Label of the accept button. Defaults to PrimeVue <nuxt-link to="/locale">Locale</nuxt-link> configuration.</td>
                     </tr>
                     <tr>
                         <td>rejectLabel</td>
                         <td>string</td>
                         <td>null</td>
-                        <td>Label of the reject button. Defaults to PrimeVue <router-link to="/locale">Locale</router-link> configuration.</td>
+                        <td>Label of the reject button. Defaults to PrimeVue <nuxt-link to="/locale">Locale</nuxt-link> configuration.</td>
                     </tr>
                     <tr>
                         <td>acceptIcon</td>
@@ -267,7 +267,7 @@ export default {
         </div>
 
         <h5>Styling</h5>
-        <p>ConfirmDialog inherits all the classes from the Dialog component, visit <router-link to="/dialog">dialog</router-link> for more information.</p>
+        <p>ConfirmDialog inherits all the classes from the Dialog component, visit <nuxt-link to="/dialog">dialog</nuxt-link> for more information.</p>
         <div class="doc-tablewrapper">
             <table class="doc-table">
                 <thead>

@@ -51,7 +51,7 @@ import Dock from 'primevue/dock';
 </code></pre>
 
         <h5>MenuModel API</h5>
-        <p>Dock uses the common MenuModel API to define the items, visit <router-link to="/menumodel">MenuModel API</router-link> for details.</p>
+        <p>Dock uses the common MenuModel API to define the items, visit <nuxt-link to="/menumodel">MenuModel API</nuxt-link> for details.</p>
 
         <h5>Properties</h5>
         <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
@@ -94,20 +94,20 @@ import Dock from 'primevue/dock';
                         <td>exact</td>
                         <td>boolean</td>
                         <td>true</td>
-                        <td>Whether to apply 'router-link-active-exact' class if route exactly matches the item path.</td>
+                        <td>Whether to apply 'nuxt-link-active-exact' class if route exactly matches the item path.</td>
                     </tr>
                     <tr>
                         <td>tooltipOptions</td>
                         <td>object</td>
                         <td>null</td>
-                        <td>Whether to display the tooltip on items. The modifiers of <router-link to="/tooltip">Tooltip</router-link> can be used like an object in it. Valid keys are 'event' and 'position'.</td>
+                        <td>Whether to display the tooltip on items. The modifiers of <nuxt-link to="/tooltip">Tooltip</nuxt-link> can be used like an object in it. Valid keys are 'event' and 'position'.</td>
                     </tr>
                 </tbody>
             </table>
         </div>
 
         <h5>Styling</h5>
-        <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
+        <p>Following is the list of structural style classes, for theming classes visit <nuxt-link to="/theming">theming</nuxt-link> page.</p>
         <div class="doc-tablewrapper">
             <table class="doc-table">
                 <thead>

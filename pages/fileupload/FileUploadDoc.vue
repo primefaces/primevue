@@ -186,25 +186,25 @@ myUploader(event) {
                         <td>chooseLabel</td>
                         <td>string</td>
                         <td>null</td>
-                        <td>Label of the choose button. Defaults to PrimeVue <router-link to="/locale">Locale</router-link> configuration.</td>
+                        <td>Label of the choose button. Defaults to PrimeVue <nuxt-link to="/locale">Locale</nuxt-link> configuration.</td>
                     </tr>
                     <tr>
                         <td>uploadLabel</td>
                         <td>string</td>
                         <td>Upload</td>
-                        <td>Label of the upload button. Defaults to PrimeVue <router-link to="/locale">Locale</router-link> configuration.</td>
+                        <td>Label of the upload button. Defaults to PrimeVue <nuxt-link to="/locale">Locale</nuxt-link> configuration.</td>
                     </tr>
                     <tr>
                         <td>cancelLabel</td>
                         <td>string</td>
                         <td>Cancel</td>
-                        <td>Label of the cancel button. Defaults to PrimeVue <router-link to="/locale">Locale</router-link> configuration.</td>
+                        <td>Label of the cancel button. Defaults to PrimeVue <nuxt-link to="/locale">Locale</nuxt-link> configuration.</td>
                     </tr>
                     <tr>
                         <td>customUpload</td>
                         <td>boolean</td>
                         <td>false</td>
-                        <td>Whether to use the default upload or a manual implementation defined in uploadHandler callback. Defaults to PrimeVue <router-link to="/locale">Locale</router-link> configuration.</td>
+                        <td>Whether to use the default upload or a manual implementation defined in uploadHandler callback. Defaults to PrimeVue <nuxt-link to="/locale">Locale</nuxt-link> configuration.</td>
                     </tr>
                     <tr>
                         <td>showUploadButton</td>
@@ -352,7 +352,7 @@ myUploader(event) {
         </div>
 
         <h5>Styling</h5>
-        <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
+        <p>Following is the list of structural style classes, for theming classes visit <nuxt-link to="/theming">theming</nuxt-link> page.</p>
         <div class="doc-tablewrapper">
             <table class="doc-table">
                 <thead>

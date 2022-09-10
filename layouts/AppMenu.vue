@@ -1,8 +1,8 @@
 <template>
     <div :class="['layout-sidebar', {'active': active}]">
-        <router-link to="/" class="logo">
+        <nuxt-link to="/" class="logo">
             <img :src="'demo/images/primevue-logo-' + `${$appState.darkTheme ? 'light' : 'dark'}` + '.svg'" alt="primevue logo"/>
-        </router-link>
+        </nuxt-link>
         <div class="layout-sidebar-filter p-fluid">
             <AutoComplete v-model="selectedRoute" :suggestions="filteredRoutes" @complete="searchRoute($event)" @item-select="onItemSelect($event)" scrollHeight="300px" placeholder="Search" 
                 field="name" optionGroupLabel="name" optionGroupChildren="children" appendTo="self">
@@ -17,12 +17,12 @@
                 <div class="menu-items" v-if="item.children && item.children.length">
                     <template v-for="child of item.children" :key="child.name">
                         <a v-if="child.href" :href="child.href" target="_blank">{{child.name}}</a>
-                        <router-link v-if="child.to" :to="child.to">
+                        <nuxt-link v-if="child.to" :to="child.to">
                             {{child.name}}
                             <Tag v-if="child.badge" :value="child.badge"></Tag>
-                        </router-link>
+                        </nuxt-link>
                         <template v-if="child.children">
-                            <router-link :to="child.children[0].to" v-slot="{isActive}" custom>
+                            <nuxt-link :to="child.children[0].to" v-slot="{isActive}" custom>
                                 <div>
                                     <a tabindex="0" @click="toggleSubmenu($event, child.meta[0])">
                                         {{child.name}}
@@ -32,16 +32,16 @@
                                         <div class="p-toggleable-content" v-show="isSubmenuActive(child.meta[0], isActive)">
                                             <ul>
                                                 <li v-for="(submenuitem, i) of child.children" :key="i">
-                                                    <router-link :to="submenuitem.to">
+                                                    <nuxt-link :to="submenuitem.to">
                                                         {{submenuitem.name}}
                                                         <Tag v-if="submenuitem.badge" :value="submenuitem.badge"></Tag>
-                                                    </router-link>
+                                                    </nuxt-link>
                                                 </li>
                                             </ul>
                                         </div>
                                     </transition>
                                 </div>
-                            </router-link>
+                            </nuxt-link>
                         </template>
                     </template>
                 </div>

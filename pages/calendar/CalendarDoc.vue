@@ -51,7 +51,7 @@ export default {
 </code></pre>
 
         <h5>DateFormat</h5>
-        <p>Default date format is mm/dd/yy, to customize this use <i>dateFormat</i> property or define it at <router-link to="/locale">PrimeVue Locale</router-link> globally. Note that standalone property overrides the value in locale settings.</p>
+        <p>Default date format is mm/dd/yy, to customize this use <i>dateFormat</i> property or define it at <nuxt-link to="/locale">PrimeVue Locale</nuxt-link> globally. Note that standalone property overrides the value in locale settings.</p>
 
         <pre v-code><code>
 &lt;Calendar v-model="value" dateFormat="dd.mm.yy" /&gt;
@@ -116,7 +116,7 @@ export default {
 </code></pre>
 
         <h5>Locale</h5>
-        <p>Locale for different languages and formats is defined globally, refer to the <router-link to="/locale">PrimeVue Locale</router-link> configuration for more information.</p>
+        <p>Locale for different languages and formats is defined globally, refer to the <nuxt-link to="/locale">PrimeVue Locale</nuxt-link> configuration for more information.</p>
 
         <h5>Custom Content</h5>
         <p>Calendar UI accepts custom content using header and footer templates.</p>
@@ -201,7 +201,7 @@ export default {
                         <td>dateFormat</td>
                         <td>string</td>
                         <td>null</td>
-                        <td>Format of the date. Defaults to PrimeVue <router-link to="/locale">Locale</router-link> configuration.</td>
+                        <td>Format of the date. Defaults to PrimeVue <nuxt-link to="/locale">Locale</nuxt-link> configuration.</td>
                     </tr>
                     <tr>
                         <td>inline</td>
@@ -617,7 +617,7 @@ export default {
         </div>
 
         <h5>Styling</h5>
-        <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
+        <p>Following is the list of structural style classes, for theming classes visit <nuxt-link to="/theming">theming</nuxt-link> page.</p>
         <div class="doc-tablewrapper">
             <table class="doc-table">
                 <thead>
@@ -687,7 +687,7 @@ export default {
         </p>
         <p>
             The optional calendar button requires includes <i>aria-haspopup</i>, <i>aria-expanded</i> for states along with <i>aria-controls</i> to define the relation between the popup and the button. The value to read is retrieved from the
-            <i>chooseDate</i> key of the aria property from the <router-link to="/locale">locale</router-link> API. This label is also used for the <i>aria-label</i> of the popup as well. When there is a value selected, it is formatted and appended
+            <i>chooseDate</i> key of the aria property from the <nuxt-link to="/locale">locale</nuxt-link> API. This label is also used for the <i>aria-label</i> of the popup as well. When there is a value selected, it is formatted and appended
             to the label to be able to notify users about the current value.
         </p>
 

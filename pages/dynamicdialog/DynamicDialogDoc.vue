@@ -160,7 +160,7 @@ export default {
 </code></pre>
 
         <h5>Customizing a Dialog</h5>
-        <p><i>props</i> option is used to customize the dynamically generated Dialog, refer to the <router-link to="/dialog">Dialog</router-link> documentation for the whole list of options.</p>
+        <p><i>props</i> option is used to customize the dynamically generated Dialog, refer to the <nuxt-link to="/dialog">Dialog</nuxt-link> documentation for the whole list of options.</p>
 
         <pre v-code.script><code>
 import { h } from 'vue';

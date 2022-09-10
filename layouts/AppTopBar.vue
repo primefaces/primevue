@@ -14,10 +14,10 @@
                 <transition name="p-connected-overlay" @enter="onMenuEnter">
                     <ul v-show="activeMenuIndex === 0">
                         <li class="topbar-submenu-header">THEMING</li>
-                        <li><router-link to="/theming"><i class="pi pi-fw pi-file"/><span>Guide</span></router-link></li>
+                        <li><nuxt-link to="/theming"><i class="pi pi-fw pi-file"/><span>Guide</span></nuxt-link></li>
                         <li><a href="https://www.primefaces.org/designer/primevue"><i class="pi pi-fw pi-palette" /><span>Designer</span></a></li>
                         <li><a href="https://www.primefaces.org/designer-vue"><i class="pi pi-fw pi-desktop" /><span>Visual Editor</span></a></li>
-                        <li><router-link to="/icons"><i class="pi pi-fw pi-info-circle"/><span>Icons</span></router-link></li>
+                        <li><nuxt-link to="/icons"><i class="pi pi-fw pi-info-circle"/><span>Icons</span></nuxt-link></li>
                         <li><a href="https://www.figma.com/community/file/890589747170608208/PrimeOne-Design-Library"><i class="pi pi-fw pi-pencil"/><span>Figma UI Kit</span></a></li>
 
                         <li class="topbar-submenu-header">BOOTSTRAP</li>
@@ -108,7 +108,7 @@
                 <a tabindex="0" @click="toggleMenu($event, 3)">v3.16.2</a>
                 <transition name="p-connected-overlay" @enter="onMenuEnter">
                     <ul v-show="activeMenuIndex === 3" style="width: 100%">
-                        <li><router-link to="/"><span class="m-0">v3.16.2</span></router-link></li>
+                        <li><nuxt-link to="/"><span class="m-0">v3.16.2</span></nuxt-link></li>
                         <li><a href="https://www.primefaces.org/primevue-v2"><span class="m-0">v2.10.0</span></a></li>
                     </ul>
                 </transition>

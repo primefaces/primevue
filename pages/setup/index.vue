@@ -306,7 +306,7 @@ app.use(PrimeVue, {
 
 </code></pre>
             <h5>Locale</h5>
-            <p>PrimeVue provides a Locale API to support i18n and l7n, visit the <router-link to="/locale">Locale</router-link> documentation for more information.</p>
+            <p>PrimeVue provides a Locale API to support i18n and l7n, visit the <nuxt-link to="/locale">Locale</nuxt-link> documentation for more information.</p>
 
             <h5>Browser Support</h5>
             <div class="doc-tablewrapper">

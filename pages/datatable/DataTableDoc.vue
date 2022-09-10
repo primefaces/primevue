@@ -620,7 +620,7 @@ export default {
 
             <h5>Pagination</h5>
             <p>
-                Pagination is enabled by setting <i>paginator</i> property to true and defining the <i>rows</i> property defines the number of rows per page. See the <router-link to="/paginator">Paginator</router-link> for the available customization
+                Pagination is enabled by setting <i>paginator</i> property to true and defining the <i>rows</i> property defines the number of rows per page. See the <nuxt-link to="/paginator">Paginator</nuxt-link> for the available customization
                 options such as paginator templates, page links, rows per page options and more which can be passed through the DataTable.
             </p>
 
@@ -1011,7 +1011,7 @@ matchModes: [
 </code></pre>
 
             <h6>Full Page Scroll</h6>
-            <p>FlexScroll can also be used for cases where scrollable viewport should be responsive with respect to the window size. See the <router-link to="/datatable/flexscroll">full page</router-link> demo for an example.</p>
+            <p>FlexScroll can also be used for cases where scrollable viewport should be responsive with respect to the window size. See the <nuxt-link to="/datatable/flexscroll">full page</nuxt-link> demo for an example.</p>
             <pre v-code><code><template v-pre>
 &lt;div style="height: calc(100vh - 143px)"&gt;
     &lt;DataTable :value="cars" :scrollable="true" scrollHeight="flex"&gt;
@@ -1093,7 +1093,7 @@ matchModes: [
             <h6>Scrollable RowGroup</h6>
             <p>
                 Row groups with subheaders have exclusive support for filtering, when the table scrolls the subheaders stay fixed as long as their data are still displayed. No additional configuration is required to enable this feature. View the
-                <router-link to="/datatable/rowgroup">Row Group</router-link> demo for an example.
+                <nuxt-link to="/datatable/rowgroup">Row Group</nuxt-link> demo for an example.
             </p>
 
             <h5>Lazy Loading</h5>
@@ -1107,7 +1107,7 @@ matchModes: [
                 Note that, in lazy filtering totalRecords should also be updated to align the data with the paginator.
             </p>
 
-            <p>Visit the <router-link to="/datatable/lazy">lazy loading</router-link> demo for an example with a remote datasource.</p>
+            <p>Visit the <nuxt-link to="/datatable/lazy">lazy loading</nuxt-link> demo for an example with a remote datasource.</p>
 
             <h5>Row Expansion</h5>
             <p>
@@ -1946,7 +1946,7 @@ export default {
                                 FirstPageLink PrevPageLink PageLinks <br />
                                 NextPageLink LastPageLink RowsPerPageDropdown
                             </td>
-                            <td>Template of the paginator. See the <router-link to="/paginator">Paginator</router-link> for all available options.</td>
+                            <td>Template of the paginator. See the <nuxt-link to="/paginator">Paginator</nuxt-link> for all available options.</td>
                         </tr>
                         <tr>
                             <td>pageLinkSize</td>
@@ -2233,7 +2233,7 @@ export default {
                             <td>object</td>
                             <td>null</td>
                             <td>
-                                Whether to use the virtualScroller feature. The properties of <router-link to="/virtualscroller">VirtualScroller</router-link> component can be used like an object in it. <br /><b>Note:</b> Currently only vertical
+                                Whether to use the virtualScroller feature. The properties of <nuxt-link to="/virtualscroller">VirtualScroller</nuxt-link> component can be used like an object in it. <br /><b>Note:</b> Currently only vertical
                                 orientation mode is supported.
                             </td>
                         </tr>

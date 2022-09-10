@@ -345,7 +345,7 @@ export default {
                         <td>virtualScrollerOptions</td>
                         <td>object</td>
                         <td>null</td>
-                        <td>Whether to use the virtualScroller feature. The properties of <router-link to="/virtualscroller">VirtualScroller</router-link> component can be used like an object in it.</td>
+                        <td>Whether to use the virtualScroller feature. The properties of <nuxt-link to="/virtualscroller">VirtualScroller</nuxt-link> component can be used like an object in it.</td>
                     </tr>
                     <tr>
                         <td>autoOptionFocus</td>
@@ -589,7 +589,7 @@ export default {
         </div>
 
         <h5>Styling</h5>
-        <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
+        <p>Following is the list of structural style classes, for theming classes visit <nuxt-link to="/theming">theming</nuxt-link> page.</p>
         <div class="doc-tablewrapper">
             <table class="doc-table">
                 <thead>
@@ -649,12 +649,12 @@ export default {
 
         <p>
             Checkbox component at the header uses a hidden native checkbox element internally that is only visible to screen readers. Value to read is defined with the <i>selectAll</i> and <i>unselectAll</i> keys of the <i>aria</i> property from the
-            <router-link to="/locale">locale</router-link> API.
+            <nuxt-link to="/locale">locale</nuxt-link> API.
         </p>
 
         <p>If filtering is enabled, <i>filterInputProps</i> can be defined to give <i>aria-*</i> props to the input element.</p>
 
-        <p>Close button uses <i>close</i> key of the <i>aria</i> property from the <router-link to="/locale">locale</router-link> API as the <i>aria-label</i> by default, this can be overriden with the <i>closeButtonProps</i>.</p>
+        <p>Close button uses <i>close</i> key of the <i>aria</i> property from the <nuxt-link to="/locale">locale</nuxt-link> API as the <i>aria-label</i> by default, this can be overriden with the <i>closeButtonProps</i>.</p>
         <pre v-code><code>
 &lt;span id="dd1"&gt;Options&lt;/span&gt;
 &lt;MultiSelect aria-labelledby="dd1" /&gt;
