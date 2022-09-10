@@ -1,6 +1,7 @@
 import { defineNuxtConfig } from 'nuxt'
 const path = require('path');
 import vueJsx from '@vitejs/plugin-vue-jsx'
+import rollupOptions from './rollup.config'
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
   ssr: true,
@@ -31,6 +32,9 @@ export default defineNuxtConfig({
   ],
   vite: {
     plugins: [vueJsx()],
+    build: {
+      rollupOptions
+    },
       resolve: {
         alias: {
             'primevue/ripple': path.resolve(__dirname, '/components/ripple/Ripple.js'),
