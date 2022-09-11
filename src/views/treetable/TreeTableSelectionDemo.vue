@@ -11,7 +11,7 @@
         <div class="content-section implementation">
             <div class="card">
                 <h5>Single Selection</h5>
-                <TreeTable :value="nodes" selectionMode="single" v-model:selectionKeys="selectedKey1">
+                <TreeTable v-model:selectionKeys="selectedKey1" :value="nodes" selectionMode="single">
                     <Column field="name" header="Name" :expander="true"></Column>
                     <Column field="size" header="Size"></Column>
                     <Column field="type" header="Type"></Column>
@@ -20,7 +20,7 @@
 
             <div class="card">
                 <h5>Multiple Selection with MetaKey</h5>
-                <TreeTable :value="nodes" selectionMode="multiple" v-model:selectionKeys="selectedKeys1">
+                <TreeTable v-model:selectionKeys="selectedKeys1" :value="nodes" selectionMode="multiple">
                     <Column field="name" header="Name" :expander="true"></Column>
                     <Column field="size" header="Size"></Column>
                     <Column field="type" header="Type"></Column>
@@ -29,7 +29,7 @@
 
             <div class="card">
                 <h5>Multiple Selection without MetaKey</h5>
-                <TreeTable :value="nodes" selectionMode="multiple" v-model:selectionKeys="selectedKeys2" :metaKeySelection="false">
+                <TreeTable v-model:selectionKeys="selectedKeys2" :value="nodes" selectionMode="multiple" :metaKeySelection="false">
                     <Column field="name" header="Name" :expander="true"></Column>
                     <Column field="size" header="Size"></Column>
                     <Column field="type" header="Type"></Column>
@@ -38,7 +38,7 @@
 
             <div class="card">
                 <h5>Checkbox Selection</h5>
-                <TreeTable :value="nodes" selectionMode="checkbox" v-model:selectionKeys="selectedKeys3">
+                <TreeTable v-model:selectionKeys="selectedKeys3" :value="nodes" selectionMode="checkbox">
                     <Column field="name" header="Name" :expander="true"></Column>
                     <Column field="size" header="Size"></Column>
                     <Column field="type" header="Type"></Column>
@@ -47,8 +47,7 @@
 
             <div class="card">
                 <h5>Events</h5>
-                <TreeTable :value="nodes" selectionMode="single" v-model:selectionKeys="selectedKey2"
-                    @node-select="onNodeSelect" @node-unselect="onNodeUnselect">
+                <TreeTable v-model:selectionKeys="selectedKey2" :value="nodes" selectionMode="single" @node-select="onNodeSelect" @node-unselect="onNodeUnselect">
                     <Column field="name" header="Name" :expander="true"></Column>
                     <Column field="size" header="Size"></Column>
                     <Column field="type" header="Type"></Column>
@@ -347,22 +346,22 @@ export default {
 `
                 }
             }
-        }
+        };
     },
     nodeService: null,
     created() {
         this.nodeService = new NodeService();
     },
     mounted() {
-        this.nodeService.getTreeTableNodes().then(data => this.nodes = data);
+        this.nodeService.getTreeTableNodes().then((data) => (this.nodes = data));
     },
     methods: {
         onNodeSelect(node) {
-            this.$toast.add({severity:'success', summary: 'Node Selected', detail: node.data.name, life: 3000});
+            this.$toast.add({ severity: 'success', summary: 'Node Selected', detail: node.data.name, life: 3000 });
         },
         onNodeUnselect(node) {
-            this.$toast.add({severity:'success', summary: 'Node Unselected', detail: node.data.name, life: 3000});
+            this.$toast.add({ severity: 'success', summary: 'Node Unselected', detail: node.data.name, life: 3000 });
         }
     }
-}
+};
 </script>

@@ -9,14 +9,21 @@
             <slot name="controlsend"></slot>
         </div>
         <div class="p-orderlist-list-container">
-            <div class="p-orderlist-header" v-if="$slots.header">
+            <div v-if="$slots.header" class="p-orderlist-header">
                 <slot name="header"></slot>
             </div>
             <transition-group ref="list" name="p-orderlist-flip" tag="ul" class="p-orderlist-list" :style="listStyle" role="listbox" aria-multiselectable="multiple">
                 <template v-for="(item, i) of modelValue" :key="getItemKey(item, i)">
-                    <li tabindex="0" :class="['p-orderlist-item', {'p-highlight': isSelected(item)}]" v-ripple
-                        @click="onItemClick($event, item, i)" @keydown="onItemKeyDown($event, item, i)" @touchend="onItemTouchEnd"
-                        role="option" :aria-selected="isSelected(item)">
+                    <li
+                        v-ripple
+                        tabindex="0"
+                        :class="['p-orderlist-item', { 'p-highlight': isSelected(item) }]"
+                        @click="onItemClick($event, item, i)"
+                        @keydown="onItemKeyDown($event, item, i)"
+                        @touchend="onItemTouchEnd"
+                        role="option"
+                        :aria-selected="isSelected(item)"
+                    >
                         <slot name="item" :item="item" :index="i"> </slot>
                     </li>
                 </template>
@@ -27,7 +34,7 @@
 
 <script>
 import Button from 'primevue/button';
-import {ObjectUtils,UniqueComponentId,DomHandler} from 'primevue/utils';
+import { ObjectUtils, UniqueComponentId, DomHandler } from 'primevue/utils';
 import Ripple from 'primevue/ripple';
 
 export default {
@@ -73,7 +80,7 @@ export default {
     data() {
         return {
             d_selection: this.selection
-        }
+        };
     },
     beforeUnmount() {
         this.destroyStyle();
@@ -91,7 +98,7 @@ export default {
     },
     methods: {
         getItemKey(item, index) {
-            return this.dataKey ? ObjectUtils.resolveFieldData(item, this.dataKey): index;
+            return this.dataKey ? ObjectUtils.resolveFieldData(item, this.dataKey) : index;
         },
         isSelected(item) {
             return ObjectUtils.findIndexInList(item, this.d_selection) != -1;
@@ -107,10 +114,10 @@ export default {
                     if (selectedItemIndex !== 0) {
                         let movedItem = value[selectedItemIndex];
                         let temp = value[selectedItemIndex - 1];
+
                         value[selectedItemIndex - 1] = movedItem;
                         value[selectedItemIndex] = temp;
-                    }
-                    else {
+                    } else {
                         break;
                     }
                 }
@@ -125,7 +132,7 @@ export default {
             }
         },
         moveTop(event) {
-            if(this.d_selection) {
+            if (this.d_selection) {
                 let value = [...this.modelValue];
 
                 for (let i = 0; i < this.d_selection.length; i++) {
@@ -134,9 +141,9 @@ export default {
 
                     if (selectedItemIndex !== 0) {
                         let movedItem = value.splice(selectedItemIndex, 1)[0];
+
                         value.unshift(movedItem);
-                    }
-                    else {
+                    } else {
                         break;
                     }
                 }
@@ -151,20 +158,20 @@ export default {
             }
         },
         moveDown(event) {
-            if(this.d_selection) {
+            if (this.d_selection) {
                 let value = [...this.modelValue];
 
                 for (let i = this.d_selection.length - 1; i >= 0; i--) {
                     let selectedItem = this.d_selection[i];
                     let selectedItemIndex = ObjectUtils.findIndexInList(selectedItem, value);
 
-                    if (selectedItemIndex !== (value.length - 1)) {
+                    if (selectedItemIndex !== value.length - 1) {
                         let movedItem = value[selectedItemIndex];
                         let temp = value[selectedItemIndex + 1];
+
                         value[selectedItemIndex + 1] = movedItem;
                         value[selectedItemIndex] = temp;
-                    }
-                    else {
+                    } else {
                         break;
                     }
                 }
@@ -186,11 +193,11 @@ export default {
                     let selectedItem = this.d_selection[i];
                     let selectedItemIndex = ObjectUtils.findIndexInList(selectedItem, value);
 
-                    if (selectedItemIndex !== (value.length - 1)) {
+                    if (selectedItemIndex !== value.length - 1) {
                         let movedItem = value.splice(selectedItemIndex, 1)[0];
+
                         value.push(movedItem);
-                    }
-                    else {
+                    } else {
                         break;
                     }
                 }
@@ -207,25 +214,22 @@ export default {
         onItemClick(event, item, index) {
             this.itemTouched = false;
             let selectedIndex = ObjectUtils.findIndexInList(item, this.d_selection);
-            let selected = (selectedIndex != -1);
+            let selected = selectedIndex != -1;
             let metaSelection = this.itemTouched ? false : this.metaKeySelection;
 
             if (metaSelection) {
-                let metaKey = (event.metaKey || event.ctrlKey);
+                let metaKey = event.metaKey || event.ctrlKey;
 
                 if (selected && metaKey) {
                     this.d_selection = this.d_selection.filter((val, index) => index !== selectedIndex);
-                }
-                else {
-                    this.d_selection = (metaKey) ? this.d_selection ? [...this.d_selection] : [] : [];
+                } else {
+                    this.d_selection = metaKey ? (this.d_selection ? [...this.d_selection] : []) : [];
                     ObjectUtils.insertIntoOrderedArray(item, index, this.d_selection, this.modelValue);
                 }
-            }
-            else {
+            } else {
                 if (selected) {
                     this.d_selection = this.d_selection.filter((val, index) => index !== selectedIndex);
-                }
-                else {
+                } else {
                     this.d_selection = this.d_selection ? [...this.d_selection] : [];
                     ObjectUtils.insertIntoOrderedArray(item, index, this.d_selection, this.modelValue);
                 }
@@ -233,7 +237,7 @@ export default {
 
             this.$emit('update:selection', this.d_selection);
             this.$emit('selection-change', {
-                originalEvent:event,
+                originalEvent: event,
                 value: this.d_selection
             });
         },
@@ -243,85 +247,83 @@ export default {
         onItemKeyDown(event, item, index) {
             let listItem = event.currentTarget;
 
-            switch(event.which) {
+            switch (event.which) {
                 //down
                 case 40:
                     var nextItem = this.findNextItem(listItem);
+
                     if (nextItem) {
                         nextItem.focus();
                     }
 
                     event.preventDefault();
-                break;
+                    break;
 
                 //up
                 case 38:
                     var prevItem = this.findPrevItem(listItem);
+
                     if (prevItem) {
                         prevItem.focus();
                     }
 
                     event.preventDefault();
-                break;
+                    break;
 
                 //enter
                 case 13:
                     this.onItemClick(event, item, index);
                     event.preventDefault();
-                break;
+                    break;
 
                 default:
-                break;
+                    break;
             }
         },
         findNextItem(item) {
             let nextItem = item.nextElementSibling;
 
-            if (nextItem)
-                return !DomHandler.hasClass(nextItem, 'p-orderlist-item') ? this.findNextItem(nextItem) : nextItem;
-            else
-                return null;
+            if (nextItem) return !DomHandler.hasClass(nextItem, 'p-orderlist-item') ? this.findNextItem(nextItem) : nextItem;
+            else return null;
         },
         findPrevItem(item) {
             let prevItem = item.previousElementSibling;
 
-            if (prevItem)
-                return !DomHandler.hasClass(prevItem, 'p-orderlist-item') ? this.findPrevItem(prevItem) : prevItem;
-            else
-                return null;
+            if (prevItem) return !DomHandler.hasClass(prevItem, 'p-orderlist-item') ? this.findPrevItem(prevItem) : prevItem;
+            else return null;
         },
         updateListScroll() {
             const listItems = DomHandler.find(this.$refs.list.$el, '.p-orderlist-item.p-highlight');
 
             if (listItems && listItems.length) {
-                switch(this.reorderDirection) {
+                switch (this.reorderDirection) {
                     case 'up':
                         DomHandler.scrollInView(this.$refs.list.$el, listItems[0]);
-                    break;
+                        break;
 
                     case 'top':
                         this.$refs.list.$el.scrollTop = 0;
-                    break;
+                        break;
 
                     case 'down':
                         DomHandler.scrollInView(this.$refs.list.$el, listItems[listItems.length - 1]);
-                    break;
+                        break;
 
                     case 'bottom':
                         this.$refs.list.$el.scrollTop = this.$refs.list.$el.scrollHeight;
-                    break;
+                        break;
 
                     default:
-                    break;
+                        break;
                 }
             }
         },
         createStyle() {
-			if (!this.styleElement) {
+            if (!this.styleElement) {
                 this.$el.setAttribute(this.attributeSelector, '');
-				this.styleElement = document.createElement('style');
-				this.styleElement.type = 'text/css';
-				document.head.appendChild(this.styleElement);
+                this.styleElement = document.createElement('style');
+                this.styleElement.type = 'text/css';
+                document.head.appendChild(this.styleElement);
 
                 let innerHTML = `
 @media screen and (max-width: ${this.breakpoint}) {
@@ -346,8 +348,8 @@ export default {
 `;
 
                 this.styleElement.innerHTML = innerHTML;
-			}
-		},
+            }
+        },
         destroyStyle() {
             if (this.styleElement) {
                 document.head.removeChild(this.styleElement);
@@ -357,21 +359,24 @@ export default {
     },
     computed: {
         containerClass() {
-            return ['p-orderlist p-component', {
-                'p-orderlist-striped': this.stripedRows
-            }];
+            return [
+                'p-orderlist p-component',
+                {
+                    'p-orderlist-striped': this.stripedRows
+                }
+            ];
         },
         attributeSelector() {
             return UniqueComponentId();
         }
     },
     components: {
-        'OLButton': Button
+        OLButton: Button
     },
     directives: {
-        'ripple': Ripple
+        ripple: Ripple
     }
-}
+};
 </script>
 
 <style>

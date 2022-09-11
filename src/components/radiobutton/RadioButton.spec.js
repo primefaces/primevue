@@ -26,7 +26,7 @@ describe('RadioButton.vue', () => {
     });
 
     it('should checked', async () => {
-        await wrapper.setProps({ modelValue: 'Tatooine'});
+        await wrapper.setProps({ modelValue: 'Tatooine' });
 
         expect(wrapper.vm.checked).toBe(true);
         expect(wrapper.find('.p-radiobutton').classes()).toContain('p-radiobutton-checked');

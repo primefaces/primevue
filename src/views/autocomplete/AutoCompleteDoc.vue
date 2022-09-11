@@ -1,26 +1,28 @@
 <template>
     <AppDoc name="AutoCompleteDemo" :sources="sources" :service="['CountryService']" :data="['countries']" github="autocomplete/AutoCompleteDemo.vue">
         <h5>Import via Module</h5>
-<pre v-code.script><code>
+        <pre v-code.script><code>
 import AutoComplete from 'primevue/autocomplete';
 
 </code></pre>
 
         <h5>Import via CDN</h5>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/autocomplete/autocomplete.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-		<h5>Getting Started</h5>
-		<p>AutoComplete uses v-model for two-way binding, requires a list of suggestions and a complete method to query for the results. The complete method
-			gets the query text as event.query property and should update the suggestions with the search results. Example below connects to a remote datasource to fetch the results;</p>
-<pre v-code><code>
+        <h5>Getting Started</h5>
+        <p>
+            AutoComplete uses v-model for two-way binding, requires a list of suggestions and a complete method to query for the results. The complete method gets the query text as event.query property and should update the suggestions with the
+            search results. Example below connects to a remote datasource to fetch the results;
+        </p>
+        <pre v-code><code>
 &lt;AutoComplete v-model="selectedCountry" :suggestions="filteredCountriesBasic" @complete="searchCountry($event)" optionLabel="name" /&gt;
 
 </code></pre>
-<pre v-code.script><code>
+        <pre v-code.script><code>
 export default {
 	data() {
 		return {
@@ -41,35 +43,36 @@ export default {
 
 </code></pre>
 
-		<h5>Dropdown</h5>
-		<p>Enabling <i>dropdown</i> property displays a button next to the input field where click behavior of the button is defined using
-			dropdownMode property that takes "blank" or "current" as possible values.
-			"blank" is the default mode to send a query with an empty string whereas
-			"current" setting sends a query with the current value of the input.</p>
-<pre v-code><code>
+        <h5>Dropdown</h5>
+        <p>
+            Enabling <i>dropdown</i> property displays a button next to the input field where click behavior of the button is defined using dropdownMode property that takes "blank" or "current" as possible values. "blank" is the default mode to send
+            a query with an empty string whereas "current" setting sends a query with the current value of the input.
+        </p>
+        <pre v-code><code>
 &lt;AutoComplete v-model="brand" :dropdown="true" :suggestions="filteredBrands" @complete="searchBrand($event)" placeholder="Hint: type 'v' or 'f'" /&gt;
 
 </code></pre>
 
-		<h5>Multiple Mode</h5>
-		<p>Multiple mode is enabled using <i>multiple</i> property to select more than one value from the autocomplete. In this case, value reference should be an array.</p>
-<pre v-code><code>
+        <h5>Multiple Mode</h5>
+        <p>Multiple mode is enabled using <i>multiple</i> property to select more than one value from the autocomplete. In this case, value reference should be an array.</p>
+        <pre v-code><code>
 &lt;AutoComplete :multiple="true" v-model="selectedCountries" :suggestions="filteredCountriesMultiple" @complete="searchCountryMultiple($event)" optionLabel="name" /&gt;
 
 </code></pre>
 
-		<h5>Objects</h5>
-		<p>AutoComplete can also work with objects using the  <i>optionLabel</i> property that defines the label to display
-			as a suggestion. The value passed to the model would still be the object instance of a suggestion.
-			Here is an example with a Country object that has name and code fields such as &#123;name:"United States",code:"USA"&#125;.</p>
-<pre v-code><code>
+        <h5>Objects</h5>
+        <p>
+            AutoComplete can also work with objects using the <i>optionLabel</i> property that defines the label to display as a suggestion. The value passed to the model would still be the object instance of a suggestion. Here is an example with a
+            Country object that has name and code fields such as &#123;name:"United States",code:"USA"&#125;.
+        </p>
+        <pre v-code><code>
 &lt;AutoComplete optionLabel="label" v-model="selectedCountry" :suggestions="filteredCountriesBasic" @complete="searchCountryBasic($event)" /&gt;
 
 </code></pre>
 
         <h5>Grouping</h5>
-		<p>Options groups are specified with the <i>optionGroupLabel</i> and <i>optionGroupChildren</i> properties.</p>
-<pre v-code.script><code>
+        <p>Options groups are specified with the <i>optionGroupLabel</i> and <i>optionGroupChildren</i> properties.</p>
+        <pre v-code.script><code>
 export default {
     data() {
         return {
@@ -106,24 +109,28 @@ export default {
 }
 </code></pre>
 
-<pre v-code><code><template v-pre>
+        <pre v-code><code><template v-pre>
 &lt;AutoComplete v-model="selectedCity" :suggestions="filteredCities" @complete="searchCity($event)"
     optionLabel="label" optionGroupLabel="label" optionGroupChildren="items"&gt;&lt;/AutoComplete&gt;
 </template>
 </code></pre>
 
         <h5>Force Selection</h5>
-        <p>ForceSelection mode validates the manual input to check whether it also exists in the suggestions list, if not the input value is cleared
-        to make sure the value passed to the model is always one of the suggestions. Simply enable <i>forceSelection</i> to enforce that input is always from the suggestion list.</p>
-<pre v-code><code>
+        <p>
+            ForceSelection mode validates the manual input to check whether it also exists in the suggestions list, if not the input value is cleared to make sure the value passed to the model is always one of the suggestions. Simply enable
+            <i>forceSelection</i> to enforce that input is always from the suggestion list.
+        </p>
+        <pre v-code><code>
 &lt;AutoComplete forceSelection v-model="brand" :suggestions="filteredBrands" @complete="searchBrand($event)" /&gt;
 
 </code></pre>
 
-		<h5>Templating</h5>
-		<p>Item template allows displaying custom content inside the suggestions panel. The slotProps variable passed to the template provides an item property to represent an item in the suggestions collection.
-            In addition <i>optiongroup</i>, <i>chip</i>, <i>header</i> and <i>footer</i> slots are provided for further customization</p>
-<pre v-code><code><template v-pre>
+        <h5>Templating</h5>
+        <p>
+            Item template allows displaying custom content inside the suggestions panel. The slotProps variable passed to the template provides an item property to represent an item in the suggestions collection. In addition <i>optiongroup</i>,
+            <i>chip</i>, <i>header</i> and <i>footer</i> slots are provided for further customization
+        </p>
+        <pre v-code><code><template v-pre>
 &lt;AutoComplete v-model="brand" :suggestions="filteredBrands" @complete="searchBrand($event)" placeholder="Hint: type 'v' or 'f'" :dropdown="true"&gt;
     &lt;template #item="slotProps"&gt;
 		&lt;img :alt="slotProps.item" :src="'demo/images/car/' + slotProps.item + '.png'" /&gt;
@@ -133,19 +140,19 @@ export default {
 </template>
 </code></pre>
 
-		<h5>Properties</h5>
+        <h5>Properties</h5>
         <p>Any property of HTMLDivElement are passed to the main container element. Following are the additional properties to configure the component.</p>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Type</th>
                         <th>Default</th>
                         <th>Description</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>modelValue</td>
                         <td>any</td>
@@ -252,15 +259,13 @@ export default {
                         <td>appendTo</td>
                         <td>string</td>
                         <td>body</td>
-                        <td>A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are "body" for document body
-                        and "self" for the element itself.</td>
+                        <td>A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are "body" for document body and "self" for the element itself.</td>
                     </tr>
                     <tr>
                         <td>forceSelection</td>
                         <td>boolean</td>
                         <td>false</td>
-                        <td>When present, autocomplete clears the manual input if it does not match of the suggestions to force only
-                        accepting values from the suggestions.</td>
+                        <td>When present, autocomplete clears the manual input if it does not match of the suggestions to force only accepting values from the suggestions.</td>
                     </tr>
                     <tr>
                         <td>completeOnFocus</td>
@@ -382,25 +387,27 @@ export default {
                         <td>null</td>
                         <td>Establishes relationships between the component and label(s) where its value should be one or more element IDs.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
-		<h5>Events</h5>
+        <h5>Events</h5>
         <div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Parameters</th>
                         <th>Description</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>change</td>
-                        <td>event.originalEvent: Original event <br />
-                            event.value: Selected option value </td>
+                        <td>
+                            event.originalEvent: Original event <br />
+                            event.value: Selected option value
+                        </td>
                         <td>Callback to invoke on value change.</td>
                     </tr>
                     <tr>
@@ -415,14 +422,18 @@ export default {
                     </tr>
                     <tr>
                         <td>item-select</td>
-                        <td>event.originalEvent: Browser event <br />
-                            event.value: Selected item</td>
+                        <td>
+                            event.originalEvent: Browser event <br />
+                            event.value: Selected item
+                        </td>
                         <td>Callback to invoke when a suggestion is selected.</td>
                     </tr>
                     <tr>
                         <td>item-unselect</td>
-                        <td>event.originalEvent: Browser event <br />
-                            event.value: Unselected item</td>
+                        <td>
+                            event.originalEvent: Browser event <br />
+                            event.value: Unselected item
+                        </td>
                         <td>Callback to invoke when a selected value is removed.</td>
                     </tr>
                     <tr>
@@ -466,76 +477,88 @@ export default {
                         <td>-</td>
                         <td>Callback to invoke when the overlay is hidden.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
         <h5>Slots</h5>
-		<div class="doc-tablewrapper">
+        <div class="doc-tablewrapper">
             <table class="doc-table">
-				<thead>
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Parameters</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>chip</td>
                         <td>value: A value in the selection</td>
                     </tr>
                     <tr>
                         <td>header</td>
-                        <td>value: Value of the component <br />
-                            suggestions: Displayed options</td>
+                        <td>
+                            value: Value of the component <br />
+                            suggestions: Displayed options
+                        </td>
                     </tr>
                     <tr>
                         <td>footer</td>
-                        <td>value: Value of the component <br />
-                            suggestions: Displayed options</td>
+                        <td>
+                            value: Value of the component <br />
+                            suggestions: Displayed options
+                        </td>
                     </tr>
                     <tr>
                         <td>item <small>*Deprecated since v3.16.0</small></td>
-                        <td>item: Option instance <br />
-                            index: Index of the option</td>
+                        <td>
+                            item: Option instance <br />
+                            index: Index of the option
+                        </td>
                     </tr>
                     <tr>
                         <td>option</td>
-                        <td>option: Option instance <br />
-                            index: Index of the option</td>
+                        <td>
+                            option: Option instance <br />
+                            index: Index of the option
+                        </td>
                     </tr>
                     <tr>
                         <td>optiongroup</td>
-                        <td>item: OptionGroup instance <small>*Deprecated since v3.16.0</small><br />
+                        <td>
+                            item: OptionGroup instance <small>*Deprecated since v3.16.0</small><br />
                             option: OptionGroup instance <br />
-                            index: Index of the option group</td>
+                            index: Index of the option group
+                        </td>
                     </tr>
                     <tr>
                         <td>content</td>
-                        <td>items: An array of objects to display for virtualscroller<br />
+                        <td>
+                            items: An array of objects to display for virtualscroller<br />
                             styleClass: Style class of the component<br />
                             contentRef: Referance of the content<br />
-                            getItemOptions: Options of the items</td>
+                            getItemOptions: Options of the items
+                        </td>
                     </tr>
                     <tr>
                         <td>loader</td>
                         <td>options: Options of the loader items for virtualscroller</td>
                     </tr>
-				</tbody>
-			</table>
+                </tbody>
+            </table>
         </div>
 
-		<h5>Styling</h5>
-		<p>Following is the list of structural style classes</p>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <h5>Styling</h5>
+        <p>Following is the list of structural style classes</p>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Element</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>p-autocomplete</td>
                         <td>Container element</td>
@@ -568,19 +591,24 @@ export default {
                         <td>p-overlay-open</td>
                         <td>Container element when overlay is visible.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
         <h5>Accessibility</h5>
         <h6>Screen Reader</h6>
-        <p>Value to describe the component can either be provided via <i>label</i> tag combined with <i>inputId</i> prop or using <i>aria-labelledby</i>, <i>aria-label</i> props. The input element has <i>combobox</i> role
-        in addition to <i>aria-autocomplete</i>, <i>aria-haspopup</i> and <i>aria-expanded</i> attributes. The relation between the input and the popup is created with <i>aria-controls</i> and <i>aria-activedescendant</i> attribute is used
-        to instruct screen reader which option to read during keyboard navigation within the popup list.</p>
+        <p>
+            Value to describe the component can either be provided via <i>label</i> tag combined with <i>inputId</i> prop or using <i>aria-labelledby</i>, <i>aria-label</i> props. The input element has <i>combobox</i> role in addition to
+            <i>aria-autocomplete</i>, <i>aria-haspopup</i> and <i>aria-expanded</i> attributes. The relation between the input and the popup is created with <i>aria-controls</i> and <i>aria-activedescendant</i> attribute is used to instruct screen
+            reader which option to read during keyboard navigation within the popup list.
+        </p>
         <p>In multiple mode, chip list uses <i>listbox</i> role with <i>aria-orientation</i> set to horizontal whereas each chip has the <i>option</i> role with <i>aria-label</i> set to the label of the chip.</p>
-        <p>The popup list has an id that refers to the <i>aria-controls</i> attribute of the input element and uses <i>listbox</i> as the role. Each list item has <i>option</i> role and an id to match the <i>aria-activedescendant</i> of the input element.</p>
+        <p>
+            The popup list has an id that refers to the <i>aria-controls</i> attribute of the input element and uses <i>listbox</i> as the role. Each list item has <i>option</i> role and an id to match the <i>aria-activedescendant</i> of the input
+            element.
+        </p>
 
-<pre v-code><code>
+        <pre v-code><code>
 &lt;label for="ac1"&gt;Username&lt;/label&gt;
 &lt;AutoComplete inputId="ac1" /&gt;
 
@@ -731,8 +759,8 @@ export default {
             </table>
         </div>
 
-		<h5>Dependencies</h5>
-		<p>None.</p>
+        <h5>Dependencies</h5>
+        <p>None.</p>
     </AppDoc>
 </template>
 
@@ -740,10 +768,10 @@ export default {
 export default {
     data() {
         return {
-            sources:{
+            sources: {
                 'options-api': {
                     tabName: 'Options API Source',
-                    content:`
+                    content: `
 <template>
     <div>
         <div>
@@ -880,7 +908,7 @@ export default {
                 },
                 'composition-api': {
                     tabName: 'Composition API Source',
-                    content:`
+                    content: `
 <template>
     <div>
         <div>
@@ -1017,7 +1045,7 @@ export default {
                     tabName: 'Browser Source',
                     imports: `<script src="https://unpkg.com/primevue@^3/autocomplete/autocomplete.min.js"><\\/script>
         <script src="./CountryService.js"><\\/script>`,
-                    content:`<div id="app">
+                    content: `<div id="app">
             <h5>Basic</h5>
             <p-autocomplete v-model="selectedCountry1" :suggestions="filteredCountries" @complete="searchCountry($event)" optionLabel="name"></p-autocomplete>
 
@@ -1152,7 +1180,7 @@ export default {
         <\\/script>`
                 }
             }
-        }
+        };
     }
-}
+};
 </script>

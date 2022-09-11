@@ -12,12 +12,12 @@
             <div class="card">
                 <TreeTable :value="nodes">
                     <template #header>
-                        <div style="text-align:left">
-                            <MultiSelect :modelValue="selectedColumns" @update:modelValue="onToggle" :options="columns" optionLabel="header" placeholder="Select Columns" style="width: 20em"/>
+                        <div style="text-align: left">
+                            <MultiSelect :modelValue="selectedColumns" @update:modelValue="onToggle" :options="columns" optionLabel="header" placeholder="Select Columns" style="width: 20em" />
                         </div>
                     </template>
                     <Column field="name" header="Name" :expander="true"></Column>
-                    <Column v-for="col of selectedColumns" :field="col.field" :header="col.header" :key="col.field"></Column>
+                    <Column v-for="col of selectedColumns" :key="col.field" :field="col.field" :header="col.header"></Column>
                 </TreeTable>
             </div>
         </div>
@@ -183,26 +183,26 @@ export default {
 `
                 }
             }
-        }
+        };
     },
     nodeService: null,
     created() {
         this.nodeService = new NodeService();
 
         this.columns = [
-            {field: 'size', header: 'Size'},
-            {field: 'type', header: 'Type'}
+            { field: 'size', header: 'Size' },
+            { field: 'type', header: 'Type' }
         ];
 
         this.selectedColumns = this.columns;
     },
     mounted() {
-        this.nodeService.getTreeTableNodes().then(data => this.nodes = data);
+        this.nodeService.getTreeTableNodes().then((data) => (this.nodes = data));
     },
     methods: {
         onToggle(value) {
-            this.selectedColumns = this.columns.filter(col => value.includes(col));
+            this.selectedColumns = this.columns.filter((col) => value.includes(col));
         }
     }
-}
+};
 </script>

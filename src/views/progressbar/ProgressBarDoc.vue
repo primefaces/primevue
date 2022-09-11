@@ -1,24 +1,24 @@
 <template>
-	<AppDoc name="ProgressBarDemo" :sources="sources" github="progressbar/ProgressBarDemo.vue">
+    <AppDoc name="ProgressBarDemo" :sources="sources" github="progressbar/ProgressBarDemo.vue">
         <h5>Import via Module</h5>
-<pre v-code.script><code>
+        <pre v-code.script><code>
 import ProgressBar from 'primevue/progressbar';
 
 </code></pre>
 
         <h5>Import via CDN</h5>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-		<h5>Getting Started</h5>
-		<p>ProgressBar has two modes; "determinate" (default) and "indeterminate". In determinate mode, a value between 0 and 100 is required to display the progress.</p>
-<pre v-code><code>
+        <h5>Getting Started</h5>
+        <p>ProgressBar has two modes; "determinate" (default) and "indeterminate". In determinate mode, a value between 0 and 100 is required to display the progress.</p>
+        <pre v-code><code>
 &lt;ProgressBar :value="value" /&gt;
 
 </code></pre>
-<pre v-code.script><code>
+        <pre v-code.script><code>
 data() {
 	return {
 		value: 0
@@ -27,34 +27,34 @@ data() {
 
 </code></pre>
 
-		<p>Indeterminate is simplly enabled using <i>mode</i> property.</p>
-<pre v-code><code>
+        <p>Indeterminate is simplly enabled using <i>mode</i> property.</p>
+        <pre v-code><code>
 &lt;ProgressBar mode="indeterminate"/&gt;
 
 </code></pre>
 
         <h5>Slot</h5>
         <p>A custom label can be placed inside the progress bar via the default slot.</p>
-<pre v-code><code><template v-pre>
+        <pre v-code><code><template v-pre>
 &lt;ProgressBar :value="value"&gt;
     Percent Complete: &#123;&#123;value&#125;&#125;%
 &lt;/ProgressBar&gt;
 </template>
 </code></pre>
 
-		<h5>Properties</h5>
-		<p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <h5>Properties</h5>
+        <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Type</th>
                         <th>Default</th>
                         <th>Description</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>value</td>
                         <td>number</td>
@@ -73,21 +73,21 @@ data() {
                         <td>true</td>
                         <td>Whether to display the progress bar value.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
-		<h5>Styling</h5>
-		<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <h5>Styling</h5>
+        <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Element</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>p-progressbar</td>
                         <td>Container element.</td>
@@ -108,23 +108,23 @@ data() {
                         <td>p-progressbar-label</td>
                         <td>Label element that displays the current value.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
-		<h5>Dependencies</h5>
-		<p>None.</p>
+        <h5>Dependencies</h5>
+        <p>None.</p>
     </AppDoc>
 </template>
 
 <script>
 export default {
-	data() {
-		return {
-			sources: {
-				'options-api': {
+    data() {
+        return {
+            sources: {
+                'options-api': {
                     tabName: 'Options API Source',
-					content: `
+                    content: `
 <template>
     <div>
         <h5>Dynamic</h5>
@@ -171,10 +171,10 @@ export default {
 }
 <\\/script>
 `
-				},
+                },
                 'composition-api': {
                     tabName: 'Composition API Source',
-					content: `
+                    content: `
 <template>
     <div>
         <h5>Dynamic</h5>
@@ -222,11 +222,10 @@ export default {
     }
 }
 <\\/script>`
-
-				},
+                },
                 'browser-source': {
                     tabName: 'Browser Source',
-					content: `<div id="app">
+                    content: `<div id="app">
             <h5>Dynamic</h5>
             <p-progressbar :value="value1"></p-progressbar>
 
@@ -278,10 +277,9 @@ export default {
             .use(primevue.config.default)
             .mount("#app");
         <\\/script>`
-
-				}
-			}
-		}
-	}
-}
+                }
+            }
+        };
+    }
+};
 </script>

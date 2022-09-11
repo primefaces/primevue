@@ -1,45 +1,45 @@
 <template>
-	<AppDoc name="TextareaDemo" :sources="sources" github="textarea/TextareaDemo.vue">
-		<h5>Import via Module</h5>
-<pre v-code.script><code>
+    <AppDoc name="TextareaDemo" :sources="sources" github="textarea/TextareaDemo.vue">
+        <h5>Import via Module</h5>
+        <pre v-code.script><code>
 import Textarea from 'primevue/textarea';
 
 </code></pre>
 
         <h5>Import via CDN</h5>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/textarea/textarea.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-		<h5>Getting Started</h5>
-		<p>A model can be bound using the standard v-model directive.</p>
-<pre v-code><code>
+        <h5>Getting Started</h5>
+        <p>A model can be bound using the standard v-model directive.</p>
+        <pre v-code><code>
 &lt;Textarea v-model="value" rows="5" cols="30" /&gt;
 
 </code></pre>
 
-		<h5>AutoResize</h5>
-		<p>In auto resize mode, textarea grows instead of displaying a scrollbar.</p>
-<pre v-code><code>
+        <h5>AutoResize</h5>
+        <p>In auto resize mode, textarea grows instead of displaying a scrollbar.</p>
+        <pre v-code><code>
 &lt;Textarea v-model="value" :autoResize="true" rows="5" cols="30" /&gt;
 
 </code></pre>
 
-		<h5>Properties</h5>
-		<p>Textarea passes any attribute to the underlying textarea element, additional attributes are the following.</p>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <h5>Properties</h5>
+        <p>Textarea passes any attribute to the underlying textarea element, additional attributes are the following.</p>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Type</th>
                         <th>Default</th>
                         <th>Description</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>modelValue</td>
                         <td>any</td>
@@ -52,37 +52,40 @@ import Textarea from 'primevue/textarea';
                         <td>false</td>
                         <td>When present, height of textarea changes as being typed.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
         <h5>Events</h5>
         <p>Any valid event such as focus, blur and input are passed to the underlying input element.</p>
 
-		<h5>Styling</h5>
-		<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <h5>Styling</h5>
+        <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Element</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>p-inputtextarea</td>
                         <td>Textarea element</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
         <h5>Accessibility</h5>
         <h6>Screen Reader</h6>
-        <p>Textarea component renders a native textarea element that implicitly includes any passed prop. Value to describe the component can either be provided via <i>label</i> tag combined with <i>id</i> prop or using <i>aria-labelledby</i>, <i>aria-label</i> props.</p>
+        <p>
+            Textarea component renders a native textarea element that implicitly includes any passed prop. Value to describe the component can either be provided via <i>label</i> tag combined with <i>id</i> prop or using <i>aria-labelledby</i>,
+            <i>aria-label</i> props.
+        </p>
 
-<pre v-code><code>
+        <pre v-code><code>
 &lt;label for="address1"&gt;Address 1&lt;/label&gt;
 &lt;Textarea id="address1" /&gt;
 
@@ -111,19 +114,19 @@ import Textarea from 'primevue/textarea';
             </table>
         </div>
 
-		<h5>Dependencies</h5>
-		<p>None.</p>
-	</AppDoc>
+        <h5>Dependencies</h5>
+        <p>None.</p>
+    </AppDoc>
 </template>
 
 <script>
 export default {
     data() {
-		return {
-			sources: {
-				'options-api': {
-					tabName: 'Options API Source',
-					content: `
+        return {
+            sources: {
+                'options-api': {
+                    tabName: 'Options API Source',
+                    content: `
 <template>
     <div>
         <h5>Basic</h5>
@@ -149,10 +152,10 @@ export default {
 }
 <\\/script>
 `
-				},
-				'composition-api': {
-					tabName: 'Composition API Source',
-					content: `
+                },
+                'composition-api': {
+                    tabName: 'Composition API Source',
+                    content: `
 <template>
     <div>
         <h5>Basic</h5>
@@ -180,11 +183,11 @@ export default {
 }
 <\\/script>
 `
-				},
+                },
                 'browser-source': {
-					tabName: 'Browser Source',
+                    tabName: 'Browser Source',
                     imports: `<script src="https://unpkg.com/primevue@^3/textarea/textarea.min.js"><\\/script>`,
-					content: `<div id="app">
+                    content: `<div id="app">
             <h5>Basic</h5>
             <p-textarea v-model="value1" rows="5" cols="30"></p-textarea>
 
@@ -216,9 +219,9 @@ export default {
             .mount("#app");
         <\\/script>
 `
-				}
-			}
-		}
-	}
-}
+                }
+            }
+        };
+    }
+};
 </script>

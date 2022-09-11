@@ -14,7 +14,7 @@
             </div>
         </div>
 
-        <PolarAreaChartDoc/>
+        <PolarAreaChartDoc />
     </div>
 </template>
 
@@ -24,48 +24,31 @@ import EventBus from '@/AppEventBus';
 
 export default {
     themeChangeListener: null,
-    mounted() {
-        this.themeChangeListener = (event) => {
-            if (event.dark)
-                this.chartOptions = this.getDarkTheme();
-            else
-                this.chartOptions = this.getLightTheme();
-        }
-        EventBus.on('theme-change', this.themeChangeListener );
-    },
-    beforeUnmount() {
-        EventBus.off('change-theme', this.themeChangeListener );
-    },
     data() {
         return {
             chartData: {
-                datasets: [{
-                    data: [
-                        11,
-                        16,
-                        7,
-                        3,
-                        14
-                    ],
-                    backgroundColor: [
-                        "#42A5F5",
-                        "#66BB6A",
-                        "#FFA726",
-                        "#26C6DA",
-                        "#7E57C2"
-                    ],
-                    label: 'My dataset'
-                }],
-                labels: [
-                    "Red",
-                    "Green",
-                    "Yellow",
-                    "Grey",
-                    "Blue"
-                ]
+                datasets: [
+                    {
+                        data: [11, 16, 7, 3, 14],
+                        backgroundColor: ['#42A5F5', '#66BB6A', '#FFA726', '#26C6DA', '#7E57C2'],
+                        label: 'My dataset'
+                    }
+                ],
+                labels: ['Red', 'Green', 'Yellow', 'Grey', 'Blue']
             },
-            chartOptions: this.isDarkTheme() ? this.getDarkTheme(): this.getLightTheme()
-        }
+            chartOptions: this.isDarkTheme() ? this.getDarkTheme() : this.getLightTheme()
+        };
+    },
+    mounted() {
+        this.themeChangeListener = (event) => {
+            if (event.dark) this.chartOptions = this.getDarkTheme();
+            else this.chartOptions = this.getLightTheme();
+        };
+
+        EventBus.on('theme-change', this.themeChangeListener);
+    },
+    beforeUnmount() {
+        EventBus.off('change-theme', this.themeChangeListener);
     },
     methods: {
         isDarkTheme() {
@@ -109,7 +92,7 @@ export default {
         }
     },
     components: {
-        'PolarAreaChartDoc': PolarAreaChartDoc
+        PolarAreaChartDoc: PolarAreaChartDoc
     }
-}
+};
 </script>

@@ -31,7 +31,7 @@ module.exports = {
                 'primevue/terminalservice': path.resolve(__dirname, 'src/components/terminalservice/TerminalService.js'),
                 'primevue/dynamicdialogeventbus': path.resolve(__dirname, 'src/components/dynamicdialogeventbus/DynamicDialogEventBus.js'),
                 'primevue/virtualscroller': path.resolve(__dirname, 'src/components/virtualscroller/VirtualScroller.vue')
-            },
+            }
         },
         output: {
             libraryExport: 'default'
@@ -40,4 +40,4 @@ module.exports = {
     css: {
         extract: false
     }
-}
+};

@@ -5,17 +5,15 @@ export interface FullCalendarProps {
     options?: object;
 }
 
-export interface FullCalendarSlots {
-}
+export interface FullCalendarSlots {}
 
-export declare type FullCalendarEmits = {
-}
+export declare type FullCalendarEmits = {};
 
-declare class FullCalendar extends ClassComponent<FullCalendarProps, FullCalendarSlots, FullCalendarEmits> { }
+declare class FullCalendar extends ClassComponent<FullCalendarProps, FullCalendarSlots, FullCalendarEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        FullCalendar: GlobalComponentConstructor<FullCalendar>
+        FullCalendar: GlobalComponentConstructor<FullCalendar>;
     }
 }
 

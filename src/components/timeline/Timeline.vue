@@ -1,6 +1,6 @@
 <template>
     <div :class="containerClass">
-        <div v-for="(item,index) of value" :key="getKey(item, index)" class="p-timeline-event">
+        <div v-for="(item, index) of value" :key="getKey(item, index)" class="p-timeline-event">
             <div class="p-timeline-event-opposite">
                 <slot name="opposite" :item="item" :index="index"></slot>
             </div>
@@ -8,7 +8,7 @@
                 <slot name="marker" :item="item" :index="index">
                     <div class="p-timeline-event-marker"></div>
                 </slot>
-                <slot name="connector" v-if="index !== (value.length - 1)" :item="item" :index="index">
+                <slot v-if="index !== value.length - 1" name="connector" :item="item" :index="index">
                     <div class="p-timeline-event-connector"></div>
                 </slot>
             </div>
@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import {ObjectUtils} from 'primevue/utils';
+import { ObjectUtils } from 'primevue/utils';
 
 export default {
     name: 'Timeline',
@@ -43,14 +43,10 @@ export default {
     },
     computed: {
         containerClass() {
-            return [
-                'p-timeline p-component',
-                'p-timeline-' + this.align,
-                'p-timeline-' + this.layout
-            ];
+            return ['p-timeline p-component', 'p-timeline-' + this.align, 'p-timeline-' + this.layout];
         }
     }
-}
+};
 </script>
 
 <style>
@@ -153,7 +149,7 @@ export default {
     flex-direction: row;
 }
 
-.p-timeline-horizontal .p-timeline-event-connector  {
+.p-timeline-horizontal .p-timeline-event-connector {
     width: 100%;
 }
 

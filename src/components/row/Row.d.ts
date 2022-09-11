@@ -1,19 +1,16 @@
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-export interface RowProps {
-}
+export interface RowProps {}
 
-export interface RowSlots {
-}
+export interface RowSlots {}
 
-export declare type RowEmits = {
-}
+export declare type RowEmits = {};
 
-declare class Row extends ClassComponent<RowProps, RowSlots, RowEmits> { }
+declare class Row extends ClassComponent<RowProps, RowSlots, RowEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        Row: GlobalComponentConstructor<Row>
+        Row: GlobalComponentConstructor<Row>;
     }
 }
 

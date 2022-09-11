@@ -11,7 +11,7 @@ config.global.mocks = {
             }
         }
     }
-}
+};
 
 describe('BlockUI.vue', () => {
     it('should blocked and unblocked the panel', async () => {
@@ -34,7 +34,7 @@ describe('BlockUI.vue', () => {
             data() {
                 return {
                     blockedPanel: false
-                }
+                };
             },
             methods: {
                 blockPanel() {

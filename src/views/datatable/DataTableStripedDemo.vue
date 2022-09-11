@@ -1,14 +1,14 @@
 <template>
-	<div>
-		<div class="content-section introduction">
-			<div class="feature-intro">
-				<h1>DataTable <span>Striped Rows</span></h1>
-				<p>Adding <i>stripedRows</i> displays rows with alternating colors.</p>
-			</div>
+    <div>
+        <div class="content-section introduction">
+            <div class="feature-intro">
+                <h1>DataTable <span>Striped Rows</span></h1>
+                <p>Adding <i>stripedRows</i> displays rows with alternating colors.</p>
+            </div>
             <AppDemoActions />
-		</div>
+        </div>
 
-		<div class="content-section implementation">
+        <div class="content-section implementation">
             <div class="card">
                 <DataTable :value="products" stripedRows responsiveLayout="scroll">
                     <Column field="code" header="Code"></Column>
@@ -17,11 +17,10 @@
                     <Column field="quantity" header="Quantity"></Column>
                 </DataTable>
             </div>
-		</div>
+        </div>
 
         <AppDoc name="DataTableStripedDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="datatable/DataTableStripedDemo.vue" />
-
-	</div>
+    </div>
 </template>
 
 <script>
@@ -140,14 +139,14 @@ export default {
 `
                 }
             }
-        }
+        };
     },
     productService: null,
     created() {
         this.productService = new ProductService();
     },
     mounted() {
-        this.productService.getProductsSmall().then(data => this.products = data);
+        this.productService.getProductsSmall().then((data) => (this.products = data));
     }
-}
+};
 </script>

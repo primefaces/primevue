@@ -1,15 +1,17 @@
 <template>
-	<div>
-		<div class="content-section introduction">
-			<div class="feature-intro">
-				<h1>DataTable <span>Column Resize</span></h1>
-				<p>Columns can be resized using drag drop by setting the resizableColumns to true. There are two resize modes; "fit" and "expand". Fit is the default one and the overall table width does not change when a column is resized.
-                    In "expand" mode, table width also changes along with the column width.</p>
-			</div>
+    <div>
+        <div class="content-section introduction">
+            <div class="feature-intro">
+                <h1>DataTable <span>Column Resize</span></h1>
+                <p>
+                    Columns can be resized using drag drop by setting the resizableColumns to true. There are two resize modes; "fit" and "expand". Fit is the default one and the overall table width does not change when a column is resized. In
+                    "expand" mode, table width also changes along with the column width.
+                </p>
+            </div>
             <AppDemoActions />
-		</div>
+        </div>
 
-		<div class="content-section implementation">
+        <div class="content-section implementation">
             <div class="card">
                 <h5>Fit Mode</h5>
                 <DataTable :value="products" :resizableColumns="true" columnResizeMode="fit" showGridlines responsiveLayout="scroll">
@@ -29,10 +31,10 @@
                     <Column field="quantity" header="Quantity"></Column>
                 </DataTable>
             </div>
-		</div>
+        </div>
 
         <AppDoc name="DataTableColResizeDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="datatable/DataTableColResizeDemo.vue" />
-	</div>
+    </div>
 </template>
 
 <script>
@@ -190,14 +192,14 @@ export default {
 `
                 }
             }
-        }
+        };
     },
     productService: null,
     created() {
         this.productService = new ProductService();
     },
     mounted() {
-        this.productService.getProductsSmall().then(data => this.products = data);
+        this.productService.getProductsSmall().then((data) => (this.products = data));
     }
-}
+};
 </script>

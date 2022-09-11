@@ -27,15 +27,15 @@ import ProductListDemo from './ProductListDemo';
 import DynamicDialogDoc from './DynamicDialogDoc.vue';
 
 export default {
-    methods:{
+    methods: {
         showProducts() {
             const dialogRef = this.$dialog.open(ProductListDemo, {
                 props: {
                     header: 'Product List',
                     style: {
-                        width: '50vw',
+                        width: '50vw'
                     },
-                    breakpoints:{
+                    breakpoints: {
                         '960px': '75vw',
                         '640px': '90vw'
                     },
@@ -44,25 +44,26 @@ export default {
                 templates: {
                     footer: () => {
                         return [
-                            h(Button, { label: "No", icon: "pi pi-times", onClick: () => dialogRef.close({ buttonType: 'No' }), class: "p-button-text" }),
-                            h(Button, { label: "Yes", icon: "pi pi-check", onClick: () => dialogRef.close({ buttonType: 'Yes' }), autofocus: true})
-                        ]
+                            h(Button, { label: 'No', icon: 'pi pi-times', onClick: () => dialogRef.close({ buttonType: 'No' }), class: 'p-button-text' }),
+                            h(Button, { label: 'Yes', icon: 'pi pi-check', onClick: () => dialogRef.close({ buttonType: 'Yes' }), autofocus: true })
+                        ];
                     }
                 },
                 onClose: (options) => {
                     const data = options.data;
+
                     if (data) {
                         const buttonType = data.buttonType;
                         const summary_and_detail = buttonType ? { summary: 'No Product Selected', detail: `Pressed '${buttonType}' button` } : { summary: 'Product Selected', detail: data.name };
 
-                        this.$toast.add({ severity:'info', ...summary_and_detail, life: 3000 });
+                        this.$toast.add({ severity: 'info', ...summary_and_detail, life: 3000 });
                     }
                 }
             });
         }
     },
     components: {
-        'DynamicDialogDoc': DynamicDialogDoc
+        DynamicDialogDoc: DynamicDialogDoc
     }
-}
+};
 </script>

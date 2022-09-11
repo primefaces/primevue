@@ -12,12 +12,12 @@
     <div class="content-section implementation">
         <div class="card">
             <h5>Toggle Class</h5>
-            <Button label="Toggle p-disabled" v-styleclass="{ selector: '@next', toggleClass: 'p-disabled' }" />
+            <Button v-styleclass="{ selector: '@next', toggleClass: 'p-disabled' }" label="Toggle p-disabled" />
             <InputText class="block mt-3" />
 
             <h5>Animations</h5>
-            <Button label="Show" class="mr-2" v-styleclass="{ selector: '.box', enterClass: 'hidden', enterActiveClass: 'my-fadein' }" />
-            <Button label="Hide" v-styleclass="{ selector: '.box', leaveActiveClass: 'my-fadeout', leaveToClass: 'hidden' }" />
+            <Button v-styleclass="{ selector: '.box', enterClass: 'hidden', enterActiveClass: 'my-fadein' }" label="Show" class="mr-2" />
+            <Button v-styleclass="{ selector: '.box', leaveActiveClass: 'my-fadeout', leaveToClass: 'hidden' }" label="Hide" />
             <div class="box hidden">Content</div>
         </div>
     </div>
@@ -32,7 +32,7 @@ export default {
     components: {
         StyleClassDoc
     }
-}
+};
 </script>
 
 <style lang="scss" scoped>
@@ -49,23 +49,31 @@ export default {
     border-radius: 4px;
     margin-top: 1rem;
     font-weight: bold;
-    box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+    box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
 }
 
 @keyframes my-fadein {
-    0%   { opacity: 0; }
-    100% { opacity: 1; }
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 @keyframes my-fadeout {
-    0%   { opacity: 1; }
-    100% { opacity: 0; }
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
 }
 
 .my-fadein {
     animation: my-fadein 150ms linear;
 }
-        
+
 .my-fadeout {
     animation: my-fadeout 150ms linear;
 }

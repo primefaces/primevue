@@ -55,14 +55,14 @@ export declare type SplitButtonEmits = {
      * Callback to invoke when main button is clicked.
      * @param {Event} event - Browser event.
      */
-    'click': (event: Event) => void;
-}
+    click: (event: Event) => void;
+};
 
-declare class SplitButton extends ClassComponent<SplitButtonProps, SplitButtonSlots, SplitButtonEmits> { }
+declare class SplitButton extends ClassComponent<SplitButtonProps, SplitButtonSlots, SplitButtonEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        SplitButton: GlobalComponentConstructor<SplitButton>
+        SplitButton: GlobalComponentConstructor<SplitButton>;
     }
 }
 

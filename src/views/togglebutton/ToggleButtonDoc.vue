@@ -1,27 +1,27 @@
 <template>
-    <AppDoc name="ToggleButtonDemo" :sources="sources" github="togglebutton/ToggleButtonDemo.vue" >
+    <AppDoc name="ToggleButtonDemo" :sources="sources" github="togglebutton/ToggleButtonDemo.vue">
         <h5>Import via Module</h5>
-<pre v-code.script><code>
+        <pre v-code.script><code>
 import ToggleButton from 'primevue/togglebutton';
 
 </code></pre>
 
         <h5>Import via CDN</h5>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/togglebutton/togglebutton.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-		<h5>Getting Started</h5>
-		<p>Two-way binding to a boolean property is defined using the standard v-model directive.</p>
-<pre v-code><code>
+        <h5>Getting Started</h5>
+        <p>Two-way binding to a boolean property is defined using the standard v-model directive.</p>
+        <pre v-code><code>
 &lt;ToggleButton v-model="checked" /&gt;
 
 </code></pre>
 
-		<p>As model is two-way binding enabled, setting the bound value as true displays the state as checked.</p>
-<pre v-code.script><code>
+        <p>As model is two-way binding enabled, setting the bound value as true displays the state as checked.</p>
+        <pre v-code.script><code>
 export default {
 	data() {
 		return {
@@ -32,26 +32,26 @@ export default {
 
 </code></pre>
 
-		<h5>Labels and Icons</h5>
-		<p>Icons and Labels can be customized using <i>onLabel</i>, <i>offLabel</i>, <i>onIcon</i> and <i>offIcon</i> properties.</p>
-<pre v-code><code>
+        <h5>Labels and Icons</h5>
+        <p>Icons and Labels can be customized using <i>onLabel</i>, <i>offLabel</i>, <i>onIcon</i> and <i>offIcon</i> properties.</p>
+        <pre v-code><code>
 &lt;ToggleButton v-model="checked" onLabel="I confirm" offLabel="I reject" onIcon="pi pi-check" offIcon="pi pi-times" /&gt;
 
 </code></pre>
 
-		<h5>Properties</h5>
+        <h5>Properties</h5>
         <p>Any valid attribute is passed to the root element implicitly, extended properties are as follows;</p>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Type</th>
                         <th>Default</th>
                         <th>Description</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>modelValue</td>
                         <td>any</td>
@@ -124,21 +124,21 @@ export default {
                         <td>null</td>
                         <td>Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
-		<h5>Events</h5>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <h5>Events</h5>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Parameters</th>
                         <th>Description</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>change</td>
                         <td>event: Browser event</td>
@@ -154,21 +154,21 @@ export default {
                         <td>event: Browser event</td>
                         <td>Callback to invoke when the component loses focus.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
-		<h5>Styling</h5>
-		<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <h5>Styling</h5>
+        <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Element</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>p-togglebutton</td>
                         <td>Container element</td>
@@ -181,16 +181,19 @@ export default {
                         <td>p-button-text</td>
                         <td>Label element.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
         <h5>Accessibility</h5>
         <h6>Screen Reader</h6>
-        <p>ToggleButton component uses an element with <i>button</i> role and updates <i>aria-pressed</i> state for screen readers. Value to describe the component can be defined with <i>aria-labelledby</i> or <i>aria-label</i> props, it is highly suggested to use
-        either of these props as the component changes the label displayed which will result in screen readers to read different labels when the component receives focus. To prevent this, always provide an aria label that does not change related to state.</p>
+        <p>
+            ToggleButton component uses an element with <i>button</i> role and updates <i>aria-pressed</i> state for screen readers. Value to describe the component can be defined with <i>aria-labelledby</i> or <i>aria-label</i> props, it is highly
+            suggested to use either of these props as the component changes the label displayed which will result in screen readers to read different labels when the component receives focus. To prevent this, always provide an aria label that does
+            not change related to state.
+        </p>
 
-<pre v-code><code>
+        <pre v-code><code>
 &lt;span id="rememberme"&gt;Remember Me&lt;/span&gt;
 &lt;ToggleButton aria-labelledby="rememberme" /&gt;
 
@@ -221,8 +224,8 @@ export default {
             </table>
         </div>
 
-		<h5>Dependencies</h5>
-		<p>None.</p>
+        <h5>Dependencies</h5>
+        <p>None.</p>
     </AppDoc>
 </template>
 
@@ -316,7 +319,7 @@ export default {
 `
                 }
             }
-        }
+        };
     }
-}
+};
 </script>

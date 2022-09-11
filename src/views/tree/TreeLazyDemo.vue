@@ -259,7 +259,7 @@ export default {
 `
                 }
             }
-        }
+        };
     },
     nodeService: null,
     created() {
@@ -279,7 +279,8 @@ export default {
                 this.loading = true;
 
                 setTimeout(() => {
-                    let _node = {...node};
+                    let _node = { ...node };
+
                     _node.children = [];
 
                     for (let i = 0; i < 3; i++) {
@@ -289,7 +290,8 @@ export default {
                         });
                     }
 
-                    let _nodes = {...this.nodes}
+                    let _nodes = { ...this.nodes };
+
                     _nodes[parseInt(node.key, 10)] = _node;
 
                     this.nodes = _nodes;
@@ -298,28 +300,30 @@ export default {
             }
         },
         initateNodes() {
-            return [{
-                key: '0',
-                label: 'Node 0',
-                leaf: false
-            },
-            {
-                key: '1',
-                label: 'Node 1',
-                leaf: false
-            },
-            {
-                key: '2',
-                label: 'Node 2',
-                leaf: false
-            }];
+            return [
+                {
+                    key: '0',
+                    label: 'Node 0',
+                    leaf: false
+                },
+                {
+                    key: '1',
+                    label: 'Node 1',
+                    leaf: false
+                },
+                {
+                    key: '2',
+                    label: 'Node 2',
+                    leaf: false
+                }
+            ];
         }
     }
-}
+};
 </script>
 
 <style scoped>
 button {
-    margin-right: .5rem;
+    margin-right: 0.5rem;
 }
 </style>

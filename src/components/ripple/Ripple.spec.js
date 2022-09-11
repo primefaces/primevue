@@ -7,11 +7,11 @@ config.global.mocks = {
             ripple: true
         }
     }
-}
+};
 
 config.global.directives = {
     Ripple
-}
+};
 
 describe('Ripple', () => {
     it('should exist', async () => {

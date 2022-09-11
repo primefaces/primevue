@@ -18,7 +18,7 @@
             </div>
         </div>
 
-        <InputSwitchDoc/>
+        <InputSwitchDoc />
     </div>
 </template>
 
@@ -30,10 +30,10 @@ export default {
         return {
             checked1: false,
             checked2: true
-        }
+        };
     },
     components: {
-        'InputSwitchDoc': InputSwitchDoc
+        InputSwitchDoc: InputSwitchDoc
     }
-}
+};
 </script>

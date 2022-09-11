@@ -188,12 +188,12 @@ export interface DataTableRowClickEvent {
 /**
  * @extends DataTableRowClickEvent
  */
-export interface DataTableRowDoubleClickEvent extends DataTableRowClickEvent { }
+export interface DataTableRowDoubleClickEvent extends DataTableRowClickEvent {}
 
 /**
  * @extends DataTableRowClickEvent
  */
-export interface DataTableRowContextMenuEvent extends DataTableRowClickEvent { }
+export interface DataTableRowContextMenuEvent extends DataTableRowClickEvent {}
 
 export interface DataTableRowSelectEvent {
     /**
@@ -217,7 +217,7 @@ export interface DataTableRowSelectEvent {
 /**
  * @extends DataTableRowSelectEvent
  */
-export interface DataTableRowUnselectEvent extends DataTableRowSelectEvent { }
+export interface DataTableRowUnselectEvent extends DataTableRowSelectEvent {}
 
 export interface DataTableRowSelectAllEvent {
     /**
@@ -307,7 +307,7 @@ export interface DataTableRowExpandEvent {
 /**
  * @extends DataTableRowExpandEvent
  */
-export interface DataTableRowCollapseEvent extends DataTableRowExpandEvent { }
+export interface DataTableRowCollapseEvent extends DataTableRowExpandEvent {}
 
 export interface DataTableCellEditInitEvent {
     /**
@@ -331,7 +331,7 @@ export interface DataTableCellEditInitEvent {
 /**
  * @extends DataTableCellEditInitEvent
  */
-export interface DataTableCellEditCancelEvent extends DataTableCellEditInitEvent { }
+export interface DataTableCellEditCancelEvent extends DataTableCellEditInitEvent {}
 
 export interface DataTableCellEditCompleteEvent {
     /**
@@ -394,12 +394,12 @@ export interface DataTableRowEditInitEvent {
 /**
  * @extends DataTableRowEditInitEvent
  */
-export interface DataTableRowEditSaveEvent extends DataTableRowEditInitEvent { }
+export interface DataTableRowEditSaveEvent extends DataTableRowEditInitEvent {}
 
 /**
  * @extends DataTableRowEditCancelEvent
  */
-export interface DataTableRowEditCancelEvent extends DataTableRowEditInitEvent { }
+export interface DataTableRowEditCancelEvent extends DataTableRowEditInitEvent {}
 
 export interface DataTableStateEvent {
     /**
@@ -719,7 +719,7 @@ export interface DataTableProps {
      * A function that takes the row data as a parameter and returns a string to apply a particular class for the row.
      *
      */
-    rowClass?:(data: any) => object | string | undefined;
+    rowClass?: (data: any) => object | string | undefined;
     /**
      * A function that takes the row data as a parameter and returns the inline style for the corresponding row.
      */
@@ -882,7 +882,7 @@ export declare type DataTableEmits = {
      * Emitted when the contextMenuSelection changes.
      * @param {*} value - New value.
      */
-    'update:contextMenuSelection': (value: any[] | any | undefined ) => void;
+    'update:contextMenuSelection': (value: any[] | any | undefined) => void;
     /**
      * Emitted when the expandedRows changes.
      * @param {DataTableExpandedRows} value - New value.
@@ -907,17 +907,17 @@ export declare type DataTableEmits = {
      * Callback to invoke on pagination. Sort and Filter information is also available for lazy loading implementation.
      * @param {DataTablePageEvent} event - Custom page event.
      */
-    'page': (event: DataTablePageEvent) => void;
+    page: (event: DataTablePageEvent) => void;
     /**
      * Callback to invoke on sort. Page and Filter information is also available for lazy loading implementation.
      * @param {DataTableSortEvent} event - Custom sort event.
      */
-    'sort': (event: DataTableSortEvent) => void;
+    sort: (event: DataTableSortEvent) => void;
     /**
      * Event to emit after filtering, not triggered in lazy mode.
      * @param {DataTableFilterEvent} event - Custom filter event.
      */
-    'filter': (event: DataTableFilterEvent) => void;
+    filter: (event: DataTableFilterEvent) => void;
     /**
      * Callback to invoke after filtering, sorting, pagination and cell editing to pass the rendered value.
      * @param {*} value - Value displayed by the table.
@@ -1038,7 +1038,7 @@ export declare type DataTableEmits = {
      * @param {DataTableStateEvent} event - Custom state event.
      */
     'state-save': (event: DataTableStateEvent) => void;
-}
+};
 
 declare class DataTable extends ClassComponent<DataTableProps, DataTableSlots, DataTableEmits> {
     /**
@@ -1051,7 +1051,7 @@ declare class DataTable extends ClassComponent<DataTableProps, DataTableSlots, D
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        DataTable: GlobalComponentConstructor<DataTable>
+        DataTable: GlobalComponentConstructor<DataTable>;
     }
 }
 

@@ -1,6 +1,19 @@
-import { mount } from '@vue/test-utils';
+import { config, mount } from '@vue/test-utils';
 import Listbox from './Listbox.vue';
 
+config.global.mocks = {
+    $primevue: {
+        config: {
+            locale: {
+                aria: {
+                    trueLabel: 'trueLabel',
+                    falseLabel: 'falseLabel',
+                    nullLabel: 'nullLabel'
+                }
+            }
+        }
+    }
+};
 describe('Listbox.vue', () => {
     let wrapper;
 
@@ -9,11 +22,11 @@ describe('Listbox.vue', () => {
             props: {
                 modelValue: null,
                 options: [
-                    {name: 'New York', code: 'NY'},
-                    {name: 'Rome', code: 'RM'},
-                    {name: 'London', code: 'LDN'},
-                    {name: 'Istanbul', code: 'IST'},
-                    {name: 'Paris', code: 'PRS'}
+                    { name: 'New York', code: 'NY' },
+                    { name: 'Rome', code: 'RM' },
+                    { name: 'London', code: 'LDN' },
+                    { name: 'Istanbul', code: 'IST' },
+                    { name: 'Paris', code: 'PRS' }
                 ],
                 optionLabel: 'name'
             }

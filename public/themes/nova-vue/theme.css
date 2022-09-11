@@ -1484,35 +1484,34 @@
   border-color: #ffffff;
 }
 
-.p-rating .p-rating-icon {
+.p-rating {
+  gap: 0.5rem;
+}
+.p-rating .p-rating-item .p-rating-icon {
   color: #333333;
-  margin-left: 0.5rem;
   transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
   font-size: 1.143rem;
 }
-.p-rating .p-rating-icon.p-rating-cancel {
+.p-rating .p-rating-item .p-rating-icon.p-rating-cancel {
   color: #e4018d;
 }
-.p-rating .p-rating-icon:first-child {
-  margin-left: 0;
-}
-.p-rating .p-rating-icon.pi-star-fill {
-  color: #41b883;
-}
-.p-rating:not(.p-disabled):not(.p-readonly) .p-rating-icon.p-focus {
+.p-rating .p-rating-item.p-focus {
   outline: 0 none;
   outline-offset: 0;
   box-shadow: 0 0 0 0.2rem #c2e9d8;
   border-color: #41b883;
 }
-.p-rating:not(.p-disabled):not(.p-readonly) .p-rating-icon:hover {
+.p-rating .p-rating-item.p-rating-item-active .p-rating-icon {
   color: #41b883;
 }
-.p-rating:not(.p-disabled):not(.p-readonly) .p-rating-icon.p-rating-cancel:hover {
+.p-rating:not(.p-disabled):not(.p-readonly) .p-rating-item:hover .p-rating-icon {
+  color: #41b883;
+}
+.p-rating:not(.p-disabled):not(.p-readonly) .p-rating-item:hover .p-rating-icon.p-rating-cancel {
   color: #b5019f;
 }
 
-.p-highlight .p-rating .p-rating-icon {
+.p-highlight .p-rating .p-rating-item.p-rating-item-active .p-rating-icon {
   color: #ffffff;
 }
 
@@ -3943,6 +3942,12 @@
 .p-scrollpanel .p-scrollpanel-bar {
   background: #f8f8f8;
   border: 0 none;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+.p-scrollpanel .p-scrollpanel-bar:focus {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: 0 0 0 0.2rem #c2e9d8;
 }
 
 .p-splitter {
@@ -3955,14 +3960,14 @@
   transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
   background: #eaeaea;
 }
-.p-splitter .p-splitter-gutter:focus {
-  outline: 0 none;
-  outline-offset: 0;
-  box-shadow: inset 0 0 0 0.2rem #c2e9d8;
-  border-radius: 3px;
-}
 .p-splitter .p-splitter-gutter .p-splitter-gutter-handle {
   background: #d8dae2;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+.p-splitter .p-splitter-gutter .p-splitter-gutter-handle:focus {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: 0 0 0 0.2rem #c2e9d8;
 }
 .p-splitter .p-splitter-gutter-resizing {
   background: #d8dae2;

@@ -1,14 +1,14 @@
 <template>
-	<div>
-		<div class="content-section introduction">
-			<div class="feature-intro">
-				<h1>DataTable <span>Crud</span></h1>
-				<p>This sample demonstrates a CRUD implementation using various PrimeVue components.</p>
-			</div>
+    <div>
+        <div class="content-section introduction">
+            <div class="feature-intro">
+                <h1>DataTable <span>Crud</span></h1>
+                <p>This sample demonstrates a CRUD implementation using various PrimeVue components.</p>
+            </div>
             <AppDemoActions />
-		</div>
+        </div>
 
-		<div class="content-section implementation">
+        <div class="content-section implementation">
             <div class="card">
                 <Toolbar class="mb-4">
                     <template #start>
@@ -18,49 +18,58 @@
 
                     <template #end>
                         <FileUpload mode="basic" accept="image/*" :maxFileSize="1000000" label="Import" chooseLabel="Import" class="mr-2 inline-block" />
-                        <Button label="Export" icon="pi pi-upload" class="p-button-help" @click="exportCSV($event)"  />
+                        <Button label="Export" icon="pi pi-upload" class="p-button-help" @click="exportCSV($event)" />
                     </template>
                 </Toolbar>
 
-                <DataTable ref="dt" :value="products" v-model:selection="selectedProducts" dataKey="id"
-                    :paginator="true" :rows="10" :filters="filters"
-                    paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" :rowsPerPageOptions="[5,10,25]"
-                    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} products" responsiveLayout="scroll">
+                <DataTable
+                    ref="dt"
+                    v-model:selection="selectedProducts"
+                    :value="products"
+                    dataKey="id"
+                    :paginator="true"
+                    :rows="10"
+                    :filters="filters"
+                    paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown"
+                    :rowsPerPageOptions="[5, 10, 25]"
+                    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} products"
+                    responsiveLayout="scroll"
+                >
                     <template #header>
                         <div class="table-header flex flex-column md:flex-row md:justiify-content-between">
-							<h5 class="mb-2 md:m-0 p-as-md-center">Manage Products</h5>
-							<span class="p-input-icon-left">
+                            <h5 class="mb-2 md:m-0 p-as-md-center">Manage Products</h5>
+                            <span class="p-input-icon-left">
                                 <i class="pi pi-search" />
                                 <InputText v-model="filters['global'].value" placeholder="Search..." />
                             </span>
-						</div>
+                        </div>
                     </template>
 
                     <Column selectionMode="multiple" style="width: 3rem" :exportable="false"></Column>
-                    <Column field="code" header="Code" :sortable="true" style="min-width:12rem"></Column>
-                    <Column field="name" header="Name" :sortable="true" style="min-width:16rem"></Column>
+                    <Column field="code" header="Code" :sortable="true" style="min-width: 12rem"></Column>
+                    <Column field="name" header="Name" :sortable="true" style="min-width: 16rem"></Column>
                     <Column header="Image">
                         <template #body="slotProps">
                             <img :src="'demo/images/product/' + slotProps.data.image" :alt="slotProps.data.image" class="product-image" />
                         </template>
                     </Column>
-                    <Column field="price" header="Price" :sortable="true" style="min-width:8rem">
+                    <Column field="price" header="Price" :sortable="true" style="min-width: 8rem">
                         <template #body="slotProps">
-                            {{formatCurrency(slotProps.data.price)}}
+                            {{ formatCurrency(slotProps.data.price) }}
                         </template>
                     </Column>
-                    <Column field="category" header="Category" :sortable="true" style="min-width:10rem"></Column>
-                    <Column field="rating" header="Reviews" :sortable="true" style="min-width:12rem">
+                    <Column field="category" header="Category" :sortable="true" style="min-width: 10rem"></Column>
+                    <Column field="rating" header="Reviews" :sortable="true" style="min-width: 12rem">
                         <template #body="slotProps">
                             <Rating :modelValue="slotProps.data.rating" :readonly="true" :cancel="false" />
                         </template>
                     </Column>
-                    <Column field="inventoryStatus" header="Status" :sortable="true" style="min-width:12rem">
+                    <Column field="inventoryStatus" header="Status" :sortable="true" style="min-width: 12rem">
                         <template #body="slotProps">
-                            <span :class="'product-badge status-' + (slotProps.data.inventoryStatus ? slotProps.data.inventoryStatus.toLowerCase() : '')">{{slotProps.data.inventoryStatus}}</span>
+                            <span :class="'product-badge status-' + (slotProps.data.inventoryStatus ? slotProps.data.inventoryStatus.toLowerCase() : '')">{{ slotProps.data.inventoryStatus }}</span>
                         </template>
                     </Column>
-                    <Column :exportable="false" style="min-width:8rem">
+                    <Column :exportable="false" style="min-width: 8rem">
                         <template #body="slotProps">
                             <Button icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" @click="editProduct(slotProps.data)" />
                             <Button icon="pi pi-trash" class="p-button-rounded p-button-warning" @click="confirmDeleteProduct(slotProps.data)" />
@@ -69,12 +78,12 @@
                 </DataTable>
             </div>
 
-            <Dialog v-model:visible="productDialog" :style="{width: '450px'}" header="Product Details" :modal="true" class="p-fluid">
-                <img :src="'demo/images/product/' + product.image" :alt="product.image" class="product-image" v-if="product.image" />
+            <Dialog v-model:visible="productDialog" :style="{ width: '450px' }" header="Product Details" :modal="true" class="p-fluid">
+                <img v-if="product.image" :src="'demo/images/product/' + product.image" :alt="product.image" class="product-image" />
                 <div class="field">
                     <label for="name">Name</label>
-                    <InputText id="name" v-model.trim="product.name" required="true" autofocus :class="{'p-invalid': submitted && !product.name}" />
-                    <small class="p-error" v-if="submitted && !product.name">Name is required.</small>
+                    <InputText id="name" v-model.trim="product.name" required="true" autofocus :class="{ 'p-invalid': submitted && !product.name }" />
+                    <small v-if="submitted && !product.name" class="p-error">Name is required.</small>
                 </div>
                 <div class="field">
                     <label for="description">Description</label>
@@ -82,39 +91,39 @@
                 </div>
 
                 <div class="field">
-					<label for="inventoryStatus" class="mb-3">Inventory Status</label>
-					<Dropdown id="inventoryStatus" v-model="product.inventoryStatus" :options="statuses" optionLabel="label" placeholder="Select a Status">
-						<template #value="slotProps">
-							<div v-if="slotProps.value && slotProps.value.value">
-								<span :class="'product-badge status-' +slotProps.value.value">{{slotProps.value.label}}</span>
-							</div>
-							<div v-else-if="slotProps.value && !slotProps.value.value">
-								<span :class="'product-badge status-' +slotProps.value.toLowerCase()">{{slotProps.value}}</span>
-							</div>
-							<span v-else>
-								{{slotProps.placeholder}}
-							</span>
-						</template>
-					</Dropdown>
-				</div>
+                    <label for="inventoryStatus" class="mb-3">Inventory Status</label>
+                    <Dropdown id="inventoryStatus" v-model="product.inventoryStatus" :options="statuses" optionLabel="label" placeholder="Select a Status">
+                        <template #value="slotProps">
+                            <div v-if="slotProps.value && slotProps.value.value">
+                                <span :class="'product-badge status-' + slotProps.value.value">{{ slotProps.value.label }}</span>
+                            </div>
+                            <div v-else-if="slotProps.value && !slotProps.value.value">
+                                <span :class="'product-badge status-' + slotProps.value.toLowerCase()">{{ slotProps.value }}</span>
+                            </div>
+                            <span v-else>
+                                {{ slotProps.placeholder }}
+                            </span>
+                        </template>
+                    </Dropdown>
+                </div>
 
                 <div class="field">
                     <label class="mb-3">Category</label>
                     <div class="formgrid grid">
                         <div class="field-radiobutton col-6">
-                            <RadioButton id="category1" name="category" value="Accessories" v-model="product.category" />
+                            <RadioButton id="category1" v-model="product.category" name="category" value="Accessories" />
                             <label for="category1">Accessories</label>
                         </div>
                         <div class="field-radiobutton col-6">
-                            <RadioButton id="category2" name="category" value="Clothing" v-model="product.category" />
+                            <RadioButton id="category2" v-model="product.category" name="category" value="Clothing" />
                             <label for="category2">Clothing</label>
                         </div>
                         <div class="field-radiobutton col-6">
-                            <RadioButton id="category3" name="category" value="Electronics" v-model="product.category" />
+                            <RadioButton id="category3" v-model="product.category" name="category" value="Electronics" />
                             <label for="category3">Electronics</label>
                         </div>
                         <div class="field-radiobutton col-6">
-                            <RadioButton id="category4" name="category" value="Fitness" v-model="product.category" />
+                            <RadioButton id="category4" v-model="product.category" name="category" value="Fitness" />
                             <label for="category4">Fitness</label>
                         </div>
                     </div>
@@ -131,40 +140,43 @@
                     </div>
                 </div>
                 <template #footer>
-                    <Button label="Cancel" icon="pi pi-times" class="p-button-text" @click="hideDialog"/>
+                    <Button label="Cancel" icon="pi pi-times" class="p-button-text" @click="hideDialog" />
                     <Button label="Save" icon="pi pi-check" class="p-button-text" @click="saveProduct" />
                 </template>
             </Dialog>
 
-            <Dialog v-model:visible="deleteProductDialog" :style="{width: '450px'}" header="Confirm" :modal="true">
+            <Dialog v-model:visible="deleteProductDialog" :style="{ width: '450px' }" header="Confirm" :modal="true">
                 <div class="confirmation-content">
                     <i class="pi pi-exclamation-triangle mr-3" style="font-size: 2rem" />
-                    <span v-if="product">Are you sure you want to delete <b>{{product.name}}</b>?</span>
+                    <span v-if="product"
+                        >Are you sure you want to delete <b>{{ product.name }}</b
+                        >?</span
+                    >
                 </div>
                 <template #footer>
-                    <Button label="No" icon="pi pi-times" class="p-button-text" @click="deleteProductDialog = false"/>
+                    <Button label="No" icon="pi pi-times" class="p-button-text" @click="deleteProductDialog = false" />
                     <Button label="Yes" icon="pi pi-check" class="p-button-text" @click="deleteProduct" />
                 </template>
             </Dialog>
 
-            <Dialog v-model:visible="deleteProductsDialog" :style="{width: '450px'}" header="Confirm" :modal="true">
+            <Dialog v-model:visible="deleteProductsDialog" :style="{ width: '450px' }" header="Confirm" :modal="true">
                 <div class="confirmation-content">
                     <i class="pi pi-exclamation-triangle mr-3" style="font-size: 2rem" />
                     <span v-if="product">Are you sure you want to delete the selected products?</span>
                 </div>
                 <template #footer>
-                    <Button label="No" icon="pi pi-times" class="p-button-text" @click="deleteProductsDialog = false"/>
+                    <Button label="No" icon="pi pi-times" class="p-button-text" @click="deleteProductsDialog = false" />
                     <Button label="Yes" icon="pi pi-check" class="p-button-text" @click="deleteSelectedProducts" />
                 </template>
             </Dialog>
-		</div>
+        </div>
 
         <AppDoc name="DataTableCrudDemo" :sources="sources" :service="['ProductService']" :data="['products']" github="datatable/DataTableCrudDemo.vue" />
-	</div>
+    </div>
 </template>
 
 <script>
-import {FilterMatchMode} from 'primevue/api';
+import { FilterMatchMode } from 'primevue/api';
 import ProductService from '../../service/ProductService';
 
 export default {
@@ -179,9 +191,9 @@ export default {
             filters: {},
             submitted: false,
             statuses: [
-				{label: 'INSTOCK', value: 'instock'},
-				{label: 'LOWSTOCK', value: 'lowstock'},
-				{label: 'OUTOFSTOCK', value: 'outofstock'}
+                { label: 'INSTOCK', value: 'instock' },
+                { label: 'LOWSTOCK', value: 'lowstock' },
+                { label: 'OUTOFSTOCK', value: 'outofstock' }
             ],
             sources: {
                 'options-api': {
@@ -1159,7 +1171,7 @@ export default {
 `
                 }
             }
-        }
+        };
     },
     productService: null,
     created() {
@@ -1167,13 +1179,13 @@ export default {
         this.initFilters();
     },
     mounted() {
-        this.productService.getProducts().then(data => this.products = data);
+        this.productService.getProducts().then((data) => (this.products = data));
     },
     methods: {
         formatCurrency(value) {
-            if(value)
-				return value.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
-			return;
+            if (value) return value.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+
+            return;
         },
         openNew() {
             this.product = {};
@@ -1187,19 +1199,18 @@ export default {
         saveProduct() {
             this.submitted = true;
 
-			if (this.product.name.trim()) {
+            if (this.product.name.trim()) {
                 if (this.product.id) {
-                    this.product.inventoryStatus = this.product.inventoryStatus.value ? this.product.inventoryStatus.value: this.product.inventoryStatus;
+                    this.product.inventoryStatus = this.product.inventoryStatus.value ? this.product.inventoryStatus.value : this.product.inventoryStatus;
                     this.products[this.findIndexById(this.product.id)] = this.product;
-                    this.$toast.add({severity:'success', summary: 'Successful', detail: 'Product Updated', life: 3000});
-                }
-                else {
+                    this.$toast.add({ severity: 'success', summary: 'Successful', detail: 'Product Updated', life: 3000 });
+                } else {
                     this.product.id = this.createId();
                     this.product.code = this.createId();
                     this.product.image = 'product-placeholder.svg';
                     this.product.inventoryStatus = this.product.inventoryStatus ? this.product.inventoryStatus.value : 'INSTOCK';
                     this.products.push(this.product);
-                    this.$toast.add({severity:'success', summary: 'Successful', detail: 'Product Created', life: 3000});
+                    this.$toast.add({ severity: 'success', summary: 'Successful', detail: 'Product Created', life: 3000 });
                 }
 
                 this.productDialog = false;
@@ -1207,7 +1218,7 @@ export default {
             }
         },
         editProduct(product) {
-            this.product = {...product};
+            this.product = { ...product };
             this.productDialog = true;
         },
         confirmDeleteProduct(product) {
@@ -1215,13 +1226,14 @@ export default {
             this.deleteProductDialog = true;
         },
         deleteProduct() {
-            this.products = this.products.filter(val => val.id !== this.product.id);
+            this.products = this.products.filter((val) => val.id !== this.product.id);
             this.deleteProductDialog = false;
             this.product = {};
-            this.$toast.add({severity:'success', summary: 'Successful', detail: 'Product Deleted', life: 3000});
+            this.$toast.add({ severity: 'success', summary: 'Successful', detail: 'Product Deleted', life: 3000 });
         },
         findIndexById(id) {
             let index = -1;
+
             for (let i = 0; i < this.products.length; i++) {
                 if (this.products[i].id === id) {
                     index = i;
@@ -1234,9 +1246,11 @@ export default {
         createId() {
             let id = '';
             var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-            for ( var i = 0; i < 5; i++ ) {
+
+            for (var i = 0; i < 5; i++) {
                 id += chars.charAt(Math.floor(Math.random() * chars.length));
             }
+
             return id;
         },
         exportCSV() {
@@ -1246,18 +1260,18 @@ export default {
             this.deleteProductsDialog = true;
         },
         deleteSelectedProducts() {
-            this.products = this.products.filter(val => !this.selectedProducts.includes(val));
+            this.products = this.products.filter((val) => !this.selectedProducts.includes(val));
             this.deleteProductsDialog = false;
             this.selectedProducts = null;
-            this.$toast.add({severity:'success', summary: 'Successful', detail: 'Products Deleted', life: 3000});
+            this.$toast.add({ severity: 'success', summary: 'Successful', detail: 'Products Deleted', life: 3000 });
         },
         initFilters() {
             this.filters = {
-                'global': {value: null, matchMode: FilterMatchMode.CONTAINS},
-            }
+                global: { value: null, matchMode: FilterMatchMode.CONTAINS }
+            };
         }
     }
-}
+};
 </script>
 
 <style lang="scss" scoped>
@@ -1268,7 +1282,7 @@ export default {
 
     @media screen and (max-width: 960px) {
         align-items: start;
-	}
+    }
 }
 
 .product-image {
@@ -1289,12 +1303,12 @@ export default {
 }
 
 @media screen and (max-width: 960px) {
-	::v-deep(.p-toolbar) {
-		flex-wrap: wrap;
+    ::v-deep(.p-toolbar) {
+        flex-wrap: wrap;
 
-		.p-button {
+        .p-button {
             margin-bottom: 0.25rem;
         }
-	}
+    }
 }
 </style>

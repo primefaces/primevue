@@ -2,7 +2,6 @@ import { InputHTMLAttributes, VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 import { VirtualScrollerProps, VirtualScrollerItemOptions } from '../virtualscroller';
 
-
 type ListboxOptionLabelType = string | ((data: any) => string) | undefined;
 
 type ListboxOptionValueType = string | ((data: any) => any) | undefined;
@@ -159,11 +158,11 @@ export interface ListboxProps {
     /**
      * Defines a string value that labels an interactive element.
      */
-    "aria-label"?: string | undefined;
+    'aria-label'?: string | undefined;
     /**
      * Identifier of the underlying input element.
      */
-    "aria-labelledby"?: string | undefined;
+    'aria-labelledby'?: string | undefined;
 }
 
 export interface ListboxSlots {
@@ -278,29 +277,29 @@ export declare type ListboxEmits = {
      * Callback to invoke on value change.
      * @param {ListboxChangeEvent} event - Custom change event.
      */
-    'change': (event: ListboxChangeEvent) => void;
+    change: (event: ListboxChangeEvent) => void;
     /**
      * Callback to invoke when the component receives focus.
      * @param {Event} event - Browser event.
      */
-    'focus': (event: Event) => void;
+    focus: (event: Event) => void;
     /**
      * Callback to invoke when the component loses focus.
      * @param {Event} event - Browser event.
      */
-    'blur': (event: Event) => void;
+    blur: (event: Event) => void;
     /**
      * Callback to invoke on filter input.
      * @param {ListboxFilterEvent} event - Custom filter event.
      */
-    'filter': (event: ListboxFilterEvent) => void;
-}
+    filter: (event: ListboxFilterEvent) => void;
+};
 
-declare class Listbox extends ClassComponent<ListboxProps, ListboxSlots, ListboxEmits> { }
+declare class Listbox extends ClassComponent<ListboxProps, ListboxSlots, ListboxEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        Listbox: GlobalComponentConstructor<Listbox>
+        Listbox: GlobalComponentConstructor<Listbox>;
     }
 }
 

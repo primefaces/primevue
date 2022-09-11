@@ -18,7 +18,7 @@
                     <Button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll" class="mr-2" />
                     <Button type="button" icon="pi pi-minus" label="Collapse All" @click="collapseAll" />
                 </div>
-                <PanelMenu :model="items" v-model:expandedKeys="expandedKeys" />
+                <PanelMenu v-model:expandedKeys="expandedKeys" :model="items" />
             </div>
         </div>
 
@@ -33,15 +33,18 @@ export default {
     data() {
         return {
             expandedKeys: {},
-            items: [{
+            items: [
+                {
                     key: '0',
                     label: 'File',
                     icon: 'pi pi-fw pi-file',
-                    items: [{
+                    items: [
+                        {
                             key: '0_0',
                             label: 'New',
                             icon: 'pi pi-fw pi-plus',
-                            items: [{
+                            items: [
+                                {
                                     key: '0_0_0',
                                     label: 'Bookmark',
                                     icon: 'pi pi-fw pi-bookmark'
@@ -69,7 +72,8 @@ export default {
                     key: '1',
                     label: 'Edit',
                     icon: 'pi pi-fw pi-pencil',
-                    items: [{
+                    items: [
+                        {
                             key: '1_0',
                             label: 'Left',
                             icon: 'pi pi-fw pi-align-left'
@@ -95,30 +99,33 @@ export default {
                     key: '2',
                     label: 'Users',
                     icon: 'pi pi-fw pi-user',
-                    items: [{
+                    items: [
+                        {
                             key: '2_0',
                             label: 'New',
-                            icon: 'pi pi-fw pi-user-plus',
-
+                            icon: 'pi pi-fw pi-user-plus'
                         },
                         {
                             key: '2_1',
                             label: 'Delete',
-                            icon: 'pi pi-fw pi-user-minus',
+                            icon: 'pi pi-fw pi-user-minus'
                         },
                         {
                             key: '2_2',
                             label: 'Search',
                             icon: 'pi pi-fw pi-users',
-                            items: [{
+                            items: [
+                                {
                                     key: '2_2_0',
                                     label: 'Filter',
                                     icon: 'pi pi-fw pi-filter',
-                                    items: [{
-                                        key: '2_2_0_0',
-                                        label: 'Print',
-                                        icon: 'pi pi-fw pi-print'
-                                    }]
+                                    items: [
+                                        {
+                                            key: '2_2_0_0',
+                                            label: 'Print',
+                                            icon: 'pi pi-fw pi-print'
+                                        }
+                                    ]
                                 },
                                 {
                                     key: '2_2_1',
@@ -133,11 +140,13 @@ export default {
                     key: '3',
                     label: 'Events',
                     icon: 'pi pi-fw pi-calendar',
-                    items: [{
+                    items: [
+                        {
                             key: '3_0',
                             label: 'Edit',
                             icon: 'pi pi-fw pi-pencil',
-                            items: [{
+                            items: [
+                                {
                                     key: '3_0_0',
                                     label: 'Save',
                                     icon: 'pi pi-fw pi-calendar-plus'
@@ -153,16 +162,18 @@ export default {
                             key: '3_1',
                             label: 'Archieve',
                             icon: 'pi pi-fw pi-calendar-times',
-                            items: [{
-                                key: '3_1_0',
-                                label: 'Remove',
-                                icon: 'pi pi-fw pi-calendar-minus'
-                            }]
+                            items: [
+                                {
+                                    key: '3_1_0',
+                                    label: 'Remove',
+                                    icon: 'pi pi-fw pi-calendar-minus'
+                                }
+                            ]
                         }
                     ]
                 }
             ]
-        }
+        };
     },
     methods: {
         expandAll() {
@@ -188,9 +199,9 @@ export default {
         }
     },
     components: {
-        'PanelMenuDoc': PanelMenuDoc
+        PanelMenuDoc: PanelMenuDoc
     }
-}
+};
 </script>
 
 <style scoped lang="scss">

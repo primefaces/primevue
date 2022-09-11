@@ -120,13 +120,13 @@ type OrganizationChartEmits = {
      * @param {OrganizationChartNode} node - Node instance.
      */
     'node-collapsed': (node: OrganizationChartNode) => void;
-}
+};
 
-declare class OrganizationChart extends ClassComponent<OrganizationChartProps, OrganizationChartSlots, OrganizationChartEmits> { }
+declare class OrganizationChart extends ClassComponent<OrganizationChartProps, OrganizationChartSlots, OrganizationChartEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        OrganizationChart: GlobalComponentConstructor<OrganizationChart>
+        OrganizationChart: GlobalComponentConstructor<OrganizationChart>;
     }
 }
 

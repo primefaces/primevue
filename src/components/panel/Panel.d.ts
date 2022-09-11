@@ -56,14 +56,14 @@ export declare type PanelEmits = {
      * Callback to invoke when a tab toggle.
      * @param {PanelToggleEvent} event - Custom toggle event.
      */
-    'toggle': (event: PanelToggleEvent) => void;
-}
+    toggle: (event: PanelToggleEvent) => void;
+};
 
-declare class Panel extends ClassComponent<PanelProps, PanelSlots, PanelEmits> { }
+declare class Panel extends ClassComponent<PanelProps, PanelSlots, PanelEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        Panel: GlobalComponentConstructor<Panel>
+        Panel: GlobalComponentConstructor<Panel>;
     }
 }
 

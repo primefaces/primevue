@@ -18,7 +18,7 @@
                     <template #optiongroup="slotProps">
                         <div class="flex align-items-center country-item">
                             <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.item.code.toLowerCase()" width="18" />
-                            <div>{{slotProps.item.label}}</div>
+                            <div>{{ slotProps.item.label }}</div>
                         </div>
                     </template>
                 </AutoComplete>
@@ -28,7 +28,7 @@
                     <template #item="slotProps">
                         <div class="country-item">
                             <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.item.code.toLowerCase()" />
-                            <div>{{slotProps.item.name}}</div>
+                            <div>{{ slotProps.item.name }}</div>
                         </div>
                     </template>
                 </AutoComplete>
@@ -38,7 +38,7 @@
 
                 <h5>Multiple</h5>
                 <span class="p-fluid">
-                    <AutoComplete :multiple="true" v-model="selectedCountries" :suggestions="filteredCountries" @complete="searchCountry($event)" optionLabel="name" />
+                    <AutoComplete v-model="selectedCountries" :multiple="true" :suggestions="filteredCountries" @complete="searchCountry($event)" optionLabel="name" />
                 </span>
             </div>
         </div>
@@ -50,7 +50,7 @@
 <script>
 import CountryService from '../../service/CountryService';
 import AutoCompleteDoc from './AutoCompleteDoc';
-import {FilterService,FilterMatchMode} from 'primevue/api';
+import { FilterService, FilterMatchMode } from 'primevue/api';
 
 export default {
     data() {
@@ -64,50 +64,54 @@ export default {
             selectedCountries: [],
             selectedItem: null,
             filteredItems: null,
-            groupedCities: [{
-                label: 'Germany', code: 'DE',
-                items: [
-                    {label: 'Berlin', value: 'Berlin'},
-                    {label: 'Frankfurt', value: 'Frankfurt'},
-                    {label: 'Hamburg', value: 'Hamburg'},
-                    {label: 'Munich', value: 'Munich'}
-                ]
-            },
-            {
-                label: 'USA', code: 'US',
-                items: [
-                    {label: 'Chicago', value: 'Chicago'},
-                    {label: 'Los Angeles', value: 'Los Angeles'},
-                    {label: 'New York', value: 'New York'},
-                    {label: 'San Francisco', value: 'San Francisco'}
-                ]
-            },
-            {
-                label: 'Japan', code: 'JP',
-                items: [
-                    {label: 'Kyoto', value: 'Kyoto'},
-                    {label: 'Osaka', value: 'Osaka'},
-                    {label: 'Tokyo', value: 'Tokyo'},
-                    {label: 'Yokohama', value: 'Yokohama'}
-                ]
-            }],
+            groupedCities: [
+                {
+                    label: 'Germany',
+                    code: 'DE',
+                    items: [
+                        { label: 'Berlin', value: 'Berlin' },
+                        { label: 'Frankfurt', value: 'Frankfurt' },
+                        { label: 'Hamburg', value: 'Hamburg' },
+                        { label: 'Munich', value: 'Munich' }
+                    ]
+                },
+                {
+                    label: 'USA',
+                    code: 'US',
+                    items: [
+                        { label: 'Chicago', value: 'Chicago' },
+                        { label: 'Los Angeles', value: 'Los Angeles' },
+                        { label: 'New York', value: 'New York' },
+                        { label: 'San Francisco', value: 'San Francisco' }
+                    ]
+                },
+                {
+                    label: 'Japan',
+                    code: 'JP',
+                    items: [
+                        { label: 'Kyoto', value: 'Kyoto' },
+                        { label: 'Osaka', value: 'Osaka' },
+                        { label: 'Tokyo', value: 'Tokyo' },
+                        { label: 'Yokohama', value: 'Yokohama' }
+                    ]
+                }
+            ],
             items: Array.from({ length: 1000 }, (_, i) => ({ label: `Item #${i}`, value: i }))
-        }
+        };
     },
     countryService: null,
     created() {
         this.countryService = new CountryService();
     },
     mounted() {
-        this.countryService.getCountries().then(data => this.countries = data);
+        this.countryService.getCountries().then((data) => (this.countries = data));
     },
     methods: {
         searchCountry(event) {
             setTimeout(() => {
                 if (!event.query.trim().length) {
                     this.filteredCountries = [...this.countries];
-                }
-                else {
+                } else {
                     this.filteredCountries = this.countries.filter((country) => {
                         return country.name.toLowerCase().startsWith(event.query.toLowerCase());
                     });
@@ -120,8 +124,9 @@ export default {
 
             for (let country of this.groupedCities) {
                 let filteredItems = FilterService.filter(country.items, ['label'], query, FilterMatchMode.CONTAINS);
+
                 if (filteredItems && filteredItems.length) {
-                    filteredCities.push({...country, ...{items: filteredItems}});
+                    filteredCities.push({ ...country, ...{ items: filteredItems } });
                 }
             }
 
@@ -132,8 +137,9 @@ export default {
             let query = event.query;
             let filteredItems = [];
 
-            for(let i = 0; i < this.items.length; i++) {
+            for (let i = 0; i < this.items.length; i++) {
                 let item = this.items[i];
+
                 if (item.label.toLowerCase().indexOf(query.toLowerCase()) === 0) {
                     filteredItems.push(item);
                 }
@@ -143,7 +149,7 @@ export default {
         }
     },
     components: {
-		'AutoCompleteDoc': AutoCompleteDoc
+        AutoCompleteDoc: AutoCompleteDoc
     }
-}
+};
 </script>

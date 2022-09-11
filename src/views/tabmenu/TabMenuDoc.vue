@@ -1,13 +1,13 @@
 <template>
-	<AppDoc name="TabMenuDemo" :sources="sources" :extPages="pages" github="tabmenu/TabMenuDemo.vue" >
+    <AppDoc name="TabMenuDemo" :sources="sources" :extPages="pages" github="tabmenu/TabMenuDemo.vue">
         <h5>Import via Module</h5>
-<pre v-code.script><code>
+        <pre v-code.script><code>
 import TabMenu from 'primevue/tabmenu';
 
 </code></pre>
 
         <h5>Import via CDN</h5>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/tabmenu/tabmenu.min.js"&gt;&lt;/script&gt;
 
@@ -16,14 +16,14 @@ import TabMenu from 'primevue/tabmenu';
         <h5>MenuModel</h5>
         <p>TabMenu uses the common MenuModel API to define the items, visit <router-link to="/menumodel">MenuModel API</router-link> for details.</p>
 
-		<h5>Getting Started</h5>
-		<p>TabMenu requires a collection of menuitems as its model.</p>
-<pre v-code><code>
+        <h5>Getting Started</h5>
+        <p>TabMenu requires a collection of menuitems as its model.</p>
+        <pre v-code><code>
 &lt;TabMenu :model="items" /&gt;
 
 </code></pre>
 
-<pre v-code.script><code>
+        <pre v-code.script><code>
 export default {
 	data() {
 		return {
@@ -47,7 +47,7 @@ export default {
 
 </code></pre>
 
-<pre v-code.script><code>
+        <pre v-code.script><code>
 export default {
 	data() {
 		return {
@@ -67,20 +67,20 @@ export default {
         <h5>Active</h5>
         <p>Visibility of the content is specified with the activeIndex property that supports one or two-way binding.</p>
 
-<pre v-code><code>
+        <pre v-code><code>
 &lt;TabMenu :model="items" :activeIndex="activeIndex" /&gt;
 
 </code></pre>
 
         <p>Two-way binding requires v-model.</p>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;TabMenu :model="items" v-model:activeIndex="activeIndex" /&gt;
 
 </code></pre>
 
         <h5>Templating</h5>
         <p>TabMenu offers content customization with the <i>item</i> template that receives the menuitem instance from the model as a parameter.</p>
-<pre v-code><code><template v-pre>
+        <pre v-code><code><template v-pre>
 &lt;TabMenu :model="items"&gt;
     &lt;template #item="{item}"&gt;
         &lt;a :href="item.url"&gt;{{item.label}}&lt;/a&gt;
@@ -91,17 +91,17 @@ export default {
 
         <h5>Properties</h5>
         <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Type</th>
                         <th>Default</th>
                         <th>Description</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>model</td>
                         <td>array</td>
@@ -120,34 +120,35 @@ export default {
                         <td>0</td>
                         <td>Active index of menuitem.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
         <h5>Events</h5>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Parameters</th>
                         <th>Description</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>tab-change</td>
-                        <td>event.originalEvent: Browser event  <br/>
+                        <td>
+                            event.originalEvent: Browser event <br />
                             event.index: Index of the selected tab
                         </td>
                         <td>Callback to invoke when an active tab is changed.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
         <h5>Slots</h5>
-		<div class="doc-tablewrapper">
+        <div class="doc-tablewrapper">
             <table class="doc-table">
                 <thead>
                     <tr>
@@ -164,17 +165,17 @@ export default {
             </table>
         </div>
 
-		<h5>Styling</h5>
-		<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <h5>Styling</h5>
+        <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Element</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>p-tabmenu</td>
                         <td>Container element.</td>
@@ -199,12 +200,12 @@ export default {
                         <td>p-menuitem-text</td>
                         <td>Text of a menuitem.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
-		<h5>Dependencies</h5>
-		<p>None.</p>
+        <h5>Dependencies</h5>
+        <p>None.</p>
     </AppDoc>
 </template>
 
@@ -539,9 +540,9 @@ export default {
                 }
             },
             pages: [
-                    {
-                        tabName: 'HomeDemo',
-                        content: `
+                {
+                    tabName: 'HomeDemo',
+                    content: `
 <template>
     <div class="tabmenudemo-content">
         <h5>Home Component Content</h5>
@@ -554,10 +555,10 @@ export default {
 }
 <\\/script>
 `
-                    },
-                    {
-                        tabName: 'CalendarDemo',
-                        content: `
+                },
+                {
+                    tabName: 'CalendarDemo',
+                    content: `
 <template>
     <div class="tabmenudemo-content">
         <h5>Calendar Component Content</h5>
@@ -570,10 +571,10 @@ export default {
 }
 <\\/script>
 `
-                    },
-                    {
-                        tabName: 'EditDemo',
-                        content: `
+                },
+                {
+                    tabName: 'EditDemo',
+                    content: `
 <template>
     <div class="tabmenudemo-content">
         <h5>Edit Component Content</h5>
@@ -586,10 +587,10 @@ export default {
 }
 <\\/script>
 `
-                    },
-                    {
-                        tabName: 'DocumentationDemo',
-                        content: `
+                },
+                {
+                    tabName: 'DocumentationDemo',
+                    content: `
 <template>
     <div class="tabmenudemo-content">
         <h5>Documentation Component Content</h5>
@@ -602,10 +603,10 @@ export default {
 }
 <\\/script>
 `
-                    },
-                    {
-                        tabName: 'SettingsDemo',
-                        content: `
+                },
+                {
+                    tabName: 'SettingsDemo',
+                    content: `
 <template>
     <div class="tabmenudemo-content">
         <h5>Settings Component Content</h5>
@@ -617,9 +618,9 @@ export default {
 
 }
 <\\/script>`
-                    }
-                ]
-        }
+                }
+            ]
+        };
     }
-}
+};
 </script>

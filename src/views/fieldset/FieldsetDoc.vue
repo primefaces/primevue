@@ -1,21 +1,21 @@
 <template>
-	<AppDoc name="FieldsetDemo" :sources="sources" github="fieldset/FieldsetDemo.vue">
+    <AppDoc name="FieldsetDemo" :sources="sources" github="fieldset/FieldsetDemo.vue">
         <h5>Import via Module</h5>
-<pre v-code.script><code>
+        <pre v-code.script><code>
 import Fieldset from 'primevue/fieldset';
 
 </code></pre>
 
         <h5>Import via CDN</h5>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/fieldset/fieldset.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-		<h5>Getting Started</h5>
-		<p>Fieldset is a container component that accepts content as its children.</p>
-<pre v-code><code>
+        <h5>Getting Started</h5>
+        <p>Fieldset is a container component that accepts content as its children.</p>
+        <pre v-code><code>
 &lt;Fieldset legend="Godfather I"&gt;
 	The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
 	His beloved son Michael has just come home from the war, but does not intend to become part of his father's business.
@@ -27,7 +27,7 @@ import Fieldset from 'primevue/fieldset';
 
         <h5>Custom Header</h5>
         <p>Header of the panel is either defined with the <i>legend</i> property or the legend template.</p>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;Fieldset&gt;
     &lt;template #legend&gt;
         Header Content
@@ -37,10 +37,9 @@ import Fieldset from 'primevue/fieldset';
 
 </code></pre>
 
-
-		<h5>Toggleable</h5>
-		<p>Content of the fieldset can be expanded and collapsed using <i>toggleable</i> option..</p>
-<pre v-code><code>
+        <h5>Toggleable</h5>
+        <p>Content of the fieldset can be expanded and collapsed using <i>toggleable</i> option..</p>
+        <pre v-code><code>
 &lt;Fieldset legend="Godfather I" :toggleable="true"&gt;
 	The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
 	His beloved son Michael has just come home from the war, but does not intend to become part of his father's business.
@@ -50,8 +49,8 @@ import Fieldset from 'primevue/fieldset';
 
 </code></pre>
 
-<p>To control the initial state of the toggleable panel, use the <i>collapsed</i> property.</p>
-<pre v-code><code>
+        <p>To control the initial state of the toggleable panel, use the <i>collapsed</i> property.</p>
+        <pre v-code><code>
 &lt;Fieldset legend="Header Text" :toggleable="true" :collapsed="true"&gt;
 	Content
 &lt;/Fieldset&gt;
@@ -59,7 +58,7 @@ import Fieldset from 'primevue/fieldset';
 </code></pre>
 
         <p>Use the v-model directive to enable two-way binding.</p>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;button type="button" @click="isCollapsed = !isCollapsed">Toggle Programmatically&lt;/button&gt;
 &lt;Fieldset legend="Header Text" :toggleable="true" v-model:collapsed="isCollapsed"&gt;
 	Content
@@ -67,19 +66,19 @@ import Fieldset from 'primevue/fieldset';
 
 </code></pre>
 
-		<h5>Properties</h5>
+        <h5>Properties</h5>
         <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Type</th>
                         <th>Default</th>
                         <th>Description</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>legend</td>
                         <td>string</td>
@@ -104,61 +103,62 @@ import Fieldset from 'primevue/fieldset';
                         <td>null</td>
                         <td>Uses to pass the custom value to read for the anchor inside the component.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
-		<h5>Events</h5>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <h5>Events</h5>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Parameters</th>
                         <th>Description</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>toggle</td>
-                        <td>event.originalEvent: browser event <br />
+                        <td>
+                            event.originalEvent: browser event <br />
                             event.value: collapsed state as a boolean
                         </td>
                         <td>Callback to invoke when a tab gets expanded or collapsed.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
         <h5>Slots</h5>
-		<div class="doc-tablewrapper">
+        <div class="doc-tablewrapper">
             <table class="doc-table">
-				<thead>
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Parameters</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>legend</td>
                         <td>-</td>
                     </tr>
-				</tbody>
-			</table>
+                </tbody>
+            </table>
         </div>
 
-		<h5>Styling</h5>
-		<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <h5>Styling</h5>
+        <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Element</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>p-fieldset</td>
                         <td>Fieldset element.</td>
@@ -175,51 +175,53 @@ import Fieldset from 'primevue/fieldset';
                         <td>p-fieldset-content</td>
                         <td>Content element.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
-
-        <h5>Accessibility</h5>
-    <DevelopmentSection>
-        <h6>Screen Reader</h6>
-        <p>Fieldset component uses the semantic <i>fieldset</i> element. When toggleable option is enabled, a clickable element with <i>button</i> role is included inside the <i>legend</i> element, this button
-        has <i>aria-controls</i> to define the id of the content section along with <i>aria-expanded</i> for the visibility state. The value to read the button
-        defaults to the value of the <i>legend</i> property and can be customized by defining an <i>aria-label</i> or <i>aria-labelledby</i> via the <i>toggleButtonProps</i> property.</p>
-        <p>The content uses <i>region</i>, defines an id that matches the <i>aria-controls</i> of the content toggle button and <i>aria-labelledby</i> referring to the id of the header.</p>
-
-        <h6>Content Toggle Button Keyboard Support</h6>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Key</th>
-                        <th>Function</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><i>tab</i></td>
-                        <td>Moves focus to the next the focusable element in the page tab sequence.</td>
-                    </tr>
-                    <tr>
-                        <td><i>shift</i> + <i>tab</i></td>
-                        <td>Moves focus to the previous the focusable element in the page tab sequence.</td>
-                    </tr>
-                    <tr>
-                        <td><i>enter</i></td>
-                        <td>Toggles the visibility of the content.</td>
-                    </tr>
-                    <tr>
-                        <td><i>space</i></td>
-                        <td>Toggles the visibility of the content.</td>
-                    </tr>
                 </tbody>
             </table>
         </div>
-    </DevelopmentSection>
 
-		<h5>Dependencies</h5>
-		<p>None.</p>
+        <h5>Accessibility</h5>
+        <DevelopmentSection>
+            <h6>Screen Reader</h6>
+            <p>
+                Fieldset component uses the semantic <i>fieldset</i> element. When toggleable option is enabled, a clickable element with <i>button</i> role is included inside the <i>legend</i> element, this button has <i>aria-controls</i> to define
+                the id of the content section along with <i>aria-expanded</i> for the visibility state. The value to read the button defaults to the value of the <i>legend</i> property and can be customized by defining an <i>aria-label</i> or
+                <i>aria-labelledby</i> via the <i>toggleButtonProps</i> property.
+            </p>
+            <p>The content uses <i>region</i>, defines an id that matches the <i>aria-controls</i> of the content toggle button and <i>aria-labelledby</i> referring to the id of the header.</p>
+
+            <h6>Content Toggle Button Keyboard Support</h6>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Key</th>
+                            <th>Function</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><i>tab</i></td>
+                            <td>Moves focus to the next the focusable element in the page tab sequence.</td>
+                        </tr>
+                        <tr>
+                            <td><i>shift</i> + <i>tab</i></td>
+                            <td>Moves focus to the previous the focusable element in the page tab sequence.</td>
+                        </tr>
+                        <tr>
+                            <td><i>enter</i></td>
+                            <td>Toggles the visibility of the content.</td>
+                        </tr>
+                        <tr>
+                            <td><i>space</i></td>
+                            <td>Toggles the visibility of the content.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </DevelopmentSection>
+
+        <h5>Dependencies</h5>
+        <p>None.</p>
     </AppDoc>
 </template>
 
@@ -343,7 +345,7 @@ export default {
 `
                 }
             }
-        }
+        };
     }
-}
+};
 </script>

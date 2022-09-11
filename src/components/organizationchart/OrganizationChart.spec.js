@@ -11,79 +11,87 @@ describe('OrganizationChart.vue', () => {
                     key: '0',
                     type: 'person',
                     styleClass: 'p-person',
-                    data: {label: 'CEO', name: 'Walter White', avatar: 'walter.jpg'},
+                    data: { label: 'CEO', name: 'Walter White', avatar: 'walter.jpg' },
                     children: [
                         {
                             key: '0_0',
                             type: 'person',
                             styleClass: 'p-person',
-                            data: {label: 'CFO', name:'Saul Goodman', avatar: 'saul.jpg'},
-                            children:[{
-                                key: '0_0_0',
-                                data: {label: 'Tax'},
-                                selectable: false,
-                                styleClass: 'department-cfo'
-                            },
-                            {
-                                key: '0_0_1',
-                                data: {label: 'Legal'},
-                                selectable: false,
-                                styleClass: 'department-cfo'
-                            }],
+                            data: { label: 'CFO', name: 'Saul Goodman', avatar: 'saul.jpg' },
+                            children: [
+                                {
+                                    key: '0_0_0',
+                                    data: { label: 'Tax' },
+                                    selectable: false,
+                                    styleClass: 'department-cfo'
+                                },
+                                {
+                                    key: '0_0_1',
+                                    data: { label: 'Legal' },
+                                    selectable: false,
+                                    styleClass: 'department-cfo'
+                                }
+                            ]
                         },
                         {
                             key: '0_1',
                             type: 'person',
                             styleClass: 'p-person',
-                            data: {label: 'COO', name:'Mike E.', avatar: 'mike.jpg'},
-                            children:[{
-                                key: '0_1_0',
-                                data: {label: 'Operations'},
-                                selectable: false,
-                                styleClass: 'department-coo'
-                            }]
+                            data: { label: 'COO', name: 'Mike E.', avatar: 'mike.jpg' },
+                            children: [
+                                {
+                                    key: '0_1_0',
+                                    data: { label: 'Operations' },
+                                    selectable: false,
+                                    styleClass: 'department-coo'
+                                }
+                            ]
                         },
                         {
                             key: '0_2',
                             type: 'person',
                             styleClass: 'p-person',
-                            data: {label: 'CTO', name:'Jesse Pinkman', avatar: 'jesse.jpg'},
-                            children:[{
-                                key: '0_2_0',
-                                data: {label: 'Development'},
-                                selectable: false,
-                                styleClass: 'department-cto',
-                                children:[{
-                                    key: '0_2_0_0',
-                                    data: {label: 'Analysis'},
+                            data: { label: 'CTO', name: 'Jesse Pinkman', avatar: 'jesse.jpg' },
+                            children: [
+                                {
+                                    key: '0_2_0',
+                                    data: { label: 'Development' },
+                                    selectable: false,
+                                    styleClass: 'department-cto',
+                                    children: [
+                                        {
+                                            key: '0_2_0_0',
+                                            data: { label: 'Analysis' },
+                                            selectable: false,
+                                            styleClass: 'department-cto'
+                                        },
+                                        {
+                                            key: '0_2_0_1',
+                                            data: { label: 'Front End' },
+                                            selectable: false,
+                                            styleClass: 'department-cto'
+                                        },
+                                        {
+                                            key: '0_2_0_2',
+                                            data: { label: 'Back End' },
+                                            selectable: false,
+                                            styleClass: 'department-cto'
+                                        }
+                                    ]
+                                },
+                                {
+                                    key: '0_2_1',
+                                    data: { label: 'QA' },
                                     selectable: false,
                                     styleClass: 'department-cto'
                                 },
                                 {
-                                    key: '0_2_0_1',
-                                    data: {label: 'Front End'},
+                                    key: '0_2_2',
+                                    data: { label: 'R&D' },
                                     selectable: false,
                                     styleClass: 'department-cto'
-                                },
-                                {
-                                    key: '0_2_0_2',
-                                    data: {label: 'Back End'},
-                                    selectable: false,
-                                    styleClass: 'department-cto'
-                                }]
-                            },
-                            {
-                                key: '0_2_1',
-                                data: {label: 'QA'},
-                                selectable: false,
-                                styleClass: 'department-cto'
-                            },
-                            {
-                                key: '0_2_2',
-                                data: {label: 'R&D'},
-                                selectable: false,
-                                styleClass: 'department-cto'
-                            }]
+                                }
+                            ]
                         }
                     ]
                 },
@@ -124,8 +132,8 @@ describe('OrganizationChart.vue', () => {
 
         expect(wrapper.find('.p-node-toggler-icon').classes()).toContain('pi-chevron-up');
         expect(wrapper.emitted()['node-collapse'][0]).toEqual([wrapper.vm.value]);
-        expect(wrapper.emitted()['update:collapsedKeys'][0]).toEqual([{ '0': true }]);
-        expect(wrapper.vm.d_collapsedKeys).toEqual({ '0': true });
+        expect(wrapper.emitted()['update:collapsedKeys'][0]).toEqual([{ 0: true }]);
+        expect(wrapper.vm.d_collapsedKeys).toEqual({ 0: true });
 
         await wrapper.vm.onNodeToggle(wrapper.vm.value);
 
@@ -141,12 +149,11 @@ describe('OrganizationChart.vue', () => {
         await wrapper.vm.onNodeClick(wrapper.vm.value);
 
         expect(wrapper.emitted()['node-select'][0]).toEqual([wrapper.vm.value]);
-        expect(wrapper.emitted()['update:selectionKeys'][0]).toEqual([{ '0': true }]);
+        expect(wrapper.emitted()['update:selectionKeys'][0]).toEqual([{ 0: true }]);
 
-        await wrapper.setProps({ selectionKeys: { '0': true } });
+        await wrapper.setProps({ selectionKeys: { 0: true } });
 
         expect(contents[0].classes()).toContain('p-highlight');
-
 
         await wrapper.vm.onNodeClick(wrapper.vm.value);
 

@@ -14,19 +14,16 @@ export interface ConfirmPopupSlots {
      * Custom message template.
      * @param {Object} scope - message slot's params.
      */
-    message: (scope: {
-        message: ConfirmationOptions;
-    }) => VNode[];
+    message: (scope: { message: ConfirmationOptions }) => VNode[];
 }
 
-export declare type ConfirmPopupEmits = {
-}
+export declare type ConfirmPopupEmits = {};
 
-declare class ConfirmPopup extends ClassComponent<ConfirmPopupProps, ConfirmPopupSlots, ConfirmPopupEmits> { }
+declare class ConfirmPopup extends ClassComponent<ConfirmPopupProps, ConfirmPopupSlots, ConfirmPopupEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        ConfirmPopup: GlobalComponentConstructor<ConfirmPopup>
+        ConfirmPopup: GlobalComponentConstructor<ConfirmPopup>;
     }
 }
 

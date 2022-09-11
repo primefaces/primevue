@@ -66,18 +66,18 @@ export declare type SidebarEmits = {
     /**
      * Callback to invoke when sidebar gets shown.
      */
-    'show': () => void;
+    show: () => void;
     /**
      * Callback to invoke when sidebar gets hidden.
      */
-    'hide': () => void;
-}
+    hide: () => void;
+};
 
-declare class Sidebar extends ClassComponent<SidebarProps, SidebarSlots, SidebarEmits> { }
+declare class Sidebar extends ClassComponent<SidebarProps, SidebarSlots, SidebarEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        Sidebar: GlobalComponentConstructor<Sidebar>
+        Sidebar: GlobalComponentConstructor<Sidebar>;
     }
 }
 

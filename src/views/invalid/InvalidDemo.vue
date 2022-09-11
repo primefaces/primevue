@@ -12,7 +12,7 @@
             <div class="card">
                 <div class="p-fluid grid">
                     <div class="field col-12 md:col-4">
-                        <InputText id="inputtext" type="text" v-model="value1" placeholder="InputText" class="p-invalid" />
+                        <InputText id="inputtext" v-model="value1" type="text" placeholder="InputText" class="p-invalid" />
                     </div>
                     <div class="field col-12 md:col-4">
                         <AutoComplete v-model="value2" :suggestions="filteredCountries" @complete="searchCountry($event)" field="name" placeholder="AutoComplete" class="p-invalid" />
@@ -30,8 +30,7 @@
                         <InputNumber id="inputnumber" v-model="value6" placeholder="InputNumber" class="p-invalid" />
                     </div>
                     <div class="field col-12 md:col-4">
-                        <CascadeSelect v-model="selectedCity" :options="cascadeCountries" optionLabel="cname" optionGroupLabel="name"
-                            :optionGroupChildren="['states', 'cities']" placeholder="CascadeSelect" class="p-invalid" />
+                        <CascadeSelect v-model="selectedCity" :options="cascadeCountries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" placeholder="CascadeSelect" class="p-invalid" />
                     </div>
                     <div class="field col-12 md:col-4">
                         <Dropdown id="dropdown" v-model="value7" :options="cities" optionLabel="name" placeholder="Dropdown" class="p-invalid" />
@@ -66,11 +65,11 @@ export default {
             countries: null,
             filteredCountries: null,
             cities: [
-                {name: 'New York', code: 'NY'},
-                {name: 'Rome', code: 'RM'},
-                {name: 'London', code: 'LDN'},
-                {name: 'Istanbul', code: 'IST'},
-                {name: 'Paris', code: 'PRS'}
+                { name: 'New York', code: 'NY' },
+                { name: 'Rome', code: 'RM' },
+                { name: 'London', code: 'LDN' },
+                { name: 'Istanbul', code: 'IST' },
+                { name: 'Paris', code: 'PRS' }
             ],
             value1: null,
             value2: null,
@@ -93,40 +92,38 @@ export default {
                         {
                             name: 'New South Wales',
                             cities: [
-                                {cname: 'Sydney', code: 'A-SY'},
-                                {cname: 'Newcastle', code: 'A-NE'},
-                                {cname: 'Wollongong', code: 'A-WO'}
+                                { cname: 'Sydney', code: 'A-SY' },
+                                { cname: 'Newcastle', code: 'A-NE' },
+                                { cname: 'Wollongong', code: 'A-WO' }
                             ]
                         },
                         {
                             name: 'Queensland',
                             cities: [
-                                {cname: 'Brisbane', code: 'A-BR'},
-                                {cname: 'Townsville', code: 'A-TO'}
+                                { cname: 'Brisbane', code: 'A-BR' },
+                                { cname: 'Townsville', code: 'A-TO' }
                             ]
-                        },
-                        
+                        }
                     ]
                 },
                 {
-                    name: 'Canada', 
+                    name: 'Canada',
                     code: 'CA',
                     states: [
                         {
                             name: 'Quebec',
                             cities: [
-                                {cname: 'Montreal', code: 'C-MO'},
-                                {cname: 'Quebec City', code: 'C-QU'}
+                                { cname: 'Montreal', code: 'C-MO' },
+                                { cname: 'Quebec City', code: 'C-QU' }
                             ]
                         },
                         {
                             name: 'Ontario',
                             cities: [
-                                {cname: 'Ottawa', code: 'C-OT'},
-                                {cname: 'Toronto', code: 'C-TO'}
+                                { cname: 'Ottawa', code: 'C-OT' },
+                                { cname: 'Toronto', code: 'C-TO' }
                             ]
-                        },
-                        
+                        }
                     ]
                 },
                 {
@@ -136,26 +133,26 @@ export default {
                         {
                             name: 'California',
                             cities: [
-                                {cname: 'Los Angeles', code: 'US-LA'},
-                                {cname: 'San Diego', code: 'US-SD'},
-                                {cname: 'San Francisco', code: 'US-SF'}
+                                { cname: 'Los Angeles', code: 'US-LA' },
+                                { cname: 'San Diego', code: 'US-SD' },
+                                { cname: 'San Francisco', code: 'US-SF' }
                             ]
                         },
                         {
                             name: 'Florida',
                             cities: [
-                                {cname: 'Jacksonville', code: 'US-JA'},
-                                {cname: 'Miami', code: 'US-MI'},
-                                {cname: 'Tampa', code: 'US-TA'},
-                                {cname: 'Orlando', code: 'US-OR'}
+                                { cname: 'Jacksonville', code: 'US-JA' },
+                                { cname: 'Miami', code: 'US-MI' },
+                                { cname: 'Tampa', code: 'US-TA' },
+                                { cname: 'Orlando', code: 'US-OR' }
                             ]
                         },
                         {
                             name: 'Texas',
                             cities: [
-                                {cname: 'Austin', code: 'US-AU'},
-                                {cname: 'Dallas', code: 'US-DA'},
-                                {cname: 'Houston', code: 'US-HO'}
+                                { cname: 'Austin', code: 'US-AU' },
+                                { cname: 'Dallas', code: 'US-DA' },
+                                { cname: 'Houston', code: 'US-HO' }
                             ]
                         }
                     ]
@@ -163,7 +160,7 @@ export default {
             ],
             sources: {
                 'options-api': {
-                    tabName :'Options API Source',
+                    tabName: 'Options API Source',
                     content: `
 <template>
     <div>
@@ -345,7 +342,7 @@ export default {
 `
                 },
                 'composition-api': {
-                    tabName :'Composition API Source',
+                    tabName: 'Composition API Source',
                     content: `
 <template>
     <div>
@@ -525,7 +522,7 @@ export default {
 `
                 },
                 'browser-source': {
-                    tabName :'Browser Source',
+                    tabName: 'Browser Source',
                     imports: `<script src="https://unpkg.com/primevue@^3/autocomplete/autocomplete.min.js"><\\/script>
         <script src="https://unpkg.com/primevue@^3/calendar/calendar.min.js"><\\/script>
         <script src="https://unpkg.com/primevue@^3/chips/chips.min.js"><\\/script>
@@ -731,7 +728,7 @@ export default {
 `
                 }
             }
-        }
+        };
     },
     countryService: null,
     nodeService: null,
@@ -740,16 +737,15 @@ export default {
         this.nodeService = new NodeService();
     },
     mounted() {
-        this.countryService.getCountries().then(data => this.countries = data);
-        this.nodeService.getTreeNodes().then(data => this.nodes = data);
+        this.countryService.getCountries().then((data) => (this.countries = data));
+        this.nodeService.getTreeNodes().then((data) => (this.nodes = data));
     },
     methods: {
         searchCountry(event) {
             setTimeout(() => {
                 if (!event.query.trim().length) {
                     this.filteredCountries = [...this.countries];
-                }
-                else {
+                } else {
                     this.filteredCountries = this.countries.filter((country) => {
                         return country.name.toLowerCase().startsWith(event.query.toLowerCase());
                     });
@@ -757,7 +753,7 @@ export default {
             }, 250);
         }
     }
-}
+};
 </script>
 
 <style lang="scss" scoped>

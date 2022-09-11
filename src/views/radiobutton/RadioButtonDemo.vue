@@ -12,31 +12,31 @@
             <div class="card">
                 <h5>Basic</h5>
                 <div class="field-radiobutton">
-                    <RadioButton inputId="city1" name="city" value="Chicago" v-model="city" />
+                    <RadioButton v-model="city" inputId="city1" name="city" value="Chicago" />
                     <label for="city1">Chicago</label>
                 </div>
                 <div class="field-radiobutton">
-                    <RadioButton inputId="city2" name="city" value="Los Angeles" v-model="city" />
+                    <RadioButton v-model="city" inputId="city2" name="city" value="Los Angeles" />
                     <label for="city2">Los Angeles</label>
                 </div>
                 <div class="field-radiobutton">
-                    <RadioButton inputId="city3" name="city" value="New York" v-model="city" />
+                    <RadioButton v-model="city" inputId="city3" name="city" value="New York" />
                     <label for="city3">New York</label>
                 </div>
                 <div class="field-radiobutton">
-                    <RadioButton inputId="city4" name="city" value="San Francisco" v-model="city" />
+                    <RadioButton v-model="city" inputId="city4" name="city" value="San Francisco" />
                     <label for="city4">San Francisco</label>
                 </div>
 
                 <h5>Dynamic Values, Preselection, Value Binding and Disabled Option</h5>
                 <div v-for="category of categories" :key="category.key" class="field-radiobutton">
-                    <RadioButton :inputId="category.key" name="category" :value="category.name" v-model="selectedCategory" :disabled="category.key === 'R'" />
-                    <label :for="category.key">{{category.name}}</label>
+                    <RadioButton v-model="selectedCategory" :inputId="category.key" name="category" :value="category.name" :disabled="category.key === 'R'" />
+                    <label :for="category.key">{{ category.name }}</label>
                 </div>
             </div>
         </div>
 
-        <RadioButtonDoc/>
+        <RadioButtonDoc />
     </div>
 </template>
 
@@ -47,15 +47,20 @@ export default {
     data() {
         return {
             city: null,
-            categories: [{name: 'Accounting', key: 'A'}, {name: 'Marketing', key: 'M'}, {name: 'Production', key: 'P'}, {name: 'Research', key: 'R'}],
+            categories: [
+                { name: 'Accounting', key: 'A' },
+                { name: 'Marketing', key: 'M' },
+                { name: 'Production', key: 'P' },
+                { name: 'Research', key: 'R' }
+            ],
             selectedCategory: null
-        }
+        };
     },
     created() {
         this.selectedCategory = this.categories[1].name;
     },
     components: {
-        'RadioButtonDoc': RadioButtonDoc
+        RadioButtonDoc: RadioButtonDoc
     }
-}
+};
 </script>

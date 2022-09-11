@@ -17,11 +17,11 @@
                 <ProgressBar :value="value2" :showValue="false" />
 
                 <h5>Indeterminate</h5>
-                <ProgressBar mode="indeterminate" style="height: .5em" />
+                <ProgressBar mode="indeterminate" style="height: 0.5em" />
             </div>
         </div>
 
-        <ProgressBarDoc/>
+        <ProgressBarDoc />
     </div>
 </template>
 
@@ -33,16 +33,24 @@ export default {
         return {
             value1: 0,
             value2: 50
-        }
+        };
     },
     interval: null,
+    mounted() {
+        this.startProgress();
+    },
+    beforeUnmount() {
+        this.endProgress();
+    },
     methods: {
         startProgress() {
             this.interval = setInterval(() => {
                 let newValue = this.value1 + Math.floor(Math.random() * 10) + 1;
+
                 if (newValue >= 100) {
                     newValue = 100;
                 }
+
                 this.value1 = newValue;
             }, 2000);
         },
@@ -51,14 +59,8 @@ export default {
             this.interval = null;
         }
     },
-    mounted() {
-        this.startProgress();
-    },
-    beforeUnmount() {
-        this.endProgress();
-    },
     components: {
-        'ProgressBarDoc': ProgressBarDoc
+        ProgressBarDoc: ProgressBarDoc
     }
-}
+};
 </script>

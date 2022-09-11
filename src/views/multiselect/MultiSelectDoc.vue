@@ -1,26 +1,26 @@
 <template>
-	<AppDoc name="MultiSelectDemo" :sources="sources" github="multiselect/MultiSelectDemo.vue">
+    <AppDoc name="MultiSelectDemo" :sources="sources" github="multiselect/MultiSelectDemo.vue">
         <h5>Import via Module</h5>
-<pre v-code.script><code>
+        <pre v-code.script><code>
 import MultiSelect from 'primevue/multiselect';
 
 </code></pre>
 
         <h5>Import via CDN</h5>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/multiselect/multiselect.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-		<h5>Getting Started</h5>
-		<p>MultiSelect requires a value to bind and a collection of arbitrary objects along with the <i>optionLabel</i> property to specify the label property of the option.</p>
-<pre v-code><code>
+        <h5>Getting Started</h5>
+        <p>MultiSelect requires a value to bind and a collection of arbitrary objects along with the <i>optionLabel</i> property to specify the label property of the option.</p>
+        <pre v-code><code>
 &lt;MultiSelect v-model="selectedCars" :options="cars" optionLabel="brand" placeholder="Select Brands" /&gt;
 
 </code></pre>
 
-<pre v-code.script><code>
+        <pre v-code.script><code>
 data() {
 	return {
 		selectedCars: null,
@@ -42,14 +42,14 @@ data() {
 
         <h5>Chips Display</h5>
         <p>A comma separated list is used by default to display selected items whereas alternative chip mode is provided using the <i>display</i> property to visualize the items as tokens.</p>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;MultiSelect v-model="selectedCars" :options="cars" optionLabel="brand" placeholder="Select Brands" display="chip"/&gt;
 
 </code></pre>
 
         <h5>Grouping</h5>
-		<p>Options groups are specified with the <i>optionGroupLabel</i> and <i>optionGroupChildren</i> properties.</p>
-<pre v-code.script><code>
+        <p>Options groups are specified with the <i>optionGroupLabel</i> and <i>optionGroupChildren</i> properties.</p>
+        <pre v-code.script><code>
 export default {
     data() {
         return {
@@ -86,27 +86,30 @@ export default {
 }
 </code></pre>
 
-<pre v-code><code><template v-pre>
+        <pre v-code><code><template v-pre>
 &lt;MultiSelect v-model="selectedGroupedCities" :options="groupedCities"
         optionLabel="label" optionGroupLabel="label" optionGroupChildren="items"&gt;
 &lt;/MultiSelect&gt;
 </template>
 </code></pre>
 
-		<h5>Filtering</h5>
-		<p>Filtering allows searching items in the list using an input field at the header. In order to use filtering, enable <i>filter</i> property. By default,
-        optionLabel is used when searching and <i>filterFields</i> can be used to customize the fields being utilized. Furthermore, <i>filterMatchMode</i> is available
-        to define the search algorithm. Valid values are "contains" (default), "startsWith" and "endsWith".</p>
+        <h5>Filtering</h5>
+        <p>
+            Filtering allows searching items in the list using an input field at the header. In order to use filtering, enable <i>filter</i> property. By default, optionLabel is used when searching and <i>filterFields</i> can be used to customize the
+            fields being utilized. Furthermore, <i>filterMatchMode</i> is available to define the search algorithm. Valid values are "contains" (default), "startsWith" and "endsWith".
+        </p>
 
-<pre v-code><code>
+        <pre v-code><code>
 &lt;MultiSelect v-model="selectedCars" :options="cars" :filter="true" optionLabel="brand" placeholder="Select Brands"/&gt;
 
 </code></pre>
 
-		<h5>Templating</h5>
-		<p>Label of an option is used as the display text of an item by default, for custom content support define an <i>option</i> template that gets the option instance as a parameter.
-        In addition <i>value</i>, <i>optiongroup</i>, <i>chip</i>, <i>header</i>, <i>footer</i>, <i>emptyfilter</i> and <i>empty</i> slots are provided for further customization.</p>
-<pre v-code><code><template v-pre>
+        <h5>Templating</h5>
+        <p>
+            Label of an option is used as the display text of an item by default, for custom content support define an <i>option</i> template that gets the option instance as a parameter. In addition <i>value</i>, <i>optiongroup</i>, <i>chip</i>,
+            <i>header</i>, <i>footer</i>, <i>emptyfilter</i> and <i>empty</i> slots are provided for further customization.
+        </p>
+        <pre v-code><code><template v-pre>
 &lt;MultiSelect v-model="selectedCars2" :options="cars" optionLabel="brand" placeholder="Select a Car"&gt;
 	&lt;template #value="slotProps"&gt;
 		&lt;div class="p-multiselect-car-token" v-for="option of slotProps.value" :key="option.brand"&gt;
@@ -127,19 +130,19 @@ export default {
 </template>
 </code></pre>
 
-		<h5>Properties</h5>
+        <h5>Properties</h5>
         <p>Any property of HTMLDivElement are passed to the main container element. Following are the additional properties to configure the component.</p>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Type</th>
                         <th>Default</th>
                         <th>Description</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>modelValue</td>
                         <td>any</td>
@@ -282,8 +285,7 @@ export default {
                         <td>appendTo</td>
                         <td>string</td>
                         <td>body</td>
-                        <td>A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are "body" for document body
-                        and "self" for the element itself.</td>
+                        <td>A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are "body" for document body and "self" for the element itself.</td>
                     </tr>
                     <tr>
                         <td>display</td>
@@ -405,11 +407,11 @@ export default {
                         <td>null</td>
                         <td>Establishes relationships between the component and label(s) where its value should be one or more element IDs.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
-		<h5>Events</h5>
+        <h5>Events</h5>
         <div class="doc-tablewrapper">
             <table class="doc-table">
                 <thead>
@@ -422,8 +424,10 @@ export default {
                 <tbody>
                     <tr>
                         <td>change</td>
-                        <td>event.originalEvent: Original event <br />
-                            event.value: Selected option value </td>
+                        <td>
+                            event.originalEvent: Original event <br />
+                            event.value: Selected option value
+                        </td>
                         <td>Callback to invoke on value change.</td>
                     </tr>
                     <tr>
@@ -458,14 +462,18 @@ export default {
                     </tr>
                     <tr>
                         <td>filter</td>
-                        <td>event.originalEvent: Original event <br />
-                            event.value: Filter value </td>
+                        <td>
+                            event.originalEvent: Original event <br />
+                            event.value: Filter value
+                        </td>
                         <td>Callback to invoke on filter input.</td>
                     </tr>
                     <tr>
                         <td>selectall-change</td>
-                        <td>event.originalEvent: Original event <br />
-                            event.checked: Whether all data is selected.</td>
+                        <td>
+                            event.originalEvent: Original event <br />
+                            event.checked: Whether all data is selected.
+                        </td>
                         <td>Callback to invoke when all data is selected.</td>
                     </tr>
                 </tbody>
@@ -473,16 +481,16 @@ export default {
         </div>
 
         <h5>Methods</h5>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Parameters</th>
                         <th>Description</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>show</td>
                         <td>isFocus: Decides whether to focus on the component. Default value is false.</td>
@@ -498,24 +506,26 @@ export default {
                         <td>-</td>
                         <td>Clears filter input.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
         <h5>Slots</h5>
-		<div class="doc-tablewrapper">
+        <div class="doc-tablewrapper">
             <table class="doc-table">
-				<thead>
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Parameters</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>value</td>
-                        <td>value: Value of the component <br />
-                            placeholder: Placeholder prop value</td>
+                        <td>
+                            value: Value of the component <br />
+                            placeholder: Placeholder prop value
+                        </td>
                     </tr>
                     <tr>
                         <td>chip</td>
@@ -527,23 +537,31 @@ export default {
                     </tr>
                     <tr>
                         <td>header</td>
-                        <td>value: Value of the component <br />
-                            options: Displayed options</td>
+                        <td>
+                            value: Value of the component <br />
+                            options: Displayed options
+                        </td>
                     </tr>
                     <tr>
                         <td>footer</td>
-                        <td>value: Value of the component <br />
-                            options: Displayed options</td>
+                        <td>
+                            value: Value of the component <br />
+                            options: Displayed options
+                        </td>
                     </tr>
                     <tr>
                         <td>option</td>
-                        <td>option: Option instance <br />
-                            index: Index of the option</td>
+                        <td>
+                            option: Option instance <br />
+                            index: Index of the option
+                        </td>
                     </tr>
                     <tr>
                         <td>optiongroup</td>
-                        <td>option: OptionGroup instance <br />
-                            index: Index of the option group</td>
+                        <td>
+                            option: OptionGroup instance <br />
+                            index: Index of the option group
+                        </td>
                     </tr>
                     <tr>
                         <td>emptyfilter</td>
@@ -555,30 +573,32 @@ export default {
                     </tr>
                     <tr>
                         <td>content</td>
-                        <td>items: An array of objects to display for virtualscroller<br />
+                        <td>
+                            items: An array of objects to display for virtualscroller<br />
                             styleClass: Style class of the component<br />
                             contentRef: Referance of the content<br />
-                            getItemOptions: Options of the items</td>
+                            getItemOptions: Options of the items
+                        </td>
                     </tr>
                     <tr>
                         <td>loader</td>
                         <td>options: Options of the loader items for virtualscroller</td>
                     </tr>
-				</tbody>
-			</table>
+                </tbody>
+            </table>
         </div>
 
-		<h5>Styling</h5>
-		<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <h5>Styling</h5>
+        <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Element</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>p-multiselect</td>
                         <td>Container element.</td>
@@ -615,22 +635,27 @@ export default {
                         <td>p-overlay-open</td>
                         <td>Container element when overlay is visible.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
         <h5>Accessibility</h5>
         <h6>Screen Reader</h6>
-        <p>Value to describe the component can either be provided with <i>aria-labelledby</i> or <i>aria-label</i> props. The multiselect component has a <i>combobox</i> role
-        in addition to <i>aria-haspopup</i> and <i>aria-expanded</i> attributes. The relation between the combobox and the popup is created with <i>aria-controls</i> attribute that refers to the id of the popup listbox.</p>
+        <p>
+            Value to describe the component can either be provided with <i>aria-labelledby</i> or <i>aria-label</i> props. The multiselect component has a <i>combobox</i> role in addition to <i>aria-haspopup</i> and <i>aria-expanded</i> attributes.
+            The relation between the combobox and the popup is created with <i>aria-controls</i> attribute that refers to the id of the popup listbox.
+        </p>
         <p>The popup listbox uses <i>listbox</i> as the role with <i>aria-multiselectable</i> enabled. Each list item has an <i>option</i> role along with <i>aria-label</i>, <i>aria-selected</i> and <i>aria-disabled</i> attributes.</p>
 
-        <p>Checkbox component at the header uses a hidden native checkbox element internally that is only visible to screen readers. Value to read is defined with the <i>selectAll</i> and <i>unselectAll</i> keys of the <i>aria</i> property from the <router-link to="/locale">locale</router-link> API.</p>
+        <p>
+            Checkbox component at the header uses a hidden native checkbox element internally that is only visible to screen readers. Value to read is defined with the <i>selectAll</i> and <i>unselectAll</i> keys of the <i>aria</i> property from the
+            <router-link to="/locale">locale</router-link> API.
+        </p>
 
         <p>If filtering is enabled, <i>filterInputProps</i> can be defined to give <i>aria-*</i> props to the input element.</p>
 
         <p>Close button uses <i>close</i> key of the <i>aria</i> property from the <router-link to="/locale">locale</router-link> API as the <i>aria-label</i> by default, this can be overriden with the <i>closeButtonProps</i>.</p>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;span id="dd1"&gt;Options&lt;/span&gt;
 &lt;MultiSelect aria-labelledby="dd1" /&gt;
 
@@ -864,8 +889,8 @@ export default {
             </table>
         </div>
 
-		<h5>Dependencies</h5>
-		<p>None.</p>
+        <h5>Dependencies</h5>
+        <p>None.</p>
     </AppDoc>
 </template>
 
@@ -1339,7 +1364,7 @@ export default {
         </style>`
                 }
             }
-        }
+        };
     }
-}
+};
 </script>

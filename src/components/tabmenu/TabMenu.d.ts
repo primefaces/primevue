@@ -49,13 +49,13 @@ export declare type TabMenuEmits = {
      * @param {TabMenuChangeEvent} event - Custom tab change event.
      */
     'tab-change': (event: TabMenuChangeEvent) => void;
-}
+};
 
-declare class TabMenu extends ClassComponent<TabMenuProps, TabMenuSlots, TabMenuEmits> { }
+declare class TabMenu extends ClassComponent<TabMenuProps, TabMenuSlots, TabMenuEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        TabMenu: GlobalComponentConstructor<TabMenu>
+        TabMenu: GlobalComponentConstructor<TabMenu>;
     }
 }
 

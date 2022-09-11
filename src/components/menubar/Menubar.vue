@@ -1,14 +1,13 @@
 <template>
     <div :class="containerClass">
-        <div class="p-menubar-start" v-if="$slots.start">
+        <div v-if="$slots.start" class="p-menubar-start">
             <slot name="start"></slot>
         </div>
         <a ref="menubutton" tabindex="0" class="p-menubar-button" @click="toggle($event)">
             <i class="pi pi-bars" />
         </a>
-        <MenubarSub ref="rootmenu" :model="model" :root="true" :mobileActive="mobileActive" 
-            @leaf-click="onLeafClick" :template="$slots.item" :exact="exact" />
-        <div class="p-menubar-end" v-if="$slots.end">
+        <MenubarSub ref="rootmenu" :model="model" :root="true" :mobileActive="mobileActive" @leaf-click="onLeafClick" :template="$slots.item" :exact="exact" />
+        <div v-if="$slots.end" class="p-menubar-end">
             <slot name="end"></slot>
         </div>
     </div>
@@ -16,12 +15,12 @@
 
 <script>
 import MenubarSub from './MenubarSub.vue';
-import {ZIndexUtils} from 'primevue/utils';
+import { ZIndexUtils } from 'primevue/utils';
 
 export default {
     name: 'Menubar',
     props: {
-		model: {
+        model: {
             type: Array,
             default: null
         },
@@ -34,11 +33,12 @@ export default {
     data() {
         return {
             mobileActive: false
-        }
+        };
     },
     beforeUnmount() {
         this.mobileActive = false;
         this.unbindOutsideClickListener();
+
         if (this.$refs.rootmenu && this.$refs.rootmenu.$el) {
             ZIndexUtils.clear(this.$refs.rootmenu.$el);
         }
@@ -48,8 +48,7 @@ export default {
             if (this.mobileActive) {
                 this.mobileActive = false;
                 ZIndexUtils.clear(this.$refs.rootmenu.$el);
-            }
-            else {
+            } else {
                 this.mobileActive = true;
                 ZIndexUtils.set('menu', this.$refs.rootmenu.$el, this.$primevue.config.zIndex.menu);
             }
@@ -60,11 +59,11 @@ export default {
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
                 this.outsideClickListener = (event) => {
-                    if (this.mobileActive && this.$refs.rootmenu.$el !== event.target && !this.$refs.rootmenu.$el.contains(event.target)
-                        && this.$refs.menubutton !== event.target && !this.$refs.menubutton.contains(event.target)) {
+                    if (this.mobileActive && this.$refs.rootmenu.$el !== event.target && !this.$refs.rootmenu.$el.contains(event.target) && this.$refs.menubutton !== event.target && !this.$refs.menubutton.contains(event.target)) {
                         this.mobileActive = false;
                     }
                 };
+
                 document.addEventListener('click', this.outsideClickListener);
             }
         },
@@ -80,13 +79,13 @@ export default {
     },
     computed: {
         containerClass() {
-            return ['p-menubar p-component', {'p-menubar-mobile-active': this.mobileActive}];
+            return ['p-menubar p-component', { 'p-menubar-mobile-active': this.mobileActive }];
         }
     },
     components: {
-        'MenubarSub': MenubarSub
+        MenubarSub: MenubarSub
     }
-}
+};
 </script>
 
 <style>
@@ -138,7 +137,7 @@ export default {
     z-index: 1;
 }
 
-.p-menubar .p-submenu-list > .p-menuitem-active > .p-submenu-list  {
+.p-menubar .p-submenu-list > .p-menuitem-active > .p-submenu-list {
     display: block;
     left: 100%;
     top: 0;

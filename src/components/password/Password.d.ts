@@ -135,13 +135,13 @@ export declare type PasswordEmits = {
      * @param {string} value - New value.
      */
     'update:modelValue': (value: string) => void;
-}
+};
 
-declare class Password extends ClassComponent<PasswordProps, PasswordSlots, PasswordEmits> { }
+declare class Password extends ClassComponent<PasswordProps, PasswordSlots, PasswordEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        Password: GlobalComponentConstructor<Password>
+        Password: GlobalComponentConstructor<Password>;
     }
 }
 

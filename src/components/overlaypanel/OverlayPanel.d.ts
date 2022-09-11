@@ -71,12 +71,12 @@ export declare type OverlayPanelEmits = {
     /**
      * Callback to invoke when the overlay is shown.
      */
-    'show': () => void;
+    show: () => void;
     /**
      * Callback to invoke when the overlay is hidden.
      */
-    'hide': () => void;
-}
+    hide: () => void;
+};
 
 declare class OverlayPanel extends ClassComponent<OverlayPanelProps, OverlayPanelSlots, OverlayPanelEmits> {
     /**
@@ -104,7 +104,7 @@ declare class OverlayPanel extends ClassComponent<OverlayPanelProps, OverlayPane
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        OverlayPanel: GlobalComponentConstructor<OverlayPanel>
+        OverlayPanel: GlobalComponentConstructor<OverlayPanel>;
     }
 }
 

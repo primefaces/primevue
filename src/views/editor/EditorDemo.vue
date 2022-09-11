@@ -11,15 +11,15 @@
         <div class="content-section implementation">
             <div class="card">
                 <h5>Default</h5>
-                <Editor v-model="value1" editorStyle="height: 320px"/>
+                <Editor v-model="value1" editorStyle="height: 320px" />
 
                 <h5>Customized</h5>
                 <Editor v-model="value2" editorStyle="height: 320px">
                     <template v-slot:toolbar>
                         <span class="ql-formats">
-                            <button class="ql-bold" v-tooltip.bottom="'Bold'"></button>
-                            <button class="ql-italic" v-tooltip.bottom="'Italic'"></button>
-                            <button class="ql-underline" v-tooltip.bottom="'Underline'"></button>
+                            <button v-tooltip.bottom="'Bold'" class="ql-bold"></button>
+                            <button v-tooltip.bottom="'Italic'" class="ql-italic"></button>
+                            <button v-tooltip.bottom="'Underline'" class="ql-underline"></button>
                         </span>
                     </template>
                 </Editor>
@@ -38,10 +38,10 @@ export default {
         return {
             value1: '<div>Welcome to PrimeVue <b>Editor</b></div><div><br></div>',
             value2: ''
-        }
+        };
     },
     components: {
-        'EditorDoc': EditorDoc
+        EditorDoc: EditorDoc
     }
-}
+};
 </script>

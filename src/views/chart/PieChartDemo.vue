@@ -14,7 +14,7 @@
             </div>
         </div>
 
-        <PieChartDoc/>
+        <PieChartDoc />
     </div>
 </template>
 
@@ -24,40 +24,31 @@ import EventBus from '@/AppEventBus';
 
 export default {
     themeChangeListener: null,
-    mounted() {
-        this.themeChangeListener = (event) => {
-            if (event.dark)
-                this.chartOptions = this.getDarkTheme();
-            else
-                this.chartOptions = this.getLightTheme();
-        }
-        EventBus.on('theme-change', this.themeChangeListener );
-    },
-    beforeUnmount() {
-        EventBus.off('change-theme', this.themeChangeListener);
-    },
     data() {
         return {
             chartData: {
-                labels: ['A','B','C'],
+                labels: ['A', 'B', 'C'],
                 datasets: [
                     {
                         data: [300, 50, 100],
-                        backgroundColor: [
-                            "#42A5F5",
-                            "#66BB6A",
-                            "#FFA726"
-                        ],
-                        hoverBackgroundColor: [
-                            "#64B5F6",
-                            "#81C784",
-                            "#FFB74D"
-                        ]
+                        backgroundColor: ['#42A5F5', '#66BB6A', '#FFA726'],
+                        hoverBackgroundColor: ['#64B5F6', '#81C784', '#FFB74D']
                     }
                 ]
             },
             chartOptions: this.isDarkTheme() ? this.getDarkTheme() : this.getLightTheme()
-        }
+        };
+    },
+    mounted() {
+        this.themeChangeListener = (event) => {
+            if (event.dark) this.chartOptions = this.getDarkTheme();
+            else this.chartOptions = this.getLightTheme();
+        };
+
+        EventBus.on('theme-change', this.themeChangeListener);
+    },
+    beforeUnmount() {
+        EventBus.off('change-theme', this.themeChangeListener);
     },
     methods: {
         isDarkTheme() {
@@ -72,7 +63,7 @@ export default {
                         }
                     }
                 }
-            }
+            };
         },
         getDarkTheme() {
             return {
@@ -83,11 +74,11 @@ export default {
                         }
                     }
                 }
-            }
+            };
         }
     },
     components: {
-        'PieChartDoc': PieChartDoc
+        PieChartDoc: PieChartDoc
     }
-}
+};
 </script>

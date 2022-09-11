@@ -51,14 +51,13 @@ export interface TabPanelSlots {
     header: () => VNode[];
 }
 
-export declare type TabPanelEmits = {
-}
+export declare type TabPanelEmits = {};
 
-declare class TabPanel extends ClassComponent<TabPanelProps, TabPanelSlots, TabPanelEmits> { }
+declare class TabPanel extends ClassComponent<TabPanelProps, TabPanelSlots, TabPanelEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        TabPanel: GlobalComponentConstructor<TabPanel>
+        TabPanel: GlobalComponentConstructor<TabPanel>;
     }
 }
 

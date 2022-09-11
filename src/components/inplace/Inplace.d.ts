@@ -37,19 +37,19 @@ export declare type InplaceEmits = {
      * Callback to invoke when inplace is opened.
      * @param {Event} event - Browser event.
      */
-    'open': (event: Event) => void;
+    open: (event: Event) => void;
     /**
      * Callback to invoke when inplace is closed.
      * @param {Event} event - Browser event.
      */
-    'close': (event: Event) => void;
-}
+    close: (event: Event) => void;
+};
 
-declare class Inplace extends ClassComponent<InplaceProps, InplaceSlots, InplaceEmits> { }
+declare class Inplace extends ClassComponent<InplaceProps, InplaceSlots, InplaceEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        Inplace: GlobalComponentConstructor<Inplace>
+        Inplace: GlobalComponentConstructor<Inplace>;
     }
 }
 

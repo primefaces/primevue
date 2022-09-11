@@ -27,13 +27,12 @@ export interface TriStateCheckboxProps {
      */
     'aria-labelledby'?: string | undefined;
     /**
-      * Establishes a string value that labels the component.
-      */
+     * Establishes a string value that labels the component.
+     */
     'aria-label'?: string | undefined;
 }
 
-export interface TriStateCheckboxSlots {
-}
+export interface TriStateCheckboxSlots {}
 
 export declare type TriStateCheckboxEmits = {
     /**
@@ -41,13 +40,13 @@ export declare type TriStateCheckboxEmits = {
      * @param {boolean|null|undefined} value - New value.
      */
     'update:modelValue': (value: Nullable<boolean>) => void;
-}
+};
 
-declare class TriStateCheckbox extends ClassComponent<TriStateCheckboxProps, TriStateCheckboxSlots, TriStateCheckboxEmits> { }
+declare class TriStateCheckbox extends ClassComponent<TriStateCheckboxProps, TriStateCheckboxSlots, TriStateCheckboxEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        TriStateCheckbox: GlobalComponentConstructor<TriStateCheckbox>
+        TriStateCheckbox: GlobalComponentConstructor<TriStateCheckbox>;
     }
 }
 

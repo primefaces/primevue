@@ -31,14 +31,13 @@ export interface BreadcrumbSlots {
     }) => VNode[];
 }
 
-export declare type BreadcrumbEmits = {
-}
+export declare type BreadcrumbEmits = {};
 
-declare class Breadcrumb extends ClassComponent<BreadcrumbProps, BreadcrumbSlots, BreadcrumbEmits> { }
+declare class Breadcrumb extends ClassComponent<BreadcrumbProps, BreadcrumbSlots, BreadcrumbEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        Breadcrumb: GlobalComponentConstructor<Breadcrumb>
+        Breadcrumb: GlobalComponentConstructor<Breadcrumb>;
     }
 }
 

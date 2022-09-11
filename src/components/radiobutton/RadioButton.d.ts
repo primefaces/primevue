@@ -44,8 +44,7 @@ export interface RadioButtonProps {
     'aria-label'?: string | undefined;
 }
 
-export interface RadioButtonSlots {
-}
+export interface RadioButtonSlots {}
 
 export declare type RadioButtonEmits = {
     /**
@@ -57,19 +56,19 @@ export declare type RadioButtonEmits = {
      * Callback to invoke on radio button click.
      * @param {Event} event - Browser event.
      */
-    'click': (event: Event) => void;
+    click: (event: Event) => void;
     /**
      * Callback to invoke on radio button value change.
      * @param {Event} event - Browser event.
      */
-    'change': (event: Event) => void;
-}
+    change: (event: Event) => void;
+};
 
-declare class RadioButton extends ClassComponent<RadioButtonProps, RadioButtonSlots, RadioButtonEmits> { }
+declare class RadioButton extends ClassComponent<RadioButtonProps, RadioButtonSlots, RadioButtonEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        RadioButton: GlobalComponentConstructor<RadioButton>
+        RadioButton: GlobalComponentConstructor<RadioButton>;
     }
 }
 

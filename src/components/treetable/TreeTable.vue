@@ -1,45 +1,75 @@
 <template>
     <div :class="containerClass" data-scrollselectors=".p-treetable-scrollable-body">
-        <div class="p-treetable-loading" v-if="loading">
+        <div v-if="loading" class="p-treetable-loading">
             <div class="p-treetable-loading-overlay p-component-overlay">
                 <i :class="loadingIconClass"></i>
             </div>
         </div>
-        <div class="p-treetable-header" v-if="$slots.header">
+        <div v-if="$slots.header" class="p-treetable-header">
             <slot name="header"></slot>
         </div>
-        <TTPaginator v-if="paginatorTop" :rows="d_rows" :first="d_first" :totalRecords="totalRecordsLength" :pageLinkSize="pageLinkSize" :template="paginatorTemplate" :rowsPerPageOptions="rowsPerPageOptions"
-                :currentPageReportTemplate="currentPageReportTemplate" class="p-paginator-top" @page="onPage($event)" :alwaysShow="alwaysShowPaginator">
-            <template #start v-if="$slots.paginatorstart">
+        <TTPaginator
+            v-if="paginatorTop"
+            :rows="d_rows"
+            :first="d_first"
+            :totalRecords="totalRecordsLength"
+            :pageLinkSize="pageLinkSize"
+            :template="paginatorTemplate"
+            :rowsPerPageOptions="rowsPerPageOptions"
+            :currentPageReportTemplate="currentPageReportTemplate"
+            class="p-paginator-top"
+            @page="onPage($event)"
+            :alwaysShow="alwaysShowPaginator"
+        >
+            <template v-if="$slots.paginatorstart" #start>
                 <slot name="paginatorstart"></slot>
             </template>
-            <template #end v-if="$slots.paginatorend">
+            <template v-if="$slots.paginatorend" #end>
                 <slot name="paginatorend"></slot>
             </template>
         </TTPaginator>
-        <div class="p-treetable-wrapper" :style="{maxHeight: scrollHeight}">
+        <div class="p-treetable-wrapper" :style="{ maxHeight: scrollHeight }">
             <table ref="table">
                 <thead class="p-treetable-thead">
                     <tr>
-                        <template v-for="(col,i) of columns" :key="columnProp(col, 'columnKey')||columnProp(col, 'field')||i">
-                            <TTHeaderCell v-if="!columnProp(col, 'hidden')" :column="col" :resizableColumns="resizableColumns"
-                            :sortField="d_sortField" :sortOrder="d_sortOrder" :multiSortMeta="d_multiSortMeta" :sortMode="sortMode"
-                            @column-click="onColumnHeaderClick" @column-resizestart="onColumnResizeStart"></TTHeaderCell>
+                        <template v-for="(col, i) of columns" :key="columnProp(col, 'columnKey') || columnProp(col, 'field') || i">
+                            <TTHeaderCell
+                                v-if="!columnProp(col, 'hidden')"
+                                :column="col"
+                                :resizableColumns="resizableColumns"
+                                :sortField="d_sortField"
+                                :sortOrder="d_sortOrder"
+                                :multiSortMeta="d_multiSortMeta"
+                                :sortMode="sortMode"
+                                @column-click="onColumnHeaderClick"
+                                @column-resizestart="onColumnResizeStart"
+                            ></TTHeaderCell>
                         </template>
                     </tr>
                     <tr v-if="hasColumnFilter()">
-                        <template v-for="(col,i) of columns" :key="columnProp(col, 'columnKey')||columnProp(col, 'field')||i">
-                            <th v-if="!columnProp(col, 'hidden')" :class="getFilterColumnHeaderClass(col)" :style="[columnProp(col, 'style'),columnProp(col, 'filterHeaderStyle')]">
-                                <component :is="col.children.filter" :column="col" v-if="col.children && col.children.filter"/>
+                        <template v-for="(col, i) of columns" :key="columnProp(col, 'columnKey') || columnProp(col, 'field') || i">
+                            <th v-if="!columnProp(col, 'hidden')" :class="getFilterColumnHeaderClass(col)" :style="[columnProp(col, 'style'), columnProp(col, 'filterHeaderStyle')]">
+                                <component v-if="col.children && col.children.filter" :is="col.children.filter" :column="col" />
                             </th>
                         </template>
                     </tr>
                 </thead>
                 <tbody class="p-treetable-tbody">
                     <template v-if="!empty">
-                        <TTRow v-for="node of dataToRender" :key="node.key" :columns="columns" :node="node" :level="0"
-                        :expandedKeys="d_expandedKeys" @node-toggle="onNodeToggle" :indentation="indentation"
-                        :selectionMode="selectionMode" :selectionKeys="selectionKeys" @node-click="onNodeClick" @checkbox-change="onCheckboxChange"></TTRow>
+                        <TTRow
+                            v-for="node of dataToRender"
+                            :key="node.key"
+                            :columns="columns"
+                            :node="node"
+                            :level="0"
+                            :expandedKeys="d_expandedKeys"
+                            @node-toggle="onNodeToggle"
+                            :indentation="indentation"
+                            :selectionMode="selectionMode"
+                            :selectionKeys="selectionKeys"
+                            @node-click="onNodeClick"
+                            @checkbox-change="onCheckboxChange"
+                        ></TTRow>
                     </template>
                     <tr v-else class="p-treetable-emptymessage">
                         <td :colspan="columns.length">
@@ -47,25 +77,36 @@
                         </td>
                     </tr>
                 </tbody>
-                <tfoot class="p-treetable-tfoot" v-if="hasFooter">
+                <tfoot v-if="hasFooter" class="p-treetable-tfoot">
                     <tr>
-                        <template v-for="(col,i) of columns" :key="columnProp(col, 'columnKey')||columnProp(col, 'field')||i">
+                        <template v-for="(col, i) of columns" :key="columnProp(col, 'columnKey') || columnProp(col, 'field') || i">
                             <TTFooterCell v-if="!columnProp(col, 'hidden')" :column="col"></TTFooterCell>
                         </template>
                     </tr>
                 </tfoot>
             </table>
         </div>
-        <TTPaginator v-if="paginatorBottom" :rows="d_rows" :first="d_first" :totalRecords="totalRecordsLength" :pageLinkSize="pageLinkSize" :template="paginatorTemplate" :rowsPerPageOptions="rowsPerPageOptions"
-                :currentPageReportTemplate="currentPageReportTemplate" class="p-paginator-bottom" @page="onPage($event)" :alwaysShow="alwaysShowPaginator">
-            <template #start v-if="$slots.paginatorstart">
+        <TTPaginator
+            v-if="paginatorBottom"
+            :rows="d_rows"
+            :first="d_first"
+            :totalRecords="totalRecordsLength"
+            :pageLinkSize="pageLinkSize"
+            :template="paginatorTemplate"
+            :rowsPerPageOptions="rowsPerPageOptions"
+            :currentPageReportTemplate="currentPageReportTemplate"
+            class="p-paginator-bottom"
+            @page="onPage($event)"
+            :alwaysShow="alwaysShowPaginator"
+        >
+            <template v-if="$slots.paginatorstart" #start>
                 <slot name="paginatorstart"></slot>
             </template>
-            <template #end v-if="$slots.paginatorend">
+            <template v-if="$slots.paginatorend" #end>
                 <slot name="paginatorend"></slot>
             </template>
         </TTPaginator>
-        <div class="p-treetable-footer" v-if="$slots.footer">
+        <div v-if="$slots.footer" class="p-treetable-footer">
             <slot name="footer"></slot>
         </div>
         <div ref="resizeHelper" class="p-column-resizer-helper p-highlight" style="display: none"></div>
@@ -73,8 +114,8 @@
 </template>
 
 <script>
-import {ObjectUtils,DomHandler} from 'primevue/utils';
-import {FilterService} from 'primevue/api';
+import { ObjectUtils, DomHandler } from 'primevue/utils';
+import { FilterService } from 'primevue/api';
 import TreeTableRow from './TreeTableRow.vue';
 import HeaderCell from './HeaderCell.vue';
 import FooterCell from './FooterCell.vue';
@@ -82,8 +123,23 @@ import Paginator from 'primevue/paginator';
 
 export default {
     name: 'TreeTable',
-    emits: ['node-expand', 'node-collapse', 'update:expandedKeys', 'update:selectionKeys', 'node-select', 'node-unselect',
-        'update:first', 'update:rows', 'page', 'update:sortField', 'update:sortOrder', 'update:multiSortMeta', 'sort', 'filter', 'column-resize-end'],
+    emits: [
+        'node-expand',
+        'node-collapse',
+        'update:expandedKeys',
+        'update:selectionKeys',
+        'node-select',
+        'node-unselect',
+        'update:first',
+        'update:rows',
+        'page',
+        'update:sortField',
+        'update:sortOrder',
+        'update:multiSortMeta',
+        'sort',
+        'filter',
+        'column-resize-end'
+    ],
     props: {
         value: {
             type: null,
@@ -223,7 +279,7 @@ export default {
         },
         scrollDirection: {
             type: String,
-            default: "vertical"
+            default: 'vertical'
         },
         scrollHeight: {
             type: String,
@@ -245,8 +301,8 @@ export default {
             d_rows: this.rows,
             d_sortField: this.sortField,
             d_sortOrder: this.sortOrder,
-            d_multiSortMeta: this.multiSortMeta ? [...this.multiSortMeta] : [],
-        }
+            d_multiSortMeta: this.multiSortMeta ? [...this.multiSortMeta] : []
+        };
     },
     watch: {
         expandedKeys(newValue) {
@@ -288,13 +344,12 @@ export default {
             if (this.d_expandedKeys[key]) {
                 delete this.d_expandedKeys[key];
                 this.$emit('node-collapse', node);
-            }
-            else {
+            } else {
                 this.d_expandedKeys[key] = true;
                 this.$emit('node-expand', node);
             }
 
-            this.d_expandedKeys = {...this.d_expandedKeys};
+            this.d_expandedKeys = { ...this.d_expandedKeys };
             this.$emit('update:expandedKeys', this.d_expandedKeys);
         },
         onNodeClick(event) {
@@ -308,27 +363,24 @@ export default {
         handleSelectionWithMetaKey(event) {
             const originalEvent = event.originalEvent;
             const node = event.node;
-            const metaKey = (originalEvent.metaKey||originalEvent.ctrlKey);
+            const metaKey = originalEvent.metaKey || originalEvent.ctrlKey;
             const selected = this.isNodeSelected(node);
             let _selectionKeys;
 
             if (selected && metaKey) {
                 if (this.isSingleSelectionMode()) {
                     _selectionKeys = {};
-                }
-                else {
-                    _selectionKeys = {...this.selectionKeys};
+                } else {
+                    _selectionKeys = { ...this.selectionKeys };
                     delete _selectionKeys[node.key];
                 }
 
                 this.$emit('node-unselect', node);
-            }
-            else {
+            } else {
                 if (this.isSingleSelectionMode()) {
                     _selectionKeys = {};
-                }
-                else if (this.isMultipleSelectionMode()) {
-                    _selectionKeys = !metaKey ? {} : (this.selectionKeys ? {...this.selectionKeys} : {});
+                } else if (this.isMultipleSelectionMode()) {
+                    _selectionKeys = !metaKey ? {} : this.selectionKeys ? { ...this.selectionKeys } : {};
                 }
 
                 _selectionKeys[node.key] = true;
@@ -346,22 +398,19 @@ export default {
                 if (selected) {
                     _selectionKeys = {};
                     this.$emit('node-unselect', node);
-                }
-                else {
+                } else {
                     _selectionKeys = {};
                     _selectionKeys[node.key] = true;
                     this.$emit('node-select', node);
                 }
-            }
-            else {
+            } else {
                 if (selected) {
-                    _selectionKeys = {...this.selectionKeys};
+                    _selectionKeys = { ...this.selectionKeys };
                     delete _selectionKeys[node.key];
 
                     this.$emit('node-unselect', node);
-                }
-                else {
-                    _selectionKeys = this.selectionKeys ? {...this.selectionKeys} : {};
+                } else {
+                    _selectionKeys = this.selectionKeys ? { ...this.selectionKeys } : {};
                     _selectionKeys[node.key] = true;
 
                     this.$emit('node-select', node);
@@ -373,10 +422,8 @@ export default {
         onCheckboxChange(event) {
             this.$emit('update:selectionKeys', event.selectionKeys);
 
-            if (event.check)
-                this.$emit('node-select', event.node);
-            else
-                this.$emit('node-unselect', event.node);
+            if (event.check) this.$emit('node-select', event.node);
+            else this.$emit('node-unselect', event.node);
         },
         isSingleSelectionMode() {
             return this.selectionMode === 'single';
@@ -389,6 +436,7 @@ export default {
             this.d_rows = event.rows;
 
             let pageEvent = this.createLazyLoadEvent(event);
+
             pageEvent.pageCount = event.pageCount;
             pageEvent.page = event.page;
 
@@ -401,9 +449,13 @@ export default {
             this.$emit('update:first', this.d_first);
         },
         getFilterColumnHeaderClass(column) {
-            return ['p-filter-column', this.columnProp(column, 'filterHeaderClass'), {
-                'p-frozen-column': this.columnProp(column, 'frozen')
-            }];
+            return [
+                'p-filter-column',
+                this.columnProp(column, 'filterHeaderClass'),
+                {
+                    'p-frozen-column': this.columnProp(column, 'frozen')
+                }
+            ];
         },
         onColumnHeaderClick(e) {
             let event = e.originalEvent;
@@ -413,21 +465,23 @@ export default {
                 const targetNode = event.target;
                 const columnField = this.columnProp(column, 'sortField') || this.columnProp(column, 'field');
 
-                if (DomHandler.hasClass(targetNode, 'p-sortable-column') || DomHandler.hasClass(targetNode, 'p-column-title')
-                    || DomHandler.hasClass(targetNode, 'p-sortable-column-icon') || DomHandler.hasClass(targetNode.parentElement, 'p-sortable-column-icon')) {
+                if (
+                    DomHandler.hasClass(targetNode, 'p-sortable-column') ||
+                    DomHandler.hasClass(targetNode, 'p-column-title') ||
+                    DomHandler.hasClass(targetNode, 'p-sortable-column-icon') ||
+                    DomHandler.hasClass(targetNode.parentElement, 'p-sortable-column-icon')
+                ) {
                     DomHandler.clearSelection();
 
                     if (this.sortMode === 'single') {
                         if (this.d_sortField === columnField) {
-                            if (this.removableSort && (this.d_sortOrder * -1 === this.defaultSortOrder)) {
+                            if (this.removableSort && this.d_sortOrder * -1 === this.defaultSortOrder) {
                                 this.d_sortOrder = null;
                                 this.d_sortField = null;
-                            }
-                            else {
+                            } else {
                                 this.d_sortOrder = this.d_sortOrder * -1;
                             }
-                        }
-                        else {
+                        } else {
                             this.d_sortOrder = this.defaultSortOrder;
                             this.d_sortField = columnField;
                         }
@@ -435,11 +489,11 @@ export default {
                         this.$emit('update:sortField', this.d_sortField);
                         this.$emit('update:sortOrder', this.d_sortOrder);
                         this.resetPage();
-                    }
-                    else if (this.sortMode === 'multiple') {
+                    } else if (this.sortMode === 'multiple') {
                         let metaKey = event.metaKey || event.ctrlKey;
+
                         if (!metaKey) {
-                            this.d_multiSortMeta =  this.d_multiSortMeta.filter(meta => meta.field === columnField);
+                            this.d_multiSortMeta = this.d_multiSortMeta.filter((meta) => meta.field === columnField);
                         }
 
                         this.addMultiSortField(columnField);
@@ -451,16 +505,13 @@ export default {
             }
         },
         addMultiSortField(field) {
-            let index =  this.d_multiSortMeta.findIndex(meta => meta.field === field);
+            let index = this.d_multiSortMeta.findIndex((meta) => meta.field === field);
 
             if (index >= 0) {
-                if (this.removableSort && (this.d_multiSortMeta[index].order * -1 === this.defaultSortOrder))
-                    this.d_multiSortMeta.splice(index, 1);
-                else
-                    this.d_multiSortMeta[index] = {field: field, order: this.d_multiSortMeta[index].order * -1};
-            }
-            else {
-                this.d_multiSortMeta.push({field: field, order: this.defaultSortOrder});
+                if (this.removableSort && this.d_multiSortMeta[index].order * -1 === this.defaultSortOrder) this.d_multiSortMeta.splice(index, 1);
+                else this.d_multiSortMeta[index] = { field: field, order: this.d_multiSortMeta[index].order * -1 };
+            } else {
+                this.d_multiSortMeta.push({ field: field, order: this.defaultSortOrder });
             }
 
             this.d_multiSortMeta = [...this.d_multiSortMeta];
@@ -476,18 +527,13 @@ export default {
                 const value2 = ObjectUtils.resolveFieldData(node2.data, this.d_sortField);
                 let result = null;
 
-                if (value1 == null && value2 != null)
-                    result = -1;
-                else if (value1 != null && value2 == null)
-                    result = 1;
-                else if (value1 == null && value2 == null)
-                    result = 0;
-                else if (typeof value1 === 'string' && typeof value2 === 'string')
-                    result = value1.localeCompare(value2, undefined, { numeric: true });
-                else
-                    result = (value1 < value2) ? -1 : (value1 > value2) ? 1 : 0;
+                if (value1 == null && value2 != null) result = -1;
+                else if (value1 != null && value2 == null) result = 1;
+                else if (value1 == null && value2 == null) result = 0;
+                else if (typeof value1 === 'string' && typeof value2 === 'string') result = value1.localeCompare(value2, undefined, { numeric: true });
+                else result = value1 < value2 ? -1 : value1 > value2 ? 1 : 0;
 
-                return (this.d_sortOrder * result);
+                return this.d_sortOrder * result;
             });
 
             return _nodes;
@@ -497,6 +543,7 @@ export default {
         },
         sortNodesMultiple(nodes) {
             let _nodes = [...nodes];
+
             _nodes.sort((node1, node2) => {
                 return this.multisortField(node1, node2, 0);
             });
@@ -508,32 +555,26 @@ export default {
             const value2 = ObjectUtils.resolveFieldData(node2.data, this.d_multiSortMeta[index].field);
             let result = null;
 
-            if (value1 == null && value2 != null)
-                result = -1;
-            else if (value1 != null && value2 == null)
-                result = 1;
-            else if (value1 == null && value2 == null)
-                result = 0;
+            if (value1 == null && value2 != null) result = -1;
+            else if (value1 != null && value2 == null) result = 1;
+            else if (value1 == null && value2 == null) result = 0;
             else {
-                if (value1 === value2)  {
-                    return (this.d_multiSortMeta.length - 1) > (index) ? (this.multisortField(node1, node2, index + 1)) : 0;
-                }
-                else {
-                    if ((typeof value1 === 'string' || value1 instanceof String) && (typeof value2 === 'string' || value2 instanceof String))
-                        return (this.d_multiSortMeta[index].order * value1.localeCompare(value2, undefined, { numeric: true }));
-                    else
-                        result = (value1 < value2) ? -1 : 1;
+                if (value1 === value2) {
+                    return this.d_multiSortMeta.length - 1 > index ? this.multisortField(node1, node2, index + 1) : 0;
+                } else {
+                    if ((typeof value1 === 'string' || value1 instanceof String) && (typeof value2 === 'string' || value2 instanceof String)) return this.d_multiSortMeta[index].order * value1.localeCompare(value2, undefined, { numeric: true });
+                    else result = value1 < value2 ? -1 : 1;
                 }
             }
 
-            return (this.d_multiSortMeta[index].order * result);
+            return this.d_multiSortMeta[index].order * result;
         },
         filter(value) {
             let filteredNodes = [];
             const strict = this.filterMode === 'strict';
 
             for (let node of value) {
-                let copyNode = {...node};
+                let copyNode = { ...node };
                 let localMatch = true;
                 let globalMatch = false;
 
@@ -546,11 +587,13 @@ export default {
                         let filterMatchMode = this.columnProp(col, 'filterMatchMode') || 'startsWith';
                         let filterValue = this.filters[this.columnProp(col, 'field')];
                         let filterConstraint = FilterService.filters[filterMatchMode];
-                        let paramsWithoutNode = {filterField, filterValue, filterConstraint, strict};
+                        let paramsWithoutNode = { filterField, filterValue, filterConstraint, strict };
 
-                        if ((strict && !(this.findFilteredNodes(copyNode, paramsWithoutNode) || this.isFilterMatched(copyNode, paramsWithoutNode))) ||
-                            (!strict && !(this.isFilterMatched(copyNode, paramsWithoutNode) || this.findFilteredNodes(copyNode, paramsWithoutNode)))) {
-                                localMatch = false;
+                        if (
+                            (strict && !(this.findFilteredNodes(copyNode, paramsWithoutNode) || this.isFilterMatched(copyNode, paramsWithoutNode))) ||
+                            (!strict && !(this.isFilterMatched(copyNode, paramsWithoutNode) || this.findFilteredNodes(copyNode, paramsWithoutNode)))
+                        ) {
+                            localMatch = false;
                         }
 
                         if (!localMatch) {
@@ -560,20 +603,23 @@ export default {
 
                     //global
                     if (this.hasGlobalFilter() && !globalMatch) {
-                        let copyNodeForGlobal = {...copyNode};
+                        let copyNodeForGlobal = { ...copyNode };
                         let filterValue = this.filters['global'];
                         let filterConstraint = FilterService.filters['contains'];
-                        let globalFilterParamsWithoutNode = {filterField, filterValue, filterConstraint, strict};
+                        let globalFilterParamsWithoutNode = { filterField, filterValue, filterConstraint, strict };
 
-                        if ((strict && (this.findFilteredNodes(copyNodeForGlobal, globalFilterParamsWithoutNode) || this.isFilterMatched(copyNodeForGlobal, globalFilterParamsWithoutNode))) ||
-                            (!strict && (this.isFilterMatched(copyNodeForGlobal, globalFilterParamsWithoutNode) || this.findFilteredNodes(copyNodeForGlobal, globalFilterParamsWithoutNode)))) {
-                                globalMatch = true;
-                                copyNode = copyNodeForGlobal;
+                        if (
+                            (strict && (this.findFilteredNodes(copyNodeForGlobal, globalFilterParamsWithoutNode) || this.isFilterMatched(copyNodeForGlobal, globalFilterParamsWithoutNode))) ||
+                            (!strict && (this.isFilterMatched(copyNodeForGlobal, globalFilterParamsWithoutNode) || this.findFilteredNodes(copyNodeForGlobal, globalFilterParamsWithoutNode)))
+                        ) {
+                            globalMatch = true;
+                            copyNode = copyNodeForGlobal;
                         }
                     }
                 }
 
                 let matches = localMatch;
+
                 if (this.hasGlobalFilter()) {
                     matches = localMatch && globalMatch;
                 }
@@ -584,6 +630,7 @@ export default {
             }
 
             let filterEvent = this.createLazyLoadEvent(event);
+
             filterEvent.filteredValue = filteredNodes;
             this.$emit('filter', filterEvent);
 
@@ -592,11 +639,15 @@ export default {
         findFilteredNodes(node, paramsWithoutNode) {
             if (node) {
                 let matched = false;
+
                 if (node.children) {
                     let childNodes = [...node.children];
+
                     node.children = [];
+
                     for (let childNode of childNodes) {
-                        let copyChildNode = {...childNode};
+                        let copyChildNode = { ...childNode };
+
                         if (this.isFilterMatched(copyChildNode, paramsWithoutNode)) {
                             matched = true;
                             node.children.push(copyChildNode);
@@ -609,30 +660,32 @@ export default {
                 }
             }
         },
-        isFilterMatched(node, {filterField, filterValue, filterConstraint, strict}) {
+        isFilterMatched(node, { filterField, filterValue, filterConstraint, strict }) {
             let matched = false;
             let dataFieldValue = ObjectUtils.resolveFieldData(node.data, filterField);
+
             if (filterConstraint(dataFieldValue, filterValue, this.filterLocale)) {
                 matched = true;
             }
 
             if (!matched || (strict && !this.isNodeLeaf(node))) {
-                matched = this.findFilteredNodes(node, {filterField, filterValue, filterConstraint, strict}) || matched;
+                matched = this.findFilteredNodes(node, { filterField, filterValue, filterConstraint, strict }) || matched;
             }
 
             return matched;
         },
         isNodeSelected(node) {
-            return (this.selectionMode && this.selectionKeys) ? this.selectionKeys[node.key] === true : false;
+            return this.selectionMode && this.selectionKeys ? this.selectionKeys[node.key] === true : false;
         },
         isNodeLeaf(node) {
             return node.leaf === false ? false : !(node.children && node.children.length);
         },
         createLazyLoadEvent(event) {
             let filterMatchModes;
+
             if (this.hasFilters()) {
                 filterMatchModes = {};
-                this.columns.forEach(col => {
+                this.columns.forEach((col) => {
                     if (this.columnProp(col, 'field')) {
                         filterMatchModes[col.props.field] = this.columnProp(col, 'filterMatchMode');
                     }
@@ -652,26 +705,28 @@ export default {
         },
         onColumnResizeStart(event) {
             let containerLeft = DomHandler.getOffset(this.$el).left;
+
             this.resizeColumnElement = event.target.parentElement;
             this.columnResizing = true;
-            this.lastResizeHelperX = (event.pageX - containerLeft + this.$el.scrollLeft);
+            this.lastResizeHelperX = event.pageX - containerLeft + this.$el.scrollLeft;
 
             this.bindColumnResizeEvents();
         },
         onColumnResize(event) {
             let containerLeft = DomHandler.getOffset(this.$el).left;
+
             DomHandler.addClass(this.$el, 'p-unselectable-text');
             this.$refs.resizeHelper.style.height = this.$el.offsetHeight + 'px';
             this.$refs.resizeHelper.style.top = 0 + 'px';
-            this.$refs.resizeHelper.style.left = (event.pageX - containerLeft + this.$el.scrollLeft) + 'px';
+            this.$refs.resizeHelper.style.left = event.pageX - containerLeft + this.$el.scrollLeft + 'px';
 
             this.$refs.resizeHelper.style.display = 'block';
         },
         onColumnResizeEnd() {
- let delta = this.$refs.resizeHelper.offsetLeft - this.lastResizeHelperX;
+            let delta = this.$refs.resizeHelper.offsetLeft - this.lastResizeHelperX;
             let columnWidth = this.resizeColumnElement.offsetWidth;
             let newColumnWidth = columnWidth + delta;
-            let minWidth = this.resizeColumnElement.style.minWidth||15;
+            let minWidth = this.resizeColumnElement.style.minWidth || 15;
 
             if (columnWidth + delta > parseInt(minWidth, 10)) {
                 if (this.columnResizeMode === 'fit') {
@@ -681,22 +736,19 @@ export default {
                     if (newColumnWidth > 15 && nextColumnWidth > 15) {
                         if (!this.scrollable) {
                             this.resizeColumnElement.style.width = newColumnWidth + 'px';
-                            if(nextColumn) {
+
+                            if (nextColumn) {
                                 nextColumn.style.width = nextColumnWidth + 'px';
                             }
-                        }
-                        else {
+                        } else {
                             this.resizeTableCells(newColumnWidth, nextColumnWidth);
                         }
                     }
-                }
-                else if (this.columnResizeMode === 'expand') {
+                } else if (this.columnResizeMode === 'expand') {
                     this.$refs.table.style.width = this.$refs.table.offsetWidth + delta + 'px';
 
-                    if (!this.scrollable)
-                        this.resizeColumnElement.style.width = newColumnWidth + 'px';
-                    else
-                        this.resizeTableCells(newColumnWidth);
+                    if (!this.scrollable) this.resizeColumnElement.style.width = newColumnWidth + 'px';
+                    else this.resizeTableCells(newColumnWidth);
                 }
 
                 this.$emit('column-resize-end', {
@@ -714,13 +766,16 @@ export default {
         resizeTableCells(newColumnWidth, nextColumnWidth) {
             let colIndex = DomHandler.index(this.resizeColumnElement);
             let children = this.$refs.table.children;
+
             for (let child of children) {
                 for (let row of child.children) {
                     let resizeCell = row.children[colIndex];
+
                     resizeCell.style.flex = '0 0 ' + newColumnWidth + 'px';
 
                     if (this.columnResizeMode === 'fit') {
                         let nextCell = resizeCell.nextElementSibling;
+
                         if (nextCell) {
                             nextCell.style.flex = '0 0 ' + nextColumnWidth + 'px';
                         }
@@ -731,7 +786,7 @@ export default {
         bindColumnResizeEvents() {
             if (!this.documentColumnResizeListener) {
                 this.documentColumnResizeListener = document.addEventListener('mousemove', () => {
-                    if(this.columnResizing) {
+                    if (this.columnResizing) {
                         this.onColumnResize(event);
                     }
                 });
@@ -739,13 +794,12 @@ export default {
 
             if (!this.documentColumnResizeEndListener) {
                 this.documentColumnResizeEndListener = document.addEventListener('mouseup', () => {
-                    if(this.columnResizing) {
+                    if (this.columnResizing) {
                         this.columnResizing = false;
                         this.onColumnResizeEnd();
                     }
                 });
             }
-
         },
         unbindColumnResizeEvents() {
             if (this.documentColumnResizeListener) {
@@ -755,7 +809,7 @@ export default {
 
             if (this.documentColumnResizeEndListener) {
                 document.removeEventListener('document', this.documentColumnResizeEndListener);
-                 this.documentColumnResizeEndListener = null;
+                this.documentColumnResizeEndListener = null;
             }
         },
         onColumnKeyDown(event, col) {
@@ -786,29 +840,30 @@ export default {
     },
     computed: {
         containerClass() {
-            return ['p-treetable p-component', {
-                'p-treetable-hoverable-rows': (this.rowHover || this.rowSelectionMode),
-                'p-treetable-auto-layout': this.autoLayout,
-                'p-treetable-resizable': this.resizableColumns,
-                'p-treetable-resizable-fit': this.resizableColumns && this.columnResizeMode === 'fit',
-                'p-treetable-gridlines': this.showGridlines,
-                'p-treetable-scrollable': this.scrollable,
-                'p-treetable-scrollable-vertical': this.scrollable && this.scrollDirection === 'vertical',
-                'p-treetable-scrollable-horizontal': this.scrollable && this.scrollDirection === 'horizontal',
-                'p-treetable-scrollable-both': this.scrollable && this.scrollDirection === 'both',
-                'p-treetable-flex-scrollable': (this.scrollable && this.scrollHeight === 'flex'),
-                'p-treetable-responsive-scroll': this.responsiveLayout === 'scroll',
-            }];
+            return [
+                'p-treetable p-component',
+                {
+                    'p-treetable-hoverable-rows': this.rowHover || this.rowSelectionMode,
+                    'p-treetable-auto-layout': this.autoLayout,
+                    'p-treetable-resizable': this.resizableColumns,
+                    'p-treetable-resizable-fit': this.resizableColumns && this.columnResizeMode === 'fit',
+                    'p-treetable-gridlines': this.showGridlines,
+                    'p-treetable-scrollable': this.scrollable,
+                    'p-treetable-scrollable-vertical': this.scrollable && this.scrollDirection === 'vertical',
+                    'p-treetable-scrollable-horizontal': this.scrollable && this.scrollDirection === 'horizontal',
+                    'p-treetable-scrollable-both': this.scrollable && this.scrollDirection === 'both',
+                    'p-treetable-flex-scrollable': this.scrollable && this.scrollHeight === 'flex',
+                    'p-treetable-responsive-scroll': this.responsiveLayout === 'scroll'
+                }
+            ];
         },
         columns() {
             let cols = [];
             let children = this.$slots.default();
 
-            children.forEach(child => {
-                if (child.children && child.children instanceof Array)
-                    cols = [...cols, ...child.children];
-                else if (child.type.name === 'Column')
-                    cols.push(child);
+            children.forEach((child) => {
+                if (child.children && child.children instanceof Array) cols = [...cols, ...child.children];
+                else if (child.type.name === 'Column') cols.push(child);
             });
 
             return cols;
@@ -816,16 +871,13 @@ export default {
         processedData() {
             if (this.lazy) {
                 return this.value;
-            }
-            else {
+            } else {
                 if (this.value && this.value.length) {
                     let data = this.value;
 
                     if (this.sorted) {
-                        if(this.sortMode === 'single')
-                            data = this.sortSingle(data);
-                        else if(this.sortMode === 'multiple')
-                            data = this.sortMultiple(data);
+                        if (this.sortMode === 'single') data = this.sortSingle(data);
+                        else if (this.sortMode === 'multiple') data = this.sortMultiple(data);
                     }
 
                     if (this.hasFilters()) {
@@ -833,8 +885,7 @@ export default {
                     }
 
                     return data;
-                }
-                else {
+                } else {
                     return null;
                 }
             }
@@ -844,15 +895,16 @@ export default {
 
             if (this.paginator) {
                 const first = this.lazy ? 0 : this.d_first;
+
                 return data.slice(first, first + this.d_rows);
-            }
-            else {
+            } else {
                 return data;
             }
         },
         empty() {
             const data = this.processedData;
-            return (!data || data.length === 0);
+
+            return !data || data.length === 0;
         },
         sorted() {
             return this.d_sortField || (this.d_multiSortMeta && this.d_multiSortMeta.length > 0);
@@ -861,7 +913,7 @@ export default {
             let hasFooter = false;
 
             for (let col of this.columns) {
-                if (this.columnProp(col, 'footer')|| (col.children && col.children.footer)) {
+                if (this.columnProp(col, 'footer') || (col.children && col.children.footer)) {
                     hasFooter = true;
                     break;
                 }
@@ -887,9 +939,9 @@ export default {
         totalRecordsLength() {
             if (this.lazy) {
                 return this.totalRecords;
-            }
-            else {
+            } else {
                 const data = this.processedData;
+
                 return data ? data.length : 0;
             }
         },
@@ -898,12 +950,12 @@ export default {
         }
     },
     components: {
-        'TTRow': TreeTableRow,
-        'TTPaginator': Paginator,
-        'TTHeaderCell': HeaderCell,
-        'TTFooterCell': FooterCell
+        TTRow: TreeTableRow,
+        TTPaginator: Paginator,
+        TTHeaderCell: HeaderCell,
+        TTFooterCell: FooterCell
     }
-}
+};
 </script>
 
 <style>
@@ -980,10 +1032,10 @@ export default {
     top: 0;
     right: 0;
     margin: 0;
-    width: .5rem;
+    width: 0.5rem;
     height: 100%;
     padding: 0px;
-    cursor:col-resize;
+    cursor: col-resize;
     border: 1px solid transparent;
 }
 
@@ -1058,8 +1110,7 @@ export default {
 .p-treetable-scrollable-both .p-treetable-thead > tr > th,
 .p-treetable-scrollable-both .p-treetable-tbody > tr > td,
 .p-treetable-scrollable-both .p-treetable-tfoot > tr > td,
-.p-treetable-scrollable-horizontal .p-treetable-thead > tr > th
-.p-treetable-scrollable-horizontal .p-treetable-tbody > tr > td,
+.p-treetable-scrollable-horizontal .p-treetable-thead > tr > th .p-treetable-scrollable-horizontal .p-treetable-tbody > tr > td,
 .p-treetable-scrollable-horizontal .p-treetable-tfoot > tr > td {
     flex: 0 0 auto;
 }

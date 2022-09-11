@@ -1,7 +1,6 @@
 import DomHandler from './DomHandler';
 
 export default class ConnectedOverlayScrollHandler {
-
     constructor(element, listener = () => {}) {
         this.element = element;
         this.listener = listener;
@@ -9,6 +8,7 @@ export default class ConnectedOverlayScrollHandler {
 
     bindScrollListener() {
         this.scrollableParents = DomHandler.getScrollableParents(this.element);
+
         for (let i = 0; i < this.scrollableParents.length; i++) {
             this.scrollableParents[i].addEventListener('scroll', this.listener);
         }

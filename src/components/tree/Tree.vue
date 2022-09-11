@@ -5,16 +5,26 @@
                 <i :class="loadingIconClass" />
             </div>
         </template>
-        <div class="p-tree-filter-container" v-if="filter">
-            <input type="text" autocomplete="off" class="p-tree-filter p-inputtext p-component" :placeholder="filterPlaceholder"
-                @keydown="onFilterKeydown" v-model="filterValue" />
+        <div v-if="filter" class="p-tree-filter-container">
+            <input v-model="filterValue" type="text" autocomplete="off" class="p-tree-filter p-inputtext p-component" :placeholder="filterPlaceholder" @keydown="onFilterKeydown" />
             <span class="p-tree-filter-icon pi pi-search"></span>
         </div>
-        <div class="p-tree-wrapper" :style="{maxHeight: scrollHeight}">
+        <div class="p-tree-wrapper" :style="{ maxHeight: scrollHeight }">
             <ul class="p-tree-container" role="tree">
-                <TreeNode v-for="(node, index) of valueToRender" :key="node.key" :node="node" :templates="$slots" :level="level + 1" :index="index"
-                    :expandedKeys="d_expandedKeys" @node-toggle="onNodeToggle" @node-click="onNodeClick"
-                    :selectionMode="selectionMode" :selectionKeys="selectionKeys" @checkbox-change="onCheckboxChange"></TreeNode>
+                <TreeNode
+                    v-for="(node, index) of valueToRender"
+                    :key="node.key"
+                    :node="node"
+                    :templates="$slots"
+                    :level="level + 1"
+                    :index="index"
+                    :expandedKeys="d_expandedKeys"
+                    @node-toggle="onNodeToggle"
+                    @node-click="onNodeClick"
+                    :selectionMode="selectionMode"
+                    :selectionKeys="selectionKeys"
+                    @checkbox-change="onCheckboxChange"
+                ></TreeNode>
             </ul>
         </div>
     </div>
@@ -22,7 +32,7 @@
 
 <script>
 import TreeNode from './TreeNode.vue';
-import {ObjectUtils} from 'primevue/utils';
+import { ObjectUtils } from 'primevue/utils';
 
 export default {
     name: 'Tree',
@@ -89,7 +99,7 @@ export default {
         return {
             d_expandedKeys: this.expandedKeys || {},
             filterValue: null
-        }
+        };
     },
     watch: {
         expandedKeys(newValue) {
@@ -103,13 +113,12 @@ export default {
             if (this.d_expandedKeys[key]) {
                 delete this.d_expandedKeys[key];
                 this.$emit('node-collapse', node);
-            }
-            else {
+            } else {
                 this.d_expandedKeys[key] = true;
                 this.$emit('node-expand', node);
             }
 
-            this.d_expandedKeys = {...this.d_expandedKeys};
+            this.d_expandedKeys = { ...this.d_expandedKeys };
             this.$emit('update:expandedKeys', this.d_expandedKeys);
         },
         onNodeClick(event) {
@@ -123,35 +132,30 @@ export default {
         onCheckboxChange(event) {
             this.$emit('update:selectionKeys', event.selectionKeys);
 
-            if (event.check)
-                this.$emit('node-select', event.node);
-            else
-                this.$emit('node-unselect', event.node);
+            if (event.check) this.$emit('node-select', event.node);
+            else this.$emit('node-unselect', event.node);
         },
         handleSelectionWithMetaKey(event) {
             const originalEvent = event.originalEvent;
             const node = event.node;
-            const metaKey = (originalEvent.metaKey||originalEvent.ctrlKey);
+            const metaKey = originalEvent.metaKey || originalEvent.ctrlKey;
             const selected = this.isNodeSelected(node);
             let _selectionKeys;
 
             if (selected && metaKey) {
                 if (this.isSingleSelectionMode()) {
                     _selectionKeys = {};
-                }
-                else {
-                    _selectionKeys = {...this.selectionKeys};
+                } else {
+                    _selectionKeys = { ...this.selectionKeys };
                     delete _selectionKeys[node.key];
                 }
 
                 this.$emit('node-unselect', node);
-            }
-            else {
+            } else {
                 if (this.isSingleSelectionMode()) {
                     _selectionKeys = {};
-                }
-                else if (this.isMultipleSelectionMode()) {
-                    _selectionKeys = !metaKey ? {} : (this.selectionKeys ? {...this.selectionKeys} : {});
+                } else if (this.isMultipleSelectionMode()) {
+                    _selectionKeys = !metaKey ? {} : this.selectionKeys ? { ...this.selectionKeys } : {};
                 }
 
                 _selectionKeys[node.key] = true;
@@ -169,22 +173,19 @@ export default {
                 if (selected) {
                     _selectionKeys = {};
                     this.$emit('node-unselect', node);
-                }
-                else {
+                } else {
                     _selectionKeys = {};
                     _selectionKeys[node.key] = true;
                     this.$emit('node-select', node);
                 }
-            }
-            else {
+            } else {
                 if (selected) {
-                    _selectionKeys = {...this.selectionKeys};
+                    _selectionKeys = { ...this.selectionKeys };
                     delete _selectionKeys[node.key];
 
                     this.$emit('node-unselect', node);
-                }
-                else {
-                    _selectionKeys = this.selectionKeys ? {...this.selectionKeys} : {};
+                } else {
+                    _selectionKeys = this.selectionKeys ? { ...this.selectionKeys } : {};
                     _selectionKeys[node.key] = true;
 
                     this.$emit('node-select', node);
@@ -200,10 +201,10 @@ export default {
             return this.selectionMode === 'multiple';
         },
         isNodeSelected(node) {
-            return (this.selectionMode && this.selectionKeys) ? this.selectionKeys[node.key] === true : false;
+            return this.selectionMode && this.selectionKeys ? this.selectionKeys[node.key] === true : false;
         },
         isChecked(node) {
-            return this.selectionKeys ? this.selectionKeys[node.key] && this.selectionKeys[node.key].checked: false;
+            return this.selectionKeys ? this.selectionKeys[node.key] && this.selectionKeys[node.key].checked : false;
         },
         isNodeLeaf(node) {
             return node.leaf === false ? false : !(node.children && node.children.length);
@@ -216,11 +217,15 @@ export default {
         findFilteredNodes(node, paramsWithoutNode) {
             if (node) {
                 let matched = false;
+
                 if (node.children) {
                     let childNodes = [...node.children];
+
                     node.children = [];
+
                     for (let childNode of childNodes) {
-                        let copyChildNode = {...childNode};
+                        let copyChildNode = { ...childNode };
+
                         if (this.isFilterMatched(copyChildNode, paramsWithoutNode)) {
                             matched = true;
                             node.children.push(copyChildNode);
@@ -233,17 +238,19 @@ export default {
                 }
             }
         },
-        isFilterMatched(node, {searchFields, filterText, strict}) {
+        isFilterMatched(node, { searchFields, filterText, strict }) {
             let matched = false;
-            for(let field of searchFields) {
+
+            for (let field of searchFields) {
                 let fieldValue = String(ObjectUtils.resolveFieldData(node, field)).toLocaleLowerCase(this.filterLocale);
-                if(fieldValue.indexOf(filterText) > -1) {
+
+                if (fieldValue.indexOf(filterText) > -1) {
                     matched = true;
                 }
             }
 
             if (!matched || (strict && !this.isNodeLeaf(node))) {
-                matched = this.findFilteredNodes(node, {searchFields, filterText, strict}) || matched;
+                matched = this.findFilteredNodes(node, { searchFields, filterText, strict }) || matched;
             }
 
             return matched;
@@ -251,11 +258,14 @@ export default {
     },
     computed: {
         containerClass() {
-            return ['p-tree p-component', {
-                'p-tree-selectable': this.selectionMode != null,
-                'p-tree-loading': this.loading,
-                'p-tree-flex-scrollable': this.scrollHeight === 'flex'
-            }];
+            return [
+                'p-tree p-component',
+                {
+                    'p-tree-selectable': this.selectionMode != null,
+                    'p-tree-loading': this.loading,
+                    'p-tree-flex-scrollable': this.scrollHeight === 'flex'
+                }
+            ];
         },
         loadingIconClass() {
             return ['p-tree-loading-icon pi-spin', this.loadingIcon];
@@ -267,11 +277,13 @@ export default {
             const strict = this.filterMode === 'strict';
 
             for (let node of this.value) {
-                let _node = {...node};
-                let paramsWithoutNode = {searchFields, filterText, strict};
+                let _node = { ...node };
+                let paramsWithoutNode = { searchFields, filterText, strict };
 
-                if ((strict && (this.findFilteredNodes(_node, paramsWithoutNode) || this.isFilterMatched(_node, paramsWithoutNode))) ||
-                    (!strict && (this.isFilterMatched(_node, paramsWithoutNode) || this.findFilteredNodes(_node, paramsWithoutNode)))) {
+                if (
+                    (strict && (this.findFilteredNodes(_node, paramsWithoutNode) || this.isFilterMatched(_node, paramsWithoutNode))) ||
+                    (!strict && (this.isFilterMatched(_node, paramsWithoutNode) || this.findFilteredNodes(_node, paramsWithoutNode)))
+                ) {
                     filteredNodes.push(_node);
                 }
             }
@@ -279,16 +291,14 @@ export default {
             return filteredNodes;
         },
         valueToRender() {
-            if (this.filterValue && this.filterValue.trim().length > 0)
-                return this.filteredValue;
-            else
-                return this.value;
+            if (this.filterValue && this.filterValue.trim().length > 0) return this.filteredValue;
+            else return this.value;
         }
     },
     components: {
-        'TreeNode': TreeNode
+        TreeNode: TreeNode
     }
-}
+};
 </script>
 
 <style>
@@ -347,7 +357,7 @@ export default {
 .p-tree-filter-icon {
     position: absolute;
     top: 50%;
-    margin-top: -.5rem;
+    margin-top: -0.5rem;
 }
 
 .p-tree-loading {

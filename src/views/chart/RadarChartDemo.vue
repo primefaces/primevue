@@ -14,7 +14,7 @@
             </div>
         </div>
 
-        <RadarChartDoc/>
+        <RadarChartDoc />
     </div>
 </template>
 
@@ -24,18 +24,6 @@ import EventBus from '@/AppEventBus';
 
 export default {
     themeChangeListener: null,
-    mounted() {
-        this.themeChangeListener = (event) => {
-            if (event.dark)
-                this.chartOptions = this.getDarkTheme();
-            else
-                this.chartOptions = this.getLightTheme();
-        }
-        EventBus.on('theme-change', this.themeChangeListener );
-    },
-    beforeUnmount() {
-        EventBus.off('change-theme', this.themeChangeListener );
-    },
     data() {
         return {
             chartData: {
@@ -63,8 +51,19 @@ export default {
                     }
                 ]
             },
-            chartOptions: this.isDarkTheme() ? this.getDarkTheme(): this.getLightTheme()
-        }
+            chartOptions: this.isDarkTheme() ? this.getDarkTheme() : this.getLightTheme()
+        };
+    },
+    mounted() {
+        this.themeChangeListener = (event) => {
+            if (event.dark) this.chartOptions = this.getDarkTheme();
+            else this.chartOptions = this.getLightTheme();
+        };
+
+        EventBus.on('theme-change', this.themeChangeListener);
+    },
+    beforeUnmount() {
+        EventBus.off('change-theme', this.themeChangeListener);
     },
     methods: {
         isDarkTheme() {
@@ -82,10 +81,10 @@ export default {
                 scales: {
                     r: {
                         pointLabels: {
-                            color: '#495057',
+                            color: '#495057'
                         },
                         grid: {
-                            color: '#ebedef',
+                            color: '#ebedef'
                         },
                         angleLines: {
                             color: '#ebedef'
@@ -106,10 +105,10 @@ export default {
                 scales: {
                     r: {
                         pointLabels: {
-                            color: '#ebedef',
+                            color: '#ebedef'
                         },
                         grid: {
-                            color: 'rgba(255,255,255,0.2)',
+                            color: 'rgba(255,255,255,0.2)'
                         },
                         angleLines: {
                             color: 'rgba(255,255,255,0.2)'
@@ -120,7 +119,7 @@ export default {
         }
     },
     components: {
-        'RadarChartDoc': RadarChartDoc
+        RadarChartDoc: RadarChartDoc
     }
-}
+};
 </script>

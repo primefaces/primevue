@@ -141,22 +141,22 @@ export declare type SpeedDialEmits = {
      * Fired when the button element clicked.
      * @param {Event} event - Browser event.
      */
-    'click': (event: Event) => void;
+    click: (event: Event) => void;
     /**
      * Fired when the actions are visible.
      */
-    'show': () => void;
+    show: () => void;
     /**
      * Fired when the actions are hidden.
      */
-    'hide': () => void;
-}
+    hide: () => void;
+};
 
-declare class SpeedDial extends ClassComponent<SpeedDialProps, SpeedDialSlots, SpeedDialEmits> { }
+declare class SpeedDial extends ClassComponent<SpeedDialProps, SpeedDialSlots, SpeedDialEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        SpeedDial: GlobalComponentConstructor<SpeedDial>
+        SpeedDial: GlobalComponentConstructor<SpeedDial>;
     }
 }
 

@@ -51,8 +51,8 @@ export interface CheckboxProps {
      */
     inputClass?: any | undefined;
     /**
-      * Inline style of the input field.
-      */
+     * Inline style of the input field.
+     */
     inputStyle?: any | undefined;
     /**
      * Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.
@@ -68,8 +68,7 @@ export interface CheckboxProps {
     'aria-label'?: string | undefined;
 }
 
-export interface CheckboxSlots {
-}
+export interface CheckboxSlots {}
 
 export declare type CheckboxEmits = {
     /**
@@ -81,24 +80,24 @@ export declare type CheckboxEmits = {
      * Callback to invoke on value click.
      * @param {MouseEvent} event - Browser event.
      */
-    'click': (event: MouseEvent) => void;
+    click: (event: MouseEvent) => void;
     /**
      * Callback to invoke on value change.
      * @param {Event} event - Browser event.
      */
-    'change': (event: Event) => void;
+    change: (event: Event) => void;
     /**
      * Callback to invoke on value change.
      * @param {boolean} value - New value.
      */
-    'input': (value: boolean) => void;
-}
+    input: (value: boolean) => void;
+};
 
-declare class Checkbox extends ClassComponent<CheckboxProps, CheckboxSlots, CheckboxEmits> { }
+declare class Checkbox extends ClassComponent<CheckboxProps, CheckboxSlots, CheckboxEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        Checkbox: GlobalComponentConstructor<Checkbox>
+        Checkbox: GlobalComponentConstructor<Checkbox>;
     }
 }
 

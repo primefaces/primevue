@@ -38,9 +38,48 @@ export interface RatingProps {
      * Default value is true.
      */
     cancel?: boolean | undefined;
+    /**
+     * Icon for the on state.
+     * Default value is pi pi-star.
+     */
+    onIcon?: string | undefined;
+    /**
+     * Icon for the off state.
+     * Default value is pi pi-star-fill.
+     */
+    offIcon?: string | undefined;
+    /**
+     * Icon for the cancelable state.
+     * Default value is pi pi-ban.
+     */
+    cancelIcon?: string | undefined;
 }
 
 export interface RatingSlots {
+    /**
+     * Custom cancel icon template.
+     */
+    cancelicon: () => VNode[];
+    /**
+     * Custom on icon template.
+     * @param {Object} scope - on icon slot's params.
+     */
+    onicon: (scope: {
+        /**
+         * Item value
+         */
+        value: number;
+    }) => VNode[];
+    /**
+     * Custom off icon template.
+     * @param {Object} scope - off icon slot's params.
+     */
+    officon: (scope: {
+        /**
+         * Item value
+         */
+        value: number;
+    }) => VNode[];
 }
 
 export declare type RatingEmits = {
@@ -53,14 +92,24 @@ export declare type RatingEmits = {
      * Callback to invoke when a suggestion is selected.
      * @param {RatingChangeEvent} event - Custom change event.
      */
-    'change': (event: RatingChangeEvent) => void;
-}
+    change: (event: RatingChangeEvent) => void;
+    /**
+     * Callback to invoke when the component receives focus.
+     * @param {Event} event - Browser event.
+     */
+    focus: (event: Event) => void;
+    /**
+     * Callback to invoke when the component loses focus.
+     * @param {Event} event - Browser event.
+     */
+    blur: (event: Event) => void;
+};
 
-declare class Rating extends ClassComponent<RatingProps, RatingSlots, RatingEmits> { }
+declare class Rating extends ClassComponent<RatingProps, RatingSlots, RatingEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        Rating: GlobalComponentConstructor<Rating>
+        Rating: GlobalComponentConstructor<Rating>;
     }
 }
 

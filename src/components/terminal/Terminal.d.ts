@@ -11,17 +11,15 @@ export interface TerminalProps {
     prompt?: string | undefined;
 }
 
-export interface TerminalSlots {
-}
+export interface TerminalSlots {}
 
-export declare type TerminalEmits = {
-}
+export declare type TerminalEmits = {};
 
-declare class Terminal extends ClassComponent<TerminalProps, TerminalSlots, TerminalEmits> { }
+declare class Terminal extends ClassComponent<TerminalProps, TerminalSlots, TerminalEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        Terminal: GlobalComponentConstructor<Terminal>
+        Terminal: GlobalComponentConstructor<Terminal>;
     }
 }
 

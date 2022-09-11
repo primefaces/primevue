@@ -21,7 +21,7 @@
 
             <div class="card">
                 <h5>Multi Axis</h5>
-                <Chart type="bar" :data="multiAxisData" :options="multiAxisOptions "/>
+                <Chart type="bar" :data="multiAxisData" :options="multiAxisOptions" />
             </div>
 
             <div class="card">
@@ -30,7 +30,7 @@
             </div>
         </div>
 
-        <BarChartDoc/>
+        <BarChartDoc />
     </div>
 </template>
 
@@ -40,25 +40,6 @@ import EventBus from '@/AppEventBus';
 
 export default {
     themeChangeListener: null,
-    mounted() {
-        this.themeChangeListener = (event) => {
-            if (event.dark)
-                this.applyDarkTheme();
-            else
-                this.applyLightTheme();
-        };
-        EventBus.on('theme-change', this.themeChangeListener);
-
-        if (this.isDarkTheme()) {
-            this.applyDarkTheme();
-        }
-        else {
-            this.applyLightTheme();
-        }
-    },
-    beforeUnmount() {
-        EventBus.off('change-theme', this.themeChangeListener);
-    },
     data() {
         return {
             basicData: {
@@ -78,74 +59,66 @@ export default {
             },
             multiAxisData: {
                 labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-                datasets: [{
-                    label: 'Dataset 1',
-                    backgroundColor: [
-                        '#EC407A',
-                        '#AB47BC',
-                        '#42A5F5',
-                        '#7E57C2',
-                        '#66BB6A',
-                        '#FFCA28',
-                        '#26A69A'
-                    ],
-                    yAxisID: 'y',
-                    data: [65, 59, 80, 81, 56, 55, 10]
-                }, {
-                    label: 'Dataset 2',
-                    backgroundColor: '#78909C',
-                    yAxisID: 'y1',
-                    data: [28, 48, 40, 19, 86, 27, 90]
-                }]
+                datasets: [
+                    {
+                        label: 'Dataset 1',
+                        backgroundColor: ['#EC407A', '#AB47BC', '#42A5F5', '#7E57C2', '#66BB6A', '#FFCA28', '#26A69A'],
+                        yAxisID: 'y',
+                        data: [65, 59, 80, 81, 56, 55, 10]
+                    },
+                    {
+                        label: 'Dataset 2',
+                        backgroundColor: '#78909C',
+                        yAxisID: 'y1',
+                        data: [28, 48, 40, 19, 86, 27, 90]
+                    }
+                ]
             },
             stackedData: {
                 labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-                datasets: [{
-                    type: 'bar',
-                    label: 'Dataset 1',
-                    backgroundColor: '#42A5F5',
-                    data: [
-                        50,
-                        25,
-                        12,
-                        48,
-                        90,
-                        76,
-                        42
-                    ]
-                }, {
-                    type: 'bar',
-                    label: 'Dataset 2',
-                    backgroundColor: '#66BB6A',
-                    data: [
-                        21,
-                        84,
-                        24,
-                        75,
-                        37,
-                        65,
-                        34
-                    ]
-                }, {
-                    type: 'bar',
-                    label: 'Dataset 3',
-                    backgroundColor: '#FFA726',
-                    data: [
-                        41,
-                        52,
-                        24,
-                        74,
-                        23,
-                        21,
-                        32
-                    ]
-                }]
+                datasets: [
+                    {
+                        type: 'bar',
+                        label: 'Dataset 1',
+                        backgroundColor: '#42A5F5',
+                        data: [50, 25, 12, 48, 90, 76, 42]
+                    },
+                    {
+                        type: 'bar',
+                        label: 'Dataset 2',
+                        backgroundColor: '#66BB6A',
+                        data: [21, 84, 24, 75, 37, 65, 34]
+                    },
+                    {
+                        type: 'bar',
+                        label: 'Dataset 3',
+                        backgroundColor: '#FFA726',
+                        data: [41, 52, 24, 74, 23, 21, 32]
+                    }
+                ]
             },
             basicOptions: null,
             horizontalOptions: null,
             multiAxisOptions: null,
             stackedOptions: null
+        };
+    },
+    mounted() {
+        this.themeChangeListener = (event) => {
+            if (event.dark) this.applyDarkTheme();
+            else this.applyLightTheme();
+        };
+
+        EventBus.on('theme-change', this.themeChangeListener);
+
+        if (this.isDarkTheme()) {
+            this.applyDarkTheme();
+        } else {
+            this.applyLightTheme();
         }
+    },
+    beforeUnmount() {
+        EventBus.off('change-theme', this.themeChangeListener);
     },
     methods: {
         isDarkTheme() {
@@ -435,11 +408,11 @@ export default {
                         }
                     }
                 }
-            };            
+            };
         }
     },
     components: {
-        'BarChartDoc': BarChartDoc
+        BarChartDoc: BarChartDoc
     }
-}
+};
 </script>

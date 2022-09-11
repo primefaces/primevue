@@ -37,17 +37,15 @@ export interface SkeletonProps {
     animation?: SkeletonAnimationType;
 }
 
-export interface SkeletonSlots {
-}
+export interface SkeletonSlots {}
 
-export declare type SkeletonEmits = {
-}
+export declare type SkeletonEmits = {};
 
-declare class Skeleton extends ClassComponent<SkeletonProps, SkeletonSlots, SkeletonEmits> { }
+declare class Skeleton extends ClassComponent<SkeletonProps, SkeletonSlots, SkeletonEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        Skeleton: GlobalComponentConstructor<Skeleton>
+        Skeleton: GlobalComponentConstructor<Skeleton>;
     }
 }
 

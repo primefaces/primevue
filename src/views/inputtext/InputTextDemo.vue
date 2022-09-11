@@ -11,25 +11,25 @@
         <div class="content-section implementation">
             <div class="card">
                 <h5>Basic</h5>
-                <InputText type="text" v-model="value1" />
-                <span :style="{marginLeft: '.5em'}">{{value1}}</span>
+                <InputText v-model="value1" type="text" />
+                <span :style="{ marginLeft: '.5em' }">{{ value1 }}</span>
 
                 <h5>Floating Label</h5>
                 <span class="p-float-label">
-                    <InputText id="username" type="text" v-model="value2" />
+                    <InputText id="username" v-model="value2" type="text" />
                     <label for="username">Username</label>
                 </span>
 
                 <h5>Left Icon</h5>
                 <span class="p-input-icon-left">
                     <i class="pi pi-search" />
-                    <InputText type="text" v-model="value3" placeholder="Search" />
+                    <InputText v-model="value3" type="text" placeholder="Search" />
                 </span>
 
                 <h5>Right Icon</h5>
                 <span class="p-input-icon-right">
                     <i class="pi pi-spin pi-spinner" />
-                    <InputText type="text" v-model="value4" />
+                    <InputText v-model="value4" type="text" />
                 </span>
 
                 <h5>Help Text</h5>
@@ -47,13 +47,13 @@
                 </div>
 
                 <h5>Disabled</h5>
-                <InputText type="text" v-model="value5" disabled />
+                <InputText v-model="value5" type="text" disabled />
 
                 <h5>Sizes</h5>
                 <div class="sizes">
                     <InputText type="text" class="p-inputtext-sm" placeholder="Small" />
                     <InputText type="text" placeholder="Normal" />
-                    <InputText type="text" class="p-inputtext-lg"  placeholder="Large" />
+                    <InputText type="text" class="p-inputtext-lg" placeholder="Large" />
                 </div>
             </div>
         </div>
@@ -73,19 +73,19 @@ export default {
             value3: null,
             value4: null,
             value5: 'PrimeVue'
-        }
+        };
     },
-	components: {
-		'InputTextDoc': InputTextDoc
+    components: {
+        InputTextDoc: InputTextDoc
     }
-}
+};
 </script>
 
 <style lang="scss" scoped>
 .sizes {
     .p-inputtext {
         display: block;
-        margin-bottom: .5rem;
+        margin-bottom: 0.5rem;
 
         &:last-child {
             margin-bottom: 0;

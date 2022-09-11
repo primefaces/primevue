@@ -9,8 +9,8 @@ export interface ButtonProps extends ButtonHTMLAttributes {
      */
     style?: any;
     /**
-      * Style class of the button.
-      */
+     * Style class of the button.
+     */
     class?: any;
     /**
      * Text of the button.
@@ -55,14 +55,13 @@ export interface ButtonSlots {
     default: () => VNode[];
 }
 
-export declare type ButtonEmits = {
-}
+export declare type ButtonEmits = {};
 
-declare class Button extends ClassComponent<ButtonProps, ButtonSlots, ButtonEmits> { }
+declare class Button extends ClassComponent<ButtonProps, ButtonSlots, ButtonEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        Button: GlobalComponentConstructor<Button>
+        Button: GlobalComponentConstructor<Button>;
     }
 }
 

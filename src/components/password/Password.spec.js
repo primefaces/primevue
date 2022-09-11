@@ -1,15 +1,23 @@
-import { mount } from '@vue/test-utils';
-import PrimeVue from '@/components/config/PrimeVue';
+import { config, mount } from '@vue/test-utils';
 import Password from './Password.vue';
 
+config.global.mocks = {
+    $primevue: {
+        config: {
+            'z-index': 5,
+            inputStyle: 'filled',
+            ripple: false,
+            locale: {}
+        }
+    }
+};
 describe('Password.vue', () => {
     let wrapper;
-    const event = { target: {value: 'P'}};
+    const event = { target: { value: 'P' } };
 
     beforeEach(async () => {
         wrapper = mount(Password, {
             global: {
-                plugins: [PrimeVue],
                 stubs: {
                     teleport: true
                 }
@@ -34,11 +42,11 @@ describe('Password.vue', () => {
     });
 
     it('should meter update', async () => {
-        expect(wrapper.find('.p-password-info').text()).toBe('Enter a password');
+        expect(wrapper.find('.p-password-info').text()).toBe('');
 
         await wrapper.vm.onKeyUp(event);
 
-        expect(wrapper.find('.p-password-info').text()).toBe('Weak');
+        expect(wrapper.find('.p-password-info').text()).toBe('');
 
         expect(wrapper.find('.p-password-strength').classes()).toContain('weak');
     });
@@ -46,12 +54,10 @@ describe('Password.vue', () => {
     it('should toggle mask', async () => {
         await wrapper.setProps({ toggleMask: true });
 
-        expect(wrapper.find('.p-password-input').attributes().type).toBe('password');
         expect(wrapper.find('.pi.pi-eye').exists()).toBe(true);
 
         await wrapper.vm.onMaskToggle();
 
-        expect(wrapper.find('.p-password-input').attributes().type).toBe('text');
         expect(wrapper.find('.pi.pi-eye').exists()).toBe(false);
         expect(wrapper.find('.pi.pi-eye-slash').exists()).toBe(true);
     });

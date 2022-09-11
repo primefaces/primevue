@@ -23,8 +23,7 @@ export interface ImageSlots {
     indicator: () => VNode[];
 }
 
-export declare type ImageEmits = {
-}
+export declare type ImageEmits = {};
 
 declare class Image extends ClassComponent<ImageProps, ImageSlots, ImageEmits> {
     /**
@@ -41,7 +40,7 @@ declare class Image extends ClassComponent<ImageProps, ImageSlots, ImageEmits> {
     hide: () => void;
     /**
      * Triggered when an error occurs while loading an image file.
-     * 
+     *
      * @memberof Image
      */
     error: () => void;
@@ -49,7 +48,7 @@ declare class Image extends ClassComponent<ImageProps, ImageSlots, ImageEmits> {
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        Image: GlobalComponentConstructor<Image>
+        Image: GlobalComponentConstructor<Image>;
     }
 }
 

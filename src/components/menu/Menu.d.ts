@@ -41,13 +41,10 @@ export interface MenuSlots {
      * Custom item template.
      * @param {Object} scope - item slot's params.
      */
-    item: (scope: {
-        item: MenuItem;
-    }) => VNode[];
+    item: (scope: { item: MenuItem }) => VNode[];
 }
 
-export declare type MenuEmits = {
-}
+export declare type MenuEmits = {};
 
 declare class Menu extends ClassComponent<MenuProps, MenuSlots, MenuEmits> {
     /**
@@ -74,7 +71,7 @@ declare class Menu extends ClassComponent<MenuProps, MenuSlots, MenuEmits> {
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        Menu: GlobalComponentConstructor<Menu>
+        Menu: GlobalComponentConstructor<Menu>;
     }
 }
 

@@ -1,9 +1,9 @@
 <template>
     <div :class="containerClass">
-        <div :class="displayClass" :tabindex="$attrs.tabindex||'0'" v-if="!d_active" @click="open" @keydown.enter="open">
+        <div v-if="!d_active" :class="displayClass" :tabindex="$attrs.tabindex || '0'" @click="open" @keydown.enter="open">
             <slot name="display"></slot>
         </div>
-        <div class="p-inplace-content" v-else>
+        <div v-else class="p-inplace-content">
             <slot name="content"></slot>
             <IPButton v-if="closable" icon="pi pi-times" @click="close"></IPButton>
         </div>
@@ -30,14 +30,14 @@ export default {
             default: false
         }
     },
-    watch: {
-        active(newValue) {
-            this.d_active = newValue;
-        }
-    },
     data() {
         return {
             d_active: this.active
+        };
+    },
+    watch: {
+        active(newValue) {
+            this.d_active = newValue;
         }
     },
     methods: {
@@ -58,16 +58,16 @@ export default {
     },
     computed: {
         containerClass() {
-            return ['p-inplace p-component', {'p-inplace-closable': this.closable}];
+            return ['p-inplace p-component', { 'p-inplace-closable': this.closable }];
         },
         displayClass() {
-            return ['p-inplace-display', {'p-disabled': this.disabled}];
+            return ['p-inplace-display', { 'p-disabled': this.disabled }];
         }
     },
     components: {
-        'IPButton': Button
+        IPButton: Button
     }
-}
+};
 </script>
 
 <style>

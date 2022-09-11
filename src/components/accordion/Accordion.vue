@@ -1,18 +1,35 @@
 <template>
     <div class="p-accordion p-component">
-        <div v-for="(tab,i) of tabs" :key="getKey(tab,i)" :class="getTabClass(i)" :data-index="i">
+        <div v-for="(tab, i) of tabs" :key="getKey(tab, i)" :class="getTabClass(i)" :data-index="i">
             <div :style="getTabProp(tab, 'headerStyle')" :class="getTabHeaderClass(tab, i)" v-bind="getTabProp(tab, 'headerProps')">
-                <a :id="getTabHeaderActionId(i)" class="p-accordion-header-link p-accordion-header-action" :tabindex="getTabProp(tab, 'disabled') ? -1 : tabindex"
-                    role="button" :aria-disabled="getTabProp(tab, 'disabled')" :aria-expanded="isTabActive(i)" :aria-controls="getTabContentId(i)"
-                    @click="onTabClick($event, tab, i)" @keydown="onTabKeyDown($event, tab, i)" v-bind="getTabProp(tab, 'headerActionProps')">
+                <a
+                    :id="getTabHeaderActionId(i)"
+                    class="p-accordion-header-link p-accordion-header-action"
+                    :tabindex="getTabProp(tab, 'disabled') ? -1 : tabindex"
+                    role="button"
+                    :aria-disabled="getTabProp(tab, 'disabled')"
+                    :aria-expanded="isTabActive(i)"
+                    :aria-controls="getTabContentId(i)"
+                    @click="onTabClick($event, tab, i)"
+                    @keydown="onTabKeyDown($event, tab, i)"
+                    v-bind="getTabProp(tab, 'headerActionProps')"
+                >
                     <span :class="getTabHeaderIconClass(i)" aria-hidden="true"></span>
-                    <span class="p-accordion-header-text" v-if="tab.props && tab.props.header">{{tab.props.header}}</span>
-                    <component :is="tab.children.header" v-if="tab.children && tab.children.header"></component>
+                    <span v-if="tab.props && tab.props.header" class="p-accordion-header-text">{{ tab.props.header }}</span>
+                    <component v-if="tab.children && tab.children.header" :is="tab.children.header"></component>
                 </a>
             </div>
             <transition name="p-toggleable-content">
-                <div v-if="lazy ? isTabActive(i) : true" v-show="lazy ? true: isTabActive(i)" :id="getTabContentId(i)" :style="getTabProp(tab, 'contentStyle')" :class="getTabContentClass(tab)"
-                    role="region" :aria-labelledby="getTabHeaderActionId(i)" v-bind="getTabProp(tab, 'contentProps')">
+                <div
+                    v-if="lazy ? isTabActive(i) : true"
+                    v-show="lazy ? true : isTabActive(i)"
+                    :id="getTabContentId(i)"
+                    :style="getTabProp(tab, 'contentStyle')"
+                    :class="getTabContentClass(tab)"
+                    role="region"
+                    :aria-labelledby="getTabHeaderActionId(i)"
+                    v-bind="getTabProp(tab, 'contentProps')"
+                >
                     <div class="p-accordion-content">
                         <component :is="tab"></component>
                     </div>
@@ -23,7 +40,7 @@
 </template>
 
 <script>
-import {UniqueComponentId,DomHandler} from 'primevue/utils';
+import { UniqueComponentId, DomHandler } from 'primevue/utils';
 import Ripple from 'primevue/ripple';
 
 export default {
@@ -35,7 +52,7 @@ export default {
             default: false
         },
         activeIndex: {
-            type: [Number,Array],
+            type: [Number, Array],
             default: null
         },
         lazy: {
@@ -62,7 +79,7 @@ export default {
     data() {
         return {
             d_activeIndex: this.activeIndex
-        }
+        };
     },
     watch: {
         activeIndex(newValue) {
@@ -74,7 +91,7 @@ export default {
             return child.type.name === 'AccordionTab';
         },
         isTabActive(index) {
-            return this.multiple ? (this.d_activeIndex && this.d_activeIndex.includes(index)) : this.d_activeIndex === index;
+            return this.multiple ? this.d_activeIndex && this.d_activeIndex.includes(index) : this.d_activeIndex === index;
         },
         getTabProp(tab, name) {
             return tab.props ? tab.props[name] : undefined;
@@ -173,16 +190,12 @@ export default {
 
                 if (this.multiple) {
                     if (active) {
-                        this.d_activeIndex = this.d_activeIndex.filter(i => i !== index);
+                        this.d_activeIndex = this.d_activeIndex.filter((i) => i !== index);
+                    } else {
+                        if (this.d_activeIndex) this.d_activeIndex.push(index);
+                        else this.d_activeIndex = [index];
                     }
-                    else {
-                        if (this.d_activeIndex)
-                            this.d_activeIndex.push(index);
-                        else
-                            this.d_activeIndex = [index];
-                    }
-                }
-                else {
+                } else {
                     this.d_activeIndex = this.d_activeIndex === index ? null : index;
                 }
 
@@ -203,15 +216,22 @@ export default {
             }
         },
         getTabClass(i) {
-            return ['p-accordion-tab', {
-                'p-accordion-tab-active': this.isTabActive(i)
-            }];
+            return [
+                'p-accordion-tab',
+                {
+                    'p-accordion-tab-active': this.isTabActive(i)
+                }
+            ];
         },
         getTabHeaderClass(tab, i) {
-            return ['p-accordion-header', this.getTabProp(tab, 'headerClass'), {
-                'p-highlight': this.isTabActive(i),
-                'p-disabled': this.getTabProp(tab, 'disabled')
-            }];
+            return [
+                'p-accordion-header',
+                this.getTabProp(tab, 'headerClass'),
+                {
+                    'p-highlight': this.isTabActive(i),
+                    'p-disabled': this.getTabProp(tab, 'disabled')
+                }
+            ];
         },
         getTabHeaderIconClass(i) {
             return ['p-accordion-toggle-icon pi', this.isTabActive(i) ? this.collapseIcon : this.expandIcon];
@@ -225,9 +245,8 @@ export default {
             return this.$slots.default().reduce((tabs, child) => {
                 if (this.isAccordionTab(child)) {
                     tabs.push(child);
-                }
-                else if (child.children && child.children instanceof Array) {
-                    child.children.forEach(nestedChild => {
+                } else if (child.children && child.children instanceof Array) {
+                    child.children.forEach((nestedChild) => {
                         if (this.isAccordionTab(nestedChild)) {
                             tabs.push(nestedChild);
                         }
@@ -242,9 +261,9 @@ export default {
         }
     },
     directives: {
-        'ripple': Ripple
+        ripple: Ripple
     }
-}
+};
 </script>
 
 <style>

@@ -49,8 +49,7 @@ export interface ContextMenuSlots {
     }) => VNode[];
 }
 
-export declare type ContextMenuEmits = {
-}
+export declare type ContextMenuEmits = {};
 
 declare class ContextMenu extends ClassComponent<ContextMenuProps, ContextMenuSlots, ContextMenuEmits> {
     /**
@@ -77,7 +76,7 @@ declare class ContextMenu extends ClassComponent<ContextMenuProps, ContextMenuSl
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        ContextMenu: GlobalComponentConstructor<ContextMenu>
+        ContextMenu: GlobalComponentConstructor<ContextMenu>;
     }
 }
 

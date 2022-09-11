@@ -16,5 +16,5 @@ export default {
         contentProps: null,
         disabled: Boolean
     }
-}
+};
 </script>

@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import {DomHandler,ZIndexUtils} from 'primevue/utils';
+import { DomHandler, ZIndexUtils } from 'primevue/utils';
 
 export default {
     name: 'BlockUI',
@@ -29,22 +29,21 @@ export default {
         }
     },
     mask: null,
+    watch: {
+        blocked(newValue) {
+            if (newValue === true) this.block();
+            else this.unblock();
+        }
+    },
     mounted() {
         if (this.blocked) {
             this.block();
         }
     },
-    watch: {
-        blocked(newValue) {
-            if (newValue === true)
-                this.block();
-            else
-                this.unblock();
-        }
-    },
     methods: {
         block() {
             let styleClass = 'p-blockui p-component-overlay p-component-overlay-enter';
+
             if (this.fullScreen) {
                 styleClass += ' p-blockui-document';
                 this.mask = document.createElement('div');
@@ -52,8 +51,7 @@ export default {
                 document.body.appendChild(this.mask);
                 DomHandler.addClass(document.body, 'p-overflow-hidden');
                 document.activeElement.blur();
-            }
-            else {
+            } else {
                 this.mask = document.createElement('div');
                 this.mask.setAttribute('class', styleClass);
                 this.$refs.container.appendChild(this.mask);
@@ -73,18 +71,18 @@ export default {
         },
         removeMask() {
             ZIndexUtils.clear(this.mask);
-             if (this.fullScreen) {
+
+            if (this.fullScreen) {
                 document.body.removeChild(this.mask);
                 DomHandler.removeClass(document.body, 'p-overflow-hidden');
-            }
-            else {
+            } else {
                 this.$refs.container.removeChild(this.mask);
             }
 
             this.$emit('unblock');
         }
     }
-}
+};
 </script>
 
 <style>

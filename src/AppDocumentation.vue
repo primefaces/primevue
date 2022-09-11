@@ -21,6 +21,7 @@ export default {
         this.viewGithubListener = () => {
             window.open('https://github.com/primefaces/primevue/blob/master/src/views/' + this.github, '_blank');
         };
+
         EventBus.on('view-github', this.viewGithubListener);
     },
     beforeUnmount() {
@@ -43,36 +44,36 @@ export default {
             if (this.service) {
                 let serviceArr = [];
 
-                this.service.forEach(el => {
-                    serviceArr.push(el.split(','))
-                })
+                this.service.forEach((el) => {
+                    serviceArr.push(el.split(','));
+                });
                 /* eslint-disable */
                 serviceArr.forEach((el, i) => {
                     tabs.push(
                         <TabPanel key={el} header={`${el}.js`}>
-                            <pre v-code="script"><code>
-                                {services[el]}
-                            </code></pre>
+                            <pre v-code="script">
+                                <code>{services[el]}</code>
+                            </pre>
                         </TabPanel>
                     );
-                })
+                });
             }
 
             if (this.data) {
                 let dataArr = [];
 
-                this.data.forEach(el => {
-                    dataArr.push(el.split(','))
-                })
+                this.data.forEach((el) => {
+                    dataArr.push(el.split(','));
+                });
 
                 dataArr.forEach((el, i) => {
                     tabs.push(
                         <TabPanel key={`${el}_i`} header={`${el}.json`}>
-                            <pre v-code="script" style={{maxHeight: '500px'}}><code>
-                                {data[el]}
-                            </code></pre>
+                            <pre v-code="script" style={{ maxHeight: '500px' }}>
+                                <code>{data[el]}</code>
+                            </pre>
                         </TabPanel>
-                    )
+                    );
                 });
             }
 
@@ -107,31 +108,35 @@ export default {
         ${source.content.replace('<\\/script>', '<\/script>')}
     </body>
 </html>
-                `
+                `;
             }
             return source.content.replace('<\\/script>', '<\/script>');
         },
         renderSource(sourceType, tabs) {
             if (this.sources && this.sources[sourceType]) {
                 let extFiles = this.extFiles ? this.extFiles[sourceType] || this.extFiles : null;
-                extFiles = extFiles && Object.entries(extFiles).map(([key, value], i) => {
-                    if (key === 'index.css' || !value.content) {
-                        return null;
-                    }
+                extFiles =
+                    extFiles &&
+                    Object.entries(extFiles).map(([key, value], i) => {
+                        if (key === 'index.css' || !value.content) {
+                            return null;
+                        }
 
-                    return (
-                        <pre v-code><code>
-                            {`\n/* ${key.replace('src/components/', '')} */\n`}
-                            {this.renderContent(value)}
-                        </code></pre>
-                    )
-                });
+                        return (
+                            <pre v-code>
+                                <code>
+                                    {`\n/* ${key.replace('src/components/', '')} */\n`}
+                                    {this.renderContent(value)}
+                                </code>
+                            </pre>
+                        );
+                    });
 
                 tabs.push(
                     <TabPanel key={sourceType} header={this.sources[sourceType].tabName}>
-                        <pre v-code><code>
-                            {this.renderContent(this.sources[sourceType])}
-                        </code></pre>
+                        <pre v-code>
+                            <code>{this.renderContent(this.sources[sourceType])}</code>
+                        </pre>
                         {extFiles}
                     </TabPanel>
                 );
@@ -142,13 +147,9 @@ export default {
         return (
             <div class="content-section documentation" id="app-doc">
                 <LiveEditor name={this.name} sources={this.sources} service={this.service} data={this.data} dependencies={this.dependencies} extPages={this.extPages} extFiles={this.extFiles} component={this.component} />
-                <TabView>
-                    {
-                        this.renderPanels()
-                    }
-                </TabView>
+                <TabView>{this.renderPanels()}</TabView>
             </div>
         );
     }
-}
+};
 </script>

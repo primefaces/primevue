@@ -49,8 +49,7 @@ export interface TieredMenuSlots {
     }) => VNode[];
 }
 
-export declare type TieredMenuEmits = {
-}
+export declare type TieredMenuEmits = {};
 
 declare class TieredMenu extends ClassComponent<TieredMenuProps, TieredMenuSlots, TieredMenuEmits> {
     /**
@@ -77,7 +76,7 @@ declare class TieredMenu extends ClassComponent<TieredMenuProps, TieredMenuSlots
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        TieredMenu: GlobalComponentConstructor<TieredMenu>
+        TieredMenu: GlobalComponentConstructor<TieredMenu>;
     }
 }
 

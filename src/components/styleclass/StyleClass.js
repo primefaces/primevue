@@ -1,22 +1,18 @@
-import {DomHandler} from 'primevue/utils';
+import { DomHandler } from 'primevue/utils';
 
 function bind(el, binding) {
     el.$_pstyleclass_clicklistener = () => {
         const target = resolveTarget(el, binding);
 
         if (binding.value.toggleClass) {
-            if (DomHandler.hasClass(target, binding.value.toggleClass))
-                DomHandler.removeClass(target, binding.value.toggleClass);
-            else
-                DomHandler.addClass(target, binding.value.toggleClass);
-        }
-        else {
-            if (target.offsetParent === null)
-                enter(target, el, binding);
-            else 
-                leave(target, binding);
+            if (DomHandler.hasClass(target, binding.value.toggleClass)) DomHandler.removeClass(target, binding.value.toggleClass);
+            else DomHandler.addClass(target, binding.value.toggleClass);
+        } else {
+            if (target.offsetParent === null) enter(target, el, binding);
+            else leave(target, binding);
         }
     };
+
     el.addEventListener('click', el.$_pstyleclass_clicklistener);
 }
 
@@ -43,28 +39,30 @@ function enter(target, el, binding) {
             }
 
             DomHandler.addClass(target, binding.value.enterActiveClass);
+
             if (binding.value.enterClass) {
                 DomHandler.removeClass(target, binding.value.enterClass);
             }
 
             target.$p_styleclass_enterlistener = () => {
                 DomHandler.removeClass(target, binding.value.enterActiveClass);
+
                 if (binding.value.enterToClass) {
                     DomHandler.addClass(target, binding.value.enterToClass);
                 }
+
                 target.removeEventListener('animationend', target.$p_styleclass_enterlistener);
-            
+
                 if (binding.value.enterActiveClass === 'slidedown') {
                     target.style.maxHeight = '';
                 }
-        
+
                 target.$_pstyleclass_animating = false;
             };
-            
+
             target.addEventListener('animationend', target.$p_styleclass_enterlistener);
         }
-    }
-    else {
+    } else {
         if (binding.value.enterClass) {
             DomHandler.removeClass(target, binding.value.enterClass);
         }
@@ -84,23 +82,25 @@ function leave(target, binding) {
         if (!target.$_pstyleclass_animating) {
             target.$_pstyleclass_animating = true;
             DomHandler.addClass(target, binding.value.leaveActiveClass);
+
             if (binding.value.leaveClass) {
                 DomHandler.removeClass(target, binding.value.leaveClass);
             }
 
             target.$p_styleclass_leavelistener = () => {
                 DomHandler.removeClass(target, binding.value.leaveActiveClass);
+
                 if (binding.value.leaveToClass) {
                     DomHandler.addClass(target, binding.value.leaveToClass);
                 }
+
                 target.removeEventListener('animationend', target.$p_styleclass_leavelistener);
                 target.$_pstyleclass_animating = false;
             };
 
             target.addEventListener('animationend', target.$p_styleclass_leavelistener);
         }
-    }
-    else {
+    } else {
         if (binding.value.leaveClass) {
             DomHandler.removeClass(target, binding.value.leaveClass);
         }
@@ -139,13 +139,11 @@ function bindDocumentListener(target, el, binding) {
         target.$p_styleclass_documentlistener = (event) => {
             if (!isVisible(target) || getComputedStyle(target).getPropertyValue('position') === 'static') {
                 unbindDocumentListener(target);
-            }
-
-            else if (isOutsideClick(event, target, el)) {
+            } else if (isOutsideClick(event, target, el)) {
                 leave(target, binding);
             }
-        }
-        
+        };
+
         target.ownerDocument.addEventListener('click', target.$p_styleclass_documentlistener);
     }
 }

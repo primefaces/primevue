@@ -90,14 +90,13 @@ export interface TimelineSlots {
     }) => VNode[];
 }
 
-export declare type TimelineEmits = {
-}
+export declare type TimelineEmits = {};
 
-declare class Timeline extends ClassComponent<TimelineProps, TimelineSlots, TimelineEmits> { }
+declare class Timeline extends ClassComponent<TimelineProps, TimelineSlots, TimelineEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        Timeline: GlobalComponentConstructor<Timeline>
+        Timeline: GlobalComponentConstructor<Timeline>;
     }
 }
 

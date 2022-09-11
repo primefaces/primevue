@@ -1,16 +1,16 @@
 <template>
-	<div>
-		<div class="content-section introduction">
-			<div class="feature-intro">
-				<h1>DataTable <span>Export</span></h1>
-				<p>DataTable can export its data to CSV format.</p>
-			</div>
+    <div>
+        <div class="content-section introduction">
+            <div class="feature-intro">
+                <h1>DataTable <span>Export</span></h1>
+                <p>DataTable can export its data to CSV format.</p>
+            </div>
             <AppDemoActions />
-		</div>
+        </div>
 
-		<div class="content-section implementation">
+        <div class="content-section implementation">
             <div class="card">
-                <DataTable :value="products" ref="dt" responsiveLayout="scroll">
+                <DataTable ref="dt" :value="products" responsiveLayout="scroll">
                     <template #header>
                         <div style="text-align: left">
                             <Button icon="pi pi-external-link" label="Export" @click="exportCSV($event)" />
@@ -22,10 +22,10 @@
                     <Column field="quantity" header="Quantity"></Column>
                 </DataTable>
             </div>
-		</div>
-        
+        </div>
+
         <AppDoc name="DataTableExportDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="datatable/DataTableExportDemo.vue" />
-	</div>
+    </div>
 </template>
 
 <script>
@@ -173,19 +173,19 @@ export default {
 `
                 }
             }
-        }
+        };
     },
     productService: null,
     created() {
         this.productService = new ProductService();
     },
     mounted() {
-        this.productService.getProductsSmall().then(data => this.products = data);
+        this.productService.getProductsSmall().then((data) => (this.products = data));
     },
     methods: {
         exportCSV() {
             this.$refs.dt.exportCSV();
         }
     }
-}
+};
 </script>

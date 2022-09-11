@@ -13,21 +13,21 @@
                 <div class="p-fluid grid">
                     <div class="field col-12 md:col-4">
                         <span class="p-float-label">
-                            <InputText id="inputtext" type="text" v-model="value1" />
+                            <InputText id="inputtext" v-model="value1" type="text" />
                             <label for="inputtext">InputText</label>
                         </span>
                     </div>
                     <div class="field col-12 md:col-4">
                         <span class="p-float-label p-input-icon-left">
                             <i class="pi pi-search" />
-                            <InputText id="inputtext-left" type="text" v-model="valueIconLeft" />
+                            <InputText id="inputtext-left" v-model="valueIconLeft" type="text" />
                             <label for="inputtext-left">Left Icon</label>
                         </span>
                     </div>
                     <div class="field col-12 md:col-4">
                         <span class="p-float-label p-input-icon-right">
                             <i class="pi pi-search" />
-                            <InputText id="inputtext-right" type="text" v-model="valueIconRight" />
+                            <InputText id="inputtext-right" v-model="valueIconRight" type="text" />
                             <label for="inputtext-right">Right Icon</label>
                         </span>
                     </div>
@@ -67,15 +67,14 @@
                                 <i class="pi pi-user"></i>
                             </span>
                             <span class="p-float-label">
-                                <InputText id="inputgroup" type="text" v-model="value7" />
+                                <InputText id="inputgroup" v-model="value7" type="text" />
                                 <label for="inputgroup">InputGroup</label>
                             </span>
                         </div>
                     </div>
                     <div class="field col-12 md:col-4">
                         <span class="p-float-label">
-                            <CascadeSelect id="cascadeSelect" v-model="selectedCity" :options="cascadeCountries" optionLabel="cname" optionGroupLabel="name"
-                                :optionGroupChildren="['states', 'cities']" />
+                            <CascadeSelect id="cascadeSelect" v-model="selectedCity" :options="cascadeCountries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" />
                             <label for="multiselect">CascadeSelect</label>
                         </span>
                     </div>
@@ -127,11 +126,11 @@ export default {
             countries: null,
             filteredCountries: null,
             cities: [
-                {name: 'New York', code: 'NY'},
-                {name: 'Rome', code: 'RM'},
-                {name: 'London', code: 'LDN'},
-                {name: 'Istanbul', code: 'IST'},
-                {name: 'Paris', code: 'PRS'}
+                { name: 'New York', code: 'NY' },
+                { name: 'Rome', code: 'RM' },
+                { name: 'London', code: 'LDN' },
+                { name: 'Istanbul', code: 'IST' },
+                { name: 'Paris', code: 'PRS' }
             ],
             value1: null,
             value2: null,
@@ -157,40 +156,38 @@ export default {
                         {
                             name: 'New South Wales',
                             cities: [
-                                {cname: 'Sydney', code: 'A-SY'},
-                                {cname: 'Newcastle', code: 'A-NE'},
-                                {cname: 'Wollongong', code: 'A-WO'}
+                                { cname: 'Sydney', code: 'A-SY' },
+                                { cname: 'Newcastle', code: 'A-NE' },
+                                { cname: 'Wollongong', code: 'A-WO' }
                             ]
                         },
                         {
                             name: 'Queensland',
                             cities: [
-                                {cname: 'Brisbane', code: 'A-BR'},
-                                {cname: 'Townsville', code: 'A-TO'}
+                                { cname: 'Brisbane', code: 'A-BR' },
+                                { cname: 'Townsville', code: 'A-TO' }
                             ]
-                        },
-                        
+                        }
                     ]
                 },
                 {
-                    name: 'Canada', 
+                    name: 'Canada',
                     code: 'CA',
                     states: [
                         {
                             name: 'Quebec',
                             cities: [
-                                {cname: 'Montreal', code: 'C-MO'},
-                                {cname: 'Quebec City', code: 'C-QU'}
+                                { cname: 'Montreal', code: 'C-MO' },
+                                { cname: 'Quebec City', code: 'C-QU' }
                             ]
                         },
                         {
                             name: 'Ontario',
                             cities: [
-                                {cname: 'Ottawa', code: 'C-OT'},
-                                {cname: 'Toronto', code: 'C-TO'}
+                                { cname: 'Ottawa', code: 'C-OT' },
+                                { cname: 'Toronto', code: 'C-TO' }
                             ]
-                        },
-                        
+                        }
                     ]
                 },
                 {
@@ -200,26 +197,26 @@ export default {
                         {
                             name: 'California',
                             cities: [
-                                {cname: 'Los Angeles', code: 'US-LA'},
-                                {cname: 'San Diego', code: 'US-SD'},
-                                {cname: 'San Francisco', code: 'US-SF'}
+                                { cname: 'Los Angeles', code: 'US-LA' },
+                                { cname: 'San Diego', code: 'US-SD' },
+                                { cname: 'San Francisco', code: 'US-SF' }
                             ]
                         },
                         {
                             name: 'Florida',
                             cities: [
-                                {cname: 'Jacksonville', code: 'US-JA'},
-                                {cname: 'Miami', code: 'US-MI'},
-                                {cname: 'Tampa', code: 'US-TA'},
-                                {cname: 'Orlando', code: 'US-OR'}
+                                { cname: 'Jacksonville', code: 'US-JA' },
+                                { cname: 'Miami', code: 'US-MI' },
+                                { cname: 'Tampa', code: 'US-TA' },
+                                { cname: 'Orlando', code: 'US-OR' }
                             ]
                         },
                         {
                             name: 'Texas',
                             cities: [
-                                {cname: 'Austin', code: 'US-AU'},
-                                {cname: 'Dallas', code: 'US-DA'},
-                                {cname: 'Houston', code: 'US-HO'}
+                                { cname: 'Austin', code: 'US-AU' },
+                                { cname: 'Dallas', code: 'US-DA' },
+                                { cname: 'Houston', code: 'US-HO' }
                             ]
                         }
                     ]
@@ -991,7 +988,7 @@ export default {
 `
                 }
             }
-        }
+        };
     },
     countryService: null,
     nodeService: null,
@@ -1000,16 +997,15 @@ export default {
         this.nodeService = new NodeService();
     },
     mounted() {
-        this.countryService.getCountries().then(data => this.countries = data);
-        this.nodeService.getTreeNodes().then(data => this.nodes = data);
+        this.countryService.getCountries().then((data) => (this.countries = data));
+        this.nodeService.getTreeNodes().then((data) => (this.nodes = data));
     },
     methods: {
         searchCountry(event) {
             setTimeout(() => {
                 if (!event.query.trim().length) {
                     this.filteredCountries = [...this.countries];
-                }
-                else {
+                } else {
                     this.filteredCountries = this.countries.filter((country) => {
                         return country.name.toLowerCase().startsWith(event.query.toLowerCase());
                     });
@@ -1017,7 +1013,7 @@ export default {
             }, 250);
         }
     }
-}
+};
 </script>
 
 <style lang="scss" scoped>

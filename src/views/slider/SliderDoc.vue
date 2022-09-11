@@ -1,34 +1,34 @@
 <template>
-	<AppDoc name="SliderDemo" :sources="sources" github="slider/SliderDemo.vue" >
+    <AppDoc name="SliderDemo" :sources="sources" github="slider/SliderDemo.vue">
         <h5>Import via Module</h5>
-<pre v-code.script><code>
+        <pre v-code.script><code>
 import Slider from 'primevue/slider';
 
 </code></pre>
 
         <h5>Import via CDN</h5>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/slider/slider.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-		<h5>Getting Started</h5>
-		<p>Two-way binding is defined using the standard v-model directive.</p>
-<pre v-code><code>
+        <h5>Getting Started</h5>
+        <p>Two-way binding is defined using the standard v-model directive.</p>
+        <pre v-code><code>
 &lt;Slider v-model="value" /&gt;
 
 </code></pre>
 
-		<h5>Range</h5>
-		<p>Range slider provides two handles to define two values. Enable <i>range</i> property and bind an array to implement a range slider.</p>
+        <h5>Range</h5>
+        <p>Range slider provides two handles to define two values. Enable <i>range</i> property and bind an array to implement a range slider.</p>
 
-<pre v-code><code>
+        <pre v-code><code>
 &lt;Slider v-model="value" :range="true" /&gt;
 
 </code></pre>
 
-<pre v-code.script><code>
+        <pre v-code.script><code>
 export default {
 	data() {
 		return {
@@ -39,40 +39,40 @@ export default {
 
 </code></pre>
 
-		<h5>Orientation</h5>
-		<p>Default layout of slider is horizontal, use <i>orientation</i> property for the alternative vertical mode.</p>
-<pre v-code><code>
+        <h5>Orientation</h5>
+        <p>Default layout of slider is horizontal, use <i>orientation</i> property for the alternative vertical mode.</p>
+        <pre v-code><code>
 &lt;Slider v-model="value" orientation="vertical" /&gt;
 
 </code></pre>
 
-		<h5>Step</h5>
-		<p>Step factor is 1 by default and can be customized with <i>step</i> option.</p>
-<pre v-code><code>
+        <h5>Step</h5>
+        <p>Step factor is 1 by default and can be customized with <i>step</i> option.</p>
+        <pre v-code><code>
 &lt;Slider v-model="value" :step="20" /&gt;
 
 </code></pre>
 
-		<h5>Min-Max</h5>
-		<p>Boundaries are specified with min and max attributes.</p>
-<pre v-code><code>
+        <h5>Min-Max</h5>
+        <p>Boundaries are specified with min and max attributes.</p>
+        <pre v-code><code>
 &lt;Slider v-model="value" :step="20" :min="50" :max="200" /&gt;
 
 </code></pre>
 
-		<h5>Properties</h5>
+        <h5>Properties</h5>
         <p>Any valid attribute is passed to the root element implicitly, extended properties are as follows;</p>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Type</th>
                         <th>Default</th>
                         <th>Description</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>modelValue</td>
                         <td>number</td>
@@ -121,48 +121,49 @@ export default {
                         <td>null</td>
                         <td>Index of the element in tabbing order.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
-		<h5>Events</h5>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <h5>Events</h5>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Parameters</th>
                         <th>Description</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>change</td>
-                        <td>value: Selected option value </td>
+                        <td>value: Selected option value</td>
                         <td>Callback to invoke on value change.</td>
                     </tr>
                     <tr>
                         <td>slideend</td>
-                        <td>event.originalEvent: Original event <br />
+                        <td>
+                            event.originalEvent: Original event <br />
                             event.value: New value.
                         </td>
                         <td>Callback to invoke when slide ends.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
-		<h5>Styling</h5>
-		<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <h5>Styling</h5>
+        <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Element</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>p-slider</td>
                         <td>Container element</td>
@@ -171,16 +172,18 @@ export default {
                         <td>p-slider-handle</td>
                         <td>Handle element.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
         <h5>Accessibility</h5>
         <h6>Screen Reader</h6>
-        <p>Slider element component uses <i>slider</i> role on the handle in addition to the <i>aria-orientation</i>, <i>aria-valuemin</i>, <i>aria-valuemax</i> and <i>aria-valuenow</i> attributes. Value to describe the component can be defined using
-        <i>aria-labelledby</i> and <i>aria-label</i> props.</p>
+        <p>
+            Slider element component uses <i>slider</i> role on the handle in addition to the <i>aria-orientation</i>, <i>aria-valuemin</i>, <i>aria-valuemax</i> and <i>aria-valuenow</i> attributes. Value to describe the component can be defined
+            using <i>aria-labelledby</i> and <i>aria-label</i> props.
+        </p>
 
-<pre v-code><code>
+        <pre v-code><code>
 &lt;span id="label_number"&gt;Number&lt;/span&gt;
 &lt;Slider aria-labelledby="label_number" /&gt;
 
@@ -240,8 +243,8 @@ export default {
             </table>
         </div>
 
-		<h5>Dependencies</h5>
-		<p>None.</p>
+        <h5>Dependencies</h5>
+        <p>None.</p>
     </AppDoc>
 </template>
 
@@ -411,7 +414,7 @@ export default {
         </style>`
                 }
             }
-        }
+        };
     }
-}
+};
 </script>

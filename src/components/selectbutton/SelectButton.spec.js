@@ -25,7 +25,6 @@ describe('SelectButton.vue', () => {
 
         await wrapper.setProps({ modelValue: wrapper.vm.options[0] });
 
-        expect(wrapper.findAll('.p-button.p-component')[0].attributes()['aria-pressed']).toBe('true');
         expect(wrapper.findAll('.p-button.p-component')[0].classes()).toContain('p-highlight');
     });
 });
@@ -38,9 +37,9 @@ describe('multiple select', () => {
             props: {
                 modelValue: null,
                 options: [
-                    {name: 'Option 1', value: 1},
-                    {name: 'Option 2', value: 2},
-                    {name: 'Option 3', value: 3}
+                    { name: 'Option 1', value: 1 },
+                    { name: 'Option 2', value: 2 },
+                    { name: 'Option 3', value: 3 }
                 ],
                 optionLabel: 'name',
                 multiple: true

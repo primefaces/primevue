@@ -112,14 +112,14 @@ export declare type EditorEmits = {
      * Callback to invoke when the quill modules are loaded.
      * @param {EditorLoadEvent} event - Custom load event.
      */
-    'load': (event: EditorLoadEvent) => void;
-}
+    load: (event: EditorLoadEvent) => void;
+};
 
-declare class Editor extends ClassComponent<EditorProps, EditorSlots, EditorEmits> { }
+declare class Editor extends ClassComponent<EditorProps, EditorSlots, EditorEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        Editor: GlobalComponentConstructor<Editor>
+        Editor: GlobalComponentConstructor<Editor>;
     }
 }
 

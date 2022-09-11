@@ -1,15 +1,15 @@
 <template>
-	<AppDoc name="ChartDemo" :sources="sources" :dependencies="{'chart.js': '3.3.2'}" component="Chart" github="chart/DoughnutChartDemo.vue" />
+    <AppDoc name="ChartDemo" :sources="sources" :dependencies="{ 'chart.js': '3.3.2' }" component="Chart" github="chart/DoughnutChartDemo.vue" />
 </template>
 
 <script>
 export default {
-	data() {
-		return {
-			sources: {
-				'options-api': {
-					tabName :'Source',
-					content: `
+    data() {
+        return {
+            sources: {
+                'options-api': {
+                    tabName: 'Source',
+                    content: `
 <template>
     <div>
         <Chart type="doughnut" :data="chartData" :options="lightOptions" />
@@ -44,10 +44,10 @@ export default {
 }
 <\\/script>
 `
-				},
-				'composition-api': {
-					tabName :'Composition API',
-					content: `
+                },
+                'composition-api': {
+                    tabName: 'Composition API',
+                    content: `
 <template>
     <div>
         <Chart type="doughnut" :data="chartData" :options="lightOptions" />
@@ -85,9 +85,9 @@ export default {
 }
 <\\/script>
 `
-				}
-			}
-		}
-	}
-}
+                }
+            }
+        };
+    }
+};
 </script>

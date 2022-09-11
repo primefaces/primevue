@@ -32,8 +32,8 @@ export default {
     data() {
         return {
             images: null,
-			responsiveOptions: [
-				{
+            responsiveOptions: [
+                {
                     breakpoint: '1024px',
                     numVisible: 5
                 },
@@ -45,18 +45,18 @@ export default {
                     breakpoint: '560px',
                     numVisible: 1
                 }
-			]
-        }
+            ]
+        };
     },
     galleriaService: null,
-	created() {
-		this.galleriaService = new PhotoService();
-	},
-	mounted() {
-		this.galleriaService.getImages().then(data => this.images = data);
+    created() {
+        this.galleriaService = new PhotoService();
+    },
+    mounted() {
+        this.galleriaService.getImages().then((data) => (this.images = data));
     },
     components: {
-        'GalleriaDoc': GalleriaDoc
+        GalleriaDoc: GalleriaDoc
     }
-}
+};
 </script>

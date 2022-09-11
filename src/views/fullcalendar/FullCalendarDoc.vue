@@ -1,19 +1,25 @@
 <template>
-	<AppDoc name="FullCalendarDemo" :sources="sources" :service="['EventService']" :data="['events']" github="fullcalendar/FullCalendarDemo.vue"
-        :dependencies="{'@fullcalendar/core': '^5.7.2', '@fullcalendar/vue3': '^5.7.2', '@fullcalendar/daygrid': '^5.7.2', '@fullcalendar/interaction': '^5.7.2', '@fullcalendar/timegrid': '^5.7.2'}" component="FullCalendar">
-
+    <AppDoc
+        name="FullCalendarDemo"
+        :sources="sources"
+        :service="['EventService']"
+        :data="['events']"
+        github="fullcalendar/FullCalendarDemo.vue"
+        :dependencies="{ '@fullcalendar/core': '^5.7.2', '@fullcalendar/vue3': '^5.7.2', '@fullcalendar/daygrid': '^5.7.2', '@fullcalendar/interaction': '^5.7.2', '@fullcalendar/timegrid': '^5.7.2' }"
+        component="FullCalendar"
+    >
         <p>As it is not a component from PrimeVue, refer to the FullCalendar <a href="https://fullcalendar.io/docs/vue">documentation</a> for more information.</p>
     </AppDoc>
 </template>
 
 <script>
 export default {
-	data() {
-		return {
-			sources: {
-				'options-api': {
+    data() {
+        return {
+            sources: {
+                'options-api': {
                     tabName: 'Options API Source',
-					content: `
+                    content: `
 <template>
     <div>
         <FullCalendar :events="events" :options="options" />
@@ -64,10 +70,10 @@ export default {
     }
 }
 </style>`
-				},
+                },
                 'composition-api': {
                     tabName: 'Composition API Source',
-					content: `
+                    content: `
 <template>
     <div>
         <FullCalendar :events="events" :options="options" />
@@ -117,7 +123,7 @@ export default {
     }
 }
 </style>`
-				},
+                },
                 'browser-source': {
                     tabName: 'Browser Source',
                     imports: `<script src="https://unpkg.com/fullcalendar@5.7.2/main.min.js"><\\/script>
@@ -125,7 +131,7 @@ export default {
 
         <script src="https://unpkg.com/primevue@^3/fullcalendar/fullcalendar.min.js"><\\/script>
         <script src="./EventService.js"><\\/script>`,
-					content: `<div id="app">
+                    content: `<div id="app">
             <p-fullcalendar :events="events" :options="options"></p-fullcalendar>
         </div>
 
@@ -175,9 +181,9 @@ export default {
             }
         }
         </style>`
-				}
-			}
-		}
-	}
-}
+                }
+            }
+        };
+    }
+};
 </script>

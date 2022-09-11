@@ -1,63 +1,75 @@
 <template>
-	<AppDoc name="RatingDemo" :sources="sources" github="rating/RatingDemo.vue" >
+    <AppDoc name="RatingDemo" :sources="sources" github="rating/RatingDemo.vue">
         <h5>Import via Module</h5>
-<pre v-code.script><code>
+        <pre v-code.script><code>
 import Rating from 'primevue/rating';
 
 </code></pre>
 
         <h5>Import via CDN</h5>
-<pre v-code><code>
+        <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/rating/rating.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-		<h5>Getting Started</h5>
-		<p>Two-way value binding is defined using v-model.</p>
-<pre v-code><code>
+        <h5>Getting Started</h5>
+        <p>Two-way value binding is defined using v-model.</p>
+        <pre v-code><code>
 &lt;Rating v-model="val" /&gt;
 
 </code></pre>
 
-		<h5>Number of Stars</h5>
-		<p>Number of stars to display is defined with <i>stars</i> property, default is 5.</p>
-<pre v-code><code>
+        <h5>Number of Stars</h5>
+        <p>Number of stars to display is defined with <i>stars</i> property, default is 5.</p>
+        <pre v-code><code>
 &lt;Rating v-model="val" :stars="7"/&gt;
 
 </code></pre>
 
-		<h5>Cancel</h5>
-		<p>A cancel icon is displayed to reset the value by default, set <i>cancel</i> as false to remove this option.</p>
-<pre v-code><code>
+        <h5>Cancel</h5>
+        <p>A cancel icon is displayed to reset the value by default, set <i>cancel</i> as false to remove this option.</p>
+        <pre v-code><code>
 &lt;Rating v-model="val" :cancel="false" /&gt;
 
 </code></pre>
 
-		<h5>Properties</h5>
+        <h5>Templating</h5>
+        <p>Templating allows customizing the content where the icon instance is available as the implicit variable.</p>
+        <pre v-code><code><template v-pre>
+&lt;Rating :modelValue="3">
+    &lt;template #cancelicon&gt;
+        &lt;img src="demo/images/rating/cancel.png" height="24" width="24"&gt;
+    &lt;/template&gt;
+    &lt;template #onicon&gt;
+        &lt;img src="demo/images/rating/custom-onicon.png" height="24" width="24"&gt;
+    &lt;/template&gt;
+    &lt;template #officon&gt;
+        &lt;img src="demo/images/rating/custom-officon.png" height="24" width="24"&gt;
+    &lt;/template&gt;
+&lt;/Rating&gt;
+
+</template>
+</code></pre>
+
+        <h5>Properties</h5>
         <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Type</th>
                         <th>Default</th>
                         <th>Description</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>modelValue</td>
                         <td>number</td>
                         <td>null</td>
                         <td>Value of the rating.</td>
-                    </tr>
-                    <tr>
-                        <td>name</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Name of the element.</td>
                     </tr>
                     <tr>
                         <td>disabled</td>
@@ -83,13 +95,31 @@ import Rating from 'primevue/rating';
                         <td>true</td>
                         <td>When specified a cancel icon is displayed to allow clearing the value.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                    <tr>
+                        <td>onIcon</td>
+                        <td>string</td>
+                        <td>pi pi-star</td>
+                        <td>Icon for the on state.</td>
+                    </tr>
+                    <tr>
+                        <td>offIcon</td>
+                        <td>string</td>
+                        <td>pi pi-star-fill</td>
+                        <td>Icon for the off state.</td>
+                    </tr>
+                    <tr>
+                        <td>cancelIcon</td>
+                        <td>string</td>
+                        <td>pi pi-ban</td>
+                        <td>Icon for the cancelable state.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-		<h5>Events</h5>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
+        <h5>Events</h5>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
                 <thead>
                     <tr>
                         <th>Name</th>
@@ -97,51 +127,92 @@ import Rating from 'primevue/rating';
                         <th>Description</th>
                     </tr>
                 </thead>
-				<tbody>
+                <tbody>
                     <tr>
                         <td>change</td>
-                        <td>event.originalEvent: Original event <br />
-                        event.value: Selected option value </td>
+                        <td>
+                            event.originalEvent: Original event <br />
+                            event.value: Selected option value
+                        </td>
                         <td>Callback to invoke on value change.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                    <tr>
+                        <td>focus</td>
+                        <td>event</td>
+                        <td>Callback to invoke when the component receives focus.</td>
+                    </tr>
+                    <tr>
+                        <td>blur</td>
+                        <td>event</td>
+                        <td>Callback to invoke when the component loses focus.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-		<h5>Styling</h5>
-		<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
-		<div class="doc-tablewrapper">
-			<table class="doc-table">
-				<thead>
+        <h5>Slots</h5>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Parameters</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>cancelicon</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>onicon</td>
+                        <td>value: Item value</td>
+                    </tr>
+                    <tr>
+                        <td>officon</td>
+                        <td>value: Item value</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h5>Styling</h5>
+        <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Element</th>
                     </tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
                     <tr>
                         <td>p-rating</td>
                         <td>Container element</td>
                     </tr>
                     <tr>
-                        <td>p-rating-star</td>
-                        <td>Star element</td>
+                        <td>p-rating-item</td>
+                        <td>Each item element</td>
                     </tr>
                     <tr>
-                        <td>p-rating-star-on</td>
-                        <td>Selected star element.</td>
+                        <td>p-rating-item-active</td>
+                        <td>Selected item elements.</td>
                     </tr>
                     <tr>
-                        <td>p-rating-cancel</td>
-                        <td>Cancel icon.</td>
+                        <td>p-rating-cancel-item</td>
+                        <td>Cancel item element.</td>
                     </tr>
-				</tbody>
-			</table>
-		</div>
+                </tbody>
+            </table>
+        </div>
 
         <h5>Accessibility</h5>
         <h6>Screen Reader</h6>
-        <p>Rating component internally uses radio buttons that are only visible to screen readers. The value to read for item is retrieved from the <router-link to="/locale">locale</router-link> API via <i>star</i> and <i>stars</i> of the <i>aria</i> property.</p>
+        <p>
+            Rating component internally uses radio buttons that are only visible to screen readers. The value to read for item is retrieved from the <router-link to="/locale">locale</router-link> API via <i>star</i> and <i>stars</i> of the
+            <i>aria</i> property.
+        </p>
 
         <h6>Keyboard Support</h6>
         <p>Keyboard interaction is derived from the native browser handling of radio buttons in a group.</p>
@@ -184,8 +255,8 @@ import Rating from 'primevue/rating';
             </table>
         </div>
 
-		<h5>Dependencies</h5>
-		<p>None.</p>
+        <h5>Dependencies</h5>
+        <p>None.</p>
     </AppDoc>
 </template>
 
@@ -200,16 +271,32 @@ export default {
 <template>
     <div>
         <h5>Basic {{val1}}</h5>
-        <Rating v-model="val1" name="basic" />
+        <Rating v-model="val1" />
 
         <h5>Without Cancel</h5>
-        <Rating v-model="val2" :cancel="false" name="cancel" />
+        <Rating v-model="val2" :cancel="false" />
 
         <h5>ReadOnly</h5>
-        <Rating :modelValue="5" :readonly="true" :stars="10" :cancel="false" name="readonly" />
+        <Rating :modelValue="5" :readonly="true" :stars="10" :cancel="false" />
 
         <h5>Disabled</h5>
-        <Rating :modelValue="8" :disabled="true" :stars="10" name="disabled" />
+        <Rating :modelValue="8" :disabled="true" :stars="10" />
+
+        <h5>Custom Icons</h5>
+        <Rating v-model="val3" :stars="5" onIcon="pi pi-heart-fill" offIcon="pi pi-heart" cancelIcon="pi pi-times" />
+
+        <h5>Templating</h5>
+        <Rating v-model="val4">
+            <template #cancelicon>
+                <img src="demo/images/rating/cancel.png" @error="(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'" height="24" width="24"/>
+            </template>
+            <template #onicon>
+                <img src="demo/images/rating/custom-onicon.png" @error="(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'" height="24" width="24"  />
+            </template>
+            <template #officon>
+                <img src="demo/images/rating/custom-officon.png" @error="(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'" height="24" width="24"  />
+            </template>
+        </Rating>
     </div>
 </template>
 
@@ -219,10 +306,13 @@ export default {
         return {
             val1: null,
             val2: 3,
+            val3: 2,
+            val4: 2
         }
     }
 }
 <\\/script>
+
 `
                 },
                 'composition-api': {
@@ -231,16 +321,32 @@ export default {
 <template>
     <div>
         <h5>Basic {{val1}}</h5>
-        <Rating v-model="val1" name="basic" />
+        <Rating v-model="val1" />
 
         <h5>Without Cancel</h5>
-        <Rating v-model="val2" :cancel="false" name="cancel" />
+        <Rating v-model="val2" :cancel="false" />
 
         <h5>ReadOnly</h5>
-        <Rating :modelValue="5" :readonly="true" :stars="10" :cancel="false" name="readonly" />
+        <Rating :modelValue="5" :readonly="true" :stars="10" :cancel="false" />
 
         <h5>Disabled</h5>
-        <Rating :modelValue="8" :disabled="true" :stars="10" name="disabled" />
+        <Rating :modelValue="8" :disabled="true" :stars="10" />
+
+        <h5>Custom Icons</h5>
+        <Rating v-model="val3" :stars="5" onIcon="pi pi-heart-fill" offIcon="pi pi-heart" cancelIcon="pi pi-times" />
+
+        <h5>Templating</h5>
+        <Rating v-model="val4">
+            <template #cancelicon>
+                <img src="demo/images/rating/cancel.png" @error="(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'" height="24" width="24"/>
+            </template>
+            <template #onicon>
+                <img src="demo/images/rating/custom-onicon.png" @error="(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'" height="24" width="24"  />
+            </template>
+            <template #officon>
+                <img src="demo/images/rating/custom-officon.png" @error="(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'" height="24" width="24"  />
+            </template>
+        </Rating>
     </div>
 </template>
 
@@ -251,11 +357,14 @@ export default {
     setup() {
         const val1 = ref();
         const val2 = ref(3);
+        const val3 = ref(2);
+        const val4 = ref(2);
 
         return { val1, val2 }
     }
 }
 <\\/script>
+
 `
                 },
                 'browser-source': {
@@ -263,16 +372,32 @@ export default {
                     imports: `<script src="https://unpkg.com/primevue@^3/rating/rating.min.js"><\\/script>`,
                     content: `<div id="app">
             <h5>Basic {{val1}}</h5>
-            <p-rating v-model="val1" name="basic"></p-rating>
+            <p-rating v-model="val1"></p-rating>
 
             <h5>Without Cancel</h5>
-            <p-rating v-model="val2" :cancel="false" name="cancel"></p-rating>
+            <p-rating v-model="val2" :cancel="false"></p-rating>
 
             <h5>ReadOnly</h5>
-            <p-rating :modelValue="5" :readonly="true" :stars="10" :cancel="false" name="readonly"></p-rating>
+            <p-rating :modelValue="5" :readonly="true" :stars="10" :cancel="false"></p-rating>
 
             <h5>Disabled</h5>
-            <p-rating :modelValue="8" :disabled="true" :stars="10" name="disabled"></p-rating>
+            <p-rating :modelValue="8" :disabled="true" :stars="10"></p-rating>
+
+            <h5>Custom Icons</h5>
+            <p-rating v-model="val3" :stars="5" on-icon="pi pi-heart-fill" off-icon="pi pi-heart" cancel-icon="pi pi-times"></p-rating>
+
+            <h5>Templating</h5>
+            <p-rating v-model="val4">
+                <template #cancelicon>
+                    <img src="demo/images/rating/cancel.png" @error="(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'" height="24" width="24"/>
+                </template>
+                <template #onicon>
+                    <img src="demo/images/rating/custom-onicon.png" @error="(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'" height="24" width="24"  />
+                </template>
+                <template #officon>
+                    <img src="demo/images/rating/custom-officon.png" @error="(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'" height="24" width="24"  />
+                </template>
+            </p-rating>
         </div>
 
         <script type="module">
@@ -282,6 +407,8 @@ export default {
             setup() {
                 const val1 = ref();
                 const val2 = ref(3);
+                const val3 = ref(2);
+                const val4 = ref(2);
 
                 return { val1, val2 }
             },
@@ -294,10 +421,11 @@ export default {
             .use(primevue.config.default)
             .mount("#app");
         <\\/script>
+
 `
                 }
             }
-        }
+        };
     }
-}
+};
 </script>

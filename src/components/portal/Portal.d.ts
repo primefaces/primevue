@@ -23,13 +23,13 @@ export interface PortalSlots {
     default: () => VNode[];
 }
 
-export declare type PortalEmits = { }
+export declare type PortalEmits = {};
 
-declare class Portal extends ClassComponent<PortalProps, PortalSlots, PortalEmits> { }
+declare class Portal extends ClassComponent<PortalProps, PortalSlots, PortalEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        Portal: GlobalComponentConstructor<Portal>
+        Portal: GlobalComponentConstructor<Portal>;
     }
 }
 
