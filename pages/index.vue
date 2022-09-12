@@ -81,7 +81,7 @@ export default {
                   linkElement.remove();
                   cloneLinkElement.setAttribute('id', elementId);
               });
-              linkElement.parentNode.insertBefore(cloneLinkElement, linkElement.nextSibling);
+              linkElement.parentNode?.insertBefore(cloneLinkElement, linkElement.nextSibling);
 
               this.tableTheme = newTheme;
           }
