@@ -106,7 +106,7 @@ export default {
         }
     },
     mounted() {
-        this.setAnimation = true
+        this.setAnimation = true        
     },
     methods: {
         navigateTo(url) {

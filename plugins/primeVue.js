@@ -152,7 +152,7 @@ nuxtApp.vueApp.component('Dropdown', Dropdown);
 /* nuxtApp.vueApp.component('Editor', Editor); */
 nuxtApp.vueApp.component('Fieldset', Fieldset);
 nuxtApp.vueApp.component('FileUpload', FileUpload);
-nuxtApp.vueApp.component('FullCalendar', FullCalendar);
+//nuxtApp.vueApp.component('FullCalendar', FullCalendar);
 nuxtApp.vueApp.component('Image', Image);
 nuxtApp.vueApp.component('InlineMessage', InlineMessage);
 nuxtApp.vueApp.component('Inplace', Inplace);

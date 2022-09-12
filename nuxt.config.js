@@ -20,7 +20,7 @@ export default defineNuxtConfig({
           rel: 'stylesheet',
           href:  './styles/landing/themes/lara-light-blue/theme.css'
         }
-      ]
+      ],
     },
   },
   css: [
