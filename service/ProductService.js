@@ -1,14 +1,14 @@
 export default class ProductService {
 
     getProductsSmall() {
-		return fetch('/public/demo/data/products-small.json').then(res => res.json()).then(d => d.data);
+		return fetch('/demo/data/products-small.json').then(res => res.json()).then(d => d.data);
 	}
 
 	getProducts() {
-		return fetch('/public/demo/data/products-small.json').then(res => res.json()).then(d => d.data);
+		return fetch('/demo/data/products-small.json').then(res => res.json()).then(d => d.data);
     }
 
     getProductsWithOrdersSmall() {
-		return fetch('/public/demo/data/products-small.json').then(res => res.json()).then(d => d.data);
+		return fetch('/demo/data/products-small.json').then(res => res.json()).then(d => d.data);
 	}
 }

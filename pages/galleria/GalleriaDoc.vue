@@ -1,5 +1,6 @@
 <template>
     <div class="content-section documentation">
+        <ClientOnly>
         <TabView>
             <TabPanel header="Documentation">
                 <h5>Import via Module</h5>
@@ -540,5 +541,6 @@ export default {
 </code></pre>
             </TabPanel>
         </TabView>
+    </ClientOnly>
     </div>
 </template>

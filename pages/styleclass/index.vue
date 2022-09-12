@@ -1,5 +1,6 @@
 <template>
     <div>
+    <div> 
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>StyleClass</h1>
@@ -23,6 +24,7 @@
     </div>
 
     <StyleClassDoc />
+</div>
 </template>
 
 <script>

@@ -1,6 +1,8 @@
 <template>
+   
     <ClientOnly>
 <AppDoc name="StyleClassDemo" :sources="sources" github="styleclass/StyleClassDemo.vue">
+    <div>
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import StyleClass from 'primevue/styleclass';
@@ -140,8 +142,10 @@ app.directive('styleclass', StyleClass);
 
         <h5>Dependencies</h5>
         <p>None.</p>
+    </div>
     </AppDoc>
 </ClientOnly>
+
 </template>
 
 <script>

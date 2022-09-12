@@ -101,6 +101,7 @@ import VirtualScroller from '@/components/virtualscroller/VirtualScroller';
 import AppDemoActions from '@/layouts/AppDemoActions'
 import AppDoc from '@/layouts/AppDocumentation'
 import AppInputStyleSwitch from '@/layouts/AppInputStyleSwitch'
+import DevelopmentSection from '@/layouts/DevelopmentSection'
 import CodeHighlight from '@/layouts/AppCodeHighlight';
 
 export default defineNuxtPlugin((nuxtApp) => {
@@ -212,5 +213,6 @@ nuxtApp.vueApp.component('VirtualScroller', VirtualScroller);
 
 nuxtApp.vueApp.component('AppDemoActions', AppDemoActions);
 nuxtApp.vueApp.component('AppInputStyleSwitch', AppInputStyleSwitch);
+nuxtApp.vueApp.component('DevelopmentSection', DevelopmentSection);
 nuxtApp.vueApp.component('AppDoc', AppDoc);
 }); 
