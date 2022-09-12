@@ -1,5 +1,6 @@
 <template>
-    <AppDoc name="ListboxDemo" :sources="sources" github="listbox/ListboxDemo.vue">
+    <ClientOnly>
+<AppDoc name="ListboxDemo" :sources="sources" github="listbox/ListboxDemo.vue">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import Listbox from 'primevue/listbox';
@@ -598,6 +599,7 @@ export default {
         <h5>Dependencies</h5>
         <p>None.</p>
     </AppDoc>
+</ClientOnly>
 </template>
 
 <script>

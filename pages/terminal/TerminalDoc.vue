@@ -1,5 +1,6 @@
 <template>
-    <AppDoc name="TerminalDemo" :sources="sources" github="terminal/TerminalDemo.vue">
+    <ClientOnly>
+<AppDoc name="TerminalDemo" :sources="sources" github="terminal/TerminalDemo.vue">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import Terminal from 'primevue/terminal';
@@ -130,6 +131,7 @@ export default {
         <h5>Dependencies</h5>
         <p>None.</p>
     </AppDoc>
+</ClientOnly>
 </template>
 
 <script>

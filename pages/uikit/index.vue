@@ -1,5 +1,6 @@
 <template>
     <div>
+        <ClientOnly>
         <div class="content-section">
             <div style="border-radius: 50px; max-height: 500px" class="overflow-hidden mb-5 flex align-items-center">
                 <img alt="PrimeVue Designer" :src="coverImage" class="w-full" />
@@ -277,6 +278,7 @@
                 </div>
             </div>
         </div>
+    </ClientOnly>
     </div>
 </template>
 

@@ -1,5 +1,6 @@
 <template>
-    <AppDoc name="ScrollTopDemo" :sources="sources" github="scrolltop/ScrollTopDemo.vue">
+    <ClientOnly>
+<AppDoc name="ScrollTopDemo" :sources="sources" github="scrolltop/ScrollTopDemo.vue">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import ScrollTop from 'primevue/scrolltop';
@@ -104,6 +105,7 @@ import ScrollTop from 'primevue/scrolltop';
         <h5>Dependencies</h5>
         <p>None.</p>
     </AppDoc>
+</ClientOnly>
 </template>
 
 <script>

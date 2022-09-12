@@ -1,5 +1,6 @@
 <template>
-    <AppDoc name="SpeedDialDemo" :sources="sources" github="speeddial/SpeedDialDemo.vue">
+    <ClientOnly>
+<AppDoc name="SpeedDialDemo" :sources="sources" github="speeddial/SpeedDialDemo.vue">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import SpeedDial from 'primevue/speeddial';
@@ -292,6 +293,7 @@ items: [
         <h5>Dependencies</h5>
         <p>None.</p>
     </AppDoc>
+</ClientOnly>
 </template>
 
 <script>

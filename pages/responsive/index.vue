@@ -532,7 +532,9 @@
             </div>
         </div>
 
-        <AppDoc name="ResponsiveDemo" :sources="sources" :service="['CustomerService', 'CountryService', 'ProductService']" :data="['customers-large', 'countries', 'products-small']" github="responsive/ResponsiveDemo.vue" />
+        <ClientOnly>
+<AppDoc name="ResponsiveDemo" :sources="sources" :service="['CustomerService', 'CountryService', 'ProductService']" :data="['customers-large', 'countries', 'products-small']" github="responsive/ResponsiveDemo.vue" />
+</ClientOnly>
     </div>
 </template>
 

@@ -1,5 +1,6 @@
 <template>
-    <AppDoc name="TreeSelectDemo" :sources="sources" github="treeselect/TreeSelectDemo.vue" :service="['NodeService']" :data="['treenodes']">
+    <ClientOnly>
+<AppDoc name="TreeSelectDemo" :sources="sources" github="treeselect/TreeSelectDemo.vue" :service="['NodeService']" :data="['treenodes']">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import TreeSelect from 'primevue/treeselect';
@@ -619,6 +620,7 @@ data() {
         <h5>Dependencies</h5>
         <p>None.</p>
     </AppDoc>
+</ClientOnly>
 </template>
 
 <script>

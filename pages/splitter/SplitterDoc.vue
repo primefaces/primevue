@@ -1,5 +1,6 @@
 <template>
-    <AppDoc name="SplitterDemo" :sources="sources" github="splitter/SplitterDemo.vue">
+    <ClientOnly>
+<AppDoc name="SplitterDemo" :sources="sources" github="splitter/SplitterDemo.vue">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import Splitter from 'primevue/splitter';
@@ -326,6 +327,7 @@ import SplitterPanel from 'primevue/splitterpanel';
         <h5>Dependencies</h5>
         <p>None.</p>
     </AppDoc>
+</ClientOnly>
 </template>
 
 <script>

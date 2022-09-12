@@ -1,5 +1,6 @@
 <template>
-    <AppDoc name="InputMaskDemo" :sources="sources" github="inputmask/InputMaskDemo.vue">
+    <ClientOnly>
+<AppDoc name="InputMaskDemo" :sources="sources" github="inputmask/InputMaskDemo.vue">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import InputMask from 'primevue/inputmask';
@@ -157,6 +158,7 @@ import InputMask from 'primevue/inputmask';
         <h5>Dependencies</h5>
         <p>None.</p>
     </AppDoc>
+</ClientOnly>
 </template>
 
 <script>

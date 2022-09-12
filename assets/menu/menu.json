@@ -281,7 +281,7 @@
             "children": [
                 {
                     "name": "Vuelidate",
-                    "to": "/vuelidate"
+                    "to": "/validation"
                 }
             ]
         },

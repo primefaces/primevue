@@ -21,6 +21,7 @@
         </div>
 
         <div class="content-section documentation">
+            <ClientOnly>
             <TabView>
                 <TabPanel header="Source">
                     <pre v-code><code><template v-pre>
@@ -71,6 +72,7 @@ export default {
 </code></pre>
                 </TabPanel>
             </TabView>
+        </ClientOnly>
         </div>
     </div>
 </template>

@@ -1,5 +1,6 @@
 <template>
-    <AppDoc name="BreadcrumbDemo" :sources="sources" github="breadcrumb/BreadcrumbDemo.vue">
+    <ClientOnly>
+<AppDoc name="BreadcrumbDemo" :sources="sources" github="breadcrumb/BreadcrumbDemo.vue">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import Breadcrumb from 'primevue/breadcrumb';
@@ -151,6 +152,7 @@ export default {
         <h5>Dependencies</h5>
         <p>None.</p>
     </AppDoc>
+</ClientOnly>
 </template>
 
 <script>

@@ -1,5 +1,6 @@
 <template>
-    <AppDoc name="PickListDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="picklist/PickListDemo.vue">
+    <ClientOnly>
+<AppDoc name="PickListDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="picklist/PickListDemo.vue">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import PickList from 'primevue/picklist';
@@ -329,6 +330,7 @@ import PickList from 'primevue/picklist';
         <h5>Dependencies</h5>
         <p>None.</p>
     </AppDoc>
+</ClientOnly>
 </template>
 
 <script>

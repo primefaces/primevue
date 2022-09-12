@@ -1,5 +1,6 @@
 <template>
-    <AppDoc name="PasswordDemo" :sources="sources" github="password/PasswordDemo.vue">
+    <ClientOnly>
+<AppDoc name="PasswordDemo" :sources="sources" github="password/PasswordDemo.vue">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import Password from 'primevue/password';
@@ -323,6 +324,7 @@ import Password from 'primevue/password';
         <h5>Dependencies</h5>
         <p>None.</p>
     </AppDoc>
+</ClientOnly>
 </template>
 
 <script>

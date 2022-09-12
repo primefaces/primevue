@@ -1,5 +1,6 @@
 <template>
-    <AppDoc name="ImageDemo" :sources="sources" github="image/ImageDemo.vue">
+    <ClientOnly>
+<AppDoc name="ImageDemo" :sources="sources" github="image/ImageDemo.vue">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import Image from 'primevue/image';
@@ -168,6 +169,7 @@ import Image from 'primevue/image';
         <h5>Dependencies</h5>
         <p>None.</p>
     </AppDoc>
+</ClientOnly>
 </template>
 
 <script>

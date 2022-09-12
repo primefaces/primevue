@@ -1,5 +1,6 @@
 <template>
-    <AppDoc name="ToastDemo" :sources="sources" github="toast/ToastDemo.vue">
+    <ClientOnly>
+<AppDoc name="ToastDemo" :sources="sources" github="toast/ToastDemo.vue">
         <h5>ToastService</h5>
         <p>Toast messages are dynamically created using a <i>ToastService</i> that needs to be installed globally before the application instance is created.</p>
         <pre v-code.script><code>
@@ -362,6 +363,7 @@ export default {
         <h5>Dependencies</h5>
         <p>None.</p>
     </AppDoc>
+</ClientOnly>
 </template>
 
 <script>

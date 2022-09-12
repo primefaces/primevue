@@ -1,5 +1,6 @@
 <template>
-    <AppDoc name="DialogDemo" :sources="sources" github="dialog/DialogDemo.vue">
+    <ClientOnly>
+<AppDoc name="DialogDemo" :sources="sources" github="dialog/DialogDemo.vue">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import Dialog from 'primevue/dialog';
@@ -349,6 +350,7 @@ export default {
         <h5>Dependencies</h5>
         <p>None.</p>
     </AppDoc>
+</ClientOnly>
 </template>
 
 <script>

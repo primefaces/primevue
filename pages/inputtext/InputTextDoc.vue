@@ -1,5 +1,6 @@
 <template>
-    <AppDoc name="InputTextDemo" :sources="sources" github="inputtext/InputTextDemo.vue">
+    <ClientOnly>
+<AppDoc name="InputTextDemo" :sources="sources" github="inputtext/InputTextDemo.vue">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import InputText from 'primevue/inputtext';
@@ -183,6 +184,7 @@ import InputText from 'primevue/inputtext';
         <h5>Dependencies</h5>
         <p>None.</p>
     </AppDoc>
+</ClientOnly>
 </template>
 
 <script>

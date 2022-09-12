@@ -1,5 +1,6 @@
 <template>
-    <AppDoc name="MenuDemo" :sources="sources" github="menu/MenuDemo.vue">
+    <ClientOnly>
+<AppDoc name="MenuDemo" :sources="sources" github="menu/MenuDemo.vue">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import Menu from 'primevue/menu';
@@ -279,6 +280,7 @@ toggle(event) {
         <h5>Dependencies</h5>
         <p>None.</p>
     </AppDoc>
+</ClientOnly>
 </template>
 
 <script>

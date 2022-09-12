@@ -1,5 +1,6 @@
 <template>
-    <AppDoc name="OverlayPanelDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="overlaypanel/OverlayPanelDemo.vue">
+    <ClientOnly>
+<AppDoc name="OverlayPanelDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="overlaypanel/OverlayPanelDemo.vue">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import OverlayPanel from 'primevue/overlaypanel';
@@ -202,6 +203,7 @@ toggle(event) {
         <h5>Dependencies</h5>
         <p>None.</p>
     </AppDoc>
+</ClientOnly>
 </template>
 
 <script>

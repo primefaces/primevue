@@ -92,7 +92,8 @@
             </div>
         </div>
 
-        <AppDoc
+        <ClientOnly>
+<AppDoc
             name="VuelidateFormDemo"
             :sources="sources"
             :service="['CountryService']"
@@ -100,6 +101,7 @@
             github="validation/VuelidateFormDemo.vue"
             :dependencies="{ '@vuelidate/core': '^2.0.0-alpha.14', '@vuelidate/validators': '^2.0.0-alpha.12' }"
         />
+        </ClientOnly>
     </div>
 </template>
 

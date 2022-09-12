@@ -1,5 +1,6 @@
 <template>
-    <AppDoc name="VirtualScrollerDemo" :sources="sources" github="virtualscroller/VirtualScrollerDemo.vue">
+    <ClientOnly>
+<AppDoc name="VirtualScrollerDemo" :sources="sources" github="virtualscroller/VirtualScrollerDemo.vue">
         <h5>Imports</h5>
         <pre v-code.script><code>
 import VirtualScroller from 'primevue/virtualscroller';
@@ -389,6 +390,7 @@ export default {
         <h5>Dependencies</h5>
         <p>None.</p>
     </AppDoc>
+</ClientOnly>
 </template>
 
 <script>

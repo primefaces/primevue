@@ -91,7 +91,9 @@
             </div>
         </div>
 
-        <AppDoc name="TreeTableScrollDemo" :sources="sources" :service="['NodeService']" :data="['treetablenodes']" github="treetable/TreeTableSizeDemo.vue" />
+        <ClientOnly>
+<AppDoc name="TreeTableScrollDemo" :sources="sources" :service="['NodeService']" :data="['treetablenodes']" github="treetable/TreeTableSizeDemo.vue" />
+        </ClientOnly>
     </div>
 </template>
 

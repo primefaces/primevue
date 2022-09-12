@@ -1,5 +1,6 @@
 <template>
-    <AppDoc name="BadgeDemo" :sources="sources" github="badge/BadgeDemo.vue">
+    <ClientOnly>
+<AppDoc name="BadgeDemo" :sources="sources" github="badge/BadgeDemo.vue">
         <h5>Getting Started</h5>
         <p>Badge can either be used as a standalone component or as a directive.</p>
 
@@ -191,6 +192,7 @@ app.directive('badge', BadgeDirective);
         <h5>Dependencies</h5>
         <p>None.</p>
     </AppDoc>
+</ClientOnly>
 </template>
 
 <script>

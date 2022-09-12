@@ -1,5 +1,6 @@
 <template>
     <div>
+        <ClientOnly>
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>DataTable <span>ColumnGroup</span></h1>
@@ -55,7 +56,9 @@
             </div>
         </div>
 
-        <AppDoc name="DataTableColGroupDemo" :sources="sources" github="datatable/DataTableColGroupDemo.vue" />
+       
+<AppDoc name="DataTableColGroupDemo" :sources="sources" github="datatable/DataTableColGroupDemo.vue" />
+</ClientOnly>
     </div>
 </template>
 

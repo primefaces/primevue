@@ -1,5 +1,6 @@
 <template>
-    <AppDoc name="CascadeSelectDemo" :sources="sources" github="cascadeselect/CascadeSelectDemo.vue">
+    <ClientOnly>
+<AppDoc name="CascadeSelectDemo" :sources="sources" github="cascadeselect/CascadeSelectDemo.vue">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import CascadeSelect from 'primevue/cascadeselect';
@@ -599,6 +600,7 @@ data() &#123;
         <h5>Dependencies</h5>
         <p>None.</p>
     </AppDoc>
+</ClientOnly>
 </template>
 
 <script>

@@ -1,5 +1,6 @@
 <template>
-    <AppDoc name="MenubarDemo" :sources="sources" github="menubar/MenubarDemo.vue">
+    <ClientOnly>
+<AppDoc name="MenubarDemo" :sources="sources" github="menubar/MenubarDemo.vue">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import Menubar from 'primevue/menubar';
@@ -292,6 +293,7 @@ export default {
         <h5>Dependencies</h5>
         <p>None.</p>
     </AppDoc>
+</ClientOnly>
 </template>
 
 <script>

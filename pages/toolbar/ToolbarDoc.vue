@@ -1,5 +1,6 @@
 <template>
-    <AppDoc name="ToolbarDemo" :sources="sources" github="toolbar/ToolbarDemo.vue">
+    <ClientOnly>
+<AppDoc name="ToolbarDemo" :sources="sources" github="toolbar/ToolbarDemo.vue">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import Toolbar from 'primevue/toolbar';
@@ -97,6 +98,7 @@ import Toolbar from 'primevue/toolbar';
         <h5>Dependencies</h5>
         <p>None.</p>
     </AppDoc>
+</ClientOnly>
 </template>
 
 <script>

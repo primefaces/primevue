@@ -1,5 +1,6 @@
 <template>
-    <AppDoc name="FileUploadDemo" :sources="sources" github="fileupload/FileUploadDemo.vue">
+    <ClientOnly>
+<AppDoc name="FileUploadDemo" :sources="sources" github="fileupload/FileUploadDemo.vue">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import FileUpload from 'primevue/fileupload';
@@ -381,6 +382,7 @@ myUploader(event) {
         <h5>Dependencies</h5>
         <p>None.</p>
     </AppDoc>
+</ClientOnly>
 </template>
 
 <script>

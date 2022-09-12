@@ -1,5 +1,6 @@
 <template>
-    <AppDoc name="TreeDemo" :sources="sources" :service="['NodeService']" :data="['treenodes']" github="tree/TreeDemo.vue">
+    <ClientOnly>
+<AppDoc name="TreeDemo" :sources="sources" :service="['NodeService']" :data="['treenodes']" github="tree/TreeDemo.vue">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import Tree from 'primevue/tree';
@@ -788,6 +789,7 @@ export default {
         <h5>Dependencies</h5>
         <p>None.</p>
     </AppDoc>
+</ClientOnly>
 </template>
 
 <script>

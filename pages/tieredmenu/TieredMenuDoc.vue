@@ -1,5 +1,6 @@
 <template>
-    <AppDoc name="TieredMenuDemo" :sources="sources" github="tieredmenu/TieredMenuDemo.vue">
+    <ClientOnly>
+<AppDoc name="TieredMenuDemo" :sources="sources" github="tieredmenu/TieredMenuDemo.vue">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import TieredMenu from 'primevue/tieredmenu';
@@ -346,6 +347,7 @@ toggle(event) {
         <h5>Dependencies</h5>
         <p>None.</p>
     </AppDoc>
+</ClientOnly>
 </template>
 
 <script>

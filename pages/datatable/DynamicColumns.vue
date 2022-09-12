@@ -16,7 +16,9 @@
             </div>
         </div>
 
-        <AppDoc name="DataTableDynamicColumnsDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="datatable/DataTableDynamicColumnsDemo.vue" />
+        <ClientOnly>
+<AppDoc name="DataTableDynamicColumnsDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="datatable/DataTableDynamicColumnsDemo.vue" />
+</ClientOnly>
     </div>
 </template>
 

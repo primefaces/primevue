@@ -1,5 +1,6 @@
 <template>
-    <AppDoc name="TabMenuDemo" :sources="sources" :extPages="pages" github="tabmenu/TabMenuDemo.vue">
+    <ClientOnly>
+<AppDoc name="TabMenuDemo" :sources="sources" :extPages="pages" github="tabmenu/TabMenuDemo.vue">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import TabMenu from 'primevue/tabmenu';
@@ -207,6 +208,7 @@ export default {
         <h5>Dependencies</h5>
         <p>None.</p>
     </AppDoc>
+</ClientOnly>
 </template>
 
 <script>

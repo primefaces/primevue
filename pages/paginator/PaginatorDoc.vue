@@ -1,5 +1,6 @@
 <template>
-    <AppDoc name="PaginatorDemo" :sources="sources" github="paginator/PaginatorDemo.vue">
+    <ClientOnly>
+<AppDoc name="PaginatorDemo" :sources="sources" github="paginator/PaginatorDemo.vue">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import Paginator from 'primevue/paginator';
@@ -270,6 +271,7 @@ onPage(event) {
         <h5>Dependencies</h5>
         <p>None.</p>
     </AppDoc>
+</ClientOnly>
 </template>
 
 <script>

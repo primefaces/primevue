@@ -1,5 +1,6 @@
 <template>
-    <AppDoc name="ContextMenuDemo" :sources="sources" github="contextmenu/ContextMenuDemo.vue">
+    <ClientOnly>
+<AppDoc name="ContextMenuDemo" :sources="sources" github="contextmenu/ContextMenuDemo.vue">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import ContextMenu from 'primevue/contextmenu';
@@ -361,6 +362,7 @@ export default {
         <h5>Dependencies</h5>
         <p>None.</p>
     </AppDoc>
+</ClientOnly>
 </template>
 
 <script>

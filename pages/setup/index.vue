@@ -1,5 +1,6 @@
 <template>
     <div>
+        <ClientOnly>
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>Setup</h1>
@@ -371,5 +372,6 @@ app.use(PrimeVue, {
             <p>A <a href="https://github.com/primefaces/primevue-quickstart-nuxt3">sample application</a> is created for Nuxt 3 users.</p>
 
         </div>
+    </ClientOnly>
     </div>
 </template>

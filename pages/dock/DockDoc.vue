@@ -1,5 +1,6 @@
 <template>
-    <AppDoc name="DockDemo" :sources="sources" github="dock/DockDemo.vue" :service="['NodeService', 'PhotoService']" :data="['treenodes', 'photos']">
+    <ClientOnly>
+<AppDoc name="DockDemo" :sources="sources" github="dock/DockDemo.vue" :service="['NodeService', 'PhotoService']" :data="['treenodes', 'photos']">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import Dock from 'primevue/dock';
@@ -158,6 +159,7 @@ import Dock from 'primevue/dock';
         <h5>Dependencies</h5>
         <p>None.</p>
     </AppDoc>
+</ClientOnly>
 </template>
 
 <script>

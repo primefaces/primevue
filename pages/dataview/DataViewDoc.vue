@@ -1,5 +1,6 @@
 <template>
-    <AppDoc name="DataViewDemo" :sources="sources" :service="['ProductService']" :data="['products']" github="dataview/DataViewDemo.vue">
+    <ClientOnly>
+<AppDoc name="DataViewDemo" :sources="sources" :service="['ProductService']" :data="['products']" github="dataview/DataViewDemo.vue">
         <h5>Import via Module</h5>
 
         <pre v-code.script><code>
@@ -471,6 +472,7 @@ export default {
         <h5>Dependencies</h5>
         <p>PrimeFlex</p>
     </AppDoc>
+</ClientOnly>
 </template>
 
 <script>

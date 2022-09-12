@@ -1,5 +1,6 @@
 <template>
-    <AppDoc name="TreeTableDemo" :sources="sources" :service="['NodeService']" :data="['treetablenodes']" github="treetable/TreeTableDemo.vue">
+    <ClientOnly>
+<AppDoc name="TreeTableDemo" :sources="sources" :service="['NodeService']" :data="['treetablenodes']" github="treetable/TreeTableDemo.vue">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import TreeTable from 'primevue/treetable';
@@ -1750,6 +1751,7 @@ export default {
         <h5>Dependencies</h5>
         <p>None.</p>
     </AppDoc>
+</ClientOnly>
 </template>
 
 <script>

@@ -1,5 +1,6 @@
 <template>
-    <AppDoc name="DeferredContentDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="deferredcontent/DeferredContentDemo.vue">
+    <ClientOnly>
+<AppDoc name="DeferredContentDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="deferredcontent/DeferredContentDemo.vue">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import DeferredContent from 'primevue/deferredcontent';
@@ -89,6 +90,7 @@ import DeferredContent from 'primevue/deferredcontent';
         <h5>Dependencies</h5>
         <p>None.</p>
     </AppDoc>
+</ClientOnly>
 </template>
 
 <script>

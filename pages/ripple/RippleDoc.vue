@@ -1,5 +1,6 @@
 <template>
-    <AppDoc name="RippleDemo" :sources="sources" github="ripple/RippleDemo.vue">
+    <ClientOnly>
+<AppDoc name="RippleDemo" :sources="sources" github="ripple/RippleDemo.vue">
         <h5>Getting Started</h5>
         <h5>Ripple</h5>
         <p>Ripple is an optional animation for the supported components such as buttons. It is disabled by default and needs to be enabled at your app's entry file (e.g. main.js) during the PrimeVue setup.</p>
@@ -80,6 +81,7 @@ directives: {
         <h5>Dependencies</h5>
         <p>None.</p>
     </AppDoc>
+</ClientOnly>
 </template>
 
 <script>

@@ -1,5 +1,6 @@
 <template>
-    <AppDoc name="ColorPickerDemo" :sources="sources" :extFiles="extFiles" github="colorpicker/ColorPickerDemo.vue">
+    <ClientOnly>
+<AppDoc name="ColorPickerDemo" :sources="sources" :extFiles="extFiles" github="colorpicker/ColorPickerDemo.vue">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import ColorPicker from 'primevue/colorpicker';
@@ -302,6 +303,7 @@ export default {
         <h5>Dependencies</h5>
         <p>None.</p>
     </AppDoc>
+</ClientOnly>
 </template>
 
 <script>

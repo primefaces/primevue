@@ -1,5 +1,6 @@
 <template>
-    <AppDoc name="TagDemo" :sources="sources" github="tag/TagDemo.vue">
+    <ClientOnly>
+<AppDoc name="TagDemo" :sources="sources" github="tag/TagDemo.vue">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import Tag from 'primevue/tag';
@@ -121,6 +122,7 @@ import Tag from 'primevue/tag';
         <h5>Dependencies</h5>
         <p>None.</p>
     </AppDoc>
+</ClientOnly>
 </template>
 
 <script>

@@ -1,5 +1,6 @@
 <template>
-    <AppDoc name="RatingDemo" :sources="sources" github="rating/RatingDemo.vue">
+    <ClientOnly>
+<AppDoc name="RatingDemo" :sources="sources" github="rating/RatingDemo.vue">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import Rating from 'primevue/rating';
@@ -192,6 +193,7 @@ import Rating from 'primevue/rating';
         <h5>Dependencies</h5>
         <p>None.</p>
     </AppDoc>
+</ClientOnly>
 </template>
 
 <script>

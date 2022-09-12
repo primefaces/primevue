@@ -1,5 +1,6 @@
 <template>
-    <AppDoc name="KnobDemo" :sources="sources" github="knob/KnobDemo.vue">
+    <ClientOnly>
+<AppDoc name="KnobDemo" :sources="sources" github="knob/KnobDemo.vue">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import Knob from 'primevue/knob';
@@ -284,6 +285,7 @@ data() {
         <h5>Knob Vue</h5>
         <p>PrimeVue Knob has no dependency however implementation is derived and inspired from <a href="https://github.com/kramer99/vue-knob-control">vue-knob-control</a> component authored by <a href="https://github.com/kramer99">kramer99</a>.</p>
     </AppDoc>
+</ClientOnly>
 </template>
 
 <script>

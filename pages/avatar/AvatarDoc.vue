@@ -1,5 +1,6 @@
 <template>
-    <AppDoc name="AvatarDemo" :sources="sources" github="avatar/AvatarDemo.vue">
+    <ClientOnly>
+<AppDoc name="AvatarDemo" :sources="sources" github="avatar/AvatarDemo.vue">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import Avatar from 'primevue/avatar';
@@ -200,6 +201,7 @@ import AvatarGroup from 'primevue/avatargroup';
         <h5>Dependencies</h5>
         <p>None.</p>
     </AppDoc>
+</ClientOnly>
 </template>
 
 <script>

@@ -1,5 +1,6 @@
 <template>
-    <AppDoc name="SkeletonDemo" :sources="sources" github="skeleton/SkeletonDemo.vue">
+    <ClientOnly>
+<AppDoc name="SkeletonDemo" :sources="sources" github="skeleton/SkeletonDemo.vue">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import Skeleton from 'primevue/skeleton';
@@ -132,6 +133,7 @@ import Skeleton from 'primevue/skeleton';
         <h5>Dependencies</h5>
         <p>None.</p>
     </AppDoc>
+</ClientOnly>
 </template>
 
 <script>

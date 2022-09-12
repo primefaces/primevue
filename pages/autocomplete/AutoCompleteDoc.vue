@@ -1,5 +1,6 @@
 <template>
-    <AppDoc name="AutoCompleteDemo" :sources="sources" :service="['CountryService']" :data="['countries']" github="autocomplete/AutoCompleteDemo.vue">
+    <ClientOnly>
+<AppDoc name="AutoCompleteDemo" :sources="sources" :service="['CountryService']" :data="['countries']" github="autocomplete/AutoCompleteDemo.vue">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import AutoComplete from 'primevue/autocomplete';
@@ -762,6 +763,7 @@ export default {
         <h5>Dependencies</h5>
         <p>None.</p>
     </AppDoc>
+</ClientOnly>
 </template>
 
 <script>

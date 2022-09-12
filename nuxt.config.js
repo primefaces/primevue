@@ -32,9 +32,6 @@ export default defineNuxtConfig({
   ],
   vite: {
     plugins: [vueJsx()],
-    build: {
-      rollupOptions
-    },
       resolve: {
         alias: {
             'primevue/ripple': path.resolve(__dirname, '/components/ripple/Ripple.js'),

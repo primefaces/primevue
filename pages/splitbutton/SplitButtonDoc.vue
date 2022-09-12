@@ -1,5 +1,6 @@
 <template>
-    <AppDoc name="SplitButtonDemo" :sources="sources" github="splitbutton/SplitButtonDemo.vue">
+    <ClientOnly>
+<AppDoc name="SplitButtonDemo" :sources="sources" github="splitbutton/SplitButtonDemo.vue">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import SplitButton from 'primevue/splitbutton';
@@ -219,6 +220,7 @@ export default {
         <h5>Dependencies</h5>
         <p>None.</p>
     </AppDoc>
+</ClientOnly>
 </template>
 
 <script>

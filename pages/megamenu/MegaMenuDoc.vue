@@ -1,5 +1,6 @@
 <template>
-    <AppDoc name="MegaMenuDemo" :sources="sources" github="megamenu/MegaMenuDemo.vue">
+    <ClientOnly>
+<AppDoc name="MegaMenuDemo" :sources="sources" github="megamenu/MegaMenuDemo.vue">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import MegaMenu from 'primevue/megamenu';
@@ -305,6 +306,7 @@ export default {
         <h5>Dependencies</h5>
         <p>None.</p>
     </AppDoc>
+</ClientOnly>
 </template>
 
 <script>

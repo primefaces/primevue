@@ -1,5 +1,6 @@
 <template>
-    <AppDoc name="StepsDemo" :sources="sources" :extPages="pages" github="steps/StepsDemo.vue">
+    <ClientOnly>
+<AppDoc name="StepsDemo" :sources="sources" :extPages="pages" github="steps/StepsDemo.vue">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import Steps from 'primevue/steps';
@@ -174,6 +175,7 @@ export default {
         <h5>Dependencies</h5>
         <p>None.</p>
     </AppDoc>
+</ClientOnly>
 </template>
 
 <script>

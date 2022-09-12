@@ -55,7 +55,9 @@
             </div>
         </div>
 
-        <AppDoc name="TreeTableSelectionDemo" :sources="sources" :service="['NodeService']" :data="['treetablenodes']" github="treetable/TreeTableSelectionDemo.vue" />
+        <ClientOnly>
+<AppDoc name="TreeTableSelectionDemo" :sources="sources" :service="['NodeService']" :data="['treetablenodes']" github="treetable/TreeTableSelectionDemo.vue" />
+</ClientOnly>
     </div>
 </template>
 

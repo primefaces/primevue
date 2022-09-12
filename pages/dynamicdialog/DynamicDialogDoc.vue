@@ -1,5 +1,6 @@
 <template>
-    <AppDoc name="DynamicDialogDemo" :sources="sources" :extFiles="extFiles" :service="['ProductService']" :data="['products-small']" github="dynamicdialog/DynamicDialogDemo.vue">
+    <ClientOnly>
+<AppDoc name="DynamicDialogDemo" :sources="sources" :extFiles="extFiles" :service="['ProductService']" :data="['products-small']" github="dynamicdialog/DynamicDialogDemo.vue">
         <h5>DialogService</h5>
         <p>Dynamic dialogs require the <i>DialogService</i> to be configured globally.</p>
 
@@ -309,6 +310,7 @@ export default {
             </table>
         </div>
     </AppDoc>
+</ClientOnly>
 </template>
 
 <script>

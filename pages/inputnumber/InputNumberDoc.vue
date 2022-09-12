@@ -1,5 +1,6 @@
 <template>
-    <AppDoc name="InputNumberDemo" :sources="sources" github="inputnumber/InputNumberDemo.vue">
+    <ClientOnly>
+<AppDoc name="InputNumberDemo" :sources="sources" github="inputnumber/InputNumberDemo.vue">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import InputNumber from 'primevue/inputnumber';
@@ -502,6 +503,7 @@ Vertical
         <h5>Dependencies</h5>
         <p>None.</p>
     </AppDoc>
+</ClientOnly>
 </template>
 
 <script>

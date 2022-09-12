@@ -33,7 +33,9 @@
             </div>
         </div>
 
-        <AppDoc name="DataTablePaginatorDemo" :sources="sources" :service="['CustomerService']" :data="['customers-large']" github="datatable/DataTablePaginatorDemo.vue" />
+        <ClientOnly>
+<AppDoc name="DataTablePaginatorDemo" :sources="sources" :service="['CustomerService']" :data="['customers-large']" github="datatable/DataTablePaginatorDemo.vue" />
+</ClientOnly>
     </div>
 </template>
 

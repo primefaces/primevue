@@ -1,5 +1,6 @@
 <template>
-    <AppDoc name="PanelMenuDemo" :sources="sources" github="panelmenu/PanelMenuDemo.vue">
+    <ClientOnly>
+<AppDoc name="PanelMenuDemo" :sources="sources" github="panelmenu/PanelMenuDemo.vue">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import PanelMenu from 'primevue/panelmenu';
@@ -475,6 +476,7 @@ export default {
         <h5>Dependencies</h5>
         <p>None.</p>
     </AppDoc>
+</ClientOnly>
 </template>
 
 <script>

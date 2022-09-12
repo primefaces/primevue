@@ -1,5 +1,6 @@
 <template>
-    <AppDoc name="ProgressBarDemo" :sources="sources" github="progressbar/ProgressBarDemo.vue">
+    <ClientOnly>
+<AppDoc name="ProgressBarDemo" :sources="sources" github="progressbar/ProgressBarDemo.vue">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import ProgressBar from 'primevue/progressbar';
@@ -115,6 +116,7 @@ data() {
         <h5>Dependencies</h5>
         <p>None.</p>
     </AppDoc>
+</ClientOnly>
 </template>
 
 <script>

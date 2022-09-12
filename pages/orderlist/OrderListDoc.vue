@@ -1,5 +1,6 @@
 <template>
-    <AppDoc name="OrderListDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="orderlist/OrderListDemo.vue">
+    <ClientOnly>
+<AppDoc name="OrderListDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="orderlist/OrderListDemo.vue">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import OrderList from 'primevue/orderlist';
@@ -233,6 +234,7 @@ import OrderList from 'primevue/orderlist';
         <h5>Dependencies</h5>
         <p>None.</p>
     </AppDoc>
+</ClientOnly>
 </template>
 
 <script>

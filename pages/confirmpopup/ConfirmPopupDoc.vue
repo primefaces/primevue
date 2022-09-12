@@ -1,5 +1,6 @@
 <template>
-    <AppDoc name="ConfirmPopupDemo" :sources="sources" github="confirmpopup/ConfirmPopupDemo.vue">
+    <ClientOnly>
+<AppDoc name="ConfirmPopupDemo" :sources="sources" github="confirmpopup/ConfirmPopupDemo.vue">
         <h5>ConfirmationService</h5>
         <p>ConfirmPopup is controlled via the <i>ConfirmationService</i> that needs to be installed globally before the application instance is created.</p>
         <pre v-code.script><code>
@@ -304,6 +305,7 @@ export default {
         <h5>Dependencies</h5>
         <p>None.</p>
     </AppDoc>
+</ClientOnly>
 </template>
 
 <script>

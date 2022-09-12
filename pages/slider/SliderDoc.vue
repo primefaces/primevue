@@ -1,5 +1,6 @@
 <template>
-    <AppDoc name="SliderDemo" :sources="sources" github="slider/SliderDemo.vue">
+    <ClientOnly>
+<AppDoc name="SliderDemo" :sources="sources" github="slider/SliderDemo.vue">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import Slider from 'primevue/slider';
@@ -246,6 +247,7 @@ export default {
         <h5>Dependencies</h5>
         <p>None.</p>
     </AppDoc>
+</ClientOnly>
 </template>
 
 <script>

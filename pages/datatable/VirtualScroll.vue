@@ -61,7 +61,9 @@
             </div>
         </div>
 
-        <AppDoc name="DataTableVirtualScrollDemo" :sources="sources" :service="['CarService']" github="datatable/DataTableVirtualScrollDemo.vue" />
+        <ClientOnly>
+<AppDoc name="DataTableVirtualScrollDemo" :sources="sources" :service="['CarService']" github="datatable/DataTableVirtualScrollDemo.vue" />
+</ClientOnly>
     </div>
 </template>
 
