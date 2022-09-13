@@ -49,10 +49,10 @@
                             </div>
                         </div>
 
-                        <a href="https://www.primefaces.org/designer-vue" class="font-semibold p-3 border-round flex align-items-center linkbox active">
+                        <nuxt-link to="https://www.primefaces.org/designer-vue" class="font-semibold p-3 border-round flex align-items-center linkbox active">
                             <span>View Full Version</span>
                             <i class="pi pi-arrow-right ml-auto"></i>
-                        </a>
+                        </nuxt-link>
                     </div>
                 </div>
                 <div :class="editorclass" style="border-radius: '10px'" :ref="editorRef">

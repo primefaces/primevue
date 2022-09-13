@@ -1,12 +1,12 @@
 <template>
     <div :class="containerClass">
         <div class="layout-config-content-wrapper">
-            <a href="#" class="layout-config-button" @click="toggleConfigurator">
+            <nuxt-link to="#" class="layout-config-button" @click="toggleConfigurator">
                 <i class="pi pi-cog"></i>
-            </a>
-            <a href="#" class="layout-config-close" @click="hideConfigurator">
+            </nuxt-link>
+            <nuxt-link to="#" class="layout-config-close" @click="hideConfigurator">
                 <i class="pi pi-times"></i>
-            </a>
+            </nuxt-link>
 
             <div class="layout-config-content">
                 <div>
@@ -23,7 +23,7 @@
                     <InputSwitch :modelValue="rippleActive" @update:modelValue="onRippleChange"  />
 
                     <h4>Free Themes</h4>
-                    <p>Built-in component themes created by the <a href="https://www.primefaces.org/designer/primevue">PrimeVue Theme Designer</a>.</p>
+                    <p>Built-in component themes created by the <nuxt-link to="https://www.primefaces.org/designer/primevue">PrimeVue Theme Designer</nuxt-link>.</p>
 
                     <h5>Bootstrap</h5>
                     <div class="grid free-themes">
@@ -258,7 +258,7 @@
                     </div>
 
                     <h4>Premium Themes</h4>
-                    <p>Premium themes are only available exclusively for <a href="https://www.primefaces.org/designer/primevue">PrimeVue Theme Designer</a> subscribers and therefore not included in PrimeVue core.</p>
+                    <p>Premium themes are only available exclusively for <nuxt-link to="https://www.primefaces.org/designer/primevue">PrimeVue Theme Designer</nuxt-link> subscribers and therefore not included in PrimeVue core.</p>
                     <div class="grid free-themes">
                         <div class="col-3">
                             <button class="p-link" type="button" @click="changeTheme($event, 'soho-light')">
@@ -299,77 +299,77 @@
                     </div>
 
                     <h4>Admin Templates</h4>
-                    <p>Beautifully crafted <a href="https://cli.vuejs.org">Vue CLI</a> application templates by the PrimeTek design team.</p>
+                    <p>Beautifully crafted <nuxt-link to="https://cli.vuejs.org">Vue CLI</nuxt-link> application templates by the PrimeTek design team.</p>
                     <div class="grid premium-themes">
                         <div class="col-12 md:col-6">
-                            <a href="https://www.primefaces.org/sakai-vue">
+                            <nuxt-link to="https://www.primefaces.org/sakai-vue">
                                 <img alt="Ultima" src="@/assets/images/layouts/sakai-vue.jpg">
-                            </a>
+                            </nuxt-link>
                         </div>
                         <div class="col-12 md:col-6">
-                            <a href="https://www.primefaces.org/layouts/atlantis-vue">
+                            <nuxt-link to="https://www.primefaces.org/layouts/atlantis-vue">
                                 <img alt="Atlantis" src="@/assets/images/layouts/atlantis-vue.jpg">
-                            </a>
+                            </nuxt-link>
                         </div>
                         <div class="col-12 md:col-6">
-                            <a href="https://www.primefaces.org/layouts/freya-vue">
+                            <nuxt-link to="https://www.primefaces.org/layouts/freya-vue">
                                 <img alt="Freya" src="@/assets/images/layouts/freya-vue.png">
-                            </a>
+                            </nuxt-link>
                         </div>
                         <div class="col-12 md:col-6">
-                            <a href="https://www.primefaces.org/layouts/ultima-vue">
+                            <nuxt-link to="https://www.primefaces.org/layouts/ultima-vue">
                                 <img alt="Ultima" src="@/assets/images/layouts/ultima-vue.jpg">
-                            </a>
+                            </nuxt-link>
                         </div>
                         <div class="col-12 md:col-6">
-                            <a href="https://www.primefaces.org/layouts/diamond-vue">
+                            <nuxt-link to="https://www.primefaces.org/layouts/diamond-vue">
                                 <img alt="Diamond" src="@/assets/images/layouts/diamond-vue.jpg">
-                            </a>
+                            </nuxt-link>
                         </div>
                         <div class="col-12 md:col-6">
-                            <a href="https://www.primefaces.org/layouts/verona-vue">
+                            <nuxt-link to="https://www.primefaces.org/layouts/verona-vue">
                                 <img alt="Verona" src="@/assets/images/layouts/verona-vue.jpg">
-                            </a>
+                            </nuxt-link>
                         </div>
                         <div class="col-12 md:col-6">
-                            <a href="https://www.primefaces.org/layouts/poseidon-vue">
+                            <nuxt-link to="https://www.primefaces.org/layouts/poseidon-vue">
                                 <img alt="Poseidon" src="@/assets/images/layouts/poseidon-vue.jpg">
-                            </a>
+                            </nuxt-link>
                         </div>
                         <div class="col-12 md:col-6">
-                            <a href="https://www.primefaces.org/layouts/sapphire-vue">
+                            <nuxt-link to="https://www.primefaces.org/layouts/sapphire-vue">
                                 <img alt="Sapphire" src="@/assets/images/layouts/sapphire-vue.jpg">
-                            </a>
+                            </nuxt-link>
                         </div>
                         <div class="col-12 md:col-6">
-                            <a href="https://www.primefaces.org/layouts/serenity-vue">
+                            <nuxt-link to="https://www.primefaces.org/layouts/serenity-vue">
                                 <img alt="Serenity" src="@/assets/images/layouts/serenity-vue.jpg">
-                            </a>
+                            </nuxt-link>
                         </div>
                         <div class="col-12 md:col-6">
-                            <a href="https://www.primefaces.org/layouts/babylon-vue">
+                            <nuxt-link to="https://www.primefaces.org/layouts/babylon-vue">
                                 <img alt="Babylon" src="@/assets/images/layouts/babylon-vue.jpg">
-                            </a>
+                            </nuxt-link>
                         </div>
                         <div class="col-12 md:col-6">
-                            <a href="https://www.primefaces.org/layouts/avalon-vue">
+                            <nuxt-link to="https://www.primefaces.org/layouts/avalon-vue">
                                 <img alt="Avalon" src="@/assets/images/layouts/avalon-vue.jpg">
-                            </a>
+                            </nuxt-link>
                         </div>
                         <div class="col-12 md:col-6">
-                            <a href="https://www.primefaces.org/layouts/apollo-vue">
+                            <nuxt-link to="https://www.primefaces.org/layouts/apollo-vue">
                                 <img alt="Apollo" src="@/assets/images/layouts/apollo-vue.jpg">
-                            </a>
+                            </nuxt-link>
                         </div>
                         <div class="col-12 md:col-6">
-                            <a href="https://www.primefaces.org/layouts/roma-vue">
+                            <nuxt-link to="https://www.primefaces.org/layouts/roma-vue">
                                 <img alt="Roma" src="@/assets/images/layouts/roma-vue.jpg">
-                            </a>
+                            </nuxt-link>
                         </div>
                         <div class="col-12 md:col-6">
-                            <a href="https://www.primefaces.org/layouts/prestige-vue">
+                            <nuxt-link to="https://www.primefaces.org/layouts/prestige-vue">
                                 <img alt="Prestige" src="@/assets/images/layouts/prestige-vue.jpg">
-                            </a>
+                            </nuxt-link>
                         </div>
                     </div>
                 </div>
@@ -433,7 +433,6 @@ export default {
             event.preventDefault();
         },
         changeTheme(event, theme, dark) {
-            console.log(event, theme, dark)
             EventBus.emit('theme-change', { theme: theme, dark: dark });
             event.preventDefault();
         },

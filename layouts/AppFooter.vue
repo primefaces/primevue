@@ -2,19 +2,19 @@
     <div class="layout-footer">
         <div class="layout-footer-left">
             <span>PrimeVue 3.17.0-SNAPSHOT on Vue 3 by </span>
-            <a href="https://www.primetek.com.tr">PrimeTek</a>
+            <nuxt-link to="https://www.primetek.com.tr">PrimeTek</nuxt-link>
         </div>
 
         <div class="layout-footer-right">
-            <a href="https://github.com/primefaces/primevue" class="mr-3">
+            <nuxt-link to="https://github.com/primefaces/primevue" class="mr-3">
                 <i class="pi pi-github"></i>
-            </a>
-            <a href="https://twitter.com/primevue" class="mr-3">
+            </nuxt-link>
+            <nuxt-link to="https://twitter.com/primevue" class="mr-3">
                 <i class="pi pi-twitter"></i>
-            </a>
-            <a href="https://discord.com/invite/gzKFYnpmCY">
+            </nuxt-link>
+            <nuxt-link to="https://discord.com/invite/gzKFYnpmCY">
                 <i class="pi pi-discord"></i>
-            </a>
+            </nuxt-link>
         </div>
     </div>
 </template>

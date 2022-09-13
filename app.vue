@@ -54,8 +54,6 @@ export default {
         };
 
         this.themeChangeListener = (event) => {
-            console.log(this.$appState.theme);
-
             const elementId = 'theme-link';
             const linkElement = document.getElementById(elementId);
             const cloneLinkElement = linkElement.cloneNode(true);

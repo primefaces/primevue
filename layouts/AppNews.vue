@@ -1,4 +1,5 @@
 <template>
+    <ClientOnly>
     <div class="layout-news" :style="$appState?.announcement?.backgroundStyle">
         <i></i>
         <div class="layout-news-content">
@@ -9,6 +10,7 @@
             <span class="pi pi-times"></span>
         </a>
     </div>
+</ClientOnly>
 </template>
 
 <script>

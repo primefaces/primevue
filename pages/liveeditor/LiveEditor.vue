@@ -109,8 +109,7 @@ export default {
 
             let extIndexCSS = extFiles['index.css'] || '';
             delete extFiles['index.css'];
-
-            console.log(packageJson)
+            
             const dependencies = packageJson ? packageJson.devDependencies : {};
 
             let defaultCss = {

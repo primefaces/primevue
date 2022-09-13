@@ -3,27 +3,27 @@
             <div class="section-header">Templates</div>
             <p class="section-detail">Professionally designed highly customizable application templates to get started in style.</p>
             <div class="flex justify-content-center mt-4">
-                <a href="https://www.primefaces.org/store" class="font-semibold p-3 border-round flex align-items-center linkbox active">
+                <nuxt-link to="https://www.primefaces.org/store" class="font-semibold p-3 border-round flex align-items-center linkbox active">
                     <span>Learn More</span>
                     <i class="pi pi-arrow-right ml-2"></i>
-                </a>
+                </nuxt-link>
             </div>
             <section :class="['templates flex justify-content-center align-items-center flex-column mt-7', {'templates-animation': setAnimation}]">
             <div class="flex">
                 <div class="template-block block-1 mr-2 flex justify-content-center align-items-center"
                     :style="{backgroundImage: imageBg('diamond')}">
-                    <a class="templates-btn" target="_blank" href="https://www.primefaces.org/diamond-vue/" >Diamond Preview</a>
+                    <nuxt-link class="templates-btn" target="_blank" to="https://www.primefaces.org/diamond-vue/" >Diamond Preview</nuxt-link>
                 </div>
             <div
             class="template-block block-2 ml-2 flex justify-content-center align-items-center"
                 :style="{backgroundImage: imageBg('freya')}">
-                <a class="templates-btn" target="_blank" href="https://www.primefaces.org/freya-vue/" >Freya Preview</a>
+                <nuxt-link class="templates-btn" target="_blank" to="https://www.primefaces.org/freya-vue/" >Freya Preview</nuxt-link>
                 </div>
             </div>
             <div class="flex my-4">
                 <div class="template-block block-3 mr-2 flex justify-content-center align-items-center"
                     :style="{backgroundImage: imageBg('atlantis')}">
-                    <a class="templates-btn" target="_blank" href="https://www.primefaces.org/atlantis-vue/" >Atlantis Preview</a>
+                    <nuxt-link class="templates-btn" target="_blank" to="https://www.primefaces.org/atlantis-vue/" >Atlantis Preview</nuxt-link>
                 </div>
                 <div class="template-block block-middle border-none box-shadow-none mr-2 flex justify-content-center align-items-center flex-column">
                     <img class="img-1"
@@ -31,17 +31,17 @@
                 </div>
                 <div class="template-block block-4 ml-2 flex justify-content-center align-items-center"
                     :style="{backgroundImage: imageBg('apollo')}">
-                    <a class="templates-btn" target="_blank" href="https://www.primefaces.org/apollo-vue/" >Apollo Preview</a>
+                    <nuxt-link class="templates-btn" target="_blank" to="https://www.primefaces.org/apollo-vue/" >Apollo Preview</nuxt-link>
                 </div>
             </div>
             <div class="flex">
                 <div class="template-block block-5 mr-2 flex justify-content-center align-items-center"
                     :style="{backgroundImage: imageBg('serenity')}">
-                    <a class="templates-btn" target="_blank" href="https://www.primefaces.org/serenity-vue/" >Serenity Preview</a>
+                    <nuxt-link class="templates-btn" target="_blank" to="https://www.primefaces.org/serenity-vue/" >Serenity Preview</nuxt-link>
                 </div>
                 <div class="template-block block-6 ml-2 flex justify-content-center align-items-center"
                     :style="{backgroundImage: imageBg('ultima')}">
-                    <a class="templates-btn" target="_blank" href="https://www.primefaces.org/ultima-vue/" >Ultima Preview</a>
+                    <nuxt-link class="templates-btn" target="_blank" to="https://www.primefaces.org/ultima-vue/" >Ultima Preview</nuxt-link>
                 </div>
             </div>
             <div class="lines">

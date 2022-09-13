@@ -3,10 +3,10 @@
         <div class="section-header">PrimeBlocks</div>
         <p class="section-detail">350+ ready to copy-paste UI blocks to build spectacular applications in no time.</p>
         <div class="flex justify-content-center mt-4">
-            <a href="https://www.primefaces.org/primeblocks-vue" class="font-semibold p-3 border-round flex align-items-center linkbox active z-2">
+            <nuxt-link to="https://www.primefaces.org/primeblocks-vue" class="font-semibold p-3 border-round flex align-items-center linkbox active z-2">
                 <span>Learn More</span>
                 <i class="pi pi-arrow-right ml-2"></i>
-            </a>
+            </nuxt-link>
         </div>
         <section :class="['prime-blocks flex justify-content-center align-items-center flex-column z-1', {'blocks-animation': setAnimation}]">
             <div class="flex">
