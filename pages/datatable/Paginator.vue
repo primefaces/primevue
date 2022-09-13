@@ -1,4 +1,5 @@
 <template>
+      <ClientOnly>
     <div>
         <div class="content-section introduction">
             <div class="feature-intro">
@@ -32,11 +33,10 @@
                 </DataTable>
             </div>
         </div>
-
-        <ClientOnly>
 <AppDoc name="DataTablePaginatorDemo" :sources="sources" :service="['CustomerService']" :data="['customers-large']" github="datatable/DataTablePaginatorDemo.vue" />
-</ClientOnly>
+
     </div>
+</ClientOnly>
 </template>
 
 <script>

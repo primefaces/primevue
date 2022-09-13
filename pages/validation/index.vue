@@ -1,4 +1,5 @@
 <template>
+    <ClientOnly>
     <div>
         <div class="content-section introduction">
             <div class="feature-intro">
@@ -92,7 +93,7 @@
             </div>
         </div>
 
-        <ClientOnly>
+        
 <AppDoc
             name="VuelidateFormDemo"
             :sources="sources"
@@ -101,8 +102,9 @@
             github="validation/VuelidateFormDemo.vue"
             :dependencies="{ '@vuelidate/core': '^2.0.0-alpha.14', '@vuelidate/validators': '^2.0.0-alpha.12' }"
         />
-        </ClientOnly>
+        
     </div>
+</ClientOnly>
 </template>
 
 <script>

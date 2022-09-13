@@ -1,7 +1,9 @@
 <template>
+    <div>
     <span v-if="showEditor" class="flex justify-content-end">
         <SplitButton :model="items" label="Edit in CodeSandbox" class="liveEditorSplitButton" @click="openDefaultCSB" v-show="false" />
     </span>
+</div>
 </template>
 
 <script>
@@ -109,7 +111,7 @@ export default {
 
             let extIndexCSS = extFiles['index.css'] || '';
             delete extFiles['index.css'];
-            
+
             const dependencies = packageJson ? packageJson.devDependencies : {};
 
             let defaultCss = {
