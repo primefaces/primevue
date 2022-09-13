@@ -29,7 +29,7 @@
     "gulp-uglify": "^3.0.2",
     "gulp-uglifycss": "^1.0.6",
     "jsdom": "^19.0.0",
-    "nuxt": "3.0.0-rc.9",
+    "nuxt": "^3.0.0-rc.9",
     "primeflex": "^3.2.1",
     "primeicons": "^5.0.0",
     "prismjs": "^1.29.0",

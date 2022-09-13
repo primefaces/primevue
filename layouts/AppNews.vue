@@ -1,11 +1,11 @@
 <template>
-    <div class="layout-news" :style="$appState.announcement.backgroundStyle">
+    <div class="layout-news" :style="$appState?.announcement?.backgroundStyle">
         <i></i>
         <div class="layout-news-content">
-            <span class="layout-news-text" :style="$appState.announcement.textStyle">{{$appState.announcement.content}}</span>
-            <a class="layout-news-link" :href="$appState.announcement.linkHref">{{$appState.announcement.linkText}}</a>
+            <span class="layout-news-text" :style="$appState?.announcement?.textStyle">{{$appState?.announcement?.content}}</span>
+            <a class="layout-news-link" :href="$appState?.announcement?.linkHref">{{$appState?.announcement?.linkText}}</a>
         </div>
-        <a class="layout-news-close" :style="$appState.announcement.textStyle" @click="onClose">
+        <a class="layout-news-close" :style="$appState?.announcement?.textStyle" @click="onClose">
             <span class="pi pi-times"></span>
         </a>
     </div>

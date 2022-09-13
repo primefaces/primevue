@@ -1,5 +1,6 @@
 <template>
     <div class="stepsdemo-content">
+        <ClientOnly>
         <Card>
             <template v-slot:title> Confirmation </template>
             <template v-slot:content>
@@ -47,6 +48,7 @@
                 </div>
             </template>
         </Card>
+        </ClientOnly>
     </div>
 </template>
 

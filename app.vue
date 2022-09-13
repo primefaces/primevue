@@ -1,8 +1,7 @@
 <template>
-  <NuxtLayout v-if="$route.name !== 'index'">
+  <NuxtLayout :name="layout">
     <NuxtPage />
   </NuxtLayout>
-  <NuxtPage v-else />
 </template>
 
 <script>
@@ -15,7 +14,21 @@ export default {
     newsService: null,
     data() {
         return {
-            storageKey: 'primevue'
+            storageKey: 'primevue',
+            layout: 'custom',
+        }
+    },
+    watch: {
+        $route: {
+            immediate: true,
+            handler(to) {
+                if (to.name === 'index') {
+                   this.layout = 'custom';
+                }
+                else {
+                    this.layout = 'default';
+                }
+            }
         }
     },
     created() {

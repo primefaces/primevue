@@ -1,7 +1,8 @@
 <template>
     <div :class="landingClass">
+        <ClientOnly>
         <div class="landing-intro">
-            <AppNews v-if="$appState.newsActive" />
+            <AppNews v-if="true" />
             <HeaderSection @theme-toggle="onThemeToggle" />
             <HeroSection />
         </div>
@@ -13,6 +14,7 @@
         <UsersSection />
         <FeaturesSection />
         <FooterSection />
+    </ClientOnly>
     </div> 
 </template>
 
@@ -89,7 +91,7 @@ export default {
   },
   computed: {
       landingClass() {
-          return ['landing', {'landing-dark': this.$appState.darkTheme, 'landing-light': !this.$appState.darkTheme, 'landing-news-active': this.$appState.newsActive}];
+          return ['landing', {'landing-dark': this.$appState?.darkTheme, 'landing-light': !this.$appState?.darkTheme, 'landing-news-active': this.$appState?.newsActive}];
       }
   },
   components: {
