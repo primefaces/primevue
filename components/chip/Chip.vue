@@ -1,12 +1,11 @@
 <template>
-    <div :class="containerClass" v-if="visible">
+    <div v-if="visible" :class="containerClass">
         <slot>
-            <img :src="image" v-if="image">
-            <span :class="iconClass" v-else-if="icon"></span>
-            <div class="p-chip-text" v-if="label">{{label}}</div>
+            <img v-if="image" :src="image" />
+            <span v-else-if="icon" :class="iconClass"></span>
+            <div v-if="label" class="p-chip-text">{{ label }}</div>
         </slot>
-        <span v-if="removable" tabindex="0" :class="removeIconClass"
-            @click="close" @keydown.enter="close"></span>
+        <span v-if="removable" tabindex="0" :class="removeIconClass" @click="close" @keydown.enter="close"></span>
     </div>
 </template>
 
@@ -39,7 +38,7 @@ export default {
     data() {
         return {
             visible: true
-        }
+        };
     },
     methods: {
         close(event) {
@@ -49,9 +48,12 @@ export default {
     },
     computed: {
         containerClass() {
-            return ['p-chip p-component', {
-                'p-chip-image': this.image != null
-            }];
+            return [
+                'p-chip p-component',
+                {
+                    'p-chip-image': this.image != null
+                }
+            ];
         },
         iconClass() {
             return ['p-chip-icon', this.icon];
@@ -60,7 +62,7 @@ export default {
             return ['p-chip-remove-icon', this.removeIcon];
         }
     }
-}
+};
 </script>
 
 <style>

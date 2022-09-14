@@ -11,7 +11,7 @@ describe('Fieldset.vue', () => {
                 toggleable: true,
                 collapsed: true
             },
-            slots:  {
+            slots: {
                 default: `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>`
             }
         });

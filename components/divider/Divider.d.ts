@@ -38,14 +38,13 @@ export interface DividerSlots {
     default: () => VNode[];
 }
 
-export declare type DividerEmits = {
-}
+export declare type DividerEmits = {};
 
-declare class Divider extends ClassComponent<DividerProps, DividerSlots, DividerEmits> { }
+declare class Divider extends ClassComponent<DividerProps, DividerSlots, DividerEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        Divider: GlobalComponentConstructor<Divider>
+        Divider: GlobalComponentConstructor<Divider>;
     }
 }
 
@@ -55,7 +54,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [Divider](https://www.primefaces.org/primevue/showcase/#/divider)
+ * - [Divider](https://www.primefaces.org/primevue/divider)
  *
  */
 export default Divider;

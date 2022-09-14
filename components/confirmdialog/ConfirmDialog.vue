@@ -1,22 +1,21 @@
 <template>
-    <CDialog v-model:visible="visible" :modal="true" :header="header" :blockScroll="blockScroll" :position="position" class="p-confirm-dialog"
-        :breakpoints="breakpoints" :closeOnEscape="closeOnEscape">
+    <CDialog v-model:visible="visible" :modal="true" :header="header" :blockScroll="blockScroll" :position="position" class="p-confirm-dialog" :breakpoints="breakpoints" :closeOnEscape="closeOnEscape" @update:visible="onHide">
         <template v-if="!$slots.message">
             <i :class="iconClass" />
             <span class="p-confirm-dialog-message">{{ message }}</span>
         </template>
         <component v-else :is="$slots.message" :message="confirmation"></component>
         <template #footer>
-            <CDButton :label="rejectLabel" :icon="rejectIcon" :class="rejectClass" @click="reject()" :autofocus="autoFocusReject"/>
+            <CDButton :label="rejectLabel" :icon="rejectIcon" :class="rejectClass" @click="reject()" :autofocus="autoFocusReject" />
             <CDButton :label="acceptLabel" :icon="acceptIcon" :class="acceptClass" @click="accept()" :autofocus="autoFocusAccept" />
         </template>
     </CDialog>
 </template>
 
 <script>
+import Button from 'primevue/button';
 import ConfirmationEventBus from 'primevue/confirmationeventbus';
 import Dialog from 'primevue/dialog';
-import Button from 'primevue/button';
 
 export default {
     name: 'ConfirmDialog',
@@ -32,8 +31,8 @@ export default {
     data() {
         return {
             visible: false,
-            confirmation: null,
-        }
+            confirmation: null
+        };
     },
     mounted() {
         this.confirmListener = (options) => {
@@ -51,6 +50,7 @@ export default {
             this.visible = false;
             this.confirmation = null;
         };
+
         ConfirmationEventBus.on('confirm', this.confirmListener);
         ConfirmationEventBus.on('close', this.closeListener);
     },
@@ -69,6 +69,13 @@ export default {
         reject() {
             if (this.confirmation.reject) {
                 this.confirmation.reject();
+            }
+
+            this.visible = false;
+        },
+        onHide() {
+            if (this.confirmation.onHide) {
+                this.confirmation.onHide();
             }
 
             this.visible = false;
@@ -91,10 +98,10 @@ export default {
             return ['p-confirm-dialog-icon', this.confirmation ? this.confirmation.icon : null];
         },
         acceptLabel() {
-            return this.confirmation ? (this.confirmation.acceptLabel || this.$primevue.config.locale.accept) : null;
+            return this.confirmation ? this.confirmation.acceptLabel || this.$primevue.config.locale.accept : null;
         },
         rejectLabel() {
-            return this.confirmation ? (this.confirmation.rejectLabel || this.$primevue.config.locale.reject) : null;
+            return this.confirmation ? this.confirmation.rejectLabel || this.$primevue.config.locale.reject : null;
         },
         acceptIcon() {
             return this.confirmation ? this.confirmation.acceptIcon : null;
@@ -106,10 +113,10 @@ export default {
             return ['p-confirm-dialog-accept', this.confirmation ? this.confirmation.acceptClass : null];
         },
         rejectClass() {
-            return ['p-confirm-dialog-reject', this.confirmation ? (this.confirmation.rejectClass || 'p-button-text') : null];
+            return ['p-confirm-dialog-reject', this.confirmation ? this.confirmation.rejectClass || 'p-button-text' : null];
         },
         autoFocusAccept() {
-            return (this.confirmation.defaultFocus === undefined || this.confirmation.defaultFocus === 'accept') ? true : false;
+            return this.confirmation.defaultFocus === undefined || this.confirmation.defaultFocus === 'accept' ? true : false;
         },
         autoFocusReject() {
             return this.confirmation.defaultFocus === 'reject' ? true : false;
@@ -119,8 +126,8 @@ export default {
         }
     },
     components: {
-        'CDialog': Dialog,
-        'CDButton': Button
+        CDialog: Dialog,
+        CDButton: Button
     }
-}
+};
 </script>

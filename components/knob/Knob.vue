@@ -1,10 +1,26 @@
 <template>
     <div :class="containerClass">
-        <svg viewBox="0 0 100 100" role="slider" :width="size" :height="size" :tabindex="readonly || disabled ? -1 : tabindex" :aria-valuemin="min" :aria-valuemax="max" :aria-valuenow="modelValue" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel"
-            @click="onClick" @keydown="onKeyDown" @mousedown="onMouseDown" @mouseup="onMouseUp" @touchstart="onTouchStart" @touchend="onTouchEnd">
+        <svg
+            viewBox="0 0 100 100"
+            role="slider"
+            :width="size"
+            :height="size"
+            :tabindex="readonly || disabled ? -1 : tabindex"
+            :aria-valuemin="min"
+            :aria-valuemax="max"
+            :aria-valuenow="modelValue"
+            :aria-labelledby="ariaLabelledby"
+            :aria-label="ariaLabel"
+            @click="onClick"
+            @keydown="onKeyDown"
+            @mousedown="onMouseDown"
+            @mouseup="onMouseUp"
+            @touchstart="onTouchStart"
+            @touchend="onTouchEnd"
+        >
             <path :d="rangePath" :stroke-width="strokeWidth" :stroke="rangeColor" class="p-knob-range"></path>
             <path :d="valuePath" :stroke-width="strokeWidth" :stroke="valueColor" class="p-knob-value"></path>
-            <text v-if="showValue" :x="50" :y="57" text-anchor="middle" :fill="textColor" class="p-knob-text">{{valueToDisplay}}</text>
+            <text v-if="showValue" :x="50" :y="57" text-anchor="middle" :fill="textColor" class="p-knob-text">{{ valueToDisplay }}</text>
         </svg>
     </div>
 </template>
@@ -13,15 +29,6 @@
 export default {
     name: 'Knob',
     emits: ['update:modelValue', 'change'],
-    data() {
-        return {
-            radius: 40,
-            midX: 50,
-            midY: 50,
-            minRadians: 4 * Math.PI / 3,
-            maxRadians: -Math.PI / 3
-        }
-    },
     props: {
         modelValue: {
             type: Number,
@@ -73,7 +80,7 @@ export default {
         },
         valueTemplate: {
             type: String,
-            default: "{value}"
+            default: '{value}'
         },
         tabindex: {
             type: Number,
@@ -81,31 +88,40 @@ export default {
         },
         'aria-labelledby': {
             type: String,
-			default: null
+            default: null
         },
         'aria-label': {
             type: String,
             default: null
         }
     },
+    data() {
+        return {
+            radius: 40,
+            midX: 50,
+            midY: 50,
+            minRadians: (4 * Math.PI) / 3,
+            maxRadians: -Math.PI / 3
+        };
+    },
     methods: {
         updateValue(offsetX, offsetY) {
             let dx = offsetX - this.size / 2;
-            let dy =  this.size / 2 - offsetY;
+            let dy = this.size / 2 - offsetY;
             let angle = Math.atan2(dy, dx);
             let start = -Math.PI / 2 - Math.PI / 6;
+
             this.updateModel(angle, start);
         },
         updateModel(angle, start) {
             let mappedValue;
-            if (angle > this.maxRadians)
-                mappedValue = this.mapRange(angle, this.minRadians, this.maxRadians, this.min, this.max);
-            else if (angle < start)
-                mappedValue = this.mapRange(angle + 2 * Math.PI, this.minRadians, this.maxRadians, this.min, this.max);
-            else
-                return;
+
+            if (angle > this.maxRadians) mappedValue = this.mapRange(angle, this.minRadians, this.maxRadians, this.min, this.max);
+            else if (angle < start) mappedValue = this.mapRange(angle + 2 * Math.PI, this.minRadians, this.maxRadians, this.min, this.max);
+            else return;
 
             let newValue = Math.round((mappedValue - this.min) / this.step) * this.step + this.min;
+
             this.$emit('update:modelValue', newValue);
             this.$emit('change', newValue);
         },
@@ -115,7 +131,7 @@ export default {
             else this.$emit('update:modelValue', newValue);
         },
         mapRange(x, inMin, inMax, outMin, outMax) {
-            return (x - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
+            return ((x - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin;
         },
         onClick(event) {
             if (!this.disabled && !this.readonly) {
@@ -162,6 +178,7 @@ export default {
                 const touch = event.targetTouches.item(0);
                 const offsetX = touch.clientX - rect.left;
                 const offsetY = touch.clientY - rect.top;
+
                 this.updateValue(offsetX, offsetY);
             }
         },
@@ -169,6 +186,7 @@ export default {
             if (!this.disabled && !this.readonly) {
                 switch (event.code) {
                     case 'ArrowRight':
+
                     case 'ArrowUp': {
                         event.preventDefault();
                         this.updateModelValue(this.modelValue + 1);
@@ -176,6 +194,7 @@ export default {
                     }
 
                     case 'ArrowLeft':
+
                     case 'ArrowDown': {
                         event.preventDefault();
                         this.updateModelValue(this.modelValue - 1);
@@ -212,7 +231,8 @@ export default {
     computed: {
         containerClass() {
             return [
-                'p-knob p-component', {
+                'p-knob p-component',
+                {
                     'p-disabled': this.disabled
                 }
             ];
@@ -224,10 +244,8 @@ export default {
             return `M ${this.zeroX} ${this.zeroY} A ${this.radius} ${this.radius} 0 ${this.largeArc} ${this.sweep} ${this.valueX} ${this.valueY}`;
         },
         zeroRadians() {
-            if (this.min > 0 && this.max > 0)
-                return this.mapRange(this.min, this.min, this.max, this.minRadians, this.maxRadians);
-            else
-                return this.mapRange(0, this.min, this.max, this.minRadians, this.maxRadians);
+            if (this.min > 0 && this.max > 0) return this.mapRange(this.min, this.min, this.max, this.minRadians, this.maxRadians);
+            else return this.mapRange(0, this.min, this.max, this.minRadians, this.maxRadians);
         },
         valueRadians() {
             return this.mapRange(this.modelValue, this.min, this.max, this.minRadians, this.maxRadians);
@@ -266,7 +284,7 @@ export default {
             return this.valueTemplate.replace(/{value}/g, this.modelValue);
         }
     }
-}
+};
 //Derived and forked from https://github.com/kramer99/vue-knob-control
 </script>
 
@@ -278,7 +296,7 @@ export default {
 }
 .p-knob-range {
     fill: none;
-    transition: stroke .1s ease-in;
+    transition: stroke 0.1s ease-in;
 }
 .p-knob-value {
     animation-name: dash-frame;

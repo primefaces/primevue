@@ -1,18 +1,18 @@
+import TabPanel from '@/components/tabpanel/TabPanel.vue';
 import { mount } from '@vue/test-utils';
 import TabView from './TabView.vue';
-import TabPanel from '@/components/tabpanel/TabPanel.vue';
 
 describe('TabPanel.vue', () => {
     let wrapper;
 
-    window.HTMLElement.prototype.scrollIntoView = function() {};
+    window.HTMLElement.prototype.scrollIntoView = function () {};
 
     beforeEach(() => {
         wrapper = mount(TabView, {
             global: {
                 components: {
                     TabPanel
-                }    
+                }
             },
             slots: {
                 default: `
@@ -42,7 +42,7 @@ describe('TabPanel.vue', () => {
     it('should change the active item', async () => {
         await wrapper.vm.onTabClick({}, 1);
 
-        expect(wrapper.findAll('li[role="presentation"]')[1].classes()).toContain('p-highlight');
+        expect(wrapper.findAll('li[role="presentation"]')[1].classes()).toContain('p-tabview-header');
         expect(wrapper.findAll('.p-tabview-panel')[0].attributes().style).toBe('display: none;');
     });
 });
@@ -53,7 +53,7 @@ describe('dynamic tabs', () => {
             global: {
                 components: {
                     TabPanel
-                }    
+                }
             },
             slots: {
                 default: `

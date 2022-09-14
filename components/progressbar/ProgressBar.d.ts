@@ -28,14 +28,13 @@ export interface ProgressBarSlots {
     default: () => VNode[];
 }
 
-export declare type ProgressBarEmits = {
-}
+export declare type ProgressBarEmits = {};
 
-declare class ProgressBar extends ClassComponent<ProgressBarProps, ProgressBarSlots, ProgressBarEmits> { }
+declare class ProgressBar extends ClassComponent<ProgressBarProps, ProgressBarSlots, ProgressBarEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        ProgressBar: GlobalComponentConstructor<ProgressBar>
+        ProgressBar: GlobalComponentConstructor<ProgressBar>;
     }
 }
 
@@ -45,7 +44,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [ProgressBar](https://www.primefaces.org/primevue/showcase/#/progressbar)
+ * - [ProgressBar](https://www.primefaces.org/primevue/progressbar)
  *
  */
 export default ProgressBar;

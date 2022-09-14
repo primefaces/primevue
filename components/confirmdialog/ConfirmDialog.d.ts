@@ -38,19 +38,16 @@ export interface ConfirmDialogSlots {
      * Custom message template.
      * @param {Object} scope - message slot's params.
      */
-    message: (scope: {
-        message: ConfirmationOptions;
-    }) => VNode[];
+    message: (scope: { message: ConfirmationOptions }) => VNode[];
 }
 
-export declare type ConfirmDialogEmits = {
-}
+export declare type ConfirmDialogEmits = {};
 
-declare class ConfirmDialog extends ClassComponent<ConfirmDialogProps, ConfirmDialogSlots, ConfirmDialogEmits> { }
+declare class ConfirmDialog extends ClassComponent<ConfirmDialogProps, ConfirmDialogSlots, ConfirmDialogEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        ConfirmDialog: GlobalComponentConstructor<ConfirmDialog>
+        ConfirmDialog: GlobalComponentConstructor<ConfirmDialog>;
     }
 }
 
@@ -65,7 +62,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [ConfirmDialog](https://www.primefaces.org/primevue/showcase/#/confirmdialog)
+ * - [ConfirmDialog](https://www.primefaces.org/primevue/confirmdialog)
  *
  */
 export default ConfirmDialog;

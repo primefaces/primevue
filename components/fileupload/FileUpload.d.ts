@@ -212,7 +212,7 @@ export declare type FileUploadEmits = {
      * Callback to invoke when files are selected.
      * @param {FileUploadSelectEvent} event - Custom select event.
      */
-    'select': (event: FileUploadSelectEvent) => void;
+    select: (event: FileUploadSelectEvent) => void;
     /**
      * Callback to invoke before file upload begins to customize the request such as post parameters before the files.
      * @param {FileUploadBeforeUploadEvent} event - Custom before upload event.
@@ -222,22 +222,22 @@ export declare type FileUploadEmits = {
      * Callback to invoke when files are being uploaded.
      * @param {FileUploadProgressEvent} event - Custom progress event.
      */
-    'progress': (event: FileUploadProgressEvent) => void;
+    progress: (event: FileUploadProgressEvent) => void;
     /**
      * Callback to invoke when file upload is complete.
      * @param {FileUploadUploadEvent} event - Custom upload event.
      */
-    'upload': (event: FileUploadUploadEvent) => void;
+    upload: (event: FileUploadUploadEvent) => void;
     /**
      * Callback to invoke to implement a custom upload.
      * @param {FileUploadUploaderEvent} event - Custom uploader event.
      */
-    'uploader': (event: FileUploadUploaderEvent) => void;
+    uploader: (event: FileUploadUploaderEvent) => void;
     /**
      * Callback to invoke if file upload fails.
      * @param {FileUploadErrorEvent} event - Custom error event.
      */
-    'error': (event: FileUploadErrorEvent) => void;
+    error: (event: FileUploadErrorEvent) => void;
     /**
      * Callback to invoke before file send begins to customize the request such as adding headers.
      * @param {FileUploadBeforeSendEvent} event - Custom before send event.
@@ -246,19 +246,19 @@ export declare type FileUploadEmits = {
     /**
      * Callback to invoke when files in queue are removed without uploading.
      */
-    'clear': () => void;
+    clear: () => void;
     /**
      * Callback to invoke when a singe file is removed from the list.
      * @param {FileUploadRemoveEvent} event - Custom remove event.
      */
-    'remove': (event: FileUploadRemoveEvent) => void;
-}
+    remove: (event: FileUploadRemoveEvent) => void;
+};
 
-declare class FileUpload extends ClassComponent<FileUploadProps, FileUploadSlots, FileUploadEmits> { }
+declare class FileUpload extends ClassComponent<FileUploadProps, FileUploadSlots, FileUploadEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        FileUpload: GlobalComponentConstructor<FileUpload>
+        FileUpload: GlobalComponentConstructor<FileUpload>;
     }
 }
 
@@ -268,7 +268,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [FileUpload](https://www.primefaces.org/primevue/showcase/#/fileupload)
+ * - [FileUpload](https://www.primefaces.org/primevue/fileupload)
  *
  */
 export default FileUpload;

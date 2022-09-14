@@ -25,6 +25,10 @@ export interface FieldsetProps {
      * Defines the default visibility state of the content.
      */
     collapsed?: boolean | undefined;
+    /**
+     * Uses to pass the custom value to read for the anchor inside the component.
+     */
+    toggleButtonProps?: string | undefined;
 }
 
 export interface FieldsetSlots {
@@ -48,14 +52,14 @@ export declare type FieldsetEmits = {
      * Callback to invoke when a tab gets expanded or collapsed.
      * @param {FieldsetToggleEvent} event - Custom toggle event.
      */
-    'toggle': (event: FieldsetToggleEvent) => void;
-}
+    toggle: (event: FieldsetToggleEvent) => void;
+};
 
-declare class Fieldset extends ClassComponent<FieldsetProps, FieldsetSlots, FieldsetEmits> { }
+declare class Fieldset extends ClassComponent<FieldsetProps, FieldsetSlots, FieldsetEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        Fieldset: GlobalComponentConstructor<Fieldset>
+        Fieldset: GlobalComponentConstructor<Fieldset>;
     }
 }
 
@@ -65,7 +69,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [Fieldset](https://www.primefaces.org/primevue/showcase/#/fieldset)
+ * - [Fieldset](https://www.primefaces.org/primevue/fieldset)
  *
  */
 export default Fieldset;

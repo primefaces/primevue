@@ -1,6 +1,5 @@
 <template>
-	<JTPDropdown :modelValue="page" :options="pageOptions" optionLabel="label" optionValue="value"
-        @update:modelValue="onChange($event)" class="p-paginator-page-options" :disabled="disabled"></JTPDropdown>
+    <JTPDropdown :modelValue="page" :options="pageOptions" optionLabel="label" optionValue="value" @update:modelValue="onChange($event)" class="p-paginator-page-options" :disabled="disabled"></JTPDropdown>
 </template>
 
 <script>
@@ -23,14 +22,16 @@ export default {
     computed: {
         pageOptions() {
             let opts = [];
-            for(let i= 0; i < this.pageCount; i++) {
-                opts.push({label: String(i+1), value: i})
+
+            for (let i = 0; i < this.pageCount; i++) {
+                opts.push({ label: String(i + 1), value: i });
             }
+
             return opts;
         }
     },
     components: {
-        'JTPDropdown': Dropdown
+        JTPDropdown: Dropdown
     }
-}
+};
 </script>

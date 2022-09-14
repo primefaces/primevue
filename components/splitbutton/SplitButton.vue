@@ -3,17 +3,15 @@
         <slot>
             <PVSButton type="button" class="p-splitbutton-defaultbutton" v-bind="$attrs" :icon="icon" :label="label" @click="onDefaultButtonClick" />
         </slot>
-        <PVSButton type="button" class="p-splitbutton-menubutton" icon="pi pi-chevron-down" @click="onDropdownButtonClick" :disabled="$attrs.disabled"
-            aria-haspopup="true" :aria-controls="ariaId + '_overlay'"/>
-        <PVSMenu :id="ariaId + '_overlay'" ref="menu" :model="model" :popup="true" :autoZIndex="autoZIndex"
-            :baseZIndex="baseZIndex" :appendTo="appendTo" />
+        <PVSButton type="button" class="p-splitbutton-menubutton" icon="pi pi-chevron-down" @click="onDropdownButtonClick" :disabled="$attrs.disabled" aria-haspopup="true" :aria-controls="ariaId + '_overlay'" />
+        <PVSMenu ref="menu" :id="ariaId + '_overlay'" :model="model" :popup="true" :autoZIndex="autoZIndex" :baseZIndex="baseZIndex" :appendTo="appendTo" />
     </div>
 </template>
 
 <script>
 import Button from 'primevue/button';
 import TieredMenu from 'primevue/tieredmenu';
-import {UniqueComponentId} from 'primevue/utils';
+import { UniqueComponentId } from 'primevue/utils';
 
 export default {
     name: 'SplitButton',
@@ -27,7 +25,7 @@ export default {
             type: String,
             default: null
         },
-		model: {
+        model: {
             type: Array,
             default: null
         },
@@ -48,7 +46,7 @@ export default {
     },
     methods: {
         onDropdownButtonClick() {
-            this.$refs.menu.toggle({currentTarget: this.$el});
+            this.$refs.menu.toggle({ currentTarget: this.$el });
         },
         onDefaultButtonClick() {
             this.$refs.menu.hide();
@@ -63,10 +61,10 @@ export default {
         }
     },
     components: {
-        'PVSButton': Button,
-        'PVSMenu': TieredMenu
+        PVSButton: Button,
+        PVSMenu: TieredMenu
     }
-}
+};
 </script>
 
 <style scoped>
@@ -98,7 +96,7 @@ export default {
     min-width: 100%;
 }
 
-.p-fluid .p-splitbutton  {
+.p-fluid .p-splitbutton {
     display: flex;
 }
 </style>

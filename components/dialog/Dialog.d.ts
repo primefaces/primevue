@@ -158,37 +158,37 @@ export declare type DialogEmits = {
     /**
      * Callback to invoke when dialog is hidden.
      */
-    'hide': () => void;
+    hide: () => void;
     /**
      * Callback to invoke after dialog is hidden.
-    */
+     */
     'after-hide': () => void;
     /**
      * Callback to invoke when dialog is shown.
      */
-    'show': () => void;
+    show: () => void;
     /**
      * Fired when a dialog gets maximized.
      * @param {event} event - Browser event.
      */
-    'maximize': (event: Event) => void;
+    maximize: (event: Event) => void;
     /**
      * Fired when a dialog gets unmaximized.
      * @param {event} event - Browser event.
      */
-    'unmaximize': (event: Event) => void;
+    unmaximize: (event: Event) => void;
     /**
      * Fired when a dialog drag completes.
      * @param {event} event - Browser event.
      */
-    'dragend': (event: Event) => void;
-}
+    dragend: (event: Event) => void;
+};
 
-declare class Dialog extends ClassComponent<DialogProps, DialogSlots, DialogEmits> { }
+declare class Dialog extends ClassComponent<DialogProps, DialogSlots, DialogEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        Dialog: GlobalComponentConstructor<Dialog>
+        Dialog: GlobalComponentConstructor<Dialog>;
     }
 }
 
@@ -198,7 +198,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [Dialog](https://www.primefaces.org/primevue/showcase/#/dialog)
+ * - [Dialog](https://www.primefaces.org/primevue/dialog)
  *
  */
 export default Dialog;

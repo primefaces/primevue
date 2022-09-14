@@ -34,7 +34,7 @@ import DialogService from '@/components/dialogservice/DialogService';
 import Divider from '@/components/divider/Divider';
 import Dock from '@/components/dock/Dock';
 import Dropdown from '@/components/dropdown/Dropdown';
-/* import Editor from '@/components/editor/Editor'; */
+import Editor from '@/components/editor/Editor'; 
 import Fieldset from '@/components/fieldset/Fieldset';
 import FileUpload from '@/components/fileupload/FileUpload';
 import FullCalendar from '@/components/fullcalendar/FullCalendar';
@@ -105,7 +105,6 @@ import DevelopmentSection from '@/layouts/DevelopmentSection'
 import CodeHighlight from '@/layouts/AppCodeHighlight';
 
 export default defineNuxtPlugin((nuxtApp) => {
-  console.log(PrimeVue)
   nuxtApp.vueApp.use(PrimeVue, { ripple: true });
 
 nuxtApp.vueApp.use(ToastService);
@@ -150,11 +149,10 @@ nuxtApp.vueApp.component('DynamicDialog', DynamicDialog);
 nuxtApp.vueApp.component('Divider', Divider);
 nuxtApp.vueApp.component('Dock', Dock);
 nuxtApp.vueApp.component('Dropdown', Dropdown);
-// Quill package issue
-/* nuxtApp.vueApp.component('Editor', Editor); */
+nuxtApp.vueApp.component('Editor', Editor); 
 nuxtApp.vueApp.component('Fieldset', Fieldset);
 nuxtApp.vueApp.component('FileUpload', FileUpload);
-//nuxtApp.vueApp.component('FullCalendar', FullCalendar);
+nuxtApp.vueApp.component('FullCalendar', FullCalendar);
 nuxtApp.vueApp.component('Image', Image);
 nuxtApp.vueApp.component('InlineMessage', InlineMessage);
 nuxtApp.vueApp.component('Inplace', Inplace);

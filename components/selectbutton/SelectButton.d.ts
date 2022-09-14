@@ -1,11 +1,11 @@
 import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-type SelectButtonOptionLabelType = string | ((data: any) => string) | undefined;
+type SelectButtonOptionLabelType = string | ((data: any) => string) | undefined;
 
-type SelectButtonOptionValueType = string | ((data: any) => any) | undefined;
+type SelectButtonOptionValueType = string | ((data: any) => any) | undefined;
 
-type SelectButtonOptionDisabledType = string | ((data: any) => boolean) | undefined;
+type SelectButtonOptionDisabledType = string | ((data: any) => boolean) | undefined;
 
 export interface SelectButtonChangeEvent {
     /**
@@ -58,7 +58,7 @@ export interface SelectButtonProps {
     /**
      * Identifier of the underlying element.
      */
-    "aria-labelledby"?: string | undefined;
+    'aria-labelledby'?: string | undefined;
 }
 
 export interface SelectButtonSlots {
@@ -88,24 +88,24 @@ export declare type SelectButtonEmits = {
      * Callback to invoke on value change.
      * @param {SelectButtonChangeEvent} event - Custom change event.
      */
-    'change': (event: SelectButtonChangeEvent) => void;
+    change: (event: SelectButtonChangeEvent) => void;
     /**
      * Callback to invoke on focus.
      * @param {SelectButtonChangeEvent} event - Browser event.
      */
-    'focus': (event: Event) => void;
+    focus: (event: Event) => void;
     /**
      * Callback to invoke on blur.
      * @param {Event} event - Browser event.
      */
-    'blur': (event: Event) => void;
-}
+    blur: (event: Event) => void;
+};
 
-declare class SelectButton extends ClassComponent<SelectButtonProps, SelectButtonSlots, SelectButtonEmits> { }
+declare class SelectButton extends ClassComponent<SelectButtonProps, SelectButtonSlots, SelectButtonEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        SelectButton: GlobalComponentConstructor<SelectButton>
+        SelectButton: GlobalComponentConstructor<SelectButton>;
     }
 }
 
@@ -115,7 +115,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [SelectButton](https://www.primefaces.org/primevue/showcase/#/selectbutton)
+ * - [SelectButton](https://www.primefaces.org/primevue/selectbutton)
  *
  */
 export default SelectButton;

@@ -43,14 +43,13 @@ export interface MegaMenuSlots {
     }) => VNode[];
 }
 
-export declare type MegaMenuEmits = {
-}
+export declare type MegaMenuEmits = {};
 
-declare class MegaMenu extends ClassComponent<MegaMenuProps, MegaMenuSlots, MegaMenuEmits> { }
+declare class MegaMenu extends ClassComponent<MegaMenuProps, MegaMenuSlots, MegaMenuEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        MegaMenu: GlobalComponentConstructor<MegaMenu>
+        MegaMenu: GlobalComponentConstructor<MegaMenu>;
     }
 }
 
@@ -60,11 +59,11 @@ declare module '@vue/runtime-core' {
  *
  * Helper API:
  *
- * - [MenuItem](https://www.primefaces.org/primevue/showcase/#/menumodel)
+ * - [MenuItem](https://www.primefaces.org/primevue/menumodel)
  *
  * Demos:
  *
- * - [MegaMenu](https://www.primefaces.org/primevue/showcase/#/megamenu)
+ * - [MegaMenu](https://www.primefaces.org/primevue/megamenu)
  *
  */
 export default MegaMenu;

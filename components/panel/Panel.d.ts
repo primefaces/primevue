@@ -25,6 +25,10 @@ export interface PanelProps {
      * Defines the initial state of panel content.
      */
     collapsed?: boolean;
+    /**
+     * Uses to pass the custom value to read for the button inside the component.
+     */
+    toggleButtonProps?: string | undefined;
 }
 
 export interface PanelSlots {
@@ -52,14 +56,14 @@ export declare type PanelEmits = {
      * Callback to invoke when a tab toggle.
      * @param {PanelToggleEvent} event - Custom toggle event.
      */
-    'toggle': (event: PanelToggleEvent) => void;
-}
+    toggle: (event: PanelToggleEvent) => void;
+};
 
-declare class Panel extends ClassComponent<PanelProps, PanelSlots, PanelEmits> { }
+declare class Panel extends ClassComponent<PanelProps, PanelSlots, PanelEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        Panel: GlobalComponentConstructor<Panel>
+        Panel: GlobalComponentConstructor<Panel>;
     }
 }
 
@@ -69,7 +73,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [Panel](https://www.primefaces.org/primevue/showcase/#/panel)
+ * - [Panel](https://www.primefaces.org/primevue/panel)
  *
  */
 export default Panel;

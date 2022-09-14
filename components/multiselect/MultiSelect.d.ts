@@ -203,6 +203,11 @@ export interface MultiSelectProps {
      */
     autoOptionFocus?: boolean | undefined;
     /**
+     * Whether to focus on the filter element when the overlay panel is shown.
+     * Default value is false.
+     */
+    autoFilterFocus?: boolean | undefined;
+    /**
      * Text to be displayed in hidden accessible field when filtering returns any results. Defaults to value from PrimeVue locale configuration.
      * Default value is '{0} results are available'.
      */
@@ -234,11 +239,11 @@ export interface MultiSelectProps {
     /**
      * Defines a string value that labels an interactive element.
      */
-    "aria-label"?: string | undefined;
+    'aria-label'?: string | undefined;
     /**
      * Identifier of the underlying input element.
      */
-    "aria-labelledby"?: string | undefined;
+    'aria-labelledby'?: string | undefined;
 }
 
 export interface MultiSelectSlots {
@@ -381,17 +386,17 @@ export declare type MultiSelectEmits = {
      * Callback to invoke on value change.
      * @param {MultiSelectChangeEvent} event - Custom change event.
      */
-    'change': (event: MultiSelectChangeEvent) => void;
+    change: (event: MultiSelectChangeEvent) => void;
     /**
      * Callback to invoke when the component receives focus.
      * @param {Event} event - Browser event.
      */
-    'focus': (event: Event) => void;
+    focus: (event: Event) => void;
     /**
      * Callback to invoke when the component loses focus.
      * @param {Event} event - Browser event.
      */
-    'blur': (event: Event) => void;
+    blur: (event: Event) => void;
     /**
      * Callback to invoke before the overlay is shown.
      */
@@ -403,22 +408,22 @@ export declare type MultiSelectEmits = {
     /**
      * Callback to invoke when the overlay is shown.
      */
-    'show': () => void;
+    show: () => void;
     /**
      * Callback to invoke when the overlay is hidden.
      */
-    'hide': () => void;
+    hide: () => void;
     /**
      * Callback to invoke on filter input.
      * @param {MultiSelectFilterEvent} event - Custom filter event.
      */
-    'filter': (event: MultiSelectFilterEvent) => void;
+    filter: (event: MultiSelectFilterEvent) => void;
     /**
      * Callback to invoke when all data is selected.
      * @param {MultiSelectAllChangeEvent} event - Custom select all change event.
      */
     'selectall-change': (event: MultiSelectAllChangeEvent) => void;
-}
+};
 
 declare class MultiSelect extends ClassComponent<MultiSelectProps, MultiSelectSlots, MultiSelectEmits> {
     /**
@@ -439,7 +444,7 @@ declare class MultiSelect extends ClassComponent<MultiSelectProps, MultiSelectSl
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        MultiSelect: GlobalComponentConstructor<MultiSelect>
+        MultiSelect: GlobalComponentConstructor<MultiSelect>;
     }
 }
 
@@ -449,7 +454,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [MultiSelect](https://www.primefaces.org/primevue/showcase/#/multiselect)
+ * - [MultiSelect](https://www.primefaces.org/primevue/multiselect)
  *
  */
 export default MultiSelect;

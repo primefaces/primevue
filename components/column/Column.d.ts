@@ -464,14 +464,13 @@ export interface ColumnSlots {
     }) => VNode[];
 }
 
-export declare type ColumnEmits = {
-}
+export declare type ColumnEmits = {};
 
-declare class Column extends ClassComponent<ColumnProps, ColumnSlots, ColumnEmits> { }
+declare class Column extends ClassComponent<ColumnProps, ColumnSlots, ColumnEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        Column: GlobalComponentConstructor<Column>
+        Column: GlobalComponentConstructor<Column>;
     }
 }
 
@@ -481,8 +480,8 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [DataTable](https://www.primefaces.org/primevue/showcase/#/datatable)
- * - [TreeTable](https://www.primefaces.org/primevue/showcase/#/treetable)
+ * - [DataTable](https://www.primefaces.org/primevue/datatable)
+ * - [TreeTable](https://www.primefaces.org/primevue/treetable)
  *
  */
 export default Column;

@@ -15,7 +15,7 @@ export interface ChipsAddEvent {
 /**
  * @extends ChipsAddEvent
  */
-export interface ChipsRemoveEvent extends ChipsAddEvent { }
+export interface ChipsRemoveEvent extends ChipsAddEvent {}
 
 export interface ChipsProps {
     /**
@@ -96,19 +96,19 @@ export declare type ChipsEmits = {
      * Callback to invoke when a chip is added.
      * @param {ChipsAddEvent} event - Custom add event.
      */
-    'add': (event: ChipsAddEvent) => void;
+    add: (event: ChipsAddEvent) => void;
     /**
      * Callback to invoke when a chip is removed.
      * @param {ChipsRemoveEvent} event - Custom remove event.
      */
-    'remove': (event: ChipsRemoveEvent) => void;
-}
+    remove: (event: ChipsRemoveEvent) => void;
+};
 
-declare class Chips extends ClassComponent<ChipsProps, ChipsSlots, ChipsEmits> { }
+declare class Chips extends ClassComponent<ChipsProps, ChipsSlots, ChipsEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        Chips: GlobalComponentConstructor<Chips>
+        Chips: GlobalComponentConstructor<Chips>;
     }
 }
 
@@ -118,7 +118,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [Chips](https://www.primefaces.org/primevue/showcase/#/chips)
+ * - [Chips](https://www.primefaces.org/primevue/chips)
  *
  */
 export default Chips;

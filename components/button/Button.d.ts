@@ -9,8 +9,8 @@ export interface ButtonProps extends ButtonHTMLAttributes {
      */
     style?: any;
     /**
-      * Style class of the button.
-      */
+     * Style class of the button.
+     */
     class?: any;
     /**
      * Text of the button.
@@ -25,6 +25,10 @@ export interface ButtonProps extends ButtonHTMLAttributes {
      * Default value is 'left'.
      */
     iconPos?: ButtonIconPosType;
+    /**
+     * Style class of the icon.
+     */
+    iconClass?: string | undefined;
     /**
      * Value of the badge.
      */
@@ -51,14 +55,13 @@ export interface ButtonSlots {
     default: () => VNode[];
 }
 
-export declare type ButtonEmits = {
-}
+export declare type ButtonEmits = {};
 
-declare class Button extends ClassComponent<ButtonProps, ButtonSlots, ButtonEmits> { }
+declare class Button extends ClassComponent<ButtonProps, ButtonSlots, ButtonEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        Button: GlobalComponentConstructor<Button>
+        Button: GlobalComponentConstructor<Button>;
     }
 }
 
@@ -68,7 +71,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [Button](https://www.primefaces.org/primevue/showcase/#/button)
+ * - [Button](https://www.primefaces.org/primevue/button)
  *
  */
 export default Button;

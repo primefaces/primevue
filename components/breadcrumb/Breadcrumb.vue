@@ -30,9 +30,9 @@ export default {
         }
     },
     components: {
-        'BreadcrumbItem': BreadcrumbItem
+        BreadcrumbItem: BreadcrumbItem
     }
-}
+};
 </script>
 
 <style>

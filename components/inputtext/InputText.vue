@@ -1,5 +1,5 @@
 <template>
-    <input :class="['p-inputtext p-component', {'p-filled': filled}]" :value="modelValue" @input="onInput"/>
+    <input :class="['p-inputtext p-component', { 'p-filled': filled }]" :value="modelValue" @input="onInput" />
 </template>
 
 <script>
@@ -16,8 +16,8 @@ export default {
     },
     computed: {
         filled() {
-            return (this.modelValue != null && this.modelValue.toString().length > 0)
+            return this.modelValue != null && this.modelValue.toString().length > 0;
         }
     }
-}
+};
 </script>

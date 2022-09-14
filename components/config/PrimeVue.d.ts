@@ -24,6 +24,8 @@ interface PrimeVueLocaleAriaOptions {
     selectAll?: string;
     unselectAll?: string;
     close?: string;
+    previous?: string;
+    next?: string;
 }
 
 interface PrimeVueLocaleOptions {
@@ -101,7 +103,7 @@ declare module 'vue/types/vue' {
     interface Vue {
         $primevue: {
             config: PrimeVueConfiguration;
-        }
+        };
     }
 }
 
@@ -109,6 +111,6 @@ declare module '@vue/runtime-core' {
     interface ComponentCustomProperties {
         $primevue: {
             config: PrimeVueConfiguration;
-        }
+        };
     }
 }

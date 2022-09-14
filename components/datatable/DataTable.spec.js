@@ -5,78 +5,78 @@ import Row from '@/components/row/Row.vue';
 import Column from '@/components/column/Column.vue';
 import Button from '@/components/button/Button.vue';
 import InputText from '@/components/inputtext/InputText.vue';
-import {FilterMatchMode} from 'primevue/api';
+import { FilterMatchMode } from 'primevue/api';
 
-window.URL.createObjectURL = function() {};
+window.URL.createObjectURL = function () {};
 
 const smallData = [
     {
-        "id": "1000",
-        "code": "vbb124btr",
-        "name": "Game Controller"
+        id: '1000',
+        code: 'vbb124btr',
+        name: 'Game Controller'
     },
     {
-        "id": "1001",
-        "code": "nvklal433",
-        "name": "Black Watch"
+        id: '1001',
+        code: 'nvklal433',
+        name: 'Black Watch'
     },
     {
-        "id": "1002",
-        "code": "zz21cz3c1",
-        "name": "Blue Band"
+        id: '1002',
+        code: 'zz21cz3c1',
+        name: 'Blue Band'
     }
 ];
 
 const data = [
     {
-        "id": "1000",
-        "code": "vbb124btr",
-        "name": "Game Controller"
+        id: '1000',
+        code: 'vbb124btr',
+        name: 'Game Controller'
     },
     {
-        "id": "1001",
-        "code": "nvklal433",
-        "name": "Black Watch"
+        id: '1001',
+        code: 'nvklal433',
+        name: 'Black Watch'
     },
     {
-        "id": "1002",
-        "code": "zz21cz3c1",
-        "name": "Blue Band"
+        id: '1002',
+        code: 'zz21cz3c1',
+        name: 'Blue Band'
     },
     {
-        "id": "1003",
-        "code": "244wgerg2",
-        "name": "Blue T-Shirt"
+        id: '1003',
+        code: '244wgerg2',
+        name: 'Blue T-Shirt'
     },
     {
-        "id": "1004",
-        "code": "h456wer53",
-        "name": "Bracelet"
+        id: '1004',
+        code: 'h456wer53',
+        name: 'Bracelet'
     },
     {
-        "id": "1005",
-        "code": "cm230f032",
-        "name": "Gaming Set"
+        id: '1005',
+        code: 'cm230f032',
+        name: 'Gaming Set'
     },
     {
-        "id": "1006",
-        "code": "bib36pfvm",
-        "name": "Chakra Bracelet"
+        id: '1006',
+        code: 'bib36pfvm',
+        name: 'Chakra Bracelet'
     },
     {
-        "id": "1007",
-        "code": "mbvjkgip5",
-        "name": "Galaxy Earrings"
+        id: '1007',
+        code: 'mbvjkgip5',
+        name: 'Galaxy Earrings'
     },
     {
-        "id": "1008",
-        "code": "f230fh0g3",
-        "name": "Bamboo Watch"
+        id: '1008',
+        code: 'f230fh0g3',
+        name: 'Bamboo Watch'
     },
     {
-        "id": "1009",
-        "code": "av2231fwg",
-        "name": "Brown Purse"
+        id: '1009',
+        code: 'av2231fwg',
+        name: 'Brown Purse'
     }
 ];
 
@@ -133,7 +133,6 @@ describe('DataTable.vue', () => {
         expect(rows[0].findAll('td').length).toEqual(3);
     });
 
-
     // table templating
     it('should have header template', () => {
         expect(wrapper.find('.p-datatable-header').exists()).toBe(true);
@@ -173,9 +172,7 @@ describe('DataTable.vue', () => {
         expect(wrapper.find('.p-paginator-right-content').text()).toBe('Paginator End Templating');
     });
 
-
     // column templating
-
 
     // column grouping
     it('should exist', () => {
@@ -216,35 +213,37 @@ describe('DataTable.vue', () => {
             data() {
                 return {
                     sales: null
-                }
+                };
             },
             created() {
                 this.sales = [
-                    {product: 'Bamboo Watch', lastYearSale: 51, thisYearSale: 40, lastYearProfit: 54406, thisYearProfit: 43342},
-                    {product: 'Black Watch', lastYearSale: 83, thisYearSale: 9, lastYearProfit: 423132, thisYearProfit: 312122},
-                    {product: 'Blue Band', lastYearSale: 38, thisYearSale: 5, lastYearProfit: 12321, thisYearProfit: 8500}
+                    { product: 'Bamboo Watch', lastYearSale: 51, thisYearSale: 40, lastYearProfit: 54406, thisYearProfit: 43342 },
+                    { product: 'Black Watch', lastYearSale: 83, thisYearSale: 9, lastYearProfit: 423132, thisYearProfit: 312122 },
+                    { product: 'Blue Band', lastYearSale: 38, thisYearSale: 5, lastYearProfit: 12321, thisYearProfit: 8500 }
                 ];
             },
             methods: {
                 formatCurrency(value) {
-                    return value.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
+                    return value.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
                 }
             },
             computed: {
                 lastYearTotal() {
                     let total = 0;
-                    for(let sale of this.sales) {
+
+                    for (let sale of this.sales) {
                         total += sale.lastYearProfit;
                     }
-        
+
                     return this.formatCurrency(total);
                 },
                 thisYearTotal() {
                     let total = 0;
-                    for(let sale of this.sales) {
+
+                    for (let sale of this.sales) {
                         total += sale.thisYearProfit;
                     }
-        
+
                     return this.formatCurrency(total);
                 }
             }
@@ -280,7 +279,6 @@ describe('DataTable.vue', () => {
         expect(footerRows[0].findAll('td')[1].text()).toEqual('Last Year Total');
         expect(footerRows[0].findAll('td')[2].text()).toEqual('This Year Total');
     });
-
 
     // sorting
     it('should single sort', async () => {
@@ -403,7 +401,7 @@ describe('DataTable.vue', () => {
         const firstCellText = wrapper.findAll('.p-datatable-tbody > tr')[0].findAll('td')[1].text();
 
         await sortableTH.trigger('click');
-        
+
         expect(wrapper.findAll('.p-datatable-tbody > tr')[0].findAll('td')[1].text()).not.toEqual(firstCellText);
         expect(sortableTH.attributes()['aria-sort']).toBe('ascending');
 
@@ -422,10 +420,9 @@ describe('DataTable.vue', () => {
         expect(sortableTH.attributes()['aria-sort']).toBe('none');
     });
 
-
     // filtering
     it('should filtered globally', async () => {
-        await wrapper.setProps({ filters: { 'global': {value: 'b', matchMode: FilterMatchMode.STARTS_WITH} }});
+        await wrapper.setProps({ filters: { global: { value: 'b', matchMode: FilterMatchMode.STARTS_WITH } } });
 
         await wrapper.vm.filter(smallData);
 
@@ -433,10 +430,7 @@ describe('DataTable.vue', () => {
     });
 
     it('should filtered with menu display', async () => {
-        await wrapper.setProps({ filters: { 'name': {value: 'b', matchMode: FilterMatchMode.STARTS_WITH} },
-            filterDisplay: 'menu',
-            globalFilterFields: ['name']
-        });
+        await wrapper.setProps({ filters: { name: { value: 'b', matchMode: FilterMatchMode.STARTS_WITH } }, filterDisplay: 'menu', globalFilterFields: ['name'] });
 
         await wrapper.vm.filter(smallData);
 
@@ -445,10 +439,7 @@ describe('DataTable.vue', () => {
     });
 
     it('should filtered with row display', async () => {
-        await wrapper.setProps({ filters: { 'name': {value: 'b', matchMode: FilterMatchMode.STARTS_WITH} },
-            filterDisplay: 'row',
-            globalFilterFields: ['name']
-        });
+        await wrapper.setProps({ filters: { name: { value: 'b', matchMode: FilterMatchMode.STARTS_WITH } }, filterDisplay: 'row', globalFilterFields: ['name'] });
 
         await wrapper.vm.filter(smallData);
 
@@ -458,10 +449,10 @@ describe('DataTable.vue', () => {
 
     // selection
     it('should single select', async () => {
-        await wrapper.setProps({ selection: null, selectionMode: 'single'});
+        await wrapper.setProps({ selection: null, selectionMode: 'single' });
 
         await wrapper.vm.onRowClick({
-            originalEvent: {target: wrapper.findAll('tr.p-selectable-row')[0]},
+            originalEvent: { target: wrapper.findAll('tr.p-selectable-row')[0] },
             data: smallData[0],
             index: 0
         });
@@ -472,16 +463,16 @@ describe('DataTable.vue', () => {
     });
 
     it('should multiple selection with meta key', async () => {
-        await wrapper.setProps({ selection: null, selectionMode: 'multiple'});
+        await wrapper.setProps({ selection: null, selectionMode: 'multiple' });
 
         await wrapper.vm.onRowClick({
-            originalEvent: {shiftKey: true, target: wrapper.findAll('tr.p-selectable-row')[0]},
+            originalEvent: { shiftKey: true, target: wrapper.findAll('tr.p-selectable-row')[0] },
             data: smallData[0],
             index: 0
         });
 
         await wrapper.vm.onRowClick({
-            originalEvent: {shiftKey: true, target: wrapper.findAll('tr.p-selectable-row')[1]},
+            originalEvent: { shiftKey: true, target: wrapper.findAll('tr.p-selectable-row')[1] },
             data: smallData[1],
             index: 1
         });
@@ -492,16 +483,16 @@ describe('DataTable.vue', () => {
     });
 
     it('should multiple selection without meta key', async () => {
-        await wrapper.setProps({ selection: null, selectionMode: 'multiple', metaKeySelection: false});
+        await wrapper.setProps({ selection: null, selectionMode: 'multiple', metaKeySelection: false });
 
         await wrapper.vm.onRowClick({
-            originalEvent: {target: wrapper.findAll('tr.p-selectable-row')[0]},
+            originalEvent: { target: wrapper.findAll('tr.p-selectable-row')[0] },
             data: smallData[0],
             index: 0
         });
 
         await wrapper.vm.onRowClick({
-            originalEvent: {target: wrapper.findAll('tr.p-selectable-row')[1]},
+            originalEvent: { target: wrapper.findAll('tr.p-selectable-row')[1] },
             data: smallData[1],
             index: 1
         });
@@ -534,16 +525,16 @@ describe('DataTable.vue', () => {
                 `
             }
         });
-        
+
         expect(wrapper.findAll('td.p-selection-column').length).toBe(3);
         expect(wrapper.findAll('.p-radiobutton').length).toBe(3);
 
-        await wrapper.vm.toggleRowWithRadio({originalEvent: {}, data: smallData[0], index: 0});
+        await wrapper.vm.toggleRowWithRadio({ originalEvent: {}, data: smallData[0], index: 0 });
 
         expect(wrapper.emitted()['update:selection'][0][0]).toEqual(smallData[0]);
         expect(wrapper.emitted()['row-select'][0][0].index).toBe(0);
 
-        await wrapper.vm.toggleRowWithRadio({originalEvent: {}, data: smallData[1], index: 1});
+        await wrapper.vm.toggleRowWithRadio({ originalEvent: {}, data: smallData[1], index: 1 });
 
         expect(wrapper.emitted()['update:selection'][1][0]).toEqual(smallData[1]);
         expect(wrapper.emitted()['row-select'][1][0].index).toBe(1);
@@ -572,12 +563,12 @@ describe('DataTable.vue', () => {
 
         expect(wrapper.findAll('.p-checkbox').length).toBe(4);
 
-        await wrapper.vm.toggleRowWithCheckbox({originalEvent: {}, data: smallData[0], index: 0});
+        await wrapper.vm.toggleRowWithCheckbox({ originalEvent: {}, data: smallData[0], index: 0 });
 
         expect(wrapper.emitted()['update:selection'][0][0]).toEqual([smallData[0]]);
         expect(wrapper.emitted()['row-select'][0][0].index).toBe(0);
 
-        await wrapper.vm.toggleRowWithCheckbox({originalEvent: {}, data: smallData[1], index: 1});
+        await wrapper.vm.toggleRowWithCheckbox({ originalEvent: {}, data: smallData[1], index: 1 });
 
         expect(wrapper.emitted()['update:selection'][1][0]).toEqual([smallData[1]]);
         expect(wrapper.emitted()['row-select'][1][0].index).toBe(1);
@@ -603,7 +594,7 @@ describe('DataTable.vue', () => {
             }
         });
 
-        await wrapper.vm.toggleRowsWithCheckbox({originalEvent: {}, checked: true});
+        await wrapper.vm.toggleRowsWithCheckbox({ originalEvent: {}, checked: true });
 
         expect(wrapper.emitted()['row-select-all'][0][0].data).toEqual(smallData);
         expect(wrapper.emitted()['update:selection'][0][0]).toEqual(smallData);
@@ -629,40 +620,39 @@ describe('DataTable.vue', () => {
             }
         });
 
-        await wrapper.vm.toggleRowsWithCheckbox({originalEvent: {}, checked: false});
+        await wrapper.vm.toggleRowsWithCheckbox({ originalEvent: {}, checked: false });
 
         expect(wrapper.emitted()['row-unselect-all'][0][0].data).toBe(undefined);
         expect(wrapper.emitted()['update:selection'][0][0]).toEqual([]);
     });
 
-
     // scrolling
     it('should scrolling', async () => {
-        await wrapper.setProps({scrollable: true});
+        await wrapper.setProps({ scrollable: true });
 
         expect(wrapper.find('.p-datatable-scrollable').exists()).toBe(true);
     });
 
     it('should vertical scroll', async () => {
-        await wrapper.setProps({scrollable: true, scrollHeight: '100px'});
+        await wrapper.setProps({ scrollable: true, scrollHeight: '100px' });
 
         expect(wrapper.find('.p-datatable-wrapper').attributes().style).toBe('max-height: 100px;');
     });
 
     it('should flex scrolling', async () => {
-        await wrapper.setProps({scrollable: true, scrollHeight: 'flex'});
+        await wrapper.setProps({ scrollable: true, scrollHeight: 'flex' });
 
         expect(wrapper.find('.p-datatable-flex-scrollable').exists()).toBe(true);
     });
 
     it('should both scrolling', async () => {
-        await wrapper.setProps({scrollable: true, scrollHeight: '100px', scrollDirection: 'both'});
+        await wrapper.setProps({ scrollable: true, scrollHeight: '100px', scrollDirection: 'both' });
 
         expect(wrapper.find('.p-datatable-scrollable-both').exists()).toBe(true);
     });
 
     it('should have frozen rows', async () => {
-        await wrapper.setProps({frozenValue: [smallData[0]], scrollable: true, scrollHeight: '100px', scrollDirection: 'both'});
+        await wrapper.setProps({ frozenValue: [smallData[0]], scrollable: true, scrollHeight: '100px', scrollDirection: 'both' });
 
         expect(wrapper.findAll('.p-datatable-tbody')[0].classes()).toContain('p-datatable-frozen-tbody');
         expect(wrapper.findAll('.p-datatable-tbody')[0].attributes().style).toBe('top: 0px;');
@@ -697,9 +687,7 @@ describe('DataTable.vue', () => {
         // expect(wrapper.findAll('td.p-frozen-column')[0].attributes().style).toBe('left: 0px;');
     });
 
-
     // lazy loading
-
 
     // row expansion
     it('should have row toggler', () => {
@@ -709,7 +697,7 @@ describe('DataTable.vue', () => {
     it('should expand a row', async () => {
         await wrapper.setProps({ expandedRows: [] });
 
-        await wrapper.vm.toggleRow({ originalEvent: {}, data: smallData[0]});
+        await wrapper.vm.toggleRow({ originalEvent: {}, data: smallData[0] });
 
         expect(wrapper.emitted()['update:expandedRows'][0][0]).toEqual([smallData[0]]);
         expect(wrapper.emitted()['row-expand'][0][0].data).toEqual(smallData[0]);
@@ -718,12 +706,11 @@ describe('DataTable.vue', () => {
     it('should collapse a row', async () => {
         await wrapper.setProps({ expandedRows: [smallData[0]] });
 
-        await wrapper.vm.toggleRow({ originalEvent: {}, data: smallData[0]});
+        await wrapper.vm.toggleRow({ originalEvent: {}, data: smallData[0] });
 
         expect(wrapper.emitted()['update:expandedRows'][0][0]).toEqual([]);
         expect(wrapper.emitted()['row-collapse'][0][0].data).toEqual(smallData[0]);
     });
-
 
     // editing
     // cell editing
@@ -799,10 +786,10 @@ describe('DataTable.vue', () => {
             }
         });
 
-        await wrapper.vm.onRowEditSave({data: { "id": "9999", "code": "vbb124btr", "name": "Game Controller"}});
+        await wrapper.vm.onRowEditSave({ data: { id: '9999', code: 'vbb124btr', name: 'Game Controller' } });
 
         expect(wrapper.emitted()['update:editingRows'][0][0]).toEqual([]);
-        expect(wrapper.emitted()['row-edit-save'][0][0].data).toEqual({ "id": "9999", "code": "vbb124btr", "name": "Game Controller"});
+        expect(wrapper.emitted()['row-edit-save'][0][0].data).toEqual({ id: '9999', code: 'vbb124btr', name: 'Game Controller' });
     });
 
     it('should cancel row editing', async () => {
@@ -834,13 +821,12 @@ describe('DataTable.vue', () => {
                 `
             }
         });
-        
+
         await wrapper.vm.onRowEditCancel({ data: smallData[0] });
 
         expect(wrapper.emitted()['update:editingRows'][0][0]).toEqual([]);
         expect(wrapper.emitted()['row-edit-cancel'][0][0].data).toEqual(smallData[0]);
     });
-
 
     // column resize
     it('should fit mode expanding exists', () => {
@@ -890,7 +876,7 @@ describe('DataTable.vue', () => {
 
         const resizer = wrapper.findAll('.p-column-resizer')[0];
 
-        await wrapper.vm.onColumnResizeStart({target: resizer.element});
+        await wrapper.vm.onColumnResizeStart({ target: resizer.element });
 
         expect(wrapper.componentVM.columnResizing).toBe(true);
         expect(wrapper.find('.p-column-resizer-helper').attributes().style).toContain('display: none;');
@@ -943,7 +929,7 @@ describe('DataTable.vue', () => {
 
         const resizer = wrapper.findAll('.p-column-resizer')[0];
 
-        await wrapper.vm.onColumnResizeStart({target: resizer.element});
+        await wrapper.vm.onColumnResizeStart({ target: resizer.element });
 
         await wrapper.vm.onColumnResizeEnd();
 
@@ -972,7 +958,7 @@ describe('DataTable.vue', () => {
 
         const resizer = wrapper.findAll('.p-column-resizer')[0];
 
-        await wrapper.vm.onColumnResizeStart({target: resizer.element});
+        await wrapper.vm.onColumnResizeStart({ target: resizer.element });
 
         expect(wrapper.componentVM.columnResizing).toBe(true);
         expect(wrapper.find('.p-column-resizer-helper').attributes().style).toContain('display: none;');
@@ -1025,13 +1011,12 @@ describe('DataTable.vue', () => {
 
         const resizer = wrapper.findAll('.p-column-resizer')[0];
 
-        await wrapper.vm.onColumnResizeStart({target: resizer.element});
+        await wrapper.vm.onColumnResizeStart({ target: resizer.element });
 
         await wrapper.vm.onColumnResizeEnd();
 
         expect(wrapper.find('.p-column-resizer-helper').attributes().style).toContain('display: none;');
     });
-
 
     // column reorder
     it('should reorder columns', async () => {
@@ -1040,7 +1025,6 @@ describe('DataTable.vue', () => {
         expect(wrapper.find('.p-datatable-reorder-indicator-up').exists()).toBe(true);
         expect(wrapper.find('.p-datatable-reorder-indicator-down').exists()).toBe(true);
     });
-
 
     // row reorder
     it('should exist', () => {
@@ -1061,10 +1045,9 @@ describe('DataTable.vue', () => {
                 `
             }
         });
-        
+
         expect(wrapper.findAll('.p-datatable-reorderablerow-handle').length).toBe(3);
     });
-
 
     // row group
     // subheader grouping
@@ -1169,81 +1152,81 @@ describe('DataTable.vue', () => {
             props: {
                 value: [
                     {
-                        "id":1000,
-                        "name":"James Butt",
-                        "country":{
-                            "name":"Algeria",
-                            "code":"dz"
+                        id: 1000,
+                        name: 'James Butt',
+                        country: {
+                            name: 'Algeria',
+                            code: 'dz'
                         },
-                        "company":"Benton, John B Jr",
-                        "representative":{
-                            "name":"Ioni Bowcher",
-                            "image":"ionibowcher.png"
+                        company: 'Benton, John B Jr',
+                        representative: {
+                            name: 'Ioni Bowcher',
+                            image: 'ionibowcher.png'
                         }
                     },
                     {
-                        "id":1001,
-                        "name":"Josephine Darakjy",
-                        "country":{
-                            "name":"Egypt",
-                            "code":"eg"
+                        id: 1001,
+                        name: 'Josephine Darakjy',
+                        country: {
+                            name: 'Egypt',
+                            code: 'eg'
                         },
-                        "company":"Chanay, Jeffrey A Esq",
-                        "representative":{
-                            "name":"Amy Elsner",
-                            "image":"amyelsner.png"
+                        company: 'Chanay, Jeffrey A Esq',
+                        representative: {
+                            name: 'Amy Elsner',
+                            image: 'amyelsner.png'
                         }
                     },
                     {
-                        "id":1013,
-                        "name":"Graciela Ruta",
-                        "country":{
-                            "name":"Chile",
-                            "code":"cl"
+                        id: 1013,
+                        name: 'Graciela Ruta',
+                        country: {
+                            name: 'Chile',
+                            code: 'cl'
                         },
-                        "company":"Buckley Miller & Wright",
-                        "representative":{
-                            "name":"Amy Elsner",
-                            "image":"amyelsner.png"
+                        company: 'Buckley Miller & Wright',
+                        representative: {
+                            name: 'Amy Elsner',
+                            image: 'amyelsner.png'
                         }
                     },
                     {
-                        "id":1021,
-                        "name":"Veronika Inouye",
-                        "country":{
-                            "name":"Ecuador",
-                            "code":"ec"
+                        id: 1021,
+                        name: 'Veronika Inouye',
+                        country: {
+                            name: 'Ecuador',
+                            code: 'ec'
                         },
-                        "company":"C 4 Network Inc",
-                        "representative":{
-                            "name":"Ioni Bowcher",
-                            "image":"ionibowcher.png"
+                        company: 'C 4 Network Inc',
+                        representative: {
+                            name: 'Ioni Bowcher',
+                            image: 'ionibowcher.png'
                         }
                     },
                     {
-                        "id":1026,
-                        "name":"Chanel Caudy",
-                        "country":{
-                            "name":"Argentina",
-                            "code":"ar"
+                        id: 1026,
+                        name: 'Chanel Caudy',
+                        country: {
+                            name: 'Argentina',
+                            code: 'ar'
                         },
-                        "company":"Professional Image Inc",
-                        "representative":{
-                            "name":"Ioni Bowcher",
-                            "image":"ionibowcher.png"
+                        company: 'Professional Image Inc',
+                        representative: {
+                            name: 'Ioni Bowcher',
+                            image: 'ionibowcher.png'
                         }
                     },
                     {
-                        "id":1027,
-                        "name":"Ezekiel Chui",
-                        "country":{
-                            "name":"Ireland",
-                            "code":"ie"
+                        id: 1027,
+                        name: 'Ezekiel Chui',
+                        country: {
+                            name: 'Ireland',
+                            code: 'ie'
                         },
-                        "company":"Sider, Donald C Esq",
-                        "representative":{
-                            "name":"Amy Elsner",
-                            "image":"amyelsner.png"
+                        company: 'Sider, Donald C Esq',
+                        representative: {
+                            name: 'Amy Elsner',
+                            image: 'amyelsner.png'
                         }
                     }
                 ],
@@ -1294,34 +1277,34 @@ describe('DataTable.vue', () => {
             props: {
                 value: [
                     {
-                        "id": "1000",
-                        "code": "vbb124btr",
-                        "name": "Game Controller"
+                        id: '1000',
+                        code: 'vbb124btr',
+                        name: 'Game Controller'
                     },
                     {
-                        "id": "1001",
-                        "code": "nvklal433",
-                        "name": "Black Watch"
+                        id: '1001',
+                        code: 'nvklal433',
+                        name: 'Black Watch'
                     },
                     {
-                        "id": "1002",
-                        "code": "zz21cz3c1",
-                        "name": "Blue Band"
+                        id: '1002',
+                        code: 'zz21cz3c1',
+                        name: 'Blue Band'
                     },
                     {
-                        "id": "1003",
-                        "code": "vbb124btrvbb124btr",
-                        "name": "Game Controller"
+                        id: '1003',
+                        code: 'vbb124btrvbb124btr',
+                        name: 'Game Controller'
                     },
                     {
-                        "id": "1004",
-                        "code": "nvklal433nvklal433",
-                        "name": "Black Watch"
+                        id: '1004',
+                        code: 'nvklal433nvklal433',
+                        name: 'Black Watch'
                     },
                     {
-                        "id": "1006",
-                        "code": "zz21cz3c1zz21cz3c1",
-                        "name": "Blue Band"
+                        id: '1006',
+                        code: 'zz21cz3c1zz21cz3c1',
+                        name: 'Blue Band'
                     }
                 ],
                 rowGroupMode: 'rowspan',
@@ -1353,7 +1336,6 @@ describe('DataTable.vue', () => {
         expect(wrapper.findAll('.p-datatable-tbody > tr')[4].findAll('td')[1].attributes().rowspan).toBe('2');
     });
 
-
     // export
     it('should export table', async () => {
         const exportCSV = jest.spyOn(wrapper.vm, 'exportCSV');
@@ -1362,7 +1344,6 @@ describe('DataTable.vue', () => {
 
         expect(exportCSV).toHaveBeenCalled();
     });
-
 
     // state
     it('should get storage', async () => {
@@ -1393,9 +1374,7 @@ describe('DataTable.vue', () => {
         expect(wrapper.emitted()['state-save'][0]).not.toBeNull();
     });
 
-
     // contextmenu
-
 
     // responsive
     it('should have stack layout', () => {
@@ -1407,7 +1386,6 @@ describe('DataTable.vue', () => {
 
         expect(wrapper.find('.p-datatable').classes()).toContain('p-datatable-responsive-scroll');
     });
-
 
     // row styling
 });

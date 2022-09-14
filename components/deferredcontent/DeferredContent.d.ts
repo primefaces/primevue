@@ -1,8 +1,7 @@
 import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-export interface DeferredContentProps {
-}
+export interface DeferredContentProps {}
 
 export interface DeferredContentSlots {
     /**
@@ -15,14 +14,14 @@ export declare type DeferredContentEmits = {
     /**
      * Callback to invoke when deferred content is loaded.
      */
-    'load': () => void;
-}
+    load: () => void;
+};
 
-declare class DeferredContent extends ClassComponent<DeferredContentProps, DeferredContentSlots, DeferredContentEmits> { }
+declare class DeferredContent extends ClassComponent<DeferredContentProps, DeferredContentSlots, DeferredContentEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        DeferredContent: GlobalComponentConstructor<DeferredContent>
+        DeferredContent: GlobalComponentConstructor<DeferredContent>;
     }
 }
 
@@ -32,7 +31,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [DeferredContent](https://www.primefaces.org/primevue/showcase/#/deferredcontent)
+ * - [DeferredContent](https://www.primefaces.org/primevue/deferredcontent)
  *
  */
 export default DeferredContent;

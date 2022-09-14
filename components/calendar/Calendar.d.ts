@@ -3,7 +3,7 @@ import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 type CalendarValueType = Date | Date[] | undefined;
 
-type CalendarSlotDateType = { day: number; month: number; year: number; today: boolean; selectable: boolean }
+type CalendarSlotDateType = { day: number; month: number; year: number; today: boolean; selectable: boolean };
 
 type CalendarSelectionModeType = 'single' | 'multiple' | 'range' | undefined;
 
@@ -330,7 +330,7 @@ export declare type CalendarEmits = {
      * Callback to invoke when input field is being typed.
      * @param {Event} event - Browser event
      */
-    'input': (event: Event) => void;
+    input: (event: Event) => void;
     /**
      * Callback to invoke when a date is selected.
      * @param {Date} value - Selected value.
@@ -339,11 +339,11 @@ export declare type CalendarEmits = {
     /**
      * Callback to invoke when datepicker panel is shown.
      */
-    'show': () => void;
+    show: () => void;
     /**
      * Callback to invoke when datepicker panel is hidden.
      */
-    'hide': () => void;
+    hide: () => void;
     /**
      * Callback to invoke when today button is clicked.
      * @param {Date} date - Today as a date instance.
@@ -368,23 +368,23 @@ export declare type CalendarEmits = {
      * Callback to invoke on focus of input field.
      * @param {Event} event - Focus event
      */
-    'focus': (event: Event) => void;
+    focus: (event: Event) => void;
     /**
      * Callback to invoke on blur of input field.
      * @param {CalendarBlurEvent} event - Blur event
      */
-    'blur': (event: CalendarBlurEvent) => void;
+    blur: (event: CalendarBlurEvent) => void;
     /**
      * Callback to invoke when a key is pressed.
      */
-    'keydown': (event: Event) => void;
-}
+    keydown: (event: Event) => void;
+};
 
-declare class Calendar extends ClassComponent<CalendarProps, CalendarSlots, CalendarEmits> { }
+declare class Calendar extends ClassComponent<CalendarProps, CalendarSlots, CalendarEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        Calendar: GlobalComponentConstructor<Calendar>
+        Calendar: GlobalComponentConstructor<Calendar>;
     }
 }
 
@@ -394,7 +394,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [Calendar](https://www.primefaces.org/primevue/showcase/#/calendar)
+ * - [Calendar](https://www.primefaces.org/primevue/calendar)
  *
  */
 export default Calendar;

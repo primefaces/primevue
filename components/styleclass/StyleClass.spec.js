@@ -4,8 +4,8 @@ import Button from '@/components/button/Button.vue';
 import InputText from '@/components/inputtext/InputText.vue';
 
 config.global.directives = {
-    'styleclass': StyleClass
-}
+    styleclass: StyleClass
+};
 
 describe('StyleClass', () => {
     it('should work with next selector', async () => {

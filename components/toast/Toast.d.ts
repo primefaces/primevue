@@ -89,24 +89,21 @@ export interface ToastSlots {
      * Custom message template.
      * @param {Object} scope - message slot's params.
      */
-    message: (
-        scope: {
-            /**
-             * Message of the component
-             */
-            message: any;
-        }
-    ) => VNode[];
+    message: (scope: {
+        /**
+         * Message of the component
+         */
+        message: any;
+    }) => VNode[];
 }
 
-export declare type ToastEmits = {
-}
+export declare type ToastEmits = {};
 
-declare class Toast extends ClassComponent<ToastProps, ToastSlots, ToastEmits> { }
+declare class Toast extends ClassComponent<ToastProps, ToastSlots, ToastEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        Toast: GlobalComponentConstructor<Toast>
+        Toast: GlobalComponentConstructor<Toast>;
     }
 }
 
@@ -120,7 +117,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [Toast](https://www.primefaces.org/primevue/showcase/#/toast)
+ * - [Toast](https://www.primefaces.org/primevue/toast)
  *
  */
 export default Toast;

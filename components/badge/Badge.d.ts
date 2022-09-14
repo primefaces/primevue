@@ -29,14 +29,13 @@ export interface BadgeSlots {
     default: () => VNode[];
 }
 
-export declare type BadgeEmits = {
-}
+export declare type BadgeEmits = {};
 
-declare class Badge extends ClassComponent<BadgeProps, BadgeSlots, BadgeEmits> { }
+declare class Badge extends ClassComponent<BadgeProps, BadgeSlots, BadgeEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        Badge: GlobalComponentConstructor<Badge>
+        Badge: GlobalComponentConstructor<Badge>;
     }
 }
 
@@ -46,7 +45,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [Badge](https://www.primefaces.org/primevue/showcase/#/badge)
+ * - [Badge](https://www.primefaces.org/primevue/badge)
  *
  */
 export default Badge;

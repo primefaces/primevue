@@ -37,14 +37,14 @@ export declare type ChipEmits = {
      * Callback to invoke when a chip is removed.
      * @param {Event} event - Browser event.
      */
-    'remove': (event: Event) => void;
-}
+    remove: (event: Event) => void;
+};
 
-declare class Chip extends ClassComponent<ChipProps, ChipSlots, ChipEmits> { }
+declare class Chip extends ClassComponent<ChipProps, ChipSlots, ChipEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        Chip: GlobalComponentConstructor<Chip>
+        Chip: GlobalComponentConstructor<Chip>;
     }
 }
 
@@ -54,7 +54,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [Chip](https://www.primefaces.org/primevue/showcase/#/chip)
+ * - [Chip](https://www.primefaces.org/primevue/chip)
  *
  */
 export default Chip;

@@ -1,7 +1,7 @@
 <template>
     <Portal :appendTo="appendTo" :disabled="!popup">
         <transition name="p-connected-overlay" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave">
-            <div :ref="containerRef" :class="containerClass" v-if="popup ? visible : true" v-bind="$attrs" @click="onOverlayClick">
+            <div v-if="popup ? visible : true" :ref="containerRef" :class="containerClass" v-bind="$attrs" @click="onOverlayClick">
                 <TieredMenuSub :model="model" :root="true" :popup="popup" @leaf-click="onLeafClick" :template="$slots.item" :exact="exact" />
             </div>
         </transition>
@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import {ConnectedOverlayScrollHandler,DomHandler,ZIndexUtils} from 'primevue/utils';
+import { ConnectedOverlayScrollHandler, DomHandler, ZIndexUtils } from 'primevue/utils';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
 import TieredMenuSub from './TieredMenuSub.vue';
@@ -22,7 +22,7 @@ export default {
             type: Boolean,
             default: false
         },
-		model: {
+        model: {
             type: Array,
             default: null
         },
@@ -61,26 +61,29 @@ export default {
             this.scrollHandler.destroy();
             this.scrollHandler = null;
         }
+
         this.target = null;
+
         if (this.container && this.autoZIndex) {
             ZIndexUtils.clear(this.container);
         }
+
         this.container = null;
     },
     methods: {
         itemClick(event) {
             const item = event.item;
+
             if (item.command) {
                 item.command(event);
                 event.originalEvent.preventDefault();
             }
+
             this.hide();
         },
         toggle(event) {
-            if (this.visible)
-                this.hide();
-            else
-                this.show(event);
+            if (this.visible) this.hide();
+            else this.show(event);
         },
         show(event) {
             this.visible = true;
@@ -120,6 +123,7 @@ export default {
                         this.hide();
                     }
                 };
+
                 document.addEventListener('click', this.outsideClickListener);
             }
         },
@@ -152,6 +156,7 @@ export default {
                         this.hide();
                     }
                 };
+
                 window.addEventListener('resize', this.resizeListener);
             }
         },
@@ -181,18 +186,21 @@ export default {
     },
     computed: {
         containerClass() {
-            return ['p-tieredmenu p-component', {
-                'p-tieredmenu-overlay': this.popup,
-                'p-input-filled': this.$primevue.config.inputStyle === 'filled',
-                'p-ripple-disabled': this.$primevue.config.ripple === false
-            }];
+            return [
+                'p-tieredmenu p-component',
+                {
+                    'p-tieredmenu-overlay': this.popup,
+                    'p-input-filled': this.$primevue.config.inputStyle === 'filled',
+                    'p-ripple-disabled': this.$primevue.config.ripple === false
+                }
+            ];
         }
     },
     components: {
-        'TieredMenuSub': TieredMenuSub,
-        'Portal': Portal
+        TieredMenuSub: TieredMenuSub,
+        Portal: Portal
     }
-}
+};
 </script>
 
 <style>

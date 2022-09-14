@@ -41,13 +41,13 @@ export declare type PanelMenuEmits = {
      * @param {*} value - New value.
      */
     'update:expandedKeys': (value: any) => void;
-}
+};
 
-declare class PanelMenu extends ClassComponent<PanelMenuProps, PanelMenuSlots, PanelMenuEmits> { }
+declare class PanelMenu extends ClassComponent<PanelMenuProps, PanelMenuSlots, PanelMenuEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        PanelMenu: GlobalComponentConstructor<PanelMenu>
+        PanelMenu: GlobalComponentConstructor<PanelMenu>;
     }
 }
 
@@ -57,11 +57,11 @@ declare module '@vue/runtime-core' {
  *
  * Helper API:
  *
- * - [MenuItem](https://www.primefaces.org/primevue/showcase/#/menumodel)
+ * - [MenuItem](https://www.primefaces.org/primevue/menumodel)
  *
  * Demos:
  *
- * - [PanelMenu](https://www.primefaces.org/primevue/showcase/#/panelmenu)
+ * - [PanelMenu](https://www.primefaces.org/primevue/panelmenu)
  *
  */
 export default PanelMenu;

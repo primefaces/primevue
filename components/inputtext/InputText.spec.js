@@ -1,4 +1,4 @@
-import { mount } from  '@vue/test-utils';
+import { mount } from '@vue/test-utils';
 import InputText from './InputText.vue';
 
 describe('InputText.vue', () => {
@@ -12,6 +12,7 @@ describe('InputText.vue', () => {
         expect(wrapper.find('.p-filled').exists()).toBe(true);
 
         const input = wrapper.find('input');
+
         expect(input.element.value).toEqual('PrimeVue');
     });
 

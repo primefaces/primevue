@@ -9,17 +9,15 @@ export interface ColumnGroupProps {
     type?: ColumnGroupType;
 }
 
-export interface ColumnGroupSlots {
-}
+export interface ColumnGroupSlots {}
 
-export declare type ColumnGroupEmits = {
-}
+export declare type ColumnGroupEmits = {};
 
-declare class ColumnGroup extends ClassComponent<ColumnGroupProps, ColumnGroupSlots, ColumnGroupEmits> { }
+declare class ColumnGroup extends ClassComponent<ColumnGroupProps, ColumnGroupSlots, ColumnGroupEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        ColumnGroup: GlobalComponentConstructor<ColumnGroup>
+        ColumnGroup: GlobalComponentConstructor<ColumnGroup>;
     }
 }
 
@@ -29,7 +27,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [ColumnGroup](https://www.primefaces.org/primevue/showcase/#/datatable/colgroup)
+ * - [ColumnGroup](https://www.primefaces.org/primevue/datatable/colgroup)
  *
  */
 export default ColumnGroup;

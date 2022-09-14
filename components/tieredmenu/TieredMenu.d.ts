@@ -49,8 +49,7 @@ export interface TieredMenuSlots {
     }) => VNode[];
 }
 
-export declare type TieredMenuEmits = {
-}
+export declare type TieredMenuEmits = {};
 
 declare class TieredMenu extends ClassComponent<TieredMenuProps, TieredMenuSlots, TieredMenuEmits> {
     /**
@@ -77,7 +76,7 @@ declare class TieredMenu extends ClassComponent<TieredMenuProps, TieredMenuSlots
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        TieredMenu: GlobalComponentConstructor<TieredMenu>
+        TieredMenu: GlobalComponentConstructor<TieredMenu>;
     }
 }
 
@@ -87,11 +86,11 @@ declare module '@vue/runtime-core' {
  *
  * Helper API:
  *
- * - [MenuItem](https://www.primefaces.org/primevue/showcase/#/menumodel)
+ * - [MenuItem](https://www.primefaces.org/primevue/menumodel)
  *
  * Demos:
  *
- * - [TieredMenu](https://www.primefaces.org/primevue/showcase/#/tieredmenu)
+ * - [TieredMenu](https://www.primefaces.org/primevue/tieredmenu)
  *
  */
 export default TieredMenu;

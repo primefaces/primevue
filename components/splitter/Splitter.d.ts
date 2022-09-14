@@ -38,6 +38,11 @@ export interface SplitterProps {
      * Default value is 'session'.
      */
     stateStorage?: SplitterStateStorageType;
+    /**
+     * Step factor to increment/decrement the size of the panels while pressing the arrow keys.
+     * Default value is 1.
+     */
+    step?: number | undefined;
 }
 
 export interface SplitterSlots {
@@ -52,14 +57,14 @@ export declare type SplitterEmits = {
      * Callback to invoke when resize ends.
      * @param {SplitterResizeEndEvent} event - Custom resize end event.
      */
-    'resizeend': (event: SplitterResizeEndEvent) => void;
-}
+    resizeend: (event: SplitterResizeEndEvent) => void;
+};
 
-declare class Splitter extends ClassComponent<SplitterProps, SplitterSlots, SplitterEmits> { }
+declare class Splitter extends ClassComponent<SplitterProps, SplitterSlots, SplitterEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        Splitter: GlobalComponentConstructor<Splitter>
+        Splitter: GlobalComponentConstructor<Splitter>;
     }
 }
 
@@ -73,7 +78,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [Splitter](https://www.primefaces.org/primevue/showcase/#/splitter)
+ * - [Splitter](https://www.primefaces.org/primevue/splitter)
  *
  */
 export default Splitter;

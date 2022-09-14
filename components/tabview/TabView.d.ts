@@ -1,4 +1,4 @@
-import { VNode } from 'vue';
+import { ButtonHTMLAttributes, VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export interface TabViewChangeEvent {
@@ -15,7 +15,7 @@ export interface TabViewChangeEvent {
 /**
  * @extends TabViewChangeEvent
  */
-export interface TabViewClickEvent extends TabViewChangeEvent { }
+export interface TabViewClickEvent extends TabViewChangeEvent {}
 
 export interface TabViewProps {
     /**
@@ -30,6 +30,22 @@ export interface TabViewProps {
      * When enabled displays buttons at each side of the tab headers to scroll the tab list.
      */
     scrollable?: boolean | undefined;
+    /**
+     * Index of the element in tabbing order.
+     */
+    tabindex?: number | undefined;
+    /**
+     * When enabled, the focused tab is activated.
+     */
+    selectOnFocus?: boolean | undefined;
+    /**
+     * Uses to pass all properties of the HTMLButtonElement to the previous button.
+     */
+    previousButtonProps?: ButtonHTMLAttributes | undefined;
+    /**
+     * Uses to pass all properties of the HTMLButtonElement to the next button.
+     */
+    nextButtonProps?: ButtonHTMLAttributes | undefined;
 }
 
 export interface TabViewSlots {
@@ -55,13 +71,13 @@ export declare type TabViewEmits = {
      * @param {TabViewClickEvent} event - Custom tab click event.
      */
     'tab-click': (event: TabViewClickEvent) => void;
-}
+};
 
-declare class TabView extends ClassComponent<TabViewProps, TabViewSlots, TabViewEmits> { }
+declare class TabView extends ClassComponent<TabViewProps, TabViewSlots, TabViewEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        TabView: GlobalComponentConstructor<TabView>
+        TabView: GlobalComponentConstructor<TabView>;
     }
 }
 
@@ -75,7 +91,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [TabView](https://www.primefaces.org/primevue/showcase/#/tabview)
+ * - [TabView](https://www.primefaces.org/primevue/tabview)
  *
  */
 export default TabView;

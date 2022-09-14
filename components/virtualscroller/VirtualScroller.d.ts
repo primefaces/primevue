@@ -23,12 +23,12 @@ export interface VirtualScrollerScrollIndexChangeEvent {
 /**
  * @extends VirtualScrollerScrollIndexChangeEvent
  */
-export interface VirtualScrollerLazyEvent extends VirtualScrollerScrollIndexChangeEvent { }
+export interface VirtualScrollerLazyEvent extends VirtualScrollerScrollIndexChangeEvent {}
 
 /**
  * @extends VirtualScrollerScrollIndexChangeEvent
  */
-export interface VirtualScrollerViewport extends VirtualScrollerScrollIndexChangeEvent { }
+export interface VirtualScrollerViewport extends VirtualScrollerScrollIndexChangeEvent {}
 
 export interface VirtualScrollerRangeMethod {
     /**
@@ -80,7 +80,7 @@ export interface VirtualScrollerItemOptions {
 /**
  * @extends VirtualScrollerItemOptions
  */
-export interface VirtualScrollerLoaderOptions extends VirtualScrollerItemOptions { }
+export interface VirtualScrollerLoaderOptions extends VirtualScrollerItemOptions {}
 
 export interface VirtualScrollerProps {
     /**
@@ -268,19 +268,19 @@ export declare type VirtualScrollerEmits = {
     /**
      * Callback to invoke when scroll position changes.
      * @param {Event} event - Browser event.
-    */
-    'scroll': (event: Event) => void;
+     */
+    scroll: (event: Event) => void;
     /**
      * Callback to invoke when scroll position and item's range in view changes.
      * @param {AccordionTabOpenEvent} event - Custom tab open event.
-    */
+     */
     'scroll-index-change': (event: VirtualScrollerScrollIndexChangeEvent) => void;
     /**
      * Callback to invoke in lazy mode to load new data.
      * @param {VirtualScrollerLazyEvent} event - Custom lazy event.
      */
     'lazy-load': (event: VirtualScrollerLazyEvent) => void;
-}
+};
 
 declare class VirtualScroller extends ClassComponent<VirtualScrollerProps, VirtualScrollerSlots, VirtualScrollerEmits> {
     /**
@@ -309,7 +309,7 @@ declare class VirtualScroller extends ClassComponent<VirtualScrollerProps, Virtu
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        VirtualScroller: GlobalComponentConstructor<VirtualScroller>
+        VirtualScroller: GlobalComponentConstructor<VirtualScroller>;
     }
 }
 
@@ -319,7 +319,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [VirtualScroller](https://www.primefaces.org/primevue/showcase/#/virtualscroller)
+ * - [VirtualScroller](https://www.primefaces.org/primevue/virtualscroller)
  *
  */
 export default VirtualScroller;

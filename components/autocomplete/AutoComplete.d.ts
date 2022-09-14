@@ -39,7 +39,7 @@ export interface AutoCompleteItemSelectEvent {
 /**
  * @extends AutoCompleteItemSelectEvent
  */
-export interface AutoCompleteItemUnselectEvent extends AutoCompleteItemSelectEvent { }
+export interface AutoCompleteItemUnselectEvent extends AutoCompleteItemSelectEvent {}
 
 export interface AutoCompleteDropdownClickEvent {
     /**
@@ -203,6 +203,11 @@ export interface AutoCompleteProps {
      */
     autoOptionFocus?: boolean | undefined;
     /**
+     * When enabled, the focused option is selected.
+     * Default value is false.
+     */
+    selectOnFocus?: boolean | undefined;
+    /**
      * Locale to use in searching. The default locale is the host environment's current locale.
      */
     searchLocale?: string | undefined;
@@ -233,11 +238,11 @@ export interface AutoCompleteProps {
     /**
      * Defines a string value that labels an interactive element.
      */
-    "aria-label"?: string | undefined;
+    'aria-label'?: string | undefined;
     /**
      * Identifier of the underlying input element.
      */
-    "aria-labelledby"?: string | undefined;
+    'aria-labelledby'?: string | undefined;
 }
 
 export interface AutoCompleteSlots {
@@ -374,17 +379,17 @@ export declare type AutoCompleteEmits = {
      * Callback to invoke on value change.
      * @param {AutoCompleteChangeEvent} event - Custom change event.
      */
-    'change': (event: AutoCompleteChangeEvent) => void;
+    change: (event: AutoCompleteChangeEvent) => void;
     /**
      * Callback to invoke when the component receives focus.
      * @param {Event} event - Browser event.
      */
-    'focus': (event: Event) => void;
+    focus: (event: Event) => void;
     /**
      * Callback to invoke when the component loses focus.
      * @param {Event} event - Browser event.
      */
-    'blur': (event: Event) => void;
+    blur: (event: Event) => void;
     /**
      * Callback to invoke when a suggestion is selected.
      * @param {AutoCompleteItemSelectEvent} event - Custom item select event.
@@ -403,12 +408,12 @@ export declare type AutoCompleteEmits = {
     /**
      * Callback to invoke when input is cleared by the user.
      */
-    'clear': () => void;
+    clear: () => void;
     /**
      * Callback to invoke to search for suggestions.
      * @param {AutoCompleteCompleteEvent} event - Custom complete event.
      */
-    'complete': (event: AutoCompleteCompleteEvent) => void;
+    complete: (event: AutoCompleteCompleteEvent) => void;
     /**
      * Callback to invoke before the overlay is shown.
      */
@@ -420,18 +425,18 @@ export declare type AutoCompleteEmits = {
     /**
      * Callback to invoke when the overlay is shown.
      */
-    'show': () => void;
+    show: () => void;
     /**
      * Callback to invoke when the overlay is hidden.
      */
-    'hide': () => void;
-}
+    hide: () => void;
+};
 
-declare class AutoComplete extends ClassComponent<AutoCompleteProps, AutoCompleteSlots, AutoCompleteEmits> { }
+declare class AutoComplete extends ClassComponent<AutoCompleteProps, AutoCompleteSlots, AutoCompleteEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        AutoComplete: GlobalComponentConstructor<AutoComplete>
+        AutoComplete: GlobalComponentConstructor<AutoComplete>;
     }
 }
 
@@ -441,7 +446,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [AutoComplete](https://www.primefaces.org/primevue/showcase/#/autocomplete)
+ * - [AutoComplete](https://www.primefaces.org/primevue/autocomplete)
  *
  */
 export default AutoComplete;

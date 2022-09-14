@@ -1,8 +1,6 @@
 <template>
     <div class="p-organizationchart p-component">
-        <OrganizationChartNode :node="value" :templates="$slots"
-            @node-toggle="onNodeToggle" :collapsedKeys="d_collapsedKeys" :collapsible="collapsible"
-            @node-click="onNodeClick" :selectionMode="selectionMode" :selectionKeys="selectionKeys" />
+        <OrganizationChartNode :node="value" :templates="$slots" @node-toggle="onNodeToggle" :collapsedKeys="d_collapsedKeys" :collapsible="collapsible" @node-click="onNodeClick" :selectionMode="selectionMode" :selectionKeys="selectionKeys" />
     </div>
 </template>
 
@@ -37,7 +35,7 @@ export default {
     data() {
         return {
             d_collapsedKeys: this.collapsedKeys || {}
-        }
+        };
     },
     watch: {
         collapsedKeys(newValue) {
@@ -49,13 +47,12 @@ export default {
             const key = node.key;
 
             if (this.selectionMode) {
-                let _selectionKeys = this.selectionKeys ? {...this.selectionKeys} : {};
+                let _selectionKeys = this.selectionKeys ? { ...this.selectionKeys } : {};
 
                 if (_selectionKeys[key]) {
                     delete _selectionKeys[key];
                     this.$emit('node-unselect', node);
-                }
-                else {
+                } else {
                     if (this.selectionMode === 'single') {
                         _selectionKeys = {};
                     }
@@ -73,20 +70,19 @@ export default {
             if (this.d_collapsedKeys[key]) {
                 delete this.d_collapsedKeys[key];
                 this.$emit('node-expand', node);
-            }
-            else {
+            } else {
                 this.d_collapsedKeys[key] = true;
                 this.$emit('node-collapse', node);
             }
 
-            this.d_collapsedKeys = {...this.d_collapsedKeys};
+            this.d_collapsedKeys = { ...this.d_collapsedKeys };
             this.$emit('update:collapsedKeys', this.d_collapsedKeys);
         }
     },
     components: {
-        'OrganizationChartNode': OrganizationChartNode
+        OrganizationChartNode: OrganizationChartNode
     }
-}
+};
 </script>
 
 <style>
@@ -99,7 +95,7 @@ export default {
 .p-organizationchart-table > tbody > tr > td {
     text-align: center;
     vertical-align: top;
-    padding: 0 .75rem;
+    padding: 0 0.75rem;
 }
 
 .p-organizationchart-node-content {
@@ -109,8 +105,8 @@ export default {
 
 .p-organizationchart-node-content .p-node-toggler {
     position: absolute;
-    bottom: -.75rem;
-    margin-left: -.75rem;
+    bottom: -0.75rem;
+    margin-left: -0.75rem;
     z-index: 2;
     left: 50%;
     user-select: none;
@@ -122,7 +118,7 @@ export default {
 
 .p-organizationchart-node-content .p-node-toggler .p-node-toggler-icon {
     position: relative;
-    top: .25rem;
+    top: 0.25rem;
 }
 
 .p-organizationchart-line-down {
@@ -135,7 +131,7 @@ export default {
     border-radius: 0px;
 }
 
- .p-organizationchart-line-left {
+.p-organizationchart-line-left {
     border-radius: 0;
 }
 

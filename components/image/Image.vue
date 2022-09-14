@@ -1,13 +1,13 @@
 <template>
     <span :class="containerClass" :style="style">
-        <img v-bind="$attrs" :style="imageStyle" :class="imageClass" @error="onError"/>
-        <div class="p-image-preview-indicator" v-if="preview" @click="onImageClick">
+        <img v-bind="$attrs" :style="imageStyle" :class="imageClass" @error="onError" />
+        <div v-if="preview" class="p-image-preview-indicator" @click="onImageClick">
             <slot name="indicator">
                 <i class="p-image-preview-icon pi pi-eye"></i>
             </slot>
         </div>
         <Portal>
-            <div :ref="maskRef" :class="maskClass" v-if="maskVisible" @click="onMaskClick">
+            <div v-if="maskVisible" :ref="maskRef" :class="maskClass" @click="onMaskClick">
                 <div class="p-image-toolbar">
                     <button class="p-image-action p-link" @click="rotateRight" type="button">
                         <i class="pi pi-refresh"></i>
@@ -27,7 +27,7 @@
                 </div>
                 <transition name="p-image-preview" @before-enter="onBeforeEnter" @enter="onEnter" @leave="onLeave" @before-leave="onBeforeLeave" @after-leave="onAfterLeave">
                     <div v-if="previewVisible">
-                        <img :src="$attrs.src" class="p-image-preview" :style="imagePreviewStyle" @click="onPreviewImageClick"/>
+                        <img :src="$attrs.src" class="p-image-preview" :style="imagePreviewStyle" @click="onPreviewImageClick" />
                     </div>
                 </transition>
             </div>
@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import {DomHandler,ZIndexUtils} from 'primevue/utils';
+import { DomHandler, ZIndexUtils } from 'primevue/utils';
 import Portal from 'primevue/portal';
 
 export default {
@@ -60,7 +60,7 @@ export default {
             previewVisible: false,
             rotate: 0,
             scale: 1
-        }
+        };
     },
     beforeUnmount() {
         if (this.mask) {
@@ -132,9 +132,13 @@ export default {
     },
     computed: {
         containerClass() {
-            return ['p-image p-component', this.class, {
-                'p-image-preview-container': this.preview
-            }];
+            return [
+                'p-image p-component',
+                this.class,
+                {
+                    'p-image-preview-container': this.preview
+                }
+            ];
         },
         maskClass() {
             return ['p-image-mask p-component-overlay p-component-overlay-enter'];
@@ -143,16 +147,16 @@ export default {
             return 'p-image-preview-rotate-' + this.rotate;
         },
         imagePreviewStyle() {
-            return {transform: 'rotate(' + this.rotate + 'deg) scale(' + this.scale + ')'};
+            return { transform: 'rotate(' + this.rotate + 'deg) scale(' + this.scale + ')' };
         },
         zoomDisabled() {
             return this.scale <= 0.5 || this.scale >= 1.5;
         }
     },
     components: {
-        'Portal': Portal
+        Portal: Portal
     }
-}
+};
 </script>
 
 <style>
@@ -177,7 +181,7 @@ export default {
     align-items: center;
     justify-content: center;
     opacity: 0;
-    transition: opacity .3s;
+    transition: opacity 0.3s;
 }
 
 .p-image-preview-icon {
@@ -207,7 +211,7 @@ export default {
 }
 
 .p-image-preview {
-    transition: transform .15s;
+    transition: transform 0.15s;
     max-width: 100vw;
     max-height: 100vh;
 }
@@ -216,7 +220,7 @@ export default {
     transition: all 150ms cubic-bezier(0, 0, 0.2, 1);
 }
 .p-image-preview-leave-active {
-    transition: all 150ms cubic-bezier(0.4, 0.0, 0.2, 1);
+    transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .p-image-preview-enter-from,
 .p-image-preview-leave-to {

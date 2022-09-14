@@ -55,14 +55,14 @@ export declare type SplitButtonEmits = {
      * Callback to invoke when main button is clicked.
      * @param {Event} event - Browser event.
      */
-    'click': (event: Event) => void;
-}
+    click: (event: Event) => void;
+};
 
-declare class SplitButton extends ClassComponent<SplitButtonProps, SplitButtonSlots, SplitButtonEmits> { }
+declare class SplitButton extends ClassComponent<SplitButtonProps, SplitButtonSlots, SplitButtonEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        SplitButton: GlobalComponentConstructor<SplitButton>
+        SplitButton: GlobalComponentConstructor<SplitButton>;
     }
 }
 
@@ -72,11 +72,11 @@ declare module '@vue/runtime-core' {
  *
  * Helper API:
  *
- * - [MenuItem](https://www.primefaces.org/primevue/showcase/#/menumodel)
+ * - [MenuItem](https://www.primefaces.org/primevue/menumodel)
  *
  * Demos:
  *
- * - [SplitButton](https://www.primefaces.org/primevue/showcase/#/splitbutton)
+ * - [SplitButton](https://www.primefaces.org/primevue/splitbutton)
  *
  */
 export default SplitButton;

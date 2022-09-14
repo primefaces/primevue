@@ -6,8 +6,15 @@
         <ul :ref="listRef" class="p-speeddial-list" role="menu">
             <li v-for="(item, index) of model" :key="index" class="p-speeddial-item" :style="getItemStyle(index)" role="none">
                 <template v-if="!$slots.item">
-                    <a :href="item.url || '#'" role="menuitem" :class="['p-speeddial-action', { 'p-disabled': item.disabled }]" :target="item.target"
-                        v-tooltip:[tooltipOptions]="{value: item.label, disabled: !tooltipOptions}" @click="onItemClick($event, item)" v-ripple>
+                    <a
+                        v-tooltip:[tooltipOptions]="{ value: item.label, disabled: !tooltipOptions }"
+                        v-ripple
+                        :href="item.url || '#'"
+                        role="menuitem"
+                        :class="['p-speeddial-action', { 'p-disabled': item.disabled }]"
+                        :target="item.target"
+                        @click="onItemClick($event, item)"
+                    >
                         <span v-if="item.icon" :class="['p-speeddial-action-icon', item.icon]"></span>
                     </a>
                 </template>
@@ -24,7 +31,7 @@
 import Button from 'primevue/button';
 import Ripple from 'primevue/ripple';
 import Tooltip from 'primevue/tooltip';
-import {DomHandler} from 'primevue/utils';
+import { DomHandler } from 'primevue/utils';
 
 export default {
     name: 'SpeedDial',
@@ -86,7 +93,7 @@ export default {
         return {
             d_visible: this.visible,
             isItemClicked: false
-        }
+        };
     },
     watch: {
         visible(newValue) {
@@ -101,6 +108,7 @@ export default {
             if (button && firstItem) {
                 const wDiff = Math.abs(button.offsetWidth - firstItem.offsetWidth);
                 const hDiff = Math.abs(button.offsetHeight - firstItem.offsetHeight);
+
                 this.list.style.setProperty('--item-diff-x', `${wDiff / 2}px`);
                 this.list.style.setProperty('--item-diff-y', `${hDiff / 2}px`);
             }
@@ -150,49 +158,43 @@ export default {
 
             if (type !== 'linear') {
                 const length = this.model.length;
-                const radius = this.radius || (length * 20);
+                const radius = this.radius || length * 20;
 
                 if (type === 'circle') {
-                    const step = 2 * Math.PI / length;
+                    const step = (2 * Math.PI) / length;
 
                     return {
                         left: `calc(${radius * Math.cos(step * index)}px + var(--item-diff-x, 0px))`,
-                        top: `calc(${radius * Math.sin(step * index)}px + var(--item-diff-y, 0px))`,
-                    }
-                }
-                else if (type === 'semi-circle') {
+                        top: `calc(${radius * Math.sin(step * index)}px + var(--item-diff-y, 0px))`
+                    };
+                } else if (type === 'semi-circle') {
                     const direction = this.direction;
                     const step = Math.PI / (length - 1);
                     const x = `calc(${radius * Math.cos(step * index)}px + var(--item-diff-x, 0px))`;
                     const y = `calc(${radius * Math.sin(step * index)}px + var(--item-diff-y, 0px))`;
+
                     if (direction === 'up') {
                         return { left: x, bottom: y };
-                    }
-                    else if (direction === 'down') {
+                    } else if (direction === 'down') {
                         return { left: x, top: y };
-                    }
-                    else if (direction === 'left') {
+                    } else if (direction === 'left') {
                         return { right: y, top: x };
-                    }
-                    else if (direction === 'right') {
+                    } else if (direction === 'right') {
                         return { left: y, top: x };
                     }
-                }
-                else if (type === 'quarter-circle') {
+                } else if (type === 'quarter-circle') {
                     const direction = this.direction;
                     const step = Math.PI / (2 * (length - 1));
                     const x = `calc(${radius * Math.cos(step * index)}px + var(--item-diff-x, 0px))`;
                     const y = `calc(${radius * Math.sin(step * index)}px + var(--item-diff-y, 0px))`;
+
                     if (direction === 'up-left') {
                         return { right: x, bottom: y };
-                    }
-                    else if (direction === 'up-right') {
+                    } else if (direction === 'up-right') {
                         return { left: x, bottom: y };
-                    }
-                    else if (direction === 'down-left') {
+                    } else if (direction === 'down-left') {
                         return { right: y, top: x };
-                    }
-                    else if (direction === 'down-right') {
+                    } else if (direction === 'down-right') {
                         return { left: y, top: x };
                     }
                 }
@@ -218,6 +220,7 @@ export default {
 
                     this.isItemClicked = false;
                 };
+
                 document.addEventListener('click', this.documentClickListener);
             }
         },
@@ -239,34 +242,46 @@ export default {
     },
     computed: {
         containerClass() {
-            return [`p-speeddial p-component p-speeddial-${this.type}`, {
-                [`p-speeddial-direction-${this.direction}`]: this.type !== 'circle',
-                'p-speeddial-opened': this.d_visible,
-                'p-disabled': this.disabled
-            }, this.class];
+            return [
+                `p-speeddial p-component p-speeddial-${this.type}`,
+                {
+                    [`p-speeddial-direction-${this.direction}`]: this.type !== 'circle',
+                    'p-speeddial-opened': this.d_visible,
+                    'p-disabled': this.disabled
+                },
+                this.class
+            ];
         },
         buttonClassName() {
-            return ['p-speeddial-button p-button-rounded', {
-                'p-speeddial-rotate': this.rotateAnimation && !this.hideIcon
-            }, this.buttonClass];
+            return [
+                'p-speeddial-button p-button-rounded',
+                {
+                    'p-speeddial-rotate': this.rotateAnimation && !this.hideIcon
+                },
+                this.buttonClass
+            ];
         },
         iconClassName() {
             return this.d_visible && !!this.hideIcon ? this.hideIcon : this.showIcon;
         },
         maskClassName() {
-            return ['p-speeddial-mask', {
-                'p-speeddial-mask-visible': this.d_visible
-            }, this.maskClass];
+            return [
+                'p-speeddial-mask',
+                {
+                    'p-speeddial-mask-visible': this.d_visible
+                },
+                this.maskClass
+            ];
         }
     },
     components: {
-        'SDButton': Button
+        SDButton: Button
     },
     directives: {
-        'ripple': Ripple,
-        'tooltip': Tooltip
+        ripple: Ripple,
+        tooltip: Tooltip
     }
-}
+};
 </script>
 
 <style>

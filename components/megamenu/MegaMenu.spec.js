@@ -14,37 +14,39 @@ describe('MegaMenu.vue', () => {
             props: {
                 model: [
                     {
-                        label: 'Videos', icon: 'pi pi-fw pi-video',
+                        label: 'Videos',
+                        icon: 'pi pi-fw pi-video',
                         items: [
                             [
                                 {
                                     label: 'Video 1',
-                                    items: [{label: 'Video 1.1'}, {label: 'Video 1.2'}]
+                                    items: [{ label: 'Video 1.1' }, { label: 'Video 1.2' }]
                                 },
                                 {
                                     label: 'Video 2',
-                                    items: [{label: 'Video 2.1'}, {label: 'Video 2.2'}]
+                                    items: [{ label: 'Video 2.1' }, { label: 'Video 2.2' }]
                                 }
                             ]
                         ]
                     },
                     {
-                        label: 'Users', icon: 'pi pi-fw pi-users',
+                        label: 'Users',
+                        icon: 'pi pi-fw pi-users',
                         items: [
                             [
                                 {
                                     label: 'User 1',
-                                    items: [{label: 'User 1.1'}, {label: 'User 1.2'}]
+                                    items: [{ label: 'User 1.1' }, { label: 'User 1.2' }]
                                 }
                             ],
                             [
                                 {
                                     label: 'User 2',
-                                    items: [{label: 'User 2.1'}, {label: 'User 2.2'}]
+                                    items: [{ label: 'User 2.1' }, { label: 'User 2.2' }]
                                 },
                                 {
                                     label: 'User 3',
-                                    items: [{label: 'User 3.1'}, {label: 'User 3.2'}]
+                                    items: [{ label: 'User 3.1' }, { label: 'User 3.2' }]
                                 }
                             ]
                         ]

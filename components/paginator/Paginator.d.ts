@@ -117,14 +117,14 @@ export declare type PaginatorEmits = {
      * Callback to invoke when page changes, the event object contains information about the new state.
      * @param {PageState} event - New page state.
      */
-    'page': (event: PageState) => void;
-}
+    page: (event: PageState) => void;
+};
 
-declare class Paginator extends ClassComponent<PaginatorProps, PaginatorSlots, PaginatorEmits> { }
+declare class Paginator extends ClassComponent<PaginatorProps, PaginatorSlots, PaginatorEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        Paginator: GlobalComponentConstructor<Paginator>
+        Paginator: GlobalComponentConstructor<Paginator>;
     }
 }
 
@@ -134,7 +134,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [Paginator](https://www.primefaces.org/primevue/showcase/#/paginator)
+ * - [Paginator](https://www.primefaces.org/primevue/paginator)
  *
  */
 export default Paginator;

@@ -18,17 +18,15 @@ export interface ProgressSpinnerProps {
     animationDuration?: string | undefined;
 }
 
-export interface ProgressSpinnerSlots {
-}
+export interface ProgressSpinnerSlots {}
 
-export declare type ProgressSpinnerEmits = {
-}
+export declare type ProgressSpinnerEmits = {};
 
-declare class ProgressSpinner extends ClassComponent<ProgressSpinnerProps, ProgressSpinnerSlots, ProgressSpinnerEmits> { }
+declare class ProgressSpinner extends ClassComponent<ProgressSpinnerProps, ProgressSpinnerSlots, ProgressSpinnerEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        ProgressSpinner: GlobalComponentConstructor<ProgressSpinner>
+        ProgressSpinner: GlobalComponentConstructor<ProgressSpinner>;
     }
 }
 
@@ -38,7 +36,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [ProgressSpinner](https://www.primefaces.org/primevue/showcase/#/progressspinner)
+ * - [ProgressSpinner](https://www.primefaces.org/primevue/progressspinner)
  *
  */
 export default ProgressSpinner;

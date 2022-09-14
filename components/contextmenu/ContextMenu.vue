@@ -1,7 +1,7 @@
 <template>
     <Portal :appendTo="appendTo">
         <transition name="p-contextmenu" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave">
-            <div :ref="containerRef" :class="containerClass" v-if="visible" v-bind="$attrs">
+            <div v-if="visible" :ref="containerRef" :class="containerClass" v-bind="$attrs">
                 <ContextMenuSub :model="model" :root="true" @leaf-click="onLeafClick" :template="$slots.item" :exact="exact" />
             </div>
         </transition>
@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import {DomHandler,ZIndexUtils} from 'primevue/utils';
+import { DomHandler, ZIndexUtils } from 'primevue/utils';
 import ContextMenuSub from './ContextMenuSub.vue';
 import Portal from 'primevue/portal';
 
@@ -17,7 +17,7 @@ export default {
     name: 'ContextMenu',
     inheritAttrs: false,
     props: {
-		model: {
+        model: {
             type: Array,
             default: null
         },
@@ -62,6 +62,7 @@ export default {
         if (this.container && this.autoZIndex) {
             ZIndexUtils.clear(this.container);
         }
+
         this.container = null;
     },
     mounted() {
@@ -72,17 +73,17 @@ export default {
     methods: {
         itemClick(event) {
             const item = event.item;
+
             if (item.command) {
                 item.command(event);
                 event.originalEvent.preventDefault();
             }
+
             this.hide();
         },
         toggle(event) {
-            if (this.visible)
-                this.hide();
-            else
-                this.show(event);
+            if (this.visible) this.hide();
+            else this.show(event);
         },
         onLeafClick() {
             this.hide();
@@ -91,10 +92,8 @@ export default {
             this.pageX = event.pageX;
             this.pageY = event.pageY;
 
-            if (this.visible)
-                this.position();
-            else
-                this.visible = true;
+            if (this.visible) this.position();
+            else this.visible = true;
 
             event.stopPropagation();
             event.preventDefault();
@@ -157,6 +156,7 @@ export default {
                         this.hide();
                     }
                 };
+
                 document.addEventListener('click', this.outsideClickListener);
             }
         },
@@ -173,6 +173,7 @@ export default {
                         this.hide();
                     }
                 };
+
                 window.addEventListener('resize', this.resizeListener);
             }
         },
@@ -192,7 +193,7 @@ export default {
             }
         },
         unbindDocumentContextMenuListener() {
-            if(this.documentContextMenuListener) {
+            if (this.documentContextMenuListener) {
                 document.removeEventListener('contextmenu', this.documentContextMenuListener);
                 this.documentContextMenuListener = null;
             }
@@ -203,17 +204,20 @@ export default {
     },
     computed: {
         containerClass() {
-            return ['p-contextmenu p-component', {
-                'p-input-filled': this.$primevue.config.inputStyle === 'filled',
-                'p-ripple-disabled': this.$primevue.config.ripple === false
-            }]
+            return [
+                'p-contextmenu p-component',
+                {
+                    'p-input-filled': this.$primevue.config.inputStyle === 'filled',
+                    'p-ripple-disabled': this.$primevue.config.ripple === false
+                }
+            ];
         }
     },
     components: {
-        'ContextMenuSub': ContextMenuSub,
-        'Portal': Portal
+        ContextMenuSub: ContextMenuSub,
+        Portal: Portal
     }
-}
+};
 </script>
 
 <style>

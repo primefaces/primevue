@@ -34,7 +34,7 @@ describe('Textarea.vue', () => {
 
     it('should resize', async () => {
         const firstHeight = wrapper.attributes().style;
-        
+
         await wrapper.setProps({ autoResize: true });
 
         await wrapper.vm.onInput({ target: { value: 'primevue' } });

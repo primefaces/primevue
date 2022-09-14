@@ -25,8 +25,7 @@ export interface InputMaskProps {
     unmask?: boolean | undefined;
 }
 
-export interface InputMaskSlots {
-}
+export interface InputMaskSlots {}
 
 export declare type InputMaskEmits = {
     /**
@@ -37,34 +36,34 @@ export declare type InputMaskEmits = {
     /**
      * Callback to invoke when the component receives focus.
      */
-    'focus': (event: Event) => void;
+    focus: (event: Event) => void;
     /**
      * Callback to invoke when the component loses focus.
      */
-    'blur': (event: Event) => void;
+    blur: (event: Event) => void;
     /**
      * Callback to invoke when a key is pressed.
      */
-    'keydown': (event: Event) => void;
+    keydown: (event: Event) => void;
     /**
      * Callback to invoke when a key that produces a character value is pressed down.
      */
-    'keypress': (event: Event) => void;
+    keypress: (event: Event) => void;
     /**
      * Callback to invoke when the user has initiated a 'paste' action through the browser's user interface.
      */
-    'paste': (event: Event) => void;
+    paste: (event: Event) => void;
     /**
      * Callback to invoke when the mask is completed.
      */
-    'complete': (event: Event) => void;
-}
+    complete: (event: Event) => void;
+};
 
-declare class InputMask extends ClassComponent<InputMaskProps, InputMaskSlots, InputMaskEmits> { }
+declare class InputMask extends ClassComponent<InputMaskProps, InputMaskSlots, InputMaskEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        InputMask: GlobalComponentConstructor<InputMask>
+        InputMask: GlobalComponentConstructor<InputMask>;
     }
 }
 
@@ -74,7 +73,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [InputMask](https://www.primefaces.org/primevue/showcase/#/inputmask)
+ * - [InputMask](https://www.primefaces.org/primevue/inputmask)
  *
  */
 export default InputMask;

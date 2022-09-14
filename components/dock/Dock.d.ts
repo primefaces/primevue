@@ -78,14 +78,13 @@ export interface DockSlots {
     }) => VNode[];
 }
 
-export declare type DockEmits = {
-}
+export declare type DockEmits = {};
 
-declare class Dock extends ClassComponent<DockProps, DockSlots, DockEmits> { }
+declare class Dock extends ClassComponent<DockProps, DockSlots, DockEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        Dock: GlobalComponentConstructor<Dock>
+        Dock: GlobalComponentConstructor<Dock>;
     }
 }
 
@@ -95,11 +94,11 @@ declare module '@vue/runtime-core' {
  *
  * Helper API:
  *
- * - [MenuItem](https://www.primefaces.org/primevue/showcase/#/menumodel)
+ * - [MenuItem](https://www.primefaces.org/primevue/menumodel)
  *
  * Demos:
  *
- * - [Dock](https://www.primefaces.org/primevue/showcase/#/dock)
+ * - [Dock](https://www.primefaces.org/primevue/dock)
  *
  */
 export default Dock;

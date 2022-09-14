@@ -1,8 +1,7 @@
 import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-export interface CardProps {
-}
+export interface CardProps {}
 
 export interface CardSlots {
     /**
@@ -27,14 +26,13 @@ export interface CardSlots {
     footer: () => VNode[];
 }
 
-export declare type CardEmits = {
-}
+export declare type CardEmits = {};
 
-declare class Card extends ClassComponent<CardProps, CardSlots, CardEmits> { }
+declare class Card extends ClassComponent<CardProps, CardSlots, CardEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        Card: GlobalComponentConstructor<Card>
+        Card: GlobalComponentConstructor<Card>;
     }
 }
 
@@ -44,7 +42,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [Card](https://www.primefaces.org/primevue/showcase/#/card)
+ * - [Card](https://www.primefaces.org/primevue/card)
  *
  */
 export default Card;

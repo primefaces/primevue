@@ -180,8 +180,7 @@ export interface InputNumberProps {
     'aria-label'?: string | undefined;
 }
 
-export interface InputNumberSlots {
-}
+export interface InputNumberSlots {}
 
 export declare type InputNumberEmits = {
     /**
@@ -190,21 +189,21 @@ export declare type InputNumberEmits = {
      */
     'update:modelValue': (value: number) => void;
     /**
-      * Callback to invoke when the value is entered.
-      * @param {InputNumberInputEvent} event - Custom input event.
-      */
-    'input': (event: InputNumberInputEvent) => void;
+     * Callback to invoke when the value is entered.
+     * @param {InputNumberInputEvent} event - Custom input event.
+     */
+    input: (event: InputNumberInputEvent) => void;
     /**
      * Callback to invoke on focus of input field.
      * @param {Event} event - Focus event
      */
-    'focus': (event: Event) => void;
+    focus: (event: Event) => void;
     /**
-       * Callback to invoke on blur of input field.
-       * @param {InputNumberBlurEvent} event - Blur event
-       */
-    'blur': (event: InputNumberBlurEvent) => void;
-}
+     * Callback to invoke on blur of input field.
+     * @param {InputNumberBlurEvent} event - Blur event
+     */
+    blur: (event: InputNumberBlurEvent) => void;
+};
 
 declare class InputNumber extends ClassComponent<InputNumberProps, InputNumberSlots, InputNumberEmits> {
     /**
@@ -217,7 +216,7 @@ declare class InputNumber extends ClassComponent<InputNumberProps, InputNumberSl
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        InputNumber: GlobalComponentConstructor<InputNumber>
+        InputNumber: GlobalComponentConstructor<InputNumber>;
     }
 }
 
@@ -231,7 +230,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [InputNumber](https://www.primefaces.org/primevue/showcase/#/inputnumber)
+ * - [InputNumber](https://www.primefaces.org/primevue/inputnumber)
  *
  */
 export default InputNumber;

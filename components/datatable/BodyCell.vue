@@ -1,41 +1,51 @@
 <template>
     <td v-if="loading" :style="containerStyle" :class="containerClass">
-        <component :is="column.children.loading" :data="rowData" :column="column" :field="field" :index="rowIndex" :frozenRow="frozenRow" :loadingOptions="loadingOptions"  />
+        <component :is="column.children.loading" :data="rowData" :column="column" :field="field" :index="rowIndex" :frozenRow="frozenRow" :loadingOptions="loadingOptions" />
     </td>
     <td v-else :style="containerStyle" :class="containerClass" @click="onClick" @keydown="onKeyDown" role="cell">
-        <span v-if="responsiveLayout === 'stack'" class="p-column-title">{{columnProp('header')}}</span>
-        <component :is="column.children.body" :data="rowData" :column="column" :field="field" :index="rowIndex" :frozenRow="frozenRow" :editorInitCallback="editorInitCallback" v-if="column.children && column.children.body && !d_editing" />
-        <component :is="column.children.editor" :data="editingRowData" :column="column" :field="field" :index="rowIndex" :frozenRow="frozenRow" :editorSaveCallback="editorSaveCallback" :editorCancelCallback="editorCancelCallback" v-else-if="column.children && column.children.editor && d_editing" />
-        <component :is="column.children.body" :data="editingRowData" :column="column" :field="field" :index="rowIndex" :frozenRow="frozenRow" v-else-if="column.children && column.children.body && !column.children.editor && d_editing" />
+        <span v-if="responsiveLayout === 'stack'" class="p-column-title">{{ columnProp('header') }}</span>
+        <component v-if="column.children && column.children.body && !d_editing" :is="column.children.body" :data="rowData" :column="column" :field="field" :index="rowIndex" :frozenRow="frozenRow" :editorInitCallback="editorInitCallback" />
+        <component
+            v-else-if="column.children && column.children.editor && d_editing"
+            :is="column.children.editor"
+            :data="editingRowData"
+            :column="column"
+            :field="field"
+            :index="rowIndex"
+            :frozenRow="frozenRow"
+            :editorSaveCallback="editorSaveCallback"
+            :editorCancelCallback="editorCancelCallback"
+        />
+        <component v-else-if="column.children && column.children.body && !column.children.editor && d_editing" :is="column.children.body" :data="editingRowData" :column="column" :field="field" :index="rowIndex" :frozenRow="frozenRow" />
         <template v-else-if="columnProp('selectionMode')">
-            <DTRadioButton :value="rowData" :checked="selected" @change="toggleRowWithRadio($event, rowIndex)" v-if="columnProp('selectionMode') === 'single'" />
-            <DTCheckbox :value="rowData" :checked="selected" @change="toggleRowWithCheckbox($event, rowIndex)" v-else-if="columnProp('selectionMode') ==='multiple'" />
+            <DTRadioButton v-if="columnProp('selectionMode') === 'single'" :value="rowData" :checked="selected" @change="toggleRowWithRadio($event, rowIndex)" />
+            <DTCheckbox v-else-if="columnProp('selectionMode') === 'multiple'" :value="rowData" :checked="selected" @change="toggleRowWithCheckbox($event, rowIndex)" />
         </template>
         <template v-else-if="columnProp('rowReorder')">
-            <i :class="['p-datatable-reorderablerow-handle', (columnProp('rowReorderIcon') || 'pi pi-bars')]"></i>
+            <i :class="['p-datatable-reorderablerow-handle', columnProp('rowReorderIcon') || 'pi pi-bars']"></i>
         </template>
         <template v-else-if="columnProp('expander')">
-            <button class="p-row-toggler p-link" @click="toggleRow" type="button" v-ripple>
+            <button v-ripple class="p-row-toggler p-link" @click="toggleRow" type="button">
                 <span :class="rowTogglerIcon"></span>
             </button>
         </template>
         <template v-else-if="editMode === 'row' && columnProp('rowEditor')">
-            <button class="p-row-editor-init p-link" v-if="!d_editing" @click="onRowEditInit" type="button" v-ripple>
+            <button v-if="!d_editing" v-ripple class="p-row-editor-init p-link" @click="onRowEditInit" type="button">
                 <span class="p-row-editor-init-icon pi pi-fw pi-pencil"></span>
             </button>
-            <button class="p-row-editor-save p-link" v-if="d_editing" @click="onRowEditSave" type="button" v-ripple>
+            <button v-if="d_editing" v-ripple class="p-row-editor-save p-link" @click="onRowEditSave" type="button">
                 <span class="p-row-editor-save-icon pi pi-fw pi-check"></span>
             </button>
-            <button class="p-row-editor-cancel p-link" v-if="d_editing" @click="onRowEditCancel" type="button" v-ripple>
+            <button v-if="d_editing" v-ripple class="p-row-editor-cancel p-link" @click="onRowEditCancel" type="button">
                 <span class="p-row-editor-cancel-icon pi pi-fw pi-times"></span>
             </button>
         </template>
-        <template v-else>{{resolveFieldData()}}</template>
+        <template v-else>{{ resolveFieldData() }}</template>
     </td>
 </template>
 
 <script>
-import {DomHandler,ObjectUtils} from 'primevue/utils';
+import { DomHandler, ObjectUtils } from 'primevue/utils';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import RowRadioButton from './RowRadioButton.vue';
 import RowCheckbox from './RowCheckbox.vue';
@@ -43,8 +53,7 @@ import Ripple from 'primevue/ripple';
 
 export default {
     name: 'BodyCell',
-    emits: ['cell-edit-init', 'cell-edit-complete', 'cell-edit-cancel', 'row-edit-init', 'row-edit-save', 'row-edit-cancel',
-            'row-toggle', 'radio-change', 'checkbox-change', 'editing-meta-change'],
+    emits: ['cell-edit-init', 'cell-edit-complete', 'cell-edit-cancel', 'row-edit-init', 'row-edit-save', 'row-edit-cancel', 'row-toggle', 'radio-change', 'checkbox-change', 'editing-meta-change'],
     props: {
         rowData: {
             type: Object,
@@ -102,14 +111,14 @@ export default {
         return {
             d_editing: this.editing,
             styleObject: {}
-        }
+        };
     },
     watch: {
         editing(newValue) {
             this.d_editing = newValue;
         },
-        '$data.d_editing': function(newValue) {
-            this.$emit('editing-meta-change', {data: this.rowData, field: (this.field || `field_${this.index}`), index: this.rowIndex, editing: newValue});
+        '$data.d_editing': function (newValue) {
+            this.$emit('editing-meta-change', { data: this.rowData, field: this.field || `field_${this.index}`, index: this.rowIndex, editing: newValue });
         }
     },
     mounted() {
@@ -124,6 +133,7 @@ export default {
 
         if (this.d_editing && (this.editMode === 'cell' || (this.editMode === 'row' && this.columnProp('rowEditor')))) {
             const focusableEl = DomHandler.getFirstFocusableElement(this.$el);
+
             focusableEl && focusableEl.focus();
         }
     },
@@ -147,7 +157,7 @@ export default {
             });
         },
         toggleRowWithRadio(event, index) {
-            this.$emit('radio-change', { originalEvent: event.originalEvent, index: index, data: event.data});
+            this.$emit('radio-change', { originalEvent: event.originalEvent, index: index, data: event.data });
         },
         toggleRowWithCheckbox(event, index) {
             this.$emit('checkbox-change', { originalEvent: event.originalEvent, index: index, data: event.data });
@@ -161,6 +171,7 @@ export default {
                     if (!this.selfClick) {
                         this.completeEdit(event, 'outside');
                     }
+
                     this.selfClick = false;
                 };
 
@@ -187,13 +198,14 @@ export default {
                 if (!this.d_editing) {
                     this.d_editing = true;
                     this.bindDocumentEditListener();
-                    this.$emit('cell-edit-init', {originalEvent: event, data: this.rowData, field: this.field, index: this.rowIndex});
+                    this.$emit('cell-edit-init', { originalEvent: event, data: this.rowData, field: this.field, index: this.rowIndex });
 
                     this.overlayEventListener = (e) => {
                         if (this.$el && this.$el.contains(e.target)) {
                             this.selfClick = true;
                         }
-                    }
+                    };
+
                     OverlayEventBus.on('overlay-click', this.overlayEventListener);
                 }
             }
@@ -209,7 +221,7 @@ export default {
                 index: this.rowIndex,
                 type: type,
                 defaultPrevented: false,
-                preventDefault: function() {
+                preventDefault: function () {
                     this.defaultPrevented = true;
                 }
             };
@@ -225,21 +237,19 @@ export default {
                 switch (event.which) {
                     case 13:
                         this.completeEdit(event, 'enter');
-                    break;
+                        break;
 
                     case 27:
                         this.switchCellToViewMode();
-                        this.$emit('cell-edit-cancel', {originalEvent: event, data: this.rowData, field: this.field, index: this.rowIndex});
-                    break;
+                        this.$emit('cell-edit-cancel', { originalEvent: event, data: this.rowData, field: this.field, index: this.rowIndex });
+                        break;
 
                     case 9:
                         this.completeEdit(event, 'tab');
 
-                        if (event.shiftKey)
-                            this.moveToPreviousCell(event);
-                        else
-                            this.moveToNextCell(event);
-                    break;
+                        if (event.shiftKey) this.moveToPreviousCell(event);
+                        else this.moveToNextCell(event);
+                        break;
                 }
             }
         },
@@ -264,13 +274,13 @@ export default {
         findCell(element) {
             if (element) {
                 let cell = element;
+
                 while (cell && !DomHandler.hasClass(cell, 'p-cell-editing')) {
                     cell = cell.parentElement;
                 }
 
                 return cell;
-            }
-            else {
+            } else {
                 return null;
             }
         },
@@ -279,18 +289,16 @@ export default {
 
             if (!prevCell) {
                 let previousRow = cell.parentElement.previousElementSibling;
+
                 if (previousRow) {
                     prevCell = previousRow.lastElementChild;
                 }
             }
 
             if (prevCell) {
-                if (DomHandler.hasClass(prevCell, 'p-editable-column'))
-                    return prevCell;
-                else
-                    return this.findPreviousEditableColumn(prevCell);
-            }
-            else {
+                if (DomHandler.hasClass(prevCell, 'p-editable-column')) return prevCell;
+                else return this.findPreviousEditableColumn(prevCell);
+            } else {
                 return null;
             }
         },
@@ -299,68 +307,70 @@ export default {
 
             if (!nextCell) {
                 let nextRow = cell.parentElement.nextElementSibling;
+
                 if (nextRow) {
                     nextCell = nextRow.firstElementChild;
                 }
             }
 
             if (nextCell) {
-                if (DomHandler.hasClass(nextCell, 'p-editable-column'))
-                    return nextCell;
-                else
-                    return this.findNextEditableColumn(nextCell);
-            }
-            else {
+                if (DomHandler.hasClass(nextCell, 'p-editable-column')) return nextCell;
+                else return this.findNextEditableColumn(nextCell);
+            } else {
                 return null;
             }
         },
         isEditingCellValid() {
-            return (DomHandler.find(this.$el, '.p-invalid').length === 0);
+            return DomHandler.find(this.$el, '.p-invalid').length === 0;
         },
         onRowEditInit(event) {
-            this.$emit('row-edit-init', {originalEvent: event, data: this.rowData, newData: this.editingRowData, field: this.field, index: this.rowIndex});
+            this.$emit('row-edit-init', { originalEvent: event, data: this.rowData, newData: this.editingRowData, field: this.field, index: this.rowIndex });
         },
         onRowEditSave(event) {
-            this.$emit('row-edit-save', {originalEvent: event, data: this.rowData, newData: this.editingRowData, field: this.field, index: this.rowIndex});
+            this.$emit('row-edit-save', { originalEvent: event, data: this.rowData, newData: this.editingRowData, field: this.field, index: this.rowIndex });
         },
         onRowEditCancel(event) {
-            this.$emit('row-edit-cancel', {originalEvent: event, data: this.rowData, newData: this.editingRowData, field: this.field, index: this.rowIndex});
+            this.$emit('row-edit-cancel', { originalEvent: event, data: this.rowData, newData: this.editingRowData, field: this.field, index: this.rowIndex });
         },
         editorInitCallback(event) {
-            this.$emit('row-edit-init', {originalEvent: event, data: this.rowData, newData: this.editingRowData, field: this.field, index: this.rowIndex});
+            this.$emit('row-edit-init', { originalEvent: event, data: this.rowData, newData: this.editingRowData, field: this.field, index: this.rowIndex });
         },
         editorSaveCallback(event) {
             if (this.editMode === 'row') {
-                this.$emit('row-edit-save', {originalEvent: event, data: this.rowData, newData: this.editingRowData, field: this.field, index: this.rowIndex});
+                this.$emit('row-edit-save', { originalEvent: event, data: this.rowData, newData: this.editingRowData, field: this.field, index: this.rowIndex });
             } else {
                 this.completeEdit(event, 'enter');
             }
         },
         editorCancelCallback(event) {
             if (this.editMode === 'row') {
-                this.$emit('row-edit-cancel', {originalEvent: event, data: this.rowData, newData: this.editingRowData, field: this.field, index: this.rowIndex});
+                this.$emit('row-edit-cancel', { originalEvent: event, data: this.rowData, newData: this.editingRowData, field: this.field, index: this.rowIndex });
             } else {
                 this.switchCellToViewMode();
-                this.$emit('cell-edit-cancel', {originalEvent: event, data: this.rowData, field: this.field, index: this.rowIndex});
+                this.$emit('cell-edit-cancel', { originalEvent: event, data: this.rowData, field: this.field, index: this.rowIndex });
             }
         },
         updateStickyPosition() {
             if (this.columnProp('frozen')) {
                 let align = this.columnProp('alignFrozen');
+
                 if (align === 'right') {
                     let right = 0;
                     let next = this.$el.nextElementSibling;
+
                     if (next) {
                         right = DomHandler.getOuterWidth(next) + parseFloat(next.style.right || 0);
                     }
+
                     this.styleObject.right = right + 'px';
-                }
-                else {
+                } else {
                     let left = 0;
                     let prev = this.$el.previousElementSibling;
+
                     if (prev) {
                         left = DomHandler.getOuterWidth(prev) + parseFloat(prev.style.left || 0);
                     }
+
                     this.styleObject.left = left + 'px';
                 }
             }
@@ -377,41 +387,49 @@ export default {
             return this.columnProp('field');
         },
         containerClass() {
-            return [this.columnProp('bodyClass'), this.columnProp('class'), {
-                'p-selection-column': this.columnProp('selectionMode') != null,
-                'p-editable-column': this.isEditable(),
-                'p-cell-editing': this.d_editing,
-                'p-frozen-column': this.columnProp('frozen')
-            }];
+            return [
+                this.columnProp('bodyClass'),
+                this.columnProp('class'),
+                {
+                    'p-selection-column': this.columnProp('selectionMode') != null,
+                    'p-editable-column': this.isEditable(),
+                    'p-cell-editing': this.d_editing,
+                    'p-frozen-column': this.columnProp('frozen')
+                }
+            ];
         },
         containerStyle() {
             let bodyStyle = this.columnProp('bodyStyle');
             let columnStyle = this.columnProp('style');
 
-            return this.columnProp('frozen') ? [columnStyle, bodyStyle, this.styleObject]: [columnStyle, bodyStyle];
+            return this.columnProp('frozen') ? [columnStyle, bodyStyle, this.styleObject] : [columnStyle, bodyStyle];
         },
         loading() {
             return this.getVirtualScrollerProp('loading');
         },
         loadingOptions() {
             const getLoaderOptions = this.getVirtualScrollerProp('getLoaderOptions');
-            return getLoaderOptions && getLoaderOptions(this.rowIndex, {
-                cellIndex: this.index,
-                cellFirst: this.index === 0,
-                cellLast: this.index === (this.getVirtualScrollerProp('columns').length - 1),
-                cellEven: this.index % 2 === 0,
-                cellOdd: this.index % 2 !== 0,
-                column: this.column,
-                field: this.field
-            });
+
+            return (
+                getLoaderOptions &&
+                getLoaderOptions(this.rowIndex, {
+                    cellIndex: this.index,
+                    cellFirst: this.index === 0,
+                    cellLast: this.index === this.getVirtualScrollerProp('columns').length - 1,
+                    cellEven: this.index % 2 === 0,
+                    cellOdd: this.index % 2 !== 0,
+                    column: this.column,
+                    field: this.field
+                })
+            );
         }
     },
     components: {
-        'DTRadioButton': RowRadioButton,
-        'DTCheckbox': RowCheckbox
+        DTRadioButton: RowRadioButton,
+        DTCheckbox: RowCheckbox
     },
     directives: {
-        'ripple': Ripple
+        ripple: Ripple
     }
-}
+};
 </script>

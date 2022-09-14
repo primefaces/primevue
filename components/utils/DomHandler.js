@@ -1,13 +1,14 @@
-export default  {
-
+export default {
     innerWidth(el) {
         if (el) {
             let width = el.offsetWidth;
             let style = getComputedStyle(el);
 
             width += parseFloat(style.paddingLeft) + parseFloat(style.paddingRight);
+
             return width;
         }
+
         return 0;
     },
 
@@ -17,18 +18,22 @@ export default  {
             let style = getComputedStyle(el);
 
             width -= parseFloat(style.paddingLeft) + parseFloat(style.paddingRight);
+
             return width;
         }
+
         return 0;
     },
 
     getWindowScrollTop() {
         let doc = document.documentElement;
+
         return (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
     },
 
     getWindowScrollLeft() {
         let doc = document.documentElement;
+
         return (window.pageXOffset || doc.scrollLeft) - (doc.clientLeft || 0);
     },
 
@@ -38,11 +43,13 @@ export default  {
 
             if (margin) {
                 let style = getComputedStyle(el);
+
                 width += parseFloat(style.marginLeft) + parseFloat(style.marginRight);
             }
 
             return width;
         }
+
         return 0;
     },
 
@@ -52,11 +59,13 @@ export default  {
 
             if (margin) {
                 let style = getComputedStyle(el);
+
                 height += parseFloat(style.marginTop) + parseFloat(style.marginBottom);
             }
 
             return height;
         }
+
         return 0;
     },
 
@@ -66,11 +75,13 @@ export default  {
 
             if (margin) {
                 let style = getComputedStyle(el);
+
                 height += parseFloat(style.marginTop) + parseFloat(style.marginBottom);
             }
 
             return height;
         }
+
         return 0;
     },
 
@@ -91,7 +102,7 @@ export default  {
 
             return {
                 top: rect.top + (window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0),
-                left: rect.left + (window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0),
+                left: rect.left + (window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0)
             };
         }
 
@@ -105,11 +116,13 @@ export default  {
         if (element) {
             let children = element.parentNode.childNodes;
             let num = 0;
+
             for (let i = 0; i < children.length; i++) {
                 if (children[i] === element) return num;
                 if (children[i].nodeType === 1) num++;
             }
         }
+
         return -1;
     },
 
@@ -117,13 +130,13 @@ export default  {
         if (element && className) {
             if (element.classList) {
                 let styles = className.split(' ');
+
                 for (let i = 0; i < styles.length; i++) {
                     element.classList.add(styles[i]);
                 }
-
-            }
-            else {
+            } else {
                 let styles = className.split(' ');
+
                 for (let i = 0; i < styles.length; i++) {
                     element.className += ' ' + styles[i];
                 }
@@ -133,28 +146,22 @@ export default  {
 
     addClass(element, className) {
         if (element && className) {
-            if (element.classList)
-                element.classList.add(className);
-            else
-                element.className += ' ' + className;
+            if (element.classList) element.classList.add(className);
+            else element.className += ' ' + className;
         }
     },
 
     removeClass(element, className) {
         if (element && className) {
-            if (element.classList)
-                element.classList.remove(className);
-            else
-                element.className = element.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+            if (element.classList) element.classList.remove(className);
+            else element.className = element.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
         }
     },
 
     hasClass(element, className) {
         if (element) {
-            if (element.classList)
-                return element.classList.contains(className);
-            else
-                return new RegExp('(^| )' + className + '( |$)', 'gi').test(element.className);
+            if (element.classList) return element.classList.contains(className);
+            else return new RegExp('(^| )' + className + '( |$)', 'gi').test(element.className);
         }
 
         return false;
@@ -168,6 +175,7 @@ export default  {
         if (element) {
             return element.querySelector(selector);
         }
+
         return null;
     },
 
@@ -180,6 +188,7 @@ export default  {
 
             return height;
         }
+
         return 0;
     },
 
@@ -192,12 +201,13 @@ export default  {
 
             return width;
         }
+
         return 0;
     },
 
     absolutePosition(element, target) {
         if (element) {
-            let elementDimensions = element.offsetParent ? { width: element.offsetWidth, height: element.offsetHeight } : this.getHiddenElementDimensions(element)
+            let elementDimensions = element.offsetParent ? { width: element.offsetWidth, height: element.offsetHeight } : this.getHiddenElementDimensions(element);
             let elementOuterHeight = elementDimensions.height;
             let elementOuterWidth = elementDimensions.width;
             let targetOuterHeight = target.offsetHeight;
@@ -215,16 +225,13 @@ export default  {
                 if (top < 0) {
                     top = windowScrollTop;
                 }
-            }
-            else {
+            } else {
                 top = targetOuterHeight + targetOffset.top + windowScrollTop;
                 element.style.transformOrigin = 'top';
             }
 
-            if (targetOffset.left + elementOuterWidth > viewport.width)
-                left = Math.max(0, targetOffset.left + windowScrollLeft + targetOuterWidth - elementOuterWidth);
-            else
-                left = targetOffset.left + windowScrollLeft;
+            if (targetOffset.left + elementOuterWidth > viewport.width) left = Math.max(0, targetOffset.left + windowScrollLeft + targetOuterWidth - elementOuterWidth);
+            else left = targetOffset.left + windowScrollLeft;
 
             element.style.top = top + 'px';
             element.style.left = left + 'px';
@@ -239,14 +246,14 @@ export default  {
             const viewport = this.getViewport();
             let top, left;
 
-            if ((targetOffset.top + targetHeight + elementDimensions.height) > viewport.height) {
-                top = -1 * (elementDimensions.height);
+            if (targetOffset.top + targetHeight + elementDimensions.height > viewport.height) {
+                top = -1 * elementDimensions.height;
                 element.style.transformOrigin = 'bottom';
+
                 if (targetOffset.top + top < 0) {
                     top = -1 * targetOffset.top;
                 }
-            }
-            else {
+            } else {
                 top = targetHeight;
                 element.style.transformOrigin = 'top';
             }
@@ -254,12 +261,10 @@ export default  {
             if (elementDimensions.width > viewport.width) {
                 // element wider then viewport and cannot fit on screen (align at left side of viewport)
                 left = targetOffset.left * -1;
-            }
-            else if ((targetOffset.left + elementDimensions.width) > viewport.width) {
+            } else if (targetOffset.left + elementDimensions.width > viewport.width) {
                 // element wider then viewport but can be fit on screen (align at right side of viewport)
                 left = (targetOffset.left + elementDimensions.width - viewport.width) * -1;
-            }
-            else {
+            } else {
                 // element fits on screen (align with target)
                 left = 0;
             }
@@ -279,17 +284,22 @@ export default  {
         if (element) {
             let parents = this.getParents(element);
             const overflowRegex = /(auto|scroll)/;
+
             const overflowCheck = (node) => {
                 let styleDeclaration = window['getComputedStyle'](node, null);
+
                 return overflowRegex.test(styleDeclaration.getPropertyValue('overflow')) || overflowRegex.test(styleDeclaration.getPropertyValue('overflowX')) || overflowRegex.test(styleDeclaration.getPropertyValue('overflowY'));
             };
 
             for (let parent of parents) {
                 let scrollSelectors = parent.nodeType === 1 && parent.dataset['scrollselectors'];
+
                 if (scrollSelectors) {
                     let selectors = scrollSelectors.split(',');
+
                     for (let selector of selectors) {
                         let el = this.findSingle(parent, selector);
+
                         if (el && overflowCheck(el)) {
                             scrollableParents.push(el);
                         }
@@ -310,11 +320,13 @@ export default  {
             element.style.visibility = 'hidden';
             element.style.display = 'block';
             let elementHeight = element.offsetHeight;
+
             element.style.display = 'none';
             element.style.visibility = 'visible';
 
             return elementHeight;
         }
+
         return 0;
     },
 
@@ -323,17 +335,20 @@ export default  {
             element.style.visibility = 'hidden';
             element.style.display = 'block';
             let elementWidth = element.offsetWidth;
+
             element.style.display = 'none';
             element.style.visibility = 'visible';
 
             return elementWidth;
         }
+
         return 0;
     },
 
     getHiddenElementDimensions(element) {
         if (element) {
             let dimensions = {};
+
             element.style.visibility = 'hidden';
             element.style.display = 'block';
             dimensions.width = element.offsetWidth;
@@ -343,6 +358,7 @@ export default  {
 
             return dimensions;
         }
+
         return 0;
     },
 
@@ -352,6 +368,7 @@ export default  {
 
             let last = +new Date();
             let opacity = 0;
+
             let tick = function () {
                 opacity = +element.style.opacity + (new Date().getTime() - last) / duration;
                 element.style.opacity = opacity;
@@ -391,12 +408,9 @@ export default  {
     },
 
     appendChild(element, target) {
-        if (this.isElement(target))
-            target.appendChild(element);
-        else if (target.el && target.elElement)
-            target.elElement.appendChild(element);
-        else
-            throw new Error('Cannot append ' + target + ' to ' + element);
+        if (this.isElement(target)) target.appendChild(element);
+        else if (target.el && target.elElement) target.elElement.appendChild(element);
+        else throw new Error('Cannot append ' + target + ' to ' + element);
     },
 
     scrollInView(container, item) {
@@ -406,15 +420,14 @@ export default  {
         let paddingTop = paddingTopValue ? parseFloat(paddingTopValue) : 0;
         let containerRect = container.getBoundingClientRect();
         let itemRect = item.getBoundingClientRect();
-        let offset = (itemRect.top + document.body.scrollTop) - (containerRect.top + document.body.scrollTop) - borderTop - paddingTop;
+        let offset = itemRect.top + document.body.scrollTop - (containerRect.top + document.body.scrollTop) - borderTop - paddingTop;
         let scroll = container.scrollTop;
         let elementHeight = container.clientHeight;
         let itemHeight = this.getOuterHeight(item);
 
         if (offset < 0) {
             container.scrollTop = scroll + offset;
-        }
-        else if ((offset + itemHeight) > elementHeight) {
+        } else if (offset + itemHeight > elementHeight) {
             container.scrollTop = scroll + offset - elementHeight + itemHeight;
         }
     },
@@ -426,25 +439,25 @@ export default  {
             } else if (window.getSelection().removeAllRanges && window.getSelection().rangeCount > 0 && window.getSelection().getRangeAt(0).getClientRects().length > 0) {
                 window.getSelection().removeAllRanges();
             }
-        }
-        else if (document['selection'] && document['selection'].empty) {
+        } else if (document['selection'] && document['selection'].empty) {
             try {
                 document['selection'].empty();
-            } catch(error) {
+            } catch (error) {
                 //ignore IE bug
             }
         }
     },
 
     calculateScrollbarWidth() {
-        if (this.calculatedScrollbarWidth != null)
-            return this.calculatedScrollbarWidth;
+        if (this.calculatedScrollbarWidth != null) return this.calculatedScrollbarWidth;
 
-        let scrollDiv = document.createElement("div");
-        scrollDiv.className = "p-scrollbar-measure";
+        let scrollDiv = document.createElement('div');
+
+        scrollDiv.className = 'p-scrollbar-measure';
         document.body.appendChild(scrollDiv);
 
         let scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
+
         document.body.removeChild(scrollDiv);
 
         this.calculatedScrollbarWidth = scrollbarWidth;
@@ -455,6 +468,7 @@ export default  {
     getBrowser() {
         if (!this.browser) {
             let matched = this.resolveUserAgent();
+
             this.browser = {};
 
             if (matched.browser) {
@@ -474,16 +488,11 @@ export default  {
 
     resolveUserAgent() {
         let ua = navigator.userAgent.toLowerCase();
-        let match = /(chrome)[ ]([\w.]+)/.exec(ua) ||
-            /(webkit)[ ]([\w.]+)/.exec(ua) ||
-            /(opera)(?:.*version|)[ ]([\w.]+)/.exec(ua) ||
-            /(msie) ([\w.]+)/.exec(ua) ||
-            (ua.indexOf("compatible") < 0 && /(mozilla)(?:.*? rv:([\w.]+)|)/.exec(ua)) ||
-            [];
+        let match = /(chrome)[ ]([\w.]+)/.exec(ua) || /(webkit)[ ]([\w.]+)/.exec(ua) || /(opera)(?:.*version|)[ ]([\w.]+)/.exec(ua) || /(msie) ([\w.]+)/.exec(ua) || (ua.indexOf('compatible') < 0 && /(mozilla)(?:.*? rv:([\w.]+)|)/.exec(ua)) || [];
 
         return {
-            browser: match[1] || "",
-            version: match[2] || "0"
+            browser: match[1] || '',
+            version: match[2] || '0'
         };
     },
 
@@ -492,15 +501,25 @@ export default  {
     },
 
     invokeElementMethod(element, methodName, args) {
-        (element)[methodName].apply(element, args);
+        element[methodName].apply(element, args);
+    },
+
+    isExist(element) {
+        return element !== null && typeof element !== 'undefined' && element.nodeName && element.parentNode;
     },
 
     isClient() {
         return !!(typeof window !== 'undefined' && window.document && window.document.createElement);
     },
 
+    focus(el, options) {
+        el && document.activeElement !== el && el.focus(options);
+    },
+
     getFocusableElements(element, selector = '') {
-        let focusableElements = this.find(element, `button:not([tabindex = "-1"]):not([disabled]):not([style*="display:none"]):not([hidden])${selector},
+        let focusableElements = this.find(
+            element,
+            `button:not([tabindex = "-1"]):not([disabled]):not([style*="display:none"]):not([hidden])${selector},
                 [href][clientHeight][clientWidth]:not([tabindex = "-1"]):not([disabled]):not([style*="display:none"]):not([hidden])${selector},
                 input:not([tabindex = "-1"]):not([disabled]):not([style*="display:none"]):not([hidden])${selector},
                 select:not([tabindex = "-1"]):not([disabled]):not([style*="display:none"]):not([hidden])${selector},
@@ -510,9 +529,9 @@ export default  {
         );
 
         let visibleFocusableElements = [];
+
         for (let focusableElement of focusableElements) {
-            if (getComputedStyle(focusableElement).display != "none" && getComputedStyle(focusableElement).visibility != "hidden")
-                visibleFocusableElements.push(focusableElement);
+            if (getComputedStyle(focusableElement).display != 'none' && getComputedStyle(focusableElement).visibility != 'hidden') visibleFocusableElements.push(focusableElement);
         }
 
         return visibleFocusableElements;
@@ -520,6 +539,7 @@ export default  {
 
     getFirstFocusableElement(element, selector) {
         const focusableElements = this.getFocusableElements(element, selector);
+
         return focusableElements.length > 0 ? focusableElements[0] : null;
     },
 
@@ -527,18 +547,24 @@ export default  {
         const targetNode = element.nodeName;
         const parentNode = element.parentElement && element.parentElement.nodeName;
 
-        return (targetNode == 'INPUT' || targetNode == 'BUTTON' || targetNode == 'A' ||
-                parentNode == 'INPUT' || parentNode == 'BUTTON' || parentNode == 'A' ||
-                this.hasClass(element, 'p-button') || this.hasClass(element.parentElement, 'p-button') ||
-                this.hasClass(element.parentElement, 'p-checkbox') || this.hasClass(element.parentElement, 'p-radiobutton')
+        return (
+            targetNode == 'INPUT' ||
+            targetNode == 'BUTTON' ||
+            targetNode == 'A' ||
+            parentNode == 'INPUT' ||
+            parentNode == 'BUTTON' ||
+            parentNode == 'A' ||
+            this.hasClass(element, 'p-button') ||
+            this.hasClass(element.parentElement, 'p-button') ||
+            this.hasClass(element.parentElement, 'p-checkbox') ||
+            this.hasClass(element.parentElement, 'p-radiobutton')
         );
     },
 
     applyStyle(element, style) {
         if (typeof style === 'string') {
             element.style.cssText = style;
-        }
-        else {
+        } else {
             for (let prop in style) {
                 element.style[prop] = style[prop];
             }
@@ -554,7 +580,7 @@ export default  {
     },
 
     isTouchDevice() {
-        return (('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0));
+        return 'ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
     },
 
     exportCSV(csv, filename) {
@@ -564,9 +590,9 @@ export default  {
 
         if (window.navigator.msSaveOrOpenBlob) {
             navigator.msSaveOrOpenBlob(blob, filename + '.csv');
-        }
-        else {
-            let link = document.createElement("a");
+        } else {
+            let link = document.createElement('a');
+
             if (link.download !== undefined) {
                 link.setAttribute('href', URL.createObjectURL(blob));
                 link.setAttribute('download', filename + '.csv');
@@ -574,11 +600,10 @@ export default  {
                 document.body.appendChild(link);
                 link.click();
                 document.body.removeChild(link);
-            }
-            else {
+            } else {
                 csv = 'data:text/csv;charset=utf-8,' + csv;
                 window.open(encodeURI(csv));
             }
         }
     }
-}
+};

@@ -36,7 +36,7 @@ describe('Inplace.vue', () => {
         expect(wrapper.emitted()['update:active'][1]).toEqual([false]);
     });
 
-    it('closable inplace', async() => {
+    it('closable inplace', async () => {
         const wrapper = mount(Inplace, {
             global: {
                 components: {

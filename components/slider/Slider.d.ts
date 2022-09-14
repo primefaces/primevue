@@ -62,8 +62,7 @@ export interface SliderProps {
     'aria-label'?: string | undefined;
 }
 
-export interface SliderSlots {
-}
+export interface SliderSlots {}
 
 export declare type SliderEmits = {
     /**
@@ -75,19 +74,19 @@ export declare type SliderEmits = {
      * Callback to invoke on value change.
      * @param {number} value - New value
      */
-    'change': (value: number) => void;
+    change: (value: number) => void;
     /**
      * Callback to invoke when slide ends.
      * @param {SliderSlideEndEvent} event - Custom slide end event.
      */
-    'slideend': (event: SliderSlideEndEvent) => void;
-}
+    slideend: (event: SliderSlideEndEvent) => void;
+};
 
-declare class Slider extends ClassComponent<SliderProps, SliderSlots, SliderEmits> { }
+declare class Slider extends ClassComponent<SliderProps, SliderSlots, SliderEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        Slider: GlobalComponentConstructor<Slider>
+        Slider: GlobalComponentConstructor<Slider>;
     }
 }
 
@@ -97,7 +96,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [Slider](https://www.primefaces.org/primevue/showcase/#/slider)
+ * - [Slider](https://www.primefaces.org/primevue/slider)
  *
  */
 export default Slider;

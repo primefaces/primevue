@@ -1,19 +1,19 @@
 <template>
     <Portal :appendTo="appendTo" :disabled="!popup">
         <transition name="p-connected-overlay" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave">
-            <div :ref="containerRef" :class="containerClass" v-if="popup ? overlayVisible : true" v-bind="$attrs" @click="onOverlayClick">
+            <div v-if="popup ? overlayVisible : true" :ref="containerRef" :class="containerClass" v-bind="$attrs" @click="onOverlayClick">
                 <ul class="p-menu-list p-reset" role="menu">
                     <template v-for="(item, i) of model" :key="label(item) + i.toString()">
                         <template v-if="item.items && visible(item) && !item.separator">
-                            <li class="p-submenu-header" v-if="item.items">
-                                <slot name="item" :item="item">{{label(item)}}</slot>
+                            <li v-if="item.items" class="p-submenu-header">
+                                <slot name="item" :item="item">{{ label(item) }}</slot>
                             </li>
                             <template v-for="(child, j) of item.items" :key="child.label + i + j">
                                 <Menuitem v-if="visible(child) && !child.separator" :item="child" @click="itemClick" :template="$slots.item" :exact="exact" />
-                                <li v-else-if="visible(child) && child.separator" :class="['p-menu-separator', child.class]" :style="child.style" :key="'separator' + i + j" role="separator"></li>
+                                <li v-else-if="visible(child) && child.separator" :key="'separator' + i + j" :class="['p-menu-separator', child.class]" :style="child.style" role="separator"></li>
                             </template>
                         </template>
-                        <li v-else-if="visible(item) && item.separator" :class="['p-menu-separator', item.class]" :style="item.style" :key="'separator' + i.toString()" role="separator"></li>
+                        <li v-else-if="visible(item) && item.separator" :key="'separator' + i.toString()" :class="['p-menu-separator', item.class]" :style="item.style" role="separator"></li>
                         <Menuitem v-else :key="label(item) + i.toString()" :item="item" @click="itemClick" :template="$slots.item" :exact="exact" />
                     </template>
                 </ul>
@@ -23,21 +23,21 @@
 </template>
 
 <script>
-import {ConnectedOverlayScrollHandler,DomHandler,ZIndexUtils} from 'primevue/utils';
+import { ConnectedOverlayScrollHandler, DomHandler, ZIndexUtils } from 'primevue/utils';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Menuitem from './Menuitem.vue';
 import Portal from 'primevue/portal';
 
 export default {
     name: 'Menu',
-    emits: ['show', 'hide'],
     inheritAttrs: false,
+    emits: ['show', 'hide'],
     props: {
         popup: {
             type: Boolean,
             default: false
         },
-		model: {
+        model: {
             type: Array,
             default: null
         },
@@ -76,16 +76,19 @@ export default {
             this.scrollHandler.destroy();
             this.scrollHandler = null;
         }
+
         this.target = null;
 
         if (this.container && this.autoZIndex) {
             ZIndexUtils.clear(this.container);
         }
+
         this.container = null;
     },
     methods: {
         itemClick(event) {
             const item = event.item;
+
             if (this.disabled(item)) {
                 return;
             }
@@ -101,10 +104,8 @@ export default {
             this.hide();
         },
         toggle(event) {
-            if (this.overlayVisible)
-                this.hide();
-            else
-                this.show(event);
+            if (this.overlayVisible) this.hide();
+            else this.show(event);
         },
         show(event) {
             this.overlayVisible = true;
@@ -148,6 +149,7 @@ export default {
                         this.hide();
                     }
                 };
+
                 document.addEventListener('click', this.outsideClickListener);
             }
         },
@@ -180,6 +182,7 @@ export default {
                         this.hide();
                     }
                 };
+
                 window.addEventListener('resize', this.resizeListener);
             }
         },
@@ -193,13 +196,13 @@ export default {
             return this.target && (this.target === event.target || this.target.contains(event.target));
         },
         visible(item) {
-            return (typeof item.visible === 'function' ? item.visible() : item.visible !== false);
+            return typeof item.visible === 'function' ? item.visible() : item.visible !== false;
         },
         disabled(item) {
-            return (typeof item.disabled === 'function' ? item.disabled() : item.disabled);
+            return typeof item.disabled === 'function' ? item.disabled() : item.disabled;
         },
         label(item) {
-            return (typeof item.label === 'function' ? item.label() : item.label);
+            return typeof item.label === 'function' ? item.label() : item.label;
         },
         containerRef(el) {
             this.container = el;
@@ -213,18 +216,21 @@ export default {
     },
     computed: {
         containerClass() {
-            return ['p-menu p-component', {
-                'p-menu-overlay': this.popup,
-                'p-input-filled': this.$primevue.config.inputStyle === 'filled',
-                'p-ripple-disabled': this.$primevue.config.ripple === false
-            }]
+            return [
+                'p-menu p-component',
+                {
+                    'p-menu-overlay': this.popup,
+                    'p-input-filled': this.$primevue.config.inputStyle === 'filled',
+                    'p-ripple-disabled': this.$primevue.config.ripple === false
+                }
+            ];
         }
     },
     components: {
-        'Menuitem': Menuitem,
-        'Portal': Portal
+        Menuitem: Menuitem,
+        Portal: Portal
     }
-}
+};
 </script>
 
 <style>

@@ -35,14 +35,13 @@ export interface MenubarSlots {
     }) => VNode[];
 }
 
-export declare type MenubarEmits = {
-}
+export declare type MenubarEmits = {};
 
-declare class Menubar extends ClassComponent<MenubarProps, MenubarSlots, MenubarEmits> { }
+declare class Menubar extends ClassComponent<MenubarProps, MenubarSlots, MenubarEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        Menubar: GlobalComponentConstructor<Menubar>
+        Menubar: GlobalComponentConstructor<Menubar>;
     }
 }
 
@@ -52,11 +51,11 @@ declare module '@vue/runtime-core' {
  *
  * Helper API:
  *
- * - [MenuItem](https://www.primefaces.org/primevue/showcase/#/menumodel)
+ * - [MenuItem](https://www.primefaces.org/primevue/menumodel)
  *
  * Demos:
  *
- * - [Menubar](https://www.primefaces.org/primevue/showcase/#/menubar)
+ * - [Menubar](https://www.primefaces.org/primevue/menubar)
  *
  */
 export default Menubar;

@@ -1,9 +1,9 @@
 <template>
     <div :class="containerClass">
         <slot>
-            <span class="p-avatar-text" v-if="label">{{label}}</span>
-            <span :class="iconClass" v-else-if="icon"></span>
-            <img :src="image" v-else-if="image" @error="onError">
+            <span v-if="label" class="p-avatar-text">{{ label }}</span>
+            <span v-else-if="icon" :class="iconClass"></span>
+            <img v-else-if="image" :src="image" @error="onError" />
         </slot>
     </div>
 </template>
@@ -11,6 +11,7 @@
 <script>
 export default {
     name: 'Avatar',
+    emits: ['error'],
     props: {
         label: {
             type: String,
@@ -30,7 +31,7 @@ export default {
         },
         shape: {
             type: String,
-            default: "square"
+            default: 'square'
         }
     },
     methods: {
@@ -40,18 +41,21 @@ export default {
     },
     computed: {
         containerClass() {
-            return ['p-avatar p-component', {
-                'p-avatar-image': this.image != null,
-                'p-avatar-circle': this.shape === 'circle',
-                'p-avatar-lg': this.size === 'large',
-                'p-avatar-xl': this.size === 'xlarge'
-            }];
+            return [
+                'p-avatar p-component',
+                {
+                    'p-avatar-image': this.image != null,
+                    'p-avatar-circle': this.shape === 'circle',
+                    'p-avatar-lg': this.size === 'large',
+                    'p-avatar-xl': this.size === 'xlarge'
+                }
+            ];
         },
         iconClass() {
             return ['p-avatar-icon', this.icon];
         }
     }
-}
+};
 </script>
 
 <style>

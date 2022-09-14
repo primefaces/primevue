@@ -111,19 +111,19 @@ export declare type OrderListEmits = {
      * Callback to invoke when the list is reordered.
      * @param {OrderListReorderEvent} event - Custom reorder event.
      */
-    'reorder': (event: OrderListReorderEvent) => void;
+    reorder: (event: OrderListReorderEvent) => void;
     /**
      * Callback to invoke when selection changes.
      * @param {OrderListSelectionChangeEvent} event - Custom selection change event.
      */
     'selection-change': (event: OrderListSelectionChangeEvent) => void;
-}
+};
 
-declare class OrderList extends ClassComponent<OrderListProps, OrderListSlots, OrderListEmits> { }
+declare class OrderList extends ClassComponent<OrderListProps, OrderListSlots, OrderListEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        OrderList: GlobalComponentConstructor<OrderList>
+        OrderList: GlobalComponentConstructor<OrderList>;
     }
 }
 
@@ -133,7 +133,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [OrderList](https://www.primefaces.org/primevue/showcase/#/orderlist)
+ * - [OrderList](https://www.primefaces.org/primevue/orderlist)
  *
  */
 export default OrderList;

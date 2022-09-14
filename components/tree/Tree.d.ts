@@ -149,9 +149,9 @@ export declare type TreeEmits = {
      */
     'update:expandedKeys': (value: TreeExpandedKeys) => void;
     /**
-      * Emitted when the selection keys change.
-      * @param {TreeSelectionKeys} value - New selection keys.
-      */
+     * Emitted when the selection keys change.
+     * @param {TreeSelectionKeys} value - New selection keys.
+     */
     'update:selectionKeys': (event: TreeSelectionKeys) => void;
     /**
      * Callback to invoke when a node is selected.
@@ -173,13 +173,13 @@ export declare type TreeEmits = {
      * @param {TreeNode} node - Node instance.
      */
     'node-collapse': (node: TreeNode) => void;
-}
+};
 
-declare class Tree extends ClassComponent<TreeProps, TreeSlots, TreeEmits> { }
+declare class Tree extends ClassComponent<TreeProps, TreeSlots, TreeEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        Tree: GlobalComponentConstructor<Tree>
+        Tree: GlobalComponentConstructor<Tree>;
     }
 }
 
@@ -193,7 +193,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [Tree](https://www.primefaces.org/primevue/showcase/#/tree)
+ * - [Tree](https://www.primefaces.org/primevue/tree)
  *
  */
 export default Tree;

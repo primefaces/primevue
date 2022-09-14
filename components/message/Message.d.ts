@@ -42,14 +42,14 @@ export declare type MessageEmits = {
      * Callback to invoke when a message is closed.
      * @param {Event} event - Browser event.
      */
-    'close': (event: Event) => void;
-}
+    close: (event: Event) => void;
+};
 
-declare class Message extends ClassComponent<MessageProps, MessageSlots, MessageEmits> { }
+declare class Message extends ClassComponent<MessageProps, MessageSlots, MessageEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        Message: GlobalComponentConstructor<Message>
+        Message: GlobalComponentConstructor<Message>;
     }
 }
 
@@ -59,7 +59,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [Message](https://www.primefaces.org/primevue/showcase/#/message)
+ * - [Message](https://www.primefaces.org/primevue/message)
  *
  */
 export default Message;

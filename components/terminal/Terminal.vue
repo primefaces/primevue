@@ -1,16 +1,16 @@
 <template>
     <div class="p-terminal p-component" @click="onClick">
-        <div v-if="welcomeMessage">{{welcomeMessage}}</div>
+        <div v-if="welcomeMessage">{{ welcomeMessage }}</div>
         <div class="p-terminal-content">
-            <div v-for="(command,i) of commands" :key="command.text + i.toString()">
-                <span class="p-terminal-prompt">{{prompt}}</span>
-                <span class="p-terminal-command">{{command.text}}</span>
-                <div class="p-terminal-response">{{command.response}}</div>
+            <div v-for="(command, i) of commands" :key="command.text + i.toString()">
+                <span class="p-terminal-prompt">{{ prompt }}</span>
+                <span class="p-terminal-command">{{ command.text }}</span>
+                <div class="p-terminal-response">{{ command.response }}</div>
             </div>
         </div>
         <div class="p-terminal-prompt-container">
-            <span class="p-terminal-prompt">{{prompt}}</span>
-            <input ref="input" type="text" v-model="commandText" class="p-terminal-input" autocomplete="off" @keydown="onKeydown">
+            <span class="p-terminal-prompt">{{ prompt }}</span>
+            <input ref="input" v-model="commandText" type="text" class="p-terminal-input" autocomplete="off" @keydown="onKeydown" />
         </div>
     </div>
 </template>
@@ -34,7 +34,7 @@ export default {
         return {
             commandText: null,
             commands: []
-        }
+        };
     },
     mounted() {
         TerminalService.on('response', this.responseListener);
@@ -52,7 +52,7 @@ export default {
         },
         onKeydown(event) {
             if (event.keyCode === 13 && this.commandText) {
-                this.commands.push({text: this.commandText});
+                this.commands.push({ text: this.commandText });
                 TerminalService.emit('command', this.commandText);
                 this.commandText = '';
             }
@@ -61,7 +61,7 @@ export default {
             this.commands[this.commands.length - 1].response = response;
         }
     }
-}
+};
 </script>
 
 <style>

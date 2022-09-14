@@ -1,33 +1,40 @@
 <template>
-    <li :class="containerClass" role="treeitem" :aria-label="label(node)" :aria-selected="selected" :aria-expanded="expanded"
-        :aria-setsize="node.children ? node.children.length : 0" :aria-posinset="index + 1" :aria-level="level">
-        <div :class="contentClass" tabindex="0" role="treeitem" :aria-expanded="expanded"
-            @click="onClick" @keydown="onKeyDown" @touchend="onTouchEnd" :style="node.style">
-            <button type="button" class="p-tree-toggler p-link" @click="toggle" tabindex="-1" v-ripple>
+    <li :class="containerClass" role="treeitem" :aria-label="label(node)" :aria-selected="selected" :aria-expanded="expanded" :aria-setsize="node.children ? node.children.length : 0" :aria-posinset="index + 1" :aria-level="level">
+        <div :class="contentClass" tabindex="0" role="treeitem" :aria-expanded="expanded" @click="onClick" @keydown="onKeyDown" @touchend="onTouchEnd" :style="node.style">
+            <button v-ripple type="button" class="p-tree-toggler p-link" @click="toggle" tabindex="-1">
                 <span :class="toggleIcon"></span>
             </button>
-            <div class="p-checkbox p-component" v-if="checkboxMode">
+            <div v-if="checkboxMode" class="p-checkbox p-component">
                 <div :class="checkboxClass" role="checkbox" :aria-checked="checked">
                     <span :class="checkboxIcon"></span>
                 </div>
             </div>
             <span :class="icon"></span>
             <span class="p-treenode-label">
-                <component :is="templates[node.type]||templates['default']" :node="node" v-if="templates[node.type]||templates['default']"/>
-                <template v-else>{{label(node)}}</template>
+                <component v-if="templates[node.type] || templates['default']" :is="templates[node.type] || templates['default']" :node="node" />
+                <template v-else>{{ label(node) }}</template>
             </span>
         </div>
-        <ul class="p-treenode-children" role="group" v-if="hasChildren && expanded">
-            <TreeNode v-for="childNode of node.children" :key="childNode.key" :node="childNode" :templates="templates" :level="level + 1"
-                :expandedKeys="expandedKeys" @node-toggle="onChildNodeToggle" @node-click="onChildNodeClick"
-                :selectionMode="selectionMode" :selectionKeys="selectionKeys"
-                @checkbox-change="propagateUp" />
+        <ul v-if="hasChildren && expanded" class="p-treenode-children" role="group">
+            <TreeNode
+                v-for="childNode of node.children"
+                :key="childNode.key"
+                :node="childNode"
+                :templates="templates"
+                :level="level + 1"
+                :expandedKeys="expandedKeys"
+                @node-toggle="onChildNodeToggle"
+                @node-click="onChildNodeClick"
+                :selectionMode="selectionMode"
+                :selectionKeys="selectionKeys"
+                @checkbox-change="propagateUp"
+            />
         </ul>
     </li>
 </template>
 
 <script>
-import {DomHandler} from 'primevue/utils';
+import { DomHandler } from 'primevue/utils';
 import Ripple from 'primevue/ripple';
 
 export default {
@@ -69,7 +76,7 @@ export default {
             this.$emit('node-toggle', this.node);
         },
         label(node) {
-            return (typeof node.label === 'function' ? node.label() : node.label);
+            return typeof node.label === 'function' ? node.label() : node.label;
         },
         onChildNodeToggle(node) {
             this.$emit('node-toggle', node);
@@ -81,8 +88,7 @@ export default {
 
             if (this.isCheckboxSelectionMode()) {
                 this.toggleCheckbox();
-            }
-            else {
+            } else {
                 this.$emit('node-click', {
                     originalEvent: event,
                     nodeTouched: this.nodeTouched,
@@ -104,54 +110,57 @@ export default {
             switch (event.code) {
                 case 'ArrowDown':
                     var listElement = nodeElement.children[1];
+
                     if (listElement) {
                         this.focusNode(listElement.children[0]);
-                    }
-                    else {
+                    } else {
                         const nextNodeElement = nodeElement.nextElementSibling;
+
                         if (nextNodeElement) {
                             this.focusNode(nextNodeElement);
-                        }
-                        else {
+                        } else {
                             let nextSiblingAncestor = this.findNextSiblingOfAncestor(nodeElement);
+
                             if (nextSiblingAncestor) {
                                 this.focusNode(nextSiblingAncestor);
                             }
                         }
                     }
-                break;
+
+                    break;
 
                 case 'ArrowUp':
                     if (nodeElement.previousElementSibling) {
                         this.focusNode(this.findLastVisibleDescendant(nodeElement.previousElementSibling));
-                    }
-                    else {
+                    } else {
                         let parentNodeElement = this.getParentNodeElement(nodeElement);
+
                         if (parentNodeElement) {
                             this.focusNode(parentNodeElement);
                         }
                     }
-                break;
+
+                    break;
 
                 case 'ArrowRight':
                 case 'ArrowLeft':
                     this.$emit('node-toggle', this.node);
-                break;
+                    break;
 
                 case 'Enter':
                 case 'Space':
                     this.onClick(event);
-                break;
+                    break;
 
                 default:
                     //no op
-                break;
+                    break;
             }
 
             event.preventDefault();
         },
         toggleCheckbox() {
-            let _selectionKeys = this.selectionKeys ? {...this.selectionKeys} : {};
+            let _selectionKeys = this.selectionKeys ? { ...this.selectionKeys } : {};
             const _check = !this.checked;
 
             this.propagateDown(this.node, _check, _selectionKeys);
@@ -163,10 +172,8 @@ export default {
             });
         },
         propagateDown(node, check, selectionKeys) {
-            if (check)
-                selectionKeys[node.key] = {checked: true, partialChecked: false};
-            else
-                delete selectionKeys[node.key];
+            if (check) selectionKeys[node.key] = { checked: true, partialChecked: false };
+            else delete selectionKeys[node.key];
 
             if (node.children && node.children.length) {
                 for (let child of node.children) {
@@ -176,29 +183,24 @@ export default {
         },
         propagateUp(event) {
             let check = event.check;
-            let _selectionKeys = {...event.selectionKeys};
+            let _selectionKeys = { ...event.selectionKeys };
             let checkedChildCount = 0;
             let childPartialSelected = false;
 
             for (let child of this.node.children) {
-                if(_selectionKeys[child.key] && _selectionKeys[child.key].checked)
-                    checkedChildCount++;
-                else if(_selectionKeys[child.key] && _selectionKeys[child.key].partialChecked)
-                    childPartialSelected = true;
+                if (_selectionKeys[child.key] && _selectionKeys[child.key].checked) checkedChildCount++;
+                else if (_selectionKeys[child.key] && _selectionKeys[child.key].partialChecked) childPartialSelected = true;
             }
 
-            if(check && checkedChildCount === this.node.children.length) {
-                _selectionKeys[this.node.key] = {checked: true, partialChecked: false};
-            }
-            else {
+            if (check && checkedChildCount === this.node.children.length) {
+                _selectionKeys[this.node.key] = { checked: true, partialChecked: false };
+            } else {
                 if (!check) {
                     delete _selectionKeys[this.node.key];
                 }
 
-                if (childPartialSelected || (checkedChildCount > 0 && checkedChildCount !== this.node.children.length))
-                    _selectionKeys[this.node.key] = {checked: false, partialChecked: true};
-                else
-                    delete _selectionKeys[this.node.key];
+                if (childPartialSelected || (checkedChildCount > 0 && checkedChildCount !== this.node.children.length)) _selectionKeys[this.node.key] = { checked: false, partialChecked: true };
+                else delete _selectionKeys[this.node.key];
             }
 
             this.$emit('checkbox-change', {
@@ -212,24 +214,22 @@ export default {
         },
         findNextSiblingOfAncestor(nodeElement) {
             let parentNodeElement = this.getParentNodeElement(nodeElement);
+
             if (parentNodeElement) {
-                if (parentNodeElement.nextElementSibling)
-                    return parentNodeElement.nextElementSibling;
-                else
-                    return this.findNextSiblingOfAncestor(parentNodeElement);
-            }
-            else {
+                if (parentNodeElement.nextElementSibling) return parentNodeElement.nextElementSibling;
+                else return this.findNextSiblingOfAncestor(parentNodeElement);
+            } else {
                 return null;
             }
         },
         findLastVisibleDescendant(nodeElement) {
             const childrenListElement = nodeElement.children[1];
+
             if (childrenListElement) {
                 const lastChildElement = childrenListElement.children[childrenListElement.children.length - 1];
 
                 return this.findLastVisibleDescendant(lastChildElement);
-            }
-            else {
+            } else {
                 return nodeElement;
             }
         },
@@ -259,16 +259,20 @@ export default {
             return this.node.selectable === false ? false : this.selectionMode != null;
         },
         selected() {
-            return (this.selectionMode && this.selectionKeys) ? this.selectionKeys[this.node.key] === true : false;
+            return this.selectionMode && this.selectionKeys ? this.selectionKeys[this.node.key] === true : false;
         },
         containerClass() {
-            return ['p-treenode', {'p-treenode-leaf': this.leaf}];
+            return ['p-treenode', { 'p-treenode-leaf': this.leaf }];
         },
         contentClass() {
-            return ['p-treenode-content', this.node.styleClass, {
-                'p-treenode-selectable': this.selectable,
-                'p-highlight': this.checkboxMode ? this.checked : this.selected
-            }];
+            return [
+                'p-treenode-content',
+                this.node.styleClass,
+                {
+                    'p-treenode-selectable': this.selectable,
+                    'p-highlight': this.checkboxMode ? this.checked : this.selected
+                }
+            ];
         },
         icon() {
             return ['p-treenode-icon', this.node.icon];
@@ -277,23 +281,23 @@ export default {
             return ['p-tree-toggler-icon pi pi-fw', this.expanded ? this.node.expandedIcon || 'pi-chevron-down' : this.node.collapsedIcon || 'pi-chevron-right'];
         },
         checkboxClass() {
-            return ['p-checkbox-box', {'p-highlight': this.checked, 'p-indeterminate': this.partialChecked}];
+            return ['p-checkbox-box', { 'p-highlight': this.checked, 'p-indeterminate': this.partialChecked }];
         },
         checkboxIcon() {
-            return ['p-checkbox-icon', {'pi pi-check': this.checked, 'pi pi-minus': this.partialChecked}];
+            return ['p-checkbox-icon', { 'pi pi-check': this.checked, 'pi pi-minus': this.partialChecked }];
         },
         checkboxMode() {
             return this.selectionMode === 'checkbox' && this.node.selectable !== false;
         },
         checked() {
-            return this.selectionKeys ? this.selectionKeys[this.node.key] && this.selectionKeys[this.node.key].checked: false;
+            return this.selectionKeys ? this.selectionKeys[this.node.key] && this.selectionKeys[this.node.key].checked : false;
         },
         partialChecked() {
-            return this.selectionKeys ? this.selectionKeys[this.node.key] && this.selectionKeys[this.node.key].partialChecked: false;
+            return this.selectionKeys ? this.selectionKeys[this.node.key] && this.selectionKeys[this.node.key].partialChecked : false;
         }
     },
     directives: {
-        'ripple': Ripple
+        ripple: Ripple
     }
-}
+};
 </script>

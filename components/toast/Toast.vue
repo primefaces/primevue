@@ -2,7 +2,7 @@
     <Portal>
         <div ref="container" :class="containerClass" v-bind="$attrs">
             <transition-group name="p-toast-message" tag="div" @enter="onEnter" @leave="onLeave">
-                <ToastMessage v-for="msg of messages" :key="msg.id" :message="msg" @close="remove($event)" :template="$slots.message"/>
+                <ToastMessage v-for="msg of messages" :key="msg.id" :message="msg" @close="remove($event)" :template="$slots.message" />
             </transition-group>
         </div>
     </Portal>
@@ -11,7 +11,7 @@
 <script>
 import ToastEventBus from 'primevue/toasteventbus';
 import ToastMessage from './ToastMessage.vue';
-import {ZIndexUtils,UniqueComponentId,ObjectUtils} from 'primevue/utils';
+import { ZIndexUtils, UniqueComponentId, ObjectUtils } from 'primevue/utils';
 import Portal from 'primevue/portal';
 
 var messageIdx = 0;
@@ -44,7 +44,7 @@ export default {
     data() {
         return {
             messages: []
-        }
+        };
     },
     styleElement: null,
     mounted() {
@@ -77,6 +77,7 @@ export default {
         },
         remove(message) {
             let index = -1;
+
             for (let i = 0; i < this.messages.length; i++) {
                 if (this.messages[i] === message) {
                     index = i;
@@ -118,11 +119,14 @@ export default {
                 document.head.appendChild(this.styleElement);
 
                 let innerHTML = '';
+
                 for (let breakpoint in this.breakpoints) {
                     let breakpointStyle = '';
+
                     for (let styleProp in this.breakpoints[breakpoint]) {
                         breakpointStyle += styleProp + ':' + this.breakpoints[breakpoint][styleProp] + '!important;';
                     }
+
                     innerHTML += `
                         @media screen and (max-width: ${breakpoint}) {
                             .p-toast[${this.attributeSelector}] {
@@ -142,22 +146,25 @@ export default {
             }
         }
     },
-    components: {
-        'ToastMessage': ToastMessage,
-        'Portal': Portal
-    },
     computed: {
         containerClass() {
-            return ['p-toast p-component p-toast-' + this.position, {
-                'p-input-filled': this.$primevue.config.inputStyle === 'filled',
-                'p-ripple-disabled': this.$primevue.config.ripple === false
-            }];
+            return [
+                'p-toast p-component p-toast-' + this.position,
+                {
+                    'p-input-filled': this.$primevue.config.inputStyle === 'filled',
+                    'p-ripple-disabled': this.$primevue.config.ripple === false
+                }
+            ];
         },
         attributeSelector() {
             return UniqueComponentId();
         }
+    },
+    components: {
+        ToastMessage: ToastMessage,
+        Portal: Portal
     }
-}
+};
 </script>
 
 <style>
@@ -176,40 +183,40 @@ export default {
 }
 
 .p-toast-top-right {
-	top: 20px;
-	right: 20px;
+    top: 20px;
+    right: 20px;
 }
 
 .p-toast-top-left {
-	top: 20px;
-	left: 20px;
+    top: 20px;
+    left: 20px;
 }
 
 .p-toast-bottom-left {
-	bottom: 20px;
-	left: 20px;
+    bottom: 20px;
+    left: 20px;
 }
 
 .p-toast-bottom-right {
-	bottom: 20px;
-	right: 20px;
+    bottom: 20px;
+    right: 20px;
 }
 
 .p-toast-top-center {
-	top: 20px;
+    top: 20px;
     left: 50%;
     transform: translateX(-50%);
 }
 
 .p-toast-bottom-center {
-	bottom: 20px;
+    bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
 }
 
 .p-toast-center {
-	left: 50%;
-	top: 50%;
+    left: 50%;
+    top: 50%;
     min-width: 20vw;
     transform: translate(-50%, -50%);
 }
@@ -223,7 +230,7 @@ export default {
 }
 
 .p-toast-icon-close.p-link {
-	cursor: pointer;
+    cursor: pointer;
 }
 
 /* Animations */
@@ -246,12 +253,12 @@ export default {
 }
 
 .p-toast-message-enter-active {
-    -webkit-transition: transform .3s, opacity .3s;
-    transition: transform .3s, opacity .3s;
+    -webkit-transition: transform 0.3s, opacity 0.3s;
+    transition: transform 0.3s, opacity 0.3s;
 }
 
 .p-toast-message-leave-active {
-    -webkit-transition: max-height .45s cubic-bezier(0, 1, 0, 1), opacity .3s, margin-bottom .3s;
-    transition: max-height .45s cubic-bezier(0, 1, 0, 1), opacity .3s, margin-bottom .3s;
+    -webkit-transition: max-height 0.45s cubic-bezier(0, 1, 0, 1), opacity 0.3s, margin-bottom 0.3s;
+    transition: max-height 0.45s cubic-bezier(0, 1, 0, 1), opacity 0.3s, margin-bottom 0.3s;
 }
 </style>

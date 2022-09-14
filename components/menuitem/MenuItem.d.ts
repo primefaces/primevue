@@ -1,4 +1,4 @@
-import { RouteLocationRaw } from "vue-router";
+import { RouteLocationRaw } from 'vue-router';
 
 type MenuItemLabelType = string | ((...args: any) => string) | undefined;
 
@@ -74,7 +74,7 @@ export interface MenuItem {
     /**
      * Unique identifier of an item.
      */
-    key?: string | undefined
+    key?: string | undefined;
     /**
      * Optional
      */

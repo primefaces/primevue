@@ -2,4 +2,4 @@ import { DynamicDialogOptions, DynamicDialogInstance } from '../dynamicdialogopt
 
 export declare function useDialog(): {
     open: (content: any, options?: DynamicDialogOptions) => DynamicDialogInstance;
-}
+};

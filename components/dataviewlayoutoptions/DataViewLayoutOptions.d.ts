@@ -7,8 +7,7 @@ export interface DataViewLayoutOptionsProps {
     modelValue?: string | undefined;
 }
 
-export interface DataViewLayoutOptionsSlots {
-}
+export interface DataViewLayoutOptionsSlots {}
 
 export declare type DataViewLayoutOptionsEmits = {
     /**
@@ -16,13 +15,13 @@ export declare type DataViewLayoutOptionsEmits = {
      * @param {*} value - New value.
      */
     'update:modelValue': (value: string) => void;
-}
+};
 
-declare class DataViewLayoutOptions extends ClassComponent<DataViewLayoutOptionsProps, DataViewLayoutOptionsSlots, DataViewLayoutOptionsEmits> { }
+declare class DataViewLayoutOptions extends ClassComponent<DataViewLayoutOptionsProps, DataViewLayoutOptionsSlots, DataViewLayoutOptionsEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        DataViewLayoutOptions: GlobalComponentConstructor<DataViewLayoutOptions>
+        DataViewLayoutOptions: GlobalComponentConstructor<DataViewLayoutOptions>;
     }
 }
 
@@ -33,7 +32,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [DataViewLayoutOptions](https://www.primefaces.org/primevue/showcase/#/dataview)
+ * - [DataViewLayoutOptions](https://www.primefaces.org/primevue/dataview)
  *
  */
 export default DataViewLayoutOptions;

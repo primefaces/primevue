@@ -45,17 +45,17 @@ export interface PickListMoveToTargetEvent {
 /**
  * @extends PickListMoveToTargetEvent
  */
-export interface PickListMoveAllToTargetEvent extends PickListMoveToTargetEvent { }
+export interface PickListMoveAllToTargetEvent extends PickListMoveToTargetEvent {}
 
 /**
  * @extends PickListMoveToTargetEvent
  */
-export interface PickListMoveToSourceEvent extends PickListMoveToTargetEvent { }
+export interface PickListMoveToSourceEvent extends PickListMoveToTargetEvent {}
 
 /**
  * @extends PickListMoveToTargetEvent
  */
-export interface PickListMoveAllToSourceEvent extends PickListMoveToTargetEvent { }
+export interface PickListMoveAllToSourceEvent extends PickListMoveToTargetEvent {}
 
 export interface PickListProps {
     /**
@@ -136,7 +136,7 @@ export interface PickListSlots {
      * Custom source controls start template.
      */
     sourcecontrolsstart: () => VNode[];
-     /**
+    /**
      * Custom source controls end template.
      */
     sourcecontrolsend: () => VNode[];
@@ -173,7 +173,7 @@ export declare type PickListEmits = {
      * Callback to invoke when the list is reordered.
      * @param {PickListReorderEvent} event - Custom reorder event.
      */
-    'reorder': (event: PickListReorderEvent) => void;
+    reorder: (event: PickListReorderEvent) => void;
     /**
      * Callback to invoke when one or more items are moved to the other list.
      * @param {PickListSelectionChangeEvent} event - Custom selection change event.
@@ -199,13 +199,13 @@ export declare type PickListEmits = {
      * @param {PickListMoveAllToSourceEvent} event - Custom move all to source event.
      */
     'move-all-to-source': (event: PickListMoveAllToSourceEvent) => void;
-}
+};
 
-declare class PickList extends ClassComponent<PickListProps, PickListSlots, PickListEmits> { }
+declare class PickList extends ClassComponent<PickListProps, PickListSlots, PickListEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        PickList: GlobalComponentConstructor<PickList>
+        PickList: GlobalComponentConstructor<PickList>;
     }
 }
 
@@ -215,7 +215,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [PickList](https://www.primefaces.org/primevue/showcase/#/picklist)
+ * - [PickList](https://www.primefaces.org/primevue/picklist)
  *
  */
 export default PickList;

@@ -1,20 +1,49 @@
 <template>
     <div class="p-scrollpanel p-component">
         <div class="p-scrollpanel-wrapper">
-            <div ref="content" class="p-scrollpanel-content" @scroll="moveBar" @mouseenter="moveBar">
+            <div ref="content" class="p-scrollpanel-content" @scroll="onScroll" @mouseenter="moveBar">
                 <slot></slot>
             </div>
         </div>
-        <div ref="xBar" class="p-scrollpanel-bar p-scrollpanel-bar-x" @mousedown="onXBarMouseDown"></div>
-        <div ref="yBar" class="p-scrollpanel-bar p-scrollpanel-bar-y" @mousedown="onYBarMouseDown"></div>
+        <div
+            ref="xBar"
+            class="p-scrollpanel-bar p-scrollpanel-bar-x"
+            tabindex="0"
+            role="scrollbar"
+            aria-orientation="horizontal"
+            :aria-valuenow="lastScrollLeft"
+            @mousedown="onXBarMouseDown"
+            @keydown="onKeyDown($event)"
+            @keyup="onKeyUp"
+            @focus="onFocus"
+            @blur="onBlur"
+        ></div>
+        <div
+            ref="yBar"
+            class="p-scrollpanel-bar p-scrollpanel-bar-y"
+            tabindex="0"
+            role="scrollbar"
+            aria-orientation="vertical"
+            :aria-valuenow="lastScrollTop"
+            @mousedown="onYBarMouseDown"
+            @keydown="onKeyDown($event)"
+            @keyup="onKeyUp"
+            @focus="onFocus"
+        ></div>
     </div>
 </template>
 
 <script>
-import {DomHandler} from 'primevue/utils';
+import { DomHandler, UniqueComponentId } from 'primevue/utils';
 
 export default {
     name: 'ScrollPanel',
+    props: {
+        step: {
+            type: Number,
+            default: 5
+        }
+    },
     initialized: false,
     documentResizeListener: null,
     documentMouseMoveListener: null,
@@ -26,6 +55,16 @@ export default {
     isYBarClicked: false,
     lastPageX: null,
     lastPageY: null,
+    timer: null,
+    outsideClickListener: null,
+    data() {
+        return {
+            id: UniqueComponentId(),
+            orientation: 'vertical',
+            lastScrollTop: 0,
+            lastScrollLeft: 0
+        };
+    },
     mounted() {
         if (this.$el.offsetParent) {
             this.initialize();
@@ -51,15 +90,15 @@ export default {
         },
         calculateContainerHeight() {
             let containerStyles = getComputedStyle(this.$el),
-            xBarStyles = getComputedStyle(this.$refs.xBar),
-            pureContainerHeight = DomHandler.getHeight(this.$el) - parseInt(xBarStyles['height'], 10);
+                xBarStyles = getComputedStyle(this.$refs.xBar),
+                pureContainerHeight = DomHandler.getHeight(this.$el) - parseInt(xBarStyles['height'], 10);
 
-            if (containerStyles['max-height'] !== "none" && pureContainerHeight === 0) {
-                if(this.$refs.content.offsetHeight + parseInt(xBarStyles['height'], 10) > parseInt(containerStyles['max-height'], 10)) {
+            if (containerStyles['max-height'] !== 'none' && pureContainerHeight === 0) {
+                if (this.$refs.content.offsetHeight + parseInt(xBarStyles['height'], 10) > parseInt(containerStyles['max-height'], 10)) {
                     this.$el.style.height = containerStyles['max-height'];
-                }
-                else {
-                    this.$el.style.height = this.$refs.content.offsetHeight + parseFloat(containerStyles.paddingTop) + parseFloat(containerStyles.paddingBottom) + parseFloat(containerStyles.borderTopWidth) + parseFloat(containerStyles.borderBottomWidth) + "px";
+                } else {
+                    this.$el.style.height =
+                        this.$refs.content.offsetHeight + parseFloat(containerStyles.paddingTop) + parseFloat(containerStyles.paddingBottom) + parseFloat(containerStyles.borderTopWidth) + parseFloat(containerStyles.borderBottomWidth) + 'px';
                 }
             }
         },
@@ -81,16 +120,14 @@ export default {
             this.frame = this.requestAnimationFrame(() => {
                 if (this.scrollXRatio >= 1) {
                     DomHandler.addClass(this.$refs.xBar, 'p-scrollpanel-hidden');
-                }
-                else {
+                } else {
                     DomHandler.removeClass(this.$refs.xBar, 'p-scrollpanel-hidden');
                     this.$refs.xBar.style.cssText = 'width:' + Math.max(this.scrollXRatio * 100, 10) + '%; left:' + (this.$refs.content.scrollLeft / totalWidth) * 100 + '%;bottom:' + bottom + 'px;';
                 }
 
                 if (this.scrollYRatio >= 1) {
                     DomHandler.addClass(this.$refs.yBar, 'p-scrollpanel-hidden');
-                }
-                else {
+                } else {
                     DomHandler.removeClass(this.$refs.yBar, 'p-scrollpanel-hidden');
                     this.$refs.yBar.style.cssText = 'height:' + Math.max(this.scrollYRatio * 100, 10) + '%; top: calc(' + (this.$refs.content.scrollTop / totalHeight) * 100 + '% - ' + this.$refs.xBar.clientHeight + 'px);right:' + right + 'px;';
                 }
@@ -98,6 +135,7 @@ export default {
         },
         onYBarMouseDown(e) {
             this.isYBarClicked = true;
+            this.$refs.yBar.focus();
             this.lastPageY = e.pageY;
             DomHandler.addClass(this.$refs.yBar, 'p-scrollpanel-grabbed');
             DomHandler.addClass(document.body, 'p-scrollpanel-grabbed');
@@ -107,6 +145,7 @@ export default {
         },
         onXBarMouseDown(e) {
             this.isXBarClicked = true;
+            this.$refs.xBar.focus();
             this.lastPageX = e.pageX;
             DomHandler.addClass(this.$refs.xBar, 'p-scrollpanel-grabbed');
             DomHandler.addClass(document.body, 'p-scrollpanel-grabbed');
@@ -114,20 +153,101 @@ export default {
             this.bindDocumentMouseListeners();
             e.preventDefault();
         },
+        onScroll(event) {
+            if (this.lastScrollLeft !== event.target.scrollLeft) {
+                this.lastScrollLeft = event.target.scrollLeft;
+                this.orientation = 'horizontal';
+            } else if (this.lastScrollTop !== event.target.scrollTop) {
+                this.lastScrollTop = event.target.scrollTop;
+                this.orientation = 'vertical';
+            }
+
+            this.moveBar();
+        },
+        onKeyDown(event) {
+            if (this.orientation === 'vertical') {
+                switch (event.code) {
+                    case 'ArrowDown': {
+                        this.setTimer('scrollTop', this.step);
+                        event.preventDefault();
+                        break;
+                    }
+
+                    case 'ArrowUp': {
+                        this.setTimer('scrollTop', this.step * -1);
+                        event.preventDefault();
+                        break;
+                    }
+
+                    case 'ArrowLeft':
+
+                    case 'ArrowRight': {
+                        event.preventDefault();
+                        break;
+                    }
+
+                    default:
+                        //no op
+                        break;
+                }
+            } else if (this.orientation === 'horizontal') {
+                switch (event.code) {
+                    case 'ArrowRight': {
+                        this.setTimer('scrollLeft', this.step);
+                        event.preventDefault();
+                        break;
+                    }
+
+                    case 'ArrowLeft': {
+                        this.setTimer('scrollLeft', this.step * -1);
+                        event.preventDefault();
+                        break;
+                    }
+
+                    case 'ArrowDown':
+
+                    case 'ArrowUp': {
+                        event.preventDefault();
+                        break;
+                    }
+
+                    default:
+                        //no op
+                        break;
+                }
+            }
+        },
+        onKeyUp() {
+            this.clearTimer();
+        },
+        repeat(bar, step) {
+            this.$refs.content[bar] += step;
+            this.moveBar();
+        },
+        setTimer(bar, step) {
+            this.clearTimer();
+            this.timer = setTimeout(() => {
+                this.repeat(bar, step);
+            }, 40);
+        },
+        clearTimer() {
+            if (this.timer) {
+                clearTimeout(this.timer);
+            }
+        },
         onDocumentMouseMove(e) {
             if (this.isXBarClicked) {
                 this.onMouseMoveForXBar(e);
-            }
-            else if (this.isYBarClicked) {
+            } else if (this.isYBarClicked) {
                 this.onMouseMoveForYBar(e);
-            }
-            else {
+            } else {
                 this.onMouseMoveForXBar(e);
                 this.onMouseMoveForYBar(e);
             }
         },
         onMouseMoveForXBar(e) {
             let deltaX = e.pageX - this.lastPageX;
+
             this.lastPageX = e.pageX;
 
             this.frame = this.requestAnimationFrame(() => {
@@ -136,11 +256,24 @@ export default {
         },
         onMouseMoveForYBar(e) {
             let deltaY = e.pageY - this.lastPageY;
+
             this.lastPageY = e.pageY;
 
             this.frame = this.requestAnimationFrame(() => {
                 this.$refs.content.scrollTop += deltaY / this.scrollYRatio;
             });
+        },
+        onFocus(event) {
+            if (this.$refs.xBar.isSameNode(event.target)) {
+                this.orientation = 'horizontal';
+            } else if (this.$refs.yBar.isSameNode(event.target)) {
+                this.orientation = 'vertical';
+            }
+        },
+        onBlur() {
+            if (this.orientation === 'horizontal') {
+                this.orientation = 'vertical';
+            }
         },
         onDocumentMouseUp() {
             DomHandler.removeClass(this.$refs.yBar, 'p-scrollpanel-grabbed');
@@ -153,6 +286,7 @@ export default {
         },
         requestAnimationFrame(f) {
             let frame = window.requestAnimationFrame || this.timeoutFrame;
+
             return frame(f);
         },
         refresh() {
@@ -160,54 +294,58 @@ export default {
         },
         scrollTop(scrollTop) {
             let scrollableHeight = this.$refs.content.scrollHeight - this.$refs.content.clientHeight;
+
             scrollTop = scrollTop > scrollableHeight ? scrollableHeight : scrollTop > 0 ? scrollTop : 0;
-            this.$refs.contentscrollTop = scrollTop;
+            this.$refs.content.scrollTop = scrollTop;
+        },
+        timeoutFrame(fn) {
+            setTimeout(fn, 0);
         },
         bindDocumentMouseListeners() {
-			if (!this.documentMouseMoveListener) {
-				this.documentMouseMoveListener = (e) => {
-					this.onDocumentMouseMove(e);
-				};
+            if (!this.documentMouseMoveListener) {
+                this.documentMouseMoveListener = (e) => {
+                    this.onDocumentMouseMove(e);
+                };
 
-				document.addEventListener('mousemove', this.documentMouseMoveListener);
+                document.addEventListener('mousemove', this.documentMouseMoveListener);
             }
 
             if (!this.documentMouseUpListener) {
-				this.documentMouseUpListener = (e) => {
-					this.onDocumentMouseUp(e);
-				};
+                this.documentMouseUpListener = (e) => {
+                    this.onDocumentMouseUp(e);
+                };
 
-				document.addEventListener('mouseup', this.documentMouseUpListener);
-			}
-		},
-		unbindDocumentMouseListeners() {
-			if (this.documentMouseMoveListener) {
-				document.removeEventListener('mousemove', this.documentMouseMoveListener);
-				this.documentMouseMoveListener = null;
+                document.addEventListener('mouseup', this.documentMouseUpListener);
+            }
+        },
+        unbindDocumentMouseListeners() {
+            if (this.documentMouseMoveListener) {
+                document.removeEventListener('mousemove', this.documentMouseMoveListener);
+                this.documentMouseMoveListener = null;
             }
 
-            if(this.documentMouseUpListener) {
-				document.removeEventListener('mouseup', this.documentMouseUpListener);
-				this.documentMouseUpListener = null;
-			}
-		},
+            if (this.documentMouseUpListener) {
+                document.removeEventListener('mouseup', this.documentMouseUpListener);
+                this.documentMouseUpListener = null;
+            }
+        },
         bindDocumentResizeListener() {
-			if (!this.documentResizeListener) {
-				this.documentResizeListener = () => {
-					this.moveBar();
-				};
+            if (!this.documentResizeListener) {
+                this.documentResizeListener = () => {
+                    this.moveBar();
+                };
 
-				window.addEventListener('resize', this.documentResizeListener);
-			}
-		},
-		unbindDocumentResizeListener() {
-			if(this.documentResizeListener) {
-				window.removeEventListener('resize', this.documentResizeListener);
-				this.documentResizeListener = null;
-			}
-		}
+                window.addEventListener('resize', this.documentResizeListener);
+            }
+        },
+        unbindDocumentResizeListener() {
+            if (this.documentResizeListener) {
+                window.removeEventListener('resize', this.documentResizeListener);
+                this.documentResizeListener = null;
+            }
+        }
     }
-}
+};
 </script>
 
 <style>

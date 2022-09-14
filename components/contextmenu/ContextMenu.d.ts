@@ -49,8 +49,7 @@ export interface ContextMenuSlots {
     }) => VNode[];
 }
 
-export declare type ContextMenuEmits = {
-}
+export declare type ContextMenuEmits = {};
 
 declare class ContextMenu extends ClassComponent<ContextMenuProps, ContextMenuSlots, ContextMenuEmits> {
     /**
@@ -77,7 +76,7 @@ declare class ContextMenu extends ClassComponent<ContextMenuProps, ContextMenuSl
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        ContextMenu: GlobalComponentConstructor<ContextMenu>
+        ContextMenu: GlobalComponentConstructor<ContextMenu>;
     }
 }
 
@@ -88,11 +87,11 @@ declare module '@vue/runtime-core' {
  *
  * Helper API:
  *
- * - [MenuItem](https://www.primefaces.org/primevue/showcase/#/menumodel)
+ * - [MenuItem](https://www.primefaces.org/primevue/menumodel)
  *
  * Demos:
  *
- * - [ContextMenu](https://www.primefaces.org/primevue/showcase/#/contextmenu)
+ * - [ContextMenu](https://www.primefaces.org/primevue/contextmenu)
  *
  */
 export default ContextMenu;

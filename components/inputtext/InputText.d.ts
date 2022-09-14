@@ -8,8 +8,7 @@ export interface InputTextProps extends InputHTMLAttributes {
     modelValue?: Nullable<string>;
 }
 
-export interface InputTextSlots {
-}
+export interface InputTextSlots {}
 
 export declare type InputTextEmits = {
     /**
@@ -17,13 +16,13 @@ export declare type InputTextEmits = {
      * @param {string} value - New value.
      */
     'update:modelValue': (value: string | undefined) => void;
-}
+};
 
-declare class InputText extends ClassComponent<InputTextProps, InputTextSlots, InputTextEmits> { }
+declare class InputText extends ClassComponent<InputTextProps, InputTextSlots, InputTextEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        InputText: GlobalComponentConstructor<InputText>
+        InputText: GlobalComponentConstructor<InputText>;
     }
 }
 
@@ -33,7 +32,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [InputText](https://www.primefaces.org/primevue/showcase/#/inputtext)
+ * - [InputText](https://www.primefaces.org/primevue/inputtext)
  *
  */
 export default InputText;

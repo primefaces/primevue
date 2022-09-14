@@ -20,18 +20,9 @@ export default {
         height: {
             type: Number,
             default: 150
-        },
-    },
-    chart: null,
-    mounted() {
-        this.initChart();
-    },
-    beforeUnmount() {
-        if (this.chart) {
-            this.chart.destroy();
-            this.chart = null;
         }
     },
+    chart: null,
     watch: {
         /*
          * Use deep watch to enable triggering watch for changes within structure
@@ -48,6 +39,15 @@ export default {
         },
         options() {
             this.reinit();
+        }
+    },
+    mounted() {
+        this.initChart();
+    },
+    beforeUnmount() {
+        if (this.chart) {
+            this.chart.destroy();
+            this.chart = null;
         }
     },
     methods: {
@@ -93,7 +93,7 @@ export default {
                 const dataset = this.chart.getElementsAtEventForMode(event, 'dataset', { intersect: true }, false);
 
                 if (element && element[0] && dataset) {
-                    this.$emit('select', {originalEvent: event, element: element[0], dataset: dataset});
+                    this.$emit('select', { originalEvent: event, element: element[0], dataset: dataset });
                 }
             }
         },
@@ -103,7 +103,7 @@ export default {
             }
         }
     }
-}
+};
 </script>
 
 <style>

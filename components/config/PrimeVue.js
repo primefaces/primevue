@@ -1,5 +1,5 @@
-import {reactive,inject} from 'vue';
-import {FilterMatchMode} from 'primevue/api';
+import { reactive, inject } from 'vue';
+import { FilterMatchMode } from 'primevue/api';
 
 const defaultOptions = {
     ripple: false,
@@ -31,11 +31,11 @@ const defaultOptions = {
         choose: 'Choose',
         upload: 'Upload',
         cancel: 'Cancel',
-        dayNames: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-        dayNamesShort: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
-        dayNamesMin: ["Su","Mo","Tu","We","Th","Fr","Sa"],
-        monthNames: ["January","February","March","April","May","June","July","August","September","October","November","December"],
-        monthNamesShort: ["Jan", "Feb", "Mar", "Apr", "May", "Jun","Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+        dayNames: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+        dayNamesShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+        dayNamesMin: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+        monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+        monthNamesShort: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
         chooseYear: 'Choose Year',
         chooseMonth: 'Choose Month',
         chooseDate: 'Choose Date',
@@ -75,32 +75,15 @@ const defaultOptions = {
             stars: '{star} stars',
             selectAll: 'All items selected',
             unselectAll: 'All items unselected',
-            close: 'Close'
+            close: 'Close',
+            previous: 'Previous',
+            next: 'Next'
         }
     },
     filterMatchModeOptions: {
-        text: [
-            FilterMatchMode.STARTS_WITH,
-            FilterMatchMode.CONTAINS,
-            FilterMatchMode.NOT_CONTAINS,
-            FilterMatchMode.ENDS_WITH,
-            FilterMatchMode.EQUALS,
-            FilterMatchMode.NOT_EQUALS
-        ],
-        numeric: [
-            FilterMatchMode.EQUALS,
-            FilterMatchMode.NOT_EQUALS,
-            FilterMatchMode.LESS_THAN,
-            FilterMatchMode.LESS_THAN_OR_EQUAL_TO,
-            FilterMatchMode.GREATER_THAN,
-            FilterMatchMode.GREATER_THAN_OR_EQUAL_TO
-        ],
-        date: [
-            FilterMatchMode.DATE_IS,
-            FilterMatchMode.DATE_IS_NOT,
-            FilterMatchMode.DATE_BEFORE,
-            FilterMatchMode.DATE_AFTER
-        ]
+        text: [FilterMatchMode.STARTS_WITH, FilterMatchMode.CONTAINS, FilterMatchMode.NOT_CONTAINS, FilterMatchMode.ENDS_WITH, FilterMatchMode.EQUALS, FilterMatchMode.NOT_EQUALS],
+        numeric: [FilterMatchMode.EQUALS, FilterMatchMode.NOT_EQUALS, FilterMatchMode.LESS_THAN, FilterMatchMode.LESS_THAN_OR_EQUAL_TO, FilterMatchMode.GREATER_THAN, FilterMatchMode.GREATER_THAN_OR_EQUAL_TO],
+        date: [FilterMatchMode.DATE_IS, FilterMatchMode.DATE_IS_NOT, FilterMatchMode.DATE_BEFORE, FilterMatchMode.DATE_AFTER]
     },
     zIndex: {
         modal: 1100,
@@ -114,6 +97,7 @@ const PrimeVueSymbol = Symbol();
 
 export function usePrimeVue() {
     const PrimeVue = inject(PrimeVueSymbol);
+
     if (!PrimeVue) {
         throw new Error('PrimeVue is not installed!');
     }
@@ -123,10 +107,11 @@ export function usePrimeVue() {
 
 export default {
     install: (app, options) => {
-        let configOptions = options ? {...defaultOptions, ...options} : {...defaultOptions};
+        let configOptions = options ? { ...defaultOptions, ...options } : { ...defaultOptions };
         const PrimeVue = {
             config: reactive(configOptions)
         };
+
         app.config.globalProperties.$primevue = PrimeVue;
         app.provide(PrimeVueSymbol, PrimeVue);
     }

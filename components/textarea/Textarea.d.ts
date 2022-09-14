@@ -12,8 +12,7 @@ export interface TextareaProps extends TextareaHTMLAttributes {
     autoResize?: boolean | undefined;
 }
 
-export interface TextareaSlots {
-}
+export interface TextareaSlots {}
 
 export declare type TextareaEmits = {
     /**
@@ -21,13 +20,13 @@ export declare type TextareaEmits = {
      * @param {string} value - New value.
      */
     'update:modelValue': (value: string) => void;
-}
+};
 
-declare class Textarea extends ClassComponent<TextareaProps, TextareaSlots, TextareaEmits> { }
+declare class Textarea extends ClassComponent<TextareaProps, TextareaSlots, TextareaEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        Textarea: GlobalComponentConstructor<Textarea>
+        Textarea: GlobalComponentConstructor<Textarea>;
     }
 }
 
@@ -37,7 +36,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [Textarea](https://www.primefaces.org/primevue/showcase/#/textarea)
+ * - [Textarea](https://www.primefaces.org/primevue/textarea)
  *
  */
 export default Textarea;

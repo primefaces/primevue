@@ -2,6 +2,10 @@ import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export interface ToolbarProps {
+    /**
+     * Defines a string value that labels an interactive element.
+     */
+    'aria-labelledby'?: string | undefined;
 }
 
 export interface ToolbarSlots {
@@ -15,14 +19,13 @@ export interface ToolbarSlots {
     end: () => VNode[];
 }
 
-export declare type ToolbarEmits = {
-}
+export declare type ToolbarEmits = {};
 
-declare class Toolbar extends ClassComponent<ToolbarProps, ToolbarSlots, ToolbarEmits> { }
+declare class Toolbar extends ClassComponent<ToolbarProps, ToolbarSlots, ToolbarEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
-        Toolbar: GlobalComponentConstructor<Toolbar>
+        Toolbar: GlobalComponentConstructor<Toolbar>;
     }
 }
 
@@ -32,7 +35,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [Toolbar](https://www.primefaces.org/primevue/showcase/#/toolbar)
+ * - [Toolbar](https://www.primefaces.org/primevue/toolbar)
  *
  */
 export default Toolbar;
