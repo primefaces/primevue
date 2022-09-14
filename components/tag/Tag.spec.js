@@ -1,6 +1,6 @@
 import { h } from 'vue';
 import { mount } from '@vue/test-utils';
-import Tag from '@/components/tag/Tag.vue';
+import Tag from '../tag/Tag.vue';
 
 describe('Tag.vue', () => {
     it('is Tag element exist', () => {

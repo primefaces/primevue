@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import PrimeVue from '@/components/config/PrimeVue';
+import PrimeVue from '../config/PrimeVue';
 import Sidebar from './Sidebar.vue';
 
 describe('Sidebar.vue', () => {

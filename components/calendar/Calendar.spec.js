@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import PrimeVue from '@/components/config/PrimeVue';
+import PrimeVue from '../config/PrimeVue';
 import Calendar from './Calendar.vue';
 
 describe('Calendar.vue', () => {
@@ -37,7 +37,7 @@ describe('Calendar.vue', () => {
 
         const event = { day: 8, month: 2, year: 2022, today: false, selectable: true };
 
-        const onDateSelect = jest.spyOn(wrapper.vm, 'onDateSelect');
+        const onDateSelect = vi.spyOn(wrapper.vm, 'onDateSelect');
 
         await wrapper.vm.onDateSelect({ currentTarget: { focus: () => {} } }, event);
         expect(onDateSelect).toHaveBeenCalled();

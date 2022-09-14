@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
 import Badge from './Badge.vue';
-import Button from '@/components/button/Button.vue';
+import Button from '../button/Button.vue';
 
 describe('Badge.vue', () => {
     it('should exist', () => {

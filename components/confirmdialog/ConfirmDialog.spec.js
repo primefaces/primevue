@@ -1,4 +1,4 @@
-import PrimeVue from '@/components/config/PrimeVue';
+import PrimeVue from '../config/PrimeVue';
 import { mount } from '@vue/test-utils';
 import ConfirmDialog from './ConfirmDialog.vue';
 
@@ -62,7 +62,7 @@ describe('ConfirmDialog', () => {
             }
         });
 
-        const acceptTriggered = jest.spyOn(wrapper.componentVM.confirmation, 'accept');
+        const acceptTriggered = vi.spyOn(wrapper.componentVM.confirmation, 'accept');
 
         await wrapper.setData({ visible: true });
 
@@ -101,7 +101,7 @@ describe('ConfirmDialog', () => {
             }
         });
 
-        const rejectTriggered = jest.spyOn(wrapper.componentVM.confirmation, 'reject');
+        const rejectTriggered = vi.spyOn(wrapper.componentVM.confirmation, 'reject');
 
         await wrapper.setData({ visible: true });
 

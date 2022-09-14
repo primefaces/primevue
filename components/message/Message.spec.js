@@ -46,7 +46,9 @@ describe('Message.vue', () => {
     });
 
     it('should sticky and life works', async () => {
-        jest.runTimersToTime(3001);
-        expect(wrapper.vm.visible).toBe(false);
+        setTimeout(() => {
+            expect(wrapper.vm.visible).toBe(false);
+        }, 3000);
+       
     });
 });

@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
 import Inplace from './Inplace.vue';
-import InputText from '@/components/inputtext/InputText.vue';
+import InputText from '../inputtext/InputText.vue';
 
 describe('Inplace.vue', () => {
     it('should exist', () => {

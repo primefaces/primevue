@@ -1,5 +1,12 @@
 {
-  "private": true,
+  "name": "primevue",
+    "version": "3.17.1-SNAPSHOT",
+    "homepage": "https://www.primefaces.org/primevue",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/primefaces/primevue.git"
+    },
+    "license": "MIT",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
@@ -8,7 +15,7 @@
     "postinstall": "nuxt prepare",
     "testRollup": "rollup -c",
     "testgulp": "gulp build-styles",
-    "test": "vitest"
+    "test:unit": "vitest"
   },
   "devDependencies": {
     "@fullcalendar/core": "^5.11.0",
@@ -38,6 +45,6 @@
     "rollup-plugin-vue": "^6.0.0-beta.9",
     "sass": "^1.45.0",
     "sass-loader": "^8.0.2",
-    "vitest": "^0.23.2"
+    "vitest": "^0.23.0"
   }
 }

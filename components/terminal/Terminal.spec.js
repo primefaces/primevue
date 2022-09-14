@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import TerminalService from '@/components/terminalservice/TerminalService';
+import TerminalService from '../terminalservice/TerminalService';
 import Terminal from './Terminal.vue';
 
 describe('Terminal.vue', () => {

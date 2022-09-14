@@ -1,10 +1,10 @@
 import { mount } from '@vue/test-utils';
 import DataTable from './DataTable.vue';
-import ColumnGroup from '@/components/columngroup/ColumnGroup.vue';
-import Row from '@/components/row/Row.vue';
-import Column from '@/components/column/Column.vue';
-import Button from '@/components/button/Button.vue';
-import InputText from '@/components/inputtext/InputText.vue';
+import ColumnGroup from '../columngroup/ColumnGroup.vue';
+import Row from '../row/Row.vue';
+import Column from '../column/Column.vue';
+import Button from '../button/Button.vue';
+import InputText from '../inputtext/InputText.vue';
 import { FilterMatchMode } from 'primevue/api';
 
 window.URL.createObjectURL = function () {};
@@ -301,7 +301,7 @@ describe('DataTable.vue', () => {
 
         const sortableTH = wrapper.findAll('.p-sortable-column')[0];
         const firstCellText = wrapper.findAll('.p-datatable-tbody > tr')[0].findAll('td')[1].text();
-        const headerClick = jest.spyOn(wrapper.vm, 'onColumnHeaderClick');
+        const headerClick = vi.spyOn(wrapper.vm, 'onColumnHeaderClick');
 
         await sortableTH.trigger('click');
 
@@ -333,7 +333,7 @@ describe('DataTable.vue', () => {
 
         const sortableTHs = wrapper.findAll('.p-sortable-column');
         const firstCellText = wrapper.findAll('.p-datatable-tbody > tr')[0].findAll('td')[1].text();
-        const headerClick = jest.spyOn(wrapper.vm, 'onColumnHeaderClick');
+        const headerClick = vi.spyOn(wrapper.vm, 'onColumnHeaderClick');
 
         await sortableTHs[0].trigger('click');
 
@@ -1338,7 +1338,7 @@ describe('DataTable.vue', () => {
 
     // export
     it('should export table', async () => {
-        const exportCSV = jest.spyOn(wrapper.vm, 'exportCSV');
+        const exportCSV = vi.spyOn(wrapper.vm, 'exportCSV');
 
         await wrapper.vm.exportCSV();
 
@@ -1355,8 +1355,8 @@ describe('DataTable.vue', () => {
     });
 
     it('should save session storage', async () => {
-        jest.spyOn(window.sessionStorage.__proto__, 'setItem');
-        window.sessionStorage.__proto__.setItem = jest.fn();
+        vi.spyOn(window.sessionStorage.__proto__, 'setItem');
+        window.sessionStorage.__proto__.setItem = vi.fn();
 
         await wrapper.vm.saveState();
 
@@ -1365,8 +1365,8 @@ describe('DataTable.vue', () => {
     });
 
     it('should save local storage', async () => {
-        jest.spyOn(window.localStorage.__proto__, 'setItem');
-        window.localStorage.__proto__.setItem = jest.fn();
+        vi.spyOn(window.localStorage.__proto__, 'setItem');
+        window.localStorage.__proto__.setItem = vi.fn();
 
         await wrapper.vm.saveState();
 

@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
-import Accordion from '@/components/accordion/Accordion.vue';
-import AccordionTab from '@/components/accordiontab/AccordionTab.vue';
+import Accordion from '../accordion/Accordion.vue';
+import AccordionTab from '../accordiontab/AccordionTab.vue';
 
 describe('Accordion.vue', () => {
     let wrapper;

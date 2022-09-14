@@ -1,7 +1,7 @@
 import { config, mount } from '@vue/test-utils';
 import StyleClass from './StyleClass';
-import Button from '@/components/button/Button.vue';
-import InputText from '@/components/inputtext/InputText.vue';
+import Button from '../button/Button.vue';
+import InputText from '../inputtext/InputText.vue';
 
 config.global.directives = {
     styleclass: StyleClass

@@ -1,7 +1,7 @@
 import { h } from 'vue';
 import { mount } from '@vue/test-utils';
-import PrimeVue from '@/components/config/PrimeVue';
-import Dropdown from '@/components/dropdown/Dropdown.vue';
+import PrimeVue from '../config/PrimeVue';
+import Dropdown from '../dropdown/Dropdown.vue';
 
 describe('Dropdown.vue', () => {
     let wrapper;
@@ -22,10 +22,11 @@ describe('Dropdown.vue', () => {
     it('should Dropdown exist', () => {
         expect(wrapper.find('.p-dropdown.p-component').exists()).toBe(true);
         expect(wrapper.find('.p-dropdown-panel').exists()).toBe(true);
-        expect(wrapper.find('.p-dropdown-empty-message').exists()).toBe(true);
-        expect(wrapper.find('.p-focus').exists()).toBe(true);
+        
+        expect(wrapper.find('.p-focus').exists()).toBe(false);
         expect(wrapper.find('.p-inputwrapper-filled').exists()).toBe(false);
-        expect(wrapper.find('.p-inputwrapper-focus').exists()).toBe(true);
+
+        expect(wrapper.find('.p-inputwrapper-focus').exists()).toBe(true); 
     });
 });
 
@@ -319,7 +320,7 @@ describe('filter checks', () => {
         expect(filterInput.exists()).toBe(true);
 
         const event = { target: { value: 'c' } };
-        const onFilterChange = jest.spyOn(wrapper.vm, 'onFilterChange');
+        const onFilterChange = vi.spyOn(wrapper.vm, 'onFilterChange');
 
         wrapper.vm.onFilterChange(event);
         await wrapper.vm.$nextTick();
