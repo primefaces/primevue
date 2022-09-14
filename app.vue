@@ -1,7 +1,7 @@
 <template>
-  <NuxtLayout :name="layout">
-    <NuxtPage />
-  </NuxtLayout>
+    <NuxtLayout :name="layout">
+        <NuxtPage />
+    </NuxtLayout>
 </template>
 
 <script>
@@ -15,17 +15,16 @@ export default {
     data() {
         return {
             storageKey: 'primevue',
-            layout: 'custom',
-        }
+            layout: 'custom'
+        };
     },
     watch: {
         $route: {
             immediate: true,
             handler(to) {
                 if (to.name === 'index') {
-                   this.layout = 'custom';
-                }
-                else {
+                    this.layout = 'custom';
+                } else {
                     this.layout = 'default';
                 }
             }
@@ -36,7 +35,7 @@ export default {
     },
     mounted() {
         this.newsActivate = () => {
-            this.newsService.fetchNews().then(data => {
+            this.newsService.fetchNews().then((data) => {
                 this.$appState.announcement = data;
 
                 const itemString = localStorage.getItem(this.storageKey);
@@ -44,10 +43,8 @@ export default {
                     const item = JSON.parse(itemString);
                     if (item.hiddenNews && item.hiddenNews !== data.id) {
                         this.$appState.newsActive = true;
-                    }
-                    else this.$appState.newsActive = false;
-                }
-                else {
+                    } else this.$appState.newsActive = false;
+                } else {
                     this.$appState.newsActive = true;
                 }
             });
@@ -66,7 +63,7 @@ export default {
                 cloneLinkElement.setAttribute('id', elementId);
             });
             linkElement.parentNode.insertBefore(cloneLinkElement, linkElement.nextSibling);
-        
+
             this.$appState.theme = event.theme;
             this.$appState.darkTheme = event.dark;
         };
@@ -78,5 +75,5 @@ export default {
         EventBus.off('theme-change', this.themeChangeListener);
         EventBus.off('news-activate', this.newsActivate);
     }
-}
-  </script>
+};
+</script>

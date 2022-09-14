@@ -2,8 +2,7 @@
     <section class="landing-designer py-8">
         <div class="section-header">Theme Designer</div>
         <p class="section-detail">Designer is the ultimate tool to create your own PrimeVue experience powered by a SASS based theme engine with 500+ variables and a Visual Designer.</p>
-        <div class="designer-main mt-7 justify-content-center pad-section"
-            :style="{backgroundImage:`url('/demo/images/landing/wave-${$appState.darkTheme ? 'dark' : 'light'}.svg')`, backgroundSize:'cover'}">
+        <div class="designer-main mt-7 justify-content-center pad-section" :style="{ backgroundImage: `url('/demo/images/landing/wave-${$appState.darkTheme ? 'dark' : 'light'}.svg')`, backgroundSize: 'cover' }">
             <div class="box p-4 flex flex-column md:flex-row z-1 designer-editor">
                 <div class="mr-0 md:mr-4 p-4 designer-controls box border-bottom-1 border-left-none border-right-none border-top-none md:border-bottom-none md:border-right-1" style="border-radius: '10px'">
                     <div class="text-center mb-4">
@@ -12,10 +11,10 @@
                     <div class="p-fluid">
                         <span class="font-semibold block mb-3">Primary</span>
                         <div>
-                            <button type="button" class="border-circle w-2rem h-2rem p-link mr-3" style="background-color:#4f8ff7" @click="changeTheme('#4f8ff7', '#3575dd')"></button>
-                            <button type="button" class="border-circle w-2rem h-2rem p-link mr-3" style="background-color:#03E8BF" @click="changeTheme('#03E8BF', '#02ba99')"></button>
-                            <button type="button" class="border-circle w-2rem h-2rem p-link mr-3" style="background-color:#916AFF" @click="changeTheme('#916AFF', '#7455cc')"></button>
-                            <button type="button" class="border-circle w-2rem h-2rem p-link" style="background-color:#FFBD80" @click="changeTheme('#FFBD80','#cc9766')"></button>
+                            <button type="button" class="border-circle w-2rem h-2rem p-link mr-3" style="background-color: #4f8ff7" @click="changeTheme('#4f8ff7', '#3575dd')"></button>
+                            <button type="button" class="border-circle w-2rem h-2rem p-link mr-3" style="background-color: #03e8bf" @click="changeTheme('#03E8BF', '#02ba99')"></button>
+                            <button type="button" class="border-circle w-2rem h-2rem p-link mr-3" style="background-color: #916aff" @click="changeTheme('#916AFF', '#7455cc')"></button>
+                            <button type="button" class="border-circle w-2rem h-2rem p-link" style="background-color: #ffbd80" @click="changeTheme('#FFBD80', '#cc9766')"></button>
                         </div>
 
                         <span class="font-semibold block mt-4 mb-3">Font</span>
@@ -90,10 +89,10 @@
                             <label for="email" class="font-semibold mb-3 mt-3 p-component">Range</label>
                             <Slider v-model="range" range />
 
-                            <span class="font-semibold mb-2 block mb-3 mt-5  p-component">Checkboxes</span>
+                            <span class="font-semibold mb-2 block mb-3 mt-5 p-component">Checkboxes</span>
                             <div class="flex flex-column xl:flex-row xl:align-items-center">
                                 <div class="flex align-items-center">
-                                    <Checkbox id="cb1" :value="value1" name="cbvalue" v-model="values"/>
+                                    <Checkbox id="cb1" :value="value1" name="cbvalue" v-model="values" />
                                     <label for="cb1" class="ml-2 font-medium p-component white-space-nowrap">Option 1</label>
                                 </div>
                                 <div class="flex align-items-center mt-3 xl:mt-0 xl:ml-4">
@@ -120,12 +119,12 @@ export default {
     data() {
         return {
             size: 'normal',
-            font: {label: 'System', value: '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol'},
+            font: { label: 'System', value: '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol' },
             fonts: [
-                {label: 'Arial', value: 'Arial,Helvetica Neue,Helvetica,sans-serif'},
-                {label: 'System', value: '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol'},
-                {label: 'Trebuches MS', value: 'Trebuchet MS,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Tahoma,sans-serif'},
-                {label: 'Verdana', value: 'Verdana,Geneva,sans-serif'},
+                { label: 'Arial', value: 'Arial,Helvetica Neue,Helvetica,sans-serif' },
+                { label: 'System', value: '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol' },
+                { label: 'Trebuches MS', value: 'Trebuchet MS,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Tahoma,sans-serif' },
+                { label: 'Verdana', value: 'Verdana,Geneva,sans-serif' }
             ],
             selectedCity: null,
             cities: [
@@ -138,7 +137,7 @@ export default {
             value1: 1,
             value2: 2,
             values: []
-        }
+        };
     },
     editor: null,
     methods: {
@@ -146,7 +145,7 @@ export default {
             this.editor.style.setProperty('--dd-primary', color);
             this.editor.style.setProperty('--dd-primary-darker', darker);
         },
-        changeFont(event){
+        changeFont(event) {
             this.editor.style.setProperty('--dd-font', event.value.value);
             this.font = event.value;
         },
@@ -159,15 +158,18 @@ export default {
     },
     computed: {
         editorclass() {
-            return ['p-4 designer-demo', {
-                'p-input-filled': this.$primevue.config.inputStyle === 'filled',
-                'demo-size-small': this.size === 'small',
-                'demo-size-large': this.size === 'large'
-            }];
+            return [
+                'p-4 designer-demo',
+                {
+                    'p-input-filled': this.$primevue.config.inputStyle === 'filled',
+                    'demo-size-small': this.size === 'small',
+                    'demo-size-large': this.size === 'large'
+                }
+            ];
         },
         inputstyle() {
             return this.$primevue.config.inputStyle;
         }
     }
-}
+};
 </script>

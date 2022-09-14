@@ -1,29 +1,29 @@
 <template>
     <ClientOnly>
-<AppDoc name="MenuDemo" :sources="sources" github="menu/MenuDemo.vue">
-        <h5>Import via Module</h5>
-        <pre v-code.script><code>
+        <AppDoc name="MenuDemo" :sources="sources" github="menu/MenuDemo.vue">
+            <h5>Import via Module</h5>
+            <pre v-code.script><code>
 import Menu from 'primevue/menu';
 
 </code></pre>
 
-        <h5>Import via CDN</h5>
-        <pre v-code><code>
+            <h5>Import via CDN</h5>
+            <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-        <h5>MenuModel</h5>
-        <p>Menu uses the common MenuModel API to define the items, visit <nuxt-link to="/menumodel">MenuModel API</nuxt-link> for details.</p>
+            <h5>MenuModel</h5>
+            <p>Menu uses the common MenuModel API to define the items, visit <nuxt-link to="/menumodel">MenuModel API</nuxt-link> for details.</p>
 
-        <h5>Getting Started</h5>
-        <p>Menu requires a collection of menuitems as its model.</p>
-        <pre v-code><code>
+            <h5>Getting Started</h5>
+            <p>Menu requires a collection of menuitems as its model.</p>
+            <pre v-code><code>
 &lt;Menu :model="items" /&gt;
 
 </code></pre>
 
-        <pre v-code.script><code>
+            <pre v-code.script><code>
 export default {
 	data() {
 		return {
@@ -59,9 +59,9 @@ export default {
 
 </code></pre>
 
-        <h5>SubMenus</h5>
-        <p>Menu supports one level of nesting via subitems of an item.</p>
-        <pre v-code.script><code>
+            <h5>SubMenus</h5>
+            <p>Menu supports one level of nesting via subitems of an item.</p>
+            <pre v-code.script><code>
 const items: [
     {
         label: 'Options',
@@ -77,25 +77,25 @@ const items: [
 
 </code></pre>
 
-        <h5>Popup Mode</h5>
-        <p>Menu is inline by default whereas popup mode is supported by enabling popup property and calling toggle method with an event of the target.</p>
+            <h5>Popup Mode</h5>
+            <p>Menu is inline by default whereas popup mode is supported by enabling popup property and calling toggle method with an event of the target.</p>
 
-        <pre v-code><code>
+            <pre v-code><code>
 &lt;Button type="button" label="Toggle" @click="toggle" /&gt;
 &lt;Menu ref="menu" :model="items" :popup="true" /&gt;
 
 </code></pre>
 
-        <pre v-code.script><code>
+            <pre v-code.script><code>
 toggle(event) {
     this.$refs.menu.toggle(event);
 }
 
 </code></pre>
 
-        <h5>Templating</h5>
-        <p>Menu offers content customization with the <i>item</i> template that receives the menuitem instance from the model as a parameter.</p>
-        <pre v-code><code><template v-pre>
+            <h5>Templating</h5>
+            <p>Menu offers content customization with the <i>item</i> template that receives the menuitem instance from the model as a parameter.</p>
+            <pre v-code><code><template v-pre>
 &lt;Menu :model="items"&gt;
     &lt;template #item="{item}"&gt;
         &lt;a :href="item.url"&gt;{{item.label}}&lt;/a&gt;
@@ -104,8 +104,8 @@ toggle(event) {
 </template>
 </code></pre>
 
-        <p><i>nuxt-link</i> with route configuration can also be used within templating for further customization.</p>
-        <pre v-code><code><template v-pre>
+            <p><i>nuxt-link</i> with route configuration can also be used within templating for further customization.</p>
+            <pre v-code><code><template v-pre>
 &lt;Menu :model="items"&gt;
     &lt;template #item="{item}"&gt;
         &lt;nuxt-link :to="item.to" custom v-slot="{href, route, navigate, isActive, isExactActive}"&gt;
@@ -116,171 +116,171 @@ toggle(event) {
 </template>
 </code></pre>
 
-        <h5>Properties</h5>
-        <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Type</th>
-                        <th>Default</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>model</td>
-                        <td>array</td>
-                        <td>null</td>
-                        <td>An array of menuitems.</td>
-                    </tr>
-                    <tr>
-                        <td>popup</td>
-                        <td>boolean</td>
-                        <td>false</td>
-                        <td>Defines if menu would displayed as a popup.</td>
-                    </tr>
-                    <tr>
-                        <td>appendTo</td>
-                        <td>string</td>
-                        <td>body</td>
-                        <td>A valid query selector or an HTMLElement to specify where the overlay gets attached.</td>
-                    </tr>
-                    <tr>
-                        <td>baseZIndex</td>
-                        <td>number</td>
-                        <td>0</td>
-                        <td>Base zIndex value to use in layering.</td>
-                    </tr>
-                    <tr>
-                        <td>autoZIndex</td>
-                        <td>boolean</td>
-                        <td>true</td>
-                        <td>Whether to automatically manage layering.</td>
-                    </tr>
-                    <tr>
-                        <td>exact</td>
-                        <td>boolean</td>
-                        <td>true</td>
-                        <td>Whether to apply 'nuxt-link-active-exact' class if route exactly matches the item path.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>Properties</h5>
+            <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>model</td>
+                            <td>array</td>
+                            <td>null</td>
+                            <td>An array of menuitems.</td>
+                        </tr>
+                        <tr>
+                            <td>popup</td>
+                            <td>boolean</td>
+                            <td>false</td>
+                            <td>Defines if menu would displayed as a popup.</td>
+                        </tr>
+                        <tr>
+                            <td>appendTo</td>
+                            <td>string</td>
+                            <td>body</td>
+                            <td>A valid query selector or an HTMLElement to specify where the overlay gets attached.</td>
+                        </tr>
+                        <tr>
+                            <td>baseZIndex</td>
+                            <td>number</td>
+                            <td>0</td>
+                            <td>Base zIndex value to use in layering.</td>
+                        </tr>
+                        <tr>
+                            <td>autoZIndex</td>
+                            <td>boolean</td>
+                            <td>true</td>
+                            <td>Whether to automatically manage layering.</td>
+                        </tr>
+                        <tr>
+                            <td>exact</td>
+                            <td>boolean</td>
+                            <td>true</td>
+                            <td>Whether to apply 'nuxt-link-active-exact' class if route exactly matches the item path.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Events</h5>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Parameters</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>show</td>
-                        <td>-</td>
-                        <td>Callback to invoke when the overlay is shown.</td>
-                    </tr>
-                    <tr>
-                        <td>hide</td>
-                        <td>-</td>
-                        <td>Callback to invoke when the overlay is hidden.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>Events</h5>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Parameters</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>show</td>
+                            <td>-</td>
+                            <td>Callback to invoke when the overlay is shown.</td>
+                        </tr>
+                        <tr>
+                            <td>hide</td>
+                            <td>-</td>
+                            <td>Callback to invoke when the overlay is hidden.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Methods</h5>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Parameters</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>toggle</td>
-                        <td>event: Browser event</td>
-                        <td>Toggles the visibility of the overlay.</td>
-                    </tr>
-                    <tr>
-                        <td>show</td>
-                        <td>event: Browser event</td>
-                        <td>Shows the overlay.</td>
-                    </tr>
-                    <tr>
-                        <td>hide</td>
-                        <td>-</td>
-                        <td>Hides the overlay.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>Methods</h5>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Parameters</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>toggle</td>
+                            <td>event: Browser event</td>
+                            <td>Toggles the visibility of the overlay.</td>
+                        </tr>
+                        <tr>
+                            <td>show</td>
+                            <td>event: Browser event</td>
+                            <td>Shows the overlay.</td>
+                        </tr>
+                        <tr>
+                            <td>hide</td>
+                            <td>-</td>
+                            <td>Hides the overlay.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Slots</h5>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Parameters</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>item</td>
-                        <td>item: Menuitem instance</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>Slots</h5>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Parameters</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>item</td>
+                            <td>item: Menuitem instance</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Styling</h5>
-        <p>Following is the list of structural style classes, for theming classes visit <nuxt-link to="/theming">theming</nuxt-link> page.</p>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Element</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>p-menu</td>
-                        <td>Container element.</td>
-                    </tr>
-                    <tr>
-                        <td>p-menu-list</td>
-                        <td>List element.</td>
-                    </tr>
-                    <tr>
-                        <td>p-menuitem</td>
-                        <td>Menuitem element.</td>
-                    </tr>
-                    <tr>
-                        <td>p-menuitem-text</td>
-                        <td>Label of a menuitem.</td>
-                    </tr>
-                    <tr>
-                        <td>p-menuitem-icon</td>
-                        <td>Icon of a menuitem.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>Styling</h5>
+            <p>Following is the list of structural style classes, for theming classes visit <nuxt-link to="/theming">theming</nuxt-link> page.</p>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Element</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>p-menu</td>
+                            <td>Container element.</td>
+                        </tr>
+                        <tr>
+                            <td>p-menu-list</td>
+                            <td>List element.</td>
+                        </tr>
+                        <tr>
+                            <td>p-menuitem</td>
+                            <td>Menuitem element.</td>
+                        </tr>
+                        <tr>
+                            <td>p-menuitem-text</td>
+                            <td>Label of a menuitem.</td>
+                        </tr>
+                        <tr>
+                            <td>p-menuitem-icon</td>
+                            <td>Icon of a menuitem.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Dependencies</h5>
-        <p>None.</p>
-    </AppDoc>
-</ClientOnly>
+            <h5>Dependencies</h5>
+            <p>None.</p>
+        </AppDoc>
+    </ClientOnly>
 </template>
 
 <script>

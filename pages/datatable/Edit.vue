@@ -71,8 +71,8 @@
         </div>
 
         <ClientOnly>
-<AppDoc name="DataTableEditDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="datatable/DataTableEditDemo.vue" />
-</ClientOnly>
+            <AppDoc name="DataTableEditDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="datatable/DataTableEditDemo.vue" />
+        </ClientOnly>
     </div>
 </template>
 

@@ -1,28 +1,28 @@
 <template>
     <ClientOnly>
-<AppDoc name="DockDemo" :sources="sources" github="dock/DockDemo.vue" :service="['NodeService', 'PhotoService']" :data="['treenodes', 'photos']">
-        <h5>Import via Module</h5>
-        <pre v-code.script><code>
+        <AppDoc name="DockDemo" :sources="sources" github="dock/DockDemo.vue" :service="['NodeService', 'PhotoService']" :data="['treenodes', 'photos']">
+            <h5>Import via Module</h5>
+            <pre v-code.script><code>
 import Dock from 'primevue/dock';
 
 </code></pre>
 
-        <h5>Import via CDN</h5>
-        <pre v-code><code>
+            <h5>Import via CDN</h5>
+            <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/slider/slider.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-        <h5>Getting Started</h5>
-        <p>Dock is a navigation component consisting of menuitems. It has a collection of additional options defined by the <i>model</i> property.</p>
+            <h5>Getting Started</h5>
+            <p>Dock is a navigation component consisting of menuitems. It has a collection of additional options defined by the <i>model</i> property.</p>
 
-        <pre v-code><code>
+            <pre v-code><code>
 &lt;Dock :model="items" /&gt;
 
 </code></pre>
 
-        <pre v-code.script><code><template>
+            <pre v-code.script><code><template>
     export default {
         data() {
             return {
@@ -51,115 +51,115 @@ import Dock from 'primevue/dock';
 </template>
 </code></pre>
 
-        <h5>MenuModel API</h5>
-        <p>Dock uses the common MenuModel API to define the items, visit <nuxt-link to="/menumodel">MenuModel API</nuxt-link> for details.</p>
+            <h5>MenuModel API</h5>
+            <p>Dock uses the common MenuModel API to define the items, visit <nuxt-link to="/menumodel">MenuModel API</nuxt-link> for details.</p>
 
-        <h5>Properties</h5>
-        <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Type</th>
-                        <th>Default</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>model</td>
-                        <td>object</td>
-                        <td>null</td>
-                        <td>MenuModel instance to define the action items.</td>
-                    </tr>
-                    <tr>
-                        <td>position</td>
-                        <td>string</td>
-                        <td>bottom</td>
-                        <td>Position of element. Valid values are 'bottom', 'top', 'left' and 'right'.</td>
-                    </tr>
-                    <tr>
-                        <td>class</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Style class of the element.</td>
-                    </tr>
-                    <tr>
-                        <td>style</td>
-                        <td>object</td>
-                        <td>null</td>
-                        <td>Inline style of the element.</td>
-                    </tr>
-                    <tr>
-                        <td>exact</td>
-                        <td>boolean</td>
-                        <td>true</td>
-                        <td>Whether to apply 'nuxt-link-active-exact' class if route exactly matches the item path.</td>
-                    </tr>
-                    <tr>
-                        <td>tooltipOptions</td>
-                        <td>object</td>
-                        <td>null</td>
-                        <td>Whether to display the tooltip on items. The modifiers of <nuxt-link to="/tooltip">Tooltip</nuxt-link> can be used like an object in it. Valid keys are 'event' and 'position'.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>Properties</h5>
+            <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>model</td>
+                            <td>object</td>
+                            <td>null</td>
+                            <td>MenuModel instance to define the action items.</td>
+                        </tr>
+                        <tr>
+                            <td>position</td>
+                            <td>string</td>
+                            <td>bottom</td>
+                            <td>Position of element. Valid values are 'bottom', 'top', 'left' and 'right'.</td>
+                        </tr>
+                        <tr>
+                            <td>class</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Style class of the element.</td>
+                        </tr>
+                        <tr>
+                            <td>style</td>
+                            <td>object</td>
+                            <td>null</td>
+                            <td>Inline style of the element.</td>
+                        </tr>
+                        <tr>
+                            <td>exact</td>
+                            <td>boolean</td>
+                            <td>true</td>
+                            <td>Whether to apply 'nuxt-link-active-exact' class if route exactly matches the item path.</td>
+                        </tr>
+                        <tr>
+                            <td>tooltipOptions</td>
+                            <td>object</td>
+                            <td>null</td>
+                            <td>Whether to display the tooltip on items. The modifiers of <nuxt-link to="/tooltip">Tooltip</nuxt-link> can be used like an object in it. Valid keys are 'event' and 'position'.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Styling</h5>
-        <p>Following is the list of structural style classes, for theming classes visit <nuxt-link to="/theming">theming</nuxt-link> page.</p>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Element</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>p-dock</td>
-                        <td>Container element.</td>
-                    </tr>
-                    <tr>
-                        <td>p-dock-list</td>
-                        <td>List of items.</td>
-                    </tr>
-                    <tr>
-                        <td>p-dock-item</td>
-                        <td>Each items in list.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>Styling</h5>
+            <p>Following is the list of structural style classes, for theming classes visit <nuxt-link to="/theming">theming</nuxt-link> page.</p>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Element</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>p-dock</td>
+                            <td>Container element.</td>
+                        </tr>
+                        <tr>
+                            <td>p-dock-list</td>
+                            <td>List of items.</td>
+                        </tr>
+                        <tr>
+                            <td>p-dock-item</td>
+                            <td>Each items in list.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Slots</h5>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Parameters</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>item</td>
-                        <td>item: Custom content for item</td>
-                    </tr>
-                    <tr>
-                        <td>icon</td>
-                        <td>item: Custom content for icon</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>Slots</h5>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Parameters</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>item</td>
+                            <td>item: Custom content for item</td>
+                        </tr>
+                        <tr>
+                            <td>icon</td>
+                            <td>item: Custom content for icon</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Dependencies</h5>
-        <p>None.</p>
-    </AppDoc>
-</ClientOnly>
+            <h5>Dependencies</h5>
+            <p>None.</p>
+        </AppDoc>
+    </ClientOnly>
 </template>
 
 <script>

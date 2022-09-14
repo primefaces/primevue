@@ -71,7 +71,7 @@
 export default {
     methods: {
         imgSrc(brand) {
-            return `/demo/images/landing/whouses/${brand}-${this.colorScheme}.svg`
+            return `/demo/images/landing/whouses/${brand}-${this.colorScheme}.svg`;
         }
     },
     computed: {
@@ -79,5 +79,5 @@ export default {
             return this.$appState.darkTheme ? 'light' : 'dark';
         }
     }
-}
+};
 </script>

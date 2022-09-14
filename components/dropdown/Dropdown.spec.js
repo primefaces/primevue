@@ -22,11 +22,11 @@ describe('Dropdown.vue', () => {
     it('should Dropdown exist', () => {
         expect(wrapper.find('.p-dropdown.p-component').exists()).toBe(true);
         expect(wrapper.find('.p-dropdown-panel').exists()).toBe(true);
-        
+
         expect(wrapper.find('.p-focus').exists()).toBe(false);
         expect(wrapper.find('.p-inputwrapper-filled').exists()).toBe(false);
 
-        expect(wrapper.find('.p-inputwrapper-focus').exists()).toBe(true); 
+        expect(wrapper.find('.p-inputwrapper-focus').exists()).toBe(true);
     });
 });
 

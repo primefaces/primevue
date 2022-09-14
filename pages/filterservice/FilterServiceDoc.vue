@@ -1,21 +1,21 @@
 <template>
     <ClientOnly>
-<AppDoc name="FilterServiceDemo" :sources="sources" :service="['CustomerService']" :data="['customers-large']" github="filterservice/FilterServiceDemo.vue">
-        <h5>Import via Module</h5>
-        <pre v-code.script><code>
+        <AppDoc name="FilterServiceDemo" :sources="sources" :service="['CustomerService']" :data="['customers-large']" github="filterservice/FilterServiceDemo.vue">
+            <h5>Import via Module</h5>
+            <pre v-code.script><code>
 import &#123;FilterService&#125; from 'primevue/api';
 
 </code></pre>
 
-        <h5>Import via CDN</h5>
-        <pre v-code><code>
+            <h5>Import via CDN</h5>
+            <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-        <h5>Getting Started</h5>
-        <p>Filters are accessed with <i>FilterService.filters</i>.</p>
-        <pre v-code.script><code>
+            <h5>Getting Started</h5>
+            <p>Filters are accessed with <i>FilterService.filters</i>.</p>
+            <pre v-code.script><code>
 const value = 'PrimeVue';
 
 FilterService.filters.equals(value, 'Vue');                            //false
@@ -30,9 +30,9 @@ FilterService.filters.in(value, ['PrimeFaces', 'PrimeVue']);           //true
 
 </code></pre>
 
-        <h5>Custom Constraint</h5>
-        <p>FilterService can be extended by adding new constraints using the <span>register</span> function.</p>
-        <pre v-code.script><code>
+            <h5>Custom Constraint</h5>
+            <p>FilterService can be extended by adding new constraints using the <span>register</span> function.</p>
+            <pre v-code.script><code>
 FilterService.register('isPrimeNumber', (value, filter): boolean => &#123;
     if (filter === undefined || filter === null || filter.trim() === '') &#123;
         return true;
@@ -51,147 +51,7 @@ FilterService.filters['isPrimeNumber'](568985673);              //false
 
 </code></pre>
 
-        <h5>Built-in Constraints</h5>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Parameters</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>startsWith</td>
-                        <td>
-                            value: Value to filter<br />
-                            filter: Filter value<br />
-                            filterLocale: Locale to use in filtering
-                        </td>
-                        <td>Whether the value starts with the filter value</td>
-                    </tr>
-                    <tr>
-                        <td>contains</td>
-                        <td>
-                            value: Value to filter<br />
-                            filter: Filter value<br />
-                            filterLocale: Locale to use in filtering
-                        </td>
-                        <td>Whether the value contains the filter value</td>
-                    </tr>
-                    <tr>
-                        <td>endsWith</td>
-                        <td>
-                            value: Value to filter<br />
-                            filter: Filter value<br />
-                            filterLocale: Locale to use in filtering
-                        </td>
-                        <td>Whether the value ends with the filter value</td>
-                    </tr>
-                    <tr>
-                        <td>equals</td>
-                        <td>
-                            value: Value to filter<br />
-                            filter: Filter value<br />
-                            filterLocale: Locale to use in filtering
-                        </td>
-                        <td>Whether the value equals the filter value</td>
-                    </tr>
-                    <tr>
-                        <td>notEquals</td>
-                        <td>
-                            value: Value to filter<br />
-                            filter: Filter value<br />
-                            filterLocale: Locale to use in filtering
-                        </td>
-                        <td>Whether the value does not equal the filter value</td>
-                    </tr>
-                    <tr>
-                        <td>in</td>
-                        <td>
-                            value: Value to filter<br />
-                            filter[]: An array of filter values<br />
-                            filterLocale: Locale to use in filtering
-                        </td>
-                        <td>Whether the value contains the filter value</td>
-                    </tr>
-                    <tr>
-                        <td>lt</td>
-                        <td>
-                            value: Value to filter<br />
-                            filter: Filter value<br />
-                            filterLocale: Locale to use in filtering
-                        </td>
-                        <td>Whether the value is less than the filter value</td>
-                    </tr>
-                    <tr>
-                        <td>lte</td>
-                        <td>
-                            value: Value to filter<br />
-                            filter: Filter value<br />
-                            filterLocale: Locale to use in filtering
-                        </td>
-                        <td>Whether the value is less than or equals to the filter value</td>
-                    </tr>
-                    <tr>
-                        <td>gt</td>
-                        <td>
-                            value: Value to filter<br />
-                            filter: Filter value<br />
-                            filterLocale: Locale to use in filtering
-                        </td>
-                        <td>Whether the value is greater than the filter value</td>
-                    </tr>
-                    <tr>
-                        <td>gte</td>
-                        <td>
-                            value: Value to filter<br />
-                            filter: Filter value<br />
-                            filterLocale: Locale to use in filtering
-                        </td>
-                        <td>Whether the value is greater than or equals to the filter value</td>
-                    </tr>
-                    <tr>
-                        <td>is</td>
-                        <td>
-                            value: Value to filter<br />
-                            filter: Filter value<br />
-                            filterLocale: Locale to use in filtering
-                        </td>
-                        <td>Whether the value equals the filter value, alias to equals</td>
-                    </tr>
-                    <tr>
-                        <td>isNot</td>
-                        <td>
-                            value: Value to filter<br />
-                            filter: Filter value<br />
-                            filterLocale: Locale to use in filtering
-                        </td>
-                        <td>Whether the value does not equal the filter value, alias to notEquals.</td>
-                    </tr>
-                    <tr>
-                        <td>before</td>
-                        <td>
-                            value: Value to filter<br />
-                            filter: Filter value<br />
-                            filterLocale: Locale to use in filtering
-                        </td>
-                        <td>Whether the date value is before the filter date.</td>
-                    </tr>
-                    <tr>
-                        <td>after</td>
-                        <td>
-                            value: Value to filter<br />
-                            filter: Filter value<br />
-                            filterLocale: Locale to use in filtering
-                        </td>
-                        <td>Whether the date value is after the filter date.</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <h5>FilterService API</h5>
+            <h5>Built-in Constraints</h5>
             <div class="doc-tablewrapper">
                 <table class="doc-table">
                     <thead>
@@ -203,38 +63,178 @@ FilterService.filters['isPrimeNumber'](568985673);              //false
                     </thead>
                     <tbody>
                         <tr>
-                            <td>filter</td>
+                            <td>startsWith</td>
                             <td>
-                                value[]: An array of values to filter<br />
-                                fields[]: An array of properties in the value object<br />
-                                filterValue: Filter value<br />
-                                filterMatchMode: Constraint<br />
+                                value: Value to filter<br />
+                                filter: Filter value<br />
                                 filterLocale: Locale to use in filtering
                             </td>
-                            <td>Whether the property values of the given value collection matches the filter.</td>
+                            <td>Whether the value starts with the filter value</td>
                         </tr>
                         <tr>
-                            <td>filters</td>
-                            <td>-</td>
-                            <td>Property to access constraints collection.</td>
-                        </tr>
-                        <tr>
-                            <td>register</td>
+                            <td>contains</td>
                             <td>
-                                name: string <br />
-                                fn: Filter callback
+                                value: Value to filter<br />
+                                filter: Filter value<br />
+                                filterLocale: Locale to use in filtering
                             </td>
-                            <td>Registers a new constraint in filters.</td>
+                            <td>Whether the value contains the filter value</td>
+                        </tr>
+                        <tr>
+                            <td>endsWith</td>
+                            <td>
+                                value: Value to filter<br />
+                                filter: Filter value<br />
+                                filterLocale: Locale to use in filtering
+                            </td>
+                            <td>Whether the value ends with the filter value</td>
+                        </tr>
+                        <tr>
+                            <td>equals</td>
+                            <td>
+                                value: Value to filter<br />
+                                filter: Filter value<br />
+                                filterLocale: Locale to use in filtering
+                            </td>
+                            <td>Whether the value equals the filter value</td>
+                        </tr>
+                        <tr>
+                            <td>notEquals</td>
+                            <td>
+                                value: Value to filter<br />
+                                filter: Filter value<br />
+                                filterLocale: Locale to use in filtering
+                            </td>
+                            <td>Whether the value does not equal the filter value</td>
+                        </tr>
+                        <tr>
+                            <td>in</td>
+                            <td>
+                                value: Value to filter<br />
+                                filter[]: An array of filter values<br />
+                                filterLocale: Locale to use in filtering
+                            </td>
+                            <td>Whether the value contains the filter value</td>
+                        </tr>
+                        <tr>
+                            <td>lt</td>
+                            <td>
+                                value: Value to filter<br />
+                                filter: Filter value<br />
+                                filterLocale: Locale to use in filtering
+                            </td>
+                            <td>Whether the value is less than the filter value</td>
+                        </tr>
+                        <tr>
+                            <td>lte</td>
+                            <td>
+                                value: Value to filter<br />
+                                filter: Filter value<br />
+                                filterLocale: Locale to use in filtering
+                            </td>
+                            <td>Whether the value is less than or equals to the filter value</td>
+                        </tr>
+                        <tr>
+                            <td>gt</td>
+                            <td>
+                                value: Value to filter<br />
+                                filter: Filter value<br />
+                                filterLocale: Locale to use in filtering
+                            </td>
+                            <td>Whether the value is greater than the filter value</td>
+                        </tr>
+                        <tr>
+                            <td>gte</td>
+                            <td>
+                                value: Value to filter<br />
+                                filter: Filter value<br />
+                                filterLocale: Locale to use in filtering
+                            </td>
+                            <td>Whether the value is greater than or equals to the filter value</td>
+                        </tr>
+                        <tr>
+                            <td>is</td>
+                            <td>
+                                value: Value to filter<br />
+                                filter: Filter value<br />
+                                filterLocale: Locale to use in filtering
+                            </td>
+                            <td>Whether the value equals the filter value, alias to equals</td>
+                        </tr>
+                        <tr>
+                            <td>isNot</td>
+                            <td>
+                                value: Value to filter<br />
+                                filter: Filter value<br />
+                                filterLocale: Locale to use in filtering
+                            </td>
+                            <td>Whether the value does not equal the filter value, alias to notEquals.</td>
+                        </tr>
+                        <tr>
+                            <td>before</td>
+                            <td>
+                                value: Value to filter<br />
+                                filter: Filter value<br />
+                                filterLocale: Locale to use in filtering
+                            </td>
+                            <td>Whether the date value is before the filter date.</td>
+                        </tr>
+                        <tr>
+                            <td>after</td>
+                            <td>
+                                value: Value to filter<br />
+                                filter: Filter value<br />
+                                filterLocale: Locale to use in filtering
+                            </td>
+                            <td>Whether the date value is after the filter date.</td>
                         </tr>
                     </tbody>
                 </table>
-            </div>
-        </div>
 
-        <h5>Dependencies</h5>
-        <p>None.</p>
-    </AppDoc>
-</ClientOnly>
+                <h5>FilterService API</h5>
+                <div class="doc-tablewrapper">
+                    <table class="doc-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Parameters</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>filter</td>
+                                <td>
+                                    value[]: An array of values to filter<br />
+                                    fields[]: An array of properties in the value object<br />
+                                    filterValue: Filter value<br />
+                                    filterMatchMode: Constraint<br />
+                                    filterLocale: Locale to use in filtering
+                                </td>
+                                <td>Whether the property values of the given value collection matches the filter.</td>
+                            </tr>
+                            <tr>
+                                <td>filters</td>
+                                <td>-</td>
+                                <td>Property to access constraints collection.</td>
+                            </tr>
+                            <tr>
+                                <td>register</td>
+                                <td>
+                                    name: string <br />
+                                    fn: Filter callback
+                                </td>
+                                <td>Registers a new constraint in filters.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <h5>Dependencies</h5>
+            <p>None.</p>
+        </AppDoc>
+    </ClientOnly>
 </template>
 
 <script>

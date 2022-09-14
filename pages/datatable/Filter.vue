@@ -221,8 +221,8 @@
         </div>
 
         <ClientOnly>
-<AppDoc name="DataTableFilterDemo" :sources="sources" :service="['CustomerService']" :data="['customers-large']" github="datatable/DataTableFilterDemo.vue" />
-</ClientOnly>
+            <AppDoc name="DataTableFilterDemo" :sources="sources" :service="['CustomerService']" :data="['customers-large']" github="datatable/DataTableFilterDemo.vue" />
+        </ClientOnly>
     </div>
 </template>
 

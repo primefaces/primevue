@@ -49,6 +49,5 @@ describe('Message.vue', () => {
         setTimeout(() => {
             expect(wrapper.vm.visible).toBe(false);
         }, 3000);
-       
     });
 });

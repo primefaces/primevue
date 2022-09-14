@@ -13,8 +13,8 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "testRollup": "rollup -c",
-    "testgulp": "gulp build-styles",
+    "format": "prettier --write \"**/*.{js,vue,d.ts}\"",
+    "format:check": "prettier --check \"**/*.{js,vue,d.ts}\"",
     "test:unit": "vitest"
   },
   "devDependencies": {
@@ -45,6 +45,10 @@
     "rollup-plugin-vue": "^6.0.0-beta.9",
     "sass": "^1.45.0",
     "sass-loader": "^8.0.2",
-    "vitest": "^0.23.0"
+    "vitest": "^0.23.2",
+    "prettier": "2.7.1",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-vue": "^9.4.0",
+    "@babel/eslint-parser": "^7.18.9"
   }
 }

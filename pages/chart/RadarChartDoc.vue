@@ -1,7 +1,7 @@
 <template>
     <ClientOnly>
-<AppDoc name="ChartDemo" :sources="sources" :dependencies="{ 'chart.js': '3.3.2' }" component="Chart" github="chart/RadarChartDemo.vue" />
-</ClientOnly>
+        <AppDoc name="ChartDemo" :sources="sources" :dependencies="{ 'chart.js': '3.3.2' }" component="Chart" github="chart/RadarChartDemo.vue" />
+    </ClientOnly>
 </template>
 
 <script>

@@ -1,30 +1,30 @@
 <template>
     <ClientOnly>
-<AppDoc name="TabMenuDemo" :sources="sources" :extPages="pages" github="tabmenu/TabMenuDemo.vue">
-        <h5>Import via Module</h5>
-        <pre v-code.script><code>
+        <AppDoc name="TabMenuDemo" :sources="sources" :extPages="pages" github="tabmenu/TabMenuDemo.vue">
+            <h5>Import via Module</h5>
+            <pre v-code.script><code>
 import TabMenu from 'primevue/tabmenu';
 
 </code></pre>
 
-        <h5>Import via CDN</h5>
-        <pre v-code><code>
+            <h5>Import via CDN</h5>
+            <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/tabmenu/tabmenu.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-        <h5>MenuModel</h5>
-        <p>TabMenu uses the common MenuModel API to define the items, visit <nuxt-link to="/menumodel">MenuModel API</nuxt-link> for details.</p>
+            <h5>MenuModel</h5>
+            <p>TabMenu uses the common MenuModel API to define the items, visit <nuxt-link to="/menumodel">MenuModel API</nuxt-link> for details.</p>
 
-        <h5>Getting Started</h5>
-        <p>TabMenu requires a collection of menuitems as its model.</p>
-        <pre v-code><code>
+            <h5>Getting Started</h5>
+            <p>TabMenu requires a collection of menuitems as its model.</p>
+            <pre v-code><code>
 &lt;TabMenu :model="items" /&gt;
 
 </code></pre>
 
-        <pre v-code.script><code>
+            <pre v-code.script><code>
 export default {
 	data() {
 		return {
@@ -41,14 +41,14 @@ export default {
 
 </code></pre>
 
-        <p>TabMenu can be also integrated with Vue Router.</p>
-        <pre v-code><code>
+            <p>TabMenu can be also integrated with Vue Router.</p>
+            <pre v-code><code>
 &lt;TabMenu :model="items" /&gt;
 &lt;router-view /&gt;
 
 </code></pre>
 
-        <pre v-code.script><code>
+            <pre v-code.script><code>
 export default {
 	data() {
 		return {
@@ -65,23 +65,23 @@ export default {
 
 </code></pre>
 
-        <h5>Active</h5>
-        <p>Visibility of the content is specified with the activeIndex property that supports one or two-way binding.</p>
+            <h5>Active</h5>
+            <p>Visibility of the content is specified with the activeIndex property that supports one or two-way binding.</p>
 
-        <pre v-code><code>
+            <pre v-code><code>
 &lt;TabMenu :model="items" :activeIndex="activeIndex" /&gt;
 
 </code></pre>
 
-        <p>Two-way binding requires v-model.</p>
-        <pre v-code><code>
+            <p>Two-way binding requires v-model.</p>
+            <pre v-code><code>
 &lt;TabMenu :model="items" v-model:activeIndex="activeIndex" /&gt;
 
 </code></pre>
 
-        <h5>Templating</h5>
-        <p>TabMenu offers content customization with the <i>item</i> template that receives the menuitem instance from the model as a parameter.</p>
-        <pre v-code><code><template v-pre>
+            <h5>Templating</h5>
+            <p>TabMenu offers content customization with the <i>item</i> template that receives the menuitem instance from the model as a parameter.</p>
+            <pre v-code><code><template v-pre>
 &lt;TabMenu :model="items"&gt;
     &lt;template #item="{item}"&gt;
         &lt;a :href="item.url"&gt;{{item.label}}&lt;/a&gt;
@@ -90,125 +90,125 @@ export default {
 </template>
 </code></pre>
 
-        <h5>Properties</h5>
-        <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Type</th>
-                        <th>Default</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>model</td>
-                        <td>array</td>
-                        <td>null</td>
-                        <td>An array of menuitems.</td>
-                    </tr>
-                    <tr>
-                        <td>exact</td>
-                        <td>boolean</td>
-                        <td>true</td>
-                        <td>Defines if active route highlight should match the exact route path.</td>
-                    </tr>
-                    <tr>
-                        <td>activeIndex</td>
-                        <td>number</td>
-                        <td>0</td>
-                        <td>Active index of menuitem.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>Properties</h5>
+            <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>model</td>
+                            <td>array</td>
+                            <td>null</td>
+                            <td>An array of menuitems.</td>
+                        </tr>
+                        <tr>
+                            <td>exact</td>
+                            <td>boolean</td>
+                            <td>true</td>
+                            <td>Defines if active route highlight should match the exact route path.</td>
+                        </tr>
+                        <tr>
+                            <td>activeIndex</td>
+                            <td>number</td>
+                            <td>0</td>
+                            <td>Active index of menuitem.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Events</h5>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Parameters</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>tab-change</td>
-                        <td>
-                            event.originalEvent: Browser event <br />
-                            event.index: Index of the selected tab
-                        </td>
-                        <td>Callback to invoke when an active tab is changed.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>Events</h5>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Parameters</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>tab-change</td>
+                            <td>
+                                event.originalEvent: Browser event <br />
+                                event.index: Index of the selected tab
+                            </td>
+                            <td>Callback to invoke when an active tab is changed.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Slots</h5>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Parameters</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>item</td>
-                        <td>item: Menuitem instance</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>Slots</h5>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Parameters</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>item</td>
+                            <td>item: Menuitem instance</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Styling</h5>
-        <p>Following is the list of structural style classes, for theming classes visit <nuxt-link to="/theming">theming</nuxt-link> page.</p>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Element</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>p-tabmenu</td>
-                        <td>Container element.</td>
-                    </tr>
-                    <tr>
-                        <td>p-tabmenu-nav</td>
-                        <td>List element.</td>
-                    </tr>
-                    <tr>
-                        <td>p-tabmenuitem</td>
-                        <td>Menuitem element.</td>
-                    </tr>
-                    <tr>
-                        <td>p-highlight</td>
-                        <td>Active menuitem element.</td>
-                    </tr>
-                    <tr>
-                        <td>p-menuitem-icon</td>
-                        <td>Icon of a menuitem.</td>
-                    </tr>
-                    <tr>
-                        <td>p-menuitem-text</td>
-                        <td>Text of a menuitem.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>Styling</h5>
+            <p>Following is the list of structural style classes, for theming classes visit <nuxt-link to="/theming">theming</nuxt-link> page.</p>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Element</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>p-tabmenu</td>
+                            <td>Container element.</td>
+                        </tr>
+                        <tr>
+                            <td>p-tabmenu-nav</td>
+                            <td>List element.</td>
+                        </tr>
+                        <tr>
+                            <td>p-tabmenuitem</td>
+                            <td>Menuitem element.</td>
+                        </tr>
+                        <tr>
+                            <td>p-highlight</td>
+                            <td>Active menuitem element.</td>
+                        </tr>
+                        <tr>
+                            <td>p-menuitem-icon</td>
+                            <td>Icon of a menuitem.</td>
+                        </tr>
+                        <tr>
+                            <td>p-menuitem-text</td>
+                            <td>Text of a menuitem.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Dependencies</h5>
-        <p>None.</p>
-    </AppDoc>
-</ClientOnly>
+            <h5>Dependencies</h5>
+            <p>None.</p>
+        </AppDoc>
+    </ClientOnly>
 </template>
 
 <script>

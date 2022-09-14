@@ -1,9 +1,9 @@
 <template>
     <div>
-    <span v-if="showEditor" class="flex justify-content-end">
-        <SplitButton :model="items" label="Edit in CodeSandbox" class="liveEditorSplitButton" @click="openDefaultCSB" v-show="false" />
-    </span>
-</div>
+        <span v-if="showEditor" class="flex justify-content-end">
+            <SplitButton :model="items" label="Edit in CodeSandbox" class="liveEditorSplitButton" @click="openDefaultCSB" v-show="false" />
+        </span>
+    </div>
 </template>
 
 <script>
@@ -339,20 +339,20 @@ export default {
                             main: `src/demo/${nameWithExt}`,
                             dependencies: {
                                 ...extDependencies,
-                                "vue": "3.2.31",
+                                vue: '3.2.31',
                                 primevue: '^3.16.2',
                                 primeflex: dependencies['primeflex'],
                                 primeicons: dependencies['primeicons'],
-                                "@babel/cli": "^7.4.4",
-                                "core-js": "^3.6.5",
-                                "vue-router": "^4.0.0-0"
+                                '@babel/cli': '^7.4.4',
+                                'core-js': '^3.6.5',
+                                'vue-router': '^4.0.0-0'
                             },
                             devDependencies: {
-                                "@vue/cli-plugin-babel": "~4.5.0",
-                                "@vue/cli-plugin-eslint": "~4.5.0",
-                                "@vue/cli-service": "~4.5.0",
-                                "eslint": "^6.0.0",
-                                "eslint-plugin-vue": "^7.0.0"
+                                '@vue/cli-plugin-babel': '~4.5.0',
+                                '@vue/cli-plugin-eslint': '~4.5.0',
+                                '@vue/cli-service': '~4.5.0',
+                                eslint: '^6.0.0',
+                                'eslint-plugin-vue': '^7.0.0'
                             }
                         }
                     },

@@ -1,27 +1,27 @@
 <template>
     <ClientOnly>
-<AppDoc name="MegaMenuDemo" :sources="sources" github="megamenu/MegaMenuDemo.vue">
-        <h5>Import via Module</h5>
-        <pre v-code.script><code>
+        <AppDoc name="MegaMenuDemo" :sources="sources" github="megamenu/MegaMenuDemo.vue">
+            <h5>Import via Module</h5>
+            <pre v-code.script><code>
 import MegaMenu from 'primevue/megamenu';
 
 </code></pre>
 
-        <h5>Import via CDN</h5>
-        <pre v-code><code>
+            <h5>Import via CDN</h5>
+            <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/megamenu/megamenu.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-        <h5>MenuModel</h5>
-        <p>MegaMenu uses the common MenuModel API to define the items of the model, visit <nuxt-link to="/menumodel">MenuModel API</nuxt-link> for details.</p>
-        <pre v-code><code>
+            <h5>MenuModel</h5>
+            <p>MegaMenu uses the common MenuModel API to define the items of the model, visit <nuxt-link to="/menumodel">MenuModel API</nuxt-link> for details.</p>
+            <pre v-code><code>
 &lt;MegaMenu :model="items" /&gt;
 
 </code></pre>
 
-        <pre v-code.script><code>
+            <pre v-code.script><code>
 export default {
     data() {
         return {
@@ -143,16 +143,18 @@ export default {
 
 </code></pre>
 
-        <h5>Orientation</h5>
-        <p>Default orientation is "horizontal" with "vertical" as the alternative.</p>
-        <pre v-code><code>
+            <h5>Orientation</h5>
+            <p>Default orientation is "horizontal" with "vertical" as the alternative.</p>
+            <pre v-code><code>
 &lt;MegaMenu :model="items" orientation="vertical" /&gt;
 
 </code></pre>
 
-        <h5>Templating</h5>
-        <p>Two slots named "start" and "end" are provided to embed content before or after the items. In additon MegaMenu, offers item customization with the <i>item</i> template that receives the menuitem instance from the model as a parameter.</p>
-        <pre v-code><code><template v-pre>
+            <h5>Templating</h5>
+            <p>
+                Two slots named "start" and "end" are provided to embed content before or after the items. In additon MegaMenu, offers item customization with the <i>item</i> template that receives the menuitem instance from the model as a parameter.
+            </p>
+            <pre v-code><code><template v-pre>
 &lt;MegaMenu :model="items"&gt;
     &lt;template #start&gt;
         Before
@@ -167,8 +169,8 @@ export default {
 </template>
 </code></pre>
 
-        <p><i>nuxt-link</i> with route configuration can also be used within templating for further customization.</p>
-        <pre v-code><code><template v-pre>
+            <p><i>nuxt-link</i> with route configuration can also be used within templating for further customization.</p>
+            <pre v-code><code><template v-pre>
 &lt;MegaMenu :model="items"&gt;
     &lt;template #item="{item}"&gt;
         &lt;nuxt-link :to="item.to" custom v-slot="{href, route, navigate, isActive, isExactActive}"&gt;
@@ -179,134 +181,134 @@ export default {
 </template>
 </code></pre>
 
-        <h5>Properties</h5>
-        <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Type</th>
-                        <th>Default</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>model</td>
-                        <td>array</td>
-                        <td>null</td>
-                        <td>An array of menuitems.</td>
-                    </tr>
-                    <tr>
-                        <td>orientation</td>
-                        <td>string</td>
-                        <td>horizontal</td>
-                        <td>Defines the orientation, valid values are horizontal and vertical.</td>
-                    </tr>
-                    <tr>
-                        <td>exact</td>
-                        <td>boolean</td>
-                        <td>true</td>
-                        <td>Whether to apply 'nuxt-link-active-exact' class if route exactly matches the item path.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>Properties</h5>
+            <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>model</td>
+                            <td>array</td>
+                            <td>null</td>
+                            <td>An array of menuitems.</td>
+                        </tr>
+                        <tr>
+                            <td>orientation</td>
+                            <td>string</td>
+                            <td>horizontal</td>
+                            <td>Defines the orientation, valid values are horizontal and vertical.</td>
+                        </tr>
+                        <tr>
+                            <td>exact</td>
+                            <td>boolean</td>
+                            <td>true</td>
+                            <td>Whether to apply 'nuxt-link-active-exact' class if route exactly matches the item path.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Slots</h5>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Parameters</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>item</td>
-                        <td>item: Menuitem instance</td>
-                    </tr>
-                    <tr>
-                        <td>start</td>
-                        <td>-</td>
-                    </tr>
-                    <tr>
-                        <td>end</td>
-                        <td>-</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>Slots</h5>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Parameters</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>item</td>
+                            <td>item: Menuitem instance</td>
+                        </tr>
+                        <tr>
+                            <td>start</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>end</td>
+                            <td>-</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Styling</h5>
-        <p>Following is the list of structural style classes, for theming classes visit <nuxt-link to="/theming">theming</nuxt-link> page.</p>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Element</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>p-megamenu</td>
-                        <td>Container element.</td>
-                    </tr>
-                    <tr>
-                        <td>p-megamenu-horizontal</td>
-                        <td>Container element in horizontal orientation.</td>
-                    </tr>
-                    <tr>
-                        <td>p-megamenu-vertical</td>
-                        <td>Container element in vertical orientation.</td>
-                    </tr>
-                    <tr>
-                        <td>p-megamenu-root-list</td>
-                        <td>Root list element.</td>
-                    </tr>
-                    <tr>
-                        <td>p-megamenu-panel</td>
-                        <td>Submenu container.</td>
-                    </tr>
-                    <tr>
-                        <td>p-megamenu-submenu</td>
-                        <td>Submenu list element.</td>
-                    </tr>
-                    <tr>
-                        <td>p-menuitem</td>
-                        <td>Menuitem element.</td>
-                    </tr>
-                    <tr>
-                        <td>p-menuitem-active</td>
-                        <td>Active menuitem element.</td>
-                    </tr>
-                    <tr>
-                        <td>p-menuitem-text</td>
-                        <td>Label of a menuitem.</td>
-                    </tr>
-                    <tr>
-                        <td>p-menuitem-icon</td>
-                        <td>Icon of a menuitem.</td>
-                    </tr>
-                    <tr>
-                        <td>p-submenu-icon</td>
-                        <td>Arrow icon of a submenu.</td>
-                    </tr>
-                    <tr>
-                        <td>p-megamenu-custom</td>
-                        <td>Container of the default slot.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>Styling</h5>
+            <p>Following is the list of structural style classes, for theming classes visit <nuxt-link to="/theming">theming</nuxt-link> page.</p>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Element</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>p-megamenu</td>
+                            <td>Container element.</td>
+                        </tr>
+                        <tr>
+                            <td>p-megamenu-horizontal</td>
+                            <td>Container element in horizontal orientation.</td>
+                        </tr>
+                        <tr>
+                            <td>p-megamenu-vertical</td>
+                            <td>Container element in vertical orientation.</td>
+                        </tr>
+                        <tr>
+                            <td>p-megamenu-root-list</td>
+                            <td>Root list element.</td>
+                        </tr>
+                        <tr>
+                            <td>p-megamenu-panel</td>
+                            <td>Submenu container.</td>
+                        </tr>
+                        <tr>
+                            <td>p-megamenu-submenu</td>
+                            <td>Submenu list element.</td>
+                        </tr>
+                        <tr>
+                            <td>p-menuitem</td>
+                            <td>Menuitem element.</td>
+                        </tr>
+                        <tr>
+                            <td>p-menuitem-active</td>
+                            <td>Active menuitem element.</td>
+                        </tr>
+                        <tr>
+                            <td>p-menuitem-text</td>
+                            <td>Label of a menuitem.</td>
+                        </tr>
+                        <tr>
+                            <td>p-menuitem-icon</td>
+                            <td>Icon of a menuitem.</td>
+                        </tr>
+                        <tr>
+                            <td>p-submenu-icon</td>
+                            <td>Arrow icon of a submenu.</td>
+                        </tr>
+                        <tr>
+                            <td>p-megamenu-custom</td>
+                            <td>Container of the default slot.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Dependencies</h5>
-        <p>None.</p>
-    </AppDoc>
-</ClientOnly>
+            <h5>Dependencies</h5>
+            <p>None.</p>
+        </AppDoc>
+    </ClientOnly>
 </template>
 
 <script>

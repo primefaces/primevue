@@ -1,7 +1,7 @@
 <template>
-    <section :ref="containerRef" :class="['landing-header pad-section', {'landing-header-active': menuActive}]">
+    <section :ref="containerRef" :class="['landing-header pad-section', { 'landing-header-active': menuActive }]">
         <span>
-            <img :src="'/demo/images/primevue-logo-' + `${$appState.darkTheme ? 'light' : 'dark'}` + '.svg'" alt="primevue logo" class="landing-header-logo"/>
+            <img :src="'/demo/images/primevue-logo-' + `${$appState.darkTheme ? 'light' : 'dark'}` + '.svg'" alt="primevue logo" class="landing-header-logo" />
         </span>
 
         <div class="flex align-items-center">
@@ -40,9 +40,9 @@
                 <i class="pi pi-discord"></i>
             </nuxt-link>
             <button type="button" class="linkbox header-button inline-flex align-items-center justify-content-center" @click="toggleTheme">
-                <i :class="['pi', {'pi-sun': isDarkTheme(), 'pi-moon': !isDarkTheme()}]"></i>
+                <i :class="['pi', { 'pi-sun': isDarkTheme(), 'pi-moon': !isDarkTheme() }]"></i>
             </button>
-            <button type="button" class="linkbox header-button inline-flex align-items-center justify-content-center lg:hidden ml-2 menu-button" @click="toggleMenuActive" >
+            <button type="button" class="linkbox header-button inline-flex align-items-center justify-content-center lg:hidden ml-2 menu-button" @click="toggleMenuActive">
                 <i class="pi pi-bars"></i>
             </button>
         </div>
@@ -55,7 +55,7 @@ export default {
     data() {
         return {
             menuActive: false
-        }
+        };
     },
     scrollListener: null,
     container: null,
@@ -84,7 +84,7 @@ export default {
             if (!this.scrollListener && this.container) {
                 this.scrollListener = () => {
                     this.checkSticky();
-                }
+                };
             }
             window.addEventListener('scroll', this.scrollListener);
         },
@@ -98,11 +98,9 @@ export default {
             this.container = el;
         },
         checkSticky() {
-            if (window.scrollY > 0)
-                this.container.classList.add('landing-header-sticky');
-            else
-                this.container.classList.remove('landing-header-sticky');
+            if (window.scrollY > 0) this.container.classList.add('landing-header-sticky');
+            else this.container.classList.remove('landing-header-sticky');
         }
     }
-}
+};
 </script>

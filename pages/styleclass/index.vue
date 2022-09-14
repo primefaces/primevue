@@ -1,30 +1,30 @@
 <template>
     <div>
-    <div> 
-        <div class="content-section introduction">
-            <div class="feature-intro">
-                <h1>StyleClass</h1>
-                <p>StyleClass manages css classes declaratively to during enter/leave animations or just to toggle classes on an element.</p>
+        <div>
+            <div class="content-section introduction">
+                <div class="feature-intro">
+                    <h1>StyleClass</h1>
+                    <p>StyleClass manages css classes declaratively to during enter/leave animations or just to toggle classes on an element.</p>
+                </div>
+                <AppDemoActions />
             </div>
-            <AppDemoActions />
         </div>
-    </div>
 
-    <div class="content-section implementation">
-        <div class="card">
-            <h5>Toggle Class</h5>
-            <Button label="Toggle p-disabled" v-styleclass="{ selector: '@next', toggleClass: 'p-disabled' }" />
-            <InputText class="block mt-3" />
+        <div class="content-section implementation">
+            <div class="card">
+                <h5>Toggle Class</h5>
+                <Button label="Toggle p-disabled" v-styleclass="{ selector: '@next', toggleClass: 'p-disabled' }" />
+                <InputText class="block mt-3" />
 
-            <h5>Animations</h5>
-            <Button label="Show" class="mr-2" v-styleclass="{ selector: '.box', enterClass: 'hidden', enterActiveClass: 'my-fadein' }" />
-            <Button label="Hide" v-styleclass="{ selector: '.box', leaveActiveClass: 'my-fadeout', leaveToClass: 'hidden' }" />
-            <div class="box hidden">Content</div>
+                <h5>Animations</h5>
+                <Button label="Show" class="mr-2" v-styleclass="{ selector: '.box', enterClass: 'hidden', enterActiveClass: 'my-fadein' }" />
+                <Button label="Hide" v-styleclass="{ selector: '.box', leaveActiveClass: 'my-fadeout', leaveToClass: 'hidden' }" />
+                <div class="box hidden">Content</div>
+            </div>
         </div>
-    </div>
 
-    <StyleClassDoc />
-</div>
+        <StyleClassDoc />
+    </div>
 </template>
 
 <script>

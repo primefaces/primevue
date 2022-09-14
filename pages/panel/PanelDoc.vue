@@ -1,22 +1,22 @@
 <template>
     <ClientOnly>
-<AppDoc name="PanelDemo" :sources="sources" github="panel/PanelDemo.vue">
-        <h5>Import via Module</h5>
-        <pre v-code.script><code>
+        <AppDoc name="PanelDemo" :sources="sources" github="panel/PanelDemo.vue">
+            <h5>Import via Module</h5>
+            <pre v-code.script><code>
 import Panel from 'primevue/panel';
 
 </code></pre>
 
-        <h5>Import via CDN</h5>
-        <pre v-code><code>
+            <h5>Import via CDN</h5>
+            <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/panel/panel.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-        <h5>Getting Started</h5>
-        <p>Panel is a container component that accepts content as its children.</p>
-        <pre v-code><code>
+            <h5>Getting Started</h5>
+            <p>Panel is a container component that accepts content as its children.</p>
+            <pre v-code><code>
 &lt;Panel header="Header"&gt;
 	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
     Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -26,9 +26,9 @@ import Panel from 'primevue/panel';
 
 </code></pre>
 
-        <h5>Custom Header</h5>
-        <p>Header of the panel is either defined with the <i>header</i> property or the header template.</p>
-        <pre v-code><code>
+            <h5>Custom Header</h5>
+            <p>Header of the panel is either defined with the <i>header</i> property or the header template.</p>
+            <pre v-code><code>
 &lt;Panel&gt;
     &lt;template #header&gt;
         Header Content
@@ -38,9 +38,9 @@ import Panel from 'primevue/panel';
 
 </code></pre>
 
-        <h5>Toggleable</h5>
-        <p>Content of the panel can be expanded and collapsed using <i>toggleable</i> option.</p>
-        <pre v-code><code>
+            <h5>Toggleable</h5>
+            <p>Content of the panel can be expanded and collapsed using <i>toggleable</i> option.</p>
+            <pre v-code><code>
 &lt;Panel header="Header" :toggleable="true"&gt;
 	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
     Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -50,17 +50,17 @@ import Panel from 'primevue/panel';
 
 </code></pre>
 
-        <p>To control the initial state of the toggleable panel, use the <i>collapsed</i> property.</p>
-        <pre v-code><code>
+            <p>To control the initial state of the toggleable panel, use the <i>collapsed</i> property.</p>
+            <pre v-code><code>
 &lt;Panel header="Header Text" :toggleable="true" :collapsed="true"&gt;
 	Content
 &lt;/Panel&gt;
 
 </code></pre>
 
-        <p>Use the v-model directive to enable two-way binding.</p>
+            <p>Use the v-model directive to enable two-way binding.</p>
 
-        <pre v-code><code>
+            <pre v-code><code>
 &lt;button type="button" @click="isCollapsed = !isCollapsed">Toggle Programmatically&lt;/button&gt;
 &lt;Panel header="Header Text" :toggleable="true" v-model:collapsed="isCollapsed"&gt;
 	Content
@@ -68,9 +68,9 @@ import Panel from 'primevue/panel';
 
 </code></pre>
 
-        <h5>Custom Icons</h5>
-        <p>Additional icons can be placed at the header section of the panel using the special <i>icons</i> slot. For a unified look, it is suggest to add <i>.p-panel-header-icon</i> class to your icons.</p>
-        <pre v-code><code>
+            <h5>Custom Icons</h5>
+            <p>Additional icons can be placed at the header section of the panel using the special <i>icons</i> slot. For a unified look, it is suggest to add <i>.p-panel-header-icon</i> class to your icons.</p>
+            <pre v-code><code>
 &lt;h5&gt;Advanced&lt;/h5&gt;
 &lt;Panel header="Header"&gt;
     &lt;template #icons&gt;
@@ -83,175 +83,175 @@ import Panel from 'primevue/panel';
 
 </code></pre>
 
-        <h5>Properties</h5>
-        <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Type</th>
-                        <th>Default</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>header</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Header text of the panel.</td>
-                    </tr>
-                    <tr>
-                        <td>toggleable</td>
-                        <td>boolean</td>
-                        <td>null</td>
-                        <td>Defines if content of panel can be expanded and collapsed.</td>
-                    </tr>
-                    <tr>
-                        <td>collapsed</td>
-                        <td>boolean</td>
-                        <td>null</td>
-                        <td>Defines the initial state of panel content.</td>
-                    </tr>
-                    <tr>
-                        <td>toggleButtonProps</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Uses to pass the custom value to read for the button inside the component.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <h5>Events</h5>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Parameters</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>toggle</td>
-                        <td>
-                            event.originalEvent: browser event <br />
-                            event.value: collapsed state as a boolean
-                        </td>
-                        <td>Callback to invoke when a tab toggle.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <h5>Slots</h5>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Parameters</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>header</td>
-                        <td>-</td>
-                    </tr>
-                    <tr>
-                        <td>icons</td>
-                        <td>-</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <h5>Styling</h5>
-        <p>Following is the list of structural style classes, for theming classes visit <nuxt-link to="/theming">theming</nuxt-link> page.</p>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Element</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>p-panel</td>
-                        <td>Container element.</td>
-                    </tr>
-                    <tr>
-                        <td>p-panel-header</td>
-                        <td>Header section.</td>
-                    </tr>
-                    <tr>
-                        <td>p-panel-title</td>
-                        <td>Title text of panel.</td>
-                    </tr>
-                    <tr>
-                        <td>p-panel-header-icon</td>
-                        <td>Action icons inside header.</td>
-                    </tr>
-                    <tr>
-                        <td>p-panel-toggler</td>
-                        <td>Toggle icon.</td>
-                    </tr>
-                    <tr>
-                        <td>p-panel-content</td>
-                        <td>Content of panel.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <h5>Accessibility</h5>
-        <DevelopmentSection>
-            <h6>Screen Reader</h6>
-            <p>
-                Toggleable panels use a content toggle button at the header that has <i>aria-controls</i> to define the id of the content section along with <i>aria-expanded</i> for the visibility state. The value to read the button defaults to the
-                value of the <i>header</i> property and can be customized by defining an <i>aria-label</i> or <i>aria-labelledby</i> via the <i>toggleButtonProps</i> property.
-            </p>
-            <p>The content uses <i>region</i>, defines an id that matches the <i>aria-controls</i> of the content toggle button and <i>aria-labelledby</i> referring to the id of the header.</p>
-
-            <h6>Content Toggle Button Keyboard Support</h6>
+            <h5>Properties</h5>
+            <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
             <div class="doc-tablewrapper">
                 <table class="doc-table">
                     <thead>
                         <tr>
-                            <th>Key</th>
-                            <th>Function</th>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Default</th>
+                            <th>Description</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><i>tab</i></td>
-                            <td>Moves focus to the next the focusable element in the page tab sequence.</td>
+                            <td>header</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Header text of the panel.</td>
                         </tr>
                         <tr>
-                            <td><i>shift</i> + <i>tab</i></td>
-                            <td>Moves focus to the previous the focusable element in the page tab sequence.</td>
+                            <td>toggleable</td>
+                            <td>boolean</td>
+                            <td>null</td>
+                            <td>Defines if content of panel can be expanded and collapsed.</td>
                         </tr>
                         <tr>
-                            <td><i>enter</i></td>
-                            <td>Toggles the visibility of the content.</td>
+                            <td>collapsed</td>
+                            <td>boolean</td>
+                            <td>null</td>
+                            <td>Defines the initial state of panel content.</td>
                         </tr>
                         <tr>
-                            <td><i>space</i></td>
-                            <td>Toggles the visibility of the content.</td>
+                            <td>toggleButtonProps</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Uses to pass the custom value to read for the button inside the component.</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-        </DevelopmentSection>
 
-        <h5>Dependencies</h5>
-        <p>None.</p>
-    </AppDoc>
-</ClientOnly>
+            <h5>Events</h5>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Parameters</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>toggle</td>
+                            <td>
+                                event.originalEvent: browser event <br />
+                                event.value: collapsed state as a boolean
+                            </td>
+                            <td>Callback to invoke when a tab toggle.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h5>Slots</h5>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Parameters</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>header</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>icons</td>
+                            <td>-</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h5>Styling</h5>
+            <p>Following is the list of structural style classes, for theming classes visit <nuxt-link to="/theming">theming</nuxt-link> page.</p>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Element</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>p-panel</td>
+                            <td>Container element.</td>
+                        </tr>
+                        <tr>
+                            <td>p-panel-header</td>
+                            <td>Header section.</td>
+                        </tr>
+                        <tr>
+                            <td>p-panel-title</td>
+                            <td>Title text of panel.</td>
+                        </tr>
+                        <tr>
+                            <td>p-panel-header-icon</td>
+                            <td>Action icons inside header.</td>
+                        </tr>
+                        <tr>
+                            <td>p-panel-toggler</td>
+                            <td>Toggle icon.</td>
+                        </tr>
+                        <tr>
+                            <td>p-panel-content</td>
+                            <td>Content of panel.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h5>Accessibility</h5>
+            <DevelopmentSection>
+                <h6>Screen Reader</h6>
+                <p>
+                    Toggleable panels use a content toggle button at the header that has <i>aria-controls</i> to define the id of the content section along with <i>aria-expanded</i> for the visibility state. The value to read the button defaults to
+                    the value of the <i>header</i> property and can be customized by defining an <i>aria-label</i> or <i>aria-labelledby</i> via the <i>toggleButtonProps</i> property.
+                </p>
+                <p>The content uses <i>region</i>, defines an id that matches the <i>aria-controls</i> of the content toggle button and <i>aria-labelledby</i> referring to the id of the header.</p>
+
+                <h6>Content Toggle Button Keyboard Support</h6>
+                <div class="doc-tablewrapper">
+                    <table class="doc-table">
+                        <thead>
+                            <tr>
+                                <th>Key</th>
+                                <th>Function</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><i>tab</i></td>
+                                <td>Moves focus to the next the focusable element in the page tab sequence.</td>
+                            </tr>
+                            <tr>
+                                <td><i>shift</i> + <i>tab</i></td>
+                                <td>Moves focus to the previous the focusable element in the page tab sequence.</td>
+                            </tr>
+                            <tr>
+                                <td><i>enter</i></td>
+                                <td>Toggles the visibility of the content.</td>
+                            </tr>
+                            <tr>
+                                <td><i>space</i></td>
+                                <td>Toggles the visibility of the content.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </DevelopmentSection>
+
+            <h5>Dependencies</h5>
+            <p>None.</p>
+        </AppDoc>
+    </ClientOnly>
 </template>
 
 <script>

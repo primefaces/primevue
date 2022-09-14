@@ -9,17 +9,16 @@ config.global.mocks = {
         config: {
             zIndex: {
                 modal: 1100
-            },
+            }
         },
         DomHandler: {
             addClass: vi.fn(),
-            removeClass: vi.fn(),
+            removeClass: vi.fn()
         },
         ZIndexUtils: {
             set: vi.fn(),
-            clear: vi.fn(),
-        },
-        
+            clear: vi.fn()
+        }
     }
 };
 describe('BlockUI.vue', () => {

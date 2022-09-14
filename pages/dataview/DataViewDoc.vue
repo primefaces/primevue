@@ -1,29 +1,29 @@
 <template>
     <ClientOnly>
-<AppDoc name="DataViewDemo" :sources="sources" :service="['ProductService']" :data="['products']" github="dataview/DataViewDemo.vue">
-        <h5>Import via Module</h5>
+        <AppDoc name="DataViewDemo" :sources="sources" :service="['ProductService']" :data="['products']" github="dataview/DataViewDemo.vue">
+            <h5>Import via Module</h5>
 
-        <pre v-code.script><code>
+            <pre v-code.script><code>
 import DataView from 'primevue/dataview';
 				
 </code></pre>
 
-        <h5>Import via CDN</h5>
-        <pre v-code><code>
+            <h5>Import via CDN</h5>
+            <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/dataview/dataview.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-        <h5>PrimeFlex</h5>
-        <p>DataView utilizes PrimeFlex library so it needs to be installed before getting started. Refer to <a href="https://www.primefaces.org/primeflex/gridsystem">PrimeFlex</a> documentation for details.</p>
+            <h5>PrimeFlex</h5>
+            <p>DataView utilizes PrimeFlex library so it needs to be installed before getting started. Refer to <a href="https://www.primefaces.org/primeflex/gridsystem">PrimeFlex</a> documentation for details.</p>
 
-        <h5>Getting Started</h5>
-        <p>
-            DataView requires a collection of items as its value and one or more templates depending on the layout mode e.g. list and grid. Throughout the samples, a car interface having vin, brand, year and color properties are used to define an
-            object to be displayed by the dataview. Cars are loaded by a CarService that connects to a server to fetch the cars.
-        </p>
-        <pre v-code.script><code><template v-pre>
+            <h5>Getting Started</h5>
+            <p>
+                DataView requires a collection of items as its value and one or more templates depending on the layout mode e.g. list and grid. Throughout the samples, a car interface having vin, brand, year and color properties are used to define an
+                object to be displayed by the dataview. Cars are loaded by a CarService that connects to a server to fetch the cars.
+            </p>
+            <pre v-code.script><code><template v-pre>
 export default {
     data() {
         return {
@@ -41,10 +41,10 @@ export default {
 </template>
 </code></pre>
 
-        <h5>Layouts</h5>
-        <p>DataView has two layout modes; <i>list</i> and <i>grid</i> where a separate template is used to render an item in each mode. In list mode name of the template is "list" whereas in grid mode it is "grid".</p>
-        <p>Note that there is no restriction to use both layouts at the same time, you may configure only one layout using the layout property with the corresponding template.</p>
-        <pre v-code><code><template v-pre>
+            <h5>Layouts</h5>
+            <p>DataView has two layout modes; <i>list</i> and <i>grid</i> where a separate template is used to render an item in each mode. In list mode name of the template is "list" whereas in grid mode it is "grid".</p>
+            <p>Note that there is no restriction to use both layouts at the same time, you may configure only one layout using the layout property with the corresponding template.</p>
+            <pre v-code><code><template v-pre>
 &lt;template #list="slotProps"&gt;
 	&lt;div class="col-12"&gt;
         &lt;div class="car-details"&gt;
@@ -73,28 +73,28 @@ export default {
 </template>
 </code></pre>
 
-        <h5>Sections</h5>
-        <p>Header and Footer are the two templates that are capable of displaying custom content.</p>
-        <pre v-code><code>
+            <h5>Sections</h5>
+            <p>Header and Footer are the two templates that are capable of displaying custom content.</p>
+            <pre v-code><code>
 &lt;template #header&gt;Header Content&lt;/template&gt;
 &lt;template #footer&gt;Footer Content&lt;/template&gt;
 
 </code></pre>
 
-        <h5>Empty Message</h5>
-        <p>Where there is no data to display, the optional <i>empty</i> template can be used to display information.</p>
-        <pre v-code><code>
+            <h5>Empty Message</h5>
+            <p>Where there is no data to display, the optional <i>empty</i> template can be used to display information.</p>
+            <pre v-code><code>
 &lt;template #empty&gt;No records found.&lt;/template&gt;
 
 </code></pre>
 
-        <h5>DataViewLayoutOptions</h5>
-        <p>
-            When both layout modes are enabled in DataView, a UI element would be necessary to let the user toggle between the view. DataViewLayoutOptions is a helper component to display a buttonset to choose the layout mode in DataView. Location of
-            the DataViewLayoutOptions should be inside the DataView component. If you prefer a different UI element you can create your own that updates the layout property of the DataView.
-        </p>
+            <h5>DataViewLayoutOptions</h5>
+            <p>
+                When both layout modes are enabled in DataView, a UI element would be necessary to let the user toggle between the view. DataViewLayoutOptions is a helper component to display a buttonset to choose the layout mode in DataView.
+                Location of the DataViewLayoutOptions should be inside the DataView component. If you prefer a different UI element you can create your own that updates the layout property of the DataView.
+            </p>
 
-        <pre v-code><code><template v-pre>
+            <pre v-code><code><template v-pre>
 &lt;DataView :value="cars" :layout="layout"&gt;
 	&lt;template #header&gt;
 		&lt;DataViewLayoutOptions v-model="layout"&gt;&lt;/DataViewLayoutOptions&gt;
@@ -109,12 +109,12 @@ export default {
 </template>
 </code></pre>
 
-        <h5>Paginator</h5>
-        <p>
-            Pagination is enabled by setting paginator property to true, rows attribute defines the number of rows per page and pageLinks specify the the number of page links to display. To customize the left and right side of the paginators, use
-            <i>paginatorstart</i> and <i>paginatorend</i> templates.
-        </p>
-        <pre v-code><code><template v-pre>
+            <h5>Paginator</h5>
+            <p>
+                Pagination is enabled by setting paginator property to true, rows attribute defines the number of rows per page and pageLinks specify the the number of page links to display. To customize the left and right side of the paginators, use
+                <i>paginatorstart</i> and <i>paginatorend</i> templates.
+            </p>
+            <pre v-code><code><template v-pre>
 &lt;DataView :value="cars" :layout="layout" paginatorPosition="both" :paginator="true" :rows="20"&gt;
 	&lt;template #paginatorstart&gt;
 		&lt;Button type="button" icon="pi pi-refresh"/&gt;
@@ -132,12 +132,12 @@ export default {
 </template>
 </code></pre>
 
-        <h5>Sorting</h5>
-        <p>
-            <i>sortField</i> and <i>sortOrder</i> properties are available for the sorting functionality, for flexibility there is no built-in UI available so that a custom UI can be used for the sorting element. Here is an example that uses a
-            dropdown where simply updating the sortField-sortOrder bindings of the DataView initiates sorting.
-        </p>
-        <pre v-code><code><template v-pre>
+            <h5>Sorting</h5>
+            <p>
+                <i>sortField</i> and <i>sortOrder</i> properties are available for the sorting functionality, for flexibility there is no built-in UI available so that a custom UI can be used for the sorting element. Here is an example that uses a
+                dropdown where simply updating the sortField-sortOrder bindings of the DataView initiates sorting.
+            </p>
+            <pre v-code><code><template v-pre>
 &lt;DataView :value="cars" :layout="layout" :sortOrder="sortOrder" :sortField="sortField"&gt;
     &lt;template #header&gt;
         &lt;div class="grid grid-nogutter"&gt;
@@ -159,7 +159,7 @@ export default {
 </template>
 </code></pre>
 
-        <pre v-code.script><code><template v-pre>
+            <pre v-code.script><code><template v-pre>
 export default {
     data() {
         return {
@@ -203,12 +203,12 @@ export default {
 </template>
 </code></pre>
 
-        <h5>Lazy Loading</h5>
-        <p>
-            Lazy loading is useful to deal with huge datasets, in order to implement lazy loading use the pagination and utilize the <i>page</i> callback to load your data from the backend. Pagination in this case needs to display the logical number
-            of records bound to the <i>totalRecords</i> property so that paginator can display itself according to the total records although you'd only need to load the data of the current page.
-        </p>
-        <pre v-code><code><template v-pre>
+            <h5>Lazy Loading</h5>
+            <p>
+                Lazy loading is useful to deal with huge datasets, in order to implement lazy loading use the pagination and utilize the <i>page</i> callback to load your data from the backend. Pagination in this case needs to display the logical
+                number of records bound to the <i>totalRecords</i> property so that paginator can display itself according to the total records although you'd only need to load the data of the current page.
+            </p>
+            <pre v-code><code><template v-pre>
 &lt;DataView :value="cars" :layout="layout" :paginator="true" :rows="20" :lazy="true" @page="onPage($event)"&gt;
 	&lt;template #list="slotProps" &gt;
 		&lt;div&gt;Vin: &lt;b&gt;{{slotProps.data.vin}}&lt;/b&gt;&lt;/div&gt;
@@ -220,7 +220,7 @@ export default {
 </template>
 </code></pre>
 
-        <pre v-code.script><code><template v-pre>
+            <pre v-code.script><code><template v-pre>
 export default {
     data() {
         return {
@@ -241,238 +241,238 @@ export default {
 </template>
 </code></pre>
 
-        <h5>Properties</h5>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Type</th>
-                        <th>Default</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>value</td>
-                        <td>array</td>
-                        <td>null</td>
-                        <td>An array of objects to display.</td>
-                    </tr>
-                    <tr>
-                        <td>layout</td>
-                        <td>string</td>
-                        <td>list</td>
-                        <td>Layout of the items, valid values are "list" and "grid".</td>
-                    </tr>
-                    <tr>
-                        <td>rows</td>
-                        <td>number</td>
-                        <td>0</td>
-                        <td>Number of rows to display per page.</td>
-                    </tr>
-                    <tr>
-                        <td>first</td>
-                        <td>number</td>
-                        <td>0</td>
-                        <td>Index of the first record to render.</td>
-                    </tr>
-                    <tr>
-                        <td>totalRecords</td>
-                        <td>number</td>
-                        <td>null</td>
-                        <td>Number of total records, defaults to length of value when not defined.</td>
-                    </tr>
-                    <tr>
-                        <td>paginator</td>
-                        <td>boolean</td>
-                        <td>false</td>
-                        <td>When specified as true, enables the pagination.</td>
-                    </tr>
-                    <tr>
-                        <td>paginatorPosition</td>
-                        <td>string</td>
-                        <td>bottom</td>
-                        <td>Position of the paginator, options are "top","bottom" or "both".</td>
-                    </tr>
-                    <tr>
-                        <td>alwaysShowPaginator</td>
-                        <td>boolean</td>
-                        <td>true</td>
-                        <td>Whether to show it even there is only one page.</td>
-                    </tr>
-                    <tr>
-                        <td>paginatorTemplate</td>
-                        <td>string</td>
-                        <td>FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown</td>
-                        <td>Template of the paginator. See the <nuxt-link to="/paginator">Paginator</nuxt-link> for all available options.</td>
-                    </tr>
-                    <tr>
-                        <td>pageLinkSize</td>
-                        <td>number</td>
-                        <td>5</td>
-                        <td>Number of page links to display.</td>
-                    </tr>
-                    <tr>
-                        <td>rowsPerPageOptions</td>
-                        <td>array</td>
-                        <td>null</td>
-                        <td>Array of integer values to display inside rows per page dropdown.</td>
-                    </tr>
-                    <tr>
-                        <td>currentPageReportTemplate</td>
-                        <td>string</td>
-                        <td>({currentPage} of {totalPages})</td>
-                        <td>Template of the current page report element.</td>
-                    </tr>
-                    <tr>
-                        <td>sortField</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Property name or a getter function of data to use in sorting by default.</td>
-                    </tr>
-                    <tr>
-                        <td>sortOrder</td>
-                        <td>number</td>
-                        <td>null</td>
-                        <td>Order to sort the data by default.</td>
-                    </tr>
-                    <tr>
-                        <td>lazy</td>
-                        <td>boolean</td>
-                        <td>false</td>
-                        <td>Defines if data is loaded and interacted with in lazy manner.</td>
-                    </tr>
-                    <tr>
-                        <td>dataKey</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Name of the data that uniquely identifies the a record in the data.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>Properties</h5>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>value</td>
+                            <td>array</td>
+                            <td>null</td>
+                            <td>An array of objects to display.</td>
+                        </tr>
+                        <tr>
+                            <td>layout</td>
+                            <td>string</td>
+                            <td>list</td>
+                            <td>Layout of the items, valid values are "list" and "grid".</td>
+                        </tr>
+                        <tr>
+                            <td>rows</td>
+                            <td>number</td>
+                            <td>0</td>
+                            <td>Number of rows to display per page.</td>
+                        </tr>
+                        <tr>
+                            <td>first</td>
+                            <td>number</td>
+                            <td>0</td>
+                            <td>Index of the first record to render.</td>
+                        </tr>
+                        <tr>
+                            <td>totalRecords</td>
+                            <td>number</td>
+                            <td>null</td>
+                            <td>Number of total records, defaults to length of value when not defined.</td>
+                        </tr>
+                        <tr>
+                            <td>paginator</td>
+                            <td>boolean</td>
+                            <td>false</td>
+                            <td>When specified as true, enables the pagination.</td>
+                        </tr>
+                        <tr>
+                            <td>paginatorPosition</td>
+                            <td>string</td>
+                            <td>bottom</td>
+                            <td>Position of the paginator, options are "top","bottom" or "both".</td>
+                        </tr>
+                        <tr>
+                            <td>alwaysShowPaginator</td>
+                            <td>boolean</td>
+                            <td>true</td>
+                            <td>Whether to show it even there is only one page.</td>
+                        </tr>
+                        <tr>
+                            <td>paginatorTemplate</td>
+                            <td>string</td>
+                            <td>FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown</td>
+                            <td>Template of the paginator. See the <nuxt-link to="/paginator">Paginator</nuxt-link> for all available options.</td>
+                        </tr>
+                        <tr>
+                            <td>pageLinkSize</td>
+                            <td>number</td>
+                            <td>5</td>
+                            <td>Number of page links to display.</td>
+                        </tr>
+                        <tr>
+                            <td>rowsPerPageOptions</td>
+                            <td>array</td>
+                            <td>null</td>
+                            <td>Array of integer values to display inside rows per page dropdown.</td>
+                        </tr>
+                        <tr>
+                            <td>currentPageReportTemplate</td>
+                            <td>string</td>
+                            <td>({currentPage} of {totalPages})</td>
+                            <td>Template of the current page report element.</td>
+                        </tr>
+                        <tr>
+                            <td>sortField</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Property name or a getter function of data to use in sorting by default.</td>
+                        </tr>
+                        <tr>
+                            <td>sortOrder</td>
+                            <td>number</td>
+                            <td>null</td>
+                            <td>Order to sort the data by default.</td>
+                        </tr>
+                        <tr>
+                            <td>lazy</td>
+                            <td>boolean</td>
+                            <td>false</td>
+                            <td>Defines if data is loaded and interacted with in lazy manner.</td>
+                        </tr>
+                        <tr>
+                            <td>dataKey</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Name of the data that uniquely identifies the a record in the data.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Events</h5>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Parameters</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>page</td>
-                        <td>
-                            event.page: New page number <br />
-                            event.first: Index of first record <br />
-                            event.rows: Number of rows to display in new page <br />
-                            event.pageCount: Total number of pages
-                        </td>
-                        <td>Callback to invoke when page changes, the event object contains information about the new state.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>Events</h5>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Parameters</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>page</td>
+                            <td>
+                                event.page: New page number <br />
+                                event.first: Index of first record <br />
+                                event.rows: Number of rows to display in new page <br />
+                                event.pageCount: Total number of pages
+                            </td>
+                            <td>Callback to invoke when page changes, the event object contains information about the new state.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Slots</h5>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Parameters</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>header</td>
-                        <td>-</td>
-                    </tr>
-                    <tr>
-                        <td>paginatorstart</td>
-                        <td>-</td>
-                    </tr>
-                    <tr>
-                        <td>paginatorend</td>
-                        <td>-</td>
-                    </tr>
-                    <tr>
-                        <td>list</td>
-                        <td>
-                            data: Value of the component <br />
-                            index: Index of the list
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>grid</td>
-                        <td>
-                            data: Value of the component <br />
-                            index: Index of the grid
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>empty</td>
-                        <td>-</td>
-                    </tr>
-                    <tr>
-                        <td>footer</td>
-                        <td>-</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>Slots</h5>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Parameters</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>header</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>paginatorstart</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>paginatorend</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>list</td>
+                            <td>
+                                data: Value of the component <br />
+                                index: Index of the list
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>grid</td>
+                            <td>
+                                data: Value of the component <br />
+                                index: Index of the grid
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>empty</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>footer</td>
+                            <td>-</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Styling</h5>
-        <p>Following is the list of structural style classes, for theming classes visit <nuxt-link to="/theming">theming</nuxt-link> page.</p>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Element</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>p-dataview</td>
-                        <td>Container element.</td>
-                    </tr>
-                    <tr>
-                        <td>p-dataview-list</td>
-                        <td>Container element in list layout.</td>
-                    </tr>
-                    <tr>
-                        <td>p-dataview-grid</td>
-                        <td>Container element in grid layout.</td>
-                    </tr>
-                    <tr>
-                        <td>p-dataview-header</td>
-                        <td>Header section.</td>
-                    </tr>
-                    <tr>
-                        <td>p-dataview-footer</td>
-                        <td>Footer section.</td>
-                    </tr>
-                    <tr>
-                        <td>p-dataview-content</td>
-                        <td>Container of items.</td>
-                    </tr>
-                    <tr>
-                        <td>p-dataview-emptymessage</td>
-                        <td>Empty message element.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>Styling</h5>
+            <p>Following is the list of structural style classes, for theming classes visit <nuxt-link to="/theming">theming</nuxt-link> page.</p>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Element</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>p-dataview</td>
+                            <td>Container element.</td>
+                        </tr>
+                        <tr>
+                            <td>p-dataview-list</td>
+                            <td>Container element in list layout.</td>
+                        </tr>
+                        <tr>
+                            <td>p-dataview-grid</td>
+                            <td>Container element in grid layout.</td>
+                        </tr>
+                        <tr>
+                            <td>p-dataview-header</td>
+                            <td>Header section.</td>
+                        </tr>
+                        <tr>
+                            <td>p-dataview-footer</td>
+                            <td>Footer section.</td>
+                        </tr>
+                        <tr>
+                            <td>p-dataview-content</td>
+                            <td>Container of items.</td>
+                        </tr>
+                        <tr>
+                            <td>p-dataview-emptymessage</td>
+                            <td>Empty message element.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Dependencies</h5>
-        <p>PrimeFlex</p>
-    </AppDoc>
-</ClientOnly>
+            <h5>Dependencies</h5>
+            <p>PrimeFlex</p>
+        </AppDoc>
+    </ClientOnly>
 </template>
 
 <script>

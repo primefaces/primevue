@@ -1,5 +1,4 @@
 <template>
-    
     <div>
         <div class="content-section introduction">
             <div class="feature-intro">
@@ -93,18 +92,17 @@
             </div>
         </div>
 
-        <ClientOnly>    
-<AppDoc
-            name="VuelidateFormDemo"
-            :sources="sources"
-            :service="['CountryService']"
-            :data="['countries']"
-            github="validation/VuelidateFormDemo.vue"
-            :dependencies="{ '@vuelidate/core': '^2.0.0-alpha.14', '@vuelidate/validators': '^2.0.0-alpha.12' }"
-        />
-    </ClientOnly>
+        <ClientOnly>
+            <AppDoc
+                name="VuelidateFormDemo"
+                :sources="sources"
+                :service="['CountryService']"
+                :data="['countries']"
+                github="validation/VuelidateFormDemo.vue"
+                :dependencies="{ '@vuelidate/core': '^2.0.0-alpha.14', '@vuelidate/validators': '^2.0.0-alpha.12' }"
+            />
+        </ClientOnly>
     </div>
-
 </template>
 
 <script>

@@ -1,31 +1,31 @@
 <template>
     <ClientOnly>
-<AppDoc name="PanelMenuDemo" :sources="sources" github="panelmenu/PanelMenuDemo.vue">
-        <h5>Import via Module</h5>
-        <pre v-code.script><code>
+        <AppDoc name="PanelMenuDemo" :sources="sources" github="panelmenu/PanelMenuDemo.vue">
+            <h5>Import via Module</h5>
+            <pre v-code.script><code>
 import PanelMenu from 'primevue/panelmenu';
 
 </code></pre>
 
-        <h5>Import via CDN</h5>
-        <pre v-code><code>
+            <h5>Import via CDN</h5>
+            <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/panelmenu/panelmenu.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-        <h5>MenuModel</h5>
-        <p>PanelMenu uses the common MenuModel API to define the items, visit <nuxt-link to="/menumodel">MenuModel API</nuxt-link> for details.</p>
+            <h5>MenuModel</h5>
+            <p>PanelMenu uses the common MenuModel API to define the items, visit <nuxt-link to="/menumodel">MenuModel API</nuxt-link> for details.</p>
 
-        <h5>Getting Started</h5>
-        <p>PanelMenu requires a collection of menuitems as its model.</p>
-        <pre v-code><code>
+            <h5>Getting Started</h5>
+            <p>PanelMenu requires a collection of menuitems as its model.</p>
+            <pre v-code><code>
 &lt;PanelMenu :model="items" /&gt;
 
 </code></pre>
 
-        <div style="height: 400px; overflow: auto">
-            <pre v-code.script><code>
+            <div style="height: 400px; overflow: auto">
+                <pre v-code.script><code>
 export default {
 	data() {
 		return {
@@ -151,11 +151,11 @@ export default {
 }
 
 </code></pre>
-        </div>
+            </div>
 
-        <h5>Templating</h5>
-        <p>PanelMenu offers content customization with the <i>item</i> template that receives the menuitem instance from the model as a parameter.</p>
-        <pre v-code><code><template v-pre>
+            <h5>Templating</h5>
+            <p>PanelMenu offers content customization with the <i>item</i> template that receives the menuitem instance from the model as a parameter.</p>
+            <pre v-code><code><template v-pre>
 &lt;PanelMenu :model="items"&gt;
     &lt;template #item="{item}"&gt;
         &lt;a :href="item.url"&gt;{{item.label}}&lt;/a&gt;
@@ -164,8 +164,8 @@ export default {
 </template>
 </code></pre>
 
-        <p><i>nuxt-link</i> with route configuration can also be used within templating for further customization.</p>
-        <pre v-code><code><template v-pre>
+            <p><i>nuxt-link</i> with route configuration can also be used within templating for further customization.</p>
+            <pre v-code><code><template v-pre>
 &lt;PanelMenu :model="items"&gt;
     &lt;template #item="{item}"&gt;
         &lt;nuxt-link :to="item.to" custom v-slot="{href, route, navigate, isActive, isExactActive}"&gt;
@@ -176,14 +176,14 @@ export default {
 </template>
 </code></pre>
 
-        <h5>Programmatic Control</h5>
-        <p>
-            If the menuitem has a <i>key</i> defined, PanelMenu state can be controlled programmatically with the <i>expandedKeys</i> property that defines the keys that are expanded. This property is a Map instance whose key is the key of a node and
-            value is a boolean. Note that <i>expandedKeys</i> also supports two-way binding with the v-model directive.
-        </p>
+            <h5>Programmatic Control</h5>
+            <p>
+                If the menuitem has a <i>key</i> defined, PanelMenu state can be controlled programmatically with the <i>expandedKeys</i> property that defines the keys that are expanded. This property is a Map instance whose key is the key of a node
+                and value is a boolean. Note that <i>expandedKeys</i> also supports two-way binding with the v-model directive.
+            </p>
 
-        <p>Example below expands and collapses all nodes with buttons.</p>
-        <pre v-code><code><template v-pre>
+            <p>Example below expands and collapses all nodes with buttons.</p>
+            <pre v-code><code><template v-pre>
 &lt;div&gt;
     &lt;Button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll" /&gt;
     &lt;Button type="button" icon="pi pi-minus" label="Collapse All" @click="collapseAll" /&gt;
@@ -192,8 +192,8 @@ export default {
 </template>
 </code></pre>
 
-        <div style="height: 400px; overflow: auto">
-            <pre v-code.script><code>
+            <div style="height: 400px; overflow: auto">
+                <pre v-code.script><code>
 export default {
     data() {
         return {
@@ -355,10 +355,10 @@ export default {
 }
 
 </code></pre>
-        </div>
+            </div>
 
-        <p class="mt-3">In order to display some nodes as expanded by default, simply add their keys to the map.</p>
-        <pre v-code.script><code>
+            <p class="mt-3">In order to display some nodes as expanded by default, simply add their keys to the map.</p>
+            <pre v-code.script><code>
 export default {
     data() {
         return {
@@ -373,110 +373,110 @@ export default {
 
 </code></pre>
 
-        <h5>Properties</h5>
-        <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Type</th>
-                        <th>Default</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>model</td>
-                        <td>array</td>
-                        <td>null</td>
-                        <td>An array of menuitems.</td>
-                    </tr>
-                    <tr>
-                        <td>expandedKeys</td>
-                        <td>array</td>
-                        <td>null</td>
-                        <td>A map of keys to represent the expansion state in controlled mode.</td>
-                    </tr>
-                    <tr>
-                        <td>exact</td>
-                        <td>boolean</td>
-                        <td>true</td>
-                        <td>Whether to apply 'nuxt-link-active-exact' class if route exactly matches the item path.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>Properties</h5>
+            <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>model</td>
+                            <td>array</td>
+                            <td>null</td>
+                            <td>An array of menuitems.</td>
+                        </tr>
+                        <tr>
+                            <td>expandedKeys</td>
+                            <td>array</td>
+                            <td>null</td>
+                            <td>A map of keys to represent the expansion state in controlled mode.</td>
+                        </tr>
+                        <tr>
+                            <td>exact</td>
+                            <td>boolean</td>
+                            <td>true</td>
+                            <td>Whether to apply 'nuxt-link-active-exact' class if route exactly matches the item path.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Slots</h5>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Parameters</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>item</td>
-                        <td>item: Menuitem instance</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>Slots</h5>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Parameters</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>item</td>
+                            <td>item: Menuitem instance</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Styling</h5>
-        <p>Following is the list of structural style classes, for theming classes visit <nuxt-link to="/theming">theming</nuxt-link> page.</p>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Element</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>p-panelmenu</td>
-                        <td>Container element.</td>
-                    </tr>
-                    <tr>
-                        <td>p-panelmenu-header</td>
-                        <td>Accordion header of root submenu.</td>
-                    </tr>
-                    <tr>
-                        <td>p-panelmenu-content</td>
-                        <td>Accordion content of root submenu.</td>
-                    </tr>
-                    <tr>
-                        <td>p-submenu-list</td>
-                        <td>List element.</td>
-                    </tr>
-                    <tr>
-                        <td>p-menuitem</td>
-                        <td>Menuitem element.</td>
-                    </tr>
-                    <tr>
-                        <td>p-menuitem-text</td>
-                        <td>Label of a menuitem.</td>
-                    </tr>
-                    <tr>
-                        <td>p-menuitem-icon</td>
-                        <td>Icon of a menuitem.</td>
-                    </tr>
-                    <tr>
-                        <td>p-panelmenu-icon</td>
-                        <td>Arrow icon of an accordion header.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>Styling</h5>
+            <p>Following is the list of structural style classes, for theming classes visit <nuxt-link to="/theming">theming</nuxt-link> page.</p>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Element</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>p-panelmenu</td>
+                            <td>Container element.</td>
+                        </tr>
+                        <tr>
+                            <td>p-panelmenu-header</td>
+                            <td>Accordion header of root submenu.</td>
+                        </tr>
+                        <tr>
+                            <td>p-panelmenu-content</td>
+                            <td>Accordion content of root submenu.</td>
+                        </tr>
+                        <tr>
+                            <td>p-submenu-list</td>
+                            <td>List element.</td>
+                        </tr>
+                        <tr>
+                            <td>p-menuitem</td>
+                            <td>Menuitem element.</td>
+                        </tr>
+                        <tr>
+                            <td>p-menuitem-text</td>
+                            <td>Label of a menuitem.</td>
+                        </tr>
+                        <tr>
+                            <td>p-menuitem-icon</td>
+                            <td>Icon of a menuitem.</td>
+                        </tr>
+                        <tr>
+                            <td>p-panelmenu-icon</td>
+                            <td>Arrow icon of an accordion header.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Dependencies</h5>
-        <p>None.</p>
-    </AppDoc>
-</ClientOnly>
+            <h5>Dependencies</h5>
+            <p>None.</p>
+        </AppDoc>
+    </ClientOnly>
 </template>
 
 <script>

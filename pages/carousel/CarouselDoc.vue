@@ -1,22 +1,22 @@
 <template>
     <ClientOnly>
-<AppDoc name="CarouselDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="carousel/CarouselDemo.vue">
-        <h5>Import via Module</h5>
-        <pre v-code.script><code>
+        <AppDoc name="CarouselDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="carousel/CarouselDemo.vue">
+            <h5>Import via Module</h5>
+            <pre v-code.script><code>
 import Carousel from 'primevue/carousel';
 
 </code></pre>
 
-        <h5>Import via CDN</h5>
-        <pre v-code><code>
+            <h5>Import via CDN</h5>
+            <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/carousel/carousel.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-        <h5>Getting Started</h5>
-        <p>Carousel requires a collection of items as its value along with a template to render each item.</p>
-        <pre v-code><code>
+            <h5>Getting Started</h5>
+            <p>Carousel requires a collection of items as its value along with a template to render each item.</p>
+            <pre v-code><code>
 &lt;Carousel :value="cars"&gt;
     &lt;template #item="slotProps"&gt;
 	&lt;/template&gt;
@@ -24,9 +24,9 @@ import Carousel from 'primevue/carousel';
 
 </code></pre>
 
-        <h5>Items per page and Scroll Items</h5>
-        <p>Number of items per page is defined using the <i>numVisible</i> property whereas number of items to scroll is defined with the <i>numScroll</i> property.</p>
-        <pre v-code><code>
+            <h5>Items per page and Scroll Items</h5>
+            <p>Number of items per page is defined using the <i>numVisible</i> property whereas number of items to scroll is defined with the <i>numScroll</i> property.</p>
+            <pre v-code><code>
 &lt;Carousel :value="cars" :numVisible="3" :numScroll="1"&gt;
 	&lt;template #item="slotProps"&gt;
 	&lt;/template&gt;
@@ -34,9 +34,9 @@ import Carousel from 'primevue/carousel';
 
 </code></pre>
 
-        <h5>Responsive</h5>
-        <p>For responsive design, <i>numVisible</i> and <i>numScroll</i> can be defined using the <i>responsiveOptions</i> property that should be an array of objects whose breakpoint defines the max-width to apply the settings.</p>
-        <pre v-code><code><template v-pre>
+            <h5>Responsive</h5>
+            <p>For responsive design, <i>numVisible</i> and <i>numScroll</i> can be defined using the <i>responsiveOptions</i> property that should be an array of objects whose breakpoint defines the max-width to apply the settings.</p>
+            <pre v-code><code><template v-pre>
 &lt;Carousel :value="cars" :numVisible="4" :numScroll="3" :responsiveOptions="responsiveOptions"&gt;
 	&lt;template #header&gt;
 		&lt;h2&gt;Basic&lt;/h2&gt;
@@ -63,7 +63,7 @@ import Carousel from 'primevue/carousel';
 &lt;/Carousel&gt;
 </template>
 </code></pre>
-        <pre v-code.script><code>
+            <pre v-code.script><code>
 data() {
 	return {
 		responsiveOptions: [
@@ -88,10 +88,10 @@ data() {
 
 </code></pre>
 
-        <h5>Header and Footer</h5>
-        <p>Custom content projection is available using the <i>item</i>, <i>header</i> and <i>footer</i> templates.</p>
+            <h5>Header and Footer</h5>
+            <p>Custom content projection is available using the <i>item</i>, <i>header</i> and <i>footer</i> templates.</p>
 
-        <pre v-code><code>
+            <pre v-code><code>
 &lt;Carousel :value="cars" :numVisible="3" :numScroll="1" :responsiveOptions="responsiveOptions"&gt;
 	&lt;template #header&gt;
 		&lt;h2&gt;Custom Header&lt;/h2&gt;
@@ -106,9 +106,9 @@ data() {
 
 </code></pre>
 
-        <h5>Orientation</h5>
-        <p>Default layout of the Carousel is horizontal, other possible option is the vertical mode that is configured with the <i>orientation</i> property.</p>
-        <pre v-code><code>
+            <h5>Orientation</h5>
+            <p>Default layout of the Carousel is horizontal, other possible option is the vertical mode that is configured with the <i>orientation</i> property.</p>
+            <pre v-code><code>
 &lt;Carousel :value="cars" :numVisible="1" :numScroll="1" orientation="vertical" verticalViewPortHeight="330px" :responsiveOptions="responsiveOptions"&gt;
 	&lt;template #item="slotProps"&gt;
 		Content
@@ -117,9 +117,11 @@ data() {
 
 </code></pre>
 
-        <h5>AutoPlay and Circular</h5>
-        <p>When <i>autoplayInterval</i> is defined in milliseconds, items are scrolled automatically. In addition, for infinite scrolling <i>circular</i> property needs to be enabled. Note that in autoplay mode, circular is enabled by default.</p>
-        <pre v-code><code>
+            <h5>AutoPlay and Circular</h5>
+            <p>
+                When <i>autoplayInterval</i> is defined in milliseconds, items are scrolled automatically. In addition, for infinite scrolling <i>circular</i> property needs to be enabled. Note that in autoplay mode, circular is enabled by default.
+            </p>
+            <pre v-code><code>
 &lt;Carousel :value="cars" :numVisible="3" :numScroll="1" :circular="true" :autoplayInterval="3000"&gt;
 	&lt;template #header&gt;
 		&lt;h2&gt;Circular, AutoPlay&lt;/h2&gt;
@@ -131,186 +133,186 @@ data() {
 
 </code></pre>
 
-        <h5>Properties</h5>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Type</th>
-                        <th>Default</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>value</td>
-                        <td>array</td>
-                        <td>null</td>
-                        <td>An array of objects to display.</td>
-                    </tr>
-                    <tr>
-                        <td>page</td>
-                        <td>number</td>
-                        <td>null</td>
-                        <td>Index of the first item.</td>
-                    </tr>
-                    <tr>
-                        <td>circular</td>
-                        <td>boolean</td>
-                        <td>false</td>
-                        <td>Defines if scrolling would be infinite.</td>
-                    </tr>
-                    <tr>
-                        <td>autoplayInterval</td>
-                        <td>number</td>
-                        <td>null</td>
-                        <td>Time in milliseconds to scroll items automatically.</td>
-                    </tr>
-                    <tr>
-                        <td>numVisible</td>
-                        <td>number</td>
-                        <td>1</td>
-                        <td>Number of items per page.</td>
-                    </tr>
-                    <tr>
-                        <td>numScroll</td>
-                        <td>number</td>
-                        <td>1</td>
-                        <td>Number of items to scroll.</td>
-                    </tr>
-                    <tr>
-                        <td>responsiveOptions</td>
-                        <td>any</td>
-                        <td>null</td>
-                        <td>An array of options for responsive design.</td>
-                    </tr>
-                    <tr>
-                        <td>orientation</td>
-                        <td>string</td>
-                        <td>horizontal</td>
-                        <td>Specifies the layout of the component, valid values are "horizontal" and "vertical".</td>
-                    </tr>
-                    <tr>
-                        <td>verticalViewPortHeight</td>
-                        <td>string</td>
-                        <td>300px</td>
-                        <td>Height of the viewport in vertical layout.</td>
-                    </tr>
-                    <tr>
-                        <td>contentClass</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Style class of main content.</td>
-                    </tr>
-                    <tr>
-                        <td>containerClass</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Style class of the viewport container.</td>
-                    </tr>
-                    <tr>
-                        <td>indicatorsContentClass</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Style class of the indicator items.</td>
-                    </tr>
-                    <tr>
-                        <td>showNavigators</td>
-                        <td>boolean</td>
-                        <td>true</td>
-                        <td>Whether to display navigation buttons in container.</td>
-                    </tr>
-                    <tr>
-                        <td>showIndicators</td>
-                        <td>boolean</td>
-                        <td>true</td>
-                        <td>Whether to display indicator container.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>Properties</h5>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>value</td>
+                            <td>array</td>
+                            <td>null</td>
+                            <td>An array of objects to display.</td>
+                        </tr>
+                        <tr>
+                            <td>page</td>
+                            <td>number</td>
+                            <td>null</td>
+                            <td>Index of the first item.</td>
+                        </tr>
+                        <tr>
+                            <td>circular</td>
+                            <td>boolean</td>
+                            <td>false</td>
+                            <td>Defines if scrolling would be infinite.</td>
+                        </tr>
+                        <tr>
+                            <td>autoplayInterval</td>
+                            <td>number</td>
+                            <td>null</td>
+                            <td>Time in milliseconds to scroll items automatically.</td>
+                        </tr>
+                        <tr>
+                            <td>numVisible</td>
+                            <td>number</td>
+                            <td>1</td>
+                            <td>Number of items per page.</td>
+                        </tr>
+                        <tr>
+                            <td>numScroll</td>
+                            <td>number</td>
+                            <td>1</td>
+                            <td>Number of items to scroll.</td>
+                        </tr>
+                        <tr>
+                            <td>responsiveOptions</td>
+                            <td>any</td>
+                            <td>null</td>
+                            <td>An array of options for responsive design.</td>
+                        </tr>
+                        <tr>
+                            <td>orientation</td>
+                            <td>string</td>
+                            <td>horizontal</td>
+                            <td>Specifies the layout of the component, valid values are "horizontal" and "vertical".</td>
+                        </tr>
+                        <tr>
+                            <td>verticalViewPortHeight</td>
+                            <td>string</td>
+                            <td>300px</td>
+                            <td>Height of the viewport in vertical layout.</td>
+                        </tr>
+                        <tr>
+                            <td>contentClass</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Style class of main content.</td>
+                        </tr>
+                        <tr>
+                            <td>containerClass</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Style class of the viewport container.</td>
+                        </tr>
+                        <tr>
+                            <td>indicatorsContentClass</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Style class of the indicator items.</td>
+                        </tr>
+                        <tr>
+                            <td>showNavigators</td>
+                            <td>boolean</td>
+                            <td>true</td>
+                            <td>Whether to display navigation buttons in container.</td>
+                        </tr>
+                        <tr>
+                            <td>showIndicators</td>
+                            <td>boolean</td>
+                            <td>true</td>
+                            <td>Whether to display indicator container.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Slots</h5>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Parameters</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>header</td>
-                        <td>-</td>
-                    </tr>
-                    <tr>
-                        <td>item</td>
-                        <td>
-                            data: Data of the component<br />
-                            index: Index of the item
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>footer</td>
-                        <td>-</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>Slots</h5>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Parameters</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>header</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>item</td>
+                            <td>
+                                data: Data of the component<br />
+                                index: Index of the item
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>footer</td>
+                            <td>-</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Styling</h5>
-        <p>Following is the list of structural style classes, for theming classes visit <nuxt-link to="/theming">theming</nuxt-link> page.</p>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Element</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>p-carousel</td>
-                        <td>Container element.</td>
-                    </tr>
-                    <tr>
-                        <td>p-carousel-header</td>
-                        <td>Header section.</td>
-                    </tr>
-                    <tr>
-                        <td>p-carousel-footer</td>
-                        <td>Footer section.</td>
-                    </tr>
-                    <tr>
-                        <td>p-carousel-content</td>
-                        <td>Main content element. It contains the container of the viewport.</td>
-                    </tr>
-                    <tr>
-                        <td>p-carousel-container</td>
-                        <td>Container of the viewport. It contains navigation buttons and viewport.</td>
-                    </tr>
-                    <tr>
-                        <td>p-carousel-items-content</td>
-                        <td>Viewport.</td>
-                    </tr>
-                    <tr>
-                        <td>p-carousel-indicators</td>
-                        <td>Container of the indicators.</td>
-                    </tr>
-                    <tr>
-                        <td>p-carousel-indicator</td>
-                        <td>Indicator element.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>Styling</h5>
+            <p>Following is the list of structural style classes, for theming classes visit <nuxt-link to="/theming">theming</nuxt-link> page.</p>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Element</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>p-carousel</td>
+                            <td>Container element.</td>
+                        </tr>
+                        <tr>
+                            <td>p-carousel-header</td>
+                            <td>Header section.</td>
+                        </tr>
+                        <tr>
+                            <td>p-carousel-footer</td>
+                            <td>Footer section.</td>
+                        </tr>
+                        <tr>
+                            <td>p-carousel-content</td>
+                            <td>Main content element. It contains the container of the viewport.</td>
+                        </tr>
+                        <tr>
+                            <td>p-carousel-container</td>
+                            <td>Container of the viewport. It contains navigation buttons and viewport.</td>
+                        </tr>
+                        <tr>
+                            <td>p-carousel-items-content</td>
+                            <td>Viewport.</td>
+                        </tr>
+                        <tr>
+                            <td>p-carousel-indicators</td>
+                            <td>Container of the indicators.</td>
+                        </tr>
+                        <tr>
+                            <td>p-carousel-indicator</td>
+                            <td>Indicator element.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Dependencies</h5>
-        <p>None.</p>
-    </AppDoc>
-</ClientOnly>
+            <h5>Dependencies</h5>
+            <p>None.</p>
+        </AppDoc>
+    </ClientOnly>
 </template>
 
 <script>

@@ -172,8 +172,8 @@
         </div>
 
         <ClientOnly>
-<AppDoc name="DataTableCrudDemo" :sources="sources" :service="['ProductService']" :data="['products']" github="datatable/DataTableCrudDemo.vue" />
-</ClientOnly>
+            <AppDoc name="DataTableCrudDemo" :sources="sources" :service="['ProductService']" :data="['products']" github="datatable/DataTableCrudDemo.vue" />
+        </ClientOnly>
     </div>
 </template>
 

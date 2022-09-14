@@ -1,28 +1,28 @@
 <template>
     <ClientOnly>
-<AppDoc name="InputTextDemo" :sources="sources" github="inputtext/InputTextDemo.vue">
-        <h5>Import via Module</h5>
-        <pre v-code.script><code>
+        <AppDoc name="InputTextDemo" :sources="sources" github="inputtext/InputTextDemo.vue">
+            <h5>Import via Module</h5>
+            <pre v-code.script><code>
 import InputText from 'primevue/inputtext';
 
 </code></pre>
 
-        <h5>Import via CDN</h5>
-        <pre v-code><code>
+            <h5>Import via CDN</h5>
+            <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-        <h5>Getting Started</h5>
-        <p>A model can be bound using the standard v-model directive.</p>
-        <pre v-code><code>
+            <h5>Getting Started</h5>
+            <p>A model can be bound using the standard v-model directive.</p>
+            <pre v-code><code>
 &lt;InputText type="text" v-model="value" /&gt;
 
 </code></pre>
 
-        <h5>Float Label</h5>
-        <p>A floating label is implemented by wrapping the input and the label inside a container having <i>.p-float-label</i> style class.</p>
-        <pre v-code><code>
+            <h5>Float Label</h5>
+            <p>A floating label is implemented by wrapping the input and the label inside a container having <i>.p-float-label</i> style class.</p>
+            <pre v-code><code>
 &lt;span class="p-float-label"&gt;
 	&lt;InputText id="username" type="text" v-model="value" /&gt;
 	&lt;label for="username"&gt;Username&lt;/label&gt;
@@ -30,9 +30,9 @@ import InputText from 'primevue/inputtext';
 
 </code></pre>
 
-        <h5>Icons</h5>
-        <p>An icon can be integrated within an input field by wrapping the input and the icon with an element having <i>p-input-icon-right</i> and <i>p-input-icon-left</i> classes depending on the icon location.</p>
-        <pre v-code><code>
+            <h5>Icons</h5>
+            <p>An icon can be integrated within an input field by wrapping the input and the icon with an element having <i>p-input-icon-right</i> and <i>p-input-icon-left</i> classes depending on the icon location.</p>
+            <pre v-code><code>
 &lt;span class="p-input-icon-left"&gt;
     &lt;i class="pi pi-search" /&gt;
     &lt;InputText type="text" v-model="value1" placeholder="Search" /&gt;
@@ -51,20 +51,20 @@ import InputText from 'primevue/inputtext';
 
 </code></pre>
 
-        <h5>Sizes</h5>
-        <p>
-            2 more sizes are available in addition to a regular input, for a smaller input add <i>p-inputtext-sm</i> and for a larger one, use <i>p-inputtext-lg</i>. Note that these classes are mainly be used to change the size of a particular field,
-            for global scaling see the <nuxt-link to="/theming">theming</nuxt-link> page.
-        </p>
-        <pre v-code><code>
+            <h5>Sizes</h5>
+            <p>
+                2 more sizes are available in addition to a regular input, for a smaller input add <i>p-inputtext-sm</i> and for a larger one, use <i>p-inputtext-lg</i>. Note that these classes are mainly be used to change the size of a particular
+                field, for global scaling see the <nuxt-link to="/theming">theming</nuxt-link> page.
+            </p>
+            <pre v-code><code>
 &lt;InputText type="text" class="p-inputtext-sm" placeholder="Small" /&gt;
 &lt;InputText type="text" placeholder="Normal" /&gt;
 &lt;InputText type="text" class="p-inputtext-lg"  placeholder="Large" /&gt;
 
 </code></pre>
 
-        <p>Instead of repeating the scale classes for each input, sizing can also be applied to a group by adding the class to a container element so that descendant inputs share the same style easier.</p>
-        <pre v-code><code>
+            <p>Instead of repeating the scale classes for each input, sizing can also be applied to a group by adding the class to a container element so that descendant inputs share the same style easier.</p>
+            <pre v-code><code>
 &lt;div class="p-inputtext-sm"&gt;
     &lt;InputText /&gt;
     &lt;InputNumber /&gt;
@@ -73,13 +73,13 @@ import InputText from 'primevue/inputtext';
 
 </code></pre>
 
-        <h5>Outlined vs Filled</h5>
-        <p>
-            Input fields come in two styles, default is <i>outlined</i> with borders around the field whereas <i>filled</i> alternative adds a background color to the field. Applying <i>p-input-filled</i> to an ancestor of an input enables the filled
-            style. If you prefer to use filled inputs in the entire application, use a global container such as document body or the application element to apply the style class.
-        </p>
+            <h5>Outlined vs Filled</h5>
+            <p>
+                Input fields come in two styles, default is <i>outlined</i> with borders around the field whereas <i>filled</i> alternative adds a background color to the field. Applying <i>p-input-filled</i> to an ancestor of an input enables the
+                filled style. If you prefer to use filled inputs in the entire application, use a global container such as document body or the application element to apply the style class.
+            </p>
 
-        <pre v-code><code>
+            <pre v-code><code>
 &lt;div class="p-input-filled"&gt;
     &lt;InputText type="text" /&gt;
     &lt;InputText type="text" /&gt;
@@ -88,71 +88,71 @@ import InputText from 'primevue/inputtext';
 
 </code></pre>
 
-        <h5>Properties</h5>
-        <p>InputText passes any valid attribute to the underlying input element, additional attribute is the following.</p>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Type</th>
-                        <th>Default</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>modelValue</td>
-                        <td>any</td>
-                        <td>null</td>
-                        <td>Value of the component.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>Properties</h5>
+            <p>InputText passes any valid attribute to the underlying input element, additional attribute is the following.</p>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>modelValue</td>
+                            <td>any</td>
+                            <td>null</td>
+                            <td>Value of the component.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Events</h5>
-        <p>Any valid event such as focus, blur and input are passed to the underlying input element.</p>
+            <h5>Events</h5>
+            <p>Any valid event such as focus, blur and input are passed to the underlying input element.</p>
 
-        <h5>Styling</h5>
-        <p>Following is the list of structural style classes, for theming classes visit <nuxt-link to="/theming">theming</nuxt-link> page.</p>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Element</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>p-inputtext</td>
-                        <td>Input element</td>
-                    </tr>
-                    <tr>
-                        <td>p-inputtext-sm</td>
-                        <td>Smaller input element</td>
-                    </tr>
-                    <tr>
-                        <td>p-inputtext-lg</td>
-                        <td>Larger input element</td>
-                    </tr>
-                    <tr>
-                        <td>p-inputtext-filled</td>
-                        <td>Filled input style.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>Styling</h5>
+            <p>Following is the list of structural style classes, for theming classes visit <nuxt-link to="/theming">theming</nuxt-link> page.</p>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Element</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>p-inputtext</td>
+                            <td>Input element</td>
+                        </tr>
+                        <tr>
+                            <td>p-inputtext-sm</td>
+                            <td>Smaller input element</td>
+                        </tr>
+                        <tr>
+                            <td>p-inputtext-lg</td>
+                            <td>Larger input element</td>
+                        </tr>
+                        <tr>
+                            <td>p-inputtext-filled</td>
+                            <td>Filled input style.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Accessibility</h5>
-        <h6>Screen Reader</h6>
-        <p>
-            InputText component renders a native input element that implicitly includes any passed prop. Value to describe the component can either be provided via <i>label</i> tag combined with <i>id</i> prop or using <i>aria-labelledby</i>,
-            <i>aria-label</i> props.
-        </p>
+            <h5>Accessibility</h5>
+            <h6>Screen Reader</h6>
+            <p>
+                InputText component renders a native input element that implicitly includes any passed prop. Value to describe the component can either be provided via <i>label</i> tag combined with <i>id</i> prop or using <i>aria-labelledby</i>,
+                <i>aria-label</i> props.
+            </p>
 
-        <pre v-code><code>
+            <pre v-code><code>
 &lt;label for="firstname"&gt;Firstname&lt;/label&gt;
 &lt;InputText id="firstname" /&gt;
 
@@ -163,28 +163,28 @@ import InputText from 'primevue/inputtext';
 
 </code></pre>
 
-        <h6>Keyboard Support</h6>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Key</th>
-                        <th>Function</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><i>tab</i></td>
-                        <td>Moves focus to the input.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h6>Keyboard Support</h6>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Key</th>
+                            <th>Function</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><i>tab</i></td>
+                            <td>Moves focus to the input.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Dependencies</h5>
-        <p>None.</p>
-    </AppDoc>
-</ClientOnly>
+            <h5>Dependencies</h5>
+            <p>None.</p>
+        </AppDoc>
+    </ClientOnly>
 </template>
 
 <script>

@@ -1,27 +1,27 @@
 <template>
     <ClientOnly>
-<AppDoc name="SplitButtonDemo" :sources="sources" github="splitbutton/SplitButtonDemo.vue">
-        <h5>Import via Module</h5>
-        <pre v-code.script><code>
+        <AppDoc name="SplitButtonDemo" :sources="sources" github="splitbutton/SplitButtonDemo.vue">
+            <h5>Import via Module</h5>
+            <pre v-code.script><code>
 import SplitButton from 'primevue/splitbutton';
 
 </code></pre>
 
-        <h5>Import via CDN</h5>
-        <pre v-code><code>
+            <h5>Import via CDN</h5>
+            <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/splitbutton/splitbutton.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-        <h5>Getting Started</h5>
-        <p>SplitButton has a default command button and a collection of additional options defined by the <i>model</i> property.</p>
-        <pre v-code><code>
+            <h5>Getting Started</h5>
+            <p>SplitButton has a default command button and a collection of additional options defined by the <i>model</i> property.</p>
+            <pre v-code><code>
 &lt;SplitButton label="Save" icon="pi pi-plus" :model="items"&gt;&lt;/SplitButton&gt;
 
 </code></pre>
 
-        <pre v-code.script><code>
+            <pre v-code.script><code>
 export default {
 	data() {
 		return {
@@ -59,22 +59,22 @@ export default {
 
 </code></pre>
 
-        <h5>MenuModel</h5>
-        <p>SplitButton uses the common MenuModel API to define the items, visit <nuxt-link to="/menumodel">MenuModel API</nuxt-link> for details.</p>
+            <h5>MenuModel</h5>
+            <p>SplitButton uses the common MenuModel API to define the items, visit <nuxt-link to="/menumodel">MenuModel API</nuxt-link> for details.</p>
 
-        <h5>Severity</h5>
-        <p>Different color options are available as severity levels.</p>
+            <h5>Severity</h5>
+            <p>Different color options are available as severity levels.</p>
 
-        <ul>
-            <li>.p-button-secondary</li>
-            <li>.p-button-success</li>
-            <li>.p-button-info</li>
-            <li>.p-button-warning</li>
-            <li>.p-button-help</li>
-            <li>.p-button-danger</li>
-        </ul>
+            <ul>
+                <li>.p-button-secondary</li>
+                <li>.p-button-success</li>
+                <li>.p-button-info</li>
+                <li>.p-button-warning</li>
+                <li>.p-button-help</li>
+                <li>.p-button-danger</li>
+            </ul>
 
-        <pre v-code><code>
+            <pre v-code><code>
 &lt;SplitButton label="Primary" :model="items"&gt;&lt;/SplitButton&gt;
 &lt;SplitButton label="Secondary" :model="items" class="p-button-secondary"&gt;&lt;/SplitButton&gt;
 &lt;SplitButton label="Success" :model="items" class="p-button-success"&gt;&lt;/SplitButton&gt;
@@ -85,16 +85,16 @@ export default {
 
 </code></pre>
 
-        <h5>Raised and Rounded Buttons</h5>
-        <p>SplitButton can be raised by having "p-button-raised" style class and similarly borders can be made rounded using "p-button-rounded" class.</p>
-        <pre v-code><code>
+            <h5>Raised and Rounded Buttons</h5>
+            <p>SplitButton can be raised by having "p-button-raised" style class and similarly borders can be made rounded using "p-button-rounded" class.</p>
+            <pre v-code><code>
 &lt;SplitButton label="Proceed" :model="items" class="p-button-raised p-button-rounded"&gt;&lt;/SplitButton&gt;
 
 </code></pre>
 
-        <h5>Templating</h5>
-        <p>Button part of the content can easily be customized with the default slot instead of using the built-in modes.</p>
-        <pre v-code><code>
+            <h5>Templating</h5>
+            <p>Button part of the content can easily be customized with the default slot instead of using the built-in modes.</p>
+            <pre v-code><code>
 &lt;SplitButton :model="items" class="bg-primary border-round"&gt;
     &lt;Button @click="save"&gt;
         &lt;img alt="logo" src="../../assets/images/logo.svg" style="width: 1rem" /&gt;
@@ -104,123 +104,123 @@ export default {
 
 </code></pre>
 
-        <h5>Properties</h5>
-        <p>Any property such as tabindex are passed to the underlying input element. Following are the additional properties to configure the component.</p>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Type</th>
-                        <th>Default</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>label</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Text of the button.</td>
-                    </tr>
-                    <tr>
-                        <td>icon</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Name of the icon.</td>
-                    </tr>
-                    <tr>
-                        <td>model</td>
-                        <td>object</td>
-                        <td>null</td>
-                        <td>MenuModel instance to define the overlay items.</td>
-                    </tr>
-                    <tr>
-                        <td>autoZIndex</td>
-                        <td>boolean</td>
-                        <td>true</td>
-                        <td>Whether to automatically manage layering.</td>
-                    </tr>
-                    <tr>
-                        <td>baseZIndex</td>
-                        <td>number</td>
-                        <td>0</td>
-                        <td>Base zIndex value to use in layering.</td>
-                    </tr>
-                    <tr>
-                        <td>appendTo</td>
-                        <td>string</td>
-                        <td>body</td>
-                        <td>A valid query selector or an HTMLElement to specify where the overlay gets attached.</td>
-                    </tr>
-                    <tr>
-                        <td>style</td>
-                        <td>any</td>
-                        <td>null</td>
-                        <td>Style class of the component.</td>
-                    </tr>
-                    <tr>
-                        <td>class</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Inline style of the component.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>Properties</h5>
+            <p>Any property such as tabindex are passed to the underlying input element. Following are the additional properties to configure the component.</p>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>label</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Text of the button.</td>
+                        </tr>
+                        <tr>
+                            <td>icon</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Name of the icon.</td>
+                        </tr>
+                        <tr>
+                            <td>model</td>
+                            <td>object</td>
+                            <td>null</td>
+                            <td>MenuModel instance to define the overlay items.</td>
+                        </tr>
+                        <tr>
+                            <td>autoZIndex</td>
+                            <td>boolean</td>
+                            <td>true</td>
+                            <td>Whether to automatically manage layering.</td>
+                        </tr>
+                        <tr>
+                            <td>baseZIndex</td>
+                            <td>number</td>
+                            <td>0</td>
+                            <td>Base zIndex value to use in layering.</td>
+                        </tr>
+                        <tr>
+                            <td>appendTo</td>
+                            <td>string</td>
+                            <td>body</td>
+                            <td>A valid query selector or an HTMLElement to specify where the overlay gets attached.</td>
+                        </tr>
+                        <tr>
+                            <td>style</td>
+                            <td>any</td>
+                            <td>null</td>
+                            <td>Style class of the component.</td>
+                        </tr>
+                        <tr>
+                            <td>class</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Inline style of the component.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Events</h5>
-        <p>Any valid event such as focus, blur and input are passed to the underlying button element. Following are the additional events to configure the component.</p>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Parameters</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>click</td>
-                        <td>event: Browser event</td>
-                        <td>Callback to invoke when main button is clicked.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>Events</h5>
+            <p>Any valid event such as focus, blur and input are passed to the underlying button element. Following are the additional events to configure the component.</p>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Parameters</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>click</td>
+                            <td>event: Browser event</td>
+                            <td>Callback to invoke when main button is clicked.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Styling</h5>
-        <p>Following is the list of structural style classes, for theming classes visit <nuxt-link to="/theming">theming</nuxt-link> page.</p>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Element</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>p-splitbutton</td>
-                        <td>Container element.</td>
-                    </tr>
-                    <tr>
-                        <td>p-splitbutton-button</td>
-                        <td>Dropdown button.</td>
-                    </tr>
-                    <tr>
-                        <td>p-menu</td>
-                        <td>Overlay menu.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>Styling</h5>
+            <p>Following is the list of structural style classes, for theming classes visit <nuxt-link to="/theming">theming</nuxt-link> page.</p>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Element</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>p-splitbutton</td>
+                            <td>Container element.</td>
+                        </tr>
+                        <tr>
+                            <td>p-splitbutton-button</td>
+                            <td>Dropdown button.</td>
+                        </tr>
+                        <tr>
+                            <td>p-menu</td>
+                            <td>Overlay menu.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Dependencies</h5>
-        <p>None.</p>
-    </AppDoc>
-</ClientOnly>
+            <h5>Dependencies</h5>
+            <p>None.</p>
+        </AppDoc>
+    </ClientOnly>
 </template>
 
 <script>

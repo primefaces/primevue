@@ -1,42 +1,41 @@
 <template>
-      <ClientOnly>
-    <div>
-        <div class="content-section introduction">
-            <div class="feature-intro">
-                <h1>DataTable <span>Paginator</span></h1>
-                <p>Pagination is enabled by setting paginator property to true and defining the rows attribute as the number of rows per page.</p>
+    <ClientOnly>
+        <div>
+            <div class="content-section introduction">
+                <div class="feature-intro">
+                    <h1>DataTable <span>Paginator</span></h1>
+                    <p>Pagination is enabled by setting paginator property to true and defining the rows attribute as the number of rows per page.</p>
+                </div>
+                <AppDemoActions />
             </div>
-            <AppDemoActions />
-        </div>
 
-        <div class="content-section implementation">
-            <div class="card">
-                <DataTable
-                    :value="customers"
-                    :paginator="true"
-                    :rows="10"
-                    paginatorTemplate="CurrentPageReport FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown"
-                    :rowsPerPageOptions="[10, 20, 50]"
-                    responsiveLayout="scroll"
-                    currentPageReportTemplate="Showing {first} to {last} of {totalRecords}"
-                >
-                    <Column field="name" header="Name"></Column>
-                    <Column field="country.name" header="Country"></Column>
-                    <Column field="company" header="Company"></Column>
-                    <Column field="representative.name" header="Representative"></Column>
-                    <template #paginatorstart>
-                        <Button type="button" icon="pi pi-refresh" class="p-button-text" />
-                    </template>
-                    <template #paginatorend>
-                        <Button type="button" icon="pi pi-cloud" class="p-button-text" />
-                    </template>
-                </DataTable>
+            <div class="content-section implementation">
+                <div class="card">
+                    <DataTable
+                        :value="customers"
+                        :paginator="true"
+                        :rows="10"
+                        paginatorTemplate="CurrentPageReport FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown"
+                        :rowsPerPageOptions="[10, 20, 50]"
+                        responsiveLayout="scroll"
+                        currentPageReportTemplate="Showing {first} to {last} of {totalRecords}"
+                    >
+                        <Column field="name" header="Name"></Column>
+                        <Column field="country.name" header="Country"></Column>
+                        <Column field="company" header="Company"></Column>
+                        <Column field="representative.name" header="Representative"></Column>
+                        <template #paginatorstart>
+                            <Button type="button" icon="pi pi-refresh" class="p-button-text" />
+                        </template>
+                        <template #paginatorend>
+                            <Button type="button" icon="pi pi-cloud" class="p-button-text" />
+                        </template>
+                    </DataTable>
+                </div>
             </div>
+            <AppDoc name="DataTablePaginatorDemo" :sources="sources" :service="['CustomerService']" :data="['customers-large']" github="datatable/DataTablePaginatorDemo.vue" />
         </div>
-<AppDoc name="DataTablePaginatorDemo" :sources="sources" :service="['CustomerService']" :data="['customers-large']" github="datatable/DataTablePaginatorDemo.vue" />
-
-    </div>
-</ClientOnly>
+    </ClientOnly>
 </template>
 
 <script>

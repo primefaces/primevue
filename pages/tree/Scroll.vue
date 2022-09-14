@@ -31,8 +31,8 @@
         </div>
 
         <ClientOnly>
-<AppDoc name="TreeScrollDemo" :sources="sources" :service="['NodeService']" :data="['treenodes']" github="tree/TreeScrollDemo.vue" />
-</ClientOnly>
+            <AppDoc name="TreeScrollDemo" :sources="sources" :service="['NodeService']" :data="['treenodes']" github="tree/TreeScrollDemo.vue" />
+        </ClientOnly>
     </div>
 </template>
 

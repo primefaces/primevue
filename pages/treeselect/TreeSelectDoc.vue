@@ -1,30 +1,30 @@
 <template>
     <ClientOnly>
-<AppDoc name="TreeSelectDemo" :sources="sources" github="treeselect/TreeSelectDemo.vue" :service="['NodeService']" :data="['treenodes']">
-        <h5>Import via Module</h5>
-        <pre v-code.script><code>
+        <AppDoc name="TreeSelectDemo" :sources="sources" github="treeselect/TreeSelectDemo.vue" :service="['NodeService']" :data="['treenodes']">
+            <h5>Import via Module</h5>
+            <pre v-code.script><code>
 import TreeSelect from 'primevue/treeselect';
 
 </code></pre>
 
-        <h5>Import via CDN</h5>
-        <pre v-code><code>
+            <h5>Import via CDN</h5>
+            <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/treeselect/treeselect.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-        <h5>Getting Started</h5>
-        <p>TreeSelect component requires an array of TreeNode objects as its <i>options</i> and keys of the nodes as its value.</p>
+            <h5>Getting Started</h5>
+            <p>TreeSelect component requires an array of TreeNode objects as its <i>options</i> and keys of the nodes as its value.</p>
 
-        <pre v-code><code>
+            <pre v-code><code>
 &lt;TreeSelect v-model="selectedNodeKey" :options="nodes" placeholder="Select Item" /&gt;
 
 </code></pre>
 
-        <p>In example below, nodes are retrieved from a remote data source.</p>
+            <p>In example below, nodes are retrieved from a remote data source.</p>
 
-        <pre v-code.script><code>
+            <pre v-code.script><code>
 import NodeService from '../../service/NodeService';
 
 export default {
@@ -45,7 +45,7 @@ export default {
 
 </code></pre>
 
-        <pre v-code.script><code>
+            <pre v-code.script><code>
 export default class NodeService {
 
     getTreeNodes() {
@@ -57,8 +57,8 @@ export default class NodeService {
 
 </code></pre>
 
-        <p>The json response sample would be as following.</p>
-        <pre v-code.script><code>
+            <p>The json response sample would be as following.</p>
+            <pre v-code.script><code>
 {
     "root": [
         {
@@ -116,85 +116,85 @@ export default class NodeService {
 
 </code></pre>
 
-        <h5>TreeNode API utilized by the TreeSelect</h5>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Type</th>
-                        <th>Default</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>key</td>
-                        <td>any</td>
-                        <td>null</td>
-                        <td>Mandatory unique key of the node.</td>
-                    </tr>
-                    <tr>
-                        <td>label</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Label of the node.</td>
-                    </tr>
-                    <tr>
-                        <td>data</td>
-                        <td>any</td>
-                        <td>null</td>
-                        <td>Data represented by the node.</td>
-                    </tr>
-                    <tr>
-                        <td>type</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Type of the node to match a template.</td>
-                    </tr>
-                    <tr>
-                        <td>icon</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Icon of the node to display next to content.</td>
-                    </tr>
-                    <tr>
-                        <td>children</td>
-                        <td>TreeNode[]</td>
-                        <td>null</td>
-                        <td>An array of treenodes as children.</td>
-                    </tr>
-                    <tr>
-                        <td>style</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Inline style of the node.</td>
-                    </tr>
-                    <tr>
-                        <td>styleClass</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Style class of the node.</td>
-                    </tr>
-                    <tr>
-                        <td>selectable</td>
-                        <td>boolean</td>
-                        <td>null</td>
-                        <td>Whether the node is selectable when selection mode is enabled.</td>
-                    </tr>
-                    <tr>
-                        <td>leaf</td>
-                        <td>boolean</td>
-                        <td>null</td>
-                        <td>Specifies if the node has children. Used in lazy loading.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>TreeNode API utilized by the TreeSelect</h5>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>key</td>
+                            <td>any</td>
+                            <td>null</td>
+                            <td>Mandatory unique key of the node.</td>
+                        </tr>
+                        <tr>
+                            <td>label</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Label of the node.</td>
+                        </tr>
+                        <tr>
+                            <td>data</td>
+                            <td>any</td>
+                            <td>null</td>
+                            <td>Data represented by the node.</td>
+                        </tr>
+                        <tr>
+                            <td>type</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Type of the node to match a template.</td>
+                        </tr>
+                        <tr>
+                            <td>icon</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Icon of the node to display next to content.</td>
+                        </tr>
+                        <tr>
+                            <td>children</td>
+                            <td>TreeNode[]</td>
+                            <td>null</td>
+                            <td>An array of treenodes as children.</td>
+                        </tr>
+                        <tr>
+                            <td>style</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Inline style of the node.</td>
+                        </tr>
+                        <tr>
+                            <td>styleClass</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Style class of the node.</td>
+                        </tr>
+                        <tr>
+                            <td>selectable</td>
+                            <td>boolean</td>
+                            <td>null</td>
+                            <td>Whether the node is selectable when selection mode is enabled.</td>
+                        </tr>
+                        <tr>
+                            <td>leaf</td>
+                            <td>boolean</td>
+                            <td>null</td>
+                            <td>Specifies if the node has children. Used in lazy loading.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Selection Mode</h5>
-        <p>TreeSelects offers "single", "multiple" and "checkbox" alternatives for the selection behavior that is defined by the <i>selectionMode</i> option.</p>
-        <pre v-code><code>
+            <h5>Selection Mode</h5>
+            <p>TreeSelects offers "single", "multiple" and "checkbox" alternatives for the selection behavior that is defined by the <i>selectionMode</i> option.</p>
+            <pre v-code><code>
 &lt;TreeSelect v-model="selectedValue1" :options="nodes" selectionMode="single" placeholder="Select Item" /&gt;
 
 &lt;TreeSelect v-model="selectedValue2" :options="nodes" selectionMode="multiple" placeholder="Select Items" /&gt;
@@ -203,13 +203,13 @@ export default class NodeService {
 
 </code></pre>
 
-        <h5>Value Format</h5>
-        <p>
-            Value passed to and from the TreeSelect via the v-model directive should be a an object with key-value pairs where key is the node key and value is a boolean to indicate selection. On the other hand in "checkbox" mode, instead of a
-            boolean, value should be an object that has "checked" and "partialChecked" properties to represent the checked state of a node. Best way to clarify it is prepopulating a TreeSelect with an existing value.
-        </p>
+            <h5>Value Format</h5>
+            <p>
+                Value passed to and from the TreeSelect via the v-model directive should be a an object with key-value pairs where key is the node key and value is a boolean to indicate selection. On the other hand in "checkbox" mode, instead of a
+                boolean, value should be an object that has "checked" and "partialChecked" properties to represent the checked state of a node. Best way to clarify it is prepopulating a TreeSelect with an existing value.
+            </p>
 
-        <pre v-code.script><code>
+            <pre v-code.script><code>
 data() {
     return {
         selectedValue1: {'2-1': true},
@@ -220,19 +220,19 @@ data() {
 },
 </code></pre>
 
-        <h5>Chips Display</h5>
-        <p>A comma separated list is used by default to display selected items whereas alternative chip mode is provided using the <i>display</i> property to visualize the items as tokens.</p>
-        <pre v-code><code>
+            <h5>Chips Display</h5>
+            <p>A comma separated list is used by default to display selected items whereas alternative chip mode is provided using the <i>display</i> property to visualize the items as tokens.</p>
+            <pre v-code><code>
 &lt;TreeSelect v-model="selectedValue" display="chip" :options="nodes" selectionMode="multiple" placeholder="Select Items" /&gt;
 
 </code></pre>
 
-        <h5>Templating</h5>
-        <p>
-            Label of an option is used as the display text of an item by default, for custom content support define a <i>value</i> template that gets the selected nodes as a parameter. In addition <i>header</i>, <i>footer</i> and <i>empty</i> slots
-            are provided for further customization.
-        </p>
-        <pre v-code><code><template v-pre>
+            <h5>Templating</h5>
+            <p>
+                Label of an option is used as the display text of an item by default, for custom content support define a <i>value</i> template that gets the selected nodes as a parameter. In addition <i>header</i>, <i>footer</i> and
+                <i>empty</i> slots are provided for further customization.
+            </p>
+            <pre v-code><code><template v-pre>
 &lt;TreeSelect v-model="selectedNodes" :options="nodes" placeholder="Select Items"&gt;
 	&lt;template #value="{value}"&gt;
 		Custom Content
@@ -241,298 +241,298 @@ data() {
 </template>
 </code></pre>
 
-        <h5>Properties</h5>
-        <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Type</th>
-                        <th>Default</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>modelValue</td>
-                        <td>any</td>
-                        <td>null</td>
-                        <td>Value of the component.</td>
-                    </tr>
-                    <tr>
-                        <td>options</td>
-                        <td>array</td>
-                        <td>null</td>
-                        <td>An array of treenodes.</td>
-                    </tr>
-                    <tr>
-                        <td>scrollHeight</td>
-                        <td>string</td>
-                        <td>200px</td>
-                        <td>Height of the viewport, a scrollbar is defined if height of list exceeds this value.</td>
-                    </tr>
-                    <tr>
-                        <td>placeholder</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Label to display when there are no selections.</td>
-                    </tr>
-                    <tr>
-                        <td>disabled</td>
-                        <td>boolean</td>
-                        <td>false</td>
-                        <td>When present, it specifies that the component should be disabled.</td>
-                    </tr>
-                    <tr>
-                        <td>tabindex</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Index of the element in tabbing order.</td>
-                    </tr>
-                    <tr>
-                        <td>selectionMode</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Defines the selection mode, valid values "single", "multiple", and "checkbox".</td>
-                    </tr>
-                    <tr>
-                        <td>appendTo</td>
-                        <td>string</td>
-                        <td>body</td>
-                        <td>A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are "body" for document body and "self" for the element itself.</td>
-                    </tr>
-                    <tr>
-                        <td>emptyMessage</td>
-                        <td>string</td>
-                        <td>No results found</td>
-                        <td>Text to display when there are no options available. Defaults to value from PrimeVue locale configuration.</td>
-                    </tr>
-                    <tr>
-                        <td>display</td>
-                        <td>string</td>
-                        <td>comma</td>
-                        <td>Defines how the selected items are displayed, valid values are "comma" and "chip".</td>
-                    </tr>
-                    <tr>
-                        <td>metaKeySelection</td>
-                        <td>boolean</td>
-                        <td>true</td>
-                        <td>
-                            Defines how multiple items can be selected, when true metaKey needs to be pressed to select or unselect an item and when set to false selection of each item can be toggled individually. On touch enabled devices,
-                            metaKeySelection is turned off automatically.
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>inputId</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Identifier of the underlying input element.</td>
-                    </tr>
-                    <tr>
-                        <td>inputClass</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Style class of the input field.</td>
-                    </tr>
-                    <tr>
-                        <td>inputStyle</td>
-                        <td>any</td>
-                        <td>null</td>
-                        <td>Inline style of the input field.</td>
-                    </tr>
-                    <tr>
-                        <td>panelClass</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Style class of the overlay panel.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>Properties</h5>
+            <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>modelValue</td>
+                            <td>any</td>
+                            <td>null</td>
+                            <td>Value of the component.</td>
+                        </tr>
+                        <tr>
+                            <td>options</td>
+                            <td>array</td>
+                            <td>null</td>
+                            <td>An array of treenodes.</td>
+                        </tr>
+                        <tr>
+                            <td>scrollHeight</td>
+                            <td>string</td>
+                            <td>200px</td>
+                            <td>Height of the viewport, a scrollbar is defined if height of list exceeds this value.</td>
+                        </tr>
+                        <tr>
+                            <td>placeholder</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Label to display when there are no selections.</td>
+                        </tr>
+                        <tr>
+                            <td>disabled</td>
+                            <td>boolean</td>
+                            <td>false</td>
+                            <td>When present, it specifies that the component should be disabled.</td>
+                        </tr>
+                        <tr>
+                            <td>tabindex</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Index of the element in tabbing order.</td>
+                        </tr>
+                        <tr>
+                            <td>selectionMode</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Defines the selection mode, valid values "single", "multiple", and "checkbox".</td>
+                        </tr>
+                        <tr>
+                            <td>appendTo</td>
+                            <td>string</td>
+                            <td>body</td>
+                            <td>A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are "body" for document body and "self" for the element itself.</td>
+                        </tr>
+                        <tr>
+                            <td>emptyMessage</td>
+                            <td>string</td>
+                            <td>No results found</td>
+                            <td>Text to display when there are no options available. Defaults to value from PrimeVue locale configuration.</td>
+                        </tr>
+                        <tr>
+                            <td>display</td>
+                            <td>string</td>
+                            <td>comma</td>
+                            <td>Defines how the selected items are displayed, valid values are "comma" and "chip".</td>
+                        </tr>
+                        <tr>
+                            <td>metaKeySelection</td>
+                            <td>boolean</td>
+                            <td>true</td>
+                            <td>
+                                Defines how multiple items can be selected, when true metaKey needs to be pressed to select or unselect an item and when set to false selection of each item can be toggled individually. On touch enabled devices,
+                                metaKeySelection is turned off automatically.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>inputId</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Identifier of the underlying input element.</td>
+                        </tr>
+                        <tr>
+                            <td>inputClass</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Style class of the input field.</td>
+                        </tr>
+                        <tr>
+                            <td>inputStyle</td>
+                            <td>any</td>
+                            <td>null</td>
+                            <td>Inline style of the input field.</td>
+                        </tr>
+                        <tr>
+                            <td>panelClass</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Style class of the overlay panel.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Events</h5>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Parameters</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>change</td>
-                        <td>event: Selected node keys</td>
-                        <td>Callback to invoke on value change.</td>
-                    </tr>
-                    <tr>
-                        <td>before-show</td>
-                        <td>-</td>
-                        <td>Callback to invoke before the overlay is shown.</td>
-                    </tr>
-                    <tr>
-                        <td>before-hide</td>
-                        <td>-</td>
-                        <td>Callback to invoke before the overlay is hidden.</td>
-                    </tr>
-                    <tr>
-                        <td>show</td>
-                        <td>-</td>
-                        <td>Callback to invoke when the overlay is shown.</td>
-                    </tr>
-                    <tr>
-                        <td>hide</td>
-                        <td>-</td>
-                        <td>Callback to invoke when the overlay is hidden.</td>
-                    </tr>
-                    <tr>
-                        <td>node-select</td>
-                        <td>node: Node instance</td>
-                        <td>Callback to invoke when a node is selected.</td>
-                    </tr>
-                    <tr>
-                        <td>node-unselect</td>
-                        <td>node: Node instance</td>
-                        <td>Callback to invoke when a node is unselected.</td>
-                    </tr>
-                    <tr>
-                        <td>node-expand</td>
-                        <td>node: Node instance</td>
-                        <td>Callback to invoke when a node is expanded.</td>
-                    </tr>
-                    <tr>
-                        <td>node-collapse</td>
-                        <td>node: Node instance</td>
-                        <td>Callback to invoke when a node is collapsed.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>Events</h5>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Parameters</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>change</td>
+                            <td>event: Selected node keys</td>
+                            <td>Callback to invoke on value change.</td>
+                        </tr>
+                        <tr>
+                            <td>before-show</td>
+                            <td>-</td>
+                            <td>Callback to invoke before the overlay is shown.</td>
+                        </tr>
+                        <tr>
+                            <td>before-hide</td>
+                            <td>-</td>
+                            <td>Callback to invoke before the overlay is hidden.</td>
+                        </tr>
+                        <tr>
+                            <td>show</td>
+                            <td>-</td>
+                            <td>Callback to invoke when the overlay is shown.</td>
+                        </tr>
+                        <tr>
+                            <td>hide</td>
+                            <td>-</td>
+                            <td>Callback to invoke when the overlay is hidden.</td>
+                        </tr>
+                        <tr>
+                            <td>node-select</td>
+                            <td>node: Node instance</td>
+                            <td>Callback to invoke when a node is selected.</td>
+                        </tr>
+                        <tr>
+                            <td>node-unselect</td>
+                            <td>node: Node instance</td>
+                            <td>Callback to invoke when a node is unselected.</td>
+                        </tr>
+                        <tr>
+                            <td>node-expand</td>
+                            <td>node: Node instance</td>
+                            <td>Callback to invoke when a node is expanded.</td>
+                        </tr>
+                        <tr>
+                            <td>node-collapse</td>
+                            <td>node: Node instance</td>
+                            <td>Callback to invoke when a node is collapsed.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Methods</h5>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Parameters</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>show</td>
-                        <td>-</td>
-                        <td>Shows the overlay.</td>
-                    </tr>
-                    <tr>
-                        <td>hide</td>
-                        <td>-</td>
-                        <td>Hides the overlay.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>Methods</h5>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Parameters</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>show</td>
+                            <td>-</td>
+                            <td>Shows the overlay.</td>
+                        </tr>
+                        <tr>
+                            <td>hide</td>
+                            <td>-</td>
+                            <td>Hides the overlay.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Slots</h5>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Parameters</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>value</td>
-                        <td>
-                            value: Selected nodes <br />
-                            placeholder: Placeholder value
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>header</td>
-                        <td>
-                            value: Value of the component <br />
-                            options: TreeNode options
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>footer</td>
-                        <td>
-                            value: Value of the component <br />
-                            options: TreeNode options
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>empty</td>
-                        <td>-</td>
-                    </tr>
-                    <tr>
-                        <td>indicator</td>
-                        <td>-</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>Slots</h5>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Parameters</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>value</td>
+                            <td>
+                                value: Selected nodes <br />
+                                placeholder: Placeholder value
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>header</td>
+                            <td>
+                                value: Value of the component <br />
+                                options: TreeNode options
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>footer</td>
+                            <td>
+                                value: Value of the component <br />
+                                options: TreeNode options
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>empty</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>indicator</td>
+                            <td>-</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Styling</h5>
-        <p>Following is the list of structural style classes, for theming classes visit <nuxt-link to="/theming">theming</nuxt-link> page.</p>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Element</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>p-treeselect</td>
-                        <td>Container element.</td>
-                    </tr>
-                    <tr>
-                        <td>p-treeselect-label-container</td>
-                        <td>Container of the label to display selected items.</td>
-                    </tr>
-                    <tr>
-                        <td>p-treeselect-label</td>
-                        <td>Label to display selected items.</td>
-                    </tr>
-                    <tr>
-                        <td>p-treeselect-trigger</td>
-                        <td>Dropdown button.</td>
-                    </tr>
-                    <tr>
-                        <td>p-treeselect-panel</td>
-                        <td>Overlay panel for items.</td>
-                    </tr>
-                    <tr>
-                        <td>p-treeselect-items-wrapper</td>
-                        <td>List container of items.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>Styling</h5>
+            <p>Following is the list of structural style classes, for theming classes visit <nuxt-link to="/theming">theming</nuxt-link> page.</p>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Element</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>p-treeselect</td>
+                            <td>Container element.</td>
+                        </tr>
+                        <tr>
+                            <td>p-treeselect-label-container</td>
+                            <td>Container of the label to display selected items.</td>
+                        </tr>
+                        <tr>
+                            <td>p-treeselect-label</td>
+                            <td>Label to display selected items.</td>
+                        </tr>
+                        <tr>
+                            <td>p-treeselect-trigger</td>
+                            <td>Dropdown button.</td>
+                        </tr>
+                        <tr>
+                            <td>p-treeselect-panel</td>
+                            <td>Overlay panel for items.</td>
+                        </tr>
+                        <tr>
+                            <td>p-treeselect-items-wrapper</td>
+                            <td>List container of items.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Accessibility</h5>
-        <DevelopmentSection>
-            <h6>Screen Reader</h6>
-            <p>
-                Value to describe the component can either be provided with <i>aria-labelledby</i> or <i>aria-label</i> props. The treeselect element has a <i>combobox</i> role in addition to <i>aria-haspopup</i> and <i>aria-expanded</i> attributes.
-                The relation between the combobox and the popup is created with <i>aria-controls</i> that refers to the id of the popup.
-            </p>
-            <p>
-                The popup list has an id that refers to the <i>aria-controls</i> attribute of the <i>combobox</i> element and uses <i>tree</i> as the role. Each list item has a <i>treeitem</i> role along with <i>aria-label</i>,
-                <i>aria-selected</i> and <i>aria-expanded</i> attributes. In checkbox selection, <i>aria-checked</i> is used instead of <i>aria-selected</i>. Checkbox and toggle icons are hidden from screen readers as their parent element with
-                <i>treeitem</i> role and attributes are used instead for readers and keyboard support. The container element of a treenode has the <i>group</i> role. The <i>aria-setsize</i>, <i>aria-posinset</i> and <i>aria-level</i> attributes are
-                calculated implicitly and added to each treeitem.
-            </p>
+            <h5>Accessibility</h5>
+            <DevelopmentSection>
+                <h6>Screen Reader</h6>
+                <p>
+                    Value to describe the component can either be provided with <i>aria-labelledby</i> or <i>aria-label</i> props. The treeselect element has a <i>combobox</i> role in addition to <i>aria-haspopup</i> and
+                    <i>aria-expanded</i> attributes. The relation between the combobox and the popup is created with <i>aria-controls</i> that refers to the id of the popup.
+                </p>
+                <p>
+                    The popup list has an id that refers to the <i>aria-controls</i> attribute of the <i>combobox</i> element and uses <i>tree</i> as the role. Each list item has a <i>treeitem</i> role along with <i>aria-label</i>,
+                    <i>aria-selected</i> and <i>aria-expanded</i> attributes. In checkbox selection, <i>aria-checked</i> is used instead of <i>aria-selected</i>. Checkbox and toggle icons are hidden from screen readers as their parent element with
+                    <i>treeitem</i> role and attributes are used instead for readers and keyboard support. The container element of a treenode has the <i>group</i> role. The <i>aria-setsize</i>, <i>aria-posinset</i> and <i>aria-level</i> attributes
+                    are calculated implicitly and added to each treeitem.
+                </p>
 
-            <pre v-code><code>
+                <pre v-code><code>
 &lt;span id="dd1"&gt;Options&lt;/span&gt;
 &lt;TreeSelect aria-labelledby="dd1" /&gt;
 
@@ -540,87 +540,87 @@ data() {
 
 </code></pre>
 
-            <h6>Closed State Keyboard Support</h6>
-            <div class="doc-tablewrapper">
-                <table class="doc-table">
-                    <thead>
-                        <tr>
-                            <th>Key</th>
-                            <th>Function</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><i>tab</i></td>
-                            <td>Moves focus to the treeselect element.</td>
-                        </tr>
-                        <tr>
-                            <td><i>space</i></td>
-                            <td>Opens the popup and moves visual focus to the selected treenode, if there is none then first treenode receives the focus.</td>
-                        </tr>
-                        <tr>
-                            <td><i>down arrow</i></td>
-                            <td>Opens the popup and moves visual focus to the selected option, if there is none then first option receives the focus.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+                <h6>Closed State Keyboard Support</h6>
+                <div class="doc-tablewrapper">
+                    <table class="doc-table">
+                        <thead>
+                            <tr>
+                                <th>Key</th>
+                                <th>Function</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><i>tab</i></td>
+                                <td>Moves focus to the treeselect element.</td>
+                            </tr>
+                            <tr>
+                                <td><i>space</i></td>
+                                <td>Opens the popup and moves visual focus to the selected treenode, if there is none then first treenode receives the focus.</td>
+                            </tr>
+                            <tr>
+                                <td><i>down arrow</i></td>
+                                <td>Opens the popup and moves visual focus to the selected option, if there is none then first option receives the focus.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
 
-            <h6>Popup Keyboard Support</h6>
-            <div class="doc-tablewrapper">
-                <table class="doc-table">
-                    <thead>
-                        <tr>
-                            <th>Key</th>
-                            <th>Function</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><i>tab</i></td>
-                            <td>Moves focus to the next focusable element in the popup, if there is none then first focusable element receives the focus.</td>
-                        </tr>
-                        <tr>
-                            <td><i>shift</i> + <i>tab</i></td>
-                            <td>Moves focus to the previous focusable element in the popup, if there is none then last focusable element receives the focus.</td>
-                        </tr>
-                        <tr>
-                            <td><i>enter</i></td>
-                            <td>Selects the focused option, closes the popup if selection mode is single.</td>
-                        </tr>
-                        <tr>
-                            <td><i>space</i></td>
-                            <td>Selects the focused option, closes the popup if selection mode is single.</td>
-                        </tr>
-                        <tr>
-                            <td><i>escape</i></td>
-                            <td>Closes the popup, moves focus to the treeselect element.</td>
-                        </tr>
-                        <tr>
-                            <td><i>down arrow</i></td>
-                            <td>Moves focus to the next treenode.</td>
-                        </tr>
-                        <tr>
-                            <td><i>up arrow</i></td>
-                            <td>Moves focus to the previous treenode.</td>
-                        </tr>
-                        <tr>
-                            <td><i>right arrow</i></td>
-                            <td>If node is closed, opens the node otherwise moves focus to the first child node.</td>
-                        </tr>
-                        <tr>
-                            <td><i>left arrow</i></td>
-                            <td>If node is open, closes the node otherwise moves focus to the parent node.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </DevelopmentSection>
+                <h6>Popup Keyboard Support</h6>
+                <div class="doc-tablewrapper">
+                    <table class="doc-table">
+                        <thead>
+                            <tr>
+                                <th>Key</th>
+                                <th>Function</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><i>tab</i></td>
+                                <td>Moves focus to the next focusable element in the popup, if there is none then first focusable element receives the focus.</td>
+                            </tr>
+                            <tr>
+                                <td><i>shift</i> + <i>tab</i></td>
+                                <td>Moves focus to the previous focusable element in the popup, if there is none then last focusable element receives the focus.</td>
+                            </tr>
+                            <tr>
+                                <td><i>enter</i></td>
+                                <td>Selects the focused option, closes the popup if selection mode is single.</td>
+                            </tr>
+                            <tr>
+                                <td><i>space</i></td>
+                                <td>Selects the focused option, closes the popup if selection mode is single.</td>
+                            </tr>
+                            <tr>
+                                <td><i>escape</i></td>
+                                <td>Closes the popup, moves focus to the treeselect element.</td>
+                            </tr>
+                            <tr>
+                                <td><i>down arrow</i></td>
+                                <td>Moves focus to the next treenode.</td>
+                            </tr>
+                            <tr>
+                                <td><i>up arrow</i></td>
+                                <td>Moves focus to the previous treenode.</td>
+                            </tr>
+                            <tr>
+                                <td><i>right arrow</i></td>
+                                <td>If node is closed, opens the node otherwise moves focus to the first child node.</td>
+                            </tr>
+                            <tr>
+                                <td><i>left arrow</i></td>
+                                <td>If node is open, closes the node otherwise moves focus to the parent node.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </DevelopmentSection>
 
-        <h5>Dependencies</h5>
-        <p>None.</p>
-    </AppDoc>
-</ClientOnly>
+            <h5>Dependencies</h5>
+            <p>None.</p>
+        </AppDoc>
+    </ClientOnly>
 </template>
 
 <script>

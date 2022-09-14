@@ -1,5 +1,5 @@
 <template>
-    <section :class="['landing-hero flex align-items-center flex-column justify-content-center relative', {'hero-animation': setAnimation}]">
+    <section :class="['landing-hero flex align-items-center flex-column justify-content-center relative', { 'hero-animation': setAnimation }]">
         <div class="hero-inner z-2 relative">
             <div class="flex flex-column md:align-items-center md:flex-row">
                 <div class="p-2 flex flex-row md:flex-column">
@@ -12,7 +12,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="hero-box w-10rem h-10rem md:w-12rem md:h-12rem animation ml-4 md:ml-0 md:mt-4 flex align-items-center justify-content-center"  @click="navigateTo('https://www.primefaces.org/designer-vue')">
+                    <div class="hero-box w-10rem h-10rem md:w-12rem md:h-12rem animation ml-4 md:ml-0 md:mt-4 flex align-items-center justify-content-center" @click="navigateTo('https://www.primefaces.org/designer-vue')">
                         <div class="flex flex-column align-items-center">
                             <img src="/demo/images/landing/designer-icon.svg" alt="primevue templates" />
                             <div class="name">
@@ -82,12 +82,12 @@
 
         <section class="landing-getstarted flex flex-column md:flex-row align-items-center justify-content-center mt-8 z-1">
             <nuxt-link to="/setup" class="linkbox active font-semibold py-3 px-4 ml-0 md:ml-6 fadeinleft animation-duration-2000 animation-ease-out">
-                Get Started 
+                Get Started
                 <i class="pi pi-arrow-right ml-3"></i>
             </nuxt-link>
             <div class="box download-box font-medium p-3 px-4 mt-3 md:mt-0 md:ml-3 bg-transparent inline-flex align-items-center fadeinright animation-duration-2000 animation-ease-out">
                 <i class="download-icon pi pi-download mr-3"></i>
-                <span class="font-bold" :style="{fontFamily:'monaco'}">npm i primevue</span>
+                <span class="font-bold" :style="{ fontFamily: 'monaco' }">npm i primevue</span>
             </div>
         </section>
 
@@ -103,15 +103,15 @@ export default {
     data() {
         return {
             setAnimation: false
-        }
+        };
     },
     mounted() {
-        this.setAnimation = true        
+        this.setAnimation = true;
     },
     methods: {
         navigateTo(url) {
             window.location.href = url;
         }
     }
-}
+};
 </script>

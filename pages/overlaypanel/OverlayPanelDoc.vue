@@ -1,22 +1,22 @@
 <template>
     <ClientOnly>
-<AppDoc name="OverlayPanelDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="overlaypanel/OverlayPanelDemo.vue">
-        <h5>Import via Module</h5>
-        <pre v-code.script><code>
+        <AppDoc name="OverlayPanelDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="overlaypanel/OverlayPanelDemo.vue">
+            <h5>Import via Module</h5>
+            <pre v-code.script><code>
 import OverlayPanel from 'primevue/overlaypanel';
 
 </code></pre>
 
-        <h5>Import via CDN</h5>
-        <pre v-code><code>
+            <h5>Import via CDN</h5>
+            <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/overlaypanel/overlaypanel.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-        <h5>Getting Started</h5>
-        <p>OverlayPanel is accessed via its reference where visibility is controlled using toggle, show and hide methods.</p>
-        <pre v-code><code>
+            <h5>Getting Started</h5>
+            <p>OverlayPanel is accessed via its reference where visibility is controlled using toggle, show and hide methods.</p>
+            <pre v-code><code>
 &lt;Button type="button" label="Toggle" @click="toggle" /&gt;
 
 &lt;OverlayPanel ref="op"&gt;
@@ -25,185 +25,185 @@ import OverlayPanel from 'primevue/overlaypanel';
 
 </code></pre>
 
-        <pre v-code.script><code>
+            <pre v-code.script><code>
 toggle(event) {
     this.$refs.op.toggle(event);
 }
 
 </code></pre>
 
-        <h5>Dismissable and CloseIcon</h5>
-        <p>Clicking outside the overlay hides the panel, setting <i>dismissable</i> to false disables this behavior. Additionally enabling <i>showCloseIcon</i> property displays a close icon at the top right corner to close the panel.</p>
-        <pre v-code><code>
+            <h5>Dismissable and CloseIcon</h5>
+            <p>Clicking outside the overlay hides the panel, setting <i>dismissable</i> to false disables this behavior. Additionally enabling <i>showCloseIcon</i> property displays a close icon at the top right corner to close the panel.</p>
+            <pre v-code><code>
 &lt;OverlayPanel ref="op" :showCloseIcon="true" :dismissable="true"&gt;
 	&lt;img src="/demo/images/nature/nature1.jpg" alt="Nature Image"&gt;
 &lt;/OverlayPanel&gt;
 
 </code></pre>
 
-        <h5>Responsive</h5>
-        <p>
-            OverlayPanel width can be adjusted per screen size with the <i>breakpoints</i> option. In example below, default width is set to 450px and below 961px, width would be 75vw and finally below 641px width becomes 100%. The value of
-            <i>breakpoints</i> should be an object literal whose keys are the maximum screen sizes and values are the widths per screen.
-        </p>
+            <h5>Responsive</h5>
+            <p>
+                OverlayPanel width can be adjusted per screen size with the <i>breakpoints</i> option. In example below, default width is set to 450px and below 961px, width would be 75vw and finally below 641px width becomes 100%. The value of
+                <i>breakpoints</i> should be an object literal whose keys are the maximum screen sizes and values are the widths per screen.
+            </p>
 
-        <pre v-code><code>
+            <pre v-code><code>
 &lt;OverlayPanel ref="op" :breakpoints="{'960px': '75vw', '640px': '100vw'}" :style="{width: '450px'}"&gt;
 	Content
 &lt;/OverlayPanel&gt;
 
 </code></pre>
 
-        <h5>Properties</h5>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Type</th>
-                        <th>Default</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>dismissable</td>
-                        <td>boolean</td>
-                        <td>true</td>
-                        <td>Enables to hide the overlay when outside is clicked.</td>
-                    </tr>
-                    <tr>
-                        <td>showCloseIcon</td>
-                        <td>boolean</td>
-                        <td>false</td>
-                        <td>When enabled, displays a close icon at top right corner.</td>
-                    </tr>
-                    <tr>
-                        <td>appendTo</td>
-                        <td>string</td>
-                        <td>body</td>
-                        <td>A valid query selector or an HTMLElement to specify where the overlay gets attached.</td>
-                    </tr>
-                    <tr>
-                        <td>baseZIndex</td>
-                        <td>number</td>
-                        <td>0</td>
-                        <td>Base zIndex value to use in layering.</td>
-                    </tr>
-                    <tr>
-                        <td>autoZIndex</td>
-                        <td>boolean</td>
-                        <td>true</td>
-                        <td>Whether to automatically manage layering.</td>
-                    </tr>
-                    <tr>
-                        <td>ariaCloseLabel</td>
-                        <td>string</td>
-                        <td>close</td>
-                        <td>Aria label of the close icon.</td>
-                    </tr>
-                    <tr>
-                        <td>breakpoints</td>
-                        <td>object</td>
-                        <td>null</td>
-                        <td>Object literal to define widths per screen size.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>Properties</h5>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>dismissable</td>
+                            <td>boolean</td>
+                            <td>true</td>
+                            <td>Enables to hide the overlay when outside is clicked.</td>
+                        </tr>
+                        <tr>
+                            <td>showCloseIcon</td>
+                            <td>boolean</td>
+                            <td>false</td>
+                            <td>When enabled, displays a close icon at top right corner.</td>
+                        </tr>
+                        <tr>
+                            <td>appendTo</td>
+                            <td>string</td>
+                            <td>body</td>
+                            <td>A valid query selector or an HTMLElement to specify where the overlay gets attached.</td>
+                        </tr>
+                        <tr>
+                            <td>baseZIndex</td>
+                            <td>number</td>
+                            <td>0</td>
+                            <td>Base zIndex value to use in layering.</td>
+                        </tr>
+                        <tr>
+                            <td>autoZIndex</td>
+                            <td>boolean</td>
+                            <td>true</td>
+                            <td>Whether to automatically manage layering.</td>
+                        </tr>
+                        <tr>
+                            <td>ariaCloseLabel</td>
+                            <td>string</td>
+                            <td>close</td>
+                            <td>Aria label of the close icon.</td>
+                        </tr>
+                        <tr>
+                            <td>breakpoints</td>
+                            <td>object</td>
+                            <td>null</td>
+                            <td>Object literal to define widths per screen size.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Methods</h5>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Parameters</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>toggle</td>
-                        <td>
-                            event: Browser event <br />
-                            target: Optional target if event.currentTarget should not be used
-                        </td>
-                        <td>Toggles the visibility of the overlay.</td>
-                    </tr>
-                    <tr>
-                        <td>show</td>
-                        <td>
-                            event: Browser event <br />
-                            target: Optional target if event.currentTarget should not be used
-                        </td>
-                        <td>Shows the overlay.</td>
-                    </tr>
-                    <tr>
-                        <td>hide</td>
-                        <td>-</td>
-                        <td>Hides the overlay.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>Methods</h5>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Parameters</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>toggle</td>
+                            <td>
+                                event: Browser event <br />
+                                target: Optional target if event.currentTarget should not be used
+                            </td>
+                            <td>Toggles the visibility of the overlay.</td>
+                        </tr>
+                        <tr>
+                            <td>show</td>
+                            <td>
+                                event: Browser event <br />
+                                target: Optional target if event.currentTarget should not be used
+                            </td>
+                            <td>Shows the overlay.</td>
+                        </tr>
+                        <tr>
+                            <td>hide</td>
+                            <td>-</td>
+                            <td>Hides the overlay.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Events</h5>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Parameters</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>show</td>
-                        <td>-</td>
-                        <td>Callback to invoke when the overlay is shown.</td>
-                    </tr>
-                    <tr>
-                        <td>hide</td>
-                        <td>-</td>
-                        <td>Callback to invoke when the overlay is hidden.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>Events</h5>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Parameters</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>show</td>
+                            <td>-</td>
+                            <td>Callback to invoke when the overlay is shown.</td>
+                        </tr>
+                        <tr>
+                            <td>hide</td>
+                            <td>-</td>
+                            <td>Callback to invoke when the overlay is hidden.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Styling</h5>
-        <p>Following is the list of structural style classes, for theming classes visit <nuxt-link to="/theming">theming</nuxt-link> page.</p>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Element</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>p-overlaypanel</td>
-                        <td>Container element.</td>
-                    </tr>
-                    <tr>
-                        <td>p-overlaypanel-content</td>
-                        <td>Content of the panel.</td>
-                    </tr>
-                    <tr>
-                        <td>p-overlaypanel-close</td>
-                        <td>Close icon.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>Styling</h5>
+            <p>Following is the list of structural style classes, for theming classes visit <nuxt-link to="/theming">theming</nuxt-link> page.</p>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Element</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>p-overlaypanel</td>
+                            <td>Container element.</td>
+                        </tr>
+                        <tr>
+                            <td>p-overlaypanel-content</td>
+                            <td>Content of the panel.</td>
+                        </tr>
+                        <tr>
+                            <td>p-overlaypanel-close</td>
+                            <td>Close icon.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Dependencies</h5>
-        <p>None.</p>
-    </AppDoc>
-</ClientOnly>
+            <h5>Dependencies</h5>
+            <p>None.</p>
+        </AppDoc>
+    </ClientOnly>
 </template>
 
 <script>

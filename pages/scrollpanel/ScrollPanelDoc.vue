@@ -1,38 +1,38 @@
 <template>
     <ClientOnly>
-<AppDoc name="ScrollPanelDemo" :sources="sources" github="scrollpanel/ScrollPanelDemo.vue">
-        <h5>Import via Module</h5>
-        <pre v-code.script><code>
+        <AppDoc name="ScrollPanelDemo" :sources="sources" github="scrollpanel/ScrollPanelDemo.vue">
+            <h5>Import via Module</h5>
+            <pre v-code.script><code>
 import ScrollPanel from 'primevue/scrollpanel';
 
 </code></pre>
 
-        <h5>Import via CDN</h5>
-        <pre v-code><code>
+            <h5>Import via CDN</h5>
+            <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/scrollpanel/scrollpanel.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-        <h5>Getting Started</h5>
-        <p>ScrollPanel usage is similar to any container element.</p>
-        <pre v-code><code>
+            <h5>Getting Started</h5>
+            <p>ScrollPanel usage is similar to any container element.</p>
+            <pre v-code><code>
 &lt;ScrollPanel style="width: 100%; height: 200px"&gt;
     content
 &lt;/ScrollPanel&gt;
 
 </code></pre>
 
-        <h5>Customization</h5>
-        <p>Look and feel can easily be customized, here is an example with custom scrollbars.</p>
-        <pre v-code><code>
+            <h5>Customization</h5>
+            <p>Look and feel can easily be customized, here is an example with custom scrollbars.</p>
+            <pre v-code><code>
 &lt;ScrollPanel style="width: 100%; height: 200px" class="custom"&gt;
     content
 &lt;/ScrollPanel&gt;
 
 </code></pre>
 
-        <pre v-code.css><code>
+            <pre v-code.css><code>
 .custom .p-scrollpanel-wrapper {
     border-right: 9px solid #f4f4f4;
 }
@@ -49,120 +49,120 @@ import ScrollPanel from 'primevue/scrollpanel';
 
 </code></pre>
 
-        <h5>Steps</h5>
-        <p>Step factor is 5px by default and can be customized with <i>step</i> option.</p>
-        <pre v-code><code>
+            <h5>Steps</h5>
+            <p>Step factor is 5px by default and can be customized with <i>step</i> option.</p>
+            <pre v-code><code>
 &lt;ScrollPanel style="width: 100%; height: 200px" :step="10"3&gt;
     content
 &lt;/ScrollPanel&gt;
 
 </code></pre>
 
-        <h5>Properties</h5>
-        <p>Any property such as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Type</th>
-                        <th>Default</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>step</td>
-                        <td>number</td>
-                        <td>5</td>
-                        <td>Step factor to scroll the content while pressing the arrow keys.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <h5>Styling</h5>
-        <p>Following is the list of structural style classes, for theming classes visit <nuxt-link to="/theming">theming</nuxt-link> page.</p>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Element</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>p-scrollpanel</td>
-                        <td>Container element.</td>
-                    </tr>
-                    <tr>
-                        <td>p-scrollpanel-wrapper</td>
-                        <td>Wrapper of content section.</td>
-                    </tr>
-                    <tr>
-                        <td>p-scrollpanel-content</td>
-                        <td>Content section.</td>
-                    </tr>
-                    <tr>
-                        <td>p-scrollpanel-bar</td>
-                        <td>Scrollbar handle.</td>
-                    </tr>
-                    <tr>
-                        <td>p-scrollpanel-bar-x</td>
-                        <td>Scrollbar handle of a horizontal bar.</td>
-                    </tr>
-                    <tr>
-                        <td>p-scrollpanel-bar-y</td>
-                        <td>Scrollbar handle of a vertical bar</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <h5>Accessibility</h5>
-        <DevelopmentSection>
-            <h6>Screen Reader</h6>
-            <p>
-                Scrollbars of the ScrollPanel has a <i>scrollbar</i> role along with the <i>aria-controls</i> attribute that refers to the id of the scrollable content container and the <i>aria-orientation</i> to indicate the orientation of
-                scrolling.
-            </p>
-
-            <h6>Header Keyboard Support</h6>
+            <h5>Properties</h5>
+            <p>Any property such as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
             <div class="doc-tablewrapper">
                 <table class="doc-table">
                     <thead>
                         <tr>
-                            <th>Key</th>
-                            <th>Function</th>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Default</th>
+                            <th>Description</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><i>down arrow</i></td>
-                            <td>Scrolls content down when vertical scrolling is available.</td>
-                        </tr>
-                        <tr>
-                            <td><i>up arrow</i></td>
-                            <td>Scrolls content up when vertical scrolling is available.</td>
-                        </tr>
-                        <tr>
-                            <td><i>left</i></td>
-                            <td>Scrolls content left when horizontal scrolling is available.</td>
-                        </tr>
-                        <tr>
-                            <td><i>right</i></td>
-                            <td>Scrolls content right when horizontal scrolling is available.</td>
+                            <td>step</td>
+                            <td>number</td>
+                            <td>5</td>
+                            <td>Step factor to scroll the content while pressing the arrow keys.</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-        </DevelopmentSection>
 
-        <h5>Dependencies</h5>
-        <p>None.</p>
-    </AppDoc>
-</ClientOnly>
+            <h5>Styling</h5>
+            <p>Following is the list of structural style classes, for theming classes visit <nuxt-link to="/theming">theming</nuxt-link> page.</p>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Element</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>p-scrollpanel</td>
+                            <td>Container element.</td>
+                        </tr>
+                        <tr>
+                            <td>p-scrollpanel-wrapper</td>
+                            <td>Wrapper of content section.</td>
+                        </tr>
+                        <tr>
+                            <td>p-scrollpanel-content</td>
+                            <td>Content section.</td>
+                        </tr>
+                        <tr>
+                            <td>p-scrollpanel-bar</td>
+                            <td>Scrollbar handle.</td>
+                        </tr>
+                        <tr>
+                            <td>p-scrollpanel-bar-x</td>
+                            <td>Scrollbar handle of a horizontal bar.</td>
+                        </tr>
+                        <tr>
+                            <td>p-scrollpanel-bar-y</td>
+                            <td>Scrollbar handle of a vertical bar</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h5>Accessibility</h5>
+            <DevelopmentSection>
+                <h6>Screen Reader</h6>
+                <p>
+                    Scrollbars of the ScrollPanel has a <i>scrollbar</i> role along with the <i>aria-controls</i> attribute that refers to the id of the scrollable content container and the <i>aria-orientation</i> to indicate the orientation of
+                    scrolling.
+                </p>
+
+                <h6>Header Keyboard Support</h6>
+                <div class="doc-tablewrapper">
+                    <table class="doc-table">
+                        <thead>
+                            <tr>
+                                <th>Key</th>
+                                <th>Function</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><i>down arrow</i></td>
+                                <td>Scrolls content down when vertical scrolling is available.</td>
+                            </tr>
+                            <tr>
+                                <td><i>up arrow</i></td>
+                                <td>Scrolls content up when vertical scrolling is available.</td>
+                            </tr>
+                            <tr>
+                                <td><i>left</i></td>
+                                <td>Scrolls content left when horizontal scrolling is available.</td>
+                            </tr>
+                            <tr>
+                                <td><i>right</i></td>
+                                <td>Scrolls content right when horizontal scrolling is available.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </DevelopmentSection>
+
+            <h5>Dependencies</h5>
+            <p>None.</p>
+        </AppDoc>
+    </ClientOnly>
 </template>
 
 <script>

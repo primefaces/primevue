@@ -70,8 +70,8 @@
         </div>
 
         <ClientOnly>
-<AppDoc name="DataTableRowExpandDemo" :sources="sources" :service="['ProductService']" :data="['products-orders-small']" github="datatable/DataTableRowExpandDemo.vue" />
-</ClientOnly>
+            <AppDoc name="DataTableRowExpandDemo" :sources="sources" :service="['ProductService']" :data="['products-orders-small']" github="datatable/DataTableRowExpandDemo.vue" />
+        </ClientOnly>
     </div>
 </template>
 

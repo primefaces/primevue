@@ -1,24 +1,24 @@
 <template>
     <div class="content-section documentation">
         <ClientOnly>
-        <TabView>
-            <TabPanel header="Documentation">
-                <h5>Import via Module</h5>
-                <pre v-code.script><code>
+            <TabView>
+                <TabPanel header="Documentation">
+                    <h5>Import via Module</h5>
+                    <pre v-code.script><code>
 import Galleria from 'primevue/galleria';
 
 </code></pre>
 
-                <h5>Import via CDN</h5>
-                <pre v-code><code>
+                    <h5>Import via CDN</h5>
+                    <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/galleria/galleria.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-                <h5>Getting Started</h5>
-                <p>Galleria requires item template and a value as an array of objects.</p>
-                <pre v-code><code>
+                    <h5>Getting Started</h5>
+                    <p>Galleria requires item template and a value as an array of objects.</p>
+                    <pre v-code><code>
 &lt;Galleria :value="images"&gt;
     &lt;template #item="slotProps"&gt;
         &lt;img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" /&gt;
@@ -27,9 +27,9 @@ import Galleria from 'primevue/galleria';
 
 </code></pre>
 
-                <p>For the rest of the documentation, sample data below would be return from an example service e.g. PhotoService.</p>
-                <div style="overflow: auto; height: 400px">
-                    <pre v-code.script><code>
+                    <p>For the rest of the documentation, sample data below would be return from an example service e.g. PhotoService.</p>
+                    <div style="overflow: auto; height: 400px">
+                        <pre v-code.script><code>
 {
     "data":[
         {
@@ -126,9 +126,9 @@ import Galleria from 'primevue/galleria';
 }
 
 </code></pre>
-                </div>
+                    </div>
 
-                <pre v-code.script><code>
+                    <pre v-code.script><code>
 export default class PhotoService {
 
 	getImages() {
@@ -139,7 +139,7 @@ export default class PhotoService {
 
 </code></pre>
 
-                <pre v-code.script><code>
+                    <pre v-code.script><code>
 export default {
     data() {
         return {
@@ -157,10 +157,10 @@ export default {
 
 </code></pre>
 
-                <h5>Items per page</h5>
-                <p>Number of items per page is defined using the <i>numVisible</i> property.</p>
+                    <h5>Items per page</h5>
+                    <p>Number of items per page is defined using the <i>numVisible</i> property.</p>
 
-                <pre v-code><code>
+                    <pre v-code><code>
 &lt;Galleria :value="images" :numVisible="5"&gt;
     &lt;template #item="slotProps"&gt;
         &lt;img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%" /&gt;
@@ -172,10 +172,10 @@ export default {
 
 </code></pre>
 
-                <h5>Responsive</h5>
-                <p>For responsive design, <i>numVisible</i> can be defined using the <i>responsiveOptions</i> property which references an array of objects whose breakpoint defines the max-width to apply the settings.</p>
+                    <h5>Responsive</h5>
+                    <p>For responsive design, <i>numVisible</i> can be defined using the <i>responsiveOptions</i> property which references an array of objects whose breakpoint defines the max-width to apply the settings.</p>
 
-                <pre v-code><code>
+                    <pre v-code><code>
 &lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5"&gt;
     &lt;template #item="slotProps"&gt;
         &lt;img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%" /&gt;
@@ -187,7 +187,7 @@ export default {
 
 </code></pre>
 
-                <pre v-code.script><code>
+                    <pre v-code.script><code>
 responsiveOptions: [
     {
         breakpoint: '1024px',
@@ -205,9 +205,9 @@ responsiveOptions: [
 
 </code></pre>
 
-                <h5>Header and Footer</h5>
-                <p>Custom content projection is available using the <i>header</i> and <i>footer</i> properties.</p>
-                <pre v-code><code>
+                    <h5>Header and Footer</h5>
+                    <p>Custom content projection is available using the <i>header</i> and <i>footer</i> properties.</p>
+                    <pre v-code><code>
 &lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px"&gt;
     &lt;template #header&gt;
         &lt;h1&gt;Header&lt;/h1&gt;
@@ -222,12 +222,12 @@ responsiveOptions: [
 
 </code></pre>
 
-                <h5>Indicators</h5>
-                <p>
-                    Indicators allow quick navigation between the items. Set <i>showIndicators</i> to display indicators which can be customized further with the <i>changeItemOnIndicatorHover</i>, <i>showIndicatorsOnItem</i> and
-                    <i>indicatorsPosition</i> properties.
-                </p>
-                <pre v-code><code>
+                    <h5>Indicators</h5>
+                    <p>
+                        Indicators allow quick navigation between the items. Set <i>showIndicators</i> to display indicators which can be customized further with the <i>changeItemOnIndicatorHover</i>, <i>showIndicatorsOnItem</i> and
+                        <i>indicatorsPosition</i> properties.
+                    </p>
+                    <pre v-code><code>
 &lt;Galleria :value="images" :showIndicators="true"&gt;
     &lt;template #item="slotProps"&gt;
         &lt;img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" /&gt;
@@ -236,265 +236,265 @@ responsiveOptions: [
 
 </code></pre>
 
-                <h5>Properties</h5>
-                <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
-                <div class="doc-tablewrapper">
-                    <table class="doc-table">
-                        <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Type</th>
-                                <th>Default</th>
-                                <th>Description</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>id</td>
-                                <td>string</td>
-                                <td>null</td>
-                                <td>Unique identifier of the element.</td>
-                            </tr>
-                            <tr>
-                                <td>value</td>
-                                <td>array</td>
-                                <td>null</td>
-                                <td>An array of objects to display.</td>
-                            </tr>
-                            <tr>
-                                <td>activeIndex</td>
-                                <td>number</td>
-                                <td>0</td>
-                                <td>Index of the first item.</td>
-                            </tr>
-                            <tr>
-                                <td>fullScreen</td>
-                                <td>boolean</td>
-                                <td>false</td>
-                                <td>Whether to display the component on fullscreen.</td>
-                            </tr>
-                            <tr>
-                                <td>visible</td>
-                                <td>boolean</td>
-                                <td>false</td>
-                                <td>Specifies the visibility of the mask on fullscreen mode.</td>
-                            </tr>
-                            <tr>
-                                <td>numVisible</td>
-                                <td>number</td>
-                                <td>3</td>
-                                <td>Number of items per page.</td>
-                            </tr>
-                            <tr>
-                                <td>responsiveOptions</td>
-                                <td>any</td>
-                                <td>null</td>
-                                <td>An array of options for responsive design.</td>
-                            </tr>
-                            <tr>
-                                <td>showItemNavigators</td>
-                                <td>boolean</td>
-                                <td>false</td>
-                                <td>Whether to display navigation buttons in item section.</td>
-                            </tr>
-                            <tr>
-                                <td>showThumbnailNavigators</td>
-                                <td>boolean</td>
-                                <td>true</td>
-                                <td>Whether to display navigation buttons in thumbnail container.</td>
-                            </tr>
-                            <tr>
-                                <td>showItemNavigatorsOnHover</td>
-                                <td>boolean</td>
-                                <td>false</td>
-                                <td>Whether to display navigation buttons on item hover.</td>
-                            </tr>
-                            <tr>
-                                <td>changeItemOnIndicatorHover</td>
-                                <td>boolean</td>
-                                <td>false</td>
-                                <td>When enabled, item is changed on indicator hover.</td>
-                            </tr>
-                            <tr>
-                                <td>circular</td>
-                                <td>boolean</td>
-                                <td>false</td>
-                                <td>Defines if scrolling would be infinite.</td>
-                            </tr>
-                            <tr>
-                                <td>autoPlay</td>
-                                <td>boolean</td>
-                                <td>false</td>
-                                <td>Items are displayed with a slideshow in autoPlay mode.</td>
-                            </tr>
-                            <tr>
-                                <td>transitionInterval</td>
-                                <td>number</td>
-                                <td>4000</td>
-                                <td>Time in milliseconds to scroll items.</td>
-                            </tr>
-                            <tr>
-                                <td>showThumbnails</td>
-                                <td>boolean</td>
-                                <td>true</td>
-                                <td>Whether to display thumbnail container.</td>
-                            </tr>
-                            <tr>
-                                <td>thumbnailsPosition</td>
-                                <td>string</td>
-                                <td>bottom</td>
-                                <td>Position of thumbnails. Valid values are "bottom", "top", "left" and "right".</td>
-                            </tr>
-                            <tr>
-                                <td>verticalThumbnailViewPortHeight</td>
-                                <td>string</td>
-                                <td>300px</td>
-                                <td>Height of the viewport in vertical thumbnail.</td>
-                            </tr>
-                            <tr>
-                                <td>showIndicators</td>
-                                <td>boolean</td>
-                                <td>false</td>
-                                <td>Whether to display indicator container.</td>
-                            </tr>
-                            <tr>
-                                <td>showIndicatorsOnItem</td>
-                                <td>boolean</td>
-                                <td>false</td>
-                                <td>When enabled, indicator container is displayed on item container.</td>
-                            </tr>
-                            <tr>
-                                <td>indicatorsPosition</td>
-                                <td>string</td>
-                                <td>bottom</td>
-                                <td>Position of indicators. Valid values are "bottom", "top", "left" and "right".</td>
-                            </tr>
-                            <tr>
-                                <td>baseZIndex</td>
-                                <td>number</td>
-                                <td>0</td>
-                                <td>Base zIndex value to use in layering.</td>
-                            </tr>
-                            <tr>
-                                <td>maskClass</td>
-                                <td>string</td>
-                                <td>null</td>
-                                <td>Style class of the mask on fullscreen mode.</td>
-                            </tr>
-                            <tr>
-                                <td>containerStyle</td>
-                                <td>any</td>
-                                <td>null</td>
-                                <td>Inline style of the component on fullscreen mode. Otherwise, the 'style' property can be used.</td>
-                            </tr>
-                            <tr>
-                                <td>containerClass</td>
-                                <td>any</td>
-                                <td>null</td>
-                                <td>Style class of the component on fullscreen mode. Otherwise, the 'class' property can be used.</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                    <h5>Properties</h5>
+                    <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
+                    <div class="doc-tablewrapper">
+                        <table class="doc-table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Type</th>
+                                    <th>Default</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>string</td>
+                                    <td>null</td>
+                                    <td>Unique identifier of the element.</td>
+                                </tr>
+                                <tr>
+                                    <td>value</td>
+                                    <td>array</td>
+                                    <td>null</td>
+                                    <td>An array of objects to display.</td>
+                                </tr>
+                                <tr>
+                                    <td>activeIndex</td>
+                                    <td>number</td>
+                                    <td>0</td>
+                                    <td>Index of the first item.</td>
+                                </tr>
+                                <tr>
+                                    <td>fullScreen</td>
+                                    <td>boolean</td>
+                                    <td>false</td>
+                                    <td>Whether to display the component on fullscreen.</td>
+                                </tr>
+                                <tr>
+                                    <td>visible</td>
+                                    <td>boolean</td>
+                                    <td>false</td>
+                                    <td>Specifies the visibility of the mask on fullscreen mode.</td>
+                                </tr>
+                                <tr>
+                                    <td>numVisible</td>
+                                    <td>number</td>
+                                    <td>3</td>
+                                    <td>Number of items per page.</td>
+                                </tr>
+                                <tr>
+                                    <td>responsiveOptions</td>
+                                    <td>any</td>
+                                    <td>null</td>
+                                    <td>An array of options for responsive design.</td>
+                                </tr>
+                                <tr>
+                                    <td>showItemNavigators</td>
+                                    <td>boolean</td>
+                                    <td>false</td>
+                                    <td>Whether to display navigation buttons in item section.</td>
+                                </tr>
+                                <tr>
+                                    <td>showThumbnailNavigators</td>
+                                    <td>boolean</td>
+                                    <td>true</td>
+                                    <td>Whether to display navigation buttons in thumbnail container.</td>
+                                </tr>
+                                <tr>
+                                    <td>showItemNavigatorsOnHover</td>
+                                    <td>boolean</td>
+                                    <td>false</td>
+                                    <td>Whether to display navigation buttons on item hover.</td>
+                                </tr>
+                                <tr>
+                                    <td>changeItemOnIndicatorHover</td>
+                                    <td>boolean</td>
+                                    <td>false</td>
+                                    <td>When enabled, item is changed on indicator hover.</td>
+                                </tr>
+                                <tr>
+                                    <td>circular</td>
+                                    <td>boolean</td>
+                                    <td>false</td>
+                                    <td>Defines if scrolling would be infinite.</td>
+                                </tr>
+                                <tr>
+                                    <td>autoPlay</td>
+                                    <td>boolean</td>
+                                    <td>false</td>
+                                    <td>Items are displayed with a slideshow in autoPlay mode.</td>
+                                </tr>
+                                <tr>
+                                    <td>transitionInterval</td>
+                                    <td>number</td>
+                                    <td>4000</td>
+                                    <td>Time in milliseconds to scroll items.</td>
+                                </tr>
+                                <tr>
+                                    <td>showThumbnails</td>
+                                    <td>boolean</td>
+                                    <td>true</td>
+                                    <td>Whether to display thumbnail container.</td>
+                                </tr>
+                                <tr>
+                                    <td>thumbnailsPosition</td>
+                                    <td>string</td>
+                                    <td>bottom</td>
+                                    <td>Position of thumbnails. Valid values are "bottom", "top", "left" and "right".</td>
+                                </tr>
+                                <tr>
+                                    <td>verticalThumbnailViewPortHeight</td>
+                                    <td>string</td>
+                                    <td>300px</td>
+                                    <td>Height of the viewport in vertical thumbnail.</td>
+                                </tr>
+                                <tr>
+                                    <td>showIndicators</td>
+                                    <td>boolean</td>
+                                    <td>false</td>
+                                    <td>Whether to display indicator container.</td>
+                                </tr>
+                                <tr>
+                                    <td>showIndicatorsOnItem</td>
+                                    <td>boolean</td>
+                                    <td>false</td>
+                                    <td>When enabled, indicator container is displayed on item container.</td>
+                                </tr>
+                                <tr>
+                                    <td>indicatorsPosition</td>
+                                    <td>string</td>
+                                    <td>bottom</td>
+                                    <td>Position of indicators. Valid values are "bottom", "top", "left" and "right".</td>
+                                </tr>
+                                <tr>
+                                    <td>baseZIndex</td>
+                                    <td>number</td>
+                                    <td>0</td>
+                                    <td>Base zIndex value to use in layering.</td>
+                                </tr>
+                                <tr>
+                                    <td>maskClass</td>
+                                    <td>string</td>
+                                    <td>null</td>
+                                    <td>Style class of the mask on fullscreen mode.</td>
+                                </tr>
+                                <tr>
+                                    <td>containerStyle</td>
+                                    <td>any</td>
+                                    <td>null</td>
+                                    <td>Inline style of the component on fullscreen mode. Otherwise, the 'style' property can be used.</td>
+                                </tr>
+                                <tr>
+                                    <td>containerClass</td>
+                                    <td>any</td>
+                                    <td>null</td>
+                                    <td>Style class of the component on fullscreen mode. Otherwise, the 'class' property can be used.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
 
-                <h5>Slots</h5>
-                <div class="doc-tablewrapper">
-                    <table class="doc-table">
-                        <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Parameters</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>header</td>
-                                <td>-</td>
-                            </tr>
-                            <tr>
-                                <td>footer</td>
-                                <td>-</td>
-                            </tr>
-                            <tr>
-                                <td>item</td>
-                                <td>item: Item instance</td>
-                            </tr>
-                            <tr>
-                                <td>caption</td>
-                                <td>item: Item instance</td>
-                            </tr>
-                            <tr>
-                                <td>thumbnail</td>
-                                <td>item: Item instance</td>
-                            </tr>
-                            <tr>
-                                <td>indicator</td>
-                                <td>index: Index of the indicator item</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                    <h5>Slots</h5>
+                    <div class="doc-tablewrapper">
+                        <table class="doc-table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Parameters</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>header</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td>footer</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td>item</td>
+                                    <td>item: Item instance</td>
+                                </tr>
+                                <tr>
+                                    <td>caption</td>
+                                    <td>item: Item instance</td>
+                                </tr>
+                                <tr>
+                                    <td>thumbnail</td>
+                                    <td>item: Item instance</td>
+                                </tr>
+                                <tr>
+                                    <td>indicator</td>
+                                    <td>index: Index of the indicator item</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
 
-                <h5>Styling</h5>
-                <p>Following is the list of structural style classes, for theming classes visit <nuxt-link to="/theming">theming</nuxt-link> page.</p>
-                <div class="doc-tablewrapper">
-                    <table class="doc-table">
-                        <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Element</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>p-galleria</td>
-                                <td>Container element.</td>
-                            </tr>
-                            <tr>
-                                <td>p-galleria-header</td>
-                                <td>Header section.</td>
-                            </tr>
-                            <tr>
-                                <td>p-galleria-footer</td>
-                                <td>Footer section.</td>
-                            </tr>
-                            <tr>
-                                <td>p-galleria-item-wrapper</td>
-                                <td>Item wrapper element. It contains item container and indicators.</td>
-                            </tr>
-                            <tr>
-                                <td>p-galleria-item-container</td>
-                                <td>Container of the item wrapper. It contains navigation buttons, items and caption content.</td>
-                            </tr>
-                            <tr>
-                                <td>p-galleria-indicators</td>
-                                <td>Container of the indicators. It contains indicator items.</td>
-                            </tr>
-                            <tr>
-                                <td>p-galleria-thumbnail-content</td>
-                                <td>Thumbnail content element.</td>
-                            </tr>
-                            <tr>
-                                <td>p-galleria-thumbnail-container</td>
-                                <td>Container of the thumbnail content. It contains navigation buttons and thumbnail items.</td>
-                            </tr>
-                            <tr>
-                                <td>p-galleria-caption</td>
-                                <td>Content of the item caption.</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                    <h5>Styling</h5>
+                    <p>Following is the list of structural style classes, for theming classes visit <nuxt-link to="/theming">theming</nuxt-link> page.</p>
+                    <div class="doc-tablewrapper">
+                        <table class="doc-table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Element</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>p-galleria</td>
+                                    <td>Container element.</td>
+                                </tr>
+                                <tr>
+                                    <td>p-galleria-header</td>
+                                    <td>Header section.</td>
+                                </tr>
+                                <tr>
+                                    <td>p-galleria-footer</td>
+                                    <td>Footer section.</td>
+                                </tr>
+                                <tr>
+                                    <td>p-galleria-item-wrapper</td>
+                                    <td>Item wrapper element. It contains item container and indicators.</td>
+                                </tr>
+                                <tr>
+                                    <td>p-galleria-item-container</td>
+                                    <td>Container of the item wrapper. It contains navigation buttons, items and caption content.</td>
+                                </tr>
+                                <tr>
+                                    <td>p-galleria-indicators</td>
+                                    <td>Container of the indicators. It contains indicator items.</td>
+                                </tr>
+                                <tr>
+                                    <td>p-galleria-thumbnail-content</td>
+                                    <td>Thumbnail content element.</td>
+                                </tr>
+                                <tr>
+                                    <td>p-galleria-thumbnail-container</td>
+                                    <td>Container of the thumbnail content. It contains navigation buttons and thumbnail items.</td>
+                                </tr>
+                                <tr>
+                                    <td>p-galleria-caption</td>
+                                    <td>Content of the item caption.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
 
-                <h5>Dependencies</h5>
-                <p>None.</p>
-            </TabPanel>
+                    <h5>Dependencies</h5>
+                    <p>None.</p>
+                </TabPanel>
 
-            <TabPanel header="Source">
-                <a href="https://github.com/primefaces/primevue/tree/master/src/views/galleria" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
-                    <span>View on GitHub</span>
-                </a>
-                <pre v-code><code><template v-pre>
+                <TabPanel header="Source">
+                    <a href="https://github.com/primefaces/primevue/tree/master/src/views/galleria" class="btn-viewsource" target="_blank" rel="noopener noreferrer">
+                        <span>View on GitHub</span>
+                    </a>
+                    <pre v-code><code><template v-pre>
 &lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px"&gt;
     &lt;template #item="slotProps"&gt;
         &lt;img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%" /&gt;
@@ -506,7 +506,7 @@ responsiveOptions: [
 </template>
 </code></pre>
 
-                <pre v-code.script><code>
+                    <pre v-code.script><code>
 import PhotoService from '../../service/PhotoService';
 
 export default {
@@ -539,8 +539,8 @@ export default {
 }
 
 </code></pre>
-            </TabPanel>
-        </TabView>
-    </ClientOnly>
+                </TabPanel>
+            </TabView>
+        </ClientOnly>
     </div>
 </template>

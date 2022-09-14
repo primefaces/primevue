@@ -1,25 +1,25 @@
 <template>
     <ClientOnly>
-<AppDoc name="ProgressBarDemo" :sources="sources" github="progressbar/ProgressBarDemo.vue">
-        <h5>Import via Module</h5>
-        <pre v-code.script><code>
+        <AppDoc name="ProgressBarDemo" :sources="sources" github="progressbar/ProgressBarDemo.vue">
+            <h5>Import via Module</h5>
+            <pre v-code.script><code>
 import ProgressBar from 'primevue/progressbar';
 
 </code></pre>
 
-        <h5>Import via CDN</h5>
-        <pre v-code><code>
+            <h5>Import via CDN</h5>
+            <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-        <h5>Getting Started</h5>
-        <p>ProgressBar has two modes; "determinate" (default) and "indeterminate". In determinate mode, a value between 0 and 100 is required to display the progress.</p>
-        <pre v-code><code>
+            <h5>Getting Started</h5>
+            <p>ProgressBar has two modes; "determinate" (default) and "indeterminate". In determinate mode, a value between 0 and 100 is required to display the progress.</p>
+            <pre v-code><code>
 &lt;ProgressBar :value="value" /&gt;
 
 </code></pre>
-        <pre v-code.script><code>
+            <pre v-code.script><code>
 data() {
 	return {
 		value: 0
@@ -28,95 +28,95 @@ data() {
 
 </code></pre>
 
-        <p>Indeterminate is simplly enabled using <i>mode</i> property.</p>
-        <pre v-code><code>
+            <p>Indeterminate is simplly enabled using <i>mode</i> property.</p>
+            <pre v-code><code>
 &lt;ProgressBar mode="indeterminate"/&gt;
 
 </code></pre>
 
-        <h5>Slot</h5>
-        <p>A custom label can be placed inside the progress bar via the default slot.</p>
-        <pre v-code><code><template v-pre>
+            <h5>Slot</h5>
+            <p>A custom label can be placed inside the progress bar via the default slot.</p>
+            <pre v-code><code><template v-pre>
 &lt;ProgressBar :value="value"&gt;
     Percent Complete: &#123;&#123;value&#125;&#125;%
 &lt;/ProgressBar&gt;
 </template>
 </code></pre>
 
-        <h5>Properties</h5>
-        <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Type</th>
-                        <th>Default</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>value</td>
-                        <td>number</td>
-                        <td>null</td>
-                        <td>Current value of the progress.</td>
-                    </tr>
-                    <tr>
-                        <td>mode</td>
-                        <td>string</td>
-                        <td>determinate</td>
-                        <td>Defines the mode of the progress, valid values are "determinate" and "indeterminate".</td>
-                    </tr>
-                    <tr>
-                        <td>showValue</td>
-                        <td>boolean</td>
-                        <td>true</td>
-                        <td>Whether to display the progress bar value.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>Properties</h5>
+            <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>value</td>
+                            <td>number</td>
+                            <td>null</td>
+                            <td>Current value of the progress.</td>
+                        </tr>
+                        <tr>
+                            <td>mode</td>
+                            <td>string</td>
+                            <td>determinate</td>
+                            <td>Defines the mode of the progress, valid values are "determinate" and "indeterminate".</td>
+                        </tr>
+                        <tr>
+                            <td>showValue</td>
+                            <td>boolean</td>
+                            <td>true</td>
+                            <td>Whether to display the progress bar value.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Styling</h5>
-        <p>Following is the list of structural style classes, for theming classes visit <nuxt-link to="/theming">theming</nuxt-link> page.</p>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Element</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>p-progressbar</td>
-                        <td>Container element.</td>
-                    </tr>
-                    <tr>
-                        <td>p-progressbar-determinate</td>
-                        <td>Container element of a determinate progressbar.</td>
-                    </tr>
-                    <tr>
-                        <td>p-progressbar-indeterminate</td>
-                        <td>Container element of an indeterminate progressbar.</td>
-                    </tr>
-                    <tr>
-                        <td>p-progressbar-value</td>
-                        <td>Element whose width changes according to value.</td>
-                    </tr>
-                    <tr>
-                        <td>p-progressbar-label</td>
-                        <td>Label element that displays the current value.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>Styling</h5>
+            <p>Following is the list of structural style classes, for theming classes visit <nuxt-link to="/theming">theming</nuxt-link> page.</p>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Element</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>p-progressbar</td>
+                            <td>Container element.</td>
+                        </tr>
+                        <tr>
+                            <td>p-progressbar-determinate</td>
+                            <td>Container element of a determinate progressbar.</td>
+                        </tr>
+                        <tr>
+                            <td>p-progressbar-indeterminate</td>
+                            <td>Container element of an indeterminate progressbar.</td>
+                        </tr>
+                        <tr>
+                            <td>p-progressbar-value</td>
+                            <td>Element whose width changes according to value.</td>
+                        </tr>
+                        <tr>
+                            <td>p-progressbar-label</td>
+                            <td>Label element that displays the current value.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Dependencies</h5>
-        <p>None.</p>
-    </AppDoc>
-</ClientOnly>
+            <h5>Dependencies</h5>
+            <p>None.</p>
+        </AppDoc>
+    </ClientOnly>
 </template>
 
 <script>

@@ -1,7 +1,7 @@
 <template>
     <ClientOnly>
-<AppDoc name="DataTableBasicDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="datatable/DataTableBasicDemo.vue" />
-</ClientOnly>
+        <AppDoc name="DataTableBasicDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="datatable/DataTableBasicDemo.vue" />
+    </ClientOnly>
 </template>
 
 <script>

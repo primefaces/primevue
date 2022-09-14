@@ -44,8 +44,8 @@
         </div>
 
         <ClientOnly>
-<AppDoc name="DataTableTemplatingDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="datatable/DataTableTemplatingDemo.vue" />
-</ClientOnly>
+            <AppDoc name="DataTableTemplatingDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="datatable/DataTableTemplatingDemo.vue" />
+        </ClientOnly>
     </div>
 </template>
 

@@ -18,8 +18,8 @@
         </div>
 
         <ClientOnly>
-<AppDoc name="DataTableFlexScrollDemo" :sources="sources" :service="['CustomerService']" :data="['customers-large']" github="datatable/DataTableFlexScrollDemo.vue" />
-</ClientOnly>
+            <AppDoc name="DataTableFlexScrollDemo" :sources="sources" :service="['CustomerService']" :data="['customers-large']" github="datatable/DataTableFlexScrollDemo.vue" />
+        </ClientOnly>
     </div>
 </template>
 
