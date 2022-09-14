@@ -1,12 +1,12 @@
 <template>
     <div :class="containerClass">
         <div class="layout-config-content-wrapper">
-            <nuxt-link to="#" class="layout-config-button" @click="toggleConfigurator">
+            <a class="layout-config-button" @click="toggleConfigurator">
                 <i class="pi pi-cog"></i>
-            </nuxt-link>
-            <nuxt-link to="#" class="layout-config-close" @click="hideConfigurator">
+            </a>
+            <a to="#" class="layout-config-close" @click="hideConfigurator">
                 <i class="pi pi-times"></i>
-            </nuxt-link>
+            </a>
 
             <div class="layout-config-content">
                 <div>
