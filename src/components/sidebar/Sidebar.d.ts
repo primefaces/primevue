@@ -3,6 +3,8 @@ import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 type SidebarPositionType = 'left' | 'right' | 'top' | 'bottom' | 'full' | undefined;
 
+type DialogAppendToType = 'body' | 'self' | string | undefined | HTMLElement;
+
 export interface SidebarProps {
     /**
      * Specifies the visibility of the dialog.
@@ -44,6 +46,12 @@ export interface SidebarProps {
      * Default value is 'close'.
      */
     ariaCloseLabel?: string | undefined;
+     /**
+     * A valid query selector or an HTMLElement to specify where the dialog gets attached. Special keywords are 'body' for document body and 'self' for the element itself.
+     * @see DialogAppendToType
+     * Default value is 'body'.
+     */
+    appendTo?: DialogAppendToType;
 }
 
 export interface SidebarSlots {

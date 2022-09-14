@@ -1,5 +1,5 @@
 <template>
-    <Portal>
+    <Portal :appendTo="appendTo">
         <transition name="p-sidebar" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave" appear>
             <div v-if="visible" :ref="containerRef" :class="containerClass" role="complementary" :aria-modal="modal" v-bind="$attrs">
                 <div class="p-sidebar-header">
@@ -59,7 +59,11 @@ export default {
         ariaCloseLabel: {
             type: String,
             default: 'close'
-        }
+        },   
+        appendTo: {
+            type: String,
+            default: 'body'
+        },
     },
     mask: null,
     maskClickListener: null,
