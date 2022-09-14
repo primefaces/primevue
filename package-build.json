@@ -1,0 +1,32 @@
+{
+    "name": "primevue",
+    "version": "3.17.0",
+    "homepage": "https://www.primefaces.org/primevue",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/primefaces/primevue.git"
+    },
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/primefaces/primevue/issues"
+    },
+    "keywords": [
+      "primevue",
+      "vue",
+      "ui framework",
+      "component framework",
+      "ui library",
+      "component library",
+      "material",
+      "bootstrap"
+    ],
+    "web-types": "./web-types.json",
+    "vetur": {
+      "tags": "./vetur-tags.json",
+      "attributes": "./vetur-attributes.json"
+    },
+    "peerDependencies": {
+      "vue": "^3.0.0",
+      "primeicons": "^5.0.0"
+    }
+  }

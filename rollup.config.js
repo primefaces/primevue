@@ -118,6 +118,7 @@ function addCore() {
                 Object.entries(core).forEach(([filePath, value]) => {
                     const code = Object.keys(coreDependencies).reduce((val, d) => {
                         const name = d.replace('primevue/', '');
+
                         val += value[name] + '\n';
 
                         return val;
