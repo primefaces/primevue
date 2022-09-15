@@ -81,10 +81,16 @@ myUploader(event) {
 
 </code></pre>
 
-        <h5>Empty Template</h5>
-        <p>When there is no file selected, you may use the empty slot to display content.</p>
+        <h5>Templating</h5>
+        <p>
+            When there is no file selected, you may use the empty slot to display content. Also, content slot may be used to place custom content inside the content section which would be useful to implement a user interface to manage the uploaded
+            files such as removing them.
+        </p>
         <pre v-code><code>
 &lt;FileUpload name="demo[]" url="./upload"&gt;
+    &lt;template #content&gt;
+        &lt;p&gt;Additional content.&lt;/p&gt;
+    &lt;/template&gt;
     &lt;template #empty&gt;
         &lt;p&gt;Drag and drop files to here to upload.&lt;/p&gt;
     &lt;/template&gt;
@@ -343,6 +349,10 @@ myUploader(event) {
                     </tr>
                 </thead>
                 <tbody>
+                    <tr>
+                        <td>content</td>
+                        <td>-</td>
+                    </tr>
                     <tr>
                         <td>empty</td>
                         <td>-</td>
