@@ -7,11 +7,16 @@
                     <span v-if="item.label" class="p-menuitem-text">{{ label() }}</span>
                 </a>
             </router-link>
+            <div v-else-if="lastItem" aria-current="page">
+                <span v-if="item.icon" :class="iconClass"></span>
+                <span v-if="item.label" class="p-menuitem-text">{{ label() }}</span>
+            </div>
             <a v-else :href="item.url || '#'" :class="linkClass()" @click="onClick" :target="item.target">
                 <span v-if="item.icon" :class="iconClass"></span>
                 <span v-if="item.label" class="p-menuitem-text">{{ label() }}</span>
             </a>
         </template>
+
         <component v-else :is="template" :item="item"></component>
     </li>
 </template>
@@ -22,7 +27,11 @@ export default {
     props: {
         item: null,
         template: null,
-        exact: null
+        exact: null,
+        lastItem: {
+            type: Boolean,
+            default: false
+        }
     },
     methods: {
         onClick(event, navigate) {
