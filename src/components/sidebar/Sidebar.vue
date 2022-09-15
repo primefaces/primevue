@@ -59,11 +59,11 @@ export default {
         ariaCloseLabel: {
             type: String,
             default: 'close'
-        },   
+        },
         appendTo: {
             type: String,
             default: 'body'
-        },
+        }
     },
     mask: null,
     maskClickListener: null,

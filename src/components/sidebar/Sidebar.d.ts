@@ -46,7 +46,7 @@ export interface SidebarProps {
      * Default value is 'close'.
      */
     ariaCloseLabel?: string | undefined;
-     /**
+    /**
      * A valid query selector or an HTMLElement to specify where the dialog gets attached. Special keywords are 'body' for document body and 'self' for the element itself.
      * @see DialogAppendToType
      * Default value is 'body'.
