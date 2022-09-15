@@ -107,7 +107,7 @@ export default {
         },
         required: {
             type: Boolean,
-            required: false
+            default: false
         },
         inputId: {
             type: String,
