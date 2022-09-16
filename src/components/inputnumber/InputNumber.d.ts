@@ -7,6 +7,8 @@ type InputNumberLocaleMatcherType = 'lookup' | 'best fit' | undefined;
 
 type InputNumberModeType = 'decimal' | 'currency' | undefined;
 
+type InputNumberCharInjection = (code: number) => number;
+
 export interface InputNumberInputEvent {
     /**
      * Browser event
@@ -170,6 +172,10 @@ export interface InputNumberProps {
      * Uses to pass all properties of the HTMLButtonElement to decrement button inside the component.
      */
     decrementButtonProps?: ButtonHTMLAttributes | undefined;
+    /**
+     * Function is for use as an adapter for non-numeric characters.
+     */
+    charAdapter?: InputNumberCharInjection | undefined;
     /**
      * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
      */

@@ -166,6 +166,10 @@ export default {
             type: null,
             default: null
         },
+        charInjection: {
+            type: Function,
+            default: null
+        },
         'aria-labelledby': {
             type: String,
             default: null
@@ -627,11 +631,16 @@ export default {
 
             event.preventDefault();
             let code = event.which || event.keyCode;
+
+            if (!this.isNumericCode(code) && typeof this.charInjection === 'function') {
+                code = this.charInjection(code);
+            }
+
             let char = String.fromCharCode(code);
             const isDecimalSign = this.isDecimalSign(char);
             const isMinusSign = this.isMinusSign(char);
 
-            if ((48 <= code && code <= 57) || isMinusSign || isDecimalSign) {
+            if (this.isNumericCode(code) || isMinusSign || isDecimalSign) {
                 this.insert(event, char, { isDecimalSign, isMinusSign });
             }
         },
@@ -649,6 +658,9 @@ export default {
         },
         allowMinusSign() {
             return this.min === null || this.min < 0;
+        },
+        isNumericCode(code) {
+            return 48 <= code && code <= 57;
         },
         isMinusSign(char) {
             if (this._minusSign.test(char) || char === '-') {

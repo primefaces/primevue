@@ -335,6 +335,12 @@ Vertical
                         <td>null</td>
                         <td>Uses to pass all properties of the HTMLButtonElement to decrement button inside the component.</td>
                     </tr>
+                    <tr>
+                        <td>charInjection</td>
+                        <td>function</td>
+                        <td>null</td>
+                        <td>Function is for use as an adapter for non-numeric characters.</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
