@@ -24,6 +24,9 @@
                     </div>
                 </div>
             </div>
+            <div v-if="$slots.content && !hasFiles">
+                <slot name="content"></slot>
+            </div>
             <div v-if="$slots.empty && !hasFiles" class="p-fileupload-empty">
                 <slot name="empty"></slot>
             </div>
@@ -41,10 +44,10 @@
 
 <script>
 import Button from 'primevue/button';
-import ProgressBar from 'primevue/progressbar';
 import Message from 'primevue/message';
-import { DomHandler } from 'primevue/utils';
+import ProgressBar from 'primevue/progressbar';
 import Ripple from 'primevue/ripple';
+import { DomHandler } from 'primevue/utils';
 
 export default {
     name: 'FileUpload',

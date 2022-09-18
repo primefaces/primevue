@@ -202,7 +202,11 @@ export interface FileUploadProps {
 
 export interface FileUploadSlots {
     /**
-     * Custom empty template.
+     * Custom uploaded content template.
+     */
+    content: () => VNode[];
+    /**
+     * Custom content when there is no selected file.
      */
     empty: () => VNode[];
 }

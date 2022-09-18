@@ -4,7 +4,7 @@
             ref="input"
             :id="inputId"
             :type="inputType"
-            :class="inputClass"
+            :class="inputFieldClass"
             :style="inputStyle"
             :value="modelValue"
             :aria-labelledby="ariaLabelledby"
@@ -43,10 +43,10 @@
 </template>
 
 <script>
-import { ConnectedOverlayScrollHandler, DomHandler, ZIndexUtils, UniqueComponentId } from 'primevue/utils';
-import OverlayEventBus from 'primevue/overlayeventbus';
 import InputText from 'primevue/inputtext';
+import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
+import { ConnectedOverlayScrollHandler, DomHandler, UniqueComponentId, ZIndexUtils } from 'primevue/utils';
 
 export default {
     name: 'Password',
@@ -107,7 +107,7 @@ export default {
         },
         required: {
             type: Boolean,
-            required: false
+            default: false
         },
         inputId: {
             type: String,
@@ -367,6 +367,7 @@ export default {
         inputFieldClass() {
             return [
                 'p-password-input',
+                this.inputClass,
                 {
                     'p-disabled': this.disabled
                 }
