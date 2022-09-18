@@ -14,7 +14,7 @@
             >
                 <span class="pi pi-chevron-left" aria-hidden="true"></span>
             </button>
-            <div ref="content" class="p-tabview-nav-content" @scroll="onScroll">
+            <div ref="content" class="p-tabview-nav-content" @scroll="onScroll" @resize="updateButtonState">
                 <ul ref="nav" class="p-tabview-nav" role="tablist">
                     <li v-for="(tab, i) of tabs" :key="getKey(tab, i)" :style="getTabProp(tab, 'headerStyle')" :class="getTabHeaderClass(tab, i)" role="presentation" :data-index="i" v-bind="getTabProp(tab, 'headerProps')">
                         <a
