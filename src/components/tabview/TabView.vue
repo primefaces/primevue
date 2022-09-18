@@ -300,9 +300,13 @@ export default {
             const content = this.$refs.content;
             const { scrollLeft, scrollWidth } = content;
             const width = DomHandler.getWidth(content);
+            const scrollGap = 4 // px amount of scroll width left for the container
 
             this.isPrevButtonDisabled = scrollLeft === 0;
-            this.isNextButtonDisabled = parseInt(scrollLeft) === scrollWidth - width;
+            // this.isNextButtonDisabled = parseInt(scrollLeft) === scrollWidth - width;
+            this.isNextButtonDisabled = scrollLeft >= scrollWidth - width - scrollGap
+            // this will make sure it works because `===` can return false because `scrollWidth`, scrollLeft are not integers (they have a lot of decimal numbers)
+
         },
         getVisibleButtonWidths() {
             const { prevBtn, nextBtn } = this.$refs;
