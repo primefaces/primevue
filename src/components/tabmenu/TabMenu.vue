@@ -3,9 +3,19 @@
         <ul ref="nav" class="p-tabmenu-nav p-reset" role="tablist">
             <template v-for="(item, i) of model" :key="label(item) + '_' + i.toString()">
                 <router-link v-if="item.to && !disabled(item)" v-slot="{ navigate, href, isActive, isExactActive }" :to="item.to" custom>
-                    <li v-if="visible(item)" :class="getRouteItemClass(item, isActive, isExactActive)" :style="item.style" role="tab">
+                    <li v-if="visible(item)" :class="getRouteItemClass(item, isActive, isExactActive)" :style="item.style" role="presentation">
                         <template v-if="!$slots.item">
-                            <a v-ripple :href="href" class="p-menuitem-link" @click="onItemClick($event, item, i, navigate)" role="presentation">
+                            <a
+                                ref="tabLink"
+                                v-ripple
+                                :href="href"
+                                class="p-menuitem-link"
+                                @click="onItemClick($event, item, i, navigate)"
+                                role="tab"
+                                :tabindex="isExactActive ? '0' : '-1'"
+                                :aria-selected="isExactActive"
+                                @keydown="onKeydownItem($event, item, i, navigate)"
+                            >
                                 <span v-if="item.icon" :class="getItemIcon(item)"></span>
                                 <span class="p-menuitem-text">{{ label(item) }}</span>
                             </a>
@@ -13,9 +23,20 @@
                         <component v-else :is="$slots.item" :item="item"></component>
                     </li>
                 </router-link>
-                <li v-else-if="visible(item)" :class="getItemClass(item, i)" role="tab">
+                <li v-else-if="visible(item)" :class="getItemClass(item, i)" role="presentation">
                     <template v-if="!$slots.item">
-                        <a v-ripple :href="item.url" class="p-menuitem-link" :target="item.target" @click="onItemClick($event, item, i)" role="presentation" :tabindex="disabled(item) ? null : '0'">
+                        <a
+                            ref="tabLink"
+                            v-ripple
+                            :href="item.url"
+                            class="p-menuitem-link"
+                            :target="item.target"
+                            @click="onItemClick($event, item, i)"
+                            role="tab"
+                            :tabindex="setTabIndex(i)"
+                            :aria-selected="isActive(i)"
+                            @keydown="onKeydownItem($event, item, i)"
+                        >
                             <span v-if="item.icon" :class="getItemIcon(item)"></span>
                             <span class="p-menuitem-text">{{ label(item) }}</span>
                         </a>
@@ -29,8 +50,8 @@
 </template>
 
 <script>
-import { DomHandler } from 'primevue/utils';
 import Ripple from 'primevue/ripple';
+import { DomHandler } from 'primevue/utils';
 
 export default {
     name: 'TabMenu',
@@ -88,7 +109,7 @@ export default {
             }
 
             if (item.to && navigate) {
-                navigate(event);
+                navigate(navigate);
             }
 
             if (index !== this.d_activeIndex) {
@@ -101,12 +122,41 @@ export default {
                 index: index
             });
         },
+        onKeydownItem(event, item, index, navigate) {
+            let i = index;
+
+            switch (event.code) {
+                case 'ArrowRight':
+                    i = index + 1;
+                    break;
+                case 'ArrowLeft':
+                    i = index - 1;
+                    break;
+                case 'End':
+                    event.preventDefault();
+
+                    i = this.model.length - 1;
+                    break;
+                case 'Home':
+                    event.preventDefault();
+                    i = 0;
+                    break;
+                case 'Enter':
+                    this.onItemClick(event, item, index, navigate);
+            }
+
+            if (!item.to) {
+                this.onItemClick(event, item, i, navigate);
+            }
+
+            this.$refs?.tabLink[i]?.focus();
+        },
         getItemClass(item, index) {
             return [
                 'p-tabmenuitem',
                 item.class,
                 {
-                    'p-highlight': this.d_activeIndex === index,
+                    'p-highlight': this.isActive(index),
                     'p-disabled': this.disabled(item)
                 }
             ];
@@ -132,6 +182,12 @@ export default {
         },
         label(item) {
             return typeof item.label === 'function' ? item.label() : item.label;
+        },
+        setTabIndex(index) {
+            return this.isActive(index) ? '0' : '-1';
+        },
+        isActive(index) {
+            return this.d_activeIndex === index;
         },
         updateInkBar() {
             let tabs = this.$refs.nav.children;
