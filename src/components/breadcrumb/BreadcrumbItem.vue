@@ -63,7 +63,7 @@ export default {
             const { to, url } = this.item;
             const lastPath = `/${window.location.href.split('/').pop()}`;
 
-            return to === lastPath || url === lastPath;
+            return to === lastPath || url === lastPath ? 'page' : false;
         }
     },
     computed: {

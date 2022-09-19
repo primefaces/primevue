@@ -1,9 +1,9 @@
 <template>
-    <nav class="p-breadcrumb p-component" role="navigation" :aria-label="ariaLabel">
+    <nav class="p-breadcrumb p-component" role="navigation">
         <ul>
             <BreadcrumbItem v-if="home" :item="home" class="p-breadcrumb-home" :template="$slots.item" :exact="exact" />
             <template v-for="item of model" :key="item.label">
-                <li class="p-breadcrumb-chevron pi pi-chevron-right" aria-hidden></li>
+                <li class="p-breadcrumb-chevron pi pi-chevron-right" :aria-hidden="true"></li>
                 <BreadcrumbItem :item="item" :template="$slots.item" :exact="exact" />
             </template>
         </ul>
