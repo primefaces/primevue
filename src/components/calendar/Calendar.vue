@@ -20,6 +20,7 @@
             :readonly="!manualInput"
             :tabindex="0"
             @input="onInput"
+            @click="onInputClick"
             @focus="onFocus"
             @blur="onBlur"
             @keydown="onKeyDown"
@@ -309,11 +310,11 @@
 </template>
 
 <script>
-import { ConnectedOverlayScrollHandler, DomHandler, ZIndexUtils, UniqueComponentId } from 'primevue/utils';
-import OverlayEventBus from 'primevue/overlayeventbus';
 import Button from 'primevue/button';
-import Ripple from 'primevue/ripple';
+import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
+import Ripple from 'primevue/ripple';
+import { ConnectedOverlayScrollHandler, DomHandler, UniqueComponentId, ZIndexUtils } from 'primevue/utils';
 
 export default {
     name: 'Calendar',
@@ -2513,6 +2514,11 @@ export default {
             }
 
             this.$emit('input', event);
+        },
+        onInputClick() {
+            if (this.showOnFocus && this.isEnabled() && !this.overlayVisible) {
+                this.overlayVisible = true;
+            }
         },
         onFocus(event) {
             if (this.showOnFocus && this.isEnabled()) {
