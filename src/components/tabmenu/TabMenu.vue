@@ -3,7 +3,7 @@
         <ul ref="nav" class="p-tabmenu-nav p-reset" role="tablist">
             <template v-for="(item, i) of model" :key="label(item) + '_' + i.toString()">
                 <router-link v-if="item.to && !disabled(item)" v-slot="{ navigate, href, isActive, isExactActive }" :to="item.to" custom>
-                    <li v-if="visible(item)" :class="getRouteItemClass(item, isActive, isExactActive)" :style="item.style" role="presentation">
+                    <li v-if="visible(item)" ref="tab" :class="getRouteItemClass(item, isActive, isExactActive)" :style="item.style" role="presentation">
                         <template v-if="!$slots.item">
                             <a
                                 ref="tabLink"
@@ -11,7 +11,9 @@
                                 :href="href"
                                 class="p-menuitem-link"
                                 @click="onItemClick($event, item, i, navigate)"
-                                role="tab"
+                                :aria-label="label"
+                                role="menuItem"
+                                :aria-disabled="disabled(item)"
                                 :tabindex="isExactActive ? '0' : '-1'"
                                 :aria-selected="isExactActive"
                                 @keydown="onKeydownItem($event, item, i, navigate)"
@@ -23,7 +25,7 @@
                         <component v-else :is="$slots.item" :item="item"></component>
                     </li>
                 </router-link>
-                <li v-else-if="visible(item)" :class="getItemClass(item, i)" role="presentation">
+                <li v-else-if="visible(item)" ref="tab" :class="getItemClass(item, i)" role="presentation">
                     <template v-if="!$slots.item">
                         <a
                             ref="tabLink"
@@ -32,7 +34,9 @@
                             class="p-menuitem-link"
                             :target="item.target"
                             @click="onItemClick($event, item, i)"
-                            role="tab"
+                            role="menuItem"
+                            :aria-label="label"
+                            :aria-disabled="disabled(item)"
                             :tabindex="setTabIndex(i)"
                             :aria-selected="isActive(i)"
                             @keydown="onKeydownItem($event, item, i)"
@@ -109,7 +113,7 @@ export default {
             }
 
             if (item.to && navigate) {
-                navigate(navigate);
+                navigate({ path: item.to });
             }
 
             if (index !== this.d_activeIndex) {
@@ -124,32 +128,77 @@ export default {
         },
         onKeydownItem(event, item, index, navigate) {
             let i = index;
+            let navigateItem = item;
+            let foundElement = {};
 
             switch (event.code) {
                 case 'ArrowRight':
-                    i = index + 1;
+                    foundElement = this.findNextItem(this.$refs.tab, i);
+
+                    navigateItem = foundElement.nextItem;
+                    i = foundElement.i;
+
                     break;
                 case 'ArrowLeft':
-                    i = index - 1;
+                    foundElement = this.findPrevItem(this.$refs.tab, i);
+
+                    navigateItem = foundElement.prevItem;
+                    i = foundElement.i;
+
                     break;
                 case 'End':
                     event.preventDefault();
 
-                    i = this.model.length - 1;
+                    foundElement = this.findPrevItem(this.$refs.tab, this.model.length);
+
+                    navigateItem = foundElement.prevItem;
+                    i = foundElement.i;
                     break;
                 case 'Home':
                     event.preventDefault();
-                    i = 0;
+
+                    foundElement = this.findNextItem(this.$refs.tab, -1);
+
+                    navigateItem = foundElement.nextItem;
+                    i = foundElement.i;
                     break;
-                case 'Enter':
+                case 'Space':
+                    event.preventDefault();
+
                     this.onItemClick(event, item, index, navigate);
             }
 
-            if (!item.to) {
-                this.onItemClick(event, item, i, navigate);
+            if (!item.to && navigateItem) {
+                this.onItemClick(event, navigateItem, i, navigate);
             }
 
-            this.$refs?.tabLink[i]?.focus();
+            if (this.$refs.tabLink) {
+                this.$refs.tabLink[i].focus();
+            }
+        },
+        findNextItem(items, index) {
+            let i = index + 1;
+
+            if (i >= items.length) {
+                i = 0;
+            }
+
+            let nextItem = items[i];
+
+            if (nextItem) return DomHandler.hasClass(nextItem, 'p-disabled') ? this.findNextItem(items, i) : { nextItem, i };
+            else return null;
+        },
+        findPrevItem(items, index) {
+            let i = index - 1;
+
+            if (i < 0) {
+                i = items.length - 1;
+            }
+
+            let prevItem = items[i];
+
+            if (prevItem) return DomHandler.hasClass(prevItem, 'p-disabled') ? this.findPrevItem(items, i) : { prevItem, i };
+            else return null;
         },
         getItemClass(item, index) {
             return [
