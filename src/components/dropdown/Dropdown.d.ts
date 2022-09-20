@@ -164,6 +164,11 @@ export interface DropdownProps {
      */
     loading?: boolean | undefined;
     /**
+     * Icon to display in clear button.
+     * Default value is 'pi pi-times'.
+     */
+    clearIcon?: string | undefined;
+    /**
      * Icon to display in the dropdown.
      * Default value is 'pi pi-chevron-down'.
      */
