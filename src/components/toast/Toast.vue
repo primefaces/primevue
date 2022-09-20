@@ -86,6 +86,8 @@ export default {
             }
 
             this.messages.splice(index, 1);
+            
+            if(message.onTimeout) message.onTimeout();
         },
         onAdd(message) {
             if (this.group == message.group) {

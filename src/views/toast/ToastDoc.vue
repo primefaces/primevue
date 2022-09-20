@@ -42,7 +42,7 @@ import Toast from 'primevue/toast';
         <pre v-code.script><code>
 export default {
     mounted() {
-        this.$toast.add({severity:'success', summary: 'Success Message', detail:'Order submitted', life: 3000});
+        this.$toast.add({severity:'success', summary: 'Success Message', detail:'Order submitted', life: 3000, onTimeout(){ console.log('The Toast is gone!') } });
     }
 }
 
@@ -57,7 +57,7 @@ import { useToast } from "primevue/usetoast";
 export default defineComponent({
     setup() {
         const toast = useToast();
-        toast.add({severity:'info', summary: 'Info Message', detail:'Message Content', life: 3000});
+        toast.add({severity:'info', summary: 'Info Message', detail:'Message Content', life: 3000, onTimeout(){ console.log('The Toast is gone!') } });
     }
 })
 
@@ -122,6 +122,12 @@ export default defineComponent({
                         <td>string</td>
                         <td>null</td>
                         <td>Style class of the content.</td>
+                    </tr>
+                    <tr>
+                        <td>onTimeout</td>
+                        <td>function</td>
+                        <td>null</td>
+                        <td>Callback to perform an action after the message life time or after the user closes the Toast.</td>
                     </tr>
                 </tbody>
             </table>
