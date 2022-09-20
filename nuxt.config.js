@@ -1,13 +1,14 @@
+import vueJsx from '@vitejs/plugin-vue-jsx';
 import { defineNuxtConfig } from 'nuxt';
 const path = require('path');
-import vueJsx from '@vitejs/plugin-vue-jsx';
 
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
-    ssr: true,
+    ssr: false,
     typescript: false,
     components: true,
     app: {
+        baseURL: process.env.NODE_ENV === 'production' ? '/primevue-nuxt' : '/',
         head: {
             link: [
                 {

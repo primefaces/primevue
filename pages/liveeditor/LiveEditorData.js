@@ -3,7 +3,7 @@ const services = {
 export default class CountryService {
 
     getCountries() {
-        return useFetch('demo/data/countries.json').then(res => res.json())
+        return fetch('demo/data/countries.json').then(res => res.json())
             .then(d => d.data);
     }
 }
@@ -12,28 +12,28 @@ export default class CountryService {
 export default class CustomerService {
 
     getCustomersSmall() {
-        return useFetch('demo/data/customers-small.json').then(res => res.json())
+        return fetch('demo/data/customers-small.json').then(res => res.json())
                 .then(d => d.data);
     }
 
     getCustomersMedium() {
-        return useFetch('demo/data/customers-medium.json').then(res => res.json())
+        return fetch('demo/data/customers-medium.json').then(res => res.json())
                 .then(d => d.data);
     }
 
     getCustomersLarge() {
-        return useFetch('demo/data/customers-large.json').then(res => res.json())
+        return fetch('demo/data/customers-large.json').then(res => res.json())
                 .then(d => d.data);
     }
 
     getCustomersXLarge() {
-        return useFetch('demo/data/customers-xlarge.json').then(res => res.json())
+        return fetch('demo/data/customers-xlarge.json').then(res => res.json())
                 .then(d => d.data);
     }
 
     getCustomers(params) {
         const queryParams = params ? Object.keys(params).map(k => encodeURIComponent(k) + '=' + encodeURIComponent(params[k])).join('&') : '';
-        return useFetch('https://www.primefaces.org/data/customers?' + queryParams).then(res => res.json())
+        return fetch('https://www.primefaces.org/data/customers?' + queryParams).then(res => res.json())
     }
 }
     `,
@@ -41,7 +41,7 @@ export default class CustomerService {
 export default class EventService {
 
     getEvents() {
-        return useFetch('demo/data/events.json').then(res => res.json())
+        return fetch('demo/data/events.json').then(res => res.json())
                 .then(d => d.data);
     }
 }
@@ -50,12 +50,12 @@ export default class EventService {
 export default class NodeService {
 
     getTreeTableNodes() {
-        return useFetch('demo/data/treetablenodes.json').then(res => res.json())
+        return fetch('demo/data/treetablenodes.json').then(res => res.json())
                 .then(d => d.root);
     }
 
     getTreeNodes() {
-        return useFetch('demo/data/treenodes.json').then(res => res.json())
+        return fetch('demo/data/treenodes.json').then(res => res.json())
                 .then(d => d.root);
     }
 }
@@ -64,7 +64,7 @@ export default class NodeService {
 export default class PhotoService {
 
     getImages() {
-        return useFetch('demo/data/photos.json').then(res => res.json())
+        return fetch('demo/data/photos.json').then(res => res.json())
                 .then(d => d.data);
     }
 }
@@ -73,15 +73,15 @@ export default class PhotoService {
 export default class ProductService {
 
     getProductsSmall() {
-		return useFetch('demo/data/products-small.json').then(res => res.json()).then(d => d.data);
+		return fetch('demo/data/products-small.json').then(res => res.json()).then(d => d.data);
 	}
 
 	getProducts() {
-		return useFetch('demo/data/products.json').then(res => res.json()).then(d => d.data);
+		return fetch('demo/data/products.json').then(res => res.json()).then(d => d.data);
     }
 
     getProductsWithOrdersSmall() {
-		return useFetch('demo/data/products-orders-small.json').then(res => res.json()).then(d => d.data);
+		return fetch('demo/data/products-orders-small.json').then(res => res.json()).then(d => d.data);
 	}
 }
 

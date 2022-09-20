@@ -1,7 +1,7 @@
 <template>
     <div :class="['layout-sidebar', { active: active }]">
         <nuxt-link to="/" class="logo">
-            <img :src="'/demo/images/primevue-logo-' + `${$appState.darkTheme ? 'light' : 'dark'}` + '.svg'" alt="primevue logo" />
+            <img :src="'demo/images/primevue-logo-' + `${$appState.darkTheme ? 'light' : 'dark'}` + '.svg'" alt="primevue logo" />
         </nuxt-link>
         <div class="layout-sidebar-filter p-fluid">
             <AutoComplete
@@ -66,8 +66,8 @@
 </template>
 
 <script>
-import { FilterService, FilterMatchMode } from 'primevue/api';
 import menudata from '@/assets/menu/menu.json';
+import { FilterMatchMode, FilterService } from 'primevue/api';
 
 export default {
     props: {
