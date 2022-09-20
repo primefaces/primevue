@@ -113,7 +113,7 @@ export default {
             }
 
             if (item.to && navigate) {
-                navigate({ path: item.to });
+                navigate(item.to);
             }
 
             if (index !== this.d_activeIndex) {
