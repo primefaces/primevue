@@ -41,14 +41,14 @@ export default {
             items: [
                 { label: 'Home', icon: 'pi pi-fw pi-home', to: '/tabmenu' },
                 { label: 'Calendar', icon: 'pi pi-fw pi-calendar', to: '/tabmenu/calendar' },
-                { label: 'Edit', icon: 'pi pi-fw pi-pencil', to: '/tabmenu/edit', disabled: true },
+                { label: 'Edit', icon: 'pi pi-fw pi-pencil', to: '/tabmenu/edit' },
                 { label: 'Documentation', icon: 'pi pi-fw pi-file', to: '/tabmenu/documentation' },
-                { label: 'Settings', icon: 'pi pi-fw pi-cog', to: '/tabmenu/settings', disabled: true }
+                { label: 'Settings', icon: 'pi pi-fw pi-cog', to: '/tabmenu/settings' }
             ],
             items2: [
                 { label: 'Home', icon: 'pi pi-fw pi-home' },
                 { label: 'Calendar', icon: 'pi pi-fw pi-calendar' },
-                { label: 'Edit', icon: 'pi pi-fw pi-pencil', disabled: true },
+                { label: 'Edit', icon: 'pi pi-fw pi-pencil' },
                 { label: 'Documentation', icon: 'pi pi-fw pi-file' },
                 { label: 'Settings', icon: 'pi pi-fw pi-cog' }
             ]
