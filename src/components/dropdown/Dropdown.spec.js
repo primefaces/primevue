@@ -66,6 +66,32 @@ describe('option checks', () => {
     });
 });
 
+describe('clear checks', () => {
+    let wrapper;
+
+    beforeEach(async () => {
+        wrapper = mount(Dropdown, {
+            global: {
+                plugins: [PrimeVue],
+                stubs: {
+                    teleport: true
+                }
+            },
+            props: {
+                clearIcon: 'pi pi-discord',
+                modelValue: 'value',
+                showClear: true
+            }
+        });
+
+        await wrapper.trigger('click');
+    });
+
+    it('should have correct icon', () => {
+        expect(wrapper.find('.p-dropdown-clear-icon').classes()).toContain('pi-discord');
+    })
+})
+
 describe('editable checks', () => {
     let wrapper;
 
@@ -294,6 +320,7 @@ describe('filter checks', () => {
             },
             props: {
                 filter: true,
+                filterIcon: 'pi pi-discord',
                 options: [
                     { name: 'Australia', code: 'AU' },
                     { name: 'Brazil', code: 'BR' },
@@ -315,8 +342,10 @@ describe('filter checks', () => {
 
     it('should make filtering', async () => {
         const filterInput = wrapper.find('.p-dropdown-filter');
+        const filterIcon = wrapper.find('.p-dropdown-filter-icon');
 
         expect(filterInput.exists()).toBe(true);
+        expect(filterIcon.classes()).toContain('pi-discord');
 
         const event = { target: { value: 'c' } };
         const onFilterChange = jest.spyOn(wrapper.vm, 'onFilterChange');

@@ -47,7 +47,7 @@
         >
             <slot name="value" :value="modelValue" :placeholder="placeholder">{{ label === 'p-emptylabel' ? '&nbsp;' : label || 'empty' }}</slot>
         </span>
-        <i v-if="showClear && modelValue != null" class="p-dropdown-clear-icon pi pi-times" @click="onClearClick" v-bind="clearIconProps"></i>
+        <i v-if="showClear && modelValue != null" :class="['p-dropdown-clear-icon', clearIcon]" @click="onClearClick" v-bind="clearIconProps"></i>
         <div class="p-dropdown-trigger">
             <slot name="indicator">
                 <span :class="dropdownIconClass" aria-hidden="true"></span>
@@ -76,7 +76,7 @@
                                 @input="onFilterChange"
                                 v-bind="filterInputProps"
                             />
-                            <span class="p-dropdown-filter-icon pi pi-search"></span>
+                            <span :class="['p-dropdown-filter-icon', filterIcon]" />
                         </div>
                         <span role="status" aria-live="polite" class="p-hidden-accessible">
                             {{ filterResultMessageText }}
@@ -226,6 +226,18 @@ export default {
         loading: {
             type: Boolean,
             default: false
+        },
+        clearIcon: {
+            type: String,
+            default: 'pi pi-times'
+        },
+        dropdownIcon: {
+            type: String,
+            default: 'pi pi-chevron-down'
+        },
+        filterIcon: {
+            type: String,
+            default: 'pi pi-search'
         },
         loadingIcon: {
             type: String,
@@ -939,7 +951,7 @@ export default {
             ];
         },
         dropdownIconClass() {
-            return ['p-dropdown-trigger-icon', this.loading ? this.loadingIcon : 'pi pi-chevron-down'];
+            return ['p-dropdown-trigger-icon', this.loading ? this.loadingIcon : this.dropdownIcon];
         },
         visibleOptions() {
             const options = this.optionGroupLabel ? this.flatOptions(this.options) : this.options || [];
