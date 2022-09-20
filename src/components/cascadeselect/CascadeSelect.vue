@@ -54,6 +54,7 @@
                             :optionLabel="optionLabel"
                             :optionValue="optionValue"
                             :optionDisabled="optionDisabled"
+                            :optionGroupIcon="optionGroupIcon"
                             :optionGroupLabel="optionGroupLabel"
                             :optionGroupChildren="optionGroupChildren"
                             @option-change="onOptionChange"
@@ -125,9 +126,17 @@ export default {
             type: Boolean,
             default: false
         },
+        dropdownIcon: {
+            type: String,
+            default: 'pi pi-chevron-down'
+        },
         loadingIcon: {
             type: String,
             default: 'pi pi-spinner pi-spin'
+        },
+        optionGroupIcon: {
+            type: String,
+            default: 'pi pi-angle-right'
         },
         autoOptionFocus: {
             type: Boolean,
@@ -783,7 +792,7 @@ export default {
             ];
         },
         dropdownIconClass() {
-            return ['p-cascadeselect-trigger-icon', this.loading ? this.loadingIcon : 'pi pi-chevron-down'];
+            return ['p-cascadeselect-trigger-icon', this.loading ? this.loadingIcon : this.dropdownIcon];
         },
         hasSelectedOption() {
             return ObjectUtils.isNotEmpty(this.modelValue);
