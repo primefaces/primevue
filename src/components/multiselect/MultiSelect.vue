@@ -56,7 +56,7 @@
                                 <input type="checkbox" readonly :checked="allSelected" :aria-label="toggleAllAriaLabel" @focus="onHeaderCheckboxFocus" @blur="onHeaderCheckboxBlur" />
                             </div>
                             <div :class="['p-checkbox-box', { 'p-highlight': allSelected, 'p-focus': headerCheckboxFocused }]">
-                                <span :class="['p-checkbox-icon', { 'pi pi-check': allSelected }]"></span>
+                                <span :class="['p-checkbox-icon', { [checkboxIcon]: allSelected }]"></span>
                             </div>
                         </div>
                         <div v-if="filter" class="p-multiselect-filter-container">
@@ -110,7 +110,7 @@
                                         >
                                             <div class="p-checkbox p-component">
                                                 <div :class="['p-checkbox-box', { 'p-highlight': isSelected(option) }]">
-                                                    <span :class="['p-checkbox-icon', { 'pi pi-check': isSelected(option) }]"></span>
+                                                    <span :class="['p-checkbox-icon', { [checkboxIcon]: isSelected(option) }]"></span>
                                                 </div>
                                             </div>
                                             <slot name="option" :option="option" :index="getOptionIndex(i, getItemOptions)">
@@ -237,6 +237,10 @@ export default {
         loading: {
             type: Boolean,
             default: false
+        },
+        checkboxIcon: {
+            type: String,
+            default: 'pi pi-check'
         },
         closeIcon: {
             type: String,

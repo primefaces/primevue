@@ -180,6 +180,12 @@ const MultiSelectProps = [
         description: 'Whether the multiselect is in loading state.'
     },
     {
+        name: 'checkboxIcon',
+        type: 'string',
+        default: 'pi pi-check',
+        description: 'Icon to display in the checkboxes.'
+    },
+    {
         name: 'closeIcon',
         type: 'string',
         default: 'pi pi-times',

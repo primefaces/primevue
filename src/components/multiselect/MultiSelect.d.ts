@@ -180,6 +180,11 @@ export interface MultiSelectProps {
      */
     loading?: boolean | undefined;
     /**
+     * Icon to display in the checkboxes.
+     * Default value is 'pi pi-check'.
+     */
+    checkboxIcon?: string | undefined;
+    /**
      * Icon to display in the dropdown close button.
      * Default value is 'pi pi-times'.
      */

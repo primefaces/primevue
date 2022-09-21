@@ -324,6 +324,12 @@ export default {
                         <td>Whether the multiselect is in loading state.</td>
                     </tr>
                     <tr>
+                        <td>checkboxIcon</td>
+                        <td>string</td>
+                        <td>pi pi-check</td>
+                        <td>Icon to display in the checkboxes.</td>
+                    </tr>
+                    <tr>
                         <td>closeIcon</td>
                         <td>string</td>
                         <td>pi pi-times</td>

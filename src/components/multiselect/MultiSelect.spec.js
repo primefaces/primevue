@@ -129,5 +129,22 @@ describe('MultiSelect.vue', () => {
 
             expect(icon.classes()).toContain('pi-discord');
         });
+
+        it('should have custom checkbox icons', async () => {
+            await wrapper.setProps({
+                checkboxIcon: 'pi pi-discord'
+            });
+
+            await wrapper.setProps({
+                checkboxIcon: 'pi pi-discord',
+                modelValue: wrapper.vm.options
+            });
+
+            await wrapper.vm.onContainerClick();
+
+            wrapper.findAll('.p-checkbox-icon').forEach(icon => {
+                expect(icon.classes()).toContain('pi-discord')
+            })
+        });
     });
 });
