@@ -104,5 +104,18 @@ describe('MultiSelect.vue', () => {
 
             expect(icon.classes()).toContain('pi-discord');
         });
+
+        it('should have custom filter icon', async () => {
+            await wrapper.setProps({
+                filter: true,
+                filterIcon: 'pi pi-discord'
+            });
+
+            await wrapper.vm.onContainerClick();
+
+            const icon = wrapper.find('.p-multiselect-filter-icon');
+
+            expect(icon.classes()).toContain('pi-discord');
+        });
     });
 });

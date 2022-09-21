@@ -186,6 +186,12 @@ const MultiSelectProps = [
         description: 'Icon to display in dropdown'
     },
     {
+        name: 'filterIcon',
+        type: 'string',
+        default: 'pi pi-search',
+        description: 'Icon to display in filter input'
+    },
+    {
         name: 'loadingIcon',
         type: 'string',
         default: 'pi pi-spinner pi-spin',

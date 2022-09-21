@@ -330,6 +330,12 @@ export default {
                         <td>Icon to display in dropdown</td>
                     </tr>
                     <tr>
+                        <td>filterIcon</td>
+                        <td>string</td>
+                        <td>pi pi-search</td>
+                        <td>Icon to display in filter input</td>
+                    </tr>
+                    <tr>
                         <td>loadingIcon</td>
                         <td>string</td>
                         <td>pi pi-spinner pi-spin</td>

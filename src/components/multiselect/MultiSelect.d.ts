@@ -185,6 +185,11 @@ export interface MultiSelectProps {
      */
     dropdownIcon?: string | undefined;
     /**
+     * Icon to display in filter input.
+     * Default value is 'pi pi-search'.
+     */
+    filterIcon?: string | undefined;
+    /**
      * Icon to display in loading state.
      * Default value is 'pi pi-spinner pi-spin'.
      */

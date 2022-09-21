@@ -76,7 +76,7 @@
                                 @input="onFilterChange"
                                 v-bind="filterInputProps"
                             />
-                            <span class="p-multiselect-filter-icon pi pi-search"></span>
+                            <span :class="['p-multiselect-filter-icon', filterIcon]" />
                         </div>
                         <span v-if="filter" role="status" aria-live="polite" class="p-hidden-accessible">
                             {{ filterResultMessageText }}
@@ -241,6 +241,10 @@ export default {
         dropdownIcon: {
             type: String,
             default: 'pi pi-chevron-down'
+        },
+        filterIcon: {
+            type: String,
+            default: 'pi pi-search'
         },
         loadingIcon: {
             type: String,
