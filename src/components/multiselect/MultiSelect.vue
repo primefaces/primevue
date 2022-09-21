@@ -238,6 +238,10 @@ export default {
             type: Boolean,
             default: false
         },
+        dropdownIcon: {
+            type: String,
+            default: 'pi pi-chevron-down'
+        },
         loadingIcon: {
             type: String,
             default: 'pi pi-spinner pi-spin'
@@ -1023,7 +1027,7 @@ export default {
             ];
         },
         dropdownIconClass() {
-            return ['p-multiselect-trigger-icon', this.loading ? this.loadingIcon : 'pi pi-chevron-down'];
+            return ['p-multiselect-trigger-icon', this.loading ? this.loadingIcon : this.dropdownIcon];
         },
         panelStyleClass() {
             return [

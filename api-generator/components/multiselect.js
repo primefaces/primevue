@@ -180,6 +180,12 @@ const MultiSelectProps = [
         description: 'Whether the multiselect is in loading state.'
     },
     {
+        name: 'dropdownIcon',
+        type: 'string',
+        default: 'pi pi-chevron-down',
+        description: 'Icon to display in dropdown'
+    },
+    {
         name: 'loadingIcon',
         type: 'string',
         default: 'pi pi-spinner pi-spin',

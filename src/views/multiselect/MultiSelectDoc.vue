@@ -324,6 +324,12 @@ export default {
                         <td>Whether the multiselect is in loading state.</td>
                     </tr>
                     <tr>
+                        <td>dropdownIcon</td>
+                        <td>string</td>
+                        <td>pi pi-chevron-down</td>
+                        <td>Icon to display in dropdown</td>
+                    </tr>
+                    <tr>
                         <td>loadingIcon</td>
                         <td>string</td>
                         <td>pi pi-spinner pi-spin</td>
