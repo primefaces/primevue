@@ -1,4 +1,3 @@
-import { nextTick } from 'vue';
 import { config, mount } from '@vue/test-utils';
 import Listbox from './Listbox.vue';
 
@@ -56,11 +55,11 @@ describe('Listbox.vue', () => {
             await wrapper.setProps({
                 filter: true,
                 filterIcon: 'pi pi-discord'
-            })
+            });
 
-            const icon = wrapper.find('.p-listbox-filter-icon')
+            const icon = wrapper.find('.p-listbox-filter-icon');
 
-            expect(icon.classes()).toContain('pi-discord')
+            expect(icon.classes()).toContain('pi-discord');
         });
-    })
+    });
 });
