@@ -138,8 +138,9 @@
             "meta": ["primeicons"],
             "children": [
                 {
-                    "name": "Icons v5",
-                    "to": "/icons"
+                    "name": "Icons v6",
+                    "to": "/icons",
+                    "tag": "NEW"
                 }
             ]
         },
