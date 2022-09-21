@@ -180,6 +180,11 @@ export interface MultiSelectProps {
      */
     loading?: boolean | undefined;
     /**
+     * Icon to display in the dropdown close button.
+     * Default value is 'pi pi-times'.
+     */
+    closeIcon?: string | undefined;
+    /**
      * Icon to display in the dropdown.
      * Default value is 'pi pi-chevron-down'.
      */

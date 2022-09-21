@@ -82,7 +82,7 @@
                             {{ filterResultMessageText }}
                         </span>
                         <button v-ripple class="p-multiselect-close p-link" :aria-label="closeAriaLabel" @click="onCloseClick" type="button" v-bind="closeButtonProps">
-                            <span class="p-multiselect-close-icon pi pi-times" />
+                            <span :class="['p-multiselect-close-icon', closeIcon]" />
                         </button>
                     </div>
                     <div class="p-multiselect-items-wrapper" :style="{ 'max-height': virtualScrollerDisabled ? scrollHeight : '' }">
@@ -237,6 +237,10 @@ export default {
         loading: {
             type: Boolean,
             default: false
+        },
+        closeIcon: {
+            type: String,
+            default: 'pi pi-times'
         },
         dropdownIcon: {
             type: String,

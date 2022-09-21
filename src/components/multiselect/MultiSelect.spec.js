@@ -117,5 +117,17 @@ describe('MultiSelect.vue', () => {
 
             expect(icon.classes()).toContain('pi-discord');
         });
+
+        it('should have custom close icon', async () => {
+            await wrapper.setProps({
+                closeIcon: 'pi pi-discord'
+            });
+
+            await wrapper.vm.onContainerClick();
+
+            const icon = wrapper.find('.p-multiselect-close-icon');
+
+            expect(icon.classes()).toContain('pi-discord');
+        });
     });
 });

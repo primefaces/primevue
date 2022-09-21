@@ -180,16 +180,22 @@ const MultiSelectProps = [
         description: 'Whether the multiselect is in loading state.'
     },
     {
+        name: 'closeIcon',
+        type: 'string',
+        default: 'pi pi-times',
+        description: 'Icon to display in the dropdown close button.'
+    },
+    {
         name: 'dropdownIcon',
         type: 'string',
         default: 'pi pi-chevron-down',
-        description: 'Icon to display in dropdown'
+        description: 'Icon to display in dropdown.'
     },
     {
         name: 'filterIcon',
         type: 'string',
         default: 'pi pi-search',
-        description: 'Icon to display in filter input'
+        description: 'Icon to display in filter input.'
     },
     {
         name: 'loadingIcon',
