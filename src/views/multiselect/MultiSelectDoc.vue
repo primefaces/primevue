@@ -330,6 +330,12 @@ export default {
                         <td>Icon to display in loading state.</td>
                     </tr>
                     <tr>
+                        <td>removeTokenIcon</td>
+                        <td>string</td>
+                        <td>pi pi-times-circle</td>
+                        <td>Icon to display in chip remove action</td>
+                    </tr>
+                    <tr>
                         <td>selectAll</td>
                         <td>boolean</td>
                         <td>false</td>

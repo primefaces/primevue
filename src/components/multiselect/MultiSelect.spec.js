@@ -81,4 +81,16 @@ describe('MultiSelect.vue', () => {
         expect(wrapper.find('.p-multiselect-token').exists()).toBe(true);
         expect(wrapper.find('.p-multiselect-token-label').text()).toBe('New York');
     });
+
+    it('should have custom chip remove icon', async () => {
+        await wrapper.setProps({
+            display: 'chip',
+            modelValue: [wrapper.vm.options[0]],
+            removeTokenIcon: 'pi pi-discord'
+        })
+
+        const icon = wrapper.find('.p-multiselect-token-icon')
+
+        expect(icon.classes()).toContain('pi-discord')
+    })
 });

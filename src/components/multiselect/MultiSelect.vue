@@ -33,7 +33,7 @@
                             <slot name="chip" :value="item">
                                 <span class="p-multiselect-token-label">{{ getLabelByValue(item) }}</span>
                             </slot>
-                            <span v-if="!disabled" class="p-multiselect-token-icon pi pi-times-circle" @click="removeOption($event, item)"></span>
+                            <span v-if="!disabled" :class="['p-multiselect-token-icon', removeTokenIcon]" @click="removeOption($event, item)"></span>
                         </div>
                         <template v-if="!modelValue || modelValue.length === 0">{{ placeholder || 'empty' }}</template>
                     </template>
@@ -241,6 +241,10 @@ export default {
         loadingIcon: {
             type: String,
             default: 'pi pi-spinner pi-spin'
+        },
+        removeTokenIcon: {
+            type: String,
+            default: 'pi pi-times-circle'
         },
         selectAll: {
             type: Boolean,

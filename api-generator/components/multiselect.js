@@ -186,6 +186,12 @@ const MultiSelectProps = [
         description: 'Icon to display in loading state.'
     },
     {
+        name: 'removeTokenIcon',
+        type: 'string',
+        default: 'pi pi-times-circle',
+        description: 'Icon to display in chip remove action.'
+    },
+    {
         name: 'selectAll',
         type: 'boolean',
         default: 'false',

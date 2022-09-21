@@ -185,6 +185,11 @@ export interface MultiSelectProps {
      */
     loadingIcon?: string | undefined;
     /**
+     * Icon to display in chip remove action.
+     * Default value is 'pi pi-times-circle'.
+     */
+    removeTokenIcon?: string | undefined;
+    /**
      * Whether all data is selected.
      */
     selectAll?: boolean | undefined;
