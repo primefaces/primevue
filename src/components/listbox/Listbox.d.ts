@@ -156,6 +156,11 @@ export interface ListboxProps {
      */
     tabindex?: number | string | undefined;
     /**
+     * Icon to display in filter input.
+     * Default value is 'pi pi-search'.
+     */
+    filterIcon?: string | undefined;
+    /**
      * Defines a string value that labels an interactive element.
      */
     'aria-label'?: string | undefined;

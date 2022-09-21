@@ -163,6 +163,12 @@ const ListboxProps = [
         description: 'Index of the element in tabbing order.'
     },
     {
+        name: 'filterIcon',
+        type: 'string',
+        default: 'pi pi-search',
+        description: 'Icon to display in filter input'
+    },
+    {
         name: 'aria-label',
         type: 'string',
         default: 'null',
