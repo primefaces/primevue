@@ -140,7 +140,7 @@
                 {
                     "name": "Icons v6",
                     "to": "/icons",
-                    "tag": "NEW"
+                    "badge": "NEW"
                 }
             ]
         },
