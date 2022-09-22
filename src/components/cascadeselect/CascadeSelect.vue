@@ -70,10 +70,10 @@
 </template>
 
 <script>
-import { ConnectedOverlayScrollHandler, ObjectUtils, DomHandler, ZIndexUtils, UniqueComponentId } from 'primevue/utils';
 import OverlayEventBus from 'primevue/overlayeventbus';
-import CascadeSelectSub from './CascadeSelectSub.vue';
 import Portal from 'primevue/portal';
+import { ConnectedOverlayScrollHandler, DomHandler, ObjectUtils, UniqueComponentId, ZIndexUtils } from 'primevue/utils';
+import CascadeSelectSub from './CascadeSelectSub.vue';
 
 export default {
     name: 'CascadeSelect',
@@ -766,6 +766,7 @@ export default {
         labelClass() {
             return [
                 'p-cascadeselect-label',
+                'p-inputtext',
                 {
                     'p-placeholder': this.label === this.placeholder,
                     'p-cascadeselect-label-empty': !this.$slots['value'] && (this.label === 'p-emptylabel' || this.label.length === 0)
