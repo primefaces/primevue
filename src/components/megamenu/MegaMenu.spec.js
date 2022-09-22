@@ -56,11 +56,13 @@ describe('MegaMenu.vue', () => {
         });
     });
 
-    it('should exists', () => {
+    it('should exists', async () => {
         expect(wrapper.find('.p-megamenu.p-component').exists()).toBe(true);
         expect(wrapper.find('.p-megamenu-root-list').exists()).toBe(true);
-        expect(wrapper.findAll('ul.p-megamenu-submenu').length).toBe(5);
-        expect(wrapper.findAll('li.p-menuitem').length).toBe(12);
+        expect(wrapper.findAll('ul.p-megamenu-submenu').length).toBe(0);
+        expect(wrapper.findAll('li.p-menuitem').length).toBe(2);
+
+        await wrapper.vm.onCategoryClick({}, wrapper.vm.model[0]);
         expect(wrapper.findAll('li.p-menuitem')[0].findAll('span.p-menuitem-text')[0].text()).toBe('Videos');
         expect(wrapper.findAll('li.p-megamenu-submenu-header')[0].text()).toBe('Video 1');
         expect(wrapper.findAll('li.p-menuitem')[1].findAll('span.p-menuitem-text')[0].text()).toBe('Video 1.1');
