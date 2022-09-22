@@ -32,7 +32,6 @@ export default {
                 {
                     label: 'Videos',
                     icon: 'pi pi-fw pi-video',
-                    disabled: true,
                     items: [
                         [
                             {
