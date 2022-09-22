@@ -3,7 +3,7 @@
         <div v-if="$slots.start" class="p-megamenu-start">
             <slot name="start"></slot>
         </div>
-        <ul class="p-megamenu-root-list" role="menubar">
+        <ul :aria-orientation="horizontal ? 'horizontal' : 'vertical'" class="p-megamenu-root-list" role="menubar">
             <template v-for="(category, index) of model" :key="label(category) + '_' + index">
                 <li v-if="visible(category)" :class="getCategoryClass(category)" :style="category.style" @mouseenter="onCategoryMouseEnter($event, category)" role="presentation">
                     <template v-if="!$slots.item">
@@ -16,6 +16,7 @@
                                 @click="onCategoryClick($event, category, navigate)"
                                 @keydown="onCategoryKeydown($event, category, index)"
                                 role="menuitem"
+                                :aria-label="label(category)"
                                 :aria-disabled="disabled(category)"
                                 :aria-haspopup="category.items !== null"
                                 :aria-expanded="category === activeItem"
@@ -35,6 +36,7 @@
                             @click="onCategoryClick($event, category)"
                             @keydown="onCategoryKeydown($event, category, index)"
                             role="menuitem"
+                            :aria-label="label(category)"
                             :aria-disabled="disabled(category)"
                             :aria-haspopup="category.items !== null"
                             :aria-expanded="category === activeItem"
@@ -63,7 +65,7 @@
                                                         :class="linkClass(item, { isActive, isExactActive })"
                                                         @click="onLeafClick($event, item, navigate)"
                                                         role="menuitem"
-                                                        @keydown="onCategoryKeydown($event, category, index)"
+                                                        @keydown="onSubMenuKeydown($event, item)"
                                                     >
                                                         <span v-if="item.icon" :class="['p-menuitem-icon', item.icon]"></span>
                                                         <span class="p-menuitem-text">{{ label(item) }}</span>
@@ -79,7 +81,7 @@
                                                     @click="onLeafClick($event, item)"
                                                     role="menuitem"
                                                     tabindex="-1"
-                                                    @keydown="onCategoryKeydown($event, category, index)"
+                                                    @keydown="onSubMenuKeydown($event, item)"
                                                 >
                                                     <span v-if="item.icon" :class="['p-menuitem-icon', item.icon]"></span>
                                                     <span class="p-menuitem-text">{{ label(item) }}</span>
@@ -127,7 +129,8 @@ export default {
     data() {
         return {
             activeItem: null,
-            tabIndexes: []
+            tabIndexes: [],
+            subMenuCurrentIndex: 0
         };
     },
     beforeUnmount() {
@@ -196,10 +199,42 @@ export default {
                 navigate(event);
             }
         },
-        onCategoryKeydown(event, category) {
-            let listItem = event.currentTarget.parentElement;
+        onSubMenuKeydown(event, item) {
+            switch (event.code) {
+                case 'ArrowDown':
+                    this.navigateToNextItem(this.$refs.subMenuLink, this.subMenuCurrentIndex, 'subMenu');
 
-            console.log(event, category);
+                    event.preventDefault();
+                    break;
+                case 'ArrowUp':
+                    this.navigateToPrevItem(this.$refs.subMenuLink, this.subMenuCurrentIndex, 'subMenu');
+
+                    event.preventDefault();
+                    break;
+
+                case 'Enter':
+                    this.onLeafClick(event, item);
+
+                    event.preventDefault();
+                    break;
+
+                case 'Space':
+                    this.onLeafClick(event, item);
+
+                    event.preventDefault();
+                    break;
+                case 'Escape':
+                    if (this.activeItem) {
+                        this.collapseMenu();
+                    }
+
+                    break;
+            }
+        },
+        onCategoryKeydown(event, category, index) {
+            //let listItem = event.currentTarget.parentElement;
+
+            console.log(event, category, index);
 
             switch (event.code) {
                 case 'Escape':
@@ -232,10 +267,11 @@ export default {
                         this.expandMenu(category);
 
                         setTimeout(() => {
-                            this.navigateToNextItem(this.$refs.subMenu[0]);
+                            this.navigateToNextItem(this.$refs.subMenuLink, -1);
+                            this.subMenuCurrentIndex = 0;
                         }, 1);
                     } else {
-                        this.navigateToNextItem(listItem);
+                        this.navigateToNextItem(this.$refs.menuLink, index);
                     }
 
                     event.preventDefault();
@@ -243,7 +279,7 @@ export default {
 
                 //up
                 case 'ArrowUp':
-                    if (this.vertical) this.navigateToPrevItem(listItem);
+                    if (this.vertical) this.navigateToPrevItem(this.$refs.menuLink, index);
                     else if (category.items && category === this.activeItem) this.collapseMenu();
 
                     event.preventDefault();
@@ -252,15 +288,21 @@ export default {
                 //right
                 case 'ArrowRight':
                     if (this.horizontal) {
-                        this.navigateToNextItem(listItem);
-                    } else this.expandMenu(category);
+                        this.navigateToNextItem(this.$refs.menuLink, index);
+                    } else {
+                        this.expandMenu(category);
+                        setTimeout(() => {
+                            this.navigateToNextItem(this.$refs.subMenuLink, -1);
+                            this.subMenuCurrentIndex = 0;
+                        }, 1);
+                    }
 
                     event.preventDefault();
                     break;
 
                 //left
                 case 'ArrowLeft':
-                    if (this.horizontal) this.navigateToPrevItem(listItem);
+                    if (this.horizontal) this.navigateToPrevItem(this.$refs.menuLink, index);
                     else if (category.items && category === this.activeItem) this.collapseMenu();
 
                     event.preventDefault();
@@ -292,44 +334,50 @@ export default {
         collapseMenu() {
             this.activeItem = null;
         },
-        findNextItem(item) {
-            let nextItem = item.nextElementSibling || item;
+        findNextItem(items, index) {
+            let i = index + 1;
 
-            debugger;
-
-            if (item.nextElementSibling) {
-                nextItem = item.nextElementSibling.children[0];
+            if (i >= items.length) {
+                i = 0;
             }
 
-            if (nextItem) return DomHandler.hasClass(nextItem, 'p-disabled') ? this.findNextItem(nextItem) : nextItem.parentElement;
+            let nextItem = items[i];
+
+            if (nextItem) return DomHandler.hasClass(nextItem, 'p-disabled') ? this.findNextItem(items, i) : { nextItem, i };
             else return null;
         },
-        findPrevItem(item) {
-            let prevItem = item.previousElementSibling;
+        findPrevItem(items, index) {
+            let i = index - 1;
 
-            if (item.previousElementSibling) {
-                prevItem = item.previousElementSibling.children[0];
+            if (i < 0) {
+                i = items.length - 1;
             }
 
-            if (prevItem) return DomHandler.hasClass(prevItem, 'p-disabled') ? this.findPrevItem(prevItem) : prevItem.parentElement;
+            let prevItem = items[i];
+
+            if (prevItem) return DomHandler.hasClass(prevItem, 'p-disabled') ? this.findPrevItem(items, i) : { prevItem, i };
             else return null;
         },
-        navigateToNextItem(listItem) {
-            const nextItem = this.findNextItem(listItem);
+        navigateToNextItem(listItems, index, subMenu) {
+            const item = this.findNextItem(listItems, index);
 
-            console.log(nextItem);
+            if (subMenu) {
+                this.subMenuCurrentIndex = item.i;
+            }
 
-            if (nextItem) {
-                nextItem.children[0].focus();
+            if (item.nextItem) {
+                item.nextItem.focus();
             }
         },
-        navigateToPrevItem(listItem) {
-            var prevItem = this.findPrevItem(listItem);
+        navigateToPrevItem(listItems, index, subMenu) {
+            const item = this.findPrevItem(listItems, index);
 
-            console.log(prevItem);
+            if (subMenu) {
+                this.subMenuCurrentIndex = item.i;
+            }
 
-            if (prevItem) {
-                prevItem.children[0].focus();
+            if (item.prevItem) {
+                item.prevItem.focus();
             }
         },
         getCategoryClass(category) {
