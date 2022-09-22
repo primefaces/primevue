@@ -17,7 +17,7 @@
             :aria-label="ariaLabel"
             inputmode="none"
             :disabled="disabled"
-            :readonly="!manualInput"
+            :readonly="readonly"
             :tabindex="0"
             @input="onInput"
             @click="onInputClick"
