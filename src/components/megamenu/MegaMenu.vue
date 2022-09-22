@@ -232,10 +232,6 @@ export default {
             }
         },
         onCategoryKeydown(event, category, index) {
-            //let listItem = event.currentTarget.parentElement;
-
-            console.log(event, category, index);
-
             switch (event.code) {
                 case 'Escape':
                     if (this.activeItem) {
