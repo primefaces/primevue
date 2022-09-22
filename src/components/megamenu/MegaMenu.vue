@@ -5,26 +5,40 @@
         </div>
         <ul class="p-megamenu-root-list" role="menubar">
             <template v-for="(category, index) of model" :key="label(category) + '_' + index">
-                <li v-if="visible(category)" :class="getCategoryClass(category)" :style="category.style" @mouseenter="onCategoryMouseEnter($event, category)" role="none">
+                <li v-if="visible(category)" :class="getCategoryClass(category)" :style="category.style" @mouseenter="onCategoryMouseEnter($event, category)" role="presentation">
                     <template v-if="!$slots.item">
                         <router-link v-if="category.to && !disabled(category)" v-slot="{ navigate, href, isActive, isExactActive }" :to="category.to" custom>
-                            <a v-ripple :href="href" :class="linkClass(category, { isActive, isExactActive })" @click="onCategoryClick($event, category, navigate)" @keydown="onCategoryKeydown($event, category)" role="menuitem">
+                            <a
+                                ref="menuLink"
+                                v-ripple
+                                :href="href"
+                                :class="linkClass(category, { isActive, isExactActive })"
+                                @click="onCategoryClick($event, category, navigate)"
+                                @keydown="onCategoryKeydown($event, category, index)"
+                                role="menuitem"
+                                :aria-disabled="disabled(category)"
+                                :aria-haspopup="category.items !== null"
+                                :aria-expanded="category === activeItem"
+                                :tabindex="tabIndexes[index]"
+                            >
                                 <span v-if="category.icon" :class="getCategoryIcon(category)"></span>
                                 <span class="p-menuitem-text">{{ label(category) }}</span>
                             </a>
                         </router-link>
                         <a
                             v-else
+                            ref="menuLink"
                             v-ripple
                             :href="category.url"
                             :class="linkClass(category)"
                             :target="category.target"
                             @click="onCategoryClick($event, category)"
-                            @keydown="onCategoryKeydown($event, category)"
+                            @keydown="onCategoryKeydown($event, category, index)"
                             role="menuitem"
-                            :aria-haspopup="category.items != null"
+                            :aria-disabled="disabled(category)"
+                            :aria-haspopup="category.items !== null"
                             :aria-expanded="category === activeItem"
-                            :tabindex="disabled(category) ? null : '0'"
+                            :tabindex="tabIndexes[index]"
                         >
                             <span v-if="category.icon" :class="getCategoryIcon(category)"></span>
                             <span class="p-menuitem-text">{{ label(category) }}</span>
@@ -32,21 +46,41 @@
                         </a>
                     </template>
                     <component v-else :is="$slots.item" :item="category"></component>
-                    <div v-if="category.items" class="p-megamenu-panel">
+                    <div v-if="category.items && category === activeItem" class="p-megamenu-panel">
                         <div class="p-megamenu-grid">
                             <div v-for="(column, columnIndex) of category.items" :key="label(category) + '_column_' + columnIndex" :class="getColumnClassName(category)">
                                 <ul v-for="(submenu, submenuIndex) of column" :key="submenu.label + '_submenu_' + submenuIndex" class="p-megamenu-submenu" role="menu">
                                     <li :class="getSubmenuHeaderClass(submenu)" :style="submenu.style" role="presentation">{{ submenu.label }}</li>
                                     <template v-for="(item, i) of submenu.items" :key="label(item) + i.toString()">
-                                        <li v-if="visible(item) && !item.separator" role="none" :class="getSubmenuItemClass(item)" :style="item.style">
+                                        <li v-if="visible(item) && !item.separator" ref="subMenu" role="none" :class="getSubmenuItemClass(item)" :style="item.style">
                                             <template v-if="!$slots.item">
                                                 <router-link v-if="item.to && !disabled(item)" v-slot="{ navigate, href, isActive, isExactActive }" :to="item.to" custom>
-                                                    <a v-ripple :href="href" :class="linkClass(item, { isActive, isExactActive })" @click="onLeafClick($event, item, navigate)" role="menuitem">
+                                                    <a
+                                                        ref="subMenuLink"
+                                                        v-ripple
+                                                        tabindex="-1"
+                                                        :href="href"
+                                                        :class="linkClass(item, { isActive, isExactActive })"
+                                                        @click="onLeafClick($event, item, navigate)"
+                                                        role="menuitem"
+                                                        @keydown="onCategoryKeydown($event, category, index)"
+                                                    >
                                                         <span v-if="item.icon" :class="['p-menuitem-icon', item.icon]"></span>
                                                         <span class="p-menuitem-text">{{ label(item) }}</span>
                                                     </a>
                                                 </router-link>
-                                                <a v-else v-ripple :href="item.url" :class="linkClass(item)" :target="item.target" @click="onLeafClick($event, item)" role="menuitem" :tabindex="disabled(item) ? null : '0'">
+                                                <a
+                                                    v-else
+                                                    ref="subMenuLink"
+                                                    v-ripple
+                                                    :href="item.url"
+                                                    :class="linkClass(item)"
+                                                    :target="item.target"
+                                                    @click="onLeafClick($event, item)"
+                                                    role="menuitem"
+                                                    tabindex="-1"
+                                                    @keydown="onCategoryKeydown($event, category, index)"
+                                                >
                                                     <span v-if="item.icon" :class="['p-menuitem-icon', item.icon]"></span>
                                                     <span class="p-menuitem-text">{{ label(item) }}</span>
                                                     <span v-if="item.items" :class="getSubmenuIcon()"></span>
@@ -70,8 +104,8 @@
 </template>
 
 <script>
-import { DomHandler } from 'primevue/utils';
 import Ripple from 'primevue/ripple';
+import { DomHandler } from 'primevue/utils';
 
 export default {
     name: 'MegaMenu',
@@ -92,11 +126,15 @@ export default {
     documentClickListener: null,
     data() {
         return {
-            activeItem: null
+            activeItem: null,
+            tabIndexes: []
         };
     },
     beforeUnmount() {
         this.unbindDocumentClickListener();
+    },
+    mounted() {
+        this.tabIndexes = this.findTabIndex();
     },
     methods: {
         onLeafClick(event, item, navigate) {
@@ -161,17 +199,50 @@ export default {
         onCategoryKeydown(event, category) {
             let listItem = event.currentTarget.parentElement;
 
-            switch (event.which) {
+            console.log(event, category);
+
+            switch (event.code) {
+                case 'Escape':
+                    if (this.activeItem) {
+                        this.collapseMenu();
+                    }
+
+                    break;
+                case 'Enter':
+                    if (this.activeItem) {
+                        this.collapseMenu();
+                    } else {
+                        this.expandMenu(category);
+                    }
+
+                    break;
+
+                case 'Space':
+                    if (this.activeItem) {
+                        this.collapseMenu();
+                    } else {
+                        this.expandMenu(category);
+                    }
+
+                    break;
+
                 //down
-                case 40:
-                    if (this.horizontal) this.expandMenu(category);
-                    else this.navigateToNextItem(listItem);
+                case 'ArrowDown':
+                    if (this.horizontal) {
+                        this.expandMenu(category);
+
+                        setTimeout(() => {
+                            this.navigateToNextItem(this.$refs.subMenu[0]);
+                        }, 1);
+                    } else {
+                        this.navigateToNextItem(listItem);
+                    }
 
                     event.preventDefault();
                     break;
 
                 //up
-                case 38:
+                case 'ArrowUp':
                     if (this.vertical) this.navigateToPrevItem(listItem);
                     else if (category.items && category === this.activeItem) this.collapseMenu();
 
@@ -179,15 +250,16 @@ export default {
                     break;
 
                 //right
-                case 39:
-                    if (this.horizontal) this.navigateToNextItem(listItem);
-                    else this.expandMenu(category);
+                case 'ArrowRight':
+                    if (this.horizontal) {
+                        this.navigateToNextItem(listItem);
+                    } else this.expandMenu(category);
 
                     event.preventDefault();
                     break;
 
                 //left
-                case 37:
+                case 'ArrowLeft':
                     if (this.horizontal) this.navigateToPrevItem(listItem);
                     else if (category.items && category === this.activeItem) this.collapseMenu();
 
@@ -198,6 +270,20 @@ export default {
                     break;
             }
         },
+        findTabIndex() {
+            const items = this.model;
+            let tabIndexes = [];
+
+            for (const item of items) {
+                if (item.disabled || tabIndexes.includes(0)) {
+                    tabIndexes.push(-1);
+                } else {
+                    tabIndexes.push(0);
+                }
+            }
+
+            return tabIndexes;
+        },
         expandMenu(item) {
             if (item.items) {
                 this.activeItem = item;
@@ -207,19 +293,31 @@ export default {
             this.activeItem = null;
         },
         findNextItem(item) {
-            let nextItem = item.nextElementSibling;
+            let nextItem = item.nextElementSibling || item;
 
-            if (nextItem) return DomHandler.hasClass(nextItem, 'p-disabled') || !DomHandler.hasClass(nextItem, 'p-menuitem') ? this.findNextItem(nextItem) : nextItem;
+            debugger;
+
+            if (item.nextElementSibling) {
+                nextItem = item.nextElementSibling.children[0];
+            }
+
+            if (nextItem) return DomHandler.hasClass(nextItem, 'p-disabled') ? this.findNextItem(nextItem) : nextItem.parentElement;
             else return null;
         },
         findPrevItem(item) {
             let prevItem = item.previousElementSibling;
 
-            if (prevItem) return DomHandler.hasClass(prevItem, 'p-disabled') || !DomHandler.hasClass(prevItem, 'p-menuitem') ? this.findPrevItem(prevItem) : prevItem;
+            if (item.previousElementSibling) {
+                prevItem = item.previousElementSibling.children[0];
+            }
+
+            if (prevItem) return DomHandler.hasClass(prevItem, 'p-disabled') ? this.findPrevItem(prevItem) : prevItem.parentElement;
             else return null;
         },
         navigateToNextItem(listItem) {
-            var nextItem = this.findNextItem(listItem);
+            const nextItem = this.findNextItem(listItem);
+
+            console.log(nextItem);
 
             if (nextItem) {
                 nextItem.children[0].focus();
@@ -227,6 +325,8 @@ export default {
         },
         navigateToPrevItem(listItem) {
             var prevItem = this.findPrevItem(listItem);
+
+            console.log(prevItem);
 
             if (prevItem) {
                 prevItem.children[0].focus();
