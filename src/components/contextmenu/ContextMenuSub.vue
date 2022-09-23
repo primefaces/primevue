@@ -245,12 +245,6 @@ export default {
             const nextItem = this.findNextItem(listItem);
 
             nextItem && this.setFocusToMenuitem(listItem.children[0], nextItem.children[0]);
-
-            if (nextItem) {
-                listItem.children[0].tabIndex = '-1';
-                nextItem.children[0].tabIndex = '0';
-                nextItem.children[0].focus();
-            }
         },
         navigateToPrevItem(listItem) {
             const prevItem = this.findPrevItem(listItem);
