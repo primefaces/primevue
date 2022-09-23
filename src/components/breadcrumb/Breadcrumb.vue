@@ -1,5 +1,5 @@
 <template>
-    <nav class="p-breadcrumb p-component" role="navigation">
+    <nav class="p-breadcrumb p-component">
         <ul>
             <BreadcrumbItem v-if="home" :item="home" class="p-breadcrumb-home" :template="$slots.item" :exact="exact" />
             <template v-for="item of model" :key="item.label">
