@@ -254,7 +254,7 @@ export default {
         <Toast />
         
         <div class="card">
-            <Steps :model="items" :readonly="true" />
+            <Steps :model="items" :readonly="true" aria-label="Form Steps" />
         </div>
 
         <router-view v-slot="{Component}" :formData="formObject" @prevPage="prevPage($event)" @nextPage="nextPage($event)" @complete="complete">
@@ -324,7 +324,7 @@ export default {
         <Toast />
 
         <div class="card">
-            <Steps :model="items" :readonly="true" />
+            <Steps :model="items" :readonly="true" aria-label="Form Steps" />
         </div>
 
         <router-view v-slot="{Component}" :formData="formObject" @prevPage="prevPage($event)" @nextPage="nextPage($event)" @complete="complete">
@@ -408,7 +408,7 @@ export default {
             <p-toast></p-toast>
 
             <div class="card">
-                <p-steps :model="items" :readonly="true"></p-steps>
+                <p-steps :model="items" :readonly="true" aria-label="Form Steps"></p-steps>
             </div>
 
             <router-view v-slot="{Component}" :form-data="formObject" @prev-page="prevPage($event)" @next-page="nextPage($event)" @complete="complete">
