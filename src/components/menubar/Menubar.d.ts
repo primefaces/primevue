@@ -16,6 +16,14 @@ export interface MenubarProps {
      * Uses to pass all properties of the HTMLButtonElement to the menu button.
      */
     buttonProps?: ButtonHTMLAttributes | undefined;
+    /**
+     * Defines a string value that labels an interactive element.
+     */
+    'aria-label'?: string | undefined;
+    /**
+     * Identifier of the underlying input element.
+     */
+    'aria-labelledby'?: string | undefined;
 }
 
 export interface MenubarSlots {
