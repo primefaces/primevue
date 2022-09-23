@@ -112,7 +112,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-::v-deep .speeddial-linear-demo {
+:deep() {
     .p-speeddial-direction-up {
         left: calc(50% - 2rem);
         bottom: 0;
@@ -130,7 +130,7 @@ export default {
         top: calc(50% - 2rem);
     }
 }
-::v-deep .speeddial-circle-demo {
+:deep(.speeddial-circle-demo) {
     .p-speeddial-circle {
         top: calc(50% - 2rem);
         left: calc(50% - 2rem);
@@ -172,7 +172,7 @@ export default {
         }
     }
 }
-::v-deep .speeddial-tooltip-demo {
+:deep(.speeddial-tooltip-demo) {
     .p-speeddial-direction-up {
         &.speeddial-left {
             left: 0;
@@ -184,13 +184,13 @@ export default {
         }
     }
 }
-::v-deep .speeddial-delay-demo {
+:deep(.speeddial-delay-demo) {
     .p-speeddial-direction-up {
         left: calc(50% - 2rem);
         bottom: 0;
     }
 }
-::v-deep .speeddial-mask-demo {
+:deep(.speeddial-mask-demo) {
     .p-speeddial-direction-up {
         right: 0;
         bottom: 0;

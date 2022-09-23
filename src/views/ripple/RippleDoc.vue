@@ -101,7 +101,7 @@ export default {}
 </CodeHighlight>
 
 <CodeHighlight lang="css">
-::v-deep .card-container {
+:deep(.card-container) {
     .card {
         width: 75px;
         height: 75px;

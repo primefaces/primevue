@@ -889,7 +889,7 @@ data() {
                 <p>Optionally a global filter is available to search against all the fields, in this case the special <i>global</i> keyword should be the property to be populated.</p>
 
                 <p>In addition <i>filterMode</i> specifies the filtering strategy. In <b>lenient</b> mode when the query matches a node, children of the node are not searched further as all descendants of the node are included. On the other hand,
-                 in <b>strict</b> mode when the query matches a node, filtering continues on all descendants.</p>
+                in <b>strict</b> mode when the query matches a node, filtering continues on all descendants.</p>
 <CodeHighlight>
 <template v-pre>
 &lt;TreeTable :value="nodes" :filters="filters" filterMode="lenient"&gt;
@@ -1232,23 +1232,21 @@ export default {
 </CodeHighlight>
 
 <CodeHighlight lang="css">
-.sm-visible {
-    display: none;
-}
+    .sm-visible {
+        display: none;
+    }
 
-@media screen and (max-width: 40em) {
-    ::v-deep {
-        .sm-invisible {
+    @media screen and (max-width: 40em) {
+        :deep(.sm-invisible) {
             display: none;
         }
 
-        .sm-visible {
+        :deep(.sm-visible) {
             display: inline;
             margin-right: .5rem;
         }
     }
-}
-</CodeHighlight>
+    </CodeHighlight>
 
 				<h5>Properties</h5>
                 <p>Any property such as style and class are passed to the underlying root element. Following is the additional property to configure the component.</p>
@@ -1312,7 +1310,7 @@ export default {
                                 <td>null</td>
                                 <td>Number of total records, defaults to length of value when not defined.</td>
                             </tr>
-                             <tr>
+                            <tr>
                                 <td>paginator</td>
                                 <td>boolean</td>
                                 <td>false</td>
@@ -1388,7 +1386,7 @@ export default {
                                 <td>sortField</td>
                                 <td>string</td>
                                 <td>null</td>
-                               <td>Property name or a getter function of a row data used for sorting by default.</td>
+                                <td>Property name or a getter function of a row data used for sorting by default.</td>
                             </tr>
                             <tr>
                                 <td>sortOrder</td>

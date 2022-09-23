@@ -3,20 +3,28 @@
 </template>
 
 <script>
+import DomHandler from '../utils/DomHandler';
+
 export default {
     props: {
         value: null,
         autoResize: Boolean
     },
+    resizeListener: null,
     mounted() {
         if (this.$el.offsetParent && this.autoResize) {
             this.resize();
+            this.bindResizeListener();
         }
     },
     updated() {
-        if (this.$el.offsetParent && this.autoResize) {
+        if (DomHandler.isVisible(this.$el) && this.$el.offsetParent.tagName !== 'BODY' && this.autoResize) {
             this.resize();
+            this.bindResizeListener();
         }
+    },
+    beforeDestroy() {
+        this.unbindResizeListener();
     },
     methods: {
         resize() {
@@ -31,6 +39,21 @@ export default {
 
             else {
                 this.$el.style.overflow = "hidden";
+            }
+        },
+        bindResizeListener() {
+            if (!this.resizeListener) {
+                this.resizeListener = () => {
+                    this.resize();
+                };
+
+                window.addEventListener('resize', this.resizeListener);
+            }
+        },
+        unbindResizeListener() {
+            if (this.resizeListener) {
+                window.removeEventListener('resize', this.resizeListener);
+                this.resizeListener = null;
             }
         }
     },

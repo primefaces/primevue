@@ -61,7 +61,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-::v-deep .p-password input {
+:deep(.p-password input) {
     width: 15rem
 }
 </style>

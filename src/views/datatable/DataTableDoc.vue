@@ -2816,13 +2816,13 @@ export default {
 </CodeHighlight>
 
 <CodeHighlight lang="css">
-::v-deep .p-paginator {
+:deep(.p-paginator) {
     .p-paginator-current {
         margin-left: auto;
     }
 }
 
-::v-deep .p-progressbar {
+:deep(.p-progressbar) {
     height: .5rem;
     background-color: #D8DADC;
 
@@ -2831,7 +2831,7 @@ export default {
     }
 }
 
-::v-deep .p-datepicker {
+:deep(.p-datepicker) {
     min-width: 25rem;
 
     td {
@@ -2839,7 +2839,7 @@ export default {
     }
 }
 
-::v-deep .p-datatable.p-datatable-customers {
+:deep(.p-datatable.p-datatable-customers) {
     .p-datatable-header {
         padding: 1rem;
         text-align: left;

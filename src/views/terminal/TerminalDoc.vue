@@ -20,7 +20,7 @@ import TerminalService from 'primevue/terminalservice';
 import TerminalService from 'primevue/terminalservice';
 
 export default {
-     methods: {
+    methods: {
         commandHandler(text) {
             let response;
             let argsIndex = text.indexOf(' ');
@@ -95,7 +95,7 @@ export default {
                             </tr>
 						</thead>
 						<tbody>
-                             <tr>
+                            <tr>
                                 <td>p-terminal</td>
                                 <td>Container element.</td>
                             </tr>
@@ -107,7 +107,7 @@ export default {
                                 <td>p-terminal-prompt</td>
                                 <td>Prompt text.</td>
                             </tr>
-                             <tr>
+                            <tr>
                                 <td>p-terminal-response</td>
                                 <td>Command response.</td>
                             </tr>
@@ -136,7 +136,7 @@ export default {
 import TerminalService from 'primevue/terminalservice';
 
 export default {
-     methods: {
+    methods: {
         commandHandler(text) {
             let response;
             let argsIndex = text.indexOf(' ');
@@ -176,7 +176,7 @@ p {
     margin-top: 0;
 }
 
-::v-deep .dark-demo-terminall {
+:deep(.dark-demo-terminal) {
     background-color: #212121;
     color: #ffffff;
 

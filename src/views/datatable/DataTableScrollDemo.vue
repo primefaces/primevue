@@ -338,11 +338,11 @@ export default {
 </CodeHighlight>
 
 <CodeHighlight lang="css">
-::v-deep .p-datatable-frozen-tbody {
+:deep(.p-datatable-frozen-tbody) {
     font-weight: bold;
 }
 
-::v-deep .p-datatable-scrollable .p-frozen-column {
+:deep(.p-datatable-scrollable .p-frozen-column) {
     font-weight: bold;
 }
 </CodeHighlight>
@@ -444,11 +444,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-::v-deep .p-datatable-frozen-tbody {
+:deep(.p-datatable-frozen-tbody) {
     font-weight: bold;
 }
 
-::v-deep .p-datatable-scrollable .p-frozen-column {
+:deep(.p-datatable-scrollable .p-frozen-column) {
     font-weight: bold;
 }
 </style>

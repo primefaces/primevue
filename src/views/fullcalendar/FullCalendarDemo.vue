@@ -58,7 +58,7 @@ export default {
 
 <style scoped>
     @media screen and (max-width: 960px) {
-        ::v-deep .fc-header-toolbar {
+        :deep(.fc-header-toolbar) {
             display: flex;
             flex-wrap: wrap;
         }
