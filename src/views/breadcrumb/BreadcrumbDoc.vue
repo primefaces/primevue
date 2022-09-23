@@ -178,7 +178,7 @@ export default {
                     content: `
 <template>
     <div>
-        <Breadcrumb :home="home" :model="items" />
+        <Breadcrumb :home="home" :model="items" aria-label="breadcrumb" />
     </div>
 </template>
 
@@ -208,7 +208,7 @@ export default {
                     content: `
 <template>
     <div>
-        <Breadcrumb :home="home" :model="items" />
+        <Breadcrumb :home="home" :model="items" aria-label="breadcrumb" />
     </div>
 </template>
 
@@ -240,7 +240,7 @@ export default {
                     imports: `<script src="https://unpkg.com/vue-router@4.0.0/dist/vue-router.global.js"><\\/script>
         <script src="https://unpkg.com/primevue@^3/breadcrumb/breadcrumb.min.js"><\\/script>`,
                     content: `<div id="app">
-            <p-breadcrumb :home="home" :model="items"></p-breadcrumb>
+            <p-breadcrumb :home="home" :model="items" aria-label="breadcrumb"></p-breadcrumb>
         </div>
 
         <script type="module">
