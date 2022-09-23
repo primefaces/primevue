@@ -48,7 +48,29 @@ export default {
 &lt;Steps :model="items" :readonly="false" /&gt;
 &lt;router-view /&gt;
 </CodeHighlight>
-
+<h5>Templating</h5>
+        <p>Steps offers content customization with the <i>item</i> template that receives the menuitem instance from the model as a parameter.</p>
+        <CodeHighlight>
+            <template v-pre>
+&lt;Steps :model="items"&gt;
+    &lt;template #item="slotProps"&gt;
+        &lt;a :href="slotProps.item.url"&gt;{{slotProps.item.label}}&lt;/a&gt;
+    &lt;/template&gt;
+&lt;/Steps&gt;
+</template>
+</CodeHighlight>
+<p><i>router-link</i> with route configuration can also be used within templating for further customization.</p>
+<CodeHighlight>
+    <template v-pre>
+&lt;Steps :model="items"&gt;
+    &lt;template #item="&#123;item&#125;"&gt;
+        &lt;router-link :to="item.to" custom v-slot="&#123;href, route, navigate, isActive, isExactActive&#125;"&gt;
+            &lt;a :href="href" @click="navigate" :class="&#123;'active-link': isActive, 'active-link-exact": isExactActive&#125;&gt;&#123;&#123;route.fullPath&#125;&#125;&lt;/a&gt;
+        &lt;/router-link&gt;
+    &lt;/template&gt;
+&lt;/Steps&gt;
+</template>
+</CodeHighlight>
                 <h5>Properties</h5>
                 <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
 				<div class="doc-tablewrapper">
@@ -89,7 +111,23 @@ export default {
 						</tbody>
 					</table>
 				</div>
-
+                <h5>Slots</h5>
+                <div class="doc-tablewrapper">
+                    <table class="doc-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Parameters</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>item</td>
+                                <td>item: Menuitem instance</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
 				<h5>Styling</h5>
 				<p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
 				<div class="doc-tablewrapper">

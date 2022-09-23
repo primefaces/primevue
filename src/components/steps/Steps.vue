@@ -3,16 +3,18 @@
         <ul role="tablist">
             <template v-for="(item,index) of model">
                 <li v-if="visible(item)" :key="item.to" :class="getItemClass(item)" :style="item.style" role="tab" :aria-selected="isActive(item)" :aria-expanded="isActive(item)">
-                    <router-link :to="item.to" v-if="!isItemDisabled(item)" custom v-slot="{navigate, href, isActive, isExactActive}" >
-                        <a :href="href" :class="linkClass({isActive, isExactActive})" @click="onItemClick($event, item, navigate)" role="presentation">
-                            <span class="p-steps-number">{{index + 1}}</span>
-                            <span class="p-steps-title">{{label(item)}}</span>
-                        </a>
-                    </router-link>
-                    <span v-else :class="linkClass()" role="presentation">
-                        <span class="p-steps-number">{{index + 1}}</span>
-                        <span class="p-steps-title">{{label(item)}}</span>
-                    </span>
+                    <slot name="item" :item="item">
+                        <router-link v-if="!isItemDisabled(item)" v-slot="{ navigate, href, isActive, isExactActive }" :to="item.to" custom>
+                            <a :href="href" :class="linkClass({ isActive, isExactActive })" @click="onItemClick($event, item, navigate)" role="presentation">
+                                <span class="p-steps-number">{{ index + 1 }}</span>
+                                <span class="p-steps-title">{{ label(item) }}</span>
+                            </a>
+                        </router-link>
+                        <span v-else :class="linkClass()" role="presentation">
+                            <span class="p-steps-number">{{ index + 1 }}</span>
+                            <span class="p-steps-title">{{ label(item) }}</span>
+                        </span>
+                    </slot>
                 </li>
             </template>
         </ul>
