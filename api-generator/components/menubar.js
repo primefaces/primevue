@@ -10,6 +10,12 @@ const MenubarProps = [
         type: 'boolean',
         default: 'true',
         description: "Whether to apply 'router-link-active-exact' class if route exactly matches the item path."
+    },
+    {
+        name: 'buttonProps',
+        type: 'object',
+        default: 'null',
+        description: 'Uses to pass all properties of the HTMLButtonElement to the menu button.'
     }
 ];
 

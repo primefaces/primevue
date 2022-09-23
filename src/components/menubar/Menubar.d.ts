@@ -1,6 +1,6 @@
 import { VNode } from 'vue';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 import { MenuItem } from '../menuitem';
+import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export interface MenubarProps {
     /**
@@ -12,6 +12,10 @@ export interface MenubarProps {
      * Default value is true.
      */
     exact?: boolean | undefined;
+    /**
+     * Uses to pass all properties of the HTMLButtonElement to the menu button.
+     */
+    buttonProps?: ButtonHTMLAttributes | undefined;
 }
 
 export interface MenubarSlots {
