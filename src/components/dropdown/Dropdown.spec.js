@@ -89,8 +89,8 @@ describe('clear checks', () => {
 
     it('should have correct icon', () => {
         expect(wrapper.find('.p-dropdown-clear-icon').classes()).toContain('pi-discord');
-    })
-})
+    });
+});
 
 describe('editable checks', () => {
     let wrapper;
