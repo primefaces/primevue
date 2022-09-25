@@ -135,5 +135,5 @@ describe('CascadeSelect.vue', () => {
         await wrapper.trigger('click');
 
         expect(wrapper.find('.p-cascadeselect-group-icon').classes()).toContain('pi-bell');
-    })
+    });
 });
