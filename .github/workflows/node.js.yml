@@ -30,7 +30,7 @@ jobs:
       run: |
         npm install
 
-    - name: Lint
+    - name: Lint Check
       if: ${{ success() }}
       run: |
         npm run lint
@@ -40,7 +40,7 @@ jobs:
       run: |
         npm run format:check
 
-    - name: Security
+    - name: Security Check
       if: ${{ success() }}
       run: |
         npm run security:check
