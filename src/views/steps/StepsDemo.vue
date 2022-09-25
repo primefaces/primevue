@@ -3,10 +3,7 @@
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>Steps</h1>
-                <p>
-                    Steps components is an indicator for the steps in a wizard
-                    workflow. Example below uses nested routes with Steps.
-                </p>
+                <p>Steps components is an indicator for the steps in a wizard workflow. Example below uses nested routes with Steps.</p>
             </div>
         </div>
 
@@ -16,12 +13,7 @@
             </div>
 
             <keep-alive>
-                <router-view
-                    :formData="formObject"
-                    @prevPage="prevPage($event)"
-                    @nextPage="nextPage($event)"
-                    @complete="complete"
-                />
+                <router-view :formData="formObject" @prevPage="prevPage($event)" @nextPage="nextPage($event)" @complete="complete" />
             </keep-alive>
         </div>
 
@@ -51,13 +43,13 @@ export default {
                 {
                     label: "Confirmation",
                     to: "/steps/confirmation",
-                },
+                }
             ],
-            formObject: {},
+            formObject: {}
         };
     },
     components: {
-        StepsDoc: StepsDoc,
+        "StepsDoc": StepsDoc,
     },
     methods: {
         nextPage(event) {
@@ -69,16 +61,7 @@ export default {
             this.$router.push(this.items[event.pageIndex - 1].to);
         },
         complete() {
-            this.$toast.add({
-                severity: "success",
-                summary: "Order submitted",
-                detail:
-                    "Dear, " +
-                    this.formObject.firstname +
-                    " " +
-                    this.formObject.lastname +
-                    " your order completed.",
-            });
+            this.$toast.add({severity: "success", summary: "Order submitted", detail: "Dear, " + this.formObject.firstname + " " + this.formObject.lastname + " your order completed."});
         },
     },
 };
@@ -86,7 +69,7 @@ export default {
 
 <style scoped lang="scss">
 :deep(b) {
-    display: block
+    display: block;
 }
 
 :deep(.p-card-body) {
