@@ -142,9 +142,9 @@ describe('MultiSelect.vue', () => {
 
             await wrapper.vm.onContainerClick();
 
-            wrapper.findAll('.p-checkbox-icon').forEach(icon => {
-                expect(icon.classes()).toContain('pi-discord')
-            })
+            wrapper.findAll('.p-checkbox-icon').forEach((icon) => {
+                expect(icon.classes()).toContain('pi-discord');
+            });
         });
     });
 });
