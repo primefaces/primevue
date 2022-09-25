@@ -67,8 +67,8 @@ describe('AutoComplete.vue', () => {
             const token = wrapper.find('.p-button-icon');
 
             expect(token.classes()).toContain('pi-discord');
-        })
-    })
+        });
+    });
 
     describe('multiple', () => {
         it('should have correct custom icon', async () => {
@@ -80,9 +80,9 @@ describe('AutoComplete.vue', () => {
 
             await nextTick();
 
-            wrapper.findAll('.p-autocomplete-token-icon').forEach(tokenIcon => {
+            wrapper.findAll('.p-autocomplete-token-icon').forEach((tokenIcon) => {
                 expect(tokenIcon.classes()).toContain('pi-discord');
             });
-        })
-    })
+        });
+    });
 });
