@@ -11,7 +11,7 @@
                                 :href="href"
                                 class="p-menuitem-link"
                                 @click="onItemClick($event, item, i, navigate)"
-                                :aria-label="label"
+                                :aria-label="label(item)"
                                 role="menuItem"
                                 :aria-disabled="disabled(item)"
                                 :tabindex="isExactActive ? '0' : '-1'"
@@ -35,7 +35,7 @@
                             :target="item.target"
                             @click="onItemClick($event, item, i)"
                             role="menuItem"
-                            :aria-label="label"
+                            :aria-label="label(item)"
                             :aria-disabled="disabled(item)"
                             :tabindex="setTabIndex(i)"
                             :aria-selected="isActive(i)"
@@ -130,8 +130,14 @@ export default {
             let i = index;
             let navigateItem = item;
             let foundElement = {};
+            const tabLinkRef = this.$refs.tabLink;
 
             switch (event.code) {
+                case 'Tab':
+                    this.setDefaultTabIndexes(tabLinkRef);
+
+                    break;
+
                 case 'ArrowRight':
                     foundElement = this.findNextItem(this.$refs.tab, i);
 
@@ -165,22 +171,29 @@ export default {
                 case 'Space':
                     event.preventDefault();
 
-                    this.onItemClick(event, item, index, navigate);
+                    this.onItemClick(event, navigateItem, index, navigate);
+
+                    break;
+
+                case 'Enter':
+                    event.preventDefault();
+
+                    this.onItemClick(event, navigateItem, index, navigate);
+                    break;
             }
 
-            if (!item.to && navigateItem) {
-                this.onItemClick(event, navigateItem, i, navigate);
-            }
+            if (tabLinkRef[i] && tabLinkRef[index]) {
+                tabLinkRef[index].tabIndex = '-1';
+                tabLinkRef[i].tabIndex = '0';
 
-            if (this.$refs.tabLink) {
-                this.$refs.tabLink[i].focus();
+                tabLinkRef[i].focus();
             }
         },
         findNextItem(items, index) {
             let i = index + 1;
 
             if (i >= items.length) {
-                i = 0;
+                return { nextItem: items[items.length], i: items.length };
             }
 
             let nextItem = items[i];
@@ -192,7 +205,7 @@ export default {
             let i = index - 1;
 
             if (i < 0) {
-                i = items.length - 1;
+                return { nextItem: items[0], i: 0 };
             }
 
             let prevItem = items[i];
@@ -231,6 +244,13 @@ export default {
         },
         label(item) {
             return typeof item.label === 'function' ? item.label() : item.label;
+        },
+        setDefaultTabIndexes(tabLinkRef) {
+            setTimeout(() => {
+                tabLinkRef.forEach((item) => {
+                    item.tabIndex = DomHandler.hasClass(item.parentElement, 'p-highlight') ? '0' : '-1';
+                });
+            }, 300);
         },
         setTabIndex(index) {
             return this.isActive(index) ? '0' : '-1';
