@@ -1989,16 +1989,39 @@ export default {
                     let cellIndex = DomHandler.index(cell);
                     let nextRow = cell.parentElement.nextElementSibling;
 
-                    if (nextRow) {
-                        let focusCell = nextRow.children[cellIndex].children[0];
+                    let tableRowIndex = DomHandler.index(cell.parentElement);
 
-                        if (DomHandler.hasClass(focusCell, 'p-disabled')) {
-                            this.navigationState = { backward: false };
-                            this.navForward(event);
+                    const tableRowArray = Array.from(cell.parentElement.parentElement.children);
+
+                    const nextTableRows = tableRowArray.slice(tableRowIndex + 1);
+
+                    let nextFocusableDate = nextTableRows.find(el => {
+                      let focusCell = el.children[cellIndex].children[0];
+
+                      if (!DomHandler.hasClass(focusCell, 'p-disabled')) {
+                        return focusCell
+                      }
+                    })
+
+                    if (nextRow) {
+                      
+
+                        if(nextFocusableDate) {
+                          let focusCell = nextFocusableDate.children[cellIndex].children[0];
+
+                          focusCell.tabIndex = '0';
+                          focusCell.focus();
                         } else {
-                            nextRow.children[cellIndex].children[0].tabIndex = '0';
-                            nextRow.children[cellIndex].children[0].focus();
+                          this.navigationState = { backward: false };
+                          this.navForward(event);
                         }
+                        // if (DomHandler.hasClass(focusCell, 'p-disabled')) {
+                        //     this.navigationState = { backward: false };
+                        //     this.navForward(event);
+                        // } else {
+                        //     nextRow.children[cellIndex].children[0].tabIndex = '0';
+                        //     nextRow.children[cellIndex].children[0].focus();
+                        // }
                     } else {
                         this.navigationState = { backward: false };
                         this.navForward(event);
@@ -2013,16 +2036,31 @@ export default {
                     let cellIndex = DomHandler.index(cell);
                     let prevRow = cell.parentElement.previousElementSibling;
 
-                    if (prevRow) {
-                        let focusCell = prevRow.children[cellIndex].children[0];
+                    let tableRowIndex = DomHandler.index(cell.parentElement);
 
-                        if (DomHandler.hasClass(focusCell, 'p-disabled')) {
-                            this.navigationState = { backward: true };
-                            this.navBackward(event);
+                    const tableRowArray = Array.from(cell.parentElement.parentElement.children);
+
+                    const prevTableRows = tableRowArray.slice(0, tableRowIndex).reverse();
+
+                    let nextFocusableDate = prevTableRows.find(el => {
+                      let focusCell = el.children[cellIndex].children[0];
+
+                      if (!DomHandler.hasClass(focusCell, 'p-disabled')) {
+                        return focusCell
+                      }
+                    })
+
+                    if (prevRow) {
+                        if(nextFocusableDate) {
+                          let focusCell = nextFocusableDate.children[cellIndex].children[0];
+
+                          focusCell.tabIndex = '0';
+                          focusCell.focus();
                         } else {
-                            focusCell.tabIndex = '0';
-                            focusCell.focus();
+                          this.navigationState = { backward: true };
+                          this.navBackward(event);
                         }
+
                     } else {
                         this.navigationState = { backward: true };
                         this.navBackward(event);
@@ -2036,14 +2074,28 @@ export default {
                     cellContent.tabIndex = '-1';
                     let prevCell = cell.previousElementSibling;
 
-                    if (prevCell) {
-                        let focusCell = prevCell.children[0];
+                    const cellArray = Array.from(cell.parentElement.children);
 
-                        if (DomHandler.hasClass(focusCell, 'p-disabled')) {
-                            this.navigateToMonth(event, true, groupIndex);
+                    let cellIndex = DomHandler.index(cell);
+          
+                    const prevCells = cellArray.slice(0, cellIndex).reverse();
+
+                    let nextFocusableDate = prevCells.find(el => {
+                      let focusCell = el.children[0];
+
+                      if (!DomHandler.hasClass(focusCell, 'p-disabled')) {
+                        return focusCell
+                      }
+                    });
+
+                    if (prevCell) {
+                        if(nextFocusableDate) {
+                          let focusCell = nextFocusableDate.children[0];
+
+                          focusCell.tabIndex = '0';
+                          focusCell.focus();
                         } else {
-                            focusCell.tabIndex = '0';
-                            focusCell.focus();
+                          this.navigateToMonth(event, true, groupIndex);
                         }
                     } else {
                         this.navigateToMonth(event, true, groupIndex);
@@ -2057,14 +2109,28 @@ export default {
                     cellContent.tabIndex = '-1';
                     let nextCell = cell.nextElementSibling;
 
-                    if (nextCell) {
-                        let focusCell = nextCell.children[0];
+                    const cellArray = Array.from(cell.parentElement.children);
 
-                        if (DomHandler.hasClass(focusCell, 'p-disabled')) {
-                            this.navigateToMonth(event, false, groupIndex);
+                    let cellIndex = DomHandler.index(cell);
+
+                    const nextCells = cellArray.slice(cellIndex + 1);
+                    let nextFocusableDate = nextCells.find(el => {
+                      let focusCell = el.children[0];
+
+                      if (!DomHandler.hasClass(focusCell, 'p-disabled')) {
+                        return focusCell
+                      }
+                    });
+
+                    if (nextCell) {
+                        if (nextFocusableDate) {
+                          let focusCell = nextFocusableDate.children[0];
+
+                          focusCell.tabIndex = '0';
+                          focusCell.focus();
+                            
                         } else {
-                            focusCell.tabIndex = '0';
-                            focusCell.focus();
+                          this.navigateToMonth(event, false, groupIndex);
                         }
                     } else {
                         this.navigateToMonth(event, false, groupIndex);
