@@ -249,6 +249,14 @@ export default {
 
                     break;
                 case 'Tab':
+                    setTimeout(() => {
+                        if (event.shiftKey) {
+                            this.navigateToFirstItem(this.$refs.menuLink);
+                        } else {
+                            this.navigateToLastItem(this.$refs.menuLink);
+                        }
+                    }, 300);
+
                     if (this.activeItem) {
                         this.collapseMenu();
                     }
@@ -454,7 +462,7 @@ export default {
             if (!item.nextItem) return;
 
             if (!subMenu) {
-                if (listItems[index].tabIndex) {
+                if (typeof listItems[index].tabIndex === 'number') {
                     listItems[index].tabIndex = '-1';
                 }
 
