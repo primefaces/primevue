@@ -11,7 +11,12 @@
         <div class="content-section implementation">
             <div class="card">
                 <h5>Basic</h5>
-                <Paginator :rows="10" :totalRecords="totalRecords" :rowsPerPageOptions="[10, 20, 30]"></Paginator>
+                <Paginator
+                    :breakpoints="{ '960px': 'FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink', '640px': 'FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink' }"
+                    :rows="10"
+                    :totalRecords="totalRecords"
+                    :rowsPerPageOptions="[10, 20, 30]"
+                ></Paginator>
 
                 <h5>Custom</h5>
                 <Paginator v-model:first="first" :rows="1" :totalRecords="totalRecords2" template="FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink">

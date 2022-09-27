@@ -3,7 +3,23 @@
         <div v-if="$slots.start" class="p-paginator-left-content">
             <slot name="start" :state="currentState"></slot>
         </div>
-        <template v-for="item of templateItems" :key="item">
+        <template v-if="breakpoints">
+            <template v-for="(value, key) in breakpointTemplateItems" :key="key">
+                <div v-for="item in value" :key="item" :class="`p-paginator-${key}`">
+                    <FirstPageLink v-if="item === value" @click="changePageToFirst($event)" :disabled="isFirstPage || empty" />
+                    <PrevPageLink v-else-if="item === 'PrevPageLink'" @click="changePageToPrev($event)" :disabled="isFirstPage || empty" />
+                    <NextPageLink v-else-if="item === 'NextPageLink'" @click="changePageToNext($event)" :disabled="isLastPage || empty" />
+                    <LastPageLink v-else-if="item === 'LastPageLink'" @click="changePageToLast($event)" :disabled="isLastPage || empty" />
+                    <PageLinks v-else-if="item === 'PageLinks'" :value="pageLinks" :page="page" @click="changePageLink($event)" />
+                    <CurrentPageReport v-else-if="item === 'CurrentPageReport'" :template="currentPageReportTemplate" :currentPage="currentPage" :page="page" :pageCount="pageCount" :first="d_first" :rows="d_rows" :totalRecords="totalRecords" />
+                    <RowsPerPageDropdown v-else-if="item === 'RowsPerPageDropdown' && rowsPerPageOptions" :rows="d_rows" :options="rowsPerPageOptions" @rows-change="onRowChange($event)" :disabled="empty" />
+                    <JumpToPageDropdown v-else-if="item === 'JumpToPageDropdown'" :page="page" :pageCount="pageCount" @page-change="changePage($event)" :disabled="empty" />
+                    <JumpToPageInput v-else-if="item === 'JumpToPageInput'" :page="currentPage" @page-change="changePage($event)" :disabled="empty" />
+                </div>
+            </template>
+        </template>
+        <template v-else v-for="item of templateItems" :key="item">
+            <!-- <Component :is="item" @click="changePageToFirst($event)" :disabled="isFirstPage || empty" :page="currentPage" :value="pageLinks" :template="currentPageReportTemplate" /> -->
             <FirstPageLink v-if="item === 'FirstPageLink'" @click="changePageToFirst($event)" :disabled="isFirstPage || empty" />
             <PrevPageLink v-else-if="item === 'PrevPageLink'" @click="changePageToPrev($event)" :disabled="isFirstPage || empty" />
             <NextPageLink v-else-if="item === 'NextPageLink'" @click="changePageToNext($event)" :disabled="isLastPage || empty" />
@@ -23,13 +39,13 @@
 <script>
 import CurrrentPageReport from './CurrentPageReport.vue';
 import FirstPageLink from './FirstPageLink.vue';
+import JumpToPageDropdown from './JumpToPageDropdown.vue';
+import JumpToPageInput from './JumpToPageInput.vue';
 import LastPageLink from './LastPageLink.vue';
 import NextPageLink from './NextPageLink.vue';
 import PageLinks from './PageLinks.vue';
 import PrevPageLink from './PrevPageLink.vue';
 import RowsPerPageDropdown from './RowsPerPageDropdown.vue';
-import JumpToPageDropdown from './JumpToPageDropdown.vue';
-import JumpToPageInput from './JumpToPageInput.vue';
 
 export default {
     name: 'Paginator',
@@ -66,6 +82,10 @@ export default {
         alwaysShow: {
             type: Boolean,
             default: true
+        },
+        breakpoints: {
+            type: Object,
+            default: null
         }
     },
     data() {
@@ -86,6 +106,9 @@ export default {
                 this.changePage(this.pageCount - 1);
             }
         }
+    },
+    mounted() {
+        console.log(this.breakpointTemplateItems);
     },
     methods: {
         changePage(p) {
@@ -134,6 +157,27 @@ export default {
         onRowChange(value) {
             this.d_rows = value;
             this.changePage(this.page);
+        },
+        createStyle() {
+            if (this.breakpoints) {
+                this.styleElement = document.createElement('style');
+                this.styleElement.type = 'text/css';
+                document.head.appendChild(this.styleElement);
+
+                let innerHTML = '';
+
+                for (let breakpoint in this.breakpoints) {
+                    innerHTML += `
+                        @media screen and (max-width: ${breakpoint}) {
+                            .p-paginator-${breakpoint} {
+                                display: none !important;
+                            }
+                        }
+                    `;
+                }
+
+                this.styleElement.innerHTML = innerHTML;
+            }
         }
     },
     computed: {
@@ -143,6 +187,17 @@ export default {
             this.template.split(' ').map((value) => {
                 keys.push(value.trim());
             });
+
+            return keys;
+        },
+        breakpointTemplateItems() {
+            let keys = this.breakpoints;
+
+            for (const item in keys) {
+                keys[item] = this.breakpoints[item].split(' ').map((value) => {
+                    return value.trim();
+                });
+            }
 
             return keys;
         },
