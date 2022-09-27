@@ -223,12 +223,14 @@ export default {
 
                 case 'Enter':
                     this.onLeafClick(event, item);
-
+                    this.$refs.menuLink[categoryIndex].focus();
                     event.preventDefault();
+
                     break;
 
                 case 'Space':
                     this.onLeafClick(event, item);
+                    this.$refs.menuLink[categoryIndex].focus();
 
                     event.preventDefault();
                     break;
@@ -251,6 +253,17 @@ export default {
                         this.collapseMenu();
                     }
 
+                    break;
+
+                case 'Home':
+                    this.navigateToNextItem(this.$refs.subMenuLink, -1, 'subMenu');
+                    event.preventDefault();
+                    break;
+
+                case 'End':
+                    this.navigateToPrevItem(this.$refs.subMenuLink, this.$refs.subMenuLink.length, 'subMenu');
+
+                    event.preventDefault();
                     break;
             }
         },
