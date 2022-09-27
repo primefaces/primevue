@@ -11,7 +11,7 @@
         <div class="content-section implementation">
             <div class="card">
                 <h5>Advanced</h5>
-                <FileUpload name="demo[]" url="./upload.php" @upload="onAdvancedUpload($event)" :multiple="true" accept="image/*" :maxFileSize="1000000">
+                <FileUpload name="demo[]" url="./upload.php" @upload="onAdvancedUpload($event)" :multiple="true" accept="image/*" :maxFileSize="1000000" @clear="onClearUploadFiles">
                     <template #content>
                         <ul v-if="uploadedFiles && uploadedFiles[0]">
                             <li v-for="file of uploadedFiles[0]" :key="file">{{ file.name }} - {{ file.size }} bytes</li>
@@ -50,6 +50,10 @@ export default {
         },
         onUpload() {
             this.$toast.add({ severity: 'info', summary: 'Success', detail: 'File Uploaded', life: 3000 });
+        },
+        onClearUploadFiles() {
+            this.uploadedFiles = [];
+            this.$toast.add({ severity: 'warn', summary: 'Warning', detail: 'Files Removed', life: 3000 });
         }
     },
     components: {
