@@ -38,7 +38,7 @@
                             :aria-label="label(item)"
                             :aria-disabled="disabled(item)"
                             :tabindex="setTabIndex(i)"
-                            :aria-selected="isActive(i)"
+                            :aria-selected="d_activeIndex === i"
                             @keydown="onKeydownItem($event, item, i)"
                         >
                             <span v-if="item.icon" :class="getItemIcon(item)"></span>
@@ -218,7 +218,7 @@ export default {
                 'p-tabmenuitem',
                 item.class,
                 {
-                    'p-highlight': this.isActive(index),
+                    'p-highlight': this.d_activeIndex === index,
                     'p-disabled': this.disabled(item)
                 }
             ];
@@ -253,10 +253,7 @@ export default {
             }, 300);
         },
         setTabIndex(index) {
-            return this.isActive(index) ? '0' : '-1';
-        },
-        isActive(index) {
-            return this.d_activeIndex === index;
+            return this.d_activeIndex === index ? '0' : '-1';
         },
         updateInkBar() {
             let tabs = this.$refs.nav.children;
