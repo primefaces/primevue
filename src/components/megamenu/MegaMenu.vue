@@ -246,6 +246,12 @@ export default {
                     }
 
                     break;
+                case 'Tab':
+                    if (this.activeItem) {
+                        this.collapseMenu();
+                    }
+
+                    break;
             }
         },
         onCategoryKeydown(event, category, index) {
@@ -432,14 +438,17 @@ export default {
                 this.subMenuCurrentIndex = item.i;
             }
 
-            if (item.nextItem) {
-                if (!subMenu) {
+            if (!item.nextItem) return;
+
+            if (!subMenu) {
+                if (listItems[index].tabIndex) {
                     listItems[index].tabIndex = '-1';
-                    item.nextItem.tabIndex = '0';
                 }
 
-                item.nextItem.focus();
+                item.nextItem.tabIndex = '0';
             }
+
+            item.nextItem.focus();
         },
         navigateToPrevItem(listItems, index, subMenu) {
             const item = this.findPrevItem(listItems, index);
@@ -448,12 +457,15 @@ export default {
                 this.subMenuCurrentIndex = item.i;
             }
 
-            if (item.prevItem) {
-                listItems[index].tabIndex = '-1';
-                item.prevItem.tabIndex = '0';
+            if (!item.prevItem) return;
 
-                item.prevItem.focus();
+            if (listItems[index]) {
+                listItems[index].tabIndex = '-1';
             }
+
+            item.prevItem.tabIndex = '0';
+
+            item.prevItem.focus();
         },
         getCategoryClass(category) {
             return [
