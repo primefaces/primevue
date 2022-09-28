@@ -12,7 +12,7 @@
             <div class="card">
                 <h5>Basic</h5>
                 <Paginator
-                    :breakpoints="{ '960px': 'FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink', '640px': 'FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink' }"
+                    :breakpoints="{ '960px': 'FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink', '640px': 'FirstPageLink PrevPageLink CurrentPageReport', '1500px': 'FirstPageLink PrevPageLink CurrentPageReport' }"
                     :rows="10"
                     :totalRecords="totalRecords"
                     :rowsPerPageOptions="[10, 20, 30]"

@@ -4,8 +4,8 @@
             <slot name="start" :state="currentState"></slot>
         </div>
         <template v-if="breakpoints">
-            <template v-for="(value, key) in breakpointTemplateItems" :key="key">
-                <div v-for="item in value" :key="item" :class="`p-paginator-${key}`">
+            <template v-for="(value, key) in breakpointTemplateItems" :key="key" ref="paginator">
+                <div v-for="item in value" :key="item" :class="`p-paginator-${key}`" class="p-paginator-breakpoints">
                     <FirstPageLink v-if="item === value" @click="changePageToFirst($event)" :disabled="isFirstPage || empty" />
                     <PrevPageLink v-else-if="item === 'PrevPageLink'" @click="changePageToPrev($event)" :disabled="isFirstPage || empty" />
                     <NextPageLink v-else-if="item === 'NextPageLink'" @click="changePageToNext($event)" :disabled="isLastPage || empty" />
@@ -18,17 +18,19 @@
                 </div>
             </template>
         </template>
-        <template v-else v-for="item of templateItems" :key="item">
+        <template v-for="item of templateItems" ref="paginator" :key="item">
             <!-- <Component :is="item" @click="changePageToFirst($event)" :disabled="isFirstPage || empty" :page="currentPage" :value="pageLinks" :template="currentPageReportTemplate" /> -->
-            <FirstPageLink v-if="item === 'FirstPageLink'" @click="changePageToFirst($event)" :disabled="isFirstPage || empty" />
-            <PrevPageLink v-else-if="item === 'PrevPageLink'" @click="changePageToPrev($event)" :disabled="isFirstPage || empty" />
-            <NextPageLink v-else-if="item === 'NextPageLink'" @click="changePageToNext($event)" :disabled="isLastPage || empty" />
-            <LastPageLink v-else-if="item === 'LastPageLink'" @click="changePageToLast($event)" :disabled="isLastPage || empty" />
-            <PageLinks v-else-if="item === 'PageLinks'" :value="pageLinks" :page="page" @click="changePageLink($event)" />
-            <CurrentPageReport v-else-if="item === 'CurrentPageReport'" :template="currentPageReportTemplate" :currentPage="currentPage" :page="page" :pageCount="pageCount" :first="d_first" :rows="d_rows" :totalRecords="totalRecords" />
-            <RowsPerPageDropdown v-else-if="item === 'RowsPerPageDropdown' && rowsPerPageOptions" :rows="d_rows" :options="rowsPerPageOptions" @rows-change="onRowChange($event)" :disabled="empty" />
-            <JumpToPageDropdown v-else-if="item === 'JumpToPageDropdown'" :page="page" :pageCount="pageCount" @page-change="changePage($event)" :disabled="empty" />
-            <JumpToPageInput v-else-if="item === 'JumpToPageInput'" :page="currentPage" @page-change="changePage($event)" :disabled="empty" />
+            <div class="p-paginator-default">
+                <FirstPageLink v-if="item === 'FirstPageLink'" @click="changePageToFirst($event)" :disabled="isFirstPage || empty" />
+                <PrevPageLink v-else-if="item === 'PrevPageLink'" @click="changePageToPrev($event)" :disabled="isFirstPage || empty" />
+                <NextPageLink v-else-if="item === 'NextPageLink'" @click="changePageToNext($event)" :disabled="isLastPage || empty" />
+                <LastPageLink v-else-if="item === 'LastPageLink'" @click="changePageToLast($event)" :disabled="isLastPage || empty" />
+                <PageLinks v-else-if="item === 'PageLinks'" :value="pageLinks" :page="page" @click="changePageLink($event)" />
+                <CurrentPageReport v-else-if="item === 'CurrentPageReport'" :template="currentPageReportTemplate" :currentPage="currentPage" :page="page" :pageCount="pageCount" :first="d_first" :rows="d_rows" :totalRecords="totalRecords" />
+                <RowsPerPageDropdown v-else-if="item === 'RowsPerPageDropdown' && rowsPerPageOptions" :rows="d_rows" :options="rowsPerPageOptions" @rows-change="onRowChange($event)" :disabled="empty" />
+                <JumpToPageDropdown v-else-if="item === 'JumpToPageDropdown'" :page="page" :pageCount="pageCount" @page-change="changePage($event)" :disabled="empty" />
+                <JumpToPageInput v-else-if="item === 'JumpToPageInput'" :page="currentPage" @page-change="changePage($event)" :disabled="empty" />
+            </div>
         </template>
         <div v-if="$slots.end" class="p-paginator-right-content">
             <slot name="end" :state="currentState"></slot>
@@ -108,7 +110,9 @@ export default {
         }
     },
     mounted() {
-        console.log(this.breakpointTemplateItems);
+        if (this.breakpoints) {
+            this.createStyle();
+        }
     },
     methods: {
         changePage(p) {
@@ -166,15 +170,45 @@ export default {
 
                 let innerHTML = '';
 
-                for (let breakpoint in this.breakpoints) {
+                const breakpoint = Object.keys(this.breakpoints).sort((a, b) => parseInt(a) < parseInt(b));
+                /*  .reduce((obj, key) => {
+                        obj[key] = this.breakpoints[key];
+
+                        return obj;
+                    }, {}); */
+
+                console.log(
+                    Object.keys(this.breakpoints).sort((a, b) => {
+                        parseInt(a) < parseInt(b);
+                    })
+                );
+
+                for (const [index, [key]] of Object.entries(Object.entries(breakpoint))) {
+                    debugger;
+                    const minValue = Object.entries(breakpoint)[index - 1] ? `and (min-width:${Object.keys(breakpoint)[index - 1]})` : '';
+
                     innerHTML += `
-                        @media screen and (max-width: ${breakpoint}) {
-                            .p-paginator-${breakpoint} {
+                        @media screen ${minValue} and (max-width: ${key}) {
+                            .p-paginator-${key} {
+                                display: flex !important;
+                            }
+                            .p-paginator-default{
                                 display: none !important;
                             }
                         }
                     `;
                 }
+
+                console.log(innerHTML);
+                /*   for (let breakpoint in this.breakpoints) {
+                    innerHTML += `
+                        @media screen and (min-width: ${breakpoint}) {
+                            .p-paginator-${breakpoint} {
+                                display: none !important;
+                            }
+                        }
+                    `;
+                } */
 
                 this.styleElement.innerHTML = innerHTML;
             }
@@ -269,6 +303,14 @@ export default {
 </script>
 
 <style lang="css">
+.p-paginator-default {
+    display: flex;
+}
+
+.p-paginator-breakpoints {
+    display: none;
+}
+
 .p-paginator {
     display: flex;
     align-items: center;
