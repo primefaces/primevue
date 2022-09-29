@@ -8,7 +8,7 @@
                             <a
                                 ref="tabLink"
                                 v-ripple
-                                role="menuItem"
+                                role="menuitem"
                                 :href="href"
                                 class="p-menuitem-link"
                                 :aria-label="label(item)"
@@ -29,7 +29,7 @@
                         <a
                             ref="tabLink"
                             v-ripple
-                            role="menuItem"
+                            role="menuitem"
                             :href="item.url"
                             class="p-menuitem-link"
                             :target="item.target"
@@ -139,12 +139,6 @@ export default {
             const tabLinkRef = this.$refs.tabLink;
 
             switch (event.code) {
-                case 'Tab': {
-                    this.setDefaultTabIndexes(tabLinkRef);
-
-                    break;
-                }
-
                 case 'ArrowRight': {
                     foundElement = this.findNextItem(this.$refs.tab, i);
                     i = foundElement.i;
@@ -185,6 +179,15 @@ export default {
                     event.preventDefault();
                     break;
                 }
+
+                case 'Tab': {
+                    this.setDefaultTabIndexes(tabLinkRef);
+
+                    break;
+                }
+
+                default:
+                    break;
             }
 
             if (tabLinkRef[i] && tabLinkRef[index]) {
