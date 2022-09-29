@@ -171,6 +171,12 @@ export default {
                         <td>Adds a close icon to the header to hide the dialog.</td>
                     </tr>
                     <tr>
+                        <td>closeIcon</td>
+                        <td>string</td>
+                        <td>pi pi-times</td>
+                        <td>Icon to display in the dialog close button.</td>
+                    </tr>
+                    <tr>
                         <td>showHeader</td>
                         <td>boolean</td>
                         <td>true</td>
