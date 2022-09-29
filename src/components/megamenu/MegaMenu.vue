@@ -455,7 +455,7 @@ export default {
         navigateToNextItem(listItems, index, subMenu) {
             const item = this.findNextItem(listItems, index);
 
-            if (subMenu) {
+            if (subMenu && item.i < listItems.length) {
                 this.subMenuCurrentIndex = item.i;
             }
 
