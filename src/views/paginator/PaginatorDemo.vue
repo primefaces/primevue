@@ -88,7 +88,6 @@
 import PaginatorDoc from './PaginatorDoc';
 
 export default {
-    emits: ['click'],
     data() {
         return {
             first: 0,
