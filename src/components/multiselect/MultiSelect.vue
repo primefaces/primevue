@@ -33,7 +33,7 @@
                             <slot name="chip" :value="item">
                                 <span class="p-multiselect-token-label">{{ getLabelByValue(item) }}</span>
                             </slot>
-                            <span v-if="!disabled" class="p-multiselect-token-icon pi pi-times-circle" @click="removeOption($event, item)"></span>
+                            <span v-if="!disabled" :class="['p-multiselect-token-icon', removeTokenIcon]" @click="removeOption($event, item)"></span>
                         </div>
                         <template v-if="!modelValue || modelValue.length === 0">{{ placeholder || 'empty' }}</template>
                     </template>
@@ -56,7 +56,7 @@
                                 <input type="checkbox" readonly :checked="allSelected" :aria-label="toggleAllAriaLabel" @focus="onHeaderCheckboxFocus" @blur="onHeaderCheckboxBlur" />
                             </div>
                             <div :class="['p-checkbox-box', { 'p-highlight': allSelected, 'p-focus': headerCheckboxFocused }]">
-                                <span :class="['p-checkbox-icon', { 'pi pi-check': allSelected }]"></span>
+                                <span :class="['p-checkbox-icon', { [checkboxIcon]: allSelected }]"></span>
                             </div>
                         </div>
                         <div v-if="filter" class="p-multiselect-filter-container">
@@ -76,13 +76,13 @@
                                 @input="onFilterChange"
                                 v-bind="filterInputProps"
                             />
-                            <span class="p-multiselect-filter-icon pi pi-search"></span>
+                            <span :class="['p-multiselect-filter-icon', filterIcon]" />
                         </div>
                         <span v-if="filter" role="status" aria-live="polite" class="p-hidden-accessible">
                             {{ filterResultMessageText }}
                         </span>
                         <button v-ripple class="p-multiselect-close p-link" :aria-label="closeAriaLabel" @click="onCloseClick" type="button" v-bind="closeButtonProps">
-                            <span class="p-multiselect-close-icon pi pi-times" />
+                            <span :class="['p-multiselect-close-icon', closeIcon]" />
                         </button>
                     </div>
                     <div class="p-multiselect-items-wrapper" :style="{ 'max-height': virtualScrollerDisabled ? scrollHeight : '' }">
@@ -110,7 +110,7 @@
                                         >
                                             <div class="p-checkbox p-component">
                                                 <div :class="['p-checkbox-box', { 'p-highlight': isSelected(option) }]">
-                                                    <span :class="['p-checkbox-icon', { 'pi pi-check': isSelected(option) }]"></span>
+                                                    <span :class="['p-checkbox-icon', { [checkboxIcon]: isSelected(option) }]"></span>
                                                 </div>
                                             </div>
                                             <slot name="option" :option="option" :index="getOptionIndex(i, getItemOptions)">
@@ -238,9 +238,29 @@ export default {
             type: Boolean,
             default: false
         },
+        checkboxIcon: {
+            type: String,
+            default: 'pi pi-check'
+        },
+        closeIcon: {
+            type: String,
+            default: 'pi pi-times'
+        },
+        dropdownIcon: {
+            type: String,
+            default: 'pi pi-chevron-down'
+        },
+        filterIcon: {
+            type: String,
+            default: 'pi pi-search'
+        },
         loadingIcon: {
             type: String,
             default: 'pi pi-spinner pi-spin'
+        },
+        removeTokenIcon: {
+            type: String,
+            default: 'pi pi-times-circle'
         },
         selectAll: {
             type: Boolean,
@@ -1019,7 +1039,7 @@ export default {
             ];
         },
         dropdownIconClass() {
-            return ['p-multiselect-trigger-icon', this.loading ? this.loadingIcon : 'pi pi-chevron-down'];
+            return ['p-multiselect-trigger-icon', this.loading ? this.loadingIcon : this.dropdownIcon];
         },
         panelStyleClass() {
             return [
