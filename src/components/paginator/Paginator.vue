@@ -4,15 +4,33 @@
             <slot name="start" :state="currentState"></slot>
         </div>
         <template v-for="item of templateItems" :key="item">
-            <FirstPageLink v-if="item === 'FirstPageLink'" @click="changePageToFirst($event)" :disabled="isFirstPage || empty" />
-            <PrevPageLink v-else-if="item === 'PrevPageLink'" @click="changePageToPrev($event)" :disabled="isFirstPage || empty" />
-            <NextPageLink v-else-if="item === 'NextPageLink'" @click="changePageToNext($event)" :disabled="isLastPage || empty" />
-            <LastPageLink v-else-if="item === 'LastPageLink'" @click="changePageToLast($event)" :disabled="isLastPage || empty" />
-            <PageLinks v-else-if="item === 'PageLinks'" :value="pageLinks" :page="page" @click="changePageLink($event)" />
-            <CurrentPageReport v-else-if="item === 'CurrentPageReport'" :template="currentPageReportTemplate" :currentPage="currentPage" :page="page" :pageCount="pageCount" :first="d_first" :rows="d_rows" :totalRecords="totalRecords" />
-            <RowsPerPageDropdown v-else-if="item === 'RowsPerPageDropdown' && rowsPerPageOptions" :rows="d_rows" :options="rowsPerPageOptions" @rows-change="onRowChange($event)" :disabled="empty" />
-            <JumpToPageDropdown v-else-if="item === 'JumpToPageDropdown'" :page="page" :pageCount="pageCount" @page-change="changePage($event)" :disabled="empty" />
-            <JumpToPageInput v-else-if="item === 'JumpToPageInput'" :page="currentPage" @page-change="changePage($event)" :disabled="empty" />
+            <slot v-if="item.value === 'FirstPageLink'" name="FirstPageLink" :options="item">
+                <FirstPageLink @click="changePageToFirst($event)" :disabled="isFirstPage || empty" />
+            </slot>
+            <slot v-else-if="item.value === 'PrevPageLink'" name="PrevPageLink" :options="item">
+                <PrevPageLink @click="changePageToPrev($event)" :disabled="isFirstPage || empty" />
+            </slot>
+            <slot v-else-if="item.value === 'NextPageLink'" name="NextPageLink" :options="item">
+                <NextPageLink @click="changePageToNext($event)" :disabled="isLastPage || empty" />
+            </slot>
+            <slot v-else-if="item.value === 'LastPageLink'" name="LastPageLink" :options="item">
+                <LastPageLink @click="changePageToLast($event)" :disabled="isLastPage || empty" />
+            </slot>
+            <slot v-else-if="item.value === 'PageLinks'" name="PageLinks" :options="item">
+                <PageLinks :value="pageLinks" :page="page" @click="changePageLink($event)" />
+            </slot>
+            <slot v-else-if="item.value === 'CurrentPageReport'" name="CurrentPageReport" :options="item">
+                <CurrentPageReport :template="currentPageReportTemplate" :currentPage="currentPage" :page="page" :pageCount="pageCount" :first="d_first" :rows="d_rows" :totalRecords="totalRecords" />
+            </slot>
+            <slot v-else-if="item.value === 'RowsPerPageDropdown' && rowsPerPageOptions" name="RowsPerPageDropdown" :options="item">
+                <RowsPerPageDropdown :rows="d_rows" :options="rowsPerPageOptions" @rows-change="onRowChange($event)" :disabled="empty" />
+            </slot>
+            <slot v-else-if="item.value === 'JumpToPageDropdown'" name="JumpToPageDropdown" :options="item">
+                <JumpToPageDropdown :page="page" :pageCount="pageCount" @page-change="changePage($event)" :disabled="empty" />
+            </slot>
+            <slot v-else-if="item.value === 'JumpToPageInput'" name="JumpToPageInput" :options="item">
+                <JumpToPageInput :page="currentPage" @page-change="changePage($event)" :disabled="empty" />
+            </slot>
         </template>
         <div v-if="$slots.end" class="p-paginator-right-content">
             <slot name="end" :state="currentState"></slot>
@@ -23,13 +41,13 @@
 <script>
 import CurrrentPageReport from './CurrentPageReport.vue';
 import FirstPageLink from './FirstPageLink.vue';
+import JumpToPageDropdown from './JumpToPageDropdown.vue';
+import JumpToPageInput from './JumpToPageInput.vue';
 import LastPageLink from './LastPageLink.vue';
 import NextPageLink from './NextPageLink.vue';
 import PageLinks from './PageLinks.vue';
 import PrevPageLink from './PrevPageLink.vue';
 import RowsPerPageDropdown from './RowsPerPageDropdown.vue';
-import JumpToPageDropdown from './JumpToPageDropdown.vue';
-import JumpToPageInput from './JumpToPageInput.vue';
 
 export default {
     name: 'Paginator',
@@ -87,6 +105,7 @@ export default {
             }
         }
     },
+
     methods: {
         changePage(p) {
             const pc = this.pageCount;
@@ -134,6 +153,54 @@ export default {
         onRowChange(value) {
             this.d_rows = value;
             this.changePage(this.page);
+        },
+        setTemplateItems(name) {
+            let item = {
+                value: name,
+                links: this.pageLinks,
+                page: this.page,
+                pageCount: this.pageCount,
+                pageLinks: this.pageLinks,
+                currentPage: this.currentPage,
+                first: this.d_first + 1,
+                last: this.d_first + this.d_rows,
+                rows: this.d_rows,
+                totalRecords: this.totalRecords,
+                template: this.currentPageReportTemplate
+            };
+
+            switch (name) {
+                case 'FirstPageLink':
+                    item.onClick = (event) => this.changePageToFirst(event);
+                    item.disabled = this.isFirstPage || this.empty;
+                    break;
+                case 'PrevPageLink':
+                    item.onClick = (event) => this.changePageToPrev(event);
+                    item.disabled = this.isFirstPage || this.empty;
+                    break;
+                case 'NextPageLink':
+                    item.onClick = (event) => this.changePageToNext(event);
+                    item.disabled = this.isLastPage || this.empty;
+                    break;
+                case 'LastPageLink':
+                    item.onClick = (event) => this.changePageToLast(event);
+                    item.disabled = this.isLastPage || this.empty;
+                    break;
+                case 'PageLinks':
+                    item.onClick = (event) => this.changePageLink(event);
+                    break;
+                case 'RowsPerPageDropdown':
+                    item.onChange = (event) => this.onRowChange(event.value);
+                    break;
+                case 'JumpToPageDropdown':
+                    item.onClick = (event) => this.changePage(event.value - 1);
+                    break;
+                case 'JumpToPageInput':
+                    item.onClick = (event) => this.changePage(event.value - 1);
+                    break;
+            }
+
+            return item;
         }
     },
     computed: {
@@ -141,7 +208,7 @@ export default {
             let keys = [];
 
             this.template.split(' ').map((value) => {
-                keys.push(value.trim());
+                keys.push(this.setTemplateItems(value));
             });
 
             return keys;
