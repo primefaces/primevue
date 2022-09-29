@@ -294,6 +294,36 @@ export default {
                         <td>null</td>
                         <td>Object literal to define styles per screen size.</td>
                     </tr>
+                    <tr>
+                        <td>closeIcon</td>
+                        <td>string</td>
+                        <td>pi pi-times</td>
+                        <td>Icon to display in the toast close button.</td>
+                    </tr>
+                    <tr>
+                        <td>infoIcon</td>
+                        <td>string</td>
+                        <td>pi pi-info-circle</td>
+                        <td>Icon to display in the toast with info severity.</td>
+                    </tr>
+                    <tr>
+                        <td>warnIcon</td>
+                        <td>string</td>
+                        <td>pi pi-exclamation-triangle</td>
+                        <td>Icon to display in the toast with warn severity.</td>
+                    </tr>
+                    <tr>
+                        <td>errorIcon</td>
+                        <td>string</td>
+                        <td>pi pi-times</td>
+                        <td>Icon to display in the toast with error severity.</td>
+                    </tr>
+                    <tr>
+                        <td>successIcon</td>
+                        <td>string</td>
+                        <td>pi pi-check</td>
+                        <td>Icon to display in the toast with success severity.</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -553,7 +583,7 @@ import { useToast } from "primevue/usetoast";
 export default defineComponent({
     setup() {
         const toast = useToast();
-       
+
         const showSuccess = () => {
             toast.add({severity:'success', summary: 'Success Message', detail:'Message Content', life: 3000});
         }
@@ -596,7 +626,7 @@ export default defineComponent({
             toast.removeAllGroups();
         }
 
-        return { showSuccess, showInfo, showWarn, showError, showTopLeft, showBottomLeft, 
+        return { showSuccess, showInfo, showWarn, showError, showTopLeft, showBottomLeft,
             showBottomRight, showSticky, showMultiple, showTemplate, onConfirm, onReject, clear };
     }
 });
@@ -677,7 +707,7 @@ button {
         const App = {
             setup() {
                 const toast = useToast();
-            
+
                 const showSuccess = () => {
                     toast.add({severity:'success', summary: 'Success Message', detail:'Message Content', life: 3000});
                 }
@@ -720,7 +750,7 @@ button {
                     toast.removeAllGroups();
                 }
 
-                return { showSuccess, showInfo, showWarn, showError, showTopLeft, showBottomLeft, 
+                return { showSuccess, showInfo, showWarn, showError, showTopLeft, showBottomLeft,
                     showBottomRight, showSticky, showMultiple, showTemplate, onConfirm, onReject, clear };
             },
             components: {

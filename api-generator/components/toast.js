@@ -28,6 +28,36 @@ const ToastProps = [
         type: 'object',
         default: 'null',
         description: 'Object literal to define widths per screen size.'
+    },
+    {
+        name: 'closeIcon',
+        type: 'string',
+        default: 'pi pi-times',
+        description: 'Icon to display in the toast close button.'
+    },
+    {
+        name: 'infoIcon',
+        type: 'string',
+        default: 'pi pi-info-circle',
+        description: 'Icon to display in the toast with info severity.'
+    },
+    {
+        name: 'warnIcon',
+        type: 'string',
+        default: 'pi pi-exclamation-triangle',
+        description: 'Icon to display in the toast with warn severity.'
+    },
+    {
+        name: 'errorIcon',
+        type: 'string',
+        default: 'pi pi-times',
+        description: 'Icon to display in the toast with error severity.'
+    },
+    {
+        name: 'successIcon',
+        type: 'string',
+        default: 'pi pi-check',
+        description: 'Icon to display in the toast with success severity.'
     }
 ];
 
