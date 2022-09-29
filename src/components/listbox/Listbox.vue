@@ -20,7 +20,7 @@
                     @keydown="onFilterKeyDown"
                     v-bind="filterInputProps"
                 />
-                <span class="p-listbox-filter-icon pi pi-search"></span>
+                <span :class="['p-listbox-filter-icon', filterIcon]" />
             </div>
             <span role="status" aria-live="polite" class="p-hidden-accessible">
                 {{ filterResultMessageText }}
@@ -157,6 +157,10 @@ export default {
         emptyMessage: {
             type: String,
             default: null
+        },
+        filterIcon: {
+            type: String,
+            default: 'pi pi-search'
         },
         tabindex: {
             type: Number,
