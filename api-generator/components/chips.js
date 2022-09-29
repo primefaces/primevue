@@ -64,6 +64,12 @@ const ChipsProps = [
         type: 'object',
         default: 'null',
         description: 'Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.'
+    },
+    {
+        name: 'removeTokenIcon',
+        type: 'string',
+        default: 'pi pi-times-circle',
+        description: 'Icon to display in chip remove action.'
     }
 ];
 
