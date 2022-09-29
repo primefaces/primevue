@@ -7,7 +7,7 @@
                         <slot name="header"></slot>
                     </div>
                     <button v-if="showCloseIcon" v-ripple class="p-sidebar-close p-sidebar-icon p-link" @click="hide" :aria-label="ariaCloseLabel" type="button">
-                        <span class="p-sidebar-close-icon pi pi-times" />
+                        <span :class="['p-sidebar-close-icon', closeIcon]" />
                     </button>
                 </div>
                 <div class="p-sidebar-content">
@@ -51,6 +51,10 @@ export default {
         showCloseIcon: {
             type: Boolean,
             default: true
+        },
+        closeIcon: {
+            type: String,
+            default: 'pi pi-times'
         },
         modal: {
             type: Boolean,
