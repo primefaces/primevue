@@ -164,6 +164,21 @@ export interface DropdownProps {
      */
     loading?: boolean | undefined;
     /**
+     * Icon to display in clear button.
+     * Default value is 'pi pi-times'.
+     */
+    clearIcon?: string | undefined;
+    /**
+     * Icon to display in the dropdown.
+     * Default value is 'pi pi-chevron-down'.
+     */
+    dropdownIcon?: string | undefined;
+    /**
+     * Icon to display in filter input.
+     * Default value is 'pi pi-search'.
+     */
+    filterIcon?: string | undefined;
+    /**
      * Icon to display in loading state.
      * Default value is 'pi pi-spinner pi-spin'.
      */
