@@ -7,7 +7,7 @@
                     <slot></slot>
                 </div>
                 <button v-if="closable" v-ripple class="p-message-close p-link" @click="close($event)" type="button">
-                    <i class="p-message-close-icon pi pi-times"></i>
+                    <i :class="['p-message-close-icon', closeIcon]" />
                 </button>
             </div>
         </div>
@@ -40,6 +40,10 @@ export default {
         icon: {
             type: String,
             default: null
+        },
+        closeIcon: {
+            type: String,
+            default: 'pi pi-times'
         }
     },
     timeout: null,

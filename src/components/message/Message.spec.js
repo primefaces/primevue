@@ -27,6 +27,13 @@ describe('Message.vue', () => {
         expect(wrapper.vm.visible).toBe(false);
         expect(wrapper.emitted().close[0]).toEqual([{}]);
     });
+
+    it('should have custom close icon if provided', async () => {
+        await wrapper.setProps({ closeIcon: 'pi pi-discord' });
+        const icon = wrapper.find('.p-message-close-icon');
+
+        expect(icon.classes()).toContain('pi-discord');
+    });
 });
 
 describe('Message.vue', () => {
