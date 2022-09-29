@@ -35,8 +35,8 @@
 </template>
 
 <script>
-import InputText from 'primevue/inputtext';
 import Button from 'primevue/button';
+import InputText from 'primevue/inputtext';
 
 export default {
     name: 'InputNumber',
@@ -869,7 +869,7 @@ export default {
         },
         handleOnInput(event, currentValue, newValue) {
             if (this.isValueChanged(currentValue, newValue)) {
-                this.$emit('input', { originalEvent: event, value: newValue });
+                this.$emit('input', { originalEvent: event, value: newValue, formattedValue: currentValue });
             }
         },
         isValueChanged(currentValue, newValue) {
