@@ -192,6 +192,9 @@ export default {
                 case 'RowsPerPageDropdown':
                     item.onChange = (event) => this.onRowChange(event.value);
                     break;
+                case 'CurrentPageReport':
+                    item.onChange = (event) => this.changePage(event.value || event - 1);
+                    break;
                 case 'JumpToPageDropdown':
                     item.onClick = (event) => this.changePage(event.value - 1);
                     break;

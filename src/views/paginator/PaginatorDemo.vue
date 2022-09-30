@@ -40,6 +40,9 @@
                         </button>
                     </template>
                     <template #RowsPerPageDropdown="{ options }"> <Dropdown v-model="dropdownValue" :options="dropdownOptions(options)" optionLabel="label" @change="options.onChange($event.value)" /> </template>
+                    <template #CurrentPageReport="{ options }">
+                        <span class="mx-3"> Go to <InputText v-model="currentPage" size="2" class="ml-1" @keydown="(e) => onPageInputKeyDown(e, options)" /> </span>
+                    </template>
                 </Paginator>
 
                 <Paginator template="RowsPerPageDropdown CurrentPageReport PrevPageLink NextPageLink" :rows="10" :totalRecords="totalRecords" :rowsPerPageOptions="[10, 20, 30]" class="justify-content-end my-3">
@@ -94,10 +97,16 @@ export default {
             totalRecords: 120,
             totalRecords2: 12,
             dropdownValue: { label: 10, value: 10 },
-            sliderValue: 10
+            sliderValue: 10,
+            currentPage: 1
         };
     },
     methods: {
+        onPageInputKeyDown(e, options) {
+            if (e.code === 'Enter') {
+                options.onChange(parseInt(this.currentPage));
+            }
+        },
         setPageLinks({ pageLinks, pageCount }, pageLink) {
             return (pageLinks[0] === pageLink || pageLinks[pageLinks.length - 1] === pageLink) && pageLink !== 1 && pageLink !== pageCount;
         },
