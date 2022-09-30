@@ -37,6 +37,7 @@
 <script>
 import Button from 'primevue/button';
 import InputText from 'primevue/inputtext';
+import { DomHandler } from 'primevue/utils';
 
 export default {
     name: 'InputNumber',
@@ -836,7 +837,9 @@ export default {
             return index || 0;
         },
         onInputClick() {
-            if (!this.readonly) {
+            const currentValue = this.$refs.input.$el.value;
+
+            if (!this.readonly && currentValue !== DomHandler.getSelection()) {
                 this.initCursor();
             }
         },
