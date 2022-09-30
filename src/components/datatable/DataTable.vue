@@ -188,6 +188,10 @@
             @page="onPage($event)"
             :alwaysShow="alwaysShowPaginator"
         >
+            <template v-for="paginatorTemplateKey in paginatorTemplateKeys" :key="paginatorTemplateKey" #[paginatorTemplateKey]="{ options }">
+                <slot :name="`paginator${paginatorTemplateKey}`" :options="options"></slot>
+            </template>
+
             <template v-if="$slots.paginatorstart" #start>
                 <slot name="paginatorstart"></slot>
             </template>
@@ -205,13 +209,13 @@
 </template>
 
 <script>
-import { ObjectUtils, DomHandler, UniqueComponentId } from 'primevue/utils';
 import { FilterMatchMode, FilterOperator, FilterService } from 'primevue/api';
 import Paginator from 'primevue/paginator';
+import { DomHandler, ObjectUtils, UniqueComponentId } from 'primevue/utils';
 import VirtualScroller from 'primevue/virtualscroller';
-import TableHeader from './TableHeader.vue';
 import TableBody from './TableBody.vue';
 import TableFooter from './TableFooter.vue';
+import TableHeader from './TableHeader.vue';
 
 export default {
     name: 'DataTable',
@@ -593,6 +597,7 @@ export default {
         }
     },
     mounted() {
+        console.log(this.$slots);
         this.$el.setAttribute(this.attributeSelector, '');
 
         if (this.responsiveLayout === 'stack' && !this.scrollable) {
@@ -2112,6 +2117,15 @@ export default {
         },
         virtualScrollerDisabled() {
             return ObjectUtils.isEmpty(this.virtualScrollerOptions) || !this.scrollable;
+        },
+        paginatorTemplateKeys() {
+            let keys = [];
+
+            this.paginatorTemplate.split(' ').map((value) => {
+                keys.push(value.trim());
+            });
+
+            return keys;
         }
     },
     components: {
