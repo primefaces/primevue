@@ -266,6 +266,9 @@ export default {
             type: Boolean,
             default: null
         },
+        onCloseIconClick:{
+            type:Function
+        }
         resetFilterOnHide: {
             type: Boolean,
             default: false
@@ -505,8 +508,16 @@ export default {
         onLastHiddenFocus() {
             DomHandler.focus(this.$refs.firstHiddenFocusableElementOnOverlay);
         },
-        onCloseClick() {
-            this.hide(true);
+        async onCloseClick(event) {
+            if(!this.onCloseIconClick){
+                return this.hide(true);
+            }
+            try{
+                await this.onCloseIconClick(event)
+                this.hide(true);
+            }catch(err){
+                threw new Error(err)
+            }
         },
         onHeaderCheckboxFocus() {
             this.headerCheckboxFocused = true;

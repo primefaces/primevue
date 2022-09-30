@@ -282,6 +282,12 @@ const MultiSelectProps = [
         description: 'Index of the element in tabbing order.'
     },
     {
+        name: 'onCloseIconClick',
+        type: 'function(e): promise',
+        default: '',
+        description: 'Callback to invoke when closeIcon be clicked.'
+    },
+    {
         name: 'aria-label',
         type: 'string',
         default: 'null',
