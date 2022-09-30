@@ -53,10 +53,10 @@
                     <div v-if="category.items && category === activeItem" class="p-megamenu-panel">
                         <div class="p-megamenu-grid">
                             <div v-for="(column, columnIndex) of category.items" :key="label(category) + '_column_' + columnIndex" :class="getColumnClassName(category)">
-                                <ul v-for="(submenu, submenuIndex) of column" :key="submenu.label + '_submenu_' + submenuIndex" class="p-megamenu-submenu" role="menu">
+                                <ul v-for="(submenu, submenuIndex) of column" ref="subMenu" :key="submenu.label + '_submenu_' + submenuIndex" class="p-megamenu-submenu" role="menu">
                                     <li :class="getSubmenuHeaderClass(submenu)" :style="submenu.style" role="presentation">{{ submenu.label }}</li>
                                     <template v-for="(item, i) of submenu.items" :key="label(item) + i.toString()">
-                                        <li v-if="visible(item) && !item.separator" ref="subMenu" role="none" :class="getSubmenuItemClass(item)" :style="item.style">
+                                        <li v-if="visible(item) && !item.separator" role="none" :class="getSubmenuItemClass(item)" :style="item.style">
                                             <template v-if="!$slots.item">
                                                 <router-link v-if="item.to && !disabled(item)" v-slot="{ navigate, href, isActive, isExactActive }" :to="item.to" custom>
                                                     <a
@@ -132,7 +132,8 @@ export default {
         return {
             activeItem: null,
             tabIndexes: [],
-            subMenuCurrentIndex: 0
+            subMenuCurrentIndex: 0,
+            subMenuColumnIndex: 0
         };
     },
     beforeUnmount() {
@@ -203,6 +204,24 @@ export default {
         },
         onSubMenuKeydown(event, item, categoryIndex) {
             switch (event.code) {
+                case 'ArrowRight':
+                    this.navigateToSubMenuColumn(this.subMenuColumnIndex + 1, 'next');
+
+                    event.preventDefault();
+                    break;
+
+                case 'ArrowLeft':
+                    if (this.activeItem && this.vertical && this.subMenuColumnIndex === 0) {
+                        this.collapseMenu();
+                        this.$refs.menuLink[categoryIndex].tabIndex = '0';
+                        this.$refs.menuLink[categoryIndex].focus();
+
+                        break;
+                    }
+
+                    this.navigateToSubMenuColumn(this.subMenuColumnIndex - 1);
+
+                    break;
                 case 'ArrowDown':
                     this.navigateToNextItem(this.$refs.subMenuLink, this.subMenuCurrentIndex, 'subMenu');
 
@@ -211,6 +230,8 @@ export default {
                 case 'ArrowUp':
                     if (this.subMenuCurrentIndex === 0 && this.activeItem) {
                         this.collapseMenu();
+
+                        this.$refs.menuLink[categoryIndex].tabIndex = '0';
                         this.$refs.menuLink[categoryIndex].focus();
 
                         break;
@@ -241,13 +262,7 @@ export default {
                     }
 
                     break;
-                case 'ArrowLeft':
-                    if (this.activeItem && this.vertical) {
-                        this.collapseMenu();
-                        this.$refs.menuLink[categoryIndex].focus();
-                    }
 
-                    break;
                 case 'Tab':
                     setTimeout(() => {
                         if (event.shiftKey) {
@@ -317,7 +332,7 @@ export default {
                 case 'ArrowDown':
                     if (this.horizontal) {
                         this.expandMenu(category);
-
+                        this.$refs.menuLink[index].tabIndex = '-1';
                         setTimeout(() => {
                             this.navigateToNextItem(this.$refs.subMenuLink, -1, 'subMenu');
                             this.subMenuCurrentIndex = 0;
@@ -457,6 +472,7 @@ export default {
 
             if (subMenu && item.i < listItems.length) {
                 this.subMenuCurrentIndex = item.i;
+                this.subMenuColumnIndex = this.$refs.subMenu.indexOf(this.$refs.subMenuLink[this.subMenuCurrentIndex].parentElement.parentElement);
             }
 
             if (!item.nextItem) return;
@@ -476,6 +492,7 @@ export default {
 
             if (subMenu) {
                 this.subMenuCurrentIndex = item.i;
+                this.subMenuColumnIndex = this.$refs.subMenu.indexOf(this.$refs.subMenuLink[this.subMenuCurrentIndex].parentElement.parentElement);
             }
 
             if (!item.prevItem) return;
@@ -487,6 +504,22 @@ export default {
             item.prevItem.tabIndex = '0';
 
             item.prevItem.focus();
+        },
+        navigateToSubMenuColumn(columnIndex) {
+            if (this.$refs.subMenu.length <= columnIndex) {
+                return;
+            }
+
+            let subMenuLinkIndex = 0;
+
+            this.$refs.subMenu.forEach((item, index) => {
+                if (index < columnIndex) {
+                    subMenuLinkIndex += item.children.length - 1;
+                }
+            });
+
+            this.subMenuCurrentIndex = subMenuLinkIndex - 1;
+            this.navigateToNextItem(this.$refs.subMenuLink, this.subMenuCurrentIndex, 'subMenu');
         },
         getCategoryClass(category) {
             return [
