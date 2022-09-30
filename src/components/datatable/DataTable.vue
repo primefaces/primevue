@@ -597,7 +597,6 @@ export default {
         }
     },
     mounted() {
-        console.log(this.$slots);
         this.$el.setAttribute(this.attributeSelector, '');
 
         if (this.responsiveLayout === 'stack' && !this.scrollable) {
