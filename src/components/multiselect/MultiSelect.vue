@@ -516,7 +516,7 @@ export default {
                 await this.onCloseIconClick(event)
                 this.hide(true);
             }catch(err){
-                threw new Error(err)
+                throw new Error(err)
             }
         },
         onHeaderCheckboxFocus() {
