@@ -3,7 +3,7 @@
         <div v-if="$slots.start" class="p-megamenu-start">
             <slot name="start"></slot>
         </div>
-        <ul :aria-orientation="horizontal ? 'horizontal' : 'vertical'" class="p-megamenu-root-list" role="menubar">
+        <ul :id="id" :aria-orientation="horizontal ? 'horizontal' : 'vertical'" class="p-megamenu-root-list" role="menubar" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel">
             <template v-for="(category, index) of model" :key="label(category) + '_' + index">
                 <li v-if="visible(category)" :class="getCategoryClass(category)" :style="category.style" @mouseenter="onCategoryMouseEnter($event, category)" role="presentation">
                     <template v-if="!$slots.item">
@@ -16,11 +16,10 @@
                                 @click="onCategoryClick($event, category, navigate)"
                                 @keydown="onCategoryKeydown($event, category, index)"
                                 role="menuitem"
-                                :aria-label="label(category)"
                                 :aria-disabled="disabled(category)"
                                 :aria-haspopup="category.items !== null"
                                 :aria-expanded="category === activeItem"
-                                :aria-controls="label(category) + '_' + index"
+                                :aria-controls="id + '_list'"
                                 :tabindex="tabIndexes[index]"
                             >
                                 <span v-if="category.icon" :class="getCategoryIcon(category)"></span>
@@ -37,11 +36,10 @@
                             @click="onCategoryClick($event, category)"
                             @keydown="onCategoryKeydown($event, category, index)"
                             role="menuitem"
-                            :aria-label="label(category)"
                             :aria-disabled="disabled(category)"
                             :aria-haspopup="category.items !== null"
                             :aria-expanded="category === activeItem"
-                            :aria-controls="label(category) + '_' + index"
+                            :aria-controls="id + '_list'"
                             :tabindex="tabIndexes[index]"
                         >
                             <span v-if="category.icon" :class="getCategoryIcon(category)"></span>
@@ -67,6 +65,8 @@
                                                         :class="linkClass(item, { isActive, isExactActive })"
                                                         @click="onLeafClick($event, item, navigate)"
                                                         role="menuitem"
+                                                        :aria-label="label(item)"
+                                                        :aria-disabled="disabled(item)"
                                                         @keydown="onSubMenuKeydown($event, item, index)"
                                                     >
                                                         <span v-if="item.icon" :class="['p-menuitem-icon', item.icon]"></span>
@@ -82,6 +82,8 @@
                                                     :target="item.target"
                                                     @click="onLeafClick($event, item)"
                                                     role="menuitem"
+                                                    :aria-label="label(item)"
+                                                    :aria-disabled="disabled(item)"
                                                     tabindex="-1"
                                                     @keydown="onSubMenuKeydown($event, item, index)"
                                                 >
@@ -109,7 +111,7 @@
 
 <script>
 import Ripple from 'primevue/ripple';
-import { DomHandler } from 'primevue/utils';
+import { DomHandler, UniqueComponentId } from 'primevue/utils';
 
 export default {
     name: 'MegaMenu',
@@ -125,6 +127,14 @@ export default {
         exact: {
             type: Boolean,
             default: true
+        },
+        'aria-labelledby': {
+            type: String,
+            default: null
+        },
+        'aria-label': {
+            type: String,
+            default: null
         }
     },
     documentClickListener: null,
@@ -333,6 +343,7 @@ export default {
                     if (this.horizontal) {
                         this.expandMenu(category);
                         this.$refs.menuLink[index].tabIndex = '-1';
+
                         setTimeout(() => {
                             this.navigateToNextItem(this.$refs.subMenuLink, -1, 'subMenu');
                             this.subMenuCurrentIndex = 0;
@@ -629,6 +640,9 @@ export default {
         },
         vertical() {
             return this.orientation === 'vertical';
+        },
+        id() {
+            return this.$attrs.id || UniqueComponentId();
         }
     },
     directives: {
