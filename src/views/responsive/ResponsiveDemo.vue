@@ -538,8 +538,8 @@
 
 <script>
 import { FilterMatchMode, FilterOperator } from 'primevue/api';
-import CustomerService from '../../service/CustomerService';
 import CountryService from '../../service/CountryService';
+import CustomerService from '../../service/CustomerService';
 import ProductService from '../../service/ProductService';
 
 export default {
@@ -3428,7 +3428,7 @@ export default {
                 "p-tabview": primevue.tabview,
                 "p-tabpanel": primevue.tabpanel,
                 "p-panel": primevue.panel,
-                "fieldset": primevue.fieldset,
+                "p-fieldset": primevue.fieldset,
                 "p-overlaypanel": primevue.overlaypanel,
                 "p-dialog": primevue.dialog,
                 "p-confirmpopup": primevue.confirmpopup,
