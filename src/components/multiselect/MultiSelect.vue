@@ -1061,9 +1061,29 @@ export default {
             ];
         },
         visibleOptions() {
+
             const options = this.optionGroupLabel ? this.flatOptions(this.options) : this.options || [];
 
-            return this.filterValue ? FilterService.filter(options, this.searchFields, this.filterValue, this.filterMatchMode, this.filterLocale) : options;
+            if (!this.filterValue)
+                return options;
+
+            const filteredOptions = FilterService.filter(options, this.searchFields, this.filterValue, this.filterMatchMode, this.filterLocale);
+
+            if (!this.optionGroupLabel)
+                return filteredOptions;
+
+            const optionGroups = this.options || [];
+            
+            const filtered = [];
+
+            optionGroups.forEach(group => {
+                const filteredItems = group.items.filter(x => filteredOptions.includes(x));
+                
+                if (filteredItems.length > 0)
+                    filtered.push({ ...group, items: [...filteredItems] });
+            });
+
+            return this.flatOptions(filtered);
         },
         label() {
             // TODO: Refactor
