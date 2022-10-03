@@ -369,6 +369,8 @@ export default {
                         this.navigateToNextItem(this.$refs.menuLink, index);
                     } else {
                         this.expandMenu(category);
+                        this.$refs.menuLink[index].tabIndex = '-1';
+
                         setTimeout(() => {
                             this.navigateToNextItem(this.$refs.subMenuLink, -1, 'subMenu');
                             this.subMenuCurrentIndex = 0;
