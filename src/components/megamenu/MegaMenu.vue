@@ -215,12 +215,14 @@ export default {
         onSubMenuKeydown(event, item, categoryIndex) {
             switch (event.code) {
                 case 'ArrowRight':
+                    event.preventDefault();
                     this.navigateToSubMenuColumn(this.subMenuColumnIndex + 1, 'next');
 
-                    event.preventDefault();
                     break;
 
                 case 'ArrowLeft':
+                    event.preventDefault();
+
                     if (this.activeItem && this.vertical && this.subMenuColumnIndex === 0) {
                         this.collapseMenu();
                         this.$refs.menuLink[categoryIndex].tabIndex = '0';
@@ -233,11 +235,13 @@ export default {
 
                     break;
                 case 'ArrowDown':
+                    event.preventDefault();
                     this.navigateToNextItem(this.$refs.subMenuLink, this.subMenuCurrentIndex, 'subMenu');
 
-                    event.preventDefault();
                     break;
                 case 'ArrowUp':
+                    event.preventDefault();
+
                     if (this.subMenuCurrentIndex === 0 && this.activeItem) {
                         this.collapseMenu();
 
@@ -249,7 +253,6 @@ export default {
 
                     this.navigateToPrevItem(this.$refs.subMenuLink, this.subMenuCurrentIndex, 'subMenu');
 
-                    event.preventDefault();
                     break;
 
                 case 'Enter':
@@ -401,7 +404,7 @@ export default {
             }
         },
         expandMenuOnKeydown(category, index, direction) {
-            if (!category.items.length) return;
+            if (!category.items) return;
 
             this.expandMenu(category);
             this.$refs.menuLink[index].tabIndex = '-1';
@@ -530,8 +533,20 @@ export default {
 
             item.prevItem.focus();
         },
-        navigateToSubMenuColumn(columnIndex) {
+        navigateToSubMenuColumn(columnIndex, direction) {
             if (this.$refs.subMenu.length <= columnIndex) {
+                return;
+            }
+
+            const hasMenuItem = [...this.$refs.subMenu[columnIndex].children].some((el) => DomHandler.hasClass(el, 'p-menuitem'));
+
+            if (!hasMenuItem) {
+                if (direction === 'next') {
+                    this.navigateToSubMenuColumn(columnIndex + 1);
+                } else {
+                    this.navigateToSubMenuColumn(columnIndex - 1);
+                }
+
                 return;
             }
 
