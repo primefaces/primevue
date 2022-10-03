@@ -170,22 +170,15 @@ export default {
 
                 let innerHTML = '';
 
-                const breakpoint = Object.keys(this.breakpoints).sort((a, b) => parseInt(a) < parseInt(b));
-                /*  .reduce((obj, key) => {
-                        obj[key] = this.breakpoints[key];
+                const keys = Object.keys(this.breakpoints);
+                const sortedBreakpoints = {};
 
-                        return obj;
-                    }, {}); */
+                keys.sort((a, b) => parseInt(a) - parseInt(b)).forEach((key) => {
+                    sortedBreakpoints[key] = this.breakpoints[key];
+                });
 
-                console.log(
-                    Object.keys(this.breakpoints).sort((a, b) => {
-                        parseInt(a) < parseInt(b);
-                    })
-                );
-
-                for (const [index, [key]] of Object.entries(Object.entries(breakpoint))) {
-                    debugger;
-                    const minValue = Object.entries(breakpoint)[index - 1] ? `and (min-width:${Object.keys(breakpoint)[index - 1]})` : '';
+                for (const [index, [key]] of Object.entries(Object.entries(sortedBreakpoints))) {
+                    const minValue = Object.entries(sortedBreakpoints)[index - 1] ? `and (min-width:${Object.keys(sortedBreakpoints)[index - 1]})` : '';
 
                     innerHTML += `
                         @media screen ${minValue} and (max-width: ${key}) {
@@ -198,17 +191,6 @@ export default {
                         }
                     `;
                 }
-
-                console.log(innerHTML);
-                /*   for (let breakpoint in this.breakpoints) {
-                    innerHTML += `
-                        @media screen and (min-width: ${breakpoint}) {
-                            .p-paginator-${breakpoint} {
-                                display: none !important;
-                            }
-                        }
-                    `;
-                } */
 
                 this.styleElement.innerHTML = innerHTML;
             }
