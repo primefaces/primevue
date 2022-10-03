@@ -525,7 +525,7 @@ export default {
 
             this.$refs.subMenu.forEach((item, index) => {
                 if (index < columnIndex) {
-                    subMenuLinkIndex += item.children.length - 1;
+                    subMenuLinkIndex += [...item.children].filter((item) => DomHandler.hasClass(item, 'p-menuitem')).length;
                 }
             });
 
