@@ -1,40 +1,116 @@
 <template>
-  <Calendar
-    v-model="date"
-    :disabledDays="[2, 3, 5]"
-    :disabledDates="[
-      new Date('08-15-2022'),
-      new Date('09-12-2022'),
-      new Date('09-05-2022'),
-      new Date('09-18-2022'),
-      new Date('09-19-2022'),
-    ]"
-    :manualInput="false"
-  />
+    <div :class="landingClass">
+        <div class="landing-intro">
+            <AppNews v-if="$appState.newsActive" />
+            <HeaderSection @theme-toggle="onThemeToggle" />
+            <HeroSection />
+        </div>
+        <ComponentSection />
+        <ThemeSection :theme="tableTheme" @table-theme-change="onTableThemeChange" />
+        <BlockSection />
+        <DesignerSection />
+        <TemplateSection />
+        <UsersSection />
+        <FeaturesSection />
+        <FooterSection />
+    </div>
 </template>
 
 <script>
-import Calendar from "./components/calendar/Calendar";
+import EventBus from '@/AppEventBus';
+import HeaderSection from './views/landing/HeaderSection';
+import HeroSection from './views/landing/HeroSection';
+import ComponentSection from './views/landing/ComponentSection';
+import ThemeSection from './views/landing/ThemeSection';
+import BlockSection from './views/landing/BlockSection';
+import DesignerSection from './views/landing/DesignerSection';
+import TemplateSection from './views/landing/TemplateSection';
+import UsersSection from './views/landing/UsersSection';
+import FeaturesSection from './views/landing/FeaturesSection';
+import FooterSection from './views/landing/FooterSection';
+import AppNews from './AppNews';
 
 export default {
-  props: {
-    theme: {
-      type: String,
-      default: null,
+    props: {
+        theme: {
+            type: String,
+            default: null
+        }
     },
-  },
-  data() {
-    return {
-      date: new Date(),
-    };
-  },
+    data() {
+        return {
+            tableTheme: 'lara-light-blue'
+        };
+    },
+    themeChangeListener: null,
+    mounted() {
+        let afId = this.$route.query['af_id'];
 
-  components: {
-    Calendar,
-  },
+        if (afId) {
+            let today = new Date();
+            let expire = new Date();
+
+            expire.setTime(today.getTime() + 3600000 * 24 * 7);
+            document.cookie = 'primeaffiliateid=' + afId + ';expires=' + expire.toUTCString() + ';path=/; domain:primefaces.org';
+        }
+
+        this.replaceTableTheme(this.$appState.darkTheme ? 'lara-dark-blue' : 'lara-light-blue');
+    },
+    methods: {
+        onThemeToggle() {
+            const newTheme = this.$appState.darkTheme ? 'lara-light-blue' : 'lara-dark-blue';
+            const newTableTheme = this.$appState.darkTheme ? this.tableTheme.replace('dark', 'light') : this.tableTheme.replace('light', 'dark');
+
+            EventBus.emit('theme-change', { theme: newTheme, dark: !this.$appState.darkTheme });
+            this.replaceTableTheme(newTableTheme);
+        },
+        onTableThemeChange(value) {
+            this.replaceTableTheme(value);
+        },
+        replaceTableTheme(newTheme) {
+            const elementId = 'home-table-link';
+            const linkElement = document.getElementById(elementId);
+            const tableThemeTokens = linkElement.getAttribute('href').split('/');
+            const currentTableTheme = tableThemeTokens[tableThemeTokens.length - 2];
+
+            if (currentTableTheme !== newTheme) {
+                const newThemeUrl = linkElement.getAttribute('href').replace(currentTableTheme, newTheme);
+
+                const cloneLinkElement = linkElement.cloneNode(true);
+
+                cloneLinkElement.setAttribute('id', elementId + '-clone');
+                cloneLinkElement.setAttribute('href', newThemeUrl);
+                cloneLinkElement.addEventListener('load', () => {
+                    linkElement.remove();
+                    cloneLinkElement.setAttribute('id', elementId);
+                });
+                linkElement.parentNode.insertBefore(cloneLinkElement, linkElement.nextSibling);
+
+                this.tableTheme = newTheme;
+            }
+        }
+    },
+    computed: {
+        landingClass() {
+            return ['landing', { 'landing-dark': this.$appState.darkTheme, 'landing-light': !this.$appState.darkTheme, 'landing-news-active': this.$appState.newsActive }];
+        }
+    },
+    components: {
+        HeaderSection,
+        HeroSection,
+        ComponentSection,
+        ThemeSection,
+        BlockSection,
+        DesignerSection,
+        TemplateSection,
+        UsersSection,
+        FeaturesSection,
+        FooterSection,
+        AppNews
+    }
 };
 </script>
 
 <style lang="scss">
-@import "./assets/styles/landing/landing.scss";
+@import './assets/styles/landing/landing.scss';
 </style>
