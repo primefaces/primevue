@@ -319,10 +319,12 @@ export default {
 
                     break;
                 case 'Enter':
+                    event.preventDefault();
+
                     if (this.activeItem) {
                         this.collapseMenu();
                     } else {
-                        this.expandMenu(category);
+                        this.expandMenuOnKeydown(category, index, 'next');
                     }
 
                     break;
@@ -333,7 +335,7 @@ export default {
                     if (this.activeItem) {
                         this.collapseMenu();
                     } else {
-                        this.expandMenu(category);
+                        this.expandMenuOnKeydown(category, index, 'next');
                     }
 
                     break;
@@ -341,13 +343,7 @@ export default {
                 //down
                 case 'ArrowDown':
                     if (this.horizontal) {
-                        this.expandMenu(category);
-                        this.$refs.menuLink[index].tabIndex = '-1';
-
-                        setTimeout(() => {
-                            this.navigateToNextItem(this.$refs.subMenuLink, -1, 'subMenu');
-                            this.subMenuCurrentIndex = 0;
-                        }, 1);
+                        this.expandMenuOnKeydown(category, index, 'next');
                     } else {
                         this.navigateToNextItem(this.$refs.menuLink, index);
                     }
@@ -359,6 +355,9 @@ export default {
                 case 'ArrowUp':
                     if (this.vertical) this.navigateToPrevItem(this.$refs.menuLink, index);
                     else if (category.items && category === this.activeItem) this.collapseMenu();
+                    else if (this.horizontal) {
+                        this.expandMenuOnKeydown(category, index, 'prev');
+                    }
 
                     event.preventDefault();
                     break;
@@ -368,13 +367,7 @@ export default {
                     if (this.horizontal) {
                         this.navigateToNextItem(this.$refs.menuLink, index);
                     } else {
-                        this.expandMenu(category);
-                        this.$refs.menuLink[index].tabIndex = '-1';
-
-                        setTimeout(() => {
-                            this.navigateToNextItem(this.$refs.subMenuLink, -1, 'subMenu');
-                            this.subMenuCurrentIndex = 0;
-                        }, 1);
+                        this.expandMenuOnKeydown(category, index, 'next');
                     }
 
                     event.preventDefault();
@@ -384,6 +377,9 @@ export default {
                 case 'ArrowLeft':
                     if (this.horizontal) this.navigateToPrevItem(this.$refs.menuLink, index);
                     else if (category.items && category === this.activeItem) this.collapseMenu();
+                    else if (this.vertical) {
+                        this.expandMenuOnKeydown(category, index, 'prev');
+                    }
 
                     event.preventDefault();
                     break;
@@ -403,6 +399,22 @@ export default {
                 default:
                     break;
             }
+        },
+        expandMenuOnKeydown(category, index, direction) {
+            if (!category.items.length) return;
+
+            this.expandMenu(category);
+            this.$refs.menuLink[index].tabIndex = '-1';
+
+            setTimeout(() => {
+                if (direction === 'next') {
+                    this.navigateToNextItem(this.$refs.subMenuLink, -1, 'subMenu');
+                    this.subMenuCurrentIndex = 0;
+                } else {
+                    this.navigateToPrevItem(this.$refs.subMenuLink, this.$refs.subMenuLink.length, 'subMenu');
+                    this.subMenuCurrentIndex = this.$refs.subMenuLink.length - 1;
+                }
+            }, 1);
         },
         findTabIndex() {
             const items = this.model;
