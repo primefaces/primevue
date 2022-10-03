@@ -3,7 +3,7 @@
         <div v-if="$slots.start" class="p-megamenu-start">
             <slot name="start"></slot>
         </div>
-        <ul :id="id" :aria-orientation="horizontal ? 'horizontal' : 'vertical'" class="p-megamenu-root-list" role="menubar" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel">
+        <ul :id="id" :aria-orientation="orientation" class="p-megamenu-root-list" role="menubar" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel">
             <template v-for="(category, index) of model" :key="label(category) + '_' + index">
                 <li v-if="visible(category)" :class="getCategoryClass(category)" :style="category.style" @mouseenter="onCategoryMouseEnter($event, category)" role="presentation">
                     <template v-if="!$slots.item">
@@ -21,6 +21,7 @@
                                 :aria-expanded="category === activeItem"
                                 :aria-controls="id + '_list'"
                                 :tabindex="tabIndexes[index]"
+                                :aria-label="ariaLabel"
                             >
                                 <span v-if="category.icon" :class="getCategoryIcon(category)"></span>
                                 <span class="p-menuitem-text">{{ label(category) }}</span>
@@ -41,6 +42,7 @@
                             :aria-expanded="category === activeItem"
                             :aria-controls="id + '_list'"
                             :tabindex="tabIndexes[index]"
+                            :aria-label="ariaLabel"
                         >
                             <span v-if="category.icon" :class="getCategoryIcon(category)"></span>
                             <span class="p-menuitem-text">{{ label(category) }}</span>
@@ -51,10 +53,10 @@
                     <div v-if="category.items && category === activeItem" class="p-megamenu-panel">
                         <div class="p-megamenu-grid">
                             <div v-for="(column, columnIndex) of category.items" :key="label(category) + '_column_' + columnIndex" :class="getColumnClassName(category)">
-                                <ul v-for="(submenu, submenuIndex) of column" ref="subMenu" :key="submenu.label + '_submenu_' + submenuIndex" class="p-megamenu-submenu" role="menu">
+                                <ul v-for="(submenu, submenuIndex) of column" ref="subMenu" :key="submenu.label + '_submenu_' + submenuIndex" class="p-megamenu-submenu" role="menu" :aria-label="id + '_list'">
                                     <li :class="getSubmenuHeaderClass(submenu)" :style="submenu.style" role="presentation">{{ submenu.label }}</li>
                                     <template v-for="(item, i) of submenu.items" :key="label(item) + i.toString()">
-                                        <li v-if="visible(item) && !item.separator" role="none" :class="getSubmenuItemClass(item)" :style="item.style">
+                                        <li v-if="visible(item) && !item.separator" :class="getSubmenuItemClass(item)" :style="item.style">
                                             <template v-if="!$slots.item">
                                                 <router-link v-if="item.to && !disabled(item)" v-slot="{ navigate, href, isActive, isExactActive }" :to="item.to" custom>
                                                     <a
@@ -534,7 +536,7 @@ export default {
             item.prevItem.focus();
         },
         navigateToSubMenuColumn(columnIndex, direction) {
-            if (this.$refs.subMenu.length <= columnIndex) {
+            if (this.$refs.subMenu.length <= columnIndex || !this.$refs.subMenu[columnIndex]) {
                 return;
             }
 

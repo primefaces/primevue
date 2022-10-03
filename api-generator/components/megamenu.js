@@ -16,6 +16,18 @@ const MegaMenuProps = [
         type: 'boolean',
         default: 'true',
         description: "Whether to apply 'router-link-active-exact' class if route exactly matches the item path."
+    },
+    {
+        name: 'aria-label',
+        type: 'string',
+        default: 'null',
+        description: 'Defines a string value that labels an interactive element.'
+    },
+    {
+        name: 'aria-labelledby',
+        type: 'string',
+        default: 'null',
+        description: 'Identifier of the underlying input element.'
     }
 ];
 
