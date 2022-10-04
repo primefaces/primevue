@@ -21,7 +21,7 @@
                                 :aria-expanded="category === activeItem"
                                 :aria-controls="id + '_list'"
                                 :tabindex="tabIndexes[index]"
-                                :aria-label="ariaLabel"
+                                :aria-label="label(category)"
                             >
                                 <span v-if="category.icon" :class="getCategoryIcon(category)"></span>
                                 <span class="p-menuitem-text">{{ label(category) }}</span>
@@ -42,7 +42,7 @@
                             :aria-expanded="category === activeItem"
                             :aria-controls="id + '_list'"
                             :tabindex="tabIndexes[index]"
-                            :aria-label="ariaLabel"
+                            :aria-label="label(category)"
                         >
                             <span v-if="category.icon" :class="getCategoryIcon(category)"></span>
                             <span class="p-menuitem-text">{{ label(category) }}</span>
@@ -215,6 +215,8 @@ export default {
             }
         },
         onSubMenuKeydown(event, item, categoryIndex) {
+            const hasSubMenuItem = this.subMenuHasItem(this.subMenuColumnIndex - 1);
+
             switch (event.code) {
                 case 'ArrowRight':
                     event.preventDefault();
@@ -224,8 +226,11 @@ export default {
 
                 case 'ArrowLeft':
                     event.preventDefault();
+                    console.log();
 
-                    if (this.activeItem && this.vertical && this.subMenuColumnIndex === 0) {
+                    console.log(hasSubMenuItem);
+
+                    if (this.activeItem && this.vertical && !hasSubMenuItem) {
                         this.collapseMenu();
                         this.$refs.menuLink[categoryIndex].tabIndex = '0';
                         this.$refs.menuLink[categoryIndex].focus();
@@ -540,7 +545,7 @@ export default {
                 return;
             }
 
-            const hasMenuItem = [...this.$refs.subMenu[columnIndex].children].some((el) => DomHandler.hasClass(el, 'p-menuitem'));
+            const hasMenuItem = this.subMenuHasItem(columnIndex);
 
             if (!hasMenuItem) {
                 if (direction === 'next') {
@@ -562,6 +567,11 @@ export default {
 
             this.subMenuCurrentIndex = subMenuLinkIndex - 1;
             this.navigateToNextItem(this.$refs.subMenuLink, this.subMenuCurrentIndex, 'subMenu');
+        },
+        subMenuHasItem(index) {
+            if (!this.$refs.subMenu[index]) return;
+
+            return [...this.$refs.subMenu[index].children].some((el) => DomHandler.hasClass(el, 'p-menuitem'));
         },
         getCategoryClass(category) {
             return [
