@@ -5,8 +5,8 @@ import ConnectedOverlayScrollHandler from '../utils/ConnectedOverlayScrollHandle
 function bindEvents(el) {
     const modifiers = el.$_ptooltipModifiers;
     if (modifiers.focus) {
-        el.addEventListener('focus', onFocus);
-        el.addEventListener('blur', onBlur);
+        el.addEventListener('focusin', onFocusIn);
+        el.addEventListener('focusout', onFocusOut);
     }
     else {
         el.addEventListener('mouseenter', onMouseEnter);
@@ -18,8 +18,8 @@ function bindEvents(el) {
 function unbindEvents(el) {
     const modifiers = el.$_ptooltipModifiers;
     if (modifiers.focus) {
-        el.removeEventListener('focus', onFocus);
-        el.removeEventListener('blur', onBlur);
+        el.removeEventListener('focusin', onFocusIn);
+        el.removeEventListener('focusout', onFocusOut);
     }
     else {
         el.removeEventListener('mouseenter', onMouseEnter);
@@ -52,11 +52,11 @@ function onMouseLeave(event) {
     hide(event.currentTarget);
 }
 
-function onFocus(event) {
+function onFocusIn(event) {
     show(event.currentTarget);
 }
 
-function onBlur(event) {
+function onFocusOut(event) {
     hide(event.currentTarget);
 }
 
