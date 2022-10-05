@@ -63,18 +63,18 @@ describe('Calendar.vue', () => {
             inline: true
         });
 
-        const previousIcon = wrapper.find('.p-datepicker-prev-icon')
-        const nextIcon = wrapper.find('.p-datepicker-next-icon')
+        const previousIcon = wrapper.find('.p-datepicker-prev-icon');
+        const nextIcon = wrapper.find('.p-datepicker-next-icon');
 
-        expect(previousIcon.classes()).toContain('pi-discord')
-        expect(nextIcon.classes()).toContain('pi-facebook')
+        expect(previousIcon.classes()).toContain('pi-discord');
+        expect(nextIcon.classes()).toContain('pi-facebook');
 
         await wrapper.setProps({
             timeOnly: true,
             hourFormat: '12'
-        })
+        });
 
-        expect(wrapper.findAll('.pi-linkedin')).toHaveLength(3)
-        expect(wrapper.findAll('.pi-microsoft')).toHaveLength(3)
+        expect(wrapper.findAll('.pi-linkedin')).toHaveLength(3);
+        expect(wrapper.findAll('.pi-microsoft')).toHaveLength(3);
     });
 });

@@ -264,7 +264,7 @@
                                 @keyup.space="onTimePickerElementMouseUp($event)"
                                 type="button"
                             >
-                          <span :class="incrementIcon" />
+                                <span :class="incrementIcon" />
                             </button>
                             <span>{{ formattedCurrentSecond }}</span>
                             <button
