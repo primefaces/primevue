@@ -39,7 +39,7 @@
         </div>
         <div class="p-treeselect-trigger" role="button" aria-haspopup="tree" :aria-expanded="overlayVisible">
             <slot name="indicator">
-                <span class="p-treeselect-trigger-icon pi pi-chevron-down"></span>
+                <span :class="['p-treeselect-trigger-icon', triggerIcon]" />
             </slot>
         </div>
         <Portal :appendTo="appendTo">
@@ -145,6 +145,10 @@ export default {
         panelProps: {
             type: null,
             default: null
+        },
+        triggerIcon: {
+            type: String,
+            default: 'pi pi-chevron-down'
         },
         'aria-labelledby': {
             type: String,

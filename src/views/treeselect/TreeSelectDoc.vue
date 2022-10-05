@@ -346,6 +346,12 @@ data() {
                         <td>null</td>
                         <td>Style class of the overlay panel.</td>
                     </tr>
+                    <tr>
+                        <td>triggerIcon</td>
+                        <td>string</td>
+                        <td>pi pi-chevron-down</td>
+                        <td>Icon to display in tree select trigger button.</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
