@@ -165,6 +165,7 @@ export default {
                     if (key === 'default') {
                         innerHTML += `
                             @media screen ${minValue} {
+                                .paginator[${this.attributeSelector}],
                                 .p-paginator-default{
                                     display: flex !important;
                                 }
@@ -179,6 +180,7 @@ export default {
                             .paginator[${this.attributeSelector}], .p-paginator-${key} {
                                 display: flex !important;
                             }
+                            .paginator[${this.attributeSelector}],
                             .p-paginator-default{
                                 display: none !important;
                             }
