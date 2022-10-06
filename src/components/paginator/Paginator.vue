@@ -1,11 +1,11 @@
 <template>
-    <div v-if="alwaysShow ? true : pageLinks && pageLinks.length > 1" class="p-paginator p-component">
-        <div v-if="$slots.start" class="p-paginator-left-content">
-            <slot name="start" :state="currentState"></slot>
-        </div>
+    <div v-if="alwaysShow ? true : pageLinks && pageLinks.length > 1">
+        <div v-for="(value, key) in templateItems" :key="key" ref="paginator" class="p-paginator p-component" :class="getPaginatorClasses(key)">
+            <div v-if="$slots.start" class="p-paginator-left-content">
+                <slot name="start" :state="currentState"></slot>
+            </div>
 
-        <template v-for="(value, key) in templateItems" ref="paginator" :key="key">
-            <div v-for="item in value" :key="item" :class="getPaginatorClasses(key)">
+            <template v-for="item in value" :key="item">
                 <FirstPageLink v-if="item === 'FirstPageLink'" @click="changePageToFirst($event)" :disabled="isFirstPage || empty" />
                 <PrevPageLink v-else-if="item === 'PrevPageLink'" @click="changePageToPrev($event)" :disabled="isFirstPage || empty" />
                 <NextPageLink v-else-if="item === 'NextPageLink'" @click="changePageToNext($event)" :disabled="isLastPage || empty" />
@@ -15,15 +15,16 @@
                 <RowsPerPageDropdown v-else-if="item === 'RowsPerPageDropdown' && rowsPerPageOptions" :rows="d_rows" :options="rowsPerPageOptions" @rows-change="onRowChange($event)" :disabled="empty" />
                 <JumpToPageDropdown v-else-if="item === 'JumpToPageDropdown'" :page="page" :pageCount="pageCount" @page-change="changePage($event)" :disabled="empty" />
                 <JumpToPageInput v-else-if="item === 'JumpToPageInput'" :page="currentPage" @page-change="changePage($event)" :disabled="empty" />
+            </template>
+            <div v-if="$slots.end" class="p-paginator-right-content">
+                <slot name="end" :state="currentState"></slot>
             </div>
-        </template>
-        <div v-if="$slots.end" class="p-paginator-right-content">
-            <slot name="end" :state="currentState"></slot>
         </div>
     </div>
 </template>
 
 <script>
+import { UniqueComponentId } from 'primevue/utils';
 import CurrrentPageReport from './CurrentPageReport.vue';
 import FirstPageLink from './FirstPageLink.vue';
 import JumpToPageDropdown from './JumpToPageDropdown.vue';
@@ -91,6 +92,7 @@ export default {
         }
     },
     mounted() {
+        this.setPaginatorAttribute();
         this.createStyle();
     },
     methods: {
@@ -111,6 +113,7 @@ export default {
                 this.$emit('page', state);
             }
         },
+
         changePageToFirst(event) {
             if (!this.isFirstPage) {
                 this.changePage(0);
@@ -169,11 +172,11 @@ export default {
                         `;
                     } else {
                         innerHTML += `
-                        .p-paginator-${key} {
+                        .paginator[${this.attributeSelector}], .p-paginator-${key} {
                                 display: none !important;
                             }
                         @media screen ${minValue} and (max-width: ${key}) {
-                            .p-paginator-${key} {
+                            .paginator[${this.attributeSelector}], .p-paginator-${key} {
                                 display: flex !important;
                             }
                             .p-paginator-default{
@@ -185,6 +188,7 @@ export default {
                 }
 
                 this.styleElement.innerHTML = innerHTML;
+                console.log(innerHTML);
             }
         },
         hasBreakpoints() {
@@ -197,6 +201,12 @@ export default {
                     [`p-paginator-${key}`]: this.hasBreakpoints()
                 }
             ];
+        },
+        setPaginatorAttribute() {
+            [...this.$refs.paginator].forEach((el) => {
+                console.log(el);
+                el.setAttribute(this.attributeSelector, '');
+            });
         }
     },
     computed: {
@@ -222,17 +232,6 @@ export default {
             keys['default'] = this.template.split(' ').map((value) => {
                 return value.trim();
             });
-
-            return keys;
-        },
-        breakpointTemplateItems() {
-            let keys = this.breakpoints;
-
-            for (const item in keys) {
-                keys[item] = this.breakpoints[item].split(' ').map((value) => {
-                    return value.trim();
-                });
-            }
 
             return keys;
         },
@@ -287,6 +286,9 @@ export default {
         },
         currentPage() {
             return this.pageCount > 0 ? this.page + 1 : 0;
+        },
+        attributeSelector() {
+            return UniqueComponentId();
         }
     },
     components: {
@@ -306,10 +308,6 @@ export default {
 <style lang="css">
 .p-paginator-default {
     display: flex;
-}
-
-.p-paginator-breakpoints {
-    display: none;
 }
 
 .p-paginator {
