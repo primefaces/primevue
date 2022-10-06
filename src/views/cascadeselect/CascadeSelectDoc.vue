@@ -256,10 +256,22 @@ data() &#123;
                         <td>Whether the dropdown is in loading state.</td>
                     </tr>
                     <tr>
+                        <td>dropdownIcon</td>
+                        <td>string</td>
+                        <td>pi pi-chevron-down</td>
+                        <td>Icon to display in the dropdown.</td>
+                    </tr>
+                    <tr>
                         <td>loadingIcon</td>
                         <td>string</td>
                         <td>pi pi-spinner pi-spin</td>
                         <td>Icon to display in loading state.</td>
+                    </tr>
+                    <tr>
+                        <td>optionGroupIcon</td>
+                        <td>string</td>
+                        <td>pi pi-angle-right</td>
+                        <td>Icon to display in the option group.</td>
                     </tr>
                     <tr>
                         <td>autoOptionFocus</td>

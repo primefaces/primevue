@@ -309,10 +309,28 @@ export default {
                         <td>Whether the dropdown is in loading state.</td>
                     </tr>
                     <tr>
+                        <td>dropdownIcon</td>
+                        <td>string</td>
+                        <td>pi pi-chevron-down</td>
+                        <td>Icon to display in dropdown</td>
+                    </tr>
+                    <tr>
                         <td>loadingIcon</td>
                         <td>string</td>
                         <td>pi pi-spinner pi-spin</td>
                         <td>Icon to display in loading state.</td>
+                    </tr>
+                    <tr>
+                        <td>filterIcon</td>
+                        <td>string</td>
+                        <td>pi pi-search</td>
+                        <td>Icon to display in filter input</td>
+                    </tr>
+                    <tr>
+                        <td>clearIcon</td>
+                        <td>string</td>
+                        <td>pi pi-times</td>
+                        <td>Icon to display in clear button</td>
                     </tr>
                     <tr>
                         <td>resetFilterOnHide</td>

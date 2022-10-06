@@ -1,12 +1,23 @@
 <template>
-    <div :class="containerClass">
+    <div :class="containerClass" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel">
         <div v-if="$slots.start" class="p-menubar-start">
             <slot name="start"></slot>
         </div>
-        <a ref="menubutton" tabindex="0" class="p-menubar-button" @click="toggle($event)">
+        <a
+            ref="menubutton"
+            role="button"
+            tabindex="0"
+            class="p-menubar-button"
+            :aria-haspopup="model.length && model.length > 0 ? true : false"
+            :aria-expanded="mobileActive"
+            :aria-controls="id"
+            :aria-label="$primevue.config.locale.aria.navigation"
+            @click="toggle($event)"
+            v-bind="buttonProps"
+        >
             <i class="pi pi-bars" />
         </a>
-        <MenubarSub ref="rootmenu" :model="model" :root="true" :mobileActive="mobileActive" @leaf-click="onLeafClick" :template="$slots.item" :exact="exact" />
+        <MenubarSub ref="rootmenu" :id="id" role="menubar" :model="model" :root="true" :mobileActive="mobileActive" @leaf-click="onLeafClick" :template="$slots.item" :exact="exact" />
         <div v-if="$slots.end" class="p-menubar-end">
             <slot name="end"></slot>
         </div>
@@ -14,8 +25,8 @@
 </template>
 
 <script>
+import { UniqueComponentId, ZIndexUtils } from 'primevue/utils';
 import MenubarSub from './MenubarSub.vue';
-import { ZIndexUtils } from 'primevue/utils';
 
 export default {
     name: 'Menubar',
@@ -27,6 +38,18 @@ export default {
         exact: {
             type: Boolean,
             default: true
+        },
+        buttonProps: {
+            type: null,
+            default: null
+        },
+        'aria-labelledby': {
+            type: String,
+            default: null
+        },
+        'aria-label': {
+            type: String,
+            default: null
         }
     },
     outsideClickListener: null,
@@ -80,6 +103,9 @@ export default {
     computed: {
         containerClass() {
             return ['p-menubar p-component', { 'p-menubar-mobile-active': this.mobileActive }];
+        },
+        id() {
+            return UniqueComponentId();
         }
     },
     components: {

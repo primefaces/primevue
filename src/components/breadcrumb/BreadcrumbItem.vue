@@ -2,16 +2,17 @@
     <li v-if="visible()" :class="containerClass(item)">
         <template v-if="!template">
             <router-link v-if="item.to" v-slot="{ navigate, href, isActive, isExactActive }" :to="item.to" custom>
-                <a :href="href" :class="linkClass({ isActive, isExactActive })" @click="onClick($event, navigate)">
+                <a :href="href" :class="linkClass({ isActive, isExactActive })" @click="onClick($event, navigate)" :aria-current="isCurrentUrl()">
                     <span v-if="item.icon" :class="iconClass"></span>
                     <span v-if="item.label" class="p-menuitem-text">{{ label() }}</span>
                 </a>
             </router-link>
-            <a v-else :href="item.url || '#'" :class="linkClass()" @click="onClick" :target="item.target">
+            <a v-else :href="item.url || '#'" :class="linkClass()" @click="onClick" :target="item.target" :aria-current="isCurrentUrl()">
                 <span v-if="item.icon" :class="iconClass"></span>
                 <span v-if="item.label" class="p-menuitem-text">{{ label() }}</span>
             </a>
         </template>
+
         <component v-else :is="template" :item="item"></component>
     </li>
 </template>
@@ -57,6 +58,12 @@ export default {
         },
         label() {
             return typeof this.item.label === 'function' ? this.item.label() : this.item.label;
+        },
+        isCurrentUrl() {
+            const { to, url } = this.item;
+            const lastPath = `/${window.location.href.split('/').pop()}`;
+
+            return to === lastPath || url === lastPath ? 'page' : false;
         }
     },
     computed: {

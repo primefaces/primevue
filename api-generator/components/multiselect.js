@@ -180,10 +180,40 @@ const MultiSelectProps = [
         description: 'Whether the multiselect is in loading state.'
     },
     {
+        name: 'checkboxIcon',
+        type: 'string',
+        default: 'pi pi-check',
+        description: 'Icon to display in the checkboxes.'
+    },
+    {
+        name: 'closeIcon',
+        type: 'string',
+        default: 'pi pi-times',
+        description: 'Icon to display in the dropdown close button.'
+    },
+    {
+        name: 'dropdownIcon',
+        type: 'string',
+        default: 'pi pi-chevron-down',
+        description: 'Icon to display in dropdown.'
+    },
+    {
+        name: 'filterIcon',
+        type: 'string',
+        default: 'pi pi-search',
+        description: 'Icon to display in filter input.'
+    },
+    {
         name: 'loadingIcon',
         type: 'string',
         default: 'pi pi-spinner pi-spin',
         description: 'Icon to display in loading state.'
+    },
+    {
+        name: 'removeTokenIcon',
+        type: 'string',
+        default: 'pi pi-times-circle',
+        description: 'Icon to display in chip remove action.'
     },
     {
         name: 'selectAll',

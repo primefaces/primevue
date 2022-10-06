@@ -23,7 +23,7 @@
                 <div v-ripple class="p-cascadeselect-item-content" @click="onOptionClick($event, processedOption)">
                     <component v-if="templates['option']" :is="templates['option']" :option="processedOption.option" />
                     <span v-else class="p-cascadeselect-item-text">{{ getOptionLabelToRender(processedOption) }}</span>
-                    <span v-if="isOptionGroup(processedOption)" class="p-cascadeselect-group-icon pi pi-angle-right" aria-hidden="true"></span>
+                    <span v-if="isOptionGroup(processedOption)" :class="['p-cascadeselect-group-icon', optionGroupIcon]" aria-hidden="true"></span>
                 </div>
                 <CascadeSelectSub
                     v-if="isOptionGroup(processedOption) && isOptionActive(processedOption)"
@@ -38,6 +38,7 @@
                     :optionLabel="optionLabel"
                     :optionValue="optionValue"
                     :optionDisabled="optionDisabled"
+                    :optionGroupIcon="optionGroupIcon"
                     :optionGroupLabel="optionGroupLabel"
                     :optionGroupChildren="optionGroupChildren"
                     @option-change="onOptionChange"
@@ -61,6 +62,7 @@ export default {
         optionLabel: String,
         optionValue: String,
         optionDisabled: null,
+        optionGroupIcon: String,
         optionGroupLabel: String,
         optionGroupChildren: Array,
         activeOptionPath: Array,

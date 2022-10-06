@@ -298,6 +298,12 @@ export default {
                         <td>Index of the element in tabbing order.</td>
                     </tr>
                     <tr>
+                        <td>filterIcon</td>
+                        <td>string</td>
+                        <td>pi pi-search</td>
+                        <td>Icon to display in filter input</td>
+                    </tr>
+                    <tr>
                         <td>aria-label</td>
                         <td>string</td>
                         <td>null</td>

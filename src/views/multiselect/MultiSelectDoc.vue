@@ -324,10 +324,40 @@ export default {
                         <td>Whether the multiselect is in loading state.</td>
                     </tr>
                     <tr>
+                        <td>checkboxIcon</td>
+                        <td>string</td>
+                        <td>pi pi-check</td>
+                        <td>Icon to display in the checkboxes.</td>
+                    </tr>
+                    <tr>
+                        <td>closeIcon</td>
+                        <td>string</td>
+                        <td>pi pi-times</td>
+                        <td>Icon to display in the dropdown close button.</td>
+                    </tr>
+                    <tr>
+                        <td>dropdownIcon</td>
+                        <td>string</td>
+                        <td>pi pi-chevron-down</td>
+                        <td>Icon to display in dropdown.</td>
+                    </tr>
+                    <tr>
+                        <td>filterIcon</td>
+                        <td>string</td>
+                        <td>pi pi-search</td>
+                        <td>Icon to display in filter input.</td>
+                    </tr>
+                    <tr>
                         <td>loadingIcon</td>
                         <td>string</td>
                         <td>pi pi-spinner pi-spin</td>
                         <td>Icon to display in loading state.</td>
+                    </tr>
+                    <tr>
+                        <td>removeTokenIcon</td>
+                        <td>string</td>
+                        <td>pi pi-times-circle</td>
+                        <td>Icon to display in chip remove action.</td>
                     </tr>
                     <tr>
                         <td>selectAll</td>

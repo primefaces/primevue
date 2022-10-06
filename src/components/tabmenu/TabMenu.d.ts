@@ -1,6 +1,6 @@
 import { VNode } from 'vue';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 import { MenuItem } from '../menuitem';
+import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export interface TabMenuChangeEvent {
     /**
@@ -28,6 +28,14 @@ export interface TabMenuProps {
      * Default value is 0.
      */
     activeIndex?: number | undefined;
+    /**
+     * Defines a string value that labels an interactive element.
+     */
+    'aria-label'?: string | undefined;
+    /**
+     * Identifier of the underlying input element.
+     */
+    'aria-labelledby'?: string | undefined;
 }
 
 export interface TabMenuSlots {

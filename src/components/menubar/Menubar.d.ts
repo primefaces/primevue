@@ -1,6 +1,6 @@
-import { VNode } from 'vue';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ButtonHTMLAttributes, VNode } from 'vue';
 import { MenuItem } from '../menuitem';
+import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export interface MenubarProps {
     /**
@@ -12,6 +12,18 @@ export interface MenubarProps {
      * Default value is true.
      */
     exact?: boolean | undefined;
+    /**
+     * Uses to pass all properties of the HTMLButtonElement to the menu button.
+     */
+    buttonProps?: ButtonHTMLAttributes | undefined;
+    /**
+     * Defines a string value that labels an interactive element.
+     */
+    'aria-label'?: string | undefined;
+    /**
+     * Identifier of the underlying input element.
+     */
+    'aria-labelledby'?: string | undefined;
 }
 
 export interface MenubarSlots {

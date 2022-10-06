@@ -54,6 +54,7 @@
                             :optionLabel="optionLabel"
                             :optionValue="optionValue"
                             :optionDisabled="optionDisabled"
+                            :optionGroupIcon="optionGroupIcon"
                             :optionGroupLabel="optionGroupLabel"
                             :optionGroupChildren="optionGroupChildren"
                             @option-change="onOptionChange"
@@ -70,10 +71,10 @@
 </template>
 
 <script>
-import { ConnectedOverlayScrollHandler, ObjectUtils, DomHandler, ZIndexUtils, UniqueComponentId } from 'primevue/utils';
 import OverlayEventBus from 'primevue/overlayeventbus';
-import CascadeSelectSub from './CascadeSelectSub.vue';
 import Portal from 'primevue/portal';
+import { ConnectedOverlayScrollHandler, DomHandler, ObjectUtils, UniqueComponentId, ZIndexUtils } from 'primevue/utils';
+import CascadeSelectSub from './CascadeSelectSub.vue';
 
 export default {
     name: 'CascadeSelect',
@@ -125,9 +126,17 @@ export default {
             type: Boolean,
             default: false
         },
+        dropdownIcon: {
+            type: String,
+            default: 'pi pi-chevron-down'
+        },
         loadingIcon: {
             type: String,
             default: 'pi pi-spinner pi-spin'
+        },
+        optionGroupIcon: {
+            type: String,
+            default: 'pi pi-angle-right'
         },
         autoOptionFocus: {
             type: Boolean,
@@ -766,6 +775,7 @@ export default {
         labelClass() {
             return [
                 'p-cascadeselect-label',
+                'p-inputtext',
                 {
                     'p-placeholder': this.label === this.placeholder,
                     'p-cascadeselect-label-empty': !this.$slots['value'] && (this.label === 'p-emptylabel' || this.label.length === 0)
@@ -783,7 +793,7 @@ export default {
             ];
         },
         dropdownIconClass() {
-            return ['p-cascadeselect-trigger-icon', this.loading ? this.loadingIcon : 'pi pi-chevron-down'];
+            return ['p-cascadeselect-trigger-icon', this.loading ? this.loadingIcon : this.dropdownIcon];
         },
         hasSelectedOption() {
             return ObjectUtils.isNotEmpty(this.modelValue);

@@ -10,7 +10,7 @@
 
         <div class="content-section implementation">
             <div class="card">
-                <Steps :model="items" :readonly="true" />
+                <Steps :model="items" aria-label="Form Steps" />
             </div>
 
             <router-view v-slot="{ Component }" :formData="formObject" @prev-page="prevPage($event)" @next-page="nextPage($event)" @complete="complete">
