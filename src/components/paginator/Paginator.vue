@@ -3,24 +3,9 @@
         <div v-if="$slots.start" class="p-paginator-left-content">
             <slot name="start" :state="currentState"></slot>
         </div>
-        <template v-if="breakpoints">
-            <template v-for="(value, key) in breakpointTemplateItems" :key="key" ref="paginator">
-                <div v-for="item in value" :key="item" :class="`p-paginator-${key}`" class="p-paginator-breakpoints">
-                    <FirstPageLink v-if="item === value" @click="changePageToFirst($event)" :disabled="isFirstPage || empty" />
-                    <PrevPageLink v-else-if="item === 'PrevPageLink'" @click="changePageToPrev($event)" :disabled="isFirstPage || empty" />
-                    <NextPageLink v-else-if="item === 'NextPageLink'" @click="changePageToNext($event)" :disabled="isLastPage || empty" />
-                    <LastPageLink v-else-if="item === 'LastPageLink'" @click="changePageToLast($event)" :disabled="isLastPage || empty" />
-                    <PageLinks v-else-if="item === 'PageLinks'" :value="pageLinks" :page="page" @click="changePageLink($event)" />
-                    <CurrentPageReport v-else-if="item === 'CurrentPageReport'" :template="currentPageReportTemplate" :currentPage="currentPage" :page="page" :pageCount="pageCount" :first="d_first" :rows="d_rows" :totalRecords="totalRecords" />
-                    <RowsPerPageDropdown v-else-if="item === 'RowsPerPageDropdown' && rowsPerPageOptions" :rows="d_rows" :options="rowsPerPageOptions" @rows-change="onRowChange($event)" :disabled="empty" />
-                    <JumpToPageDropdown v-else-if="item === 'JumpToPageDropdown'" :page="page" :pageCount="pageCount" @page-change="changePage($event)" :disabled="empty" />
-                    <JumpToPageInput v-else-if="item === 'JumpToPageInput'" :page="currentPage" @page-change="changePage($event)" :disabled="empty" />
-                </div>
-            </template>
-        </template>
-        <template v-for="item of templateItems" ref="paginator" :key="item">
-            <!-- <Component :is="item" @click="changePageToFirst($event)" :disabled="isFirstPage || empty" :page="currentPage" :value="pageLinks" :template="currentPageReportTemplate" /> -->
-            <div class="p-paginator-default">
+
+        <template v-for="(value, key) in templateItems" ref="paginator" :key="key">
+            <div v-for="item in value" :key="item" :class="getPaginatorClasses(key)">
                 <FirstPageLink v-if="item === 'FirstPageLink'" @click="changePageToFirst($event)" :disabled="isFirstPage || empty" />
                 <PrevPageLink v-else-if="item === 'PrevPageLink'" @click="changePageToPrev($event)" :disabled="isFirstPage || empty" />
                 <NextPageLink v-else-if="item === 'NextPageLink'" @click="changePageToNext($event)" :disabled="isLastPage || empty" />
@@ -74,7 +59,7 @@ export default {
             default: null
         },
         template: {
-            type: String,
+            type: [Object, String],
             default: 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown'
         },
         currentPageReportTemplate: {
@@ -84,10 +69,6 @@ export default {
         alwaysShow: {
             type: Boolean,
             default: true
-        },
-        breakpoints: {
-            type: Object,
-            default: null
         }
     },
     data() {
@@ -110,9 +91,7 @@ export default {
         }
     },
     mounted() {
-        if (this.breakpoints) {
-            this.createStyle();
-        }
+        this.createStyle();
     },
     methods: {
         changePage(p) {
@@ -163,24 +142,36 @@ export default {
             this.changePage(this.page);
         },
         createStyle() {
-            if (this.breakpoints) {
+            if (this.hasBreakpoints()) {
                 this.styleElement = document.createElement('style');
                 this.styleElement.type = 'text/css';
                 document.head.appendChild(this.styleElement);
 
                 let innerHTML = '';
 
-                const keys = Object.keys(this.breakpoints);
+                const keys = Object.keys(this.template);
                 const sortedBreakpoints = {};
 
                 keys.sort((a, b) => parseInt(a) - parseInt(b)).forEach((key) => {
-                    sortedBreakpoints[key] = this.breakpoints[key];
+                    sortedBreakpoints[key] = this.template[key];
                 });
 
                 for (const [index, [key]] of Object.entries(Object.entries(sortedBreakpoints))) {
                     const minValue = Object.entries(sortedBreakpoints)[index - 1] ? `and (min-width:${Object.keys(sortedBreakpoints)[index - 1]})` : '';
 
-                    innerHTML += `
+                    if (key === 'default') {
+                        innerHTML += `
+                            @media screen ${minValue} {
+                                .p-paginator-default{
+                                    display: flex !important;
+                                }
+                            }
+                        `;
+                    } else {
+                        innerHTML += `
+                        .p-paginator-${key} {
+                                display: none !important;
+                            }
                         @media screen ${minValue} and (max-width: ${key}) {
                             .p-paginator-${key} {
                                 display: flex !important;
@@ -190,18 +181,46 @@ export default {
                             }
                         }
                     `;
+                    }
                 }
 
                 this.styleElement.innerHTML = innerHTML;
             }
+        },
+        hasBreakpoints() {
+            return typeof this.template === 'object';
+        },
+        getPaginatorClasses(key) {
+            return [
+                {
+                    'p-paginator-default': !this.hasBreakpoints(),
+                    [`p-paginator-${key}`]: this.hasBreakpoints()
+                }
+            ];
         }
     },
     computed: {
         templateItems() {
-            let keys = [];
+            let keys = {};
 
-            this.template.split(' ').map((value) => {
-                keys.push(value.trim());
+            if (this.hasBreakpoints()) {
+                keys = this.template;
+
+                if (!keys.default) {
+                    keys.default = 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown';
+                }
+
+                for (const item in keys) {
+                    keys[item] = this.template[item].split(' ').map((value) => {
+                        return value.trim();
+                    });
+                }
+
+                return keys;
+            }
+
+            keys['default'] = this.template.split(' ').map((value) => {
+                return value.trim();
             });
 
             return keys;

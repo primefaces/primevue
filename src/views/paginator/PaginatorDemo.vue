@@ -11,8 +11,16 @@
         <div class="content-section implementation">
             <div class="card">
                 <h5>Basic</h5>
+                <Paginator :rows="10" :totalRecords="totalRecords" :rowsPerPageOptions="[10, 20, 30]"></Paginator>
+
+                <h5>Responsive Breakpoints</h5>
                 <Paginator
-                    :breakpoints="{ '960px': 'FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink', '640px': 'FirstPageLink PrevPageLink CurrentPageReport', '1500px': 'FirstPageLink PrevPageLink CurrentPageReport' }"
+                    :template="{
+                        '960px': 'FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink',
+                        '640px': 'FirstPageLink PrevPageLink CurrentPageReport',
+                        '1300px': 'FirstPageLink PrevPageLink CurrentPageReport',
+                        default: 'FirstPageLink PrevPageLink PageLinks NextPageLink'
+                    }"
                     :rows="10"
                     :totalRecords="totalRecords"
                     :rowsPerPageOptions="[10, 20, 30]"
