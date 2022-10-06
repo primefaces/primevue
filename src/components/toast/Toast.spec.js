@@ -87,29 +87,29 @@ describe('Toast.vue', () => {
 
     it('should execute the onTimeout callback after the message is removed', async () => {
         const onTimeout = jest.fn();
-        
+
         const message = { severity: 'info', summary: 'Message 1', detail: 'Message 1 Content', life: 3000, onTimeout };
-        
+
         await wrapper.setData({
-            messages: [ message ]
+            messages: [message]
         });
 
         wrapper.vm.remove(message);
 
         expect(onTimeout).toBeCalledTimes(1);
-    })
+    });
 
     it('should execute the onTimeout callback after the user clicks the close button', async () => {
         const onTimeout = jest.fn();
-        
+
         const message = { severity: 'info', summary: 'Message 1', detail: 'Message 1 Content', life: 3000, onTimeout };
-        
+
         await wrapper.setData({
-            messages: [ message ]
+            messages: [message]
         });
 
         wrapper.find('.p-toast-icon-close').trigger('click');
 
         expect(onTimeout).toBeCalledTimes(1);
-    })
+    });
 });
