@@ -1688,6 +1688,12 @@
 .p-togglebutton.p-button .p-button-icon-right {
   color: rgba(255, 255, 255, 0.6);
 }
+.p-togglebutton.p-button:not(.p-disabled).p-focus {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: none;
+  border-color: #9FA8DA;
+}
 .p-togglebutton.p-button:not(.p-disabled):not(.p-highlight):hover {
   background: #373737;
   border-color: rgba(255, 255, 255, 0.12);

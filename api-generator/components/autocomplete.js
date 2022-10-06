@@ -162,10 +162,22 @@ const AutoCompleteProps = [
         description: 'Uses to pass all properties of the HTMLDivElement to the overlay panel inside the component.'
     },
     {
+        name: 'dropdownIcon',
+        type: 'string',
+        default: 'pi pi-chevron-down',
+        description: 'Icon to display in dropdown'
+    },
+    {
         name: 'loadingIcon',
         type: 'string',
         default: 'pi pi-spinner',
         description: 'Icon to display in loading state.'
+    },
+    {
+        name: 'removeTokenIcon',
+        type: 'string',
+        default: 'pi pi-times-circle',
+        description: 'Icon to display in chip remove action.'
     },
     {
         name: 'virtualScrollerOptions',

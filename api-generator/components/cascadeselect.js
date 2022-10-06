@@ -108,10 +108,22 @@ const CascadeSelectProps = [
         description: 'Whether the multiselect is in loading state.'
     },
     {
+        name: 'dropdownIcon',
+        type: 'string',
+        default: 'pi pi-chevron-down',
+        description: 'Icon to display in the dropdown.'
+    },
+    {
         name: 'loadingIcon',
         type: 'string',
         default: 'pi pi-spinner pi-spin',
         description: 'Icon to display in loading state.'
+    },
+    {
+        name: 'optionGroupIcon',
+        type: 'string',
+        default: 'pi pi-angle-right',
+        description: 'Icon to display in the option group.'
     },
     {
         name: 'autoOptionFocus',

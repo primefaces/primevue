@@ -81,4 +81,70 @@ describe('MultiSelect.vue', () => {
         expect(wrapper.find('.p-multiselect-token').exists()).toBe(true);
         expect(wrapper.find('.p-multiselect-token-label').text()).toBe('New York');
     });
+
+    describe('custom icons', () => {
+        it('should have custom chip remove icon', async () => {
+            await wrapper.setProps({
+                display: 'chip',
+                modelValue: [wrapper.vm.options[0]],
+                removeTokenIcon: 'pi pi-discord'
+            });
+
+            const icon = wrapper.find('.p-multiselect-token-icon');
+
+            expect(icon.classes()).toContain('pi-discord');
+        });
+
+        it('should have custom dropdown icon', async () => {
+            await wrapper.setProps({
+                dropdownIcon: 'pi pi-discord'
+            });
+
+            const icon = wrapper.find('.p-multiselect-trigger-icon');
+
+            expect(icon.classes()).toContain('pi-discord');
+        });
+
+        it('should have custom filter icon', async () => {
+            await wrapper.setProps({
+                filter: true,
+                filterIcon: 'pi pi-discord'
+            });
+
+            await wrapper.vm.onContainerClick();
+
+            const icon = wrapper.find('.p-multiselect-filter-icon');
+
+            expect(icon.classes()).toContain('pi-discord');
+        });
+
+        it('should have custom close icon', async () => {
+            await wrapper.setProps({
+                closeIcon: 'pi pi-discord'
+            });
+
+            await wrapper.vm.onContainerClick();
+
+            const icon = wrapper.find('.p-multiselect-close-icon');
+
+            expect(icon.classes()).toContain('pi-discord');
+        });
+
+        it('should have custom checkbox icons', async () => {
+            await wrapper.setProps({
+                checkboxIcon: 'pi pi-discord'
+            });
+
+            await wrapper.setProps({
+                checkboxIcon: 'pi pi-discord',
+                modelValue: wrapper.vm.options
+            });
+
+            await wrapper.vm.onContainerClick();
+
+            wrapper.findAll('.p-checkbox-icon').forEach((icon) => {
+                expect(icon.classes()).toContain('pi-discord');
+            });
+        });
+    });
 });

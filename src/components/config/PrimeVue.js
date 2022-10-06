@@ -1,5 +1,5 @@
-import { reactive, inject } from 'vue';
 import { FilterMatchMode } from 'primevue/api';
+import { inject, reactive } from 'vue';
 
 const defaultOptions = {
     ripple: false,
@@ -77,7 +77,8 @@ const defaultOptions = {
             unselectAll: 'All items unselected',
             close: 'Close',
             previous: 'Previous',
-            next: 'Next'
+            next: 'Next',
+            navigation: 'Navigation'
         }
     },
     filterMatchModeOptions: {

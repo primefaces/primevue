@@ -14,6 +14,7 @@ config.global.mocks = {
         }
     }
 };
+
 describe('Listbox.vue', () => {
     let wrapper;
 
@@ -47,5 +48,18 @@ describe('Listbox.vue', () => {
         await wrapper.setProps({ modelValue: wrapper.vm.options[0] });
 
         expect(wrapper.findAll('li.p-listbox-item')[0].classes()).toContain('p-highlight');
+    });
+
+    describe('filter', () => {
+        it('should have correct custom icon', async () => {
+            await wrapper.setProps({
+                filter: true,
+                filterIcon: 'pi pi-discord'
+            });
+
+            const icon = wrapper.find('.p-listbox-filter-icon');
+
+            expect(icon.classes()).toContain('pi-discord');
+        });
     });
 });

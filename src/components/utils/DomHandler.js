@@ -448,6 +448,14 @@ export default {
         }
     },
 
+    getSelection() {
+        if (window.getSelection) return window.getSelection().toString();
+        else if (document.getSelection) return document.getSelection().toString();
+        else if (document.selection) return document.selection.createRange().text;
+
+        return null;
+    },
+
     calculateScrollbarWidth() {
         if (this.calculatedScrollbarWidth != null) return this.calculatedScrollbarWidth;
 
