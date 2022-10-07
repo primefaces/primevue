@@ -1664,12 +1664,6 @@
 .p-togglebutton.p-button .p-button-icon-right {
   color: #666666;
 }
-.p-togglebutton.p-button:not(.p-disabled).p-focus {
-  outline: 0 none;
-  outline-offset: 0;
-  box-shadow: 0 0 0 0.2rem #e4e9ec;
-  border-color: #7B95A3;
-}
 .p-togglebutton.p-button:not(.p-disabled):not(.p-highlight):hover {
   background: #c8c8c8;
   border-color: #c8c8c8;
@@ -4623,6 +4617,14 @@
   outline-offset: 0;
   box-shadow: inset 0 0 0 0.15rem #e4e9ec;
 }
+.p-menu .p-menuitem-link:focus {
+  outline: none;
+  box-shadow: none;
+}
+.p-menu .p-menuitem-link.p-focus {
+  color: #666666;
+  background: #e0e0e0;
+}
 .p-menu.p-menu-overlay {
   background: #ffffff;
   border: 1px solid #eaeaea;
@@ -5101,6 +5103,24 @@
   outline: 0 none;
   outline-offset: 0;
   box-shadow: inset 0 0 0 0.15rem #e4e9ec;
+}
+.p-tieredmenu .p-menuitem-link:focus {
+  outline: none;
+  box-shadow: none;
+}
+.p-tieredmenu .p-menuitem-link.p-highlight:not(.p-disabled) {
+  background: #AFD3C8;
+}
+.p-tieredmenu .p-menuitem-link.p-highlight:not(.p-disabled) .p-menuitem-text,
+.p-tieredmenu .p-menuitem-link.p-highlight:not(.p-disabled) .p-menuitem-icon {
+  color: #385048;
+}
+.p-tieredmenu .p-menuitem-link.p-highlight:not(.p-disabled).p-focus {
+  background: #aed3c7;
+}
+.p-tieredmenu .p-menuitem-link:not(.p-highlight):not(.p-disabled).p-focus {
+  color: #666666;
+  background: #e0e0e0;
 }
 .p-tieredmenu.p-tieredmenu-overlay {
   background: #ffffff;
