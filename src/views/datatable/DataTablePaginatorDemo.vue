@@ -96,30 +96,30 @@ export default {
             </template>
         </DataTable>
         <DataTable
-                    :value="customers"
-                    :paginator="true"
-                    :rows="10"
-                    :paginatorTemplate="{
-                        '640px': 'PrevPageLink CurrentPageReport NextPageLink',
-                        '960px': 'FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink',
-                        '1300px': 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink',
-                        default: 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink JumpToPageDropdown'
-                    }"
-                    :rowsPerPageOptions="[10, 20, 50]"
-                    responsiveLayout="scroll"
-                    currentPageReportTemplate="Showing {first} to {last} of {totalRecords}"
-                >
-                    <Column field="name" header="Name"></Column>
-                    <Column field="country.name" header="Country"></Column>
-                    <Column field="company" header="Company"></Column>
-                    <Column field="representative.name" header="Representative"></Column>
-                    <template #paginatorstart>
-                        <Button type="button" icon="pi pi-refresh" class="p-button-text" />
-                    </template>
-                    <template #paginatorend>
-                        <Button type="button" icon="pi pi-cloud" class="p-button-text" />
-                    </template>
-                </DataTable>
+            :value="customers"
+            :paginator="true"
+            :rows="10"
+            :paginatorTemplate="{
+                '640px': 'PrevPageLink CurrentPageReport NextPageLink',
+                '960px': 'FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink',
+                '1300px': 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink',
+                default: 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink JumpToPageDropdown'
+            }"
+            :rowsPerPageOptions="[10, 20, 50]"
+            responsiveLayout="scroll"
+            currentPageReportTemplate="Showing {first} to {last} of {totalRecords}"
+        >
+            <Column field="name" header="Name"></Column>
+            <Column field="country.name" header="Country"></Column>
+            <Column field="company" header="Company"></Column>
+            <Column field="representative.name" header="Representative"></Column>
+            <template #paginatorstart>
+                <Button type="button" icon="pi pi-refresh" class="p-button-text" />
+            </template>
+            <template #paginatorend>
+                <Button type="button" icon="pi pi-cloud" class="p-button-text" />
+            </template>
+        </DataTable>
 	</div>
 </template>
 
@@ -164,30 +164,30 @@ export default {
             </template>
         </DataTable>
         <DataTable
-                    :value="customers"
-                    :paginator="true"
-                    :rows="10"
-                    :paginatorTemplate="{
-                        '640px': 'PrevPageLink CurrentPageReport NextPageLink',
-                        '960px': 'FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink',
-                        '1300px': 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink',
-                        default: 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink JumpToPageDropdown'
-                    }"
-                    :rowsPerPageOptions="[10, 20, 50]"
-                    responsiveLayout="scroll"
-                    currentPageReportTemplate="Showing {first} to {last} of {totalRecords}"
-                >
-                    <Column field="name" header="Name"></Column>
-                    <Column field="country.name" header="Country"></Column>
-                    <Column field="company" header="Company"></Column>
-                    <Column field="representative.name" header="Representative"></Column>
-                    <template #paginatorstart>
-                        <Button type="button" icon="pi pi-refresh" class="p-button-text" />
-                    </template>
-                    <template #paginatorend>
-                        <Button type="button" icon="pi pi-cloud" class="p-button-text" />
-                    </template>
-                </DataTable>
+            :value="customers"
+            :paginator="true"
+            :rows="10"
+            :paginatorTemplate="{
+                '640px': 'PrevPageLink CurrentPageReport NextPageLink',
+                '960px': 'FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink',
+                '1300px': 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink',
+                default: 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink JumpToPageDropdown'
+            }"
+            :rowsPerPageOptions="[10, 20, 50]"
+            responsiveLayout="scroll"
+            currentPageReportTemplate="Showing {first} to {last} of {totalRecords}"
+        >
+            <Column field="name" header="Name"></Column>
+            <Column field="country.name" header="Country"></Column>
+            <Column field="company" header="Company"></Column>
+            <Column field="representative.name" header="Representative"></Column>
+            <template #paginatorstart>
+                <Button type="button" icon="pi pi-refresh" class="p-button-text" />
+            </template>
+            <template #paginatorend>
+                <Button type="button" icon="pi pi-cloud" class="p-button-text" />
+            </template>
+        </DataTable>
 	</div>
 </template>
 
@@ -232,30 +232,30 @@ export default {
                 </template>
             </p-datatable>
             <p-datatable
-                    :value="customers"
-                    :paginator="true"
-                    :rows="10"
-                    :paginatorTemplate="{
-                        '640px': 'PrevPageLink CurrentPageReport NextPageLink',
-                        '960px': 'FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink',
-                        '1300px': 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink',
-                        default: 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink JumpToPageDropdown'
-                    }"
-                    :rowsPerPageOptions="[10, 20, 50]"
-                    responsiveLayout="scroll"
-                    currentPageReportTemplate="Showing {first} to {last} of {totalRecords}"
-                >
-                    <Column field="name" header="Name"></Column>
-                    <Column field="country.name" header="Country"></Column>
-                    <Column field="company" header="Company"></Column>
-                    <Column field="representative.name" header="Representative"></Column>
-                    <template #paginatorstart>
-                        <Button type="button" icon="pi pi-refresh" class="p-button-text" />
-                    </template>
-                    <template #paginatorend>
-                        <Button type="button" icon="pi pi-cloud" class="p-button-text" />
-                    </template>
-                </p-datatable>
+                :value="customers"
+                :paginator="true"
+                :rows="10"
+                :paginatorTemplate="{
+                    '640px': 'PrevPageLink CurrentPageReport NextPageLink',
+                    '960px': 'FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink',
+                    '1300px': 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink',
+                    default: 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink JumpToPageDropdown'
+                }"
+                :rowsPerPageOptions="[10, 20, 50]"
+                responsiveLayout="scroll"
+                currentPageReportTemplate="Showing {first} to {last} of {totalRecords}"
+            >
+                <Column field="name" header="Name"></Column>
+                <Column field="country.name" header="Country"></Column>
+                <Column field="company" header="Company"></Column>
+                <Column field="representative.name" header="Representative"></Column>
+                <template #paginatorstart>
+                    <Button type="button" icon="pi pi-refresh" class="p-button-text" />
+                </template>
+                <template #paginatorend>
+                    <Button type="button" icon="pi pi-cloud" class="p-button-text" />
+                </template>
+            </p-datatable>
         </div>
 
         <script type="module">
