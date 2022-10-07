@@ -49,7 +49,7 @@ const DataTableProps = [
     },
     {
         name: 'paginatorTemplate',
-        type: 'string',
+        type: 'any | string',
         default: 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown',
         description: 'emplate of the paginator.'
     },

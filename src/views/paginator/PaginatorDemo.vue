@@ -16,10 +16,10 @@
                 <h5>Responsive Breakpoints</h5>
                 <Paginator
                     :template="{
+                        '640px': 'PrevPageLink CurrentPageReport NextPageLink',
                         '960px': 'FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink',
-                        '640px': 'FirstPageLink PrevPageLink CurrentPageReport',
-                        '1300px': 'FirstPageLink PrevPageLink CurrentPageReport',
-                        default: 'FirstPageLink PrevPageLink PageLinks NextPageLink'
+                        '1300px': 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink',
+                        default: 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink JumpToPageDropdown'
                     }"
                     :rows="10"
                     :totalRecords="totalRecords"

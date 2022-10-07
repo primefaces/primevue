@@ -288,10 +288,10 @@ export default {
         <h5>Responsive Breakpoints</h5>
         <Paginator
             :template="{
-                '960px': 'FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink',
-                '640px': 'FirstPageLink PrevPageLink CurrentPageReport',
-                '1300px': 'FirstPageLink PrevPageLink CurrentPageReport',
-                default: 'FirstPageLink PrevPageLink PageLinks NextPageLink '
+                '640px': 'PrevPageLink CurrentPageReport NextPageLink',
+                '960px': 'FirstPageLink PrevPageLink CurrentPageReporNextPageLink LastPageLink',
+                '1300px': 'FirstPageLink PrevPageLink PageLinkNextPageLink LastPageLink',
+                default: 'FirstPageLink PrevPageLink PageLinks NextPageLinLastPageLink JumpToPageDropdown'
             }"
             :rows="10"
             :totalRecords="totalRecords"
@@ -350,10 +350,10 @@ export default {
         <h5>Responsive Breakpoints</h5>
         <Paginator
             :template="{
-                '960px': 'FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink',
-                '640px': 'FirstPageLink PrevPageLink CurrentPageReport',
-                '1300px': 'FirstPageLink PrevPageLink CurrentPageReport',
-                default: 'FirstPageLink PrevPageLink PageLinks NextPageLink '
+                '640px': 'PrevPageLink CurrentPageReport NextPageLink',
+                '960px': 'FirstPageLink PrevPageLink CurrentPageReporNextPageLink LastPageLink',
+                '1300px': 'FirstPageLink PrevPageLink PageLinkNextPageLink LastPageLink',
+                default: 'FirstPageLink PrevPageLink PageLinks NextPageLinLastPageLink JumpToPageDropdown'
             }"
             :rows="10"
             :totalRecords="totalRecords"
@@ -410,10 +410,10 @@ export default {
             <h5>Responsive Breakpoints</h5>
             <p-paginator
                 :template="{
-                    '960px': 'FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink',
-                    '640px': 'FirstPageLink PrevPageLink CurrentPageReport',
-                    '1300px': 'FirstPageLink PrevPageLink CurrentPageReport',
-                    default: 'FirstPageLink PrevPageLink PageLinks NextPageLink '
+                    '640px': 'PrevPageLink CurrentPageReport NextPageLink',
+                    '960px': 'FirstPageLink PrevPageLink CurrentPageReporNextPageLink LastPageLink',
+                    '1300px': 'FirstPageLink PrevPageLink PageLinkNextPageLink LastPageLink',
+                    default: 'FirstPageLink PrevPageLink PageLinks NextPageLinLastPageLink JumpToPageDropdown'
                 }"
                 :rows="10"
                 :totalRecords="totalRecords"

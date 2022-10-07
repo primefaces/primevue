@@ -58,7 +58,7 @@ export interface PaginatorProps {
      * - JumpToPageInput
      * - CurrentPageReport
      */
-    template?: string | undefined;
+    template?: any | string;
     /**
      * Template of the current page report element. It displays information about the pagination state. Default value is ({currentPage} of {totalPages}) whereas available placeholders are the following;
      *

@@ -40,10 +40,10 @@
                     :paginator="true"
                     :rows="10"
                     :paginatorTemplate="{
+                        '640px': 'PrevPageLink CurrentPageReport NextPageLink',
                         '960px': 'FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink',
-                        '640px': 'FirstPageLink PrevPageLink CurrentPageReport',
-                        '1300px': 'FirstPageLink PrevPageLink CurrentPageReport',
-                        default: 'FirstPageLink PrevPageLink PageLinks NextPageLink '
+                        '1300px': 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink',
+                        default: 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink JumpToPageDropdown'
                     }"
                     :rowsPerPageOptions="[10, 20, 50]"
                     responsiveLayout="scroll"
@@ -100,10 +100,10 @@ export default {
                     :paginator="true"
                     :rows="10"
                     :paginatorTemplate="{
+                        '640px': 'PrevPageLink CurrentPageReport NextPageLink',
                         '960px': 'FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink',
-                        '640px': 'FirstPageLink PrevPageLink CurrentPageReport',
-                        '1300px': 'FirstPageLink PrevPageLink CurrentPageReport',
-                        default: 'FirstPageLink PrevPageLink PageLinks NextPageLink'
+                        '1300px': 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink',
+                        default: 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink JumpToPageDropdown'
                     }"
                     :rowsPerPageOptions="[10, 20, 50]"
                     responsiveLayout="scroll"
@@ -168,10 +168,10 @@ export default {
                     :paginator="true"
                     :rows="10"
                     :paginatorTemplate="{
+                        '640px': 'PrevPageLink CurrentPageReport NextPageLink',
                         '960px': 'FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink',
-                        '640px': 'FirstPageLink PrevPageLink CurrentPageReport',
-                        '1300px': 'FirstPageLink PrevPageLink CurrentPageReport',
-                        default: 'FirstPageLink PrevPageLink PageLinks NextPageLink'
+                        '1300px': 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink',
+                        default: 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink JumpToPageDropdown'
                     }"
                     :rowsPerPageOptions="[10, 20, 50]"
                     responsiveLayout="scroll"
@@ -236,10 +236,10 @@ export default {
                     :paginator="true"
                     :rows="10"
                     :paginatorTemplate="{
+                        '640px': 'PrevPageLink CurrentPageReport NextPageLink',
                         '960px': 'FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink',
-                        '640px': 'FirstPageLink PrevPageLink CurrentPageReport',
-                        '1300px': 'FirstPageLink PrevPageLink CurrentPageReport',
-                        default: 'FirstPageLink PrevPageLink PageLinks NextPageLink '
+                        '1300px': 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink',
+                        default: 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink JumpToPageDropdown'
                     }"
                     :rowsPerPageOptions="[10, 20, 50]"
                     responsiveLayout="scroll"
