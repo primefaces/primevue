@@ -8,9 +8,9 @@
                 :aria-label="getOptionLabelToRender(processedOption)"
                 :aria-selected="isOptionGroup(processedOption) ? undefined : isOptionSelected(processedOption)"
                 :aria-expanded="isOptionGroup(processedOption) ? isOptionActive(processedOption) : undefined"
+                :aria-level="level + 1"
                 :aria-setsize="options.length"
                 :aria-posinset="index + 1"
-                :aria-level="level + 1"
             >
                 <div v-ripple class="p-cascadeselect-item-content" @click="onOptionClick($event, processedOption)">
                     <component v-if="templates['option']" :is="templates['option']" :option="processedOption.option" />
