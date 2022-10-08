@@ -102,6 +102,7 @@ export default {
     },
     data() {
         return {
+            updateKey: 0,
             d_activeIndex: this.activeIndex,
             focusedTabIndex: -1,
             isPrevButtonDisabled: true,
@@ -117,6 +118,9 @@ export default {
     },
     mounted() {
         this.updateInkBar();
+    },
+    beforeUpdate() {
+        this.updateKey++;
     },
     updated() {
         this.updateInkBar();
@@ -333,6 +337,8 @@ export default {
             ];
         },
         tabs() {
+            this.updateKey;
+
             return this.$slots.default().reduce((tabs, child) => {
                 if (this.isTabPanel(child)) {
                     tabs.push(child);
