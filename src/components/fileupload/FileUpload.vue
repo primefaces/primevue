@@ -10,20 +10,13 @@
             <FileUploadButton v-if="showCancelButton" :label="cancelButtonLabel" :icon="cancelIcon" @click="clear" :disabled="cancelDisabled" />
         </div>
         <div ref="content" class="p-fileupload-content" @dragenter="onDragEnter" @dragover="onDragOver" @dragleave="onDragLeave" @drop="onDrop">
-            <FileUploadProgressBar v-if="hasFiles" :value="progress" />
+            <FileUploadProgressBar v-if="hasFiles" :value="progress" style="height: 14px" />
+
             <FileUploadMessage v-for="msg of messages" :key="msg" severity="error" @close="onMessageClose">{{ msg }}</FileUploadMessage>
-            <div v-if="hasFiles" class="p-fileupload-files">
-                <div v-for="(file, index) of files" :key="file.name + file.type + file.size" class="p-fileupload-row">
-                    <div>
-                        <img v-if="isImage(file)" role="presentation" :alt="file.name" :src="file.objectURL" :width="previewWidth" />
-                    </div>
-                    <div class="p-fileupload-filename">{{ file.name }}</div>
-                    <div>{{ formatSize(file.size) }}</div>
-                    <div>
-                        <FileUploadButton type="button" icon="pi pi-times" @click="remove(index)" />
-                    </div>
-                </div>
-            </div>
+            <slot name="fileContent" :options="files">
+                <FileContent v-if="hasFiles" :files="files" @remove="remove" />
+                <FileContent :files="uploadedFiles" badge-value="Completed" badge-severity="success" @remove="removeUploadedFile" />
+            </slot>
             <div v-if="$slots.content && !hasFiles">
                 <slot name="content"></slot>
             </div>
@@ -48,10 +41,11 @@ import Message from 'primevue/message';
 import ProgressBar from 'primevue/progressbar';
 import Ripple from 'primevue/ripple';
 import { DomHandler } from 'primevue/utils';
+import FileContent from './FileContent.vue';
 
 export default {
     name: 'FileUpload',
-    emits: ['select', 'uploader', 'before-upload', 'progress', 'upload', 'error', 'before-send', 'clear', 'remove'],
+    emits: ['select', 'uploader', 'before-upload', 'progress', 'upload', 'error', 'before-send', 'clear', 'remove', 'removeUploadedFile'],
     props: {
         name: {
             type: String,
@@ -155,7 +149,8 @@ export default {
             files: [],
             messages: [],
             focused: false,
-            progress: null
+            progress: null,
+            uploadedFiles: []
         };
     },
     methods: {
@@ -176,6 +171,10 @@ export default {
                         if (this.isImage(file)) {
                             file.objectURL = window.URL.createObjectURL(file);
                         }
+
+                        file.onRemove = (index) => {
+                            this.remove(index);
+                        };
 
                         this.files.push(file);
                     }
@@ -208,6 +207,7 @@ export default {
                 }
 
                 this.$emit('uploader', { files: this.files });
+                this.clear();
             } else {
                 let xhr = new XMLHttpRequest();
                 let formData = new FormData();
@@ -251,6 +251,9 @@ export default {
                                 files: this.files
                             });
                         }
+
+                        this.uploadedFiles.push(...this.files);
+                        this.clear();
                     }
                 };
 
@@ -379,6 +382,15 @@ export default {
                 files: this.files
             });
         },
+        removeUploadedFile(index) {
+            let removedFile = this.uploadedFiles.splice(index, 1)[0];
+
+            this.uploadedFiles = [...this.uploadedFiles];
+            this.$emit('removeUploadedFile', {
+                file: removedFile,
+                files: this.uploadedFiles
+            });
+        },
         clearInputElement() {
             this.$refs.fileInput.value = '';
         },
@@ -478,7 +490,8 @@ export default {
     components: {
         FileUploadButton: Button,
         FileUploadProgressBar: ProgressBar,
-        FileUploadMessage: Message
+        FileUploadMessage: Message,
+        FileContent
     },
     directives: {
         ripple: Ripple
@@ -487,6 +500,9 @@ export default {
 </script>
 
 <style>
+.p-fileupload-content-body {
+    flex: 0.96;
+}
 .p-fileupload-content {
     position: relative;
 }
