@@ -183,6 +183,9 @@ export default {
             if (this.dismissableMask && this.closable && this.modal && this.mask === event.target) {
                 this.close();
             }
+            if(this.dismissableMask || this.modal){
+                event.stopPropagation()
+            }
         },
         focus() {
             let focusTarget = this.container.querySelector('[autofocus]');
