@@ -102,6 +102,43 @@ import Dock from 'primevue/dock';
                         <td>null</td>
                         <td>Whether to display the tooltip on items. The modifiers of <router-link to="/tooltip">Tooltip</router-link> can be used like an object in it. Valid keys are 'event' and 'position'.</td>
                     </tr>
+                    <tr>
+                        <td>listId</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Unique identifier of the list element.</td>
+                    </tr>
+                    <tr>
+                        <td>tabindex</td>
+                        <td>number</td>
+                        <td>0</td>
+                        <td>Index of the element in tabbing order.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h5>Events</h5>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Parameters</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>focus</td>
+                        <td>event</td>
+                        <td>Callback to invoke when the component receives focus.</td>
+                    </tr>
+                    <tr>
+                        <td>blur</td>
+                        <td>event</td>
+                        <td>Callback to invoke when the component loses focus.</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -145,7 +182,10 @@ import Dock from 'primevue/dock';
                 <tbody>
                     <tr>
                         <td>item</td>
-                        <td>item: Custom content for item</td>
+                        <td>
+                            item: Custom content for menuitem<br />
+                            index: Index of the menuitem
+                        </td>
                     </tr>
                     <tr>
                         <td>icon</td>
