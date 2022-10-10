@@ -63,6 +63,28 @@ const MenuEvents = [
     {
         name: 'hide',
         description: 'Callback to invoke when the overlay is hidden.'
+    },
+    {
+        name: 'focus',
+        description: 'Callback to invoke when component receives focus.',
+        arguments: [
+            {
+                name: 'event',
+                type: 'object',
+                description: 'Browser event'
+            }
+        ]
+    },
+    {
+        name: 'blur',
+        description: 'Callback to invoke when component loses focus.',
+        arguments: [
+            {
+                name: 'event',
+                type: 'object',
+                description: 'Browser event'
+            }
+        ]
     }
 ];
 

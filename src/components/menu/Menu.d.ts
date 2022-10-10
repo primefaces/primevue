@@ -56,7 +56,18 @@ export interface MenuSlots {
     item: (scope: { item: MenuItem }) => VNode[];
 }
 
-export declare type MenuEmits = {};
+export declare type MenuEmits = {
+    /**
+     * Callback to invoke when the component receives focus.
+     * @param {Event} event - Browser event.
+     */
+    focus: (event: Event) => void;
+    /**
+     * Callback to invoke when the component loses focus.
+     * @param {Event} event - Browser event.
+     */
+    blur: (event: Event) => void;
+};
 
 declare class Menu extends ClassComponent<MenuProps, MenuSlots, MenuEmits> {
     /**
@@ -79,16 +90,6 @@ declare class Menu extends ClassComponent<MenuProps, MenuSlots, MenuEmits> {
      * @memberof Menu
      */
     hide(): void;
-    /**
-     * Callback to invoke when the component receives focus.
-     * @param {Event} event - Browser event.
-     */
-    focus: (event: Event) => void;
-    /**
-     * Callback to invoke when the component loses focus.
-     * @param {Event} event - Browser event.
-     */
-    blur: (event: Event) => void;
 }
 
 declare module '@vue/runtime-core' {
