@@ -209,11 +209,9 @@ export default {
             }
         },
         navForward(e) {
-            if (this.value.length - 1 === this.d_activeIndex) return;
-
             this.stopSlideShow();
 
-            let nextItemIndex = this.d_activeIndex + 1;
+            let nextItemIndex = this.d_activeIndex === this.value.length - 1 ? this.value.length - 1 : this.d_activeIndex + 1;
 
             if (nextItemIndex + this.totalShiftedItems > this.getMedianItemIndex() && (-1 * this.totalShiftedItems < this.getTotalPageNumber() - 1 || this.circular)) {
                 this.step(-1);
