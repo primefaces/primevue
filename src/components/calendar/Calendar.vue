@@ -1988,22 +1988,21 @@ export default {
             switch (event.code) {
                 case 'ArrowDown': {
                     cellContent.tabIndex = '-1';
-                    
+
                     let nextRow = cell.parentElement.nextElementSibling;
 
                     if (nextRow) {
                         let tableRowIndex = DomHandler.index(cell.parentElement);
-
                         const tableRows = Array.from(cell.parentElement.parentElement.children);
                         const nextTableRows = tableRows.slice(tableRowIndex + 1);
 
-                        let hasNextFocusableDate = nextTableRows.find(el => {
+                        let hasNextFocusableDate = nextTableRows.find((el) => {
                             let focusCell = el.children[cellIndex].children[0];
 
-                            return !DomHandler.hasClass(focusCell, 'p-disabled')
-                        })
+                            return !DomHandler.hasClass(focusCell, 'p-disabled');
+                        });
 
-                        if(hasNextFocusableDate) {
+                        if (hasNextFocusableDate) {
                             let focusCell = hasNextFocusableDate.children[cellIndex].children[0];
 
                             focusCell.tabIndex = '0';
@@ -2023,23 +2022,20 @@ export default {
 
                 case 'ArrowUp': {
                     cellContent.tabIndex = '-1';
-                    
                     let prevRow = cell.parentElement.previousElementSibling;
 
                     if (prevRow) {
                         let tableRowIndex = DomHandler.index(cell.parentElement);
-
                         const tableRows = Array.from(cell.parentElement.parentElement.children);
-
                         const prevTableRows = tableRows.slice(0, tableRowIndex).reverse();
 
-                        let hasNextFocusableDate = prevTableRows.find(el => {
+                        let hasNextFocusableDate = prevTableRows.find((el) => {
                             let focusCell = el.children[cellIndex].children[0];
 
-                            return !DomHandler.hasClass(focusCell, 'p-disabled')
-                        })
+                            return !DomHandler.hasClass(focusCell, 'p-disabled');
+                        });
 
-                        if(hasNextFocusableDate) {
+                        if (hasNextFocusableDate) {
                             let focusCell = hasNextFocusableDate.children[cellIndex].children[0];
 
                             focusCell.tabIndex = '0';
@@ -2048,7 +2044,6 @@ export default {
                             this.navigationState = { backward: true };
                             this.navBackward(event);
                         }
-
                     } else {
                         this.navigationState = { backward: true };
                         this.navBackward(event);
@@ -2063,17 +2058,16 @@ export default {
                     let prevCell = cell.previousElementSibling;
 
                     if (prevCell) {
-
                         const cells = Array.from(cell.parentElement.children);
                         const prevCells = cells.slice(0, cellIndex).reverse();
 
-                        let hasNextFocusableDate = prevCells.find(el => {
+                        let hasNextFocusableDate = prevCells.find((el) => {
                             let focusCell = el.children[0];
-                            
-                            return !DomHandler.hasClass(focusCell, 'p-disabled')
+
+                            return !DomHandler.hasClass(focusCell, 'p-disabled');
                         });
 
-                        if(hasNextFocusableDate) {
+                        if (hasNextFocusableDate) {
                             let focusCell = hasNextFocusableDate.children[0];
 
                             focusCell.tabIndex = '0';
@@ -2096,10 +2090,10 @@ export default {
                     if (nextCell) {
                         const cells = Array.from(cell.parentElement.children);
                         const nextCells = cells.slice(cellIndex + 1);
-                        let hasNextFocusableDate = nextCells.find(el => {
+                        let hasNextFocusableDate = nextCells.find((el) => {
                             let focusCell = el.children[0];
 
-                            return !DomHandler.hasClass(focusCell, 'p-disabled')
+                            return !DomHandler.hasClass(focusCell, 'p-disabled');
                         });
 
                         if (hasNextFocusableDate) {
@@ -2107,7 +2101,6 @@ export default {
 
                             focusCell.tabIndex = '0';
                             focusCell.focus();
-                            
                         } else {
                             this.navigateToMonth(event, false, groupIndex);
                         }
