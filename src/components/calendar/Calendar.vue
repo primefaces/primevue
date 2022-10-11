@@ -1983,21 +1983,34 @@ export default {
             const cellContent = event.currentTarget;
             const cell = cellContent.parentElement;
 
+            const cellIndex = DomHandler.index(cell);
+
             switch (event.code) {
                 case 'ArrowDown': {
                     cellContent.tabIndex = '-1';
-                    let cellIndex = DomHandler.index(cell);
+                    
                     let nextRow = cell.parentElement.nextElementSibling;
 
                     if (nextRow) {
-                        let focusCell = nextRow.children[cellIndex].children[0];
+                        let tableRowIndex = DomHandler.index(cell.parentElement);
 
-                        if (DomHandler.hasClass(focusCell, 'p-disabled')) {
+                        const tableRows = Array.from(cell.parentElement.parentElement.children);
+                        const nextTableRows = tableRows.slice(tableRowIndex + 1);
+
+                        let hasNextFocusableDate = nextTableRows.find(el => {
+                            let focusCell = el.children[cellIndex].children[0];
+
+                            return !DomHandler.hasClass(focusCell, 'p-disabled')
+                        })
+
+                        if(hasNextFocusableDate) {
+                            let focusCell = hasNextFocusableDate.children[cellIndex].children[0];
+
+                            focusCell.tabIndex = '0';
+                            focusCell.focus();
+                        } else {
                             this.navigationState = { backward: false };
                             this.navForward(event);
-                        } else {
-                            nextRow.children[cellIndex].children[0].tabIndex = '0';
-                            nextRow.children[cellIndex].children[0].focus();
                         }
                     } else {
                         this.navigationState = { backward: false };
@@ -2010,19 +2023,32 @@ export default {
 
                 case 'ArrowUp': {
                     cellContent.tabIndex = '-1';
-                    let cellIndex = DomHandler.index(cell);
+                    
                     let prevRow = cell.parentElement.previousElementSibling;
 
                     if (prevRow) {
-                        let focusCell = prevRow.children[cellIndex].children[0];
+                        let tableRowIndex = DomHandler.index(cell.parentElement);
 
-                        if (DomHandler.hasClass(focusCell, 'p-disabled')) {
-                            this.navigationState = { backward: true };
-                            this.navBackward(event);
-                        } else {
+                        const tableRows = Array.from(cell.parentElement.parentElement.children);
+
+                        const prevTableRows = tableRows.slice(0, tableRowIndex).reverse();
+
+                        let hasNextFocusableDate = prevTableRows.find(el => {
+                            let focusCell = el.children[cellIndex].children[0];
+
+                            return !DomHandler.hasClass(focusCell, 'p-disabled')
+                        })
+
+                        if(hasNextFocusableDate) {
+                            let focusCell = hasNextFocusableDate.children[cellIndex].children[0];
+
                             focusCell.tabIndex = '0';
                             focusCell.focus();
+                        } else {
+                            this.navigationState = { backward: true };
+                            this.navBackward(event);
                         }
+
                     } else {
                         this.navigationState = { backward: true };
                         this.navBackward(event);
@@ -2037,13 +2063,23 @@ export default {
                     let prevCell = cell.previousElementSibling;
 
                     if (prevCell) {
-                        let focusCell = prevCell.children[0];
 
-                        if (DomHandler.hasClass(focusCell, 'p-disabled')) {
-                            this.navigateToMonth(event, true, groupIndex);
-                        } else {
+                        const cells = Array.from(cell.parentElement.children);
+                        const prevCells = cells.slice(0, cellIndex).reverse();
+
+                        let hasNextFocusableDate = prevCells.find(el => {
+                            let focusCell = el.children[0];
+                            
+                            return !DomHandler.hasClass(focusCell, 'p-disabled')
+                        });
+
+                        if(hasNextFocusableDate) {
+                            let focusCell = hasNextFocusableDate.children[0];
+
                             focusCell.tabIndex = '0';
                             focusCell.focus();
+                        } else {
+                            this.navigateToMonth(event, true, groupIndex);
                         }
                     } else {
                         this.navigateToMonth(event, true, groupIndex);
@@ -2058,13 +2094,22 @@ export default {
                     let nextCell = cell.nextElementSibling;
 
                     if (nextCell) {
-                        let focusCell = nextCell.children[0];
+                        const cells = Array.from(cell.parentElement.children);
+                        const nextCells = cells.slice(cellIndex + 1);
+                        let hasNextFocusableDate = nextCells.find(el => {
+                            let focusCell = el.children[0];
 
-                        if (DomHandler.hasClass(focusCell, 'p-disabled')) {
-                            this.navigateToMonth(event, false, groupIndex);
-                        } else {
+                            return !DomHandler.hasClass(focusCell, 'p-disabled')
+                        });
+
+                        if (hasNextFocusableDate) {
+                            let focusCell = hasNextFocusableDate.children[0];
+
                             focusCell.tabIndex = '0';
                             focusCell.focus();
+                            
+                        } else {
+                            this.navigateToMonth(event, false, groupIndex);
                         }
                     } else {
                         this.navigateToMonth(event, false, groupIndex);
