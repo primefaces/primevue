@@ -130,8 +130,8 @@
 </template>
 
 <script>
-import CustomerService from '../../service/CustomerService';
 import { FilterMatchMode, FilterOperator } from 'primevue/api';
+import CustomerService from '../../service/CustomerService';
 import DataTableDoc from './DataTableDoc';
 
 export default {
