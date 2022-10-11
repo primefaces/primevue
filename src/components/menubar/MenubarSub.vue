@@ -232,6 +232,11 @@ export default {
 
                 case 'Enter': {
                     this.onItemClick(event, item, navigate);
+
+                    if (!this.root) {
+                        this.setFocusToMenuitem(listItem, listItem.parentElement.parentElement);
+                    }
+
                     event.preventDefault();
                     break;
                 }

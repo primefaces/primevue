@@ -32,7 +32,8 @@
                 },
                 {
                     "name": "PRO Support",
-                    "to": "/support"
+                    "to": "/support",
+                    "badge": "NEW"
                 }
             ]
         },
@@ -594,8 +595,7 @@
                 },
                 {
                     "name": "DynamicDialog",
-                    "to": "/dynamicdialog",
-                    "badge": "NEW"
+                    "to": "/dynamicdialog"
                 },
                 {
                     "name": "OverlayPanel",

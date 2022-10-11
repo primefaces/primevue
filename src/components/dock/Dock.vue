@@ -1,6 +1,6 @@
 <template>
     <div :class="containerClass" :style="style">
-        <DockSub :model="model" :templates="$slots" :exact="exact" :tooltipOptions="tooltipOptions"></DockSub>
+        <DockSub :model="model" :templates="$slots" :exact="exact" :tooltipOptions="tooltipOptions" :position="position" :listId="listId" :aria-label="ariaLabel" :aria-labelledby="ariaLabelledby" :tabindex="tabindex"></DockSub>
     </div>
 </template>
 
@@ -21,6 +21,22 @@ export default {
         exact: {
             type: Boolean,
             default: true
+        },
+        listId: {
+            type: String,
+            default: null
+        },
+        tabindex: {
+            type: Number,
+            default: 0
+        },
+        'aria-label': {
+            type: String,
+            default: null
+        },
+        'aria-labelledby': {
+            type: String,
+            default: null
         }
     },
     computed: {

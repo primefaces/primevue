@@ -1,6 +1,6 @@
 import { VNode } from 'vue';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 import { MenuItem } from '../menuitem';
+import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 type DockPositionType = 'bottom' | 'top' | 'left' | 'right' | undefined;
 
@@ -53,6 +53,22 @@ export interface DockProps {
      * @see DockTooltipOptions
      */
     tooltipOptions?: DockTooltipOptions;
+    /**
+     * Identifier of the list element.
+     */
+    listId?: string | undefined;
+    /**
+     * Index of the element in tabbing order.
+     */
+    tabindex?: number | string | undefined;
+    /**
+     * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
+     */
+    'aria-labelledby'?: string | undefined;
+    /**
+     * Establishes a string value that labels the component.
+     */
+    'aria-label'?: string | undefined;
 }
 
 export interface DockSlots {
@@ -65,6 +81,10 @@ export interface DockSlots {
          * Custom content for item.
          */
         item: MenuItem;
+        /**
+         * Index of the menuitem
+         */
+        index: number;
     }) => VNode[];
     /**
      * Custom icon content.
@@ -78,7 +98,18 @@ export interface DockSlots {
     }) => VNode[];
 }
 
-export declare type DockEmits = {};
+export declare type DockEmits = {
+    /**
+     * Callback to invoke when the component receives focus.
+     * @param {Event} event - Browser event.
+     */
+    focus: (event: Event) => void;
+    /**
+     * Callback to invoke when the component loses focus.
+     * @param {Event} event - Browser event.
+     */
+    blur: (event: Event) => void;
+};
 
 declare class Dock extends ClassComponent<DockProps, DockSlots, DockEmits> {}
 

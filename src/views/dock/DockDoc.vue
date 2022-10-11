@@ -102,6 +102,43 @@ import Dock from 'primevue/dock';
                         <td>null</td>
                         <td>Whether to display the tooltip on items. The modifiers of <router-link to="/tooltip">Tooltip</router-link> can be used like an object in it. Valid keys are 'event' and 'position'.</td>
                     </tr>
+                    <tr>
+                        <td>listId</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Unique identifier of the list element.</td>
+                    </tr>
+                    <tr>
+                        <td>tabindex</td>
+                        <td>number</td>
+                        <td>0</td>
+                        <td>Index of the element in tabbing order.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h5>Events</h5>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Parameters</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>focus</td>
+                        <td>event</td>
+                        <td>Callback to invoke when the component receives focus.</td>
+                    </tr>
+                    <tr>
+                        <td>blur</td>
+                        <td>event</td>
+                        <td>Callback to invoke when the component loses focus.</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -145,7 +182,10 @@ import Dock from 'primevue/dock';
                 <tbody>
                     <tr>
                         <td>item</td>
-                        <td>item: Custom content for item</td>
+                        <td>
+                            item: Custom content for menuitem<br />
+                            index: Index of the menuitem
+                        </td>
                     </tr>
                     <tr>
                         <td>icon</td>
@@ -154,6 +194,83 @@ import Dock from 'primevue/dock';
                 </tbody>
             </table>
         </div>
+
+        <h5>Accessibility</h5>
+        <DevelopmentSection>
+            <h6>Screen Reader</h6>
+            <p>
+                Dock component uses the <i>menu</i> role with the <i>aria-orientation</i> and the value to describe the menu can either be provided with <i>aria-labelledby</i> or <i>aria-label</i> props. Each list item has a <i>presentation</i> role
+                whereas anchor elements have a <i>menuitem</i> role with <i>aria-label</i> referring to the label of the item and <i>aria-disabled</i> defined if the item is disabled.
+            </p>
+
+            <h6>Keyboard Support</h6>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Key</th>
+                            <th>Function</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <i>tab</i>
+                            </td>
+                            <td>Moves focus to the first menuitem.</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i>enter</i>
+                            </td>
+                            <td>Activates the focused menuitem.</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i>space</i>
+                            </td>
+                            <td>Activates the focused menuitem.</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i>down arrow</i>
+                            </td>
+                            <td>Moves focus to the next menuitem in vertical layout.</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i>up arrow</i>
+                            </td>
+                            <td>Moves focus to the previous menuitem in vertical layout.</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i>right arrow</i>
+                            </td>
+                            <td>Moves focus to the next menuitem in horizontal layout.</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i>left arrow</i>
+                            </td>
+                            <td>Moves focus to the previous menuitem in horizontal layout.</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i>home</i>
+                            </td>
+                            <td>Moves focus to the first menuitem.</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i>end</i>
+                            </td>
+                            <td>Moves focus to the last menuitem.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </DevelopmentSection>
 
         <h5>Dependencies</h5>
         <p>None.</p>

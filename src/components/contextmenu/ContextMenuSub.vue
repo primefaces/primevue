@@ -170,7 +170,8 @@ export default {
                 }
 
                 case 'ArrowLeft': {
-                    //no op
+                    event.preventDefault();
+                    break;
                 }
 
                 case 'Home': {

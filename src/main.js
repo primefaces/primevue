@@ -109,11 +109,7 @@ import DevelopmentSection from './DevelopmentSection';
 
 import EventBus from '@/AppEventBus';
 
-import 'primeflex/primeflex.css';
-import 'primeicons/primeicons.css';
-import 'prismjs/themes/prism-coy.css';
-import './assets/styles/flags.css';
-import './assets/styles/primevue.css';
+import './app.scss';
 
 router.beforeEach(function (to, from, next) {
     if (to.name === 'home' && from.name) {
