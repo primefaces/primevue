@@ -49,3 +49,9 @@ export default {
     }
 };
 </script>
+
+<style scoped>
+.p-fileupload-content-body {
+    flex: 0.96;
+}
+</style>

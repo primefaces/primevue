@@ -1,19 +1,21 @@
 <template>
     <div v-if="isAdvanced" class="p-fileupload p-fileupload-advanced p-component">
         <div class="p-fileupload-buttonbar">
-            <span v-ripple :class="advancedChooseButtonClass" :style="style" @click="choose" @keydown.enter="choose" @focus="onFocus" @blur="onBlur" tabindex="0">
-                <input ref="fileInput" type="file" @change="onFileSelect" :multiple="multiple" :accept="accept" :disabled="chooseDisabled" />
-                <span :class="advancedChooseIconClass"></span>
-                <span class="p-button-label">{{ chooseButtonLabel }}</span>
-            </span>
-            <FileUploadButton v-if="showUploadButton" :label="uploadButtonLabel" :icon="uploadIcon" @click="upload" :disabled="uploadDisabled" />
-            <FileUploadButton v-if="showCancelButton" :label="cancelButtonLabel" :icon="cancelIcon" @click="clear" :disabled="cancelDisabled" />
+            <input ref="fileInput" type="file" @change="onFileSelect" :multiple="multiple" :accept="accept" :disabled="chooseDisabled" />
+            <slot name="header" :options="{ uploadDisabled, cancelDisabled, headerSlotProps }">
+                <span v-ripple :class="advancedChooseButtonClass" :style="style" @click="choose" @keydown.enter="choose" @focus="onFocus" @blur="onBlur" tabindex="0">
+                    <span :class="advancedChooseIconClass"></span>
+                    <span class="p-button-label">{{ chooseButtonLabel }}</span>
+                </span>
+                <FileUploadButton v-if="showUploadButton" :label="uploadButtonLabel" :icon="uploadIcon" @click="upload" :disabled="uploadDisabled" />
+                <FileUploadButton v-if="showCancelButton" :label="cancelButtonLabel" :icon="cancelIcon" @click="clear" :disabled="cancelDisabled" />
+            </slot>
         </div>
         <div ref="content" class="p-fileupload-content" @dragenter="onDragEnter" @dragover="onDragOver" @dragleave="onDragLeave" @drop="onDrop">
             <FileUploadProgressBar v-if="hasFiles" :value="progress" style="height: 14px" />
 
             <FileUploadMessage v-for="msg of messages" :key="msg" severity="error" @close="onMessageClose">{{ msg }}</FileUploadMessage>
-            <slot name="fileContent" :options="files">
+            <slot name="fileContent" :options="{ files, uploadedFiles }">
                 <FileContent v-if="hasFiles" :files="files" @remove="remove" />
                 <FileContent :files="uploadedFiles" badge-value="Completed" badge-severity="success" @remove="removeUploadedFile" />
             </slot>
@@ -150,9 +152,21 @@ export default {
             messages: [],
             focused: false,
             progress: null,
-            uploadedFiles: []
+            uploadedFiles: [],
+            headerSlotProps: {
+                choose: () => {
+                    this.choose();
+                },
+                upload: () => {
+                    this.upload();
+                },
+                clear: () => {
+                    this.clear();
+                }
+            }
         };
     },
+
     methods: {
         onFileSelect(event) {
             if (event.type !== 'drop' && this.isIE11() && this.duplicateIEEvent) {
@@ -499,10 +513,7 @@ export default {
 };
 </script>
 
-<style>
-.p-fileupload-content-body {
-    flex: 0.96;
-}
+<style scoped>
 .p-fileupload-content {
     position: relative;
 }
@@ -533,11 +544,7 @@ export default {
     overflow: hidden;
 }
 
-.p-button.p-fileupload-choose input[type='file'] {
-    display: none;
-}
-
-.p-fileupload-choose.p-fileupload-choose-selected input[type='file'] {
+input[type='file'] {
     display: none;
 }
 
