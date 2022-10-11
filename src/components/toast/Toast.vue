@@ -111,7 +111,7 @@ export default {
             if (this.$refs.container && this.autoZIndex && ObjectUtils.isEmpty(this.messages)) {
                 setTimeout(() => {
                     ZIndexUtils.clear(this.$refs.container);
-                }, 300);
+                }, 200);
             }
         },
         createStyle() {
