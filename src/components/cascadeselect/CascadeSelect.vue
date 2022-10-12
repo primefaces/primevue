@@ -774,8 +774,7 @@ export default {
         },
         labelClass() {
             return [
-                'p-cascadeselect-label',
-                'p-inputtext',
+                'p-cascadeselect-label p-inputtext',
                 {
                     'p-placeholder': this.label === this.placeholder,
                     'p-cascadeselect-label-empty': !this.$slots['value'] && (this.label === 'p-emptylabel' || this.label.length === 0)
