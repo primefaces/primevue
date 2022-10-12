@@ -1150,7 +1150,9 @@ export default {
             }
 
             if (modelVal !== null) {
-                this.updateModel(modelVal);
+                const formattedValue = this.formatValue(modelVal,this.datePattern)
+                const rangeModelValue = formattedValue.split(/\s*-\s*/)
+                this.updateModel(rangeModelValue);
             }
 
             if (this.isRangeSelection() && this.hideOnRangeSelection && modelVal[1] !== null) {
