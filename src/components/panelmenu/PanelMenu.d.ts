@@ -1,10 +1,27 @@
 import { VNode } from 'vue';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 import { MenuItem } from '../menuitem';
+import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export interface PanelMenuExpandedKeys {
     [key: string]: any;
 }
+
+export interface PanelMenuPanelOpenEvent {
+    /**
+     * Browser mouse event.
+     * @type {MouseEvent}
+     */
+    originalEvent: MouseEvent;
+    /**
+     * Current item.
+     */
+    item: any;
+}
+
+/**
+ * @extends {PanelMenuPanelOpenEvent}
+ */
+export interface PanelMenuPanelCloseEvent extends PanelMenuPanelOpenEvent {}
 
 export interface PanelMenuProps {
     /**
@@ -20,6 +37,10 @@ export interface PanelMenuProps {
      * Whether to apply 'router-link-active-exact' class if route exactly matches the item path.
      */
     exact?: boolean | undefined;
+    /**
+     * Index of the element in tabbing order.
+     */
+    tabindex?: number | string | undefined;
 }
 
 export interface PanelMenuSlots {
@@ -41,6 +62,16 @@ export declare type PanelMenuEmits = {
      * @param {*} value - New value.
      */
     'update:expandedKeys': (value: any) => void;
+    /**
+     * Callback to invoke when a panel gets expanded.
+     * @param {PanelMenuPanelOpenEvent} event - Custom panel open event.
+     */
+    'panel-open': (event: PanelMenuPanelOpenEvent) => void;
+    /**
+     * Callback to invoke when an active panel is collapsed by clicking on the header.
+     * @param {PanelMenuPanelCloseEvent} event - Custom panel close event.
+     */
+    'panel-close': (event: PanelMenuPanelCloseEvent) => void;
 };
 
 declare class PanelMenu extends ClassComponent<PanelMenuProps, PanelMenuSlots, PanelMenuEmits> {}

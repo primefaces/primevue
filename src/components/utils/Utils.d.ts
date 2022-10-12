@@ -70,6 +70,8 @@ export declare class ObjectUtils {
     static isEmpty(value: any): boolean;
     static isNotEmpty(value: any): boolean;
     static isPrintableCharacter(char: string): boolean;
+    static findLast(value: any[], callback: () => any): any;
+    static findLastIndex(value: any[], callback: () => any): number;
 }
 
 export declare namespace ZIndexUtils {

@@ -1,57 +1,87 @@
 <template>
-    <ul class="p-submenu-list" role="tree">
-        <template v-for="(item, i) of model" :key="label(item) + i.toString()">
-            <li v-if="visible(item) && !item.separator" role="none" :class="getItemClass(item)" :style="item.style">
-                <template v-if="!template">
-                    <router-link v-if="item.to && !disabled(item)" v-slot="{ navigate, href, isActive: isRouterActive, isExactActive }" :to="item.to" custom>
-                        <a :href="href" :class="linkClass(item, { isActive: isRouterActive, isExactActive })" @click="onItemClick($event, item, navigate)" role="treeitem" :aria-expanded="isActive(item)">
-                            <span :class="['p-menuitem-icon', item.icon]"></span>
-                            <span class="p-menuitem-text">{{ label(item) }}</span>
+    <ul class="p-submenu-list">
+        <template v-for="(processedItem, index) of items" :key="getItemKey(processedItem)">
+            <li
+                v-if="isItemVisible(processedItem) && !getItemProp(processedItem, 'separator')"
+                :id="getItemId(processedItem)"
+                :style="getItemProp(processedItem, 'style')"
+                :class="getItemClass(processedItem)"
+                role="treeitem"
+                :aria-label="getItemLabel(processedItem)"
+                :aria-expanded="isItemGroup(processedItem) ? isItemActive(processedItem) : undefined"
+                :aria-level="level + 1"
+                :aria-setsize="getAriaSetSize()"
+                :aria-posinset="getAriaPosInset(index)"
+                @click="onItemClick($event, processedItem)"
+            >
+                <div class="p-menuitem-content">
+                    <template v-if="!template">
+                        <router-link v-if="getItemProp(processedItem, 'to') && !isItemDisabled(processedItem)" v-slot="{ navigate, href, isActive, isExactActive }" :to="getItemProp(processedItem, 'to')" custom>
+                            <a v-ripple :href="href" :class="getItemActionClass(processedItem, { isActive, isExactActive })" tabindex="-1" :aria-hidden="true" @click="onItemActionClick($event, navigate)">
+                                <span v-if="getItemProp(processedItem, 'icon')" :class="getItemIconClass(processedItem)"></span>
+                                <span class="p-menuitem-text">{{ getItemLabel(processedItem) }}</span>
+                            </a>
+                        </router-link>
+                        <a v-else v-ripple :href="getItemProp(processedItem, 'url')" :class="getItemActionClass(processedItem)" :target="getItemProp(processedItem, 'target')" tabindex="-1" :aria-hidden="true">
+                            <span v-if="getItemProp(processedItem, 'items')" :class="getItemToggleIconClass(processedItem)"></span>
+                            <span v-if="getItemProp(processedItem, 'icon')" :class="getItemIconClass(processedItem)"></span>
+                            <span class="p-menuitem-text">{{ getItemLabel(processedItem) }}</span>
                         </a>
-                    </router-link>
-                    <a
-                        v-else
-                        :href="item.url"
-                        :class="linkClass(item)"
-                        :target="item.target"
-                        @click="onItemClick($event, item)"
-                        @keydown="onItemKeydown($event, item)"
-                        role="treeitem"
-                        :aria-expanded="isActive(item)"
-                        :tabindex="disabled(item) ? null : '0'"
-                    >
-                        <span v-if="item.items" :class="getSubmenuIcon(item)"></span>
-                        <span :class="['p-menuitem-icon', item.icon]"></span>
-                        <span class="p-menuitem-text">{{ label(item) }}</span>
-                    </a>
-                </template>
-                <component v-else :is="template" :item="item"></component>
+                    </template>
+                    <component v-else :is="template" :item="processedItem.item"></component>
+                </div>
                 <transition name="p-toggleable-content">
-                    <div v-show="isActive(item)" class="p-toggleable-content">
-                        <PanelMenuSub v-if="visible(item) && item.items" :key="label(item) + '_sub_'" :model="item.items" :template="template" :expandedKeys="expandedKeys" @item-toggle="$emit('item-toggle', $event)" :exact="exact" />
+                    <div v-show="isItemActive(processedItem)" class="p-toggleable-content">
+                        <PanelMenuSub
+                            v-if="isItemVisible(processedItem) && isItemGroup(processedItem)"
+                            role="group"
+                            :panelId="panelId"
+                            :focusedItemId="focusedItemId"
+                            :items="processedItem.items"
+                            :level="level + 1"
+                            :template="template"
+                            :activeItemPath="activeItemPath"
+                            :exact="exact"
+                            @item-toggle="onItemToggle"
+                        />
                     </div>
                 </transition>
             </li>
-            <li v-if="visible(item) && item.separator" :key="'separator' + i.toString()" :class="['p-menu-separator', item.class]" :style="item.style"></li>
+            <li v-if="isItemVisible(processedItem) && getItemProp(processedItem, 'separator')" :style="getItemProp(processedItem, 'style')" :class="getSeparatorItemClass(processedItem)" role="separator"></li>
         </template>
     </ul>
 </template>
 
 <script>
+import Ripple from 'primevue/ripple';
+import { ObjectUtils } from 'primevue/utils';
+
 export default {
     name: 'PanelMenuSub',
     emits: ['item-toggle'],
     props: {
-        model: {
-            type: null,
+        panelId: {
+            type: String,
             default: null
+        },
+        focusedItemId: {
+            type: String,
+            default: null
+        },
+        items: {
+            type: Array,
+            default: null
+        },
+        level: {
+            type: Number,
+            default: 0
         },
         template: {
             type: Function,
             default: null
         },
-        expandedKeys: {
-            type: null,
+        activeItemPath: {
+            type: Object,
             default: null
         },
         exact: {
@@ -59,74 +89,85 @@ export default {
             default: true
         }
     },
-    data() {
-        return {
-            activeItem: null
-        };
-    },
     methods: {
-        onItemClick(event, item, navigate) {
-            if (this.isActive(item) && this.activeItem === null) {
-                this.activeItem = item;
-            }
-
-            if (this.disabled(item)) {
-                event.preventDefault();
-
-                return;
-            }
-
-            if (item.command) {
-                item.command({
-                    originalEvent: event,
-                    item: item
-                });
-            }
-
-            if (this.activeItem && this.activeItem === item) this.activeItem = null;
-            else this.activeItem = item;
-
-            this.$emit('item-toggle', { item: item, expanded: this.activeItem != null });
-
-            if (item.to && navigate) {
-                navigate(event);
-            }
+        getItemId(processedItem) {
+            return `${this.panelId}_${processedItem.key}`;
         },
-        onItemKeydown(event, item) {
-            if (event.which === 13) {
-                this.onItemClick(event, item);
-            }
+        getItemKey(processedItem) {
+            return this.getItemId(processedItem);
         },
-        getItemClass(item) {
-            return ['p-menuitem', item.className];
+        getItemProp(processedItem, name) {
+            return processedItem && processedItem.item ? ObjectUtils.getItemValue(processedItem.item[name]) : undefined;
         },
-        linkClass(item, routerProps) {
+        getItemLabel(processedItem) {
+            return this.getItemProp(processedItem, 'label');
+        },
+        isItemActive(processedItem) {
+            return this.activeItemPath.some((path) => path.key === processedItem.key);
+        },
+        isItemVisible(processedItem) {
+            return this.getItemProp(processedItem, 'visible') !== false;
+        },
+        isItemDisabled(processedItem) {
+            return this.getItemProp(processedItem, 'disabled');
+        },
+        isItemFocused(processedItem) {
+            return this.focusedItemId === this.getItemId(processedItem);
+        },
+        isItemGroup(processedItem) {
+            return ObjectUtils.isNotEmpty(processedItem.items);
+        },
+        onItemClick(event, processedItem) {
+            const command = this.getItemProp(processedItem, 'command');
+
+            command && command({ originalEvent: event, item: processedItem.item });
+            this.$emit('item-toggle', { processedItem, expanded: !this.isItemActive(processedItem) });
+
+            event.stopPropagation();
+        },
+        onItemToggle(event) {
+            this.$emit('item-toggle', event);
+        },
+        onItemActionClick(event, navigate) {
+            navigate && navigate(event);
+        },
+        getAriaSetSize() {
+            return this.items.filter((processedItem) => this.isItemVisible(processedItem) && !this.getItemProp(processedItem, 'separator')).length;
+        },
+        getAriaPosInset(index) {
+            return index - this.items.slice(0, index).filter((processedItem) => this.isItemVisible(processedItem) && this.getItemProp(processedItem, 'separator')).length + 1;
+        },
+        getItemClass(processedItem) {
             return [
-                'p-menuitem-link',
+                'p-menuitem',
+                this.getItemProp(processedItem, 'class'),
                 {
-                    'p-disabled': this.disabled(item),
+                    'p-focus': this.isItemFocused(processedItem),
+                    'p-disabled': this.isItemDisabled(processedItem)
+                }
+            ];
+        },
+        getItemActionClass(processedItem, routerProps) {
+            return [
+                'p-menuitem-link p-menuitem-action',
+                {
                     'router-link-active': routerProps && routerProps.isActive,
                     'router-link-active-exact': this.exact && routerProps && routerProps.isExactActive
                 }
             ];
         },
-        isActive(item) {
-            return this.expandedKeys ? this.expandedKeys[item.key] : item === this.activeItem;
+        getItemIconClass(processedItem) {
+            return ['p-menuitem-icon', this.getItemProp(processedItem, 'icon')];
         },
-        getSubmenuIcon(item) {
-            const active = this.isActive(item);
-
-            return ['p-panelmenu-icon pi pi-fw', { 'pi-angle-right': !active, 'pi-angle-down': active }];
+        getItemToggleIconClass(processedItem) {
+            return ['p-panelmenu-icon', this.isItemActive(processedItem) ? 'pi pi-fw pi-chevron-down' : 'pi pi-fw pi-chevron-right'];
         },
-        visible(item) {
-            return typeof item.visible === 'function' ? item.visible() : item.visible !== false;
-        },
-        disabled(item) {
-            return typeof item.disabled === 'function' ? item.disabled() : item.disabled;
-        },
-        label(item) {
-            return typeof item.label === 'function' ? item.label() : item.label;
+        getSeparatorItemClass(processedItem) {
+            return ['p-menu-separator p-menuitem-separator', this.getItemProp(processedItem, 'class')];
         }
+    },
+    directives: {
+        ripple: Ripple
     }
 };
 </script>
