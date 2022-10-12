@@ -318,18 +318,15 @@ export default {
         onArrowLeftKey(event) {
             const processedItem = this.visibleItems[this.focusedItemInfo.index];
             const parentItem = this.activeItemPath.find((p) => p.key === processedItem.parentKey);
-            const matched = this.focusedItemInfo.parentKey === '' || (parentItem && parentItem.key === this.focusedItemInfo.parentKey);
             const root = ObjectUtils.isEmpty(processedItem.parent);
-
-            if (matched) {
-                this.activeItemPath = this.activeItemPath.filter((p) => p.parentKey !== this.focusedItemInfo.parentKey);
-            }
 
             if (!root) {
                 this.focusedItemInfo = { index: -1, parentKey: parentItem ? parentItem.parentKey : '' };
                 this.searchValue = '';
                 this.onArrowDownKey(event);
             }
+
+            this.activeItemPath = this.activeItemPath.filter((p) => p.parentKey !== this.focusedItemInfo.parentKey);
 
             event.preventDefault();
         },
@@ -338,15 +335,10 @@ export default {
             const grouped = this.isProccessedItemGroup(processedItem);
 
             if (grouped) {
-                const matched = this.activeItemPath.some((p) => processedItem.key === p.key);
-
-                if (matched) {
-                    this.focusedItemInfo = { index: -1, parentKey: processedItem.key };
-                    this.searchValue = '';
-                    this.onArrowDownKey(event);
-                } else {
-                    this.onItemChange({ originalEvent: event, processedItem });
-                }
+                this.onItemChange({ originalEvent: event, processedItem });
+                this.focusedItemInfo = { index: -1, parentKey: processedItem.key };
+                this.searchValue = '';
+                this.onArrowDownKey(event);
             }
 
             event.preventDefault();
