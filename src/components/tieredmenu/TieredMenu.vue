@@ -1,10 +1,10 @@
 <template>
     <Portal :appendTo="appendTo" :disabled="!popup">
         <transition name="p-connected-overlay" @enter="onEnter" @after-enter="onAfterEnter" @leave="onLeave" @after-leave="onAfterLeave">
-            <div v-if="visible" :ref="containerRef" :class="containerClass" @click="onOverlayClick" v-bind="$attrs">
+            <div v-if="visible" :ref="containerRef" :id="id" :class="containerClass" @click="onOverlayClick" v-bind="$attrs">
                 <TieredMenuSub
                     :ref="menubarRef"
-                    :id="id"
+                    :id="id + '_list'"
                     class="p-tieredmenu-root-submenu"
                     :tabindex="!disabled ? tabindex : -1"
                     role="menubar"

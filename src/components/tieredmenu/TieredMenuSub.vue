@@ -35,6 +35,7 @@
                 </div>
                 <TieredMenuSub
                     v-if="isItemVisible(processedItem) && isItemGroup(processedItem)"
+                    :id="getItemId(processedItem) + '_list'"
                     role="menu"
                     class="p-submenu-list"
                     :menuId="menuId"
