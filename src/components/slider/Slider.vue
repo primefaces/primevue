@@ -335,10 +335,10 @@ export default {
         rangeStyle() {
             if (this.range) {
                 const rangeSliderWidth = this.rangeEndPosition > this.rangeStartPosition ? this.rangeEndPosition - this.rangeStartPosition : this.rangeStartPosition - this.rangeEndPosition;
-                const rangeSliderPositionLeft = this.rangeEndPosition > this.rangeStartPosition ? this.rangeStartPosition : this.rangeEndPosition;
+                const rangeSliderPosition = this.rangeEndPosition > this.rangeStartPosition ? this.rangeStartPosition : this.rangeEndPosition;
 
-                if (this.horizontal) return { left: rangeSliderPositionLeft + '%', width: rangeSliderWidth + '%' };
-                else return { bottom: this.rangeStartPosition + '%', height: this.rangeEndPosition - this.rangeStartHandlePosition + '%' };
+                if (this.horizontal) return { left: rangeSliderPosition + '%', width: rangeSliderWidth + '%' };
+                else return { bottom: rangeSliderPosition + '%', height: rangeSliderWidth + '%' };
             } else {
                 if (this.horizontal) return { width: this.handlePosition + '%' };
                 else return { height: this.handlePosition + '%' };
