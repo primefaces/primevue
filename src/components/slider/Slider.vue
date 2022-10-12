@@ -152,7 +152,7 @@ export default {
                 modelValue = this.modelValue ? [...this.modelValue] : [];
 
                 if (this.handleIndex == 0) {
-                    let maxValue = this.modelValue ? this.modelValue[1] : this.max;
+                    let maxValue = this.max;
 
                     if (newValue < this.min) newValue = this.min;
                     else if (newValue >= maxValue) newValue = maxValue;
@@ -160,7 +160,7 @@ export default {
                     modelValue[0] = newValue;
                     modelValue[1] = modelValue[1] || this.max;
                 } else {
-                    let minValue = this.modelValue ? this.modelValue[0] : this.min;
+                    let minValue = this.min;
 
                     if (newValue > this.max) newValue = this.max;
                     else if (newValue <= minValue) newValue = minValue;
@@ -334,7 +334,10 @@ export default {
         },
         rangeStyle() {
             if (this.range) {
-                if (this.horizontal) return { left: this.rangeStartPosition + '%', width: this.rangeEndPosition - this.rangeStartPosition + '%' };
+                const rangeSliderWidth = this.rangeEndPosition > this.rangeStartPosition ? this.rangeEndPosition - this.rangeStartPosition : this.rangeStartPosition - this.rangeEndPosition;
+                const rangeSliderPositionLeft = this.rangeEndPosition > this.rangeStartPosition ? this.rangeStartPosition : this.rangeEndPosition;
+
+                if (this.horizontal) return { left: rangeSliderPositionLeft + '%', width: rangeSliderWidth + '%' };
                 else return { bottom: this.rangeStartPosition + '%', height: this.rangeEndPosition - this.rangeStartHandlePosition + '%' };
             } else {
                 if (this.horizontal) return { width: this.handlePosition + '%' };
