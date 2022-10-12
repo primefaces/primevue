@@ -34,6 +34,7 @@
                     <div v-show="isItemActive(processedItem)" class="p-toggleable-content">
                         <PanelMenuSub
                             v-if="isItemVisible(processedItem) && isItemGroup(processedItem)"
+                            :id="getItemId(processedItem) + '_list'"
                             role="group"
                             :panelId="panelId"
                             :focusedItemId="focusedItemId"

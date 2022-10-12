@@ -1,5 +1,5 @@
 <template>
-    <div class="p-panelmenu p-component">
+    <div :id="id" class="p-panelmenu p-component">
         <template v-for="(item, index) of model" :key="getPanelKey(index)">
             <div v-if="isItemVisible(item)" :style="getItemProp(item, 'style')" :class="getPanelClass(item)">
                 <div
