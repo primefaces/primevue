@@ -157,16 +157,24 @@ export default {
                     if (newValue < this.min) newValue = this.min;
                     else if (newValue >= maxValue) newValue = maxValue;
 
-                    modelValue[0] = newValue;
-                    modelValue[1] = modelValue[1] || this.max;
+                    if (newValue >= modelValue[1]) {
+                        modelValue[1] = newValue;
+                    } else {
+                        modelValue[0] = newValue;
+                        modelValue[1] = modelValue[1] || this.max;
+                    }
                 } else {
                     let minValue = this.min;
 
                     if (newValue > this.max) newValue = this.max;
                     else if (newValue <= minValue) newValue = minValue;
 
-                    modelValue[0] = modelValue[0] || this.min;
-                    modelValue[1] = newValue;
+                    if (newValue <= modelValue[0]) {
+                        modelValue[0] = newValue;
+                    } else {
+                        modelValue[0] = modelValue[0] || this.min;
+                        modelValue[1] = newValue;
+                    }
                 }
             } else {
                 if (newValue < this.min) newValue = this.min;
