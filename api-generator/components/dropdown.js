@@ -174,6 +174,24 @@ const DropdownProps = [
         description: 'Whether the multiselect is in loading state.'
     },
     {
+        name: 'clearIcon',
+        type: 'string',
+        default: 'pi pi-times',
+        description: 'Icon to display in clear button'
+    },
+    {
+        name: 'dropdownIcon',
+        type: 'string',
+        default: 'pi pi-chevron-down',
+        description: 'Icon to display in dropdown'
+    },
+    {
+        name: 'filterIcon',
+        type: 'string',
+        default: 'pi pi-search',
+        description: 'Icon to display in filter input'
+    },
+    {
         name: 'loadingIcon',
         type: 'string',
         default: 'pi pi-spinner pi-spin',

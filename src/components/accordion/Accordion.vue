@@ -40,8 +40,8 @@
 </template>
 
 <script>
-import { UniqueComponentId, DomHandler } from 'primevue/utils';
 import Ripple from 'primevue/ripple';
+import { DomHandler, UniqueComponentId } from 'primevue/utils';
 
 export default {
     name: 'Accordion',
@@ -61,11 +61,11 @@ export default {
         },
         expandIcon: {
             type: String,
-            default: 'pi-chevron-right'
+            default: 'pi pi-chevron-right'
         },
         collapseIcon: {
             type: String,
-            default: 'pi-chevron-down'
+            default: 'pi pi-chevron-down'
         },
         tabindex: {
             type: Number,
@@ -234,7 +234,7 @@ export default {
             ];
         },
         getTabHeaderIconClass(i) {
-            return ['p-accordion-toggle-icon pi', this.isTabActive(i) ? this.collapseIcon : this.expandIcon];
+            return ['p-accordion-toggle-icon', this.isTabActive(i) ? this.collapseIcon : this.expandIcon];
         },
         getTabContentClass(tab) {
             return ['p-toggleable-content', this.getTabProp(tab, 'contentClass')];

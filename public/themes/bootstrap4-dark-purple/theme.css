@@ -4429,12 +4429,20 @@
   padding: 0.5rem 0.5rem;
   border-radius: 0.5rem;
 }
+.p-dock .p-dock-list-container .p-dock-list {
+  outline: none;
+}
 .p-dock .p-dock-item {
   padding: 0.5rem;
 }
 .p-dock .p-dock-action {
   width: 4rem;
   height: 4rem;
+}
+.p-dock .p-dock-action.p-focus {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: inset 0 0 0 0.15rem #f0e6f5;
 }
 .p-dock.p-dock-top .p-dock-item-second-prev,
 .p-dock.p-dock-top .p-dock-item-second-next, .p-dock.p-dock-bottom .p-dock-item-second-prev,

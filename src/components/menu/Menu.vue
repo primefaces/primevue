@@ -1,20 +1,32 @@
 <template>
     <Portal :appendTo="appendTo" :disabled="!popup">
         <transition name="p-connected-overlay" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave">
-            <div v-if="popup ? overlayVisible : true" :ref="containerRef" :class="containerClass" v-bind="$attrs" @click="onOverlayClick">
-                <ul class="p-menu-list p-reset" role="menu">
+            <div v-if="popup ? overlayVisible : true" :ref="containerRef" :id="id" :class="containerClass" v-bind="$attrs" @click="onOverlayClick">
+                <ul
+                    :ref="listRef"
+                    :id="id + '_list'"
+                    class="p-menu-list p-reset"
+                    role="menu"
+                    :tabindex="tabindex"
+                    :aria-activedescendant="focused ? focusedOptionId : undefined"
+                    :aria-label="ariaLabel"
+                    :aria-labelledby="ariaLabelledby"
+                    @focus="onListFocus"
+                    @blur="onListBlur"
+                    @keydown="onListKeyDown"
+                >
                     <template v-for="(item, i) of model" :key="label(item) + i.toString()">
                         <template v-if="item.items && visible(item) && !item.separator">
-                            <li v-if="item.items" class="p-submenu-header">
+                            <li v-if="item.items" class="p-submenu-header" role="none">
                                 <slot name="item" :item="item">{{ label(item) }}</slot>
                             </li>
-                            <template v-for="(child, j) of item.items" :key="child.label + i + j">
-                                <Menuitem v-if="visible(child) && !child.separator" :item="child" @click="itemClick" :template="$slots.item" :exact="exact" />
+                            <template v-for="(child, j) of item.items" :key="child.label + i + '_' + j">
+                                <Menuitem v-if="visible(child) && !child.separator" :id="id + '_' + i + '_' + j" :item="child" :template="$slots.item" :exact="exact" :focusedOptionId="focusedOptionId" @click="itemClick" />
                                 <li v-else-if="visible(child) && child.separator" :key="'separator' + i + j" :class="['p-menu-separator', child.class]" :style="child.style" role="separator"></li>
                             </template>
                         </template>
                         <li v-else-if="visible(item) && item.separator" :key="'separator' + i.toString()" :class="['p-menu-separator', item.class]" :style="item.style" role="separator"></li>
-                        <Menuitem v-else :key="label(item) + i.toString()" :item="item" @click="itemClick" :template="$slots.item" :exact="exact" />
+                        <Menuitem v-else :key="label(item) + i.toString()" :id="id + '_' + i" :item="item" :template="$slots.item" :exact="exact" :focusedOptionId="focusedOptionId" @click="itemClick" />
                     </template>
                 </ul>
             </div>
@@ -23,15 +35,15 @@
 </template>
 
 <script>
-import { ConnectedOverlayScrollHandler, DomHandler, ZIndexUtils } from 'primevue/utils';
 import OverlayEventBus from 'primevue/overlayeventbus';
-import Menuitem from './Menuitem.vue';
 import Portal from 'primevue/portal';
+import { ConnectedOverlayScrollHandler, DomHandler, UniqueComponentId, ZIndexUtils } from 'primevue/utils';
+import Menuitem from './Menuitem.vue';
 
 export default {
     name: 'Menu',
     inheritAttrs: false,
-    emits: ['show', 'hide'],
+    emits: ['show', 'hide', 'focus', 'blur'],
     props: {
         popup: {
             type: Boolean,
@@ -56,11 +68,26 @@ export default {
         exact: {
             type: Boolean,
             default: true
+        },
+        tabindex: {
+            type: Number,
+            default: 0
+        },
+        'aria-label': {
+            type: String,
+            default: null
+        },
+        'aria-labelledby': {
+            type: String,
+            default: null
         }
     },
     data() {
         return {
-            overlayVisible: false
+            overlayVisible: false,
+            focused: false,
+            focusedOptionIndex: -1,
+            selectedOptionIndex: -1
         };
     },
     target: null,
@@ -68,6 +95,7 @@ export default {
     scrollHandler: null,
     resizeListener: null,
     container: null,
+    list: null,
     beforeUnmount() {
         this.unbindResizeListener();
         this.unbindOutsideClickListener();
@@ -101,7 +129,124 @@ export default {
                 event.navigate(event.originalEvent);
             }
 
-            this.hide();
+            if (this.overlayVisible) this.hide();
+
+            if (!this.popup) {
+                this.focusedOptionIndex = event.id;
+            }
+        },
+        onListFocus(event) {
+            this.focused = true;
+
+            if (!this.popup) {
+                if (this.selectedOptionIndex !== -1) {
+                    this.changeFocusedOptionIndex(this.selectedOptionIndex);
+                    this.selectedOptionIndex = -1;
+                } else this.changeFocusedOptionIndex(0);
+            }
+
+            this.$emit('focus', event);
+        },
+        onListBlur(event) {
+            this.focused = false;
+            this.focusedOptionIndex = -1;
+            this.$emit('blur', event);
+        },
+        onListKeyDown(event) {
+            switch (event.code) {
+                case 'ArrowDown':
+                    this.onArrowDownKey(event);
+                    break;
+
+                case 'ArrowUp':
+                    this.onArrowUpKey(event);
+                    break;
+
+                case 'Home':
+                    this.onHomeKey(event);
+                    break;
+
+                case 'End':
+                    this.onEndKey(event);
+                    break;
+
+                case 'Enter':
+                case 'Space':
+                    this.onSpaceKey(event);
+                    break;
+
+                case 'Tab':
+                    this.overlayVisible && this.hide();
+                    break;
+
+                default:
+                    break;
+            }
+        },
+        onArrowDownKey(event) {
+            const optionIndex = this.findNextOptionIndex(this.focusedOptionIndex);
+
+            this.changeFocusedOptionIndex(optionIndex);
+            event.preventDefault();
+        },
+        onArrowUpKey(event) {
+            const optionIndex = this.findPrevOptionIndex(this.focusedOptionIndex);
+
+            this.changeFocusedOptionIndex(optionIndex);
+            event.preventDefault();
+        },
+        onHomeKey(event) {
+            this.changeFocusedOptionIndex(0);
+            event.preventDefault();
+        },
+        onEndKey(event) {
+            this.changeFocusedOptionIndex(DomHandler.find(this.container, 'a.p-menuitem-link:not(.p-disabled)').length - 1);
+            event.preventDefault();
+        },
+        onSpaceKey(event) {
+            const links = DomHandler.find(this.container, 'a.p-menuitem-link');
+            const matchedOptionIndex = [...links].findIndex((link) => link.id === this.focusedOptionId);
+            const itemsArray = [];
+
+            const createArray = (model) => {
+                for (let i = 0; i < model.length; i++) {
+                    model[i].separator !== true && !model[i].items && itemsArray.push(model[i]);
+                    model[i].items && createArray(model[i].items);
+                }
+            };
+
+            createArray(this.model);
+
+            if (itemsArray[matchedOptionIndex].to) {
+                this.$router.push(itemsArray[matchedOptionIndex].to);
+            } else if (itemsArray[matchedOptionIndex].url) {
+                this.popup && DomHandler.focus(this.target);
+                this.selectedOptionIndex = matchedOptionIndex;
+                links[matchedOptionIndex].click();
+            } else {
+                this.popup && DomHandler.focus(this.target);
+                this.itemClick({ originalEvent: event, item: itemsArray[matchedOptionIndex], id: links[matchedOptionIndex].getAttribute('id') });
+            }
+
+            event.preventDefault();
+        },
+        findNextOptionIndex(index) {
+            const links = DomHandler.find(this.container, 'a.p-menuitem-link:not(.p-disabled)');
+            const matchedOptionIndex = [...links].findIndex((link) => link.id === index);
+
+            return matchedOptionIndex > -1 ? matchedOptionIndex + 1 : 0;
+        },
+        findPrevOptionIndex(index) {
+            const links = DomHandler.find(this.container, 'a.p-menuitem-link:not(.p-disabled)');
+            const matchedOptionIndex = [...links].findIndex((link) => link.id === index);
+
+            return matchedOptionIndex > -1 ? matchedOptionIndex - 1 : 0;
+        },
+        changeFocusedOptionIndex(index) {
+            const links = DomHandler.find(this.container, 'a.p-menuitem-link:not(.p-disabled)');
+            let order = index >= links.length ? links.length - 1 : index < 0 ? 0 : index;
+
+            this.focusedOptionIndex = links[order].getAttribute('id');
         },
         toggle(event) {
             if (this.overlayVisible) this.hide();
@@ -123,6 +268,11 @@ export default {
 
             if (this.autoZIndex) {
                 ZIndexUtils.set('menu', el, this.baseZIndex + this.$primevue.config.zIndex.menu);
+            }
+
+            if (this.popup) {
+                DomHandler.focus(this.list);
+                this.changeFocusedOptionIndex(0);
             }
 
             this.$emit('show');
@@ -212,6 +362,9 @@ export default {
                 originalEvent: event,
                 target: this.target
             });
+        },
+        listRef(el) {
+            this.list = el;
         }
     },
     computed: {
@@ -224,6 +377,12 @@ export default {
                     'p-ripple-disabled': this.$primevue.config.ripple === false
                 }
             ];
+        },
+        id() {
+            return this.$attrs.id || UniqueComponentId();
+        },
+        focusedOptionId() {
+            return this.focusedOptionIndex !== -1 ? this.focusedOptionIndex : null;
         }
     },
     components: {

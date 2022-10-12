@@ -33,8 +33,8 @@
 </template>
 
 <script>
-import { DomHandler } from 'primevue/utils';
 import Ripple from 'primevue/ripple';
+import { DomHandler } from 'primevue/utils';
 
 export default {
     name: 'GalleriaThumbnails',
@@ -211,7 +211,7 @@ export default {
         navForward(e) {
             this.stopSlideShow();
 
-            let nextItemIndex = this.d_activeIndex + 1;
+            let nextItemIndex = this.d_activeIndex === this.value.length - 1 ? this.value.length - 1 : this.d_activeIndex + 1;
 
             if (nextItemIndex + this.totalShiftedItems > this.getMedianItemIndex() && (-1 * this.totalShiftedItems < this.getTotalPageNumber() - 1 || this.circular)) {
                 this.step(-1);

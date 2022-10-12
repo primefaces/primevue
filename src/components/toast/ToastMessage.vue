@@ -9,9 +9,11 @@
                 </div>
             </template>
             <component v-else :is="template" :message="message"></component>
-            <button v-if="message.closable !== false" v-ripple class="p-toast-icon-close p-link" @click="onCloseClick" type="button">
-                <span class="p-toast-icon-close-icon pi pi-times"></span>
-            </button>
+            <div v-if="message.closable !== false">
+                <button v-ripple class="p-toast-icon-close p-link" @click="onCloseClick" type="button">
+                    <span class="p-toast-icon-close-icon pi pi-times"></span>
+                </button>
+            </div>
         </div>
     </div>
 </template>

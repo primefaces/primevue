@@ -34,6 +34,55 @@ const DockProps = [
         type: 'object',
         default: 'null',
         description: "Whether to display the tooltip on items. The modifiers of tooltip can be used like an object in it. Valid keys are 'event' and 'position'."
+    },
+    {
+        name: 'listId',
+        type: 'string',
+        default: 'null',
+        description: 'Identifier of the list element.'
+    },
+    {
+        name: 'tabindex',
+        type: 'number',
+        default: '0',
+        description: 'Index of the element in tabbing order.'
+    },
+    {
+        name: 'aria-label',
+        type: 'string',
+        default: 'null',
+        description: 'Defines a string value that labels an interactive element.'
+    },
+    {
+        name: 'aria-labelledby',
+        type: 'string',
+        default: 'null',
+        description: 'Identifier of the underlying input element.'
+    }
+];
+
+const DockEvents = [
+    {
+        name: 'focus',
+        description: 'Callback to invoke when component receives focus.',
+        arguments: [
+            {
+                name: 'event',
+                type: 'object',
+                description: 'Browser event'
+            }
+        ]
+    },
+    {
+        name: 'blur',
+        description: 'Callback to invoke when component loses focus.',
+        arguments: [
+            {
+                name: 'event',
+                type: 'object',
+                description: 'Browser event'
+            }
+        ]
     }
 ];
 
@@ -53,6 +102,7 @@ module.exports = {
         name: 'Dock',
         description: 'Dock is a navigation component consisting of menuitems.',
         props: DockProps,
+        events: DockEvents,
         slots: DockSlots
     }
 };

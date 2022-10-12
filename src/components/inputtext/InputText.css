@@ -36,7 +36,7 @@
 /* Floating Label */
 .p-float-label {
     display: block;
-    position: relative; 
+    position: relative;
 }
 
 .p-float-label label {
@@ -52,7 +52,7 @@
 .p-float-label textarea ~ label {
     top: 1rem;
 }
-    
+
 .p-float-label input:focus ~ label,
 .p-float-label input.p-filled ~ label,
 .p-float-label textarea:focus ~ label,
@@ -66,6 +66,22 @@
 .p-float-label .input:-webkit-autofill ~ label {
     top: -20px;
     font-size: 12px;
+}
+
+.p-float-label .p-placeholder,
+.p-float-label input::placeholder,
+.p-float-label .p-inputtext::placeholder {
+    opacity: 0;
+    transition-property: all;
+    transition-timing-function: ease;
+}
+
+.p-float-label .p-focus .p-placeholder,
+.p-float-label input:focus::placeholder,
+.p-float-label .p-inputtext:focus::placeholder {
+    opacity: 1;
+    transition-property: all;
+    transition-timing-function: ease;
 }
 
 .p-input-icon-left,

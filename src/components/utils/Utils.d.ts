@@ -37,6 +37,7 @@ export declare class DomHandler {
     static appendChild(el: HTMLElement, target: HTMLElement): void;
     static scrollInView(container: HTMLElement, item: HTMLElement): void;
     static clearSelection(): void;
+    static getSelection(): string | null;
     static calculateScrollbarWidth(): number;
     static getBrowser(): object;
     static resolveUserAgent(): { browser: string; version: string };
@@ -69,6 +70,8 @@ export declare class ObjectUtils {
     static isEmpty(value: any): boolean;
     static isNotEmpty(value: any): boolean;
     static isPrintableCharacter(char: string): boolean;
+    static findLast(value: any[], callback: () => any): any;
+    static findLastIndex(value: any[], callback: () => any): number;
 }
 
 export declare namespace ZIndexUtils {

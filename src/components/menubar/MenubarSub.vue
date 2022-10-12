@@ -1,10 +1,10 @@
 <template>
-    <ul :class="containerClass" :role="root ? 'menubar' : 'menu'">
+    <ul :ref="listRef" :class="containerClass" role="menu">
         <template v-for="(item, i) of model" :key="label(item) + i.toString()">
-            <li v-if="visible(item) && !item.separator" role="none" :class="getItemClass(item)" :style="item.style" @mouseenter="onItemMouseEnter($event, item)">
+            <li v-if="visible(item) && !item.separator" role="presentation" :class="getItemClass(item)" :style="item.style" @mouseenter="onItemMouseEnter($event, item)">
                 <template v-if="!template">
                     <router-link v-if="item.to && !disabled(item)" v-slot="{ navigate, href, isActive, isExactActive }" :to="item.to" custom>
-                        <a v-ripple :href="href" @click="onItemClick($event, item, navigate)" :class="linkClass(item, { isActive, isExactActive })" @keydown="onItemKeyDown($event, item)" role="menuitem">
+                        <a v-ripple :href="href" :class="linkClass(item, { isActive, isExactActive })" role="menuitem" :tabindex="-1" @click="onItemClick($event, item, navigate)" @keydown="onItemKeyDown($event, item, navigate)">
                             <span v-if="item.icon" :class="['p-menuitem-icon', item.icon]"></span>
                             <span class="p-menuitem-text">{{ label(item) }}</span>
                         </a>
@@ -15,12 +15,15 @@
                         :href="item.url"
                         :class="linkClass(item)"
                         :target="item.target"
+                        :aria-label="label(item)"
                         :aria-haspopup="item.items != null"
                         :aria-expanded="item === activeItem"
+                        :aria-controls="label(item) + '_sub_'"
+                        :aria-disabled="disabled(item)"
+                        role="menuitem"
+                        :tabindex="-1"
                         @click="onItemClick($event, item)"
                         @keydown="onItemKeyDown($event, item)"
-                        role="menuitem"
-                        :tabindex="disabled(item) ? null : '0'"
                     >
                         <span v-if="item.icon" :class="['p-menuitem-icon', item.icon]"></span>
                         <span class="p-menuitem-text">{{ label(item) }}</span>
@@ -31,13 +34,14 @@
                 <MenubarSub
                     v-if="visible(item) && item.items"
                     :key="label(item) + '_sub_'"
+                    :id="label(item) + '_sub_'"
                     :model="item.items"
                     :mobileActive="mobileActive"
-                    @leaf-click="onLeafClick"
-                    @keydown-item="onChildItemKeyDown"
                     :parentActive="item === activeItem"
                     :template="template"
                     :exact="exact"
+                    @leaf-click="onLeafClick"
+                    @keydown-item="onChildItemKeyDown"
                 />
             </li>
             <li v-if="visible(item) && item.separator" :key="'separator' + i.toString()" :class="['p-menu-separator', item.class]" :style="item.style" role="separator"></li>
@@ -46,8 +50,8 @@
 </template>
 
 <script>
-import { DomHandler } from 'primevue/utils';
 import Ripple from 'primevue/ripple';
+import { DomHandler } from 'primevue/utils';
 
 export default {
     name: 'MenubarSub',
@@ -82,6 +86,7 @@ export default {
             default: true
         }
     },
+    list: null,
     documentClickListener: null,
     data() {
         return {
@@ -93,6 +98,13 @@ export default {
             if (!newValue) {
                 this.activeItem = null;
             }
+        }
+    },
+    mounted() {
+        if (this.list && this.model && this.model.length > 0) {
+            const links = DomHandler.find(this.list, '.p-menuitem > .p-menuitem-link');
+
+            links[[...links].findIndex((link) => !DomHandler.hasClass(link, 'p-disabled'))].tabIndex = '0';
         }
     },
     updated() {
@@ -145,17 +157,20 @@ export default {
             if (item.to && navigate) {
                 navigate(event);
             }
+
+            if (item.url && event.currentTarget) {
+                event.currentTarget.click();
+            }
         },
         onLeafClick() {
             this.activeItem = null;
             this.$emit('leaf-click');
         },
-        onItemKeyDown(event, item) {
-            let listItem = event.currentTarget.parentElement;
+        onItemKeyDown(event, item, navigate) {
+            const listItem = event.currentTarget.parentElement;
 
-            switch (event.which) {
-                //down
-                case 40:
+            switch (event.code) {
+                case 'ArrowDown':
                     if (this.root) {
                         if (item.items) {
                             this.expandSubmenu(item, listItem);
@@ -167,22 +182,24 @@ export default {
                     event.preventDefault();
                     break;
 
-                //up
-                case 38:
-                    if (!this.root) {
+                case 'ArrowUp':
+                    if (this.root) {
+                        if (item.items) {
+                            this.expandSubmenu(item, listItem, true);
+                        }
+                    } else {
                         this.navigateToPrevItem(listItem);
                     }
 
                     event.preventDefault();
                     break;
 
-                //right
-                case 39:
+                case 'ArrowRight':
                     if (this.root) {
-                        var nextItem = this.findNextItem(listItem);
+                        const nextItem = this.findNextItem(listItem);
 
                         if (nextItem) {
-                            nextItem.children[0].focus();
+                            this.navigateToNextItem(listItem);
                         }
                     } else {
                         if (item.items) {
@@ -193,13 +210,39 @@ export default {
                     event.preventDefault();
                     break;
 
-                //left
-                case 37:
+                case 'ArrowLeft':
                     if (this.root) {
                         this.navigateToPrevItem(listItem);
                     }
 
                     event.preventDefault();
+                    break;
+
+                case 'Home':
+                    this.navigateToFirstItem(listItem);
+                    event.preventDefault();
+                    break;
+
+                case 'End':
+                    this.navigateToLastItem(listItem);
+                    event.preventDefault();
+                    break;
+
+                case 'Space':
+
+                case 'Enter': {
+                    this.onItemClick(event, item, navigate);
+
+                    if (!this.root) {
+                        this.setFocusToMenuitem(listItem, listItem.parentElement.parentElement);
+                    }
+
+                    event.preventDefault();
+                    break;
+                }
+
+                case 'Tab':
+                    this.onTabKey(event);
                     break;
 
                 default:
@@ -213,53 +256,97 @@ export default {
         },
         onChildItemKeyDown(event) {
             if (this.root) {
-                //up
-                if (event.originalEvent.which === 38 && event.element.previousElementSibling == null) {
+                if (event.originalEvent.code === 'ArrowUp' && (event.element.previousElementSibling == null || DomHandler.hasClass(event.element.previousElementSibling.children[0], 'p-disabled'))) {
                     this.collapseMenu(event.element);
                 }
             } else {
-                //left
-                if (event.originalEvent.which === 37) {
+                if (event.originalEvent.code === 'ArrowLeft' || event.originalEvent.code === 'Escape') {
                     this.collapseMenu(event.element);
                 }
             }
+
+            if (event.originalEvent.code === 'Tab') {
+                this.onLeafClick();
+            }
         },
         findNextItem(item) {
-            let nextItem = item.nextElementSibling;
+            const nextItem = item.nextElementSibling;
 
-            if (nextItem) return DomHandler.hasClass(nextItem, 'p-disabled') || !DomHandler.hasClass(nextItem, 'p-menuitem') ? this.findNextItem(nextItem) : nextItem;
+            if (nextItem) return DomHandler.hasClass(nextItem.children[0], 'p-disabled') || !DomHandler.hasClass(nextItem, 'p-menuitem') ? this.findNextItem(nextItem) : nextItem;
             else return null;
         },
         findPrevItem(item) {
-            let prevItem = item.previousElementSibling;
+            const prevItem = item.previousElementSibling;
 
-            if (prevItem) return DomHandler.hasClass(prevItem, 'p-disabled') || !DomHandler.hasClass(prevItem, 'p-menuitem') ? this.findPrevItem(prevItem) : prevItem;
+            if (prevItem) return DomHandler.hasClass(prevItem.children[0], 'p-disabled') || !DomHandler.hasClass(prevItem, 'p-menuitem') ? this.findPrevItem(prevItem) : prevItem;
             else return null;
         },
-        expandSubmenu(item, listItem) {
+        findFirstItem(listItem) {
+            const firstSibling = DomHandler.findSingle(listItem.parentElement, 'li.p-menuitem');
+
+            return firstSibling ? (DomHandler.hasClass(firstSibling.children[0], 'p-disabled') || !DomHandler.hasClass(firstSibling, 'p-menuitem') ? this.findPrevItem(firstSibling) : firstSibling) : null;
+        },
+        findLastItem(listItem) {
+            const lastSibling = DomHandler.find(listItem.parentElement, 'li.p-menuitem')[DomHandler.find(listItem.parentElement, 'li.p-menuitem').length - 1];
+
+            return lastSibling ? (DomHandler.hasClass(lastSibling.children[0], 'p-disabled') || !DomHandler.hasClass(lastSibling, 'p-menuitem') ? this.findPrevItem(lastSibling) : lastSibling) : null;
+        },
+        onTabKey(event) {
+            DomHandler.find(this.list, '.p-menuitem-link').forEach((link) => {
+                setTimeout(() => {
+                    if (event.shiftKey && this.findFirstItem(event.target.parentElement)) {
+                        link === this.findFirstItem(event.target.parentElement).children[0] ? (link.tabIndex = '0') : (link.tabIndex = '-1');
+                    } else if (this.findLastItem(event.target.parentElement)) {
+                        link === this.findLastItem(event.target.parentElement).children[0] ? (link.tabIndex = '0') : (link.tabIndex = '-1');
+                    }
+                }, 0);
+            });
+        },
+        expandSubmenu(item, listItem, lastElementFocus) {
+            let focusedElement,
+                focusableElements = [];
+
             this.activeItem = item;
 
+            [...listItem.children[1].children].forEach((el) => {
+                if (!DomHandler.hasClass(el, 'p-menu-separator') && !DomHandler.hasClass(el.children[0], 'p-disabled')) focusableElements.push(el.children[0]);
+            });
+            focusedElement = lastElementFocus ? focusableElements[focusableElements.length - 1] : focusableElements[0];
+            focusedElement.tabIndex = '0';
+
             setTimeout(() => {
-                listItem.children[1].children[0].children[0].focus();
+                focusedElement.focus();
             }, 50);
         },
         collapseMenu(listItem) {
             this.activeItem = null;
+            listItem.children[0].tabIndex = '-1';
             listItem.parentElement.previousElementSibling.focus();
         },
         navigateToNextItem(listItem) {
-            var nextItem = this.findNextItem(listItem);
+            const nextItem = this.findNextItem(listItem);
 
-            if (nextItem) {
-                nextItem.children[0].focus();
-            }
+            nextItem && this.setFocusToMenuitem(listItem, nextItem);
         },
         navigateToPrevItem(listItem) {
-            var prevItem = this.findPrevItem(listItem);
+            const prevItem = this.findPrevItem(listItem);
 
-            if (prevItem) {
-                prevItem.children[0].focus();
-            }
+            prevItem && this.setFocusToMenuitem(listItem, prevItem);
+        },
+        navigateToFirstItem(listItem) {
+            const firstItem = this.findFirstItem(listItem);
+
+            firstItem && this.setFocusToMenuitem(listItem, firstItem);
+        },
+        navigateToLastItem(listItem) {
+            const lastItem = this.findLastItem(listItem);
+
+            lastItem && this.setFocusToMenuitem(listItem, lastItem);
+        },
+        setFocusToMenuitem(target, menuitem) {
+            target.children[0].tabIndex = '-1';
+            menuitem.children[0].tabIndex = '0';
+            menuitem.children[0].focus();
         },
         getItemClass(item) {
             return [
@@ -309,6 +396,9 @@ export default {
         },
         label(item) {
             return typeof item.label === 'function' ? item.label() : item.label;
+        },
+        listRef(el) {
+            this.list = el;
         }
     },
     computed: {

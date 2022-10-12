@@ -1,5 +1,7 @@
 import { DomHandler } from 'primevue/utils';
 
+let timeout;
+
 function bindEvents(el) {
     el.addEventListener('mousedown', onMouseDown);
 }
@@ -52,9 +54,19 @@ function onMouseDown(event) {
     ink.style.top = y + 'px';
     ink.style.left = x + 'px';
     DomHandler.addClass(ink, 'p-ink-active');
+
+    timeout = setTimeout(() => {
+        if (ink) {
+            DomHandler.removeClass(ink, 'p-ink-active');
+        }
+    }, 401);
 }
 
 function onAnimationEnd(event) {
+    if (timeout) {
+        clearTimeout(timeout);
+    }
+
     DomHandler.removeClass(event.currentTarget, 'p-ink-active');
 }
 

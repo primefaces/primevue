@@ -223,6 +223,24 @@ export default {
     },
 
     /**
+     * Firefox-v103 does not currently support the "findLast" method. It is stated that this method will be supported with Firefox-v104.
+     * https://caniuse.com/mdn-javascript_builtins_array_findlast
+     */
+    findLast(arr, callback) {
+        let item;
+
+        if (this.isNotEmpty(arr)) {
+            try {
+                item = arr.findLast(callback);
+            } catch {
+                item = [...arr].reverse().find(callback);
+            }
+        }
+
+        return item;
+    },
+
+    /**
      * Firefox-v103 does not currently support the "findLastIndex" method. It is stated that this method will be supported with Firefox-v104.
      * https://caniuse.com/mdn-javascript_builtins_array_findlastindex
      */

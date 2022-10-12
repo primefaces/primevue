@@ -10,7 +10,7 @@
 
         <div class="content-section implementation">
             <div class="card">
-                <Breadcrumb :home="home" :model="items" />
+                <Breadcrumb :home="home" :model="items" aria-label="breadcrumb" />
             </div>
         </div>
 

@@ -69,7 +69,7 @@ describe('PanelMenu', () => {
     it('should toggle', async () => {
         expect(wrapper.findAll('.p-toggleable-content')[0].attributes().style).toBe('display: none;');
 
-        await wrapper.vm.onItemClick({}, wrapper.vm.model[0]);
+        await wrapper.vm.onHeaderClick({}, wrapper.vm.model[0]);
 
         expect(wrapper.find('.p-panelmenu-header-link > .p-panelmenu-icon').classes()).toContain('pi-chevron-down');
         expect(wrapper.findAll('.p-toggleable-content')[0].attributes().style).toBe(undefined);
@@ -78,7 +78,7 @@ describe('PanelMenu', () => {
     it('should update expandedKeys', async () => {
         await wrapper.setProps({ expandedKeys: { 2: true } });
 
-        await wrapper.vm.onItemClick({}, wrapper.vm.model[0].items[2]);
+        await wrapper.vm.onHeaderClick({}, wrapper.vm.model[0].items[2]);
 
         expect(wrapper.emitted()['update:expandedKeys'][0]).toEqual([{ 2: true, '2_2': true }]);
     });

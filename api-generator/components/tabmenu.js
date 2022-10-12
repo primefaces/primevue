@@ -16,6 +16,18 @@ const TabMenuProps = [
         type: 'number',
         default: '0',
         description: 'Active index of menuitem.'
+    },
+    {
+        name: 'aria-label',
+        type: 'string',
+        default: 'null',
+        description: 'Defines a string value that labels an interactive element.'
+    },
+    {
+        name: 'aria-labelledby',
+        type: 'string',
+        default: 'null',
+        description: 'Identifier of the underlying input element.'
     }
 ];
 

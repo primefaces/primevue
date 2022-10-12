@@ -1,21 +1,21 @@
 <template>
     <Portal :appendTo="appendTo">
-        <transition name="p-contextmenu" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave">
-            <div v-if="visible" :ref="containerRef" :class="containerClass" v-bind="$attrs">
-                <ContextMenuSub :model="model" :root="true" @leaf-click="onLeafClick" :template="$slots.item" :exact="exact" />
+        <transition name="p-contextmenu" @enter="onEnter" @after-enter="onAfterEnter" @leave="onLeave" @after-leave="onAfterLeave">
+            <div v-if="visible" :ref="containerRef" :class="containerClass" @keydown="onKeydown">
+                <span ref="firstHiddenFocusableElement" role="presentation" aria-hidden="true" class="p-hidden-accessible p-hidden-focusable" :tabindex="0"></span>
+                <ContextMenuSub ref="ul" :model="model" :root="true" @leaf-click="onLeafClick" :template="$slots.item" :exact="exact" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel" />
             </div>
         </transition>
     </Portal>
 </template>
 
 <script>
+import Portal from 'primevue/portal';
 import { DomHandler, ZIndexUtils } from 'primevue/utils';
 import ContextMenuSub from './ContextMenuSub.vue';
-import Portal from 'primevue/portal';
 
 export default {
     name: 'ContextMenu',
-    inheritAttrs: false,
     props: {
         model: {
             type: Array,
@@ -40,6 +40,14 @@ export default {
         exact: {
             type: Boolean,
             default: true
+        },
+        'aria-labelledby': {
+            type: String,
+            default: null
+        },
+        'aria-label': {
+            type: String,
+            default: null
         }
     },
     target: null,
@@ -71,16 +79,6 @@ export default {
         }
     },
     methods: {
-        itemClick(event) {
-            const item = event.item;
-
-            if (item.command) {
-                item.command(event);
-                event.originalEvent.preventDefault();
-            }
-
-            this.hide();
-        },
         toggle(event) {
             if (this.visible) this.hide();
             else this.show(event);
@@ -101,6 +99,15 @@ export default {
         hide() {
             this.visible = false;
         },
+        onKeydown(event) {
+            if (event.code === 'ArrowDown') {
+                const firstListItem = DomHandler.findSingle(this.container, 'li.p-menuitem');
+
+                this.$refs.ul.navigateToFirstItem(firstListItem);
+            }
+
+            event.preventDefault();
+        },
         onEnter(el) {
             this.position();
             this.bindOutsideClickListener();
@@ -109,6 +116,9 @@ export default {
             if (this.autoZIndex) {
                 ZIndexUtils.set('menu', el, this.baseZIndex + this.$primevue.config.zIndex.menu);
             }
+        },
+        onAfterEnter() {
+            DomHandler.focus(this.$refs.firstHiddenFocusableElement);
         },
         onLeave() {
             this.unbindOutsideClickListener();
@@ -204,13 +214,7 @@ export default {
     },
     computed: {
         containerClass() {
-            return [
-                'p-contextmenu p-component',
-                {
-                    'p-input-filled': this.$primevue.config.inputStyle === 'filled',
-                    'p-ripple-disabled': this.$primevue.config.ripple === false
-                }
-            ];
+            return ['p-contextmenu p-component', { 'p-focus': this.visible, 'p-input-filled': this.$primevue.config.inputStyle === 'filled', 'p-ripple-disabled': this.$primevue.config.ripple === false }];
         }
     },
     components: {
@@ -229,6 +233,13 @@ export default {
     margin: 0;
     padding: 0;
     list-style: none;
+}
+
+.p-contextmenu.p-focus {
+    outline: 0 none;
+    outline-offset: 0;
+    box-shadow: 0 0 0 0.2rem #bfdbfe;
+    border-color: #3b82f6;
 }
 
 .p-contextmenu .p-submenu-list {
