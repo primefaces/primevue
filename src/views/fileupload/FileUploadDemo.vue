@@ -38,7 +38,7 @@
                                 </button>
                             </div>
                             <ProgressBar v-if="totalSizePercent > 100" :value="100" class="custom-progress-bar" style="width: 300px; height: 20px; margin-left: auto">{{ totalSize }}B / 1Mb</ProgressBar>
-                            <ProgressBar v-else :value="totalSizePercent" style="width: 300px; height: 20px; margin-left: auto">{{ totalSize }}B / 1Mb</ProgressBar>
+                            <ProgressBar v-else-if="totalSizePercent <= 100 && totalSizePercent !== 0" :value="totalSizePercent" style="width: 300px; height: 20px; margin-left: auto">{{ totalSize }}B / 1Mb</ProgressBar>
                         </div>
                     </template>
                     <template #fileContent="{ options }">
@@ -55,7 +55,7 @@
                                     </div>
                                     <div class="mt-3">{{ formatSize(file.size) }}</div>
                                     <Badge value="Pending" class="mt-3" severity="warning" />
-                                    <div class="mt-1">
+                                    <div class="mt-3">
                                         <Button icon="pi pi-times" @click="onRemoveTemplatingFile(file, index)" class="p-button-text p-button-secondary" />
                                     </div>
                                 </div>
@@ -75,8 +75,8 @@
                                     <div class="mt-3">{{ formatSize(file.size) }}</div>
                                     <Badge value="Completed" class="mt-3" severity="success" />
 
-                                    <div class="mt-1">
-                                        <Button icon="pi pi-times" @click="file.onRemove(index)" class="p-button-text p-button-secondary" />
+                                    <div class="mt-3">
+                                        <Button icon="pi pi-times" @click="file.onUploadedFileRemove(index)" class="p-button-text p-button-secondary" />
                                     </div>
                                 </div>
                             </div>

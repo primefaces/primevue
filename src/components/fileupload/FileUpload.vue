@@ -190,6 +190,10 @@ export default {
                             this.remove(index);
                         };
 
+                        file.onUploadedFileRemove = (index) => {
+                            this.removeUploadedFile(index);
+                        };
+
                         this.files.push(file);
                     }
                 }
