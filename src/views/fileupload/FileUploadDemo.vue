@@ -24,16 +24,16 @@
 
                 <h5>Templating</h5>
                 <FileUpload name="demo[]" url="https://www.primefaces.org/upload.php" @upload="onAdvancedUpload($event)" :multiple="true" accept="image/*" :maxFileSize="1000000" @select="onSelectedFiles">
-                    <template #header="{ options }">
+                    <template #header="{ uploadDisabled, cancelDisabled, choose, upload, clear }">
                         <div class="flex justify-content-between align-items-center">
                             <div>
-                                <button @click="options.headerSlotProps.choose()" class="p-button p-fileupload-choose p-component p-button-icon-only custom-choose-btn p-button-rounded p-button-outlined">
+                                <button @click="choose()" class="p-button p-fileupload-choose p-component p-button-icon-only custom-choose-btn p-button-rounded p-button-outlined">
                                     <span class="p-button-icon p-button-icon-left p-clickable pi pi-fw pi-images"></span>
                                 </button>
-                                <button @click="options.headerSlotProps.upload()" type="button" class="p-button p-component custom-upload-btn p-button-success p-button-rounded p-button-outlined p-button-icon-only" :disabled="options.uploadDisabled">
+                                <button @click="upload()" type="button" class="p-button p-component custom-upload-btn p-button-success p-button-rounded p-button-outlined p-button-icon-only" :disabled="uploadDisabled">
                                     <span class="p-button-icon p-c pi pi-fw pi-cloud-upload"></span>
                                 </button>
-                                <button @click="onClearTemplatingUpload(options)" type="button" class="p-button p-component custom-cancel-btn p-button-danger p-button-rounded p-button-outlined p-button-icon-only" :disabled="options.cancelDisabled">
+                                <button @click="onClearTemplatingUpload(clear)" type="button" class="p-button p-component custom-cancel-btn p-button-danger p-button-rounded p-button-outlined p-button-icon-only" :disabled="cancelDisabled">
                                     <span class="p-button-icon p-c pi pi-fw pi-times"></span>
                                 </button>
                             </div>
@@ -41,11 +41,11 @@
                             <ProgressBar v-else-if="totalSizePercent <= 100 && totalSizePercent !== 0" :value="totalSizePercent" style="width: 300px; height: 20px; margin-left: auto">{{ totalSize }}B / 1Mb</ProgressBar>
                         </div>
                     </template>
-                    <template #fileContent="{ options }">
-                        <div v-if="options.files.length > 0">
+                    <template #fileContent="{ files, uploadedFiles, onUploadedFileRemove, onFileRemove }">
+                        <div v-if="files.length > 0">
                             <h5>Pending</h5>
                             <div class="grid p-5">
-                                <div v-for="(file, index) of options.files" :key="file.name + file.type + file.size" class="col-3 mx-3 card flex flex-column border-1 surface-border align-items-center">
+                                <div v-for="(file, index) of files" :key="file.name + file.type + file.size" class="col-3 mx-3 card flex flex-column border-1 surface-border align-items-center">
                                     <div>
                                         <img role="presentation" :alt="file.name" :src="file.objectURL" height="50" width="50" />
                                     </div>
@@ -56,16 +56,16 @@
                                     <div class="mt-3">{{ formatSize(file.size) }}</div>
                                     <Badge value="Pending" class="mt-3" severity="warning" />
                                     <div class="mt-3">
-                                        <Button icon="pi pi-times" @click="onRemoveTemplatingFile(file, index)" class="p-button-text p-button-secondary" />
+                                        <Button icon="pi pi-times" @click="onRemoveTemplatingFile(file, onFileRemove, index)" class="p-button-text p-button-secondary" />
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div v-if="options.uploadedFiles.length > 0">
+                        <div v-if="uploadedFiles.length > 0">
                             <h5>Completed</h5>
                             <div class="grid p-5">
-                                <div v-for="(file, index) of options.uploadedFiles" :key="file.name + file.type + file.size" class="col-3 mx-3 card flex flex-column border-1 surface-border align-items-center">
+                                <div v-for="(file, index) of uploadedFiles" :key="file.name + file.type + file.size" class="col-3 mx-3 card flex flex-column border-1 surface-border align-items-center">
                                     <div>
                                         <img role="presentation" :alt="file.name" :src="file.objectURL" height="50" width="50" />
                                     </div>
@@ -76,14 +76,17 @@
                                     <Badge value="Completed" class="mt-3" severity="success" />
 
                                     <div class="mt-3">
-                                        <Button icon="pi pi-times" @click="file.onUploadedFileRemove(index)" class="p-button-text p-button-secondary" />
+                                        <Button icon="pi pi-times" @click="onUploadedFileRemove(index)" class="p-button-text p-button-secondary" />
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </template>
                     <template #empty>
-                        <p>Drag and drop files to here to upload.</p>
+                        <div class="flex align-items-center justify-content-center flex-column">
+                            <i class="pi pi-cloud-upload border-1 border-circle border-solid surface-border p-5 text-8xl text-500" />
+                            <p class="mt-4">Drag and drop files to here to upload.</p>
+                        </div>
                     </template>
                 </FileUpload>
 
@@ -111,13 +114,13 @@ export default {
         };
     },
     methods: {
-        onRemoveTemplatingFile(file, index) {
-            file.onRemove(index);
+        onRemoveTemplatingFile(file, onFileRemove, index) {
+            onFileRemove(index);
             this.totalSize -= parseInt(this.formatSize(file.size));
             this.totalSizePercent = this.totalSize / 10;
         },
-        onClearTemplatingUpload(options) {
-            options.headerSlotProps.clear();
+        onClearTemplatingUpload(clear) {
+            clear();
             this.totalSize = 0;
             this.totalSizePercent = 0;
         },
@@ -162,9 +165,13 @@ p {
 }
 .fileinput-file-name {
     white-space: nowrap;
-
     overflow: hidden;
     text-overflow: ellipsis;
+}
+@media (max-width: 1500px) {
+    .fileinput-file-name {
+        width: 100px;
+    }
 }
 ::v-deep(.custom-progress-bar) {
     .p-progressbar-value {

@@ -2,7 +2,7 @@
     <div v-if="isAdvanced" class="p-fileupload p-fileupload-advanced p-component">
         <div class="p-fileupload-buttonbar">
             <input ref="fileInput" type="file" @change="onFileSelect" :multiple="multiple" :accept="accept" :disabled="chooseDisabled" />
-            <slot name="header" :options="{ uploadDisabled, cancelDisabled, headerSlotProps }">
+            <slot name="header" :uploadDisabled="uploadDisabled" :cancelDisabled="cancelDisabled" :choose="headerSlotCallbacks.choose" :upload="headerSlotCallbacks.upload" :clear="headerSlotCallbacks.clear">
                 <span v-ripple :class="advancedChooseButtonClass" :style="style" @click="choose" @keydown.enter="choose" @focus="onFocus" @blur="onBlur" tabindex="0">
                     <span :class="advancedChooseIconClass"></span>
                     <span class="p-button-label">{{ chooseButtonLabel }}</span>
@@ -15,7 +15,7 @@
             <FileUploadProgressBar v-if="hasFiles" :value="progress" style="height: 14px" />
 
             <FileUploadMessage v-for="msg of messages" :key="msg" severity="error" @close="onMessageClose">{{ msg }}</FileUploadMessage>
-            <slot name="fileContent" :options="{ files, uploadedFiles }">
+            <slot name="fileContent" :files="files" :uploadedFiles="uploadedFiles" :onUploadedFileRemove="removeUploadedFile" :onFileRemove="remove">
                 <FileContent v-if="hasFiles" :files="files" @remove="remove" />
                 <FileContent :files="uploadedFiles" badge-value="Completed" badge-severity="success" @remove="removeUploadedFile" />
             </slot>
@@ -153,7 +153,7 @@ export default {
             focused: false,
             progress: null,
             uploadedFiles: [],
-            headerSlotProps: {
+            headerSlotCallbacks: {
                 choose: () => {
                     this.choose();
                 },
