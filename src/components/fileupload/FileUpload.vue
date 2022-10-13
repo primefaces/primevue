@@ -186,14 +186,6 @@ export default {
                             file.objectURL = window.URL.createObjectURL(file);
                         }
 
-                        file.onRemove = (index) => {
-                            this.remove(index);
-                        };
-
-                        file.onUploadedFileRemove = (index) => {
-                            this.removeUploadedFile(index);
-                        };
-
                         this.files.push(file);
                     }
                 }
