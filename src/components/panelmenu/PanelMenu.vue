@@ -113,6 +113,7 @@ export default {
             }
 
             this.changeActiveItem(event, item);
+            DomHandler.focus(event.currentTarget);
         },
         onHeaderKeyDown(event, item) {
             switch (event.code) {
@@ -148,7 +149,7 @@ export default {
             event.preventDefault();
         },
         onHeaderArrowUpKey(event) {
-            const prevHeader = this.findPrevHeader(event.currentTarget.parentElement);
+            const prevHeader = this.findPrevHeader(event.currentTarget.parentElement) || this.findLastHeader();
             const rootList = DomHandler.hasClass(prevHeader, 'p-highlight') ? DomHandler.findSingle(prevHeader.nextElementSibling, '.p-panelmenu-root-submenu') : null;
 
             rootList ? DomHandler.focus(rootList) : this.updateFocusedHeader({ originalEvent: event, focusOnNext: false });
@@ -235,7 +236,7 @@ export default {
         },
         getHeaderActionClass(item, routerProps) {
             return [
-                'p-panelmenu-header-link p-panelmenu-header-action',
+                'p-panelmenu-header-link p-panelmenu-header-action', // TODO: the 'p-panelmenu-header-link' class is deprecated since v3.18.0.
                 {
                     'router-link-active': routerProps && routerProps.isActive,
                     'router-link-active-exact': this.exact && routerProps && routerProps.isExactActive
@@ -246,7 +247,7 @@ export default {
             return ['p-menuitem-icon', this.getItemProp(item, 'icon')];
         },
         getHeaderToggleIconClass(item) {
-            return ['p-panelmenu-icon', this.isItemActive(item) ? 'pi pi-chevron-down' : 'pi pi-chevron-right'];
+            return ['p-submenu-icon p-panelmenu-icon', this.isItemActive(item) ? 'pi pi-chevron-down' : 'pi pi-chevron-right']; // TODO: the 'p-panelmenu-icon' class is deprecated since v3.18.0.
         }
     },
     computed: {
@@ -286,6 +287,8 @@ export default {
     user-select: none;
     cursor: pointer;
     text-decoration: none;
+    position: relative;
+    overflow: hidden;
 }
 
 .p-panelmenu .p-menuitem-text {
