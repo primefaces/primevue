@@ -259,12 +259,12 @@ export default {
 
             if (ObjectUtils.isEmpty(processedItem)) return;
 
-            const { index, level, parentKey, items } = processedItem;
+            const { index, key, level, parentKey, items } = processedItem;
             const grouped = ObjectUtils.isNotEmpty(items);
 
-            const activeItemPath = this.activeItemPath.filter((p) => p.parentKey !== parentKey);
+            const activeItemPath = this.activeItemPath.filter((p) => p.parentKey !== parentKey && p.parentKey !== key);
 
-            activeItemPath.push(processedItem);
+            grouped && activeItemPath.push(processedItem);
 
             this.focusedItemInfo = { index, level, parentKey };
             this.activeItemPath = activeItemPath;
@@ -281,15 +281,13 @@ export default {
         onItemClick(event) {
             const { originalEvent, processedItem } = event;
             const grouped = this.isProccessedItemGroup(processedItem);
+            const root = ObjectUtils.isEmpty(processedItem.parent);
 
-            grouped ? this.onItemChange(event) : this.hide(originalEvent, true);
+            grouped ? this.onItemChange(event) : this.hide(originalEvent, !root);
         },
         onItemMouseEnter(event) {
             if (ObjectUtils.isNotEmpty(this.activeItemPath)) {
-                const { processedItem } = event;
-                const grouped = this.isProccessedItemGroup(processedItem);
-
-                grouped && this.onItemChange(event);
+                this.onItemChange(event);
             }
         },
         onArrowDownKey(event) {
