@@ -350,6 +350,14 @@ myUploader(event) {
                 </thead>
                 <tbody>
                     <tr>
+                        <td>header</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>fileContent</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
                         <td>content</td>
                         <td>-</td>
                     </tr>
