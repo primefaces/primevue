@@ -1,29 +1,24 @@
 <template>
     <div v-if="isAdvanced" class="p-fileupload p-fileupload-advanced p-component">
         <div class="p-fileupload-buttonbar">
-            <span v-ripple :class="advancedChooseButtonClass" :style="style" @click="choose" @keydown.enter="choose" @focus="onFocus" @blur="onBlur" tabindex="0">
-                <input ref="fileInput" type="file" @change="onFileSelect" :multiple="multiple" :accept="accept" :disabled="chooseDisabled" />
-                <span :class="advancedChooseIconClass"></span>
-                <span class="p-button-label">{{ chooseButtonLabel }}</span>
-            </span>
-            <FileUploadButton v-if="showUploadButton" :label="uploadButtonLabel" :icon="uploadIcon" @click="upload" :disabled="uploadDisabled" />
-            <FileUploadButton v-if="showCancelButton" :label="cancelButtonLabel" :icon="cancelIcon" @click="clear" :disabled="cancelDisabled" />
+            <input ref="fileInput" type="file" @change="onFileSelect" :multiple="multiple" :accept="accept" :disabled="chooseDisabled" />
+            <slot name="header" :uploadDisabled="uploadDisabled" :cancelDisabled="cancelDisabled" :choose="headerSlotCallbacks.choose" :upload="headerSlotCallbacks.upload" :clear="headerSlotCallbacks.clear">
+                <span v-ripple :class="advancedChooseButtonClass" :style="style" @click="choose" @keydown.enter="choose" @focus="onFocus" @blur="onBlur" tabindex="0">
+                    <span :class="advancedChooseIconClass"></span>
+                    <span class="p-button-label">{{ chooseButtonLabel }}</span>
+                </span>
+                <FileUploadButton v-if="showUploadButton" :label="uploadButtonLabel" :icon="uploadIcon" @click="upload" :disabled="uploadDisabled" />
+                <FileUploadButton v-if="showCancelButton" :label="cancelButtonLabel" :icon="cancelIcon" @click="clear" :disabled="cancelDisabled" />
+            </slot>
         </div>
         <div ref="content" class="p-fileupload-content" @dragenter="onDragEnter" @dragover="onDragOver" @dragleave="onDragLeave" @drop="onDrop">
-            <FileUploadProgressBar v-if="hasFiles" :value="progress" />
+            <FileUploadProgressBar v-if="hasFiles" :value="progress" style="height: 14px" />
+
             <FileUploadMessage v-for="msg of messages" :key="msg" severity="error" @close="onMessageClose">{{ msg }}</FileUploadMessage>
-            <div v-if="hasFiles" class="p-fileupload-files">
-                <div v-for="(file, index) of files" :key="file.name + file.type + file.size" class="p-fileupload-row">
-                    <div>
-                        <img v-if="isImage(file)" role="presentation" :alt="file.name" :src="file.objectURL" :width="previewWidth" />
-                    </div>
-                    <div class="p-fileupload-filename">{{ file.name }}</div>
-                    <div>{{ formatSize(file.size) }}</div>
-                    <div>
-                        <FileUploadButton type="button" icon="pi pi-times" @click="remove(index)" />
-                    </div>
-                </div>
-            </div>
+            <slot name="fileContent" :files="files" :uploadedFiles="uploadedFiles" :onUploadedFileRemove="removeUploadedFile" :onFileRemove="remove">
+                <FileContent v-if="hasFiles" :files="files" @remove="remove" />
+                <FileContent :files="uploadedFiles" badge-value="Completed" badge-severity="success" @remove="removeUploadedFile" />
+            </slot>
             <div v-if="$slots.content && !hasFiles">
                 <slot name="content"></slot>
             </div>
@@ -48,10 +43,11 @@ import Message from 'primevue/message';
 import ProgressBar from 'primevue/progressbar';
 import Ripple from 'primevue/ripple';
 import { DomHandler } from 'primevue/utils';
+import FileContent from './FileContent.vue';
 
 export default {
     name: 'FileUpload',
-    emits: ['select', 'uploader', 'before-upload', 'progress', 'upload', 'error', 'before-send', 'clear', 'remove'],
+    emits: ['select', 'uploader', 'before-upload', 'progress', 'upload', 'error', 'before-send', 'clear', 'remove', 'removeUploadedFile'],
     props: {
         name: {
             type: String,
@@ -155,9 +151,22 @@ export default {
             files: [],
             messages: [],
             focused: false,
-            progress: null
+            progress: null,
+            uploadedFiles: [],
+            headerSlotCallbacks: {
+                choose: () => {
+                    this.choose();
+                },
+                upload: () => {
+                    this.upload();
+                },
+                clear: () => {
+                    this.clear();
+                }
+            }
         };
     },
+
     methods: {
         onFileSelect(event) {
             if (event.type !== 'drop' && this.isIE11() && this.duplicateIEEvent) {
@@ -253,6 +262,7 @@ export default {
                             });
                         }
 
+                        this.uploadedFiles.push(...this.files);
                         this.clear();
                     }
                 };
@@ -382,6 +392,15 @@ export default {
                 files: this.files
             });
         },
+        removeUploadedFile(index) {
+            let removedFile = this.uploadedFiles.splice(index, 1)[0];
+
+            this.uploadedFiles = [...this.uploadedFiles];
+            this.$emit('removeUploadedFile', {
+                file: removedFile,
+                files: this.uploadedFiles
+            });
+        },
         clearInputElement() {
             this.$refs.fileInput.value = '';
         },
@@ -481,7 +500,8 @@ export default {
     components: {
         FileUploadButton: Button,
         FileUploadProgressBar: ProgressBar,
-        FileUploadMessage: Message
+        FileUploadMessage: Message,
+        FileContent
     },
     directives: {
         ripple: Ripple
@@ -489,7 +509,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .p-fileupload-content {
     position: relative;
 }
@@ -520,11 +540,7 @@ export default {
     overflow: hidden;
 }
 
-.p-button.p-fileupload-choose input[type='file'] {
-    display: none;
-}
-
-.p-fileupload-choose.p-fileupload-choose-selected input[type='file'] {
+input[type='file'] {
     display: none;
 }
 
