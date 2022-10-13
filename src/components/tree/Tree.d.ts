@@ -46,6 +46,14 @@ export interface TreeNode {
      * Optional
      */
     [key: string]: any;
+    /**
+     * Icon of the node to display expanded to content.
+     */
+    expandedIcon?: string;
+    /**
+     * Icon of the node to display collapsed to content.
+     */
+    collapsedIcon?: string;
 }
 
 type TreeSelectionModeType = 'single' | 'multiple' | 'checkbox' | undefined;
