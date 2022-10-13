@@ -153,7 +153,7 @@ onPage(event) {
                     </tr>
                     <tr>
                         <td>template</td>
-                        <td>string</td>
+                        <td>object, string</td>
                         <td>FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown</td>
                         <td>Template of the paginator.</td>
                     </tr>
@@ -285,6 +285,19 @@ export default {
         <h5>Basic</h5>
         <Paginator :rows="10" :totalRecords="totalRecords" :rowsPerPageOptions="[10,20,30]"></Paginator>
 
+        <h5>Responsive Breakpoints</h5>
+        <Paginator
+            :template="{
+                '640px': 'PrevPageLink CurrentPageReport NextPageLink',
+                '960px': 'FirstPageLink PrevPageLink CurrentPageReporNextPageLink LastPageLink',
+                '1300px': 'FirstPageLink PrevPageLink PageLinkNextPageLink LastPageLink',
+                default: 'FirstPageLink PrevPageLink PageLinks NextPageLinLastPageLink JumpToPageDropdown'
+            }"
+            :rows="10"
+            :totalRecords="totalRecords"
+            :rowsPerPageOptions="[10, 20, 30]">
+        </Paginator>
+
         <h5>Custom</h5>
         <Paginator v-model:first="first" :rows="1" :totalRecords="totalRecords2"
             template="FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink">
@@ -334,6 +347,19 @@ export default {
         <h5>Basic</h5>
         <Paginator :rows="10" :totalRecords="totalRecords" :rowsPerPageOptions="[10,20,30]"></Paginator>
 
+        <h5>Responsive Breakpoints</h5>
+        <Paginator
+            :template="{
+                '640px': 'PrevPageLink CurrentPageReport NextPageLink',
+                '960px': 'FirstPageLink PrevPageLink CurrentPageReporNextPageLink LastPageLink',
+                '1300px': 'FirstPageLink PrevPageLink PageLinkNextPageLink LastPageLink',
+                default: 'FirstPageLink PrevPageLink PageLinks NextPageLinLastPageLink JumpToPageDropdown'
+            }"
+            :rows="10"
+            :totalRecords="totalRecords"
+            :rowsPerPageOptions="[10, 20, 30]">
+        </Paginator>
+
         <h5>Custom</h5>
         <Paginator v-model:first="first" :rows="1" :totalRecords="totalRecords2"
             template="FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink">
@@ -380,6 +406,19 @@ export default {
                     content: `<div id="app">
             <h5>Basic</h5>
             <p-paginator :rows="10" :total-records="totalRecords" :rows-per-page-options="[10,20,30]"></p-paginator>
+
+            <h5>Responsive Breakpoints</h5>
+            <p-paginator
+                :template="{
+                    '640px': 'PrevPageLink CurrentPageReport NextPageLink',
+                    '960px': 'FirstPageLink PrevPageLink CurrentPageReporNextPageLink LastPageLink',
+                    '1300px': 'FirstPageLink PrevPageLink PageLinkNextPageLink LastPageLink',
+                    default: 'FirstPageLink PrevPageLink PageLinks NextPageLinLastPageLink JumpToPageDropdown'
+                }"
+                :rows="10"
+                :totalRecords="totalRecords"
+                :rowsPerPageOptions="[10, 20, 30]">
+            </p-paginator>
 
             <h5>Custom</h5>
             <p-paginator v-model:first="first" :rows="1" :total-records="totalRecords2"
