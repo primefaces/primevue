@@ -1095,7 +1095,10 @@ export default {
 
             if (this.isSingleSelection() && (!this.showTime || this.hideOnDateTimeSelect)) {
                 setTimeout(() => {
-                    this.input.focus();
+                    if (this.input) {
+                        this.input.focus();
+                    }
+
                     this.overlayVisible = false;
                 }, 150);
             }
@@ -2615,7 +2618,10 @@ export default {
         onOverlayKeyDown(event) {
             switch (event.code) {
                 case 'Escape':
-                    this.input.focus();
+                    if (this.input) {
+                        this.input.focus();
+                    }
+
                     this.overlayVisible = false;
                     break;
 
