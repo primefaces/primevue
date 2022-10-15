@@ -1074,7 +1074,7 @@ export default {
             const filtered = [];
 
             optionGroups.forEach((group) => {
-                const filteredItems = group.items.filter((x) => filteredOptions.includes(x));
+                const filteredItems = group.items.filter((item) => filteredOptions.includes(item));
 
                 if (filteredItems.length > 0) filtered.push({ ...group, items: [...filteredItems] });
             });
