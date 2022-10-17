@@ -36,6 +36,12 @@ const ContextMenuProps = [
         description: "Whether to apply 'router-link-active-exact' class if route exactly matches the item path."
     },
     {
+        name: 'tabindex',
+        type: 'number',
+        default: '0',
+        description: 'Index of the element in tabbing order.'
+    },
+    {
         name: 'aria-label',
         type: 'string',
         default: 'null',

@@ -1,9 +1,31 @@
 <template>
     <Portal :appendTo="appendTo">
         <transition name="p-contextmenu" @enter="onEnter" @after-enter="onAfterEnter" @leave="onLeave" @after-leave="onAfterLeave">
-            <div v-if="visible" :ref="containerRef" :class="containerClass" @keydown="onKeydown">
-                <span ref="firstHiddenFocusableElement" role="presentation" aria-hidden="true" class="p-hidden-accessible p-hidden-focusable" :tabindex="0"></span>
-                <ContextMenuSub ref="ul" :model="model" :root="true" @leaf-click="onLeafClick" :template="$slots.item" :exact="exact" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel" />
+            <div v-if="visible" :ref="containerRef" :class="containerClass" v-bind="$attrs">
+                <ContextMenuSub
+                    :ref="listRef"
+                    :id="id + '_list'"
+                    role="menubar"
+                    :root="true"
+                    :tabindex="tabindex"
+                    aria-orientation="vertical"
+                    :aria-activedescendant="focused ? focusedItemId : undefined"
+                    :menuId="id"
+                    :focusedItemId="focused ? focusedItemId : undefined"
+                    :items="processedItems"
+                    :template="$slots.item"
+                    :activeItemPath="activeItemPath"
+                    :exact="exact"
+                    :aria-labelledby="ariaLabelledby"
+                    :aria-label="ariaLabel"
+                    :level="0"
+                    :visible="submenuVisible"
+                    @focus="onFocus"
+                    @blur="onBlur"
+                    @keydown="onKeyDown"
+                    @item-click="onItemClick"
+                    @item-mouseenter="onItemMouseEnter"
+                />
             </div>
         </transition>
     </Portal>
@@ -11,11 +33,12 @@
 
 <script>
 import Portal from 'primevue/portal';
-import { DomHandler, ZIndexUtils } from 'primevue/utils';
+import { DomHandler, ObjectUtils, UniqueComponentId, ZIndexUtils } from 'primevue/utils';
 import ContextMenuSub from './ContextMenuSub.vue';
 
 export default {
     name: 'ContextMenu',
+    emits: ['focus', 'blur', 'show', 'hide'],
     props: {
         model: {
             type: Array,
@@ -41,6 +64,10 @@ export default {
             type: Boolean,
             default: true
         },
+        tabindex: {
+            type: Number,
+            default: 0
+        },
         'aria-labelledby': {
             type: String,
             default: null
@@ -57,10 +84,28 @@ export default {
     pageX: null,
     pageY: null,
     container: null,
+    list: null,
     data() {
         return {
-            visible: false
+            focused: false,
+            focusedItemInfo: { index: -1, level: 0, parentKey: '' },
+            activeItemPath: [],
+            visible: false,
+            submenuVisible: false
         };
+    },
+    watch: {
+        activeItemPath(newPath) {
+            if (ObjectUtils.isNotEmpty(newPath)) {
+                this.bindOutsideClickListener();
+                this.bindResizeListener();
+                this.bindDocumentContextMenuListener();
+            } else {
+                this.unbindOutsideClickListener();
+                this.unbindResizeListener();
+                this.unbindDocumentContextMenuListener();
+            }
+        }
     },
     beforeUnmount() {
         this.unbindResizeListener();
@@ -71,6 +116,7 @@ export default {
             ZIndexUtils.clear(this.container);
         }
 
+        this.target = null;
         this.container = null;
     },
     mounted() {
@@ -79,34 +125,232 @@ export default {
         }
     },
     methods: {
-        toggle(event) {
-            if (this.visible) this.hide();
-            else this.show(event);
+        getItemProp(item, name) {
+            return item ? ObjectUtils.getItemValue(item[name]) : undefined;
         },
-        onLeafClick() {
-            this.hide();
+        getItemLabel(item) {
+            return this.getItemProp(item, 'label');
+        },
+        isItemDisabled(item) {
+            return this.getItemProp(item, 'disabled');
+        },
+        isItemGroup(item) {
+            return ObjectUtils.isNotEmpty(this.getItemProp(item, 'items'));
+        },
+        isItemSeparator(item) {
+            return this.getItemProp(item, 'separator');
+        },
+        getProccessedItemLabel(processedItem) {
+            return processedItem ? this.getItemLabel(processedItem.item) : undefined;
+        },
+        isProccessedItemGroup(processedItem) {
+            return processedItem && ObjectUtils.isNotEmpty(processedItem.items);
+        },
+        toggle(event) {
+            this.visible ? this.hide(event) : this.show(event);
         },
         show(event) {
             this.pageX = event.pageX;
             this.pageY = event.pageY;
-
-            if (this.visible) this.position();
-            else this.visible = true;
+            this.visible ? this.position() : (this.visible = true);
 
             event.stopPropagation();
             event.preventDefault();
         },
         hide() {
             this.visible = false;
+            this.activeItemPath = [];
+            this.focusedItemInfo = { index: -1, level: 0, parentKey: '' };
         },
-        onKeydown(event) {
-            if (event.code === 'ArrowDown') {
-                const firstListItem = DomHandler.findSingle(this.container, 'li.p-menuitem');
+        onFocus(event) {
+            this.focused = true;
+            this.focusedItemInfo = { index: -1, level: 0, parentKey: '' };
+            this.$emit('focus', event);
+        },
+        onBlur(event) {
+            this.focused = false;
+            this.focusedItemInfo = { index: -1, level: 0, parentKey: '' };
+            this.searchValue = '';
+            this.$emit('blur', event);
+        },
+        onKeyDown(event) {
+            const metaKey = event.metaKey || event.ctrlKey;
 
-                this.$refs.ul.navigateToFirstItem(firstListItem);
+            switch (event.code) {
+                case 'ArrowDown':
+                    this.onArrowDownKey(event);
+                    break;
+
+                case 'ArrowUp':
+                    this.onArrowUpKey(event);
+                    break;
+
+                case 'ArrowLeft':
+                    this.onArrowLeftKey(event);
+                    break;
+
+                case 'ArrowRight':
+                    this.onArrowRightKey(event);
+                    break;
+
+                case 'Home':
+                    this.onHomeKey(event);
+                    break;
+
+                case 'End':
+                    this.onEndKey(event);
+                    break;
+
+                case 'Space':
+                    this.onSpaceKey(event);
+                    break;
+
+                case 'Enter':
+                    this.onEnterKey(event);
+                    break;
+
+                case 'Escape':
+                    this.onEscapeKey(event);
+                    break;
+
+                case 'Tab':
+                    this.onTabKey(event);
+                    break;
+
+                case 'PageDown':
+                case 'PageUp':
+                case 'Backspace':
+                case 'ShiftLeft':
+                case 'ShiftRight':
+                    //NOOP
+                    break;
+
+                default:
+                    if (!metaKey && ObjectUtils.isPrintableCharacter(event.key)) {
+                        this.searchItems(event, event.key);
+                    }
+
+                    break;
+            }
+        },
+        onItemChange(event) {
+            const { processedItem, isFocus } = event;
+
+            if (ObjectUtils.isEmpty(processedItem)) return;
+
+            const { index, key, level, parentKey, items } = processedItem;
+            const grouped = ObjectUtils.isNotEmpty(items);
+            const activeItemPath = this.activeItemPath.filter((p) => p.parentKey !== parentKey && p.parentKey !== key);
+
+            if (grouped) {
+                activeItemPath.push(processedItem);
+                this.submenuVisible = true;
+            }
+
+            this.focusedItemInfo = { index, level, parentKey };
+            this.activeItemPath = activeItemPath;
+
+            isFocus && DomHandler.focus(this.list);
+        },
+        onItemClick(event) {
+            const { originalEvent, processedItem } = event;
+            const grouped = this.isProccessedItemGroup(processedItem);
+            const root = ObjectUtils.isEmpty(processedItem.parent);
+
+            grouped ? this.onItemChange(event) : this.hide(originalEvent, !root);
+        },
+        onItemMouseEnter(event) {
+            this.onItemChange(event);
+        },
+        onArrowDownKey(event) {
+            const itemIndex = this.focusedItemInfo.index !== -1 ? this.findNextItemIndex(this.focusedItemInfo.index) : this.findFirstFocusedItemIndex();
+
+            this.changeFocusedItemIndex(event, itemIndex);
+            event.preventDefault();
+        },
+        onArrowUpKey(event) {
+            if (event.altKey) {
+                if (this.focusedItemInfo.index !== -1) {
+                    const processedItem = this.visibleItems[this.focusedItemInfo.index];
+                    const grouped = this.isProccessedItemGroup(processedItem);
+
+                    !grouped && this.onItemChange({ originalEvent: event, processedItem });
+                }
+
+                this.popup && this.hide(event, true);
+                event.preventDefault();
+            } else {
+                const itemIndex = this.focusedItemInfo.index !== -1 ? this.findPrevItemIndex(this.focusedItemInfo.index) : this.findLastFocusedItemIndex();
+
+                this.changeFocusedItemIndex(event, itemIndex);
+                event.preventDefault();
+            }
+        },
+        onArrowLeftKey(event) {
+            const processedItem = this.visibleItems[this.focusedItemInfo.index];
+            const parentItem = this.activeItemPath.find((p) => p.key === processedItem.parentKey);
+            const root = ObjectUtils.isEmpty(processedItem.parent);
+
+            if (!root) {
+                this.focusedItemInfo = { index: -1, parentKey: parentItem ? parentItem.parentKey : '' };
+                this.searchValue = '';
+                this.onArrowDownKey(event);
+            }
+
+            this.activeItemPath = this.activeItemPath.filter((p) => p.parentKey !== this.focusedItemInfo.parentKey);
+
+            event.preventDefault();
+        },
+        onArrowRightKey(event) {
+            const processedItem = this.visibleItems[this.focusedItemInfo.index];
+            const grouped = this.isProccessedItemGroup(processedItem);
+
+            if (grouped) {
+                this.onItemChange({ originalEvent: event, processedItem });
+                this.focusedItemInfo = { index: -1, parentKey: processedItem.key };
+                this.searchValue = '';
+                this.onArrowDownKey(event);
             }
 
             event.preventDefault();
+        },
+        onHomeKey(event) {
+            this.changeFocusedItemIndex(event, this.findFirstItemIndex());
+            event.preventDefault();
+        },
+        onEndKey(event) {
+            this.changeFocusedItemIndex(event, this.findLastItemIndex());
+            event.preventDefault();
+        },
+        onEnterKey(event) {
+            if (this.focusedItemInfo.index !== -1) {
+                const element = DomHandler.findSingle(this.list, `li[id="${`${this.focusedItemId}`}"]`);
+                const anchorElement = element && DomHandler.findSingle(element, '.p-menuitem-action');
+
+                anchorElement ? anchorElement.click() : element && element.click();
+                !this.visible && (this.focusedItemInfo.index = this.findFirstFocusedItemIndex());
+            }
+
+            event.preventDefault();
+        },
+        onSpaceKey(event) {
+            this.onEnterKey(event);
+        },
+        onEscapeKey(event) {
+            this.hide(event, true);
+            !this.popup && (this.focusedItemInfo.index = this.findFirstFocusedItemIndex());
+
+            event.preventDefault();
+        },
+        onTabKey(event) {
+            if (this.focusedItemInfo.index !== -1) {
+                const processedItem = this.visibleItems[this.focusedItemInfo.index];
+                const grouped = this.isProccessedItemGroup(processedItem);
+
+                !grouped && this.onItemChange({ originalEvent: event, processedItem });
+            }
+
+            this.hide();
         },
         onEnter(el) {
             this.position();
@@ -118,11 +362,20 @@ export default {
             }
         },
         onAfterEnter() {
-            DomHandler.focus(this.$refs.firstHiddenFocusableElement);
+            this.list.focus();
+            this.bindOutsideClickListener();
+            this.bindResizeListener();
+            this.bindDocumentContextMenuListener();
+
+            this.$emit('show');
         },
         onLeave() {
             this.unbindOutsideClickListener();
             this.unbindResizeListener();
+            this.unbindDocumentContextMenuListener();
+
+            this.$emit('hide');
+            this.container = null;
         },
         onAfterLeave(el) {
             if (this.autoZIndex) {
@@ -162,7 +415,10 @@ export default {
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
                 this.outsideClickListener = (event) => {
-                    if (this.visible && this.container && !this.container.contains(event.target) && !event.ctrlKey) {
+                    const isOutsideContainer = this.container && !this.container.contains(event.target);
+                    const isOutsideTarget = this.visible ? !(this.target && (this.target === event.target || this.target.contains(event.target))) : true;
+
+                    if (isOutsideContainer && isOutsideTarget) {
                         this.hide();
                     }
                 };
@@ -178,9 +434,9 @@ export default {
         },
         bindResizeListener() {
             if (!this.resizeListener) {
-                this.resizeListener = () => {
+                this.resizeListener = (event) => {
                     if (this.visible && !DomHandler.isTouchDevice()) {
-                        this.hide();
+                        this.hide(event, true);
                     }
                 };
 
@@ -208,13 +464,142 @@ export default {
                 this.documentContextMenuListener = null;
             }
         },
+        isItemMatched(processedItem) {
+            return this.isValidItem(processedItem) && this.getProccessedItemLabel(processedItem).toLocaleLowerCase().startsWith(this.searchValue.toLocaleLowerCase());
+        },
+        isValidItem(processedItem) {
+            return !!processedItem && !this.isItemDisabled(processedItem.item) && !this.isItemSeparator(processedItem.item);
+        },
+        isValidSelectedItem(processedItem) {
+            return this.isValidItem(processedItem) && this.isSelected(processedItem);
+        },
+        isSelected(processedItem) {
+            return this.activeItemPath.some((p) => p.key === processedItem.key);
+        },
+        findFirstItemIndex() {
+            return this.visibleItems.findIndex((processedItem) => this.isValidItem(processedItem));
+        },
+        findLastItemIndex() {
+            return ObjectUtils.findLastIndex(this.visibleItems, (processedItem) => this.isValidItem(processedItem));
+        },
+        findNextItemIndex(index) {
+            const matchedItemIndex = index < this.visibleItems.length - 1 ? this.visibleItems.slice(index + 1).findIndex((processedItem) => this.isValidItem(processedItem)) : -1;
+
+            return matchedItemIndex > -1 ? matchedItemIndex + index + 1 : index;
+        },
+        findPrevItemIndex(index) {
+            const matchedItemIndex = index > 0 ? ObjectUtils.findLastIndex(this.visibleItems.slice(0, index), (processedItem) => this.isValidItem(processedItem)) : -1;
+
+            return matchedItemIndex > -1 ? matchedItemIndex : index;
+        },
+        findSelectedItemIndex() {
+            return this.visibleItems.findIndex((processedItem) => this.isValidSelectedItem(processedItem));
+        },
+        findFirstFocusedItemIndex() {
+            const selectedIndex = this.findSelectedItemIndex();
+
+            return selectedIndex < 0 ? this.findFirstItemIndex() : selectedIndex;
+        },
+        findLastFocusedItemIndex() {
+            const selectedIndex = this.findSelectedItemIndex();
+
+            return selectedIndex < 0 ? this.findLastItemIndex() : selectedIndex;
+        },
+        searchItems(event, char) {
+            this.searchValue = (this.searchValue || '') + char;
+
+            let itemIndex = -1;
+            let matched = false;
+
+            if (this.focusedItemInfo.index !== -1) {
+                itemIndex = this.visibleItems.slice(this.focusedItemInfo.index).findIndex((processedItem) => this.isItemMatched(processedItem));
+                itemIndex = itemIndex === -1 ? this.visibleItems.slice(0, this.focusedItemInfo.index).findIndex((processedItem) => this.isItemMatched(processedItem)) : itemIndex + this.focusedItemInfo.index;
+            } else {
+                itemIndex = this.visibleItems.findIndex((processedItem) => this.isItemMatched(processedItem));
+            }
+
+            if (itemIndex !== -1) {
+                matched = true;
+            }
+
+            if (itemIndex === -1 && this.focusedItemInfo.index === -1) {
+                itemIndex = this.findFirstFocusedItemIndex();
+            }
+
+            if (itemIndex !== -1) {
+                this.changeFocusedItemIndex(event, itemIndex);
+            }
+
+            if (this.searchTimeout) {
+                clearTimeout(this.searchTimeout);
+            }
+
+            this.searchTimeout = setTimeout(() => {
+                this.searchValue = '';
+                this.searchTimeout = null;
+            }, 500);
+
+            return matched;
+        },
+        changeFocusedItemIndex(event, index) {
+            if (this.focusedItemInfo.index !== index) {
+                this.focusedItemInfo.index = index;
+                this.scrollInView();
+            }
+        },
+        scrollInView(index = -1) {
+            const id = index !== -1 ? `${this.id}_${index}` : this.focusedItemId;
+            const element = DomHandler.findSingle(this.list, `li[id="${id}"]`);
+
+            if (element) {
+                element.scrollIntoView && element.scrollIntoView({ block: 'nearest', inline: 'start' });
+            }
+        },
+        createProcessedItems(items, level = 0, parent = {}, parentKey = '') {
+            const processedItems = [];
+
+            items &&
+                items.forEach((item, index) => {
+                    const key = (parentKey !== '' ? parentKey + '_' : '') + index;
+                    const newItem = {
+                        item,
+                        index,
+                        level,
+                        key,
+                        parent,
+                        parentKey
+                    };
+
+                    newItem['items'] = this.createProcessedItems(item.items, level + 1, newItem, key);
+                    processedItems.push(newItem);
+                });
+
+            return processedItems;
+        },
         containerRef(el) {
             this.container = el;
+        },
+        listRef(el) {
+            this.list = el ? el.$el : undefined;
         }
     },
     computed: {
         containerClass() {
-            return ['p-contextmenu p-component', { 'p-focus': this.visible, 'p-input-filled': this.$primevue.config.inputStyle === 'filled', 'p-ripple-disabled': this.$primevue.config.ripple === false }];
+            return ['p-contextmenu p-component', { 'p-input-filled': this.$primevue.config.inputStyle === 'filled', 'p-ripple-disabled': this.$primevue.config.ripple === false }];
+        },
+        processedItems() {
+            return this.createProcessedItems(this.model || []);
+        },
+        visibleItems() {
+            const processedItem = this.activeItemPath.find((p) => p.key === this.focusedItemInfo.parentKey);
+
+            return processedItem ? processedItem.items : this.processedItems;
+        },
+        id() {
+            return this.$attrs.id || UniqueComponentId();
+        },
+        focusedItemId() {
+            return this.focusedItemInfo.index !== -1 ? `${this.id}${ObjectUtils.isNotEmpty(this.focusedItemInfo.parentKey) ? '_' + this.focusedItemInfo.parentKey : ''}_${this.focusedItemInfo.index}` : null;
         }
     },
     components: {
@@ -233,13 +618,6 @@ export default {
     margin: 0;
     padding: 0;
     list-style: none;
-}
-
-.p-contextmenu.p-focus {
-    outline: 0 none;
-    outline-offset: 0;
-    box-shadow: 0 0 0 0.2rem #bfdbfe;
-    border-color: #3b82f6;
 }
 
 .p-contextmenu .p-submenu-list {

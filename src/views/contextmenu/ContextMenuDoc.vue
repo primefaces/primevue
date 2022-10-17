@@ -263,6 +263,24 @@ export default {
                         <td>true</td>
                         <td>Whether to apply 'router-link-active-exact' class if route exactly matches the item path.</td>
                     </tr>
+                    <tr>
+                        <td>tabindex</td>
+                        <td>number</td>
+                        <td>0</td>
+                        <td>Index of the element in tabbing order.</td>
+                    </tr>
+                    <tr>
+                        <td>aria-label</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Defines a string value that labels an interactive element.</td>
+                    </tr>
+                    <tr>
+                        <td>aria-labelledby</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Establishes relationships between the component and label(s) where its value should be one or more element IDs.</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -292,6 +310,51 @@ export default {
                         <td>hide</td>
                         <td>-</td>
                         <td>Hides the menu.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h5>Events</h5>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Parameters</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>focus</td>
+                        <td>event</td>
+                        <td>Callback to invoke when the component receives focus.</td>
+                    </tr>
+                    <tr>
+                        <td>blur</td>
+                        <td>event</td>
+                        <td>Callback to invoke when the component loses focus.</td>
+                    </tr>
+                    <tr>
+                        <td>before-show</td>
+                        <td>-</td>
+                        <td>Callback to invoke before the popup is shown.</td>
+                    </tr>
+                    <tr>
+                        <td>before-hide</td>
+                        <td>-</td>
+                        <td>Callback to invoke before the popup is hidden.</td>
+                    </tr>
+                    <tr>
+                        <td>show</td>
+                        <td>-</td>
+                        <td>Callback to invoke when the popup is shown.</td>
+                    </tr>
+                    <tr>
+                        <td>hide</td>
+                        <td>-</td>
+                        <td>Callback to invoke when the popup is hidden.</td>
                     </tr>
                 </tbody>
             </table>
@@ -363,9 +426,8 @@ export default {
             <h6>Screen Reader</h6>
             <p>
                 ContextMenu component uses the <i>menubar</i> role with <i>aria-orientation</i> set to "vertical" and the value to describe the menu can either be provided with <i>aria-labelledby</i> or <i>aria-label</i> props. Each list item has a
-                <i>presentation</i> role whereas anchor elements have a <i>menuitem</i> role with <i>aria-label</i> referring to the label of the item and <i>aria-disabled</i> defined if the item is disabled. A submenu within a ContextMenu uses the
-                <i>menu</i> role with an <i>aria-labelledby</i> defined as the id of the submenu root menuitem label. In addition, menuitems that open a submenu have <i>aria-haspopup</i>, <i>aria-expanded</i> and <i>aria-controls</i> to define the
-                relation between the item and the submenu.
+                <i>menuitem</i> role with <i>aria-label</i> referring to the label of the item and <i>aria-disabled</i> defined if the item is disabled. A submenu within a ContextMenu uses the <i>menu</i> role with an <i>aria-labelledby</i> defined
+                as the id of the submenu root menuitem label. In addition, menuitems that open a submenu have <i>aria-haspopup</i>, <i>aria-expanded</i> and <i>aria-controls</i> to define the relation between the item and the submenu.
             </p>
 
             <h6>Keyboard Support</h6>
