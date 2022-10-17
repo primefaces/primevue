@@ -1,18 +1,20 @@
 <template>
-    <li v-if="visible()" :class="containerClass" role="presentation" :style="item.style">
-        <template v-if="!template">
-            <router-link v-if="item.to && !disabled(item)" v-slot="{ navigate, href, isActive, isExactActive }" :to="item.to" custom>
-                <a :id="id" v-ripple :href="href" :class="linkClass(item, { isActive, isExactActive })" :tabindex="-1" role="menuitem" :aria-label="label()" :aria-disabled="disabled()" @click="onClick($event, navigate)">
+    <li v-if="visible()" :id="id" :class="containerClass(item)" role="menuitem" :style="item.style" :aria-label="label()" :aria-disabled="disabled()">
+        <div class="p-menuitem-content">
+            <template v-if="!template">
+                <router-link v-if="item.to && !disabled(item)" v-slot="{ navigate, href, isActive, isExactActive }" :to="item.to" custom>
+                    <a v-ripple :href="href" :class="linkClass({ isActive, isExactActive })" tabindex="-1" :aria-hidden="true" @click="onClick($event, navigate)">
+                        <span v-if="item.icon" :class="['p-menuitem-icon', item.icon]"></span>
+                        <span class="p-menuitem-text">{{ label() }}</span>
+                    </a>
+                </router-link>
+                <a v-else v-ripple :href="item.url" :class="linkClass()" :target="item.target" tabindex="-1" :aria-hidden="true" @click="onClick">
                     <span v-if="item.icon" :class="['p-menuitem-icon', item.icon]"></span>
                     <span class="p-menuitem-text">{{ label() }}</span>
                 </a>
-            </router-link>
-            <a v-else :id="id" v-ripple :href="item.url" :class="linkClass(item)" :target="item.target" :tabindex="-1" role="menuitem" :aria-label="label()" :aria-disabled="disabled()" @click="onClick">
-                <span v-if="item.icon" :class="['p-menuitem-icon', item.icon]"></span>
-                <span class="p-menuitem-text">{{ label() }}</span>
-            </a>
-        </template>
-        <component v-else :is="template" :item="item"></component>
+            </template>
+            <component v-else :is="template" :item="item"></component>
+        </div>
     </li>
 </template>
 
@@ -39,12 +41,13 @@ export default {
                 id: this.id
             });
         },
-        linkClass(item, routerProps) {
+        containerClass(item) {
+            return ['p-menuitem', this.item.class, { 'p-focus': this.id === this.focusedOptionId, 'p-disabled': this.disabled(item) }];
+        },
+        linkClass(routerProps) {
             return [
-                'p-menuitem-link',
+                'p-menuitem-link p-menuitem-action',
                 {
-                    'p-focus': this.id === this.focusedOptionId,
-                    'p-disabled': this.disabled(item),
                     'router-link-active': routerProps && routerProps.isActive,
                     'router-link-active-exact': this.exact && routerProps && routerProps.isExactActive
                 }
@@ -58,11 +61,6 @@ export default {
         },
         label() {
             return typeof this.item.label === 'function' ? this.item.label() : this.item.label;
-        }
-    },
-    computed: {
-        containerClass() {
-            return ['p-menuitem', this.item.class];
         }
     },
     directives: {

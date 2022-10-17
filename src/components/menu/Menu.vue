@@ -17,15 +17,15 @@
                 >
                     <template v-for="(item, i) of model" :key="label(item) + i.toString()">
                         <template v-if="item.items && visible(item) && !item.separator">
-                            <li v-if="item.items" class="p-submenu-header" role="none">
+                            <li v-if="item.items" :id="id + '_' + i" class="p-submenu-header" role="none">
                                 <slot name="item" :item="item">{{ label(item) }}</slot>
                             </li>
                             <template v-for="(child, j) of item.items" :key="child.label + i + '_' + j">
                                 <Menuitem v-if="visible(child) && !child.separator" :id="id + '_' + i + '_' + j" :item="child" :template="$slots.item" :exact="exact" :focusedOptionId="focusedOptionId" @click="itemClick" />
-                                <li v-else-if="visible(child) && child.separator" :key="'separator' + i + j" :class="['p-menu-separator', child.class]" :style="child.style" role="separator"></li>
+                                <li v-else-if="visible(child) && child.separator" :key="'separator' + i + j" :class="['p-menu-separator p-menuitem-separator', child.class]" :style="child.style" role="separator"></li>
                             </template>
                         </template>
-                        <li v-else-if="visible(item) && item.separator" :key="'separator' + i.toString()" :class="['p-menu-separator', item.class]" :style="item.style" role="separator"></li>
+                        <li v-else-if="visible(item) && item.separator" :key="'separator' + i.toString()" :class="['p-menu-separator p-menuitem-separator', item.class]" :style="item.style" role="separator"></li>
                         <Menuitem v-else :key="label(item) + i.toString()" :id="id + '_' + i" :item="item" :template="$slots.item" :exact="exact" :focusedOptionId="focusedOptionId" @click="itemClick" />
                     </template>
                 </ul>
@@ -200,11 +200,11 @@ export default {
             event.preventDefault();
         },
         onEndKey(event) {
-            this.changeFocusedOptionIndex(DomHandler.find(this.container, 'a.p-menuitem-link:not(.p-disabled)').length - 1);
+            this.changeFocusedOptionIndex(DomHandler.find(this.container, 'li.p-menuitem:not(.p-disabled)').length - 1);
             event.preventDefault();
         },
         onSpaceKey(event) {
-            const links = DomHandler.find(this.container, 'a.p-menuitem-link');
+            const links = DomHandler.find(this.container, 'li.p-menuitem');
             const matchedOptionIndex = [...links].findIndex((link) => link.id === this.focusedOptionId);
             const itemsArray = [];
 
@@ -222,7 +222,7 @@ export default {
             } else if (itemsArray[matchedOptionIndex].url) {
                 this.popup && DomHandler.focus(this.target);
                 this.selectedOptionIndex = matchedOptionIndex;
-                links[matchedOptionIndex].click();
+                links[matchedOptionIndex].children[0].children[0].click();
             } else {
                 this.popup && DomHandler.focus(this.target);
                 this.itemClick({ originalEvent: event, item: itemsArray[matchedOptionIndex], id: links[matchedOptionIndex].getAttribute('id') });
@@ -231,19 +231,19 @@ export default {
             event.preventDefault();
         },
         findNextOptionIndex(index) {
-            const links = DomHandler.find(this.container, 'a.p-menuitem-link:not(.p-disabled)');
+            const links = DomHandler.find(this.container, 'li.p-menuitem:not(.p-disabled)');
             const matchedOptionIndex = [...links].findIndex((link) => link.id === index);
 
             return matchedOptionIndex > -1 ? matchedOptionIndex + 1 : 0;
         },
         findPrevOptionIndex(index) {
-            const links = DomHandler.find(this.container, 'a.p-menuitem-link:not(.p-disabled)');
+            const links = DomHandler.find(this.container, 'li.p-menuitem:not(.p-disabled)');
             const matchedOptionIndex = [...links].findIndex((link) => link.id === index);
 
             return matchedOptionIndex > -1 ? matchedOptionIndex - 1 : 0;
         },
         changeFocusedOptionIndex(index) {
-            const links = DomHandler.find(this.container, 'a.p-menuitem-link:not(.p-disabled)');
+            const links = DomHandler.find(this.container, 'li.p-menuitem:not(.p-disabled)');
             let order = index >= links.length ? links.length - 1 : index < 0 ? 0 : index;
 
             this.focusedOptionIndex = links[order].getAttribute('id');
