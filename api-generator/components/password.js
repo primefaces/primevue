@@ -136,6 +136,18 @@ const PasswordProps = [
         type: 'object',
         default: 'null',
         description: 'Uses to pass all properties of the HTMLDivElement to the overlay panel inside the component.'
+    },
+    {
+        name: 'aria-label',
+        type: 'string',
+        default: 'null',
+        description: 'Defines a string value that labels an interactive element.'
+    },
+    {
+        name: 'aria-labelledby',
+        type: 'string',
+        default: 'null',
+        description: 'Identifier of the underlying menu element.'
     }
 ];
 

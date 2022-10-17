@@ -220,6 +220,18 @@ import Password from 'primevue/password';
                         <td>null</td>
                         <td>Uses to pass all properties of the HTMLDivElement to the overlay panel inside the component.</td>
                     </tr>
+                    <tr>
+                        <td>aria-label</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Defines a string value that labels an interactive element.</td>
+                    </tr>
+                    <tr>
+                        <td>aria-labelledby</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Establishes relationships between the component and label(s) where its value should be one or more element IDs.</td>
+                    </tr>
                 </tbody>
             </table>
         </div>

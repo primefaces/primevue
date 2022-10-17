@@ -70,6 +70,18 @@ const ToggleButtonProps = [
         type: 'object',
         default: 'null',
         description: 'Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.'
+    },
+    {
+        name: 'aria-label',
+        type: 'string',
+        default: 'null',
+        description: 'Defines a string value that labels an interactive element.'
+    },
+    {
+        name: 'aria-labelledby',
+        type: 'string',
+        default: 'null',
+        description: 'Identifier of the underlying menu element.'
     }
 ];
 
