@@ -170,13 +170,11 @@ import Divider from 'primevue/divider';
         </div>
 
         <h5>Accessibility</h5>
-        <DevelopmentSection>
-            <h6>Screen Reader</h6>
-            <p>Divider uses a <i>separator</i> role with <i>aria-orientation</i> set to either "horizontal" or "vertical".</p>
+        <h6>Screen Reader</h6>
+        <p>Divider uses a <i>separator</i> role with <i>aria-orientation</i> set to either "horizontal" or "vertical".</p>
 
-            <h5>Keyboard Support</h5>
-            <p>Component does not include any interactive elements.</p>
-        </DevelopmentSection>
+        <h5>Keyboard Support</h5>
+        <p>Component does not include any interactive elements.</p>
 
         <h5>Dependencies</h5>
         <p>None.</p>
