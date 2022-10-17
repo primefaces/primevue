@@ -47,11 +47,11 @@ export interface TreeNode {
      */
     [key: string]: any;
     /**
-     * Icon of the node to display expanded to content.
+     * Icon to use in expanded state.
      */
     expandedIcon?: string;
     /**
-     * Icon of the node to display collapsed to content.
+     * Icon to use in collapsed state.
      */
     collapsedIcon?: string;
 }
