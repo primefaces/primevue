@@ -175,6 +175,7 @@ export default {
             this.focusedItemInfo = { index: -1, level: 0, parentKey: '' };
 
             isFocus && DomHandler.focus(this.target || this.menubar);
+            this.dirty = false;
         },
         onFocus(event) {
             this.focused = true;
@@ -186,6 +187,7 @@ export default {
             this.focused = false;
             this.focusedItemInfo = { index: -1, level: 0, parentKey: '' };
             this.searchValue = '';
+            this.dirty = false;
             this.$emit('blur', event);
         },
         onKeyDown(event) {
@@ -286,7 +288,7 @@ export default {
             grouped ? this.onItemChange(event) : this.hide(originalEvent, !root);
         },
         onItemMouseEnter(event) {
-            if (ObjectUtils.isNotEmpty(this.activeItemPath)) {
+            if (this.dirty) {
                 this.onItemChange(event);
             }
         },
