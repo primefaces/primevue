@@ -1,8 +1,8 @@
 <template>
-    <div :id="id" :class="containerClass">
-        <ul ref="list" role="tablist">
+    <nav :id="id" :class="containerClass">
+        <ol ref="list">
             <template v-for="(item, index) of model" :key="item.to">
-                <li v-if="visible(item)" :class="getItemClass(item)" :style="item.style" role="tab" :aria-selected="isActive(item)" :aria-expanded="isActive(item)">
+                <li v-if="visible(item)" :class="getItemClass(item)" :style="item.style">
                     <template v-if="!$slots.item">
                         <router-link v-if="!isItemDisabled(item)" v-slot="{ navigate, href, isActive, isExactActive }" :to="item.to" custom>
                             <a
@@ -26,8 +26,8 @@
                     <component v-else :is="$slots.item" :item="item"></component>
                 </li>
             </template>
-        </ul>
-    </div>
+        </ol>
+    </nav>
 </template>
 
 <script>
@@ -212,7 +212,7 @@ export default {
     position: relative;
 }
 
-.p-steps ul {
+.p-steps ol {
     padding: 0;
     margin: 0;
     list-style-type: none;
