@@ -46,6 +46,14 @@ export interface TreeNode {
      * Optional
      */
     [key: string]: any;
+    /**
+     * Icon to use in expanded state.
+     */
+    expandedIcon?: string;
+    /**
+     * Icon to use in collapsed state.
+     */
+    collapsedIcon?: string;
 }
 
 type TreeSelectionModeType = 'single' | 'multiple' | 'checkbox' | undefined;
