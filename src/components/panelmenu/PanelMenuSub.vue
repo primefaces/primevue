@@ -23,7 +23,7 @@
                             </a>
                         </router-link>
                         <a v-else v-ripple :href="getItemProp(processedItem, 'url')" :class="getItemActionClass(processedItem)" :target="getItemProp(processedItem, 'target')" tabindex="-1" :aria-hidden="true">
-                            <span v-if="getItemProp(processedItem, 'items')" :class="getItemToggleIconClass(processedItem)"></span>
+                            <span v-if="isItemGroup(processedItem)" :class="getItemToggleIconClass(processedItem)"></span>
                             <span v-if="getItemProp(processedItem, 'icon')" :class="getItemIconClass(processedItem)"></span>
                             <span class="p-menuitem-text">{{ getItemLabel(processedItem) }}</span>
                         </a>
