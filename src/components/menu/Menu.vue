@@ -22,10 +22,10 @@
                             </li>
                             <template v-for="(child, j) of item.items" :key="child.label + i + '_' + j">
                                 <Menuitem v-if="visible(child) && !child.separator" :id="id + '_' + i + '_' + j" :item="child" :template="$slots.item" :exact="exact" :focusedOptionId="focusedOptionId" @click="itemClick" />
-                                <li v-else-if="visible(child) && child.separator" :key="'separator' + i + j" :class="['p-menu-separator p-menuitem-separator', child.class]" :style="child.style" role="separator"></li>
+                                <li v-else-if="visible(child) && child.separator" :key="'separator' + i + j" :class="separatorClass(item)" :style="child.style" role="separator"></li>
                             </template>
                         </template>
-                        <li v-else-if="visible(item) && item.separator" :key="'separator' + i.toString()" :class="['p-menu-separator p-menuitem-separator', item.class]" :style="item.style" role="separator"></li>
+                        <li v-else-if="visible(item) && item.separator" :key="'separator' + i.toString()" :class="separatorClass(item)" :style="item.style" role="separator"></li>
                         <Menuitem v-else :key="label(item) + i.toString()" :id="id + '_' + i" :item="item" :template="$slots.item" :exact="exact" :focusedOptionId="focusedOptionId" @click="itemClick" />
                     </template>
                 </ul>
@@ -96,6 +96,12 @@ export default {
     resizeListener: null,
     container: null,
     list: null,
+    mounted() {
+        if (!this.popup) {
+            this.bindResizeListener();
+            this.bindOutsideClickListener();
+        }
+    },
     beforeUnmount() {
         this.unbindResizeListener();
         this.unbindOutsideClickListener();
@@ -131,7 +137,7 @@ export default {
 
             if (this.overlayVisible) this.hide();
 
-            if (!this.popup) {
+            if (!this.popup && this.focusedOptionIndex !== event.id) {
                 this.focusedOptionIndex = event.id;
             }
         },
@@ -295,8 +301,13 @@ export default {
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
                 this.outsideClickListener = (event) => {
-                    if (this.overlayVisible && this.container && !this.container.contains(event.target) && !this.isTargetClicked(event)) {
+                    const isOutsideContainer = this.container && !this.container.contains(event.target);
+                    const isOutsideTarget = !(this.target && (this.target === event.target || this.target.contains(event.target)));
+
+                    if (this.overlayVisible && isOutsideContainer && isOutsideTarget) {
                         this.hide();
+                    } else if (!this.popup && isOutsideContainer && isOutsideTarget) {
+                        this.focusedOptionIndex = -1;
                     }
                 };
 
@@ -342,9 +353,6 @@ export default {
                 this.resizeListener = null;
             }
         },
-        isTargetClicked(event) {
-            return this.target && (this.target === event.target || this.target.contains(event.target));
-        },
         visible(item) {
             return typeof item.visible === 'function' ? item.visible() : item.visible !== false;
         },
@@ -377,6 +385,9 @@ export default {
                     'p-ripple-disabled': this.$primevue.config.ripple === false
                 }
             ];
+        },
+        separatorClass(item) {
+            return ['p-menu-separator p-menuitem-separator', item.class]; // TODO: the 'p-menu-separator' class is deprecated since v3.18.0.
         },
         id() {
             return this.$attrs.id || UniqueComponentId();
