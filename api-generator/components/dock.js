@@ -36,10 +36,10 @@ const DockProps = [
         description: "Whether to display the tooltip on items. The modifiers of tooltip can be used like an object in it. Valid keys are 'event' and 'position'."
     },
     {
-        name: 'listId',
+        name: 'menuId',
         type: 'string',
         default: 'null',
-        description: 'Identifier of the list element.'
+        description: 'Unique identifier of the menu.'
     },
     {
         name: 'tabindex',

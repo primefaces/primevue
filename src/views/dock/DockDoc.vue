@@ -103,10 +103,10 @@ import Dock from 'primevue/dock';
                         <td>Whether to display the tooltip on items. The modifiers of <router-link to="/tooltip">Tooltip</router-link> can be used like an object in it. Valid keys are 'event' and 'position'.</td>
                     </tr>
                     <tr>
-                        <td>listId</td>
+                        <td>menuId</td>
                         <td>string</td>
                         <td>null</td>
-                        <td>Unique identifier of the list element.</td>
+                        <td>Unique identifier of the menu.</td>
                     </tr>
                     <tr>
                         <td>tabindex</td>

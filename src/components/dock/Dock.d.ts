@@ -54,9 +54,9 @@ export interface DockProps {
      */
     tooltipOptions?: DockTooltipOptions;
     /**
-     * Identifier of the list element.
+     * Unique identifier of the menu.
      */
-    listId?: string | undefined;
+    menuId?: string | undefined;
     /**
      * Index of the element in tabbing order.
      */

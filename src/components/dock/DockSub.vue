@@ -15,46 +15,46 @@
             @keydown="onListKeyDown"
             @mouseleave="onListMouseLeave"
         >
-            <li v-for="(item, index) of model" :key="index" :class="itemClass(index)" role="presentation" @mouseenter="onItemMouseEnter(index)">
-                <template v-if="!templates['item']">
-                    <router-link v-if="item.to && !disabled(item)" v-slot="{ navigate, href, isActive, isExactActive }" :to="item.to" custom>
-                        <a
-                            :id="id + '_' + index"
-                            v-tooltip:[tooltipOptions]="{ value: item.label, disabled: !tooltipOptions }"
-                            :href="href"
-                            role="menuitem"
-                            :class="linkClass(item, `${id}_${index}`, { isActive, isExactActive })"
-                            :target="item.target"
-                            :aria-label="item.label"
-                            :aria-disabled="disabled(item)"
-                            @click="onItemClick($event, item, navigate)"
-                        >
-                            <template v-if="!templates['icon']">
-                                <span v-ripple :class="['p-dock-action-icon', item.icon]"></span>
-                            </template>
-                            <component v-else :is="templates['icon']" :item="item"></component>
-                        </a>
-                    </router-link>
-                    <a
-                        v-else
-                        :id="id + '_' + index"
-                        v-tooltip:[tooltipOptions]="{ value: item.label, disabled: !tooltipOptions }"
-                        :href="item.url"
-                        role="menuitem"
-                        :class="linkClass(item, `${id}_${index}`)"
-                        :target="item.target"
-                        :aria-label="item.label"
-                        :aria-disabled="disabled(item)"
-                        @click="onItemClick($event, item)"
-                    >
-                        <template v-if="!templates['icon']">
-                            <span v-ripple :class="['p-dock-action-icon', item.icon]"></span>
+            <template v-for="(processedItem, index) of model" :key="index">
+                <div class="p-menuitem-content">
+                    <li :id="getItemId(index)" :class="itemClass(processedItem, index, getItemId(index))" role="menuitem" :aria-label="processedItem.label" :aria-disabled="disabled(processedItem)" @mouseenter="onItemMouseEnter(index)">
+                        <template v-if="!templates['item']">
+                            <router-link v-if="processedItem.to && !disabled(processedItem)" v-slot="{ navigate, href, isActive, isExactActive }" :to="processedItem.to" custom>
+                                <a
+                                    v-tooltip:[tooltipOptions]="{ value: processedItem.label, disabled: !tooltipOptions }"
+                                    :href="href"
+                                    :class="linkClass({ isActive, isExactActive })"
+                                    :target="processedItem.target"
+                                    tabindex="-1"
+                                    aria-hidden="true"
+                                    @click="onItemClick($event, processedItem, navigate)"
+                                >
+                                    <template v-if="!templates['icon']">
+                                        <span v-ripple :class="['p-dock-action-icon', processedItem.icon]"></span>
+                                    </template>
+                                    <component v-else :is="templates['icon']" :item="processedItem"></component>
+                                </a>
+                            </router-link>
+                            <a
+                                v-else
+                                v-tooltip:[tooltipOptions]="{ value: processedItem.label, disabled: !tooltipOptions }"
+                                :href="processedItem.url"
+                                :class="linkClass()"
+                                :target="processedItem.target"
+                                tabindex="-1"
+                                aria-hidden="true"
+                                @click="onItemClick($event, processedItem)"
+                            >
+                                <template v-if="!templates['icon']">
+                                    <span v-ripple :class="['p-dock-action-icon', processedItem.icon]"></span>
+                                </template>
+                                <component v-else :is="templates['icon']" :item="processedItem"></component>
+                            </a>
                         </template>
-                        <component v-else :is="templates['icon']" :item="item"></component>
-                    </a>
-                </template>
-                <component v-else :is="templates['item']" :item="item" :index="index"></component>
-            </li>
+                        <component v-else :is="templates['item']" :item="processedItem" :index="index"></component>
+                    </li>
+                </div>
+            </template>
         </ul>
     </div>
 </template>
@@ -85,7 +85,7 @@ export default {
             default: true
         },
         tooltipOptions: null,
-        listId: {
+        menuId: {
             type: String,
             default: null
         },
@@ -110,6 +110,9 @@ export default {
         };
     },
     methods: {
+        getItemId(index) {
+            return `${this.id}_${index}`;
+        },
         onListMouseLeave() {
             this.currentIndex = -3;
         },
@@ -208,43 +211,47 @@ export default {
             this.changeFocusedOptionIndex(0);
         },
         onEndKey() {
-            this.changeFocusedOptionIndex(DomHandler.find(this.$refs.list, 'a.p-dock-action:not(.p-disabled)').length - 1);
+            this.changeFocusedOptionIndex(DomHandler.find(this.$refs.list, 'li.p-dock-item:not(.p-disabled)').length - 1);
         },
         onSpaceKey(event) {
-            const links = DomHandler.find(this.$refs.list, 'a.p-dock-action');
-            const matchedOptionIndex = [...links].findIndex((link) => link.id === this.focusedOptionId);
+            const menuitems = DomHandler.find(this.$refs.list, 'li.p-dock-item');
+            const matchedOptionIndex = [...menuitems].findIndex((link) => link.id === this.focusedOptionId);
 
             if (this.model[matchedOptionIndex].to) {
                 this.$router.push(this.model[matchedOptionIndex].to);
             } else if (this.model[matchedOptionIndex].url) {
-                links[matchedOptionIndex].click();
+                menuitems[matchedOptionIndex].children[0].children[0].click();
             } else {
                 this.onItemClick(event, this.model[matchedOptionIndex]);
             }
         },
         findNextOptionIndex(index) {
-            const links = DomHandler.find(this.$refs.list, 'a.p-dock-action:not(.p-disabled)');
-            const matchedOptionIndex = [...links].findIndex((link) => link.id === index);
+            const menuitems = DomHandler.find(this.$refs.list, 'li.p-dock-item:not(.p-disabled)');
+            const matchedOptionIndex = [...menuitems].findIndex((link) => link.id === index);
+
+            console.log(matchedOptionIndex);
 
             return matchedOptionIndex > -1 ? matchedOptionIndex + 1 : 0;
         },
         findPrevOptionIndex(index) {
-            const links = DomHandler.find(this.$refs.list, 'a.p-dock-action:not(.p-disabled)');
-            const matchedOptionIndex = [...links].findIndex((link) => link.id === index);
+            const menuitems = DomHandler.find(this.$refs.list, 'li.p-dock-item:not(.p-disabled)');
+            const matchedOptionIndex = [...menuitems].findIndex((link) => link.id === index);
 
             return matchedOptionIndex > -1 ? matchedOptionIndex - 1 : 0;
         },
         changeFocusedOptionIndex(index) {
-            const links = DomHandler.find(this.$refs.list, 'a.p-dock-action:not(.p-disabled)');
+            const menuitems = DomHandler.find(this.$refs.list, 'li.p-dock-item:not(.p-disabled)');
 
-            let order = index >= links.length ? links.length - 1 : index < 0 ? 0 : index;
+            let order = index >= menuitems.length ? menuitems.length - 1 : index < 0 ? 0 : index;
 
-            this.focusedOptionIndex = links[order].getAttribute('id');
+            this.focusedOptionIndex = menuitems[order].getAttribute('id');
         },
-        itemClass(index) {
+        itemClass(item, index, id) {
             return [
                 'p-dock-item',
                 {
+                    'p-focus': id === this.focusedOptionIndex,
+                    'p-disabled': this.disabled(item),
                     'p-dock-item-second-prev': this.currentIndex - 2 === index,
                     'p-dock-item-prev': this.currentIndex - 1 === index,
                     'p-dock-item-current': this.currentIndex === index,
@@ -253,12 +260,10 @@ export default {
                 }
             ];
         },
-        linkClass(item, id, routerProps) {
+        linkClass(routerProps) {
             return [
                 'p-dock-action',
                 {
-                    'p-focus': id === this.focusedOptionIndex,
-                    'p-disabled': this.disabled(item),
                     'router-link-active': routerProps && routerProps.isActive,
                     'router-link-active-exact': this.exact && routerProps && routerProps.isExactActive
                 }
@@ -270,7 +275,7 @@ export default {
     },
     computed: {
         id() {
-            return this.listId || UniqueComponentId();
+            return this.menuId || UniqueComponentId();
         },
         focusedOptionId() {
             return this.focusedOptionIndex !== -1 ? this.focusedOptionIndex : null;

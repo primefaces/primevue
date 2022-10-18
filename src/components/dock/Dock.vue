@@ -1,6 +1,6 @@
 <template>
     <div :class="containerClass" :style="style">
-        <DockSub :model="model" :templates="$slots" :exact="exact" :tooltipOptions="tooltipOptions" :position="position" :listId="listId" :aria-label="ariaLabel" :aria-labelledby="ariaLabelledby" :tabindex="tabindex"></DockSub>
+        <DockSub :model="model" :templates="$slots" :exact="exact" :tooltipOptions="tooltipOptions" :position="position" :menuId="menuId" :aria-label="ariaLabel" :aria-labelledby="ariaLabelledby" :tabindex="tabindex"></DockSub>
     </div>
 </template>
 
@@ -22,7 +22,7 @@ export default {
             type: Boolean,
             default: true
         },
-        listId: {
+        menuId: {
             type: String,
             default: null
         },
