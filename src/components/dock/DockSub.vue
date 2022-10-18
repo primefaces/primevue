@@ -16,16 +16,16 @@
             @mouseleave="onListMouseLeave"
         >
             <template v-for="(processedItem, index) of model" :key="index">
-                <div class="p-menuitem-content">
-                    <li
-                        :id="getItemId(index)"
-                        :class="itemClass(processedItem, index, getItemId(index))"
-                        role="menuitem"
-                        :aria-label="processedItem.label"
-                        :aria-disabled="disabled(processedItem)"
-                        @click="onItemClick($event, processedItem)"
-                        @mouseenter="onItemMouseEnter(index)"
-                    >
+                <li
+                    :id="getItemId(index)"
+                    :class="itemClass(processedItem, index, getItemId(index))"
+                    role="menuitem"
+                    :aria-label="processedItem.label"
+                    :aria-disabled="disabled(processedItem)"
+                    @click="onItemClick($event, processedItem)"
+                    @mouseenter="onItemMouseEnter(index)"
+                >
+                    <div class="p-menuitem-content">
                         <template v-if="!templates['item']">
                             <router-link v-if="processedItem.to && !disabled(processedItem)" v-slot="{ navigate, href, isActive, isExactActive }" :to="processedItem.to" custom>
                                 <a
@@ -51,8 +51,8 @@
                             </a>
                         </template>
                         <component v-else :is="templates['item']" :item="processedItem" :index="index"></component>
-                    </li>
-                </div>
+                    </div>
+                </li>
             </template>
         </ul>
     </div>
@@ -128,9 +128,12 @@ export default {
             navigate && navigate(event);
         },
         onItemClick(event, processedItem) {
+            console.log(processedItem);
+
             if (this.isSameMenuItem(event)) {
                 const command = this.getItemProp(processedItem, 'command');
 
+                console.log(processedItem);
                 command && command({ originalEvent: event, item: processedItem.item });
             }
         },
@@ -210,23 +213,15 @@ export default {
         onEndKey() {
             this.changeFocusedOptionIndex(DomHandler.find(this.$refs.list, 'li.p-dock-item:not(.p-disabled)').length - 1);
         },
-        onSpaceKey(event) {
-            const menuitems = DomHandler.find(this.$refs.list, 'li.p-dock-item');
-            const matchedOptionIndex = [...menuitems].findIndex((link) => link.id === this.focusedOptionId);
+        onSpaceKey() {
+            const element = DomHandler.findSingle(this.$refs.list, `li[id="${`${this.focusedOptionIndex}`}"]`);
+            const anchorElement = element && DomHandler.findSingle(element, '.p-dock-action');
 
-            if (this.model[matchedOptionIndex].to) {
-                this.$router.push(this.model[matchedOptionIndex].to);
-            } else if (this.model[matchedOptionIndex].url) {
-                menuitems[matchedOptionIndex].children[0].children[0].click();
-            } else {
-                this.onItemClick(event, this.model[matchedOptionIndex]);
-            }
+            anchorElement ? anchorElement.click() : element && element.click();
         },
         findNextOptionIndex(index) {
             const menuitems = DomHandler.find(this.$refs.list, 'li.p-dock-item:not(.p-disabled)');
             const matchedOptionIndex = [...menuitems].findIndex((link) => link.id === index);
-
-            console.log(matchedOptionIndex);
 
             return matchedOptionIndex > -1 ? matchedOptionIndex + 1 : 0;
         },
