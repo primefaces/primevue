@@ -1,8 +1,8 @@
 <template>
-    <li v-if="visible()" :id="id" :class="containerClass(item)" role="menuitem" :style="item.style" :aria-label="label()" :aria-disabled="disabled()">
+    <li v-if="visible()" :id="id" :class="containerClass()" role="menuitem" :style="item.style" :aria-label="label()" :aria-disabled="disabled()">
         <div class="p-menuitem-content">
             <template v-if="!template">
-                <router-link v-if="item.to && !disabled(item)" v-slot="{ navigate, href, isActive, isExactActive }" :to="item.to" custom>
+                <router-link v-if="item.to && !disabled()" v-slot="{ navigate, href, isActive, isExactActive }" :to="item.to" custom>
                     <a v-ripple :href="href" :class="linkClass({ isActive, isExactActive })" tabindex="-1" :aria-hidden="true" @click="onClick($event, navigate)">
                         <span v-if="item.icon" :class="['p-menuitem-icon', item.icon]"></span>
                         <span class="p-menuitem-text">{{ label() }}</span>
@@ -41,8 +41,8 @@ export default {
                 id: this.id
             });
         },
-        containerClass(item) {
-            return ['p-menuitem', this.item.class, { 'p-focus': this.id === this.focusedOptionId, 'p-disabled': this.disabled(item) }];
+        containerClass() {
+            return ['p-menuitem', this.item.class, { 'p-focus': this.id === this.focusedOptionId, 'p-disabled': this.disabled() }];
         },
         linkClass(routerProps) {
             return [
