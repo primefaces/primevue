@@ -199,8 +199,8 @@ import Dock from 'primevue/dock';
         <DevelopmentSection>
             <h6>Screen Reader</h6>
             <p>
-                Dock component uses the <i>menu</i> role with the <i>aria-orientation</i> and the value to describe the menu can either be provided with <i>aria-labelledby</i> or <i>aria-label</i> props. Each list item has a <i>presentation</i> role
-                whereas anchor elements have a <i>menuitem</i> role with <i>aria-label</i> referring to the label of the item and <i>aria-disabled</i> defined if the item is disabled.
+                Dock component uses the <i>menu</i> role with the <i>aria-orientation</i> and the value to describe the menu can either be provided with <i>aria-labelledby</i> or <i>aria-label</i> props. Each list item has a <i>menuitem</i> role with
+                <i>aria-label</i> referring to the label of the item and <i>aria-disabled</i> defined if the item is disabled.
             </p>
 
             <h6>Keyboard Support</h6>
