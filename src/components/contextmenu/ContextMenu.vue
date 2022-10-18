@@ -5,6 +5,7 @@
                 <ContextMenuSub
                     :ref="listRef"
                     :id="id + '_list'"
+                    class="p-contextmenu-root-list"
                     role="menubar"
                     :root="true"
                     :tabindex="tabindex"
