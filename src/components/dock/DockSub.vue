@@ -17,7 +17,15 @@
         >
             <template v-for="(processedItem, index) of model" :key="index">
                 <div class="p-menuitem-content">
-                    <li :id="getItemId(index)" :class="itemClass(processedItem, index, getItemId(index))" role="menuitem" :aria-label="processedItem.label" :aria-disabled="disabled(processedItem)" @mouseenter="onItemMouseEnter(index)">
+                    <li
+                        :id="getItemId(index)"
+                        :class="itemClass(processedItem, index, getItemId(index))"
+                        role="menuitem"
+                        :aria-label="processedItem.label"
+                        :aria-disabled="disabled(processedItem)"
+                        @click="onItemClick($event, processedItem)"
+                        @mouseenter="onItemMouseEnter(index)"
+                    >
                         <template v-if="!templates['item']">
                             <router-link v-if="processedItem.to && !disabled(processedItem)" v-slot="{ navigate, href, isActive, isExactActive }" :to="processedItem.to" custom>
                                 <a
@@ -27,7 +35,7 @@
                                     :target="processedItem.target"
                                     tabindex="-1"
                                     aria-hidden="true"
-                                    @click="onItemClick($event, processedItem, navigate)"
+                                    @click="onItemActionClick($event, processedItem, navigate)"
                                 >
                                     <template v-if="!templates['icon']">
                                         <span v-ripple :class="['p-dock-action-icon', processedItem.icon]"></span>
@@ -35,16 +43,7 @@
                                     <component v-else :is="templates['icon']" :item="processedItem"></component>
                                 </a>
                             </router-link>
-                            <a
-                                v-else
-                                v-tooltip:[tooltipOptions]="{ value: processedItem.label, disabled: !tooltipOptions }"
-                                :href="processedItem.url"
-                                :class="linkClass()"
-                                :target="processedItem.target"
-                                tabindex="-1"
-                                aria-hidden="true"
-                                @click="onItemClick($event, processedItem)"
-                            >
+                            <a v-else v-tooltip:[tooltipOptions]="{ value: processedItem.label, disabled: !tooltipOptions }" :href="processedItem.url" :class="linkClass()" :target="processedItem.target" tabindex="-1" aria-hidden="true">
                                 <template v-if="!templates['icon']">
                                     <span v-ripple :class="['p-dock-action-icon', processedItem.icon]"></span>
                                 </template>
@@ -62,7 +61,7 @@
 <script>
 import Ripple from 'primevue/ripple';
 import Tooltip from 'primevue/tooltip';
-import { DomHandler, UniqueComponentId } from 'primevue/utils';
+import { DomHandler, ObjectUtils, UniqueComponentId } from 'primevue/utils';
 
 export default {
     name: 'DockSub',
@@ -113,28 +112,26 @@ export default {
         getItemId(index) {
             return `${this.id}_${index}`;
         },
+        getItemProp(processedItem, name) {
+            return processedItem && processedItem.item ? ObjectUtils.getItemValue(processedItem.item[name]) : undefined;
+        },
+        isSameMenuItem(event) {
+            return event.currentTarget && (event.currentTarget.isSameNode(event.target) || event.currentTarget.isSameNode(event.target.closest('.p-menuitem')));
+        },
         onListMouseLeave() {
             this.currentIndex = -3;
         },
         onItemMouseEnter(index) {
             this.currentIndex = index;
         },
-        onItemClick(event, item, navigate) {
-            if (this.disabled(item)) {
-                event.preventDefault();
+        onItemActionClick(event, navigate) {
+            navigate && navigate(event);
+        },
+        onItemClick(event, processedItem) {
+            if (this.isSameMenuItem(event)) {
+                const command = this.getItemProp(processedItem, 'command');
 
-                return;
-            }
-
-            if (item.command) {
-                item.command({
-                    originalEvent: event,
-                    item: item
-                });
-            }
-
-            if (item.to && navigate) {
-                navigate(event);
+                command && command({ originalEvent: event, item: processedItem.item });
             }
         },
         onListFocus(event) {
