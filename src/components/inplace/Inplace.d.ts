@@ -7,6 +7,11 @@ export interface InplaceProps {
      */
     closable?: boolean | undefined;
     /**
+     * Icon to display in the close button.
+     * Default value is 'pi pi-times'.
+     */
+    closeIcon?: string | undefined;
+    /**
      * Whether the content is displayed or not.
      */
     active?: boolean | undefined;
