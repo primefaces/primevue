@@ -154,6 +154,12 @@ export default {
             DomHandler.focus(this.menubar);
         },
         hide(event, isFocus) {
+            if (this.mobileActive) {
+                setTimeout(() => {
+                    DomHandler.focus(this.$refs.menubutton);
+                }, 0);
+            }
+
             this.activeItemPath = [];
             this.focusedItemInfo = { index: -1, level: 0, parentKey: '' };
 
@@ -378,12 +384,6 @@ export default {
         },
         onEnterKey(event) {
             if (this.focusedItemInfo.index !== -1) {
-                if (this.mobileActive) {
-                    setTimeout(() => {
-                        DomHandler.focus(this.$refs.menubutton);
-                    }, 0);
-                }
-
                 const element = DomHandler.findSingle(this.menubar, `li[id="${`${this.focusedItemId}`}"]`);
                 const anchorElement = element && DomHandler.findSingle(element, '.p-menuitem-action');
 
@@ -611,7 +611,7 @@ export default {
     list-style: none;
 }
 
-.p-menubar .p-menuitem-link {
+.p-menubar .p-menuitem-action {
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -654,7 +654,7 @@ export default {
     top: 0;
 }
 
-.p-menubar .p-submenu-list .p-menuitem .p-menuitem-content .p-menuitem-link .p-submenu-icon {
+.p-menubar .p-submenu-list .p-menuitem .p-menuitem-content .p-menuitem-action .p-submenu-icon {
     margin-left: auto;
 }
 
