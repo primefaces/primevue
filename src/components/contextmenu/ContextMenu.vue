@@ -340,7 +340,10 @@ export default {
                 const anchorElement = element && DomHandler.findSingle(element, '.p-menuitem-action');
 
                 anchorElement ? anchorElement.click() : element && element.click();
-                !this.visible && (this.focusedItemInfo.index = this.findFirstFocusedItemIndex());
+                const processedItem = this.visibleItems[this.focusedItemInfo.index];
+                const grouped = this.isProccessedItemGroup(processedItem);
+
+                !grouped && (this.focusedItemInfo.index = this.findFirstFocusedItemIndex());
             }
 
             event.preventDefault();
