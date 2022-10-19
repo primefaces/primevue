@@ -4995,13 +4995,13 @@
   margin-bottom: 2px;
 }
 
-.p-steps .p-steps-item .p-menuitem-link {
+.p-steps .p-steps-item .p-menuitem-action {
   background: transparent;
   transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
   border-radius: 2px;
   background: #ffffff;
 }
-.p-steps .p-steps-item .p-menuitem-link .p-steps-number {
+.p-steps .p-steps-item .p-menuitem-action .p-steps-number {
   color: #a6a6a6;
   border: 1px solid #c8c8c8;
   background: #ffffff;
@@ -5012,11 +5012,11 @@
   z-index: 1;
   border-radius: 50%;
 }
-.p-steps .p-steps-item .p-menuitem-link .p-steps-title {
+.p-steps .p-steps-item .p-menuitem-action .p-steps-title {
   margin-top: 0.5rem;
   color: #a6a6a6;
 }
-.p-steps .p-steps-item .p-menuitem-link:not(.p-disabled):focus {
+.p-steps .p-steps-item .p-menuitem-action:not(.p-disabled):focus {
   outline: 0 none;
   outline-offset: 0;
   box-shadow: 0 0 0 0.2rem #e4e9ec;
@@ -5048,7 +5048,7 @@
 .p-tabmenu .p-tabmenu-nav .p-tabmenuitem {
   margin-right: 2px;
 }
-.p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link {
+.p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-action {
   border: 1px solid #7B95A3;
   border-width: 1px;
   border-color: #7B95A3;
@@ -5061,20 +5061,20 @@
   transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
   margin: 0 0 -1px 0;
 }
-.p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link .p-menuitem-icon {
+.p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-action .p-menuitem-icon {
   margin-right: 0.5rem;
 }
-.p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link:not(.p-disabled):focus {
+.p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-action:not(.p-disabled):focus {
   outline: 0 none;
   outline-offset: 0;
   box-shadow: inset 0 0 0 0.2rem #e4e9ec;
 }
-.p-tabmenu .p-tabmenu-nav .p-tabmenuitem:not(.p-highlight):not(.p-disabled):hover .p-menuitem-link {
+.p-tabmenu .p-tabmenu-nav .p-tabmenuitem:not(.p-highlight):not(.p-disabled):hover .p-menuitem-action {
   background: #617c8a;
   border-color: #617c8a;
   color: #ffffff;
 }
-.p-tabmenu .p-tabmenu-nav .p-tabmenuitem.p-highlight .p-menuitem-link {
+.p-tabmenu .p-tabmenu-nav .p-tabmenuitem.p-highlight .p-menuitem-action {
   background: #AFD3C8;
   border-color: #dadada;
   color: #385048;

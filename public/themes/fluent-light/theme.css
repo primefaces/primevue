@@ -4995,13 +4995,13 @@
   margin-bottom: 4px;
 }
 
-.p-steps .p-steps-item .p-menuitem-link {
+.p-steps .p-steps-item .p-menuitem-action {
   background: transparent;
   transition: box-shadow 0.2s;
   border-radius: 2px;
   background: #ffffff;
 }
-.p-steps .p-steps-item .p-menuitem-link .p-steps-number {
+.p-steps .p-steps-item .p-menuitem-action .p-steps-number {
   color: #323130;
   border: 1px solid #f3f2f1;
   background: #ffffff;
@@ -5012,11 +5012,11 @@
   z-index: 1;
   border-radius: 50%;
 }
-.p-steps .p-steps-item .p-menuitem-link .p-steps-title {
+.p-steps .p-steps-item .p-menuitem-action .p-steps-title {
   margin-top: 0.5rem;
   color: #605e5c;
 }
-.p-steps .p-steps-item .p-menuitem-link:not(.p-disabled):focus {
+.p-steps .p-steps-item .p-menuitem-action:not(.p-disabled):focus {
   outline: 0 none;
   outline-offset: 0;
   box-shadow: inset 0 0 0 1px #605e5c;
@@ -5048,7 +5048,7 @@
 .p-tabmenu .p-tabmenu-nav .p-tabmenuitem {
   margin-right: 0;
 }
-.p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link {
+.p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-action {
   border: solid #a19f9d;
   border-width: 0 0 2px 0;
   border-color: transparent transparent transparent transparent;
@@ -5061,20 +5061,20 @@
   transition: box-shadow 0.2s;
   margin: 0 0.5rem -2px 0;
 }
-.p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link .p-menuitem-icon {
+.p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-action .p-menuitem-icon {
   margin-right: 0.5rem;
 }
-.p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link:not(.p-disabled):focus {
+.p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-action:not(.p-disabled):focus {
   outline: 0 none;
   outline-offset: 0;
   box-shadow: inset inset 0 0 0 1px #605e5c;
 }
-.p-tabmenu .p-tabmenu-nav .p-tabmenuitem:not(.p-highlight):not(.p-disabled):hover .p-menuitem-link {
+.p-tabmenu .p-tabmenu-nav .p-tabmenuitem:not(.p-highlight):not(.p-disabled):hover .p-menuitem-action {
   background: #f3f2f1;
   border-color: transparent;
   color: #605e5c;
 }
-.p-tabmenu .p-tabmenu-nav .p-tabmenuitem.p-highlight .p-menuitem-link {
+.p-tabmenu .p-tabmenu-nav .p-tabmenuitem.p-highlight .p-menuitem-action {
   background: #ffffff;
   border-color: #0078d4;
   color: #323130;
