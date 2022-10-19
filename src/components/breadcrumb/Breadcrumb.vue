@@ -53,7 +53,7 @@ export default {
     line-height: 1;
 }
 
-.p-breadcrumb .p-menuitem-link {
+.p-breadcrumb .p-menuitem-action {
     text-decoration: none;
 }
 

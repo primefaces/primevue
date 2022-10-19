@@ -645,7 +645,7 @@ export default {
     z-index: 1;
 }
 
-.p-contextmenu .p-menuitem-link {
+.p-contextmenu .p-menuitem-action {
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -662,7 +662,7 @@ export default {
     position: relative;
 }
 
-.p-contextmenu .p-menuitem-link .p-submenu-icon {
+.p-contextmenu .p-menuitem-action .p-submenu-icon {
     margin-left: auto;
 }
 

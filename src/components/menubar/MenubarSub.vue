@@ -161,7 +161,7 @@ export default {
         },
         getItemActionClass(processedItem, routerProps) {
             return [
-                'p-menuitem-link p-menuitem-action', // TODO: the 'p-menuitem-link' class is deprecated since v3.18.0.
+                'p-menuitem-action',
                 {
                     'router-link-active': routerProps && routerProps.isActive,
                     'router-link-active-exact': this.exact && routerProps && routerProps.isExactActive
