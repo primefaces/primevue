@@ -4321,6 +4321,11 @@
   border-bottom-right-radius: 4px;
   border-bottom-left-radius: 4px;
 }
+.p-fileupload .p-fileupload-content .p-fileupload-content-item {
+  padding: 1rem;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+}
 .p-fileupload .p-progressbar {
   height: 4px;
 }
@@ -4348,19 +4353,19 @@
   border-radius: 4px;
   padding: 0.75rem;
 }
-.p-breadcrumb ol li .p-menuitem-link {
+.p-breadcrumb ol li .p-menuitem-action {
   transition: none;
   border-radius: 4px;
 }
-.p-breadcrumb ol li .p-menuitem-link:focus {
+.p-breadcrumb ol li .p-menuitem-action:focus {
   outline: 0 none;
   outline-offset: 0;
   box-shadow: none;
 }
-.p-breadcrumb ol li .p-menuitem-link .p-menuitem-text {
+.p-breadcrumb ol li .p-menuitem-action .p-menuitem-text {
   color: rgba(0, 0, 0, 0.87);
 }
-.p-breadcrumb ol li .p-menuitem-link .p-menuitem-icon {
+.p-breadcrumb ol li .p-menuitem-action .p-menuitem-icon {
   color: rgba(0, 0, 0, 0.6);
 }
 .p-breadcrumb ol li.p-breadcrumb-chevron {
@@ -4445,7 +4450,7 @@
 .p-contextmenu .p-menuitem:not(.p-highlight):not(.p-disabled) > .p-menuitem-content:hover .p-menuitem-action .p-menuitem-icon, .p-contextmenu .p-menuitem:not(.p-highlight):not(.p-disabled) > .p-menuitem-content:hover .p-menuitem-action .p-submenu-icon {
   color: rgba(0, 0, 0, 0.6);
 }
-.p-contextmenu .p-menu-separator {
+.p-contextmenu .p-menuitem-separator {
   border-top: 1px solid rgba(0, 0, 0, 0.12);
   margin: 0.5rem 0;
 }
@@ -4716,7 +4721,6 @@
   border-top-right-radius: 0;
   border-top-left-radius: 0;
 }
-.p-menu .p-menu-separator,
 .p-menu .p-menuitem-separator {
   border-top: 1px solid rgba(0, 0, 0, 0.12);
   margin: 0.5rem 0;
@@ -4821,7 +4825,6 @@
   box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
   width: 12.5rem;
 }
-.p-menubar .p-submenu-list .p-menu-separator,
 .p-menubar .p-submenu-list .p-menuitem-separator {
   border-top: 1px solid rgba(0, 0, 0, 0.12);
   margin: 0.5rem 0;
@@ -4860,7 +4863,7 @@
     box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
     width: 100%;
   }
-  .p-menubar .p-menubar-root-list .p-menu-separator {
+  .p-menubar .p-menubar-root-list .p-menuitem-separator {
     border-top: 1px solid rgba(0, 0, 0, 0.12);
     margin: 0.5rem 0;
   }
@@ -4871,11 +4874,11 @@
     width: 100%;
     position: static;
   }
-  .p-menubar .p-menubar-root-list .p-menuitem .p-menuitem-content .p-menuitem-link .p-submenu-icon {
+  .p-menubar .p-menubar-root-list .p-menuitem .p-menuitem-content .p-menuitem-action .p-submenu-icon {
     margin-left: auto;
     transition: transform 0.2s;
   }
-  .p-menubar .p-menubar-root-list .p-menuitem.p-menuitem-active > .p-menuitem-content > .p-menuitem-link > .p-submenu-icon {
+  .p-menubar .p-menubar-root-list .p-menuitem.p-menuitem-active > .p-menuitem-content > .p-menuitem-action > .p-submenu-icon {
     transform: rotate(-180deg);
   }
   .p-menubar .p-menubar-root-list .p-submenu-list {
@@ -4888,7 +4891,7 @@
     transition: transform 0.2s;
     transform: rotate(90deg);
   }
-  .p-menubar .p-menubar-root-list .p-submenu-list .p-menuitem-active > .p-menuitem-content > .p-menuitem-link > .p-submenu-icon {
+  .p-menubar .p-menubar-root-list .p-submenu-list .p-menuitem-active > .p-menuitem-content > .p-menuitem-action > .p-submenu-icon {
     transform: rotate(-90deg);
   }
   .p-menubar .p-menubar-root-list .p-menuitem {
@@ -5897,10 +5900,10 @@
   box-shadow: inset 0 0 0 1px #B00020, inset 0 0 0 1px #B00020, inset 0 0 0 1px #B00020, inset 0 0 0 1px #B00020;
 }
 
-.p-breadcrumb .p-menuitem-link {
+.p-breadcrumb .p-menuitem-action {
   padding: 0.25rem 0.5rem;
 }
-.p-breadcrumb .p-menuitem-link:focus {
+.p-breadcrumb .p-menuitem-action:focus {
   background: rgba(0, 0, 0, 0.12);
 }
 
@@ -7306,17 +7309,17 @@
 .p-tabmenu .p-tabmenu-nav {
   position: relative;
 }
-.p-tabmenu .p-tabmenu-nav li .p-menuitem-link {
+.p-tabmenu .p-tabmenu-nav li .p-menuitem-action {
   transition: background-color 0.2s;
   border-radius: 0;
 }
-.p-tabmenu .p-tabmenu-nav li .p-menuitem-link > .p-ink {
+.p-tabmenu .p-tabmenu-nav li .p-menuitem-action > .p-ink {
   background-color: rgba(63, 81, 181, 0.16);
 }
-.p-tabmenu .p-tabmenu-nav li .p-menuitem-link:focus {
+.p-tabmenu .p-tabmenu-nav li .p-menuitem-action:focus {
   background-color: rgba(63, 81, 181, 0.12);
 }
-.p-tabmenu .p-tabmenu-nav li.p-highlight .p-menuitem-link:focus {
+.p-tabmenu .p-tabmenu-nav li.p-highlight .p-menuitem-action:focus {
   background-color: rgba(63, 81, 181, 0.12);
 }
 .p-tabmenu .p-tabmenu-nav .p-tabmenu-ink-bar {
