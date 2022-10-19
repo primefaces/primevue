@@ -232,8 +232,16 @@ export default {
             const { originalEvent, processedItem } = event;
             const grouped = this.isProccessedItemGroup(processedItem);
             const root = ObjectUtils.isEmpty(processedItem.parent);
+            const selected = this.isSelected(processedItem);
 
-            grouped ? this.onItemChange(event) : this.hide(originalEvent, !root);
+            if (root && selected) {
+                this.focusedItemInfo = { index: processedItem.index, key: processedItem.key };
+                this.activeItem = null;
+
+                DomHandler.focus(this.menubar);
+            } else {
+                grouped ? this.onItemChange(event) : this.hide(originalEvent, !root);
+            }
         },
         onItemMouseEnter(event) {
             if (this.dirty) {
@@ -286,7 +294,7 @@ export default {
             }
         },
         onArrowLeftKey(event) {
-            const processedItem = this.findVisibleItem(this.focusedItemInfo.index);
+            const processedItem = (ObjectUtils.isNotEmpty(this.activeItem) && this.activeItem.key === this.focusedItemInfo.key ? this.activeItem : null) || this.findVisibleItem(this.focusedItemInfo.index);
             const grouped = this.isProccessedItemGroup(processedItem);
 
             if (grouped) {
@@ -546,9 +554,7 @@ export default {
                 'p-megamenu p-component',
                 {
                     'p-megamenu-horizontal': this.horizontal,
-                    'p-megamenu-vertical': this.vertical,
-                    'p-input-filled': this.$primevue.config.inputStyle === 'filled',
-                    'p-ripple-disabled': this.$primevue.config.ripple === false
+                    'p-megamenu-vertical': this.vertical
                 }
             ];
         },
