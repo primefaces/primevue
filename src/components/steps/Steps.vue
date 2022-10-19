@@ -10,7 +10,7 @@
                                 :class="linkClass({ isActive, isExactActive })"
                                 role="presentation"
                                 :tabindex="-1"
-                                :aria-current="isExactActive ? 'step' : false"
+                                :aria-current="isExactActive ? 'step' : undefined"
                                 @click="onItemClick($event, item, navigate)"
                                 @keydown="onItemKeydown($event, item, navigate)"
                             >
