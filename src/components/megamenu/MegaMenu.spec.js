@@ -69,16 +69,17 @@ describe('MegaMenu.vue', () => {
     it('should select item', async () => {
         const firstItem = wrapper.findAll('li.p-menuitem')[0];
 
-        await firstItem.trigger('click');
+        await firstItem.find('.p-menuitem-content').trigger('click');
 
         expect(firstItem.classes()).toContain('p-menuitem-active');
     });
 
     it('should deselect item', async () => {
         const firstItem = wrapper.findAll('li.p-menuitem')[0];
+        const firstItemContent = firstItem.find('.p-menuitem-content');
 
-        await firstItem.trigger('click');
-        await firstItem.trigger('click');
+        await firstItemContent.trigger('click');
+        await firstItemContent.trigger('click');
 
         expect(firstItem.classes()).not.toContain('p-menuitem-active');
     });
