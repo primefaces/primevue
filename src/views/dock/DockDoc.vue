@@ -293,22 +293,22 @@ export default {
 
             <h5>Basic</h5>
             <div class="dock-window">
-                <Dock :model="dockBasicItems" position="bottom">
-                    <template #icon="{ item }">
-                        <img :alt="item.label" :src="item.icon" style="width: 100%" />
-                    </template>
-                </Dock>
                 <Dock :model="dockBasicItems" position="top">
                     <template #icon="{ item }">
                         <img :alt="item.label" :src="item.icon" style="width: 100%" />
                     </template>
                 </Dock>
-                <Dock :model="dockBasicItems" position="left">
+                <Dock :model="dockBasicItems" position="right">
                     <template #icon="{ item }">
                         <img :alt="item.label" :src="item.icon" style="width: 100%" />
                     </template>
                 </Dock>
-                <Dock :model="dockBasicItems" position="right">
+                <Dock :model="dockBasicItems" position="bottom">
+                    <template #icon="{ item }">
+                        <img :alt="item.label" :src="item.icon" style="width: 100%" />
+                    </template>
+                </Dock>
+                <Dock :model="dockBasicItems" position="left">
                     <template #icon="{ item }">
                         <img :alt="item.label" :src="item.icon" style="width: 100%" />
                     </template>
@@ -694,22 +694,22 @@ export default {
 
             <h5>Basic</h5>
             <div class="dock-window">
-                <Dock :model="dockBasicItems" position="bottom">
-                    <template #icon="{ item }">
-                        <img :alt="item.label" :src="item.icon" style="width: 100%" />
-                    </template>
-                </Dock>
                 <Dock :model="dockBasicItems" position="top">
                     <template #icon="{ item }">
                         <img :alt="item.label" :src="item.icon" style="width: 100%" />
                     </template>
                 </Dock>
-                <Dock :model="dockBasicItems" position="left">
+                <Dock :model="dockBasicItems" position="right">
                     <template #icon="{ item }">
                         <img :alt="item.label" :src="item.icon" style="width: 100%" />
                     </template>
                 </Dock>
-                <Dock :model="dockBasicItems" position="right">
+                <Dock :model="dockBasicItems" position="bottom">
+                    <template #icon="{ item }">
+                        <img :alt="item.label" :src="item.icon" style="width: 100%" />
+                    </template>
+                </Dock>
+                <Dock :model="dockBasicItems" position="left">
                     <template #icon="{ item }">
                         <img :alt="item.label" :src="item.icon" style="width: 100%" />
                     </template>
@@ -1136,22 +1136,22 @@ export default {
 
             <h5>Basic</h5>
             <div class="dock-window">
-                <p-dock :model="dockBasicItems" position="bottom">
-                    <template #icon="{ item }">
-                        <img :alt="item.label" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" style="width: 100%" />
-                    </template>
-                </p-dock>
                 <p-dock :model="dockBasicItems" position="top">
                     <template #icon="{ item }">
                         <img :alt="item.label" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" style="width: 100%" />
                     </template>
                 </p-dock>
-                <p-dock :model="dockBasicItems" position="left">
+                <p-dock :model="dockBasicItems" position="right">
                     <template #icon="{ item }">
                         <img :alt="item.label" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" style="width: 100%" />
                     </template>
                 </p-dock>
-                <p-dock :model="dockBasicItems" position="right">
+                <p-dock :model="dockBasicItems" position="bottom">
+                    <template #icon="{ item }">
+                        <img :alt="item.label" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" style="width: 100%" />
+                    </template>
+                </p-dock>
+                <p-dock :model="dockBasicItems" position="left">
                     <template #icon="{ item }">
                         <img :alt="item.label" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" style="width: 100%" />
                     </template>
