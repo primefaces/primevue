@@ -177,8 +177,11 @@ export default {
                     break;
 
                 case 'Enter':
+                    this.onEnterKey();
+                    break;
+
                 case 'Space':
-                    this.onSpaceKey(event);
+                    this.onSpaceKey();
                     break;
 
                 case 'Tab':
@@ -209,32 +212,15 @@ export default {
             this.changeFocusedOptionIndex(DomHandler.find(this.container, 'li.p-menuitem:not(.p-disabled)').length - 1);
             event.preventDefault();
         },
-        onSpaceKey(event) {
-            const links = DomHandler.find(this.container, 'li.p-menuitem');
-            const matchedOptionIndex = [...links].findIndex((link) => link.id === this.focusedOptionId);
-            const itemsArray = [];
+        onEnterKey() {
+            const element = DomHandler.findSingle(this.list, `li[id="${`${this.focusedOptionIndex}`}"]`);
+            const anchorElement = element && DomHandler.findSingle(element, '.p-menuitem-action');
 
-            const createArray = (model) => {
-                for (let i = 0; i < model.length; i++) {
-                    model[i].separator !== true && !model[i].items && itemsArray.push(model[i]);
-                    model[i].items && createArray(model[i].items);
-                }
-            };
-
-            createArray(this.model);
-
-            if (itemsArray[matchedOptionIndex].to) {
-                this.$router.push(itemsArray[matchedOptionIndex].to);
-            } else if (itemsArray[matchedOptionIndex].url) {
-                this.popup && DomHandler.focus(this.target);
-                this.selectedOptionIndex = matchedOptionIndex;
-                links[matchedOptionIndex].children[0].children[0].click();
-            } else {
-                this.popup && DomHandler.focus(this.target);
-                this.itemClick({ originalEvent: event, item: itemsArray[matchedOptionIndex], id: links[matchedOptionIndex].getAttribute('id') });
-            }
-
-            event.preventDefault();
+            this.popup && DomHandler.focus(this.target);
+            anchorElement ? anchorElement.click() : element && element.click();
+        },
+        onSpaceKey() {
+            this.onEnterKey();
         },
         findNextOptionIndex(index) {
             const links = DomHandler.find(this.container, 'li.p-menuitem:not(.p-disabled)');
