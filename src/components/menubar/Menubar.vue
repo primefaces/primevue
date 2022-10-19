@@ -84,21 +84,25 @@ export default {
             mobileActive: false,
             focused: false,
             focusedItemInfo: { index: -1, level: 0, parentKey: '' },
-            activeItemPath: []
+            activeItemPath: [],
+            dirty: false
         };
     },
     watch: {
         activeItemPath(newPath) {
             if (ObjectUtils.isNotEmpty(newPath)) {
                 this.bindOutsideClickListener();
+                this.bindResizeListener();
             } else {
                 this.unbindOutsideClickListener();
+                this.unbindResizeListener();
             }
         }
     },
     beforeUnmount() {
         this.mobileActive = false;
         this.unbindOutsideClickListener();
+        this.unbindResizeListener();
 
         if (this.container) {
             ZIndexUtils.clear(this.container);
@@ -154,6 +158,7 @@ export default {
             this.focusedItemInfo = { index: -1, level: 0, parentKey: '' };
 
             isFocus && DomHandler.focus(this.menubar);
+            this.dirty = false;
         },
         onFocus(event) {
             this.focused = true;
@@ -164,6 +169,7 @@ export default {
             this.focused = false;
             this.focusedItemInfo = { index: -1, level: 0, parentKey: '' };
             this.searchValue = '';
+            this.dirty = false;
             this.$emit('blur', event);
         },
         onKeyDown(event) {
@@ -240,21 +246,34 @@ export default {
             this.focusedItemInfo = { index, level, parentKey };
             this.activeItemPath = activeItemPath;
 
+            grouped && (this.dirty = true);
             isFocus && DomHandler.focus(this.menubar);
         },
         onItemClick(event) {
             const { originalEvent, processedItem } = event;
             const grouped = this.isProccessedItemGroup(processedItem);
+            const root = ObjectUtils.isEmpty(processedItem.parent);
+            const selected = this.isSelected(processedItem);
 
-            if (grouped) {
-                this.onItemChange(event);
+            if (selected) {
+                const { index, key, level, parentKey } = processedItem;
+
+                this.activeItemPath = this.activeItemPath.filter((p) => key !== p.key && key.startsWith(p.key));
+                this.focusedItemInfo = { index, level, parentKey };
+
+                !root && (this.dirty = true);
+                DomHandler.focus(this.menubar);
             } else {
-                this.hide(originalEvent, true);
-                this.mobileActive = false;
+                if (grouped) {
+                    this.onItemChange(event);
+                } else {
+                    this.hide(originalEvent, true);
+                    this.mobileActive = false;
+                }
             }
         },
         onItemMouseEnter(event) {
-            if (ObjectUtils.isNotEmpty(this.activeItemPath)) {
+            if (!this.mobileActive && this.dirty) {
                 this.onItemChange(event);
             }
         },
@@ -369,7 +388,11 @@ export default {
                 const anchorElement = element && DomHandler.findSingle(element, '.p-menuitem-action');
 
                 anchorElement ? anchorElement.click() : element && element.click();
-                this.focusedItemInfo.index = this.findFirstFocusedItemIndex();
+
+                const processedItem = this.visibleItems[this.focusedItemInfo.index];
+                const grouped = this.isProccessedItemGroup(processedItem);
+
+                !grouped && (this.focusedItemInfo.index = this.findFirstFocusedItemIndex());
             }
 
             event.preventDefault();
@@ -396,9 +419,12 @@ export default {
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
                 this.outsideClickListener = (event) => {
-                    if (this.mobileActive && this.menubar !== event.target && !this.menubar.contains(event.target) && this.$refs.menubutton !== event.target && !this.$refs.menubutton.contains(event.target)) {
-                        this.mobileActive = false;
-                    } else this.hide();
+                    const isOutsideContainer = this.menubar !== event.target && !this.menubar.contains(event.target);
+                    const isOutsideMenuButton = this.mobileActive && this.$refs.menubutton !== event.target && !this.$refs.menubutton.contains(event.target);
+
+                    if (isOutsideContainer) {
+                        isOutsideMenuButton ? (this.mobileActive = false) : this.hide();
+                    }
                 };
 
                 document.addEventListener('click', this.outsideClickListener);
@@ -408,6 +434,25 @@ export default {
             if (this.outsideClickListener) {
                 document.removeEventListener('click', this.outsideClickListener);
                 this.outsideClickListener = null;
+            }
+        },
+        bindResizeListener() {
+            if (!this.resizeListener) {
+                this.resizeListener = (event) => {
+                    if (!DomHandler.isTouchDevice()) {
+                        this.hide(event, true);
+                    }
+
+                    this.mobileActive = false;
+                };
+
+                window.addEventListener('resize', this.resizeListener);
+            }
+        },
+        unbindResizeListener() {
+            if (this.resizeListener) {
+                window.removeEventListener('resize', this.resizeListener);
+                this.resizeListener = null;
             }
         },
         isItemMatched(processedItem) {
