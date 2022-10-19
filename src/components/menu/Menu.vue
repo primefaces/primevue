@@ -177,11 +177,11 @@ export default {
                     break;
 
                 case 'Enter':
-                    this.onEnterKey();
+                    this.onEnterKey(event);
                     break;
 
                 case 'Space':
-                    this.onSpaceKey();
+                    this.onSpaceKey(event);
                     break;
 
                 case 'Tab':
@@ -199,10 +199,16 @@ export default {
             event.preventDefault();
         },
         onArrowUpKey(event) {
-            const optionIndex = this.findPrevOptionIndex(this.focusedOptionIndex);
+            if (event.altKey && this.popup) {
+                DomHandler.focus(this.target);
+                this.hide();
+                event.preventDefault();
+            } else {
+                const optionIndex = this.findPrevOptionIndex(this.focusedOptionIndex);
 
-            this.changeFocusedOptionIndex(optionIndex);
-            event.preventDefault();
+                this.changeFocusedOptionIndex(optionIndex);
+                event.preventDefault();
+            }
         },
         onHomeKey(event) {
             this.changeFocusedOptionIndex(0);
@@ -212,15 +218,17 @@ export default {
             this.changeFocusedOptionIndex(DomHandler.find(this.container, 'li.p-menuitem:not(.p-disabled)').length - 1);
             event.preventDefault();
         },
-        onEnterKey() {
+        onEnterKey(event) {
             const element = DomHandler.findSingle(this.list, `li[id="${`${this.focusedOptionIndex}`}"]`);
             const anchorElement = element && DomHandler.findSingle(element, '.p-menuitem-action');
 
             this.popup && DomHandler.focus(this.target);
             anchorElement ? anchorElement.click() : element && element.click();
+
+            event.preventDefault();
         },
-        onSpaceKey() {
-            this.onEnterKey();
+        onSpaceKey(event) {
+            this.onEnterKey(event);
         },
         findNextOptionIndex(index) {
             const links = DomHandler.find(this.container, 'li.p-menuitem:not(.p-disabled)');
@@ -402,7 +410,7 @@ export default {
     list-style: none;
 }
 
-.p-menu .p-menuitem-link {
+.p-menu .p-menuitem-action {
     cursor: pointer;
     display: flex;
     align-items: center;
