@@ -61,7 +61,7 @@ const TieredMenuProps = [
     }
 ];
 
-const CascadeSelectEvents = [
+const TieredMenuEvents = [
     {
         name: 'focus',
         description: 'Callback to invoke when component receives focus.',
@@ -114,7 +114,7 @@ module.exports = {
         name: 'TieredMenu',
         description: 'TieredMenu displays submenus in nested overlays.',
         props: TieredMenuProps,
-        events: CascadeSelectEvents,
+        events: TieredMenuEvents,
         slots: TieredMenuSlots
     }
 };

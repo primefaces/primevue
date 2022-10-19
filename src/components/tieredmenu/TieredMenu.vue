@@ -5,7 +5,7 @@
                 <TieredMenuSub
                     :ref="menubarRef"
                     :id="id + '_list'"
-                    class="p-tieredmenu-root-submenu"
+                    class="p-tieredmenu-root-list"
                     :tabindex="!disabled ? tabindex : -1"
                     role="menubar"
                     :aria-label="ariaLabel"
