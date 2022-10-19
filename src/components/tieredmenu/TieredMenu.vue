@@ -369,7 +369,13 @@ export default {
                 const anchorElement = element && DomHandler.findSingle(element, '.p-menuitem-action');
 
                 anchorElement ? anchorElement.click() : element && element.click();
-                !this.popup && (this.focusedItemInfo.index = this.findFirstFocusedItemIndex());
+
+                if (!this.popup) {
+                    const processedItem = this.visibleItems[this.focusedItemInfo.index];
+                    const grouped = this.isProccessedItemGroup(processedItem);
+
+                    !grouped && (this.focusedItemInfo.index = this.findFirstFocusedItemIndex());
+                }
             }
 
             event.preventDefault();
