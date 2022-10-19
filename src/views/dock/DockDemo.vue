@@ -377,11 +377,11 @@ export default {
             padding: 0 1rem;
         }
 
-        .p-menuitem-link {
+        .p-menuitem-action {
             padding: 0.5rem 0.75rem;
         }
 
-        .p-menubar-root-list > .p-menuitem > .p-menuitem-link {
+        .p-menubar-root-list > .p-menuitem > .p-menuitem-content > .p-menuitem-action {
             padding: 0.5rem 0.75rem;
 
             > .p-submenu-icon {

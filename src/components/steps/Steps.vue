@@ -1,6 +1,6 @@
 <template>
     <nav :id="id" :class="containerClass">
-        <ol ref="list">
+        <ol ref="list" class="p-steps-list">
             <template v-for="(item, index) of model" :key="item.to">
                 <li v-if="visible(item)" :class="getItemClass(item)" :style="item.style">
                     <template v-if="!$slots.item">
@@ -179,7 +179,7 @@ export default {
         },
         linkClass(routerProps) {
             return [
-                'p-menuitem-link',
+                'p-menuitem-action',
                 {
                     'router-link-active': routerProps && routerProps.isActive,
                     'router-link-active-exact': this.exact && routerProps && routerProps.isExactActive
@@ -212,7 +212,7 @@ export default {
     position: relative;
 }
 
-.p-steps ol {
+.p-steps .p-steps-list {
     padding: 0;
     margin: 0;
     list-style-type: none;
@@ -226,7 +226,7 @@ export default {
     flex: 1 1 auto;
 }
 
-.p-steps-item .p-menuitem-link {
+.p-steps-item .p-menuitem-action {
     display: inline-flex;
     flex-direction: column;
     align-items: center;
@@ -238,7 +238,7 @@ export default {
     cursor: auto;
 }
 
-.p-steps-item.p-steps-current .p-menuitem-link {
+.p-steps-item.p-steps-current .p-menuitem-action {
     cursor: default;
 }
 
