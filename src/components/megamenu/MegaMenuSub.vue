@@ -214,7 +214,7 @@ export default {
         },
         getItemActionClass(processedItem, routerProps) {
             return [
-                'p-menuitem-link p-menuitem-action', // TODO: the 'p-menuitem-link' class is deprecated since v3.18.0.
+                'p-menuitem-action',
                 {
                     'router-link-active': routerProps && routerProps.isActive,
                     'router-link-active-exact': this.exact && routerProps && routerProps.isExactActive
@@ -228,7 +228,7 @@ export default {
             return ['p-submenu-icon', this.horizontal ? 'pi pi-angle-down' : 'pi pi-angle-right'];
         },
         getSeparatorItemClass(processedItem) {
-            return ['p-menu-separator p-menuitem-separator', this.getItemProp(processedItem, 'class')]; // TODO: the 'p-menu-separator' class is deprecated since v3.18.0.
+            return ['p-menuitem-separator', this.getItemProp(processedItem, 'class')];
         }
     },
     directives: {

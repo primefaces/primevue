@@ -236,7 +236,7 @@ export default {
         },
         getHeaderActionClass(item, routerProps) {
             return [
-                'p-panelmenu-header-link p-panelmenu-header-action', // TODO: the 'p-panelmenu-header-link' class is deprecated since v3.18.0.
+                'p-panelmenu-header-action',
                 {
                     'router-link-active': routerProps && routerProps.isActive,
                     'router-link-active-exact': this.exact && routerProps && routerProps.isExactActive
@@ -247,7 +247,7 @@ export default {
             return ['p-menuitem-icon', this.getItemProp(item, 'icon')];
         },
         getHeaderToggleIconClass(item) {
-            return ['p-submenu-icon p-panelmenu-icon', this.isItemActive(item) ? 'pi pi-chevron-down' : 'pi pi-chevron-right']; // TODO: the 'p-panelmenu-icon' class is deprecated since v3.18.0.
+            return ['p-submenu-icon', this.isItemActive(item) ? 'pi pi-chevron-down' : 'pi pi-chevron-right'];
         }
     },
     computed: {
