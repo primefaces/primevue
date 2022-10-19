@@ -4954,7 +4954,7 @@
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
 }
-.p-panelmenu .p-panelmenu-content .p-panelmenu-root-submenu {
+.p-panelmenu .p-panelmenu-content .p-panelmenu-root-list {
   outline: 0 none;
 }
 .p-panelmenu .p-panelmenu-content .p-menuitem > .p-menuitem-content {
@@ -5016,7 +5016,7 @@
   border-top: 1px solid #304562;
   margin: 0.25rem 0;
 }
-.p-panelmenu .p-panelmenu-content .p-submenu-list:not(.p-panelmenu-root-submenu) {
+.p-panelmenu .p-panelmenu-content .p-submenu-list:not(.p-panelmenu-root-list) {
   padding: 0 0 0 1rem;
 }
 .p-panelmenu .p-panelmenu-panel {
