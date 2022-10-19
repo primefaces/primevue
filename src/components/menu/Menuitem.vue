@@ -1,6 +1,6 @@
 <template>
-    <li v-if="visible()" :id="id" :class="containerClass()" role="menuitem" :style="item.style" :aria-label="label()" :aria-disabled="disabled()" @click="onItemClick($event)">
-        <div class="p-menuitem-content">
+    <li v-if="visible()" :id="id" :class="containerClass()" role="menuitem" :style="item.style" :aria-label="label()" :aria-disabled="disabled()">
+        <div class="p-menuitem-content" @click="onItemClick($event)">
             <template v-if="!template">
                 <router-link v-if="item.to && !disabled()" v-slot="{ navigate, href, isActive, isExactActive }" :to="item.to" custom>
                     <a v-ripple :href="href" :class="linkClass({ isActive, isExactActive })" tabindex="-1" :aria-hidden="true" @click="onItemActionClick($event, navigate)">
@@ -37,19 +37,14 @@ export default {
         getItemProp(processedItem, name) {
             return processedItem && processedItem.item ? ObjectUtils.getItemValue(processedItem.item[name]) : undefined;
         },
-        isSameMenuItem(event) {
-            return event.currentTarget && (event.currentTarget.isSameNode(event.target) || event.currentTarget.isSameNode(event.target.closest('.p-menuitem')));
-        },
         onItemActionClick(event, navigate) {
             navigate && navigate(event);
         },
         onItemClick(event) {
-            if (this.isSameMenuItem(event)) {
-                const command = this.getItemProp(this.item, 'command');
+            const command = this.getItemProp(this.item, 'command');
 
-                command && command({ originalEvent: event, item: this.item.item });
-                this.$emit('item-click', { originalEvent: event, item: this.item, id: this.id });
-            }
+            command && command({ originalEvent: event, item: this.item.item });
+            this.$emit('item-click', { originalEvent: event, item: this.item, id: this.id });
         },
         containerClass() {
             return ['p-menuitem', this.item.class, { 'p-focus': this.id === this.focusedOptionId, 'p-disabled': this.disabled() }];

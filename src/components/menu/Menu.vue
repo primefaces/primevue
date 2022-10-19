@@ -21,12 +21,12 @@
                                 <slot name="item" :item="item">{{ label(item) }}</slot>
                             </li>
                             <template v-for="(child, j) of item.items" :key="child.label + i + '_' + j">
-                                <Menuitem v-if="visible(child) && !child.separator" :id="id + '_' + i + '_' + j" :item="child" :template="$slots.item" :exact="exact" :focusedOptionId="focusedOptionId" @item-click="itemClick" />
+                                <PVMenuitem v-if="visible(child) && !child.separator" :id="id + '_' + i + '_' + j" :item="child" :template="$slots.item" :exact="exact" :focusedOptionId="focusedOptionId" @item-click="itemClick" />
                                 <li v-else-if="visible(child) && child.separator" :key="'separator' + i + j" :class="separatorClass(item)" :style="child.style" role="separator"></li>
                             </template>
                         </template>
                         <li v-else-if="visible(item) && item.separator" :key="'separator' + i.toString()" :class="separatorClass(item)" :style="item.style" role="separator"></li>
-                        <Menuitem v-else :key="label(item) + i.toString()" :id="id + '_' + i" :item="item" :template="$slots.item" :exact="exact" :focusedOptionId="focusedOptionId" @item-click="itemClick" />
+                        <PVMenuitem v-else :key="label(item) + i.toString()" :id="id + '_' + i" :item="item" :template="$slots.item" :exact="exact" :focusedOptionId="focusedOptionId" @item-click="itemClick" />
                     </template>
                 </ul>
             </div>
@@ -391,7 +391,7 @@ export default {
         }
     },
     components: {
-        Menuitem: Menuitem,
+        PVMenuitem: Menuitem,
         Portal: Portal
     }
 };

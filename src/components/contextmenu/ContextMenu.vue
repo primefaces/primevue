@@ -269,7 +269,6 @@ export default {
                 this.activeItemPath = this.activeItemPath.filter((p) => key !== p.key && key.startsWith(p.key));
                 this.focusedItemInfo = { index, level, parentKey };
 
-                !root && (this.dirty = true);
                 DomHandler.focus(this.list);
             } else {
                 grouped ? this.onItemChange(event) : this.hide(originalEvent, !root);

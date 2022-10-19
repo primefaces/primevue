@@ -240,7 +240,7 @@ export default {
                 this.activeItem = null;
                 this.focusedItemInfo = { index, key, parentKey };
 
-                !root && (this.dirty = true);
+                this.dirty = !root;
                 DomHandler.focus(this.menubar);
             } else {
                 grouped ? this.onItemChange(event) : this.hide(originalEvent, !root);
