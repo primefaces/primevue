@@ -190,7 +190,6 @@ export default {
                 }
 
                 this.styleElement.innerHTML = innerHTML;
-                console.log(innerHTML);
             }
         },
         hasBreakpoints() {
@@ -206,7 +205,6 @@ export default {
         },
         setPaginatorAttribute() {
             [...this.$refs.paginator].forEach((el) => {
-                console.log(el);
                 el.setAttribute(this.attributeSelector, '');
             });
         }

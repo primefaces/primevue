@@ -128,12 +128,9 @@ export default {
             navigate && navigate(event);
         },
         onItemClick(event, processedItem) {
-            console.log(processedItem);
-
             if (this.isSameMenuItem(event)) {
                 const command = this.getItemProp(processedItem, 'command');
 
-                console.log(processedItem);
                 command && command({ originalEvent: event, item: processedItem.item });
             }
         },

@@ -158,7 +158,6 @@ export default {
         onFocus(event) {
             this.focused = true;
             this.focusedItemInfo = this.focusedItemInfo.index !== -1 ? this.focusedItemInfo : { index: this.findFirstFocusedItemIndex(), level: 0, parentKey: '' };
-            console.log(this.focusedItemInfo);
             this.$emit('focus', event);
         },
         onBlur(event) {
