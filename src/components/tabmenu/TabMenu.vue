@@ -172,7 +172,7 @@ export default {
                 case 'Space':
 
                 case 'Enter': {
-                    if (item.to && event.currentTarget) {
+                    if (event.currentTarget) {
                         event.currentTarget.click();
                     }
 
