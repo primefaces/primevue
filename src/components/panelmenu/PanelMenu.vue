@@ -143,14 +143,14 @@ export default {
             }
         },
         onHeaderArrowDownKey(event) {
-            const rootList = DomHandler.hasClass(event.currentTarget, 'p-highlight') ? DomHandler.findSingle(event.currentTarget.nextElementSibling, '.p-panelmenu-root-submenu') : null;
+            const rootList = DomHandler.hasClass(event.currentTarget, 'p-highlight') ? DomHandler.findSingle(event.currentTarget.nextElementSibling, '.p-panelmenu-root-list') : null;
 
             rootList ? DomHandler.focus(rootList) : this.updateFocusedHeader({ originalEvent: event, focusOnNext: true });
             event.preventDefault();
         },
         onHeaderArrowUpKey(event) {
             const prevHeader = this.findPrevHeader(event.currentTarget.parentElement) || this.findLastHeader();
-            const rootList = DomHandler.hasClass(prevHeader, 'p-highlight') ? DomHandler.findSingle(prevHeader.nextElementSibling, '.p-panelmenu-root-submenu') : null;
+            const rootList = DomHandler.hasClass(prevHeader, 'p-highlight') ? DomHandler.findSingle(prevHeader.nextElementSibling, '.p-panelmenu-root-list') : null;
 
             rootList ? DomHandler.focus(rootList) : this.updateFocusedHeader({ originalEvent: event, focusOnNext: false });
             event.preventDefault();

@@ -1,7 +1,7 @@
 <template>
     <PanelMenuSub
         :id="panelId + '_list'"
-        class="p-panelmenu-root-submenu"
+        class="p-panelmenu-root-list"
         role="tree"
         :tabindex="-1"
         :aria-activedescendant="focused ? focusedItemId : undefined"
