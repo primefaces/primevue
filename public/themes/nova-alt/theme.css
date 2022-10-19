@@ -4316,29 +4316,29 @@
   border-radius: 3px;
   padding: 0.571rem 1rem;
 }
-.p-breadcrumb ol li .p-menuitem-action {
+.p-breadcrumb .p-breadcrumb-list li .p-menuitem-action {
   transition: background-color 0.2s, box-shadow 0.2s;
   border-radius: 3px;
 }
-.p-breadcrumb ol li .p-menuitem-action:focus {
+.p-breadcrumb .p-breadcrumb-list li .p-menuitem-action:focus {
   outline: 0 none;
   outline-offset: 0;
   box-shadow: 0 0 0 0.2rem #8dcdff;
 }
-.p-breadcrumb ol li .p-menuitem-action .p-menuitem-text {
+.p-breadcrumb .p-breadcrumb-list li .p-menuitem-action .p-menuitem-text {
   color: #333333;
 }
-.p-breadcrumb ol li .p-menuitem-action .p-menuitem-icon {
+.p-breadcrumb .p-breadcrumb-list li .p-menuitem-action .p-menuitem-icon {
   color: #333333;
 }
-.p-breadcrumb ol li.p-breadcrumb-chevron {
+.p-breadcrumb .p-breadcrumb-list li.p-menuitem-seperator {
   margin: 0 0.5rem 0 0.5rem;
   color: #333333;
 }
-.p-breadcrumb ol li:last-child .p-menuitem-text {
+.p-breadcrumb .p-breadcrumb-list li:last-child .p-menuitem-text {
   color: #333333;
 }
-.p-breadcrumb ol li:last-child .p-menuitem-icon {
+.p-breadcrumb .p-breadcrumb-list li:last-child .p-menuitem-icon {
   color: #333333;
 }
 

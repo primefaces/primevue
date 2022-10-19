@@ -4304,29 +4304,29 @@
   border-radius: 6px;
   padding: 1rem;
 }
-.p-breadcrumb ol li .p-menuitem-action {
+.p-breadcrumb .p-breadcrumb-list li .p-menuitem-action {
   transition: box-shadow 0.2s;
   border-radius: 6px;
 }
-.p-breadcrumb ol li .p-menuitem-action:focus {
+.p-breadcrumb .p-breadcrumb-list li .p-menuitem-action:focus {
   outline: 0 none;
   outline-offset: 0;
   box-shadow: 0 0 0 0.2rem #BFDBFE;
 }
-.p-breadcrumb ol li .p-menuitem-action .p-menuitem-text {
+.p-breadcrumb .p-breadcrumb-list li .p-menuitem-action .p-menuitem-text {
   color: #495057;
 }
-.p-breadcrumb ol li .p-menuitem-action .p-menuitem-icon {
+.p-breadcrumb .p-breadcrumb-list li .p-menuitem-action .p-menuitem-icon {
   color: #6c757d;
 }
-.p-breadcrumb ol li.p-breadcrumb-chevron {
+.p-breadcrumb .p-breadcrumb-list li.p-menuitem-seperator {
   margin: 0 0.5rem 0 0.5rem;
   color: #495057;
 }
-.p-breadcrumb ol li:last-child .p-menuitem-text {
+.p-breadcrumb .p-breadcrumb-list li:last-child .p-menuitem-text {
   color: #495057;
 }
-.p-breadcrumb ol li:last-child .p-menuitem-icon {
+.p-breadcrumb .p-breadcrumb-list li:last-child .p-menuitem-icon {
   color: #6c757d;
 }
 
