@@ -610,7 +610,7 @@ export default {
     top: 0;
 }
 
-.p-menubar .p-submenu-list .p-menuitem-link .p-submenu-icon {
+.p-menubar .p-submenu-list .p-menuitem .p-menuitem-content .p-menuitem-link .p-submenu-icon {
     margin-left: auto;
 }
 
