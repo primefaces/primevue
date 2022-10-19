@@ -4,7 +4,7 @@
             <SDButton type="button" :class="buttonClassName" :icon="iconClassName" @click="onClick($event)" :disabled="disabled" />
         </slot>
         <ul :ref="listRef" class="p-speeddial-list" role="menu">
-            <li v-for="(item, index) of model" :key="index" class="p-speeddial-item" :style="getItemStyle(index)" role="none">
+            <li v-for="(item, index) of model" :key="index" :class="['p-speeddial-item', { 'p-hidden': !item.visible } ]" :style="getItemStyle(index)" role="none">
                 <template v-if="!$slots.item">
                     <a
                         v-tooltip:[tooltipOptions]="{ value: item.label, disabled: !tooltipOptions }"
