@@ -15,10 +15,8 @@
                 :aria-level="level + 1"
                 :aria-setsize="getAriaSetSize()"
                 :aria-posinset="getAriaPosInset(index)"
-                @click="onItemClick($event, processedItem)"
-                @mouseenter="onItemMouseEnter($event, processedItem)"
             >
-                <div class="p-menuitem-content">
+                <div class="p-menuitem-content" @click="onItemClick($event, processedItem)" @mouseenter="onItemMouseEnter($event, processedItem)">
                     <template v-if="!template">
                         <router-link v-if="getItemProp(processedItem, 'to') && !isItemDisabled(processedItem)" v-slot="{ navigate, href, isActive, isExactActive }" :to="getItemProp(processedItem, 'to')" custom>
                             <a v-ripple :href="href" :class="getItemActionClass(processedItem, { isActive, isExactActive })" tabindex="-1" :aria-hidden="true" @click="onItemActionClick($event, navigate)">
@@ -141,16 +139,11 @@ export default {
         isItemGroup(processedItem) {
             return ObjectUtils.isNotEmpty(processedItem.items);
         },
-        isSameMenuItem(event) {
-            return event.currentTarget && (event.currentTarget.isSameNode(event.target) || event.currentTarget.isSameNode(event.target.closest('.p-menuitem')));
-        },
         onItemClick(event, processedItem) {
-            if (this.isSameMenuItem(event)) {
-                const command = this.getItemProp(processedItem, 'command');
+            const command = this.getItemProp(processedItem, 'command');
 
-                command && command({ originalEvent: event, item: processedItem.item });
-                this.$emit('item-click', { originalEvent: event, processedItem, isFocus: true });
-            }
+            command && command({ originalEvent: event, item: processedItem.item });
+            this.$emit('item-click', { originalEvent: event, processedItem, isFocus: true });
         },
         onItemMouseEnter(event, processedItem) {
             this.$emit('item-mouseenter', { originalEvent: event, processedItem });

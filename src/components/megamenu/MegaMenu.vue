@@ -80,7 +80,7 @@ export default {
     data() {
         return {
             focused: false,
-            focusedItemInfo: { index: -1, key: '' },
+            focusedItemInfo: { index: -1, key: '', parentKey: '' },
             activeItem: null,
             dirty: false
         };
@@ -124,7 +124,7 @@ export default {
         },
         hide(event, isFocus) {
             this.activeItem = null;
-            this.focusedItemInfo = { index: -1, key: '' };
+            this.focusedItemInfo = { index: -1, key: '', parentKey: '' };
 
             isFocus && DomHandler.focus(this.menubar);
             this.dirty = false;
@@ -136,14 +136,14 @@ export default {
                 const index = this.findFirstFocusedItemIndex();
                 const processedItem = this.findVisibleItem(index);
 
-                this.focusedItemInfo = { index, key: processedItem.key };
+                this.focusedItemInfo = { index, key: processedItem.key, parentKey: processedItem.parentKey };
             }
 
             this.$emit('focus', event);
         },
         onBlur(event) {
             this.focused = false;
-            this.focusedItemInfo = { index: -1, key: '' };
+            this.focusedItemInfo = { index: -1, key: '', parentKey: '' };
             this.searchValue = '';
             this.dirty = false;
             this.$emit('blur', event);
@@ -219,11 +219,11 @@ export default {
 
             if (ObjectUtils.isEmpty(processedItem)) return;
 
-            const { key, items } = processedItem;
+            const { index, key, parentKey, items } = processedItem;
             const grouped = ObjectUtils.isNotEmpty(items);
 
             grouped && (this.activeItem = processedItem);
-            this.focusedItemInfo = { index: this.visibleItems.findIndex((item) => item.key === key), key };
+            this.focusedItemInfo = { index, key, parentKey };
 
             grouped && (this.dirty = true);
             isFocus && DomHandler.focus(this.menubar);
@@ -234,10 +234,13 @@ export default {
             const root = ObjectUtils.isEmpty(processedItem.parent);
             const selected = this.isSelected(processedItem);
 
-            if (root && selected) {
-                this.focusedItemInfo = { index: processedItem.index, key: processedItem.key };
-                this.activeItem = null;
+            if (selected) {
+                const { index, key, parentKey } = processedItem;
 
+                this.activeItem = null;
+                this.focusedItemInfo = { index, key, parentKey };
+
+                !root && (this.dirty = true);
                 DomHandler.focus(this.menubar);
             } else {
                 grouped ? this.onItemChange(event) : this.hide(originalEvent, !root);
@@ -251,14 +254,14 @@ export default {
         onArrowDownKey(event) {
             if (this.horizontal) {
                 if (ObjectUtils.isNotEmpty(this.activeItem) && this.activeItem.key === this.focusedItemInfo.key) {
-                    this.focusedItemInfo = { index: -1, key: this.activeItem.key };
+                    this.focusedItemInfo = { index: -1, key: '', parentKey: this.activeItem.key };
                 } else {
                     const processedItem = this.findVisibleItem(this.focusedItemInfo.index);
                     const grouped = this.isProccessedItemGroup(processedItem);
 
                     if (grouped) {
                         this.onItemChange({ originalEvent: event, processedItem });
-                        this.focusedItemInfo = { index: -1, key: processedItem.key };
+                        this.focusedItemInfo = { index: -1, key: processedItem.key, parentKey: processedItem.parentKey };
                         this.searchValue = '';
                     }
                 }
@@ -277,7 +280,7 @@ export default {
 
                     if (!grouped && ObjectUtils.isNotEmpty(this.activeItem)) {
                         if (this.focusedItemInfo.index === 0) {
-                            this.focusedItemInfo = { index: this.activeItem.index, key: this.activeItem.key };
+                            this.focusedItemInfo = { index: this.activeItem.index, key: this.activeItem.key, parentKey: this.activeItem.parentKey };
                             this.activeItem = null;
                         } else {
                             this.changeFocusedItemInfo(event, this.findFirstItemIndex());
@@ -294,7 +297,7 @@ export default {
             }
         },
         onArrowLeftKey(event) {
-            const processedItem = (ObjectUtils.isNotEmpty(this.activeItem) && this.activeItem.key === this.focusedItemInfo.key ? this.activeItem : null) || this.findVisibleItem(this.focusedItemInfo.index);
+            const processedItem = this.findVisibleItem(this.focusedItemInfo.index);
             const grouped = this.isProccessedItemGroup(processedItem);
 
             if (grouped) {
@@ -306,7 +309,7 @@ export default {
             } else {
                 if (this.vertical && ObjectUtils.isNotEmpty(this.activeItem)) {
                     if (processedItem.columnIndex === 0) {
-                        this.focusedItemInfo = { index: this.activeItem.index, key: this.activeItem.key };
+                        this.focusedItemInfo = { index: this.activeItem.index, key: this.activeItem.key, parentKey: this.activeItem.parentKey };
                         this.activeItem = null;
                     }
                 }
@@ -320,17 +323,22 @@ export default {
             event.preventDefault();
         },
         onArrowRightKey(event) {
-            const processedItem = (ObjectUtils.isNotEmpty(this.activeItem) && this.activeItem.key === this.focusedItemInfo.key ? this.activeItem : null) || this.findVisibleItem(this.focusedItemInfo.index);
+            const processedItem = this.findVisibleItem(this.focusedItemInfo.index);
             const grouped = this.isProccessedItemGroup(processedItem);
 
             if (grouped) {
                 if (this.vertical) {
                     if (ObjectUtils.isNotEmpty(this.activeItem) && this.activeItem.key === processedItem.key) {
-                        this.focusedItemInfo = { index: -1, key: '' };
+                        this.focusedItemInfo = { index: -1, key: '', parentKey: this.activeItem.key };
                     } else {
-                        this.onItemChange({ originalEvent: event, processedItem });
-                        this.focusedItemInfo = { index: -1, key: processedItem.key };
-                        this.searchValue = '';
+                        const processedItem = this.findVisibleItem(this.focusedItemInfo.index);
+                        const grouped = this.isProccessedItemGroup(processedItem);
+
+                        if (grouped) {
+                            this.onItemChange({ originalEvent: event, processedItem });
+                            this.focusedItemInfo = { index: -1, key: processedItem.key, parentKey: processedItem.parentKey };
+                            this.searchValue = '';
+                        }
                     }
                 }
 
@@ -360,7 +368,11 @@ export default {
                 const anchorElement = element && DomHandler.findSingle(element, '.p-menuitem-action');
 
                 anchorElement ? anchorElement.click() : element && element.click();
-                this.changeFocusedItemInfo(event, this.findFirstItemIndex());
+
+                const processedItem = this.visibleItems[this.focusedItemInfo.index];
+                const grouped = this.isProccessedItemGroup(processedItem);
+
+                !grouped && this.changeFocusedItemInfo(event, this.findFirstFocusedItemIndex());
             }
 
             event.preventDefault();
@@ -504,12 +516,11 @@ export default {
             return matched;
         },
         changeFocusedItemInfo(event, index) {
-            if (this.focusedItemInfo.index !== index) {
-                const processedItem = this.findVisibleItem(index);
+            const processedItem = this.findVisibleItem(index);
 
-                this.focusedItemInfo = { index, key: ObjectUtils.isNotEmpty(processedItem) ? processedItem.key : '' };
-                this.scrollInView();
-            }
+            this.focusedItemInfo.index = index;
+            this.focusedItemInfo.key = ObjectUtils.isNotEmpty(processedItem) ? processedItem.key : '';
+            this.scrollInView();
         },
         scrollInView(index = -1) {
             const id = index !== -1 ? `${this.id}_${index}` : this.focusedItemId;
@@ -564,7 +575,7 @@ export default {
         visibleItems() {
             const processedItem = ObjectUtils.isNotEmpty(this.activeItem) ? this.activeItem : null;
 
-            return processedItem
+            return processedItem && processedItem.key === this.focusedItemInfo.parentKey
                 ? processedItem.items.reduce((items, col) => {
                       col.forEach((submenu) => {
                           submenu.items.forEach((a) => {
