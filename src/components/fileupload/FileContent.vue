@@ -1,16 +1,16 @@
 <template>
-    <div v-for="(file, index) of files" :key="file.name + file.type + file.size" class="card flex justify-content-between border-1 surface-border">
-        <div class="align-self-center">
+    <div v-for="(file, index) of files" :key="file.name + file.type + file.size" class="p-fileupload-content-container p-fileupload-content-item">
+        <div>
             <img role="presentation" :alt="file.name" :src="file.objectURL" height="50" width="50" />
         </div>
-        <div class="p-fileupload-content-body flex flex-column justify-content-between">
+        <div class="p-fileupload-content-body">
             <div>{{ file.name }}</div>
-            <div class="flex">
+            <div class="p-fileupload-badge-container">
                 <div>{{ formatSize(file.size) }}</div>
-                <Badge :value="badgeValue" class="ml-2" :severity="badgeSeverity" />
+                <Badge :value="badgeValue" class="p-fileupload-badge" :severity="badgeSeverity" />
             </div>
         </div>
-        <div class="align-self-center">
+        <div>
             <Button icon="pi pi-times" @click="$emit('remove', index)" class="p-button-text p-button-secondary" />
         </div>
     </div>
@@ -50,8 +50,25 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+.p-fileupload-content-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10.5px;
+}
 .p-fileupload-content-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     flex: 0.96;
+}
+.p-fileupload-badge-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10.5px;
+}
+
+.p-fileupload-badge {
+    margin-left: 0.5rem;
 }
 </style>
