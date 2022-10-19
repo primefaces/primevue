@@ -1,20 +1,18 @@
 <template>
-    <li v-if="visible()" :class="containerClass(item)" :aria-current="isCurrentUrl()">
-        <div class="p-menuitem-content">
-            <template v-if="!template">
-                <router-link v-if="item.to" v-slot="{ navigate, href, isActive, isExactActive }" :to="item.to" custom>
-                    <a :href="href" :class="linkClass({ isActive, isExactActive })" @click="onClick($event, navigate)">
-                        <span v-if="item.icon" :class="iconClass"></span>
-                        <span v-if="item.label" class="p-menuitem-text">{{ label() }}</span>
-                    </a>
-                </router-link>
-                <a v-else :href="item.url || '#'" :class="linkClass()" @click="onClick" :target="item.target">
+    <li v-if="visible()" :class="containerClass(item)">
+        <template v-if="!template">
+            <router-link v-if="item.to" v-slot="{ navigate, href, isActive, isExactActive }" :to="item.to" custom>
+                <a :href="href" :class="linkClass({ isActive, isExactActive })" :aria-current="isCurrentUrl()" @click="onClick($event, navigate)">
                     <span v-if="item.icon" :class="iconClass"></span>
                     <span v-if="item.label" class="p-menuitem-text">{{ label() }}</span>
                 </a>
-            </template>
-            <component v-else :is="template" :item="item"></component>
-        </div>
+            </router-link>
+            <a v-else :href="item.url || '#'" :class="linkClass()" :target="item.target" :aria-current="isCurrentUrl()" @click="onClick">
+                <span v-if="item.icon" :class="iconClass"></span>
+                <span v-if="item.label" class="p-menuitem-text">{{ label() }}</span>
+            </a>
+        </template>
+        <component v-else :is="template" :item="item"></component>
     </li>
 </template>
 
@@ -40,7 +38,7 @@ export default {
             }
         },
         containerClass(item) {
-            return [{ 'p-disabled': this.disabled(item) }, this.item.class];
+            return ['p-menuitem', { 'p-disabled': this.disabled(item) }, this.item.class];
         },
         linkClass(routerProps) {
             return [

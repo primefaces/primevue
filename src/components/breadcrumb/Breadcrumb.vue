@@ -1,9 +1,11 @@
 <template>
     <nav class="p-breadcrumb p-component">
-        <ol>
+        <ol class="p-breadcrumb-list">
             <BreadcrumbItem v-if="home" :item="home" class="p-breadcrumb-home" :template="$slots.item" :exact="exact" />
             <template v-for="item of model" :key="item.label">
-                <li class="p-breadcrumb-chevron pi pi-chevron-right" :aria-hidden="true"></li>
+                <li class="p-menuitem-seperator">
+                    <span class="pi pi-chevron-right" :aria-hidden="true"></span>
+                </li>
                 <BreadcrumbItem :item="item" :template="$slots.item" :exact="exact" />
             </template>
         </ol>
@@ -40,7 +42,7 @@ export default {
     overflow-x: auto;
 }
 
-.p-breadcrumb ol {
+.p-breadcrumb .p-breadcrumb-list {
     margin: 0;
     padding: 0;
     list-style-type: none;
@@ -55,6 +57,13 @@ export default {
 
 .p-breadcrumb .p-menuitem-action {
     text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.p-breadcrumb .p-menuitem-seperator {
+    display: flex;
+    align-items: center;
 }
 
 .p-breadcrumb::-webkit-scrollbar {
