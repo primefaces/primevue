@@ -1,19 +1,20 @@
 <template>
-    <li v-if="visible()" :class="containerClass(item)">
-        <template v-if="!template">
-            <router-link v-if="item.to" v-slot="{ navigate, href, isActive, isExactActive }" :to="item.to" custom>
-                <a :href="href" :class="linkClass({ isActive, isExactActive })" @click="onClick($event, navigate)" :aria-current="isCurrentUrl()">
+    <li v-if="visible()" :class="containerClass(item)" :aria-current="isCurrentUrl()">
+        <div class="p-menuitem-content">
+            <template v-if="!template">
+                <router-link v-if="item.to" v-slot="{ navigate, href, isActive, isExactActive }" :to="item.to" custom>
+                    <a :href="href" :class="linkClass({ isActive, isExactActive })" @click="onClick($event, navigate)">
+                        <span v-if="item.icon" :class="iconClass"></span>
+                        <span v-if="item.label" class="p-menuitem-text">{{ label() }}</span>
+                    </a>
+                </router-link>
+                <a v-else :href="item.url || '#'" :class="linkClass()" @click="onClick" :target="item.target">
                     <span v-if="item.icon" :class="iconClass"></span>
                     <span v-if="item.label" class="p-menuitem-text">{{ label() }}</span>
                 </a>
-            </router-link>
-            <a v-else :href="item.url || '#'" :class="linkClass()" @click="onClick" :target="item.target" :aria-current="isCurrentUrl()">
-                <span v-if="item.icon" :class="iconClass"></span>
-                <span v-if="item.label" class="p-menuitem-text">{{ label() }}</span>
-            </a>
-        </template>
-
-        <component v-else :is="template" :item="item"></component>
+            </template>
+            <component v-else :is="template" :item="item"></component>
+        </div>
     </li>
 </template>
 
@@ -63,7 +64,7 @@ export default {
             const { to, url } = this.item;
             const lastPath = `/${window.location.href.split('/').pop()}`;
 
-            return to === lastPath || url === lastPath ? 'page' : false;
+            return to === lastPath || url === lastPath ? 'page' : undefined;
         }
     },
     computed: {
