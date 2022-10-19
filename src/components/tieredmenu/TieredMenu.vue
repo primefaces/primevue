@@ -284,8 +284,19 @@ export default {
             const { originalEvent, processedItem } = event;
             const grouped = this.isProccessedItemGroup(processedItem);
             const root = ObjectUtils.isEmpty(processedItem.parent);
+            const selected = this.isSelected(processedItem);
 
-            grouped ? this.onItemChange(event) : this.hide(originalEvent, !root);
+            if (selected) {
+                const { index, key, level, parentKey } = processedItem;
+
+                this.activeItemPath = this.activeItemPath.filter((p) => key !== p.key && key.startsWith(p.key));
+                this.focusedItemInfo = { index, level, parentKey };
+
+                !root && (this.dirty = true);
+                DomHandler.focus(this.menubar);
+            } else {
+                grouped ? this.onItemChange(event) : this.hide(originalEvent, !root);
+            }
         },
         onItemMouseEnter(event) {
             if (this.dirty) {
