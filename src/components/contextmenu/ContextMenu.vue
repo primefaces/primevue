@@ -151,6 +151,10 @@ export default {
             this.visible ? this.hide(event) : this.show(event);
         },
         show(event) {
+            this.activeItemPath = [];
+            this.focusedItemInfo = { index: -1, level: 0, parentKey: '' };
+            DomHandler.focus(this.list);
+
             this.pageX = event.pageX;
             this.pageY = event.pageY;
             this.visible ? this.position() : (this.visible = true);
@@ -165,7 +169,7 @@ export default {
         },
         onFocus(event) {
             this.focused = true;
-            this.focusedItemInfo = { index: -1, level: 0, parentKey: '' };
+            this.focusedItemInfo = this.focusedItemInfo.index !== -1 ? this.focusedItemInfo : { index: -1, level: 0, parentKey: '' };
             this.$emit('focus', event);
         },
         onBlur(event) {
@@ -266,7 +270,7 @@ export default {
                 this.focusedItemInfo = { index, level, parentKey };
 
                 !root && (this.dirty = true);
-                DomHandler.focus(this.menubar);
+                DomHandler.focus(this.list);
             } else {
                 grouped ? this.onItemChange(event) : this.hide(originalEvent, !root);
             }
@@ -377,12 +381,12 @@ export default {
             }
         },
         onAfterEnter() {
-            this.list.focus();
             this.bindOutsideClickListener();
             this.bindResizeListener();
             this.bindDocumentContextMenuListener();
 
             this.$emit('show');
+            DomHandler.focus(this.list);
         },
         onLeave() {
             this.unbindOutsideClickListener();
