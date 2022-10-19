@@ -71,7 +71,7 @@ describe('PanelMenu', () => {
 
         await wrapper.vm.onHeaderClick({}, wrapper.vm.model[0]);
 
-        expect(wrapper.find('.p-panelmenu-header-link > .p-panelmenu-icon').classes()).toContain('pi-chevron-down');
+        expect(wrapper.find('.p-panelmenu-header-action > .p-panelmenu-icon').classes()).toContain('pi-chevron-down');
         expect(wrapper.findAll('.p-toggleable-content')[0].attributes().style).toBe(undefined);
     });
 
