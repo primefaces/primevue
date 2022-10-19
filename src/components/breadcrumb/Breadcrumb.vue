@@ -3,7 +3,7 @@
         <ol class="p-breadcrumb-list">
             <BreadcrumbItem v-if="home" :item="home" class="p-breadcrumb-home" :template="$slots.item" :exact="exact" />
             <template v-for="item of model" :key="item.label">
-                <li class="p-menuitem-seperator">
+                <li class="p-menuitem-separator">
                     <span class="pi pi-chevron-right" :aria-hidden="true"></span>
                 </li>
                 <BreadcrumbItem :item="item" :template="$slots.item" :exact="exact" />
@@ -61,7 +61,7 @@ export default {
     align-items: center;
 }
 
-.p-breadcrumb .p-menuitem-seperator {
+.p-breadcrumb .p-menuitem-separator {
     display: flex;
     align-items: center;
 }
