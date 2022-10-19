@@ -43,6 +43,18 @@ const TreeProps = [
         description: 'Icon to display when tree is loading.'
     },
     {
+        name: 'checkedIcon',
+        type: 'string',
+        default: 'pi pi-check',
+        description: 'Icon to display in checkbox.'
+    },
+    {
+        name: 'partiallyCheckedIcon',
+        type: 'string',
+        default: 'pi pi-minus',
+        description: 'Icon to display in partially checked checkbox.'
+    },
+    {
         name: 'filter',
         type: 'boolean',
         default: 'false',
@@ -71,6 +83,12 @@ const TreeProps = [
         type: 'string',
         default: 'undefined',
         description: "Locale to use in filtering. The default locale is the host environment's current locale."
+    },
+    {
+        name: 'filterIcon',
+        type: 'string',
+        default: 'pi pi-search',
+        description: 'Icon to display in the filter input.'
     },
     {
         name: 'scrollHeight',
