@@ -364,6 +364,10 @@ toggle(event) {
                         <td>Moves focus to the previous menuitem.</td>
                     </tr>
                     <tr>
+                        <td><i>alt</i> + <i>up arrow</i></td>
+                        <td>If menu is in overlay mode, popup gets closes and focus moves to the target.</td>
+                    </tr>
+                    <tr>
                         <td>
                             <i>home</i>
                         </td>

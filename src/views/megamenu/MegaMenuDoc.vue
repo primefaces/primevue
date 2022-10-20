@@ -411,6 +411,10 @@ export default {
                         <td>If focus is on a root element, opens a submenu and moves focus to the last element in the submenu otherwise moves focus to the previous menuitem within the submenu.</td>
                     </tr>
                     <tr>
+                        <td><i>alt</i> + <i>up arrow</i></td>
+                        <td>If focus is inside a popup menu, moves focus to the first element in the submenu otherwise closes the submenu and moves focus to the root item of the closed submenu in horizontal mode.</td>
+                    </tr>
+                    <tr>
                         <td>
                             <i>right arrow</i>
                         </td>
