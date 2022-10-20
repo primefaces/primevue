@@ -631,6 +631,7 @@ export default {
 .p-menubar-root-list {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .p-menubar-root-list > li ul {
