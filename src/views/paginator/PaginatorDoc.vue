@@ -294,8 +294,7 @@ export default {
                 default: 'FirstPageLink PrevPageLink PageLinks NextPageLinLastPageLink JumpToPageDropdown'
             }"
             :rows="10"
-            :totalRecords="totalRecords"
-            :rowsPerPageOptions="[10, 20, 30]">
+            :totalRecords="totalRecords">
         </Paginator>
 
         <h5>Custom</h5>
@@ -356,8 +355,7 @@ export default {
                 default: 'FirstPageLink PrevPageLink PageLinks NextPageLinLastPageLink JumpToPageDropdown'
             }"
             :rows="10"
-            :totalRecords="totalRecords"
-            :rowsPerPageOptions="[10, 20, 30]">
+            :totalRecords="totalRecords">
         </Paginator>
 
         <h5>Custom</h5>
@@ -416,8 +414,7 @@ export default {
                     default: 'FirstPageLink PrevPageLink PageLinks NextPageLinLastPageLink JumpToPageDropdown'
                 }"
                 :rows="10"
-                :totalRecords="totalRecords"
-                :rowsPerPageOptions="[10, 20, 30]">
+                :totalRecords="totalRecords">
             </p-paginator>
 
             <h5>Custom</h5>

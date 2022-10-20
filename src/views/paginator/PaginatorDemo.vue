@@ -23,7 +23,6 @@
                     }"
                     :rows="10"
                     :totalRecords="totalRecords"
-                    :rowsPerPageOptions="[10, 20, 30]"
                 ></Paginator>
 
                 <h5>Custom</h5>

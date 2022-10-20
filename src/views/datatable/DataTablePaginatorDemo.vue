@@ -105,7 +105,6 @@ export default {
                 '1300px': 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink',
                 default: 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink JumpToPageDropdown'
             }"
-            :rowsPerPageOptions="[10, 20, 50]"
             responsiveLayout="scroll"
             currentPageReportTemplate="Showing {first} to {last} of {totalRecords}"
         >
@@ -173,7 +172,6 @@ export default {
                 '1300px': 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink',
                 default: 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink JumpToPageDropdown'
             }"
-            :rowsPerPageOptions="[10, 20, 50]"
             responsiveLayout="scroll"
             currentPageReportTemplate="Showing {first} to {last} of {totalRecords}"
         >
@@ -241,7 +239,6 @@ export default {
                     '1300px': 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink',
                     default: 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink JumpToPageDropdown'
                 }"
-                :rowsPerPageOptions="[10, 20, 50]"
                 responsiveLayout="scroll"
                 currentPageReportTemplate="Showing {first} to {last} of {totalRecords}"
             >
