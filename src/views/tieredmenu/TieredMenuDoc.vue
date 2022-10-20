@@ -192,7 +192,7 @@ toggle(event) {
 &lt;TieredMenu :model="items"&gt;
     &lt;template #item="{item}"&gt;
         &lt;router-link :to="item.to" custom v-slot="{href, route, navigate, isActive, isExactActive}"&gt;
-            &lt;a :href="href" @click="navigate" :class="{'active-link': isActive, 'active-link-exact": isExactActive}&gt;{{route.fullPath}}&lt;/a&gt;
+            &lt;a :href="href" @click="navigate" :class="{'active-link': isActive, 'active-link-exact': isExactActive}"&gt;{{route.fullPath}}&lt;/a&gt;
         &lt;/router-link&gt;
     &lt;/template&gt;
 &lt;/TieredMenu&gt;
