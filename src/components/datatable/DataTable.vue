@@ -205,13 +205,13 @@
 </template>
 
 <script>
-import { ObjectUtils, DomHandler, UniqueComponentId } from 'primevue/utils';
 import { FilterMatchMode, FilterOperator, FilterService } from 'primevue/api';
 import Paginator from 'primevue/paginator';
+import { DomHandler, ObjectUtils, UniqueComponentId } from 'primevue/utils';
 import VirtualScroller from 'primevue/virtualscroller';
-import TableHeader from './TableHeader.vue';
 import TableBody from './TableBody.vue';
 import TableFooter from './TableFooter.vue';
+import TableHeader from './TableHeader.vue';
 
 export default {
     name: 'DataTable',
@@ -289,7 +289,7 @@ export default {
             default: true
         },
         paginatorTemplate: {
-            type: String,
+            type: [Object, String],
             default: 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown'
         },
         pageLinkSize: {
