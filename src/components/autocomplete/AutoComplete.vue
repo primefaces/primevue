@@ -659,7 +659,15 @@ export default {
             this.multiple && event.stopPropagation(); // To prevent onArrowRightKeyOnMultiple method
         },
         onHomeKey(event) {
-            event.currentTarget.setSelectionRange(0, 0);
+            const target = event.currentTarget;
+            const len = target.value.length;
+
+            if(event.shiftKey){
+                event.currentTarget.setSelectionRange(0, len);
+            }else{
+                event.currentTarget.setSelectionRange(0, 0);
+            }
+
             this.focusedOptionIndex = -1;
 
             event.preventDefault();
@@ -668,7 +676,12 @@ export default {
             const target = event.currentTarget;
             const len = target.value.length;
 
-            target.setSelectionRange(len, len);
+            if(event.shiftKey){
+                event.currentTarget.setSelectionRange(0, len);
+            }else{
+                target.setSelectionRange(len, len);
+            }
+
             this.focusedOptionIndex = -1;
 
             event.preventDefault();
