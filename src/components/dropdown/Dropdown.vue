@@ -136,12 +136,12 @@
 </template>
 
 <script>
-import { ConnectedOverlayScrollHandler, ObjectUtils, DomHandler, ZIndexUtils, UniqueComponentId } from 'primevue/utils';
-import OverlayEventBus from 'primevue/overlayeventbus';
 import { FilterService } from 'primevue/api';
-import Ripple from 'primevue/ripple';
-import VirtualScroller from 'primevue/virtualscroller';
+import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
+import Ripple from 'primevue/ripple';
+import { ConnectedOverlayScrollHandler, DomHandler, ObjectUtils, UniqueComponentId, ZIndexUtils } from 'primevue/utils';
+import VirtualScroller from 'primevue/virtualscroller';
 
 export default {
     name: 'Dropdown',
@@ -398,7 +398,7 @@ export default {
         },
         onFocus(event) {
             this.focused = true;
-            this.focusedOptionIndex = this.overlayVisible && this.autoOptionFocus ? this.findFirstFocusedOptionIndex() : -1;
+            this.focusedOptionIndex = this.focusedOptionIndex !== -1 ? this.focusedOptionIndex : this.overlayVisible && this.autoOptionFocus ? this.findFirstFocusedOptionIndex() : -1;
             this.overlayVisible && this.scrollInView(this.focusedOptionIndex);
             this.$emit('focus', event);
         },

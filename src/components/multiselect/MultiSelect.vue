@@ -146,12 +146,12 @@
 </template>
 
 <script>
-import { ConnectedOverlayScrollHandler, UniqueComponentId, ObjectUtils, DomHandler, ZIndexUtils } from 'primevue/utils';
-import OverlayEventBus from 'primevue/overlayeventbus';
 import { FilterService } from 'primevue/api';
-import Ripple from 'primevue/ripple';
-import VirtualScroller from 'primevue/virtualscroller';
+import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
+import Ripple from 'primevue/ripple';
+import { ConnectedOverlayScrollHandler, DomHandler, ObjectUtils, UniqueComponentId, ZIndexUtils } from 'primevue/utils';
+import VirtualScroller from 'primevue/virtualscroller';
 
 export default {
     name: 'MultiSelect',
@@ -407,7 +407,7 @@ export default {
         },
         onFocus(event) {
             this.focused = true;
-            this.focusedOptionIndex = this.overlayVisible && this.autoOptionFocus ? this.findFirstFocusedOptionIndex() : -1;
+            this.focusedOptionIndex = this.focusedOptionIndex !== -1 ? this.focusedOptionIndex : this.overlayVisible && this.autoOptionFocus ? this.findFirstFocusedOptionIndex() : -1;
             this.overlayVisible && this.scrollInView(this.focusedOptionIndex);
             this.$emit('focus', event);
         },
@@ -526,8 +526,8 @@ export default {
             else value = [...(this.modelValue || []), this.getOptionValue(option)];
 
             this.updateModel(event, value);
-            isFocus && DomHandler.focus(this.$refs.focusInput);
             index !== -1 && (this.focusedOptionIndex = index);
+            isFocus && DomHandler.focus(this.$refs.focusInput);
         },
         onOptionMouseMove(event, index) {
             if (this.focusOnHover) {
