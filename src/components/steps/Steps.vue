@@ -8,7 +8,6 @@
                             <a
                                 :href="href"
                                 :class="linkClass({ isActive, isExactActive })"
-                                role="presentation"
                                 :tabindex="-1"
                                 :aria-current="isExactActive ? 'step' : undefined"
                                 @click="onItemClick($event, item, navigate)"
@@ -18,7 +17,7 @@
                                 <span class="p-steps-title">{{ label(item) }}</span>
                             </a>
                         </router-link>
-                        <span v-else :class="linkClass()" role="presentation" @keydown="onItemKeydown($event, item)">
+                        <span v-else :class="linkClass()" @keydown="onItemKeydown($event, item)">
                             <span class="p-steps-number">{{ index + 1 }}</span>
                             <span class="p-steps-title">{{ label(item) }}</span>
                         </span>
