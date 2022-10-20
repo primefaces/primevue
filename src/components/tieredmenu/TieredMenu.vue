@@ -570,7 +570,7 @@ export default {
         },
         scrollInView(index = -1) {
             const id = index !== -1 ? `${this.id}_${index}` : this.focusedItemId;
-            const element = DomHandler.findSingle(this.list, `li[id="${id}"]`);
+            const element = DomHandler.findSingle(this.menubar, `li[id="${id}"]`);
 
             if (element) {
                 element.scrollIntoView && element.scrollIntoView({ block: 'nearest', inline: 'start' });
