@@ -4,22 +4,24 @@
             <SDButton type="button" :class="buttonClassName" :icon="iconClassName" @click="onClick($event)" :disabled="disabled" />
         </slot>
         <ul :ref="listRef" class="p-speeddial-list" role="menu">
-            <li v-for="(item, index) of model" :key="index" class="p-speeddial-item" :style="getItemStyle(index)" role="none">
-                <template v-if="!$slots.item">
-                    <a
-                        v-tooltip:[tooltipOptions]="{ value: item.label, disabled: !tooltipOptions }"
-                        v-ripple
-                        :href="item.url || '#'"
-                        role="menuitem"
-                        :class="['p-speeddial-action', { 'p-disabled': item.disabled }]"
-                        :target="item.target"
-                        @click="onItemClick($event, item)"
-                    >
-                        <span v-if="item.icon" :class="['p-speeddial-action-icon', item.icon]"></span>
-                    </a>
-                </template>
-                <component v-else :is="$slots.item" :item="item"></component>
-            </li>
+            <template v-for="(item, index) of model" :key="index">
+                <li v-if="isItemVisible(item)" class="p-speeddial-item" :style="getItemStyle(index)" role="none">
+                    <template v-if="!$slots.item">
+                        <a
+                            v-tooltip:[tooltipOptions]="{ value: item.label, disabled: !tooltipOptions }"
+                            v-ripple
+                            :href="item.url || '#'"
+                            role="menuitem"
+                            :class="['p-speeddial-action', { 'p-disabled': item.disabled }]"
+                            :target="item.target"
+                            @click="onItemClick($event, item)"
+                        >
+                            <span v-if="item.icon" :class="['p-speeddial-action-icon', item.icon]"></span>
+                        </a>
+                    </template>
+                    <component v-else :is="$slots.item" :item="item"></component>
+                </li>
+            </template>
         </ul>
     </div>
     <template v-if="mask">
@@ -232,6 +234,9 @@ export default {
         },
         isOutsideClicked(event) {
             return this.container && !(this.container.isSameNode(event.target) || this.container.contains(event.target) || this.isItemClicked);
+        },
+        isItemVisible(item) {
+            return typeof item.visible === 'function' ? item.visible() : item.visible !== false;
         },
         containerRef(el) {
             this.container = el;
