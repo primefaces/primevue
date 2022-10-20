@@ -332,10 +332,10 @@ export default {
 <\\/script>
 
 <style scoped>
-.image-gallery {
-    text-align: center;
-    padding: 1rem;
-}
+    .image-gallery {
+        text-align: center;
+        padding: 1rem;
+    }
 </style>`
                 },
                 'composition-api': {
@@ -393,10 +393,10 @@ export default {
 <\\/script>
 
 <style scoped>
-.image-gallery {
-    text-align: center;
-    padding: 1rem;
-}
+    .image-gallery {
+        text-align: center;
+        padding: 1rem;
+    }
 </style>`
                 },
                 'browser-source': {
@@ -459,10 +459,10 @@ export default {
         <\\/script>
 
         <style scoped>
-        .image-gallery {
-            text-align: center;
-            padding: 1rem;
-        }
+            .image-gallery {
+                text-align: center;
+                padding: 1rem;
+            }
         </style>`
                 }
             }

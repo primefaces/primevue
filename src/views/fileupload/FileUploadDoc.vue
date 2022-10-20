@@ -503,79 +503,79 @@ export default {
 
 <script>
 export default {
-data() {
-    return {
-        uploadedFiles: [],
-        files: [],
-        totalSize: 0,
-        totalSizePercent: 0
-    };
-},
-methods: {
-    onRemoveTemplatingFile(file, onFileRemove, index) {
-        onFileRemove(index);
-        this.totalSize -= parseInt(this.formatSize(file.size));
-        this.totalSizePercent = this.totalSize / 10;
+    data() {
+        return {
+            uploadedFiles: [],
+            files: [],
+            totalSize: 0,
+            totalSizePercent: 0
+        };
     },
-    onClearTemplatingUpload(clear) {
-        clear();
-        this.totalSize = 0;
-        this.totalSizePercent = 0;
-    },
-    onSelectedFiles(event) {
-        this.files = event.files;
-        this.files.forEach((file) => {
-            this.totalSize += parseInt(this.formatSize(file.size));
-        });
+    methods: {
+        onRemoveTemplatingFile(file, onFileRemove, index) {
+            onFileRemove(index);
+            this.totalSize -= parseInt(this.formatSize(file.size));
+            this.totalSizePercent = this.totalSize / 10;
+        },
+        onClearTemplatingUpload(clear) {
+            clear();
+            this.totalSize = 0;
+            this.totalSizePercent = 0;
+        },
+        onSelectedFiles(event) {
+            this.files = event.files;
+            this.files.forEach((file) => {
+                this.totalSize += parseInt(this.formatSize(file.size));
+            });
 
-        this.totalSizePercent = this.totalSize / 10;
-    },
-    onAdvancedUpload() {
-        this.totalSize = 0;
-        this.totalSizePercent = 0;
-        this.$toast.add({ severity: 'info', summary: 'Success', detail: 'File Uploaded', life: 3000 });
-    },
-    onUpload() {
-        this.$toast.add({ severity: 'info', summary: 'Success', detail: 'File Uploaded', life: 3000 });
-    },
-    formatSize(bytes) {
-        if (bytes === 0) {
-            return '0 B';
+            this.totalSizePercent = this.totalSize / 10;
+        },
+        onAdvancedUpload() {
+            this.totalSize = 0;
+            this.totalSizePercent = 0;
+            this.$toast.add({ severity: 'info', summary: 'Success', detail: 'File Uploaded', life: 3000 });
+        },
+        onUpload() {
+            this.$toast.add({ severity: 'info', summary: 'Success', detail: 'File Uploaded', life: 3000 });
+        },
+        formatSize(bytes) {
+            if (bytes === 0) {
+                return '0 B';
+            }
+
+            let k = 1000,
+                dm = 3,
+                sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'],
+                i = Math.floor(Math.log(bytes) / Math.log(k));
+
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
         }
-
-        let k = 1000,
-            dm = 3,
-            sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'],
-            i = Math.floor(Math.log(bytes) / Math.log(k));
-
-        return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+    },
+    components: {
+        FileUploadDoc: FileUploadDoc
     }
-},
-components: {
-    FileUploadDoc: FileUploadDoc
-}
 };
 <\\/script>
 
 <style lang="scss" scoped>
-p {
-    margin: 0;
-}
-.fileinput-file-name {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-@media (max-width: 1500px) {
+    p {
+        margin: 0;
+    }
     .fileinput-file-name {
-        width: 100px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
-}
-::v-deep(.custom-progress-bar) {
-    .p-progressbar-value {
-        background-color: #f44336;
+    @media (max-width: 1500px) {
+        .fileinput-file-name {
+            width: 100px;
+        }
     }
-}
+    ::v-deep(.custom-progress-bar) {
+        .p-progressbar-value {
+            background-color: #f44336;
+        }
+    }
 </style>
 `
                 },
@@ -737,24 +737,24 @@ export default {
 <\\/script>
 
 <style lang="scss" scoped>
-p {
-    margin: 0;
-}
-.fileinput-file-name {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-@media (max-width: 1500px) {
+    p {
+        margin: 0;
+    }
     .fileinput-file-name {
-        width: 100px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
-}
-::v-deep(.custom-progress-bar) {
-    .p-progressbar-value {
-        background-color: #f44336;
+    @media (max-width: 1500px) {
+        .fileinput-file-name {
+            width: 100px;
+        }
     }
-}
+    ::v-deep(.custom-progress-bar) {
+        .p-progressbar-value {
+            background-color: #f44336;
+        }
+    }
 </style>
 `
                 },
@@ -766,7 +766,7 @@ p {
                     content: `<div id="app">
 				<p-toast></p-toast>
 
-		        <h5>Advanced</h5>
+                <h5>Advanced</h5>
                 <p-fileupload name="demo[]" url="https://www.primefaces.org/upload.php" @upload="onAdvancedUpload($event)" :multiple="true" accept="image/:maxFileSize="1000000">
                     <template #content>
                         <ul v-if="uploadedFiles && uploadedFiles[0]">
@@ -859,59 +859,59 @@ p {
 
 			const App = {
 				setup() {
-		        const toast = useToast();
-                const uploadedFile = ref([]);
-                const files = ref([]);
-                const totalSize = ref(0);
-                const totalSizePercent = ref(0);
-		        const onUpload = () => {
-                    toast.add({severity: 'info', summary: 'Success', detail: 'File Uploaded', life: 3000});
-                }
-                const onRemoveTemplatingFile(file, onFileRemove, index) {
-                    onFileRemove(index);
-                    totalSize.value -= parseInt(this.formatSize(file.size));
-                    totalSizePercent.value = totalSize.value / 10;
-                },
-                const onClearTemplatingUpload = (clear) => {
-                    clear();
-                    totalSize.value = 0;
-                    totalSizePercent.value = 0;
-                },
-                const onSelectedFiles = (event) => {
-                    files.value = event.files;
-                    files.value.forEach((file) => {
-                        this.totalSize += parseInt(this.formatSize(file.size));
-                    });
+                    const toast = useToast();
+                    const uploadedFile = ref([]);
+                    const files = ref([]);
+                    const totalSize = ref(0);
+                    const totalSizePercent = ref(0);
+                    const onUpload = () => {
+                        toast.add({severity: 'info', summary: 'Success', detail: 'File Uploaded', life: 3000});
+                    }
+                    const onRemoveTemplatingFile(file, onFileRemove, index) {
+                        onFileRemove(index);
+                        totalSize.value -= parseInt(this.formatSize(file.size));
+                        totalSizePercent.value = totalSize.value / 10;
+                    },
+                    const onClearTemplatingUpload = (clear) => {
+                        clear();
+                        totalSize.value = 0;
+                        totalSizePercent.value = 0;
+                    },
+                    const onSelectedFiles = (event) => {
+                        files.value = event.files;
+                        files.value.forEach((file) => {
+                            this.totalSize += parseInt(this.formatSize(file.size));
+                        });
 
-                    totalSizePercent.value = totalSize.value / 10;
-                },
+                        totalSizePercent.value = totalSize.value / 10;
+                    },
 
-                const onAdvancedUpload = () => {
-                    totalSize.value = 0;
-                    totalSizePercent.value = 0;
-                    toast.add({ severity: 'info', summary: 'Success', detail: 'File Uploaded', life: 3000 });
-                },
+                    const onAdvancedUpload = () => {
+                        totalSize.value = 0;
+                        totalSizePercent.value = 0;
+                        toast.add({ severity: 'info', summary: 'Success', detail: 'File Uploaded', life: 3000 });
+                    },
 
-                const onUpload = () => {
-                    toast.add({ severity: 'info', summary: 'Success', detail: 'File Uploaded', life: 3000 });
-                },
+                    const onUpload = () => {
+                        toast.add({ severity: 'info', summary: 'Success', detail: 'File Uploaded', life: 3000 });
+                    },
 
-                const formatSize = (bytes) => {
-                    if (bytes === 0) {
-                        return '0 B';
+                    const formatSize = (bytes) => {
+                        if (bytes === 0) {
+                            return '0 B';
+                        }
+
+                        let k = 1000,
+                            dm = 3,
+                            sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'],
+                            i = Math.floor(Math.log(bytes) / Math.log(k));
+
+                        return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
                     }
 
-                    let k = 1000,
-                        dm = 3,
-                        sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'],
-                        i = Math.floor(Math.log(bytes) / Math.log(k));
 
-                    return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+                    return { onUpload };
                 }
-
-
-		        return { onUpload };
-	}
 			};
 
 			createApp(App)
