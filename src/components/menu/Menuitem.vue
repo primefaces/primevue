@@ -3,12 +3,12 @@
         <div class="p-menuitem-content" @click="onItemClick($event)">
             <template v-if="!template">
                 <router-link v-if="item.to && !disabled()" v-slot="{ navigate, href, isActive, isExactActive }" :to="item.to" custom>
-                    <a v-ripple :href="href" :class="linkClass({ isActive, isExactActive })" tabindex="-1" :aria-hidden="true" @click="onItemActionClick($event, navigate)">
+                    <a v-ripple :href="href" :class="linkClass({ isActive, isExactActive })" tabindex="-1" aria-hidden="true" @click="onItemActionClick($event, navigate)">
                         <span v-if="item.icon" :class="['p-menuitem-icon', item.icon]"></span>
                         <span class="p-menuitem-text">{{ label() }}</span>
                     </a>
                 </router-link>
-                <a v-else v-ripple :href="item.url" :class="linkClass()" :target="item.target" tabindex="-1" :aria-hidden="true">
+                <a v-else v-ripple :href="item.url" :class="linkClass()" :target="item.target" tabindex="-1" aria-hidden="true">
                     <span v-if="item.icon" :class="['p-menuitem-icon', item.icon]"></span>
                     <span class="p-menuitem-text">{{ label() }}</span>
                 </a>

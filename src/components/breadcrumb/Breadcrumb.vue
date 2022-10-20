@@ -4,7 +4,7 @@
             <BreadcrumbItem v-if="home" :item="home" class="p-breadcrumb-home" :template="$slots.item" :exact="exact" />
             <template v-for="item of model" :key="item.label">
                 <li class="p-menuitem-separator">
-                    <span class="pi pi-chevron-right" :aria-hidden="true"></span>
+                    <span class="pi pi-chevron-right" aria-hidden="true"></span>
                 </li>
                 <BreadcrumbItem :item="item" :template="$slots.item" :exact="exact" />
             </template>
