@@ -281,7 +281,7 @@ export default {
     list-style: none;
 }
 
-.p-panelmenu .p-menuitem-action {
+.p-panelmenu .p-menuitem-link {
     display: flex;
     align-items: center;
     user-select: none;

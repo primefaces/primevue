@@ -42,7 +42,7 @@ export default {
         },
         linkClass(routerProps) {
             return [
-                'p-menuitem-action',
+                'p-menuitem-link',
                 {
                     'router-link-active': routerProps && routerProps.isActive,
                     'router-link-active-exact': this.exact && routerProps && routerProps.isExactActive

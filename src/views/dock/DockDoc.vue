@@ -657,11 +657,11 @@ export default {
             padding: 0 1rem;
         }
 
-        .p-menuitem-action {
+        .p-menuitem-link {
             padding: 0.5rem .75rem;
         }
 
-        .p-menubar-root-list > .p-menuitem > .p-menuitem-content > .p-menuitem-action {
+        .p-menubar-root-list > .p-menuitem > .p-menuitem-content > .p-menuitem-link {
             padding: 0.5rem .75rem;
 
             > .p-submenu-icon {
@@ -1093,11 +1093,11 @@ export default {
             padding: 0 1rem;
         }
 
-        .p-menuitem-action {
+        .p-menuitem-link {
             padding: 0.5rem .75rem;
         }
 
-        .p-menubar-root-list > .p-menuitem > .p-menuitem-content > .p-menuitem-action {
+        .p-menubar-root-list > .p-menuitem > .p-menuitem-content > .p-menuitem-link {
             padding: 0.5rem .75rem;
 
             > .p-submenu-icon {
@@ -1555,15 +1555,15 @@ export default {
                 padding: 0 1rem;
             }
 
-            .dock-demo .p-menubar .p-menuitem-action {
+            .dock-demo .p-menubar .p-menuitem-link {
                 padding: 0.5rem .75rem;
             }
 
-            .dock-demo .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-content > .p-menuitem-action {
+            .dock-demo .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-content > .p-menuitem-link {
                 padding: 0.5rem .75rem;
             }
 
-            .dock-demo .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-content > .p-menuitem-action > .p-submenu-icon {
+            .dock-demo .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-content > .p-menuitem-link > .p-submenu-icon {
                 display: none;
             }
 

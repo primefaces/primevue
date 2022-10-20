@@ -55,7 +55,7 @@ export default {
     line-height: 1;
 }
 
-.p-breadcrumb .p-menuitem-action {
+.p-breadcrumb .p-menuitem-link {
     text-decoration: none;
     display: flex;
     align-items: center;

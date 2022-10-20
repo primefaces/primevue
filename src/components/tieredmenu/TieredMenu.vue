@@ -366,7 +366,7 @@ export default {
         onEnterKey(event) {
             if (this.focusedItemInfo.index !== -1) {
                 const element = DomHandler.findSingle(this.menubar, `li[id="${`${this.focusedItemId}`}"]`);
-                const anchorElement = element && DomHandler.findSingle(element, '.p-menuitem-action');
+                const anchorElement = element && DomHandler.findSingle(element, '.p-menuitem-link');
 
                 anchorElement ? anchorElement.click() : element && element.click();
 
@@ -657,7 +657,7 @@ export default {
     display: none;
 }
 
-.p-tieredmenu .p-menuitem-action {
+.p-tieredmenu .p-menuitem-link {
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -674,7 +674,7 @@ export default {
     position: relative;
 }
 
-.p-tieredmenu .p-menuitem-action .p-submenu-icon {
+.p-tieredmenu .p-menuitem-link .p-submenu-icon {
     margin-left: auto;
 }
 

@@ -10,7 +10,7 @@
                                 v-ripple
                                 role="menuitem"
                                 :href="href"
-                                class="p-menuitem-action"
+                                class="p-menuitem-link"
                                 :aria-label="label(item)"
                                 :aria-disabled="disabled(item)"
                                 :tabindex="isExactActive ? '0' : '-1'"
@@ -31,7 +31,7 @@
                             v-ripple
                             role="menuitem"
                             :href="item.url"
-                            class="p-menuitem-action"
+                            class="p-menuitem-link"
                             :target="item.target"
                             :aria-label="label(item)"
                             :aria-disabled="disabled(item)"

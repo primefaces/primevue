@@ -220,7 +220,7 @@ export default {
         },
         onEnterKey(event) {
             const element = DomHandler.findSingle(this.list, `li[id="${`${this.focusedOptionIndex}`}"]`);
-            const anchorElement = element && DomHandler.findSingle(element, '.p-menuitem-action');
+            const anchorElement = element && DomHandler.findSingle(element, '.p-menuitem-link');
 
             this.popup && DomHandler.focus(this.target);
             anchorElement ? anchorElement.click() : element && element.click();
@@ -410,7 +410,7 @@ export default {
     list-style: none;
 }
 
-.p-menu .p-menuitem-action {
+.p-menu .p-menuitem-link {
     cursor: pointer;
     display: flex;
     align-items: center;

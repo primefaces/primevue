@@ -178,7 +178,7 @@ export default {
         },
         linkClass(routerProps) {
             return [
-                'p-menuitem-action',
+                'p-menuitem-link',
                 {
                     'router-link-active': routerProps && routerProps.isActive,
                     'router-link-active-exact': this.exact && routerProps && routerProps.isExactActive
@@ -225,7 +225,7 @@ export default {
     flex: 1 1 auto;
 }
 
-.p-steps-item .p-menuitem-action {
+.p-steps-item .p-menuitem-link {
     display: inline-flex;
     flex-direction: column;
     align-items: center;
@@ -237,7 +237,7 @@ export default {
     cursor: auto;
 }
 
-.p-steps-item.p-steps-current .p-menuitem-action {
+.p-steps-item.p-steps-current .p-menuitem-link {
     cursor: default;
 }
 
