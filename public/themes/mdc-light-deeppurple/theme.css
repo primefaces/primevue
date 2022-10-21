@@ -4476,7 +4476,7 @@
   outline-offset: 0;
   box-shadow: none;
 }
-.p-dock .p-dock-action {
+.p-dock .p-dock-link {
   width: 4rem;
   height: 4rem;
 }

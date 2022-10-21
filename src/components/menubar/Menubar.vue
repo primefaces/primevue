@@ -659,7 +659,6 @@ export default {
     margin-left: auto;
 }
 
-.p-menubar .p-menubar-custom,
 .p-menubar .p-menubar-end {
     margin-left: auto;
     align-self: center;

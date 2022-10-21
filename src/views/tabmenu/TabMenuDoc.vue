@@ -189,8 +189,8 @@ export default {
                         <td>Menuitem element.</td>
                     </tr>
                     <tr>
-                        <td>p-highlight</td>
-                        <td>Active menuitem element.</td>
+                        <td>p-menuitem-link</td>
+                        <td>Link element of the menuitem.</td>
                     </tr>
                     <tr>
                         <td>p-menuitem-icon</td>

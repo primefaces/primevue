@@ -38,14 +38,14 @@
                                     @click="onItemActionClick($event, processedItem, navigate)"
                                 >
                                     <template v-if="!templates['icon']">
-                                        <span v-ripple :class="['p-dock-action-icon', processedItem.icon]"></span>
+                                        <span v-ripple :class="['p-dock-icon', processedItem.icon]"></span>
                                     </template>
                                     <component v-else :is="templates['icon']" :item="processedItem"></component>
                                 </a>
                             </router-link>
                             <a v-else v-tooltip:[tooltipOptions]="{ value: processedItem.label, disabled: !tooltipOptions }" :href="processedItem.url" :class="linkClass()" :target="processedItem.target" tabindex="-1" aria-hidden="true">
                                 <template v-if="!templates['icon']">
-                                    <span v-ripple :class="['p-dock-action-icon', processedItem.icon]"></span>
+                                    <span v-ripple :class="['p-dock-icon', processedItem.icon]"></span>
                                 </template>
                                 <component v-else :is="templates['icon']" :item="processedItem"></component>
                             </a>
@@ -212,7 +212,7 @@ export default {
         },
         onSpaceKey() {
             const element = DomHandler.findSingle(this.$refs.list, `li[id="${`${this.focusedOptionIndex}`}"]`);
-            const anchorElement = element && DomHandler.findSingle(element, '.p-dock-action');
+            const anchorElement = element && DomHandler.findSingle(element, '.p-dock-link');
 
             anchorElement ? anchorElement.click() : element && element.click();
         },
@@ -251,7 +251,7 @@ export default {
         },
         linkClass(routerProps) {
             return [
-                'p-dock-action',
+                'p-dock-link',
                 {
                     'router-link-active': routerProps && routerProps.isActive,
                     'router-link-active-exact': this.exact && routerProps && routerProps.isExactActive

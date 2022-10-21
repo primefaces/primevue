@@ -79,7 +79,7 @@ export default {
     will-change: transform;
 }
 
-.p-dock-action {
+.p-dock-link {
     display: flex;
     flex-direction: column;
     align-items: center;

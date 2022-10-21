@@ -159,12 +159,28 @@ import Dock from 'primevue/dock';
                         <td>Container element.</td>
                     </tr>
                     <tr>
+                        <td>p-dock-list-container</td>
+                        <td>Container of the list.</td>
+                    </tr>
+                    <tr>
                         <td>p-dock-list</td>
                         <td>List of items.</td>
                     </tr>
                     <tr>
                         <td>p-dock-item</td>
                         <td>Each items in list.</td>
+                    </tr>
+                    <tr>
+                        <td>p-menuitem-content</td>
+                        <td>Content of menuitem.</td>
+                    </tr>
+                    <tr>
+                        <td>p-dock-link</td>
+                        <td>Link of the menuitem.</td>
+                    </tr>
+                    <tr>
+                        <td>p-dock-icon</td>
+                        <td>Icon of a menuitem.</td>
                     </tr>
                 </tbody>
             </table>
@@ -196,81 +212,79 @@ import Dock from 'primevue/dock';
         </div>
 
         <h5>Accessibility</h5>
-        <DevelopmentSection>
-            <h6>Screen Reader</h6>
-            <p>
-                Dock component uses the <i>menu</i> role with the <i>aria-orientation</i> and the value to describe the menu can either be provided with <i>aria-labelledby</i> or <i>aria-label</i> props. Each list item has a <i>menuitem</i> role with
-                <i>aria-label</i> referring to the label of the item and <i>aria-disabled</i> defined if the item is disabled.
-            </p>
+        <h6>Screen Reader</h6>
+        <p>
+            Dock component uses the <i>menu</i> role with the <i>aria-orientation</i> and the value to describe the menu can either be provided with <i>aria-labelledby</i> or <i>aria-label</i> props. Each list item has a <i>menuitem</i> role with
+            <i>aria-label</i> referring to the label of the item and <i>aria-disabled</i> defined if the item is disabled.
+        </p>
 
-            <h6>Keyboard Support</h6>
-            <div class="doc-tablewrapper">
-                <table class="doc-table">
-                    <thead>
-                        <tr>
-                            <th>Key</th>
-                            <th>Function</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <i>tab</i>
-                            </td>
-                            <td>Moves focus to the first menuitem.</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <i>enter</i>
-                            </td>
-                            <td>Activates the focused menuitem.</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <i>space</i>
-                            </td>
-                            <td>Activates the focused menuitem.</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <i>down arrow</i>
-                            </td>
-                            <td>Moves focus to the next menuitem in vertical layout.</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <i>up arrow</i>
-                            </td>
-                            <td>Moves focus to the previous menuitem in vertical layout.</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <i>right arrow</i>
-                            </td>
-                            <td>Moves focus to the next menuitem in horizontal layout.</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <i>left arrow</i>
-                            </td>
-                            <td>Moves focus to the previous menuitem in horizontal layout.</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <i>home</i>
-                            </td>
-                            <td>Moves focus to the first menuitem.</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <i>end</i>
-                            </td>
-                            <td>Moves focus to the last menuitem.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </DevelopmentSection>
+        <h6>Keyboard Support</h6>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Key</th>
+                        <th>Function</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <i>tab</i>
+                        </td>
+                        <td>Moves focus to the first menuitem.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>enter</i>
+                        </td>
+                        <td>Activates the focused menuitem.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>space</i>
+                        </td>
+                        <td>Activates the focused menuitem.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>down arrow</i>
+                        </td>
+                        <td>Moves focus to the next menuitem in vertical layout.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>up arrow</i>
+                        </td>
+                        <td>Moves focus to the previous menuitem in vertical layout.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>right arrow</i>
+                        </td>
+                        <td>Moves focus to the next menuitem in horizontal layout.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>left arrow</i>
+                        </td>
+                        <td>Moves focus to the previous menuitem in horizontal layout.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>home</i>
+                        </td>
+                        <td>Moves focus to the first menuitem.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>end</i>
+                        </td>
+                        <td>Moves focus to the last menuitem.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
         <h5>Dependencies</h5>
         <p>None.</p>
@@ -333,7 +347,7 @@ export default {
             <div class="dock-window dock-advanced">
                 <Dock :model="dockItems">
                     <template #item="{ item }">
-                        <a href="#" class="p-dock-action" v-tooltip.top="item.label" @click="onDockItemClick($event, item)">
+                        <a href="#" class="p-dock-link" v-tooltip.top="item.label" @click="onDockItemClick($event, item)">
                             <img :alt="item.label" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" style="width: 100%">
                         </a>
                     </template>
@@ -734,7 +748,7 @@ export default {
             <div class="dock-window dock-advanced">
                 <Dock :model="dockItems">
                     <template #item="{ item }">
-                        <a href="#" class="p-dock-action" v-tooltip.top="item.label" @click="onDockItemClick($event, item)">
+                        <a href="#" class="p-dock-link" v-tooltip.top="item.label" @click="onDockItemClick($event, item)">
                             <img :alt="item.label" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" style="width: 100%" />
                         </a>
                     </template>
@@ -1176,7 +1190,7 @@ export default {
             <div class="dock-window dock-advanced">
                 <p-dock :model="dockItems">
                     <template #item="{ item }">
-                        <a href="#" class="p-dock-action" v-tooltip.top="item.label" @click="onDockItemClick($event, item)">
+                        <a href="#" class="p-dock-link" v-tooltip.top="item.label" @click="onDockItemClick($event, item)">
                             <img :alt="item.label" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" style="width: 100%" />
                         </a>
                     </template>
