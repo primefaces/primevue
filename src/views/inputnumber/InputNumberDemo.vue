@@ -14,7 +14,7 @@
                 <div class="p-fluid grid formgrid">
                     <div class="field col-12 md:col-3">
                         <label for="integeronly">Integer Only</label>
-                        <InputNumber v-model="value1" inputId="integeronly" />
+                        <InputNumber v-model="value1" inputId="integeronly" mode="decimal" :minFractionDigits="0" suffix="kg"/>
                     </div>
                     <div class="field col-12 md:col-3">
                         <label for="withoutgrouping">Without Grouping</label>
@@ -143,7 +143,7 @@ import InputNumberDoc from './InputNumberDoc';
 export default {
     data() {
         return {
-            value1: 42723,
+            value1: 10,
             value2: 58151,
             value3: 2351.35,
             value4: 50,
