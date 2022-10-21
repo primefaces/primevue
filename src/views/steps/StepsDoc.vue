@@ -156,6 +156,18 @@ export default {
                         <td>Container element.</td>
                     </tr>
                     <tr>
+                        <td>p-steps-list</td>
+                        <td>Root list element.</td>
+                    </tr>
+                    <tr>
+                        <td>p-steps-current</td>
+                        <td>Current menuitem element.</td>
+                    </tr>
+                    <tr>
+                        <td>p-menuitem-link</td>
+                        <td>Link element of the menuitem.</td>
+                    </tr>
+                    <tr>
                         <td>p-steps-item</td>
                         <td>Menuitem element.</td>
                     </tr>

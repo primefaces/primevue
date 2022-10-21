@@ -394,6 +394,10 @@ export default {
                         <td>Container element.</td>
                     </tr>
                     <tr>
+                        <td>p-contextmenu-root-list</td>
+                        <td>Root list element.</td>
+                    </tr>
+                    <tr>
                         <td>p-submenu-list</td>
                         <td>Submenu list element.</td>
                     </tr>
@@ -404,6 +408,14 @@ export default {
                     <tr>
                         <td>p-menuitem-active</td>
                         <td>Active menuitem element.</td>
+                    </tr>
+                    <tr>
+                        <td>p-menuitem-content</td>
+                        <td>Content of menuitem.</td>
+                    </tr>
+                    <tr>
+                        <td>p-menuitem-link</td>
+                        <td>Link element of the menuitem.</td>
                     </tr>
                     <tr>
                         <td>p-menuitem-text</td>
