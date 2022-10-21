@@ -4439,7 +4439,7 @@
   outline-offset: 0;
   box-shadow: inset 0 0 0 0.15rem #c2e9d8;
 }
-.p-dock .p-dock-action {
+.p-dock .p-dock-link {
   width: 4rem;
   height: 4rem;
 }
@@ -4499,6 +4499,36 @@
 }
 .p-megamenu .p-megamenu-root-list {
   outline: 0 none;
+}
+.p-megamenu .p-megamenu-root-list > .p-menuitem > .p-menuitem-content {
+  color: #333333;
+  transition: background-color 0.2s, box-shadow 0.2s;
+  border-radius: 3px;
+}
+.p-megamenu .p-megamenu-root-list > .p-menuitem > .p-menuitem-content .p-menuitem-link {
+  padding: 0.857rem;
+  user-select: none;
+}
+.p-megamenu .p-megamenu-root-list > .p-menuitem > .p-menuitem-content .p-menuitem-link .p-menuitem-text {
+  color: #333333;
+}
+.p-megamenu .p-megamenu-root-list > .p-menuitem > .p-menuitem-content .p-menuitem-link .p-menuitem-icon {
+  color: #333333;
+  margin-right: 0.5rem;
+}
+.p-megamenu .p-megamenu-root-list > .p-menuitem > .p-menuitem-content .p-menuitem-link .p-submenu-icon {
+  color: #333333;
+  margin-left: 0.5rem;
+}
+.p-megamenu .p-megamenu-root-list > .p-menuitem:not(.p-highlight):not(.p-disabled) > .p-menuitem-content:hover {
+  color: #333333;
+  background: #eaeaea;
+}
+.p-megamenu .p-megamenu-root-list > .p-menuitem:not(.p-highlight):not(.p-disabled) > .p-menuitem-content:hover .p-menuitem-link .p-menuitem-text {
+  color: #333333;
+}
+.p-megamenu .p-megamenu-root-list > .p-menuitem:not(.p-highlight):not(.p-disabled) > .p-menuitem-content:hover .p-menuitem-link .p-menuitem-icon, .p-megamenu .p-megamenu-root-list > .p-menuitem:not(.p-highlight):not(.p-disabled) > .p-menuitem-content:hover .p-menuitem-link .p-submenu-icon {
+  color: #333333;
 }
 .p-megamenu .p-menuitem > .p-menuitem-content {
   color: #333333;
@@ -4578,36 +4608,6 @@
 .p-megamenu.p-megamenu-vertical {
   width: 12.5rem;
   padding: 0;
-}
-.p-megamenu.p-megamenu-horizontal .p-megamenu-root-list > .p-menuitem > .p-menuitem-content {
-  color: #333333;
-  transition: background-color 0.2s, box-shadow 0.2s;
-  border-radius: 3px;
-}
-.p-megamenu.p-megamenu-horizontal .p-megamenu-root-list > .p-menuitem > .p-menuitem-content .p-menuitem-link {
-  padding: 0.857rem;
-  user-select: none;
-}
-.p-megamenu.p-megamenu-horizontal .p-megamenu-root-list > .p-menuitem > .p-menuitem-content .p-menuitem-link .p-menuitem-text {
-  color: #333333;
-}
-.p-megamenu.p-megamenu-horizontal .p-megamenu-root-list > .p-menuitem > .p-menuitem-content .p-menuitem-link .p-menuitem-icon {
-  color: #333333;
-  margin-right: 0.5rem;
-}
-.p-megamenu.p-megamenu-horizontal .p-megamenu-root-list > .p-menuitem > .p-menuitem-content .p-menuitem-link .p-submenu-icon {
-  color: #333333;
-  margin-left: 0.5rem;
-}
-.p-megamenu.p-megamenu-horizontal .p-megamenu-root-list > .p-menuitem:not(.p-highlight):not(.p-disabled) > .p-menuitem-content:hover {
-  color: #333333;
-  background: #eaeaea;
-}
-.p-megamenu.p-megamenu-horizontal .p-megamenu-root-list > .p-menuitem:not(.p-highlight):not(.p-disabled) > .p-menuitem-content:hover .p-menuitem-link .p-menuitem-text {
-  color: #333333;
-}
-.p-megamenu.p-megamenu-horizontal .p-megamenu-root-list > .p-menuitem:not(.p-highlight):not(.p-disabled) > .p-menuitem-content:hover .p-menuitem-link .p-menuitem-icon, .p-megamenu.p-megamenu-horizontal .p-megamenu-root-list > .p-menuitem:not(.p-highlight):not(.p-disabled) > .p-menuitem-content:hover .p-menuitem-link .p-submenu-icon {
-  color: #333333;
 }
 
 .p-menu {
