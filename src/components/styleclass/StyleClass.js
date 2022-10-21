@@ -18,7 +18,7 @@ function bind(el, binding) {
 
 function unbind(el) {
     if (el.$_pstyleclass_clicklistener) {
-        el.addEventListener('click', el.$_pstyleclass_clicklistener);
+        el.removeEventListener('click', el.$_pstyleclass_clicklistener);
         el.$_pstyleclass_clicklistener = null;
     }
 
