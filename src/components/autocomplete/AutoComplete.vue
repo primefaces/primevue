@@ -662,9 +662,9 @@ export default {
             const target = event.currentTarget;
             const len = target.value.length;
 
-            if(event.shiftKey){
+            if (event.shiftKey) {
                 event.currentTarget.setSelectionRange(0, len);
-            }else{
+            } else {
                 event.currentTarget.setSelectionRange(0, 0);
             }
 
@@ -676,9 +676,9 @@ export default {
             const target = event.currentTarget;
             const len = target.value.length;
 
-            if(event.shiftKey){
+            if (event.shiftKey) {
                 event.currentTarget.setSelectionRange(0, len);
-            }else{
+            } else {
                 target.setSelectionRange(len, len);
             }
 
