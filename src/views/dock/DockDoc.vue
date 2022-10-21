@@ -175,8 +175,12 @@ import Dock from 'primevue/dock';
                         <td>Content of menuitem.</td>
                     </tr>
                     <tr>
-                        <td>p-dock-action</td>
-                        <td>Action of the menuitem.</td>
+                        <td>p-dock-link</td>
+                        <td>Link of the menuitem.</td>
+                    </tr>
+                    <tr>
+                        <td>p-dock-icon</td>
+                        <td>Icon of a menuitem.</td>
                     </tr>
                 </tbody>
             </table>
@@ -345,7 +349,7 @@ export default {
             <div class="dock-window dock-advanced">
                 <Dock :model="dockItems">
                     <template #item="{ item }">
-                        <a href="#" class="p-dock-action" v-tooltip.top="item.label" @click="onDockItemClick($event, item)">
+                        <a href="#" class="p-dock-link" v-tooltip.top="item.label" @click="onDockItemClick($event, item)">
                             <img :alt="item.label" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" style="width: 100%">
                         </a>
                     </template>
@@ -746,7 +750,7 @@ export default {
             <div class="dock-window dock-advanced">
                 <Dock :model="dockItems">
                     <template #item="{ item }">
-                        <a href="#" class="p-dock-action" v-tooltip.top="item.label" @click="onDockItemClick($event, item)">
+                        <a href="#" class="p-dock-link" v-tooltip.top="item.label" @click="onDockItemClick($event, item)">
                             <img :alt="item.label" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" style="width: 100%" />
                         </a>
                     </template>
@@ -1188,7 +1192,7 @@ export default {
             <div class="dock-window dock-advanced">
                 <p-dock :model="dockItems">
                     <template #item="{ item }">
-                        <a href="#" class="p-dock-action" v-tooltip.top="item.label" @click="onDockItemClick($event, item)">
+                        <a href="#" class="p-dock-link" v-tooltip.top="item.label" @click="onDockItemClick($event, item)">
                             <img :alt="item.label" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" style="width: 100%" />
                         </a>
                     </template>
