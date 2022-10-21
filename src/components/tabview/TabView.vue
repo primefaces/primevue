@@ -116,6 +116,7 @@ export default {
     },
     mounted() {
         this.updateInkBar();
+        this.scrollable && this.updateButtonState();
     },
     updated() {
         this.updateInkBar();
