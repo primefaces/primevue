@@ -159,12 +159,24 @@ import Dock from 'primevue/dock';
                         <td>Container element.</td>
                     </tr>
                     <tr>
+                        <td>p-dock-list-container</td>
+                        <td>Container of the list.</td>
+                    </tr>
+                    <tr>
                         <td>p-dock-list</td>
                         <td>List of items.</td>
                     </tr>
                     <tr>
                         <td>p-dock-item</td>
                         <td>Each items in list.</td>
+                    </tr>
+                    <tr>
+                        <td>p-menuitem-content</td>
+                        <td>Content of menuitem.</td>
+                    </tr>
+                    <tr>
+                        <td>p-dock-action</td>
+                        <td>Action of the menuitem.</td>
                     </tr>
                 </tbody>
             </table>

@@ -324,12 +324,24 @@ export default {
                         <td>Submenu list element.</td>
                     </tr>
                     <tr>
+                        <td>p-submenu-list</td>
+                        <td>Submenu list element.</td>
+                    </tr>
+                    <tr>
                         <td>p-menuitem</td>
                         <td>Menuitem element.</td>
                     </tr>
                     <tr>
                         <td>p-menuitem-active</td>
                         <td>Active menuitem element.</td>
+                    </tr>
+                    <tr>
+                        <td>p-menuitem-content</td>
+                        <td>Content of menuitem.</td>
+                    </tr>
+                    <tr>
+                        <td>p-menuitem-link</td>
+                        <td>Link element of the menuitem.</td>
                     </tr>
                     <tr>
                         <td>p-menuitem-text</td>
@@ -342,10 +354,6 @@ export default {
                     <tr>
                         <td>p-submenu-icon</td>
                         <td>Arrow icon of a submenu.</td>
-                    </tr>
-                    <tr>
-                        <td>p-megamenu-custom</td>
-                        <td>Container of the default slot.</td>
                     </tr>
                 </tbody>
             </table>

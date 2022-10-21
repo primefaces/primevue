@@ -478,12 +478,24 @@ export default {
                         <td>Container element.</td>
                     </tr>
                     <tr>
+                        <td>p-panelmenu-panel</td>
+                        <td>Submenu container.</td>
+                    </tr>
+                    <tr>
+                        <td>p-toggleable-content</td>
+                        <td>Accordion content of root submenu.</td>
+                    </tr>
+                    <tr>
                         <td>p-panelmenu-header</td>
                         <td>Accordion header of root submenu.</td>
                     </tr>
                     <tr>
-                        <td>p-panelmenu-content</td>
-                        <td>Accordion content of root submenu.</td>
+                        <td>p-panelmenu-header-content</td>
+                        <td>Content of accordion header.</td>
+                    </tr>
+                    <tr>
+                        <td>p-panelmenu-header-action</td>
+                        <td>Action of accordion header.</td>
                     </tr>
                     <tr>
                         <td>p-submenu-list</td>
@@ -502,7 +514,7 @@ export default {
                         <td>Icon of a menuitem.</td>
                     </tr>
                     <tr>
-                        <td>p-panelmenu-icon</td>
+                        <td>p-submenu-icon</td>
                         <td>Arrow icon of an accordion header.</td>
                     </tr>
                 </tbody>

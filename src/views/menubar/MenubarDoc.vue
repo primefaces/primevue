@@ -264,6 +264,18 @@ export default {
                         <td>Container element.</td>
                     </tr>
                     <tr>
+                        <td>p-menubar-start</td>
+                        <td>Container of the start slot.</td>
+                    </tr>
+                    <tr>
+                        <td>p-menubar-end</td>
+                        <td>Container of the end slot.</td>
+                    </tr>
+                    <tr>
+                        <td>p-menubar-button</td>
+                        <td>Mobile menubar toggle button.</td>
+                    </tr>
+                    <tr>
                         <td>p-menubar-root-list</td>
                         <td>Root list element.</td>
                     </tr>
@@ -278,6 +290,14 @@ export default {
                     <tr>
                         <td>p-menuitem-active</td>
                         <td>Active menuitem element.</td>
+                    </tr>
+                    <tr>
+                        <td>p-menuitem-content</td>
+                        <td>Content of menuitem.</td>
+                    </tr>
+                    <tr>
+                        <td>p-menuitem-link</td>
+                        <td>Link element of the menuitem.</td>
                     </tr>
                     <tr>
                         <td>p-menuitem-text</td>
@@ -296,7 +316,6 @@ export default {
         </div>
 
         <h5>Accessibility</h5>
-
         <h6>Screen Reader</h6>
         <p>
             Menubar component uses the <i>menubar</i> role and the value to describe the menu can either be provided with <i>aria-labelledby</i> or <i>aria-label</i> props. Each list item has a <i>menuitem</i> role with <i>aria-label</i> referring to
