@@ -4548,36 +4548,6 @@
 .p-megamenu .p-megamenu-root-list {
   outline: 0 none;
 }
-.p-megamenu .p-megamenu-root-list > .p-menuitem > .p-menuitem-content {
-  color: #3f3f46;
-  transition: none;
-  border-radius: 0.375rem;
-}
-.p-megamenu .p-megamenu-root-list > .p-menuitem > .p-menuitem-content .p-menuitem-link {
-  padding: 0.75rem 1rem;
-  user-select: none;
-}
-.p-megamenu .p-megamenu-root-list > .p-menuitem > .p-menuitem-content .p-menuitem-link .p-menuitem-text {
-  color: #3f3f46;
-}
-.p-megamenu .p-megamenu-root-list > .p-menuitem > .p-menuitem-content .p-menuitem-link .p-menuitem-icon {
-  color: #71717A;
-  margin-right: 0.5rem;
-}
-.p-megamenu .p-megamenu-root-list > .p-menuitem > .p-menuitem-content .p-menuitem-link .p-submenu-icon {
-  color: #71717A;
-  margin-left: 0.5rem;
-}
-.p-megamenu .p-megamenu-root-list > .p-menuitem:not(.p-highlight):not(.p-disabled) > .p-menuitem-content:hover {
-  color: #18181B;
-  background: #f4f4f5;
-}
-.p-megamenu .p-megamenu-root-list > .p-menuitem:not(.p-highlight):not(.p-disabled) > .p-menuitem-content:hover .p-menuitem-link .p-menuitem-text {
-  color: #18181B;
-}
-.p-megamenu .p-megamenu-root-list > .p-menuitem:not(.p-highlight):not(.p-disabled) > .p-menuitem-content:hover .p-menuitem-link .p-menuitem-icon, .p-megamenu .p-megamenu-root-list > .p-menuitem:not(.p-highlight):not(.p-disabled) > .p-menuitem-content:hover .p-menuitem-link .p-submenu-icon {
-  color: #71717A;
-}
 .p-megamenu .p-menuitem > .p-menuitem-content {
   color: #3f3f46;
   transition: none;
@@ -4656,6 +4626,36 @@
 .p-megamenu.p-megamenu-vertical {
   width: 12.5rem;
   padding: 0.25rem 0;
+}
+.p-megamenu.p-megamenu-horizontal .p-megamenu-root-list > .p-menuitem > .p-menuitem-content {
+  color: #3f3f46;
+  transition: none;
+  border-radius: 0.375rem;
+}
+.p-megamenu.p-megamenu-horizontal .p-megamenu-root-list > .p-menuitem > .p-menuitem-content .p-menuitem-link {
+  padding: 0.75rem 1rem;
+  user-select: none;
+}
+.p-megamenu.p-megamenu-horizontal .p-megamenu-root-list > .p-menuitem > .p-menuitem-content .p-menuitem-link .p-menuitem-text {
+  color: #3f3f46;
+}
+.p-megamenu.p-megamenu-horizontal .p-megamenu-root-list > .p-menuitem > .p-menuitem-content .p-menuitem-link .p-menuitem-icon {
+  color: #71717A;
+  margin-right: 0.5rem;
+}
+.p-megamenu.p-megamenu-horizontal .p-megamenu-root-list > .p-menuitem > .p-menuitem-content .p-menuitem-link .p-submenu-icon {
+  color: #71717A;
+  margin-left: 0.5rem;
+}
+.p-megamenu.p-megamenu-horizontal .p-megamenu-root-list > .p-menuitem:not(.p-highlight):not(.p-disabled) > .p-menuitem-content:hover {
+  color: #18181B;
+  background: #f4f4f5;
+}
+.p-megamenu.p-megamenu-horizontal .p-megamenu-root-list > .p-menuitem:not(.p-highlight):not(.p-disabled) > .p-menuitem-content:hover .p-menuitem-link .p-menuitem-text {
+  color: #18181B;
+}
+.p-megamenu.p-megamenu-horizontal .p-megamenu-root-list > .p-menuitem:not(.p-highlight):not(.p-disabled) > .p-menuitem-content:hover .p-menuitem-link .p-menuitem-icon, .p-megamenu.p-megamenu-horizontal .p-megamenu-root-list > .p-menuitem:not(.p-highlight):not(.p-disabled) > .p-menuitem-content:hover .p-menuitem-link .p-submenu-icon {
+  color: #71717A;
 }
 
 .p-menu {

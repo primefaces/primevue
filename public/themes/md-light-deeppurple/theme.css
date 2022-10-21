@@ -4537,36 +4537,6 @@
 .p-megamenu .p-megamenu-root-list {
   outline: 0 none;
 }
-.p-megamenu .p-megamenu-root-list > .p-menuitem > .p-menuitem-content {
-  color: rgba(0, 0, 0, 0.87);
-  transition: none;
-  border-radius: 4px;
-}
-.p-megamenu .p-megamenu-root-list > .p-menuitem > .p-menuitem-content .p-menuitem-link {
-  padding: 1rem;
-  user-select: none;
-}
-.p-megamenu .p-megamenu-root-list > .p-menuitem > .p-menuitem-content .p-menuitem-link .p-menuitem-text {
-  color: rgba(0, 0, 0, 0.87);
-}
-.p-megamenu .p-megamenu-root-list > .p-menuitem > .p-menuitem-content .p-menuitem-link .p-menuitem-icon {
-  color: rgba(0, 0, 0, 0.6);
-  margin-right: 0.5rem;
-}
-.p-megamenu .p-megamenu-root-list > .p-menuitem > .p-menuitem-content .p-menuitem-link .p-submenu-icon {
-  color: rgba(0, 0, 0, 0.6);
-  margin-left: 0.5rem;
-}
-.p-megamenu .p-megamenu-root-list > .p-menuitem:not(.p-highlight):not(.p-disabled) > .p-menuitem-content:hover {
-  color: rgba(0, 0, 0, 0.87);
-  background: rgba(0, 0, 0, 0.04);
-}
-.p-megamenu .p-megamenu-root-list > .p-menuitem:not(.p-highlight):not(.p-disabled) > .p-menuitem-content:hover .p-menuitem-link .p-menuitem-text {
-  color: rgba(0, 0, 0, 0.87);
-}
-.p-megamenu .p-megamenu-root-list > .p-menuitem:not(.p-highlight):not(.p-disabled) > .p-menuitem-content:hover .p-menuitem-link .p-menuitem-icon, .p-megamenu .p-megamenu-root-list > .p-menuitem:not(.p-highlight):not(.p-disabled) > .p-menuitem-content:hover .p-menuitem-link .p-submenu-icon {
-  color: rgba(0, 0, 0, 0.6);
-}
 .p-megamenu .p-menuitem > .p-menuitem-content {
   color: rgba(0, 0, 0, 0.87);
   transition: none;
@@ -4645,6 +4615,36 @@
 .p-megamenu.p-megamenu-vertical {
   width: 12.5rem;
   padding: 0.5rem 0;
+}
+.p-megamenu.p-megamenu-horizontal .p-megamenu-root-list > .p-menuitem > .p-menuitem-content {
+  color: rgba(0, 0, 0, 0.87);
+  transition: none;
+  border-radius: 4px;
+}
+.p-megamenu.p-megamenu-horizontal .p-megamenu-root-list > .p-menuitem > .p-menuitem-content .p-menuitem-link {
+  padding: 1rem;
+  user-select: none;
+}
+.p-megamenu.p-megamenu-horizontal .p-megamenu-root-list > .p-menuitem > .p-menuitem-content .p-menuitem-link .p-menuitem-text {
+  color: rgba(0, 0, 0, 0.87);
+}
+.p-megamenu.p-megamenu-horizontal .p-megamenu-root-list > .p-menuitem > .p-menuitem-content .p-menuitem-link .p-menuitem-icon {
+  color: rgba(0, 0, 0, 0.6);
+  margin-right: 0.5rem;
+}
+.p-megamenu.p-megamenu-horizontal .p-megamenu-root-list > .p-menuitem > .p-menuitem-content .p-menuitem-link .p-submenu-icon {
+  color: rgba(0, 0, 0, 0.6);
+  margin-left: 0.5rem;
+}
+.p-megamenu.p-megamenu-horizontal .p-megamenu-root-list > .p-menuitem:not(.p-highlight):not(.p-disabled) > .p-menuitem-content:hover {
+  color: rgba(0, 0, 0, 0.87);
+  background: rgba(0, 0, 0, 0.04);
+}
+.p-megamenu.p-megamenu-horizontal .p-megamenu-root-list > .p-menuitem:not(.p-highlight):not(.p-disabled) > .p-menuitem-content:hover .p-menuitem-link .p-menuitem-text {
+  color: rgba(0, 0, 0, 0.87);
+}
+.p-megamenu.p-megamenu-horizontal .p-megamenu-root-list > .p-menuitem:not(.p-highlight):not(.p-disabled) > .p-menuitem-content:hover .p-menuitem-link .p-menuitem-icon, .p-megamenu.p-megamenu-horizontal .p-megamenu-root-list > .p-menuitem:not(.p-highlight):not(.p-disabled) > .p-menuitem-content:hover .p-menuitem-link .p-submenu-icon {
+  color: rgba(0, 0, 0, 0.6);
 }
 
 .p-menu {
