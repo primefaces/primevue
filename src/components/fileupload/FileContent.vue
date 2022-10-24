@@ -1,17 +1,13 @@
 <template>
-    <div v-for="(file, index) of files" :key="file.name + file.type + file.size" class="p-fileupload-content-container p-fileupload-content-item">
-        <div>
-            <img role="presentation" :alt="file.name" :src="file.objectURL" height="50" width="50" />
+    <div v-for="(file, index) of files" :key="file.name + file.type + file.size" class="p-fileupload-file">
+        <img role="presentation" class="p-fileupload-file-thumbnail" :alt="file.name" :src="file.objectURL" :width="previewWidth" />
+        <div class="p-fileupload-file-details">
+            <div class="p-fileupload-file-name">{{ file.name }}</div>
+            <span class="p-fileupload-file-size">{{ formatSize(file.size) }}</span>
+            <Badge :value="badgeValue" class="p-fileupload-file-badge" :severity="badgeSeverity" />
         </div>
-        <div class="p-fileupload-content-body">
-            <div>{{ file.name }}</div>
-            <div class="p-fileupload-badge-container">
-                <div>{{ formatSize(file.size) }}</div>
-                <Badge :value="badgeValue" class="p-fileupload-badge" :severity="badgeSeverity" />
-            </div>
-        </div>
-        <div>
-            <Button icon="pi pi-times" @click="$emit('remove', index)" class="p-button-text p-button-secondary" />
+        <div class="p-fileupload-file-actions">
+            <Button icon="pi pi-times" @click="$emit('remove', index)" class="p-fileupload-file-remove p-button-text p-button-danger p-button-rounded"></Button>
         </div>
     </div>
 </template>
@@ -30,7 +26,11 @@ export default {
         },
         badgeValue: {
             type: String,
-            default: 'Pending'
+            default: null
+        },
+        previewWidth: {
+            type: Number,
+            default: 50
         }
     },
     methods: {
@@ -49,26 +49,3 @@ export default {
     }
 };
 </script>
-
-<style lang="scss" scoped>
-.p-fileupload-content-container {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10.5px;
-}
-.p-fileupload-content-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    flex: 0.96;
-}
-.p-fileupload-badge-container {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10.5px;
-}
-
-.p-fileupload-badge {
-    margin-left: 0.5rem;
-}
-</style>

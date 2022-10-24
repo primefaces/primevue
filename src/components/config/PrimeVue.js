@@ -31,6 +31,8 @@ const defaultOptions = {
         choose: 'Choose',
         upload: 'Upload',
         cancel: 'Cancel',
+        completed: 'Completed',
+        pending: 'Pending',
         dayNames: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
         dayNamesShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
         dayNamesMin: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
