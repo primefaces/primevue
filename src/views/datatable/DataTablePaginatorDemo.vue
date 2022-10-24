@@ -34,7 +34,7 @@
             </div>
 
             <div class="card">
-                <h5>Responsive Paginator Breakpoints</h5>
+                <h5>Responsive Paginator</h5>
                 <DataTable
                     :value="customers"
                     :paginator="true"
@@ -95,6 +95,7 @@ export default {
                 <Button type="button" icon="pi pi-cloud" class="p-button-text" />
             </template>
         </DataTable>
+
         <DataTable
             :value="customers"
             :paginator="true"
@@ -162,6 +163,7 @@ export default {
                 <Button type="button" icon="pi pi-cloud" class="p-button-text" />
             </template>
         </DataTable>
+
         <DataTable
             :value="customers"
             :paginator="true"
@@ -229,6 +231,7 @@ export default {
                     <p-button type="button" icon="pi pi-cloud" class="p-button-text"></p-button>
                 </template>
             </p-datatable>
+
             <p-datatable
                 :value="customers"
                 :paginator="true"

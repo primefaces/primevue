@@ -4,7 +4,6 @@
             <div v-if="$slots.start" class="p-paginator-left-content">
                 <slot name="start" :state="currentState"></slot>
             </div>
-
             <template v-for="item in value" :key="item">
                 <FirstPageLink v-if="item === 'FirstPageLink'" @click="changePageToFirst($event)" :disabled="isFirstPage || empty" />
                 <PrevPageLink v-else-if="item === 'PrevPageLink'" @click="changePageToPrev($event)" :disabled="isFirstPage || empty" />

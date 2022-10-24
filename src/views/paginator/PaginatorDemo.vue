@@ -13,7 +13,7 @@
                 <h5>Basic</h5>
                 <Paginator :rows="10" :totalRecords="totalRecords" :rowsPerPageOptions="[10, 20, 30]"></Paginator>
 
-                <h5>Responsive Breakpoints</h5>
+                <h5>Responsive</h5>
                 <Paginator
                     :template="{
                         '640px': 'PrevPageLink CurrentPageReport NextPageLink',

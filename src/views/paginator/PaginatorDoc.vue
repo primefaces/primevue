@@ -49,7 +49,7 @@ import Paginator from 'primevue/paginator';
 
         <h5>Template</h5>
         <p>
-            Paginator elements can be customized using the template property using the predefined keys, default value is "FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown". Here are the available elements that can be
+            Paginator elements can be customized using the <i>template</i> property using the predefined keys, default value is "FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown". Here are the available elements that can be
             placed inside a paginator in any order.
         </p>
 
@@ -75,6 +75,23 @@ import Paginator from 'primevue/paginator';
             <li>&#123;last&#125;</li>
             <li>&#123;totalRecords&#125;</li>
         </ul>
+
+        <h5>Responsive</h5>
+        <p>Paginator elements can be customized per screen size by defining a template per breakpoint. Note that breakpoints are based on max-width setting, if <i>default</i>
+        key is omitted then the default template would be used. Example below has 4 settings; up to 640px, between 641px-960px, between 961px-1300px and larger than 1301px which is the default.</p>
+<pre v-code><code><template v-pre>
+&lt;Paginator
+    :template="&#123;
+        '640px': 'PrevPageLink CurrentPageReport NextPageLink',
+        '960px': 'FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink',
+        '1300px': 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink',
+        default: 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink JumpToPageDropdown'
+    &#125;"
+    :rows="10"
+    :totalRecords="totalRecords"&gt;
+&lt;/Paginator&gt;
+</template>
+</code></pre>
 
         <h5>Custom Content</h5>
         <p>There are two templates available named <i>start</i> and <i>end</i> to add custom content to these locations. Both templates get a state object as a slot property to provide the current page, first index and the rows.</p>
@@ -155,7 +172,7 @@ onPage(event) {
                         <td>template</td>
                         <td>object, string</td>
                         <td>FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown</td>
-                        <td>Template of the paginator.</td>
+                        <td>Template of the paginator, can either be a string or an object with key-value pairs to define templates per breakpoint.</td>
                     </tr>
                     <tr>
                         <td>currentPageReportTemplate</td>
