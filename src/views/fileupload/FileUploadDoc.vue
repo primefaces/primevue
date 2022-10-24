@@ -82,17 +82,57 @@ myUploader(event) {
 </code></pre>
 
         <h5>Templating</h5>
-        <p>
-            When there is no file selected, you may use the empty slot to display content. Also, content slot may be used to place custom content inside the content section which would be useful to implement a user interface to manage the uploaded
-            files such as removing them.
+        <p>FileUpload component is extremely customizable thanks to the templating features, both the <i>header</i> and <i>content</i> sections provide custom slots.
         </p>
+        
         <pre v-code><code>
-&lt;FileUpload name="demo[]" url="./upload"&gt;
-    &lt;template #content&gt;
-        &lt;p&gt;Additional content.&lt;/p&gt;
+&lt;FileUpload name="demo[]" url="./upload.php" @upload="onTemplatedUpload($event)" :multiple="true" accept="image/*" :maxFileSize="1000000" @select="onSelectedFiles"&gt;
+    &lt;template #header="&#123; chooseCallback, uploadCallback, clearCallback, files &#125;"&gt;
+        &lt;div class="flex flex-wrap justify-content-between align-items-center flex-1 gap-2"&gt;
+            &lt;div class="flex gap-2"&gt;
+                &lt;Button @click="chooseCallback()" icon="pi pi-images" class="p-button-rounded"&gt;&lt;/Button&gt;
+                &lt;Button @click="uploadCallback()" icon="pi pi-cloud-upload" class="p-button-rounded p-button-success" :disabled="!files || files.length === 0"&gt;&lt;/Button&gt;
+                &lt;Button @click="clearCallback()" icon="pi pi-times" class="p-button-rounded p-button-danger" :disabled="!files || files.length === 0"&gt;&lt;/Button&gt;
+            &lt;/div&gt;
+            &lt;ProgressBar :value="totalSizePercent" :showValue="false" :class="['md:w-20rem h-1rem w-full md:ml-auto', &#123;'exceeded-progress-bar': (totalSizePercent &gt; 100)&#125;]"&gt;&lt;span class="white-space-nowrap"&gt;&#123;&#123; totalSize &#125;&#125;B / 1Mb&lt;/span&gt;&lt;/ProgressBar&gt;
+        &lt;/div&gt;
+    &lt;/template&gt;
+    &lt;template #content="&#123; files, uploadedFiles, onUploadedFileRemove, onFileRemove &#125;"&gt;
+        &lt;div v-if="files.length &gt; 0"&gt;
+            &lt;h5&gt;Pending&lt;/h5&gt;
+            &lt;div class="flex flex-wrap p-5 gap-5"&gt;
+                &lt;div v-for="(file, index) of files" :key="file.name + file.type + file.size" class="card m-0 px-6 flex flex-column border-1 surface-border align-items-center gap-3"&gt;
+                    &lt;div&gt;
+                        &lt;img role="presentation" :alt="file.name" :src="file.objectURL" height="50" class="shadow-2" /&gt;
+                    &lt;/div&gt;
+                    &lt;span class="font-semibold"&gt;&#123;&#123; file.name &#125;&#125;&lt;/span&gt;
+                    &lt;div&gt;&#123;&#123; formatSize(file.size) &#125;&#125;&lt;/div&gt;
+                    &lt;Badge value="Pending" severity="warning" /&gt;
+                    &lt;Button icon="pi pi-times" @click="onRemoveTemplatingFile(file, onFileRemove, index)" class="p-button-outlined p-button-danger p-button-rounded" /&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div v-if="uploadedFiles.length &gt; 0"&gt;
+            &lt;h5&gt;Completed&lt;/h5&gt;
+            &lt;div class="flex flex-wrap p-5 gap-5"&gt;
+                &lt;div v-for="(file, index) of uploadedFiles" :key="file.name + file.type + file.size" class="card m-0 px-6 flex flex-column border-1 surface-border align-items-center gap-3"&gt;
+                    &lt;div&gt;
+                        &lt;img role="presentation" :alt="file.name" :src="file.objectURL" width="100" class="shadow-2" /&gt;
+                    &lt;/div&gt;
+                    &lt;span class="font-semibold"&gt;&#123;&#123; file.name &#125;&#125;&lt;/span&gt;
+                    &lt;div&gt;&#123;&#123; formatSize(file.size) &#125;&#125;&lt;/div&gt;
+                    &lt;Badge value="Completed" class="mt-3" severity="success" /&gt;
+                    &lt;Button icon="pi pi-times" @click="onUploadedFileRemove(index)" class="p-button-outlined p-button-danger p-button-rounded" /&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
     &lt;/template&gt;
     &lt;template #empty&gt;
-        &lt;p&gt;Drag and drop files to here to upload.&lt;/p&gt;
+        &lt;div class="flex align-items-center justify-content-center flex-column"&gt;
+            &lt;i class="pi pi-cloud-upload border-2 border-circle p-5 text-8xl text-400 border-400" /&gt;
+            &lt;p class="mt-4 mb-0"&gt;Drag and drop files to here to upload.&lt;/p&gt;
+        &lt;/div&gt;
     &lt;/template&gt;
 &lt;/FileUpload&gt;
 
@@ -333,7 +373,15 @@ myUploader(event) {
                             event.file: Removed file. <br />
                             event.files: Remaining files to be uploaded.
                         </td>
-                        <td>Callback to invoke when a singe file is removed from the list.</td>
+                        <td>Callback to invoke when a singe file is removed from the file list to upload.</td>
+                    </tr>
+                    <tr>
+                        <td>remove</td>
+                        <td>
+                            event.file: Removed uploaded file. <br />
+                            event.files: Remaining uploaded files.
+                        </td>
+                        <td>Callback to invoke when a singe file is removed from the uploaded file list.</td>
                     </tr>
                 </tbody>
             </table>
@@ -351,15 +399,22 @@ myUploader(event) {
                 <tbody>
                     <tr>
                         <td>header</td>
-                        <td>-</td>
-                    </tr>
-                    <tr>
-                        <td>fileContent</td>
-                        <td>-</td>
+                        <td>files: Files to upload <br />
+                            uploadedFiles: Uploaded Files <br />
+                            chooseCallback: Choose function <br />
+                            uploadCallback: Upload function <br />
+                            clearCallback: Clear function
+                        </td>
                     </tr>
                     <tr>
                         <td>content</td>
-                        <td>-</td>
+                        <td>files: Files to upload <br />
+                            uploadedFiles: Uploaded Files <br />
+                            progress: Uploaded progress as number <br />
+                            messages: Status messages about upload process <br />
+                            removeFileCallback(index): Function to remove a file <br />
+                            removeUploadedFileCallback(index): Function to remove an uploaded file
+                        </td>
                     </tr>
                     <tr>
                         <td>empty</td>
@@ -385,12 +440,56 @@ myUploader(event) {
                         <td>Container element.</td>
                     </tr>
                     <tr>
+                        <td>p-fileupload-basic</td>
+                        <td>Container element in basic mode.</td>
+                    </tr>
+                    <tr>
+                        <td>p-fileupload-advanced</td>
+                        <td>Container element in advanced mode.</td>
+                    </tr>
+                    <tr>
                         <td>p-fileupload-buttonbar</td>
                         <td>Header containing the buttons.</td>
                     </tr>
                     <tr>
                         <td>p-fileupload-content</td>
                         <td>Content section.</td>
+                    </tr>
+                    <tr>
+                        <td>p-fileupload-file</td>
+                        <td>File item.</td>
+                    </tr>
+                    <tr>
+                        <td>p-fileupload-file-thumbnail</td>
+                        <td>Image preview of a file.</td>
+                    </tr>
+                     <tr>
+                        <td>p-fileupload-file-details</td>
+                        <td>Container of file details.</td>
+                    </tr>
+                     <tr>
+                        <td>p-fileupload-file-name</td>
+                        <td>File name element.</td>
+                    </tr>
+                     <tr>
+                        <td>p-fileupload-file-size</td>
+                        <td>File size element.</td>
+                    </tr>
+                     <tr>
+                        <td>p-fileupload-file-badge</td>
+                        <td>File badge element.</td>
+                    </tr>
+                     <tr>
+                        <td>p-fileupload-file-actions</td>
+                        <td>Container of file actions.</td>
+                    </tr>
+                     <tr>
+                        <td>p-fileupload-file-remove</td>
+                        <td>Button to remove a file.</td>
+                    </tr>
+                    <tr>
+                        <td>p-fileupload-empty</td>
+                        <td>Container of the empty slot.</td>
                     </tr>
                 </tbody>
             </table>

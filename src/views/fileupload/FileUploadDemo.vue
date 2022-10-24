@@ -29,7 +29,7 @@
                             <ProgressBar :value="totalSizePercent" :showValue="false" :class="['md:w-20rem h-1rem w-full md:ml-auto', {'exceeded-progress-bar': (totalSizePercent > 100)}]"><span class="white-space-nowrap">{{ totalSize }}B / 1Mb</span></ProgressBar>
                         </div>
                     </template>
-                    <template #content="{ files, uploadedFiles, onUploadedFileRemove, onFileRemove }">
+                    <template #content="{ files, uploadedFiles, removeUploadedFileCallback, fileRemoveCallback }">
                         <div v-if="files.length > 0">
                             <h5>Pending</h5>
                             <div class="flex flex-wrap p-5 gap-5">
@@ -40,7 +40,7 @@
                                     <span class="font-semibold">{{ file.name }}</span>
                                     <div>{{ formatSize(file.size) }}</div>
                                     <Badge value="Pending" severity="warning" />
-                                    <Button icon="pi pi-times" @click="onRemoveTemplatingFile(file, onFileRemove, index)" class="p-button-outlined p-button-danger p-button-rounded" />
+                                    <Button icon="pi pi-times" @click="onRemoveTemplatingFile(file, fileRemoveCallback, index)" class="p-button-outlined p-button-danger p-button-rounded" />
                                 </div>
                             </div>
                         </div>
@@ -55,7 +55,7 @@
                                     <span class="font-semibold">{{ file.name }}</span>
                                     <div>{{ formatSize(file.size) }}</div>
                                     <Badge value="Completed" class="mt-3" severity="success" />
-                                    <Button icon="pi pi-times" @click="onUploadedFileRemove(index)" class="p-button-outlined p-button-danger p-button-rounded" />
+                                    <Button icon="pi pi-times" @click="removeUploadedFileCallback(index)" class="p-button-outlined p-button-danger p-button-rounded" />
                                 </div>
                             </div>
                         </div>
@@ -92,8 +92,8 @@ export default {
         };
     },
     methods: {
-        onRemoveTemplatingFile(file, onFileRemove, index) {
-            onFileRemove(index);
+        onRemoveTemplatingFile(file, fileRemoveCallback, index) {
+            fileRemoveCallback(index);
             this.totalSize -= parseInt(this.formatSize(file.size));
             this.totalSizePercent = this.totalSize / 10;
         },

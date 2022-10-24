@@ -12,7 +12,7 @@
             </slot>
         </div>
         <div ref="content" class="p-fileupload-content" @dragenter="onDragEnter" @dragover="onDragOver" @dragleave="onDragLeave" @drop="onDrop">
-            <slot name="content" :files="files" :uploadedFiles="uploadedFiles" :onUploadedFileRemove="removeUploadedFile" :onFileRemove="remove" :progress="progress" :messages="messages">
+            <slot name="content" :files="files" :uploadedFiles="uploadedFiles" :removeUploadedFileCallback="removeUploadedFile" :removeFileCallback="remove" :progress="progress" :messages="messages">
                 <FileUploadProgressBar v-if="hasFiles" :value="progress" :showValue="false" />
                 <FileUploadMessage v-for="msg of messages" :key="msg" severity="error" @close="onMessageClose">{{ msg }}</FileUploadMessage>
                 <FileContent v-if="hasFiles" :files="files" @remove="remove" :badgeValue="pendingLabel" :previewWidth="previewWidth" />
