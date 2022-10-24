@@ -1,4 +1,4 @@
-import Vue, { Plugin } from 'vue';
+import { Plugin } from 'vue';
 
 interface PrimeVueConfiguration {
     ripple?: boolean;
@@ -26,6 +26,7 @@ interface PrimeVueLocaleAriaOptions {
     close?: string;
     previous?: string;
     next?: string;
+    navigation?: string;
 }
 
 interface PrimeVueLocaleOptions {
@@ -55,6 +56,8 @@ interface PrimeVueLocaleOptions {
     choose?: string;
     upload?: string;
     cancel?: string;
+    completed?: string;
+    pending?: string;
     dayNames: string[];
     dayNamesShort: string[];
     dayNamesMin: string[];
