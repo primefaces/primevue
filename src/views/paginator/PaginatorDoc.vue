@@ -49,8 +49,8 @@ import Paginator from 'primevue/paginator';
 
         <h5>Template</h5>
         <p>
-            Paginator elements can be customized using the <i>template</i> property using the predefined keys, default value is "FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown". Here are the available elements that can be
-            placed inside a paginator in any order.
+            Paginator elements can be customized using the <i>template</i> property using the predefined keys, default value is "FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown". Here are the available elements that
+            can be placed inside a paginator in any order.
         </p>
 
         <ul>
@@ -77,9 +77,11 @@ import Paginator from 'primevue/paginator';
         </ul>
 
         <h5>Responsive</h5>
-        <p>Paginator elements can be customized per screen size by defining a template per breakpoint. Note that breakpoints are based on max-width setting, if <i>default</i>
-        key is omitted then the default template would be used. Example below has 4 settings; up to 640px, between 641px-960px, between 961px-1300px and larger than 1301px which is the default.</p>
-<pre v-code><code><template v-pre>
+        <p>
+            Paginator elements can be customized per screen size by defining a template per breakpoint. Note that breakpoints are based on max-width setting, if <i>default</i> key is omitted then the default template would be used. Example below has
+            4 settings; up to 640px, between 641px-960px, between 961px-1300px and larger than 1301px which is the default.
+        </p>
+        <pre v-code><code><template v-pre>
 &lt;Paginator
     :template="&#123;
         '640px': 'PrevPageLink CurrentPageReport NextPageLink',
