@@ -372,15 +372,15 @@ myUploader(event) {
                             event.file: Removed file. <br />
                             event.files: Remaining files to be uploaded.
                         </td>
-                        <td>Callback to invoke when a singe file is removed from the file list to upload.</td>
+                        <td>Callback to invoke when a single file is removed from the file list to upload.</td>
                     </tr>
                     <tr>
-                        <td>remove</td>
+                        <td>removeUploadedFile</td>
                         <td>
                             event.file: Removed uploaded file. <br />
                             event.files: Remaining uploaded files.
                         </td>
-                        <td>Callback to invoke when a singe file is removed from the uploaded file list.</td>
+                        <td>Callback to invoke when a single uploaded file is removed from the uploaded file list.</td>
                     </tr>
                 </tbody>
             </table>

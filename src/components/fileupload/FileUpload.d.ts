@@ -87,6 +87,17 @@ export interface FileUploadRemoveEvent {
     files: File[];
 }
 
+export interface FileUploadRemoveUploadedFile {
+    /**
+     * Removed file.
+     */
+    file: File;
+    /**
+     * Remaining files to be uploaded.
+     */
+    files: File[];
+}
+
 export interface FileUploadProps {
     /**
      * Name of the request parameter to identify the files at backend.
@@ -256,6 +267,11 @@ export declare type FileUploadEmits = {
      * @param {FileUploadRemoveEvent} event - Custom remove event.
      */
     remove: (event: FileUploadRemoveEvent) => void;
+    /**
+     * Callback to invoke when a single uploaded file is removed from the uploaded file list.
+     * @param {FileUploadRemoveUploadedFile} event - Custom uploaded file remove event.
+     */
+    removeUploadedFile: (event: FileUploadRemoveUploadedFile) => void;
 };
 
 declare class FileUpload extends ClassComponent<FileUploadProps, FileUploadSlots, FileUploadEmits> {}

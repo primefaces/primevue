@@ -272,6 +272,22 @@ const FileUploadEvents = [
                 description: 'Remaining files to be uploaded.'
             }
         ]
+    },
+    {
+        name: 'removeUploadedFile',
+        description: 'Callback to invoke when a single uploaded file is removed from the uploaded file list.',
+        arguments: [
+            {
+                name: 'event.file',
+                type: 'object',
+                description: 'Removed file.'
+            },
+            {
+                name: 'event.files',
+                type: 'object',
+                description: 'Remaining files to be uploaded.'
+            }
+        ]
     }
 ];
 
