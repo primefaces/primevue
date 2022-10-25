@@ -147,4 +147,89 @@ describe('MultiSelect.vue', () => {
             });
         });
     });
+
+    const groupedItems = [
+        {
+            name: 'Germany',
+            code: 'DE',
+            items: [
+                { name: 'Berlin', value: 'Berlin' },
+                { name: 'Frankfurt', value: 'Frankfurt' },
+                { name: 'Hamburg', value: 'Hamburg' },
+                { name: 'Munich', value: 'Munich' }
+            ]
+        },
+        {
+            name: 'USA',
+            code: 'US',
+            items: [
+                { name: 'Chicago', value: 'Chicago' },
+                { name: 'Los Angeles', value: 'Los Angeles' },
+                { name: 'New York', value: 'New York' },
+                { name: 'San Francisco', value: 'San Francisco' }
+            ]
+        },
+        {
+            name: 'Japan',
+            code: 'JP',
+            items: [
+                { name: 'Kyoto', value: 'Kyoto' },
+                { name: 'Osaka', value: 'Osaka' },
+                { name: 'Tokyo', value: 'Tokyo' },
+                { name: 'Yokohama', value: 'Yokohama' }
+            ]
+        }
+    ];
+
+    describe('grouped', () => {
+        it('should show group labels', async () => {
+            await wrapper.setProps({
+                options: groupedItems,
+                optionGroupLabel: 'name',
+                optionGroupChildren: 'items'
+            });
+
+            await wrapper.vm.onContainerClick();
+            expect(wrapper.find('.p-multiselect-item-group').exists()).toBe(true);
+        });
+
+        it('should show emit the filter event when filter text is entered', async () => {
+            await wrapper.setProps({
+                options: groupedItems,
+                optionGroupLabel: 'name',
+                optionGroupChildren: 'items',
+                filter: true,
+                autoFilterFocus: true
+            });
+
+            await wrapper.vm.onContainerClick();
+            const input = await wrapper.find('input.p-multiselect-filter');
+
+            //input.value = 'Ber';
+            //await wrapper.vm.onFilterChange({ target:input });
+            input.setValue('Ber');
+            input.trigger('input');
+
+            expect(wrapper.emitted()).toHaveProperty('filter');
+        });
+
+        it('should show relevant group labels for filtered items', async () => {
+            await wrapper.setProps({
+                options: groupedItems,
+                optionGroupLabel: 'name',
+                optionGroupChildren: 'items',
+                filter: true,
+                autoFilterFocus: true
+            });
+
+            await wrapper.vm.onContainerClick();
+            const input = await wrapper.find('input.p-multiselect-filter');
+
+            input.value = 'Ber';
+
+            await wrapper.vm.onFilterChange({ target: input });
+            expect(wrapper.findAll('.p-multiselect-item-group').length).toBe(1);
+            expect(wrapper.find('.p-multiselect-item-group').text()).toBe('Germany');
+        });
+    });
 });
