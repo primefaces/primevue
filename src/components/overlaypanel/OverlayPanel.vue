@@ -246,7 +246,7 @@ export default {
 
                 let innerHTML = '';
 
-                for (let breakpoint in this.breakpoints) {
+                for (const breakpoint in this.breakpoints) {
                     innerHTML += `
                         @media screen and (max-width: ${breakpoint}) {
                             .p-overlaypanel[${this.attributeSelector}] {
