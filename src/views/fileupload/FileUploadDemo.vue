@@ -118,8 +118,6 @@ export default {
             callback();
         },
         onTemplatedUpload() {
-            this.totalSize = 0;
-            this.totalSizePercent = 0;
             this.$toast.add({ severity: 'info', summary: 'Success', detail: 'File Uploaded', life: 3000 });
         },
         onUpload() {
