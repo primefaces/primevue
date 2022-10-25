@@ -29,10 +29,10 @@
 </template>
 
 <script>
-import { computed } from 'vue';
-import { UniqueComponentId, DomHandler, ZIndexUtils } from 'primevue/utils';
-import Ripple from 'primevue/ripple';
 import Portal from 'primevue/portal';
+import Ripple from 'primevue/ripple';
+import { DomHandler, UniqueComponentId, ZIndexUtils } from 'primevue/utils';
+import { computed } from 'vue';
 
 export default {
     name: 'Dialog',
