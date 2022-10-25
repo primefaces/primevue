@@ -433,7 +433,7 @@ export default {
                     default: 'FirstPageLink PrevPageLink PageLinks NextPageLinLastPageLink JumpToPageDropdown'
                 }"
                 :rows="10"
-                :totalRecords="totalRecords">
+                :total-records="totalRecords">
             </p-paginator>
 
             <h5>Custom</h5>

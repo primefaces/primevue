@@ -514,7 +514,7 @@ export default {
 		<Toast />
 
         <h5>Advanced</h5>
-        <FileUpload name="demo[]" url="https://www.primefaces.org/upload.php" @upload="onAdvancedUpload($event)" :multiple="true" accept="image/:maxFileSize="1000000">
+        <FileUpload name="demo[]" url="https://www.primefaces.org/upload.php" @upload="onAdvancedUpload($event)" :multiple="true" accept="image/*" :maxFileSize="1000000">
             <template #content>
                 <ul v-if="uploadedFiles && uploadedFiles[0]">
                     <li v-for="file of uploadedFiles[0]" :key="file">{{ file.name }} - {{ file.size }} bytes</li>
@@ -526,13 +526,12 @@ export default {
         </FileUpload>
 
         <h5>Templating</h5>
-        <h5>Templating</h5>
         <FileUpload name="demo[]" url="./upload.php" @upload="onTemplatedUpload($event)" :multiple="true" accept="image/*" :maxFileSize="1000000" @select="onSelectedFiles">
             <template #header="{ chooseCallback, uploadCallback, clearCallback, files }">
                 <div class="flex flex-wrap justify-content-between align-items-center flex-1 gap-2">
                     <div class="flex gap-2">
                         <Button @click="chooseCallback()" icon="pi pi-images" class="p-button-rounded"></Button>
-                        <Button @click="uploadCallback()" icon="pi pi-cloud-upload" class="p-button-rounded p-button-success" :disabled="!files || files.length === 0"></Button>
+                        <Button @click="uploadEvent(uploadCallback)" icon="pi pi-cloud-upload" class="p-button-rounded p-button-success" :disabled="!files || files.length === 0"></Button>
                         <Button @click="clearCallback()" icon="pi pi-times" class="p-button-rounded p-button-danger" :disabled="!files || files.length === 0"></Button>
                     </div>
                     <ProgressBar :value="totalSizePercent" :showValue="false" :class="['md:w-20rem h-1rem w-full md:ml-auto', {'exceeded-progress-bar': (totalSizePercent > 100)}]"><span class="white-space-nowrap">{{ totalSize }}B / 1Mb</span></ProgressBar>
@@ -611,11 +610,13 @@ export default {
             this.files.forEach((file) => {
                 this.totalSize += parseInt(this.formatSize(file.size));
             });
-
-            this.totalSizePercent = this.totalSize / 10;
         },
         onAdvancedUpload() {
             this.$toast.add({ severity: 'info', summary: 'Success', detail: 'File Uploaded', life: 3000 });
+        },
+        uploadEvent(callback) {
+            this.totalSizePercent = this.totalSize / 10;
+            callback();
         },
         onTemplatedUpload() {
             this.totalSize = 0;
@@ -637,9 +638,6 @@ export default {
 
             return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
         }
-    },
-    components: {
-        FileUploadDoc: FileUploadDoc
     }
 };
 <\\/script>
@@ -661,7 +659,7 @@ export default {
 		<Toast />
 
         <h5>Advanced</h5>
-        <FileUpload name="demo[]" url="https://www.primefaces.org/upload.php" @upload="onAdvancedUpload($event)" :multiple="true" accept="image/:maxFileSize="1000000">
+        <FileUpload name="demo[]" url="https://www.primefaces.org/upload.php" @upload="onAdvancedUpload($event)" :multiple="true" accept="image/*" :maxFileSize="1000000">
             <template #content>
                 <ul v-if="uploadedFiles && uploadedFiles[0]">
                     <li v-for="file of uploadedFiles[0]" :key="file">{{ file.name }} - {{ file.size }} bytes</li>
@@ -673,13 +671,12 @@ export default {
         </FileUpload>
 
         <h5>Templating</h5>
-        <h5>Templating</h5>
         <FileUpload name="demo[]" url="./upload.php" @upload="onTemplatedUpload($event)" :multiple="true" accept="image/*" :maxFileSize="1000000" @select="onSelectedFiles">
             <template #header="{ chooseCallback, uploadCallback, clearCallback, files }">
                 <div class="flex flex-wrap justify-content-between align-items-center flex-1 gap-2">
                     <div class="flex gap-2">
                         <Button @click="chooseCallback()" icon="pi pi-images" class="p-button-rounded"></Button>
-                        <Button @click="uploadCallback()" icon="pi pi-cloud-upload" class="p-button-rounded p-button-success" :disabled="!files || files.length === 0"></Button>
+                        <Button @click="uploadEvent(uploadCallback)" icon="pi pi-cloud-upload" class="p-button-rounded p-button-success" :disabled="!files || files.length === 0"></Button>
                         <Button @click="clearCallback()" icon="pi pi-times" class="p-button-rounded p-button-danger" :disabled="!files || files.length === 0"></Button>
                     </div>
                     <ProgressBar :value="totalSizePercent" :showValue="false" :class="['md:w-20rem h-1rem w-full md:ml-auto', {'exceeded-progress-bar': (totalSizePercent > 100)}]"><span class="white-space-nowrap">{{ totalSize }}B / 1Mb</span></ProgressBar>
@@ -744,7 +741,7 @@ export default {
         const totalSize = ref(0);
         const totalSizePercent = ref(0);
 
-        const onRemoveTemplatingFile(file, onFileRemove, index) {
+        const onRemoveTemplatingFile = (file, onFileRemove, index) => {
             onFileRemove(index);
             totalSize.value -= parseInt(this.formatSize(file.size));
             totalSizePercent.value = totalSize.value / 10;
@@ -759,15 +756,18 @@ export default {
         const onSelectedFiles = (event) => {
             files.value = event.files;
             files.value.forEach((file) => {
-                this.totalSize += parseInt(this.formatSize(file.size));
+                totalSize.value += parseInt(this.formatSize(file.size));
             });
-
-            totalSizePercent.value = totalSize.value / 10;
         }
 
         const onAdvancedUpload = () => {
             toast.add({ severity: 'info', summary: 'Success', detail: 'File Uploaded', life: 3000 });
         }
+
+        const uploadEvent = (callback) => {
+            totalSizePercent.value = totalSize.value / 10;
+            callback();
+        },
 
         const onTemplatedUpload = () => {
             totalSize.value = 0;
@@ -793,7 +793,7 @@ export default {
         }
 
 
-		return { onUpload, onRemoveTemplatingFile, onClearTemplatingUpload, onSelectedFiles, onAdvancedUpload, onTemplatedUpload, onUpload, formatSize };
+		return { onUpload, onRemoveTemplatingFile, onClearTemplatingUpload, onSelectedFiles, onAdvancedUpload, uploadEvent, onTemplatedUpload, onUpload, formatSize };
 	}
 }
 <\\/script>
@@ -810,15 +810,14 @@ export default {
                 'browser-source': {
                     tabName: 'Browser Source',
                     imports: `<script src="https://unpkg.com/primevue@^3/fileupload/fileupload.min.js"><\\/script>
-<script src="https://unpkg.com/primevue@^3/badge/badge.min.js"><\\/script>
-<script src="https://unpkg.com/primevue@^3/toast/toast.min.js">
-<\\/script>
+            <script src="https://unpkg.com/primevue@^3/badge/badge.min.js"><\\/script>
+            <script src="https://unpkg.com/primevue@^3/toast/toast.min.js"><\\/script>
 			<script src="https://unpkg.com/primevue@^3/toastservice/toastservice.min.js"><\\/script>`,
                     content: `<div id="app">
 				<p-toast></p-toast>
 
                 <h5>Advanced</h5>
-                <p-fileupload name="demo[]" url="https://www.primefaces.org/upload.php" @upload="onAdvancedUpload($event)" :multiple="true" accept="image/:maxFileSize="1000000">
+                <p-fileupload name="demo[]" url="https://www.primefaces.org/upload.php" @upload="onAdvancedUpload($event)" :multiple="true" accept="image/*" :max-file-size="1000000">
                     <template #content>
                         <ul v-if="uploadedFiles && uploadedFiles[0]">
                             <li v-for="file of uploadedFiles[0]" :key="file">{{ file.name }} - {{ file.size }} bytes</li>
@@ -830,15 +829,15 @@ export default {
                 </p-fileupload>
 
                 <h5>Templating</h5>
-                <p-fileupload name="demo[]" url="./upload.php" @upload="onTemplatedUpload($event)" :multiple="true" accept="image/*" :maxFileSize="1000000" @select="onSelectedFiles">
+                <p-fileupload name="demo[]" url="./upload.php" @upload="onTemplatedUpload($event)" :multiple="true" accept="image/*" :max-file-size="1000000" @select="onSelectedFiles">
                     <template #header="{ chooseCallback, uploadCallback, clearCallback, files }">
                         <div class="flex flex-wrap justify-content-between align-items-center flex-1 gap-2">
                             <div class="flex gap-2">
                                 <p-button @click="chooseCallback()" icon="pi pi-images" class="p-button-rounded"></p-button>
-                                <p-button @click="uploadCallback()" icon="pi pi-cloud-upload" class="p-button-rounded p-button-success" :disabled="!files || files.length === 0"></p-button>
+                                <p-button @click="uploadEvent(uploadCallback)" icon="pi pi-cloud-upload" class="p-button-rounded p-button-success" :disabled="!files || files.length === 0"></p-button>
                                 <p-button @click="clearCallback()" icon="pi pi-times" class="p-button-rounded p-button-danger" :disabled="!files || files.length === 0"></p-button>
                             </div>
-                            <p-progressbar :value="totalSizePercent" :showValue="false" :class="['md:w-20rem h-1rem w-full md:ml-auto', {'exceeded-progress-bar': (totalSizePercent > 100)}]"><span class="white-space-nowrap">{{ totalSize }}B / 1Mb</span></p-progressbar>
+                            <p-progressbar :value="totalSizePercent" :show-value="false" :class="['md:w-20rem h-1rem w-full md:ml-auto', {'exceeded-progress-bar': (totalSizePercent > 100)}]"><span class="white-space-nowrap">{{ totalSize }}B / 1Mb</span></p-progressbar>
                         </div>
                     </template>
                     <template #content="{ files, uploadedFiles, removeUploadedFileCallback, fileRemoveCallback }">
@@ -874,11 +873,11 @@ export default {
                     </template>
                     <template #empty>
                         <div class="flex align-items-center justify-content-center flex-column">
-                            <i class="pi pi-cloud-upload border-2 border-circle p-5 text-8xl text-400 border-400" />
+                            <i class="pi pi-cloud-upload border-2 border-circle p-5 text-8xl text-400 border-400"></i>
                             <p class="mt-4 mb-0">Drag and drop files to here to upload.</p>
                         </div>
                     </template>
-                </FileUpload>
+                </p-fileupload>
 
 				<h5>Basic</h5>
 				<p-fileupload mode="basic" name="demo[]" url="./upload.php" accept="image/*" :max-file-size="1000000" @upload="onUpload"></p-fileupload>
@@ -898,43 +897,42 @@ export default {
                     const files = ref([]);
                     const totalSize = ref(0);
                     const totalSizePercent = ref(0);
-                    const onUpload = () => {
-                        toast.add({severity: 'info', summary: 'Success', detail: 'File Uploaded', life: 3000});
-                    }
-                    const onRemoveTemplatingFile(file, onFileRemove, index) {
-                        onFileRemove(index);
-                        totalSize.value -= parseInt(this.formatSize(file.size));
-                        totalSizePercent.value = totalSize.value / 10;
-                    }
-                    const onClearTemplatingUpload = (clear) => {
+
+                    return {toast, uploadedFile,files,totalSize,totalSizePercent};
+                },
+                methods: {
+                    onRemoveTemplatingFile(file, fileRemoveCallback, index) {
+                        fileRemoveCallback(index);
+                        this.totalSize -= parseInt(this.formatSize(file.size));
+                        this.totalSizePercent = this.totalSize / 10;
+                    },
+                    onClearTemplatingUpload(clear) {
                         clear();
-                        totalSize.value = 0;
-                        totalSizePercent.value = 0;
-                    }
-                    const onSelectedFiles = (event) => {
-                        files.value = event.files;
-                        files.value.forEach((file) => {
+                        this.totalSize = 0;
+                        this.totalSizePercent = 0;
+                    },
+                    onSelectedFiles(event) {
+                        this.files = event.files;
+                        this.files.forEach((file) => {
                             this.totalSize += parseInt(this.formatSize(file.size));
                         });
-
-                        totalSizePercent.value = totalSize.value / 10;
-                    }
-
-                    const onAdvancedUpload = () => {
-                        toast.add({ severity: 'info', summary: 'Success', detail: 'File Uploaded', life: 3000 });
-                    }
-
-                    const onTemplatedUpload = () => {
-                        totalSize.value = 0;
-                        totalSizePercent.value = 0;
-                        toast.add({ severity: 'info', summary: 'Success', detail: 'File Uploaded', life: 3000 });
-                    }
-
-                    const onUpload = () => {
-                        toast.add({ severity: 'info', summary: 'Success', detail: 'File Uploaded', life: 3000 });
-                    }
-
-                    const formatSize = (bytes) => {
+                    },
+                    onAdvancedUpload() {
+                        this.$toast.add({ severity: 'info', summary: 'Success', detail: 'File Uploaded', life: 3000 });
+                    },
+                    uploadEvent(callback) {
+                        this.totalSizePercent = this.totalSize / 10;
+                        callback();
+                    },
+                    onTemplatedUpload() {
+                        this.totalSize = 0;
+                        this.totalSizePercent = 0;
+                        this.$toast.add({ severity: 'info', summary: 'Success', detail: 'File Uploaded', life: 3000 });
+                    },
+                    onUpload() {
+                        this.$toast.add({ severity: 'info', summary: 'Success', detail: 'File Uploaded', life: 3000 });
+                    },
+                    formatSize(bytes) {
                         if (bytes === 0) {
                             return '0 B';
                         }
@@ -946,22 +944,20 @@ export default {
 
                         return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
                     }
-
-
-                    return { onUpload, onRemoveTemplatingFile, onClearTemplatingUpload, onSelectedFiles, onAdvancedUpload, onTemplatedUpload, onUpload, formatSize };
                 },
                 components: {
                     "p-fileupload": primevue.fileupload,
                     "p-button": primevue.button,
                     "p-badge": primevue.badge,
-                    "p-progressbar": primevue.progressbar
+                    "p-progressbar": primevue.progressbar,
+                    "p-toast": primevue.toast
                 }
 			};
 
-			createApp(App)
-				.use(primevue.config.default)
-				.use(primevue.toastservice)
-				.mount("#app");
+			const app = createApp(App)
+				app.use(primevue.config.default)
+				app.use(primevue.toastservice)
+				app.mount("#app");
 			<\\/script>
 `
                 }

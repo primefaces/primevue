@@ -23,7 +23,7 @@
                         <div class="flex flex-wrap justify-content-between align-items-center flex-1 gap-2">
                             <div class="flex gap-2">
                                 <Button @click="chooseCallback()" icon="pi pi-images" class="p-button-rounded"></Button>
-                                <Button @click="uploadCallback()" icon="pi pi-cloud-upload" class="p-button-rounded p-button-success" :disabled="!files || files.length === 0"></Button>
+                                <Button @click="uploadEvent(uploadCallback)" icon="pi pi-cloud-upload" class="p-button-rounded p-button-success" :disabled="!files || files.length === 0"></Button>
                                 <Button @click="clearCallback()" icon="pi pi-times" class="p-button-rounded p-button-danger" :disabled="!files || files.length === 0"></Button>
                             </div>
                             <ProgressBar :value="totalSizePercent" :showValue="false" :class="['md:w-20rem h-1rem w-full md:ml-auto', { 'exceeded-progress-bar': totalSizePercent > 100 }]"
@@ -109,11 +109,13 @@ export default {
             this.files.forEach((file) => {
                 this.totalSize += parseInt(this.formatSize(file.size));
             });
-
-            this.totalSizePercent = this.totalSize / 10;
         },
         onAdvancedUpload() {
             this.$toast.add({ severity: 'info', summary: 'Success', detail: 'File Uploaded', life: 3000 });
+        },
+        uploadEvent(callback) {
+            this.totalSizePercent = this.totalSize / 10;
+            callback();
         },
         onTemplatedUpload() {
             this.totalSize = 0;
