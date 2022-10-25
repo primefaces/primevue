@@ -112,7 +112,7 @@
                         <div class="text-xl text-900 font-semibold mb-3">Enterprise</div>
                         <p class="m-0 line-height-3 mb-3 text-secondary">1 Year Subscription</p>
                         <a
-                            href="mailto:primeng@primetek.com.tr"
+                            href="mailto:primevue@primetek.com.tr"
                             class="flex align-items-center justify-content-center border-1 bg-indigo-500 border-round block p-3 mb-4 hover:bg-indigo-600 transition-all transition-duration-300 text-white font-medium"
                             >Get a Quote</a
                         >
