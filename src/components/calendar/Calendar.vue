@@ -292,7 +292,7 @@
                             <button v-ripple class="p-link" :aria-label="$primevue.config.locale.am" @click="toggleAMPM($event)" type="button" :disabled="disabled">
                                 <span class="pi pi-chevron-up"></span>
                             </button>
-                            <span>{{ pm ? $primevue.config.locale.pm : $primevue.config.locale.am }}</span>
+                            <span>{{ pm ? 'PM' : 'AM' }}</span>
                             <button v-ripple class="p-link" :aria-label="$primevue.config.locale.pm" @click="toggleAMPM($event)" type="button" :disabled="disabled">
                                 <span class="pi pi-chevron-down"></span>
                             </button>
@@ -1348,7 +1348,7 @@ export default {
             }
 
             if (this.hourFormat === '12') {
-                output += date.getHours() > 11 ? ` ${this.$primevue.config.locale.pm}` : ` ${this.$primevue.config.locale.am}`;
+                output += date.getHours() > 11 ? ' PM' : ' AM';
             }
 
             return output;
@@ -1759,8 +1759,7 @@ export default {
                 throw 'Invalid Time';
             }
 
-            //DEBUG: 2952
-            this.pm = ampm === this.$primevue.config.locale.am || ampm === this.$primevue.config.locale.am.toLowerCase();
+            this.pm = ampm === 'PM' || ampm === 'pm';
             let time = this.parseTime(timeString);
 
             value.setHours(time.hour);
