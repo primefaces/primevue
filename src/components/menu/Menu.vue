@@ -356,14 +356,17 @@ export default {
         label(item) {
             return typeof item.label === 'function' ? item.label() : item.label;
         },
-        containerRef(el) {
-            this.container = el;
+        separatorClass(item) {
+            return ['p-menuitem-separator', item.class];
         },
         onOverlayClick(event) {
             OverlayEventBus.emit('overlay-click', {
                 originalEvent: event,
                 target: this.target
             });
+        },
+        containerRef(el) {
+            this.container = el;
         },
         listRef(el) {
             this.list = el;
@@ -379,9 +382,6 @@ export default {
                     'p-ripple-disabled': this.$primevue.config.ripple === false
                 }
             ];
-        },
-        separatorClass(item) {
-            return ['p-menu-separator p-menuitem-separator', item.class]; // TODO: the 'p-menu-separator' class is deprecated since v3.18.0.
         },
         id() {
             return this.$attrs.id || UniqueComponentId();
