@@ -13,6 +13,8 @@
 </template>
 
 <script>
+import Badge from '@/components/badge/Badge';
+import Button from 'primevue/button';
 export default {
     emits: ['remove'],
     props: {
@@ -46,6 +48,10 @@ export default {
 
             return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
         }
+    },
+    components: {
+        Button,
+        Badge
     }
 };
 </script>
