@@ -188,7 +188,7 @@ In addition, components require PrimeIcons library for icons.
 ```javascript
 dependencies: {
     "vue": "^3.0.0",
-    "primeicons": "^5.0.0"
+    "primeicons": "^6.0.0"
 }
 ```
 

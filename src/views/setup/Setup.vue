@@ -224,7 +224,7 @@ export default defineNuxtPlugin((nuxtApp) => {
             <pre v-code.script><code>
 dependencies: {
     "vue": "^3.0.0",
-    "primeicons": "^5.0.0"
+    "primeicons": "^6.0.0"
 }
 
 </code></pre>
