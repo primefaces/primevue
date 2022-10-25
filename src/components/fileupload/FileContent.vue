@@ -13,8 +13,9 @@
 </template>
 
 <script>
-import Badge from '@/components/badge/Badge';
 import Button from 'primevue/button';
+import Badge from '../badge/Badge.vue';
+
 export default {
     emits: ['remove'],
     props: {
