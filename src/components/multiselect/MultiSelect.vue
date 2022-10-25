@@ -1063,23 +1063,26 @@ export default {
         visibleOptions() {
             const options = this.optionGroupLabel ? this.flatOptions(this.options) : this.options || [];
 
-            if (!this.filterValue) return options;
+            if (this.filterValue) {
+                const filteredOptions = FilterService.filter(options, this.searchFields, this.filterValue, this.filterMatchMode, this.filterLocale);
 
-            const filteredOptions = FilterService.filter(options, this.searchFields, this.filterValue, this.filterMatchMode, this.filterLocale);
+                if (this.optionGroupLabel) {
+                    const optionGroups = this.options || [];
+                    const filtered = [];
 
-            if (!this.optionGroupLabel) return filteredOptions;
+                    optionGroups.forEach((group) => {
+                        const filteredItems = group.items.filter((item) => filteredOptions.includes(item));
 
-            const optionGroups = this.options || [];
+                        if (filteredItems.length > 0) filtered.push({ ...group, items: [...filteredItems] });
+                    });
 
-            const filtered = [];
+                    return this.flatOptions(filtered);
+                }
 
-            optionGroups.forEach((group) => {
-                const filteredItems = group.items.filter((item) => filteredOptions.includes(item));
+                return filteredOptions;
+            }
 
-                if (filteredItems.length > 0) filtered.push({ ...group, items: [...filteredItems] });
-            });
-
-            return this.flatOptions(filtered);
+            return options;
         },
         label() {
             // TODO: Refactor
