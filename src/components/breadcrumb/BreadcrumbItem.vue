@@ -1,5 +1,5 @@
 <template>
-    <li v-if="visible()" :class="containerClass(item)">
+    <li v-if="visible()" :class="containerClass()">
         <template v-if="!template">
             <router-link v-if="item.to" v-slot="{ navigate, href, isActive, isExactActive }" :to="item.to" custom>
                 <a :href="href" :class="linkClass({ isActive, isExactActive })" :aria-current="isCurrentUrl()" @click="onClick($event, navigate)">
@@ -37,8 +37,8 @@ export default {
                 navigate(event);
             }
         },
-        containerClass(item) {
-            return ['p-menuitem', { 'p-disabled': this.disabled(item) }, this.item.class];
+        containerClass() {
+            return ['p-menuitem', { 'p-disabled': this.disabled() }, this.item.class];
         },
         linkClass(routerProps) {
             return [
@@ -52,19 +52,15 @@ export default {
         visible() {
             return typeof this.item.visible === 'function' ? this.item.visible() : this.item.visible !== false;
         },
-        disabled(item) {
-            return typeof item.disabled === 'function' ? item.disabled() : item.disabled;
+        disabled() {
+            return typeof this.item.disabled === 'function' ? this.item.disabled() : this.item.disabled;
         },
         label() {
             return typeof this.item.label === 'function' ? this.item.label() : this.item.label;
         },
         isCurrentUrl() {
             const { to, url } = this.item;
-            let lastPath = '';
-
-            if (this.$router) {
-                lastPath = this.$router.currentRoute.path;
-            }
+            let lastPath = this.$router ? this.$router.currentRoute.path : '';
 
             return to === lastPath || url === lastPath ? 'page' : undefined;
         }
