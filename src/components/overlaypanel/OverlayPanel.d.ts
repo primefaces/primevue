@@ -85,7 +85,7 @@ declare class OverlayPanel extends ClassComponent<OverlayPanelProps, OverlayPane
      *
      * @memberof OverlayPanel
      */
-    toggle: (event: Event) => void;
+    toggle: (event: Event, target?: any) => void;
     /**
      * Shows the overlay.
      * @param {Event} event - Browser event.
