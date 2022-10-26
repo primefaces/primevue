@@ -101,7 +101,7 @@ export default {
                 this.bindOutsideClickListener();
                 this.bindResizeListener();
                 this.bindDocumentContextMenuListener();
-            } else {
+            } else if (!this.visible) {
                 this.unbindOutsideClickListener();
                 this.unbindResizeListener();
                 this.unbindDocumentContextMenuListener();
@@ -148,7 +148,7 @@ export default {
             return processedItem && ObjectUtils.isNotEmpty(processedItem.items);
         },
         toggle(event) {
-            this.visible ? this.hide(event) : this.show(event);
+            this.visible ? this.hide() : this.show(event);
         },
         show(event) {
             this.activeItemPath = [];
@@ -258,9 +258,8 @@ export default {
             isFocus && DomHandler.focus(this.list);
         },
         onItemClick(event) {
-            const { originalEvent, processedItem } = event;
+            const { processedItem } = event;
             const grouped = this.isProccessedItemGroup(processedItem);
-            const root = ObjectUtils.isEmpty(processedItem.parent);
             const selected = this.isSelected(processedItem);
 
             if (selected) {
@@ -271,7 +270,7 @@ export default {
 
                 DomHandler.focus(this.list);
             } else {
-                grouped ? this.onItemChange(event) : this.hide(originalEvent, !root);
+                grouped ? this.onItemChange(event) : this.hide();
             }
         },
         onItemMouseEnter(event) {
@@ -292,7 +291,7 @@ export default {
                     !grouped && this.onItemChange({ originalEvent: event, processedItem });
                 }
 
-                this.popup && this.hide(event, true);
+                this.popup && this.hide();
                 event.preventDefault();
             } else {
                 const itemIndex = this.focusedItemInfo.index !== -1 ? this.findPrevItemIndex(this.focusedItemInfo.index) : this.findLastFocusedItemIndex();
@@ -355,7 +354,7 @@ export default {
             this.onEnterKey(event);
         },
         onEscapeKey(event) {
-            this.hide(event, true);
+            this.hide();
             !this.popup && (this.focusedItemInfo.index = this.findFirstFocusedItemIndex());
 
             event.preventDefault();
@@ -372,8 +371,6 @@ export default {
         },
         onEnter(el) {
             this.position();
-            this.bindOutsideClickListener();
-            this.bindResizeListener();
 
             if (this.autoZIndex) {
                 ZIndexUtils.set('menu', el, this.baseZIndex + this.$primevue.config.zIndex.menu);
@@ -388,10 +385,6 @@ export default {
             DomHandler.focus(this.list);
         },
         onLeave() {
-            this.unbindOutsideClickListener();
-            this.unbindResizeListener();
-            this.unbindDocumentContextMenuListener();
-
             this.$emit('hide');
             this.container = null;
         },
@@ -399,6 +392,10 @@ export default {
             if (this.autoZIndex) {
                 ZIndexUtils.clear(el);
             }
+
+            this.unbindOutsideClickListener();
+            this.unbindResizeListener();
+            this.unbindDocumentContextMenuListener();
         },
         position() {
             let left = this.pageX + 1;
@@ -452,9 +449,9 @@ export default {
         },
         bindResizeListener() {
             if (!this.resizeListener) {
-                this.resizeListener = (event) => {
+                this.resizeListener = () => {
                     if (this.visible && !DomHandler.isTouchDevice()) {
-                        this.hide(event, true);
+                        this.hide();
                     }
                 };
 
@@ -470,7 +467,7 @@ export default {
         bindDocumentContextMenuListener() {
             if (!this.documentContextMenuListener) {
                 this.documentContextMenuListener = (event) => {
-                    this.show(event);
+                    event.button !== 2 ? this.show(event) : this.hide();
                 };
 
                 document.addEventListener('contextmenu', this.documentContextMenuListener);
