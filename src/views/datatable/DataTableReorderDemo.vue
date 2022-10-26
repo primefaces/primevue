@@ -1,24 +1,45 @@
 <template>
-    <div>
-        <div class="content-section introduction">
-            <div class="feature-intro">
-                <h1>DataTable <span>Reorder</span></h1>
-                <p>Order of the columns and rows can be changed using drag and drop.</p>
-            </div>
-            <AppDemoActions />
-        </div>
-
-        <div class="content-section implementation">
-            <div class="card">
-                <DataTable :value="products" :reorderableColumns="true" @column-reorder="onColReorder" @row-reorder="onRowReorder" responsiveLayout="scroll">
-                    <Column :rowReorder="true" headerStyle="width: 3rem" :reorderableColumn="false" />
-                    <Column v-for="col of columns" :key="col.field" :field="col.field" :header="col.header"></Column>
-                </DataTable>
-            </div>
-        </div>
-
-        <AppDoc name="DataTableReorderDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="datatable/DataTableReorderDemo.vue" />
+  <div>
+    <div class="content-section introduction">
+      <div class="feature-intro">
+        <h1>DataTable <span>Reorder</span></h1>
+        <p>Order of the columns and rows can be changed using drag and drop.</p>
+      </div>
+      <AppDemoActions />
     </div>
+
+    <div class="content-section implementation">
+      <div class="card">
+        <DataTable
+          :value="products"
+          :reorderableColumns="true"
+          @column-reorder="onColReorder"
+          @row-reorder="onRowReorder"
+          responsiveLayout="scroll"
+        >
+          <Column
+            :rowReorder="true"
+            headerStyle="width: 3rem"
+            :reorderableColumn="false"
+          />
+          <Column
+            v-for="col of columns"
+            :key="col.field"
+            :field="col.field"
+            :header="col.header"
+          ></Column>
+        </DataTable>
+      </div>
+    </div>
+
+    <AppDoc
+      name="DataTableReorderDemo"
+      :sources="sources"
+      :service="['ProductService']"
+      :data="['products-small']"
+      github="datatable/DataTableReorderDemo.vue"
+    />
+  </div>
 </template>
 
 <script>
@@ -78,7 +99,7 @@ export default {
         }
     }
 }
-<\\/script>                  
+<\\/script>
 `
                 },
                 'composition-api': {
@@ -103,7 +124,7 @@ export default {
     setup() {
         onMounted(() => {
             productService.value.getProductsSmall().then(data => products.value = data);
-        }) 
+        })
 
         const toast = useToast();
         const columns = ref([
@@ -115,9 +136,13 @@ export default {
         const products = ref();
         const productService = ref(new ProductService());
 
-        const onColReorder = () => {
-            toast.add({severity:'success', summary: 'Column Reordered', life: 3000});
-        };
+        const onColReorder = (event) => {
+            toast.add({
+                severity: 'success',
+                summary: \`Column #\${event.dragIndex} moved to #\${event.dropIndex}\`,
+                life: 3000
+            });
+        }
         const onRowReorder = (event) => {
             products.value = event.value;
             toast.add({severity:'success', summary: 'Rows Reordered', life: 3000});
@@ -126,7 +151,7 @@ export default {
         return { columns, products, onColReorder, onRowReorder }
     }
 }
-<\\/script>                  
+<\\/script>
 `
                 },
                 'browser-source': {
@@ -152,7 +177,7 @@ export default {
             setup() {
                 onMounted(() => {
                     productService.value.getProductsSmall().then(data => products.value = data);
-                }) 
+                })
 
                 const toast = useToast();
                 const columns = ref([
@@ -185,7 +210,7 @@ export default {
             .use(primevue.config.default)
             .use(primevue.toastservice)
             .mount("#app");
-        <\\/script>                  
+        <\\/script>
 `
                 }
             }
@@ -206,8 +231,12 @@ export default {
         this.productService.getProductsSmall().then((data) => (this.products = data));
     },
     methods: {
-        onColReorder() {
-            this.$toast.add({ severity: 'success', summary: 'Column Reordered', life: 3000 });
+        onColReorder(event) => {
+            toast.add({
+                severity: 'success',
+                summary: `Column #${event.dragIndex} moved to #${event.dropIndex}`,
+                life: 3000
+            });
         },
         onRowReorder(event) {
             this.products = event.value;
