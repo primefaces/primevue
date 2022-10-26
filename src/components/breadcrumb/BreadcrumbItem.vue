@@ -60,7 +60,11 @@ export default {
         },
         isCurrentUrl() {
             const { to, url } = this.item;
-            const lastPath = `/${window.location.href.split('/').pop()}`;
+            let lastPath = '';
+
+            if (this.$router) {
+                lastPath = this.$router.currentRoute.path;
+            }
 
             return to === lastPath || url === lastPath ? 'page' : undefined;
         }
