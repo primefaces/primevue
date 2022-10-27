@@ -1,0 +1,45 @@
+name: Pr Code Command Checker
+
+on:
+  pull_request:
+    types: [edited, synchronize, opened, reopened]
+
+permissions:
+  contents: read
+
+jobs:
+  pr-open-check:
+    permissions:
+      contents: read
+      pull-requests: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Code Format
+        id: codeFormat
+        run: |
+          npm run format:check
+
+      - name: Unit Test
+        id: unitTest
+        run: |
+          npm run test:unit
+
+      - name: Check on failures
+        if: ${{ failure() }}
+        uses: actions-ecosystem/action-add-labels@v1
+        with:
+          labels: 'need revision'
+
+      - name: Add Code Format Fail Comment
+        if: always() && steps.codeFormat.outcome == 'failure'
+        uses: thollander/actions-comment-pull-request@v1
+        with:
+          message: |
+            Your PR does not seem to meet our format standards. Please run the 'npm run format' command and commit the changes.
+
+      - name: Add Unit Test Fail Comment
+        if: always() && steps.unitTest.outcome == 'failure'
+        uses: thollander/actions-comment-pull-request@v1
+        with:
+          message: |
+            Please review the unit tests and commit them again.
