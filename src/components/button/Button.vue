@@ -51,7 +51,7 @@ export default {
     computed: {
         buttonClass() {
             return {
-                   'p-button p-component': true,
+                'p-button p-component': true,
                 'p-button-icon-only': this.icon && !this.label,
                 'p-button-vertical': (this.iconPos === 'top' || this.iconPos === 'bottom') && this.label,
                 'p-disabled': this.$attrs.disabled || this.loading,
