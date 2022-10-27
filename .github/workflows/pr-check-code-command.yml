@@ -53,3 +53,8 @@ jobs:
         with:
           message: |
             Please review the unit tests and commit them again.
+
+      - uses: actions-ecosystem/action-remove-labels@v1
+        if: ${{ success() }}
+        with:
+          labels: 'need revision'
