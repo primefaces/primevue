@@ -1,7 +1,7 @@
 <template>
     <Portal>
-        <transition name="p-sidebar" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave" appear>
-            <div v-if="visible" :ref="containerRef" :class="containerClass" role="complementary" :aria-modal="modal" v-bind="$attrs">
+        <transition name="p-sidebar" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave" :appear="!keepAlive">
+            <div v-if="keepAlive || visible" v-show="visible" :ref="containerRef" :class="containerClass" role="complementary" :aria-modal="modal" v-bind="$attrs">
                 <div class="p-sidebar-header">
                     <div v-if="$slots.header" class="p-sidebar-header-content">
                         <slot name="header"></slot>
@@ -59,6 +59,10 @@ export default {
         ariaCloseLabel: {
             type: String,
             default: 'close'
+        },
+        keepAlive: {
+            type: Boolean,
+            default: false
         }
     },
     mask: null,

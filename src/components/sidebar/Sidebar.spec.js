@@ -1,8 +1,19 @@
 import { mount } from '@vue/test-utils';
 import PrimeVue from '@/components/config/PrimeVue';
 import Sidebar from './Sidebar.vue';
+import { h } from 'vue';
 
 describe('Sidebar.vue', () => {
+    const ChildComponent = {
+        name: 'Child',
+        data() {
+            return {
+                value: 'Left Sidebar'
+            };
+        },
+        template: `<div>{{ value }}</div>`
+    };
+
     let wrapper;
 
     beforeEach(() => {
@@ -15,10 +26,10 @@ describe('Sidebar.vue', () => {
             },
             props: {
                 visible: true,
-                bazeZIndex: 1000
+                baseZIndex: 1000
             },
             slots: {
-                default: `<h3>Left Sidebar</h3>`
+                default: h(ChildComponent, { 'v-bind:key': 'constant' })
             }
         });
     });
@@ -50,5 +61,24 @@ describe('Sidebar.vue', () => {
 
         expect(wrapper.vm.fullScreen).toBe(true);
         expect(wrapper.find('.p-sidebar').classes()).toContain('p-sidebar-full');
+    });
+
+    it('should dispose contents', async () => {
+        await wrapper.getComponent(ChildComponent).setData({ value: 'Changed' });
+        expect(wrapper.getComponent(ChildComponent).html()).toContain('Changed');
+        await wrapper.setProps({ visible: false });
+        expect(wrapper.findComponent(ChildComponent).exists()).toBe(false);
+        await wrapper.setProps({ visible: true });
+        expect(wrapper.getComponent(ChildComponent).html()).toContain('Left Sidebar');
+    });
+
+    it('should keep alive contents', async () => {
+        await wrapper.setProps({ keepAlive: true });
+        await wrapper.getComponent(ChildComponent).setData({ value: 'Changed' });
+        expect(wrapper.getComponent(ChildComponent).html()).toContain('Changed');
+        expect(wrapper.findComponent(ChildComponent).exists()).toBe(true);
+        expect(wrapper.getComponent(ChildComponent).html()).toContain('Changed');
+        await wrapper.setProps({ visible: true });
+        expect(wrapper.getComponent(ChildComponent).html()).toContain('Changed');
     });
 });

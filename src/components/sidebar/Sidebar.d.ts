@@ -44,6 +44,11 @@ export interface SidebarProps {
      * Default value is 'close'.
      */
     ariaCloseLabel?: string | undefined;
+    /**
+     * Whether to dispose the contents of the sidebar when closed (false) or keep the contents alive (true)
+     * Default value is false.
+     */
+    keepAlive?: boolean | undefined;
 }
 
 export interface SidebarSlots {
