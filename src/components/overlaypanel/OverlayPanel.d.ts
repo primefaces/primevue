@@ -82,6 +82,7 @@ declare class OverlayPanel extends ClassComponent<OverlayPanelProps, OverlayPane
     /**
      * Toggles the visibility of the overlay.
      * @param {Event} event - Browser event.
+     * @param {*} [target] - Optional target if event.currentTarget should not be used.
      *
      * @memberof OverlayPanel
      */
