@@ -42,7 +42,7 @@ describe('Button.vue', () => {
         });
 
         expect(wrapper.find('.p-badge').text()).toEqual(badge);
-        expect(wrapper.find('.' + badgeClass).exists()).toBe(false);
+        expect(wrapper.find('.' + badgeClass).exists()).toBe(true);
     });
 });
 
