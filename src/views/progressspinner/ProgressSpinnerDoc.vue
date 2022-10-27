@@ -126,11 +126,6 @@ export default {
         <ProgressSpinner style="width:50px;height:50px" strokeWidth="8" fill="var(--surface-ground)" animationDuration=".5s"/>
     </div>
 </template>
-
-<script>
-export default {
-}
-<\\/script>
 `
                 },
                 'composition-api': {
@@ -145,11 +140,7 @@ export default {
         <ProgressSpinner style="width:50px;height:50px" strokeWidth="8" fill="var(--surface-ground)" animationDuration=".5s"/>
     </div>
 </template>
-
-<script>
-export default {
-}
-<\\/script>`
+`
                 },
                 'browser-source': {
                     tabName: 'Browser Source',
