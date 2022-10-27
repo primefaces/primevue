@@ -14,6 +14,10 @@ jobs:
       pull-requests: write
     runs-on: ubuntu-latest
     steps:
+      - name: Install packages
+      run: |
+        npm install
+
       - name: Code Format
         id: codeFormat
         run: |
