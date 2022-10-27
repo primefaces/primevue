@@ -1,6 +1,6 @@
-import { h } from 'vue';
-import { mount } from '@vue/test-utils';
 import Button from '@/components/button/Button.vue';
+import { mount } from '@vue/test-utils';
+import { h } from 'vue';
 
 describe('Button.vue', () => {
     it('is Button element exist', () => {
@@ -42,7 +42,7 @@ describe('Button.vue', () => {
         });
 
         expect(wrapper.find('.p-badge').text()).toEqual(badge);
-        expect(wrapper.find('.' + badgeClass).exists()).toBe(true);
+        expect(wrapper.find('.' + badgeClass).exists()).toBe(false);
     });
 });
 
