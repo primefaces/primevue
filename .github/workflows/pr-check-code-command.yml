@@ -55,6 +55,6 @@ jobs:
             Please review the unit tests and commit them again.
 
       - uses: actions-ecosystem/action-remove-labels@v1
-        if: ${{ success() }}
+        if: ${{ github.event.workflow_run.conclusion == 'success' }}
         with:
           labels: 'need revision'
