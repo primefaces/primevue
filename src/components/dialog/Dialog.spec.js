@@ -43,4 +43,28 @@ describe('Dialog.vue', () => {
         expect(wrapper.find('.p-dialog-content').exists()).toBe(false);
         expect(wrapper.find('.p-dialog-footer').exists()).toBe(false);
     });
+
+    describe('closable', () => {
+        it('should have custom close icon when provided', async () => {
+            const wrapper = mount(Dialog, {
+                global: {
+                    plugins: [PrimeVue],
+                    stubs: {
+                        teleport: true
+                    }
+                },
+                props: {
+                    closable: true,
+                    closeIcon: 'pi pi-discord',
+                    showHeader: true,
+                    visible: false
+                }
+            });
+
+            await wrapper.setProps({ visible: true });
+            const icon = wrapper.find('.p-dialog-header-close-icon');
+
+            expect(icon.classes()).toContain('pi-discord');
+        });
+    });
 });

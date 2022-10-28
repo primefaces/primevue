@@ -59,6 +59,11 @@ export interface DialogProps {
      */
     closable?: boolean | undefined;
     /**
+     * Icon to display in the dialog close button.
+     * Default value is 'pi pi-times'.
+     */
+    closeIcon?: string | undefined;
+    /**
      * Specifies if clicking the modal background should hide the dialog.
      */
     dismissableMask?: boolean | undefined;

@@ -66,6 +66,12 @@ const DialogProps = [
         description: 'Adds a close icon to the header to hide the dialog.'
     },
     {
+        name: 'closeIcon',
+        type: 'string',
+        default: 'pi pi-times',
+        description: 'Icon to display in the dialog close button.'
+    },
+    {
         name: 'showHeader',
         type: 'boolean',
         default: 'true',

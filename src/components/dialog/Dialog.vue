@@ -12,7 +12,7 @@
                                 <span :class="maximizeIconClass"></span>
                             </button>
                             <button v-if="closable" v-ripple class="p-dialog-header-icon p-dialog-header-close p-link" @click="close" :aria-label="ariaCloseLabel" type="button">
-                                <span class="p-dialog-header-close-icon pi pi-times"></span>
+                                <span :class="['p-dialog-header-close-icon', closeIcon]"></span>
                             </button>
                         </div>
                     </div>
@@ -51,6 +51,10 @@ export default {
         closable: {
             type: Boolean,
             default: true
+        },
+        closeIcon: {
+            type: String,
+            default: 'pi pi-times'
         },
         closeOnEscape: {
             type: Boolean,
