@@ -46,14 +46,14 @@ jobs:
         uses: thollander/actions-comment-pull-request@v1
         with:
           message: |
-            Your PR does not seem to meet our format standards. Please run the 'npm run format' command and commit the changes.
+            Thanks a lot for your contribution! But, PR does not seem to fit our code format standards. Please run the 'npm run format' command and commit the changes.
 
       - name: Add Unit Test Fail Comment
         if: always() && steps.unitTest.outcome == 'failure'
         uses: thollander/actions-comment-pull-request@v1
         with:
           message: |
-            Please review the unit tests and commit them again.
+            Thanks a lot for your contribution! But, Unit tests failed. You can check the unit tests with the command 'npm run test:unit' and commit the changes.
 
       - name: Add Label
         if: ${{ failure() }}
