@@ -52,10 +52,6 @@ export default {
             type: Boolean,
             default: true
         },
-        closeIcon: {
-            type: String,
-            default: 'pi pi-times'
-        },
         closeOnEscape: {
             type: Boolean,
             default: true
@@ -103,6 +99,10 @@ export default {
         appendTo: {
             type: String,
             default: 'body'
+        },
+        closeIcon: {
+            type: String,
+            default: 'pi pi-times'
         },
         _instance: null
     },

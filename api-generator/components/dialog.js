@@ -66,12 +66,6 @@ const DialogProps = [
         description: 'Adds a close icon to the header to hide the dialog.'
     },
     {
-        name: 'closeIcon',
-        type: 'string',
-        default: 'pi pi-times',
-        description: 'Icon to display in the dialog close button.'
-    },
-    {
         name: 'showHeader',
         type: 'boolean',
         default: 'true',
@@ -136,6 +130,12 @@ const DialogProps = [
         type: 'string',
         default: 'body',
         description: 'A valid query selector or an HTMLElement to specify where the dialog gets attached. Special keywords are "body" for document body and "self" for the element itself.'
+    },
+    {
+        name: 'closeIcon',
+        type: 'string',
+        default: 'pi pi-times',
+        description: 'Icon to display in the dialog close button.'
     }
 ];
 

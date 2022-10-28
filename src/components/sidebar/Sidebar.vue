@@ -19,9 +19,9 @@
 </template>
 
 <script>
-import { DomHandler, ZIndexUtils } from 'primevue/utils';
-import Ripple from 'primevue/ripple';
 import Portal from 'primevue/portal';
+import Ripple from 'primevue/ripple';
+import { DomHandler, ZIndexUtils } from 'primevue/utils';
 
 export default {
     name: 'Sidebar',

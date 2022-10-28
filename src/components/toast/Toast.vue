@@ -7,11 +7,11 @@
                     :key="msg.id"
                     :message="msg"
                     :template="$slots.message"
-                    :close-icon="closeIcon"
-                    :info-icon="infoIcon"
-                    :warn-icon="warnIcon"
-                    :error-icon="errorIcon"
-                    :success-icon="successIcon"
+                    :closeIcon="closeIcon"
+                    :infoIcon="infoIcon"
+                    :warnIcon="warnIcon"
+                    :errorIcon="errorIcon"
+                    :successIcon="successIcon"
                     @close="remove($event)"
                 />
             </transition-group>

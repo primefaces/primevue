@@ -1,10 +1,10 @@
 <template>
     <div :class="containerClass">
         <div v-if="!d_active" :class="displayClass" :tabindex="$attrs.tabindex || '0'" @click="open" @keydown.enter="open">
-            <slot name="display" />
+            <slot name="display"></slot>
         </div>
         <div v-else class="p-inplace-content">
-            <slot name="content" />
+            <slot name="content"></slot>
             <IPButton v-if="closable" :icon="closeIcon" @click="close" />
         </div>
     </div>
@@ -21,10 +21,6 @@ export default {
             type: Boolean,
             default: false
         },
-        closeIcon: {
-            type: String,
-            default: 'pi pi-times'
-        },
         active: {
             type: Boolean,
             default: false
@@ -32,6 +28,10 @@ export default {
         disabled: {
             type: Boolean,
             default: false
+        },
+        closeIcon: {
+            type: String,
+            default: 'pi pi-times'
         }
     },
     data() {
