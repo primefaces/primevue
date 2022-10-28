@@ -30,4 +30,15 @@ describe('Chips.vue', () => {
         expect(wrapper.find('.p-chips-token-label').exists()).toBe(true);
         expect(wrapper.find('.p-chips-token-label').text()).toBe('PrimeVue');
     });
+
+    it('should have correct custom chip removal icon', async () => {
+        await wrapper.setProps({
+            modelValue: ['foo', 'bar'],
+            removeTokenIcon: 'pi pi-discord'
+        });
+
+        const icon = wrapper.find('.p-chips-token-icon');
+
+        expect(icon.classes()).toContain('pi-discord');
+    });
 });
