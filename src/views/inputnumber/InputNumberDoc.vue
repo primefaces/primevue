@@ -282,6 +282,12 @@ Vertical
                         <td>Determines whether the input field is empty.</td>
                     </tr>
                     <tr>
+                        <td>highlightOnFocus</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>Highlights automatically the input value.</td>
+                    </tr>
+                    <tr>
                         <td>disabled</td>
                         <td>boolean</td>
                         <td>false</td>

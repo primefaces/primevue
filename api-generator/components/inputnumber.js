@@ -136,6 +136,12 @@ const InputNumberProps = [
         description: 'Determines whether the input field is empty.'
     },
     {
+        name: 'highlightOnFocus',
+        type: 'boolean',
+        default: false,
+        description: 'Highlights automatically the input value.'
+    },
+    {
         name: 'readonly',
         type: 'boolean',
         default: 'false',

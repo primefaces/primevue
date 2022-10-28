@@ -131,6 +131,10 @@ export default {
             type: Boolean,
             default: true
         },
+        highlightOnFocus: {
+            type: Boolean,
+            default: false
+        },
         readonly: {
             type: Boolean,
             default: false
@@ -1007,6 +1011,12 @@ export default {
         },
         onInputFocus(event) {
             this.focused = true;
+            debugger;
+
+            if (!this.disabled && !this.readonly && this.$refs.input.$el.value !== DomHandler.getSelection() && this.highlightOnFocus) {
+                event.target.select();
+            }
+
             this.$emit('focus', event);
         },
         onInputBlur(event) {
