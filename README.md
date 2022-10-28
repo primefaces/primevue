@@ -253,7 +253,7 @@ PrimeVue provides a Locale API to support i18n and l7n, visit the [Locale](https
 
 ## Quickstart with Vue CLI
 
-An [example application](https://github.com/primefaces/primevue-quickstart) based on Vue CLI is available at github.
+An [example application](https://github.com/primefaces/primevue-quickstart) based on Vue CLI is available at github. is now in maintenance mode and we recommend starting new projects with Vite unless you rely on specific webpack-only features. Vite will provide superior developer experience in most cases.
 
 ## Quickstart with Vite
 
