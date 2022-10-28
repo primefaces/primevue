@@ -100,6 +100,12 @@ import Sidebar from 'primevue/sidebar';
                         <td>Whether to display a close icon inside the panel.</td>
                     </tr>
                     <tr>
+                        <td>closeIcon</td>
+                        <td>string</td>
+                        <td>pi pi-times</td>
+                        <td>Icon to display in the sidebar close button.</td>
+                    </tr>
+                    <tr>
                         <td>modal</td>
                         <td>boolean</td>
                         <td>true</td>

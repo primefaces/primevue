@@ -36,6 +36,12 @@ const SidebarProps = [
         description: 'Whether to display a close icon inside the panel.'
     },
     {
+        name: 'closeIcon',
+        type: 'string',
+        default: 'pi pi-times',
+        description: 'Icon to display in the sidebar close button.'
+    },
+    {
         name: 'modal',
         type: 'boolean',
         default: 'true',
