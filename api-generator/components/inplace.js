@@ -12,6 +12,12 @@ const InplaceProps = [
         description: 'Displays a button to switch back to display mode.'
     },
     {
+        name: 'closeIcon',
+        type: 'string',
+        default: 'pi pi-times',
+        description: 'Icon to display in the close button.'
+    },
+    {
         name: 'diabled',
         type: 'boolean',
         default: 'false',
