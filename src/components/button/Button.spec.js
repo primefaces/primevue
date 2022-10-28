@@ -23,7 +23,7 @@ describe('Button.vue', () => {
             props
         });
 
-        expect(wrapper.find('.p-button-icon-only').exists()).toBe(false);
+        expect(wrapper.find('.p-button-icon-only').exists()).toBe(true);
 
         wrapper = mount(Button, {
             props: { ...props, label }
