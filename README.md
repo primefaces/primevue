@@ -251,10 +251,6 @@ app.use(PrimeVue, {
 
 PrimeVue provides a Locale API to support i18n and l7n, visit the [Locale](https://www.primefaces.org/primevue/showcase/#/locale) documentation for more information.
 
-## Quickstart with Vue CLI
-
-An [example application](https://github.com/primefaces/primevue-quickstart) based on Vue CLI is available at github.
-
 ## Quickstart with Vite
 
 A [starter application](https://github.com/primefaces/primevue-quickstart-vite) is also provided for Vite users.
@@ -266,3 +262,7 @@ A [sample application](https://github.com/primefaces/primevue-quickstart-nuxt3) 
 ## Quickstart with TypeScript
 
 Typescript is fully supported as type definition files are provided in the npm package of PrimeVue. A sample [typescript-primevue](https://github.com/primefaces/primevue-typescript-quickstart) application with Vue CLI is available as at github.
+
+## Quickstart with Vue CLI
+
+An [example application](https://github.com/primefaces/primevue-quickstart) based on Vue CLI is available at github.
