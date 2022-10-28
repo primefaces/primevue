@@ -14,6 +14,13 @@ jobs:
       pull-requests: write
     runs-on: ubuntu-latest
     steps:
+      - name: Verify Linked Issue
+        uses: hattan/verify-linked-issue-action@v1.1.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          message: 'Please add any related issue link in this pr'
+
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
@@ -34,12 +41,6 @@ jobs:
         run: |
           npm run test:unit
 
-      - name: Check on failures
-        if: ${{ failure() }}
-        uses: actions-ecosystem/action-add-labels@v1
-        with:
-          labels: 'need revision'
-
       - name: Add Code Format Fail Comment
         if: always() && steps.codeFormat.outcome == 'failure'
         uses: thollander/actions-comment-pull-request@v1
@@ -54,7 +55,13 @@ jobs:
           message: |
             Please review the unit tests and commit them again.
 
-      - uses: actions-ecosystem/action-remove-labels@v1
-        if: ${{ github.event.workflow_run.conclusion == 'success' }}
+      - name: Check on failures
+        if: ${{ failure() }}
+        uses: actions-ecosystem/action-add-labels@v1
         with:
           labels: 'need revision'
+
+      - uses: actions-ecosystem/action-remove-labels@v1
+        if: ${{ success() }}
+        with:
+          labels: 'need revision' # will remove here
