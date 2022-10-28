@@ -1,4 +1,4 @@
-import { UniqueComponentId, DomHandler, ObjectUtils, ConnectedOverlayScrollHandler, ZIndexUtils } from 'primevue/utils';
+import { ConnectedOverlayScrollHandler, DomHandler, ObjectUtils, UniqueComponentId, ZIndexUtils } from 'primevue/utils';
 
 function bindEvents(el) {
     const modifiers = el.$_ptooltipModifiers;
@@ -313,7 +313,7 @@ const Tooltip = {
             target.$_ptooltipClass = null;
             target.$_ptooltipFitContent = true;
         } else if (typeof options.value === 'object' && options.value) {
-            if (ObjectUtils.isEmpty(options.value.value)) return;
+            if (ObjectUtils.isEmpty(options.value.value) || options.value.value.trim() === '') return;
             else {
                 /* eslint-disable */
                 target.$_ptooltipValue = options.value.value;
@@ -343,21 +343,31 @@ const Tooltip = {
         let target = getTarget(el);
         target.$_ptooltipModifiers = getModifiers(options);
 
-        if (!options.value) return;
+        if (!options.value) {
+            unbindEvents(target);
+            return;
+        }
+
         if (typeof options.value === 'string') {
             target.$_ptooltipValue = options.value;
             target.$_ptooltipDisabled = false;
             target.$_ptooltipEscape = false;
             target.$_ptooltipClass = null;
+
+            bindEvents(target);
         } else if (typeof options.value === 'object' && options.value) {
-            if (ObjectUtils.isEmpty(options.value.value)) return;
-            else {
+            if (ObjectUtils.isEmpty(options.value.value || options.value.value.trim() === '')) {
+                unbindEvents(target);
+                return;
+            } else {
                 /* eslint-disable */
                 target.$_ptooltipValue = options.value.value;
                 target.$_ptooltipDisabled = !!options.value.disabled === options.value.disabled ? options.value.disabled : false;
                 target.$_ptooltipEscape = !!options.value.escape === options.value.escape ? options.value.escape : false;
                 target.$_ptooltipClass = options.value.class;
                 target.$_ptooltipFitContent = !!options.value.fitContent === options.value.fitContent ? options.value.fitContent : true;
+
+                bindEvents(target);
             }
         }
     }
