@@ -1011,7 +1011,6 @@ export default {
         },
         onInputFocus(event) {
             this.focused = true;
-            debugger;
 
             if (!this.disabled && !this.readonly && this.$refs.input.$el.value !== DomHandler.getSelection() && this.highlightOnFocus) {
                 event.target.select();
