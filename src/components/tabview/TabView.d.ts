@@ -46,6 +46,16 @@ export interface TabViewProps {
      * Uses to pass all properties of the HTMLButtonElement to the next button.
      */
     nextButtonProps?: ButtonHTMLAttributes | undefined;
+    /**
+     * Icon to display in the previous tab button.
+     * Default value is 'pi pi-chevron-left'.
+     */
+    previousButtonIcon?: string | undefined;
+    /**
+     * Icon to display in the next tab button.
+     * Default value is 'pi pi-chevron-right'.
+     */
+    nextButtonIcon?: string | undefined;
 }
 
 export interface TabViewSlots {

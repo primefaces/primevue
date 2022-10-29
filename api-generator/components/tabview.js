@@ -40,6 +40,18 @@ const TabViewProps = [
         type: 'any',
         default: 'null',
         description: 'Uses to pass all properties of the HTMLButtonElement to the next button.'
+    },
+    {
+        name: 'previousButtonIcon',
+        type: 'string',
+        default: 'pi pi-chevron-left',
+        description: 'Icon to display in the previous tab button.'
+    },
+    {
+        name: 'nextButtonIcon',
+        type: 'string',
+        default: 'pi pi-chevron-right',
+        description: 'Icon to display in the next tab button.'
     }
 ];
 
