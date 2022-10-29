@@ -5,14 +5,14 @@
                 <slot name="start" :state="currentState"></slot>
             </div>
             <template v-for="item in value" :key="item">
-                <FirstPageLink v-if="item === 'FirstPageLink'" @click="changePageToFirst($event)" :disabled="isFirstPage || empty" />
-                <PrevPageLink v-else-if="item === 'PrevPageLink'" @click="changePageToPrev($event)" :disabled="isFirstPage || empty" />
-                <NextPageLink v-else-if="item === 'NextPageLink'" @click="changePageToNext($event)" :disabled="isLastPage || empty" />
-                <LastPageLink v-else-if="item === 'LastPageLink'" @click="changePageToLast($event)" :disabled="isLastPage || empty" />
+                <FirstPageLink v-if="item === 'FirstPageLink'" @click="changePageToFirst($event)" :disabled="isFirstPage || empty" :icon="firstPageIcon" />
+                <PrevPageLink v-else-if="item === 'PrevPageLink'" @click="changePageToPrev($event)" :disabled="isFirstPage || empty" :icon="previousPageIcon" />
+                <NextPageLink v-else-if="item === 'NextPageLink'" @click="changePageToNext($event)" :disabled="isLastPage || empty" :icon="nextPageIcon" />
+                <LastPageLink v-else-if="item === 'LastPageLink'" @click="changePageToLast($event)" :disabled="isLastPage || empty" :icon="lastPageIcon" />
                 <PageLinks v-else-if="item === 'PageLinks'" :value="pageLinks" :page="page" @click="changePageLink($event)" />
                 <CurrentPageReport v-else-if="item === 'CurrentPageReport'" :template="currentPageReportTemplate" :currentPage="currentPage" :page="page" :pageCount="pageCount" :first="d_first" :rows="d_rows" :totalRecords="totalRecords" />
-                <RowsPerPageDropdown v-else-if="item === 'RowsPerPageDropdown' && rowsPerPageOptions" :rows="d_rows" :options="rowsPerPageOptions" @rows-change="onRowChange($event)" :disabled="empty" />
-                <JumpToPageDropdown v-else-if="item === 'JumpToPageDropdown'" :page="page" :pageCount="pageCount" @page-change="changePage($event)" :disabled="empty" />
+                <RowsPerPageDropdown v-else-if="item === 'RowsPerPageDropdown' && rowsPerPageOptions" :rows="d_rows" :options="rowsPerPageOptions" @rows-change="onRowChange($event)" :dropdownIcon="dropdownIcon" :disabled="empty" />
+                <JumpToPageDropdown v-else-if="item === 'JumpToPageDropdown'" :page="page" :pageCount="pageCount" @page-change="changePage($event)" :dropdownIcon="dropdownIcon" :disabled="empty" />
                 <JumpToPageInput v-else-if="item === 'JumpToPageInput'" :page="currentPage" @page-change="changePage($event)" :disabled="empty" />
             </template>
             <div v-if="$slots.end" class="p-paginator-right-content">
@@ -69,6 +69,26 @@ export default {
         alwaysShow: {
             type: Boolean,
             default: true
+        },
+        firstPageIcon: {
+            type: String,
+            default: 'pi pi-angle-double-left'
+        },
+        previousPageIcon: {
+            type: String,
+            default: 'pi pi-angle-left'
+        },
+        nextPageIcon: {
+            type: String,
+            default: 'pi pi-angle-right'
+        },
+        lastPageIcon: {
+            type: String,
+            default: 'pi pi-angle-double-right'
+        },
+        dropdownIcon: {
+            type: String,
+            default: 'pi pi-chevron-down'
         }
     },
     data() {

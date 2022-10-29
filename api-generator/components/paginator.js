@@ -46,6 +46,36 @@ const PaginatorProps = [
         type: 'boolean',
         default: 'true',
         description: 'Whether to show the paginator even there is only one page.'
+    },
+    {
+        name: 'firstPageIcon',
+        type: 'string',
+        default: 'pi pi-angle-double-left',
+        description: 'Icon to display in the first page button.'
+    },
+    {
+        name: 'previousPageIcon',
+        type: 'string',
+        default: 'pi pi-angle-left',
+        description: 'Icon to display in the previous page button.'
+    },
+    {
+        name: 'nextPageIcon',
+        type: 'string',
+        default: 'pi pi-angle-right',
+        description: 'Icon to display in the next page button.'
+    },
+    {
+        name: 'lastPageIcon',
+        type: 'string',
+        default: 'pi pi-angle-double-right',
+        description: 'Icon to display in the last page button.'
+    },
+    {
+        name: 'dropdownIcon',
+        type: 'string',
+        default: 'pi pi-chevron-down',
+        description: 'Icon to display in the dropdowns.'
     }
 ];
 

@@ -46,4 +46,26 @@ describe('Paginator.vue', () => {
 
         expect(wrapper.find('.p-dropdown-label').text()).toBe('20');
     });
+
+    it('should have custom icons', async () => {
+        await wrapper.setProps({
+            firstPageIcon: 'pi pi-discord',
+            previousPageIcon: 'pi pi-facebook',
+            nextPageIcon: 'pi pi-google',
+            lastPageIcon: 'pi pi-microsoft',
+            dropdownIcon: 'pi pi-apple'
+        });
+
+        const firstPageLink = wrapper.find('.p-paginator-first .p-paginator-icon');
+        const previousPageLink = wrapper.find('.p-paginator-prev .p-paginator-icon');
+        const nextPageLink = wrapper.find('.p-paginator-next .p-paginator-icon');
+        const lastPageLink = wrapper.find('.p-paginator-last .p-paginator-icon');
+        const dropdownIcons = wrapper.findAll('.p-dropdown-trigger-icon');
+
+        expect(firstPageLink.classes()).toContain('pi-discord');
+        expect(previousPageLink.classes()).toContain('pi-facebook');
+        expect(nextPageLink.classes()).toContain('pi-google');
+        expect(lastPageLink.classes()).toContain('pi-microsoft');
+        dropdownIcons.forEach((icon) => expect(icon.classes()).toContain('pi-apple'));
+    });
 });
