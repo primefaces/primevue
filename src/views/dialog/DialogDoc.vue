@@ -242,6 +242,18 @@ export default {
                         <td>pi pi-times</td>
                         <td>Icon to display in the dialog close button.</td>
                     </tr>
+                    <tr>
+                        <td>maximizeIcon</td>
+                        <td>string</td>
+                        <td>pi pi-window-maximize</td>
+                        <td>Icon to display in the dialog maximize button when dialog is not maximized.</td>
+                    </tr>
+                    <tr>
+                        <td>minimizeIcon</td>
+                        <td>string</td>
+                        <td>pi pi-window-minimize</td>
+                        <td>Icon to display in the dialog maximize button when dialog is maximized.</td>
+                    </tr>
                 </tbody>
             </table>
         </div>

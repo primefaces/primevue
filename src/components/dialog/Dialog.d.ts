@@ -137,6 +137,16 @@ export interface DialogProps {
      * Default value is 'pi pi-times'.
      */
     closeIcon?: string | undefined;
+    /**
+     * Icon to display in the dialog maximize button when dialog is not maximized.
+     * Default value is 'pi pi-window-maximize'.
+     */
+    maximizeIcon?: string | undefined;
+    /**
+     * Icon to display in the dialog maximize button when dialog is maximized.
+     * Default value is 'pi pi-window-minimize'.
+     */
+    minimizeIcon?: string | undefined;
 }
 
 export interface DialogSlots {

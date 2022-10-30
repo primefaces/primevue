@@ -104,6 +104,14 @@ export default {
             type: String,
             default: 'pi pi-times'
         },
+        maximizeIcon: {
+            type: String,
+            default: 'pi pi-window-maximize'
+        },
+        minimizeIcon: {
+            type: String,
+            default: 'pi pi-window-minimize'
+        },
         _instance: null
     },
     provide() {
@@ -400,10 +408,10 @@ export default {
         },
         maximizeIconClass() {
             return [
-                'p-dialog-header-maximize-icon pi',
+                'p-dialog-header-maximize-icon',
                 {
-                    'pi-window-maximize': !this.maximized,
-                    'pi-window-minimize': this.maximized
+                    [this.maximizeIcon]: !this.maximized,
+                    [this.minimizeIcon]: this.maximized
                 }
             ];
         },

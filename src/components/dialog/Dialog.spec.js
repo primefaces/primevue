@@ -67,4 +67,34 @@ describe('Dialog.vue', () => {
             expect(icon.classes()).toContain('pi-discord');
         });
     });
+
+    describe('maximizable', () => {
+        it('should have custom maximize and minimize icons when provided', async () => {
+            const wrapper = mount(Dialog, {
+                global: {
+                    plugins: [PrimeVue],
+                    stubs: {
+                        teleport: true
+                    }
+                },
+                props: {
+                    maximizable: true,
+                    maximizeIcon: 'pi pi-discord',
+                    minimizeIcon: 'pi pi-facebook',
+                    showHeader: true,
+                    visible: false
+                }
+            });
+
+            await wrapper.setProps({ visible: true });
+            await wrapper.setData({ maximized: false });
+            const icon = wrapper.find('.p-dialog-header-maximize-icon');
+
+            expect(icon.classes()).toContain('pi-discord');
+
+            await wrapper.setData({ maximized: true });
+
+            expect(icon.classes()).toContain('pi-facebook');
+        });
+    });
 });
