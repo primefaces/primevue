@@ -17,6 +17,11 @@ export interface BreadcrumbProps {
      */
     exact?: boolean;
     /**
+     * Icon to display in the breadcrumb separator.
+     * Default value is 'pi pi-chevron-right'.
+     */
+    separatorIcon?: string | undefined;
+    /**
      * Defines a string value that labels an interactive element.
      */
     'aria-label'?: string | undefined;

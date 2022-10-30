@@ -96,6 +96,12 @@ export default {
                         <td>Whether to apply 'router-link-active-exact' class if route exactly matches the item path.</td>
                     </tr>
                     <tr>
+                        <td>separatorIcon</td>
+                        <td>string</td>
+                        <td>pi pi-chevron-right</td>
+                        <td>Icon to display in the breadcrumb separator.</td>
+                    </tr>
+                    <tr>
                         <td>aria-label</td>
                         <td>string</td>
                         <td>null</td>

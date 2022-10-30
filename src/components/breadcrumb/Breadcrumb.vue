@@ -4,7 +4,7 @@
             <BreadcrumbItem v-if="home" :item="home" class="p-breadcrumb-home" :template="$slots.item" :exact="exact" />
             <template v-for="item of model" :key="item.label">
                 <li class="p-menuitem-separator">
-                    <span class="pi pi-chevron-right" aria-hidden="true"></span>
+                    <span :class="separatorIcon" aria-hidden="true" />
                 </li>
                 <BreadcrumbItem :item="item" :template="$slots.item" :exact="exact" />
             </template>
@@ -29,6 +29,10 @@ export default {
         exact: {
             type: Boolean,
             default: true
+        },
+        separatorIcon: {
+            type: String,
+            default: 'pi pi-chevron-right'
         }
     },
     components: {

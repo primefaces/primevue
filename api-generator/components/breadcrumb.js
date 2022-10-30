@@ -18,6 +18,12 @@ const BreadcrumbProps = [
         description: "Whether to apply 'router-link-active-exact' class if route exactly matches the item path."
     },
     {
+        name: 'separatorIcon',
+        type: 'string',
+        default: 'pi pi-chevron-right',
+        description: 'Icon to display in the breadcrumb separator.'
+    },
+    {
         name: 'aria-label',
         type: 'string',
         default: 'null',
