@@ -1,5 +1,43 @@
 # Changelog
 
+## [3.18.1](https://github.com/primefaces/primevue/tree/3.18.1) (2022-10-31)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.18.0...3.18.1)
+
+**Implemented New Features and Enhancements:**
+
+- Dialog: Allow custom icons for maximizing [\#3192](https://github.com/primefaces/primevue/issues/3192)
+- InputNumber: `highlightOnFocus` property [\#3179](https://github.com/primefaces/primevue/issues/3179)
+- Inplace: Allow custom icons [\#3134](https://github.com/primefaces/primevue/issues/3134)
+- Slider: Range slider can not be dragged to the left when both thumbs overlap [\#3104](https://github.com/primefaces/primevue/issues/3104)
+- Calendar: Allow custom icons [\#3081](https://github.com/primefaces/primevue/issues/3081)
+- Toast: Allow custom icons [\#3061](https://github.com/primefaces/primevue/issues/3061)
+- Message: Allow custom icons [\#3059](https://github.com/primefaces/primevue/issues/3059)
+- Sidebar: Allow custom icons [\#3057](https://github.com/primefaces/primevue/issues/3057)
+- Dialog: Allow custom icons [\#3054](https://github.com/primefaces/primevue/issues/3054)
+- Chips: Allow custom icons [\#3052](https://github.com/primefaces/primevue/issues/3052)
+
+**Fixed bugs:**
+
+- PanelMenu:  Can't resolve DomHandler [\#3198](https://github.com/primefaces/primevue/issues/3198)
+- ContextMenu: attributes could not be automatically inherited [\#3197](https://github.com/primefaces/primevue/issues/3197)
+- DataTable: the table is broken in 3.18.0 [\#3189](https://github.com/primefaces/primevue/issues/3189)
+- Menubar:  \#item slot is never called [\#3177](https://github.com/primefaces/primevue/issues/3177)
+- OverlayPanel: Missing type defination [\#3168](https://github.com/primefaces/primevue/issues/3168)
+- Tooltip: loose reactivity when the content is empty [\#3163](https://github.com/primefaces/primevue/issues/3163)
+- ContextMenu | does not close when left click outside of menu [\#3158](https://github.com/primefaces/primevue/issues/3158)
+- Breadcrumb: SSR Error window is not defined [\#3156](https://github.com/primefaces/primevue/issues/3156)
+- Calendar | set readonly prop to readonly attribute [\#3155](https://github.com/primefaces/primevue/issues/3155)
+- FileUpload: Failed to resolve the Badge and Button components  [\#3154](https://github.com/primefaces/primevue/issues/3154)
+- Menu.vue: seperatorClass is not a function [\#3151](https://github.com/primefaces/primevue/issues/3151)
+- AutoComplete: mark text with shift+Home does not work. [\#3140](https://github.com/primefaces/primevue/issues/3140)
+- Calendar in inline : Cannot read properties of undefined \(reading 'focus'\) [\#3108](https://github.com/primefaces/primevue/issues/3108)
+- Can select disabled options in multiselect [\#3094](https://github.com/primefaces/primevue/issues/3094)
+- Dropdown: OptionGroup disappear with filter [\#3078](https://github.com/primefaces/primevue/issues/3078)
+- MultiSelect group labels disappear when filtering [\#3068](https://github.com/primefaces/primevue/issues/3068)
+- Calendar: locale am & pm not work on time picker panel [\#2952](https://github.com/primefaces/primevue/issues/2952)
+- ScrollPanel Bars visible with Browser Zoom [\#2137](https://github.com/primefaces/primevue/issues/2137)
+
 ## [3.18.0](https://github.com/primefaces/primevue/tree/3.18.0) (2022-10-24)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.17.0...3.18.0)
