@@ -97,9 +97,6 @@ export default {
             }
         }
     },
-    mounted() {
-        console.log(this.$slots.item);
-    },
     outsideClickListener: null,
     container: null,
     menubar: null,
