@@ -136,6 +136,18 @@ const DialogProps = [
         type: 'string',
         default: 'pi pi-times',
         description: 'Icon to display in the dialog close button.'
+    },
+    {
+        name: 'maximizeIcon',
+        type: 'string',
+        default: 'pi pi-window-maximize',
+        description: 'Icon to display in the dialog maximize button when dialog is not maximized.'
+    },
+    {
+        name: 'minimizeIcon',
+        type: 'string',
+        default: 'pi pi-window-minimize',
+        description: 'Icon to display in the dialog maximize button when dialog is maximized.'
     }
 ];
 
