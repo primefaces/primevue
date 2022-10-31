@@ -251,6 +251,14 @@ app.use(PrimeVue, {
 
 PrimeVue provides a Locale API to support i18n and l7n, visit the [Locale](https://www.primefaces.org/primevue/showcase/#/locale) documentation for more information.
 
+## Quickstart with Create Vue
+
+An [example application](https://github.com/primefaces/primevue-quickstart-create-vue) based on Create Vue is available at github.
+
+## Quickstart with Create Vue TypeScrript
+
+An [sample application](https://github.com/primefaces/primevue-quickstart-create-vue-ts) based on Create Vue is available at github.
+
 ## Quickstart with Vue CLI
 
 An [example application](https://github.com/primefaces/primevue-quickstart) based on Vue CLI is available at github.
