@@ -203,7 +203,7 @@ export default {
             ];
         },
         setPaginatorAttribute() {
-            if (this.$refs.paginator >= 0) {
+            if (this.$refs.paginator && this.$refs.paginator.length >= 0) {
                 [...this.$refs.paginator].forEach((el) => {
                     el.setAttribute(this.attributeSelector, '');
                 });
