@@ -4,17 +4,17 @@
         <div class="p-fileupload-file-details">
             <div class="p-fileupload-file-name">{{ file.name }}</div>
             <span class="p-fileupload-file-size">{{ formatSize(file.size) }}</span>
-            <Badge :value="badgeValue" class="p-fileupload-file-badge" :severity="badgeSeverity" />
+            <FileUploadBadge :value="badgeValue" class="p-fileupload-file-badge" :severity="badgeSeverity" />
         </div>
         <div class="p-fileupload-file-actions">
-            <Button icon="pi pi-times" @click="$emit('remove', index)" class="p-fileupload-file-remove p-button-text p-button-danger p-button-rounded"></Button>
+            <FileUploadButton icon="pi pi-times" @click="$emit('remove', index)" class="p-fileupload-file-remove p-button-text p-button-danger p-button-rounded"></FileUploadButton>
         </div>
     </div>
 </template>
 
 <script>
+import Badge from 'primevue/badge';
 import Button from 'primevue/button';
-import Badge from '../badge/Badge.vue';
 
 export default {
     emits: ['remove'],
@@ -51,8 +51,8 @@ export default {
         }
     },
     components: {
-        Button,
-        Badge
+        FileUploadButton: Button,
+        FileUploadBadge: Badge
     }
 };
 </script>

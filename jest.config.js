@@ -21,6 +21,7 @@ module.exports = {
         '^primevue/progressbar(.*)$': '<rootDir>/src/components/progressbar/ProgressBar.vue',
         '^primevue/message(.*)$': '<rootDir>/src/components/message/Message.vue',
         '^primevue/tree(.*)$': '<rootDir>/src/components/tree/Tree.vue',
+        '^primevue/badge(.*)$': '<rootDir>/src/components/badge/Badge.vue',
         '^primevue/confirmationeventbus(.*)$': '<rootDir>/src/components/confirmationeventbus/ConfirmationEventBus.js',
         '^primevue/toasteventbus(.*)$': '<rootDir>/src/components/toasteventbus/ToastEventBus.js',
         '^primevue/overlayeventbus(.*)$': '<rootDir>/src/components/overlayeventbus/OverlayEventBus.js',
