@@ -23,7 +23,7 @@ import { DomHandler, ObjectUtils } from 'primevue/utils';
 
 export default {
     name: 'Splitter',
-    emits: ['resizeend'],
+    emits: ['resizestart','resizeend'],
     props: {
         layout: {
             type: String,
@@ -102,6 +102,8 @@ export default {
         onResizeStart(event, index, isKeyDown) {
             this.gutterElement = event.currentTarget || event.target.parentElement;
             this.size = this.horizontal ? DomHandler.getWidth(this.$el) : DomHandler.getHeight(this.$el);
+
+            this.$emit('resizestart', { originalEvent: event, sizes: this.panelSizes });
 
             if (!isKeyDown) {
                 this.dragging = true;
