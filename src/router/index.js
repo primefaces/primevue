@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import Home from '../Home.vue';
 import App from '../App.vue';
+import Home from '../Home.vue';
 
 const routes = [
     {
@@ -543,11 +543,6 @@ const routes = [
                 path: '/rating',
                 name: 'rating',
                 component: () => import('../views/rating/RatingDemo.vue')
-            },
-            {
-                path: '/responsive',
-                name: 'responsive',
-                component: () => import('../views/responsive/ResponsiveDemo.vue')
             },
             {
                 path: '/ripple',

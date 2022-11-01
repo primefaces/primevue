@@ -11,10 +11,6 @@
                 {
                     "name": "Locale",
                     "to": "/locale"
-                },
-                {
-                    "name": "Responsive Design",
-                    "to": "/responsive"
                 }
             ]
         },
