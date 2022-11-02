@@ -54,7 +54,7 @@ app.component('Dialog', Dialog);
 
             <p>Watch the video tutorial that goes through these steps.</p>
             <div class="video-container">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/cGTXuyqIwMA" frameborder="0" allowfullscreen></iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/FjYesOz95MM" frameborder="0" allowfullscreen></iframe>
             </div>
 
             <h5>Single File Components</h5>
