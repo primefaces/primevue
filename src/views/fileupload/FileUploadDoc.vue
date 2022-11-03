@@ -561,7 +561,7 @@ export default {
 
                 <div v-if="uploadedFiles.length > 0">
                     <h5>Completed</h5>
-                    <div class="flex flex-wrap p-5 gap-5">
+                    <div class="flex flex-wrap p-0 sm:p-5 gap-5">
                         <div v-for="(file, index) of uploadedFiles" :key="file.name + file.type + file.size" class="card m-0 px-6 flex flex-column border-1 surface-border align-items-center gap-3">
                             <div>
                                 <img role="presentation" :alt="file.name" :src="file.objectURL" width="100" class="shadow-2" />
@@ -691,7 +691,7 @@ export default {
             <template #content="{ files, uploadedFiles, removeUploadedFileCallback, fileRemoveCallback }">
                 <div v-if="files.length > 0">
                     <h5>Pending</h5>
-                    <div class="flex flex-wrap p-5 gap-5">
+                    <div class="flex flex-wrap p-0 sm:p-5 gap-5">
                         <div v-for="(file, index) of files" :key="file.name + file.type + file.size" class="card m-0 px-6 flex flex-column border-1 surface-border align-items-center gap-3">
                             <div>
                                 <img role="presentation" :alt="file.name" :src="file.objectURL" height="50" class="shadow-2" />
@@ -849,7 +849,7 @@ export default {
                     <template #content="{ files, uploadedFiles, removeUploadedFileCallback, fileRemoveCallback }">
                         <div v-if="files.length > 0">
                             <h5>Pending</h5>
-                            <div class="flex flex-wrap p-5 gap-5">
+                            <div class="flex flex-wrap p-0 sm:p-5 gap-5">
                                 <div v-for="(file, index) of files" :key="file.name + file.type + file.size" class="card m-0 px-6 flex flex-column border-1 surface-border align-items-center gap-3">
                                     <div>
                                         <img role="presentation" :alt="file.name" :src="file.objectURL" height="50" class="shadow-2" />
