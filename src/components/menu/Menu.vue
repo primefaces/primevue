@@ -49,6 +49,10 @@ export default {
             type: Boolean,
             default: false
         },
+        initialFocusIndex: {
+            type: Number,
+            default: 0
+        },
         model: {
             type: Array,
             default: null
@@ -272,7 +276,7 @@ export default {
 
             if (this.popup) {
                 DomHandler.focus(this.list);
-                this.changeFocusedOptionIndex(0);
+                this.changeFocusedOptionIndex(this.initialFocusIndex);
             }
 
             this.$emit('show');
